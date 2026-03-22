@@ -1,0 +1,525 @@
+# Sweden AADR v62.0 Sample Inventory
+
+Generated on `2026-03-23`. Total samples: `519`.
+
+| Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |
+| RISE175.SG | RISE175 | Sweden_BA.SG | Abekås I | 55.397 | 13.6 | AllentoftNature2015 | 1396-1131 calBCE (3025±30 BP, OxA-28998) | Shotgun | M | 1240k,ho |
+| RISE179.SG | RISE179 | Sweden_LN.SG | Abekås I | 55.397 | 13.6 | AllentoftNature2015 | 2015-1774 calBCE (3556±28 BP, OxA-29193) | Shotgun | M | 1240k,ho |
+| ajv28.SG | ajv28 | Sweden_Gotland_Ajvide_PittedWare_BattleAxe.SG | Ajvide Settlement (Gotland, Eksta) | 57.281086 | 18.169117 | CoutinhoJakobssonAJPA2020 | 3002-2705 calBCE (4265±33 BP, Ua-57848) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| ajv36.SG | ajv36 | Sweden_Gotland_Ajvide_PittedWare_BattleAxe.SG | Ajvide Settlement (Gotland, Eksta) | 57.281086 | 18.169117 | CoutinhoJakobssonAJPA2020 | 3086-2899 calBCE (4355±33 BP, Ua-57849) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| ajv54.SG | ajv54 | Sweden_PWC.SG | Ajvide Settlement (Gotland, Eksta) | 57.281086 | 18.169117 | MalmstromProcBiolSci2019 | 3008-2783 calBCE (4280±30 BP, Beta-423308) | Shotgun | M | 1240k,ho |
+| als001.SG | als001 | Sweden_central_Pre_Viking.SG | Alsike (Uppsala län, Knivsta) | 59.8 | 17.8 | Rodríguez-VarelaScienceDirect2023 | 575-600 CE | Shotgun | M | 1240k,ho |
+| als007.SG | als007 | Sweden_central_Late_Viking.SG | Alsike (Uppsala län, Knivsta) | 59.8 | 17.8 | Rodríguez-VarelaScienceDirect2023 | 950-1000 CE | Shotgun | M | 1240k,ho |
+| als010.SG | als010 | Sweden_central_Late_Viking.SG | Alsike (Uppsala län, Knivsta) | 59.8 | 17.8 | Rodríguez-VarelaScienceDirect2023 | 950-1000 CE | Shotgun | F | 1240k,ho |
+| als015.SG | als015 | Sweden_central_Late_Viking.SG | Alsike (Uppsala län, Knivsta) | 59.8 | 17.8 | Rodríguez-VarelaScienceDirect2023 | 800-900 CE | Shotgun | M | 1240k,ho |
+| ans003.SG | ans003 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 3525-3097 calBCE (4595±65 BP, Ua-3783; 4560±30 BP, Beta-432256) | Shotgun | F | 1240k,ho |
+| ans005.SG | ans005 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 3500-3130 calBCE (4640±70 BP, Ua-3785; 4580±30 BP, Beta-432257) | Shotgun | F | 1240k,ho |
+| ans008.SG | ans008 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 3342-3031 calBCE (4480±31 BP, Ua-45398) | Shotgun | M | 1240k,ho |
+| ans014.SG | ans014 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 3336-2937 calBCE (4450±30 BP, Beta-402962) | Shotgun | M | 1240k,ho |
+| ans016.SG | ans016 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 2879-2631 calBCE (4160±30 BP, Beta-402963) | Shotgun | M | 1240k,ho |
+| ans017.SG | ans017 | Sweden_Ansarve_Megalithic.SG | Ansarve | 57.509 | 18.14 | SanchezQuintoPNAS2019 | 3328-2924 calBCE (4430±30 BP, Beta-402965) | Shotgun | M | 1240k,ho |
+| ber1M.SG | ber1 | Sweden_BAC.SG | Bergsgraven (Östergötlands län, Linköping) | 58.415833 | 15.625278 | MalmstromProcBiolSci2019 | 2622-2467 calBCE (4020±30 BP, Beta-423305) | Shotgun | M | 1240k,ho |
+| ber2F.SG | ber2 | Sweden_BAC.SG | Bergsgraven (Östergötlands län, Linköping) | 58.415833 | 15.625278 | MalmstromProcBiolSci2019 | 2625-2469 calBCE (4030±30 BP, Beta-423306) | Shotgun | F | 1240k,ho |
+| NEO27.SG | NEO27 | Sweden_Mesolithic.SG | Bredgården (Västra Götalands län, Ulricehamn) | 57.742 | 13.403 | AllentoftNature2024 | 7943-7542 calBCE (8645±75 BP, Ua-6629) | Shotgun | M | 1240k,ho |
+| NEO44.SG | NEO44 | Sweden_MN_BAC.SG | Dösemarken (Skåne län, Malmö) | 55.564 | 12.946 | AllentoftNature2024 | 2619-2352 calBCE (3987±34 BP, UBA-39934) | Shotgun | F | 1240k,ho |
+| kvi001.SG | kvi001 | Gotland_Viking.SG | Eksta Kvie (Gotlands län, Gotland) | 57.47 | 18.47 | Rodríguez-VarelaScienceDirect2023 | 800-1050 CE | Shotgun | F | 1240k,ho |
+| enb508.SG | enb508 | Sweden_central_Late_Viking.SG | Enbacken (Örebro län, Örebro) | 59.37 | 15.22 | Rodríguez-VarelaScienceDirect2023 | 950-1100 CE | Shotgun | F | 1240k,ho |
+| NEO260.SG | NEO260 | Sweden_LM_EN.SG | Evensås (Västra Götalands län, Uddevalla) | 58.246 | 11.492 | AllentoftNature2024 | 4232-3982 calBCE (5259±37 BP, AAR-11206) | Shotgun | M | 1240k,ho |
+| NEO220.SG | NEO220 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 2140-1932 calBCE (3654±34 BP, UBA-30763) | Shotgun | M | 1240k,ho |
+| NEO221.SG | NEO221 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 1874-1621 calBCE (3420±33 BP, UBA-30770) | Shotgun | M | 1240k,ho |
+| NEO223.SG | NEO223 | Sweden_LN_EBA_o.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 2135-1900 calBCE (3640±33 BP, UBA-30774) | Shotgun | M | 1240k,ho |
+| NEO224.SG | NEO224 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 2112-1826 calBCE (3595±33 BP, UBA-30749) | Shotgun | F | 1240k,ho |
+| NEO225.SG | NEO225 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 1900-1695 calBCE (3491±33 BP, UBA-30768) | Shotgun | F | 1240k,ho |
+| NEO226.SG | NEO226 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 1920-1701 calBCE (3500±31 BP, UBA-30758) | Shotgun | F | 1240k,ho |
+| NEO227.SG | NEO227 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 2116-1831 calBCE (3602±33 BP, UBA-30765) | Shotgun | M | 1240k,ho |
+| NEO228.SG | NEO228 | Sweden_LN_EBA.SG | Falköping-5 (Västra Götalands län, Falköping) | 58.166 | 13.573 | AllentoftNature2024 | 2031-1750 calBCE (3562±49 BP, UBA-30767) | Shotgun | M | 1240k,ho |
+| FIR001.SG | FIR001 | Sweden_FirseSten_Steppe2.SG | Firse Sten | 58.1531 | 13.5686 | SeersholmSikoraNature2024 | 1193-1009 calBCE [R_Combine: (2891±35 BP; UBA-50684), (2882±32 BP; UBA-25683), (2921±36 BP; UBA-34281)] | Shotgun | M | 1240k,ho |
+| FIR001_d.SG | FIR001 | Sweden_FirseSten_Steppe2.SG | Firse Sten | 58.1531 | 13.5686 | SeersholmSikoraNature2024 | 1193-1009 calBCE [R_Combine: (2891±35 BP; UBA-50684), (2882±32 BP; UBA-25683), (2921±36 BP; UBA-34281)] | Shotgun | U | 1240k,ho |
+| RISE97.SG | RISE97 | Sweden_LN.SG | Fredriksberg (Skåne län, Malmö) | 55.557 | 13.059 | AllentoftNature2015 | 2030-1830 calBCE (3590±29 BP, OxA-28986) | Shotgun | F | 1240k,ho |
+| VK428.SG | VK428 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK429.SG | VK429 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK430.SG | VK430 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK431.SG | VK431 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK432.SG | VK432 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK433.SG | VK433 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK434.SG | VK434 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK435.SG | VK435 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK437.SG | VK437 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK438.SG | VK438 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK439.SG | VK439 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK440.SG | VK440 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK441.SG | VK441 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK455.SG | VK455 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK456.SG | VK456 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK457.SG | VK457 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK458.SG | VK458 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK459.SG | VK459 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK460.SG | VK460 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK461.SG | VK461 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK462.SG | VK462 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK463.SG | VK463 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK464.SG | VK464 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK56.SG | VK56 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK57.SG | VK57 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK58.SG | VK58 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK60.SG | VK60 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK63.SG | VK63 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK64.SG | VK64 | Sweden_Viking.SG | Frojel (Gotlands län, Gotland) | 57.34 | 18.19 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| FRA001.SG | FRA001 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3319-2931 calBCE (4430±20 BP; UCIAMS-278102) | Shotgun | F | 1240k,ho |
+| FRA001_d.SG | FRA001 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3319-2931 calBCE (4430±20 BP; UCIAMS-278102) | Shotgun | U | 1240k,ho |
+| FRA002.SG | FRA002 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3333-3038 calBCE [R_Combine: (4455±20 BP; UCIAMS-259748), (4485±15 BP; UCIAMS-278087)] | Shotgun | M | 1240k,ho |
+| FRA002_d.SG | FRA002 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3333-3038 calBCE [R_Combine: (4455±20 BP; UCIAMS-259748), (4485±15 BP; UCIAMS-278087)] | Shotgun | U | 1240k,ho |
+| FRA003.SG | FRA003 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2913 calBCE (4375±20 BP; UCIAMS-278101) | Shotgun | F | 1240k,ho |
+| FRA003_d.SG | FRA003 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2913 calBCE (4375±20 BP; UCIAMS-278101) | Shotgun | U | 1240k,ho |
+| FRA004.SG | FRA004 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3332-3026 calBCE (4460±20 BP; UCIAMS-278073) | Shotgun | M | 1240k,ho |
+| FRA004_d.SG | FRA004 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3332-3026 calBCE (4460±20 BP; UCIAMS-278073) | Shotgun | U | 1240k,ho |
+| FRA005.SG | FRA005 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2924 calBCE (4400±20 BP; UCIAMS-259740) | Shotgun | M | 1240k,ho |
+| FRA005_d.SG | FRA005 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2924 calBCE (4400±20 BP; UCIAMS-259740) | Shotgun | U | 1240k,ho |
+| FRA006.SG | FRA006 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3094-2927 calBCE (4405±15 BP; UCIAMS-278096) | Shotgun | F | 1240k,ho |
+| FRA006_d.SG | FRA006 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3094-2927 calBCE (4405±15 BP; UCIAMS-278096) | Shotgun | U | 1240k,ho |
+| FRA007.SG | FRA007 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3331-2930 calBCE (4440±30 BP; Beta-368294) | Shotgun | F | 1240k,ho |
+| FRA007_d.SG | FRA007 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3331-2930 calBCE (4440±30 BP; Beta-368294) | Shotgun | U | 1240k,ho |
+| FRA009.SG | FRA009 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3324-3020 calBCE (4445±15 BP; UCIAMS-278081) | Shotgun | M | 1240k,ho |
+| FRA009_d.SG | FRA009 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3324-3020 calBCE (4445±15 BP; UCIAMS-278081) | Shotgun | U | 1240k,ho |
+| FRA010.SG | FRA010 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3333-3028 calBCE (4465±20 BP; UCIAMS-282683) | Shotgun | F | 1240k,ho |
+| FRA010_d.SG | FRA010 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3333-3028 calBCE (4465±20 BP; UCIAMS-282683) | Shotgun | U | 1240k,ho |
+| FRA011.SG | FRA011 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3331-2929 calBCE (4439±30 BP; OxA-35445) | Shotgun | M | 1240k,ho |
+| FRA011_d.SG | FRA011 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3331-2929 calBCE (4439±30 BP; OxA-35445) | Shotgun | U | 1240k,ho |
+| FRA012.SG | FRA012 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3329-3025 calBCE (4455±15 BP; UCIAMS-278070) | Shotgun | M | 1240k,ho |
+| FRA012_d.SG | FRA012 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3329-3025 calBCE (4455±15 BP; UCIAMS-278070) | Shotgun | U | 1240k,ho |
+| FRA013.SG | FRA013 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3094-2927 calBCE [R_Combine: (4425±20 BP; UCIAMS-259746), (4385±20 BP; UCIAMS-259747)] | Shotgun | M | 1240k,ho |
+| FRA013_d.SG | FRA013 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3094-2927 calBCE [R_Combine: (4425±20 BP; UCIAMS-259746), (4385±20 BP; UCIAMS-259747)] | Shotgun | U | 1240k,ho |
+| FRA014.SG | FRA014 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3083-2916 calBCE (4380±20 BP; UCIAMS-278079) | Shotgun | M | 1240k,ho |
+| FRA014_d.SG | FRA014 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3083-2916 calBCE (4380±20 BP; UCIAMS-278079) | Shotgun | U | 1240k,ho |
+| FRA015.SG | FRA015 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3263-2925 calBCE (4415±20 BP; UCIAMS-278099) | Shotgun | M | 1240k,ho |
+| FRA015_d.SG | FRA015 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3263-2925 calBCE (4415±20 BP; UCIAMS-278099) | Shotgun | U | 1240k,ho |
+| FRA020.SG | FRA020 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3024-2908 calBCE (4360±20 BP; UCIAMS-259743) | Shotgun | M | 1240k,ho |
+| FRA020_d.SG | FRA020 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3024-2908 calBCE (4360±20 BP; UCIAMS-259743) | Shotgun | U | 1240k,ho |
+| FRA021.SG | FRA021 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3317-3014 calBCE [R_Combine: (4420±20 BP; UCIAMS-259749), (4445±15 BP; UCIAMS-278077)] | Shotgun | M | 1240k,ho |
+| FRA021_d.SG | FRA021 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3317-3014 calBCE [R_Combine: (4420±20 BP; UCIAMS-259749), (4445±15 BP; UCIAMS-278077)] | Shotgun | U | 1240k,ho |
+| FRA022.SG | FRA022 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3283-2931 calBCE (4425±15 BP; UCIAMS-275226) | Shotgun | M | 1240k,ho |
+| FRA022_d.SG | FRA022 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3283-2931 calBCE (4425±15 BP; UCIAMS-275226) | Shotgun | U | 1240k,ho |
+| FRA023.SG | FRA023 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3317-3015 calBCE [R_Combine: (4480±15 BP; UCIAMS-278076), (4313±25 BP; UBA-12297)] | Shotgun | F | 1240k,ho |
+| FRA023_d.SG | FRA023 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3317-3015 calBCE [R_Combine: (4480±15 BP; UCIAMS-278076), (4313±25 BP; UBA-12297)] | Shotgun | U | 1240k,ho |
+| FRA024.SG | FRA024 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3082-2919 calBCE (4385±15 BP; UCIAMS-278088) | Shotgun | M | 1240k,ho |
+| FRA024_d.SG | FRA024 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3082-2919 calBCE (4385±15 BP; UCIAMS-278088) | Shotgun | U | 1240k,ho |
+| FRA025.SG | FRA025 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2926 calBCE [R_Combine: (4395±15 BP; UCIAMS-278095), (4430±30 BP; OxA-35444)] | Shotgun | M | 1240k,ho |
+| FRA025_d.SG | FRA025 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2926 calBCE [R_Combine: (4395±15 BP; UCIAMS-278095), (4430±30 BP; OxA-35444)] | Shotgun | U | 1240k,ho |
+| FRA026.SG | FRA026 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2924 calBCE (4400±20 BP; UCIAMS-278082) | Shotgun | M | 1240k,ho |
+| FRA026_d.SG | FRA026 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3093-2924 calBCE (4400±20 BP; UCIAMS-278082) | Shotgun | U | 1240k,ho |
+| FRA027.SG | FRA027 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3021-2913 calBCE (4365±15 BP; UCIAMS-278100) | Shotgun | M | 1240k,ho |
+| FRA027_d.SG | FRA027 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3021-2913 calBCE (4365±15 BP; UCIAMS-278100) | Shotgun | U | 1240k,ho |
+| FRA028.SG | FRA028 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278067) | Shotgun | F | 1240k,ho |
+| FRA028_d.SG | FRA028 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278067) | Shotgun | U | 1240k,ho |
+| FRA029.SG | FRA029 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278065) | Shotgun | F | 1240k,ho |
+| FRA029_d.SG | FRA029 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278065) | Shotgun | U | 1240k,ho |
+| FRA030.SG | FRA030 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3086-2921 calBCE (4390±15 BP; UCIAMS-278069) | Shotgun | M | 1240k,ho |
+| FRA030_d.SG | FRA030 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3086-2921 calBCE (4390±15 BP; UCIAMS-278069) | Shotgun | U | 1240k,ho |
+| FRA031.SG | FRA031 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-278075) | Shotgun | F | 1240k,ho |
+| FRA031_d.SG | FRA031 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-278075) | Shotgun | U | 1240k,ho |
+| FRA032.SG | FRA032 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3089-2917 calBCE (4385±20 BP; UCIAMS-278074) | Shotgun | M | 1240k,ho |
+| FRA032_d.SG | FRA032 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3089-2917 calBCE (4385±20 BP; UCIAMS-278074) | Shotgun | U | 1240k,ho |
+| FRA033.SG | FRA033 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3011-2903 calBCE (4340±15 BP; UCIAMS-278078) | Shotgun | M | 1240k,ho |
+| FRA033_d.SG | FRA033 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3011-2903 calBCE (4340±15 BP; UCIAMS-278078) | Shotgun | U | 1240k,ho |
+| FRA034.SG | FRA034 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3091-2918 calBCE (4390±20 BP; UCIAMS-278080) | Shotgun | M | 1240k,ho |
+| FRA034_d.SG | FRA034 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3091-2918 calBCE (4390±20 BP; UCIAMS-278080) | Shotgun | U | 1240k,ho |
+| FRA035.SG | FRA035 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-278103) | Shotgun | M | 1240k,ho |
+| FRA035_d.SG | FRA035 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-278103) | Shotgun | U | 1240k,ho |
+| FRA037.SG | FRA037 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| FRA037_d.SG | FRA037 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| FRA038.SG | FRA038 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| FRA038_d.SG | FRA038 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| FRA039.SG | FRA039 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3082-2919 calBCE (4385±15 BP; UCIAMS-278085) | Shotgun | M | 1240k,ho |
+| FRA039_d.SG | FRA039 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3082-2919 calBCE (4385±15 BP; UCIAMS-278085) | Shotgun | U | 1240k,ho |
+| FRA040.SG | FRA040 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3263-2925 calBCE (4415±20 BP; UCIAMS-278098) | Shotgun | M | 1240k,ho |
+| FRA040_d.SG | FRA040 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3263-2925 calBCE (4415±20 BP; UCIAMS-278098) | Shotgun | U | 1240k,ho |
+| FRA041.SG | FRA041 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278072) | Shotgun | F | 1240k,ho |
+| FRA041_d.SG | FRA041 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3092-2925 calBCE (4400±15 BP; UCIAMS-278072) | Shotgun | U | 1240k,ho |
+| FRA042.SG | FRA042 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2919 calBCE [R_Combine: (4365±20 BP; UCIAMS-259741), (4404±21 BP; OxA-39288)] | Shotgun | M | 1240k,ho |
+| FRA042_d.SG | FRA042 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2919 calBCE [R_Combine: (4365±20 BP; UCIAMS-259741), (4404±21 BP; OxA-39288)] | Shotgun | U | 1240k,ho |
+| FRA043.SG | FRA043 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3011-2881 calBCE [R_Combine: (4315±40 BP; Ua-20946), (4286±39 BP; UBA-14088)] | Shotgun | F | 1240k,ho |
+| FRA043_d.SG | FRA043 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3011-2881 calBCE [R_Combine: (4315±40 BP; Ua-20946), (4286±39 BP; UBA-14088)] | Shotgun | U | 1240k,ho |
+| FRA101.SG | FRA101 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3024-2914 calBCE (4370±15 BP; UCIAMS-278097) | Shotgun | F | 1240k,ho |
+| FRA101_d.SG | FRA101 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3024-2914 calBCE (4370±15 BP; UCIAMS-278097) | Shotgun | U | 1240k,ho |
+| FRA102.SG | FRA102 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3340-3098 calBCE [R_Combine: (4220±45 BP; Ua-20953), (4545±20 BP; UCIAMS-282682)] | Shotgun | F | 1240k,ho |
+| FRA102_d.SG | FRA102 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3340-3098 calBCE [R_Combine: (4220±45 BP; Ua-20953), (4545±20 BP; UCIAMS-282682)] | Shotgun | U | 1240k,ho |
+| FRA103.SG | FRA103 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3262-2930 calBCE (4420±15 BP; UCIAMS-278068) | Shotgun | F | 1240k,ho |
+| FRA103_d.SG | FRA103 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3262-2930 calBCE (4420±15 BP; UCIAMS-278068) | Shotgun | U | 1240k,ho |
+| FRA104.SG | FRA104 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2913 calBCE (4375±20 BP; UCIAMS-278086) | Shotgun | M | 1240k,ho |
+| FRA104_d.SG | FRA104 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3081-2913 calBCE (4375±20 BP; UCIAMS-278086) | Shotgun | U | 1240k,ho |
+| FRA105.SG | FRA105 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2921-2633 calBCE (4232±48 BP; AAR-10236) | Shotgun | F | 1240k,ho |
+| FRA105_d.SG | FRA105 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2921-2633 calBCE (4232±48 BP; AAR-10236) | Shotgun | U | 1240k,ho |
+| FRA106.SG | FRA106 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3327-3022 calBCE [R_Combine: (4445±20 BP; UCIAMS-259737), (4455±20 BP; UCIAMS-278066)] | Shotgun | M | 1240k,ho |
+| FRA106_d.SG | FRA106 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3327-3022 calBCE [R_Combine: (4445±20 BP; UCIAMS-259737), (4455±20 BP; UCIAMS-278066)] | Shotgun | U | 1240k,ho |
+| FRA107.SG | FRA107 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3262-2930 calBCE (4420±15 BP; UCIAMS-278071) | Shotgun | F | 1240k,ho |
+| FRA107_d.SG | FRA107 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3262-2930 calBCE (4420±15 BP; UCIAMS-278071) | Shotgun | U | 1240k,ho |
+| FRA108.SG | FRA108 | Sweden_Fralsegarden_N_HG.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2911-2881 calBCE (4270±20 BP; UCIAMS-259744) | Shotgun | F | 1240k,ho |
+| FRA108_d.SG | FRA108 | Sweden_Fralsegarden_N_HG_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2911-2881 calBCE (4270±20 BP; UCIAMS-259744) | Shotgun | U | 1240k,ho |
+| FRA201.SG | FRA201 | Sweden_Fralsegarden_Steppe1.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2461-2291 calBCE (3880±20 BP; UCIAMS-259739) | Shotgun | F | 1240k,ho |
+| FRA201_d.SG | FRA201 | Sweden_Fralsegarden_Steppe1_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2461-2291 calBCE (3880±20 BP; UCIAMS-259739) | Shotgun | U | 1240k,ho |
+| FRA202.SG | FRA202 | Sweden_Fralsegarden_Steppe1.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2467-2307 calBCE [R_Combine: (3905±20 BP; UCIAMS-259742), (3910±20 BP; UCIAMS-259745)] | Shotgun | M | 1240k,ho |
+| FRA202_d.SG | FRA202 | Sweden_Fralsegarden_Steppe1.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2467-2307 calBCE [R_Combine: (3905±20 BP; UCIAMS-259742), (3910±20 BP; UCIAMS-259745)] | Shotgun | U | 1240k,ho |
+| FRA301.SG | FRA301 | Sweden_Fralsegarden_Steppe2.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2131-1942 calBCE (3645±20 BP; UCIAMS-259736) | Shotgun | M | 1240k,ho |
+| FRA301_d.SG | FRA301 | Sweden_Fralsegarden_Steppe2_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2131-1942 calBCE (3645±20 BP; UCIAMS-259736) | Shotgun | U | 1240k,ho |
+| FRA302.SG | FRA302 | Sweden_Fralsegarden_Steppe2.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2115-1901 calBCE (3625±20 BP; UCIAMS-259738) | Shotgun | F | 1240k,ho |
+| FRA302_d.SG | FRA302 | Sweden_Fralsegarden_Steppe2_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 2115-1901 calBCE (3625±20 BP; UCIAMS-259738) | Shotgun | U | 1240k,ho |
+| gok008.SG | gok008 | Sweden_Fralsegarden_N_possible_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| gok008_d.SG | gok008 | Sweden_Fralsegarden_N_possible_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| gok009.SG | gok009 | Sweden_Fralsegarden_N_possible_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| gok020.SG | gok020 | Sweden_Fralsegarden_N_possible_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| gok020_d.SG | gok020 | Sweden_Fralsegarden_N_possible_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| Gok2.SG | Gok2 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| Gok2_d.SG | Gok2 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| Gok4.SG | Gok4 | Sweden_Fralsegarden_N.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| Gok4_d.SG | Gok4 | Sweden_Fralsegarden_N_lc.SG | Frälsegården | 58.1644 | 13.4547 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| NEO259.SG | NEO259 | Sweden_MN_TRB_N.SG | Frälsegården (Västra Götalands län, Falköping) | 58.164 | 13.454 | AllentoftNature2024 | 3095-2924 calBCE (4404±21 BP, OxA-39288) | Shotgun | M | 1240k,ho |
+| frc007.SG | frc007 | Sweden_north_Late_Viking.SG | Frösön (Jämtlands län, Östersund) | 63.19 | 14.53 | Rodríguez-VarelaScienceDirect2023 | 950-1150 CE | Shotgun | F | 1240k,ho |
+| ful001.SG | ful001 | Sweden_central_Pre_Viking.SG | Fullero (Uppsala län, Uppsala) | 59.94 | 17.66 | Rodríguez-VarelaScienceDirect2023 | 242-385 calCE | Shotgun | M | 1240k,ho |
+| gam872.SG | gam872 | Sweden_central_Late_Viking.SG | Gammelbyn Börstil (Uppsala län, Östhammar) | 60.24 | 18.34 | Rodríguez-VarelaScienceDirect2023 | 950-1100 CE | Shotgun | M | 1240k,ho |
+| lau001.SG | lau001 | Gotland_Pre_Viking.SG | Gannor (Gotlands län, Gotland) | 57.3 | 18.6 | Rodríguez-VarelaScienceDirect2023 | 600-600 CE | Shotgun | F | 1240k,ho |
+| gor164.SG | gor164 | Sweden_central_Late_Viking.SG | Gorla (Stockholms län, Norrtälje) | 59.7 | 18.7 | Rodríguez-VarelaScienceDirect2023 | 1000-1100 CE | Shotgun | M | 1240k,ho |
+| gor358.SG | gor358 | Sweden_central_Late_Viking.SG | Gorla (Stockholms län, Norrtälje) | 59.7 | 18.7 | Rodríguez-VarelaScienceDirect2023 | 750-1200 CE | Shotgun | F | 1240k,ho |
+| Gokhem2.SG | Gokhem2 | Sweden_MN_TRB.SG | Gökhem (Västra Götalands län, Falköping) | 58.174 | 13.408 | SkoglundScience2014 | 3086-2907 calBCE (4368±27 BP, UBA-14087) | Shotgun | F | 1240k,ho |
+| Gokhem4.SG | Gokhem4 | Sweden_MN_TRB.SG | Gökhem (Västra Götalands län, Falköping) | 58.174 | 13.408 | SkoglundScience2014 | 3092-2887 calBCE (4341±44 BP, AA-R-10235) | Shotgun | M | 1240k,ho |
+| Gokhem5.SG | Gokhem5 | Sweden_MN_TRB.SG | Gökhem (Västra Götalands län, Falköping) | 58.174 | 13.408 | SkoglundScience2014 | 3331-2930 calBCE (4440±30 BP, Beta-368294) | Shotgun | F | 1240k,ho |
+| Gokhem7.SG | Gokhem7 | Sweden_MN_TRB_lc.SG | Gökhem (Västra Götalands län, Falköping) | 58.174 | 13.408 | SkoglundScience2014 | 2921-2633 calBCE (4232±48 BP, AA-R-10236) | Shotgun | F | 1240k,ho |
+| hav001.SG | hav001 | Gotland_Late_Viking.SG | Hablingbo Havor (Gotlands län, Gotland) | 57.47 | 18.47 | Rodríguez-VarelaScienceDirect2023 | 1000-1100 CE | Shotgun | F | 1240k,ho |
+| NEO18.SG | NEO18 | Sweden_Mesolithic.SG | Hanaskede (Västra Götalands län, Skara) | 58.391 | 13.558 | AllentoftNature2024 | 8238-7611 calBCE (8835±90 BP, Ua-10295) | Shotgun | M | 1240k,ho |
+| hem001.SG | hem001 | Sweden_Gotland_Hemmor_PittedWare_BattleAxe_minus.SG | Hemmor (Gotland, När parish) | 57.22 | 18.57 | CoutinhoJakobssonAJPA2020 | 3090-2901 calBCE (4361±34 BP, Ua-57851) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| hem004.SG | hem004 | Sweden_Gotland_Hemmor_PittedWare_BattleAxe_minus.SG | Hemmor (Gotland, När parish) | 57.22 | 18.57 | CoutinhoJakobssonAJPA2020 | 3341-3026 calBCE (4472±33 BP, Ua-57852) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| hem005.SG | hem005 | Sweden_Gotland_Hemmor_PittedWare_BattleAxe_minus.SG | Hemmor (Gotland, När parish) | 57.22 | 18.57 | CoutinhoJakobssonAJPA2020 | 3367-3102 calBCE (4537±34 BP, Ua-57853) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| NEO36.SG | NEO36 | Sweden_MN_TRB_N.SG | Hindby mosse (Skåne län, Malmö) | 55.565 | 13.036 | AllentoftNature2024 | 3495-3016 calBCE (4530±64 BP, UBA-35700) | Shotgun | F | 1240k,ho |
+| NEO38.SG | NEO38 | Sweden_MN_TRB_N.SG | Hindby mosse (Skåne län, Malmö) | 55.565 | 13.036 | AllentoftNature2024 | 3335-2928 calBCE (4443±40 BP, UBA-35702) | Shotgun | F | 1240k,ho |
+| NEO39.SG | NEO39 | Sweden_MN_TRB_N.SG | Hindby mosse (Skåne län, Malmö) | 55.565 | 13.036 | AllentoftNature2024 | 3336-2932 calBCE (4447±37 BP, UBA-35703) | Shotgun | M | 1240k,ho |
+| CGG105976.SG | CGG105976 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| CGG105976_d.SG | CGG105976 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| CGG105978.SG | CGG105978 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| CGG105978_d.SG | CGG105978 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| CGG105983.SG | CGG105983 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| CGG105983_d.SG | CGG105983 | Sweden_HjelmarsRor_N_possible_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE001.SG | HJE001 | Sweden_HjelmarsRor_N_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE001_d.SG | HJE001 | Sweden_HjelmarsRor_N_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE002.SG | HJE002 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3351-3102 calBCE (4510±20 BP; UCIAMS-259750) | Shotgun | M | 1240k,ho |
+| HJE002_d.SG | HJE002 | Sweden_HjelmarsRor_N_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3351-3102 calBCE (4510±20 BP; UCIAMS-259750) | Shotgun | U | 1240k,ho |
+| HJE003.SG | HJE003 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-259751) | Shotgun | M | 1240k,ho |
+| HJE003_d.SG | HJE003 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3092-2921 calBCE (4395±20 BP; UCIAMS-259751) | Shotgun | U | 1240k,ho |
+| HJE004.SG | HJE004 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE004_d.SG | HJE004 | Sweden_HjelmarsRor_N_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE005.SG | HJE005 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| HJE005_d.SG | HJE005 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE006.SG | HJE006 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| HJE006_d.SG | HJE006 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE007.SG | HJE007 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| HJE007_d.SG | HJE007 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE008.SG | HJE008 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | F | 1240k,ho |
+| HJE008_d.SG | HJE008 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE009.SG | HJE009 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE009_d.SG | HJE009 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE010.SG | HJE010 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE010_d.SG | HJE010 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE011.SG | HJE011 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE011_d.SG | HJE011 | Sweden_HjelmarsRor_N_lc.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE012.SG | HJE012 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3334-3030 calBCE (4470±20 BP; UCIAMS-278094) | Shotgun | M | 1240k,ho |
+| HJE012_d.SG | HJE012 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3334-3030 calBCE (4470±20 BP; UCIAMS-278094) | Shotgun | U | 1240k,ho |
+| HJE013.SG | HJE013 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE013_d.SG | HJE013 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HJE014.SG | HJE014 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | M | 1240k,ho |
+| HJE014_d.SG | HJE014 | Sweden_HjelmarsRor_N.SG | Hjelmars rör | 58.1697 | 13.578 | SeersholmSikoraNature2024 | 3350-2900 BCE | Shotgun | U | 1240k,ho |
+| HOL001.SG | HOL001 | Sweden_Holma_N_lc.SG | Holma | 58.1498 | 13.6392 | SeersholmSikoraNature2024 | 2905-2632 calBCE (4206±45 BP; AAR-10239) | Shotgun | F | 1240k,ho |
+| HOL001_d.SG | HOL001 | Sweden_Holma_N_lc.SG | Holma | 58.1498 | 13.6392 | SeersholmSikoraNature2024 | 2905-2632 calBCE (4206±45 BP; AAR-10239) | Shotgun | U | 1240k,ho |
+| HUN001.SG | HUN001 | Sweden_Hunnebostrand_N.SG | Hunnebostrand | 58.4384 | 11.3007 | SeersholmSikoraNature2024 | 3400-3050 BCE | Shotgun | F | 1240k,ho |
+| HUN001_d.SG | HUN001 | Sweden_Hunnebostrand_N_lc.SG | Hunnebostrand | 58.4384 | 11.3007 | SeersholmSikoraNature2024 | 3400-3050 BCE | Shotgun | U | 1240k,ho |
+| HUN002.SG | HUN002 | Sweden_Hunnebostrand_N.SG | Hunnebostrand | 58.4384 | 11.3007 | SeersholmSikoraNature2024 | 3370-3108 calBCE (4555±20 BP; UCIAMS-259752) | Shotgun | M | 1240k,ho |
+| HUN002_d.SG | HUN002 | Sweden_Hunnebostrand_N.SG | Hunnebostrand | 58.4384 | 11.3007 | SeersholmSikoraNature2024 | 3370-3108 calBCE (4555±20 BP; UCIAMS-259752) | Shotgun | U | 1240k,ho |
+| Olsund.AG | Olsund_new | Sweden_LNBA.AG | Hälsingland (Gävleborgs län, Hudiksvall) | 61.658 | 17.004 | MittnikNatureCommunications2018 | 2573-2140 calBCE | 1240k | M | 1240k,ho |
+| I0011.AG | I0011 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5721-5484 calBCE (6701±64 BP, Ua-42116) | 1240k | F | 1240k,ho |
+| I0012.AG | I0012 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5715-5569 calBCE (6734±30 BP, Ua-51722) | 1240k | M | 1240k,ho |
+| I0013.AG | I0013 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5966-5634 calBCE (6877±69 BP, Ua-42117) | 1240k | M | 1240k,ho |
+| I0014.AG | I0014 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5885-5624 calBCE (6842±68 BP, Ua-42118) | 1240k | F | 1240k,ho |
+| I0015.AG | I0015 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5967-5627 calBCE (6863±75 BP, Ua-42120) | 1240k | M | 1240k,ho |
+| I0017.AG | I0017 | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MathiesonNature2015 (1240k of same same sample with 390k in HaakLazaridis2015) | 5722-5628 calBCE (6773±30 BP, Ua-51723) | 1240k | M | 1240k,ho |
+| I0017.SG | I0017 | Sweden_Mesolithic_HG.SG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | LazaridisNature2014 | 5722-5628 calBCE (6773±30 BP, Ua-51723) | Shotgun | M | 1240k,ho |
+| MotalaAA.AG | MotalaAA | Sweden_Mesolithic_HG.AG | Kanaljorden (Östergötlands län, Motala) | 58.535 | 15.046 | MittnikNatureCommunications2018 | 5724-5563 calBCE (6735±44 BP, Ua-42645) | 1240k | F | 1240k,ho |
+| VK265.SG | VK265 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | F | 1240k,ho |
+| VK266.SG | VK266 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | F | 1240k,ho |
+| VK267.SG | VK267 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK268.SG | VK268 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK269.SG | VK269 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK270.SG | VK270 | Sweden_Viking.SG | Karda (Jönköpings län, Värnamo) | 57.18 | 13.93 | MargaryanNature2020 | 800-1100 CE | Shotgun | F | 1240k,ho |
+| NEO51.SG | NEO51 | Sweden_MN_BAC.SG | Kastanjegården (Skåne län, Malmö) | 55.555 | 13.023 | AllentoftNature2024 | 2569-2348 calBCE (3955±20 BP, OxA-39287) | Shotgun | F | 1240k,ho |
+| VK232.SG | VK232 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK251.SG | VK251 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK450.SG | VK450 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK452.SG | VK452 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK453.SG | VK453 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK454.SG | VK454 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK467.SG | VK467 | Sweden_Viking_lc.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK468.SG | VK468 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK469.SG | VK469 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK471.SG | VK471 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK472.SG | VK472 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK473.SG | VK473 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK474.SG | VK474 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK475.SG | VK475 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK476.SG | VK476 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK477.SG | VK477 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK478.SG | VK478 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | F | 1240k,ho |
+| VK479.SG | VK479 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK48.SG | VK48 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK50.SG | VK50 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK51.SG | VK51 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| VK53.SG | VK53 | Sweden_Viking.SG | Kopparsvik (Gotlands län, Gotland) | 57.63 | 18.28 | MargaryanNature2020 | 900-1050 CE | Shotgun | M | 1240k,ho |
+| kro001.SG | kro001 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro002.SG | kro002 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro004.SG | kro004 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro006.SG | kro006 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro008_viking.SG | kro008_viking | Sweden_South_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro009_viking.SG | kro009_viking | Sweden_South_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro010.SG | kro010 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro011.SG | kro011 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro012.SG | kro012 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro013.SG | kro013 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro014.SG | kro014 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| kro015.SG | kro015 | Sweden_south_Post_Medieval.SG | Kronan (Kalmar län, Mörbylånga) | 56.4 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 1676-1676 CE | Shotgun | M | 1240k,ho |
+| RISE98.SG | RISE98 | Sweden_LN.SG | L Beddinge 56 (Skåne län, Trelleborg) | 55.381 | 13.445 | AllentoftNature2015 | 2278-2032 calBCE (3736±32 BP, OxA-28987) | Shotgun | M | 1240k,ho |
+| CGG105987.SG | CGG105987 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | M | 1240k,ho |
+| CGG105987_d.SG | CGG105987 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| CGG105992.SG | CGG105992 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | F | 1240k,ho |
+| CGG105992_d.SG | CGG105992 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| CGG105998.SG | CGG105998 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | M | 1240k,ho |
+| CGG105998_d.SG | CGG105998 | Sweden_Landbogarden_N_possible_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| CGG106001.SG | CGG106001 | Sweden_Landbogarden_N_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3308-2896 calBCE (4375±43 BP; AAR-9994) | Shotgun | M | 1240k,ho |
+| CGG106001_d.SG | CGG106001 | Sweden_Landbogarden_N_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3308-2896 calBCE (4375±43 BP; AAR-9994) | Shotgun | U | 1240k,ho |
+| LAN001.SG | LAN001 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3088-2907 calBCE (4368±28 BP; UBA-12292) | Shotgun | F | 1240k,ho |
+| LAN001_d.SG | LAN001 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3088-2907 calBCE (4368±28 BP; UBA-12292) | Shotgun | U | 1240k,ho |
+| LAN002.SG | LAN002 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3095-2926 calBCE (4405±20 BP; UCIAMS-278092) | Shotgun | M | 1240k,ho |
+| LAN002_d.SG | LAN002 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3095-2926 calBCE (4405±20 BP; UCIAMS-278092) | Shotgun | U | 1240k,ho |
+| LAN003.SG | LAN003 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3094-2927 calBCE (4405±15 BP; UCIAMS-278089) | Shotgun | F | 1240k,ho |
+| LAN003_d.SG | LAN003 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3094-2927 calBCE (4405±15 BP; UCIAMS-278089) | Shotgun | U | 1240k,ho |
+| LAN004.SG | LAN004 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3096-2928 calBCE (4410±15 BP; UCIAMS-278090) | Shotgun | M | 1240k,ho |
+| LAN004_d.SG | LAN004 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3096-2928 calBCE (4410±15 BP; UCIAMS-278090) | Shotgun | U | 1240k,ho |
+| LAN005.SG | LAN005 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3086-2921 calBCE (4390±15 BP; UCIAMS-278091) | Shotgun | M | 1240k,ho |
+| LAN005_d.SG | LAN005 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3086-2921 calBCE (4390±15 BP; UCIAMS-278091) | Shotgun | U | 1240k,ho |
+| LAN006.SG | LAN006 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3077-2918 calBCE (4380±15 BP; UCIAMS-278093) | Shotgun | M | 1240k,ho |
+| LAN006_d.SG | LAN006 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3077-2918 calBCE (4380±15 BP; UCIAMS-278093) | Shotgun | U | 1240k,ho |
+| LAN007.SG | LAN007 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | M | 1240k,ho |
+| LAN007_d.SG | LAN007 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| LAN008.SG | LAN008 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | F | 1240k,ho |
+| LAN008_d.SG | LAN008 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| LAN009.SG | LAN009 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | F | 1240k,ho |
+| LAN009_d.SG | LAN009 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3350-2650 BCE | Shotgun | U | 1240k,ho |
+| LAN010.SG | LAN010 | Sweden_Landbogarden_N.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3310-2675 calBCE (4305±65 BP; AAR-9993) | Shotgun | F | 1240k,ho |
+| LAN010_d.SG | LAN010 | Sweden_Landbogarden_N_lc.SG | Landbogården | 58.1775 | 13.4344 | SeersholmSikoraNature2024 | 3310-2675 calBCE (4305±65 BP; AAR-9993) | Shotgun | U | 1240k,ho |
+| VK108.SG | VK108 | Sweden_Viking.SG | Ljungbacka (Skåne län, Vellinge) | 55.54 | 13.05 | MargaryanNature2020 | 800-1200 CE | Shotgun | F | 1240k,ho |
+| VK217.SG | VK217 | Sweden_Viking.SG | Ljungbacka (Skåne län, Vellinge) | 55.54 | 13.05 | MargaryanNature2020 | 800-1200 CE | Shotgun | M | 1240k,ho |
+| lov001.SG | lov001 | Sweden_central_Pre_Viking.SG | Lovö (Stockholms län, Ekerö) | 59.33 | 17.84 | Rodríguez-VarelaScienceDirect2023 | 475-520 CE | Shotgun | F | 1240k,ho |
+| vls696.SG | vls696 | Sweden_central_Late_Viking.SG | Norrsunda (Stockholms län, Sigtuna) | 59.59 | 17.89 | Rodríguez-VarelaScienceDirect2023 | 996-1192 calCE | Shotgun | F | 1240k,ho |
+| CGG106007.SG | CGG106007 | Sweden_Nastegarden_Steppe2_possible_lc.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1882-1693 calBCE (3466±28 BP; UBA-47861) | Shotgun | U | 1240k,ho |
+| CGG106007_d.SG | CGG106007 | Sweden_Nastegarden_Steppe2_possible_lc.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1882-1693 calBCE (3466±28 BP; UBA-47861) | Shotgun | U | 1240k,ho |
+| NAS001.SG | NAS001 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1883-1751 calBCE [R_Combine: (3500±15 BP; UCIAMS-275225), (3476±28 BP; UBA-47857)] | Shotgun | M | 1240k,ho |
+| NAS001_d.SG | NAS001 | Sweden_Nastegarden_Steppe2_lc.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1883-1751 calBCE [R_Combine: (3500±15 BP; UCIAMS-275225), (3476±28 BP; UBA-47857)] | Shotgun | U | 1240k,ho |
+| NAS002.SG | NAS002 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 2134-1900 calBCE (3639±29 BP; UBA-47858) | Shotgun | M | 1240k,ho |
+| NAS002_d.SG | NAS002 | Sweden_Nastegarden_Steppe2_lc.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 2134-1900 calBCE (3639±29 BP; UBA-47858) | Shotgun | U | 1240k,ho |
+| NAS003.SG | NAS003 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 2194-1961 calBCE (3683±30 BP; UBA-47859) | Shotgun | F | 1240k,ho |
+| NAS003_d.SG | NAS003 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 2194-1961 calBCE (3683±30 BP; UBA-47859) | Shotgun | U | 1240k,ho |
+| NAS004.SG | NAS004 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1872-1612 calBCE (3403±33 BP; UBA-47860) | Shotgun | F | 1240k,ho |
+| NAS004_d.SG | NAS004 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1872-1612 calBCE (3403±33 BP; UBA-47860) | Shotgun | U | 1240k,ho |
+| NAS005.SG | NAS005 | Sweden_Nastegarden_Steppe2.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1876-1626 calBCE (3431±31 BP; UBA-47862) | Shotgun | M | 1240k,ho |
+| NAS005_d.SG | NAS005 | Sweden_Nastegarden_Steppe2_lc.SG | Nästegården | 58.1544 | 13.5222 | SeersholmSikoraNature2024 | 1876-1626 calBCE (3431±31 BP; UBA-47862) | Shotgun | U | 1240k,ho |
+| VK334.SG | VK334 | Sweden_Viking.SG | Oland | 56.8057977 | 16.7301606 | MargaryanNature2020 | 901-1162 calCE (1005±45 BP, LuSNo-10552) | Shotgun | F | 1240k,ho |
+| VK335.SG | VK335 | Sweden_Viking.SG | Oland | 56.7279175 | 16.7191707 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK336.SG | VK336 | Sweden_Viking.SG | Oland | 56.8057977 | 16.7301606 | MargaryanNature2020 | 707-990 calCE (1175±45 BP, LuSNo-10559) | Shotgun | M | 1240k,ho |
+| VK345.SG | VK345 | Sweden_Viking.SG | Oland | 56.7321539 | 16.721969 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK346.SG | VK346 | Sweden_Viking.SG | Oland | 56.7279175 | 16.7191707 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK347_V348_merge.SG | VK347 | Sweden_Viking.SG | Oland | 56.8792364 | 16.7212765 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK350.SG | VK350 | Sweden_Viking.SG | Oland | 56.7321539 | 16.721969 | MargaryanNature2020 | 677-955 calCE (1210±45 BP, LuSNo-10562) | Shotgun | F | 1240k,ho |
+| VK352.SG | VK352 | Sweden_Viking.SG | Oland | 56.7207075 | 16.7115646 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK358.SG | VK358 | Sweden_Viking.SG | Oland | 56.8057977 | 16.7301606 | MargaryanNature2020 | 705-991 calCE (1175±50 BP, LuSNo-10567) | Shotgun | F | 1240k,ho |
+| VK359.SG | VK359 | Sweden_EarlyViking_lc.SG | Oland | 57.3501182 | 17.0758422 | MargaryanNature2020 | 700-800 CE | Shotgun | M | 1240k,ho |
+| VK379.SG | VK379 | Sweden_EarlyViking.SG | Oland | 57.3501182 | 17.0758422 | MargaryanNature2020 | 700-800 CE | Shotgun | M | 1240k,ho |
+| VK380.SG | VK380 | Sweden_Viking.SG | Oland | 57.3426385 | 17.0209072 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK382.SG | VK382 | Sweden_EarlyViking.SG | Oland | 57.3501182 | 17.0758422 | MargaryanNature2020 | 700-800 CE | Shotgun | M | 1240k,ho |
+| VK443.SG | VK443 | Sweden_Viking.SG | Oland | 57.3426385 | 17.0209072 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK533.SG | VK533 | Sweden_Viking_o2.SG | Oland | 56.8057977 | 16.7301606 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK332.SG | VK332 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.41526 | 16.4326046 | MargaryanNature2020 | 710-991 calCE (1170±45 BP, LuSNo-10564) | Shotgun | M | 1240k,ho |
+| VK333.SG | VK333 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.5765236 | 16.4602296 | MargaryanNature2020 | 772-1014 calCE (1140±50 BP, LuSNo-10267) | Shotgun | M | 1240k,ho |
+| VK337.SG | VK337 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.4775012 | 16.5761124 | MargaryanNature2020 | 709-995 calCE (1155±50 BP, LuSNo-10270) | Shotgun | M | 1240k,ho |
+| VK342.SG | VK342 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.4440667 | 16.5656284 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK343.SG | VK343 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.5524197 | 16.6212723 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK343_d.SG | VK343 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.5524197 | 16.6212723 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK344.SG | VK344 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.3268808 | 16.4066237 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK344_d.SG | VK344 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.3268808 | 16.4066237 | MargaryanNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK349.SG | VK349 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.4593837 | 16.430668 | MargaryanNature2020 | 690-977 calCE (1190±45 BP, LuSNo-10557) | Shotgun | M | 1240k,ho |
+| VK353.SG | VK353 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.41526 | 16.4326046 | MargaryanNature2020 | 901-1162 calCE (1005±45 BP, LuSNo-10539) | Shotgun | F | 1240k,ho |
+| VK354.SG | VK354 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.4440667 | 16.5656284 | MargaryanNature2020 | 892-1153 calCE (1035±45 BP, LuSNo-10540) | Shotgun | M | 1240k,ho |
+| VK355.SG | VK355 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.2847285 | 16.409356 | MargaryanNature2020 | 706-987 calCE (1180±45 BP, LuSNo-10546) | Shotgun | M | 1240k,ho |
+| VK357.SG | VK357 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.41526 | 16.4326046 | MargaryanNature2020 | 899-1168 calCE (1000±50 BP, LuSNo-10271) | Shotgun | M | 1240k,ho |
+| VK442.SG | VK442 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.41526 | 16.4326046 | MargaryanNature2020 | 706-987 calCE (1180±45 BP, LuSNo-10536) | Shotgun | F | 1240k,ho |
+| VK444.SG | VK444 | Sweden_Viking.SG | Oland (Kalmar län, Mörbylånga) | 56.41526 | 16.4326046 | MargaryanNature2020 | 706-987 calCE (1180±45 BP, LuSNo-10553) | Shotgun | M | 1240k,ho |
+| VK522.SG | VK522 | Sweden_IA_2.SG | Oland (Kalmar län, Mörbylånga) | 56.5350447 | 16.6050264 | MargaryanNature2020 | 300-500 CE | Shotgun | F | 1240k,ho |
+| VK579.SG | VK579 | Sweden_IA_1.SG | Oland (Kalmar län, Mörbylånga) | 56.5046381 | 16.4293858 | MargaryanNature2020 | 200-400 CE | Shotgun | M | 1240k,ho |
+| oll007.SG | oll007 | Sweden_BAC.SG | Olljso (Skåne län, Kristianstad) | 56.014689 | 14.068039 | MalmstromProcBiolSci2019 | 2859-2497 calBCE (4090±30 BP, Beta-417630) | Shotgun | F | 1240k,ho |
+| oll009.SG | oll009 | Sweden_Late_N.SG | Olljso (Skåne län, Kristianstad) | 56.014689 | 14.068039 | MalmstromProcBiolSci2019 | 1931-1749 calBCE (3520±30 BP, Beta-417631) | Shotgun | M | 1240k,ho |
+| oll010.SG | oll010 | Sweden_Late_N.SG | Olljso (Skåne län, Kristianstad) | 56.014689 | 14.068039 | MalmstromProcBiolSci2019 | 1879-1632 calBCE (3440±30 BP, Beta-417632) | Shotgun | F | 1240k,ho |
+| RISE174.SG | RISE174 | Sweden_IA.SG | Oxie 7 (Skåne län, Vellinge) | 55.545 | 13.098 | AllentoftNature2015 | 433-639 calCE (1521±38 BP, UBA-28275) | Shotgun | M | 1240k,ho |
+| rtp001.SG | rtp001 | Sweden_north_Pre_Viking.SG | Romback (Västernorrlands län, Ånge) | 62.5 | 16.3 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| rtp003.SG | rtp003 | Sweden_north_Pre_Viking.SG | Romback (Västernorrlands län, Ånge) | 62.5 | 16.3 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | F | 1240k,ho |
+| ros3.SG | ros3 | Sweden_FBC.SG | Rossberga | 58.183333 | 13.65 | MalmstromProcBiolSci2019 | 3331-2930 calBCE (4440±30 BP, Beta-423311) | Shotgun | F | 1240k,ho |
+| ROS001.SG | ROS001 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3328-2924 calBCE (4430±30 BP; Beta-446188) | Shotgun | M | 1240k,ho |
+| ROS001_d.SG | ROS001 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3328-2924 calBCE (4430±30 BP; Beta-446188) | Shotgun | U | 1240k,ho |
+| ROS002.SG | ROS002 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3340-3026 calBCE (4470±30 BP; Beta-446189) | Shotgun | M | 1240k,ho |
+| ROS002_d.SG | ROS002 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3340-3026 calBCE (4470±30 BP; Beta-446189) | Shotgun | U | 1240k,ho |
+| ROS003.SG | ROS003 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3331-2930 calBCE (4440±30 BP; Beta-423311) | Shotgun | F | 1240k,ho |
+| ROS003_d.SG | ROS003 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3331-2930 calBCE (4440±30 BP; Beta-423311) | Shotgun | U | 1240k,ho |
+| ROS004.SG | ROS004 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3315-2916 calBCE (4410±30 BP; Beta-423312) | Shotgun | M | 1240k,ho |
+| ROS004_d.SG | ROS004 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3315-2916 calBCE (4410±30 BP; Beta-423312) | Shotgun | U | 1240k,ho |
+| ROS005.SG | ROS005 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3096-2913 calBCE (4390±30 BP; Beta-423313) | Shotgun | M | 1240k,ho |
+| ROS005_d.SG | ROS005 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3096-2913 calBCE (4390±30 BP; Beta-423313) | Shotgun | U | 1240k,ho |
+| ros005_renamed.SG | ros005_renamed | Sweden_FBC.SG | Rössberga | 58.183333 | 13.65 | MalmstromProcBiolSci2019 | 3096-2913 calBCE (4390±30 BP, Beta-423313) | Shotgun | M | 1240k,ho |
+| ROS007.SG | ROS007 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3328-2924 calBCE (4430±30 BP; Beta-446191) | Shotgun | M | 1240k,ho |
+| ROS007_d.SG | ROS007 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3328-2924 calBCE (4430±30 BP; Beta-446191) | Shotgun | U | 1240k,ho |
+| ROS008.SG | ROS008 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3096-2913 calBCE (4390±30 BP; Beta-446192) | Shotgun | F | 1240k,ho |
+| ROS008_d.SG | ROS008 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3096-2913 calBCE (4390±30 BP; Beta-446192) | Shotgun | U | 1240k,ho |
+| ros012.SG | ros012 | Sweden_Rossberga_N_possible_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | F | 1240k,ho |
+| ros012_d.SG | ros012 | Sweden_Rossberga_N_possible_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | U | 1240k,ho |
+| ROS014.SG | ROS014 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3320-2920 calBCE (4419±29 BP; Ua-66072) | Shotgun | F | 1240k,ho |
+| ROS014_d.SG | ROS014 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3320-2920 calBCE (4419±29 BP; Ua-66072) | Shotgun | U | 1240k,ho |
+| ROS016.SG | ROS016 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3081-2892 calBCE (4341±35 BP; UBA-36305) | Shotgun | F | 1240k,ho |
+| ROS016_d.SG | ROS016 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3081-2892 calBCE (4341±35 BP; UBA-36305) | Shotgun | U | 1240k,ho |
+| ROS018.SG | ROS018 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3346-3027 calBCE (4477±35 BP; UBA-36306) | Shotgun | F | 1240k,ho |
+| ROS018_d.SG | ROS018 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3346-3027 calBCE (4477±35 BP; UBA-36306) | Shotgun | U | 1240k,ho |
+| ROS021.SG | ROS021 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3349-3031 calBCE (4487±34 BP; UBA-36307) | Shotgun | F | 1240k,ho |
+| ROS021_d.SG | ROS021 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3349-3031 calBCE (4487±34 BP; UBA-36307) | Shotgun | U | 1240k,ho |
+| ROS023.SG | ROS023 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3336-2939 calBCE (4451±29 BP; Ua-66073) | Shotgun | F | 1240k,ho |
+| ROS023_d.SG | ROS023 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3336-2939 calBCE (4451±29 BP; Ua-66073) | Shotgun | U | 1240k,ho |
+| ROS024.SG | ROS024 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3331-2919 calBCE (4426±41 BP; UBA-36308) | Shotgun | M | 1240k,ho |
+| ROS024_d.SG | ROS024 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3331-2919 calBCE (4426±41 BP; UBA-36308) | Shotgun | U | 1240k,ho |
+| ROS025.SG | ROS025 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3337-3019 calBCE (4459±30 BP; Ua-66074) | Shotgun | M | 1240k,ho |
+| ROS025_d.SG | ROS025 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3337-3019 calBCE (4459±30 BP; Ua-66074) | Shotgun | U | 1240k,ho |
+| ROS026.SG | ROS026 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 2904-2632 calBCE (4205±45 BP; UBA-36309) | Shotgun | M | 1240k,ho |
+| ROS026_d.SG | ROS026 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 2904-2632 calBCE (4205±45 BP; UBA-36309) | Shotgun | U | 1240k,ho |
+| ROS027.SG | ROS027 | Sweden_Rossberga_N_HG.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 2879-2626 calBCE (4153±33 BP; UBA-36310) | Shotgun | F | 1240k,ho |
+| ROS027_d.SG | ROS027 | Sweden_Rossberga_N_HG.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 2879-2626 calBCE (4153±33 BP; UBA-36310) | Shotgun | U | 1240k,ho |
+| ROS029.SG | ROS029 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3367-3101 calBCE (4537±35 BP; UBA-36311) | Shotgun | M | 1240k,ho |
+| ROS029_d.SG | ROS029 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3367-3101 calBCE (4537±35 BP; UBA-36311) | Shotgun | U | 1240k,ho |
+| ROS030.SG | ROS030 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | F | 1240k,ho |
+| ROS030_d.SG | ROS030 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | U | 1240k,ho |
+| ROS032.SG | ROS032 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | M | 1240k,ho |
+| ROS032_d.SG | ROS032 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3400-2600 BCE | Shotgun | U | 1240k,ho |
+| ROS033.SG | ROS033 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3359-3012 calBCE (4476±47 BP; UBA-36312) | Shotgun | F | 1240k,ho |
+| ROS033_d.SG | ROS033 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3359-3012 calBCE (4476±47 BP; UBA-36312) | Shotgun | U | 1240k,ho |
+| ROS036.SG | ROS036 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3346-2937 calBCE (4461±41 BP; UBA-36313) | Shotgun | F | 1240k,ho |
+| ROS036_d.SG | ROS036 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3346-2937 calBCE (4461±41 BP; UBA-36313) | Shotgun | U | 1240k,ho |
+| ROS038.SG | ROS038 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3341-3023 calBCE (4468±35 BP; UBA-36314) | Shotgun | M | 1240k,ho |
+| ROS038_d.SG | ROS038 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3341-3023 calBCE (4468±35 BP; UBA-36314) | Shotgun | U | 1240k,ho |
+| ROS039.SG | ROS039 | Sweden_Rossberga_N.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3368-3102 calBCE (4541±31 BP; UBA-36812) | Shotgun | M | 1240k,ho |
+| ROS039_d.SG | ROS039 | Sweden_Rossberga_N_lc.SG | Rössberga | 58.22959 | 13.60585 | SeersholmSikoraNature2024 | 3368-3102 calBCE (4541±31 BP; UBA-36812) | Shotgun | U | 1240k,ho |
+| sal002.SG | sal002 | Sweden_central_Late_Viking.SG | Sala (Västmanlands län, Sala) | 59.9 | 16.6 | Rodríguez-VarelaScienceDirect2023 | 950-1000 CE | Shotgun | F | 1240k,ho |
+| snb010.SG | snb010 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| snb012.SG | snb012 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| snb013.SG | snb013 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| snb014.SG | snb014 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| snb017.SG | snb017 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| snb018.SG | snb018 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | F | 1240k,ho |
+| snb019.SG | snb019 | Sweden_south_Pre_Viking.SG | Sandby Borg (Kalmar län, Mörbylånga) | 56.55 | 16.63 | Rodríguez-VarelaScienceDirect2023 | 450-500 CE | Shotgun | M | 1240k,ho |
+| bro100.SG | bro100 | Sweden_central_Late_Viking.SG | Sasta (Stockholms län, Täby) | 59.44 | 18.07 | Rodríguez-VarelaScienceDirect2023 | 750-1200 CE | Shotgun | M | 1240k,ho |
+| stg018.SG | stg018 | Sweden_central_Late_Viking.SG | Sigtuna (Stockholms län, Upplands-Bro) | 59.6 | 17.7 | Rodríguez-VarelaScienceDirect2023 | 892-1031 calCE | Shotgun | F | 1240k,ho |
+| vik_84001.SG | vik_84001 | Sweden_Viking.SG | Sigtuna, cemetery 1 (Nunnnan) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 895-1033 calCE (1055±30 BP, Ua-22712) | Shotgun | M | 1240k,ho |
+| vik_84005.SG | vik_84005 | Sweden_Viking.SG | Sigtuna, cemetery 1 (Nunnnan) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_84035.SG | vik_84035 | Sweden_Viking_fail.due.to.high.heterozygosity.SG | Sigtuna, cemetery 1 (Nunnnan) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 772-987 calCE (1155±30 BP, Ua-22710) | Shotgun | F | 1240k,ho |
+| vik_nuf002.SG | vik_nuf002 | Sweden_Viking.SG | Sigtuna, cemetery 1 (Nunnnan) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_kls001.SG | vik_kls001 | Sweden_Viking.SG | Sigtuna, cemetery 2 (Kålsängen) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_KAL006.SG | vik_KAL006 | Sweden_Viking_o1.SG | Sigtuna, cemetery 3 (Kållandet) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_kal009.SG | vik_kal009 | Sweden_Viking_o1.SG | Sigtuna, cemetery 3 (Kållandet) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_2072.SG | vik_2072 | Sweden_Viking_lc.SG | Sigtuna, cemetery 4 (Bensinst.) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 892-1032 calCE (1060±35 BP, Ua-37646) | Shotgun | M | 1240k,ho |
+| vik_bns023.SG | vik_bns023 | Sweden_Viking.SG | Sigtuna, cemetery 4 (Bensinst.) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_gtm021.SG | vik_gtm021 | Sweden_Viking.SG | Sigtuna, cemetery 4 (Götes mack) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_gtm127.SG | vik_gtm127 | Sweden_Viking.SG | Sigtuna, cemetery 4 (Götes mack) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_grt035.SG | vik_grt035 | Sweden_Viking.SG | Sigtuna, church 1 (St. Gertrud) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 886-1029 calCE (1080±40 BP, Ua-22732) | Shotgun | M | 1240k,ho |
+| vik_grt036.SG | vik_grt036 | Sweden_Viking.SG | Sigtuna, church 1 (St. Gertrud) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 994-1158 calCE (985±35 BP, Ua-22734) | Shotgun | M | 1240k,ho |
+| vik_stg020.SG | vik_stg020 | Sweden_Viking_o1.SG | Sigtuna, church 1 (St. Gertrud) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_stg021.SG | vik_stg021 | Sweden_Viking.SG | Sigtuna, church 1 (St. Gertrud) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 901-1154 calCE (1020±35 BP, Ua-22728) | Shotgun | F | 1240k,ho |
+| vik_stg026.SG | vik_stg026 | Sweden_Viking.SG | Sigtuna, church 1 (St. Gertrud) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 774-1018 calCE (1115±35 BP, Ua-22722) | Shotgun | F | 1240k,ho |
+| vik_urm035.SG | vik_urm035 | Sweden_Viking.SG | Sigtuna, church 1 (Urmakaren) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 995-1160 calCE (975±35 BP, Ua-22733) | Shotgun | M | 1240k,ho |
+| vik_urm045.SG | vik_urm045 | Sweden_Viking.SG | Sigtuna, church 1 (Urmakaren) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_urm160.SG | vik_urm160 | Sweden_Viking.SG | Sigtuna, church 1 (Urmakaren) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 1040-1226 calCE (885±35 BP, Ua-22740) | Shotgun | M | 1240k,ho |
+| vik_urm161.SG | vik_urm161 | Sweden_Viking.SG | Sigtuna, church 1 (Urmakaren) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 998-1164 calCE (965±35 BP, Ua-22741) | Shotgun | M | 1240k,ho |
+| vik_97002.SG | vik_97002 | Sweden_Viking.SG | Sigtuna, mass grave (St. Lars) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_97026.SG | vik_97026 | Sweden_Viking.SG | Sigtuna, mass grave (St. Lars) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_97029.SG | vik_97029 | Sweden_Viking.SG | Sigtuna, mass grave (St. Lars) | 59.61731 | 17.72361 | KrzewinskaCurrentBiology2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| NEO261.SG | NEO261 | Sweden_LN.SG | Sillvik (Västra Götalands län, Gothenburg) | 57.736 | 11.744 | AllentoftNature2024 | 2191-1931 calBCE (3659±37 BP, AAR-11205) | Shotgun | M | 1240k,ho |
+| NEO679.SG | NEO679 | Sweden_LM_Ertebølle.SG | Skateholm-1 (Skåne län, Trelleborg) | 55.386 | 13.481 | AllentoftNature2024 | 5198-4715 calBCE (5990±70 BP, Lu-2116) | Shotgun | F | 1240k,ho |
+| VK517.SG | VK517 | Sweden_Viking_1d.rel.VK527.SG | Skomsta (Uppsala län, Uppsala) | 59.86 | 17.65 | MargaryanNature2020 | 1000-1100 CE | Shotgun | M | 1240k,ho |
+| VK527.SG | VK527 | Sweden_Viking.SG | Skomsta (Uppsala län, Uppsala) | 59.86 | 17.65 | MargaryanNature2020 | 1000-1100 CE | Shotgun | F | 1240k,ho |
+| Kvarlov5164.AG | Kvarlov5164 | Sweden_MN_TRB.AG | Skåne (Gävleborgs län, Hudiksvall) | 61.658497 | 17.003742 | MittnikNatureCommunications2018 | 3945-3647 calBCE | 1240k | F | 1240k,ho |
+| SBj.SG | SBj | Sweden_Mesolithic.SG | Stora Bjers | 57.792 | 18.538 | GuntherPLoSBiology2018 | 7013-6629 calBCE | Shotgun | M | 1240k,ho |
+| SF11.SG | SF11 | Sweden_Mesolithic_o.SG | Stora Förvar | 57.285 | 17.971 | GuntherPLoSBiology2018 | 7073-6810 calBCE | Shotgun | M | 1240k,ho |
+| SF12.SG | SF12 | Sweden_Mesolithic.SG | Stora Förvar | 57.285 | 17.971 | GuntherPLoSBiology2018 | 7083-6807 calBCE | Shotgun | F | 1240k,ho |
+| SF9.SG | SF9 | Sweden_Mesolithic.SG | Stora Förvar | 57.285 | 17.971 | GuntherPLoSBiology2018 | 7350-7038 calBCE | Shotgun | F | 1240k,ho |
+| Ajvide52.SG | Ajvide52 | Sweden_PWC.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 2900-2600 BCE | Shotgun | M | 1240k,ho |
+| Ajvide53.SG | Ajvide53 | Sweden_PWC.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 2900-2600 BCE | Shotgun | F | 1240k,ho |
+| Ajvide58.SG | Ajvide58 | Sweden_PWC.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 2900-2600 BCE | Shotgun | M | 1240k,ho |
+| Ajvide59.SG | Ajvide59 | Sweden_PWC_lc.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 2900-2600 BCE | Shotgun | M | 1240k,ho |
+| Ajvide70.SG | Ajvide70 | Sweden_PWC.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 2900-2600 BCE | Shotgun | M | 1240k,ho |
+| Ire8.SG | Ire8 | Sweden_PWC_o.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 3100-2150 BCE | Shotgun | M | 1240k,ho |
+| StoraForvar11.SG | StoraForvar11 | Sweden_Mesolithic.SG | Stora-Karlsö (Gotlands län, Gotland) | 57.287 | 18.206 | SkoglundScience2014 | 5557-5230 calBCE (6459±70 BP, Ua-45742) | Shotgun | M | 1240k,ho |
+| VK29.SG | VK29 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK30.SG | VK30 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK303.SG | VK303 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| VK304.SG | VK304 | Sweden_Viking_lc.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK306.SG | VK306 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK308.SG | VK308 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK309.SG | VK309 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK31.SG | VK31 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK33.SG | VK33 | Sweden_Viking_1d.rel.VK406.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| VK34.SG | VK34 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK35.SG | VK35 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK39.SG | VK39 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK395.SG | VK395 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK396.SG | VK396 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK397.SG | VK397 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK398.SG | VK398 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK399.SG | VK399 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK40.SG | VK40 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK400.SG | VK400 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK401.SG | VK401 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK402.SG | VK402 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| VK403.SG | VK403 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK404.SG | VK404 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK405.SG | VK405 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK406.SG | VK406 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK407.SG | VK407 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK42.SG | VK42 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK424.SG | VK424 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK425.SG | VK425 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK426.SG | VK426 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| VK427.SG | VK427 | Sweden_Viking.SG | Varnhem (Västra Götalands län, Skara) | 58.38 | 13.65 | MargaryanNature2020 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| wes001.SG | wes001 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1262 CE | Shotgun | F | 1240k,ho |
+| wes003.SG | wes003 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1262 CE | Shotgun | F | 1240k,ho |
+| wes004.SG | wes004 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1262 CE | Shotgun | M | 1240k,ho |
+| wes005.SG | wes005 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1262 CE | Shotgun | M | 1240k,ho |
+| wes007.SG | wes007 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1163-1262 calCE | Shotgun | M | 1240k,ho |
+| wes008.SG | wes008 | Sweden_north_Medieval.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1262 CE | Shotgun | M | 1240k,ho |
+| wes056.SG | wes056 | Sweden_north_Late_Viking.SG | Vasterhus (Jämtlands län, Östersund) | 63.2 | 14.5 | Rodríguez-VarelaScienceDirect2023 | 1016-1155 calCE | Shotgun | F | 1240k,ho |
+| NEO52.SG | NEO52 | Sweden_LN.SG | Vattenledningen (Skåne län, Vellinge) | 55.503 | 13.009 | AllentoftNature2024 | 2010-1746 calBCE (3535±40 BP, Ua-34092) | Shotgun | M | 1240k,ho |
+| ven001_viking.SG | ven001_viking | Sweden_central_PreViking.SG | Vendel (Uppsala) | 60.16 | 17.59 | Rodríguez-VarelaScienceDirect2023 | 560-620 CE | Shotgun | M | 1240k,ho |
+| RISE94.SG | RISE94 | Sweden_BattleAxe.SG | Viby (Skåne län, Kristianstad) | 56.025 | 14.233 | AllentoftNature2015 | 2623-2468 calBCE (4025±30 BP, OxA-29033) | Shotgun | M | 1240k,ho |
+| vbj001.SG | vbj001 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2879-2577 calBCE (4135±50 BP, Ua-19395) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| vbj002.SG | vbj002 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2913-2697 calBCE (4236±33 BP, Ua-57855) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| vbj003.SG | vbj003 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_o_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3011-2883 calBCE (4306±33 BP, Ua-57856) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| vbj004.SG | vbj004 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2894-2583 calBCE (4175±55 BP, Ua-19405) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | F | 1240k,ho |
+| vbj006_nonUDG.SG | vbj006 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3022-2887 calBCE (4323±34 BP, Ua-57857) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj006_UDG.SG | vbj006 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3022-2887 calBCE (4323±34 BP, Ua-57857) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj007.SG | vbj007 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2621-2457 calBCE (3995±33 BP, Ua-57858) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj008.SG | vbj008 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2880-2501 calBCE (4125±55 BP, Ua-19402) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj008_d.SG | vbj008 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2880-2501 calBCE (4125±55 BP, Ua-19402) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj012.SG | vbj012 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3091-2903 calBCE (4366±33 BP, Ua-57859) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj013.SG | vbj013 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 2914-2697 calBCE (4236±34 BP, Ua-57860) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj014.SG | vbj014 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3014-2674 calBCE (4260±50 BP, Ua-19396) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj015.SG | vbj015 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe_minus.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3011-2877 calBCE (4294±33 BP, Ua-57861) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj017.SG | vbj017 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3092-2697 calBCE (4290±55 BP, Ua-19399) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| vbj018.SG | vbj018 | Sweden_Gotland_Vasterbjers_PittedWare_BattleAxe.SG | Västerbjers (Gotland, Gothem parish) | 57.58 | 18.7 | CoutinhoJakobssonAJPA2020 | 3011-2878 calBCE (4296±34 BP, Ua-57862) | Shotgun.pulled.down.only.on.1240k.autosomal.targets.-.need.to.make.a.whole.genome.bam | M | 1240k,ho |
+| RISE207.SG | RISE207 | Sweden_BA.SG | Ängamöllan (Skåne län, Kristianstad) | 55.997 | 14.104 | AllentoftNature2015 | 1495-1301 calBCE (3130±27 BP, OxA-29651) | Shotgun | M | 1240k,ho |
+| RISE210.SG | RISE210 | Sweden_BA.SG | Ängamöllan (Skåne län, Kristianstad) | 55.997 | 14.104 | AllentoftNature2015 | 1436-1286 calBCE (3105±28 BP, OxA-29654) | Shotgun | F | 1240k,ho |
+| NEO46.SG | NEO46 | Sweden_EN.SG | Ängdala (Skåne län, Malmö) | 55.588 | 13.113 | AllentoftNature2024 | 3768-3639 calBCE (4913±32 BP, UBA-39935) | Shotgun | F | 1240k,ho |
