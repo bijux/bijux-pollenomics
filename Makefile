@@ -7,7 +7,7 @@ RUFF := $(BIN)/ruff
 VERSION ?= v62.0
 DATA_ROOT ?= data
 
-.PHONY: clean install lint test data-prep build help
+.PHONY: clean install lint test data-prep build docs docs-serve help
 
 help:
 	@printf "Available targets:\n"
@@ -16,6 +16,8 @@ help:
 	@printf "  test       Run the unittest suite\n"
 	@printf "  data-prep  Rebuild the tracked data tree under %s\n" "$(DATA_ROOT)"
 	@printf "  build      Build source and wheel distributions\n"
+	@printf "  docs       Build the MkDocs site into artifacts/docs/site\n"
+	@printf "  docs-serve Serve the MkDocs site locally on 127.0.0.1:8000\n"
 	@printf "  clean      Remove local virtualenv and build/test caches\n"
 
 $(VENV_PYTHON):
@@ -40,6 +42,12 @@ data-prep: install
 
 build: install
 	$(VENV_PYTHON) -m build
+
+docs: install
+	$(BIN)/mkdocs build --strict
+
+docs-serve: install
+	$(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
 
 clean:
 	rm -rf $(VENV) build dist .pytest_cache .ruff_cache .mypy_cache htmlcov

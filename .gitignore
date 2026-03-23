@@ -24,6 +24,7 @@ env/
 htmlcov/
 
 # Packaging and build artifacts
+artifacts/
 build/
 dist/
 *.egg-info/
