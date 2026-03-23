@@ -1,7 +1,3 @@
-data/*
-data/aadr/
-!data/external/
-!data/external/**
 data/**/~$*.xlsx
 
 # macOS
