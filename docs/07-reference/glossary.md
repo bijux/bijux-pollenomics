@@ -1,0 +1,34 @@
+---
+title: Glossary
+audience: mixed
+type: reference
+status: canonical
+owner: bijux-pollen-docs
+last_reviewed: 2026-03-23
+---
+
+# Glossary
+
+## AADR
+
+Allen Ancient DNA Resource. In this repository, the public `.anno` files are the tracked AADR input surface.
+
+## Shared Nordic Map
+
+The multi-country interactive map published under `docs/report/nordic/`.
+
+## Country Report
+
+A country-specific AADR output bundle under `docs/report/<country>/`.
+
+## Context Data
+
+Non-AADR layers used to enrich the spatial interpretation surface, currently boundaries, Neotoma, SEAD, and RAÄ.
+
+## Data Tree
+
+The top-level tracked `data/` directory that can be rebuilt with `collect-data`.
+
+## Purpose
+
+This page stabilizes the key repository vocabulary.
