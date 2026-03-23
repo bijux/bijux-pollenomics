@@ -9,7 +9,7 @@ last_reviewed: 2026-03-23
 
 # Data Guide
 
-This section explains the five tracked data categories under `data/` and the reason each one exists.
+This section explains the five tracked data categories under `data/`, the commands that build them, and the boundaries of what each source currently contributes.
 
 ```mermaid
 flowchart TD
@@ -32,6 +32,10 @@ flowchart TD
 ## Core Rule
 
 The filesystem model and the acquisition model should match. That is why `collect-data <source>` writes directly into `data/<source>/`.
+
+## Canonical Status
+
+This section is the canonical source for data acquisition and storage guidance inside the docs site. It replaces the older narrative content that previously lived in separate `docs/data/...` pages.
 
 ## Purpose
 

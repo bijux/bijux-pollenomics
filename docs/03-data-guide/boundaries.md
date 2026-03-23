@@ -16,6 +16,13 @@ last_reviewed: 2026-03-23
 - raw country GeoJSON files under `data/boundaries/raw/`
 - a combined Nordic boundary collection under `data/boundaries/normalized/nordic_country_boundaries.geojson`
 
+## Current Raw Files
+
+- `data/boundaries/raw/denmark.geojson`
+- `data/boundaries/raw/finland.geojson`
+- `data/boundaries/raw/norway.geojson`
+- `data/boundaries/raw/sweden.geojson`
+
 ## Why It Matters
 
 Without boundaries, the repository cannot apply one consistent country filter to AADR, Neotoma, SEAD, and Sweden-specific archaeology overlays.

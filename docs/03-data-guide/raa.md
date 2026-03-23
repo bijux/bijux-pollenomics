@@ -16,9 +16,18 @@ last_reviewed: 2026-03-23
 - raw capabilities, schema, and domain metadata under `data/raa/raw/`
 - Swedish archaeology metadata and density GeoJSON under `data/raa/normalized/`
 
+## What The Current Collector Does
+
+The current collector:
+
+- downloads RAÄ WFS capabilities and schema metadata
+- downloads Fornsök domain metadata
+- queries exact RAÄ feature counts for all published sites, `Fornlämning`, and `Fornlämning` plus `Möjlig fornlämning`
+- builds a 1-degree Swedish density grid by issuing RAÄ WFS count queries cell by cell
+
 ## Why Density Instead Of Every Point
 
-RAÄ contains hundreds of thousands of published Swedish archaeology records. Rendering every point directly in the shared map would be too heavy and visually noisy, so the current product uses a density layer for the browser-facing view.
+RAÄ currently contributes national-scale Swedish archaeology context. The checked-in map uses a density layer rather than individual point markers because the source count is large enough that direct marker rendering would be heavy and visually noisy in a static HTML artifact.
 
 ```mermaid
 flowchart LR
@@ -34,7 +43,7 @@ PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data raa --output-ro
 
 ## Scope Boundary
 
-The current RAÄ layer is Sweden-only. That is intentional because the present archaeology integration target is Swedish site interpretation around pollenomic sampling candidates.
+The current RAÄ layer is Sweden-only. That is an implementation fact of the current repository, not a claim about archaeology coverage in the other countries.
 
 ## Purpose
 

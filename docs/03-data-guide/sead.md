@@ -16,6 +16,15 @@ last_reviewed: 2026-03-23
 - a raw site snapshot under `data/sead/raw/nordic_sites.json`
 - normalized CSV and GeoJSON outputs under `data/sead/normalized/`
 
+## What The Current Collector Does
+
+The current collector:
+
+- queries the SEAD PostgREST `tbl_sites` surface inside the Nordic bounding box
+- drops rows without coordinates
+- assigns each retained point to a Nordic country using the tracked boundary layer
+- writes one raw JSON snapshot plus normalized CSV and GeoJSON outputs
+
 ## Why It Matters
 
 SEAD adds environmental archaeology context to the same spatial frame used for pollen and AADR points, which makes it useful for later overlap and interpretation work.
