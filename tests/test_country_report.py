@@ -96,6 +96,28 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(len(geojson["features"]), 2)
 
+    def test_generate_country_report_can_link_to_shared_map(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "sweden"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            generate_country_report(
+                root,
+                "Sweden",
+                output,
+                map_reference=("Nordic Countries map", "../nordic/nordic_aadr_v62.0_map.html"),
+            )
+
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            self.assertIn("Shared interactive map", readme_text)
+            self.assertIn("../nordic/nordic_aadr_v62.0_map.html", readme_text)
+
     def test_generate_country_report_uses_country_specific_copy_and_locality_placeholder(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"

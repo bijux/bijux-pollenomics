@@ -37,6 +37,16 @@ def build_parser() -> argparse.ArgumentParser:
         default=Path("docs/report"),
         help="Directory where country report folders should be written. Default: docs/report",
     )
+    report_parser.add_argument(
+        "--shared-map-label",
+        default=None,
+        help="Optional label for a shared interactive map link shown in the country README.",
+    )
+    report_parser.add_argument(
+        "--shared-map-path",
+        default=None,
+        help="Optional relative path to a shared interactive map shown in the country README.",
+    )
 
     multi_map_parser = subparsers.add_parser(
         "report-multi-country-map",
@@ -85,7 +95,15 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "report-country":
         version_dir = args.aadr_root / args.version
         output_dir = args.output_root / slugify(args.country)
-        report = generate_country_report(version_dir=version_dir, country=args.country, output_dir=output_dir)
+        map_reference = None
+        if args.shared_map_label and args.shared_map_path:
+            map_reference = (args.shared_map_label, args.shared_map_path)
+        report = generate_country_report(
+            version_dir=version_dir,
+            country=args.country,
+            output_dir=output_dir,
+            map_reference=map_reference,
+        )
         print(
             f"Wrote {report.country} AADR {report.version} report with "
             f"{report.total_unique_samples} unique samples to {output_dir}"
