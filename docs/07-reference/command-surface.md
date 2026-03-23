@@ -24,6 +24,7 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead 
 
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --output-root docs/report --context-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-country Norway --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-country Finland --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
@@ -34,6 +35,8 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-country Den
 
 ```bash
 make install
+make reports
+make app-state
 make check
 make clean
 make lint
@@ -47,6 +50,8 @@ make docs-serve
 ## Notes
 
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
+- `make reports` expands to `publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --output-root docs/report --context-root data`
+- `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
 - `make check` expands to `make lint`, `make test`, and `make docs`
 - `make install` creates the local environment under `artifacts/.venv/`
 - `make build` writes distributions into `artifacts/dist/`

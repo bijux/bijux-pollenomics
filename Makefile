@@ -12,11 +12,13 @@ DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 
-.PHONY: check clean install lint test data-prep build docs docs-serve help
+.PHONY: app-state check clean install lint reports test data-prep build docs docs-serve help
 
 help:
 	@printf "Available targets:\n"
 	@printf "  install    Create %s and install the project with dev tools\n" "$(VENV)"
+	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
+	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
 	@printf "  check      Run lint, tests, and docs build\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run the unittest suite\n"
@@ -48,6 +50,11 @@ test: install
 
 data-prep: install
 	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollen.cli collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
+
+reports: install
+	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollen.cli publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
+
+app-state: data-prep reports docs
 
 build: install
 	mkdir -p $(DIST_ROOT)

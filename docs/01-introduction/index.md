@@ -31,6 +31,7 @@ flowchart TD
 
 The introduction pages answer four foundational questions:
 
+- what the current app scope includes and excludes
 - what the project is trying to support scientifically
 - what the repository produces today
 - which boundaries are intentional
@@ -38,6 +39,7 @@ The introduction pages answer four foundational questions:
 
 ## Pages in This Section
 
+- [Current app scope](current-app-scope.md)
 - [What bijux-pollen does](what-bijux-pollen-does.md)
 - [Scope and non-goals](scope-and-non-goals.md)
 - [Map-first product model](map-first-product-model.md)

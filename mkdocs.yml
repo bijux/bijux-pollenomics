@@ -101,6 +101,7 @@ nav:
   - Home: index.md
   - Introduction:
       - Overview: 01-introduction/index.md
+      - Current App Scope: 01-introduction/current-app-scope.md
       - What bijux-pollen Does: 01-introduction/what-bijux-pollen-does.md
       - Scope and Non-Goals: 01-introduction/scope-and-non-goals.md
       - Map-First Product Model: 01-introduction/map-first-product-model.md

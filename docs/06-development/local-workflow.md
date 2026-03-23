@@ -15,6 +15,8 @@ Use the `Makefile` as the main local interface.
 
 ```bash
 make install
+make reports
+make app-state
 make check
 make clean
 make lint
@@ -28,6 +30,8 @@ make docs-serve
 ## Artifact Paths
 
 - `make install` uses `artifacts/.venv/`
+- `make reports` regenerates the checked-in report bundles under `docs/report/`
+- `make app-state` rebuilds the current app scope end to end
 - `make check` runs the main repository verification suite in one command
 - `make build` writes distributions into `artifacts/dist/`
 - `make docs` writes the site into `artifacts/docs/site/`

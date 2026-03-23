@@ -11,6 +11,20 @@ last_reviewed: 2026-03-23
 
 Once the data tree exists, generate the shared map and any country reports you want to publish or inspect.
 
+## Current Published Set
+
+```bash
+make reports
+```
+
+Equivalent direct command:
+
+```bash
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --output-root docs/report --context-root data
+```
+
+That command rebuilds the current checked-in report tree in one pass.
+
 ## Shared Nordic Map
 
 ```bash

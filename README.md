@@ -6,6 +6,8 @@ Geographic reporting and data-preparation tools for Nordic aDNA, pollen, environ
 
 ```bash
 make install
+make reports
+make app-state
 make check
 make lint
 make test
@@ -22,6 +24,8 @@ The canonical documentation site is built with MkDocs and lives under `docs/`.
 - `make docs` builds the static site into `artifacts/docs/site`
 - `make docs-serve` serves the site locally on `127.0.0.1:8000`
 - `make install` creates the local virtual environment under `artifacts/.venv/`
+- `make reports` regenerates the checked-in shared map and country report bundles under `docs/report/`
+- `make app-state` rebuilds the current app scope end to end: tracked data, published reports, and the docs site
 - `make check` runs lint, tests, and docs as one repository verification pass
 - `make build` writes source and wheel distributions into `artifacts/dist/`
 - the documentation homepage leads with the shared Nordic map in `docs/report/nordic/nordic_aadr_v62.0_map.html`
@@ -50,3 +54,14 @@ The generated report and map workflow is documented in the canonical MkDocs repo
 
 - [`docs/04-reports/index.md`](docs/04-reports/index.md)
 - [`docs/07-reference/report-layout.md`](docs/07-reference/report-layout.md)
+
+## Current Scope
+
+The current app scope is:
+
+- track five source categories under `data/`
+- publish one shared Nordic map under `docs/report/nordic/`
+- publish country-level AADR bundles for Sweden, Norway, Finland, and Denmark
+- keep the full state rebuildable from checked-in commands and tracked outputs
+
+The current app does not yet score candidate sites, compute lake intersections, or rank sampling locations automatically.
