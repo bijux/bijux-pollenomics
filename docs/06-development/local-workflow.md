@@ -15,6 +15,7 @@ Use the `Makefile` as the main local interface.
 
 ```bash
 make install
+make check
 make clean
 make lint
 make test
@@ -27,6 +28,7 @@ make docs-serve
 ## Artifact Paths
 
 - `make install` uses `artifacts/.venv/`
+- `make check` runs the main repository verification suite in one command
 - `make build` writes distributions into `artifacts/dist/`
 - `make docs` writes the site into `artifacts/docs/site/`
 - `make docs-serve` serves the local docs at `http://127.0.0.1:8000/`

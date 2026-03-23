@@ -34,6 +34,7 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli report-country Den
 
 ```bash
 make install
+make check
 make clean
 make lint
 make test
@@ -46,9 +47,11 @@ make docs-serve
 ## Notes
 
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
+- `make check` expands to `make lint`, `make test`, and `make docs`
 - `make install` creates the local environment under `artifacts/.venv/`
 - `make build` writes distributions into `artifacts/dist/`
 - there is currently no `make` target that regenerates the report bundles; use the explicit CLI commands above
+- `report-country` requires `--shared-map-label` and `--shared-map-path` together when you want a shared-map link in the generated README
 
 ## Purpose
 

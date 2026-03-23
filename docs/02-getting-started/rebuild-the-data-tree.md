@@ -36,6 +36,8 @@ flowchart TD
 
 This command is designed so that deleting `data/` and rerunning it recreates the same top-level directory model and the currently collected normalized outputs.
 
+When you rerun one source collector, that source directory is replaced before new files are written. That keeps recollection deterministic instead of leaving stale files from older runs in place.
+
 ## Single-Source Rebuilds
 
 ```bash

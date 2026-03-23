@@ -39,6 +39,10 @@ The map is good for exploration, but country reports are better for:
 - quick country-specific review without filtering the shared map
 - stable file artifacts for git review
 
+## Empty-Match Behavior
+
+If a requested country has zero matching AADR samples in the selected release, the generator still writes a complete bundle with empty inventories and an explicit zero-count summary instead of crashing.
+
 ## Generation Command
 
 ```bash

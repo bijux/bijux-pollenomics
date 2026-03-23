@@ -12,11 +12,12 @@ DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 
-.PHONY: clean install lint test data-prep build docs docs-serve help
+.PHONY: check clean install lint test data-prep build docs docs-serve help
 
 help:
 	@printf "Available targets:\n"
 	@printf "  install    Create %s and install the project with dev tools\n" "$(VENV)"
+	@printf "  check      Run lint, tests, and docs build\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run the unittest suite\n"
 	@printf "  data-prep  Rebuild the tracked data tree under %s\n" "$(DATA_ROOT)"
@@ -36,6 +37,8 @@ $(VENV)/.installed: pyproject.toml $(VENV_PYTHON)
 	touch $@
 
 install: $(VENV)/.installed
+
+check: lint test docs
 
 lint: install
 	$(RUFF) check src tests
@@ -59,6 +62,7 @@ docs-serve: install
 
 clean:
 	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
+	find . -name ".DS_Store" -delete
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +
 	find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete
 	find . -type d -name "*.egg-info" -prune -exec rm -rf {} +

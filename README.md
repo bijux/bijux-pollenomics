@@ -6,6 +6,7 @@ Geographic reporting and data-preparation tools for Nordic aDNA, pollen, environ
 
 ```bash
 make install
+make check
 make lint
 make test
 make data-prep
@@ -21,6 +22,7 @@ The canonical documentation site is built with MkDocs and lives under `docs/`.
 - `make docs` builds the static site into `artifacts/docs/site`
 - `make docs-serve` serves the site locally on `127.0.0.1:8000`
 - `make install` creates the local virtual environment under `artifacts/.venv/`
+- `make check` runs lint, tests, and docs as one repository verification pass
 - `make build` writes source and wheel distributions into `artifacts/dist/`
 - the documentation homepage leads with the shared Nordic map in `docs/report/nordic/nordic_aadr_v62.0_map.html`
 
