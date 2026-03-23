@@ -15,15 +15,25 @@ def render_summary_markdown(
     """Render the country summary README."""
     latitude_values = [sample.latitude for sample in report.samples]
     longitude_values = [sample.longitude for sample in report.samples]
+    latitude_range = (
+        f"`{min(latitude_values):.6f}` to `{max(latitude_values):.6f}`"
+        if latitude_values and longitude_values
+        else "No latitude values available"
+    )
+    longitude_range = (
+        f"`{min(longitude_values):.6f}` to `{max(longitude_values):.6f}`"
+        if latitude_values and longitude_values
+        else "No longitude values available"
+    )
 
     dataset_lines = "\n".join(
         f"| `{dataset}` | {count} |"
         for dataset, count in sorted(report.dataset_row_counts.items())
-    )
+    ) or "| No matching dataset rows | 0 |"
     top_locality_lines = "\n".join(
         f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | `{','.join(locality.datasets)}` |"
         for locality in report.localities[:15]
-    )
+    ) or "| No matching localities | 0 | - | - | - |"
 
     map_line = ""
     if map_reference is not None:
@@ -39,8 +49,8 @@ This report was generated from the AADR `{report.version}` `.anno` files on `{re
 - Country filter: `{report.country}`
 - Unique AADR samples: `{report.total_unique_samples}`
 - Unique localities: `{report.total_unique_localities}`
-- Latitude range: `{min(latitude_values):.6f}` to `{max(latitude_values):.6f}`
-- Longitude range: `{min(longitude_values):.6f}` to `{max(longitude_values):.6f}`
+- Latitude range: {latitude_range}
+- Longitude range: {longitude_range}
 
 ## Dataset Coverage
 
@@ -112,7 +122,7 @@ def render_multi_country_map_markdown(
     rows = "\n".join(
         f"| {country} | {country_sample_counts[country]} |"
         for country in countries
-    )
+    ) or "| No countries requested | 0 |"
     artifact_lines = "\n".join(
         f"- {label}: [`{filename}`](./{filename})"
         for label, filename in extra_artifacts
@@ -134,4 +144,3 @@ This shared interactive map was generated on `{generated_on}` and combines AADR 
 - Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
 {artifact_block}
 """
-

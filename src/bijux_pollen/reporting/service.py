@@ -10,7 +10,7 @@ from .artifacts import build_samples_geojson, write_localities_csv, write_sample
 from .context_layers import build_context_layers
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
-from .models import CountryReport, MultiCountryMapReport
+from .models import CountryReport, MultiCountryMapReport, SampleRecord
 from .utils import slugify
 
 
@@ -144,4 +144,3 @@ def generate_multi_country_map(
         total_unique_samples=len(all_samples),
         output_dir=output_dir,
     )
-

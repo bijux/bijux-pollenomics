@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..data_downloader.common import slugify
+from ..data_downloader.common import slugify as shared_slugify
 
 
 def pick_value(left: str, right: str) -> str:
@@ -12,6 +12,11 @@ def clean_text(value: str) -> str:
     """Normalize placeholder values from AADR."""
     value = value.strip()
     return "" if value in {"", ".", ".."} else value
+
+
+def slugify(value: str) -> str:
+    """Reuse the shared project slugifier for reporting paths."""
+    return shared_slugify(value)
 
 
 def escape_pipes(value: str) -> str:

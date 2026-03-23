@@ -138,6 +138,28 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Unspecified locality", readme_text)
             self.assertIn("Unspecified locality", samples_csv)
 
+    def test_generate_country_report_handles_zero_matching_samples(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "iceland"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            report = generate_country_report(root, "Iceland", output)
+
+            self.assertEqual(report.total_unique_samples, 0)
+            self.assertEqual(report.total_unique_localities, 0)
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            samples_markdown = (output / "iceland_aadr_v62.0_samples.md").read_text(encoding="utf-8")
+            self.assertIn("Unique AADR samples: `0`", readme_text)
+            self.assertIn("No latitude values available", readme_text)
+            self.assertIn("No matching localities", readme_text)
+            self.assertIn("Total samples: `0`.", samples_markdown)
+
     def test_generate_multi_country_map_writes_shared_map_with_country_toggles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
@@ -286,6 +308,31 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_archaeology_layer.json").exists())
             self.assertTrue((output / "sweden_archaeology_density.geojson").exists())
             self.assertTrue((output / "nordic_country_boundaries.geojson").exists())
+
+    def test_generate_multi_country_map_handles_empty_aadr_selection(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "north-atlantic"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            report = generate_multi_country_map(
+                version_dir=root,
+                countries=["Iceland"],
+                output_dir=output,
+                title="North Atlantic",
+                slug="north-atlantic",
+            )
+
+            self.assertEqual(report.total_unique_samples, 0)
+            map_html = (output / "north-atlantic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            self.assertIn("No visible point records are available under the current filters.", map_html)
+            self.assertIn("| Iceland | 0 |", readme_text)
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

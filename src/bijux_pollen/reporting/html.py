@@ -16,12 +16,15 @@ def render_multi_country_map_html(
     """Render an advanced standalone interactive HTML map."""
     initial_diameter_km = 20
     map_points = [feature for layer in point_layers for feature in layer["features"]]
-    latitude_values = [float(feature["latitude"]) for feature in map_points]
-    longitude_values = [float(feature["longitude"]) for feature in map_points]
-    bounds = [
-        [min(latitude_values), min(longitude_values)],
-        [max(latitude_values), max(longitude_values)],
-    ]
+    if map_points:
+        latitude_values = [float(feature["latitude"]) for feature in map_points]
+        longitude_values = [float(feature["longitude"]) for feature in map_points]
+        bounds = [
+            [min(latitude_values), min(longitude_values)],
+            [max(latitude_values), max(longitude_values)],
+        ]
+    else:
+        bounds = [[54.0, 4.0], [72.0, 35.0]]
     template = """<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1105,4 +1108,3 @@ def render_multi_country_map_html(
         .replace("__INITIAL_DIAMETER__", str(initial_diameter_km))
         .replace("__INITIAL_RADIUS__", f"{initial_diameter_km / 2:.1f}")
     )
-

@@ -123,6 +123,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.command == "report-country":
+        if bool(args.shared_map_label) != bool(args.shared_map_path):
+            parser.error("--shared-map-label and --shared-map-path must be provided together")
         version_dir = args.aadr_root / args.version
         output_dir = args.output_root / slugify(args.country)
         map_reference = None
