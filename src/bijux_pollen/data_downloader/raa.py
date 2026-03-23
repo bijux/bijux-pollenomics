@@ -1,7 +1,20 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from pathlib import Path
+
 from .common import fetch_json, fetch_text
 from .geometry import build_grid_cell_geometry, geometry_bbox, grid_cell_relevant
+from .common import write_json, write_text
+
+
+@dataclass(frozen=True)
+class RaaDataReport:
+    output_dir: Path
+    total_site_count: int
+    heritage_site_count: int
+    metadata_path: Path
+    density_path: Path
 
 
 def fetch_raa_archaeology_metadata(
@@ -127,3 +140,32 @@ def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, o
 def format_count_label(count: int) -> str:
     """Render archaeology density counts in a compact human-readable form."""
     return f"{count:,}"
+
+
+def collect_raa_data(
+    output_root: Path,
+    country_boundaries: dict[str, dict[str, object]],
+) -> RaaDataReport:
+    """Download and write the RAÄ dataset under data/raa."""
+    output_root = Path(output_root)
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+
+    metadata = fetch_raa_archaeology_metadata(country_boundaries=country_boundaries)
+    write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"])
+    write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", metadata["schema_xml"])
+    write_json(raw_dir / "fornsok_domains.json", metadata["domain_payload"])
+    metadata_path = normalized_dir / "sweden_archaeology_layer.json"
+    density_path = normalized_dir / "sweden_archaeology_density.geojson"
+    write_json(metadata_path, metadata["layer_metadata"])
+    write_json(density_path, metadata["density_geojson"])
+
+    return RaaDataReport(
+        output_dir=output_root,
+        total_site_count=metadata["layer_metadata"]["counts"]["all_published_sites"],
+        heritage_site_count=metadata["layer_metadata"]["counts"]["fornlamning"],
+        metadata_path=metadata_path,
+        density_path=density_path,
+    )

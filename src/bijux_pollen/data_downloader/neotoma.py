@@ -1,14 +1,27 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
+from datetime import date
+from pathlib import Path
 from typing import Iterable
 
-from .common import clean_optional_text, fetch_json
+from .common import clean_optional_text, fetch_json, write_json
 from .geometry import classify_country, geometry_to_representative_point, point_in_bbox
 from .models import ContextPointRecord
+from .writers import write_context_points_csv, write_context_points_geojson
 
 
 NEOTOMA_LIMIT = 400
+
+
+@dataclass(frozen=True)
+class NeotomaDataReport:
+    output_dir: Path
+    point_count: int
+    raw_path: Path
+    normalized_csv_path: Path
+    normalized_geojson_path: Path
 
 
 def fetch_neotoma_pollen_rows() -> list[dict[str, object]]:
@@ -122,3 +135,42 @@ def normalize_neotoma_rows(
         )
 
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def collect_neotoma_data(
+    output_root: Path,
+    country_boundaries: dict[str, dict[str, object]],
+    bbox: tuple[float, float, float, float],
+) -> NeotomaDataReport:
+    """Download and write the Neotoma dataset under data/neotoma."""
+    output_root = Path(output_root)
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = fetch_neotoma_pollen_rows()
+    raw_path = raw_dir / "neotoma_pollen_sites.json"
+    write_json(
+        raw_path,
+        {
+            "generated_on": str(date.today()),
+            "source": "Neotoma",
+            "endpoint": "https://api.neotomadb.org/v2.0/data/sites?datasettype=pollen",
+            "row_count": len(rows),
+            "rows": rows,
+        },
+    )
+    records = normalize_neotoma_rows(rows, bbox=bbox, country_boundaries=country_boundaries)
+    normalized_csv_path = normalized_dir / "nordic_pollen_sites.csv"
+    normalized_geojson_path = normalized_dir / "nordic_pollen_sites.geojson"
+    write_context_points_csv(normalized_csv_path, records)
+    write_context_points_geojson(normalized_geojson_path, records)
+
+    return NeotomaDataReport(
+        output_dir=output_root,
+        point_count=len(records),
+        raw_path=raw_path,
+        normalized_csv_path=normalized_csv_path,
+        normalized_geojson_path=normalized_geojson_path,
+    )

@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
-from .data_downloader import collect_context_data, download_aadr_anno_files
+from .data_downloader import AVAILABLE_SOURCES, collect_data
 from .reporting import generate_country_report, generate_multi_country_map, slugify
 
 
@@ -93,31 +93,26 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory containing normalized context datasets. Default: data",
     )
 
-    context_parser = subparsers.add_parser(
-        "collect-context-data",
-        help="Download and normalize archaeology and palaeo data into data/.",
+    collect_parser = subparsers.add_parser(
+        "collect-data",
+        help="Collect one or more tracked data sources into data/.",
     )
-    context_parser.add_argument(
+    collect_parser.add_argument(
+        "sources",
+        nargs="+",
+        choices=("all", *AVAILABLE_SOURCES),
+        help="One or more data sources to collect, or `all`.",
+    )
+    collect_parser.add_argument(
+        "--version",
+        default="v62.0",
+        help="AADR version to download when `aadr` is selected. Default: v62.0",
+    )
+    collect_parser.add_argument(
         "--output-root",
         type=Path,
         default=Path("data"),
-        help="Directory where source data should be written. Default: data",
-    )
-
-    aadr_parser = subparsers.add_parser(
-        "download-aadr-anno",
-        help="Download tracked AADR .anno inputs from the official Harvard Dataverse release.",
-    )
-    aadr_parser.add_argument(
-        "--version",
-        default="v62.0",
-        help="AADR version to download. Default: v62.0",
-    )
-    aadr_parser.add_argument(
-        "--output-root",
-        type=Path,
-        default=Path("data/aadr"),
-        help="Directory where AADR versions should be written. Default: data/aadr",
+        help="Directory where tracked data should be written. Default: data",
     )
     return parser
 
@@ -162,21 +157,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
-    if args.command == "collect-context-data":
-        report = collect_context_data(output_root=args.output_root)
+    if args.command == "collect-data":
+        report = collect_data(output_root=args.output_root, sources=args.sources, version=args.version)
         print(
-            f"Wrote context data to {report.output_root} with "
+            f"Wrote data sources {', '.join(report.collected_sources)} to {report.output_root} with "
+            f"{report.aadr_file_count} AADR .anno files, "
             f"{report.neotoma_point_count} Neotoma points, "
             f"{report.sead_point_count} SEAD points, and "
             f"{report.raa_total_site_count} Swedish archaeology records in the RAÄ layer"
-        )
-        return 0
-
-    if args.command == "download-aadr-anno":
-        report = download_aadr_anno_files(output_root=args.output_root, version=args.version)
-        print(
-            f"Wrote {len(report.downloaded_files)} AADR .anno files for {report.version} to "
-            f"{report.version_dir}"
         )
         return 0
 

@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from pathlib import Path
+
+from .common import slugify, write_json
 from .common import fetch_json
 
 
@@ -9,6 +13,13 @@ BOUNDARY_URLS = {
     "Finland": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/FIN.geo.json",
     "Denmark": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/DNK.geo.json",
 }
+
+
+@dataclass(frozen=True)
+class BoundariesDataReport:
+    output_dir: Path
+    country_names: tuple[str, ...]
+    combined_path: Path
 
 
 def fetch_country_boundaries() -> dict[str, dict[str, object]]:
@@ -36,3 +47,25 @@ def build_combined_country_boundaries(
                 }
             )
     return {"type": "FeatureCollection", "features": features}
+
+
+def collect_boundaries_data(output_root: Path) -> tuple[dict[str, dict[str, object]], BoundariesDataReport]:
+    """Download and write the Nordic boundary dataset under data/boundaries."""
+    output_root = Path(output_root)
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+
+    country_boundaries = fetch_country_boundaries()
+    for country_name, payload in country_boundaries.items():
+        write_json(raw_dir / f"{slugify(country_name)}.geojson", payload)
+
+    combined_path = normalized_dir / "nordic_country_boundaries.geojson"
+    write_json(combined_path, build_combined_country_boundaries(country_boundaries))
+
+    return country_boundaries, BoundariesDataReport(
+        output_dir=output_root,
+        country_names=tuple(country_boundaries.keys()),
+        combined_path=combined_path,
+    )

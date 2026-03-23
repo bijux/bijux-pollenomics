@@ -1,13 +1,26 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
+from datetime import date
+from pathlib import Path
 from typing import Iterable
 
-from .common import clean_optional_text, fetch_json
+from .common import clean_optional_text, fetch_json, write_json
 from .geometry import classify_country
 from .models import ContextPointRecord
+from .writers import write_context_points_csv, write_context_points_geojson
 
 
 SEAD_LIMIT = 1000
+
+
+@dataclass(frozen=True)
+class SeadDataReport:
+    output_dir: Path
+    point_count: int
+    raw_path: Path
+    normalized_csv_path: Path
+    normalized_geojson_path: Path
 
 
 def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[str, object]]:
@@ -101,3 +114,42 @@ def normalize_sead_rows(
         )
 
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def collect_sead_data(
+    output_root: Path,
+    country_boundaries: dict[str, dict[str, object]],
+    bbox: tuple[float, float, float, float],
+) -> SeadDataReport:
+    """Download and write the SEAD dataset under data/sead."""
+    output_root = Path(output_root)
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = fetch_sead_site_rows(bbox=bbox)
+    raw_path = raw_dir / "nordic_sites.json"
+    write_json(
+        raw_path,
+        {
+            "generated_on": str(date.today()),
+            "source": "SEAD",
+            "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
+            "row_count": len(rows),
+            "rows": rows,
+        },
+    )
+    records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
+    normalized_csv_path = normalized_dir / "nordic_environmental_sites.csv"
+    normalized_geojson_path = normalized_dir / "nordic_environmental_sites.geojson"
+    write_context_points_csv(normalized_csv_path, records)
+    write_context_points_geojson(normalized_geojson_path, records)
+
+    return SeadDataReport(
+        output_dir=output_root,
+        point_count=len(records),
+        raw_path=raw_path,
+        normalized_csv_path=normalized_csv_path,
+        normalized_geojson_path=normalized_geojson_path,
+    )
