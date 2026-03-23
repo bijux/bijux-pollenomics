@@ -53,14 +53,14 @@ The docs are organized so a reader can move from the visible output into the sup
 
 ```mermaid
 flowchart TD
-    Home[Home and map] --> Intro[01 Introduction]
-    Home --> GettingStarted[02 Getting Started]
-    Home --> DataGuide[03 Data Guide]
-    Home --> Reports[04 Reports]
-    DataGuide --> Architecture[05 Architecture]
+    Home[Home and map] --> Intro[Introduction]
+    Home --> GettingStarted[Getting Started]
+    Home --> DataGuide[Data Guide]
+    Home --> Reports[Reports]
+    DataGuide --> Architecture[Architecture]
     Reports --> Architecture
-    Architecture --> Development[06 Development]
-    Development --> Reference[07 Reference]
+    Architecture --> Development[Development]
+    Development --> Reference[Reference]
 ```
 
 ## Canonical Sections
