@@ -34,7 +34,7 @@ flowchart TD
     CollectAll --> SEAD[data/sead]
 ```
 
-This command is designed so that deleting `data/` and rerunning it recreates the same tracked directory model.
+This command is designed so that deleting `data/` and rerunning it recreates the same top-level directory model and the currently collected normalized outputs.
 
 ## Single-Source Rebuilds
 
@@ -44,6 +44,14 @@ PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data raa --output-ro
 ```
 
 Use source-specific runs when you are iterating on one acquisition area and do not want to refresh the entire tree.
+
+The current repository also supports:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
+PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
+PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+```
 
 ## Purpose
 

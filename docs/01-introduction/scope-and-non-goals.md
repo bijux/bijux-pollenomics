@@ -9,7 +9,7 @@ last_reviewed: 2026-03-23
 
 # Scope and Non-Goals
 
-The current scope is deliberately narrower than the scientific ambition.
+The current repository scope is deliberately narrower than the broader scientific ambition around site selection.
 
 ## In Scope Today
 
@@ -35,7 +35,7 @@ flowchart LR
     Ranking --> Fieldwork[Sampling decisions]
 ```
 
-The sequence matters. The project is intentionally building the spatial evidence base first so later ranking logic is grounded in verified inputs.
+The sequence matters. The repository is intentionally building and checking the current evidence layers first so later ranking logic can be grounded in verified inputs rather than assumptions.
 
 ## Why The Boundaries Matter
 

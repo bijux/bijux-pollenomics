@@ -9,9 +9,9 @@ last_reviewed: 2026-03-23
 
 # What bijux-pollen Does
 
-`bijux-pollen` prepares a Nordic evidence surface for choosing pollenomic sampling locations.
+`bijux-pollen` builds a Nordic evidence workspace for inspecting where currently tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
 
-Today that evidence surface combines:
+Today the checked-in workspace combines:
 
 - ancient DNA sample locations from AADR
 - Nordic pollen and paleoecology locations from Neotoma
@@ -36,23 +36,23 @@ mindmap
       map framing
 ```
 
-The repository is not just a static report dump. It is a reproducible pipeline that:
+The repository is not just a static report dump. It is a file-oriented pipeline that:
 
-1. downloads tracked source inputs
+1. collects tracked source inputs
 2. normalizes them into a common geospatial shape
 3. generates country reports
 4. generates a shared Nordic map that can filter layers by country
 
-The longer-term goal is to use those layers to identify places where pollen, archaeology, and ancient biomolecular evidence overlap closely enough to justify field sampling.
+The longer-term research goal is to use those layers as one input to later site-selection work. The repository does not currently rank sites or recommend field locations automatically.
 
 ## Why The Map Is Central
 
-The map is the fastest way to validate whether the repository is producing useful spatial structure:
+The map is the fastest way to validate whether the repository is producing interpretable spatial structure:
 
 - are the points in the right countries
 - do archaeology and pollen layers appear where expected
 - can readers filter the evidence set down to one country
-- can researchers inspect candidate areas without reading raw tables first
+- can researchers inspect the current checked-in evidence without reading raw tables first
 
 That is why the docs homepage embeds the shared map before anything else.
 

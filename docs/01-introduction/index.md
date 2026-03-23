@@ -17,7 +17,7 @@ The repository is easiest to understand when you separate five concerns:
 - normalization and acquisition logic under `src/bijux_pollen/data_downloader/`
 - AADR-driven report generation under `src/bijux_pollen/reporting.py`
 - the shared Nordic map as the primary interactive output
-- future site-selection interpretation built on top of these reproducible layers
+- later spatial interpretation built on top of these reproducible layers
 
 ```mermaid
 flowchart TD
@@ -31,7 +31,7 @@ flowchart TD
 
 The introduction pages answer four foundational questions:
 
-- what the project is trying to achieve scientifically
+- what the project is trying to support scientifically
 - what the repository produces today
 - which boundaries are intentional
 - why the map is the primary experience but not the only durable output

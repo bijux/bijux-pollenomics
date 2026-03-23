@@ -9,7 +9,7 @@ last_reviewed: 2026-03-23
 
 # Map-First Product Model
 
-The documentation homepage is map-first because the shared Nordic map is the clearest integration surface in the repository.
+The documentation homepage is map-first because the shared Nordic map is the most direct way to inspect the repositoryâ€™s combined outputs.
 
 ```mermaid
 flowchart TD
@@ -36,7 +36,7 @@ Starting with code would force most readers to reverse-engineer the repositoryâ€
 - what evidence is being combined
 - what geography is being covered
 - how filtering works
-- what kind of output the repository exists to produce
+- what kind of output the repository currently produces
 
 ## Why Not Redirect Away From Documentation Entirely
 

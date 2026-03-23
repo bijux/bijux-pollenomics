@@ -25,7 +25,7 @@ make install
 
 ## `make data-prep` is slow
 
-This is expected when RAÄ density is being rebuilt, because the current workflow calculates visible Swedish archaeology coverage from repeated RAÄ WFS count queries.
+This can be expected when the RAÄ density layer is being rebuilt, because the current collector issues repeated RAÄ WFS count queries across Swedish grid cells.
 
 ## `make docs` fails
 
@@ -42,6 +42,14 @@ Check:
 - whether `make data-prep` completed successfully
 - whether `report-multi-country-map` ran after the last data refresh
 - whether the copied files exist under `docs/report/nordic/`
+
+## Docs pages or links look wrong
+
+Check:
+
+- whether `make docs` passes in strict mode
+- whether a page was moved without updating `mkdocs.yml`
+- whether a link still points to a retired duplicate doc instead of one of the seven canonical sections
 
 ## Purpose
 

@@ -9,13 +9,20 @@ last_reviewed: 2026-03-23
 
 # Generate Reports and Map Outputs
 
-Once the data tree exists, generate the interactive map and the country reports.
+Once the data tree exists, generate the shared map and any country reports you want to publish or inspect.
 
 ## Shared Nordic Map
 
 ```bash
 PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
 ```
+
+That command reads:
+
+- AADR `.anno` files from `data/aadr/v62.0/`
+- normalized context layers from `data/boundaries/`, `data/neotoma/`, `data/sead/`, and `data/raa/`
+
+and writes the checked-in Nordic bundle under `docs/report/nordic/`.
 
 ## Country Reports
 
@@ -25,6 +32,8 @@ PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli report-country Norway --vers
 PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli report-country Finland --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
+
+Each `report-country` command writes one country bundle under `docs/report/<country>/`.
 
 ## Output Model
 
@@ -39,4 +48,4 @@ flowchart LR
 
 ## Purpose
 
-This page gives the exact report-generation commands used for the checked-in outputs.
+This page gives the report-generation commands used for the current checked-in outputs.
