@@ -27,7 +27,7 @@ The current collector:
 
 ## Why Density Instead Of Every Point
 
-RAÄ currently contributes national-scale Swedish archaeology context. The checked-in map uses a density layer rather than individual point markers because the source count is large enough that direct marker rendering would be heavy and visually noisy in a static HTML artifact.
+RAÄ currently contributes national-scale Swedish archaeology context. The checked-in map uses a density layer rather than individual point markers because the source count is large enough that direct marker rendering would be heavy and visually noisy in the current static HTML map.
 
 ```mermaid
 flowchart LR
@@ -38,7 +38,7 @@ flowchart LR
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
 ```
 
 ## Scope Boundary

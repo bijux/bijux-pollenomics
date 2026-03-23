@@ -11,7 +11,7 @@ last_reviewed: 2026-03-23
 
 This is the canonical documentation home for `bijux-pollen`.
 
-The first page leads with the checked-in Nordic map because the map is the most compact way to inspect the repository’s current outputs: AADR sample points, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
+The first page leads with the checked-in Nordic map because the map is the shortest way to inspect the repository’s current outputs: AADR sample points, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
 
 The current map groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
 

@@ -811,7 +811,7 @@ def render_multi_country_map_markdown(
     artifact_block = artifact_lines if artifact_lines else ""
     return f"""# {title} Research Map
 
-This shared interactive map was generated on `{generated_on}` and combines AADR `{version}` with the checked-in contextual datasets that are available in the current repository build.
+This shared interactive map was generated on `{generated_on}` and combines AADR `{version}` with the contextual datasets that are present in the repository at generation time.
 
 ## Included Countries
 
