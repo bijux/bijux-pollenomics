@@ -1,0 +1,590 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.632454,
+          68.383893
+        ]
+      },
+      "properties": {
+        "genetic_id": "SD60_297.HO",
+        "master_id": "SD60_297",
+        "group_id": "Saami_WGA.HO",
+        "locality": "Enonteki\u00f6",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "DA237.SG",
+        "master_id": "DA237",
+        "group_id": "Finland_Saami_IA.SG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "SikoraNature2019",
+        "year_first_published": "2019",
+        "full_date": "436-644 calCE (1508\u00b138 BP, UBA-32346)",
+        "date_mean_bp": "1388",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK1963.AG",
+        "master_id": "JK1963",
+        "group_id": "Finland_Levanluhta.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "U",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK1967.AG",
+        "master_id": "JK1967",
+        "group_id": "Finland_Levanluhta_lc.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "U",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK1968.AG",
+        "master_id": "JK1968",
+        "group_id": "Finland_Levanluhta.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK1970.AG",
+        "master_id": "JK1970",
+        "group_id": "Finland_Levanluhta.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK2065.AG",
+        "master_id": "JK2065",
+        "group_id": "Finland_Levanluhta_B.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK2066.AG",
+        "master_id": "JK2066",
+        "group_id": "Finland_Levanluhta_B_lc.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "U",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.410146,
+          62.948744
+        ]
+      },
+      "properties": {
+        "genetic_id": "JK2067.AG",
+        "master_id": "JK2067",
+        "group_id": "Finland_Levanluhta_B_lc.AG",
+        "locality": "Levanluhta (Isokyro)",
+        "political_entity": "Finland",
+        "publication": "LamnidisNatureCommunications2018",
+        "year_first_published": "2018",
+        "full_date": "300-800 CE",
+        "date_mean_bp": "1400",
+        "data_type": "1240k",
+        "molecular_sex": "U",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00171.HO",
+        "master_id": "HG00171",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "F",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00173.HO",
+        "master_id": "HG00173",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "F",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00174.HO",
+        "master_id": "HG00174",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "F",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "S_Finnish-1.DG",
+        "master_id": "HG00174",
+        "group_id": "Finnish.DG",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "MallickNature2016",
+        "year_first_published": "2016",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "Shotgun.diploid",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00181.HO",
+        "master_id": "HG00181",
+        "group_id": "FIN_o.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00182.HO",
+        "master_id": "HG00182",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00183.HO",
+        "master_id": "HG00183",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00190.HO",
+        "master_id": "HG00190",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "S_Finnish-2.DG",
+        "master_id": "HG00190",
+        "group_id": "Finnish.DG",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "MallickNature2016",
+        "year_first_published": "2016",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "Shotgun.diploid",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "HG00266.HO",
+        "master_id": "HG00266",
+        "group_id": "Finnish.HO",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "LazaridisNature2014",
+        "year_first_published": "2014",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "F",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.9,
+          60.2
+        ]
+      },
+      "properties": {
+        "genetic_id": "S_Finnish-3.DG",
+        "master_id": "S_Finnish-3",
+        "group_id": "Finnish_o.DG",
+        "locality": "Unspecified locality",
+        "political_entity": "Finland",
+        "publication": "MallickNature2016",
+        "year_first_published": "2016",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "Shotgun.diploid",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.03,
+          69.91
+        ]
+      },
+      "properties": {
+        "genetic_id": "S_Saami-1.DG",
+        "master_id": "S_Saami-1",
+        "group_id": "Saami.DG",
+        "locality": "Utsjoki",
+        "political_entity": "Finland",
+        "publication": "MallickNature2016",
+        "year_first_published": "2016",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "Shotgun.diploid",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.03,
+          69.91
+        ]
+      },
+      "properties": {
+        "genetic_id": "S_Saami-2.DG",
+        "master_id": "S_Saami-2",
+        "group_id": "Saami.DG",
+        "locality": "Utsjoki",
+        "political_entity": "Finland",
+        "publication": "MallickNature2016",
+        "year_first_published": "2016",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "data_type": "Shotgun.diploid",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    }
+  ]
+}
