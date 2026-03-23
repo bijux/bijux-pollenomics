@@ -12,7 +12,7 @@ def build_parser() -> argparse.ArgumentParser:
     """Build the command-line interface."""
     parser = argparse.ArgumentParser(
         prog="bijux-pollen-aadr",
-        description="Generate country-level AADR reports from local anno files.",
+        description="Generate Nordic country reports and shared research maps from tracked data sources.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -51,7 +51,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     multi_map_parser = subparsers.add_parser(
         "report-multi-country-map",
-        help="Build one interactive map for multiple countries with country toggles.",
+        help="Build one interactive research map for multiple countries with country toggles.",
     )
     multi_map_parser.add_argument(
         "countries",
@@ -152,7 +152,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             context_root=args.context_root,
         )
         print(
-            f"Wrote {report.title} AADR {report.version} map with "
+            f"Wrote {report.title} research map with "
             f"{report.total_unique_samples} unique samples to {output_dir}"
         )
         return 0
