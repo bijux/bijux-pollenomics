@@ -1,6 +1,8 @@
 # AADR Reports
 
-This directory stores country-level AADR report bundles together with one shared Nordic interactive map. The shared map includes AADR aDNA points plus external context layers from Neotoma, SEAD, Nordic country boundaries, and RAÄ archaeology density.
+This directory stores country-level AADR report bundles together with one shared Nordic interactive map. The shared map includes AADR aDNA points plus context layers from Neotoma, SEAD, Nordic country boundaries, and RAÄ archaeology density.
+
+The data acquisition model behind these reports is documented in [`docs/data/README.md`](../data/README.md).
 
 ## Validation
 
@@ -26,27 +28,35 @@ Each command writes one complete output bundle into `docs/report/<country-slug>/
 - `*_samples.geojson`: map-ready point layer
 - `*_samples.md`: full markdown inventory
 
-Collect the external context datasets into `data/external/` with:
+Download the tracked AADR `.anno` inputs with:
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data
+PYTHONPATH=src python3 -m bijux_pollen.cli download-aadr-anno --version v62.0 --output-root data/aadr
 ```
 
-That command writes:
+Collect the archaeology, pollen, and boundary context datasets into `data/` with:
 
-- `data/external/neotoma/raw/`: raw Neotoma pollen response snapshot
-- `data/external/neotoma/normalized/`: Nordic pollen CSV and GeoJSON
-- `data/external/sead/raw/`: raw SEAD site snapshot
-- `data/external/sead/normalized/`: Nordic SEAD site CSV and GeoJSON
-- `data/external/boundaries/raw/`: raw Nordic country boundaries
-- `data/external/boundaries/normalized/`: combined Nordic boundary GeoJSON
-- `data/external/raa/raw/`: RAÄ capabilities, schema, and Fornsök domain metadata
-- `data/external/raa/normalized/`: Swedish archaeology layer metadata plus archaeology-density GeoJSON
+```bash
+PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data --output-root data
+```
+
+Those commands write:
+
+- `data/aadr/v62.0/1240k/v62.0_1240k_public.anno`
+- `data/aadr/v62.0/ho/v62.0_HO_public.anno`
+- `data/neotoma/raw/`: raw Neotoma pollen response snapshot
+- `data/neotoma/normalized/`: Nordic pollen CSV and GeoJSON
+- `data/sead/raw/`: raw SEAD site snapshot
+- `data/sead/normalized/`: Nordic SEAD site CSV and GeoJSON
+- `data/boundaries/raw/`: raw Nordic country boundaries
+- `data/boundaries/normalized/`: combined Nordic boundary GeoJSON
+- `data/raa/raw/`: RAÄ capabilities, schema, and Fornsök domain metadata
+- `data/raa/normalized/`: Swedish archaeology layer metadata plus archaeology-density GeoJSON
 
 Generate one shared interactive map for several countries with:
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli report-multi-country-map <COUNTRY_NAME> <COUNTRY_NAME> ... --version v62.0 --name <MAP_SLUG> --title "<MAP_TITLE>" --external-root data/external
+PYTHONPATH=src python3 -m bijux_pollen.cli report-multi-country-map <COUNTRY_NAME> <COUNTRY_NAME> ... --version v62.0 --name <MAP_SLUG> --title "<MAP_TITLE>" --context-root data
 ```
 
 That command writes one shared bundle into `docs/report/<map-slug>/`:
@@ -63,8 +73,9 @@ That command writes one shared bundle into `docs/report/<map-slug>/`:
 ## Commands For Published Reports
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data
-PYTHONPATH=src python3 -m bijux_pollen.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --external-root data/external
+PYTHONPATH=src python3 -m bijux_pollen.cli download-aadr-anno --version v62.0 --output-root data/aadr
+PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data --output-root data
+PYTHONPATH=src python3 -m bijux_pollen.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Norway --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Finland --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
