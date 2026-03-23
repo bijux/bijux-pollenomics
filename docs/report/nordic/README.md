@@ -15,6 +15,7 @@ This shared interactive map was generated on `2026-03-23` and combines AADR `v62
 
 - Interactive map: [`nordic_aadr_v62.0_map.html`](./nordic_aadr_v62.0_map.html)
 - Combined GeoJSON: [`nordic_aadr_v62.0_samples.geojson`](./nordic_aadr_v62.0_samples.geojson)
+- Machine-readable summary: [`nordic_aadr_v62.0_summary.json`](./nordic_aadr_v62.0_summary.json)
 - Neotoma pollen GeoJSON: [`nordic_pollen_sites.geojson`](./nordic_pollen_sites.geojson)
 - SEAD site GeoJSON: [`nordic_environmental_sites.geojson`](./nordic_environmental_sites.geojson)
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)

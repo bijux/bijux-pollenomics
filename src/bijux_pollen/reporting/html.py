@@ -12,6 +12,7 @@ def render_multi_country_map_html(
     countries: tuple[str, ...],
     point_layers: list[dict[str, object]],
     polygon_layers: list[dict[str, object]],
+    asset_base_path: str,
 ) -> str:
     """Render an advanced standalone interactive HTML map."""
     initial_diameter_km = 20
@@ -31,12 +32,9 @@ def render_multi_country_map_html(
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>__TITLE__ Research Map</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="__ASSET_BASE_PATH__/leaflet/leaflet.css">
+    <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.Default.css">
     <style>
       :root {
         --ink: #14213d;
@@ -60,7 +58,7 @@ def render_multi_country_map_html(
           radial-gradient(circle at right center, rgba(180, 83, 9, 0.12), transparent 22%),
           linear-gradient(180deg, #f8f4ee 0%, #efe7dc 100%);
         color: var(--ink);
-        font-family: "IBM Plex Sans", sans-serif;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       }
       body { min-height: 100vh; }
       .app-shell { position: relative; min-height: 100vh; }
@@ -105,7 +103,7 @@ def render_multi_country_map_html(
       }
       h1 {
         margin: 16px 0 10px;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "Avenir Next", "Segoe UI Semibold", "Helvetica Neue", Arial, sans-serif;
         font-size: clamp(32px, 4vw, 44px);
         line-height: 1;
       }
@@ -632,8 +630,8 @@ def render_multi_country_map_html(
         </div>
       </main>
     </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="__ASSET_BASE_PATH__/leaflet/leaflet.js"></script>
+    <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
     <script>
       const COUNTRIES = __COUNTRIES_JSON__;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
@@ -1105,6 +1103,7 @@ def render_multi_country_map_html(
         .replace("__POINT_LAYERS_JSON__", json.dumps(point_layers, ensure_ascii=False))
         .replace("__POLYGON_LAYERS_JSON__", json.dumps(polygon_layers, ensure_ascii=False))
         .replace("__BOUNDS_JSON__", json.dumps(bounds))
+        .replace("__ASSET_BASE_PATH__", asset_base_path)
         .replace("__INITIAL_DIAMETER__", str(initial_diameter_km))
         .replace("__INITIAL_RADIUS__", f"{initial_diameter_km / 2:.1f}")
     )

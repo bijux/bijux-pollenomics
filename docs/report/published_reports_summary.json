@@ -1,0 +1,18 @@
+{
+  "version": "v62.0",
+  "generated_on": "2026-03-23",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "shared_map_dir": "docs/report/nordic",
+  "country_output_dirs": [
+    "docs/report/sweden",
+    "docs/report/norway",
+    "docs/report/finland",
+    "docs/report/denmark"
+  ],
+  "summary_path": "docs/report/published_reports_summary.json"
+}

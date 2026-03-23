@@ -6,7 +6,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollen.reporting import generate_country_report, generate_multi_country_map, load_country_samples
+from bijux_pollen.reporting import (
+    generate_country_report,
+    generate_multi_country_map,
+    generate_published_reports,
+    load_country_samples,
+)
 
 
 HEADER = "\t".join(
@@ -85,6 +90,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_aadr_v62.0_localities.csv").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.geojson").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.md").exists())
+            self.assertTrue((output / "sweden_aadr_v62.0_summary.json").exists())
             self.assertFalse((output / "sweden_aadr_v62.0_map.html").exists())
 
             with (output / "sweden_aadr_v62.0_samples.csv").open(newline="", encoding="utf-8") as handle:
@@ -158,6 +164,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Unique AADR samples: `0`", readme_text)
             self.assertIn("No latitude values available", readme_text)
             self.assertIn("No matching localities", readme_text)
+            self.assertIn("Machine-readable summary", readme_text)
             self.assertIn("Total samples: `0`.", samples_markdown)
 
     def test_generate_multi_country_map_writes_shared_map_with_country_toggles(self) -> None:
@@ -190,6 +197,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "README.md").exists())
             self.assertTrue((output / "nordic_aadr_v62.0_map.html").exists())
             self.assertTrue((output / "nordic_aadr_v62.0_samples.geojson").exists())
+            self.assertTrue((output / "nordic_aadr_v62.0_summary.json").exists())
+            self.assertTrue((output / "_map_assets" / "leaflet" / "leaflet.js").exists())
 
             map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
@@ -201,6 +210,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("AADR release", map_html)
             self.assertIn("Restore defaults", map_html)
             self.assertNotIn("<title>Nordic Countries AADR v62.0 Map</title>", map_html)
+            self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
+            self.assertNotIn("unpkg.com/leaflet", map_html)
 
             geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
@@ -301,6 +312,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Neotoma pollen sites", map_html)
             self.assertIn("SEAD sites", map_html)
             self.assertIn("RAÄ archaeology density", map_html)
+            self.assertIn("Machine-readable summary", readme_text)
             self.assertIn("nordic_pollen_sites.geojson", readme_text)
             self.assertIn("# Nordic Countries Research Map", readme_text)
             self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
@@ -333,6 +345,42 @@ class CountryReportTests(unittest.TestCase):
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("No visible point records are available under the current filters.", map_html)
             self.assertIn("| Iceland | 0 |", readme_text)
+
+    def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                    "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tAG\tM",
+                ],
+            )
+            self.write_geojson(
+                context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+                layer_key="neotoma-pollen",
+                layer_label="Neotoma pollen sites",
+                category="Pollen",
+            )
+
+            report = generate_published_reports(
+                version_dir=root,
+                countries=["Sweden", "Norway"],
+                output_root=output,
+                title="Nordic Countries",
+                slug="nordic",
+                context_root=context_root,
+            )
+
+            self.assertEqual(report.countries, ("Sweden", "Norway"))
+            self.assertTrue((output / "published_reports_summary.json").exists())
+            self.assertTrue((output / "nordic" / "nordic_aadr_v62.0_map.html").exists())
+            self.assertTrue((output / "sweden" / "README.md").exists())
+            self.assertTrue((output / "norway" / "README.md").exists())
+            sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
+            self.assertIn("../nordic/nordic_aadr_v62.0_map.html", sweden_readme)
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

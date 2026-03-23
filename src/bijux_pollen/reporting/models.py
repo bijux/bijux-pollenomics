@@ -61,5 +61,15 @@ class MultiCountryMapReport:
     output_dir: Path
 
 
+@dataclass(frozen=True)
+class PublishedReportsReport:
+    version: str
+    generated_on: str
+    countries: tuple[str, ...]
+    shared_map_dir: Path
+    country_output_dirs: tuple[Path, ...]
+    summary_path: Path
+
+
 class SchemaError(ValueError):
     """Raised when an AADR anno file does not contain expected columns."""

@@ -10,6 +10,7 @@ def render_summary_markdown(
     localities_csv_name: str,
     geojson_name: str,
     sample_markdown_name: str,
+    summary_json_name: str,
     map_reference: tuple[str, str] | None,
 ) -> str:
     """Render the country summary README."""
@@ -65,6 +66,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 {map_line}- Full sample inventory: [`{samples_csv_name}`](./{samples_csv_name})
 - Locality summary: [`{localities_csv_name}`](./{localities_csv_name})
 - Map-ready GeoJSON: [`{geojson_name}`](./{geojson_name})
+- Machine-readable summary: [`{summary_json_name}`](./{summary_json_name})
 - Full markdown sample table: [`{sample_markdown_name}`](./{sample_markdown_name})
 
 ## Top Localities
@@ -116,6 +118,7 @@ def render_multi_country_map_markdown(
     country_sample_counts: dict[str, int],
     map_html_name: str,
     geojson_name: str,
+    summary_json_name: str,
     extra_artifacts: list[tuple[str, str]],
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
@@ -142,5 +145,6 @@ This shared interactive map was generated on `{generated_on}` and combines AADR 
 
 - Interactive map: [`{map_html_name}`](./{map_html_name})
 - Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
+- Machine-readable summary: [`{summary_json_name}`](./{summary_json_name})
 {artifact_block}
 """

@@ -26,7 +26,7 @@ The shared Nordic map is the main interactive product surface in this repository
 - the AADR layer is tied to release `v62.0` in the current checked-in artifact
 - the RAÄ archaeology layer is Sweden-only in the current implementation
 - the map is a static HTML artifact, not a backed web application
-- the browser-facing map currently loads Leaflet assets and basemap tiles from external services, so an offline browser session will not render the full map experience
+- the map bundle now carries its own Leaflet and marker-cluster assets locally, but basemap tiles still come from external services, so a fully offline browser session will not render the full map experience
 
 ## Layer Model
 
@@ -60,6 +60,7 @@ The map now treats AADR as one source inside a broader multi-evidence view.
 ## Current Published File
 
 - `docs/report/nordic/nordic_aadr_v62.0_map.html`
+- `docs/report/nordic/nordic_aadr_v62.0_summary.json`
 
 ## Purpose
 

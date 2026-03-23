@@ -1,0 +1,20 @@
+{
+  "title": "Nordic Countries",
+  "slug": "nordic",
+  "version": "v62.0",
+  "generated_on": "2026-03-23",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "country_sample_counts": {
+    "Sweden": 519,
+    "Norway": 58,
+    "Finland": 22,
+    "Denmark": 300
+  },
+  "total_unique_samples": 899,
+  "output_dir": "docs/report/nordic"
+}

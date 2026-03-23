@@ -2,10 +2,14 @@ from __future__ import annotations
 
 import csv
 import json
+import shutil
 from pathlib import Path
 from typing import Iterable
 
 from .models import LocalitySummary, SampleRecord
+
+
+MAP_ASSET_SOURCE_DIR = Path(__file__).resolve().parents[3] / "docs" / "assets" / "vendor" / "map"
 
 
 def write_samples_csv(path: Path, samples: Iterable[SampleRecord]) -> None:
@@ -110,3 +114,16 @@ def build_samples_geojson(samples: Iterable[SampleRecord]) -> dict[str, object]:
         )
     return {"type": "FeatureCollection", "features": features}
 
+
+def write_summary_json(path: Path, payload: dict[str, object]) -> None:
+    """Write a machine-readable summary alongside generated report artifacts."""
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def copy_map_assets(output_dir: Path) -> Path:
+    """Copy bundled map UI assets into a report bundle directory."""
+    destination = Path(output_dir) / "_map_assets"
+    if destination.exists():
+        shutil.rmtree(destination)
+    shutil.copytree(MAP_ASSET_SOURCE_DIR, destination)
+    return destination

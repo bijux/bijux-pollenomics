@@ -17,6 +17,8 @@ The currently checked-in shared bundle is `docs/report/nordic/`. It includes:
 
 - a combined sample GeoJSON
 - the interactive HTML map
+- a machine-readable summary JSON
+- bundled map UI assets under `_map_assets/`
 - copied Neotoma, SEAD, boundaries, and RAÄ map assets
 - a short bundle README
 
@@ -32,6 +34,7 @@ The currently checked-in country bundles are:
 Each country bundle includes:
 
 - a summary README
+- a machine-readable summary JSON
 - sample-level CSV
 - locality-level CSV
 - sample GeoJSON

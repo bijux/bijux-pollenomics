@@ -25,6 +25,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 - Full sample inventory: [`finland_aadr_v62.0_samples.csv`](./finland_aadr_v62.0_samples.csv)
 - Locality summary: [`finland_aadr_v62.0_localities.csv`](./finland_aadr_v62.0_localities.csv)
 - Map-ready GeoJSON: [`finland_aadr_v62.0_samples.geojson`](./finland_aadr_v62.0_samples.geojson)
+- Machine-readable summary: [`finland_aadr_v62.0_summary.json`](./finland_aadr_v62.0_summary.json)
 - Full markdown sample table: [`finland_aadr_v62.0_samples.md`](./finland_aadr_v62.0_samples.md)
 
 ## Top Localities

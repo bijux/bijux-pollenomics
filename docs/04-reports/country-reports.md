@@ -21,6 +21,7 @@ Country reports summarize AADR samples for one political entity.
 ## What Each Country Bundle Contains
 
 - `README.md`
+- `*_summary.json`
 - `*_samples.csv`
 - `*_localities.csv`
 - `*_samples.geojson`

@@ -5,7 +5,10 @@ from pathlib import Path
 from typing import Sequence
 
 from .data_downloader import AVAILABLE_SOURCES, collect_data
-from .reporting import generate_country_report, generate_multi_country_map, slugify
+from .reporting import generate_country_report, generate_multi_country_map, generate_published_reports, slugify
+
+
+PUBLISHED_COUNTRIES = ("Sweden", "Norway", "Finland", "Denmark")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -93,6 +96,50 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory containing normalized context datasets. Default: data",
     )
 
+    publish_parser = subparsers.add_parser(
+        "publish-reports",
+        help="Regenerate the current published shared map and country report bundles.",
+    )
+    publish_parser.add_argument(
+        "--countries",
+        nargs="+",
+        default=PUBLISHED_COUNTRIES,
+        help="Countries to publish. Default: Sweden Norway Finland Denmark",
+    )
+    publish_parser.add_argument(
+        "--name",
+        default="nordic",
+        help="Stable shared-map output directory and file slug. Default: nordic",
+    )
+    publish_parser.add_argument(
+        "--title",
+        default="Nordic Countries",
+        help="Human-readable shared map title. Default: Nordic Countries",
+    )
+    publish_parser.add_argument(
+        "--aadr-root",
+        type=Path,
+        default=Path("data/aadr"),
+        help="Root directory containing AADR versions. Default: data/aadr",
+    )
+    publish_parser.add_argument(
+        "--version",
+        default="v62.0",
+        help="AADR version directory under the AADR root. Default: v62.0",
+    )
+    publish_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("docs/report"),
+        help="Directory where published report bundles should be written. Default: docs/report",
+    )
+    publish_parser.add_argument(
+        "--context-root",
+        type=Path,
+        default=Path("data"),
+        help="Directory containing normalized context datasets. Default: data",
+    )
+
     collect_parser = subparsers.add_parser(
         "collect-data",
         help="Collect one or more tracked data sources into data/.",
@@ -167,6 +214,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             f"{report.neotoma_point_count} Neotoma points, "
             f"{report.sead_point_count} SEAD points, and "
             f"{report.raa_total_site_count} Swedish archaeology records in the RAÄ layer"
+        )
+        return 0
+
+    if args.command == "publish-reports":
+        version_dir = args.aadr_root / args.version
+        report = generate_published_reports(
+            version_dir=version_dir,
+            countries=args.countries,
+            output_root=args.output_root,
+            title=args.title,
+            slug=args.name,
+            context_root=args.context_root,
+        )
+        print(
+            f"Wrote published report bundles for {', '.join(report.countries)} to {args.output_root} "
+            f"with shared map under {report.shared_map_dir.name}"
         )
         return 0
 

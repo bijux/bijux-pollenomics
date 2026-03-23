@@ -1,0 +1,12 @@
+{
+  "country": "Denmark",
+  "version": "v62.0",
+  "generated_on": "2026-03-23",
+  "total_unique_samples": 300,
+  "total_unique_localities": 119,
+  "dataset_row_counts": {
+    "1240k": 300,
+    "ho": 300
+  },
+  "output_dir": "docs/report/denmark"
+}
