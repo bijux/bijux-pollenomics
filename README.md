@@ -35,8 +35,14 @@ data
 └── sead
 ```
 
-Detailed source logic and acquisition commands are documented in [`docs/data/README.md`](docs/data/README.md).
+Detailed source logic and acquisition commands are documented in the canonical MkDocs data guide:
+
+- [`docs/03-data-guide/index.md`](docs/03-data-guide/index.md)
+- [`docs/07-reference/data-layout.md`](docs/07-reference/data-layout.md)
 
 ## Reports
 
-The generated report and map workflow is documented in [`docs/report/README.md`](docs/report/README.md).
+The generated report and map workflow is documented in the canonical MkDocs reports section:
+
+- [`docs/04-reports/index.md`](docs/04-reports/index.md)
+- [`docs/07-reference/report-layout.md`](docs/07-reference/report-layout.md)
