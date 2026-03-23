@@ -31,16 +31,16 @@ Each command writes one complete output bundle into `docs/report/<country-slug>/
 Download the tracked AADR `.anno` inputs with:
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli download-aadr-anno --version v62.0 --output-root data/aadr
+PYTHONPATH=src python3 -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
 ```
 
-Collect the archaeology, pollen, and boundary context datasets into `data/` with:
+Collect the full tracked data tree with:
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data --output-root data
+PYTHONPATH=src python3 -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
 ```
 
-Those commands write:
+These commands write:
 
 - `data/aadr/v62.0/1240k/v62.0_1240k_public.anno`
 - `data/aadr/v62.0/ho/v62.0_HO_public.anno`
@@ -73,8 +73,7 @@ That command writes one shared bundle into `docs/report/<map-slug>/`:
 ## Commands For Published Reports
 
 ```bash
-PYTHONPATH=src python3 -m bijux_pollen.cli download-aadr-anno --version v62.0 --output-root data/aadr
-PYTHONPATH=src python3 -m bijux_pollen.cli collect-context-data --output-root data
+PYTHONPATH=src python3 -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
 PYTHONPATH=src python3 -m bijux_pollen.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Norway --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
