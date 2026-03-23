@@ -21,6 +21,7 @@ The report deduplicates samples by `genetic_id` across datasets. In AADR `v62.0`
 
 ## Output Files
 
+- Interactive map: [`sweden_aadr_v62.0_map.html`](./sweden_aadr_v62.0_map.html)
 - Full sample inventory: [`sweden_aadr_v62.0_samples.csv`](./sweden_aadr_v62.0_samples.csv)
 - Locality summary: [`sweden_aadr_v62.0_localities.csv`](./sweden_aadr_v62.0_localities.csv)
 - Map-ready GeoJSON: [`sweden_aadr_v62.0_samples.geojson`](./sweden_aadr_v62.0_samples.geojson)
