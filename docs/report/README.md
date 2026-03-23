@@ -12,6 +12,15 @@ Run the automated checks from the repository root:
 PYTHONPATH=src python3 -m unittest discover -s tests -v
 ```
 
+Or use the local `.venv` workflow:
+
+```bash
+make lint
+make test
+make data-prep
+make build
+```
+
 ## Command Pattern
 
 Generate any country report with:

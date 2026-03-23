@@ -123,6 +123,24 @@ PYTHONPATH=src python3 -m bijux_pollen.cli report-country Finland --version v62.
 PYTHONPATH=src python3 -m bijux_pollen.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
 
+## Makefile Workflow
+
+The repository includes a local `.venv` workflow in [`Makefile`](/Users/bijan/bijux/bijux-pollen/Makefile):
+
+```bash
+make install
+make lint
+make test
+make data-prep
+make build
+```
+
+Notes:
+
+- `make install` creates `.venv/` with `python3.11` and installs the project with dev tools.
+- `make data-prep` runs `collect-data all --version v62.0 --output-root data`, so deleting `data/` and rerunning it rebuilds the tracked data tree.
+- `make clean` removes the local virtualenv plus build and cache artifacts, but does not delete the tracked `data/` directory.
+
 ## Design Logic
 
 The data model is organized around how the project will answer spatial questions later:
