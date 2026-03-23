@@ -170,11 +170,12 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "nordic_aadr_v62.0_samples.geojson").exists())
 
             map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
-            self.assertIn("Country Selection", map_html)
+            self.assertIn("Country Filters", map_html)
             self.assertIn("country-checkbox", map_html)
             self.assertIn("Sweden", map_html)
             self.assertIn("Norway", map_html)
             self.assertIn("Finland", map_html)
+            self.assertIn("markerClusterGroup", map_html)
 
             geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
@@ -205,16 +206,54 @@ class CountryReportTests(unittest.TestCase):
             )
             archaeology_metadata = {
                 "layer_key": "raa-archaeology",
-                "layer_label": "RAÄ archaeology",
+                "layer_label": "RAÄ archaeology density",
                 "country": "Sweden",
-                "wms_url": "https://karta.raa.se/geo/arkreg_v1.0/wms",
-                "wms_layers": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
-                "wms_format": "image/png",
                 "counts": {"all_published_sites": 100},
             }
             self.write_json(
+                external_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[16.0, 58.0], [19.0, 58.0], [19.0, 60.0], [16.0, 60.0], [16.0, 58.0]]],
+                            },
+                            "properties": {
+                                "country": "Sweden",
+                                "name": "Sweden",
+                                "layer_key": "country-boundaries",
+                                "layer_label": "Country boundaries",
+                            },
+                        }
+                    ],
+                },
+            )
+            self.write_json(
                 external_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
                 archaeology_metadata,
+            )
+            self.write_json(
+                external_root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[16.0, 58.0], [17.0, 58.0], [17.0, 59.0], [16.0, 59.0], [16.0, 58.0]]],
+                            },
+                            "properties": {
+                                "country": "Sweden",
+                                "count": 5,
+                                "count_label": "5",
+                            },
+                        }
+                    ],
+                },
             )
 
             generate_multi_country_map(
@@ -228,14 +267,18 @@ class CountryReportTests(unittest.TestCase):
 
             map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
-            self.assertIn("Research Layers", map_html)
+            self.assertIn("Country Filters", map_html)
+            self.assertIn("Search Visible Records", map_html)
+            self.assertIn("Country boundaries", map_html)
             self.assertIn("Neotoma pollen sites", map_html)
             self.assertIn("SEAD sites", map_html)
-            self.assertIn("RAÄ archaeology", map_html)
+            self.assertIn("RAÄ archaeology density", map_html)
             self.assertIn("nordic_pollen_sites.geojson", readme_text)
             self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
             self.assertTrue((output / "nordic_environmental_sites.geojson").exists())
             self.assertTrue((output / "sweden_archaeology_layer.json").exists())
+            self.assertTrue((output / "sweden_archaeology_density.geojson").exists())
+            self.assertTrue((output / "nordic_country_boundaries.geojson").exists())
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -253,6 +296,7 @@ class CountryReportTests(unittest.TestCase):
                         "layer_key": layer_key,
                         "layer_label": layer_label,
                         "category": category,
+                        "country": "Sweden",
                         "name": f"{layer_label} Record",
                         "subtitle": f"{layer_label} subtitle",
                         "description": "",

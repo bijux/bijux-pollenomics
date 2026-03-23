@@ -161,7 +161,7 @@ def generate_multi_country_map(
     map_geojson = build_samples_geojson(all_samples)
     map_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
 
-    point_layers, wms_layers, extra_artifacts = build_context_layers(
+    point_layers, polygon_layers, extra_artifacts = build_context_layers(
         samples=all_samples,
         output_dir=output_dir,
         external_root=external_root,
@@ -173,7 +173,7 @@ def generate_multi_country_map(
             generated_on=generated_on,
             countries=normalized_countries,
             point_layers=point_layers,
-            wms_layers=wms_layers,
+            polygon_layers=polygon_layers,
         ),
         encoding="utf-8",
     )
@@ -559,11 +559,11 @@ def build_context_layers(
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     point_layers = [build_aadr_point_layer(samples)]
-    wms_layers: list[dict[str, object]] = []
+    polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
 
     if external_root is None:
-        return point_layers, wms_layers, extra_artifacts
+        return point_layers, polygon_layers, extra_artifacts
 
     external_root = Path(external_root)
     point_sources = [
@@ -579,15 +579,28 @@ def build_context_layers(
         point_layers.append(build_external_point_layer(geojson))
         extra_artifacts.append((label, destination_path.name))
 
+    boundary_path = external_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+    if boundary_path.exists():
+        destination_path = output_dir / boundary_path.name
+        shutil.copyfile(boundary_path, destination_path)
+        geojson = json.loads(destination_path.read_text(encoding="utf-8"))
+        polygon_layers.append(build_country_boundary_layer(geojson))
+        extra_artifacts.append(("Nordic country boundaries", destination_path.name))
+
     archaeology_path = external_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
+    archaeology_density_path = external_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     if archaeology_path.exists():
         destination_path = output_dir / archaeology_path.name
         shutil.copyfile(archaeology_path, destination_path)
-        metadata = json.loads(destination_path.read_text(encoding="utf-8"))
-        wms_layers.append(metadata)
         extra_artifacts.append(("RAÄ archaeology layer metadata", destination_path.name))
+    if archaeology_density_path.exists():
+        destination_path = output_dir / archaeology_density_path.name
+        shutil.copyfile(archaeology_density_path, destination_path)
+        geojson = json.loads(destination_path.read_text(encoding="utf-8"))
+        polygon_layers.append(build_density_polygon_layer(geojson))
+        extra_artifacts.append(("RAÄ archaeology density", destination_path.name))
 
-    return point_layers, wms_layers, extra_artifacts
+    return point_layers, polygon_layers, extra_artifacts
 
 
 def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]:
@@ -680,12 +693,14 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
             }
         )
 
+    applies_country_filter = any(feature.get("country") for feature in features)
+
     return {
         "key": layer_key,
         "label": layer_label,
         "count": len(features),
         "description": str(sample_properties.get("subtitle", "")).strip(),
-        "applies_country_filter": False,
+        "applies_country_filter": applies_country_filter,
         "circle_enabled": True,
         "style": styles.get(
             layer_key,
@@ -697,6 +712,46 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
             },
         ),
         "features": features,
+    }
+
+
+def build_country_boundary_layer(geojson: dict[str, object]) -> dict[str, object]:
+    """Convert country boundary GeoJSON into a map polygon layer payload."""
+    return {
+        "key": "country-boundaries",
+        "label": "Country boundaries",
+        "count": len(geojson.get("features", [])),
+        "description": "Administrative outlines used for country filtering and visual framing.",
+        "kind": "country-boundaries",
+        "applies_country_filter": True,
+        "style": {
+            "stroke": "#334155",
+            "fill": "rgba(148, 163, 184, 0.06)",
+        },
+        "geojson": geojson,
+    }
+
+
+def build_density_polygon_layer(geojson: dict[str, object]) -> dict[str, object]:
+    """Convert RAÄ archaeology density GeoJSON into a map polygon layer payload."""
+    counts = [
+        int(feature.get("properties", {}).get("count", 0))
+        for feature in geojson.get("features", [])
+        if int(feature.get("properties", {}).get("count", 0)) > 0
+    ]
+    return {
+        "key": "raa-archaeology",
+        "label": "RAÄ archaeology density",
+        "count": len(geojson.get("features", [])),
+        "description": "Swedish archaeology density from RAÄ Fornsök `Fornlämning` counts in 1° grid cells.",
+        "kind": "density",
+        "applies_country_filter": True,
+        "max_count": max(counts) if counts else 0,
+        "style": {
+            "stroke": "#7f1d1d",
+            "fills": ["#fee2e2", "#fca5a5", "#f87171", "#ef4444", "#b91c1c", "#7f1d1d"],
+        },
+        "geojson": geojson,
     }
 
 
@@ -744,682 +799,842 @@ def render_multi_country_map_html(
     generated_on: str,
     countries: tuple[str, ...],
     point_layers: list[dict[str, object]],
-    wms_layers: list[dict[str, object]],
+    polygon_layers: list[dict[str, object]],
 ) -> str:
-    """Render a standalone interactive HTML map with country and layer toggles."""
+    """Render an advanced standalone interactive HTML map."""
     initial_diameter_km = 20
-    map_points = [
-        feature
-        for layer in point_layers
-        for feature in layer["features"]
-    ]
+    map_points = [feature for layer in point_layers for feature in layer["features"]]
     latitude_values = [float(feature["latitude"]) for feature in map_points]
     longitude_values = [float(feature["longitude"]) for feature in map_points]
     bounds = [
         [min(latitude_values), min(longitude_values)],
         [max(latitude_values), max(longitude_values)],
     ]
-    bounds_json = json.dumps(bounds)
-    country_sample_counts = {
-        country: sum(
-            1
-            for layer in point_layers
-            if layer["key"] == "aadr"
-            for feature in layer["features"]
-            if feature.get("country") == country
-        )
-        for country in countries
-    }
-    point_layers_json = json.dumps(point_layers, ensure_ascii=False)
-    wms_layers_json = json.dumps(wms_layers, ensure_ascii=False)
-    stats_cards = [
-        ("AADR Samples", str(sum(country_sample_counts.values()))),
-        ("Countries", str(len(countries))),
-        ("Context Layers", str(len(point_layers) + len(wms_layers) - 1)),
-        ("Version", version),
-        ("Generated", generated_on),
-    ]
-    stats_html = "\n".join(
-        f'<div class="stat-card"><span class="stat-label">{label}</span><strong class="stat-value">{value}</strong></div>'
-        for label, value in stats_cards
-    )
-    country_toggle_html = "\n".join(
-        (
-            '<label class="country-toggle">'
-            f'<input class="country-checkbox" type="checkbox" value="{escape_html(country)}" checked>'
-            f'<span class="country-swatch country-{index % 4}"></span>'
-            f'<span class="country-name">{escape_html(country)}</span>'
-            f'<span class="country-count">{country_sample_counts[country]} samples</span>'
-            "</label>"
-        )
-        for index, country in enumerate(countries)
-    )
-    layer_toggle_html = "\n".join(
-        (
-            '<label class="country-toggle">'
-            f'<input class="layer-checkbox" type="checkbox" value="{escape_html(str(layer["key"]))}" checked>'
-            f'<span class="country-swatch" style="background: {escape_html(str(layer["style"]["fill"]))};"></span>'
-            f'<span class="country-name">{escape_html(str(layer["label"]))}</span>'
-            f'<span class="country-count">{escape_html(str(layer["count"]))} points</span>'
-            "</label>"
-        )
-        for layer in point_layers
-    )
-    if wms_layers:
-        layer_toggle_html += "\n" + "\n".join(
-            (
-                '<label class="country-toggle">'
-                f'<input class="layer-checkbox" type="checkbox" value="{escape_html(str(layer["layer_key"]))}" checked>'
-                '<span class="country-swatch" style="background: #b91c1c;"></span>'
-                f'<span class="country-name">{escape_html(str(layer["layer_label"]))}</span>'
-                f'<span class="country-count">{escape_html(str(layer["counts"]["all_published_sites"]))} sites</span>'
-                "</label>"
-            )
-            for layer in wms_layers
-        )
-    legend_html = "\n".join(
-        (
-            '<div class="legend-item">'
-            f'<span class="legend-dot" style="background: {escape_html(str(layer["style"]["fill"]))}; border-color: {escape_html(str(layer["style"]["stroke"]))};"></span>'
-            f'<span>{escape_html(str(layer["label"]))}: {escape_html(str(layer["description"]))}</span>'
-            "</div>"
-        )
-        for layer in point_layers
-    )
-    if wms_layers:
-        legend_html += "\n" + "\n".join(
-            (
-                '<div class="legend-item">'
-                '<span class="legend-dot" style="background: #b91c1c; border-color: #7f1d1d;"></span>'
-                f'<span>{escape_html(str(layer["layer_label"]))}: Swedish archaeology via official RAÄ tiles.</span>'
-                "</div>"
-            )
-            for layer in wms_layers
-        )
-    return f"""<!DOCTYPE html>
+    template = """<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title} AADR {version} Map</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    >
+    <title>__TITLE__ AADR __VERSION__ Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
     <style>
-      :root {{
-        --bg: #f4f1ea;
-        --panel: rgba(255, 252, 245, 0.92);
-        --panel-border: rgba(94, 82, 64, 0.16);
-        --ink: #1f2937;
-        --muted: #5f6c7b;
-        --accent: #1d4ed8;
-        --accent-soft: rgba(37, 99, 235, 0.16);
-        --circle-stroke: rgba(185, 28, 28, 0.55);
-        --circle-fill: rgba(239, 68, 68, 0.12);
-        --shadow: 0 18px 40px rgba(31, 41, 55, 0.16);
-      }}
-
-      html, body {{
+      :root {
+        --ink: #14213d;
+        --muted: #5f6b85;
+        --surface: rgba(251, 248, 242, 0.92);
+        --surface-strong: rgba(255, 252, 247, 0.96);
+        --surface-edge: rgba(27, 40, 64, 0.12);
+        --blue: #2563eb;
+        --teal: #0f766e;
+        --gold: #b45309;
+        --rose: #b91c1c;
+        --shadow-lg: 0 24px 64px rgba(20, 33, 61, 0.18);
+        --shadow-md: 0 10px 32px rgba(20, 33, 61, 0.12);
+      }
+      * { box-sizing: border-box; }
+      html, body {
         margin: 0;
-        height: 100%;
-        font-family: "Avenir Next", "Segoe UI", sans-serif;
-        color: var(--ink);
+        min-height: 100%;
         background:
-          radial-gradient(circle at top left, rgba(29, 78, 216, 0.08), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(185, 28, 28, 0.08), transparent 24%),
-          var(--bg);
-      }}
-
-      body {{
-        display: grid;
-        grid-template-columns: minmax(320px, 420px) 1fr;
-      }}
-
-      aside {{
-        position: relative;
-        z-index: 900;
-        padding: 24px;
-        background: linear-gradient(180deg, rgba(250, 248, 242, 0.98), rgba(244, 241, 234, 0.95));
-        border-right: 1px solid var(--panel-border);
-        box-shadow: var(--shadow);
+          radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 30%),
+          radial-gradient(circle at right center, rgba(180, 83, 9, 0.12), transparent 22%),
+          linear-gradient(180deg, #f8f4ee 0%, #efe7dc 100%);
+        color: var(--ink);
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+      body { min-height: 100vh; }
+      .app-shell { position: relative; min-height: 100vh; }
+      .sidebar {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        bottom: 16px;
+        width: min(420px, calc(100vw - 32px));
+        z-index: 1200;
+        transition: transform 180ms ease, opacity 180ms ease;
+      }
+      .sidebar.is-collapsed {
+        transform: translateX(calc(-100% - 24px));
+        opacity: 0;
+        pointer-events: none;
+      }
+      .sidebar-inner {
+        height: 100%;
         overflow-y: auto;
-      }}
-
-      main {{
-        position: relative;
-        min-height: 100vh;
-      }}
-
-      #map {{
-        width: 100%;
-        height: 100vh;
-      }}
-
-      .eyebrow {{
+        padding: 24px;
+        border: 1px solid var(--surface-edge);
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(246, 241, 233, 0.92));
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow-lg);
+      }
+      .map-stage { position: relative; min-height: 100vh; }
+      #map { height: 100vh; width: 100%; }
+      .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
+        gap: 10px;
+        padding: 8px 12px;
         border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--blue);
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-      }}
-
-      h1 {{
-        margin: 14px 0 10px;
-        font-size: clamp(28px, 4vw, 40px);
-        line-height: 1.05;
-      }}
-
-      .lede {{
-        margin: 0 0 20px;
+      }
+      h1 {
+        margin: 16px 0 10px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(32px, 4vw, 44px);
+        line-height: 1;
+      }
+      .lede {
+        margin: 0 0 22px;
         color: var(--muted);
         font-size: 15px;
-        line-height: 1.6;
-      }}
-
-      .stats-grid {{
+        line-height: 1.7;
+      }
+      .stats-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
-        margin-bottom: 22px;
-      }}
-
-      .stat-card {{
-        padding: 14px 15px;
-        border: 1px solid var(--panel-border);
-        border-radius: 18px;
-        background: var(--panel);
-        backdrop-filter: blur(10px);
-      }}
-
-      .stat-label {{
+        margin-bottom: 18px;
+      }
+      .stat-card,
+      .panel-card,
+      .floating-legend,
+      .map-topbar,
+      .map-status {
+        border: 1px solid var(--surface-edge);
+        background: var(--surface);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-md);
+      }
+      .stat-card { padding: 16px; border-radius: 18px; }
+      .stat-label {
         display: block;
-        font-size: 12px;
-        font-weight: 700;
+        color: var(--muted);
         text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: var(--muted);
+        letter-spacing: 0.08em;
+        font-size: 11px;
+        font-weight: 700;
         margin-bottom: 8px;
-      }}
-
-      .stat-value {{
-        font-size: 22px;
-        line-height: 1;
-      }}
-
-      .control-panel {{
-        padding: 18px;
-        border-radius: 22px;
-        background: var(--panel);
-        border: 1px solid var(--panel-border);
-        backdrop-filter: blur(14px);
-      }}
-
-      .control-panel h2 {{
-        margin: 0 0 8px;
-        font-size: 18px;
-      }}
-
-      .control-panel p {{
-        margin: 0 0 16px;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.55;
-      }}
-
-      .slider-wrap {{
-        margin: 20px 0 10px;
-      }}
-
-      .slider-label {{
+      }
+      .stat-value { font-size: 24px; font-weight: 700; }
+      .section-stack { display: grid; gap: 16px; }
+      .panel-card { border-radius: 20px; padding: 18px; }
+      .section-head {
         display: flex;
         justify-content: space-between;
         gap: 12px;
         align-items: baseline;
-        margin-bottom: 8px;
-        font-size: 14px;
-        font-weight: 700;
-      }}
-
-      .slider-value {{
-        color: var(--accent);
-      }}
-
-      input[type="range"] {{
-        width: 100%;
-        accent-color: #b91c1c;
-      }}
-
-      .legend {{
-        display: grid;
-        gap: 10px;
-        margin-top: 18px;
+        margin-bottom: 10px;
+      }
+      .section-head h2 { margin: 0; font-size: 17px; }
+      .section-head span { color: var(--muted); font-size: 12px; }
+      .panel-copy {
+        margin: 0 0 14px;
+        color: var(--muted);
         font-size: 13px;
-      }}
-
-      .legend-item {{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--muted);
-      }}
-
-      .country-toggles {{
-        display: grid;
-        gap: 10px;
-        margin: 18px 0 0;
-      }}
-
-      .country-toggle {{
-        display: grid;
-        grid-template-columns: auto auto 1fr auto;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
-        border: 1px solid var(--panel-border);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.72);
-      }}
-
-      .country-checkbox {{
-        margin: 0;
-      }}
-
-      .country-swatch {{
-        width: 12px;
-        height: 12px;
-        border-radius: 999px;
-      }}
-
-      .country-0 {{ background: #2563eb; }}
-      .country-1 {{ background: #0f766e; }}
-      .country-2 {{ background: #ca8a04; }}
-      .country-3 {{ background: #9333ea; }}
-
-      .country-name {{
-        font-size: 14px;
-        font-weight: 700;
-      }}
-
-      .country-count {{
-        font-size: 12px;
-        color: var(--muted);
-      }}
-
-      .toggle-actions {{
-        display: flex;
-        gap: 10px;
-        margin-top: 12px;
-      }}
-
-      .toggle-actions button {{
-        appearance: none;
-        border: 0;
-        border-radius: 999px;
-        padding: 10px 14px;
-        background: #e5e7eb;
-        color: var(--ink);
-        font-weight: 700;
-        cursor: pointer;
-      }}
-
-      .toggle-actions button.primary {{
-        background: #1d4ed8;
-        color: white;
-      }}
-
-      .legend-dot,
-      .legend-circle {{
-        flex: 0 0 auto;
-      }}
-
-      .legend-dot {{
-        width: 12px;
-        height: 12px;
-        border-radius: 999px;
-        background: #2563eb;
-        border: 1px solid #0f172a;
-      }}
-
-      .legend-circle {{
-        width: 16px;
-        height: 16px;
-        border-radius: 999px;
-        border: 2px solid rgba(185, 28, 28, 0.6);
-        background: rgba(239, 68, 68, 0.16);
-      }}
-
-      .footnote {{
-        margin-top: 20px;
-        color: var(--muted);
-        font-size: 12px;
         line-height: 1.6;
-      }}
-
-      .leaflet-popup-content-wrapper {{
-        border-radius: 18px;
-      }}
-
-      .popup-grid {{
-        display: grid;
-        gap: 6px;
-        font-size: 13px;
-      }}
-
-      .popup-grid strong {{
+      }
+      .chip-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+      .chip-toggle,
+      .toolbar-button,
+      .preset-button,
+      .inline-button,
+      .basemap-button {
+        appearance: none;
+        border: 1px solid rgba(20, 33, 61, 0.12);
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--ink);
+        border-radius: 999px;
+        font: inherit;
+        cursor: pointer;
+        transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+      }
+      .chip-toggle:hover,
+      .toolbar-button:hover,
+      .preset-button:hover,
+      .inline-button:hover,
+      .basemap-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(20, 33, 61, 0.10);
+      }
+      .chip-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+      }
+      .chip-toggle input { margin: 0; }
+      .chip-swatch,
+      .legend-swatch {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
         display: inline-block;
-        min-width: 92px;
-      }}
-
-      @media (max-width: 960px) {{
-        body {{
-          grid-template-columns: 1fr;
-          grid-template-rows: auto 1fr;
-        }}
-
-        aside {{
-          border-right: 0;
-          border-bottom: 1px solid var(--panel-border);
-        }}
-
-        #map {{
-          height: 70vh;
-          min-height: 540px;
-        }}
-      }}
+        border: 1px solid rgba(20, 33, 61, 0.35);
+      }
+      .inline-actions,
+      .preset-row,
+      .topbar-row,
+      .basemap-switch,
+      .map-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .inline-actions { margin-top: 12px; }
+      .inline-button,
+      .preset-button,
+      .toolbar-button,
+      .basemap-button {
+        padding: 10px 14px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .inline-button.is-primary,
+      .toolbar-button.is-primary,
+      .preset-button.is-active,
+      .basemap-button.is-active {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: white;
+        border-color: transparent;
+      }
+      .field-label {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .range-input,
+      .search-input { width: 100%; }
+      .range-input { accent-color: var(--gold); }
+      .search-input {
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.14);
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--ink);
+        font: inherit;
+      }
+      .search-input:focus {
+        outline: 2px solid rgba(37, 99, 235, 0.25);
+        border-color: rgba(37, 99, 235, 0.40);
+      }
+      .search-meta {
+        margin: 10px 0 12px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .search-results,
+      .summary-list,
+      .legend-list,
+      .layer-stack {
+        display: grid;
+        gap: 10px;
+      }
+      .search-result,
+      .summary-item,
+      .layer-card {
+        padding: 12px 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.76);
+      }
+      .search-result { cursor: pointer; width: 100%; text-align: left; }
+      .search-result strong,
+      .layer-card strong { display: block; font-size: 14px; }
+      .search-result span,
+      .layer-card span,
+      .summary-item span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .layer-card-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .layer-card label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        width: 100%;
+      }
+      .layer-card input { margin-top: 3px; }
+      .layer-badge {
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .map-topbar {
+        position: absolute;
+        top: 16px;
+        left: max(452px, 26vw);
+        right: 16px;
+        z-index: 1100;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        padding: 12px;
+        border-radius: 20px;
+      }
+      .floating-legend {
+        position: absolute;
+        left: max(452px, 26vw);
+        bottom: 24px;
+        z-index: 1100;
+        width: min(360px, calc(100vw - 48px));
+        padding: 16px;
+        border-radius: 20px;
+      }
+      .legend-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+      .legend-list { margin-bottom: 14px; }
+      .legend-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .density-ramp { display: grid; gap: 8px; }
+      .density-bar {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        overflow: hidden;
+        border-radius: 999px;
+        height: 12px;
+      }
+      .density-bar span:nth-child(1) { background: #fee2e2; }
+      .density-bar span:nth-child(2) { background: #fca5a5; }
+      .density-bar span:nth-child(3) { background: #f87171; }
+      .density-bar span:nth-child(4) { background: #ef4444; }
+      .density-bar span:nth-child(5) { background: #b91c1c; }
+      .density-bar span:nth-child(6) { background: #7f1d1d; }
+      .density-labels {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .map-status {
+        position: absolute;
+        right: 16px;
+        bottom: 24px;
+        z-index: 1100;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .leaflet-popup-content-wrapper { border-radius: 18px; }
+      .popup-grid { display: grid; gap: 6px; font-size: 13px; }
+      .popup-grid strong { display: inline-block; min-width: 96px; }
+      .cluster-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        color: white;
+        border: 3px solid rgba(255, 255, 255, 0.88);
+        font-weight: 700;
+        box-shadow: 0 10px 24px rgba(20, 33, 61, 0.20);
+      }
+      @media (max-width: 1080px) {
+        .sidebar {
+          width: min(400px, calc(100vw - 24px));
+          top: 12px;
+          left: 12px;
+          bottom: auto;
+          max-height: min(72vh, 920px);
+        }
+        .map-topbar,
+        .floating-legend {
+          left: 12px;
+          width: auto;
+        }
+        .map-topbar {
+          top: auto;
+          bottom: 132px;
+          right: 12px;
+        }
+        .floating-legend { bottom: 76px; }
+        .map-status {
+          left: 12px;
+          right: 12px;
+          bottom: 12px;
+          border-radius: 18px;
+          justify-content: space-between;
+        }
+      }
+      @media (max-width: 760px) {
+        .sidebar {
+          width: calc(100vw - 20px);
+          left: 10px;
+          top: 10px;
+        }
+        .sidebar-inner { padding: 18px; }
+        .map-topbar {
+          top: auto;
+          left: 10px;
+          right: 10px;
+          bottom: 164px;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .floating-legend {
+          left: 10px;
+          right: 10px;
+          bottom: 98px;
+          width: auto;
+        }
+      }
     </style>
   </head>
   <body>
-    <aside>
-      <span class="eyebrow">Interactive AADR Map</span>
-      <h1>{title}</h1>
-      <p class="lede">
-        Explore one shared Nordic map across the selected countries, toggle research layers on and off,
-        zoom across the region, and adjust the acceptance diameter around each visible point layer.
-      </p>
-
-      <section class="stats-grid">
-        {stats_html}
-      </section>
-
-      <section class="control-panel">
-        <h2>Country Selection</h2>
-        <p>
-          Use the country controls to show or hide sample layers without leaving the map.
-        </p>
-        <div class="country-toggles">
-          {country_toggle_html}
-        </div>
-        <div class="toggle-actions">
-          <button id="select-all" class="primary" type="button">Show all</button>
-          <button id="clear-all" type="button">Hide all</button>
-        </div>
-      </section>
-
-      <section class="control-panel" style="margin-top: 16px;">
-        <h2>Research Layers</h2>
-        <p>
-          Toggle the aDNA, pollen, environmental archaeology, and archaeology reference layers independently.
-        </p>
-        <div class="country-toggles">
-          {layer_toggle_html}
-        </div>
-      </section>
-
-      <section class="control-panel" style="margin-top: 16px;">
-        <h2>Acceptance Range</h2>
-        <p>
-          Use the slider to set the circle diameter around every visible point.
-          The displayed radius is half of the selected diameter.
-        </p>
-        <div class="slider-wrap">
-          <div class="slider-label">
-            <span>Diameter</span>
-            <span class="slider-value" id="diameter-value">{initial_diameter_km} km</span>
-          </div>
-          <input id="diameter-slider" type="range" min="0" max="100" step="5" value="{initial_diameter_km}">
-        </div>
-        <div class="slider-label">
-          <span>Radius</span>
-          <span class="slider-value" id="radius-value">{initial_diameter_km / 2:.1f} km</span>
-        </div>
-
-        <div class="legend">
-          {legend_html}
-          <div class="legend-item">
-            <span class="legend-circle"></span>
-            <span>Transparent circles show the current acceptance range for visible point layers.</span>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-inner">
+          <span class="eyebrow">Nordic Research Map</span>
+          <h1>__TITLE__</h1>
+          <p class="lede">
+            A shared research map for ancient DNA, pollen, environmental archaeology, and Swedish archaeology density.
+            Filter every dataset by country, search visible records, tune the acceptance distance, and inspect overlap in one workspace.
+          </p>
+          <section class="stats-grid">
+            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Visible Layers</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong></div>
+          </section>
+          <div class="section-stack">
+            <section class="panel-card">
+              <div class="section-head"><h2>Country Filters</h2><span id="country-summary">All countries visible</span></div>
+              <p class="panel-copy">These filters apply to every dataset that can be assigned to a country, including Neotoma, SEAD, AADR, and Swedish archaeology coverage.</p>
+              <div id="country-filters" class="chip-grid"></div>
+              <div class="inline-actions">
+                <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
+                <button id="countries-none" class="inline-button" type="button">Hide all</button>
+                <button id="countries-fit" class="inline-button" type="button">Fit selected countries</button>
+              </div>
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Research Layers</h2><span id="layer-summary">All layers enabled</span></div>
+              <p class="panel-copy">Switch between samples, site datasets, national outlines, and archaeology density without leaving the map.</p>
+              <div id="layer-filters" class="layer-stack"></div>
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Search Visible Records</h2><span id="search-count">0 matches</span></div>
+              <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source">
+              <div class="search-meta">Search only scans records that are visible under the current country and layer filters.</div>
+              <div id="search-results" class="search-results"></div>
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
+              <div class="field-label"><span>Radius around visible points</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
+              <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__">
+              <div class="preset-row" style="margin-top: 12px;">
+                <button class="preset-button" type="button" data-km="0">0 km</button>
+                <button class="preset-button" type="button" data-km="10">10 km</button>
+                <button class="preset-button is-active" type="button" data-km="20">20 km</button>
+                <button class="preset-button" type="button" data-km="30">30 km</button>
+                <button class="preset-button" type="button" data-km="50">50 km</button>
+              </div>
+              <div class="field-label" style="margin-top: 16px;"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
+              <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Active View</h2><span>Live summary</span></div>
+              <div id="active-summary" class="summary-list"></div>
+            </section>
           </div>
         </div>
-
-        <p class="footnote">
-          Tip: set the diameter to 0 km to hide the circles and inspect only the points and archaeology overlay.
-          Popups show source-specific metadata, coordinates, and identifiers.
-        </p>
-      </section>
-    </aside>
-
-    <main>
-      <div id="map" aria-label="{title} research map"></div>
-    </main>
-
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
+      </aside>
+      <main class="map-stage">
+        <div class="map-topbar">
+          <div class="topbar-row">
+            <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
+            <div class="basemap-switch">
+              <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
+              <button class="basemap-button" type="button" data-basemap="light">Light</button>
+              <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+            </div>
+          </div>
+          <div class="map-actions">
+            <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+            <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+            <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+          </div>
+        </div>
+        <div id="map" aria-label="__TITLE__ research map"></div>
+        <div class="floating-legend">
+          <div class="legend-title">Legend</div>
+          <div id="legend-items" class="legend-list"></div>
+          <div class="density-ramp">
+            <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
+            <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
+            <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+          </div>
+        </div>
+        <div class="map-status">
+          <span id="zoom-readout">Zoom --</span>
+          <span id="cursor-readout">Cursor --</span>
+          <span id="selection-readout">Visible --</span>
+        </div>
+      </main>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script>
-      const pointLayers = {point_layers_json};
-      const wmsLayers = {wms_layers_json};
-      const initialBounds = {bounds_json};
-      const map = L.map('map', {{ preferCanvas: true, zoomControl: true }});
-
-      const positron = L.tileLayer(
-        'https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png',
-        {{
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-          subdomains: 'abcd',
-          maxZoom: 20
-        }}
-      );
-      const voyager = L.tileLayer(
-        'https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager/{{z}}/{{x}}/{{y}}{{r}}.png',
-        {{
-          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-          subdomains: 'abcd',
-          maxZoom: 20
-        }}
-      );
-
-      positron.addTo(map);
-      L.control.layers({{ 'Light': positron, 'Voyager': voyager }}, {{}}, {{ position: 'topright' }}).addTo(map);
-      L.control.scale({{ imperial: false }}).addTo(map);
-
-      const pointLayerGroup = L.layerGroup().addTo(map);
+      const COUNTRIES = __COUNTRIES_JSON__;
+      const POINT_LAYERS = __POINT_LAYERS_JSON__;
+      const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
+      const INITIAL_BOUNDS = __BOUNDS_JSON__;
+      const map = L.map('map', { preferCanvas: true, zoomControl: false });
+      const basemaps = {
+        voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
+        light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
+        terrain: L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors, SRTM &copy; OpenTopoMap', maxZoom: 17 })
+      };
+      basemaps.voyager.addTo(map);
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+      L.control.scale({ imperial: false }).addTo(map);
+      map.createPane('pointPane').style.zIndex = 650;
+      map.createPane('circlePane').style.zIndex = 500;
+      map.createPane('polygonPane').style.zIndex = 420;
+      map.createPane('boundaryPane').style.zIndex = 430;
       const circleLayerGroup = L.layerGroup().addTo(map);
+      let renderedPointGroups = [];
+      let renderedPolygonLayers = [];
+      let visiblePointEntries = [];
+      let activeCountries = new Set(COUNTRIES);
+      let activeLayerKeys = new Set([...POINT_LAYERS.map((layer) => layer.key), ...POLYGON_LAYERS.map((layer) => layer.key)]);
+      let densityOpacity = 0.6;
+      let currentBasemap = 'voyager';
+      const sidebar = document.getElementById('sidebar');
+      const panelToggleButton = document.getElementById('panel-toggle');
+      const countryFilters = document.getElementById('country-filters');
+      const layerFilters = document.getElementById('layer-filters');
+      const legendItems = document.getElementById('legend-items');
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      const searchCount = document.getElementById('search-count');
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
-      const countryCheckboxes = Array.from(document.querySelectorAll('.country-checkbox'));
-      const layerCheckboxes = Array.from(document.querySelectorAll('.layer-checkbox'));
-      const selectAllButton = document.getElementById('select-all');
-      const clearAllButton = document.getElementById('clear-all');
-      const liveWmsLayers = new Map();
-
-      function popupHtml(feature) {{
+      const densityOpacitySlider = document.getElementById('density-opacity-slider');
+      const densityOpacityValue = document.getElementById('density-opacity-value');
+      const countrySummary = document.getElementById('country-summary');
+      const layerSummary = document.getElementById('layer-summary');
+      const activeSummary = document.getElementById('active-summary');
+      const selectionReadout = document.getElementById('selection-readout');
+      const zoomReadout = document.getElementById('zoom-readout');
+      const cursorReadout = document.getElementById('cursor-readout');
+      const statVisiblePoints = document.getElementById('stat-visible-points');
+      const statVisibleLayers = document.getElementById('stat-visible-layers');
+      const statVisibleCountries = document.getElementById('stat-visible-countries');
+      const statRadius = document.getElementById('stat-radius');
+      const countryColors = {
+        Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
+        Norway: { fill: '#0f766e', stroke: '#115e59' },
+        Finland: { fill: '#b45309', stroke: '#92400e' },
+        Denmark: { fill: '#9333ea', stroke: '#7e22ce' }
+      };
+      function escapeHtml(value) {
+        return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+      }
+      function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
+      function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
+      function layerUnit(layer) { if (layer.kind === 'density') return 'cells'; if (layer.kind === 'country-boundaries') return 'countries'; return 'points'; }
+      function renderCountryControls() {
+        countryFilters.innerHTML = COUNTRIES.map((country) => {
+          const style = countryStyle(country);
+          const checked = activeCountries.has(country) ? 'checked' : '';
+          return `<label class="chip-toggle"><input class="country-checkbox" type="checkbox" value="${escapeHtml(country)}" ${checked}><span class="chip-swatch" style="background:${escapeHtml(style.fill)};border-color:${escapeHtml(style.stroke)};"></span><span>${escapeHtml(country)}</span></label>`;
+        }).join('');
+        document.querySelectorAll('.country-checkbox').forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) { activeCountries.add(checkbox.value); } else { activeCountries.delete(checkbox.value); }
+            renderMapState();
+          });
+        });
+      }
+      function renderLayerControls() {
+        const allLayers = [...POINT_LAYERS, ...POLYGON_LAYERS];
+        layerFilters.innerHTML = allLayers.map((layer) => {
+          const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
+          return `<div class="layer-card"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked}><div style="width:100%;"><div class="layer-card-top"><div><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div></div></label></div>`;
+        }).join('');
+        document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
+            renderMapState();
+          });
+        });
+      }
+      function renderLegend() {
+        legendItems.innerHTML = POINT_LAYERS.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layer.style.fill)};border-color:${escapeHtml(layer.style.stroke)};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)}</span></div>`).join('') + POLYGON_LAYERS.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)}</span></div>`).join('');
+      }
+      function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
-        const rowHtml = rows
-          .filter((row) => row && row.value)
-          .map((row) => `<div><strong>${{escapeHtml(row.label || '')}}</strong> ${{escapeHtml(row.value || '')}}</div>`)
-          .join('');
-        return `
-          <div class="popup-grid">
-            <div><strong>Name</strong> ${{escapeHtml(feature.title || '')}}</div>
-            <div><strong>Type</strong> ${{escapeHtml(feature.subtitle || '')}}</div>
-            ${{rowHtml}}
-            <div><strong>Coords</strong> ${{
-              Number(feature.latitude).toFixed(6)
-            }}, ${{
-              Number(feature.longitude).toFixed(6)
-            }}</div>
-            ${{
-              feature.source_url ? `<div><strong>Source</strong> <a href="${{escapeHtml(feature.source_url)}}" target="_blank" rel="noreferrer">Open</a></div>` : ''
-            }}
-          </div>
-        `;
-      }}
-
-      function escapeHtml(value) {{
-        return String(value)
-          .replaceAll('&', '&amp;')
-          .replaceAll('<', '&lt;')
-          .replaceAll('>', '&gt;')
-          .replaceAll('"', '&quot;')
-          .replaceAll("'", '&#39;');
-      }}
-
-      function selectedCountries() {{
-        return new Set(countryCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.value));
-      }}
-
-      function selectedLayers() {{
-        return new Set(layerCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.value));
-      }}
-
-      function layerEnabled(layer, activeCountries, activeLayers, feature) {{
-        if (!activeLayers.has(layer.key)) {{
-          return false;
-        }}
-        if (layer.applies_country_filter && feature.country && !activeCountries.has(feature.country)) {{
-          return false;
-        }}
-        return true;
-      }}
-
-      function renderPoints(activeCountries, activeLayers) {{
-        pointLayerGroup.clearLayers();
-        pointLayers.forEach((layer) => {{
-          layer.features.forEach((feature) => {{
-            if (!layerEnabled(layer, activeCountries, activeLayers, feature)) {{
-              return;
-            }}
-            const marker = L.circleMarker([feature.latitude, feature.longitude], {{
-              radius: layer.key === 'aadr' ? 4.5 : 5.5,
-              color: layer.style.stroke,
-              weight: 1.1,
-              fillColor: layer.style.fill,
-              fillOpacity: 0.88
-            }});
-            marker.bindPopup(popupHtml(feature), {{
-              maxWidth: 360,
-              className: 'sample-popup'
-            }});
-            pointLayerGroup.addLayer(marker);
-          }});
-        }});
-      }}
-
-      function renderCircles(diameterKm, activeCountries, activeLayers) {{
+        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
+        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+      }
+      function densityFillColor(count, maxCount) {
+        if (!maxCount || count <= 0) return '#fee2e2';
+        const ratio = count / maxCount;
+        if (ratio >= 0.75) return '#7f1d1d';
+        if (ratio >= 0.55) return '#b91c1c';
+        if (ratio >= 0.35) return '#ef4444';
+        if (ratio >= 0.20) return '#f87171';
+        if (ratio >= 0.08) return '#fca5a5';
+        return '#fee2e2';
+      }
+      function pointFeatureVisible(layer, feature) { return activeLayerKeys.has(layer.key) && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country)); }
+      function polygonFeatureVisible(layer, properties) {
+        const country = properties.country || '';
+        return activeLayerKeys.has(layer.key) && (!layer.applies_country_filter || !country || activeCountries.has(country));
+      }
+      function removeRenderedLayers() {
+        renderedPointGroups.forEach((group) => map.removeLayer(group));
+        renderedPolygonLayers.forEach((layer) => map.removeLayer(layer));
+        renderedPointGroups = [];
+        renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
-        if (diameterKm <= 0) {{
-          return;
-        }}
-        const radiusMeters = (diameterKm * 1000) / 2;
-        pointLayers.forEach((layer) => {{
-          if (!layer.circle_enabled) {{
-            return;
-          }}
-          layer.features.forEach((feature) => {{
-            if (!layerEnabled(layer, activeCountries, activeLayers, feature)) {{
-              return;
-            }}
-            const circle = L.circle([feature.latitude, feature.longitude], {{
-              radius: radiusMeters,
-              color: layer.style.circleStroke,
-              weight: 1,
-              opacity: 0.55,
-              fillColor: layer.style.circleFill,
-              fillOpacity: 0.14,
-              interactive: false
-            }});
-            circleLayerGroup.addLayer(circle);
-          }});
-        }});
-      }}
-
-      function syncWmsLayers(activeCountries, activeLayers) {{
-        wmsLayers.forEach((layer) => {{
-          const shouldShow = activeLayers.has(layer.layer_key) && (!layer.country || activeCountries.has(layer.country));
-          const existing = liveWmsLayers.get(layer.layer_key);
-          if (shouldShow && !existing) {{
-            const wmsLayer = L.tileLayer.wms(layer.wms_url, {{
-              layers: layer.wms_layers,
-              format: layer.wms_format || 'image/png',
-              transparent: true,
-              attribution: '&copy; Riksantikvarieämbetet',
-              opacity: 0.52
-            }});
-            wmsLayer.addTo(map);
-            liveWmsLayers.set(layer.layer_key, wmsLayer);
-            return;
-          }}
-          if (!shouldShow && existing) {{
-            map.removeLayer(existing);
-            liveWmsLayers.delete(layer.layer_key);
-          }}
-        }});
-      }}
-
-      function renderMapState() {{
-        const activeCountries = selectedCountries();
-        const activeLayers = selectedLayers();
+        visiblePointEntries = [];
+      }
+      function createClusterGroup(layer) {
+        return L.markerClusterGroup({
+          showCoverageOnHover: false,
+          spiderfyOnMaxZoom: true,
+          maxClusterRadius: 46,
+          disableClusteringAtZoom: 10,
+          iconCreateFunction(cluster) {
+            const count = cluster.getChildCount();
+            const size = count > 100 ? 50 : count > 25 ? 44 : 38;
+            return L.divIcon({ html: `<div class="cluster-pill" style="width:${size}px;height:${size}px;background:${layer.style.fill};">${count}</div>`, className: '', iconSize: [size, size] });
+          }
+        });
+      }
+      function renderPointLayers() {
         const diameterKm = Number(slider.value);
-        const radiusKm = diameterKm / 2;
-        diameterValue.textContent = `${{diameterKm}} km`;
-        radiusValue.textContent = `${{radiusKm.toFixed(1)}} km`;
-        renderPoints(activeCountries, activeLayers);
-        renderCircles(diameterKm, activeCountries, activeLayers);
-        syncWmsLayers(activeCountries, activeLayers);
-      }}
-
+        const radiusMeters = (diameterKm * 1000) / 2;
+        POINT_LAYERS.forEach((layer) => {
+          const clusterGroup = createClusterGroup(layer);
+          layer.features.forEach((feature) => {
+            if (!pointFeatureVisible(layer, feature)) return;
+            const marker = L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
+            marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            clusterGroup.addLayer(marker);
+            visiblePointEntries.push({ layer, feature, marker });
+            if (layer.circle_enabled && diameterKm > 0) {
+              const circle = L.circle([feature.latitude, feature.longitude], { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
+              circleLayerGroup.addLayer(circle);
+            }
+          });
+          if (clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
+        });
+      }
+      function renderPolygonLayers() {
+        POLYGON_LAYERS.forEach((layer) => {
+          const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonFeatureVisible(layer, feature.properties || {}));
+          if (!visibleFeatures.length) return;
+          let geoJsonLayer;
+          if (layer.kind === 'country-boundaries') {
+            geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
+              pane: 'boundaryPane',
+              style(feature) {
+                const country = feature.properties.country || '';
+                const style = countryStyle(country);
+                return { color: style.stroke, weight: activeCountries.has(country) ? 2.2 : 1.2, fillColor: style.fill, fillOpacity: activeCountries.has(country) ? 0.10 : 0.02, opacity: activeCountries.has(country) ? 0.95 : 0.45 };
+              },
+              onEachFeature(feature, featureLayer) {
+                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Country</strong> ${escapeHtml(feature.properties.name || '')}</div><div><strong>Filter state</strong> ${activeCountries.has(feature.properties.country) ? 'Visible' : 'Hidden'}</div></div>`);
+              }
+            });
+          } else {
+            geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
+              pane: 'polygonPane',
+              style(feature) {
+                const count = Number(feature.properties.count || 0);
+                return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, Number(layer.max_count || 0)), fillOpacity: densityOpacity, opacity: 0.75 };
+              },
+              onEachFeature(feature, featureLayer) {
+                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(String(feature.properties.count_label || feature.properties.count || '0'))}</div></div>`);
+              }
+            });
+          }
+          geoJsonLayer.addTo(map);
+          renderedPolygonLayers.push(geoJsonLayer);
+        });
+      }
+      function activeBounds() {
+        const latLngs = visiblePointEntries.map((entry) => [entry.feature.latitude, entry.feature.longitude]);
+        renderedPolygonLayers.forEach((layer) => {
+          const bounds = layer.getBounds();
+          if (bounds.isValid()) {
+            latLngs.push([bounds.getSouth(), bounds.getWest()]);
+            latLngs.push([bounds.getNorth(), bounds.getEast()]);
+          }
+        });
+        return latLngs.length ? L.latLngBounds(latLngs) : null;
+      }
+      function updateStats() {
+        const enabledLayers = [...POINT_LAYERS, ...POLYGON_LAYERS].filter((layer) => activeLayerKeys.has(layer.key)).length;
+        statVisiblePoints.textContent = String(visiblePointEntries.length);
+        statVisibleLayers.textContent = String(enabledLayers);
+        statVisibleCountries.textContent = String(activeCountries.size);
+        statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
+        selectionReadout.textContent = `Visible points ${visiblePointEntries.length}`;
+        countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : `${activeCountries.size} countries active`;
+        layerSummary.textContent = `${enabledLayers} layers enabled`;
+        [...POINT_LAYERS, ...POLYGON_LAYERS].forEach((layer) => {
+          const badge = document.getElementById(`layer-count-${layer.key}`);
+          if (!badge) return;
+          if (Object.prototype.hasOwnProperty.call(layer, 'features')) {
+            const count = layer.features.filter((feature) => pointFeatureVisible(layer, feature)).length;
+            badge.textContent = `${count} ${layerUnit(layer)}`;
+          } else {
+            const count = (layer.geojson.features || []).filter((feature) => polygonFeatureVisible(layer, feature.properties || {})).length;
+            badge.textContent = `${count} ${layerUnit(layer)}`;
+          }
+        });
+      }
+      function updateSummary() {
+        const items = [
+          `Countries: ${activeCountries.size ? [...activeCountries].join(', ') : 'none selected'}`,
+          `Layers: ${[...activeLayerKeys].join(', ') || 'none selected'}`,
+          `Acceptance diameter: ${Number(slider.value)} km`,
+          `Archaeology opacity: ${Math.round(densityOpacity * 100)}%`,
+          `Generated: __GENERATED_ON__`,
+          `Version: __VERSION__`
+        ];
+        activeSummary.innerHTML = items.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      }
+      function buildSearchResults() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+          const initial = visiblePointEntries.slice(0, 8);
+          searchCount.textContent = `${visiblePointEntries.length} visible records`;
+          searchResults.innerHTML = initial.map(({ layer, feature }) => `<div class="search-result"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></div>`).join('');
+          return;
+        }
+        const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
+        searchCount.textContent = `${matches.length} matches`;
+        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
+        searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
+          button.addEventListener('click', () => {
+            const match = matches[index];
+            if (!match) return;
+            map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            window.setTimeout(() => match.marker.openPopup(), 250);
+          });
+        });
+      }
+      function renderMapState() {
+        removeRenderedLayers();
+        renderPointLayers();
+        renderPolygonLayers();
+        updateStats();
+        updateSummary();
+        buildSearchResults();
+        diameterValue.textContent = `${Number(slider.value)} km diameter`;
+        radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
+        densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
+      }
+      function setBasemap(name) {
+        if (name === currentBasemap || !basemaps[name]) return;
+        map.removeLayer(basemaps[currentBasemap]);
+        basemaps[name].addTo(map);
+        currentBasemap = name;
+        document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === name));
+      }
+      function fitToActive() {
+        const bounds = activeBounds();
+        if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36] });
+      }
+      function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
+      document.getElementById('countries-all').addEventListener('click', () => { activeCountries = new Set(COUNTRIES); renderCountryControls(); renderMapState(); });
+      document.getElementById('countries-none').addEventListener('click', () => { activeCountries = new Set(); renderCountryControls(); renderMapState(); });
+      document.getElementById('countries-fit').addEventListener('click', fitToActive);
+      document.getElementById('fit-active').addEventListener('click', fitToActive);
+      document.getElementById('reset-view').addEventListener('click', resetView);
+      document.getElementById('fullscreen-toggle').addEventListener('click', async () => {
+        const target = document.querySelector('.map-stage');
+        if (!document.fullscreenElement) { await target.requestFullscreen(); } else { await document.exitFullscreen(); }
+      });
+      document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
+      panelToggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('is-collapsed');
+        panelToggleButton.textContent = sidebar.classList.contains('is-collapsed') ? 'Show panel' : 'Hide panel';
+      });
       slider.addEventListener('input', renderMapState);
-      countryCheckboxes.forEach((checkbox) => checkbox.addEventListener('change', renderMapState));
-      layerCheckboxes.forEach((checkbox) => checkbox.addEventListener('change', renderMapState));
-      selectAllButton.addEventListener('click', () => {{
-        countryCheckboxes.forEach((checkbox) => {{
-          checkbox.checked = true;
-        }});
-        renderMapState();
-      }});
-      clearAllButton.addEventListener('click', () => {{
-        countryCheckboxes.forEach((checkbox) => {{
-          checkbox.checked = false;
-        }});
-        renderMapState();
-      }});
+      densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
+      document.querySelectorAll('.preset-button').forEach((button) => {
+        button.addEventListener('click', () => {
+          slider.value = button.dataset.km;
+          document.querySelectorAll('.preset-button').forEach((item) => item.classList.remove('is-active'));
+          button.classList.add('is-active');
+          renderMapState();
+        });
+      });
+      searchInput.addEventListener('input', buildSearchResults);
+      searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          const firstResult = searchResults.querySelector('[data-search-index]');
+          if (firstResult) firstResult.click();
+        }
+      });
+      map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
+      map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
+      renderCountryControls();
+      renderLayerControls();
+      renderLegend();
       renderMapState();
-
-      const southWest = initialBounds[0];
-      const northEast = initialBounds[1];
-      const singlePointBounds = southWest[0] === northEast[0] && southWest[1] === northEast[1];
-
-      if (singlePointBounds) {{
-        map.setView(southWest, 8);
-      }} else {{
-        map.fitBounds(initialBounds, {{ padding: [24, 24] }});
-      }}
+      resetView();
+      zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
     </script>
   </body>
 </html>
 """
+    return (
+        template
+        .replace("__TITLE__", escape_html(title))
+        .replace("__VERSION__", escape_html(version))
+        .replace("__GENERATED_ON__", escape_html(generated_on))
+        .replace("__COUNTRIES_JSON__", json.dumps(list(countries), ensure_ascii=False))
+        .replace("__POINT_LAYERS_JSON__", json.dumps(point_layers, ensure_ascii=False))
+        .replace("__POLYGON_LAYERS_JSON__", json.dumps(polygon_layers, ensure_ascii=False))
+        .replace("__BOUNDS_JSON__", json.dumps(bounds))
+        .replace("__INITIAL_DIAMETER__", str(initial_diameter_km))
+        .replace("__INITIAL_RADIUS__", f"{initial_diameter_km / 2:.1f}")
+    )
 
 
 def pick_value(left: str, right: str) -> str:
