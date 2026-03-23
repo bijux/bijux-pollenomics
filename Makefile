@@ -9,6 +9,8 @@ VERSION ?= v62.0
 DATA_ROOT ?= data
 DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
+MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
+MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 
 .PHONY: clean install lint test data-prep build docs docs-serve help
 
@@ -20,7 +22,7 @@ help:
 	@printf "  data-prep  Rebuild the tracked data tree under %s\n" "$(DATA_ROOT)"
 	@printf "  build      Build source and wheel distributions into %s\n" "$(DIST_ROOT)"
 	@printf "  docs       Build the MkDocs site into %s\n" "$(DOCS_SITE_ROOT)"
-	@printf "  docs-serve Serve the MkDocs site locally on 127.0.0.1:8000\n"
+	@printf "  docs-serve Serve the MkDocs site locally on %s\n" "$(MKDOCS_LOCAL_SITE_URL)"
 	@printf "  clean      Remove transient virtualenv and build/test caches\n"
 
 $(VENV_PYTHON):
@@ -50,10 +52,10 @@ build: install
 	rm -rf build
 
 docs: install
-	$(BIN)/mkdocs build --strict
+	$(MKDOCS_ENV) $(BIN)/mkdocs build --strict
 
 docs-serve: install
-	$(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
+	SITE_URL=$(MKDOCS_LOCAL_SITE_URL) $(MKDOCS_ENV) $(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
 
 clean:
 	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
