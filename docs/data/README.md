@@ -1,5 +1,7 @@
 # Data Acquisition Guide
 
+This is the repository-local operations guide for tracked source data. The canonical narrative documentation is published through the MkDocs site under `docs/03-data-guide/` and `docs/05-architecture/`.
+
 This project stores every tracked source dataset directly under `data/` as one first-class category:
 
 ```text

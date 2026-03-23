@@ -1,5 +1,7 @@
 # AADR Reports
 
+This is the repository-local operations guide for generated reports and maps. The canonical narrative documentation is published through the MkDocs site under `docs/04-reports/`.
+
 This directory stores country-level AADR report bundles together with one shared Nordic interactive map. The shared map includes AADR aDNA points plus context layers from Neotoma, SEAD, Nordic country boundaries, and RAÄ archaeology density.
 
 The data acquisition model behind these reports is documented in [`docs/data/README.md`](../data/README.md).
