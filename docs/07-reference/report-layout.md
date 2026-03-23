@@ -23,6 +23,8 @@ docs/report/nordic
 └── sweden_archaeology_layer.json
 ```
 
+The checked-in Nordic bundle is currently the only shared HTML map bundle in the repository.
+
 ## Country Bundle Pattern
 
 ```text
@@ -33,6 +35,13 @@ docs/report/<country>
 ├── <country>_aadr_<version>_samples.geojson
 └── <country>_aadr_<version>_samples.md
 ```
+
+## Current Checked-In Country Bundles
+
+- `docs/report/sweden/`
+- `docs/report/norway/`
+- `docs/report/finland/`
+- `docs/report/denmark/`
 
 ## Purpose
 

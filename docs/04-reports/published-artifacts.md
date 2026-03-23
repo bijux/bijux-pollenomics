@@ -13,7 +13,7 @@ The `docs/report/` tree contains checked-in report artifacts used both for revie
 
 ## Shared Map Bundle
 
-The Nordic bundle includes:
+The currently checked-in shared bundle is `docs/report/nordic/`. It includes:
 
 - a combined sample GeoJSON
 - the interactive HTML map
@@ -21,6 +21,13 @@ The Nordic bundle includes:
 - a short bundle README
 
 ## Country Bundles
+
+The currently checked-in country bundles are:
+
+- `docs/report/sweden/`
+- `docs/report/norway/`
+- `docs/report/finland/`
+- `docs/report/denmark/`
 
 Each country bundle includes:
 
@@ -37,6 +44,10 @@ Checked-in report outputs make it easier to:
 - review changes in git
 - verify that generated artifacts still match the source tree
 - publish the map and summary pages through MkDocs without an additional deployment pipeline
+
+## What This Page Is Not
+
+This page documents the current checked-in artifact policy. It is not a promise that every future output type will live under `docs/report/`.
 
 ## Purpose
 

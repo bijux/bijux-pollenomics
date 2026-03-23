@@ -25,6 +25,10 @@ flowchart TD
     SharedMap --> Review
 ```
 
+## Canonical Status
+
+This section is the canonical source for report and map documentation inside the docs site. It replaces the older narrative content that previously lived in separate `docs/report/...` guide pages.
+
 ## Purpose
 
 This page organizes the output-side documentation for `bijux-pollen`.

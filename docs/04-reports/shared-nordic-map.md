@@ -21,6 +21,13 @@ The shared Nordic map is the main interactive product surface in this repository
 - clustering, search, zoom, empty-state handling, and live layer summaries
 - shareable URL state for country, layer, basemap, and distance selections
 
+## Current Scope Limits
+
+- the AADR layer is tied to release `v62.0` in the current checked-in artifact
+- the RAÄ archaeology layer is Sweden-only in the current implementation
+- the map is a static HTML artifact, not a backed web application
+- the browser-facing map currently loads Leaflet assets and basemap tiles from external services, so an offline browser session will not render the full map experience
+
 ## Layer Model
 
 ```mermaid

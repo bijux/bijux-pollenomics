@@ -24,6 +24,9 @@ make docs-serve
 - section index pages should explain how to read the section
 - diagrams should clarify architecture or workflow, not decorate pages
 - documentation should match the checked-in command surface and file layout exactly
+- claims about current files, commands, counts, or layers should be verified against code or checked-in artifacts in the same change
+- the seven canonical sections should carry the narrative documentation load; duplicate side-channel guide pages should not reappear
+- when scope is limited, say so explicitly instead of implying future capability is already present
 
 ## Purpose
 

@@ -26,6 +26,10 @@ Country reports summarize AADR samples for one political entity.
 - `*_samples.geojson`
 - `*_samples.md`
 
+## What They Do Not Contain
+
+Country bundles do not contain their own standalone HTML map. They link back to the shared Nordic map when that link is provided during generation.
+
 ## Why Country Reports Exist Alongside The Shared Map
 
 The map is good for exploration, but country reports are better for:
@@ -40,6 +44,8 @@ The map is good for exploration, but country reports are better for:
 ```bash
 PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
+
+The same command pattern is used for Norway, Finland, and Denmark in the current checked-in outputs.
 
 ## Purpose
 

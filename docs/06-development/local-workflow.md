@@ -15,6 +15,7 @@ Use the `Makefile` as the main local interface.
 
 ```bash
 make install
+make clean
 make lint
 make test
 make data-prep
@@ -26,6 +27,10 @@ make docs-serve
 ## Why The Makefile Exists
 
 The repository now has enough moving parts that a checked-in local workflow is more reliable than asking contributors to remember raw commands.
+
+## Accuracy Rule
+
+When docs or code comments describe a command, file, or artifact, verify it against the current repository state before merging the change.
 
 ## Purpose
 
