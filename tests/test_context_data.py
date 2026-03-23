@@ -7,6 +7,23 @@ from bijux_pollen.context_data import normalize_neotoma_rows, normalize_sead_row
 
 
 class ContextDataTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.country_boundaries = {
+            "Sweden": {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [[[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]],
+                        },
+                        "properties": {"name": "Sweden"},
+                    }
+                ],
+            }
+        }
+
     def test_normalize_neotoma_rows_filters_to_nordic_bbox_and_reduces_polygons(self) -> None:
         rows = [
             {
@@ -45,11 +62,16 @@ class ContextDataTests(unittest.TestCase):
             },
         ]
 
-        records = normalize_neotoma_rows(rows, bbox=(4.0, 54.0, 35.0, 72.0))
+        records = normalize_neotoma_rows(
+            rows,
+            bbox=(4.0, 54.0, 35.0, 72.0),
+            country_boundaries=self.country_boundaries,
+        )
 
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].record_id, "2961")
         self.assertEqual(records[0].geometry_type, "Polygon")
+        self.assertEqual(records[0].country, "Sweden")
         self.assertAlmostEqual(records[0].longitude, 17.5)
         self.assertAlmostEqual(records[0].latitude, 59.5)
         self.assertEqual(records[0].record_count, 1)
@@ -68,11 +90,12 @@ class ContextDataTests(unittest.TestCase):
             }
         ]
 
-        records = normalize_sead_rows(rows)
+        records = normalize_sead_rows(rows, country_boundaries=self.country_boundaries)
 
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].record_id, "6468")
         self.assertEqual(records[0].name, "10412 Fjalkinge")
+        self.assertEqual(records[0].country, "Sweden")
         self.assertEqual(records[0].category, "Environmental archaeology")
         self.assertEqual(records[0].popup_rows[0], ("Site ID", "6468"))
 

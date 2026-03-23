@@ -23,6 +23,7 @@ class ExternalPointRecord:
     layer_key: str
     layer_label: str
     category: str
+    country: str
     record_id: str
     name: str
     latitude: float
@@ -56,6 +57,8 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
     sead_norm_dir = output_root / "sead" / "normalized"
     raa_raw_dir = output_root / "raa" / "raw"
     raa_norm_dir = output_root / "raa" / "normalized"
+    boundaries_raw_dir = output_root / "boundaries" / "raw"
+    boundaries_norm_dir = output_root / "boundaries" / "normalized"
 
     for directory in [
         neotoma_raw_dir,
@@ -64,8 +67,22 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         sead_norm_dir,
         raa_raw_dir,
         raa_norm_dir,
+        boundaries_raw_dir,
+        boundaries_norm_dir,
     ]:
         directory.mkdir(parents=True, exist_ok=True)
+
+    country_boundaries = fetch_country_boundaries()
+    for country_name, payload in country_boundaries.items():
+        write_json(
+            boundaries_raw_dir / f"{slugify(country_name)}.geojson",
+            payload,
+        )
+    combined_boundaries = build_combined_country_boundaries(country_boundaries)
+    write_json(
+        boundaries_norm_dir / "nordic_country_boundaries.geojson",
+        combined_boundaries,
+    )
 
     neotoma_rows = fetch_neotoma_pollen_rows()
     neotoma_raw_payload = {
@@ -76,7 +93,11 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         "rows": neotoma_rows,
     }
     write_json(neotoma_raw_dir / "neotoma_pollen_sites.json", neotoma_raw_payload)
-    neotoma_records = normalize_neotoma_rows(neotoma_rows, bbox=NORDIC_BBOX)
+    neotoma_records = normalize_neotoma_rows(
+        neotoma_rows,
+        bbox=NORDIC_BBOX,
+        country_boundaries=country_boundaries,
+    )
     write_external_points_csv(
         neotoma_norm_dir / "nordic_pollen_sites.csv",
         neotoma_records,
@@ -95,7 +116,7 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         "rows": sead_rows,
     }
     write_json(sead_raw_dir / "nordic_sites.json", sead_raw_payload)
-    sead_records = normalize_sead_rows(sead_rows)
+    sead_records = normalize_sead_rows(sead_rows, country_boundaries=country_boundaries)
     write_external_points_csv(
         sead_norm_dir / "nordic_environmental_sites.csv",
         sead_records,
@@ -105,13 +126,17 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         sead_records,
     )
 
-    raa_metadata = fetch_raa_archaeology_metadata()
+    raa_metadata = fetch_raa_archaeology_metadata(country_boundaries=country_boundaries)
     write_text(raa_raw_dir / "arkreg_v1_0_wfs_capabilities.xml", raa_metadata["capabilities_xml"])
     write_text(raa_raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", raa_metadata["schema_xml"])
     write_json(raa_raw_dir / "fornsok_domains.json", raa_metadata["domain_payload"])
     write_json(
         raa_norm_dir / "sweden_archaeology_layer.json",
         raa_metadata["layer_metadata"],
+    )
+    write_json(
+        raa_norm_dir / "sweden_archaeology_density.geojson",
+        raa_metadata["density_geojson"],
     )
 
     return ContextDataReport(
@@ -155,6 +180,7 @@ def fetch_neotoma_pollen_rows() -> list[dict[str, object]]:
 def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
+    country_boundaries: dict[str, dict[str, object]],
 ) -> list[ExternalPointRecord]:
     """Convert raw Neotoma rows into compact Nordic pollen site records."""
     records: list[ExternalPointRecord] = []
@@ -167,6 +193,9 @@ def normalize_neotoma_rows(
             continue
         longitude, latitude, geometry_type = representative_point
         if not point_in_bbox(longitude=longitude, latitude=latitude, bbox=bbox):
+            continue
+        country = classify_country(longitude, latitude, country_boundaries)
+        if not country:
             continue
 
         collection_units = row.get("collectionunits", [])
@@ -198,6 +227,7 @@ def normalize_neotoma_rows(
             ("Site ID", site_id),
             ("Category", "Pollen"),
             ("Source", "Neotoma"),
+            ("Country", country),
             ("Geometry", geometry_type),
             ("Collection units", str(collection_unit_count)),
             ("Datasets", str(dataset_count)),
@@ -215,6 +245,7 @@ def normalize_neotoma_rows(
                 layer_key="neotoma-pollen",
                 layer_label="Neotoma pollen sites",
                 category="Pollen",
+                country=country,
                 record_id=site_id,
                 name=site_name,
                 latitude=latitude,
@@ -267,13 +298,19 @@ def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[s
     return sorted(deduplicated.values(), key=lambda item: int(item.get("site_id", 0)))
 
 
-def normalize_sead_rows(rows: Iterable[dict[str, object]]) -> list[ExternalPointRecord]:
+def normalize_sead_rows(
+    rows: Iterable[dict[str, object]],
+    country_boundaries: dict[str, dict[str, object]],
+) -> list[ExternalPointRecord]:
     """Convert SEAD site rows into compact environmental archaeology records."""
     records: list[ExternalPointRecord] = []
     for row in rows:
         latitude = row.get("latitude_dd")
         longitude = row.get("longitude_dd")
         if latitude is None or longitude is None:
+            continue
+        country = classify_country(float(longitude), float(latitude), country_boundaries)
+        if not country:
             continue
         site_id = str(row.get("site_id", "")).strip()
         site_name = str(row.get("site_name", "")).strip() or f"SEAD site {site_id}"
@@ -286,6 +323,7 @@ def normalize_sead_rows(rows: Iterable[dict[str, object]]) -> list[ExternalPoint
             ("Site ID", site_id),
             ("Category", "Environmental archaeology"),
             ("Source", "SEAD"),
+            ("Country", country),
         ]
         if national_identifier:
             popup_rows.append(("National identifier", national_identifier))
@@ -300,6 +338,7 @@ def normalize_sead_rows(rows: Iterable[dict[str, object]]) -> list[ExternalPoint
                 layer_key="sead-sites",
                 layer_label="SEAD sites",
                 category="Environmental archaeology",
+                country=country,
                 record_id=site_id,
                 name=site_name,
                 latitude=float(latitude),
@@ -316,7 +355,9 @@ def normalize_sead_rows(rows: Iterable[dict[str, object]]) -> list[ExternalPoint
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
 
 
-def fetch_raa_archaeology_metadata() -> dict[str, object]:
+def fetch_raa_archaeology_metadata(
+    country_boundaries: dict[str, dict[str, object]],
+) -> dict[str, object]:
     """Download Swedish archaeology layer metadata from RAÄ and Fornsök."""
     capabilities_url = "https://karta.raa.se/geo/arkreg_v1.0/wfs?service=WFS&request=GetCapabilities"
     schema_url = (
@@ -335,22 +376,22 @@ def fetch_raa_archaeology_metadata() -> dict[str, object]:
     count_fornlamning_or_possible = fetch_raa_count(
         "antikvariskbedomningtyp_namn IN ('Fornlämning','Möjlig fornlämning')"
     )
+    density_geojson = fetch_raa_density_geojson(country_boundaries["Sweden"])
 
     layer_metadata = {
         "source": "Riksantikvarieämbetet",
         "layer_key": "raa-archaeology",
-        "layer_label": "RAÄ archaeology",
+        "layer_label": "RAÄ archaeology density",
         "category": "Archaeological sites",
         "country": "Sweden",
         "description": (
-            "Published archaeological centroids from Fornsök/RAÄ Open Data. "
-            "The interactive map renders this layer directly from the official WMS service "
-            "so the national inventory stays usable without embedding hundreds of thousands of points."
+            "Published archaeology density derived from Fornsök/RAÄ Open Data. "
+            "The map renders grid-cell counts for `Fornlämning` records so Swedish archaeology is visible "
+            "at national scale without loading hundreds of thousands of point markers."
         ),
-        "wms_url": "https://karta.raa.se/geo/arkreg_v1.0/wms",
-        "wms_layers": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
-        "wms_format": "image/png",
         "feature_type": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
+        "grid_cell_size_degrees": 1.0,
+        "density_feature_count": len(density_geojson["features"]),
         "counts": {
             "all_published_sites": count_all,
             "fornlamning": count_fornlamning,
@@ -364,6 +405,7 @@ def fetch_raa_archaeology_metadata() -> dict[str, object]:
         "schema_xml": schema_xml,
         "domain_payload": domain_payload,
         "layer_metadata": layer_metadata,
+        "density_geojson": density_geojson,
     }
 
 
@@ -388,6 +430,51 @@ def fetch_raa_count(cql_filter: str | None = None) -> int:
     return int(xml_text[start:end])
 
 
+def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, object]:
+    """Build a Swedish archaeology density grid from RAÄ WFS counts."""
+    geometry = sweden_boundary["features"][0]["geometry"]
+    min_longitude, min_latitude, max_longitude, max_latitude = geometry_bbox(geometry)
+    cell_size = 1.0
+    features = []
+    latitude = int(min_latitude)
+    while latitude < int(max_latitude) + 1:
+        longitude = int(min_longitude)
+        while longitude < int(max_longitude) + 1:
+            cell = build_grid_cell_geometry(
+                min_longitude=float(longitude),
+                min_latitude=float(latitude),
+                cell_size=cell_size,
+            )
+            if not grid_cell_relevant(cell["coordinates"][0], geometry):
+                longitude += 1
+                continue
+            count = fetch_raa_count(
+                (
+                    "BBOX(centrumpunkt,"
+                    f"{longitude},{latitude},{longitude + cell_size},{latitude + cell_size},'EPSG:4326') "
+                    "AND antikvariskbedomningtyp_namn='Fornlämning'"
+                )
+            )
+            if count > 0:
+                features.append(
+                    {
+                        "type": "Feature",
+                        "geometry": cell,
+                        "properties": {
+                            "layer_key": "raa-archaeology",
+                            "layer_label": "RAÄ archaeology density",
+                            "country": "Sweden",
+                            "count": count,
+                            "count_label": format_count_label(count),
+                        },
+                    }
+                )
+            longitude += 1
+        latitude += 1
+
+    return {"type": "FeatureCollection", "features": features}
+
+
 def write_external_points_csv(path: Path, records: Iterable[ExternalPointRecord]) -> None:
     """Write normalized external point records as CSV."""
     fieldnames = [
@@ -395,6 +482,7 @@ def write_external_points_csv(path: Path, records: Iterable[ExternalPointRecord]
         "layer_key",
         "layer_label",
         "category",
+        "country",
         "record_id",
         "name",
         "latitude",
@@ -416,6 +504,7 @@ def write_external_points_csv(path: Path, records: Iterable[ExternalPointRecord]
                     "layer_key": record.layer_key,
                     "layer_label": record.layer_label,
                     "category": record.category,
+                    "country": record.country,
                     "record_id": record.record_id,
                     "name": record.name,
                     "latitude": f"{record.latitude:.6f}",
@@ -446,6 +535,7 @@ def write_external_points_geojson(path: Path, records: Iterable[ExternalPointRec
                     "layer_key": record.layer_key,
                     "layer_label": record.layer_label,
                     "category": record.category,
+                    "country": record.country,
                     "record_id": record.record_id,
                     "name": record.name,
                     "geometry_type": record.geometry_type,
@@ -461,6 +551,42 @@ def write_external_points_geojson(path: Path, records: Iterable[ExternalPointRec
             }
         )
     write_json(path, {"type": "FeatureCollection", "features": features})
+
+
+def fetch_country_boundaries() -> dict[str, dict[str, object]]:
+    """Download Nordic country boundaries used for country assignment and display."""
+    urls = {
+        "Sweden": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/SWE.geo.json",
+        "Norway": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/NOR.geo.json",
+        "Finland": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/FIN.geo.json",
+        "Denmark": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/DNK.geo.json",
+    }
+    return {
+        country: fetch_json(url)
+        for country, url in urls.items()
+    }
+
+
+def build_combined_country_boundaries(
+    country_boundaries: dict[str, dict[str, object]],
+) -> dict[str, object]:
+    """Combine individual Nordic country files into one GeoJSON collection."""
+    features = []
+    for country, payload in country_boundaries.items():
+        for feature in payload.get("features", []):
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": feature["geometry"],
+                    "properties": {
+                        "country": country,
+                        "name": country,
+                        "layer_key": "country-boundaries",
+                        "layer_label": "Country boundaries",
+                    },
+                }
+            )
+    return {"type": "FeatureCollection", "features": features}
 
 
 def fetch_json(
@@ -546,6 +672,109 @@ def point_in_bbox(
         min_longitude <= longitude <= max_longitude
         and min_latitude <= latitude <= max_latitude
     )
+
+
+def classify_country(
+    longitude: float,
+    latitude: float,
+    country_boundaries: dict[str, dict[str, object]],
+) -> str:
+    """Assign a point to one of the Nordic countries based on polygon containment."""
+    for country, payload in country_boundaries.items():
+        for feature in payload.get("features", []):
+            geometry = feature.get("geometry", {})
+            if isinstance(geometry, dict) and point_in_geometry(longitude, latitude, geometry):
+                return country
+    return ""
+
+
+def point_in_geometry(longitude: float, latitude: float, geometry: dict[str, object]) -> bool:
+    """Check whether a point falls inside a GeoJSON Polygon or MultiPolygon."""
+    geometry_type = geometry.get("type")
+    coordinates = geometry.get("coordinates", [])
+    if geometry_type == "Polygon":
+        return point_in_polygon(longitude, latitude, coordinates)
+    if geometry_type == "MultiPolygon":
+        return any(point_in_polygon(longitude, latitude, polygon) for polygon in coordinates)
+    return False
+
+
+def point_in_polygon(longitude: float, latitude: float, polygon: list[object]) -> bool:
+    """Ray-casting point-in-polygon with support for holes."""
+    if not polygon:
+        return False
+    if not point_in_ring(longitude, latitude, polygon[0]):
+        return False
+    for hole in polygon[1:]:
+        if point_in_ring(longitude, latitude, hole):
+            return False
+    return True
+
+
+def point_in_ring(longitude: float, latitude: float, ring: list[object]) -> bool:
+    """Return True when a point is inside a linear ring."""
+    inside = False
+    previous = ring[-1]
+    for current in ring:
+        x1, y1 = previous[0], previous[1]
+        x2, y2 = current[0], current[1]
+        crosses = ((y1 > latitude) != (y2 > latitude)) and (
+            longitude < (x2 - x1) * (latitude - y1) / ((y2 - y1) or 1e-12) + x1
+        )
+        if crosses:
+            inside = not inside
+        previous = current
+    return inside
+
+
+def geometry_bbox(geometry: dict[str, object]) -> tuple[float, float, float, float]:
+    """Return the bounding box of a GeoJSON geometry."""
+    flattened = flatten_positions(geometry.get("coordinates", []))
+    longitudes = [position[0] for position in flattened]
+    latitudes = [position[1] for position in flattened]
+    return min(longitudes), min(latitudes), max(longitudes), max(latitudes)
+
+
+def build_grid_cell_geometry(
+    min_longitude: float,
+    min_latitude: float,
+    cell_size: float,
+) -> dict[str, object]:
+    """Build a rectangular polygon used for density aggregation."""
+    max_longitude = min_longitude + cell_size
+    max_latitude = min_latitude + cell_size
+    return {
+        "type": "Polygon",
+        "coordinates": [[
+            [min_longitude, min_latitude],
+            [max_longitude, min_latitude],
+            [max_longitude, max_latitude],
+            [min_longitude, max_latitude],
+            [min_longitude, min_latitude],
+        ]],
+    }
+
+
+def grid_cell_relevant(ring: list[object], geometry: dict[str, object]) -> bool:
+    """Keep a density cell when its center or corners overlap the Sweden boundary."""
+    center_longitude = (ring[0][0] + ring[2][0]) / 2
+    center_latitude = (ring[0][1] + ring[2][1]) / 2
+    if point_in_geometry(center_longitude, center_latitude, geometry):
+        return True
+    return any(point_in_geometry(point[0], point[1], geometry) for point in ring[:-1])
+
+
+def format_count_label(count: int) -> str:
+    """Render archaeology density counts in a compact human-readable form."""
+    return f"{count:,}"
+
+
+def slugify(value: str) -> str:
+    """Convert a label into a stable file slug."""
+    slug = "".join(character.lower() if character.isalnum() else "-" for character in value)
+    while "--" in slug:
+        slug = slug.replace("--", "-")
+    return slug.strip("-")
 
 
 def clean_optional_text(value: object) -> str:
