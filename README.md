@@ -23,6 +23,7 @@ The canonical documentation site is built with MkDocs and lives under `docs/`.
 
 - `make docs` builds the static site into `artifacts/docs/site`
 - `make docs-serve` serves the site locally on `127.0.0.1:8000`
+- `.github/workflows/deploy-docs.yml` deploys the built site to GitHub Pages from `main`
 - `make install` creates the local virtual environment under `artifacts/.venv/`
 - `make reports` regenerates the checked-in shared map and country report bundles under `docs/report/`
 - `make app-state` rebuilds the current app scope end to end: tracked data, published reports, and the docs site

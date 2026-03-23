@@ -18,9 +18,20 @@ make docs
 make docs-serve
 ```
 
+`make docs` builds the site into `artifacts/docs/site/`.
+
 `make docs-serve` is configured to serve the local site at `http://127.0.0.1:8000/` so homepage links and iframe paths resolve against the local root instead of the GitHub Pages project path.
 
 The `make docs` and `make docs-serve` targets also set `NO_MKDOCS_2_WARNING=true` to suppress an upstream warning banner emitted by the installed Material theme package. That suppression only affects terminal noise; it does not change the generated site.
+
+## GitHub Pages Deployment
+
+The repository deploys documentation with [deploy-docs.yml](/Users/bijan/bijux/bijux-pollen/.github/workflows/deploy-docs.yml).
+
+- pushes to `main` build the site and deploy it to GitHub Pages
+- tags matching `v*` build the site as a release-quality validation step
+- the deploy job itself runs only for `main`
+- the workflow validates that `mkdocs.yml` still writes to `artifacts/docs/site` and keeps `strict: true`
 
 ## Documentation Rules
 
