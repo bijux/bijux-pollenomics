@@ -1,4 +1,9 @@
-data/
+data/*
+!data/aadr/
+!data/aadr/**
+!data/external/
+!data/external/**
+data/**/~$*.xlsx
 
 # macOS
 .DS_Store

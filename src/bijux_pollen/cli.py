@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
+from .context_data import collect_context_data
 from .reporting import generate_country_report, generate_multi_country_map, slugify
 
 
@@ -84,6 +85,24 @@ def build_parser() -> argparse.ArgumentParser:
         default=Path("docs/report"),
         help="Directory where report folders should be written. Default: docs/report",
     )
+
+    multi_map_parser.add_argument(
+        "--external-root",
+        type=Path,
+        default=None,
+        help="Optional directory containing normalized external datasets to add to the map.",
+    )
+
+    context_parser = subparsers.add_parser(
+        "collect-context-data",
+        help="Download and normalize external archaeology and palaeo data into data/external.",
+    )
+    context_parser.add_argument(
+        "--output-root",
+        type=Path,
+        default=Path("data/external"),
+        help="Directory where external source data should be written. Default: data/external",
+    )
     return parser
 
 
@@ -119,10 +138,21 @@ def main(argv: Sequence[str] | None = None) -> int:
             output_dir=output_dir,
             title=args.title,
             slug=slugify(args.name),
+            external_root=args.external_root,
         )
         print(
             f"Wrote {report.title} AADR {report.version} map with "
             f"{report.total_unique_samples} unique samples to {output_dir}"
+        )
+        return 0
+
+    if args.command == "collect-context-data":
+        report = collect_context_data(output_root=args.output_root)
+        print(
+            f"Wrote external context data to {report.output_root} with "
+            f"{report.neotoma_point_count} Neotoma points, "
+            f"{report.sead_point_count} SEAD points, and "
+            f"{report.raa_total_site_count} Swedish archaeology records in the RAÄ layer"
         )
         return 0
 
