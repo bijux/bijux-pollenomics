@@ -204,7 +204,7 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
                 genetic_id=clean_text(row.get(schema["genetic_id"], "")),
                 master_id=clean_text(row.get(schema["master_id"], "")),
                 group_id=clean_text(row.get(schema["group_id"], "")),
-                locality=clean_text(row.get(schema["locality"], "")),
+                locality=clean_text(row.get(schema["locality"], "")) or "Unspecified locality",
                 political_entity=clean_text(row.get(schema["political_entity"], "")),
                 latitude=float(latitude_text),
                 longitude=float(longitude_text),
@@ -396,11 +396,11 @@ This report was generated from the AADR `{report.version}` `.anno` files on `{re
 
 ## Dataset Coverage
 
-| Dataset | Sweden rows |
+| Dataset | {report.country} rows |
 | --- | ---: |
 {dataset_lines}
 
-The report deduplicates samples by `genetic_id` across datasets. In AADR `{report.version}`, the Sweden rows in `1240k` and `ho` resolve to the same `{report.total_unique_samples}` unique samples.
+The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `{report.country}` contains `{report.total_unique_samples}` unique samples in AADR `{report.version}`.
 
 ## Output Files
 

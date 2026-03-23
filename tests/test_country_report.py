@@ -101,6 +101,26 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("diameter-slider", map_html)
             self.assertIn("leaflet@1.9.4", map_html)
 
+    def test_generate_country_report_uses_country_specific_copy_and_locality_placeholder(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "finland"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "FI1\tFI1\tFinland_Group\t\tFinland\t60.2\t24.9\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            generate_country_report(root, "Finland", output)
+
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            samples_csv = (output / "finland_aadr_v62.0_samples.csv").read_text(encoding="utf-8")
+            self.assertIn("| Dataset | Finland rows |", readme_text)
+            self.assertIn("combined inventory for `Finland` contains `1` unique samples", readme_text)
+            self.assertIn("Unspecified locality", readme_text)
+            self.assertIn("Unspecified locality", samples_csv)
+
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(HEADER + "\n" + "\n".join(rows) + "\n", encoding="utf-8")
