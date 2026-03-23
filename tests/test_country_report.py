@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollen.reporting import generate_country_report, load_country_samples
+from bijux_pollen.reporting import generate_country_report, generate_multi_country_map, load_country_samples
 
 
 HEADER = "\t".join(
@@ -85,7 +85,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_aadr_v62.0_localities.csv").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.geojson").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.md").exists())
-            self.assertTrue((output / "sweden_aadr_v62.0_map.html").exists())
+            self.assertFalse((output / "sweden_aadr_v62.0_map.html").exists())
 
             with (output / "sweden_aadr_v62.0_samples.csv").open(newline="", encoding="utf-8") as handle:
                 rows = list(csv.DictReader(handle))
@@ -95,11 +95,6 @@ class CountryReportTests(unittest.TestCase):
             geojson = json.loads((output / "sweden_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(len(geojson["features"]), 2)
-
-            map_html = (output / "sweden_aadr_v62.0_map.html").read_text(encoding="utf-8")
-            self.assertIn("Acceptance Range", map_html)
-            self.assertIn("diameter-slider", map_html)
-            self.assertIn("leaflet@1.9.4", map_html)
 
     def test_generate_country_report_uses_country_specific_copy_and_locality_placeholder(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -120,6 +115,47 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("combined inventory for `Finland` contains `1` unique samples", readme_text)
             self.assertIn("Unspecified locality", readme_text)
             self.assertIn("Unspecified locality", samples_csv)
+
+    def test_generate_multi_country_map_writes_shared_map_with_country_toggles(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic"
+            self.write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                    "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tAG\tM",
+                ],
+            )
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "FI1\tFI1\tFinland_Group\tTurku\tFinland\t60.4518\t22.2666\tPaperC\t2020\t700 CE\t1250\tHO\tU",
+                ],
+            )
+
+            report = generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden", "Norway", "Finland"],
+                output_dir=output,
+                title="Nordic Countries",
+                slug="nordic",
+            )
+
+            self.assertEqual(report.total_unique_samples, 3)
+            self.assertTrue((output / "README.md").exists())
+            self.assertTrue((output / "nordic_aadr_v62.0_map.html").exists())
+            self.assertTrue((output / "nordic_aadr_v62.0_samples.geojson").exists())
+
+            map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            self.assertIn("Country Selection", map_html)
+            self.assertIn("country-checkbox", map_html)
+            self.assertIn("Sweden", map_html)
+            self.assertIn("Norway", map_html)
+            self.assertIn("Finland", map_html)
+
+            geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
+            self.assertEqual(len(geojson["features"]), 3)
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

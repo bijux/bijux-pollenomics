@@ -54,11 +54,28 @@ class CountryReport:
     output_dir: Path
 
 
+@dataclass(frozen=True)
+class MultiCountryMapReport:
+    title: str
+    slug: str
+    version: str
+    generated_on: str
+    countries: tuple[str, ...]
+    country_sample_counts: dict[str, int]
+    total_unique_samples: int
+    output_dir: Path
+
+
 class SchemaError(ValueError):
     """Raised when an AADR anno file does not contain expected columns."""
 
 
-def generate_country_report(version_dir: Path, country: str, output_dir: Path) -> CountryReport:
+def generate_country_report(
+    version_dir: Path,
+    country: str,
+    output_dir: Path,
+    map_reference: tuple[str, str] | None = None,
+) -> CountryReport:
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
@@ -84,14 +101,12 @@ def generate_country_report(version_dir: Path, country: str, output_dir: Path) -
     locality_csv_path = output_dir / f"{slug}_aadr_{version}_localities.csv"
     geojson_path = output_dir / f"{slug}_aadr_{version}_samples.geojson"
     sample_markdown_path = output_dir / f"{slug}_aadr_{version}_samples.md"
-    map_html_path = output_dir / f"{slug}_aadr_{version}_map.html"
     readme_path = output_dir / "README.md"
 
     write_samples_csv(csv_path, report.samples)
     write_localities_csv(locality_csv_path, report.localities)
     write_samples_geojson(geojson_path, report.samples)
     sample_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
-    map_html_path.write_text(render_interactive_map_html(report), encoding="utf-8")
     readme_path.write_text(
         render_summary_markdown(
             report=report,
@@ -99,11 +114,84 @@ def generate_country_report(version_dir: Path, country: str, output_dir: Path) -
             localities_csv_name=locality_csv_path.name,
             geojson_name=geojson_path.name,
             sample_markdown_name=sample_markdown_path.name,
-            map_html_name=map_html_path.name,
+            map_reference=map_reference,
         ),
         encoding="utf-8",
     )
     return report
+
+
+def generate_multi_country_map(
+    version_dir: Path,
+    countries: Iterable[str],
+    output_dir: Path,
+    title: str,
+    slug: str,
+) -> MultiCountryMapReport:
+    """Write a shared interactive map for multiple countries with country toggles."""
+    version_dir = Path(version_dir)
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
+    if not normalized_countries:
+        raise ValueError("At least one country is required to build a multi-country map")
+
+    country_samples: dict[str, tuple[SampleRecord, ...]] = {}
+    country_sample_counts: dict[str, int] = {}
+    for country in normalized_countries:
+        samples, _ = load_country_samples(version_dir=version_dir, country=country)
+        country_samples[country] = tuple(samples)
+        country_sample_counts[country] = len(samples)
+
+    all_samples = tuple(
+        sample
+        for country in normalized_countries
+        for sample in country_samples[country]
+    )
+    version = version_dir.name
+    generated_on = str(date.today())
+
+    map_geojson_path = output_dir / f"{slug}_aadr_{version}_samples.geojson"
+    map_html_path = output_dir / f"{slug}_aadr_{version}_map.html"
+    readme_path = output_dir / "README.md"
+
+    map_geojson = build_samples_geojson(all_samples)
+    map_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
+    map_html_path.write_text(
+        render_multi_country_map_html(
+            title=title,
+            version=version,
+            generated_on=generated_on,
+            countries=normalized_countries,
+            country_samples=country_samples,
+            geojson=map_geojson,
+        ),
+        encoding="utf-8",
+    )
+    readme_path.write_text(
+        render_multi_country_map_markdown(
+            title=title,
+            version=version,
+            generated_on=generated_on,
+            countries=normalized_countries,
+            country_sample_counts=country_sample_counts,
+            map_html_name=map_html_path.name,
+            geojson_name=map_geojson_path.name,
+        ),
+        encoding="utf-8",
+    )
+
+    return MultiCountryMapReport(
+        title=title,
+        slug=slug,
+        version=version,
+        generated_on=generated_on,
+        countries=normalized_countries,
+        country_sample_counts=country_sample_counts,
+        total_unique_samples=len(all_samples),
+        output_dir=output_dir,
+    )
 
 
 def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRecord], Counter[str]]:
@@ -367,7 +455,7 @@ def render_summary_markdown(
     localities_csv_name: str,
     geojson_name: str,
     sample_markdown_name: str,
-    map_html_name: str,
+    map_reference: tuple[str, str] | None,
 ) -> str:
     """Render the country summary README."""
     latitude_values = [sample.latitude for sample in report.samples]
@@ -381,6 +469,11 @@ def render_summary_markdown(
         f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | `{','.join(locality.datasets)}` |"
         for locality in report.localities[:15]
     )
+
+    map_line = ""
+    if map_reference is not None:
+        label, href = map_reference
+        map_line = f"- Shared interactive map: [`{label}`]({href})\n"
 
     return f"""# {report.country} AADR {report.version} Report
 
@@ -404,8 +497,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Output Files
 
-- Interactive map: [`{map_html_name}`](./{map_html_name})
-- Full sample inventory: [`{samples_csv_name}`](./{samples_csv_name})
+{map_line}- Full sample inventory: [`{samples_csv_name}`](./{samples_csv_name})
 - Locality summary: [`{localities_csv_name}`](./{localities_csv_name})
 - Map-ready GeoJSON: [`{geojson_name}`](./{geojson_name})
 - Full markdown sample table: [`{sample_markdown_name}`](./{sample_markdown_name})
@@ -451,33 +543,84 @@ def render_sample_markdown(report: CountryReport) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_interactive_map_html(report: CountryReport) -> str:
-    """Render a standalone interactive HTML map for a country report."""
-    geojson = json.dumps(build_samples_geojson(report.samples), ensure_ascii=False)
+def render_multi_country_map_markdown(
+    title: str,
+    version: str,
+    generated_on: str,
+    countries: tuple[str, ...],
+    country_sample_counts: dict[str, int],
+    map_html_name: str,
+    geojson_name: str,
+) -> str:
+    """Render a README for a shared multi-country map bundle."""
+    rows = "\n".join(
+        f"| {country} | {country_sample_counts[country]} |"
+        for country in countries
+    )
+    return f"""# {title} AADR {version} Map
+
+This shared interactive map was generated from the AADR `{version}` `.anno` files on `{generated_on}`.
+
+## Included Countries
+
+| Country | Unique samples |
+| --- | ---: |
+{rows}
+
+## Output Files
+
+- Interactive map: [`{map_html_name}`](./{map_html_name})
+- Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
+"""
+
+
+def render_multi_country_map_html(
+    title: str,
+    version: str,
+    generated_on: str,
+    countries: tuple[str, ...],
+    country_samples: dict[str, tuple[SampleRecord, ...]],
+    geojson: dict[str, object],
+) -> str:
+    """Render a standalone interactive HTML map with country toggles."""
+    geojson_json = json.dumps(geojson, ensure_ascii=False)
     initial_diameter_km = 20
-    latitude_values = [sample.latitude for sample in report.samples]
-    longitude_values = [sample.longitude for sample in report.samples]
+    all_samples = [sample for samples in country_samples.values() for sample in samples]
+    latitude_values = [sample.latitude for sample in all_samples]
+    longitude_values = [sample.longitude for sample in all_samples]
     bounds = [
         [min(latitude_values), min(longitude_values)],
         [max(latitude_values), max(longitude_values)],
     ]
     bounds_json = json.dumps(bounds)
+    country_sample_counts = {country: len(country_samples[country]) for country in countries}
     stats_cards = [
-        ("Samples", str(report.total_unique_samples)),
-        ("Localities", str(report.total_unique_localities)),
-        ("Datasets", str(len(report.dataset_row_counts))),
-        ("Version", report.version),
+        ("Samples", str(len(all_samples))),
+        ("Countries", str(len(countries))),
+        ("Version", version),
+        ("Generated", generated_on),
     ]
     stats_html = "\n".join(
         f'<div class="stat-card"><span class="stat-label">{label}</span><strong class="stat-value">{value}</strong></div>'
         for label, value in stats_cards
+    )
+    country_toggle_html = "\n".join(
+        (
+            '<label class="country-toggle">'
+            f'<input class="country-checkbox" type="checkbox" value="{escape_html(country)}" checked>'
+            f'<span class="country-swatch country-{index % 4}"></span>'
+            f'<span class="country-name">{escape_html(country)}</span>'
+            f'<span class="country-count">{country_sample_counts[country]} samples</span>'
+            "</label>"
+        )
+        for index, country in enumerate(countries)
     )
     return f"""<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{report.country} AADR {report.version} Map</title>
+    <title>{title} AADR {version} Map</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -648,6 +791,70 @@ def render_interactive_map_html(report: CountryReport) -> str:
         color: var(--muted);
       }}
 
+      .country-toggles {{
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+      }}
+
+      .country-toggle {{
+        display: grid;
+        grid-template-columns: auto auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.72);
+      }}
+
+      .country-checkbox {{
+        margin: 0;
+      }}
+
+      .country-swatch {{
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+      }}
+
+      .country-0 {{ background: #2563eb; }}
+      .country-1 {{ background: #0f766e; }}
+      .country-2 {{ background: #ca8a04; }}
+      .country-3 {{ background: #9333ea; }}
+
+      .country-name {{
+        font-size: 14px;
+        font-weight: 700;
+      }}
+
+      .country-count {{
+        font-size: 12px;
+        color: var(--muted);
+      }}
+
+      .toggle-actions {{
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+      }}
+
+      .toggle-actions button {{
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 14px;
+        background: #e5e7eb;
+        color: var(--ink);
+        font-weight: 700;
+        cursor: pointer;
+      }}
+
+      .toggle-actions button.primary {{
+        background: #1d4ed8;
+        color: white;
+      }}
+
       .legend-dot,
       .legend-circle {{
         flex: 0 0 auto;
@@ -712,10 +919,10 @@ def render_interactive_map_html(report: CountryReport) -> str:
   <body>
     <aside>
       <span class="eyebrow">Interactive AADR Map</span>
-      <h1>{report.country}</h1>
+      <h1>{title}</h1>
       <p class="lede">
-        Explore every AADR sample point for {report.country}, zoom across the map,
-        and adjust the acceptance diameter to visualize sampling ranges around each aDNA location.
+        Explore one shared AADR map across the selected countries, toggle countries on and off,
+        zoom across the region, and adjust the acceptance diameter around each sample point.
       </p>
 
       <section class="stats-grid">
@@ -723,6 +930,20 @@ def render_interactive_map_html(report: CountryReport) -> str:
       </section>
 
       <section class="control-panel">
+        <h2>Country Selection</h2>
+        <p>
+          Use the country controls to show or hide sample layers without leaving the map.
+        </p>
+        <div class="country-toggles">
+          {country_toggle_html}
+        </div>
+        <div class="toggle-actions">
+          <button id="select-all" class="primary" type="button">Show all</button>
+          <button id="clear-all" type="button">Hide all</button>
+        </div>
+      </section>
+
+      <section class="control-panel" style="margin-top: 16px;">
         <h2>Acceptance Range</h2>
         <p>
           Use the slider to set the circle diameter around every sample point.
@@ -759,7 +980,7 @@ def render_interactive_map_html(report: CountryReport) -> str:
     </aside>
 
     <main>
-      <div id="map" aria-label="{report.country} AADR sample map"></div>
+      <div id="map" aria-label="{title} AADR sample map"></div>
     </main>
 
     <script
@@ -768,8 +989,9 @@ def render_interactive_map_html(report: CountryReport) -> str:
       crossorigin=""
     ></script>
     <script>
-      const sampleData = {geojson};
+      const sampleData = {geojson_json};
       const initialBounds = {bounds_json};
+      const countries = {json.dumps(list(countries), ensure_ascii=False)};
       const map = L.map('map', {{ preferCanvas: true, zoomControl: true }});
 
       const positron = L.tileLayer(
@@ -799,6 +1021,14 @@ def render_interactive_map_html(report: CountryReport) -> str:
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
+      const countryCheckboxes = Array.from(document.querySelectorAll('.country-checkbox'));
+      const selectAllButton = document.getElementById('select-all');
+      const clearAllButton = document.getElementById('clear-all');
+      const countryStyles = {{
+        'Sweden': {{ fill: '#2563eb', stroke: '#0f172a' }},
+        'Norway': {{ fill: '#0f766e', stroke: '#134e4a' }},
+        'Finland': {{ fill: '#ca8a04', stroke: '#854d0e' }}
+      }};
 
       function popupHtml(properties, latitude, longitude) {{
         const datasets = Array.isArray(properties.datasets) ? properties.datasets.join(', ') : '';
@@ -809,6 +1039,9 @@ def render_interactive_map_html(report: CountryReport) -> str:
             }}</div>
             <div><strong>Locality</strong> ${{
               escapeHtml(properties.locality || '')
+            }}</div>
+            <div><strong>Country</strong> ${{
+              escapeHtml(properties.political_entity || '')
             }}</div>
             <div><strong>Master ID</strong> ${{
               escapeHtml(properties.master_id || '')
@@ -843,36 +1076,57 @@ def render_interactive_map_html(report: CountryReport) -> str:
           .replaceAll("'", '&#39;');
       }}
 
-      features.forEach((feature) => {{
-        const [longitude, latitude] = feature.geometry.coordinates;
-        const marker = L.circleMarker([latitude, longitude], {{
-          radius: 4.5,
-          color: '#0f172a',
-          weight: 1,
-          fillColor: '#2563eb',
-          fillOpacity: 0.88
-        }});
-        marker.bindPopup(popupHtml(feature.properties, latitude, longitude), {{
-          maxWidth: 340,
-          className: 'sample-popup'
-        }});
-        pointsLayer.addLayer(marker);
-      }});
+      function selectedCountries() {{
+        return new Set(countryCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.value));
+      }}
 
-      function renderCircles(diameterKm) {{
+      function styleForCountry(country) {{
+        return countryStyles[country] || {{ fill: '#2563eb', stroke: '#0f172a' }};
+      }}
+
+      function renderPoints(activeCountries) {{
+        pointsLayer.clearLayers();
+        features.forEach((feature) => {{
+          const country = feature.properties.political_entity;
+          if (!activeCountries.has(country)) {{
+            return;
+          }}
+          const [longitude, latitude] = feature.geometry.coordinates;
+          const style = styleForCountry(country);
+          const marker = L.circleMarker([latitude, longitude], {{
+            radius: 4.5,
+            color: style.stroke,
+            weight: 1,
+            fillColor: style.fill,
+            fillOpacity: 0.9
+          }});
+          marker.bindPopup(popupHtml(feature.properties, latitude, longitude), {{
+            maxWidth: 340,
+            className: 'sample-popup'
+          }});
+          pointsLayer.addLayer(marker);
+        }});
+      }}
+
+      function renderCircles(diameterKm, activeCountries) {{
         circlesLayer.clearLayers();
         if (diameterKm <= 0) {{
           return;
         }}
         const radiusMeters = (diameterKm * 1000) / 2;
         features.forEach((feature) => {{
+          const country = feature.properties.political_entity;
+          if (!activeCountries.has(country)) {{
+            return;
+          }}
           const [longitude, latitude] = feature.geometry.coordinates;
+          const style = styleForCountry(country);
           const circle = L.circle([latitude, longitude], {{
             radius: radiusMeters,
-            color: 'rgba(185, 28, 28, 0.55)',
+            color: style.stroke,
             weight: 1,
-            opacity: 0.55,
-            fillColor: 'rgba(239, 68, 68, 0.12)',
+            opacity: 0.45,
+            fillColor: style.fill,
             fillOpacity: 0.12,
             interactive: false
           }});
@@ -880,16 +1134,31 @@ def render_interactive_map_html(report: CountryReport) -> str:
         }});
       }}
 
-      function updateRange() {{
+      function renderMapState() {{
+        const activeCountries = selectedCountries();
         const diameterKm = Number(slider.value);
         const radiusKm = diameterKm / 2;
         diameterValue.textContent = `${{diameterKm}} km`;
         radiusValue.textContent = `${{radiusKm.toFixed(1)}} km`;
-        renderCircles(diameterKm);
+        renderPoints(activeCountries);
+        renderCircles(diameterKm, activeCountries);
       }}
 
-      slider.addEventListener('input', updateRange);
-      updateRange();
+      slider.addEventListener('input', renderMapState);
+      countryCheckboxes.forEach((checkbox) => checkbox.addEventListener('change', renderMapState));
+      selectAllButton.addEventListener('click', () => {{
+        countryCheckboxes.forEach((checkbox) => {{
+          checkbox.checked = true;
+        }});
+        renderMapState();
+      }});
+      clearAllButton.addEventListener('click', () => {{
+        countryCheckboxes.forEach((checkbox) => {{
+          checkbox.checked = false;
+        }});
+        renderMapState();
+      }});
+      renderMapState();
 
       const southWest = initialBounds[0];
       const northEast = initialBounds[1];
@@ -928,3 +1197,14 @@ def slugify(value: str) -> str:
 def escape_pipes(value: str) -> str:
     """Escape markdown pipe characters in table cells."""
     return value.replace("|", "\\|")
+
+
+def escape_html(value: str) -> str:
+    """Escape HTML text used in generated markup."""
+    return (
+        value.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
