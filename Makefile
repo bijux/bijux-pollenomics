@@ -1,11 +1,14 @@
 PYTHON ?= python3.11
-VENV ?= .venv
+ARTIFACTS_ROOT ?= artifacts
+VENV ?= $(ARTIFACTS_ROOT)/.venv
 BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
 PIP := $(BIN)/pip
 RUFF := $(BIN)/ruff
 VERSION ?= v62.0
 DATA_ROOT ?= data
+DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
+DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 
 .PHONY: clean install lint test data-prep build docs docs-serve help
 
@@ -15,13 +18,14 @@ help:
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run the unittest suite\n"
 	@printf "  data-prep  Rebuild the tracked data tree under %s\n" "$(DATA_ROOT)"
-	@printf "  build      Build source and wheel distributions\n"
-	@printf "  docs       Build the MkDocs site into artifacts/docs/site\n"
+	@printf "  build      Build source and wheel distributions into %s\n" "$(DIST_ROOT)"
+	@printf "  docs       Build the MkDocs site into %s\n" "$(DOCS_SITE_ROOT)"
 	@printf "  docs-serve Serve the MkDocs site locally on 127.0.0.1:8000\n"
-	@printf "  clean      Remove local virtualenv and build/test caches\n"
+	@printf "  clean      Remove transient virtualenv and build/test caches\n"
 
 $(VENV_PYTHON):
 	rm -rf $(VENV)
+	mkdir -p $(ARTIFACTS_ROOT)
 	$(PYTHON) -m venv $(VENV)
 	$(PIP) install --upgrade pip
 
@@ -41,7 +45,9 @@ data-prep: install
 	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollen.cli collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
 
 build: install
-	$(VENV_PYTHON) -m build
+	mkdir -p $(DIST_ROOT)
+	$(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
+	rm -rf build
 
 docs: install
 	$(BIN)/mkdocs build --strict
@@ -50,7 +56,7 @@ docs-serve: install
 	$(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
 
 clean:
-	rm -rf $(VENV) build dist .pytest_cache .ruff_cache .mypy_cache htmlcov
+	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +
 	find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete
 	find . -type d -name "*.egg-info" -prune -exec rm -rf {} +
