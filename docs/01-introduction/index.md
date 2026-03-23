@@ -15,7 +15,7 @@ The repository is easiest to understand when you separate five concerns:
 
 - tracked source data under `data/`
 - normalization and acquisition logic under `src/bijux_pollen/data_downloader/`
-- AADR-driven report generation under `src/bijux_pollen/reporting.py`
+- AADR-driven report generation under `src/bijux_pollen/reporting/`
 - the shared Nordic map as the primary interactive output
 - later spatial interpretation built on top of these reproducible layers
 

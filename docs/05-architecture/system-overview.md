@@ -14,7 +14,7 @@ last_reviewed: 2026-03-23
 ## Major Components
 
 - `src/bijux_pollen/data_downloader/`: data acquisition and normalization
-- `src/bijux_pollen/reporting.py`: AADR report and map generation
+- `src/bijux_pollen/reporting/`: AADR report and map generation
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts
 - `mkdocs.yml` and `docs/`: published documentation shell

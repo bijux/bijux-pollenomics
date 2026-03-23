@@ -22,7 +22,7 @@ This section explains how the repository is put together and where responsibilit
 ```mermaid
 flowchart LR
     Downloader[data_downloader] --> DataTree[data/]
-    DataTree --> Reporting[reporting.py]
+    DataTree --> Reporting[reporting/]
     Reporting --> DocsReport[docs/report/]
     DocsReport --> MkDocs[documentation site]
 ```
