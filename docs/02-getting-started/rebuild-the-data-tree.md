@@ -20,7 +20,7 @@ make data-prep
 Equivalent direct command:
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
 ```
 
 ## What Gets Rebuilt
@@ -39,8 +39,8 @@ This command is designed so that deleting `data/` and rerunning it recreates the
 ## Single-Source Rebuilds
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
 ```
 
 Use source-specific runs when you are iterating on one acquisition area and do not want to refresh the entire tree.
@@ -48,9 +48,9 @@ Use source-specific runs when you are iterating on one acquisition area and do n
 The current repository also supports:
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
 ```
 
 ## Purpose

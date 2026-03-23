@@ -32,7 +32,7 @@ SEAD adds environmental archaeology context to the same spatial frame used for p
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
 ```
 
 ## Product Role

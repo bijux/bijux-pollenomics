@@ -24,6 +24,12 @@ make docs
 make docs-serve
 ```
 
+## Artifact Paths
+
+- `make install` uses `artifacts/.venv/`
+- `make build` writes distributions into `artifacts/dist/`
+- `make docs` writes the site into `artifacts/docs/site/`
+
 ## Why The Makefile Exists
 
 The repository now has enough moving parts that a checked-in local workflow is more reliable than asking contributors to remember raw commands.

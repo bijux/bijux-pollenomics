@@ -30,7 +30,7 @@ Without boundaries, the repository cannot apply one consistent country filter to
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
 ```
 
 ## Product Role

@@ -14,7 +14,7 @@ last_reviewed: 2026-03-23
 Check:
 
 - `python3.11 --version`
-- whether `.venv/` is in a broken partial state
+- whether `artifacts/.venv/` is in a broken partial state
 
 If needed:
 

@@ -16,3 +16,5 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 - [`docs/03-data-guide/index.md`](../docs/03-data-guide/index.md)
 - [`docs/07-reference/data-layout.md`](../docs/07-reference/data-layout.md)
+
+Transient local tooling outputs such as the virtual environment and package distributions live under `artifacts/`, not under `data/`.

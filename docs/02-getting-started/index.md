@@ -30,7 +30,7 @@ flowchart LR
 
 By the end of this section you should be able to:
 
-- create the local `.venv`
+- create the local virtual environment under `artifacts/.venv/`
 - run lint and tests
 - rebuild `data/` with one command
 - regenerate the shared Nordic map and country reports

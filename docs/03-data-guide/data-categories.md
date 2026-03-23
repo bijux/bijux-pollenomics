@@ -33,12 +33,12 @@ data
 The current command surface treats every tracked source the same way:
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
-PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
 ```
 
 ## Shared Internal Shape
@@ -65,7 +65,7 @@ The current `data/` tree contains:
 The current repository keeps these source snapshots and normalized outputs in git so that:
 
 - report and map changes can be reviewed against the exact inputs that produced them
-- a clean checkout can be rebuilt into the same data layout with the current command surface
+- a clean checkout can be rebuilt into the same tracked top-level layout with the current command surface
 - documentation claims about file layout can be verified against the checked-in tree
 
 ## Why Not One Mixed Bucket

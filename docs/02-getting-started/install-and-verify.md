@@ -26,7 +26,7 @@ make test
 
 ## What These Commands Do
 
-- `make install` creates `.venv/` and installs the project with dev tooling
+- `make install` creates `artifacts/.venv/` and installs the project with dev tooling
 - `make lint` runs `ruff` across `src/` and `tests/`
 - `make test` runs the checked-in unittest suite
 
@@ -34,7 +34,7 @@ make test
 
 After these commands:
 
-- `.venv/` exists locally
+- `artifacts/.venv/` exists locally
 - lint passes
 - the test suite passes
 
