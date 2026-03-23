@@ -1,0 +1,141 @@
+site_name: Bijux Pollen
+site_description: Nordic aDNA, pollen, environmental archaeology, and archaeology mapping documentation for data preparation, reporting, and spatial interpretation workflows.
+site_url: !ENV [SITE_URL, https://bijux.github.io/bijux-pollen/]
+site_author: Bijan Mousavi
+repo_name: bijux/bijux-pollen
+repo_url: https://github.com/bijux/bijux-pollen
+edit_uri: edit/master/docs/
+strict: true
+use_directory_urls: true
+dev_addr: 127.0.0.1:8000
+docs_dir: docs
+site_dir: artifacts/docs/site
+
+validation:
+  omitted_files: ignore
+
+exclude_docs: |
+  data/README.md
+  report/README.md
+
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.path
+    - navigation.tracking
+    - navigation.instant
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.footer
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
+  - autorefs
+  - git-revision-date-localized:
+      enable_creation_date: false
+      fallback_to_build_date: true
+
+not_in_nav: |
+  assets/**
+  report/**/*.csv
+  report/**/*.geojson
+  report/**/*.html
+  report/**/*.json
+  report/**/*.md
+
+extra_css:
+  - assets/styles/extra.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
+  - assets/javascripts/mermaid-init.js
+
+nav:
+  - Home: index.md
+  - Introduction:
+      - Overview: 01-introduction/index.md
+      - What bijux-pollen Does: 01-introduction/what-bijux-pollen-does.md
+      - Scope and Non-Goals: 01-introduction/scope-and-non-goals.md
+      - Map-First Product Model: 01-introduction/map-first-product-model.md
+  - Getting Started:
+      - Overview: 02-getting-started/index.md
+      - Install and Verify: 02-getting-started/install-and-verify.md
+      - Rebuild the Data Tree: 02-getting-started/rebuild-the-data-tree.md
+      - Generate Reports and Map Outputs: 02-getting-started/generate-reports-and-map.md
+      - Troubleshoot Early Problems: 02-getting-started/troubleshoot-early-problems.md
+  - Data Guide:
+      - Overview: 03-data-guide/index.md
+      - Data Categories: 03-data-guide/data-categories.md
+      - AADR: 03-data-guide/aadr.md
+      - Boundaries: 03-data-guide/boundaries.md
+      - Neotoma: 03-data-guide/neotoma.md
+      - SEAD: 03-data-guide/sead.md
+      - RAÄ: 03-data-guide/raa.md
+  - Reports:
+      - Overview: 04-reports/index.md
+      - Country Reports: 04-reports/country-reports.md
+      - Shared Nordic Map: 04-reports/shared-nordic-map.md
+      - Published Artifacts: 04-reports/published-artifacts.md
+  - Architecture:
+      - Overview: 05-architecture/index.md
+      - System Overview: 05-architecture/system-overview.md
+      - Data Collection Flow: 05-architecture/data-collection-flow.md
+      - Source Layout and Ownership: 05-architecture/source-layout-and-ownership.md
+  - Development:
+      - Overview: 06-development/index.md
+      - Local Workflow: 06-development/local-workflow.md
+      - Documentation Workflow: 06-development/documentation-workflow.md
+      - Testing and Evidence: 06-development/testing-and-evidence.md
+  - Reference:
+      - Overview: 07-reference/index.md
+      - Command Surface: 07-reference/command-surface.md
+      - Data Layout: 07-reference/data-layout.md
+      - Report Layout: 07-reference/report-layout.md
+      - Glossary: 07-reference/glossary.md

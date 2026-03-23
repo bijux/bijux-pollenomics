@@ -1,0 +1,102 @@
+:root {
+  --bijux-border: rgba(15, 23, 42, 0.12);
+  --bijux-panel: rgba(15, 23, 42, 0.04);
+  --bijux-panel-strong: rgba(15, 23, 42, 0.06);
+  --bijux-map-shadow: 0 22px 54px rgba(15, 23, 42, 0.18);
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  letter-spacing: -0.02em;
+}
+
+.md-typeset p,
+.md-typeset li {
+  line-height: 1.75;
+}
+
+.md-typeset code {
+  border-radius: 0.35rem;
+}
+
+.md-typeset pre > code {
+  border-radius: 0.75rem;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.75rem;
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--bijux-border);
+}
+
+.md-typeset blockquote {
+  border-left: 0.2rem solid rgb(63, 81, 181);
+  background: var(--bijux-panel);
+  padding: 0.1rem 0.8rem;
+}
+
+.md-typeset hr {
+  border-bottom: 1px solid var(--bijux-border);
+}
+
+.md-typeset .mermaid {
+  background: var(--bijux-panel-strong);
+  border: 1px solid var(--bijux-border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.bijux-map-frame {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.08), rgba(14, 165, 233, 0.05));
+  border: 1px solid var(--bijux-border);
+  border-radius: 1.2rem;
+  box-shadow: var(--bijux-map-shadow);
+  overflow: hidden;
+  margin: 1.5rem 0 2rem;
+}
+
+.bijux-map-frame iframe {
+  display: block;
+  width: 100%;
+  min-height: 78vh;
+  border: 0;
+  background: #fff;
+}
+
+.bijux-panel-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1.5rem 0;
+}
+
+.bijux-panel {
+  background: var(--bijux-panel);
+  border: 1px solid var(--bijux-border);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+}
+
+.bijux-panel h3 {
+  margin-top: 0;
+}
+
+.bijux-callout {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(8, 145, 178, 0.06));
+  border: 1px solid var(--bijux-border);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.bijux-quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
