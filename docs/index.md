@@ -11,12 +11,12 @@ last_reviewed: 2026-03-23
 
 This is the canonical documentation home for `bijux-pollen`.
 
-The first page leads with the live Nordic map because the map is the clearest expression of what this repository produces: a country-filterable view of AADR, pollen, environmental archaeology, and Swedish archaeology context layers assembled into one spatial decision surface.
+The first page leads with the checked-in Nordic map because the map is the most compact way to inspect the repository’s current outputs: AADR sample points, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
 
-The current map groups layers by evidence role, exposes shareable filter state in the URL, and presents AADR release information as provenance rather than as the name of the entire map.
+The current map groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
 
 <div class="bijux-callout">
-  <strong>Start with the map.</strong> The documentation spine exists to explain how the map, the data tree, and the report outputs are produced, verified, and extended.
+  <strong>Start with the map.</strong> The rest of the docs explains exactly where its layers come from, which commands rebuild them, and which parts of the current behavior are still limited in scope.
 </div>
 
 <div class="bijux-quicklinks">
@@ -27,7 +27,7 @@ The current map groups layers by evidence role, exposes shareable filter state i
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="report/nordic/nordic_aadr_v62.0_map.html" title="Nordic AADR map"></iframe>
+  <iframe src="report/nordic/nordic_aadr_v62.0_map.html" title="Nordic research map"></iframe>
 </div>
 
 ## What This Documentation Set Explains
@@ -41,9 +41,9 @@ flowchart LR
     Map --> Decisions
 ```
 
-The docs are organized so a reader can move from the live output into the exact layers of explanation they need:
+The docs are organized so a reader can move from the visible output into the supporting explanation they need:
 
-- what the repository is trying to achieve
+- what the repository produces today
 - how the five tracked data categories are collected
 - how reports and the shared map are generated
 - how the source tree is organized
@@ -84,11 +84,11 @@ flowchart TD
 
 ## Reading Rule
 
-Use section index pages first when you are entering a topic for the first time. Use reference pages when you need exact command names, directories, file patterns, or output expectations.
+Use section index pages first when you are entering a topic for the first time. Use reference pages when you need commands, directories, file patterns, or output expectations verified against the current repository state.
 
 ## Purpose
 
-This page explains the `bijux-pollen` documentation spine and routes readers to the live map and the checked-in documentation path that explains it.
+This page explains the `bijux-pollen` documentation spine and routes readers to the checked-in map and the canonical docs that explain it.
 
 ## Stability
 

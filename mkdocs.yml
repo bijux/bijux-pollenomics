@@ -14,12 +14,10 @@ site_dir: artifacts/docs/site
 validation:
   omitted_files: ignore
 
-exclude_docs: |
-  data/README.md
-  report/README.md
-
 theme:
   name: material
+  logo: assets/bijux_logo_hq.png
+  favicon: assets/bijux_icon.png
   font:
     text: Roboto
     code: Roboto Mono
@@ -52,6 +50,8 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.code.select
+    - content.action.edit
+    - content.action.view
     - navigation.footer
   icon:
     repo: fontawesome/brands/github
