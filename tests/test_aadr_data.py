@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollen.aadr_data import dataset_directory_name, resolve_anno_files
+from bijux_pollen.data_downloader.aadr import dataset_directory_name, resolve_anno_files
 
 
 class AadrDataTests(unittest.TestCase):

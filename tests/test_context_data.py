@@ -3,7 +3,8 @@ from __future__ import annotations
 import json
 import unittest
 
-from bijux_pollen.context_data import normalize_neotoma_rows, normalize_sead_rows
+from bijux_pollen.data_downloader.neotoma import normalize_neotoma_rows
+from bijux_pollen.data_downloader.sead import normalize_sead_rows
 
 
 class ContextDataTests(unittest.TestCase):

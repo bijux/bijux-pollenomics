@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import json
-import ssl
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+
+from .common import fetch_binary, fetch_text
 
 
 AADR_DATAVERSE_PERSISTENT_ID = "doi:10.7910/DVN/FFIDCW"
@@ -43,7 +42,12 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
         dataset_dir = version_dir / anno_file.dataset_name
         dataset_dir.mkdir(parents=True, exist_ok=True)
         destination = dataset_dir / anno_file.filename
-        destination.write_bytes(fetch_binary(AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id)))
+        destination.write_bytes(
+            fetch_binary(
+                AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
+                headers=REQUEST_HEADERS,
+            )
+        )
         downloaded_files.append(destination)
 
     return AadrAnnoDownloadReport(
@@ -100,34 +104,4 @@ def dataset_directory_name(filename: str) -> str:
 
 def fetch_release_metadata() -> dict[str, object]:
     """Fetch the current AADR Dataverse metadata manifest."""
-    payload = fetch_text(AADR_DATAVERSE_API_URL)
-    return json.loads(payload)
-
-
-def fetch_binary(url: str) -> bytes:
-    """Fetch binary content with the same certificate fallback used elsewhere in the project."""
-    request = Request(url, headers=REQUEST_HEADERS)
-    try:
-        with urlopen(request) as response:
-            return response.read()
-    except HTTPError as error:
-        if error.code != 403:
-            raise
-        with urlopen(Request(url, headers={"User-Agent": "Mozilla/5.0"}), context=ssl._create_unverified_context()) as response:
-            return response.read()
-    except URLError as error:
-        if not isinstance(error.reason, ssl.SSLCertVerificationError):
-            raise
-        with urlopen(request, context=ssl._create_unverified_context()) as response:
-            return response.read()
-
-
-def fetch_text(url: str) -> str:
-    """Fetch a text payload with permissive TLS fallback for Dataverse."""
-    request = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    try:
-        with urlopen(request) as response:
-            return response.read().decode("utf-8")
-    except (HTTPError, URLError):
-        with urlopen(request, context=ssl._create_unverified_context()) as response:
-            return response.read().decode("utf-8")
+    return json.loads(fetch_text(AADR_DATAVERSE_API_URL, headers={"User-Agent": "Mozilla/5.0"}, insecure=True))

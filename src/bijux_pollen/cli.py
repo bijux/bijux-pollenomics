@@ -4,8 +4,7 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
-from .aadr_data import download_aadr_anno_files
-from .context_data import collect_context_data
+from .data_downloader import collect_context_data, download_aadr_anno_files
 from .reporting import generate_country_report, generate_multi_country_map, slugify
 
 
