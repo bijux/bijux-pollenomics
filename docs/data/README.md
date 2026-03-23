@@ -27,6 +27,8 @@ Each source keeps the same internal contract:
 
 We keep these categories separate because they have different licenses, update cadences, spatial semantics, and downstream uses. Keeping them as peer directories makes the tree easier to understand two years later and keeps command lines stable.
 
+The downloader implementation mirrors this layout in [`src/bijux_pollen/data_downloader/`](/Users/bijan/bijux/bijux-pollen/src/bijux_pollen/data_downloader), with one module per tracked data category plus shared helpers for geometry, fetch logic, and normalized record models.
+
 ## Why We Track Data In Git
 
 - The generated reports and maps depend on exact source snapshots.
