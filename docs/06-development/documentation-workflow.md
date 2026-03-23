@@ -26,7 +26,7 @@ The `make docs` and `make docs-serve` targets also set `NO_MKDOCS_2_WARNING=true
 
 ## GitHub Pages Deployment
 
-The repository deploys documentation with [deploy-docs.yml](/Users/bijan/bijux/bijux-pollen/.github/workflows/deploy-docs.yml).
+The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 
 - pushes to `main` build the site and deploy it to GitHub Pages
 - tags matching `v*` build the site as a release-quality validation step
