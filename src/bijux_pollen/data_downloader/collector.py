@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import shutil
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
 from typing import Iterable
 
 from .aadr import download_aadr_anno_files
-from .boundaries import collect_boundaries_data, fetch_country_boundaries
-from .common import write_text
+from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
+from .common import write_json, write_text
+from .models import DataCollectionSummary
 from .neotoma import collect_neotoma_data
 from .raa import collect_raa_data
 from .sead import collect_sead_data
@@ -29,6 +30,8 @@ class DataCollectionReport:
     sead_point_count: int
     raa_total_site_count: int
     raa_heritage_site_count: int
+    boundary_source: str | None
+    summary_path: Path
 
 
 def collect_data(
@@ -48,6 +51,7 @@ def collect_data(
     sead_point_count = 0
     raa_total_site_count = 0
     raa_heritage_site_count = 0
+    boundary_source: str | None = None
 
     if "aadr" in selected_sources:
         reset_output_dir(output_root / "aadr")
@@ -60,8 +64,14 @@ def collect_data(
         if "boundaries" in selected_sources:
             reset_output_dir(output_root / "boundaries")
             country_boundaries, _ = collect_boundaries_data(output_root / "boundaries")
+            boundary_source = "collected"
         else:
-            country_boundaries = fetch_country_boundaries()
+            country_boundaries = load_country_boundaries(output_root / "boundaries")
+            if country_boundaries is not None:
+                boundary_source = "local"
+            else:
+                country_boundaries = fetch_country_boundaries()
+                boundary_source = "network"
 
     if "neotoma" in selected_sources and country_boundaries is not None:
         reset_output_dir(output_root / "neotoma")
@@ -90,8 +100,24 @@ def collect_data(
         raa_total_site_count = raa_report.total_site_count
         raa_heritage_site_count = raa_report.heritage_site_count
 
-    return DataCollectionReport(
+    summary_path = output_root / "collection_summary.json"
+    summary = DataCollectionSummary(
         generated_on=str(date.today()),
+        output_root=output_root,
+        version=version,
+        collected_sources=selected_sources,
+        boundary_source=boundary_source,
+        aadr_file_count=aadr_file_count,
+        neotoma_point_count=neotoma_point_count,
+        sead_point_count=sead_point_count,
+        raa_total_site_count=raa_total_site_count,
+        raa_heritage_site_count=raa_heritage_site_count,
+        summary_path=summary_path,
+    )
+    write_collection_summary(summary)
+
+    return DataCollectionReport(
+        generated_on=summary.generated_on,
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
@@ -100,6 +126,8 @@ def collect_data(
         sead_point_count=sead_point_count,
         raa_total_site_count=raa_total_site_count,
         raa_heritage_site_count=raa_heritage_site_count,
+        boundary_source=boundary_source,
+        summary_path=summary_path,
     )
 
 
@@ -140,6 +168,8 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 - `docs/03-data-guide/index.md`
 - `docs/07-reference/data-layout.md`
+
+The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts and provenance metadata.
 """
 
 
@@ -162,3 +192,11 @@ def reset_output_dir(path: Path) -> None:
     """Remove one generated source directory so recollection is deterministic."""
     if path.exists():
         shutil.rmtree(path)
+
+
+def write_collection_summary(summary: DataCollectionSummary) -> None:
+    """Write a machine-readable summary for the collected data tree."""
+    payload = asdict(summary)
+    payload["output_root"] = str(summary.output_root)
+    payload["summary_path"] = str(summary.summary_path)
+    write_json(summary.summary_path, payload)

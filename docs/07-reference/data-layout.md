@@ -13,6 +13,7 @@ last_reviewed: 2026-03-23
 
 ```text
 data
+├── collection_summary.json
 ├── aadr
 ├── boundaries
 ├── neotoma
@@ -24,6 +25,7 @@ data
 
 ```text
 data
+├── collection_summary.json
 ├── aadr
 │   └── v62.0
 │       ├── 1240k
@@ -62,6 +64,7 @@ data
 
 ## Internal Patterns
 
+- `collection_summary.json`
 - `aadr/<version>/<dataset>/...`
 - `<source>/raw/...`
 - `<source>/normalized/...`

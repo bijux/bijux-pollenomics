@@ -31,3 +31,18 @@ class ContextDataReport:
     sead_point_count: int
     raa_total_site_count: int
     raa_heritage_site_count: int
+
+
+@dataclass(frozen=True)
+class DataCollectionSummary:
+    generated_on: str
+    output_root: Path
+    version: str
+    collected_sources: tuple[str, ...]
+    boundary_source: str | None
+    aadr_file_count: int
+    neotoma_point_count: int
+    sead_point_count: int
+    raa_total_site_count: int
+    raa_heritage_site_count: int
+    summary_path: Path

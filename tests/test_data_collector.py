@@ -3,6 +3,7 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+import json
 from unittest.mock import patch
 
 from bijux_pollen.data_downloader.collector import (
@@ -52,6 +53,8 @@ class DataCollectorTests(unittest.TestCase):
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
+            self.assertEqual(report.boundary_source, "network")
+            self.assertTrue(report.summary_path.exists())
 
     def test_collect_data_all_collects_everything(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -77,6 +80,7 @@ class DataCollectorTests(unittest.TestCase):
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
+            self.assertEqual(report.boundary_source, "collected")
 
     def test_collect_data_replaces_selected_source_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -114,6 +118,27 @@ class DataCollectorTests(unittest.TestCase):
             readme_text = (output_root / "README.md").read_text(encoding="utf-8")
             self.assertIn("Tracked source data lives directly under `custom-data/`", readme_text)
             self.assertIn("\ncustom-data\n", readme_text)
+            summary = json.loads((output_root / "collection_summary.json").read_text(encoding="utf-8"))
+            self.assertEqual(summary["collected_sources"], ["aadr"])
+            self.assertIsNone(summary["boundary_source"])
+
+    def test_collect_data_uses_local_boundaries_when_available(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            raw_dir = output_root / "boundaries" / "raw"
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            boundary_payload = {"type": "FeatureCollection", "features": []}
+            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
+                (raw_dir / filename).write_text(json.dumps(boundary_payload), encoding="utf-8")
+
+            with patch("bijux_pollen.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+                collect_neotoma.return_value.point_count = 6
+                report = collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+
+            fetch_boundaries.assert_not_called()
+            collect_neotoma.assert_called_once()
+            self.assertEqual(report.boundary_source, "local")
 
 
 if __name__ == "__main__":

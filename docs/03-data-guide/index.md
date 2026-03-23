@@ -33,6 +33,8 @@ flowchart TD
 
 The filesystem model and the acquisition model should match. That is why `collect-data <source>` writes directly into `data/<source>/`.
 
+The collector also writes `data/collection_summary.json`, and when a source depends on boundaries it reuses tracked local boundary files when available instead of fetching them again unnecessarily.
+
 ## Canonical Status
 
 This section is the canonical source for data acquisition and storage guidance inside the docs site. It replaces the older narrative content that previously lived in separate `docs/data/...` pages.

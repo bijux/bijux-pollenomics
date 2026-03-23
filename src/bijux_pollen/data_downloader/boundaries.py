@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -25,6 +26,18 @@ class BoundariesDataReport:
 def fetch_country_boundaries() -> dict[str, dict[str, object]]:
     """Download Nordic country boundaries used for country assignment and display."""
     return {country: fetch_json(url) for country, url in BOUNDARY_URLS.items()}
+
+
+def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] | None:
+    """Load tracked Nordic country boundaries from a local boundaries directory when present."""
+    raw_dir = Path(output_root) / "raw"
+    country_boundaries: dict[str, dict[str, object]] = {}
+    for country in BOUNDARY_URLS:
+        path = raw_dir / f"{slugify(country)}.geojson"
+        if not path.exists():
+            return None
+        country_boundaries[country] = json.loads(path.read_text(encoding="utf-8"))
+    return country_boundaries
 
 
 def build_combined_country_boundaries(
