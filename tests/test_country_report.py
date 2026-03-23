@@ -179,9 +179,94 @@ class CountryReportTests(unittest.TestCase):
             geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
 
+    def test_generate_multi_country_map_can_include_external_layers(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic"
+            external_root = Path(tmp) / "data" / "external"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            self.write_geojson(
+                external_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+                layer_key="neotoma-pollen",
+                layer_label="Neotoma pollen sites",
+                category="Pollen",
+            )
+            self.write_geojson(
+                external_root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+                layer_key="sead-sites",
+                layer_label="SEAD sites",
+                category="Environmental archaeology",
+            )
+            archaeology_metadata = {
+                "layer_key": "raa-archaeology",
+                "layer_label": "RAÄ archaeology",
+                "country": "Sweden",
+                "wms_url": "https://karta.raa.se/geo/arkreg_v1.0/wms",
+                "wms_layers": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
+                "wms_format": "image/png",
+                "counts": {"all_published_sites": 100},
+            }
+            self.write_json(
+                external_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
+                archaeology_metadata,
+            )
+
+            generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden"],
+                output_dir=output,
+                title="Nordic Countries",
+                slug="nordic",
+                external_root=external_root,
+            )
+
+            map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            self.assertIn("Research Layers", map_html)
+            self.assertIn("Neotoma pollen sites", map_html)
+            self.assertIn("SEAD sites", map_html)
+            self.assertIn("RAÄ archaeology", map_html)
+            self.assertIn("nordic_pollen_sites.geojson", readme_text)
+            self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
+            self.assertTrue((output / "nordic_environmental_sites.geojson").exists())
+            self.assertTrue((output / "sweden_archaeology_layer.json").exists())
+
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(HEADER + "\n" + "\n".join(rows) + "\n", encoding="utf-8")
+
+    def write_geojson(self, path: Path, layer_key: str, layer_label: str, category: str) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                    "properties": {
+                        "layer_key": layer_key,
+                        "layer_label": layer_label,
+                        "category": category,
+                        "name": f"{layer_label} Record",
+                        "subtitle": f"{layer_label} subtitle",
+                        "description": "",
+                        "source_url": "https://example.com",
+                        "popup_rows": [{"label": "Source", "value": layer_label}],
+                    },
+                }
+            ],
+        }
+        path.write_text(json.dumps(payload), encoding="utf-8")
+
+    def write_json(self, path: Path, payload: dict[str, object]) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(payload), encoding="utf-8")
 
 
 if __name__ == "__main__":

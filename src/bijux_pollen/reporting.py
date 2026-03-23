@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import shutil
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import date
@@ -127,6 +128,7 @@ def generate_multi_country_map(
     output_dir: Path,
     title: str,
     slug: str,
+    external_root: Path | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -158,14 +160,20 @@ def generate_multi_country_map(
 
     map_geojson = build_samples_geojson(all_samples)
     map_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
+
+    point_layers, wms_layers, extra_artifacts = build_context_layers(
+        samples=all_samples,
+        output_dir=output_dir,
+        external_root=external_root,
+    )
     map_html_path.write_text(
         render_multi_country_map_html(
             title=title,
             version=version,
             generated_on=generated_on,
             countries=normalized_countries,
-            country_samples=country_samples,
-            geojson=map_geojson,
+            point_layers=point_layers,
+            wms_layers=wms_layers,
         ),
         encoding="utf-8",
     )
@@ -178,6 +186,7 @@ def generate_multi_country_map(
             country_sample_counts=country_sample_counts,
             map_html_name=map_html_path.name,
             geojson_name=map_geojson_path.name,
+            extra_artifacts=extra_artifacts,
         ),
         encoding="utf-8",
     )
@@ -543,6 +552,154 @@ def render_sample_markdown(report: CountryReport) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_context_layers(
+    samples: Iterable[SampleRecord],
+    output_dir: Path,
+    external_root: Path | None,
+) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
+    """Build embedded point layers and service-backed overlays for the shared map."""
+    point_layers = [build_aadr_point_layer(samples)]
+    wms_layers: list[dict[str, object]] = []
+    extra_artifacts: list[tuple[str, str]] = []
+
+    if external_root is None:
+        return point_layers, wms_layers, extra_artifacts
+
+    external_root = Path(external_root)
+    point_sources = [
+        ("Neotoma pollen GeoJSON", external_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"),
+        ("SEAD site GeoJSON", external_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"),
+    ]
+    for label, source_path in point_sources:
+        if not source_path.exists():
+            continue
+        destination_path = output_dir / source_path.name
+        shutil.copyfile(source_path, destination_path)
+        geojson = json.loads(destination_path.read_text(encoding="utf-8"))
+        point_layers.append(build_external_point_layer(geojson))
+        extra_artifacts.append((label, destination_path.name))
+
+    archaeology_path = external_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
+    if archaeology_path.exists():
+        destination_path = output_dir / archaeology_path.name
+        shutil.copyfile(archaeology_path, destination_path)
+        metadata = json.loads(destination_path.read_text(encoding="utf-8"))
+        wms_layers.append(metadata)
+        extra_artifacts.append(("RAÄ archaeology layer metadata", destination_path.name))
+
+    return point_layers, wms_layers, extra_artifacts
+
+
+def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]:
+    """Build the AADR point layer payload used by the shared map."""
+    features = []
+    for sample in samples:
+        features.append(
+            {
+                "latitude": sample.latitude,
+                "longitude": sample.longitude,
+                "country": sample.political_entity,
+                "title": sample.genetic_id,
+                "subtitle": sample.locality,
+                "popup_rows": [
+                    {"label": "Genetic ID", "value": sample.genetic_id},
+                    {"label": "Locality", "value": sample.locality},
+                    {"label": "Country", "value": sample.political_entity},
+                    {"label": "Master ID", "value": sample.master_id},
+                    {"label": "Group ID", "value": sample.group_id},
+                    {"label": "Datasets", "value": ", ".join(sample.datasets)},
+                    {"label": "Publication", "value": sample.publication},
+                    {"label": "Date", "value": sample.full_date},
+                ],
+            }
+        )
+    return {
+        "key": "aadr",
+        "label": "AADR aDNA samples",
+        "count": len(features),
+        "description": "Ancient DNA sample locations from AADR.",
+        "applies_country_filter": True,
+        "circle_enabled": True,
+        "style": {
+            "fill": "#2563eb",
+            "stroke": "#0f172a",
+            "circleStroke": "rgba(37, 99, 235, 0.42)",
+            "circleFill": "rgba(37, 99, 235, 0.10)",
+        },
+        "features": features,
+    }
+
+
+def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
+    """Convert normalized GeoJSON into a map layer payload."""
+    features = []
+    raw_features = geojson.get("features", [])
+    if not isinstance(raw_features, list) or not raw_features:
+        raise ValueError("External GeoJSON did not contain any features")
+
+    sample_properties = raw_features[0].get("properties", {})
+    if not isinstance(sample_properties, dict):
+        raise ValueError("External GeoJSON properties must be an object")
+
+    layer_key = str(sample_properties.get("layer_key", "")).strip()
+    layer_label = str(sample_properties.get("layer_label", "")).strip()
+    styles = {
+        "neotoma-pollen": {
+            "fill": "#b45309",
+            "stroke": "#78350f",
+            "circleStroke": "rgba(180, 83, 9, 0.42)",
+            "circleFill": "rgba(251, 191, 36, 0.10)",
+        },
+        "sead-sites": {
+            "fill": "#0f766e",
+            "stroke": "#134e4a",
+            "circleStroke": "rgba(15, 118, 110, 0.42)",
+            "circleFill": "rgba(20, 184, 166, 0.10)",
+        },
+    }
+    for feature in raw_features:
+        geometry = feature.get("geometry", {})
+        properties = feature.get("properties", {})
+        if not isinstance(geometry, dict) or not isinstance(properties, dict):
+            continue
+        coordinates = geometry.get("coordinates", [])
+        if not isinstance(coordinates, list) or len(coordinates) < 2:
+            continue
+        popup_rows = properties.get("popup_rows", [])
+        if not isinstance(popup_rows, list):
+            popup_rows = []
+        features.append(
+            {
+                "latitude": float(coordinates[1]),
+                "longitude": float(coordinates[0]),
+                "country": str(properties.get("country", "")).strip(),
+                "title": str(properties.get("name", "")).strip(),
+                "subtitle": str(properties.get("category", "")).strip(),
+                "popup_rows": popup_rows,
+                "source_url": str(properties.get("source_url", "")).strip(),
+            }
+        )
+
+    return {
+        "key": layer_key,
+        "label": layer_label,
+        "count": len(features),
+        "description": str(sample_properties.get("subtitle", "")).strip(),
+        "applies_country_filter": False,
+        "circle_enabled": True,
+        "style": styles.get(
+            layer_key,
+            {
+                "fill": "#475569",
+                "stroke": "#1e293b",
+                "circleStroke": "rgba(71, 85, 105, 0.42)",
+                "circleFill": "rgba(148, 163, 184, 0.10)",
+            },
+        ),
+        "features": features,
+    }
+
+
 def render_multi_country_map_markdown(
     title: str,
     version: str,
@@ -551,12 +708,18 @@ def render_multi_country_map_markdown(
     country_sample_counts: dict[str, int],
     map_html_name: str,
     geojson_name: str,
+    extra_artifacts: list[tuple[str, str]],
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
     rows = "\n".join(
         f"| {country} | {country_sample_counts[country]} |"
         for country in countries
     )
+    artifact_lines = "\n".join(
+        f"- {label}: [`{filename}`](./{filename})"
+        for label, filename in extra_artifacts
+    )
+    artifact_block = artifact_lines if artifact_lines else ""
     return f"""# {title} AADR {version} Map
 
 This shared interactive map was generated from the AADR `{version}` `.anno` files on `{generated_on}`.
@@ -571,6 +734,7 @@ This shared interactive map was generated from the AADR `{version}` `.anno` file
 
 - Interactive map: [`{map_html_name}`](./{map_html_name})
 - Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
+{artifact_block}
 """
 
 
@@ -579,24 +743,39 @@ def render_multi_country_map_html(
     version: str,
     generated_on: str,
     countries: tuple[str, ...],
-    country_samples: dict[str, tuple[SampleRecord, ...]],
-    geojson: dict[str, object],
+    point_layers: list[dict[str, object]],
+    wms_layers: list[dict[str, object]],
 ) -> str:
-    """Render a standalone interactive HTML map with country toggles."""
-    geojson_json = json.dumps(geojson, ensure_ascii=False)
+    """Render a standalone interactive HTML map with country and layer toggles."""
     initial_diameter_km = 20
-    all_samples = [sample for samples in country_samples.values() for sample in samples]
-    latitude_values = [sample.latitude for sample in all_samples]
-    longitude_values = [sample.longitude for sample in all_samples]
+    map_points = [
+        feature
+        for layer in point_layers
+        for feature in layer["features"]
+    ]
+    latitude_values = [float(feature["latitude"]) for feature in map_points]
+    longitude_values = [float(feature["longitude"]) for feature in map_points]
     bounds = [
         [min(latitude_values), min(longitude_values)],
         [max(latitude_values), max(longitude_values)],
     ]
     bounds_json = json.dumps(bounds)
-    country_sample_counts = {country: len(country_samples[country]) for country in countries}
+    country_sample_counts = {
+        country: sum(
+            1
+            for layer in point_layers
+            if layer["key"] == "aadr"
+            for feature in layer["features"]
+            if feature.get("country") == country
+        )
+        for country in countries
+    }
+    point_layers_json = json.dumps(point_layers, ensure_ascii=False)
+    wms_layers_json = json.dumps(wms_layers, ensure_ascii=False)
     stats_cards = [
-        ("Samples", str(len(all_samples))),
+        ("AADR Samples", str(sum(country_sample_counts.values()))),
         ("Countries", str(len(countries))),
+        ("Context Layers", str(len(point_layers) + len(wms_layers) - 1)),
         ("Version", version),
         ("Generated", generated_on),
     ]
@@ -615,6 +794,48 @@ def render_multi_country_map_html(
         )
         for index, country in enumerate(countries)
     )
+    layer_toggle_html = "\n".join(
+        (
+            '<label class="country-toggle">'
+            f'<input class="layer-checkbox" type="checkbox" value="{escape_html(str(layer["key"]))}" checked>'
+            f'<span class="country-swatch" style="background: {escape_html(str(layer["style"]["fill"]))};"></span>'
+            f'<span class="country-name">{escape_html(str(layer["label"]))}</span>'
+            f'<span class="country-count">{escape_html(str(layer["count"]))} points</span>'
+            "</label>"
+        )
+        for layer in point_layers
+    )
+    if wms_layers:
+        layer_toggle_html += "\n" + "\n".join(
+            (
+                '<label class="country-toggle">'
+                f'<input class="layer-checkbox" type="checkbox" value="{escape_html(str(layer["layer_key"]))}" checked>'
+                '<span class="country-swatch" style="background: #b91c1c;"></span>'
+                f'<span class="country-name">{escape_html(str(layer["layer_label"]))}</span>'
+                f'<span class="country-count">{escape_html(str(layer["counts"]["all_published_sites"]))} sites</span>'
+                "</label>"
+            )
+            for layer in wms_layers
+        )
+    legend_html = "\n".join(
+        (
+            '<div class="legend-item">'
+            f'<span class="legend-dot" style="background: {escape_html(str(layer["style"]["fill"]))}; border-color: {escape_html(str(layer["style"]["stroke"]))};"></span>'
+            f'<span>{escape_html(str(layer["label"]))}: {escape_html(str(layer["description"]))}</span>'
+            "</div>"
+        )
+        for layer in point_layers
+    )
+    if wms_layers:
+        legend_html += "\n" + "\n".join(
+            (
+                '<div class="legend-item">'
+                '<span class="legend-dot" style="background: #b91c1c; border-color: #7f1d1d;"></span>'
+                f'<span>{escape_html(str(layer["layer_label"]))}: Swedish archaeology via official RAÄ tiles.</span>'
+                "</div>"
+            )
+            for layer in wms_layers
+        )
     return f"""<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -921,8 +1142,8 @@ def render_multi_country_map_html(
       <span class="eyebrow">Interactive AADR Map</span>
       <h1>{title}</h1>
       <p class="lede">
-        Explore one shared AADR map across the selected countries, toggle countries on and off,
-        zoom across the region, and adjust the acceptance diameter around each sample point.
+        Explore one shared Nordic map across the selected countries, toggle research layers on and off,
+        zoom across the region, and adjust the acceptance diameter around each visible point layer.
       </p>
 
       <section class="stats-grid">
@@ -944,9 +1165,19 @@ def render_multi_country_map_html(
       </section>
 
       <section class="control-panel" style="margin-top: 16px;">
+        <h2>Research Layers</h2>
+        <p>
+          Toggle the aDNA, pollen, environmental archaeology, and archaeology reference layers independently.
+        </p>
+        <div class="country-toggles">
+          {layer_toggle_html}
+        </div>
+      </section>
+
+      <section class="control-panel" style="margin-top: 16px;">
         <h2>Acceptance Range</h2>
         <p>
-          Use the slider to set the circle diameter around every sample point.
+          Use the slider to set the circle diameter around every visible point.
           The displayed radius is half of the selected diameter.
         </p>
         <div class="slider-wrap">
@@ -962,25 +1193,22 @@ def render_multi_country_map_html(
         </div>
 
         <div class="legend">
-          <div class="legend-item">
-            <span class="legend-dot"></span>
-            <span>Blue points show all available AADR samples.</span>
-          </div>
+          {legend_html}
           <div class="legend-item">
             <span class="legend-circle"></span>
-            <span>Transparent red circles show the current acceptance range.</span>
+            <span>Transparent circles show the current acceptance range for visible point layers.</span>
           </div>
         </div>
 
         <p class="footnote">
-          Tip: set the diameter to 0 km to hide the circles and inspect only the sample points.
-          Popups show sample metadata, coordinates, publication, and datasets.
+          Tip: set the diameter to 0 km to hide the circles and inspect only the points and archaeology overlay.
+          Popups show source-specific metadata, coordinates, and identifiers.
         </p>
       </section>
     </aside>
 
     <main>
-      <div id="map" aria-label="{title} AADR sample map"></div>
+      <div id="map" aria-label="{title} research map"></div>
     </main>
 
     <script
@@ -989,9 +1217,9 @@ def render_multi_country_map_html(
       crossorigin=""
     ></script>
     <script>
-      const sampleData = {geojson_json};
+      const pointLayers = {point_layers_json};
+      const wmsLayers = {wms_layers_json};
       const initialBounds = {bounds_json};
-      const countries = {json.dumps(list(countries), ensure_ascii=False)};
       const map = L.map('map', {{ preferCanvas: true, zoomControl: true }});
 
       const positron = L.tileLayer(
@@ -1015,54 +1243,36 @@ def render_multi_country_map_html(
       L.control.layers({{ 'Light': positron, 'Voyager': voyager }}, {{}}, {{ position: 'topright' }}).addTo(map);
       L.control.scale({{ imperial: false }}).addTo(map);
 
-      const pointsLayer = L.layerGroup().addTo(map);
-      const circlesLayer = L.layerGroup().addTo(map);
-      const features = sampleData.features;
+      const pointLayerGroup = L.layerGroup().addTo(map);
+      const circleLayerGroup = L.layerGroup().addTo(map);
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
       const countryCheckboxes = Array.from(document.querySelectorAll('.country-checkbox'));
+      const layerCheckboxes = Array.from(document.querySelectorAll('.layer-checkbox'));
       const selectAllButton = document.getElementById('select-all');
       const clearAllButton = document.getElementById('clear-all');
-      const countryStyles = {{
-        'Sweden': {{ fill: '#2563eb', stroke: '#0f172a' }},
-        'Norway': {{ fill: '#0f766e', stroke: '#134e4a' }},
-        'Finland': {{ fill: '#ca8a04', stroke: '#854d0e' }}
-      }};
+      const liveWmsLayers = new Map();
 
-      function popupHtml(properties, latitude, longitude) {{
-        const datasets = Array.isArray(properties.datasets) ? properties.datasets.join(', ') : '';
+      function popupHtml(feature) {{
+        const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
+        const rowHtml = rows
+          .filter((row) => row && row.value)
+          .map((row) => `<div><strong>${{escapeHtml(row.label || '')}}</strong> ${{escapeHtml(row.value || '')}}</div>`)
+          .join('');
         return `
           <div class="popup-grid">
-            <div><strong>Genetic ID</strong> ${{
-              escapeHtml(properties.genetic_id || '')
-            }}</div>
-            <div><strong>Locality</strong> ${{
-              escapeHtml(properties.locality || '')
-            }}</div>
-            <div><strong>Country</strong> ${{
-              escapeHtml(properties.political_entity || '')
-            }}</div>
-            <div><strong>Master ID</strong> ${{
-              escapeHtml(properties.master_id || '')
-            }}</div>
-            <div><strong>Group ID</strong> ${{
-              escapeHtml(properties.group_id || '')
-            }}</div>
-            <div><strong>Datasets</strong> ${{
-              escapeHtml(datasets)
-            }}</div>
-            <div><strong>Publication</strong> ${{
-              escapeHtml(properties.publication || '')
-            }}</div>
-            <div><strong>Date</strong> ${{
-              escapeHtml(properties.full_date || '')
-            }}</div>
+            <div><strong>Name</strong> ${{escapeHtml(feature.title || '')}}</div>
+            <div><strong>Type</strong> ${{escapeHtml(feature.subtitle || '')}}</div>
+            ${{rowHtml}}
             <div><strong>Coords</strong> ${{
-              latitude.toFixed(6)
+              Number(feature.latitude).toFixed(6)
             }}, ${{
-              longitude.toFixed(6)
+              Number(feature.longitude).toFixed(6)
             }}</div>
+            ${{
+              feature.source_url ? `<div><strong>Source</strong> <a href="${{escapeHtml(feature.source_url)}}" target="_blank" rel="noreferrer">Open</a></div>` : ''
+            }}
           </div>
         `;
       }}
@@ -1080,72 +1290,109 @@ def render_multi_country_map_html(
         return new Set(countryCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.value));
       }}
 
-      function styleForCountry(country) {{
-        return countryStyles[country] || {{ fill: '#2563eb', stroke: '#0f172a' }};
+      function selectedLayers() {{
+        return new Set(layerCheckboxes.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.value));
       }}
 
-      function renderPoints(activeCountries) {{
-        pointsLayer.clearLayers();
-        features.forEach((feature) => {{
-          const country = feature.properties.political_entity;
-          if (!activeCountries.has(country)) {{
-            return;
-          }}
-          const [longitude, latitude] = feature.geometry.coordinates;
-          const style = styleForCountry(country);
-          const marker = L.circleMarker([latitude, longitude], {{
-            radius: 4.5,
-            color: style.stroke,
-            weight: 1,
-            fillColor: style.fill,
-            fillOpacity: 0.9
+      function layerEnabled(layer, activeCountries, activeLayers, feature) {{
+        if (!activeLayers.has(layer.key)) {{
+          return false;
+        }}
+        if (layer.applies_country_filter && feature.country && !activeCountries.has(feature.country)) {{
+          return false;
+        }}
+        return true;
+      }}
+
+      function renderPoints(activeCountries, activeLayers) {{
+        pointLayerGroup.clearLayers();
+        pointLayers.forEach((layer) => {{
+          layer.features.forEach((feature) => {{
+            if (!layerEnabled(layer, activeCountries, activeLayers, feature)) {{
+              return;
+            }}
+            const marker = L.circleMarker([feature.latitude, feature.longitude], {{
+              radius: layer.key === 'aadr' ? 4.5 : 5.5,
+              color: layer.style.stroke,
+              weight: 1.1,
+              fillColor: layer.style.fill,
+              fillOpacity: 0.88
+            }});
+            marker.bindPopup(popupHtml(feature), {{
+              maxWidth: 360,
+              className: 'sample-popup'
+            }});
+            pointLayerGroup.addLayer(marker);
           }});
-          marker.bindPopup(popupHtml(feature.properties, latitude, longitude), {{
-            maxWidth: 340,
-            className: 'sample-popup'
-          }});
-          pointsLayer.addLayer(marker);
         }});
       }}
 
-      function renderCircles(diameterKm, activeCountries) {{
-        circlesLayer.clearLayers();
+      function renderCircles(diameterKm, activeCountries, activeLayers) {{
+        circleLayerGroup.clearLayers();
         if (diameterKm <= 0) {{
           return;
         }}
         const radiusMeters = (diameterKm * 1000) / 2;
-        features.forEach((feature) => {{
-          const country = feature.properties.political_entity;
-          if (!activeCountries.has(country)) {{
+        pointLayers.forEach((layer) => {{
+          if (!layer.circle_enabled) {{
             return;
           }}
-          const [longitude, latitude] = feature.geometry.coordinates;
-          const style = styleForCountry(country);
-          const circle = L.circle([latitude, longitude], {{
-            radius: radiusMeters,
-            color: style.stroke,
-            weight: 1,
-            opacity: 0.45,
-            fillColor: style.fill,
-            fillOpacity: 0.12,
-            interactive: false
+          layer.features.forEach((feature) => {{
+            if (!layerEnabled(layer, activeCountries, activeLayers, feature)) {{
+              return;
+            }}
+            const circle = L.circle([feature.latitude, feature.longitude], {{
+              radius: radiusMeters,
+              color: layer.style.circleStroke,
+              weight: 1,
+              opacity: 0.55,
+              fillColor: layer.style.circleFill,
+              fillOpacity: 0.14,
+              interactive: false
+            }});
+            circleLayerGroup.addLayer(circle);
           }});
-          circlesLayer.addLayer(circle);
+        }});
+      }}
+
+      function syncWmsLayers(activeCountries, activeLayers) {{
+        wmsLayers.forEach((layer) => {{
+          const shouldShow = activeLayers.has(layer.layer_key) && (!layer.country || activeCountries.has(layer.country));
+          const existing = liveWmsLayers.get(layer.layer_key);
+          if (shouldShow && !existing) {{
+            const wmsLayer = L.tileLayer.wms(layer.wms_url, {{
+              layers: layer.wms_layers,
+              format: layer.wms_format || 'image/png',
+              transparent: true,
+              attribution: '&copy; Riksantikvarieämbetet',
+              opacity: 0.52
+            }});
+            wmsLayer.addTo(map);
+            liveWmsLayers.set(layer.layer_key, wmsLayer);
+            return;
+          }}
+          if (!shouldShow && existing) {{
+            map.removeLayer(existing);
+            liveWmsLayers.delete(layer.layer_key);
+          }}
         }});
       }}
 
       function renderMapState() {{
         const activeCountries = selectedCountries();
+        const activeLayers = selectedLayers();
         const diameterKm = Number(slider.value);
         const radiusKm = diameterKm / 2;
         diameterValue.textContent = `${{diameterKm}} km`;
         radiusValue.textContent = `${{radiusKm.toFixed(1)}} km`;
-        renderPoints(activeCountries);
-        renderCircles(diameterKm, activeCountries);
+        renderPoints(activeCountries, activeLayers);
+        renderCircles(diameterKm, activeCountries, activeLayers);
+        syncWmsLayers(activeCountries, activeLayers);
       }}
 
       slider.addEventListener('input', renderMapState);
       countryCheckboxes.forEach((checkbox) => checkbox.addEventListener('change', renderMapState));
+      layerCheckboxes.forEach((checkbox) => checkbox.addEventListener('change', renderMapState));
       selectAllButton.addEventListener('click', () => {{
         countryCheckboxes.forEach((checkbox) => {{
           checkbox.checked = true;
