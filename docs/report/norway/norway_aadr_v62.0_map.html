@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Norway AADR v62.0 Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    >
+    <style>
+      :root {
+        --bg: #f4f1ea;
+        --panel: rgba(255, 252, 245, 0.92);
+        --panel-border: rgba(94, 82, 64, 0.16);
+        --ink: #1f2937;
+        --muted: #5f6c7b;
+        --accent: #1d4ed8;
+        --accent-soft: rgba(37, 99, 235, 0.16);
+        --circle-stroke: rgba(185, 28, 28, 0.55);
+        --circle-fill: rgba(239, 68, 68, 0.12);
+        --shadow: 0 18px 40px rgba(31, 41, 55, 0.16);
+      }
+
+      html, body {
+        margin: 0;
+        height: 100%;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(29, 78, 216, 0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(185, 28, 28, 0.08), transparent 24%),
+          var(--bg);
+      }
+
+      body {
+        display: grid;
+        grid-template-columns: minmax(320px, 420px) 1fr;
+      }
+
+      aside {
+        position: relative;
+        z-index: 900;
+        padding: 24px;
+        background: linear-gradient(180deg, rgba(250, 248, 242, 0.98), rgba(244, 241, 234, 0.95));
+        border-right: 1px solid var(--panel-border);
+        box-shadow: var(--shadow);
+        overflow-y: auto;
+      }
+
+      main {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(28px, 4vw, 40px);
+        line-height: 1.05;
+      }
+
+      .lede {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+
+      .stat-card {
+        padding: 14px 15px;
+        border: 1px solid var(--panel-border);
+        border-radius: 18px;
+        background: var(--panel);
+        backdrop-filter: blur(10px);
+      }
+
+      .stat-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .stat-value {
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .control-panel {
+        padding: 18px;
+        border-radius: 22px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        backdrop-filter: blur(14px);
+      }
+
+      .control-panel h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+
+      .control-panel p {
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .slider-wrap {
+        margin: 20px 0 10px;
+      }
+
+      .slider-label {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .slider-value {
+        color: var(--accent);
+      }
+
+      input[type="range"] {
+        width: 100%;
+        accent-color: #b91c1c;
+      }
+
+      .legend {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        font-size: 13px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      .legend-dot,
+      .legend-circle {
+        flex: 0 0 auto;
+      }
+
+      .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #2563eb;
+        border: 1px solid #0f172a;
+      }
+
+      .legend-circle {
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        border: 2px solid rgba(185, 28, 28, 0.6);
+        background: rgba(239, 68, 68, 0.16);
+      }
+
+      .footnote {
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .leaflet-popup-content-wrapper {
+        border-radius: 18px;
+      }
+
+      .popup-grid {
+        display: grid;
+        gap: 6px;
+        font-size: 13px;
+      }
+
+      .popup-grid strong {
+        display: inline-block;
+        min-width: 92px;
+      }
+
+      @media (max-width: 960px) {
+        body {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+        }
+
+        aside {
+          border-right: 0;
+          border-bottom: 1px solid var(--panel-border);
+        }
+
+        #map {
+          height: 70vh;
+          min-height: 540px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <span class="eyebrow">Interactive AADR Map</span>
+      <h1>Norway</h1>
+      <p class="lede">
+        Explore every AADR sample point for Norway, zoom across the map,
+        and adjust the acceptance diameter to visualize sampling ranges around each aDNA location.
+      </p>
+
+      <section class="stats-grid">
+        <div class="stat-card"><span class="stat-label">Samples</span><strong class="stat-value">58</strong></div>
+<div class="stat-card"><span class="stat-label">Localities</span><strong class="stat-value">33</strong></div>
+<div class="stat-card"><span class="stat-label">Datasets</span><strong class="stat-value">2</strong></div>
+<div class="stat-card"><span class="stat-label">Version</span><strong class="stat-value">v62.0</strong></div>
+      </section>
+
+      <section class="control-panel">
+        <h2>Acceptance Range</h2>
+        <p>
+          Use the slider to set the circle diameter around every sample point.
+          The displayed radius is half of the selected diameter.
+        </p>
+        <div class="slider-wrap">
+          <div class="slider-label">
+            <span>Diameter</span>
+            <span class="slider-value" id="diameter-value">20 km</span>
+          </div>
+          <input id="diameter-slider" type="range" min="0" max="100" step="5" value="20">
+        </div>
+        <div class="slider-label">
+          <span>Radius</span>
+          <span class="slider-value" id="radius-value">10.0 km</span>
+        </div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <span>Blue points show all available AADR samples.</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-circle"></span>
+            <span>Transparent red circles show the current acceptance range.</span>
+          </div>
+        </div>
+
+        <p class="footnote">
+          Tip: set the diameter to 0 km to hide the circles and inspect only the sample points.
+          Popups show sample metadata, coordinates, publication, and datasets.
+        </p>
+      </section>
+    </aside>
+
+    <main>
+      <div id="map" aria-label="Norway AADR sample map"></div>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      const sampleData = {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR101.HO", "master_id": "NOR101", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR106.HO", "master_id": "NOR106", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR107.HO", "master_id": "NOR107", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR108.HO", "master_id": "NOR108", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR109.HO", "master_id": "NOR109", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR111.HO", "master_id": "NOR111", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR119.HO", "master_id": "NOR119", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR124.HO", "master_id": "NOR124", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR126.HO", "master_id": "NOR126", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR146.HO", "master_id": "NOR146", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [5.358, 60.359]}, "properties": {"genetic_id": "NOR148.HO", "master_id": "NOR148", "group_id": "Norwegian.HO", "locality": "Bergen", "political_entity": "Norway", "publication": "LazaridisNature2014", "year_first_published": "2014", "full_date": "present", "date_mean_bp": "0", "data_type": "HumanOrigins", "molecular_sex": "M", "datasets": ["ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [7.7437, 58.064]}, "properties": {"genetic_id": "Hum1.SG", "master_id": "Hum1", "group_id": "Norway_Mesolithic.SG", "locality": "Hummervikholmen", "political_entity": "Norway", "publication": "GuntherPLoSBiology2018", "year_first_published": "2018", "full_date": "7502-7325 calBCE (8703±27 BP) [R_combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]", "date_mean_bp": "9364", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [7.7437, 58.064]}, "properties": {"genetic_id": "Hum2.SG", "master_id": "Hum2", "group_id": "Norway_Mesolithic.SG", "locality": "Hummervikholmen", "political_entity": "Norway", "publication": "GuntherPLoSBiology2018", "year_first_published": "2018", "full_date": "7502-7325 calBCE (8703±27 BP) [R_combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]", "date_mean_bp": "9364", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [7.7437, 58.064]}, "properties": {"genetic_id": "NEO17.SG", "master_id": "NEO17", "group_id": "Norway_Mesolithic.SG", "locality": "Hummervikholmen (Agder, Søgne nor)", "political_entity": "Norway", "publication": "AllentoftNature2024", "year_first_published": "2024", "full_date": "7589-7368 calBCE (8446±51 BP, Ua-47892)", "date_mean_bp": "9384", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.34, 61.15]}, "properties": {"genetic_id": "VK394.SG", "master_id": "VK394", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.34, 61.15]}, "properties": {"genetic_id": "VK394_d.SG", "master_id": "VK394", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.34, 61.15]}, "properties": {"genetic_id": "VK422.SG", "master_id": "VK422", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.1, 60.8]}, "properties": {"genetic_id": "VK420.SG", "master_id": "VK420", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark (Innlandet, Hamar nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1100 CE", "date_mean_bp": "1050", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.0, 60.84]}, "properties": {"genetic_id": "VK393.SG", "master_id": "VK393", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark (Innlandet, Ringsaker nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.87, 60.8]}, "properties": {"genetic_id": "VK448.SG", "master_id": "VK448", "group_id": "Norway_Viking.SG", "locality": "Nor South, Hedmark (Innlandet, Ringsaker nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1100 CE", "date_mean_bp": "1050", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.57, 60.36]}, "properties": {"genetic_id": "VK417.SG", "master_id": "VK417", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "600-1100 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.05, 62.09]}, "properties": {"genetic_id": "VK386.SG", "master_id": "VK386", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland (Innlandet, Lesja nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "800-1100 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.4, 61.88]}, "properties": {"genetic_id": "VK414.SG", "master_id": "VK414", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland (Innlandet, Skjåk nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1100 CE", "date_mean_bp": "950", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.43, 60.31]}, "properties": {"genetic_id": "VK387.SG", "master_id": "VK387", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland (Viken, Jevnaker nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1100 CE", "date_mean_bp": "950", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.43, 60.31]}, "properties": {"genetic_id": "VK421.SG", "master_id": "VK421", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland (Viken, Jevnaker nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1100 CE", "date_mean_bp": "950", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.63, 60.29]}, "properties": {"genetic_id": "VK415.SG", "master_id": "VK415", "group_id": "Norway_Viking.SG", "locality": "Nor South, Oppland (Viken, Lunner nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1100 CE", "date_mean_bp": "1050", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.59, 59.22]}, "properties": {"genetic_id": "VK389.SG", "master_id": "VK389", "group_id": "Norway_Viking.SG", "locality": "Nor South, Telemark (Vestfold og Telemark, Skien nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.59, 59.22]}, "properties": {"genetic_id": "VK390.SG", "master_id": "VK390", "group_id": "Norway_IA.SG", "locality": "Nor South, Telemark (Vestfold og Telemark, Skien nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "400-600 CE", "date_mean_bp": "1450", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.59, 59.22]}, "properties": {"genetic_id": "VK391.SG", "master_id": "VK391", "group_id": "Norway_IA.SG", "locality": "Nor South, Telemark (Vestfold og Telemark, Skien nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "400-600 CE", "date_mean_bp": "1450", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.59, 59.22]}, "properties": {"genetic_id": "VK392.SG", "master_id": "VK392", "group_id": "Norway_Viking.SG", "locality": "Nor South, Telemark (Vestfold og Telemark, Skien nor)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1000 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [11.22, 63.44]}, "properties": {"genetic_id": "VK548.SG", "master_id": "VK548", "group_id": "Norway_Viking.SG", "locality": "Nord-Trøndelag (Stjørdal, Kil søndre)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "800-900 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.39, 67.28]}, "properties": {"genetic_id": "VK515.SG", "master_id": "VK515", "group_id": "Norway_Viking.SG", "locality": "Nordland (Bodø, Rønvik nedre (32/100, Rønvik))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.39, 67.28]}, "properties": {"genetic_id": "VK530.SG", "master_id": "VK530", "group_id": "Norway_Viking.SG", "locality": "Nordland (Bodø, Rønvik nedre (32/100, Rønvik))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.42, 67.29]}, "properties": {"genetic_id": "VK419.SG", "master_id": "VK419", "group_id": "Norway_Viking.SG", "locality": "Nordland (Bodø, Rønvik Øvre (31/-))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "500-1000 CE", "date_mean_bp": "1200", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [12.72, 66.18]}, "properties": {"genetic_id": "VK525.SG", "master_id": "VK525", "group_id": "Norway_Viking.SG", "locality": "Nordland (Dønna, Hov (19/1, Løkta))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "800-900 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [12.27, 65.97]}, "properties": {"genetic_id": "VK526.SG", "master_id": "VK526", "group_id": "Norway_Viking.SG", "locality": "Nordland (Herøy, Sørherøy (Prestegården, 4/1))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "800-900 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [15.66, 68.34]}, "properties": {"genetic_id": "VK388.SG", "master_id": "VK388", "group_id": "Norway_Viking.SG", "locality": "Nordland (Lødingen, Ytterstad (17/-))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1600 CE", "date_mean_bp": "800", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [12.73, 66.26]}, "properties": {"genetic_id": "VK524.SG", "master_id": "VK524", "group_id": "Norway_Viking.SG", "locality": "Nordland (Nesna, Tommeidet (98/22))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.79, 67.64]}, "properties": {"genetic_id": "VK529.SG", "master_id": "VK529", "group_id": "Norway_Viking.SG", "locality": "Nordland (Steigen, Leines (6/-))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-900 CE", "date_mean_bp": "1150", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.96, 67.93]}, "properties": {"genetic_id": "VK519.SG", "master_id": "VK519", "group_id": "Norway_Viking_o2.SG", "locality": "Nordland (Steigen, Steigen Mellem (78/- Hagbartsholm))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "500-1000 CE", "date_mean_bp": "1200", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.98, 67.94]}, "properties": {"genetic_id": "VK418.SG", "master_id": "VK418", "group_id": "Norway_IA.SG", "locality": "Nordland (Steigen, Steigen øvre (77/1))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "300-400 CE", "date_mean_bp": "1600", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [15.13, 67.91]}, "properties": {"genetic_id": "VK514.SG", "master_id": "VK514", "group_id": "Norway_Viking.SG", "locality": "Nordland (Steigen, Vikran Nordre (71/2))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "500-1000 CE", "date_mean_bp": "1200", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [16.4, 68.55]}, "properties": {"genetic_id": "VK547.SG", "master_id": "VK547", "group_id": "Norway_Viking.SG", "locality": "Nordland (Tjelsund, Stokke (79/1))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-1100 CE", "date_mean_bp": "1050", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [12.7, 67.69]}, "properties": {"genetic_id": "VK518.SG", "master_id": "VK518", "group_id": "Norway_Viking_o1.SG", "locality": "Nordland (Værøy, Nordland, (17/- Vågehamn))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "800-900 CE", "date_mean_bp": "1100", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [12.7, 66.0]}, "properties": {"genetic_id": "hvr009.SG", "master_id": "hvr009", "group_id": "Norway_North_Pre_Viking.SG", "locality": "Nordland, Alstahaug", "political_entity": "Norway", "publication": "Rodríguez-VarelaScienceDirect2023", "year_first_published": "2023", "full_date": "60-215 calCE", "date_mean_bp": "1813", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [14.681, 67.81]}, "properties": {"genetic_id": "Steigen.SG", "master_id": "Steigen", "group_id": "Norway_N_oMesolithic.SG", "locality": "Steigen (Nordland, Steigen nor)", "political_entity": "Norway", "publication": "GuntherPLoSBiology2018", "year_first_published": "2018", "full_date": "4000-3814 calBCE", "date_mean_bp": "5857", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.75, 63.7]}, "properties": {"genetic_id": "VK523.SG", "master_id": "VK523", "group_id": "Norway_IA.SG", "locality": "Sør-Trøndelag (Bjugn, Melem (Herstaen) (84/-))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1-1000 CE", "date_mean_bp": "1450", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [9.75, 63.7]}, "properties": {"genetic_id": "VK516.SG", "master_id": "VK516", "group_id": "Norway_Viking.SG", "locality": "Sør-Trøndelag (Ørlandet, Østråt (Austrått) (82/91))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [18.0, 69.47]}, "properties": {"genetic_id": "VK520.SG", "master_id": "VK520", "group_id": "Norway_Viking.SG", "locality": "Troms (Tromsø, Tussøy, (188/1))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "900-1000 CE", "date_mean_bp": "1000", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [18.0, 69.47]}, "properties": {"genetic_id": "VK528.SG", "master_id": "VK528", "group_id": "Norway_Viking.SG", "locality": "Troms (Tromsø, Tussøy, Trygstad i Bø (188/10))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "700-900 CE", "date_mean_bp": "1150", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [18.0, 69.47]}, "properties": {"genetic_id": "VK531.SG", "master_id": "VK531", "group_id": "Norway_LN_BA.SG", "locality": "Troms (Tromsø, Tussøy, Trygstad i Bø (188/10))", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "2559-2290 calBCE (3918±36 BP, UBA-36964)", "date_mean_bp": "4347", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK113.SG", "master_id": "VK113", "group_id": "Norway_Medieval_o.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK114.SG", "master_id": "VK114", "group_id": "Norway_Medieval.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK116.SG", "master_id": "VK116", "group_id": "Norway_Medieval_lc.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK117.SG", "master_id": "VK117", "group_id": "Norway_Medieval.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "M", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK118.SG", "master_id": "VK118", "group_id": "Norway_Medieval.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK124.SG", "master_id": "VK124", "group_id": "Norway_Medieval.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "F", "datasets": ["1240k", "ho"]}}, {"type": "Feature", "geometry": {"type": "Point", "coordinates": [10.39, 63.43]}, "properties": {"genetic_id": "VK125.SG", "master_id": "VK125", "group_id": "Norway_Medieval_o_lc.SG", "locality": "Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim)", "political_entity": "Norway", "publication": "MargaryanNature2020", "year_first_published": "2020", "full_date": "1100-1300 CE", "date_mean_bp": "750", "data_type": "Shotgun", "molecular_sex": "U", "datasets": ["1240k", "ho"]}}]};
+      const initialBounds = [[58.064, 5.358], [69.47, 18.0]];
+      const map = L.map('map', { preferCanvas: true, zoomControl: true });
+
+      const positron = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+        {
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 20
+        }
+      );
+      const voyager = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        {
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 20
+        }
+      );
+
+      positron.addTo(map);
+      L.control.layers({ 'Light': positron, 'Voyager': voyager }, {}, { position: 'topright' }).addTo(map);
+      L.control.scale({ imperial: false }).addTo(map);
+
+      const pointsLayer = L.layerGroup().addTo(map);
+      const circlesLayer = L.layerGroup().addTo(map);
+      const features = sampleData.features;
+      const slider = document.getElementById('diameter-slider');
+      const diameterValue = document.getElementById('diameter-value');
+      const radiusValue = document.getElementById('radius-value');
+
+      function popupHtml(properties, latitude, longitude) {
+        const datasets = Array.isArray(properties.datasets) ? properties.datasets.join(', ') : '';
+        return `
+          <div class="popup-grid">
+            <div><strong>Genetic ID</strong> ${
+              escapeHtml(properties.genetic_id || '')
+            }</div>
+            <div><strong>Locality</strong> ${
+              escapeHtml(properties.locality || '')
+            }</div>
+            <div><strong>Master ID</strong> ${
+              escapeHtml(properties.master_id || '')
+            }</div>
+            <div><strong>Group ID</strong> ${
+              escapeHtml(properties.group_id || '')
+            }</div>
+            <div><strong>Datasets</strong> ${
+              escapeHtml(datasets)
+            }</div>
+            <div><strong>Publication</strong> ${
+              escapeHtml(properties.publication || '')
+            }</div>
+            <div><strong>Date</strong> ${
+              escapeHtml(properties.full_date || '')
+            }</div>
+            <div><strong>Coords</strong> ${
+              latitude.toFixed(6)
+            }, ${
+              longitude.toFixed(6)
+            }</div>
+          </div>
+        `;
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      features.forEach((feature) => {
+        const [longitude, latitude] = feature.geometry.coordinates;
+        const marker = L.circleMarker([latitude, longitude], {
+          radius: 4.5,
+          color: '#0f172a',
+          weight: 1,
+          fillColor: '#2563eb',
+          fillOpacity: 0.88
+        });
+        marker.bindPopup(popupHtml(feature.properties, latitude, longitude), {
+          maxWidth: 340,
+          className: 'sample-popup'
+        });
+        pointsLayer.addLayer(marker);
+      });
+
+      function renderCircles(diameterKm) {
+        circlesLayer.clearLayers();
+        if (diameterKm <= 0) {
+          return;
+        }
+        const radiusMeters = (diameterKm * 1000) / 2;
+        features.forEach((feature) => {
+          const [longitude, latitude] = feature.geometry.coordinates;
+          const circle = L.circle([latitude, longitude], {
+            radius: radiusMeters,
+            color: 'rgba(185, 28, 28, 0.55)',
+            weight: 1,
+            opacity: 0.55,
+            fillColor: 'rgba(239, 68, 68, 0.12)',
+            fillOpacity: 0.12,
+            interactive: false
+          });
+          circlesLayer.addLayer(circle);
+        });
+      }
+
+      function updateRange() {
+        const diameterKm = Number(slider.value);
+        const radiusKm = diameterKm / 2;
+        diameterValue.textContent = `${diameterKm} km`;
+        radiusValue.textContent = `${radiusKm.toFixed(1)} km`;
+        renderCircles(diameterKm);
+      }
+
+      slider.addEventListener('input', updateRange);
+      updateRange();
+
+      const southWest = initialBounds[0];
+      const northEast = initialBounds[1];
+      const singlePointBounds = southWest[0] === northEast[0] && southWest[1] === northEast[1];
+
+      if (singlePointBounds) {
+        map.setView(southWest, 8);
+      } else {
+        map.fitBounds(initialBounds, { padding: [24, 24] });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+# Norway AADR v62.0 Report
+
+This report was generated from the AADR `v62.0` `.anno` files on `2026-03-23`.
+
+## Summary
+
+- Country filter: `Norway`
+- Unique AADR samples: `58`
+- Unique localities: `33`
+- Latitude range: `58.064000` to `69.470000`
+- Longitude range: `5.358000` to `18.000000`
+
+## Dataset Coverage
+
+| Dataset | Norway rows |
+| --- | ---: |
+| `1240k` | 47 |
+| `ho` | 58 |
+
+The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `Norway` contains `58` unique samples in AADR `v62.0`.
+
+## Output Files
+
+- Interactive map: [`norway_aadr_v62.0_map.html`](./norway_aadr_v62.0_map.html)
+- Full sample inventory: [`norway_aadr_v62.0_samples.csv`](./norway_aadr_v62.0_samples.csv)
+- Locality summary: [`norway_aadr_v62.0_localities.csv`](./norway_aadr_v62.0_localities.csv)
+- Map-ready GeoJSON: [`norway_aadr_v62.0_samples.geojson`](./norway_aadr_v62.0_samples.geojson)
+- Full markdown sample table: [`norway_aadr_v62.0_samples.md`](./norway_aadr_v62.0_samples.md)
+
+## Top Localities
+
+| Locality | Samples | Latitude | Longitude | Datasets |
+| --- | ---: | ---: | ---: | --- |
+| Bergen | 11 | 60.359 | 5.358 | `ho` |
+| Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim) | 7 | 63.43 | 10.39 | `1240k,ho` |
+| Nor South, Telemark (Vestfold og Telemark, Skien nor) | 4 | 59.22 | 9.59 | `1240k,ho` |
+| Nor South, Hedmark | 3 | 61.15 | 11.34 | `1240k,ho` |
+| Hummervikholmen | 2 | 58.064 | 7.7437 | `1240k,ho` |
+| Nor South, Oppland (Viken, Jevnaker nor) | 2 | 60.31 | 10.43 | `1240k,ho` |
+| Nordland (Bodø, Rønvik nedre (32/100, Rønvik)) | 2 | 67.28 | 14.39 | `1240k,ho` |
+| Troms (Tromsø, Tussøy, Trygstad i Bø (188/10)) | 2 | 69.47 | 18 | `1240k,ho` |
+| Hummervikholmen (Agder, Søgne nor) | 1 | 58.064 | 7.7437 | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Hamar nor) | 1 | 60.8 | 11.1 | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.84 | 11 | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.8 | 10.87 | `1240k,ho` |
+| Nor South, Oppland | 1 | 60.36 | 10.57 | `1240k,ho` |
+| Nor South, Oppland (Innlandet, Lesja nor) | 1 | 62.09 | 9.05 | `1240k,ho` |
+| Nor South, Oppland (Innlandet, Skjåk nor) | 1 | 61.88 | 8.4 | `1240k,ho` |
