@@ -6,9 +6,15 @@ build-backend = "setuptools.build_meta"
 name = "bijux-pollen"
 version = "0.1.0"
 description = "Country-level reporting tools for AADR-backed pollenomic site selection work."
-readme = "docs/report/README.md"
+readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2.2",
+    "ruff>=0.13.0",
+]
 
 [project.scripts]
 bijux-pollen-aadr = "bijux_pollen.cli:main"
