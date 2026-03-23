@@ -1,0 +1,120 @@
+locality,latitude,longitude,sample_count,datasets,sample_ids
+Vor Frue Kirkegård (Aalborg),57.05,9.92,32,"1240k,ho",CGG100317.SG;CGG100336.SG;CGG100341.SG;CGG100415.SG;CGG100431.SG;CGG100434.SG;CGG100441.SG;CGG100442.SG;CGG100445.SG;CGG100447.SG;CGG100451.SG;CGG100452.SG;CGG100453.SG;CGG100454.SG;CGG100456.SG;CGG100460.SG;CGG100472.SG;CGG100481.SG;CGG100492.SG;CGG100493.SG;CGG100497.SG;CGG100498.SG;CGG100501.SG;CGG100507.SG;CGG100510.SG;CGG100512.SG;CGG100513.SG;CGG100519.SG;CGG100530.SG;CGG100535.SG;CGG100539.SG;CGG100545.SG
+Tjærby (Randers Municipality),56.47,10.1,28,"1240k,ho",CGG100651.SG;CGG100653.SG;CGG100678.SG;CGG100679.SG;CGG100682.SG;CGG100683.SG;CGG100686.SG;CGG100687.SG;CGG100689.SG;CGG100691.SG;CGG100692.SG;CGG100700.SG;CGG100747.SG;CGG100748.SG;CGG100749.SG;CGG100750.SG;CGG100751.SG;CGG100759.SG;CGG100797.SG;CGG100802.SG;CGG100820.SG;CGG100908.SG;CGG100914.SG;CGG100918.SG;CGG100920.SG;CGG100921.SG;CGG100926.SG;CGG100951.SG
+Ahlgade 15-17 (Holbæk),55.72,11.71,25,"1240k,ho",CGG101680.SG;CGG101689.SG;CGG101691.SG;CGG101808.SG;CGG101809.SG;CGG101811.SG;CGG101813.SG;CGG101822.SG;CGG101825.SG;CGG101827.SG;CGG101829.SG;CGG101833.SG;CGG101835.SG;CGG101837.SG;CGG101838.SG;CGG101839.SG;CGG101842.SG;CGG101843.SG;CGG101845.SG;CGG101850.SG;CGG101854.SG;CGG101855.SG;CGG101857.SG;CGG101864.SG;CGG101873.SG
+Galgedil (Funen region),55.5,10.33,16,"1240k,ho",VK133.SG;VK134.SG;VK135.SG;VK138.SG;VK139.SG;VK140.SG;VK141.SG;VK278.SG;VK279.SG;VK280.SG;VK370.SG;VK371.SG;VK372.SG;VK373.SG;VK411.SG;VK446.SG
+Kopenhagen (Zealand region),55.675268,12.568294,15,"1240k,ho",KPN001.A.AG;KPN002.A.AG;KPN003.A.AG;KPN004.A.AG;KPN005.A.AG;KPN006.A.AG;KPN007.A.AG;KPN008.A.AG;KPN009.A.AG;KPN010.A.AG;KPN011.A.AG;KPN012.A.AG;KPN013.A.AG;KPN014.A.AG;KPN015.A.AG
+Bogevej (Langeland region),54.87,10.72,13,"1240k,ho",VK286.SG;VK288.SG;VK292.SG;VK320.SG;VK338.SG;VK361.SG;VK362.SG;VK363.SG;VK364.SG;VK365.SG;VK366.SG;VK367.SG;VK368.SG
+Ribe (Jutland region),55.33,8.76,9,"1240k,ho",VK322.SG;VK323.SG;VK324.SG;VK325.SG;VK326.SG;VK327.SG;VK328.SG;VK329.SG;VK330.SG
+Hesselbjerg (Jutland region),55.95,10.2,8,"1240k,ho",VK300.SG;VK339.SG;VK340.SG;VK383.SG;VK384.SG;VK84.SG;VK86.SG;VK87.SG
+Kaagarden (Langeland region),54.85,10.78,6,"1240k,ho",VK274.SG;VK275.SG;VK276.SG;VK285.SG;VK287.SG;VK317.SG
+Henriksholm-Bøgebakken (Vedbæk) (Zealand region),55.853,12.559,5,"1240k,ho",NEO745.SG;NEO746.SG;NEO747.SG;NEO748.SG;NEO749.SG
+Dragsholm (Zealand region),55.768,11.388,4,"1240k,ho",NEO732.SG;NEO733.SG;NEO822.SG;NEO962.SG
+Gerdrup (Zealand region),55.73,12.12,4,"1240k,ho",VK213.SG;VK214.SG;VK215.SG;VK216.SG
+Lejre (Zealand region),55.6,11.95,4,"1240k,ho",VK247.SG;VK385.SG;VK90.SG;VK92.SG
+Toftum Mose (Jutland region),55.895,9.987,4,"1240k,ho",NEO870.SG;NEO872.SG;NEO875.SG;NEO876.SG
+Tollemosegard (Zealand region),55.87,12.08,4,"1240k,ho",VK65.SG;VK69.SG;VK70.SG;VK71.SG
+Bakkendrup (Zealand region),55.56,11.25,3,"1240k,ho",VK294.SG;VK315.SG;VK369.SG
+Rantzausminde (Funen region),55.05,10.53,3,"1240k,ho",VK312.SG;VK313.SG;VK314.SG
+Bodkergarden (Langeland region),54.8,10.69,2,"1240k,ho",VK289.SG;VK291.SG
+Borreby (Zealand region),55.225,11.303,2,"1240k,ho",NEO735.SG;NEO737.SG
+Ertebølle (Jutland region),56.812,9.179,2,"1240k,ho",NEO568.SG;NEO569.SG
+Gl. Lejre (Zealand region),55.62,11.97,2,"1240k,ho",VK445.SG;VK94.SG
+Hessum (Funen region),55.51,10.45,2,"1240k,ho",VK295.SG;VK316.SG
+Hundstrup Mose (Zealand region),55.15,11.87,2,"1240k,ho",VK296.SG;VK297.SG
+Koed (Jutland region),56.371,10.573,2,"1240k,ho",NEO583.SG;NEO586.SG
+Kolind (Jutland region),56.362,10.593,2,"1240k,ho",NEO738.SG;NEO739.SG
+Korsør Nor (Zealand region),55.331,11.145,2,"1240k,ho",NEO589.SG;NEO791.SG
+Ladby (Funen region),55.43,10.61,2,"1240k,ho",VK301.SG;VK319.SG
+Lundby-Falster (Falster region),54.865,11.841,2,"1240k,ho",NEO865.SG;NEO866.SG
+Mosede Mose (Zealand region),55.576,12.275,2,"1240k,ho",NEO860.SG;NEO861.SG
+Orehoved Sejlrende (Falster region),54.96,11.85,2,"1240k,ho",NEO122.SG;NEO123.SG
+Rude (Jutland region),55.994,10.248,2,"1240k,ho",NEO41.SG;NEO43.SG
+Strøby (Avlebjerg),55.38332,12.28199,2,"1240k,ho",AVL001.SG;AVL001_d.SG
+Alken Enge (Jutland region),56.05,9.94,1,"1240k,ho",VK582.SG
+Avlebjerg (Strøby) (Zealand region),55.368,12.287,1,"1240k,ho",NEO961.SG
+Barhøj (Strøby Egede) (Zealand region),55.403,12.272,1,"1240k,ho",NEO92.SG
+Besser (Zealand region),55.85,10.64,1,"1240k,ho",VK298.SG
+Bjørnsholm (Jutland region),56.874,9.215,1,"1240k,ho",NEO751.SG
+Bodal K (Zealand region),55.586,11.538,1,"1240k,ho",NEO814.SG
+Borse (Zealand region),55.13,11.95,1,"1240k,ho",VK281.SG
+Brondsager Torsiinre (Zealand region),55.635879,12.241361,1,"1240k,ho",VK521.SG
+Bybjerg (Zealand region),55.76,11.798,1,"1240k,ho",NEO563.SG
+Bygholm Nørremark (Jutland region),55.875,9.812,1,"1240k,ho",NEO564.SG
+Dalmosegaard (Møn region),54.989,12.419,1,"1240k,ho",NEO886.SG
+Døjringe (Zealand region),55.484,11.579,1,"1240k,ho",NEO566.SG
+Elkenøre (Falster region),54.732,11.986,1,"1240k,ho",NEO888.SG
+"Falshöj (Nordjylland, Mariagerfjord)",56.676,10.034,1,"1240k,ho",RISE71.SG
+Fannerup D (Jutland region),56.401,10.715,1,"1240k,ho",NEO855.SG
+Fannerup E (Jutland region),56.401,10.718,1,"1240k,ho",NEO570.SG
+Fannerup F (Jutland region),56.4,10.714,1,"1240k,ho",NEO930.SG
+Gammellung (Langeland region),54.876,10.784,1,"1240k,ho",NEO934.SG
+"Gjerrild Cist (Eastern Jutland, Djursland)",56.5,10.82,1,"1240k,ho",RISE1283.SG
+"Gjerrild Cist (Midtjylland, Norddjurs)",56.5,10.82,1,"1240k,ho",RISE1280_RISE1281_merge.SG
+Grøfte (Zealand region),55.404,11.497,1,"1240k,ho",NEO571.SG
+Havnø (Jutland region),56.709,10.171,1,"1240k,ho",NEO941.SG
+Hedegaard (Bislev) (Jutland region),56.907,9.576,1,"1240k,ho",NEO13.SG
+Hesselbjergmarken (Langeland region),54.87,10.72,1,"1240k,ho",VK318.SG
+Holmegard-Djursland (Jutland region),56.251,10.755,1,"1240k,ho",NEO1.SG
+Hove A (Zealand region),55.708,12.25,1,"1240k,ho",NEO946.SG
+Jorløse Mose (Zealand region),55.601,11.312,1,"1240k,ho",NEO23.SG
+Jørlundegard (Zealand region),55.828,12.166,1,"1240k,ho",NEO702.SG
+Kainsbakke II (Jutland region),56.433,10.789,1,"1240k,ho",NEO25.SG
+"Karlstrup (Sjælland, Solrød)",55.55,12.209,1,"1240k,ho",RISE21.SG
+Klokkehøj (Funen region),55.108,10.111,1,"1240k,ho",NEO580.SG
+Klæsterupholm Mose (Jutland region),57.29,10.033,1,"1240k,ho",NEO951.SG
+Koelbjerg (Funen region),55.404,10.133,1,"1240k,ho",NEO254.SG
+Kongemose (Zealand region),55.583,11.551,1,"1240k,ho",NEO587.SG
+Kragehave Odetofter (Zealand region),55.655463,12.245129,1,"1240k,ho",VK532.SG
+Kumle hoje (Langeland region),54.89,10.74,1,"1240k,ho",VK290.SG
+"Kyndelöse (Sjælland, Lejre)",55.703,11.855,1,"1240k,ho",RISE61.SG
+Kyndeløse (Zealand region),55.703,11.855,1,"1240k,ho",NEO878.SG
+Køge Sønakke (Zealand region),55.402,12.367,1,"1240k,ho",NEO759.SG
+Langø Skaldynge (Funen region),55.545,10.622,1,"1240k,ho",NEO853.SG
+Lohals (Langeland region),55.134,10.903,1,"1240k,ho",NEO29.SG
+Lollikehuse (Zealand region),55.758,12.007,1,"1240k,ho",NEO857.SG
+Læsten Mose (Jutland region),56.485,9.827,1,"1240k,ho",NEO945.SG
+Madesø (Zealand region),55.621,11.331,1,"1240k,ho",NEO752.SG
+Magleø (Zealand region),55.34,11.161,1,"1240k,ho",NEO590.SG
+Mandemarke (Mön region),54.969,12.494,1,"1240k,ho",NEO896.SG
+"Marbjerg (Sjælland, Roskilde)",55.657,12.148,1,"1240k,ho",RISE42.SG
+Myrebjerg mose (Langeland region),54.771,10.675,1,"1240k,ho",NEO925.SG
+Nederst (Jutland region),56.365,10.643,1,"1240k,ho",NEO856.SG
+Neverkær Mose (Funen region),55.391,10.078,1,"1240k,ho",NEO594.SG
+Norsminde (Jutland region),56.027,10.257,1,"1240k,ho",NEO852.SG
+Næs (Falster region),54.87,12.116,1,"1240k,ho",NEO792.SG
+Pandebjerg (Zealand region),55.789,11.292,1,"1240k,ho",NEO595.SG
+Porsmose (Zealand region),55.276,11.875,1,"1240k,ho",NEO795.SG
+Ravnsbjerggard II (Zealand region),55.581,11.578,1,"1240k,ho",NEO960.SG
+Roskilde Fjord (south of Jyllinge) (Zealand region),55.73,12.1,1,"1240k,ho",NEO891.SG
+Rødhals (Zealand region),55.914,11.091,1,"1240k,ho",NEO645.SG
+Rønsten (Jutland region),56.27,10.472,1,"1240k,ho",NEO19.SG
+Salpetermosen syd 8 (Zealand region),55.91,12.307,1,"1240k,ho",NEO28.SG
+Sebber skole,56.97,9.552,1,"1240k,ho",RISE47.SG
+"Sejerby (Sjælland, Kalundborg)",55.902,11.118,1,"1240k,ho",NEO757.SG
+Sigersdal Mose (Zealand region),55.761,12.258,1,"1240k,ho",NEO7.SG
+Sigersdal Mose 2 (Zealand region),55.772,12.213,1,"1240k,ho",NEO753.SG
+Sludegard Sømose (Funen region),55.253,10.746,1,"1240k,ho",NEO933.SG
+Stenderup Hage (Funen region),55.46,9.694,1,"1240k,ho",NEO943.SG
+Stengade I (Langeland region),54.96,10.83,1,"1240k,ho",VK282.SG
+Storelyng (Østrup Homo II) (Zealand region),55.589,11.576,1,"1240k,ho",NEO602.SG
+Strøby Grøftemar (Zealand region),55.393,12.307,1,"1240k,ho",NEO91.SG
+Strøby Ladeplads (Zealand region),55.406,12.285,1,"1240k,ho",NEO93.SG
+Svinninge Vejle (Zealand region),55.736,11.425,1,"1240k,ho",NEO898.SG
+Syltholm (Lolland),54.623,11.458,1,"1240k,ho",Syltholm1.SG
+Sølager (Zealand region),55.948,11.897,1,"1240k,ho",NEO598.SG
+Tissøe (Zealand region),55.575,11.294,1,"1240k,ho",NEO942.SG
+Trekroner-Grydehej (Zealand region),55.65,12.14,1,"1240k,ho",VK284.SG
+"Trundholm II (Sjælland, Odsherred)",55.914,11.565,1,"1240k,ho",RISE276.SG
+Tudse Hage (Zealand region),55.249,11.228,1,"1240k,ho",NEO932.SG
+Tybrind Vig (Funen region),55.395,9.826,1,"1240k,ho",NEO683.SG
+Tysmose (Zealand region),55.711,12.274,1,"1240k,ho",NEO790.SG
+Vanløse Mose (Zealand region),55.553,11.684,1,"1240k,ho",NEO599.SG
+Vasagard (Bornholm),55.055,14.885,1,"1240k,ho",NEO815.SG
+Vedbaek Boldbaner (Zealand region),55.848,12.56,1,"1240k,ho",NEO600.SG
+Vibygards Mose (Zealand region),55.564,12.016,1,"1240k,ho",NEO935.SG
+Vig Femhøve (Zealand region),55.856,11.59,1,"1240k,ho",NEO744.SG
+Viksø Mose (Zealand region),55.759,12.238,1,"1240k,ho",NEO601.SG
+Vittrup (Jutland region),57.391,9.761,1,"1240k,ho",NEO33.SG
+Vængesø II (Jutland region),56.146,10.552,1,"1240k,ho",NEO3.SG
+"Zealand, Storelyng (Øgarde boat III)",55.587,11.574,1,"1240k,ho",NEO597.SG
