@@ -21,7 +21,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Output Files
 
-- Interactive map: [`finland_aadr_v62.0_map.html`](./finland_aadr_v62.0_map.html)
+- Shared interactive map: [`Nordic Countries map`](../nordic/nordic_aadr_v62.0_map.html)
 - Full sample inventory: [`finland_aadr_v62.0_samples.csv`](./finland_aadr_v62.0_samples.csv)
 - Locality summary: [`finland_aadr_v62.0_localities.csv`](./finland_aadr_v62.0_localities.csv)
 - Map-ready GeoJSON: [`finland_aadr_v62.0_samples.geojson`](./finland_aadr_v62.0_samples.geojson)
