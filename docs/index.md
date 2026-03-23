@@ -21,9 +21,9 @@ The current map groups layers by role, exposes filter state in the URL, and show
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="report/nordic/nordic_aadr_v62.0_map.html">Open the Nordic map in its own page</a>
-  <a class="md-button" href="03-data-guide/index.md">Read the data guide</a>
-  <a class="md-button" href="04-reports/index.md">Read the reports guide</a>
-  <a class="md-button" href="06-development/index.md">Read the development workflow</a>
+  <a class="md-button" href="03-data-guide/">Read the data guide</a>
+  <a class="md-button" href="04-reports/">Read the reports guide</a>
+  <a class="md-button" href="06-development/">Read the development workflow</a>
 </div>
 
 <div class="bijux-map-frame">

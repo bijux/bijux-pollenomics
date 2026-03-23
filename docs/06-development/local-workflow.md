@@ -29,6 +29,7 @@ make docs-serve
 - `make install` uses `artifacts/.venv/`
 - `make build` writes distributions into `artifacts/dist/`
 - `make docs` writes the site into `artifacts/docs/site/`
+- `make docs-serve` serves the local docs at `http://127.0.0.1:8000/`
 
 ## Why The Makefile Exists
 
