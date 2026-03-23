@@ -631,6 +631,11 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
         "label": "AADR aDNA samples",
         "count": len(features),
         "description": "Ancient DNA sample locations from AADR.",
+        "group": "primary-evidence",
+        "source_name": "Allen Ancient DNA Resource",
+        "coverage_label": "Country assignment follows the AADR political entity field.",
+        "geometry_label": "Point records",
+        "default_enabled": True,
         "applies_country_filter": True,
         "circle_enabled": True,
         "style": {
@@ -670,6 +675,20 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
             "circleFill": "rgba(20, 184, 166, 0.10)",
         },
     }
+    metadata = {
+        "neotoma-pollen": {
+            "group": "environmental-context",
+            "source_name": "Neotoma",
+            "coverage_label": "Nordic pollen and paleoecology sites with coordinates.",
+            "geometry_label": "Point records",
+        },
+        "sead-sites": {
+            "group": "environmental-context",
+            "source_name": "SEAD",
+            "coverage_label": "Nordic environmental archaeology sites with coordinates.",
+            "geometry_label": "Point records",
+        },
+    }
     for feature in raw_features:
         geometry = feature.get("geometry", {})
         properties = feature.get("properties", {})
@@ -700,6 +719,11 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
         "label": layer_label,
         "count": len(features),
         "description": str(sample_properties.get("subtitle", "")).strip(),
+        "group": metadata.get(layer_key, {}).get("group", "context"),
+        "source_name": metadata.get(layer_key, {}).get("source_name", layer_label),
+        "coverage_label": metadata.get(layer_key, {}).get("coverage_label", "Country-aware contextual points."),
+        "geometry_label": metadata.get(layer_key, {}).get("geometry_label", "Point records"),
+        "default_enabled": True,
         "applies_country_filter": applies_country_filter,
         "circle_enabled": True,
         "style": styles.get(
@@ -722,6 +746,11 @@ def build_country_boundary_layer(geojson: dict[str, object]) -> dict[str, object
         "label": "Country boundaries",
         "count": len(geojson.get("features", [])),
         "description": "Administrative outlines used for country filtering and visual framing.",
+        "group": "orientation",
+        "source_name": "Natural Earth country boundaries",
+        "coverage_label": "Nordic country outlines used for framing and map filtering.",
+        "geometry_label": "Polygon outlines",
+        "default_enabled": True,
         "kind": "country-boundaries",
         "applies_country_filter": True,
         "style": {
@@ -744,6 +773,11 @@ def build_density_polygon_layer(geojson: dict[str, object]) -> dict[str, object]
         "label": "RAÄ archaeology density",
         "count": len(geojson.get("features", [])),
         "description": "Swedish archaeology density from RAÄ Fornsök `Fornlämning` counts in 1° grid cells.",
+        "group": "archaeology-context",
+        "source_name": "RAÄ Fornsök",
+        "coverage_label": "Sweden only. Density cells summarize `Fornlämning` counts.",
+        "geometry_label": "Density polygons",
+        "default_enabled": True,
         "kind": "density",
         "applies_country_filter": True,
         "max_count": max(counts) if counts else 0,
@@ -775,9 +809,9 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
-    return f"""# {title} AADR {version} Map
+    return f"""# {title} Research Map
 
-This shared interactive map was generated from the AADR `{version}` `.anno` files on `{generated_on}`.
+This shared interactive map was generated on `{generated_on}` and combines AADR `{version}` with the checked-in contextual datasets that are available in the current repository build.
 
 ## Included Countries
 
@@ -815,7 +849,7 @@ def render_multi_country_map_html(
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>__TITLE__ AADR __VERSION__ Map</title>
+    <title>__TITLE__ Research Map</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -927,6 +961,7 @@ def render_multi_country_map_html(
         margin-bottom: 8px;
       }
       .stat-value { font-size: 24px; font-weight: 700; }
+      .stat-value--compact { font-size: 18px; }
       .section-stack { display: grid; gap: 16px; }
       .panel-card { border-radius: 20px; padding: 18px; }
       .section-head {
@@ -974,6 +1009,14 @@ def render_multi_country_map_html(
         padding: 10px 14px;
       }
       .chip-toggle input { margin: 0; }
+      .chip-count {
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
       .chip-swatch,
       .legend-swatch {
         width: 12px;
@@ -1051,7 +1094,14 @@ def render_multi_country_map_html(
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.76);
       }
-      .search-result { cursor: pointer; width: 100%; text-align: left; }
+      .search-result {
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        appearance: none;
+        font: inherit;
+        color: inherit;
+      }
       .search-result strong,
       .layer-card strong { display: block; font-size: 14px; }
       .search-result span,
@@ -1075,6 +1125,38 @@ def render_multi_country_map_html(
         width: 100%;
       }
       .layer-card input { margin-top: 3px; }
+      .layer-group {
+        display: grid;
+        gap: 10px;
+      }
+      .layer-group-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
+        padding: 0 2px;
+      }
+      .layer-group-head h3 {
+        margin: 0;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .layer-group-head span {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .layer-meta {
+        margin-top: 8px;
+        display: grid;
+        gap: 6px;
+      }
+      .layer-meta span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
       .layer-badge {
         padding: 5px 10px;
         border-radius: 999px;
@@ -1150,6 +1232,48 @@ def render_multi_country_map_html(
         color: var(--muted);
         font-size: 12px;
       }
+      .empty-state {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1150;
+        width: min(460px, calc(100vw - 48px));
+        padding: 18px 20px;
+        border: 1px solid var(--surface-edge);
+        border-radius: 22px;
+        background: rgba(255, 252, 247, 0.96);
+        box-shadow: var(--shadow-lg);
+        text-align: center;
+      }
+      .empty-state strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+      .empty-state span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      button:focus-visible,
+      input:focus-visible,
+      .search-result:focus-visible {
+        outline: 3px solid rgba(37, 99, 235, 0.28);
+        outline-offset: 2px;
+      }
       .leaflet-popup-content-wrapper { border-radius: 18px; }
       .popup-grid { display: grid; gap: 6px; font-size: 13px; }
       .popup-grid strong { display: inline-block; min-width: 96px; }
@@ -1199,6 +1323,7 @@ def render_multi_country_map_html(
           top: 10px;
         }
         .sidebar-inner { padding: 18px; }
+        .stats-grid { grid-template-columns: 1fr 1fr; }
         .map-topbar {
           top: auto;
           left: 10px;
@@ -1220,44 +1345,54 @@ def render_multi_country_map_html(
     <div class="app-shell">
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-inner">
-          <span class="eyebrow">Nordic Research Map</span>
+          <span class="eyebrow">Nordic Multi-Evidence Map</span>
           <h1>__TITLE__</h1>
           <p class="lede">
-            A shared research map for ancient DNA, pollen, environmental archaeology, and Swedish archaeology density.
-            Filter every dataset by country, search visible records, tune the acceptance distance, and inspect overlap in one workspace.
+            A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
+            AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, and acceptance-distance controls to compare evidence in one workspace.
           </p>
           <section class="stats-grid">
             <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Visible Layers</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
             <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong></div>
             <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong></div>
+            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">__VERSION__</strong></div>
+            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong></div>
           </section>
           <div class="section-stack">
             <section class="panel-card">
-              <div class="section-head"><h2>Country Filters</h2><span id="country-summary">All countries visible</span></div>
-              <p class="panel-copy">These filters apply to every dataset that can be assigned to a country, including Neotoma, SEAD, AADR, and Swedish archaeology coverage.</p>
+              <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
+              <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
+              <div id="scope-summary" class="summary-list"></div>
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
+              <p class="panel-copy">These filters apply to every layer that carries country metadata. RAÄ archaeology density is Sweden-only and will disappear automatically when Sweden is excluded.</p>
               <div id="country-filters" class="chip-grid"></div>
               <div class="inline-actions">
                 <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
                 <button id="countries-none" class="inline-button" type="button">Hide all</button>
                 <button id="countries-fit" class="inline-button" type="button">Fit selected countries</button>
+                <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
               </div>
             </section>
             <section class="panel-card">
-              <div class="section-head"><h2>Research Layers</h2><span id="layer-summary">All layers enabled</span></div>
-              <p class="panel-copy">Switch between samples, site datasets, national outlines, and archaeology density without leaving the map.</p>
+              <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
+              <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
               <div id="layer-filters" class="layer-stack"></div>
             </section>
             <section class="panel-card">
-              <div class="section-head"><h2>Search Visible Records</h2><span id="search-count">0 matches</span></div>
-              <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source">
-              <div class="search-meta">Search only scans records that are visible under the current country and layer filters.</div>
+              <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
+              <label class="sr-only" for="search-input">Search visible records</label>
+              <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
+              <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
             </section>
             <section class="panel-card">
               <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
-              <div class="field-label"><span>Radius around visible points</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
-              <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__">
+              <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
+              <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
+              <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__" aria-describedby="distance-help">
               <div class="preset-row" style="margin-top: 12px;">
                 <button class="preset-button" type="button" data-km="0">0 km</button>
                 <button class="preset-button" type="button" data-km="10">10 km</button>
@@ -1265,11 +1400,13 @@ def render_multi_country_map_html(
                 <button class="preset-button" type="button" data-km="30">30 km</button>
                 <button class="preset-button" type="button" data-km="50">50 km</button>
               </div>
+              <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
               <div class="field-label" style="margin-top: 16px;"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
+              <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
               <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
             </section>
             <section class="panel-card">
-              <div class="section-head"><h2>Active View</h2><span>Live summary</span></div>
+              <div class="section-head"><h2>Active View</h2><span>Live provenance</span></div>
               <div id="active-summary" class="summary-list"></div>
             </section>
           </div>
@@ -1288,14 +1425,19 @@ def render_multi_country_map_html(
           <div class="map-actions">
             <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
             <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+            <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
             <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
           </div>
         </div>
         <div id="map" aria-label="__TITLE__ research map"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <strong>No visible records</strong>
+          <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
+        </div>
         <div class="floating-legend">
           <div class="legend-title">Legend</div>
           <div id="legend-items" class="legend-list"></div>
-          <div class="density-ramp">
+          <div id="density-ramp" class="density-ramp">
             <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
             <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
             <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
@@ -1316,6 +1458,9 @@ def render_multi_country_map_html(
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
       const INITIAL_BOUNDS = __BOUNDS_JSON__;
+      const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
+      const DEFAULT_COUNTRIES = [...COUNTRIES];
+      const DEFAULT_LAYER_KEYS = ALL_LAYERS.filter((layer) => layer.default_enabled !== false).map((layer) => layer.key);
       const map = L.map('map', { preferCanvas: true, zoomControl: false });
       const basemaps = {
         voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
@@ -1333,15 +1478,12 @@ def render_multi_country_map_html(
       let renderedPointGroups = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
-      let activeCountries = new Set(COUNTRIES);
-      let activeLayerKeys = new Set([...POINT_LAYERS.map((layer) => layer.key), ...POLYGON_LAYERS.map((layer) => layer.key)]);
-      let densityOpacity = 0.6;
-      let currentBasemap = 'voyager';
       const sidebar = document.getElementById('sidebar');
       const panelToggleButton = document.getElementById('panel-toggle');
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('layer-filters');
       const legendItems = document.getElementById('legend-items');
+      const scopeSummary = document.getElementById('scope-summary');
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
@@ -1350,6 +1492,8 @@ def render_multi_country_map_html(
       const radiusValue = document.getElementById('radius-value');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
+      const emptyState = document.getElementById('empty-state');
+      const densityRamp = document.getElementById('density-ramp');
       const countrySummary = document.getElementById('country-summary');
       const layerSummary = document.getElementById('layer-summary');
       const activeSummary = document.getElementById('active-summary');
@@ -1360,11 +1504,38 @@ def render_multi_country_map_html(
       const statVisibleLayers = document.getElementById('stat-visible-layers');
       const statVisibleCountries = document.getElementById('stat-visible-countries');
       const statRadius = document.getElementById('stat-radius');
+      const statContextSources = document.getElementById('stat-context-sources');
+      function parseHashState() {
+        const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+        const params = new URLSearchParams(raw);
+        return {
+          countries: params.get('countries'),
+          layers: params.get('layers'),
+          diameter: params.get('diameter'),
+          density: params.get('density'),
+          basemap: params.get('basemap'),
+          panel: params.get('panel'),
+        };
+      }
+      function normalizedSetFromList(raw, allowed, fallbackValues) {
+        if (String(raw || '').trim() === 'none') return new Set();
+        const allowedSet = new Set(allowed);
+        const values = String(raw || '')
+          .split(',')
+          .map((value) => value.trim())
+          .filter((value) => value && allowedSet.has(value));
+        return new Set(values.length ? values : fallbackValues);
+      }
+      const initialState = parseHashState();
+      let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
+      let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
+      let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
+      let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
         Norway: { fill: '#0f766e', stroke: '#115e59' },
         Finland: { fill: '#b45309', stroke: '#92400e' },
-        Denmark: { fill: '#9333ea', stroke: '#7e22ce' }
+        Denmark: { fill: '#be123c', stroke: '#9f1239' }
       };
       function escapeHtml(value) {
         return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
@@ -1372,11 +1543,67 @@ def render_multi_country_map_html(
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
       function layerUnit(layer) { if (layer.kind === 'density') return 'cells'; if (layer.kind === 'country-boundaries') return 'countries'; return 'points'; }
+      function layerGroupLabel(group) {
+        return {
+          'primary-evidence': 'Primary Evidence',
+          'environmental-context': 'Environmental Context',
+          'archaeology-context': 'Archaeology Context',
+          'orientation': 'Orientation'
+        }[group] || 'Other Layers';
+      }
+      function layerGroupSummary(group) {
+        return {
+          'primary-evidence': 'Core evidence used for ancient DNA site comparison.',
+          'environmental-context': 'Pollen and environmental archaeology context layers.',
+          'archaeology-context': 'Archaeological context layers and summarized national coverage.',
+          'orientation': 'Reference layers used for framing and navigation.'
+        }[group] || 'Supporting layers.';
+      }
+      function humanLayerList(keys) {
+        return ALL_LAYERS
+          .filter((layer) => keys.has(layer.key))
+          .map((layer) => layer.label)
+          .join(', ');
+      }
+      function syncPresetButtons() {
+        document.querySelectorAll('.preset-button').forEach((button) => {
+          button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
+        });
+      }
+      function syncHashState() {
+        const params = new URLSearchParams();
+        if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
+        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
+        if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
+        if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
+        if (currentBasemap !== 'voyager') params.set('basemap', currentBasemap);
+        if (sidebar.classList.contains('is-collapsed')) params.set('panel', 'collapsed');
+        const nextHash = params.toString();
+        const desiredHash = nextHash ? `#${nextHash}` : '';
+        if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
+      }
+      function renderScopeSummary() {
+        const summaries = [
+          `Primary evidence: ${POINT_LAYERS.find((layer) => layer.key === 'aadr')?.label || 'AADR'}`,
+          `Environmental context: ${ALL_LAYERS.filter((layer) => layer.group === 'environmental-context').map((layer) => layer.source_name).join(', ') || 'none'}`,
+          `Archaeology context: ${ALL_LAYERS.filter((layer) => layer.group === 'archaeology-context').map((layer) => layer.coverage_label).join(' ') || 'none'}`,
+          `Orientation: ${ALL_LAYERS.filter((layer) => layer.group === 'orientation').map((layer) => layer.label).join(', ') || 'none'}`
+        ];
+        scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      }
       function renderCountryControls() {
+        const pointCountsByCountry = Object.fromEntries(
+          COUNTRIES.map((country) => [
+            country,
+            POINT_LAYERS
+              .filter((layer) => activeLayerKeys.has(layer.key))
+              .reduce((count, layer) => count + layer.features.filter((feature) => feature.country === country).length, 0),
+          ])
+        );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
           const style = countryStyle(country);
           const checked = activeCountries.has(country) ? 'checked' : '';
-          return `<label class="chip-toggle"><input class="country-checkbox" type="checkbox" value="${escapeHtml(country)}" ${checked}><span class="chip-swatch" style="background:${escapeHtml(style.fill)};border-color:${escapeHtml(style.stroke)};"></span><span>${escapeHtml(country)}</span></label>`;
+          return `<label class="chip-toggle"><input class="country-checkbox" type="checkbox" value="${escapeHtml(country)}" ${checked} aria-label="Toggle ${escapeHtml(country)}"><span class="chip-swatch" style="background:${escapeHtml(style.fill)};border-color:${escapeHtml(style.stroke)};"></span><span>${escapeHtml(country)}</span><span class="chip-count">${escapeHtml(String(pointCountsByCountry[country] || 0))}</span></label>`;
         }).join('');
         document.querySelectorAll('.country-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
@@ -1386,11 +1613,18 @@ def render_multi_country_map_html(
         });
       }
       function renderLayerControls() {
-        const allLayers = [...POINT_LAYERS, ...POLYGON_LAYERS];
-        layerFilters.innerHTML = allLayers.map((layer) => {
-          const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
-          return `<div class="layer-card"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked}><div style="width:100%;"><div class="layer-card-top"><div><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div></div></label></div>`;
-        }).join('');
+        const groupOrder = ['primary-evidence', 'environmental-context', 'archaeology-context', 'orientation'];
+        layerFilters.innerHTML = groupOrder
+          .map((group) => {
+            const layers = ALL_LAYERS.filter((layer) => layer.group === group);
+            if (!layers.length) return '';
+            const cards = layers.map((layer) => {
+              const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
+              return `<div class="layer-card"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
+            }).join('');
+            return `<section class="layer-group"><div class="layer-group-head"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))}</span></div>${cards}</section>`;
+          })
+          .join('');
         document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
@@ -1399,7 +1633,9 @@ def render_multi_country_map_html(
         });
       }
       function renderLegend() {
-        legendItems.innerHTML = POINT_LAYERS.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layer.style.fill)};border-color:${escapeHtml(layer.style.stroke)};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)}</span></div>`).join('') + POLYGON_LAYERS.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)}</span></div>`).join('');
+        const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
+        legendItems.innerHTML = activeLegendLayers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
+        densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
@@ -1506,15 +1742,17 @@ def render_multi_country_map_html(
         return latLngs.length ? L.latLngBounds(latLngs) : null;
       }
       function updateStats() {
-        const enabledLayers = [...POINT_LAYERS, ...POLYGON_LAYERS].filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
         statVisiblePoints.textContent = String(visiblePointEntries.length);
         statVisibleLayers.textContent = String(enabledLayers);
         statVisibleCountries.textContent = String(activeCountries.size);
         statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
-        selectionReadout.textContent = `Visible points ${visiblePointEntries.length}`;
-        countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : `${activeCountries.size} countries active`;
-        layerSummary.textContent = `${enabledLayers} layers enabled`;
-        [...POINT_LAYERS, ...POLYGON_LAYERS].forEach((layer) => {
+        statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        const visiblePolygonLayers = renderedPolygonLayers.length;
+        selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
+        countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
+        layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
+        ALL_LAYERS.forEach((layer) => {
           const badge = document.getElementById(`layer-count-${layer.key}`);
           if (!badge) return;
           if (Object.prototype.hasOwnProperty.call(layer, 'features')) {
@@ -1527,13 +1765,17 @@ def render_multi_country_map_html(
         });
       }
       function updateSummary() {
+        const visibleCountriesText = activeCountries.size ? [...activeCountries].join(', ') : 'none selected';
+        const visibleLayersText = activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'none selected';
         const items = [
-          `Countries: ${activeCountries.size ? [...activeCountries].join(', ') : 'none selected'}`,
-          `Layers: ${[...activeLayerKeys].join(', ') || 'none selected'}`,
+          `Visible countries: ${visibleCountriesText}`,
+          `Visible layers: ${visibleLayersText}`,
           `Acceptance diameter: ${Number(slider.value)} km`,
+          `Acceptance radius: ${(Number(slider.value) / 2).toFixed(1)} km`,
           `Archaeology opacity: ${Math.round(densityOpacity * 100)}%`,
-          `Generated: __GENERATED_ON__`,
-          `Version: __VERSION__`
+          `Map build date: __GENERATED_ON__`,
+          `AADR release: __VERSION__`,
+          `Archaeology coverage note: Sweden only in the current RAÄ layer`
         ];
         activeSummary.innerHTML = items.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
       }
@@ -1542,7 +1784,15 @@ def render_multi_country_map_html(
         if (!query) {
           const initial = visiblePointEntries.slice(0, 8);
           searchCount.textContent = `${visiblePointEntries.length} visible records`;
-          searchResults.innerHTML = initial.map(({ layer, feature }) => `<div class="search-result"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></div>`).join('');
+          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
+          searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
+            button.addEventListener('click', () => {
+              const match = initial[index];
+              if (!match) return;
+              map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+              window.setTimeout(() => match.marker.openPopup(), 250);
+            });
+          });
           return;
         }
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
@@ -1561,12 +1811,17 @@ def render_multi_country_map_html(
         removeRenderedLayers();
         renderPointLayers();
         renderPolygonLayers();
+        renderCountryControls();
+        renderLegend();
         updateStats();
         updateSummary();
         buildSearchResults();
+        syncPresetButtons();
         diameterValue.textContent = `${Number(slider.value)} km diameter`;
         radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
+        emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
+        syncHashState();
       }
       function setBasemap(name) {
         if (name === currentBasemap || !basemaps[name]) return;
@@ -1574,17 +1829,46 @@ def render_multi_country_map_html(
         basemaps[name].addTo(map);
         currentBasemap = name;
         document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === name));
+        syncHashState();
       }
       function fitToActive() {
         const bounds = activeBounds();
         if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36] });
       }
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
+      function restoreDefaults() {
+        activeCountries = new Set(DEFAULT_COUNTRIES);
+        activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
+        slider.value = __INITIAL_DIAMETER__;
+        densityOpacity = 0.6;
+        densityOpacitySlider.value = '60';
+        if (sidebar.classList.contains('is-collapsed')) sidebar.classList.remove('is-collapsed');
+        panelToggleButton.textContent = 'Hide panel';
+        searchInput.value = '';
+        if (currentBasemap !== 'voyager') setBasemap('voyager');
+        renderCountryControls();
+        renderLayerControls();
+        renderMapState();
+        resetView();
+      }
       document.getElementById('countries-all').addEventListener('click', () => { activeCountries = new Set(COUNTRIES); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-none').addEventListener('click', () => { activeCountries = new Set(); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-fit').addEventListener('click', fitToActive);
       document.getElementById('fit-active').addEventListener('click', fitToActive);
       document.getElementById('reset-view').addEventListener('click', resetView);
+      document.getElementById('restore-defaults').addEventListener('click', restoreDefaults);
+      document.getElementById('copy-link').addEventListener('click', async () => {
+        syncHashState();
+        const button = document.getElementById('copy-link');
+        const previous = button.textContent;
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          button.textContent = 'Link copied';
+        } catch (error) {
+          button.textContent = 'Copy failed';
+        }
+        window.setTimeout(() => { button.textContent = previous; }, 1400);
+      });
       document.getElementById('fullscreen-toggle').addEventListener('click', async () => {
         const target = document.querySelector('.map-stage');
         if (!document.fullscreenElement) { await target.requestFullscreen(); } else { await document.exitFullscreen(); }
@@ -1593,14 +1877,14 @@ def render_multi_country_map_html(
       panelToggleButton.addEventListener('click', () => {
         sidebar.classList.toggle('is-collapsed');
         panelToggleButton.textContent = sidebar.classList.contains('is-collapsed') ? 'Show panel' : 'Hide panel';
+        window.setTimeout(() => map.invalidateSize(), 180);
+        syncHashState();
       });
       slider.addEventListener('input', renderMapState);
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
       document.querySelectorAll('.preset-button').forEach((button) => {
         button.addEventListener('click', () => {
           slider.value = button.dataset.km;
-          document.querySelectorAll('.preset-button').forEach((item) => item.classList.remove('is-active'));
-          button.classList.add('is-active');
           renderMapState();
         });
       });
@@ -1613,10 +1897,18 @@ def render_multi_country_map_html(
       });
       map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
       map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
+      document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
+      densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
+      slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
+      renderScopeSummary();
       renderCountryControls();
       renderLayerControls();
-      renderLegend();
       renderMapState();
+      setBasemap(currentBasemap);
+      if (initialState.panel === 'collapsed') {
+        sidebar.classList.add('is-collapsed');
+        panelToggleButton.textContent = 'Show panel';
+      }
       resetView();
       zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
     </script>
