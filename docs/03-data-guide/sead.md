@@ -1,0 +1,39 @@
+---
+title: SEAD
+audience: mixed
+type: explanation
+status: canonical
+owner: bijux-pollen-docs
+last_reviewed: 2026-03-23
+---
+
+# SEAD
+
+`data/sead/` contains normalized Nordic environmental archaeology site data from SEAD.
+
+## What It Produces
+
+- a raw site snapshot under `data/sead/raw/nordic_sites.json`
+- normalized CSV and GeoJSON outputs under `data/sead/normalized/`
+
+## Why It Matters
+
+SEAD adds environmental archaeology context to the same spatial frame used for pollen and AADR points, which makes it useful for later overlap and interpretation work.
+
+## Acquisition Command
+
+```bash
+PYTHONPATH=src .venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+```
+
+## Product Role
+
+SEAD is especially useful for:
+
+- checking where environmental archaeology evidence clusters
+- comparing those clusters to aDNA and pollen locations
+- expanding context beyond purely genetic or pollen-specific layers
+
+## Purpose
+
+This page explains why SEAD is a distinct tracked category and how it contributes to the evidence surface.
