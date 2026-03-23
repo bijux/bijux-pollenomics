@@ -1,0 +1,2858 @@
+{
+  "lamningstyp": [
+    {
+      "lamningstyp_id": 1001,
+      "namn": "Avrättningsplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1002,
+      "namn": "Ballastplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1003,
+      "namn": "Begravningsplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1004,
+      "namn": "Begravningsplats enstaka",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1005,
+      "namn": "Bengömma",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1006,
+      "namn": "Bergshistorisk lämning övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1007,
+      "namn": "Bildristning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1008,
+      "namn": "Björngrav",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1009,
+      "namn": "Blästbrukslämning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 101,
+      "namn": "Blästplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 102,
+      "namn": "Boplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1010,
+      "namn": "Boplatsgrop",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1011,
+      "namn": "Boplatslämning övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1145,
+      "namn": "Boplatsområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1012,
+      "namn": "Boplatsvall",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1013,
+      "namn": "Borg",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1014,
+      "namn": "Bro",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1015,
+      "namn": "Brott/täkt",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1016,
+      "namn": "Brunn/kallkälla",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1017,
+      "namn": "Brytningsyta",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1139,
+      "namn": "Byggnad annan",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1140,
+      "namn": "Byggnadsminne",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1018,
+      "namn": "Bytomt/gårdstomt",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1019,
+      "namn": "Båtlänning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1020,
+      "namn": "Dammvall",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        },
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1021,
+      "namn": "Depåfynd",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1022,
+      "namn": "Dike/ränna",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        },
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1023,
+      "namn": "Drag",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1024,
+      "namn": "Fartygs-/båtlämning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 103,
+      "namn": "Fiskeläge",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        },
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1025,
+      "namn": "Flatmarksgrav",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1026,
+      "namn": "Flintgruva",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1027,
+      "namn": "Flottningsanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1028,
+      "namn": "Flygplan",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1029,
+      "namn": "Fornborg",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1030,
+      "namn": "Fornlämningsliknande bildning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1031,
+      "namn": "Fornlämningsliknande lämning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1032,
+      "namn": "Fossil åker",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1033,
+      "namn": "Fyndplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1034,
+      "namn": "Fyndsamling",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1035,
+      "namn": "Fyr",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1036,
+      "namn": "Fångstanläggning övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1037,
+      "namn": "Fångstgrop",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 104,
+      "namn": "Fångstgropssystem",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1038,
+      "namn": "Fångstgård",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1039,
+      "namn": "Fäbod",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1040,
+      "namn": "Färdväg",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 105,
+      "namn": "Färdvägssystem",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1041,
+      "namn": "Fästning/skans",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1042,
+      "namn": "Förlisningsuppgift",
+      "aktiv": false,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1043,
+      "namn": "Förtöjningsanordning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1044,
+      "namn": "Förvaringsanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1045,
+      "namn": "Gistgård",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1046,
+      "namn": "Gjuteri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1047,
+      "namn": "Glasindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 106,
+      "namn": "Gravfält",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1051,
+      "namn": "Gravhägnad",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1052,
+      "namn": "Gravklot",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1048,
+      "namn": "Grav markerad av sten/block",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 107,
+      "namn": "Grav- och boplatsområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1049,
+      "namn": "Grav - uppgift om typ saknas",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1053,
+      "namn": "Gravvård",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1050,
+      "namn": "Grav övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1054,
+      "namn": "Gruvhål",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 108,
+      "namn": "Gruvområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1055,
+      "namn": "Gränsbestämt område",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1056,
+      "namn": "Gränsmärke",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1057,
+      "namn": "Hammare/smedja",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 109,
+      "namn": "Hammarområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1058,
+      "namn": "Hamnanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 110,
+      "namn": "Hamnområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1141,
+      "namn": "Hembygdsgård",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1059,
+      "namn": "Hornsamling",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1060,
+      "namn": "Husgrund, förhistorisk/medeltida",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1061,
+      "namn": "Husgrund, historisk tid",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        },
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        },
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1062,
+      "namn": "Hyttlämning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 112,
+      "namn": "Hytt- och hammarområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 111,
+      "namn": "Hyttområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1063,
+      "namn": "Hägnad",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 113,
+      "namn": "Hägnadssystem",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1064,
+      "namn": "Hällbild",
+      "aktiv": false,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 114,
+      "namn": "Hällmålning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 115,
+      "namn": "Hällristning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1065,
+      "namn": "Härd",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1066,
+      "namn": "Hög",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1067,
+      "namn": "Industri övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1068,
+      "namn": "Järnåldersdös",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1069,
+      "namn": "Kalkugn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1070,
+      "namn": "Kanal",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1071,
+      "namn": "Kanalmärke",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1072,
+      "namn": "Kemisk industri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1073,
+      "namn": "Kloster",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1074,
+      "namn": "Kokgrop",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1075,
+      "namn": "Kolningsanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1076,
+      "namn": "Kompassros/väderstreckspil",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1077,
+      "namn": "Kraftindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1078,
+      "namn": "Kvarn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        },
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1079,
+      "namn": "Kyrka/kapell",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1080,
+      "namn": "Kyrkstad",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1081,
+      "namn": "Kåta",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1082,
+      "namn": "Källa med tradition",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1083,
+      "namn": "Labyrint",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1084,
+      "namn": "Livsmedelsindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1085,
+      "namn": "Luftfarkost",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1086,
+      "namn": "Lägenhetsbebyggelse",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 116,
+      "namn": "Metallindustri/järnbruk",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        },
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1087,
+      "namn": "Militär anläggning övrig",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1088,
+      "namn": "Militär mötesplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1089,
+      "namn": "Minnesmärke",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1090,
+      "namn": "Naturföremål/-bildning med bruk, tradition eller namn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1143,
+      "namn": "Obestämbar",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1091,
+      "namn": "Offerkast",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1092,
+      "namn": "Offerplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 117,
+      "namn": "Område med fartygslämningar",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 118,
+      "namn": "Område med flottningsanläggningar",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 119,
+      "namn": "Område med fossil åkermark",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 120,
+      "namn": "Område med militära anläggningar",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 121,
+      "namn": "Område med skogsbrukslämningar",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1093,
+      "namn": "Pappersindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1094,
+      "namn": "Park-/trädgårdsanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1095,
+      "namn": "Plats med tradition",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1096,
+      "namn": "Rengärda",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1097,
+      "namn": "Renvall",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1098,
+      "namn": "Ristning, medeltid/historisk tid",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1099,
+      "namn": "Runristning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        },
+        {
+          "kategorityp_id": 21,
+          "namn": "Ristningar, hällmålningar och minnesmärken"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1100,
+      "namn": "Röjningsröse",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 11,
+          "namn": "Agrara lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1101,
+      "namn": "Röse",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1102,
+      "namn": "Rösning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1103,
+      "namn": "Samlingsplats",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1144,
+      "namn": "Sammanförd",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1104,
+      "namn": "Sjömärke",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1105,
+      "namn": "Skåre/jaktvärn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1106,
+      "namn": "Skärvstenshög",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1107,
+      "namn": "Slagfält",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1108,
+      "namn": "Slott/herresäte",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1109,
+      "namn": "Smideslämning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 122,
+      "namn": "Smidesområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 123,
+      "namn": "Småindustriområde",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1110,
+      "namn": "Spärranordning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1111,
+      "namn": "Stadsbefästning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1112,
+      "namn": "Stadslager",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1113,
+      "namn": "Stadsvall/stadsmur",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1114,
+      "namn": "Stalotomt",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1142,
+      "namn": "Statligt byggnadsminne",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1115,
+      "namn": "Stenindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1116,
+      "namn": "Stenkammargrav",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1117,
+      "namn": "Stenkistgrav",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1118,
+      "namn": "Stenkrets/stenrad",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1119,
+      "namn": "Stenring",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1120,
+      "namn": "Stenröjd yta",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1121,
+      "namn": "Stensättning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 14,
+          "namn": "Gravar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1122,
+      "namn": "Stenugn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        },
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1123,
+      "namn": "Stridsvärn",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 15,
+          "namn": "Befästningsanläggningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1124,
+      "namn": "Tegelindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1125,
+      "namn": "Terrassering",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1126,
+      "namn": "Textilindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1127,
+      "namn": "Tomtning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        },
+        {
+          "kategorityp_id": 17,
+          "namn": "Jakt och fångst"
+        },
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1128,
+      "namn": "Trålfäste/nätfäste",
+      "aktiv": false,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1129,
+      "namn": "Träindustri",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 16,
+          "namn": "Industriell verksamhet och skogsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1130,
+      "namn": "Uppfordringsanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 20,
+          "namn": "Metallframställning och bergsbruk"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1131,
+      "namn": "Utgår",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1132,
+      "namn": "Vad",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1133,
+      "namn": "Vallanläggning",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 18,
+          "namn": "Kult, offer och folktro"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1134,
+      "namn": "Varv/slip",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 124,
+      "namn": "Viste",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 12,
+          "namn": "Boplatser och visten"
+        },
+        {
+          "kategorityp_id": 13,
+          "namn": "Bebyggelselämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1135,
+      "namn": "Vårdkase",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1136,
+      "namn": "Vägmärke",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 19,
+          "namn": "Kommunikations-/maritima lämningar"
+        }
+      ]
+    },
+    {
+      "lamningstyp_id": 1138,
+      "namn": "Överförd",
+      "aktiv": false,
+      "kategorier": []
+    },
+    {
+      "lamningstyp_id": 1137,
+      "namn": "Övrigt",
+      "aktiv": true,
+      "kategorier": [
+        {
+          "kategorityp_id": 22,
+          "namn": "Övriga lämningar"
+        }
+      ]
+    }
+  ],
+  "antikvarisk_bedomning_typ": [
+    {
+      "antikvariskbedomningtyp_id": 1,
+      "namn": "Fornlämning",
+      "beskrivning": "Objektet är en fornlämning och därmed skyddad av lag",
+      "sorteringsordning": 0,
+      "aktiv": true
+    },
+    {
+      "antikvariskbedomningtyp_id": 2,
+      "namn": "Övrig kulturhistorisk lämning",
+      "beskrivning": "Övrig kulturhistorisk lämning ej skyddad av lag",
+      "sorteringsordning": 1,
+      "aktiv": true
+    },
+    {
+      "antikvariskbedomningtyp_id": 4,
+      "namn": "Möjlig fornlämning",
+      "beskrivning": "Osäkerhet finns vid bedömning",
+      "sorteringsordning": 2,
+      "aktiv": true
+    },
+    {
+      "antikvariskbedomningtyp_id": 3,
+      "namn": "Ej kulturhistorisk lämning",
+      "beskrivning": "Ej kulturhistorisk lämning. Borde egentligen inte registreras. Registreras eftersom det bedöms att objektet kan misstolkas som en lämning och att man i framtiden skall slippa hantera objektet.",
+      "sorteringsordning": 3,
+      "aktiv": true
+    },
+    {
+      "antikvariskbedomningtyp_id": 5,
+      "namn": "Ingen antikvarisk bedömning",
+      "beskrivning": "Ingen antikvarisk bedömning. Notera att detta värde endast kan anges av systemet! Får ej anges direkt av en slutanvändare!",
+      "sorteringsordning": 4,
+      "aktiv": true
+    }
+  ],
+  "kategorityp": [
+    {
+      "kategorityp_id": 11,
+      "namn": "Agrara lämningar"
+    },
+    {
+      "kategorityp_id": 13,
+      "namn": "Bebyggelselämningar"
+    },
+    {
+      "kategorityp_id": 15,
+      "namn": "Befästningsanläggningar"
+    },
+    {
+      "kategorityp_id": 12,
+      "namn": "Boplatser och visten"
+    },
+    {
+      "kategorityp_id": 14,
+      "namn": "Gravar"
+    },
+    {
+      "kategorityp_id": 16,
+      "namn": "Industriell verksamhet och skogsbruk"
+    },
+    {
+      "kategorityp_id": 17,
+      "namn": "Jakt och fångst"
+    },
+    {
+      "kategorityp_id": 19,
+      "namn": "Kommunikations-/maritima lämningar"
+    },
+    {
+      "kategorityp_id": 18,
+      "namn": "Kult, offer och folktro"
+    },
+    {
+      "kategorityp_id": 20,
+      "namn": "Metallframställning och bergsbruk"
+    },
+    {
+      "kategorityp_id": 21,
+      "namn": "Ristningar, hällmålningar och minnesmärken"
+    },
+    {
+      "kategorityp_id": 22,
+      "namn": "Övriga lämningar"
+    }
+  ],
+  "skadestatustyp": [
+    {
+      "skadestatustyp_id": 4,
+      "namn": "Ej skadad",
+      "beskrivning": "Ej skadad",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "skadestatustyp_id": 0,
+      "namn": "Ringa åverkan",
+      "beskrivning": "Ringa åverkan",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "skadestatustyp_id": 1,
+      "namn": "Åverkan",
+      "beskrivning": "Åverkan",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "skadestatustyp_id": 2,
+      "namn": "Grov skada",
+      "beskrivning": "Grov skada",
+      "sorteringsordning": 40,
+      "aktiv": true
+    },
+    {
+      "skadestatustyp_id": 3,
+      "namn": "Förstörd",
+      "beskrivning": "Förstörd",
+      "sorteringsordning": 50,
+      "aktiv": true
+    },
+    {
+      "skadestatustyp_id": 5,
+      "namn": "Okänd",
+      "beskrivning": "Okänd",
+      "sorteringsordning": 60,
+      "aktiv": false
+    }
+  ],
+  "undersokningsstatustyp": [
+    {
+      "undersokningsstatustyp_id": 3,
+      "namn": "Ej undersökt",
+      "beskrivning": "Ej undersökt",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "undersokningsstatustyp_id": 0,
+      "namn": "Delundersökt",
+      "beskrivning": "Delundersökt",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "undersokningsstatustyp_id": 1,
+      "namn": "Helt undersökt",
+      "beskrivning": "Helt undersökt (och borttagen)",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "undersokningsstatustyp_id": 2,
+      "namn": "Borttagen utan villkor",
+      "beskrivning": "Borttagen utan villkor",
+      "sorteringsordning": 40,
+      "aktiv": true
+    },
+    {
+      "undersokningsstatustyp_id": 4,
+      "namn": "Okänd",
+      "beskrivning": "Okänd",
+      "sorteringsordning": 50,
+      "aktiv": false
+    }
+  ],
+  "placeringtyp": [
+    {
+      "placeringtyp_id": 1,
+      "namn": "Synlig ovan mark",
+      "beskrivning": "De lämningar som är synliga i landskapet",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "placeringtyp_id": 3,
+      "namn": "Ej synlig ovan mark",
+      "beskrivning": "Fornlämningar med osäker utbredning under markytan, exempelvis boplatser och slaggförekomster (aviseras och markeras med (R) på fastighetskartan)",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "placeringtyp_id": 2,
+      "namn": "I byggnad eller under vatten",
+      "beskrivning": "Fornlämningar som är belägna i en byggnad eller under vatten (aviseras inte till fastighetskartan)",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "placeringtyp_id": 4,
+      "namn": "Bebyggt stadslager",
+      "beskrivning": "Stadslager i bebyggt område (aviseras inte till fastighetskartan)",
+      "sorteringsordning": 40,
+      "aktiv": true
+    }
+  ],
+  "kartarkivtyp": [
+    {
+      "kartarkivtyp_id": 1,
+      "namn": "Lantmäteristyrelsens arkiv",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 2,
+      "namn": "Lantmäterimyndigheternas arkiv",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 3,
+      "namn": "Rikets allmänna kartverks arkiv",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 4,
+      "namn": "Riksarkivet",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 5,
+      "namn": "Krigsarkivet",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 6,
+      "namn": "Landsarkivet, Göteborg",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 7,
+      "namn": "Landsarkivet, Härnösand",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 8,
+      "namn": "Landsarkivet, Lund",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 9,
+      "namn": "Landsarkivet, Uppsala",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 10,
+      "namn": "Landsarkivet, Vadstena",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 11,
+      "namn": "Landsarkivet, Visby",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 12,
+      "namn": "Landsarkivet, Östersund",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 13,
+      "namn": "Stadsarkivet, Stockholm",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 14,
+      "namn": "Stadsarkivet, Malmö",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 15,
+      "namn": "Värmlandsarkiv",
+      "aktiv": true
+    },
+    {
+      "kartarkivtyp_id": 16,
+      "namn": "Övrigt",
+      "aktiv": true
+    }
+  ],
+  "karttyp": [
+    {
+      "karttyp_id": 2,
+      "namn": "Arealavmätningskarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 1,
+      "namn": "Avvittringskarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 3,
+      "namn": "Ekonomiska kartan",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 4,
+      "namn": "Enskifte",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 5,
+      "namn": "Generalstabskartan",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 6,
+      "namn": "Geometrisk avmätning",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 7,
+      "namn": "Geometrisk jordebok",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 8,
+      "namn": "Häradsekonomiska kartan",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 9,
+      "namn": "Laga skifte",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 10,
+      "namn": "Rågångskarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 11,
+      "namn": "Skattläggningskarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 12,
+      "namn": "Sockenkarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 13,
+      "namn": "Stadskarta",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 14,
+      "namn": "Storskifte",
+      "aktiv": true
+    },
+    {
+      "karttyp_id": 15,
+      "namn": "Övrig karta",
+      "aktiv": true
+    }
+  ],
+  "registreringsstatustyp": [
+    {
+      "registreringsstatustyp_id": 3,
+      "namn": "Komplettering krävs",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "registreringsstatustyp_id": 1,
+      "namn": "Utkast",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "registreringsstatustyp_id": 2,
+      "namn": "Väntar på godkännande",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "registreringsstatustyp_id": 4,
+      "namn": "Underkänd",
+      "sorteringsordning": 40,
+      "aktiv": true
+    }
+  ],
+  "matmetodtyp": [
+    {
+      "matmetodtyp_id": 1,
+      "namn": "GPS",
+      "felmarginal_meter": 7.0,
+      "aktiv": true,
+      "sorteringsordning": 10
+    },
+    {
+      "matmetodtyp_id": 5,
+      "namn": "Manuell inprickning",
+      "felmarginal_meter": 10.0,
+      "aktiv": true,
+      "sorteringsordning": 20
+    },
+    {
+      "matmetodtyp_id": 4,
+      "namn": "Totalstation",
+      "felmarginal_meter": 0.025,
+      "aktiv": true,
+      "sorteringsordning": 30
+    },
+    {
+      "matmetodtyp_id": 2,
+      "namn": "DGPS",
+      "felmarginal_meter": 2.0,
+      "aktiv": true,
+      "sorteringsordning": 40
+    },
+    {
+      "matmetodtyp_id": 3,
+      "namn": "RTK",
+      "felmarginal_meter": 0.05,
+      "aktiv": true,
+      "sorteringsordning": 50
+    },
+    {
+      "matmetodtyp_id": 6,
+      "namn": "Uppgift om mätmetod saknas",
+      "felmarginal_meter": 1.0,
+      "aktiv": false,
+      "sorteringsordning": 60
+    }
+  ],
+  "registreringsunderlagtyp": [
+    {
+      "registreringsunderlagtyp_id": 100,
+      "namn": "Digitalt ortofoto",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 200,
+          "namn": "Upplösning 0.25 m",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 10
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 201,
+          "namn": "Upplösning 0.5 m",
+          "default_kvalitet": true,
+          "aktiv": true,
+          "sorteringsordning": 20
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 202,
+          "namn": "Upplösning 1.0 m",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 30
+        }
+      ],
+      "aktiv": true,
+      "sorteringsordning": 10
+    },
+    {
+      "registreringsunderlagtyp_id": 101,
+      "namn": "Fastighetskartan/utskrivet ortofoto",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 203,
+          "namn": "Skala 1:5000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 40
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 204,
+          "namn": "Skala 1:10000",
+          "default_kvalitet": true,
+          "aktiv": true,
+          "sorteringsordning": 50
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 205,
+          "namn": "Skala 1:12500",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 60
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 206,
+          "namn": "Skala 1:20000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 70
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 217,
+          "namn": "Skala 1:100000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 190
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 218,
+          "namn": "Skala 1:50000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 200
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 219,
+          "namn": "Skala 1:15000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 210
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 220,
+          "namn": "Skala 1:25000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 220
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 221,
+          "namn": "Skala 1:125000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 230
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 222,
+          "namn": "Skala 1:200000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 240
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 223,
+          "namn": "Skala 1:12000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 250
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 224,
+          "namn": "Skala 1:30000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 260
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 225,
+          "namn": "Skala 1:60000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 270
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 226,
+          "namn": "Skala 1:120000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 280
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 227,
+          "namn": "Skala 1:250000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 290
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 242,
+          "namn": "Skala saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 300
+        }
+      ],
+      "aktiv": true,
+      "sorteringsordning": 20
+    },
+    {
+      "registreringsunderlagtyp_id": 102,
+      "namn": "Laserdata",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 207,
+          "namn": "Punkttäthet 0,5-1 punkt/m2",
+          "default_kvalitet": true,
+          "aktiv": true,
+          "sorteringsordning": 80
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 208,
+          "namn": "Punkttäthet över 1 punkt/m2",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 90
+        }
+      ],
+      "aktiv": true,
+      "sorteringsordning": 30
+    },
+    {
+      "registreringsunderlagtyp_id": 103,
+      "namn": "Sjökort",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 209,
+          "namn": "Skala finare än 1:25 000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 100
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 210,
+          "namn": "Skala 1:25 000",
+          "default_kvalitet": true,
+          "aktiv": true,
+          "sorteringsordning": 110
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 211,
+          "namn": "Skala 1:50 000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 120
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 228,
+          "namn": "Skala 1:20000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 310
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 229,
+          "namn": "Skala 1:5000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 320
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 230,
+          "namn": "Skala 1:12500",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 330
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 231,
+          "namn": "Skala 1:100000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 340
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 232,
+          "namn": "Skala 1:10000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 350
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 233,
+          "namn": "Skala 1:15000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 360
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 234,
+          "namn": "Skala 1:125000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 370
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 235,
+          "namn": "Skala 1:200000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 380
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 236,
+          "namn": "Skala 1:12000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 390
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 237,
+          "namn": "Skala 1:30000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 400
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 238,
+          "namn": "Skala 1:60000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 410
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 239,
+          "namn": "Skala 1:120000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 420
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 240,
+          "namn": "Skala 1:250000",
+          "default_kvalitet": false,
+          "aktiv": true,
+          "sorteringsordning": 430
+        },
+        {
+          "registreringsunderlagkvalitettyp_id": 241,
+          "namn": "Skala saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 440
+        }
+      ],
+      "aktiv": true,
+      "sorteringsordning": 40
+    },
+    {
+      "registreringsunderlagtyp_id": 104,
+      "namn": "Annat underlag",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 212,
+          "namn": "Skärmdigitaliserad utifrån vektordata",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 130
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 50
+    },
+    {
+      "registreringsunderlagtyp_id": 105,
+      "namn": "Fotogrammetriskt",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 213,
+          "namn": "Uppgift om noggrannhet saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 140
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 60
+    },
+    {
+      "registreringsunderlagtyp_id": 106,
+      "namn": "Modernt geodetiskt",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 214,
+          "namn": "Uppgift om noggrannhet saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 150
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 70
+    },
+    {
+      "registreringsunderlagtyp_id": 107,
+      "namn": "Äldre geodetiskt",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 215,
+          "namn": "Uppgift om noggrannhet saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 160
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 80
+    },
+    {
+      "registreringsunderlagtyp_id": 108,
+      "namn": "Ospecificerat",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 216,
+          "namn": "Uppgift om noggrannhet saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 170
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 90
+    },
+    {
+      "registreringsunderlagtyp_id": 109,
+      "namn": "Uppgift om kartunderlag saknas",
+      "registreringsunderlagkvaliteter": [
+        {
+          "registreringsunderlagkvalitettyp_id": 243,
+          "namn": "Uppgift om noggrannhet saknas",
+          "default_kvalitet": false,
+          "aktiv": false,
+          "sorteringsordning": 180
+        }
+      ],
+      "aktiv": false,
+      "sorteringsordning": 100
+    }
+  ],
+  "aktualitetstatustyp": [
+    {
+      "aktualitetstatustyp_id": 1,
+      "namn": "Bekräftad i fält",
+      "beskrivning": "En i fält bekräftad lämning",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "aktualitetstatustyp_id": 2,
+      "namn": "Uppgift om lämning, ej bekräftad i fält",
+      "beskrivning": "Ej bekräftad lämning",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "aktualitetstatustyp_id": 3,
+      "namn": "Utgår på grund av felregistrering",
+      "beskrivning": "Lämningens datapost har utgått (dataposten skall betraktas som raderad)",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "aktualitetstatustyp_id": 4,
+      "namn": "Överförd till annan lämning",
+      "beskrivning": "En sammansatt lämning vars ingående lämningar överförts till en annan sammansatt lämning",
+      "sorteringsordning": 40,
+      "aktiv": true
+    }
+  ],
+  "atgardstyp": [
+    {
+      "atgardstyp_id": 1,
+      "namn": "Nyregistrering",
+      "beskrivning": "Nyregistrering",
+      "sorteringsordning": 10,
+      "aktiv": true
+    },
+    {
+      "atgardstyp_id": 2,
+      "namn": "Kvalitetshöjning",
+      "beskrivning": "Kvalitetshöjning",
+      "sorteringsordning": 20,
+      "aktiv": true
+    },
+    {
+      "atgardstyp_id": 3,
+      "namn": "Fornlämningsförklaring",
+      "beskrivning": "Fornlämningsförklaring",
+      "sorteringsordning": 30,
+      "aktiv": true
+    },
+    {
+      "atgardstyp_id": 4,
+      "namn": "Borttagande utan villkor",
+      "beskrivning": "Borttagande utan villkor",
+      "sorteringsordning": 40,
+      "aktiv": true
+    },
+    {
+      "atgardstyp_id": 9,
+      "namn": "Migrering från FMIS",
+      "beskrivning": "Migrering från FMIS",
+      "sorteringsordning": 50,
+      "aktiv": true
+    }
+  ]
+}
