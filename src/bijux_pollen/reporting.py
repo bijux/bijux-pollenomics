@@ -84,12 +84,14 @@ def generate_country_report(version_dir: Path, country: str, output_dir: Path) -
     locality_csv_path = output_dir / f"{slug}_aadr_{version}_localities.csv"
     geojson_path = output_dir / f"{slug}_aadr_{version}_samples.geojson"
     sample_markdown_path = output_dir / f"{slug}_aadr_{version}_samples.md"
+    map_html_path = output_dir / f"{slug}_aadr_{version}_map.html"
     readme_path = output_dir / "README.md"
 
     write_samples_csv(csv_path, report.samples)
     write_localities_csv(locality_csv_path, report.localities)
     write_samples_geojson(geojson_path, report.samples)
     sample_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
+    map_html_path.write_text(render_interactive_map_html(report), encoding="utf-8")
     readme_path.write_text(
         render_summary_markdown(
             report=report,
@@ -97,6 +99,7 @@ def generate_country_report(version_dir: Path, country: str, output_dir: Path) -
             localities_csv_name=locality_csv_path.name,
             geojson_name=geojson_path.name,
             sample_markdown_name=sample_markdown_path.name,
+            map_html_name=map_html_path.name,
         ),
         encoding="utf-8",
     )
@@ -325,6 +328,11 @@ def write_localities_csv(path: Path, localities: Iterable[LocalitySummary]) -> N
 
 def write_samples_geojson(path: Path, samples: Iterable[SampleRecord]) -> None:
     """Write map-ready sample points as GeoJSON."""
+    path.write_text(json.dumps(build_samples_geojson(samples), indent=2), encoding="utf-8")
+
+
+def build_samples_geojson(samples: Iterable[SampleRecord]) -> dict[str, object]:
+    """Build a GeoJSON feature collection from normalized sample records."""
     features = []
     for sample in samples:
         features.append(
@@ -350,7 +358,7 @@ def write_samples_geojson(path: Path, samples: Iterable[SampleRecord]) -> None:
                 },
             }
         )
-    path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, indent=2), encoding="utf-8")
+    return {"type": "FeatureCollection", "features": features}
 
 
 def render_summary_markdown(
@@ -359,6 +367,7 @@ def render_summary_markdown(
     localities_csv_name: str,
     geojson_name: str,
     sample_markdown_name: str,
+    map_html_name: str,
 ) -> str:
     """Render the country summary README."""
     latitude_values = [sample.latitude for sample in report.samples]
@@ -395,6 +404,7 @@ The report deduplicates samples by `genetic_id` across datasets. In AADR `{repor
 
 ## Output Files
 
+- Interactive map: [`{map_html_name}`](./{map_html_name})
 - Full sample inventory: [`{samples_csv_name}`](./{samples_csv_name})
 - Locality summary: [`{localities_csv_name}`](./{localities_csv_name})
 - Map-ready GeoJSON: [`{geojson_name}`](./{geojson_name})
@@ -439,6 +449,461 @@ def render_sample_markdown(report: CountryReport) -> str:
             + " |"
         )
     return "\n".join(lines) + "\n"
+
+
+def render_interactive_map_html(report: CountryReport) -> str:
+    """Render a standalone interactive HTML map for a country report."""
+    geojson = json.dumps(build_samples_geojson(report.samples), ensure_ascii=False)
+    initial_diameter_km = 20
+    latitude_values = [sample.latitude for sample in report.samples]
+    longitude_values = [sample.longitude for sample in report.samples]
+    bounds = [
+        [min(latitude_values), min(longitude_values)],
+        [max(latitude_values), max(longitude_values)],
+    ]
+    bounds_json = json.dumps(bounds)
+    stats_cards = [
+        ("Samples", str(report.total_unique_samples)),
+        ("Localities", str(report.total_unique_localities)),
+        ("Datasets", str(len(report.dataset_row_counts))),
+        ("Version", report.version),
+    ]
+    stats_html = "\n".join(
+        f'<div class="stat-card"><span class="stat-label">{label}</span><strong class="stat-value">{value}</strong></div>'
+        for label, value in stats_cards
+    )
+    return f"""<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{report.country} AADR {report.version} Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    >
+    <style>
+      :root {{
+        --bg: #f4f1ea;
+        --panel: rgba(255, 252, 245, 0.92);
+        --panel-border: rgba(94, 82, 64, 0.16);
+        --ink: #1f2937;
+        --muted: #5f6c7b;
+        --accent: #1d4ed8;
+        --accent-soft: rgba(37, 99, 235, 0.16);
+        --circle-stroke: rgba(185, 28, 28, 0.55);
+        --circle-fill: rgba(239, 68, 68, 0.12);
+        --shadow: 0 18px 40px rgba(31, 41, 55, 0.16);
+      }}
+
+      html, body {{
+        margin: 0;
+        height: 100%;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(29, 78, 216, 0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(185, 28, 28, 0.08), transparent 24%),
+          var(--bg);
+      }}
+
+      body {{
+        display: grid;
+        grid-template-columns: minmax(320px, 420px) 1fr;
+      }}
+
+      aside {{
+        position: relative;
+        z-index: 900;
+        padding: 24px;
+        background: linear-gradient(180deg, rgba(250, 248, 242, 0.98), rgba(244, 241, 234, 0.95));
+        border-right: 1px solid var(--panel-border);
+        box-shadow: var(--shadow);
+        overflow-y: auto;
+      }}
+
+      main {{
+        position: relative;
+        min-height: 100vh;
+      }}
+
+      #map {{
+        width: 100%;
+        height: 100vh;
+      }}
+
+      .eyebrow {{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }}
+
+      h1 {{
+        margin: 14px 0 10px;
+        font-size: clamp(28px, 4vw, 40px);
+        line-height: 1.05;
+      }}
+
+      .lede {{
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }}
+
+      .stats-grid {{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 22px;
+      }}
+
+      .stat-card {{
+        padding: 14px 15px;
+        border: 1px solid var(--panel-border);
+        border-radius: 18px;
+        background: var(--panel);
+        backdrop-filter: blur(10px);
+      }}
+
+      .stat-label {{
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }}
+
+      .stat-value {{
+        font-size: 22px;
+        line-height: 1;
+      }}
+
+      .control-panel {{
+        padding: 18px;
+        border-radius: 22px;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        backdrop-filter: blur(14px);
+      }}
+
+      .control-panel h2 {{
+        margin: 0 0 8px;
+        font-size: 18px;
+      }}
+
+      .control-panel p {{
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }}
+
+      .slider-wrap {{
+        margin: 20px 0 10px;
+      }}
+
+      .slider-label {{
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }}
+
+      .slider-value {{
+        color: var(--accent);
+      }}
+
+      input[type="range"] {{
+        width: 100%;
+        accent-color: #b91c1c;
+      }}
+
+      .legend {{
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+        font-size: 13px;
+      }}
+
+      .legend-item {{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+      }}
+
+      .legend-dot,
+      .legend-circle {{
+        flex: 0 0 auto;
+      }}
+
+      .legend-dot {{
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #2563eb;
+        border: 1px solid #0f172a;
+      }}
+
+      .legend-circle {{
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        border: 2px solid rgba(185, 28, 28, 0.6);
+        background: rgba(239, 68, 68, 0.16);
+      }}
+
+      .footnote {{
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }}
+
+      .leaflet-popup-content-wrapper {{
+        border-radius: 18px;
+      }}
+
+      .popup-grid {{
+        display: grid;
+        gap: 6px;
+        font-size: 13px;
+      }}
+
+      .popup-grid strong {{
+        display: inline-block;
+        min-width: 92px;
+      }}
+
+      @media (max-width: 960px) {{
+        body {{
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+        }}
+
+        aside {{
+          border-right: 0;
+          border-bottom: 1px solid var(--panel-border);
+        }}
+
+        #map {{
+          height: 70vh;
+          min-height: 540px;
+        }}
+      }}
+    </style>
+  </head>
+  <body>
+    <aside>
+      <span class="eyebrow">Interactive AADR Map</span>
+      <h1>{report.country}</h1>
+      <p class="lede">
+        Explore every AADR sample point for {report.country}, zoom across the map,
+        and adjust the acceptance diameter to visualize sampling ranges around each aDNA location.
+      </p>
+
+      <section class="stats-grid">
+        {stats_html}
+      </section>
+
+      <section class="control-panel">
+        <h2>Acceptance Range</h2>
+        <p>
+          Use the slider to set the circle diameter around every sample point.
+          The displayed radius is half of the selected diameter.
+        </p>
+        <div class="slider-wrap">
+          <div class="slider-label">
+            <span>Diameter</span>
+            <span class="slider-value" id="diameter-value">{initial_diameter_km} km</span>
+          </div>
+          <input id="diameter-slider" type="range" min="0" max="100" step="5" value="{initial_diameter_km}">
+        </div>
+        <div class="slider-label">
+          <span>Radius</span>
+          <span class="slider-value" id="radius-value">{initial_diameter_km / 2:.1f} km</span>
+        </div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <span>Blue points show all available AADR samples.</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-circle"></span>
+            <span>Transparent red circles show the current acceptance range.</span>
+          </div>
+        </div>
+
+        <p class="footnote">
+          Tip: set the diameter to 0 km to hide the circles and inspect only the sample points.
+          Popups show sample metadata, coordinates, publication, and datasets.
+        </p>
+      </section>
+    </aside>
+
+    <main>
+      <div id="map" aria-label="{report.country} AADR sample map"></div>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      const sampleData = {geojson};
+      const initialBounds = {bounds_json};
+      const map = L.map('map', {{ preferCanvas: true, zoomControl: true }});
+
+      const positron = L.tileLayer(
+        'https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png',
+        {{
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 20
+        }}
+      );
+      const voyager = L.tileLayer(
+        'https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager/{{z}}/{{x}}/{{y}}{{r}}.png',
+        {{
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+          subdomains: 'abcd',
+          maxZoom: 20
+        }}
+      );
+
+      positron.addTo(map);
+      L.control.layers({{ 'Light': positron, 'Voyager': voyager }}, {{}}, {{ position: 'topright' }}).addTo(map);
+      L.control.scale({{ imperial: false }}).addTo(map);
+
+      const pointsLayer = L.layerGroup().addTo(map);
+      const circlesLayer = L.layerGroup().addTo(map);
+      const features = sampleData.features;
+      const slider = document.getElementById('diameter-slider');
+      const diameterValue = document.getElementById('diameter-value');
+      const radiusValue = document.getElementById('radius-value');
+
+      function popupHtml(properties, latitude, longitude) {{
+        const datasets = Array.isArray(properties.datasets) ? properties.datasets.join(', ') : '';
+        return `
+          <div class="popup-grid">
+            <div><strong>Genetic ID</strong> ${{
+              escapeHtml(properties.genetic_id || '')
+            }}</div>
+            <div><strong>Locality</strong> ${{
+              escapeHtml(properties.locality || '')
+            }}</div>
+            <div><strong>Master ID</strong> ${{
+              escapeHtml(properties.master_id || '')
+            }}</div>
+            <div><strong>Group ID</strong> ${{
+              escapeHtml(properties.group_id || '')
+            }}</div>
+            <div><strong>Datasets</strong> ${{
+              escapeHtml(datasets)
+            }}</div>
+            <div><strong>Publication</strong> ${{
+              escapeHtml(properties.publication || '')
+            }}</div>
+            <div><strong>Date</strong> ${{
+              escapeHtml(properties.full_date || '')
+            }}</div>
+            <div><strong>Coords</strong> ${{
+              latitude.toFixed(6)
+            }}, ${{
+              longitude.toFixed(6)
+            }}</div>
+          </div>
+        `;
+      }}
+
+      function escapeHtml(value) {{
+        return String(value)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }}
+
+      features.forEach((feature) => {{
+        const [longitude, latitude] = feature.geometry.coordinates;
+        const marker = L.circleMarker([latitude, longitude], {{
+          radius: 4.5,
+          color: '#0f172a',
+          weight: 1,
+          fillColor: '#2563eb',
+          fillOpacity: 0.88
+        }});
+        marker.bindPopup(popupHtml(feature.properties, latitude, longitude), {{
+          maxWidth: 340,
+          className: 'sample-popup'
+        }});
+        pointsLayer.addLayer(marker);
+      }});
+
+      function renderCircles(diameterKm) {{
+        circlesLayer.clearLayers();
+        if (diameterKm <= 0) {{
+          return;
+        }}
+        const radiusMeters = (diameterKm * 1000) / 2;
+        features.forEach((feature) => {{
+          const [longitude, latitude] = feature.geometry.coordinates;
+          const circle = L.circle([latitude, longitude], {{
+            radius: radiusMeters,
+            color: 'rgba(185, 28, 28, 0.55)',
+            weight: 1,
+            opacity: 0.55,
+            fillColor: 'rgba(239, 68, 68, 0.12)',
+            fillOpacity: 0.12,
+            interactive: false
+          }});
+          circlesLayer.addLayer(circle);
+        }});
+      }}
+
+      function updateRange() {{
+        const diameterKm = Number(slider.value);
+        const radiusKm = diameterKm / 2;
+        diameterValue.textContent = `${{diameterKm}} km`;
+        radiusValue.textContent = `${{radiusKm.toFixed(1)}} km`;
+        renderCircles(diameterKm);
+      }}
+
+      slider.addEventListener('input', updateRange);
+      updateRange();
+
+      const southWest = initialBounds[0];
+      const northEast = initialBounds[1];
+      const singlePointBounds = southWest[0] === northEast[0] && southWest[1] === northEast[1];
+
+      if (singlePointBounds) {{
+        map.setView(southWest, 8);
+      }} else {{
+        map.fitBounds(initialBounds, {{ padding: [24, 24] }});
+      }}
+    </script>
+  </body>
+</html>
+"""
 
 
 def pick_value(left: str, right: str) -> str:

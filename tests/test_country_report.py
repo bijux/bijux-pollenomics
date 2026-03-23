@@ -85,6 +85,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_aadr_v62.0_localities.csv").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.geojson").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.md").exists())
+            self.assertTrue((output / "sweden_aadr_v62.0_map.html").exists())
 
             with (output / "sweden_aadr_v62.0_samples.csv").open(newline="", encoding="utf-8") as handle:
                 rows = list(csv.DictReader(handle))
@@ -94,6 +95,11 @@ class CountryReportTests(unittest.TestCase):
             geojson = json.loads((output / "sweden_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(len(geojson["features"]), 2)
+
+            map_html = (output / "sweden_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            self.assertIn("Acceptance Range", map_html)
+            self.assertIn("diameter-slider", map_html)
+            self.assertIn("leaflet@1.9.4", map_html)
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
