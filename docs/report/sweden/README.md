@@ -17,7 +17,7 @@ This report was generated from the AADR `v62.0` `.anno` files on `2026-03-23`.
 | `1240k` | 519 |
 | `ho` | 519 |
 
-The report deduplicates samples by `genetic_id` across datasets. In AADR `v62.0`, the Sweden rows in `1240k` and `ho` resolve to the same `519` unique samples.
+The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `Sweden` contains `519` unique samples in AADR `v62.0`.
 
 ## Output Files
 
