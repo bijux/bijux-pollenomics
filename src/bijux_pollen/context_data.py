@@ -18,7 +18,7 @@ SEAD_LIMIT = 1000
 
 
 @dataclass(frozen=True)
-class ExternalPointRecord:
+class ContextPointRecord:
     source: str
     layer_key: str
     layer_label: str
@@ -47,7 +47,7 @@ class ContextDataReport:
 
 
 def collect_context_data(output_root: Path) -> ContextDataReport:
-    """Download and normalize external archaeology and palaeo datasets."""
+    """Download and normalize archaeology, pollen, and boundary datasets."""
     output_root = Path(output_root)
     output_root.mkdir(parents=True, exist_ok=True)
 
@@ -98,11 +98,11 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
         bbox=NORDIC_BBOX,
         country_boundaries=country_boundaries,
     )
-    write_external_points_csv(
+    write_context_points_csv(
         neotoma_norm_dir / "nordic_pollen_sites.csv",
         neotoma_records,
     )
-    write_external_points_geojson(
+    write_context_points_geojson(
         neotoma_norm_dir / "nordic_pollen_sites.geojson",
         neotoma_records,
     )
@@ -117,11 +117,11 @@ def collect_context_data(output_root: Path) -> ContextDataReport:
     }
     write_json(sead_raw_dir / "nordic_sites.json", sead_raw_payload)
     sead_records = normalize_sead_rows(sead_rows, country_boundaries=country_boundaries)
-    write_external_points_csv(
+    write_context_points_csv(
         sead_norm_dir / "nordic_environmental_sites.csv",
         sead_records,
     )
-    write_external_points_geojson(
+    write_context_points_geojson(
         sead_norm_dir / "nordic_environmental_sites.geojson",
         sead_records,
     )
@@ -181,9 +181,9 @@ def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
     country_boundaries: dict[str, dict[str, object]],
-) -> list[ExternalPointRecord]:
+) -> list[ContextPointRecord]:
     """Convert raw Neotoma rows into compact Nordic pollen site records."""
-    records: list[ExternalPointRecord] = []
+    records: list[ContextPointRecord] = []
     for row in rows:
         geography_text = str(row.get("geography", "")).strip()
         if not geography_text:
@@ -240,7 +240,7 @@ def normalize_neotoma_rows(
             popup_rows.append(("Description", description))
 
         records.append(
-            ExternalPointRecord(
+            ContextPointRecord(
                 source="Neotoma",
                 layer_key="neotoma-pollen",
                 layer_label="Neotoma pollen sites",
@@ -301,9 +301,9 @@ def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[s
 def normalize_sead_rows(
     rows: Iterable[dict[str, object]],
     country_boundaries: dict[str, dict[str, object]],
-) -> list[ExternalPointRecord]:
+) -> list[ContextPointRecord]:
     """Convert SEAD site rows into compact environmental archaeology records."""
-    records: list[ExternalPointRecord] = []
+    records: list[ContextPointRecord] = []
     for row in rows:
         latitude = row.get("latitude_dd")
         longitude = row.get("longitude_dd")
@@ -333,7 +333,7 @@ def normalize_sead_rows(
             popup_rows.append(("Description", description))
 
         records.append(
-            ExternalPointRecord(
+            ContextPointRecord(
                 source="SEAD",
                 layer_key="sead-sites",
                 layer_label="SEAD sites",
@@ -475,8 +475,8 @@ def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, o
     return {"type": "FeatureCollection", "features": features}
 
 
-def write_external_points_csv(path: Path, records: Iterable[ExternalPointRecord]) -> None:
-    """Write normalized external point records as CSV."""
+def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) -> None:
+    """Write normalized context point records as CSV."""
     fieldnames = [
         "source",
         "layer_key",
@@ -519,8 +519,8 @@ def write_external_points_csv(path: Path, records: Iterable[ExternalPointRecord]
             )
 
 
-def write_external_points_geojson(path: Path, records: Iterable[ExternalPointRecord]) -> None:
-    """Write normalized external point records as GeoJSON."""
+def write_context_points_geojson(path: Path, records: Iterable[ContextPointRecord]) -> None:
+    """Write normalized context point records as GeoJSON."""
     features = []
     for record in records:
         features.append(

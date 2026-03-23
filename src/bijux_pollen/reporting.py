@@ -128,7 +128,7 @@ def generate_multi_country_map(
     output_dir: Path,
     title: str,
     slug: str,
-    external_root: Path | None = None,
+    context_root: Path | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -164,7 +164,7 @@ def generate_multi_country_map(
     point_layers, polygon_layers, extra_artifacts = build_context_layers(
         samples=all_samples,
         output_dir=output_dir,
-        external_root=external_root,
+        context_root=context_root,
     )
     map_html_path.write_text(
         render_multi_country_map_html(
@@ -555,20 +555,20 @@ def render_sample_markdown(report: CountryReport) -> str:
 def build_context_layers(
     samples: Iterable[SampleRecord],
     output_dir: Path,
-    external_root: Path | None,
+    context_root: Path | None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     point_layers = [build_aadr_point_layer(samples)]
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
 
-    if external_root is None:
+    if context_root is None:
         return point_layers, polygon_layers, extra_artifacts
 
-    external_root = Path(external_root)
+    context_root = Path(context_root)
     point_sources = [
-        ("Neotoma pollen GeoJSON", external_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"),
-        ("SEAD site GeoJSON", external_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"),
+        ("Neotoma pollen GeoJSON", context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"),
+        ("SEAD site GeoJSON", context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"),
     ]
     for label, source_path in point_sources:
         if not source_path.exists():
@@ -579,7 +579,7 @@ def build_context_layers(
         point_layers.append(build_external_point_layer(geojson))
         extra_artifacts.append((label, destination_path.name))
 
-    boundary_path = external_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+    boundary_path = context_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
     if boundary_path.exists():
         destination_path = output_dir / boundary_path.name
         shutil.copyfile(boundary_path, destination_path)
@@ -587,8 +587,8 @@ def build_context_layers(
         polygon_layers.append(build_country_boundary_layer(geojson))
         extra_artifacts.append(("Nordic country boundaries", destination_path.name))
 
-    archaeology_path = external_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
-    archaeology_density_path = external_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
+    archaeology_path = context_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
+    archaeology_density_path = context_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     if archaeology_path.exists():
         destination_path = output_dir / archaeology_path.name
         shutil.copyfile(archaeology_path, destination_path)

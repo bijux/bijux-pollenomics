@@ -180,11 +180,11 @@ class CountryReportTests(unittest.TestCase):
             geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
 
-    def test_generate_multi_country_map_can_include_external_layers(self) -> None:
+    def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
             output = Path(tmp) / "docs" / "report" / "nordic"
-            external_root = Path(tmp) / "data" / "external"
+            context_root = Path(tmp) / "data"
             self.write_anno(
                 root / "ho" / "v62.0_HO_public.anno",
                 [
@@ -193,13 +193,13 @@ class CountryReportTests(unittest.TestCase):
             )
 
             self.write_geojson(
-                external_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+                context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
                 layer_key="neotoma-pollen",
                 layer_label="Neotoma pollen sites",
                 category="Pollen",
             )
             self.write_geojson(
-                external_root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
+                context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson",
                 layer_key="sead-sites",
                 layer_label="SEAD sites",
                 category="Environmental archaeology",
@@ -211,7 +211,7 @@ class CountryReportTests(unittest.TestCase):
                 "counts": {"all_published_sites": 100},
             }
             self.write_json(
-                external_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
+                context_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
                 {
                     "type": "FeatureCollection",
                     "features": [
@@ -232,11 +232,11 @@ class CountryReportTests(unittest.TestCase):
                 },
             )
             self.write_json(
-                external_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
+                context_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
                 archaeology_metadata,
             )
             self.write_json(
-                external_root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
+                context_root / "raa" / "normalized" / "sweden_archaeology_density.geojson",
                 {
                     "type": "FeatureCollection",
                     "features": [
@@ -262,7 +262,7 @@ class CountryReportTests(unittest.TestCase):
                 output_dir=output,
                 title="Nordic Countries",
                 slug="nordic",
-                external_root=external_root,
+                context_root=context_root,
             )
 
             map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
