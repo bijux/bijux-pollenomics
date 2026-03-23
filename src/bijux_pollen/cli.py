@@ -11,7 +11,7 @@ from .reporting import generate_country_report, generate_multi_country_map, slug
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line interface."""
     parser = argparse.ArgumentParser(
-        prog="bijux-pollen-aadr",
+        prog="bijux-pollen",
         description="Generate Nordic country reports and shared research maps from tracked data sources.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
