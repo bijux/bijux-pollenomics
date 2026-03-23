@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import shutil
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -49,6 +50,7 @@ def collect_data(
     raa_heritage_site_count = 0
 
     if "aadr" in selected_sources:
+        reset_output_dir(output_root / "aadr")
         aadr_report = download_aadr_anno_files(output_root=output_root / "aadr", version=version)
         aadr_file_count = len(aadr_report.downloaded_files)
 
@@ -56,11 +58,13 @@ def collect_data(
     country_boundaries: dict[str, dict[str, object]] | None = None
     if need_boundaries:
         if "boundaries" in selected_sources:
+            reset_output_dir(output_root / "boundaries")
             country_boundaries, _ = collect_boundaries_data(output_root / "boundaries")
         else:
             country_boundaries = fetch_country_boundaries()
 
     if "neotoma" in selected_sources and country_boundaries is not None:
+        reset_output_dir(output_root / "neotoma")
         neotoma_report = collect_neotoma_data(
             output_root=output_root / "neotoma",
             country_boundaries=country_boundaries,
@@ -69,6 +73,7 @@ def collect_data(
         neotoma_point_count = neotoma_report.point_count
 
     if "sead" in selected_sources and country_boundaries is not None:
+        reset_output_dir(output_root / "sead")
         sead_report = collect_sead_data(
             output_root=output_root / "sead",
             country_boundaries=country_boundaries,
@@ -77,6 +82,7 @@ def collect_data(
         sead_point_count = sead_report.point_count
 
     if "raa" in selected_sources and country_boundaries is not None:
+        reset_output_dir(output_root / "raa")
         raa_report = collect_raa_data(
             output_root=output_root / "raa",
             country_boundaries=country_boundaries,
@@ -137,6 +143,22 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 """
 
 
+def render_data_root_readme_for(output_root: Path) -> str:
+    """Render the data-root README with the active output directory name."""
+    root_name = output_root.name or str(output_root)
+    return render_data_root_readme().replace("under `data/`", f"under `{root_name}/`").replace(
+        "\ndata\n",
+        f"\n{root_name}\n",
+        1,
+    )
+
+
 def write_data_directory_readme(output_root: Path) -> None:
     """Write the stable README that documents the generated data tree."""
-    write_text(Path(output_root) / "README.md", render_data_root_readme())
+    write_text(Path(output_root) / "README.md", render_data_root_readme_for(Path(output_root)))
+
+
+def reset_output_dir(path: Path) -> None:
+    """Remove one generated source directory so recollection is deterministic."""
+    if path.exists():
+        shutil.rmtree(path)

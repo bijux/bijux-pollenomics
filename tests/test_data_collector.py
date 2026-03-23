@@ -5,7 +5,11 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from bijux_pollen.data_downloader.collector import AVAILABLE_SOURCES, collect_data, normalize_requested_sources
+from bijux_pollen.data_downloader.collector import (
+    AVAILABLE_SOURCES,
+    collect_data,
+    normalize_requested_sources,
+)
 
 
 class DataCollectorTests(unittest.TestCase):
@@ -73,6 +77,43 @@ class DataCollectorTests(unittest.TestCase):
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
+
+    def test_collect_data_replaces_selected_source_directories(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "custom-data"
+            stale_file = output_root / "neotoma" / "stale.txt"
+            stale_file.parent.mkdir(parents=True, exist_ok=True)
+            stale_file.write_text("stale", encoding="utf-8")
+
+            with patch("bijux_pollen.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+                fetch_boundaries.return_value = {"Sweden": {"features": []}}
+
+                def write_fresh_dataset(*, output_root: Path, country_boundaries: dict[str, object], bbox: tuple[float, ...]):
+                    normalized_dir = output_root / "normalized"
+                    normalized_dir.mkdir(parents=True, exist_ok=True)
+                    (normalized_dir / "fresh.csv").write_text("fresh", encoding="utf-8")
+                    class Report:
+                        point_count = 1
+                    return Report()
+
+                collect_neotoma.side_effect = write_fresh_dataset
+                collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+
+            self.assertFalse(stale_file.exists())
+            self.assertTrue((output_root / "neotoma" / "normalized" / "fresh.csv").exists())
+
+    def test_collect_data_writes_output_root_specific_readme(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "custom-data"
+
+            with patch("bijux_pollen.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+                download_aadr.return_value.downloaded_files = ()
+                collect_data(output_root=output_root, sources=("aadr",), version="v62.0")
+
+            readme_text = (output_root / "README.md").read_text(encoding="utf-8")
+            self.assertIn("Tracked source data lives directly under `custom-data/`", readme_text)
+            self.assertIn("\ncustom-data\n", readme_text)
 
 
 if __name__ == "__main__":
