@@ -13,6 +13,8 @@ This is the canonical documentation home for `bijux-pollen`.
 
 The first page leads with the live Nordic map because the map is the clearest expression of what this repository produces: a country-filterable view of AADR, pollen, environmental archaeology, and Swedish archaeology context layers assembled into one spatial decision surface.
 
+The current map groups layers by evidence role, exposes shareable filter state in the URL, and presents AADR release information as provenance rather than as the name of the entire map.
+
 <div class="bijux-callout">
   <strong>Start with the map.</strong> The documentation spine exists to explain how the map, the data tree, and the report outputs are produced, verified, and extended.
 </div>
