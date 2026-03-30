@@ -53,9 +53,11 @@ docs/report/<country>
 
 ## Contract Notes
 
-- the shared Nordic bundle is a generated publication tree, not hand-written documentation
+- the Nordic Evidence Atlas bundle is a generated publication tree, not hand-written documentation
 - country bundles intentionally do not contain their own standalone HTML maps
 - the shared bundle carries local Leaflet assets but still depends on external basemap tile services at runtime
+- country and atlas summary JSON files now include explicit `artifacts` inventories so downstream tooling can rely on bundle contents without reimplementing filename conventions
+- generated report-bundle filenames are defined in `src/bijux_pollenomics/reporting/paths.py`
 - report publishing rewrites these artifacts in place, so reference expectations should stay aligned with the checked-in tree rather than older bundle shapes
 
 ## Purpose

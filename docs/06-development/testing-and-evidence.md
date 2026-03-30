@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Testing and Evidence
@@ -18,6 +18,7 @@ The repository uses lightweight Python tests plus generated artifacts as evidenc
 - checked-in `data/collection_summary.json`
 - checked-in `docs/report/` outputs
 - checked-in report summary JSON files
+- explicit file-contract tests for normalized data paths, report bundle paths, and vendored map assets
 - successful `make lint`, `make test`, `make build`, and `make docs`
 - a combined `make check` run for one-command repository verification
 

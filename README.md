@@ -5,7 +5,7 @@
 Today, this repository does four concrete things:
 
 - collects six tracked data categories under `data/`
-- generates one shared Nordic map bundle under `docs/report/nordic/`
+- generates the Nordic Evidence Atlas bundle under `docs/report/nordic/`
 - generates country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
 - builds a MkDocs documentation site under `artifacts/docs/site/`
 
@@ -64,6 +64,8 @@ Use this distinction when working in the repo:
 - `data/` contains tracked source inputs and normalized source outputs
 - `docs/report/` contains tracked published report and map bundles
 - `artifacts/` contains transient local build outputs such as `.venv/`, `dist/`, and the built docs site
+- `src/bijux_pollenomics/settings.py` centralizes the checked-in publication defaults
+- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/paths.py` centralize file-contract names
 
 ## Quick Start
 
