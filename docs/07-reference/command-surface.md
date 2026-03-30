@@ -4,12 +4,26 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Command Surface
 
-## Data Collection
+## Verification And Local Build Commands
+
+```bash
+make install
+make lint
+make test
+make docs
+make docs-serve
+make build
+make check
+```
+
+These commands create or validate local artifacts. They do not recollect source data unless you explicitly invoke the data or report workflows below.
+
+## Data Collection Commands
 
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data all --version v62.0 --output-root data
@@ -21,7 +35,9 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
 ```
 
-## Reports
+These commands rewrite tracked source outputs under `data/`.
+
+## Report Commands
 
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
@@ -32,21 +48,17 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-countr
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
 
-## Local Workflow
+These commands rewrite checked-in report outputs under `docs/report/`.
+
+## Make Targets That Change Tracked State
 
 ```bash
-make install
+make data-prep
 make reports
 make app-state
-make check
-make clean
-make lint
-make test
-make data-prep
-make build
-make docs
-make docs-serve
 ```
+
+Use these only when you intend to regenerate tracked data or tracked publication artifacts.
 
 ## Notes
 
@@ -56,8 +68,9 @@ make docs-serve
 - `make check` expands to `make lint`, `make test`, and `make docs`
 - `make install` creates the local environment under `artifacts/.venv/`
 - `make build` writes distributions into `artifacts/dist/`
-- there is currently no `make` target that regenerates the report bundles; use the explicit CLI commands above
+- `make reports` is the canonical `make` target for regenerating the current checked-in report bundles
 - `report-country` requires `--shared-map-label` and `--shared-map-path` together when you want a shared-map link in the generated README
+- `report-multi-country-map` builds only the shared map bundle; `publish-reports` builds the shared map plus country bundles
 
 ## Purpose
 
