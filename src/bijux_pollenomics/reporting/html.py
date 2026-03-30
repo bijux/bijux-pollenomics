@@ -601,8 +601,44 @@ def render_multi_country_map_html(
         padding: 16px;
         border-radius: 20px;
       }
-      .legend-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
-      .legend-list { margin-bottom: 14px; }
+      .legend-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .legend-title { font-size: 13px; font-weight: 700; }
+      .legend-toggle {
+        appearance: none;
+        border: 1px solid rgba(20, 33, 61, 0.12);
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .legend-body.is-collapsed {
+        display: none;
+      }
+      .legend-group {
+        display: grid;
+        gap: 8px;
+      }
+      .legend-group + .legend-group {
+        margin-top: 12px;
+      }
+      .legend-group-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .legend-list { margin-bottom: 0; }
       .legend-item {
         display: flex;
         align-items: flex-start;
@@ -988,13 +1024,18 @@ def render_multi_country_map_html(
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
         <div id="floating-legend" class="floating-legend">
-          <div class="legend-title">Legend</div>
-          <div id="legend-items" class="legend-list"></div>
-          <div id="density-ramp" class="density-ramp">
-            <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
-            <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
-            <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+          <div class="legend-head">
+            <div class="legend-title">Legend</div>
+            <button id="legend-toggle" class="legend-toggle" type="button">Collapse</button>
+          </div>
+          <div id="legend-body" class="legend-body">
+            <div id="legend-items" class="legend-list"></div>
+            <div id="density-ramp" class="density-ramp">
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
+              <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+            </div>
           </div>
         </div>
         <div class="map-status">
@@ -1041,6 +1082,8 @@ def render_multi_country_map_html(
       const sidebarInner = document.querySelector('.sidebar-inner');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const legendBody = document.getElementById('legend-body');
+      const legendToggleButton = document.getElementById('legend-toggle');
       const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('layer-filters');
@@ -1089,6 +1132,7 @@ def render_multi_country_map_html(
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
+          legend: params.get('legend'),
         };
       }
       function normalizedSetFromList(raw, allowed, fallbackValues) {
@@ -1149,6 +1193,7 @@ def render_multi_country_map_html(
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
+      let legendCollapsed = initialState.legend === 'collapsed';
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
         Norway: { fill: '#0f766e', stroke: '#115e59' },
@@ -1227,6 +1272,12 @@ def render_multi_country_map_html(
         window.setTimeout(() => map.invalidateSize(), 180);
         if (persist) syncHashState();
       }
+      function setLegendCollapsed(collapsed, persist = true) {
+        legendCollapsed = collapsed;
+        legendBody.classList.toggle('is-collapsed', collapsed);
+        legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
+        if (persist) syncHashState();
+      }
       function syncHashState() {
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
@@ -1239,6 +1290,7 @@ def render_multi_country_map_html(
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
+        if (legendCollapsed) params.set('legend', 'collapsed');
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -1323,7 +1375,15 @@ def render_multi_country_map_html(
       }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
-        legendItems.innerHTML = activeLegendLayers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
+        const pointLayers = activeLegendLayers.filter((layer) => Object.prototype.hasOwnProperty.call(layer, 'features'));
+        const polygonLayers = activeLegendLayers.filter((layer) => !Object.prototype.hasOwnProperty.call(layer, 'features'));
+        const renderGroup = (label, layers) => layers.length
+          ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
+          : '';
+        legendItems.innerHTML = [
+          renderGroup('Point layers', pointLayers),
+          renderGroup('Polygon overlays', polygonLayers),
+        ].join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function renderFilterChips() {
@@ -1730,6 +1790,7 @@ def render_multi_country_map_html(
       document.querySelectorAll('[data-layer-preset]').forEach((button) => {
         button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
       });
+      legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
       sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
@@ -1740,6 +1801,7 @@ def render_multi_country_map_html(
       renderLayerControls();
       renderMapState();
       setBasemap(currentBasemap);
+      setLegendCollapsed(legendCollapsed, false);
       syncSectionNavWithScroll();
       resetView();
       zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
