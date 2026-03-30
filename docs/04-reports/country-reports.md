@@ -4,12 +4,14 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Country Reports
 
 Country reports summarize AADR samples for one political entity.
+
+They are intentionally narrower than the shared map. A country report is the durable inventory view for one country, not a second evidence-comparison surface.
 
 ## Current Published Countries
 
@@ -31,6 +33,8 @@ Country reports summarize AADR samples for one political entity.
 
 Country bundles do not contain their own standalone HTML map. They link back to the shared Nordic map when that link is provided during generation.
 
+They also do not include contextual layers such as LandClim, Neotoma, SEAD, boundaries, or RAÄ as standalone bundle files. Those remain part of the shared map bundle.
+
 ## Why Country Reports Exist Alongside The Shared Map
 
 The map is good for exploration, but country reports are better for:
@@ -39,6 +43,10 @@ The map is good for exploration, but country reports are better for:
 - locality-level aggregation
 - quick country-specific review without filtering the shared map
 - stable file artifacts for git review
+
+## Honesty Rule
+
+Country reports should be read as AADR inventory outputs for one country in one release. They are not evidence-complete summaries of every contextual source used elsewhere in the repository.
 
 ## Empty-Match Behavior
 

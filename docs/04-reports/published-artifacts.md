@@ -4,12 +4,14 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Published Artifacts
 
 The `docs/report/` tree contains checked-in report artifacts used both for review and for MkDocs-hosted documentation.
+
+These artifacts are generated outputs. They are not maintained by hand.
 
 ## Shared Map Bundle
 
@@ -19,8 +21,10 @@ The currently checked-in shared bundle is `docs/report/nordic/`. It includes:
 - the interactive HTML map
 - a machine-readable summary JSON
 - bundled map UI assets under `_map_assets/`
-- copied Neotoma, SEAD, boundaries, and RAÄ map assets
+- copied LandClim, Neotoma, SEAD, boundaries, and RAÄ map assets
 - a short bundle README
+
+The shared bundle is the only place where the interactive HTML map lives.
 
 ## Country Bundles
 
@@ -40,6 +44,8 @@ Each country bundle includes:
 - sample GeoJSON
 - full Markdown sample inventory
 
+Country bundles intentionally stay file-oriented and map-light. They summarize one political entity and link back to the shared map instead of embedding a second standalone map application.
+
 ## Why These Are Checked In
 
 Checked-in report outputs make it easier to:
@@ -47,6 +53,14 @@ Checked-in report outputs make it easier to:
 - review changes in git
 - verify that generated artifacts still match the source tree
 - publish the map and summary pages through MkDocs without an additional deployment pipeline
+
+## Review Rule
+
+When a change affects `docs/report/`, reviewers should assume that:
+
+- HTML, JSON, CSV, and GeoJSON diffs may all be meaningful
+- generated text inside bundle `README.md` files is part of the artifact contract
+- artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
 
 ## What This Page Is Not
 
