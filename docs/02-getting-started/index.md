@@ -4,12 +4,14 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Getting Started
 
 This section is the shortest honest path from a fresh checkout to a working local environment, a rebuilt `data/` tree, and regenerated outputs.
+
+It is ordered to keep environment verification separate from commands that rewrite tracked repository state.
 
 ```mermaid
 flowchart LR
@@ -31,9 +33,14 @@ flowchart LR
 By the end of this section you should be able to:
 
 - create the local virtual environment under `artifacts/.venv/`
+- confirm that the local Python and tooling match repository expectations
 - run lint and tests
 - rebuild `data/` with one command
 - regenerate the shared Nordic map and country reports
+
+## Reading Rule
+
+Start with [Install and verify](install-and-verify.md) even if you already know the repository. That page is the contract for what a clean environment must satisfy before any data or report outputs are regenerated.
 
 ## Purpose
 
