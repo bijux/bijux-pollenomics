@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import ssl
 from pathlib import Path
-from urllib.error import HTTPError, URLError
+from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -31,14 +31,8 @@ def fetch_text(
         url = f"{url}{separator}{query}"
     request = Request(url, headers=headers or {})
     context = ssl._create_unverified_context() if insecure else None
-    try:
-        with urlopen(request, context=context) as response:
-            return response.read().decode("utf-8")
-    except URLError as error:
-        if insecure or not isinstance(error.reason, ssl.SSLCertVerificationError):
-            raise
-        with urlopen(request, context=ssl._create_unverified_context()) as response:
-            return response.read().decode("utf-8")
+    with urlopen(request, context=context) as response:
+        return response.read().decode("utf-8")
 
 
 def fetch_binary(
@@ -58,11 +52,6 @@ def fetch_binary(
         fallback_headers = dict(headers or {})
         fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
         with urlopen(Request(url, headers=fallback_headers), context=ssl._create_unverified_context()) as response:
-            return response.read()
-    except URLError as error:
-        if insecure or not isinstance(error.reason, ssl.SSLCertVerificationError):
-            raise
-        with urlopen(request, context=ssl._create_unverified_context()) as response:
             return response.read()
 
 
