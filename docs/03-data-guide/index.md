@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Data Guide
@@ -36,6 +36,15 @@ flowchart TD
 The filesystem model and the acquisition model should match. That is why `collect-data <source>` writes directly into `data/<source>/`.
 
 The collector also writes `data/collection_summary.json`, and when a source depends on boundaries it reuses tracked local boundary files when available instead of fetching them again unnecessarily.
+
+## Reading Rule
+
+Use this section in two passes:
+
+1. read [Data categories](data-categories.md) when you need to compare sources against each other
+2. read a source-specific page when you need the exact acquisition and normalization behavior for one source
+
+That split is intentional. The project uses multiple evidence types whose geometry, coverage, and limitations are not interchangeable.
 
 ## Canonical Status
 

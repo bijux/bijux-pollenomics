@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Data Categories
@@ -29,6 +29,17 @@ data
 - `neotoma` provides pollen and paleoecology site coverage
 - `raa` provides Swedish archaeology context
 - `sead` provides environmental archaeology context
+
+## Comparison Matrix
+
+| Source | Primary geometry in this repository | Current geographic scope | Main use in outputs | Important current limit |
+| --- | --- | --- | --- | --- |
+| `aadr` | points | Sweden, Norway, Finland, Denmark in the current shared outputs | primary evidence layer for sample metadata | uses `.anno` metadata only, not genotype matrices |
+| `boundaries` | polygons | Nordic country boundaries | country assignment and filtering | used as a support layer, not a research source on its own |
+| `landclim` | points and 1 degree grid cells | Nordic subset of three PANGAEA datasets | pollen-sequence and REVEALS context | mixes raw pollen sequences with processed REVEALS products |
+| `neotoma` | points | Nordic subset of Neotoma pollen datasets | pollen and paleoecology point context | normalized to representative points rather than richer source geometries |
+| `raa` | density polygons plus metadata JSON | Sweden only | national archaeology context | does not expose every Swedish record as a point layer in the shared map |
+| `sead` | points | Nordic subset of SEAD sites | environmental archaeology point context | site coverage depends on current upstream SEAD metadata responses |
 
 ## Collection Commands
 
@@ -63,6 +74,15 @@ The current `data/` tree contains:
 - raw and normalized Neotoma pollen-site outputs
 - raw and normalized SEAD site outputs
 - raw RAÄ metadata plus normalized Swedish archaeology density outputs
+
+## Comparison Rule
+
+Do not flatten these sources into one mental model.
+
+- some are points and some are polygons
+- some are raw observational inputs and some are already summarized products
+- some are Nordic-wide in current outputs and some are country-specific
+- some support filtering and classification rather than acting as evidence layers themselves
 
 ## Why The Data Is Tracked In Git
 
