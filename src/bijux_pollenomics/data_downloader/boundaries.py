@@ -8,11 +8,15 @@ from .common import slugify, write_json
 from .common import fetch_json
 
 
-BOUNDARY_URLS = {
-    "Sweden": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/SWE.geo.json",
-    "Norway": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/NOR.geo.json",
-    "Finland": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/FIN.geo.json",
-    "Denmark": "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/DNK.geo.json",
+NATURAL_EARTH_ADMIN0_URL = (
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
+    "ne_10m_admin_0_countries.geojson"
+)
+BOUNDARY_CODES = {
+    "Sweden": "SWE",
+    "Norway": "NOR",
+    "Finland": "FIN",
+    "Denmark": "DNK",
 }
 
 
@@ -25,19 +29,57 @@ class BoundariesDataReport:
 
 def fetch_country_boundaries() -> dict[str, dict[str, object]]:
     """Download Nordic country boundaries used for country assignment and display."""
-    return {country: fetch_json(url) for country, url in BOUNDARY_URLS.items()}
+    global_boundaries = fetch_json(NATURAL_EARTH_ADMIN0_URL)
+    if not isinstance(global_boundaries, dict):
+        raise ValueError("Natural Earth boundary payload must be a GeoJSON object")
+    return {
+        country: build_country_boundary_collection(global_boundaries, country_code)
+        for country, country_code in BOUNDARY_CODES.items()
+    }
 
 
 def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] | None:
     """Load tracked Nordic country boundaries from a local boundaries directory when present."""
     raw_dir = Path(output_root) / "raw"
     country_boundaries: dict[str, dict[str, object]] = {}
-    for country in BOUNDARY_URLS:
+    for country in BOUNDARY_CODES:
         path = raw_dir / f"{slugify(country)}.geojson"
         if not path.exists():
             return None
         country_boundaries[country] = json.loads(path.read_text(encoding="utf-8"))
     return country_boundaries
+
+
+def build_country_boundary_collection(
+    global_boundaries: dict[str, object],
+    country_code: str,
+) -> dict[str, object]:
+    """Filter the Natural Earth admin-0 collection down to one country code."""
+    raw_features = global_boundaries.get("features", [])
+    if not isinstance(raw_features, list):
+        raise ValueError("Natural Earth boundary payload must contain a feature list")
+
+    country_features: list[dict[str, object]] = []
+    for feature in raw_features:
+        if not isinstance(feature, dict):
+            continue
+        properties = feature.get("properties", {})
+        geometry = feature.get("geometry", {})
+        if not isinstance(properties, dict) or not isinstance(geometry, dict):
+            continue
+        if str(properties.get("ADM0_A3", "")).strip() != country_code:
+            continue
+        country_features.append(
+            {
+                "type": "Feature",
+                "geometry": geometry,
+                "properties": properties,
+            }
+        )
+
+    if not country_features:
+        raise ValueError(f"Natural Earth 10m boundary not found for {country_code}")
+    return {"type": "FeatureCollection", "features": country_features}
 
 
 def build_combined_country_boundaries(
