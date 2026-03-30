@@ -42,6 +42,14 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 
 The upstream LandClim records mix raw pollen-sequence inputs with processed REVEALS products and, in some cases, 1 degree aggregated land-cover reconstructions. The repository keeps that distinction visible by publishing separate point and grid layers instead of flattening everything into one generic pollen table.
 
+## Interpretation Caution
+
+LandClim is useful precisely because it is mixed. That also means readers have to stay honest about what they are looking at:
+
+- a pollen-sequence point is not the same kind of evidence as a REVEALS grid cell
+- a processed regional reconstruction should not be described as if it were a raw site observation
+- presence in the normalized LandClim tree does not imply that every source row is comparable to Neotoma or SEAD records on a one-to-one basis
+
 ## Purpose
 
 This page explains how LandClim enters the repository and why it is tracked separately from Neotoma and SEAD.

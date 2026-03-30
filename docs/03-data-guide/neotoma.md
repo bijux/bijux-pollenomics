@@ -40,6 +40,14 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 
 The repository reduces Neotoma geometries to representative points for map use, then assigns those points to Nordic countries using the tracked boundary layer.
 
+## What This Repository Intentionally Does Not Preserve
+
+- richer upstream geometry distinctions beyond the representative point used for map placement
+- every field that may exist in the upstream payload but is not needed by the current map and normalized exports
+- non-Nordic records returned by the upstream API queries
+
+That simplification is intentional. It makes the shared map tractable, but it also means the normalized Neotoma outputs are not a full mirror of the source system.
+
 ## Purpose
 
 This page explains how Neotoma enters the repository and why it is part of the shared Nordic evidence surface.

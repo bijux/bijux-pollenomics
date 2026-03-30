@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # RAÄ
@@ -44,6 +44,14 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 ## Scope Boundary
 
 The current RAÄ layer is Sweden-only. That is an implementation fact of the current repository, not a claim about archaeology coverage in the other countries.
+
+## What The Shared Map Is Honest About
+
+The normalized RAÄ outputs are designed for national-scale archaeological context, not for feature-by-feature archaeological analysis.
+
+- the shared map publishes a density surface, not every underlying point geometry
+- the current layer is intended to show concentration and relative coverage, not exact archaeological site locations for downstream decision automation
+- Swedish coverage in this repository should not be mistaken for a Nordic archaeology inventory
 
 ## Purpose
 
