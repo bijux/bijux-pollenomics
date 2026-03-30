@@ -1,6 +1,6 @@
 # bijux-pollenomics
 
-`bijux-pollenomics` is a small repository for collecting tracked Nordic context datasets and publishing checked-in map/report outputs from them.
+`bijux-pollenomics` is a repository for collecting tracked Nordic context datasets and publishing checked-in map and report outputs from them.
 
 Today, this repository does four concrete things:
 
@@ -10,6 +10,17 @@ Today, this repository does four concrete things:
 - builds a MkDocs documentation site under `artifacts/docs/site/`
 
 It does not yet rank candidate sampling locations, compute lake intersections, or produce automated site-selection scores.
+
+## What Running Commands Changes
+
+This repository has both verification commands and state-changing commands.
+
+- `make install`, `make lint`, `make test`, and `make docs` validate or build local artifacts
+- `make data-prep` rewrites tracked source snapshots and normalized outputs under `data/`
+- `make reports` rewrites checked-in report artifacts under `docs/report/`
+- `make app-state` does the full current rebuild path and will rewrite both tracked data and tracked report artifacts
+
+Use that distinction deliberately. A fresh contributor who only wants to verify the codebase should not start with the full rebuild command.
 
 ## Current Scope
 
@@ -56,10 +67,23 @@ Use this distinction when working in the repo:
 
 ## Quick Start
 
+### Verify The Environment First
+
 Prerequisite: `python3.11` must be available locally.
 
 ```bash
 make install
+make lint
+make test
+```
+
+That path is the safest first run because it validates the local environment before any network-heavy or state-changing data workflow.
+
+### Rebuild The Current Checked-In State
+
+Prerequisite: `python3.11` must be available locally.
+
+```bash
 make app-state
 ```
 
@@ -69,6 +93,8 @@ That sequence does the full current rebuild path:
 2. rebuilds the tracked `data/` tree
 3. republishes the checked-in map and report bundles under `docs/report/`
 4. rebuilds the MkDocs site under `artifacts/docs/site/`
+
+Expect this path to take longer than lint and tests, to require network access, and to overwrite generated files that are intentionally checked in.
 
 ## Main Commands
 
@@ -95,6 +121,15 @@ What they do:
 - `make app-state` runs the full current rebuild path: data, reports, and docs
 - `make check` runs the repository verification pass: lint, tests, and docs
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
+
+## Operational Notes
+
+These points are easy to miss and matter in review:
+
+- collectors replace source-specific output directories before rewriting them, so reruns are intentionally destructive to stale generated files
+- `docs/report/` is not a scratch directory; it is a tracked publication tree that should change only when report outputs actually change
+- the shared Nordic HTML map carries local Leaflet assets, but its basemap tiles still come from external services at runtime
+- the checked-in map is an inspectable publication artifact, not an authenticated web application or an analysis backend
 
 ## Published Outputs
 
