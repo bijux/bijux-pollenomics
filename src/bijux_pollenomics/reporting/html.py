@@ -168,6 +168,39 @@ def render_multi_country_map_html(
       .stat-value { font-size: 24px; font-weight: 700; }
       .stat-value--compact { font-size: 18px; }
       .section-stack { display: grid; gap: 16px; }
+      .section-nav {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 18px;
+        padding: 10px 0 14px;
+        background: linear-gradient(180deg, rgba(246, 241, 233, 0.98), rgba(246, 241, 233, 0.88), rgba(246, 241, 233, 0));
+      }
+      .section-nav-button {
+        appearance: none;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        transition: background 120ms ease, border-color 120ms ease, color 120ms ease, transform 120ms ease;
+      }
+      .section-nav-button:hover {
+        transform: translateY(-1px);
+      }
+      .section-nav-button.is-active {
+        background: rgba(37, 99, 235, 0.12);
+        border-color: rgba(37, 99, 235, 0.28);
+        color: var(--blue);
+      }
       .panel-card { border-radius: 20px; padding: 18px; }
       .section-head {
         display: flex;
@@ -699,13 +732,22 @@ def render_multi_country_map_html(
             <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">__VERSION__</strong></div>
             <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong></div>
           </section>
+          <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
+            <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
+            <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
+            <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
+            <button class="section-nav-button" type="button" data-section-target="search-panel">Search</button>
+            <button class="section-nav-button" type="button" data-section-target="time-panel">Time</button>
+            <button class="section-nav-button" type="button" data-section-target="distance-panel">Distance</button>
+            <button class="section-nav-button" type="button" data-section-target="active-panel">State</button>
+          </nav>
           <div class="section-stack">
-            <section class="panel-card">
+            <section id="scope-panel" class="panel-card">
               <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
               <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
               <div id="scope-summary" class="summary-list"></div>
             </section>
-            <section class="panel-card">
+            <section id="country-panel" class="panel-card">
               <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
               <p class="panel-copy">These filters apply to every layer that carries country metadata. RAÄ archaeology density is Sweden-only and will disappear automatically when Sweden is excluded.</p>
               <div id="country-filters" class="chip-grid"></div>
@@ -716,19 +758,19 @@ def render_multi_country_map_html(
                 <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
               </div>
             </section>
-            <section class="panel-card">
+            <section id="layer-panel" class="panel-card">
               <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
               <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
               <div id="layer-filters" class="layer-stack"></div>
             </section>
-            <section class="panel-card">
+            <section id="search-panel" class="panel-card">
               <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
               <label class="sr-only" for="search-input">Search visible records</label>
               <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
               <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
             </section>
-            <section class="panel-card">
+            <section id="time-panel" class="panel-card">
               <div class="section-head"><h2>Time Window</h2><span id="time-window-value">__INITIAL_TIME_START_BP__-__INITIAL_TIME_END_BP__ BP</span></div>
               <div class="field-label"><span>Window start (years BP)</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
               <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
@@ -738,7 +780,7 @@ def render_multi_country_map_html(
               <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
               <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
-            <section class="panel-card">
+            <section id="distance-panel" class="panel-card">
               <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
               <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
               <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
@@ -755,7 +797,7 @@ def render_multi_country_map_html(
               <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
               <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
             </section>
-            <section class="panel-card">
+            <section id="active-panel" class="panel-card">
               <div class="section-head"><h2>Active View</h2><span>Live provenance</span></div>
               <div id="active-summary" class="summary-list"></div>
             </section>
@@ -844,8 +886,10 @@ def render_multi_country_map_html(
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
       const sidebar = document.getElementById('sidebar');
+      const sidebarInner = document.querySelector('.sidebar-inner');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('layer-filters');
       const legendItems = document.getElementById('legend-items');
@@ -987,6 +1031,24 @@ def render_multi_country_map_html(
         document.querySelectorAll('.preset-button').forEach((button) => {
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
         });
+      }
+      function updateSectionNav(activeSectionId) {
+        sectionNavButtons.forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.sectionTarget === activeSectionId);
+        });
+      }
+      function syncSectionNavWithScroll() {
+        const cards = sectionNavButtons
+          .map((button) => document.getElementById(button.dataset.sectionTarget))
+          .filter(Boolean);
+        if (!cards.length) return;
+        let activeSectionId = cards[0].id;
+        for (const card of cards) {
+          if (card.offsetTop - sidebarInner.scrollTop <= 96) {
+            activeSectionId = card.id;
+          }
+        }
+        updateSectionNav(activeSectionId);
       }
       function updatePanelToggleLabel() {
         const collapsed = sidebar.classList.contains('is-collapsed');
@@ -1374,6 +1436,15 @@ def render_multi_country_map_html(
         }
         updatePanelToggleLabel();
       });
+      sectionNavButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.dataset.sectionTarget);
+          if (!target) return;
+          sidebarInner.scrollTo({ top: Math.max(target.offsetTop - 72, 0), behavior: 'smooth' });
+          updateSectionNav(button.dataset.sectionTarget);
+        });
+      });
+      sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
@@ -1383,6 +1454,7 @@ def render_multi_country_map_html(
       renderLayerControls();
       renderMapState();
       setBasemap(currentBasemap);
+      syncSectionNavWithScroll();
       resetView();
       zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
     </script>
