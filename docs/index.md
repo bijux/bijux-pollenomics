@@ -1,15 +1,15 @@
 ---
-title: bijux-pollen Documentation
+title: bijux-pollenomics Documentation
 audience: mixed
 type: index
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
 # Docs Index
 
-This is the canonical documentation home for `bijux-pollen`.
+This is the canonical documentation home for `bijux-pollenomics`.
 
 The first page leads with the checked-in Nordic map because the map is the shortest way to inspect the repository’s current outputs: AADR sample points, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
 
@@ -88,7 +88,7 @@ Use section index pages first when you are entering a topic for the first time. 
 
 ## Purpose
 
-This page explains the `bijux-pollen` documentation spine and routes readers to the checked-in map and the canonical docs that explain it.
+This page explains the `bijux-pollenomics` documentation spine and routes readers to the checked-in map and the canonical docs that explain it.
 
 ## Stability
 

@@ -3,7 +3,7 @@ title: Reports
 audience: mixed
 type: index
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -31,4 +31,4 @@ This section is the canonical source for report and map documentation inside the
 
 ## Purpose
 
-This page organizes the output-side documentation for `bijux-pollen`.
+This page organizes the output-side documentation for `bijux-pollenomics`.

@@ -3,7 +3,7 @@ title: Data Categories
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -33,12 +33,12 @@ data
 The current command surface treats every tracked source the same way:
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data boundaries --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data neotoma --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data all --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data all --version v62.0 --output-root data
 ```
 
 ## Shared Internal Shape

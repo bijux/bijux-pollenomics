@@ -3,7 +3,7 @@ title: RAÄ
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -38,7 +38,7 @@ flowchart LR
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data raa --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
 ```
 
 ## Scope Boundary

@@ -3,7 +3,7 @@ title: AADR
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -40,7 +40,7 @@ The repository does not currently collect or use `.geno`, `.ind`, `.snp`, or spr
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data aadr --version v62.0 --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
 ```
 
 ## Role In The Product

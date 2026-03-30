@@ -3,7 +3,7 @@ title: Shared Nordic Map
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 

@@ -1,15 +1,15 @@
 ---
-title: What bijux-pollen Does
+title: What bijux-pollenomics Does
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
-# What bijux-pollen Does
+# What bijux-pollenomics Does
 
-`bijux-pollen` builds a Nordic evidence workspace for inspecting where currently tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
+`bijux-pollenomics` builds a Nordic evidence workspace for inspecting where currently tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
 
 Today the checked-in workspace combines:
 
@@ -21,7 +21,7 @@ Today the checked-in workspace combines:
 
 ```mermaid
 mindmap
-  root((bijux-pollen))
+  root((bijux-pollenomics))
     AADR
       aDNA points
       country reports

@@ -1,4 +1,4 @@
-"""Data collection, reporting, and mapping tools for bijux-pollen."""
+"""Data collection, reporting, and mapping tools for bijux-pollenomics."""
 
 from .data_downloader import ContextDataReport, DataCollectionReport, collect_context_data, collect_data
 from .reporting import (

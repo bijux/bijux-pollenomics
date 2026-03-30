@@ -3,7 +3,7 @@ title: Troubleshoot Early Problems
 audience: mixed
 type: troubleshooting
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 

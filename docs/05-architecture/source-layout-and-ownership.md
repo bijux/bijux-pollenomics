@@ -3,7 +3,7 @@ title: Source Layout and Ownership
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -18,7 +18,7 @@ The source tree is intentionally split between three concerns:
 ## Current Layout
 
 ```text
-src/bijux_pollen
+src/bijux_pollenomics
 ├── __init__.py
 ├── cli.py
 ├── reporting

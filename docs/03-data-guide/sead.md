@@ -3,7 +3,7 @@ title: SEAD
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
@@ -32,7 +32,7 @@ SEAD adds environmental archaeology context to the same spatial frame used for p
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollen.cli collect-data sead --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
 ```
 
 ## Product Role

@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "bijux-pollen"
+name = "bijux-pollenomics"
 version = "0.1.0"
 description = "Data collection, reporting, and mapping tools for Nordic aDNA and contextual evidence layers."
 readme = "README.md"
@@ -22,8 +22,8 @@ dev = [
 ]
 
 [project.scripts]
-bijux-pollen = "bijux_pollenomics.cli:main"
-bijux-pollen-aadr = "bijux_pollenomics.cli:main"
+bijux-pollenomics = "bijux_pollenomics.cli:main"
+bijux-pollenomics-aadr = "bijux_pollenomics.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

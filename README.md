@@ -1,6 +1,6 @@
-# bijux-pollen
+# bijux-pollenomics
 
-`bijux-pollen` is a small repository for collecting tracked Nordic context datasets and publishing checked-in map/report outputs from them.
+`bijux-pollenomics` is a small repository for collecting tracked Nordic context datasets and publishing checked-in map/report outputs from them.
 
 Today, this repository does four concrete things:
 

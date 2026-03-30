@@ -3,19 +3,19 @@ title: Introduction
 audience: mixed
 type: index
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
 # Introduction
 
-This section gives the mental model for `bijux-pollen` before you start running commands or reading code.
+This section gives the mental model for `bijux-pollenomics` before you start running commands or reading code.
 
 The repository is easiest to understand when you separate five concerns:
 
 - tracked source data under `data/`
-- normalization and acquisition logic under `src/bijux_pollen/data_downloader/`
-- AADR-driven report generation under `src/bijux_pollen/reporting/`
+- normalization and acquisition logic under `src/bijux_pollenomics/data_downloader/`
+- AADR-driven report generation under `src/bijux_pollenomics/reporting/`
 - the shared Nordic map as the primary interactive output
 - later spatial interpretation built on top of these reproducible layers
 
@@ -40,7 +40,7 @@ The introduction pages answer four foundational questions:
 ## Pages in This Section
 
 - [Current app scope](current-app-scope.md)
-- [What bijux-pollen does](what-bijux-pollen-does.md)
+- [What bijux-pollenomics does](what-bijux-pollenomics-does.md)
 - [Scope and non-goals](scope-and-non-goals.md)
 - [Map-first product model](map-first-product-model.md)
 
@@ -57,7 +57,7 @@ Start here if you are new to the repository, planning new data layers, or trying
 
 ## Purpose
 
-This page explains the introduction section and routes readers to the foundational pages that define what `bijux-pollen` is building.
+This page explains the introduction section and routes readers to the foundational pages that define what `bijux-pollenomics` is building.
 
 ## Stability
 

@@ -14,7 +14,7 @@ PUBLISHED_COUNTRIES = ("Sweden", "Norway", "Finland", "Denmark")
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line interface."""
     parser = argparse.ArgumentParser(
-        prog="bijux-pollen",
+        prog="bijux-pollenomics",
         description="Generate Nordic country reports and shared research maps from tracked data sources.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)

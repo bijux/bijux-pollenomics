@@ -13,7 +13,7 @@ AADR_DATAVERSE_API_URL = (
     "?persistentId=doi:10.7910/DVN/FFIDCW"
 )
 AADR_DOWNLOAD_URL_TEMPLATE = "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
-REQUEST_HEADERS = {"User-Agent": "bijux-pollen/1.0"}
+REQUEST_HEADERS = {"User-Agent": "bijux-pollenomics/1.0"}
 
 
 @dataclass(frozen=True)

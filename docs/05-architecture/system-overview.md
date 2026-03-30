@@ -3,18 +3,18 @@ title: System Overview
 audience: mixed
 type: explanation
 status: canonical
-owner: bijux-pollen-docs
+owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-23
 ---
 
 # System Overview
 
-`bijux-pollen` is a file-oriented pipeline, not a server application.
+`bijux-pollenomics` is a file-oriented pipeline, not a server application.
 
 ## Major Components
 
-- `src/bijux_pollen/data_downloader/`: data acquisition and normalization
-- `src/bijux_pollen/reporting/`: AADR report and map generation
+- `src/bijux_pollenomics/data_downloader/`: data acquisition and normalization
+- `src/bijux_pollenomics/reporting/`: AADR report and map generation
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts
 - `mkdocs.yml` and `docs/`: published documentation shell
