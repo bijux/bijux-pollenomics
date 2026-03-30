@@ -6,10 +6,27 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollenomics.cli import main
+from bijux_pollenomics.cli import build_parser, main
+from bijux_pollenomics.settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
 
 
 class CliTests(unittest.TestCase):
+    def test_parser_defaults_follow_project_settings(self) -> None:
+        parser = build_parser()
+
+        publish_args = parser.parse_args(["publish-reports"])
+        map_args = parser.parse_args(["report-multi-country-map", "Sweden"])
+        collect_args = parser.parse_args(["collect-data", "aadr"])
+
+        self.assertEqual(publish_args.countries, DEFAULT_PUBLISHED_COUNTRIES)
+        self.assertEqual(publish_args.name, DEFAULT_ATLAS_SLUG)
+        self.assertEqual(publish_args.title, DEFAULT_ATLAS_TITLE)
+        self.assertEqual(publish_args.version, DEFAULT_AADR_VERSION)
+        self.assertEqual(map_args.name, DEFAULT_ATLAS_SLUG)
+        self.assertEqual(map_args.title, DEFAULT_ATLAS_TITLE)
+        self.assertEqual(map_args.version, DEFAULT_AADR_VERSION)
+        self.assertEqual(collect_args.version, DEFAULT_AADR_VERSION)
+
     def test_report_country_requires_both_shared_map_arguments(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"

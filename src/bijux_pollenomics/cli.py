@@ -6,9 +6,7 @@ from typing import Sequence
 
 from .data_downloader import AVAILABLE_SOURCES, collect_data
 from .reporting import generate_country_report, generate_multi_country_map, generate_published_reports, slugify
-
-
-PUBLISHED_COUNTRIES = ("Sweden", "Norway", "Finland", "Denmark")
+from .settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -32,8 +30,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     report_parser.add_argument(
         "--version",
-        default="v62.0",
-        help="AADR version directory under the AADR root. Default: v62.0",
+        default=DEFAULT_AADR_VERSION,
+        help=f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
     )
     report_parser.add_argument(
         "--output-root",
@@ -63,13 +61,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     multi_map_parser.add_argument(
         "--name",
-        default="nordic",
-        help="Stable output directory and file slug. Default: nordic",
+        default=DEFAULT_ATLAS_SLUG,
+        help=f"Stable output directory and file slug. Default: {DEFAULT_ATLAS_SLUG}",
     )
     multi_map_parser.add_argument(
         "--title",
-        default="Nordic Evidence Atlas",
-        help="Human-readable title shown in the shared map. Default: Nordic Evidence Atlas",
+        default=DEFAULT_ATLAS_TITLE,
+        help=f"Human-readable title shown in the shared map. Default: {DEFAULT_ATLAS_TITLE}",
     )
     multi_map_parser.add_argument(
         "--aadr-root",
@@ -79,8 +77,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     multi_map_parser.add_argument(
         "--version",
-        default="v62.0",
-        help="AADR version directory under the AADR root. Default: v62.0",
+        default=DEFAULT_AADR_VERSION,
+        help=f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
     )
     multi_map_parser.add_argument(
         "--output-root",
@@ -103,18 +101,18 @@ def build_parser() -> argparse.ArgumentParser:
     publish_parser.add_argument(
         "--countries",
         nargs="+",
-        default=PUBLISHED_COUNTRIES,
-        help="Countries to publish. Default: Sweden Norway Finland Denmark",
+        default=DEFAULT_PUBLISHED_COUNTRIES,
+        help="Countries to publish. Default: " + " ".join(DEFAULT_PUBLISHED_COUNTRIES),
     )
     publish_parser.add_argument(
         "--name",
-        default="nordic",
-        help="Stable shared-map output directory and file slug. Default: nordic",
+        default=DEFAULT_ATLAS_SLUG,
+        help=f"Stable shared-map output directory and file slug. Default: {DEFAULT_ATLAS_SLUG}",
     )
     publish_parser.add_argument(
         "--title",
-        default="Nordic Evidence Atlas",
-        help="Human-readable shared map title. Default: Nordic Evidence Atlas",
+        default=DEFAULT_ATLAS_TITLE,
+        help=f"Human-readable shared map title. Default: {DEFAULT_ATLAS_TITLE}",
     )
     publish_parser.add_argument(
         "--aadr-root",
@@ -124,8 +122,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     publish_parser.add_argument(
         "--version",
-        default="v62.0",
-        help="AADR version directory under the AADR root. Default: v62.0",
+        default=DEFAULT_AADR_VERSION,
+        help=f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
     )
     publish_parser.add_argument(
         "--output-root",
@@ -152,8 +150,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collect_parser.add_argument(
         "--version",
-        default="v62.0",
-        help="AADR version to download when `aadr` is selected. Default: v62.0",
+        default=DEFAULT_AADR_VERSION,
+        help=f"AADR version to download when `aadr` is selected. Default: {DEFAULT_AADR_VERSION}",
     )
     collect_parser.add_argument(
         "--output-root",

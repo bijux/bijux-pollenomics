@@ -14,9 +14,9 @@ from .models import DataCollectionSummary
 from .neotoma import collect_neotoma_data
 from .raa import collect_raa_data
 from .sead import collect_sead_data
+from ..settings import DEFAULT_AADR_VERSION, NORDIC_BBOX
 
 
-NORDIC_BBOX = (4.0, 54.0, 35.0, 72.0)
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 
 
@@ -40,7 +40,7 @@ class DataCollectionReport:
 def collect_data(
     output_root: Path,
     sources: Iterable[str],
-    version: str = "v62.0",
+    version: str = DEFAULT_AADR_VERSION,
 ) -> DataCollectionReport:
     """Collect one or more tracked data sources into the project data tree."""
     output_root = Path(output_root)

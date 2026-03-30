@@ -21,6 +21,7 @@ from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
 from .utils import slugify
+from ..settings import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 
 def generate_country_report(
@@ -169,8 +170,8 @@ def generate_published_reports(
     version_dir: Path,
     countries: Iterable[str],
     output_root: Path,
-    title: str = "Nordic Evidence Atlas",
-    slug: str = "nordic",
+    title: str = DEFAULT_ATLAS_TITLE,
+    slug: str = DEFAULT_ATLAS_SLUG,
     context_root: Path | None = None,
 ) -> PublishedReportsReport:
     """Generate the current published report set: one shared map and one bundle per country."""
