@@ -63,28 +63,36 @@ def render_multi_country_map_html(
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.Default.css">
     <style>
       :root {
-        --ink: #14213d;
-        --muted: #5f6b85;
-        --surface: rgba(251, 248, 242, 0.92);
-        --surface-strong: rgba(255, 252, 247, 0.96);
-        --surface-edge: rgba(27, 40, 64, 0.12);
-        --blue: #2563eb;
-        --teal: #0f766e;
-        --gold: #b45309;
-        --rose: #b91c1c;
-        --shadow-lg: 0 24px 64px rgba(20, 33, 61, 0.18);
-        --shadow-md: 0 10px 32px rgba(20, 33, 61, 0.12);
+        --ink: #18253d;
+        --ink-soft: #31425f;
+        --muted: #61708d;
+        --surface: rgba(252, 249, 244, 0.90);
+        --surface-soft: rgba(255, 253, 250, 0.78);
+        --surface-strong: rgba(255, 252, 247, 0.97);
+        --surface-edge: rgba(24, 37, 61, 0.10);
+        --surface-edge-strong: rgba(24, 37, 61, 0.18);
+        --surface-wash: linear-gradient(180deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0));
+        --blue: #1f5ed8;
+        --teal: #0e7a72;
+        --gold: #ad6708;
+        --rose: #b42344;
+        --shadow-lg: 0 32px 96px rgba(24, 37, 61, 0.16);
+        --shadow-md: 0 16px 40px rgba(24, 37, 61, 0.11);
+        --shadow-sm: 0 8px 22px rgba(24, 37, 61, 0.08);
+        --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
       }
       * { box-sizing: border-box; }
       html, body {
         margin: 0;
         min-height: 100%;
         background:
-          radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 30%),
-          radial-gradient(circle at right center, rgba(180, 83, 9, 0.12), transparent 22%),
-          linear-gradient(180deg, #f8f4ee 0%, #efe7dc 100%);
+          radial-gradient(circle at top left, rgba(31, 94, 216, 0.18), transparent 32%),
+          radial-gradient(circle at 82% 18%, rgba(14, 122, 114, 0.10), transparent 20%),
+          radial-gradient(circle at right center, rgba(173, 103, 8, 0.12), transparent 24%),
+          linear-gradient(180deg, #f8f3eb 0%, #ece3d7 52%, #e5dacc 100%);
         color: var(--ink);
-        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
       }
       body { min-height: 100vh; }
       body.has-mobile-panel-open {
@@ -109,9 +117,11 @@ def render_multi_country_map_html(
         height: 100%;
         overflow-y: auto;
         padding: 24px;
-        border: 1px solid var(--surface-edge);
+        border: 1px solid var(--surface-edge-strong);
         border-radius: 28px;
-        background: linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(246, 241, 233, 0.92));
+        background:
+          var(--surface-wash),
+          linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(245, 239, 230, 0.92));
         backdrop-filter: blur(18px);
         box-shadow: var(--shadow-lg);
       }
@@ -153,7 +163,7 @@ def render_multi_country_map_html(
         gap: 10px;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(37, 99, 235, 0.12);
+        background: rgba(31, 94, 216, 0.10);
         color: var(--blue);
         font-size: 12px;
         font-weight: 700;
@@ -162,15 +172,18 @@ def render_multi_country_map_html(
       }
       h1 {
         margin: 16px 0 10px;
-        font-family: "Avenir Next", "Segoe UI Semibold", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-display);
         font-size: clamp(32px, 4vw, 44px);
-        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 0.98;
       }
       .lede {
         margin: 0 0 22px;
         color: var(--muted);
         font-size: 15px;
-        line-height: 1.7;
+        line-height: 1.75;
+        max-width: 60ch;
       }
       .stats-grid {
         display: grid;
@@ -182,13 +195,42 @@ def render_multi_country_map_html(
       .panel-card,
       .floating-legend,
       .map-topbar,
-      .map-status {
+      .map-status,
+      .focus-card {
         border: 1px solid var(--surface-edge);
         background: var(--surface);
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow-md);
       }
-      .stat-card { padding: 16px; border-radius: 18px; }
+      .stat-card,
+      .panel-card,
+      .floating-legend,
+      .map-topbar,
+      .map-status,
+      .focus-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-card::before,
+      .panel-card::before,
+      .floating-legend::before,
+      .map-topbar::before,
+      .map-status::before,
+      .focus-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
+        pointer-events: none;
+      }
+      .stat-card {
+        padding: 16px;
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)),
+          var(--surface);
+      }
       .stat-label {
         display: block;
         color: var(--muted);
@@ -258,7 +300,7 @@ def render_multi_country_map_html(
       .basemap-button {
         appearance: none;
         border: 1px solid rgba(20, 33, 61, 0.12);
-        background: rgba(255, 255, 255, 0.88);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 244, 238, 0.92));
         color: var(--ink);
         border-radius: 999px;
         font: inherit;
@@ -271,7 +313,7 @@ def render_multi_country_map_html(
       .inline-button:hover,
       .basemap-button:hover {
         transform: translateY(-1px);
-        box-shadow: 0 8px 24px rgba(20, 33, 61, 0.10);
+        box-shadow: var(--shadow-sm);
       }
       .chip-toggle {
         display: inline-flex;
@@ -419,7 +461,9 @@ def render_multi_country_map_html(
         padding: 12px 14px;
         border: 1px solid rgba(20, 33, 61, 0.10);
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.76);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
+          rgba(255, 255, 255, 0.76);
       }
       .search-result {
         cursor: pointer;
@@ -464,7 +508,7 @@ def render_multi_country_map_html(
       }
       .layer-card.is-enabled {
         border-color: rgba(37, 99, 235, 0.22);
-        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+        box-shadow: 0 16px 34px rgba(31, 94, 216, 0.10);
       }
       .layer-card-head {
         display: flex;
@@ -615,6 +659,9 @@ def render_multi_country_map_html(
         align-items: center;
         padding: 12px;
         border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          var(--surface);
       }
       .map-topbar-main {
         display: flex;
@@ -633,6 +680,9 @@ def render_multi_country_map_html(
         overflow: auto;
         padding: 16px;
         border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          var(--surface);
       }
       .legend-head {
         display: flex;
@@ -712,6 +762,9 @@ def render_multi_country_map_html(
         border-radius: 999px;
         color: var(--muted);
         font-size: 12px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0)),
+          var(--surface);
       }
       .focus-card {
         position: absolute;

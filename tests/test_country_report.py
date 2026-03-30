@@ -215,6 +215,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("100 years", map_html)
             self.assertIn("time_year_bp", map_html)
             self.assertIn("Research Workspace", map_html)
+            self.assertIn("--font-display:", map_html)
+            self.assertIn("font-family: var(--font-body);", map_html)
             self.assertIn("id=\"topbar-state-pill\"", map_html)
             self.assertIn("__TITLE__ map".replace("__TITLE__", "Nordic Countries"), map_html)
             self.assertIn("id=\"section-nav\"", map_html)
