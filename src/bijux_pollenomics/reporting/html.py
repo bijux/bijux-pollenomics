@@ -248,6 +248,41 @@ def render_multi_country_map_html(
         font-size: 13px;
         font-weight: 600;
       }
+      .topbar-context {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+      .topbar-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .topbar-title-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .topbar-title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .topbar-state-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
       .inline-button.is-primary,
       .toolbar-button.is-primary,
       .preset-button.is-active,
@@ -384,6 +419,12 @@ def render_multi_country_map_html(
         align-items: center;
         padding: 12px;
         border-radius: 20px;
+      }
+      .map-topbar-main {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
       }
       .sidebar.is-collapsed ~ .map-stage .map-topbar { left: 16px; }
       .floating-legend {
@@ -553,6 +594,9 @@ def render_multi_country_map_html(
           flex-direction: column;
           align-items: stretch;
         }
+        .map-topbar-main {
+          justify-content: space-between;
+        }
         .topbar-row,
         .map-actions {
           justify-content: space-between;
@@ -593,6 +637,17 @@ def render_multi_country_map_html(
           left: 8px;
           right: 8px;
           top: 8px;
+        }
+        .map-topbar-main {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+        .topbar-title {
+          font-size: 14px;
+        }
+        .topbar-state-pill {
+          width: fit-content;
         }
         .floating-legend {
           right: 8px;
@@ -709,12 +764,21 @@ def render_multi_country_map_html(
       </aside>
       <main class="map-stage">
         <div class="map-topbar">
-          <div class="topbar-row">
-            <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
-            <div class="basemap-switch">
-              <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
-              <button class="basemap-button" type="button" data-basemap="light">Light</button>
-              <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+          <div class="map-topbar-main">
+            <div class="topbar-context">
+              <span class="topbar-label">Research Workspace</span>
+              <div class="topbar-title-row">
+                <span class="topbar-title">__TITLE__ map</span>
+                <span id="topbar-state-pill" class="topbar-state-pill">4 countries · 0 layers · 0 visible points</span>
+              </div>
+            </div>
+            <div class="topbar-row">
+              <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
+              <div class="basemap-switch">
+                <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
+                <button class="basemap-button" type="button" data-basemap="light">Light</button>
+                <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+              </div>
             </div>
           </div>
           <div class="map-actions">
@@ -804,6 +868,7 @@ def render_multi_country_map_html(
       const countrySummary = document.getElementById('country-summary');
       const layerSummary = document.getElementById('layer-summary');
       const activeSummary = document.getElementById('active-summary');
+      const topbarStatePill = document.getElementById('topbar-state-pill');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
       const cursorReadout = document.getElementById('cursor-readout');
@@ -1150,6 +1215,7 @@ def render_multi_country_map_html(
         statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
+        topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
         layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
         ALL_LAYERS.forEach((layer) => {
