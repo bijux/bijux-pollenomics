@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import csv
-import json
 import re
 from dataclasses import dataclass
 from datetime import date
-from io import StringIO, TextIOWrapper
+from io import TextIOWrapper
 from pathlib import Path
 from zipfile import ZipFile
 

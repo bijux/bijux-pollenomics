@@ -13,6 +13,7 @@ from bijux_pollenomics.data_downloader.landclim import (
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
     landclim_i_site_records,
+    parse_coordinate,
 )
 
 
@@ -132,6 +133,15 @@ class LandClimDataTests(unittest.TestCase):
         geometry = grid_geometry_from_nw_cell_label("17°E 60°N")
         self.assertIsNotNone(geometry)
         self.assertEqual(feature_key_from_geometry(geometry), feature_key_from_center(17.5, 59.5))
+
+    def test_parse_coordinate_supports_decimal_and_dms_inputs(self) -> None:
+        self.assertEqual(parse_coordinate("59.5"), 59.5)
+        self.assertEqual(parse_coordinate("59.30.00N"), 59.5)
+        self.assertEqual(parse_coordinate("17.30.00E"), 17.5)
+        self.assertEqual(parse_coordinate("17.30.00W"), -17.5)
+        self.assertEqual(parse_coordinate("59.30.00s"), -59.5)
+        self.assertIsNone(parse_coordinate("59.30N"))
+        self.assertIsNone(parse_coordinate(""))
 
 
 def write_landclim_ii_zip(path: Path, rows: list[dict[str, str]]) -> None:
