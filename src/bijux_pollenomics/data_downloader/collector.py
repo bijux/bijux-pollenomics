@@ -4,7 +4,7 @@ import shutil
 from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
-from typing import Iterable
+from typing import Callable, Iterable
 
 from .aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
@@ -18,6 +18,48 @@ from ..settings import DEFAULT_AADR_VERSION, NORDIC_BBOX
 
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
+
+
+@dataclass(frozen=True)
+class ContextSourceSpec:
+    name: str
+    output_dir_name: str
+    requires_bbox: bool
+    count_attributes: tuple[tuple[str, str], ...]
+
+
+CONTEXT_SOURCE_SPECS = {
+    "landclim": ContextSourceSpec(
+        name="landclim",
+        output_dir_name="landclim",
+        requires_bbox=True,
+        count_attributes=(
+            ("landclim_site_count", "site_count"),
+            ("landclim_grid_cell_count", "grid_cell_count"),
+        ),
+    ),
+    "neotoma": ContextSourceSpec(
+        name="neotoma",
+        output_dir_name="neotoma",
+        requires_bbox=True,
+        count_attributes=(("neotoma_point_count", "point_count"),),
+    ),
+    "raa": ContextSourceSpec(
+        name="raa",
+        output_dir_name="raa",
+        requires_bbox=False,
+        count_attributes=(
+            ("raa_total_site_count", "total_site_count"),
+            ("raa_heritage_site_count", "heritage_site_count"),
+        ),
+    ),
+    "sead": ContextSourceSpec(
+        name="sead",
+        output_dir_name="sead",
+        requires_bbox=True,
+        count_attributes=(("sead_point_count", "point_count"),),
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -49,21 +91,15 @@ def collect_data(
 
     selected_sources = normalize_requested_sources(sources)
 
-    aadr_file_count = 0
-    landclim_site_count = 0
-    landclim_grid_cell_count = 0
-    neotoma_point_count = 0
-    sead_point_count = 0
-    raa_total_site_count = 0
-    raa_heritage_site_count = 0
+    counts = initialize_source_counts()
     boundary_source: str | None = None
 
     if "aadr" in selected_sources:
         reset_output_dir(output_root / "aadr")
         aadr_report = download_aadr_anno_files(output_root=output_root / "aadr", version=version)
-        aadr_file_count = len(aadr_report.downloaded_files)
+        counts["aadr_file_count"] = len(aadr_report.downloaded_files)
 
-    need_boundaries = any(source in selected_sources for source in ("boundaries", "landclim", "neotoma", "sead", "raa"))
+    need_boundaries = any(source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS))
     country_boundaries: dict[str, dict[str, object]] | None = None
     if need_boundaries:
         if "boundaries" in selected_sources:
@@ -78,42 +114,18 @@ def collect_data(
                 country_boundaries = fetch_country_boundaries()
                 boundary_source = "network"
 
-    if "landclim" in selected_sources and country_boundaries is not None:
-        reset_output_dir(output_root / "landclim")
-        landclim_report = collect_landclim_data(
-            output_root=output_root / "landclim",
-            country_boundaries=country_boundaries,
-            bbox=NORDIC_BBOX,
-        )
-        landclim_site_count = landclim_report.site_count
-        landclim_grid_cell_count = landclim_report.grid_cell_count
-
-    if "neotoma" in selected_sources and country_boundaries is not None:
-        reset_output_dir(output_root / "neotoma")
-        neotoma_report = collect_neotoma_data(
-            output_root=output_root / "neotoma",
-            country_boundaries=country_boundaries,
-            bbox=NORDIC_BBOX,
-        )
-        neotoma_point_count = neotoma_report.point_count
-
-    if "sead" in selected_sources and country_boundaries is not None:
-        reset_output_dir(output_root / "sead")
-        sead_report = collect_sead_data(
-            output_root=output_root / "sead",
-            country_boundaries=country_boundaries,
-            bbox=NORDIC_BBOX,
-        )
-        sead_point_count = sead_report.point_count
-
-    if "raa" in selected_sources and country_boundaries is not None:
-        reset_output_dir(output_root / "raa")
-        raa_report = collect_raa_data(
-            output_root=output_root / "raa",
-            country_boundaries=country_boundaries,
-        )
-        raa_total_site_count = raa_report.total_site_count
-        raa_heritage_site_count = raa_report.heritage_site_count
+    if country_boundaries is not None:
+        for source_name in selected_sources:
+            spec = CONTEXT_SOURCE_SPECS.get(source_name)
+            if spec is None:
+                continue
+            counts.update(
+                collect_context_source(
+                    spec=spec,
+                    output_root=output_root,
+                    country_boundaries=country_boundaries,
+                )
+            )
 
     summary_path = output_root / "collection_summary.json"
     summary = DataCollectionSummary(
@@ -122,13 +134,13 @@ def collect_data(
         version=version,
         collected_sources=selected_sources,
         boundary_source=boundary_source,
-        aadr_file_count=aadr_file_count,
-        landclim_site_count=landclim_site_count,
-        landclim_grid_cell_count=landclim_grid_cell_count,
-        neotoma_point_count=neotoma_point_count,
-        sead_point_count=sead_point_count,
-        raa_total_site_count=raa_total_site_count,
-        raa_heritage_site_count=raa_heritage_site_count,
+        aadr_file_count=counts["aadr_file_count"],
+        landclim_site_count=counts["landclim_site_count"],
+        landclim_grid_cell_count=counts["landclim_grid_cell_count"],
+        neotoma_point_count=counts["neotoma_point_count"],
+        sead_point_count=counts["sead_point_count"],
+        raa_total_site_count=counts["raa_total_site_count"],
+        raa_heritage_site_count=counts["raa_heritage_site_count"],
         summary_path=summary_path,
     )
     write_collection_summary(summary)
@@ -138,16 +150,65 @@ def collect_data(
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
-        aadr_file_count=aadr_file_count,
-        landclim_site_count=landclim_site_count,
-        landclim_grid_cell_count=landclim_grid_cell_count,
-        neotoma_point_count=neotoma_point_count,
-        sead_point_count=sead_point_count,
-        raa_total_site_count=raa_total_site_count,
-        raa_heritage_site_count=raa_heritage_site_count,
+        aadr_file_count=counts["aadr_file_count"],
+        landclim_site_count=counts["landclim_site_count"],
+        landclim_grid_cell_count=counts["landclim_grid_cell_count"],
+        neotoma_point_count=counts["neotoma_point_count"],
+        sead_point_count=counts["sead_point_count"],
+        raa_total_site_count=counts["raa_total_site_count"],
+        raa_heritage_site_count=counts["raa_heritage_site_count"],
         boundary_source=boundary_source,
         summary_path=summary_path,
     )
+
+
+def initialize_source_counts() -> dict[str, int]:
+    """Create a zeroed count mapping for every tracked source metric."""
+    return {
+        "aadr_file_count": 0,
+        "landclim_site_count": 0,
+        "landclim_grid_cell_count": 0,
+        "neotoma_point_count": 0,
+        "sead_point_count": 0,
+        "raa_total_site_count": 0,
+        "raa_heritage_site_count": 0,
+    }
+
+
+def collect_context_source(
+    spec: ContextSourceSpec,
+    output_root: Path,
+    country_boundaries: dict[str, dict[str, object]],
+) -> dict[str, int]:
+    """Collect one context source and return the counts it contributes."""
+    source_output_root = Path(output_root) / spec.output_dir_name
+    reset_output_dir(source_output_root)
+    collect_function = resolve_context_collect_function(spec.name)
+    collect_kwargs = {
+        "output_root": source_output_root,
+        "country_boundaries": country_boundaries,
+    }
+    if spec.requires_bbox:
+        collect_kwargs["bbox"] = NORDIC_BBOX
+    report = collect_function(**collect_kwargs)
+    return {
+        summary_field: int(getattr(report, report_field))
+        for summary_field, report_field in spec.count_attributes
+    }
+
+
+def resolve_context_collect_function(name: str) -> Callable[..., object]:
+    """Resolve a context-source collector function by tracked source name."""
+    functions = {
+        "landclim": collect_landclim_data,
+        "neotoma": collect_neotoma_data,
+        "raa": collect_raa_data,
+        "sead": collect_sead_data,
+    }
+    try:
+        return functions[name]
+    except KeyError as exc:
+        raise ValueError(f"Unsupported context source: {name}") from exc
 
 
 def normalize_requested_sources(sources: Iterable[str]) -> tuple[str, ...]:
