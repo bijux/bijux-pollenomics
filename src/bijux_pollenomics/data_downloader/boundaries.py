@@ -46,7 +46,11 @@ def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] |
         path = raw_dir / f"{slugify(country)}.geojson"
         if not path.exists():
             return None
-        country_boundaries[country] = json.loads(path.read_text(encoding="utf-8"))
+        country_boundaries[country] = validate_boundary_collection(
+            json.loads(path.read_text(encoding="utf-8")),
+            path=path,
+            country=country,
+        )
     return country_boundaries
 
 
@@ -80,6 +84,18 @@ def build_country_boundary_collection(
     if not country_features:
         raise ValueError(f"Natural Earth 10m boundary not found for {country_code}")
     return {"type": "FeatureCollection", "features": country_features}
+
+
+def validate_boundary_collection(payload: object, path: Path, country: str) -> dict[str, object]:
+    """Validate one stored boundary file before it is reused locally."""
+    if not isinstance(payload, dict):
+        raise ValueError(f"Boundary payload must be a GeoJSON object for {country}: {path}")
+    if payload.get("type") != "FeatureCollection":
+        raise ValueError(f"Boundary payload must be a FeatureCollection for {country}: {path}")
+    features = payload.get("features")
+    if not isinstance(features, list):
+        raise ValueError(f"Boundary payload must contain a feature list for {country}: {path}")
+    return payload
 
 
 def build_combined_country_boundaries(

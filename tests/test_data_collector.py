@@ -150,6 +150,18 @@ class DataCollectorTests(unittest.TestCase):
             collect_neotoma.assert_called_once()
             self.assertEqual(report.boundary_source, "local")
 
+    def test_collect_data_rejects_invalid_local_boundaries(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            raw_dir = output_root / "boundaries" / "raw"
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            invalid_payload = {"type": "Polygon"}
+            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
+                (raw_dir / filename).write_text(json.dumps(invalid_payload), encoding="utf-8")
+
+            with self.assertRaisesRegex(ValueError, "FeatureCollection"):
+                collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+
     def test_collect_data_collects_landclim_with_boundaries(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
