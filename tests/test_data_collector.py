@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 from unittest.mock import patch
 
-from bijux_pollen.data_downloader.collector import (
+from bijux_pollenomics.data_downloader.collector import (
     AVAILABLE_SOURCES,
     collect_data,
     normalize_requested_sources,
@@ -27,12 +27,12 @@ class DataCollectorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with patch("bijux_pollen.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
-                patch("bijux_pollen.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollen.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
-                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
-                patch("bijux_pollen.data_downloader.collector.collect_sead_data") as collect_sead, \
-                patch("bijux_pollen.data_downloader.collector.collect_raa_data") as collect_raa:
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
+                patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
                 collect_neotoma.return_value.point_count = 6
@@ -60,11 +60,11 @@ class DataCollectorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with patch("bijux_pollen.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
-                patch("bijux_pollen.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
-                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
-                patch("bijux_pollen.data_downloader.collector.collect_sead_data") as collect_sead, \
-                patch("bijux_pollen.data_downloader.collector.collect_raa_data") as collect_raa:
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 collect_boundaries.return_value = ({"Sweden": {"features": []}}, object())
                 collect_neotoma.return_value.point_count = 6
@@ -89,8 +89,8 @@ class DataCollectorTests(unittest.TestCase):
             stale_file.parent.mkdir(parents=True, exist_ok=True)
             stale_file.write_text("stale", encoding="utf-8")
 
-            with patch("bijux_pollen.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
 
                 def write_fresh_dataset(*, output_root: Path, country_boundaries: dict[str, object], bbox: tuple[float, ...]):
@@ -111,7 +111,7 @@ class DataCollectorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "custom-data"
 
-            with patch("bijux_pollen.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
                 download_aadr.return_value.downloaded_files = ()
                 collect_data(output_root=output_root, sources=("aadr",), version="v62.0")
 
@@ -131,8 +131,8 @@ class DataCollectorTests(unittest.TestCase):
             for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
                 (raw_dir / filename).write_text(json.dumps(boundary_payload), encoding="utf-8")
 
-            with patch("bijux_pollen.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollen.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
                 collect_neotoma.return_value.point_count = 6
                 report = collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
 

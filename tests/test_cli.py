@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollen.cli import main
+from bijux_pollenomics.cli import main
 
 
 class CliTests(unittest.TestCase):

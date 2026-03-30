@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollen.reporting import (
+from bijux_pollenomics.reporting import (
     generate_country_report,
     generate_multi_country_map,
     generate_published_reports,
