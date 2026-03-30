@@ -87,6 +87,9 @@ def render_multi_country_map_html(
         font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       }
       body { min-height: 100vh; }
+      body.has-mobile-panel-open {
+        overflow: hidden;
+      }
       .app-shell { position: relative; min-height: 100vh; }
       .sidebar {
         position: absolute;
@@ -111,6 +114,36 @@ def render_multi_country_map_html(
         background: linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(246, 241, 233, 0.92));
         backdrop-filter: blur(18px);
         box-shadow: var(--shadow-lg);
+      }
+      .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .sidebar-heading {
+        min-width: 0;
+      }
+      .mobile-panel-close {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        min-width: 88px;
+      }
+      .mobile-scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 1180;
+        border: 0;
+        background: rgba(20, 33, 61, 0.28);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+      .mobile-scrim.is-visible {
+        opacity: 1;
+        pointer-events: auto;
       }
       .map-stage { position: relative; min-height: 100vh; }
       #map { height: 100vh; width: 100%; }
@@ -767,6 +800,11 @@ def render_multi_country_map_html(
         }
       }
       @media (max-width: 900px) {
+        body.has-mobile-panel-open .map-topbar,
+        body.has-mobile-panel-open .floating-legend,
+        body.has-mobile-panel-open .map-status {
+          filter: blur(1px);
+        }
         .sidebar {
           position: fixed;
           left: 10px;
@@ -782,6 +820,9 @@ def render_multi_country_map_html(
         .sidebar-inner {
           padding: 18px;
           border-radius: 24px;
+        }
+        .mobile-panel-close {
+          display: inline-flex;
         }
         .map-topbar {
           top: 10px;
@@ -884,12 +925,17 @@ def render_multi_country_map_html(
     <div class="app-shell">
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-inner">
-          <span class="eyebrow">Nordic Multi-Evidence Map</span>
-          <h1>__TITLE__</h1>
-          <p class="lede">
-            A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
-            AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
-          </p>
+          <div class="sidebar-header">
+            <div class="sidebar-heading">
+              <span class="eyebrow">Nordic Multi-Evidence Map</span>
+              <h1>__TITLE__</h1>
+              <p class="lede">
+                A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
+                AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
+              </p>
+            </div>
+            <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
+          </div>
           <section class="stats-grid">
             <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
             <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
@@ -992,6 +1038,7 @@ def render_multi_country_map_html(
           </div>
         </div>
       </aside>
+      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close filters" aria-hidden="true"></button>
       <main class="map-stage">
         <div class="map-topbar">
           <div class="map-topbar-main">
@@ -1080,6 +1127,8 @@ def render_multi_country_map_html(
       let visiblePointEntries = [];
       const sidebar = document.getElementById('sidebar');
       const sidebarInner = document.querySelector('.sidebar-inner');
+      const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
+      const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
       const legendBody = document.getElementById('legend-body');
@@ -1266,9 +1315,18 @@ def render_multi_country_map_html(
         }
         panelToggleButton.textContent = collapsed ? 'Show panel' : 'Hide panel';
       }
+      function syncMobilePanelState() {
+        const mobileOpen = mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed');
+        panelToggleButton.setAttribute('aria-expanded', String(!sidebar.classList.contains('is-collapsed')));
+        panelToggleButton.setAttribute('aria-controls', 'sidebar');
+        mobileScrim.classList.toggle('is-visible', mobileOpen);
+        mobileScrim.setAttribute('aria-hidden', mobileOpen ? 'false' : 'true');
+        document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
+      }
       function setPanelCollapsed(collapsed, persist = true) {
         sidebar.classList.toggle('is-collapsed', collapsed);
         updatePanelToggleLabel();
+        syncMobilePanelState();
         window.setTimeout(() => map.invalidateSize(), 180);
         if (persist) syncHashState();
       }
@@ -1740,6 +1798,8 @@ def render_multi_country_map_html(
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
+      mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
       timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
       timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
@@ -1772,6 +1832,11 @@ def render_multi_country_map_html(
       map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
       map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {
+          setPanelCollapsed(true);
+        }
+      });
       mobileLayoutQuery.addEventListener('change', () => {
         if (panelPreferenceFromHash() === null) {
           setPanelCollapsed(defaultPanelCollapsed(), false);
