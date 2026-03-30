@@ -265,6 +265,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Focused Record", map_html)
             self.assertIn("setFocusState", map_html)
             self.assertIn("renderFocusCard", map_html)
+            self.assertIn("id=\"center-readout\"", map_html)
+            self.assertIn("status-pill-label", map_html)
             self.assertIn("id=\"floating-legend\"", map_html)
             self.assertIn("right: 16px;", map_html)
             self.assertIn("width: min(300px, calc(100vw - 32px));", map_html)

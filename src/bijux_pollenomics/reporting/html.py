@@ -1046,16 +1046,33 @@ def render_multi_country_map_html(
         right: 16px;
         bottom: 24px;
         z-index: 1100;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, auto));
         gap: 16px;
         padding: 12px 16px;
-        border-radius: 999px;
+        border-radius: 22px;
         color: var(--muted);
         font-size: 12px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0)),
           var(--surface);
+      }
+      .status-pill {
+        display: grid;
+        gap: 3px;
+        min-width: 92px;
+      }
+      .status-pill-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .status-pill-value {
+        color: var(--ink-soft);
+        font-size: 12px;
+        font-weight: 700;
       }
       .focus-card {
         position: absolute;
@@ -1220,7 +1237,7 @@ def render_multi_country_map_html(
           right: 12px;
           bottom: 12px;
           border-radius: 18px;
-          justify-content: space-between;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
         }
         .focus-card {
           left: 12px;
@@ -1300,7 +1317,7 @@ def render_multi_country_map_html(
           right: 10px;
           bottom: 10px;
           border-radius: 18px;
-          justify-content: space-between;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
       }
@@ -1364,6 +1381,7 @@ def render_multi_country_map_html(
           bottom: 8px;
           gap: 10px;
           padding: 10px 12px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           font-size: 11px;
         }
         .inline-button,
@@ -1588,9 +1606,10 @@ def render_multi_country_map_html(
           </div>
         </section>
         <div class="map-status">
-          <span id="zoom-readout">Zoom --</span>
-          <span id="cursor-readout">Cursor --</span>
-          <span id="selection-readout">Visible --</span>
+          <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">--</span></div>
         </div>
       </main>
     </div>
@@ -1713,6 +1732,7 @@ def render_multi_country_map_html(
       const focusCloseButton = document.getElementById('focus-close');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
+      const centerReadout = document.getElementById('center-readout');
       const cursorReadout = document.getElementById('cursor-readout');
       const statVisiblePoints = document.getElementById('stat-visible-points');
       const statVisibleLayers = document.getElementById('stat-visible-layers');
@@ -2414,7 +2434,7 @@ def render_multi_country_map_html(
           ? `${datedVisibleCount} dated records are visible in the active BP window.`
           : 'No dated records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
-        selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
+        selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
         layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
@@ -2622,8 +2642,12 @@ def render_multi_country_map_html(
           map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
         }
       });
-      map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
-      map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
+      map.on('zoomend', () => {
+        zoomReadout.textContent = map.getZoom().toFixed(1);
+        centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
+      });
+      map.on('moveend', () => { centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`; });
+      map.on('mousemove', (event) => { cursorReadout.textContent = `${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
       document.addEventListener('keydown', (event) => {
         if (event.key === '?') {
@@ -2671,7 +2695,8 @@ def render_multi_country_map_html(
       setLegendCollapsed(legendCollapsed, false);
       syncSectionNavWithScroll();
       resetView();
-      zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
+      zoomReadout.textContent = map.getZoom().toFixed(1);
+      centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
     </script>
   </body>
 </html>
