@@ -24,7 +24,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Output Files
 
-- Shared interactive map: [`Nordic Countries map`](../nordic/nordic_aadr_v62.0_map.html)
+- Shared interactive map: <a href="../nordic/nordic_aadr_v62.0_map.html">Nordic Evidence Atlas</a>
 - Full sample inventory: [`norway_aadr_v62.0_samples.csv`](./norway_aadr_v62.0_samples.csv)
 - Locality summary: [`norway_aadr_v62.0_localities.csv`](./norway_aadr_v62.0_localities.csv)
 - Map-ready GeoJSON: [`norway_aadr_v62.0_samples.geojson`](./norway_aadr_v62.0_samples.geojson)

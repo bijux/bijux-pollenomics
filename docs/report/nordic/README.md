@@ -1,4 +1,4 @@
-# Nordic Countries Research Map
+# Nordic Evidence Atlas
 
 This shared interactive map bundle was generated on `2026-03-31`.
 It combines AADR `v62.0` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory.
