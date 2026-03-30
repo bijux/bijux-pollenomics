@@ -135,7 +135,7 @@ These points are easy to miss and matter in review:
 
 The main checked-in publication artifacts are:
 
-- shared Nordic map: [`docs/report/nordic/nordic_aadr_v62.0_map.html`](docs/report/nordic/nordic_aadr_v62.0_map.html)
+- Nordic Evidence Atlas: [`docs/report/nordic/nordic_aadr_v62.0_map.html`](docs/report/nordic/nordic_aadr_v62.0_map.html)
 - shared Nordic report index: [`docs/report/nordic/README.md`](docs/report/nordic/README.md)
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)

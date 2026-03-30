@@ -134,7 +134,7 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
-    return f"""# {title} Research Map
+    return f"""# {title}
 
 This shared interactive map bundle was generated on `{generated_on}`.
 It combines AADR `{version}` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory.

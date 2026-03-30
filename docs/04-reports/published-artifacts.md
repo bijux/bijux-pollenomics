@@ -13,9 +13,9 @@ The `docs/report/` tree contains checked-in report artifacts used both for revie
 
 These artifacts are generated outputs. They are not maintained by hand.
 
-## Shared Map Bundle
+## Nordic Evidence Atlas Bundle
 
-The currently checked-in shared bundle is `docs/report/nordic/`. It includes:
+The currently checked-in Nordic Evidence Atlas bundle is `docs/report/nordic/`. It includes:
 
 - a combined sample GeoJSON
 - the interactive HTML map

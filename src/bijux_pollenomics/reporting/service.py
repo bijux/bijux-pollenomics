@@ -169,7 +169,7 @@ def generate_published_reports(
     version_dir: Path,
     countries: Iterable[str],
     output_root: Path,
-    title: str = "Nordic Countries",
+    title: str = "Nordic Evidence Atlas",
     slug: str = "nordic",
     context_root: Path | None = None,
 ) -> PublishedReportsReport:

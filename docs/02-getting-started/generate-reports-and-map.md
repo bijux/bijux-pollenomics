@@ -23,7 +23,7 @@ Equivalent direct command:
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data
 ```
 
-That command is the direct match for the checked-in publication workflow. It rebuilds the current shared Nordic map bundle and the four current country bundles in one pass.
+That command is the direct match for the checked-in publication workflow. It rebuilds the current Nordic Evidence Atlas bundle and the four current country bundles in one pass.
 
 ## Which Command To Use
 
@@ -33,10 +33,10 @@ That command is the direct match for the checked-in publication workflow. It reb
 
 Those commands overlap, but they are not interchangeable.
 
-## Shared Nordic Map
+## Nordic Evidence Atlas
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Evidence Atlas" --context-root data
 ```
 
 That command reads:
@@ -44,7 +44,7 @@ That command reads:
 - AADR `.anno` files from `data/aadr/v62.0/`
 - normalized context layers from `data/boundaries/`, `data/landclim/`, `data/neotoma/`, `data/sead/`, and `data/raa/`
 
-and writes the shared Nordic bundle under `docs/report/nordic/`.
+and writes the Nordic Evidence Atlas bundle under `docs/report/nordic/`.
 
 What it does not do:
 
@@ -55,10 +55,10 @@ What it does not do:
 ## Country Reports
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
 
 Each `report-country` command writes one country bundle under `docs/report/<country>/`.

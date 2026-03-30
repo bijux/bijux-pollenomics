@@ -57,7 +57,7 @@ def render_multi_country_map_html(
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>__TITLE__ Research Map</title>
+    <title>__TITLE__</title>
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/leaflet/leaflet.css">
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.css">
     <link rel="stylesheet" href="__ASSET_BASE_PATH__/markercluster/MarkerCluster.Default.css">
@@ -1555,7 +1555,7 @@ def render_multi_country_map_html(
             <div class="topbar-context">
               <span class="topbar-label">Research Workspace</span>
               <div class="topbar-title-row">
-                <span class="topbar-title">__TITLE__ map</span>
+                <span class="topbar-title">__TITLE__</span>
                 <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
               </div>
             </div>
@@ -1576,7 +1576,7 @@ def render_multi_country_map_html(
             <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
           </div>
         </div>
-        <div id="map" aria-label="__TITLE__ research map"></div>
+        <div id="map" aria-label="__TITLE__"></div>
         <div id="empty-state" class="empty-state" hidden>
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>

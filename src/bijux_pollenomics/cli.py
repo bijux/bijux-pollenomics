@@ -15,7 +15,7 @@ def build_parser() -> argparse.ArgumentParser:
     """Build the command-line interface."""
     parser = argparse.ArgumentParser(
         prog="bijux-pollenomics",
-        description="Generate Nordic country reports and shared research maps from tracked data sources.",
+        description="Generate Nordic country reports and the Nordic Evidence Atlas from tracked data sources.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -54,7 +54,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     multi_map_parser = subparsers.add_parser(
         "report-multi-country-map",
-        help="Build one interactive research map for multiple countries with country toggles.",
+        help="Build the Nordic Evidence Atlas for multiple countries with country toggles.",
     )
     multi_map_parser.add_argument(
         "countries",
@@ -68,8 +68,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     multi_map_parser.add_argument(
         "--title",
-        default="Nordic Countries",
-        help="Human-readable title shown in the shared map. Default: Nordic Countries",
+        default="Nordic Evidence Atlas",
+        help="Human-readable title shown in the shared map. Default: Nordic Evidence Atlas",
     )
     multi_map_parser.add_argument(
         "--aadr-root",
@@ -98,7 +98,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     publish_parser = subparsers.add_parser(
         "publish-reports",
-        help="Regenerate the current published shared map and country report bundles.",
+        help="Regenerate the current published Nordic Evidence Atlas bundle and country report bundles.",
     )
     publish_parser.add_argument(
         "--countries",
@@ -113,8 +113,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     publish_parser.add_argument(
         "--title",
-        default="Nordic Countries",
-        help="Human-readable shared map title. Default: Nordic Countries",
+        default="Nordic Evidence Atlas",
+        help="Human-readable shared map title. Default: Nordic Evidence Atlas",
     )
     publish_parser.add_argument(
         "--aadr-root",
@@ -201,7 +201,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             context_root=args.context_root,
         )
         print(
-            f"Wrote {report.title} research map with "
+            f"Wrote {report.title} with "
             f"{report.total_unique_samples} unique samples to {output_dir}"
         )
         return 0

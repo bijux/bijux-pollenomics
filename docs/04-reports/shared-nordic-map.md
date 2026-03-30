@@ -1,5 +1,5 @@
 ---
-title: Shared Nordic Map
+title: Nordic Evidence Atlas
 audience: mixed
 type: explanation
 status: canonical
@@ -7,9 +7,9 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Shared Nordic Map
+# Nordic Evidence Atlas
 
-The shared Nordic map is the main interactive product surface in this repository.
+The Nordic Evidence Atlas is the main interactive product surface in this repository.
 
 ## Current Behavior
 
@@ -26,7 +26,7 @@ The shared Nordic map is the main interactive product surface in this repository
 
 ## Interaction Model
 
-The current shared map is designed around one workflow:
+The current atlas is designed around one workflow:
 
 1. understand the active evidence stack and scope
 2. narrow the view by country, layer, time window, and distance settings
@@ -56,7 +56,7 @@ flowchart LR
 
 ## Why One Shared Map
 
-One shared map is better than multiple country-specific maps because readers can:
+One shared atlas is better than multiple country-specific maps because readers can:
 
 - compare countries quickly
 - keep one mental model for controls and layers

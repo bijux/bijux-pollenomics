@@ -112,7 +112,7 @@ nav:
   - Reports:
       - Overview: 04-reports/index.md
       - Country Reports: 04-reports/country-reports.md
-      - Shared Nordic Map: 04-reports/shared-nordic-map.md
+      - Nordic Evidence Atlas: 04-reports/shared-nordic-map.md
       - Published Artifacts: 04-reports/published-artifacts.md
   - Architecture:
       - Overview: 05-architecture/index.md

@@ -13,9 +13,9 @@ last_reviewed: 2026-03-30
 
 Allen Ancient DNA Resource. In this repository, the public `.anno` files are the tracked AADR input surface.
 
-## Shared Nordic Map
+## Nordic Evidence Atlas
 
-The multi-country interactive map published under `docs/report/nordic/`.
+The multi-country interactive atlas published under `docs/report/nordic/`.
 
 ## Country Report
 

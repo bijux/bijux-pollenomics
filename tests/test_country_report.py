@@ -135,7 +135,7 @@ class CountryReportTests(unittest.TestCase):
                 root,
                 "Sweden",
                 output,
-                map_reference=("Nordic Countries map", "../nordic/nordic_aadr_v62.0_map.html"),
+                map_reference=("Nordic Evidence Atlas", "../nordic/nordic_aadr_v62.0_map.html"),
             )
 
             readme_text = (output / "README.md").read_text(encoding="utf-8")
@@ -229,7 +229,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden", "Norway", "Finland"],
                 output_dir=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
             )
 
@@ -275,7 +275,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertNotIn("4 countries · 0 layers · 0 visible points", map_html)
             self.assertIn("basemap-preview--voyager", map_html)
             self.assertIn("Minimal contrast for evidence-first inspection.", map_html)
-            self.assertIn("__TITLE__ map".replace("__TITLE__", "Nordic Countries"), map_html)
+            self.assertIn("__TITLE__".replace("__TITLE__", "Nordic Evidence Atlas"), map_html)
             self.assertIn("id=\"section-nav\"", map_html)
             self.assertIn("data-section-target=\"layer-panel\"", map_html)
             self.assertIn("data-section-target=\"coverage-panel\"", map_html)
@@ -452,7 +452,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden"],
                 output_dir=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
                 context_root=context_root,
             )
@@ -480,7 +480,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("nordic_pollen_site_sequences.geojson", readme_text)
             self.assertIn("nordic_reveals_grid_cells.geojson", readme_text)
             self.assertIn("nordic_pollen_sites.geojson", readme_text)
-            self.assertIn("# Nordic Countries Research Map", readme_text)
+            self.assertIn("# Nordic Evidence Atlas", readme_text)
             self.assertTrue((output / "nordic_pollen_site_sequences.geojson").exists())
             self.assertTrue((output / "nordic_reveals_grid_cells.geojson").exists())
             self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
@@ -548,7 +548,7 @@ class CountryReportTests(unittest.TestCase):
                     version_dir=root,
                     countries=["Sweden"],
                     output_dir=output,
-                    title="Nordic Countries",
+                    title="Nordic Evidence Atlas",
                     slug="nordic",
                     context_root=context_root,
                 )
@@ -586,7 +586,7 @@ class CountryReportTests(unittest.TestCase):
                     version_dir=root,
                     countries=["Sweden"],
                     output_dir=output,
-                    title="Nordic Countries",
+                    title="Nordic Evidence Atlas",
                     slug="nordic",
                     context_root=context_root,
                 )
@@ -609,7 +609,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden"],
                 output_dir=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
             )
 
@@ -639,7 +639,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden", "Norway"],
                 output_root=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
                 context_root=context_root,
             )
@@ -668,7 +668,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden", "Norway"],
                 output_root=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
             )
             self.assertTrue((output / "norway").exists())
@@ -677,7 +677,7 @@ class CountryReportTests(unittest.TestCase):
                 version_dir=root,
                 countries=["Sweden"],
                 output_root=output,
-                title="Nordic Countries",
+                title="Nordic Evidence Atlas",
                 slug="nordic",
             )
 

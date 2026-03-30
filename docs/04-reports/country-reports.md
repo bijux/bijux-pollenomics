@@ -55,7 +55,7 @@ If a requested country has zero matching AADR samples in the selected release, t
 ## Generation Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Countries map" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic/nordic_aadr_v62.0_map.html"
 ```
 
 The same command pattern is used for Norway, Finland, and Denmark in the current checked-in outputs.

@@ -11,12 +11,12 @@ last_reviewed: 2026-03-31
 
 This is the canonical documentation home for `bijux-pollenomics`.
 
-The first page leads with the checked-in Nordic map because the map is the shortest way to inspect the repository’s current outputs: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
+The first page leads with the checked-in Nordic Evidence Atlas because the atlas is the shortest way to inspect the repository’s current outputs: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
 
-The current map groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
+The current atlas groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
 
 <div class="bijux-callout">
-  <strong>Start with the map.</strong> The rest of the docs explains exactly where its layers come from, which commands rebuild them, and which parts of the current behavior are still limited in scope.
+  <strong>Start with the atlas.</strong> The rest of the docs explains exactly where its layers come from, which commands rebuild it, and which parts of the current behavior are still limited in scope.
 </div>
 
 <div class="bijux-panel-grid">
@@ -31,14 +31,14 @@ The current map groups layers by role, exposes filter state in the URL, and show
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="report/nordic/nordic_aadr_v62.0_map.html">Open the Nordic map in its own page</a>
+  <a class="md-button md-button--primary" href="report/nordic/nordic_aadr_v62.0_map.html">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="03-data-guide/">Read the data guide</a>
   <a class="md-button" href="04-reports/">Read the reports guide</a>
   <a class="md-button" href="06-development/">Read the development workflow</a>
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="report/nordic/nordic_aadr_v62.0_map.html" title="Nordic research map"></iframe>
+  <iframe src="report/nordic/nordic_aadr_v62.0_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
 ## What This Documentation Set Explains
@@ -47,7 +47,7 @@ The current map groups layers by role, exposes filter state in the URL, and show
 flowchart LR
     Data[Tracked data tree] --> Prep[collect-data workflow]
     Prep --> Reports[Country reports]
-    Prep --> Map[Shared Nordic map]
+    Prep --> Map[Nordic Evidence Atlas]
     Reports --> Decisions[Sampling interpretation]
     Map --> Decisions
 ```
@@ -103,7 +103,7 @@ Use section index pages first when you are entering a topic for the first time. 
 
 ## Purpose
 
-This page explains the `bijux-pollenomics` documentation spine and routes readers to the checked-in map and the canonical docs that explain it.
+This page explains the `bijux-pollenomics` documentation spine and routes readers to the checked-in Nordic Evidence Atlas and the canonical docs that explain it.
 
 ## Stability
 
