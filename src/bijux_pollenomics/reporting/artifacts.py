@@ -123,10 +123,27 @@ def write_summary_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
+def resolve_map_asset_source_dir() -> Path:
+    """Validate the vendored map asset bundle before copying it."""
+    required_paths = (
+        MAP_ASSET_SOURCE_DIR,
+        MAP_ASSET_SOURCE_DIR / "leaflet" / "leaflet.css",
+        MAP_ASSET_SOURCE_DIR / "leaflet" / "leaflet.js",
+        MAP_ASSET_SOURCE_DIR / "markercluster" / "MarkerCluster.css",
+        MAP_ASSET_SOURCE_DIR / "markercluster" / "leaflet.markercluster.js",
+    )
+    missing = [path for path in required_paths if not path.exists()]
+    if missing:
+        missing_text = ", ".join(str(path) for path in missing)
+        raise FileNotFoundError(f"Vendored map asset bundle is incomplete: {missing_text}")
+    return MAP_ASSET_SOURCE_DIR
+
+
 def copy_map_assets(output_dir: Path) -> Path:
     """Copy bundled map UI assets into a report bundle directory."""
+    source_dir = resolve_map_asset_source_dir()
     destination = Path(output_dir) / "_map_assets"
     if destination.exists():
         shutil.rmtree(destination)
-    shutil.copytree(MAP_ASSET_SOURCE_DIR, destination)
+    shutil.copytree(source_dir, destination)
     return destination
