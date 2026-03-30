@@ -1148,6 +1148,12 @@ def render_multi_country_map_html(
         flex-wrap: wrap;
         gap: 10px;
       }
+      .focus-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
       .focus-link {
         display: inline-flex;
         align-items: center;
@@ -1600,6 +1606,10 @@ def render_multi_country_map_html(
             <button id="focus-close" class="toolbar-button focus-close" type="button">Clear</button>
           </div>
           <div id="focus-meta" class="focus-meta"></div>
+          <div class="focus-nav">
+            <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
+            <button id="focus-next" class="toolbar-button" type="button">Next</button>
+          </div>
           <div class="focus-actions">
             <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
             <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
@@ -1676,6 +1686,7 @@ def render_multi_country_map_html(
       let renderedPointGroups = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
+      let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
       const sidebarInner = document.querySelector('.sidebar-inner');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
@@ -1727,6 +1738,8 @@ def render_multi_country_map_html(
       const focusTitle = document.getElementById('focus-title');
       const focusSubtitle = document.getElementById('focus-subtitle');
       const focusMeta = document.getElementById('focus-meta');
+      const focusPreviousButton = document.getElementById('focus-previous');
+      const focusNextButton = document.getElementById('focus-next');
       const focusZoomButton = document.getElementById('focus-zoom');
       const focusSourceLink = document.getElementById('focus-source-link');
       const focusCloseButton = document.getElementById('focus-close');
@@ -1938,22 +1951,85 @@ def render_multi_country_map_html(
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
       }
+      function clearHighlightedPoint() {
+        if (!highlightedPointEntry || !highlightedPointEntry.marker) return;
+        const entry = highlightedPointEntry;
+        entry.marker.setStyle({
+          radius: entry.layer.key === 'aadr' ? 4.5 : 6,
+          weight: 1.3,
+          color: entry.layer.style.stroke,
+          fillColor: entry.layer.style.fill,
+          fillOpacity: 0.92,
+        });
+        highlightedPointEntry = null;
+      }
+      function highlightPointEntry(entry) {
+        clearHighlightedPoint();
+        if (!entry || !entry.marker) return;
+        entry.marker.setStyle({
+          radius: (entry.layer.key === 'aadr' ? 4.5 : 6) + 2,
+          weight: 2.4,
+          color: '#ffffff',
+          fillColor: entry.layer.style.fill,
+          fillOpacity: 1,
+        });
+        highlightedPointEntry = entry;
+      }
       function setFocusState(nextState) {
         focusState = nextState;
+        if (focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)) {
+          highlightPointEntry(visiblePointEntries[focusState.visiblePointIndex] || null);
+        } else {
+          clearHighlightedPoint();
+        }
         renderFocusCard();
       }
       function renderFocusCard() {
-        if (!focusState || !activeLayerKeys.has(focusState.layerKey)) {
+        const pointEntry = focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)
+          ? visiblePointEntries[focusState.visiblePointIndex]
+          : null;
+        if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry)) {
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
+          focusPreviousButton.disabled = true;
+          focusNextButton.disabled = true;
           return;
         }
         focusCard.hidden = false;
+        if (pointEntry) {
+          highlightPointEntry(pointEntry);
+        }
         focusTitle.textContent = focusState.title;
         focusSubtitle.textContent = focusState.subtitle;
         focusMeta.innerHTML = focusState.meta.map((row) => `<div class="focus-meta-row"><span class="focus-meta-label">${escapeHtml(row.label)}</span><span class="focus-meta-value">${escapeHtml(row.value)}</span></div>`).join('');
         focusSourceLink.hidden = !focusState.sourceUrl;
         focusSourceLink.href = focusState.sourceUrl || '#';
+        const canStep = focusState.kind === 'point' && visiblePointEntries.length > 1;
+        focusPreviousButton.disabled = !canStep;
+        focusNextButton.disabled = !canStep;
+      }
+      function focusPointAtVisibleIndex(index) {
+        const entry = visiblePointEntries[index];
+        if (!entry) return;
+        const meta = [
+          { label: 'Layer', value: entry.layer.label },
+          { label: 'Country', value: entry.feature.country || 'Unassigned' },
+          { label: 'Coordinates', value: `${Number(entry.feature.latitude).toFixed(4)}, ${Number(entry.feature.longitude).toFixed(4)}` },
+        ];
+        if (entry.feature.time_year_bp !== null && entry.feature.time_year_bp !== undefined && entry.feature.time_year_bp !== '') {
+          meta.splice(2, 0, { label: 'Date', value: `${entry.feature.time_year_bp} BP` });
+        }
+        setFocusState({
+          kind: 'point',
+          layerKey: entry.layer.key,
+          visiblePointIndex: index,
+          title: entry.feature.title || entry.layer.label,
+          subtitle: entry.feature.subtitle || 'Point record',
+          meta,
+          sourceUrl: entry.feature.source_url || '',
+          latitude: Number(entry.feature.latitude),
+          longitude: Number(entry.feature.longitude),
+        });
       }
       function renderScopeSummary() {
         const summaries = [
@@ -2251,6 +2327,7 @@ def render_multi_country_map_html(
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
+        highlightedPointEntry = null;
       }
       function createClusterGroup(layer) {
         return L.markerClusterGroup({
@@ -2274,28 +2351,12 @@ def render_multi_country_map_html(
             if (!pointFeatureVisible(layer, feature)) return;
             const marker = L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            const entry = { layer, feature, marker };
             marker.on('click', () => {
-              const meta = [
-                { label: 'Layer', value: layer.label },
-                { label: 'Country', value: feature.country || 'Unassigned' },
-                { label: 'Coordinates', value: `${Number(feature.latitude).toFixed(4)}, ${Number(feature.longitude).toFixed(4)}` },
-              ];
-              if (feature.time_year_bp !== null && feature.time_year_bp !== undefined && feature.time_year_bp !== '') {
-                meta.splice(2, 0, { label: 'Date', value: `${feature.time_year_bp} BP` });
-              }
-              setFocusState({
-                kind: 'point',
-                layerKey: layer.key,
-                title: feature.title || layer.label,
-                subtitle: feature.subtitle || 'Point record',
-                meta,
-                sourceUrl: feature.source_url || '',
-                latitude: Number(feature.latitude),
-                longitude: Number(feature.longitude),
-              });
+              focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));
             });
             clusterGroup.addLayer(marker);
-            visiblePointEntries.push({ layer, feature, marker });
+            visiblePointEntries.push(entry);
             if (layer.circle_enabled && diameterKm > 0) {
               const circle = L.circle([feature.latitude, feature.longitude], { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
@@ -2472,25 +2533,6 @@ def render_multi_country_map_html(
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
-        const focusMatch = (match) => {
-          setFocusState({
-            kind: 'point',
-            layerKey: match.layer.key,
-            title: match.feature.title || match.layer.label,
-            subtitle: match.feature.subtitle || 'Point record',
-            meta: [
-              { label: 'Layer', value: match.layer.label },
-              { label: 'Country', value: match.feature.country || 'Unassigned' },
-              ...(match.feature.time_year_bp !== null && match.feature.time_year_bp !== undefined && match.feature.time_year_bp !== ''
-                ? [{ label: 'Date', value: `${match.feature.time_year_bp} BP` }]
-                : []),
-              { label: 'Coordinates', value: `${Number(match.feature.latitude).toFixed(4)}, ${Number(match.feature.longitude).toFixed(4)}` },
-            ],
-            sourceUrl: match.feature.source_url || '',
-            latitude: Number(match.feature.latitude),
-            longitude: Number(match.feature.longitude),
-          });
-        };
         if (!query) {
           const initial = visiblePointEntries.slice(0, 8);
           searchCount.textContent = `${visiblePointEntries.length} visible records`;
@@ -2499,7 +2541,7 @@ def render_multi_country_map_html(
             button.addEventListener('click', () => {
             const match = initial[index];
             if (!match) return;
-            focusMatch(match);
+            focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
           });
@@ -2513,7 +2555,7 @@ def render_multi_country_map_html(
           button.addEventListener('click', () => {
             const match = matches[index];
             if (!match) return;
-            focusMatch(match);
+            focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
           });
@@ -2632,6 +2674,16 @@ def render_multi_country_map_html(
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusPreviousButton.addEventListener('click', () => {
+        if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
+        const nextIndex = (focusState.visiblePointIndex - 1 + visiblePointEntries.length) % visiblePointEntries.length;
+        focusPointAtVisibleIndex(nextIndex);
+      });
+      focusNextButton.addEventListener('click', () => {
+        if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
+        const nextIndex = (focusState.visiblePointIndex + 1) % visiblePointEntries.length;
+        focusPointAtVisibleIndex(nextIndex);
+      });
       focusZoomButton.addEventListener('click', () => {
         if (!focusState) return;
         if (focusState.kind === 'polygon' && focusState.bounds) {
