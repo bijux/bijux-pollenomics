@@ -129,8 +129,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(rows[0]["political_entity"], "Sweden")
 
             geojson = json.loads((output / "sweden_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
+            summary = json.loads((output / "sweden_aadr_v62.0_summary.json").read_text(encoding="utf-8"))
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(len(geojson["features"]), 2)
+            self.assertEqual(summary["artifacts"]["samples_csv"], "sweden_aadr_v62.0_samples.csv")
+            self.assertEqual(summary["artifacts"]["summary_json"], "sweden_aadr_v62.0_summary.json")
 
     def test_generate_country_report_can_link_to_shared_map(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -343,7 +346,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertNotIn("unpkg.com/leaflet", map_html)
 
             geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
+            summary = json.loads((output / "nordic_aadr_v62.0_summary.json").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
+            self.assertEqual(summary["artifacts"]["map_html"], "nordic_aadr_v62.0_map.html")
+            self.assertEqual(summary["artifacts"]["samples_geojson"], "nordic_aadr_v62.0_samples.geojson")
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -662,8 +668,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden" / "README.md").exists())
             self.assertTrue((output / "norway" / "README.md").exists())
             sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
+            published_summary = json.loads((output / "published_reports_summary.json").read_text(encoding="utf-8"))
             self.assertIn("../nordic/nordic_aadr_v62.0_map.html", sweden_readme)
             self.assertIn(">Nordic Evidence Atlas</a>", sweden_readme)
+            self.assertEqual(published_summary["artifacts"]["shared_bundle"]["slug"], "nordic")
+            self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
