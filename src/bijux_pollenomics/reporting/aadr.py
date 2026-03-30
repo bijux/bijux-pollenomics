@@ -99,18 +99,24 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
         reader = csv.DictReader(handle, delimiter="\t")
         schema = resolve_schema(reader.fieldnames or [])
         for row in reader:
+            genetic_id = clean_text(row.get(schema["genetic_id"], ""))
             latitude_text = clean_text(row.get(schema["latitude"], ""))
             longitude_text = clean_text(row.get(schema["longitude"], ""))
-            if not latitude_text or not longitude_text:
+            if not genetic_id or not latitude_text or not longitude_text:
+                continue
+            try:
+                latitude = float(latitude_text)
+                longitude = float(longitude_text)
+            except ValueError:
                 continue
             yield SampleRecord(
-                genetic_id=clean_text(row.get(schema["genetic_id"], "")),
+                genetic_id=genetic_id,
                 master_id=clean_text(row.get(schema["master_id"], "")),
                 group_id=clean_text(row.get(schema["group_id"], "")),
                 locality=clean_text(row.get(schema["locality"], "")) or "Unspecified locality",
                 political_entity=clean_text(row.get(schema["political_entity"], "")),
-                latitude=float(latitude_text),
-                longitude=float(longitude_text),
+                latitude=latitude,
+                longitude=longitude,
                 latitude_text=latitude_text,
                 longitude_text=longitude_text,
                 publication=clean_text(row.get(schema["publication"], "")),

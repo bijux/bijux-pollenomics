@@ -63,6 +63,24 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(datasets_by_id["SE2"], ("1240k",))
             self.assertEqual(datasets_by_id["SE3"], ("ho",))
 
+    def test_load_country_samples_skips_rows_without_identity_or_numeric_coordinates(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            self.write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                    "SE2\tSE2\tSweden_Group\tBirka\tSweden\tbad\t17.5420\tPaperB\t2021\t600 BCE\t2550\tAG\tM",
+                    "SE3\tSE3\tSweden_Group\tSigtuna\tSweden\t59.61731\t17.72361\tPaperC\t2020\t700 BCE\t2650\tAG\tM",
+                ],
+            )
+
+            samples, dataset_counts = load_country_samples(root, "Sweden")
+
+            self.assertEqual(dataset_counts["1240k"], 1)
+            self.assertEqual(len(samples), 1)
+            self.assertEqual(samples[0].genetic_id, "SE3")
+
     def test_generate_country_report_writes_expected_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
