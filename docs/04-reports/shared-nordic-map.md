@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Shared Nordic Map
@@ -17,9 +17,22 @@ The shared Nordic map is the main interactive product surface in this repository
 - include and exclude by country
 - include and exclude by data layer
 - grouped layer controls for primary evidence, environmental context, archaeology context, and orientation
+- a workspace brief and source-coverage matrix that summarize the active evidence stack
 - distance circles around point layers
 - clustering, search, zoom, empty-state handling, and live layer summaries
+- a help dialog, focus inspector, and status dock for continuous review while navigating
+- time-window presets plus a dated-record distribution chart
 - shareable URL state for country, layer, basemap, and distance selections
+
+## Interaction Model
+
+The current shared map is designed around one workflow:
+
+1. understand the active evidence stack and scope
+2. narrow the view by country, layer, time window, and distance settings
+3. inspect one focused record or overlay while the rest of the map remains interactive
+
+That is why the interface carries a brief, active-filter chips, grouped layer controls, a status dock, and a focused-record panel at the same time. They are part of the inspection workflow, not decorative UI.
 
 ## Current Scope Limits
 
@@ -27,6 +40,8 @@ The shared Nordic map is the main interactive product surface in this repository
 - the RAÄ archaeology layer is Sweden-only in the current implementation
 - the map is a static HTML artifact, not a backed web application
 - the map bundle now carries its own Leaflet and marker-cluster assets locally, but basemap tiles still come from external services, so a fully offline browser session will not render the full map experience
+- the map compares evidence layers visually, but it does not rank candidate sampling locations or compute archaeological suitability scores
+- the current evidence stack is Nordic-focused and source-limited; absence from the map is not evidence of scientific absence
 
 ## Layer Model
 
@@ -56,6 +71,10 @@ The map now treats AADR as one source inside a broader multi-evidence view.
 - every layer carries its own source and coverage description
 - RAÄ archaeology is explicitly described as Sweden-only density coverage
 - the live summary separates map build date from source release labels
+
+## Interpretation Boundary
+
+Use the map to inspect collected evidence and compare where sources overlap or diverge. Do not use it as proof that proximity alone establishes sampling value. The map helps organize evidence; it does not replace domain judgment.
 
 ## Current Published File
 
