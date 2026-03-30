@@ -3,7 +3,7 @@ from __future__ import annotations
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.neotoma import fetch_neotoma_pollen_rows
+from bijux_pollenomics.data_downloader.neotoma import fetch_neotoma_pollen_rows, normalize_neotoma_rows
 
 
 class NeotomaDataTests(unittest.TestCase):
@@ -129,6 +129,51 @@ class NeotomaDataTests(unittest.TestCase):
             ],
             [201, 202],
         )
+
+    def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(self) -> None:
+        country_boundaries = {
+            "Norway": {
+                "features": [
+                    {
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [[10.0, 60.0], [13.0, 60.0], [13.0, 63.0], [10.0, 63.0], [10.0, 60.0]]
+                            ],
+                        }
+                    }
+                ]
+            }
+        }
+        rows = [
+            {
+                "siteid": 1,
+                "sitename": "Coastal site",
+                "sitedescription": "",
+                "geography": '{"type":"Point","coordinates":[13.05,61.5]}',
+                "collectionunits": [
+                    {
+                        "datasets": [{"datasetid": 10, "datasettype": "pollen"}],
+                    }
+                ],
+            },
+            {
+                "siteid": 2,
+                "sitename": "Too far away",
+                "sitedescription": "",
+                "geography": '{"type":"Point","coordinates":[13.5,61.5]}',
+                "collectionunits": [
+                    {
+                        "datasets": [{"datasetid": 20, "datasettype": "pollen"}],
+                    }
+                ],
+            },
+        ]
+
+        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+
+        self.assertEqual([record.name for record in records], ["Coastal site"])
+        self.assertEqual(records[0].country, "Norway")
 
 
 if __name__ == "__main__":
