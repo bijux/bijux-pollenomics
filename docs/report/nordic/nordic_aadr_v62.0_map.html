@@ -9,28 +9,36 @@
     <link rel="stylesheet" href="./_map_assets/markercluster/MarkerCluster.Default.css">
     <style>
       :root {
-        --ink: #14213d;
-        --muted: #5f6b85;
-        --surface: rgba(251, 248, 242, 0.92);
-        --surface-strong: rgba(255, 252, 247, 0.96);
-        --surface-edge: rgba(27, 40, 64, 0.12);
-        --blue: #2563eb;
-        --teal: #0f766e;
-        --gold: #b45309;
-        --rose: #b91c1c;
-        --shadow-lg: 0 24px 64px rgba(20, 33, 61, 0.18);
-        --shadow-md: 0 10px 32px rgba(20, 33, 61, 0.12);
+        --ink: #18253d;
+        --ink-soft: #31425f;
+        --muted: #61708d;
+        --surface: rgba(252, 249, 244, 0.90);
+        --surface-soft: rgba(255, 253, 250, 0.78);
+        --surface-strong: rgba(255, 252, 247, 0.97);
+        --surface-edge: rgba(24, 37, 61, 0.10);
+        --surface-edge-strong: rgba(24, 37, 61, 0.18);
+        --surface-wash: linear-gradient(180deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0));
+        --blue: #1f5ed8;
+        --teal: #0e7a72;
+        --gold: #ad6708;
+        --rose: #b42344;
+        --shadow-lg: 0 32px 96px rgba(24, 37, 61, 0.16);
+        --shadow-md: 0 16px 40px rgba(24, 37, 61, 0.11);
+        --shadow-sm: 0 8px 22px rgba(24, 37, 61, 0.08);
+        --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
       }
       * { box-sizing: border-box; }
       html, body {
         margin: 0;
         min-height: 100%;
         background:
-          radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 30%),
-          radial-gradient(circle at right center, rgba(180, 83, 9, 0.12), transparent 22%),
-          linear-gradient(180deg, #f8f4ee 0%, #efe7dc 100%);
+          radial-gradient(circle at top left, rgba(31, 94, 216, 0.18), transparent 32%),
+          radial-gradient(circle at 82% 18%, rgba(14, 122, 114, 0.10), transparent 20%),
+          radial-gradient(circle at right center, rgba(173, 103, 8, 0.12), transparent 24%),
+          linear-gradient(180deg, #f8f3eb 0%, #ece3d7 52%, #e5dacc 100%);
         color: var(--ink);
-        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-body);
       }
       body { min-height: 100vh; }
       body.has-mobile-panel-open {
@@ -55,9 +63,11 @@
         height: 100%;
         overflow-y: auto;
         padding: 24px;
-        border: 1px solid var(--surface-edge);
+        border: 1px solid var(--surface-edge-strong);
         border-radius: 28px;
-        background: linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(246, 241, 233, 0.92));
+        background:
+          var(--surface-wash),
+          linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(245, 239, 230, 0.92));
         backdrop-filter: blur(18px);
         box-shadow: var(--shadow-lg);
       }
@@ -91,6 +101,92 @@
         opacity: 1;
         pointer-events: auto;
       }
+      .help-dialog {
+        position: fixed;
+        inset: 0;
+        z-index: 1400;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(24, 37, 61, 0.34);
+      }
+      .help-dialog[hidden] {
+        display: none;
+      }
+      .help-dialog-card {
+        width: min(760px, 100%);
+        max-height: min(88vh, 780px);
+        overflow: auto;
+        padding: 24px;
+        border-radius: 28px;
+        border: 1px solid rgba(24, 37, 61, 0.12);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
+          rgba(255, 252, 247, 0.98);
+        box-shadow: var(--shadow-lg);
+      }
+      .help-dialog-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+      .help-dialog-head h2 {
+        margin: 6px 0 0;
+        font-family: var(--font-display);
+        font-size: 30px;
+        line-height: 1.02;
+      }
+      .help-dialog-head p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .help-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .help-card {
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        background: rgba(255, 255, 255, 0.74);
+      }
+      .help-card h3 {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+      .help-list {
+        display: grid;
+        gap: 10px;
+      }
+      .help-row {
+        display: grid;
+        grid-template-columns: minmax(84px, auto) minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      .help-key {
+        display: inline-flex;
+        justify-content: center;
+        padding: 6px 9px;
+        border-radius: 12px;
+        border: 1px solid rgba(24, 37, 61, 0.14);
+        background: rgba(24, 37, 61, 0.06);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .help-row span:last-child {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
       .map-stage { position: relative; min-height: 100vh; }
       #map { height: 100vh; width: 100%; }
       .eyebrow {
@@ -99,7 +195,7 @@
         gap: 10px;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(37, 99, 235, 0.12);
+        background: rgba(31, 94, 216, 0.10);
         color: var(--blue);
         font-size: 12px;
         font-weight: 700;
@@ -108,15 +204,18 @@
       }
       h1 {
         margin: 16px 0 10px;
-        font-family: "Avenir Next", "Segoe UI Semibold", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-display);
         font-size: clamp(32px, 4vw, 44px);
-        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 0.98;
       }
       .lede {
         margin: 0 0 22px;
         color: var(--muted);
         font-size: 15px;
-        line-height: 1.7;
+        line-height: 1.75;
+        max-width: 60ch;
       }
       .stats-grid {
         display: grid;
@@ -124,17 +223,102 @@
         gap: 12px;
         margin-bottom: 18px;
       }
+      .workspace-brief {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        margin-bottom: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        border-radius: 22px;
+        background:
+          linear-gradient(135deg, rgba(31, 94, 216, 0.08), rgba(14, 122, 114, 0.04) 52%, rgba(173, 103, 8, 0.08)),
+          rgba(255, 255, 255, 0.70);
+        box-shadow: var(--shadow-sm);
+      }
+      .workspace-brief-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .workspace-brief-head strong {
+        font-size: 15px;
+      }
+      .workspace-brief-head span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .workspace-brief-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .workspace-brief-card {
+        padding: 12px 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        background: rgba(255, 255, 255, 0.70);
+      }
+      .workspace-brief-label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .workspace-brief-value {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .workspace-brief-note {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
       .stat-card,
       .panel-card,
       .floating-legend,
       .map-topbar,
-      .map-status {
+      .map-status,
+      .focus-card {
         border: 1px solid var(--surface-edge);
         background: var(--surface);
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow-md);
       }
-      .stat-card { padding: 16px; border-radius: 18px; }
+      .stat-card,
+      .panel-card,
+      .floating-legend,
+      .map-topbar,
+      .map-status,
+      .focus-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-card::before,
+      .panel-card::before,
+      .floating-legend::before,
+      .map-topbar::before,
+      .map-status::before,
+      .focus-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
+        pointer-events: none;
+      }
+      .stat-card {
+        padding: 16px;
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)),
+          var(--surface);
+      }
       .stat-label {
         display: block;
         color: var(--muted);
@@ -146,6 +330,13 @@
       }
       .stat-value { font-size: 24px; font-weight: 700; }
       .stat-value--compact { font-size: 18px; }
+      .stat-support {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
       .section-stack { display: grid; gap: 16px; }
       .section-nav {
         position: sticky;
@@ -204,7 +395,7 @@
       .basemap-button {
         appearance: none;
         border: 1px solid rgba(20, 33, 61, 0.12);
-        background: rgba(255, 255, 255, 0.88);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 244, 238, 0.92));
         color: var(--ink);
         border-radius: 999px;
         font: inherit;
@@ -217,7 +408,7 @@
       .inline-button:hover,
       .basemap-button:hover {
         transform: translateY(-1px);
-        box-shadow: 0 8px 24px rgba(20, 33, 61, 0.10);
+        box-shadow: var(--shadow-sm);
       }
       .chip-toggle {
         display: inline-flex;
@@ -245,10 +436,14 @@
       .inline-actions,
       .preset-row,
       .topbar-row,
-      .basemap-switch,
       .map-actions {
         display: flex;
         flex-wrap: wrap;
+        gap: 10px;
+      }
+      .basemap-switch {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
       }
       .inline-actions { margin-top: 12px; }
@@ -259,6 +454,44 @@
         padding: 10px 14px;
         font-size: 13px;
         font-weight: 600;
+      }
+      .basemap-button {
+        display: grid;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 18px;
+        text-align: left;
+      }
+      .basemap-preview {
+        height: 36px;
+        border-radius: 12px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+      }
+      .basemap-preview--voyager {
+        background:
+          linear-gradient(135deg, rgba(196, 228, 248, 0.96), rgba(210, 236, 214, 0.88)),
+          linear-gradient(90deg, transparent 0 22%, rgba(255, 255, 255, 0.28) 22% 25%, transparent 25% 100%);
+      }
+      .basemap-preview--light {
+        background:
+          linear-gradient(135deg, rgba(246, 244, 239, 0.96), rgba(231, 232, 234, 0.94)),
+          linear-gradient(90deg, transparent 0 20%, rgba(196, 200, 207, 0.32) 20% 23%, transparent 23% 100%);
+      }
+      .basemap-preview--terrain {
+        background:
+          linear-gradient(135deg, rgba(220, 233, 213, 0.98), rgba(191, 208, 170, 0.90)),
+          linear-gradient(90deg, transparent 0 24%, rgba(110, 133, 87, 0.20) 24% 27%, transparent 27% 100%);
+      }
+      .basemap-title {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .basemap-copy {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
       }
       .topbar-context {
         display: grid;
@@ -351,6 +584,33 @@
         color: var(--muted);
         font-size: 12px;
       }
+      .time-density {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 10px;
+      }
+      .time-density-bars {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        align-items: end;
+        gap: 6px;
+        min-height: 84px;
+      }
+      .time-density-bar {
+        min-height: 12px;
+        border-radius: 999px 999px 4px 4px;
+        background: rgba(24, 37, 61, 0.12);
+      }
+      .time-density-bar.is-active-window {
+        background: linear-gradient(180deg, rgba(31, 94, 216, 0.92), rgba(14, 122, 114, 0.82));
+      }
+      .time-density-labels {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 11px;
+      }
       .search-results,
       .summary-list,
       .legend-list,
@@ -359,13 +619,58 @@
         display: grid;
         gap: 10px;
       }
+      .coverage-matrix {
+        display: grid;
+        gap: 10px;
+      }
+      .coverage-row {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0)),
+          rgba(255, 255, 255, 0.74);
+      }
+      .coverage-row-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .coverage-row-head strong {
+        font-size: 14px;
+      }
+      .coverage-row-head span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .coverage-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .coverage-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: rgba(24, 37, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
       .search-result,
       .summary-item,
       .layer-card {
         padding: 12px 14px;
         border: 1px solid rgba(20, 33, 61, 0.10);
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.76);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
+          rgba(255, 255, 255, 0.76);
       }
       .search-result {
         cursor: pointer;
@@ -410,7 +715,7 @@
       }
       .layer-card.is-enabled {
         border-color: rgba(37, 99, 235, 0.22);
-        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+        box-shadow: 0 16px 34px rgba(31, 94, 216, 0.10);
       }
       .layer-card-head {
         display: flex;
@@ -511,12 +816,20 @@
         display: grid;
         gap: 10px;
       }
+      .layer-group.is-collapsed .layer-group-stack {
+        display: none;
+      }
       .layer-group-head {
         display: flex;
         justify-content: space-between;
         gap: 10px;
         align-items: baseline;
         padding: 0 2px;
+      }
+      .layer-group-head-main {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
       }
       .layer-group-head h3 {
         margin: 0;
@@ -527,6 +840,28 @@
       .layer-group-head span {
         color: var(--muted);
         font-size: 11px;
+      }
+      .layer-group-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      .layer-group-button {
+        appearance: none;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--muted);
+        padding: 6px 10px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .layer-group-stack {
+        display: grid;
+        gap: 10px;
       }
       .layer-meta {
         margin-top: 8px;
@@ -561,6 +896,9 @@
         align-items: center;
         padding: 12px;
         border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          var(--surface);
       }
       .map-topbar-main {
         display: flex;
@@ -579,6 +917,9 @@
         overflow: auto;
         padding: 16px;
         border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          var(--surface);
       }
       .legend-head {
         display: flex;
@@ -651,13 +992,33 @@
         right: 16px;
         bottom: 24px;
         z-index: 1100;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, auto));
         gap: 16px;
         padding: 12px 16px;
-        border-radius: 999px;
+        border-radius: 22px;
         color: var(--muted);
         font-size: 12px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0)),
+          var(--surface);
+      }
+      .status-pill {
+        display: grid;
+        gap: 3px;
+        min-width: 92px;
+      }
+      .status-pill-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .status-pill-value {
+        color: var(--ink-soft);
+        font-size: 12px;
+        font-weight: 700;
       }
       .focus-card {
         position: absolute;
@@ -732,6 +1093,12 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+      }
+      .focus-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
       }
       .focus-link {
         display: inline-flex;
@@ -822,7 +1189,7 @@
           right: 12px;
           bottom: 12px;
           border-radius: 18px;
-          justify-content: space-between;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
         }
         .focus-card {
           left: 12px;
@@ -872,6 +1239,9 @@
         .map-actions {
           justify-content: space-between;
         }
+        .basemap-switch {
+          grid-template-columns: 1fr;
+        }
         .floating-legend {
           right: 10px;
           bottom: 76px;
@@ -899,7 +1269,7 @@
           right: 10px;
           bottom: 10px;
           border-radius: 18px;
-          justify-content: space-between;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
       }
@@ -911,6 +1281,9 @@
           max-height: min(72vh, 760px);
         }
         .sidebar-inner { padding: 16px; }
+        .workspace-brief-grid {
+          grid-template-columns: 1fr;
+        }
         .stats-grid { grid-template-columns: 1fr 1fr; }
         .map-topbar {
           left: 8px;
@@ -921,6 +1294,9 @@
           flex-direction: column;
           align-items: stretch;
           gap: 10px;
+        }
+        .help-grid {
+          grid-template-columns: 1fr;
         }
         .topbar-title {
           font-size: 14px;
@@ -957,6 +1333,7 @@
           bottom: 8px;
           gap: 10px;
           padding: 10px 12px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           font-size: 11px;
         }
         .inline-button,
@@ -984,16 +1361,38 @@
             </div>
             <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
           </div>
+          <section class="workspace-brief">
+            <div class="workspace-brief-head">
+              <strong>Workspace Brief</strong>
+              <span id="workspace-brief-state" aria-live="polite">Default map state</span>
+            </div>
+            <div class="workspace-brief-grid">
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Geography</span>
+                <span id="workspace-brief-geography" class="workspace-brief-value">All countries</span>
+              </div>
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Evidence Stack</span>
+                <span id="workspace-brief-stack" class="workspace-brief-value">Default layers</span>
+              </div>
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Time Window</span>
+                <span id="workspace-brief-time" class="workspace-brief-value">0-100 BP</span>
+              </div>
+            </div>
+            <div id="workspace-brief-note" class="workspace-brief-note">The shared map starts with the full Nordic evidence stack visible so country, archaeology, and pollen context can be compared without extra setup.</div>
+          </section>
           <section class="stats-grid">
-            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong></div>
-            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">v62.0</strong></div>
-            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong><span id="stat-visible-points-note" class="stat-support">Across enabled point layers.</span></div>
+            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong><span id="stat-visible-layers-note" class="stat-support">Polygon and boundary layers on the map.</span></div>
+            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong><span id="stat-visible-countries-note" class="stat-support">Selected country filters.</span></div>
+            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong><span id="stat-radius-note" class="stat-support">Derived from the active diameter setting.</span></div>
+            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">v62.0</strong><span class="stat-support">Primary evidence release loaded into this workspace.</span></div>
+            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong><span id="stat-context-sources-note" class="stat-support">Additional context datasets available for comparison.</span></div>
           </section>
           <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
+            <button class="section-nav-button" type="button" data-section-target="coverage-panel">Coverage</button>
             <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
             <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
             <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
@@ -1007,6 +1406,11 @@
               <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
               <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
               <div id="scope-summary" class="summary-list"></div>
+            </section>
+            <section id="coverage-panel" class="panel-card">
+              <div class="section-head"><h2>Source Coverage</h2><span id="coverage-summary" aria-live="polite">Dataset scope</span></div>
+              <p class="panel-copy">This matrix keeps geographic and geometry scope visible across sources so users do not mistake Sweden-only overlays for Nordic-wide evidence or confuse points with polygon summaries.</p>
+              <div id="coverage-matrix" class="coverage-matrix"></div>
             </section>
             <section id="country-panel" class="panel-card">
               <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
@@ -1060,6 +1464,10 @@
                 <button class="preset-button" type="button" data-time-interval="full">Full span</button>
               </div>
               <div id="time-record-count" class="search-meta">0 dated records are visible in the active BP window.</div>
+              <div class="time-density">
+                <div id="time-density-bars" class="time-density-bars"></div>
+                <div class="time-density-labels"><span>Earlier BP</span><span>Later BP</span></div>
+              </div>
               <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
             <section id="distance-panel" class="panel-card">
@@ -1100,9 +1508,9 @@
             <div class="topbar-row">
               <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
               <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
-                <button class="basemap-button" type="button" data-basemap="light">Light</button>
-                <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+                <button class="basemap-button is-active" type="button" data-basemap="voyager"><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span><span class="basemap-copy">Balanced roads, labels, and water detail.</span></button>
+                <button class="basemap-button" type="button" data-basemap="light"><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span><span class="basemap-copy">Minimal contrast for evidence-first inspection.</span></button>
+                <button class="basemap-button" type="button" data-basemap="terrain"><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span><span class="basemap-copy">Relief-focused context for landform reading.</span></button>
               </div>
             </div>
           </div>
@@ -1110,6 +1518,7 @@
             <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
             <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
             <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+            <button id="help-toggle" class="toolbar-button" type="button">Help</button>
             <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
           </div>
         </div>
@@ -1143,17 +1552,52 @@
             <button id="focus-close" class="toolbar-button focus-close" type="button">Clear</button>
           </div>
           <div id="focus-meta" class="focus-meta"></div>
+          <div class="focus-nav">
+            <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
+            <button id="focus-next" class="toolbar-button" type="button">Next</button>
+          </div>
           <div class="focus-actions">
             <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
             <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
           </div>
         </section>
         <div class="map-status">
-          <span id="zoom-readout">Zoom --</span>
-          <span id="cursor-readout">Cursor --</span>
-          <span id="selection-readout">Visible --</span>
+          <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">--</span></div>
         </div>
       </main>
+    </div>
+    <div id="help-dialog" class="help-dialog" hidden>
+      <div class="help-dialog-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
+        <div class="help-dialog-head">
+          <div>
+            <span class="eyebrow">Workspace Guide</span>
+            <h2 id="help-title">How to use this map</h2>
+            <p>This shared map combines ancient DNA, pollen, archaeology, and orientation layers. These controls keep the interface learnable without leaving the map.</p>
+          </div>
+          <button id="help-close" class="toolbar-button" type="button">Close</button>
+        </div>
+        <div class="help-grid">
+          <section class="help-card">
+            <h3>Keyboard shortcuts</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">?</span><span>Open this guide from anywhere in the report.</span></div>
+              <div class="help-row"><span class="help-key">Esc</span><span>Close the guide, or close the mobile filter drawer when it is open.</span></div>
+              <div class="help-row"><span class="help-key">Enter</span><span>Jump to the first visible match from the search field.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Recommended workflow</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">1</span><span>Use the workspace brief and source coverage panel to understand the current evidence stack.</span></div>
+              <div class="help-row"><span class="help-key">2</span><span>Narrow geography, time, and distance before inspecting individual records.</span></div>
+              <div class="help-row"><span class="help-key">3</span><span>Use the focus card to keep one selected record visible while the map continues moving.</span></div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
@@ -1188,12 +1632,16 @@
       let renderedPointGroups = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
+      let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
       const sidebarInner = document.querySelector('.sidebar-inner');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
       const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const helpToggleButton = document.getElementById('help-toggle');
+      const helpDialog = document.getElementById('help-dialog');
+      const helpCloseButton = document.getElementById('help-close');
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
       const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
@@ -1201,10 +1649,17 @@
       const layerFilters = document.getElementById('layer-filters');
       const legendItems = document.getElementById('legend-items');
       const scopeSummary = document.getElementById('scope-summary');
+      const coverageSummary = document.getElementById('coverage-summary');
+      const coverageMatrix = document.getElementById('coverage-matrix');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
+      const workspaceBriefState = document.getElementById('workspace-brief-state');
+      const workspaceBriefGeography = document.getElementById('workspace-brief-geography');
+      const workspaceBriefStack = document.getElementById('workspace-brief-stack');
+      const workspaceBriefTime = document.getElementById('workspace-brief-time');
+      const workspaceBriefNote = document.getElementById('workspace-brief-note');
       const filterChips = document.getElementById('filter-chips');
       const filterChipCount = document.getElementById('filter-chip-count');
       const slider = document.getElementById('diameter-slider');
@@ -1216,6 +1671,7 @@
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timeWindowValue = document.getElementById('time-window-value');
       const timeRecordCount = document.getElementById('time-record-count');
+      const timeDensityBars = document.getElementById('time-density-bars');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -1228,17 +1684,25 @@
       const focusTitle = document.getElementById('focus-title');
       const focusSubtitle = document.getElementById('focus-subtitle');
       const focusMeta = document.getElementById('focus-meta');
+      const focusPreviousButton = document.getElementById('focus-previous');
+      const focusNextButton = document.getElementById('focus-next');
       const focusZoomButton = document.getElementById('focus-zoom');
       const focusSourceLink = document.getElementById('focus-source-link');
       const focusCloseButton = document.getElementById('focus-close');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
+      const centerReadout = document.getElementById('center-readout');
       const cursorReadout = document.getElementById('cursor-readout');
       const statVisiblePoints = document.getElementById('stat-visible-points');
       const statVisibleLayers = document.getElementById('stat-visible-layers');
+      const statVisiblePointsNote = document.getElementById('stat-visible-points-note');
+      const statVisibleLayersNote = document.getElementById('stat-visible-layers-note');
       const statVisibleCountries = document.getElementById('stat-visible-countries');
+      const statVisibleCountriesNote = document.getElementById('stat-visible-countries-note');
       const statRadius = document.getElementById('stat-radius');
+      const statRadiusNote = document.getElementById('stat-radius-note');
       const statContextSources = document.getElementById('stat-context-sources');
+      const statContextSourcesNote = document.getElementById('stat-context-sources-note');
       function parseHashState() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
@@ -1313,6 +1777,7 @@
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
       let legendCollapsed = initialState.legend === 'collapsed';
+      let collapsedLayerGroups = new Set();
       let focusState = null;
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
@@ -1407,6 +1872,14 @@
         legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
         if (persist) syncHashState();
       }
+      function openHelpDialog() {
+        helpDialog.hidden = false;
+        document.body.classList.add('has-mobile-panel-open');
+      }
+      function closeHelpDialog() {
+        helpDialog.hidden = true;
+        syncMobilePanelState();
+      }
       function syncHashState() {
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
@@ -1424,22 +1897,85 @@
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
       }
+      function clearHighlightedPoint() {
+        if (!highlightedPointEntry || !highlightedPointEntry.marker) return;
+        const entry = highlightedPointEntry;
+        entry.marker.setStyle({
+          radius: entry.layer.key === 'aadr' ? 4.5 : 6,
+          weight: 1.3,
+          color: entry.layer.style.stroke,
+          fillColor: entry.layer.style.fill,
+          fillOpacity: 0.92,
+        });
+        highlightedPointEntry = null;
+      }
+      function highlightPointEntry(entry) {
+        clearHighlightedPoint();
+        if (!entry || !entry.marker) return;
+        entry.marker.setStyle({
+          radius: (entry.layer.key === 'aadr' ? 4.5 : 6) + 2,
+          weight: 2.4,
+          color: '#ffffff',
+          fillColor: entry.layer.style.fill,
+          fillOpacity: 1,
+        });
+        highlightedPointEntry = entry;
+      }
       function setFocusState(nextState) {
         focusState = nextState;
+        if (focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)) {
+          highlightPointEntry(visiblePointEntries[focusState.visiblePointIndex] || null);
+        } else {
+          clearHighlightedPoint();
+        }
         renderFocusCard();
       }
       function renderFocusCard() {
-        if (!focusState || !activeLayerKeys.has(focusState.layerKey)) {
+        const pointEntry = focusState && focusState.kind === 'point' && Number.isInteger(focusState.visiblePointIndex)
+          ? visiblePointEntries[focusState.visiblePointIndex]
+          : null;
+        if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry)) {
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
+          focusPreviousButton.disabled = true;
+          focusNextButton.disabled = true;
           return;
         }
         focusCard.hidden = false;
+        if (pointEntry) {
+          highlightPointEntry(pointEntry);
+        }
         focusTitle.textContent = focusState.title;
         focusSubtitle.textContent = focusState.subtitle;
         focusMeta.innerHTML = focusState.meta.map((row) => `<div class="focus-meta-row"><span class="focus-meta-label">${escapeHtml(row.label)}</span><span class="focus-meta-value">${escapeHtml(row.value)}</span></div>`).join('');
         focusSourceLink.hidden = !focusState.sourceUrl;
         focusSourceLink.href = focusState.sourceUrl || '#';
+        const canStep = focusState.kind === 'point' && visiblePointEntries.length > 1;
+        focusPreviousButton.disabled = !canStep;
+        focusNextButton.disabled = !canStep;
+      }
+      function focusPointAtVisibleIndex(index) {
+        const entry = visiblePointEntries[index];
+        if (!entry) return;
+        const meta = [
+          { label: 'Layer', value: entry.layer.label },
+          { label: 'Country', value: entry.feature.country || 'Unassigned' },
+          { label: 'Coordinates', value: `${Number(entry.feature.latitude).toFixed(4)}, ${Number(entry.feature.longitude).toFixed(4)}` },
+        ];
+        if (entry.feature.time_year_bp !== null && entry.feature.time_year_bp !== undefined && entry.feature.time_year_bp !== '') {
+          meta.splice(2, 0, { label: 'Date', value: `${entry.feature.time_year_bp} BP` });
+        }
+        setFocusState({
+          kind: 'point',
+          layerKey: entry.layer.key,
+          visiblePointIndex: index,
+          title: entry.feature.title || entry.layer.label,
+          subtitle: entry.feature.subtitle || 'Point record',
+          meta,
+          sourceUrl: entry.feature.source_url || '',
+          latitude: Number(entry.feature.latitude),
+          longitude: Number(entry.feature.longitude),
+        });
       }
       function renderScopeSummary() {
         const summaries = [
@@ -1450,6 +1986,67 @@
           TIME_HAS_DATA ? `AADR BP coverage: ${TIME_MIN_BP}-${TIME_MAX_BP}` : 'AADR BP coverage: no numeric BP years available'
         ];
         scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      }
+      function renderCoverageMatrix() {
+        const groupedSources = [...new Set(ALL_LAYERS.map((layer) => layer.source_name || layer.label))].map((sourceName) => {
+          const layers = ALL_LAYERS.filter((layer) => (layer.source_name || layer.label) === sourceName);
+          return { sourceName, layers };
+        });
+        coverageSummary.textContent = `${groupedSources.length} tracked sources`;
+        coverageMatrix.innerHTML = groupedSources.map(({ sourceName, layers }) => {
+          const coverage = [...new Set(layers.map((layer) => layer.coverage_label || 'Map-wide coverage'))];
+          const geometry = [...new Set(layers.map((layer) => layer.geometry_label || layerUnit(layer)))];
+          const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
+          return `<div class="coverage-row"><div class="coverage-row-head"><strong>${escapeHtml(sourceName)}</strong><span>${enabledCount}/${layers.length} layers enabled</span></div><div class="coverage-tags">${coverage.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}${geometry.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}</div></div>`;
+        }).join('');
+      }
+      function renderTimeDensity() {
+        if (!TIME_HAS_DATA) {
+          timeDensityBars.innerHTML = '<div class="filter-chip-empty">No dated records are available for the current workspace.</div>';
+          return;
+        }
+        const bins = 12;
+        const span = Math.max(1, TIME_MAX_BP - TIME_MIN_BP);
+        const bucketSize = Math.max(1, Math.ceil(span / bins));
+        const counts = new Array(bins).fill(0);
+        POINT_LAYERS
+          .filter((layer) => activeLayerKeys.has(layer.key) && layer.applies_time_filter)
+          .forEach((layer) => {
+            layer.features.forEach((feature) => {
+              const yearBp = Number(feature.time_year_bp);
+              if (!Number.isFinite(yearBp)) return;
+              if (feature.country && !activeCountries.has(feature.country)) return;
+              const index = Math.min(bins - 1, Math.max(0, Math.floor((yearBp - TIME_MIN_BP) / bucketSize)));
+              counts[index] += 1;
+            });
+          });
+        const maxCount = Math.max(...counts, 1);
+        const activeEnd = timeWindowEndBp();
+        timeDensityBars.innerHTML = counts.map((count, index) => {
+          const binStart = TIME_MIN_BP + (index * bucketSize);
+          const binEnd = index === bins - 1 ? TIME_MAX_BP : Math.min(TIME_MAX_BP, binStart + bucketSize);
+          const height = count > 0 ? Math.max(16, Math.round((count / maxCount) * 80)) : 12;
+          const overlapsWindow = binEnd >= timeStartBp && binStart <= activeEnd;
+          return `<div class="time-density-bar ${overlapsWindow ? 'is-active-window' : ''}" style="height:${height}px" title="${escapeHtml(`${count} dated records from ${binStart} to ${binEnd} BP`)}"></div>`;
+        }).join('');
+      }
+      function renderWorkspaceBrief() {
+        const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
+        const geographySummary = activeCountries.size === COUNTRIES.length
+          ? 'All Nordic countries'
+          : activeCountries.size
+            ? [...activeCountries].join(', ')
+            : 'No countries selected';
+        const timeSummary = TIME_HAS_DATA
+          ? `${timeStartBp}-${timeWindowEndBp()} BP`
+          : 'No dated records';
+        workspaceBriefState.textContent = filterChipCount.textContent === 'Defaults' ? 'Default map state' : `${filterChipCount.textContent} override map defaults`;
+        workspaceBriefGeography.textContent = geographySummary;
+        workspaceBriefStack.textContent = activeGroups.length ? activeGroups.join(' + ') : 'No active layers';
+        workspaceBriefTime.textContent = timeSummary;
+        workspaceBriefNote.textContent = TIME_HAS_DATA
+          ? `${visiblePointEntries.length} visible point records sit inside the current evidence stack and BP window.`
+          : `${visiblePointEntries.length} visible point records are available under the current layer and geography filters.`;
       }
       function renderCountryControls() {
         const pointCountsByCountry = Object.fromEntries(
@@ -1478,6 +2075,8 @@
           .map((group) => {
             const layers = ALL_LAYERS.filter((layer) => layer.group === group);
             if (!layers.length) return '';
+            const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
+            const collapsed = collapsedLayerGroups.has(group);
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
               const stateLabel = activeLayerKeys.has(layer.key) ? 'Enabled' : 'Hidden';
@@ -1485,13 +2084,39 @@
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
               return `<div class="layer-card ${activeLayerKeys.has(layer.key) ? 'is-enabled' : ''}"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div class="layer-card-head"><div class="layer-card-title"><span class="layer-swatch-stack" style="background:${escapeHtml(swatchColor)}; border-color:${escapeHtml(swatchBorder)};"></span><div class="layer-card-text"><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div></div><span class="layer-state-pill">${escapeHtml(stateLabel)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
             }).join('');
-            return `<section class="layer-group"><div class="layer-group-head"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))}</span></div>${cards}</section>`;
+            return `<section class="layer-group ${collapsed ? 'is-collapsed' : ''}"><div class="layer-group-head"><div class="layer-group-head-main"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))} ${enabledCount}/${layers.length} enabled.</span></div><div class="layer-group-actions"><button class="layer-group-button" type="button" data-group-toggle="${escapeHtml(group)}">${enabledCount === layers.length ? 'Hide group' : 'Show group'}</button><button class="layer-group-button" type="button" data-group-collapse="${escapeHtml(group)}">${collapsed ? 'Expand' : 'Collapse'}</button></div></div><div class="layer-group-stack">${cards}</div></section>`;
           })
           .join('');
         document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
             renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-group-toggle]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const group = button.dataset.groupToggle;
+            const layers = ALL_LAYERS.filter((layer) => layer.group === group);
+            const allEnabled = layers.every((layer) => activeLayerKeys.has(layer.key));
+            layers.forEach((layer) => {
+              if (allEnabled) {
+                activeLayerKeys.delete(layer.key);
+              } else {
+                activeLayerKeys.add(layer.key);
+              }
+            });
+            renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-group-collapse]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const group = button.dataset.groupCollapse;
+            if (collapsedLayerGroups.has(group)) {
+              collapsedLayerGroups.delete(group);
+            } else {
+              collapsedLayerGroups.add(group);
+            }
+            renderLayerControls();
           });
         });
       }
@@ -1648,6 +2273,7 @@
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
+        highlightedPointEntry = null;
       }
       function createClusterGroup(layer) {
         return L.markerClusterGroup({
@@ -1671,28 +2297,12 @@
             if (!pointFeatureVisible(layer, feature)) return;
             const marker = L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            const entry = { layer, feature, marker };
             marker.on('click', () => {
-              const meta = [
-                { label: 'Layer', value: layer.label },
-                { label: 'Country', value: feature.country || 'Unassigned' },
-                { label: 'Coordinates', value: `${Number(feature.latitude).toFixed(4)}, ${Number(feature.longitude).toFixed(4)}` },
-              ];
-              if (feature.time_year_bp !== null && feature.time_year_bp !== undefined && feature.time_year_bp !== '') {
-                meta.splice(2, 0, { label: 'Date', value: `${feature.time_year_bp} BP` });
-              }
-              setFocusState({
-                kind: 'point',
-                layerKey: layer.key,
-                title: feature.title || layer.label,
-                subtitle: feature.subtitle || 'Point record',
-                meta,
-                sourceUrl: feature.source_url || '',
-                latitude: Number(feature.latitude),
-                longitude: Number(feature.longitude),
-              });
+              focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));
             });
             clusterGroup.addLayer(marker);
-            visiblePointEntries.push({ layer, feature, marker });
+            visiblePointEntries.push(entry);
             if (layer.circle_enabled && diameterKm > 0) {
               const circle = L.circle([feature.latitude, feature.longitude], { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
@@ -1806,6 +2416,7 @@
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const enabledPointLayers = POINT_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
         const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
           if (!layer.applies_time_filter) return false;
           return Number.isFinite(Number(feature.time_year_bp));
@@ -1815,11 +2426,22 @@
         statVisibleCountries.textContent = String(activeCountries.size);
         statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        statVisiblePointsNote.textContent = `${enabledPointLayers} point layers currently contribute visible records.`;
+        statVisibleLayersNote.textContent = `${renderedPolygonLayers.length} polygon overlays are currently drawn on the map.`;
+        statVisibleCountriesNote.textContent = activeCountries.size === COUNTRIES.length
+          ? 'All configured countries are visible.'
+          : activeCountries.size
+            ? `${COUNTRIES.length - activeCountries.size} countries are currently excluded.`
+            : 'No countries are currently selected.';
+        statRadiusNote.textContent = Number(slider.value) > 0
+          ? `${Number(slider.value)} km diameter acceptance circles are active for point layers.`
+          : 'Acceptance circles are currently hidden.';
+        statContextSourcesNote.textContent = `${ALL_LAYERS.filter((layer) => layer.key !== 'aadr' && activeLayerKeys.has(layer.key)).length} context sources are currently enabled.`;
         timeRecordCount.textContent = TIME_HAS_DATA
           ? `${datedVisibleCount} dated records are visible in the active BP window.`
           : 'No dated records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
-        selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
+        selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
         layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
@@ -1857,25 +2479,6 @@
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
-        const focusMatch = (match) => {
-          setFocusState({
-            kind: 'point',
-            layerKey: match.layer.key,
-            title: match.feature.title || match.layer.label,
-            subtitle: match.feature.subtitle || 'Point record',
-            meta: [
-              { label: 'Layer', value: match.layer.label },
-              { label: 'Country', value: match.feature.country || 'Unassigned' },
-              ...(match.feature.time_year_bp !== null && match.feature.time_year_bp !== undefined && match.feature.time_year_bp !== ''
-                ? [{ label: 'Date', value: `${match.feature.time_year_bp} BP` }]
-                : []),
-              { label: 'Coordinates', value: `${Number(match.feature.latitude).toFixed(4)}, ${Number(match.feature.longitude).toFixed(4)}` },
-            ],
-            sourceUrl: match.feature.source_url || '',
-            latitude: Number(match.feature.latitude),
-            longitude: Number(match.feature.longitude),
-          });
-        };
         if (!query) {
           const initial = visiblePointEntries.slice(0, 8);
           searchCount.textContent = `${visiblePointEntries.length} visible records`;
@@ -1884,7 +2487,7 @@
             button.addEventListener('click', () => {
             const match = initial[index];
             if (!match) return;
-            focusMatch(match);
+            focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
           });
@@ -1898,7 +2501,7 @@
           button.addEventListener('click', () => {
             const match = matches[index];
             if (!match) return;
-            focusMatch(match);
+            focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
           });
@@ -1912,6 +2515,9 @@
         renderCountryControls();
         renderLegend();
         renderFilterChips();
+        renderWorkspaceBrief();
+        renderCoverageMatrix();
+        renderTimeDensity();
         updateStats();
         updateSummary();
         buildSearchResults();
@@ -1977,6 +2583,11 @@
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      helpToggleButton.addEventListener('click', openHelpDialog);
+      helpCloseButton.addEventListener('click', closeHelpDialog);
+      helpDialog.addEventListener('click', (event) => {
+        if (event.target === helpDialog) closeHelpDialog();
+      });
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
@@ -2009,6 +2620,16 @@
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusPreviousButton.addEventListener('click', () => {
+        if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
+        const nextIndex = (focusState.visiblePointIndex - 1 + visiblePointEntries.length) % visiblePointEntries.length;
+        focusPointAtVisibleIndex(nextIndex);
+      });
+      focusNextButton.addEventListener('click', () => {
+        if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
+        const nextIndex = (focusState.visiblePointIndex + 1) % visiblePointEntries.length;
+        focusPointAtVisibleIndex(nextIndex);
+      });
       focusZoomButton.addEventListener('click', () => {
         if (!focusState) return;
         if (focusState.kind === 'polygon' && focusState.bounds) {
@@ -2019,10 +2640,23 @@
           map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
         }
       });
-      map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
-      map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
+      map.on('zoomend', () => {
+        zoomReadout.textContent = map.getZoom().toFixed(1);
+        centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
+      });
+      map.on('moveend', () => { centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`; });
+      map.on('mousemove', (event) => { cursorReadout.textContent = `${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
       document.addEventListener('keydown', (event) => {
+        if (event.key === '?') {
+          event.preventDefault();
+          openHelpDialog();
+          return;
+        }
+        if (event.key === 'Escape' && !helpDialog.hidden) {
+          closeHelpDialog();
+          return;
+        }
         if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {
           setPanelCollapsed(true);
         }
@@ -2059,7 +2693,8 @@
       setLegendCollapsed(legendCollapsed, false);
       syncSectionNavWithScroll();
       resetView();
-      zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
+      zoomReadout.textContent = map.getZoom().toFixed(1);
+      centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
     </script>
   </body>
 </html>
