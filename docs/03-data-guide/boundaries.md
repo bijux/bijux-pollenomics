@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Boundaries
@@ -15,6 +15,15 @@ last_reviewed: 2026-03-23
 
 - raw country GeoJSON files under `data/boundaries/raw/`
 - a combined Nordic boundary collection under `data/boundaries/normalized/nordic_country_boundaries.geojson`
+
+## What The Current Collector Does
+
+The current collector:
+
+- downloads Natural Earth 10m admin-0 country geometry
+- filters that global boundary collection down to Sweden, Norway, Finland, and Denmark
+- writes those filtered country files into the tracked raw boundary directory
+- builds one combined Nordic boundary GeoJSON for country classification and map framing
 
 ## Current Raw Files
 
