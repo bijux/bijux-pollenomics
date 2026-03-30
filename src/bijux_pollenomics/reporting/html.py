@@ -16,7 +16,33 @@ def render_multi_country_map_html(
 ) -> str:
     """Render an advanced standalone interactive HTML map."""
     initial_diameter_km = 20
+    initial_time_interval_years = 100
     map_points = [feature for layer in point_layers for feature in layer["features"]]
+    time_candidates: set[int] = set()
+    for layer in point_layers:
+        for feature in layer["features"]:
+            if not isinstance(feature, dict):
+                continue
+            raw = feature.get("time_year_bp")
+            if raw is None:
+                continue
+            try:
+                time_candidates.add(int(round(float(raw))))
+            except (TypeError, ValueError):
+                continue
+    time_values = sorted(time_candidates)
+    has_time_data = bool(time_values)
+    if time_values:
+        time_min_bp = min(time_values)
+        time_max_bp = max(time_values)
+        max_time_span = max(initial_time_interval_years, time_max_bp - time_min_bp)
+        initial_time_start_bp = time_min_bp
+    else:
+        time_min_bp = 0
+        time_max_bp = 0
+        max_time_span = initial_time_interval_years
+        initial_time_start_bp = 0
+    initial_time_end_bp = min(time_max_bp, initial_time_start_bp + initial_time_interval_years)
     if map_points:
         latitude_values = [float(feature["latitude"]) for feature in map_points]
         longitude_values = [float(feature["longitude"]) for feature in map_points]
@@ -528,7 +554,7 @@ def render_multi_country_map_html(
           <h1>__TITLE__</h1>
           <p class="lede">
             A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
-            AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, and acceptance-distance controls to compare evidence in one workspace.
+            AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
           </p>
           <section class="stats-grid">
             <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
@@ -566,6 +592,16 @@ def render_multi_country_map_html(
               <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
               <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
+            </section>
+            <section class="panel-card">
+              <div class="section-head"><h2>Time Window</h2><span id="time-window-value">__INITIAL_TIME_START_BP__-__INITIAL_TIME_END_BP__ BP</span></div>
+              <div class="field-label"><span>Window start (years BP)</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
+              <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
+              <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+              <div class="field-label" style="margin-top: 16px;"><span>Window interval</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
+              <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
+              <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+              <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
             <section class="panel-card">
               <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
@@ -640,6 +676,12 @@ def render_multi_country_map_html(
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const DEFAULT_COUNTRIES = [...COUNTRIES];
       const DEFAULT_LAYER_KEYS = ALL_LAYERS.filter((layer) => layer.default_enabled !== false).map((layer) => layer.key);
+      const TIME_MIN_BP = __TIME_MIN_BP__;
+      const TIME_MAX_BP = __TIME_MAX_BP__;
+      const TIME_HAS_DATA = __TIME_HAS_DATA__;
+      const DEFAULT_TIME_START_BP = __INITIAL_TIME_START_BP__;
+      const DEFAULT_TIME_INTERVAL_YEARS = __INITIAL_TIME_INTERVAL__;
+      const TIME_INTERVAL_MAX = __TIME_INTERVAL_MAX__;
       const map = L.map('map', { preferCanvas: true, zoomControl: false });
       const basemaps = {
         voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
@@ -669,6 +711,11 @@ def render_multi_country_map_html(
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
+      const timeStartSlider = document.getElementById('time-start-slider');
+      const timeStartValue = document.getElementById('time-start-value');
+      const timeIntervalSlider = document.getElementById('time-interval-slider');
+      const timeIntervalValue = document.getElementById('time-interval-value');
+      const timeWindowValue = document.getElementById('time-window-value');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -691,6 +738,8 @@ def render_multi_country_map_html(
           countries: params.get('countries'),
           layers: params.get('layers'),
           diameter: params.get('diameter'),
+          timeStart: params.get('time_start'),
+          timeInterval: params.get('time_interval'),
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
@@ -705,9 +754,43 @@ def render_multi_country_map_html(
           .filter((value) => value && allowedSet.has(value));
         return new Set(values.length ? values : fallbackValues);
       }
+      function clampTimeInterval(value) {
+        return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
+      }
+      function clampTimeStart(value, intervalYears) {
+        const maxStart = Math.max(TIME_MIN_BP, TIME_MAX_BP - intervalYears);
+        return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(Number(value) || DEFAULT_TIME_START_BP)));
+      }
+      function timeWindowEndBp() {
+        return Math.min(TIME_MAX_BP, timeStartBp + timeIntervalYears);
+      }
+      function refreshTimeControls() {
+        if (!TIME_HAS_DATA) {
+          timeStartSlider.disabled = true;
+          timeIntervalSlider.disabled = true;
+          timeWindowValue.textContent = 'No BP dates available';
+          timeStartValue.textContent = '--';
+          timeIntervalValue.textContent = '--';
+          return;
+        }
+        timeIntervalYears = clampTimeInterval(timeIntervalYears);
+        timeStartBp = clampTimeStart(timeStartBp, timeIntervalYears);
+        timeStartSlider.min = String(TIME_MIN_BP);
+        timeStartSlider.max = String(Math.max(TIME_MIN_BP, TIME_MAX_BP - timeIntervalYears));
+        timeStartSlider.value = String(timeStartBp);
+        timeIntervalSlider.min = '1';
+        timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
+        timeIntervalSlider.value = String(timeIntervalYears);
+        const endBp = timeWindowEndBp();
+        timeWindowValue.textContent = `${timeStartBp}-${endBp} BP`;
+        timeStartValue.textContent = `${timeStartBp} BP`;
+        timeIntervalValue.textContent = `${timeIntervalYears} years`;
+      }
       const initialState = parseHashState();
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
+      let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
+      let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
       const countryColors = {
@@ -754,6 +837,8 @@ def render_multi_country_map_html(
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
+        if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
+        if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
         if (currentBasemap !== 'voyager') params.set('basemap', currentBasemap);
         if (sidebar.classList.contains('is-collapsed')) params.set('panel', 'collapsed');
@@ -766,7 +851,8 @@ def render_multi_country_map_html(
           `Primary evidence: ${POINT_LAYERS.find((layer) => layer.key === 'aadr')?.label || 'AADR'}`,
           `Environmental context: ${ALL_LAYERS.filter((layer) => layer.group === 'environmental-context').map((layer) => layer.source_name).join(', ') || 'none'}`,
           `Archaeology context: ${ALL_LAYERS.filter((layer) => layer.group === 'archaeology-context').map((layer) => layer.coverage_label).join(' ') || 'none'}`,
-          `Orientation: ${ALL_LAYERS.filter((layer) => layer.group === 'orientation').map((layer) => layer.label).join(', ') || 'none'}`
+          `Orientation: ${ALL_LAYERS.filter((layer) => layer.group === 'orientation').map((layer) => layer.label).join(', ') || 'none'}`,
+          TIME_HAS_DATA ? `AADR BP coverage: ${TIME_MIN_BP}-${TIME_MAX_BP}` : 'AADR BP coverage: no numeric BP years available'
         ];
         scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
       }
@@ -776,7 +862,7 @@ def render_multi_country_map_html(
             country,
             POINT_LAYERS
               .filter((layer) => activeLayerKeys.has(layer.key))
-              .reduce((count, layer) => count + layer.features.filter((feature) => feature.country === country).length, 0),
+              .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0),
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -831,7 +917,20 @@ def render_multi_country_map_html(
         if (ratio >= 0.08) return '#fca5a5';
         return '#fee2e2';
       }
-      function pointFeatureVisible(layer, feature) { return activeLayerKeys.has(layer.key) && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country)); }
+      function pointFeatureInTimeWindow(layer, feature) {
+        if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
+        const yearBp = Number(feature.time_year_bp);
+        if (!Number.isFinite(yearBp)) return true;
+        const endBp = timeWindowEndBp();
+        return yearBp >= timeStartBp && yearBp <= endBp;
+      }
+      function pointFeatureVisible(layer, feature) {
+        return (
+          activeLayerKeys.has(layer.key)
+          && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
+          && pointFeatureInTimeWindow(layer, feature)
+        );
+      }
       function polygonFeatureVisible(layer, properties) {
         const country = properties.country || '';
         return activeLayerKeys.has(layer.key) && (!layer.applies_country_filter || !country || activeCountries.has(country));
@@ -946,9 +1045,13 @@ def render_multi_country_map_html(
       function updateSummary() {
         const visibleCountriesText = activeCountries.size ? [...activeCountries].join(', ') : 'none selected';
         const visibleLayersText = activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'none selected';
+        const timeWindowText = TIME_HAS_DATA
+          ? `${timeStartBp}-${timeWindowEndBp()} BP (${timeIntervalYears} years)`
+          : 'No numeric BP dates available';
         const items = [
           `Visible countries: ${visibleCountriesText}`,
           `Visible layers: ${visibleLayersText}`,
+          `Time window: ${timeWindowText}`,
           `Acceptance diameter: ${Number(slider.value)} km`,
           `Acceptance radius: ${(Number(slider.value) / 2).toFixed(1)} km`,
           `Archaeology opacity: ${Math.round(densityOpacity * 100)}%`,
@@ -987,6 +1090,7 @@ def render_multi_country_map_html(
         });
       }
       function renderMapState() {
+        refreshTimeControls();
         removeRenderedLayers();
         renderPointLayers();
         renderPolygonLayers();
@@ -1019,6 +1123,8 @@ def render_multi_country_map_html(
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         slider.value = __INITIAL_DIAMETER__;
+        timeStartBp = DEFAULT_TIME_START_BP;
+        timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
         densityOpacity = 0.6;
         densityOpacitySlider.value = '60';
         if (sidebar.classList.contains('is-collapsed')) sidebar.classList.remove('is-collapsed');
@@ -1060,6 +1166,8 @@ def render_multi_country_map_html(
         syncHashState();
       });
       slider.addEventListener('input', renderMapState);
+      timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
+      timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
       document.querySelectorAll('.preset-button').forEach((button) => {
         button.addEventListener('click', () => {
@@ -1106,4 +1214,11 @@ def render_multi_country_map_html(
         .replace("__ASSET_BASE_PATH__", asset_base_path)
         .replace("__INITIAL_DIAMETER__", str(initial_diameter_km))
         .replace("__INITIAL_RADIUS__", f"{initial_diameter_km / 2:.1f}")
+        .replace("__TIME_MIN_BP__", str(time_min_bp))
+        .replace("__TIME_MAX_BP__", str(time_max_bp))
+        .replace("__TIME_HAS_DATA__", str(has_time_data).lower())
+        .replace("__INITIAL_TIME_START_BP__", str(initial_time_start_bp))
+        .replace("__INITIAL_TIME_END_BP__", str(initial_time_end_bp))
+        .replace("__INITIAL_TIME_INTERVAL__", str(initial_time_interval_years))
+        .replace("__TIME_INTERVAL_MAX__", str(max_time_span))
     )

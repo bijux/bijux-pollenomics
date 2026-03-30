@@ -70,6 +70,7 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
                 "country": sample.political_entity,
                 "title": sample.genetic_id,
                 "subtitle": sample.locality,
+                "time_year_bp": parse_year_bp(sample.date_mean_bp),
                 "popup_rows": [
                     {"label": "Genetic ID", "value": sample.genetic_id},
                     {"label": "Locality", "value": sample.locality},
@@ -79,6 +80,7 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
                     {"label": "Datasets", "value": ", ".join(sample.datasets)},
                     {"label": "Publication", "value": sample.publication},
                     {"label": "Date", "value": sample.full_date},
+                    {"label": "Date mean in BP", "value": sample.date_mean_bp},
                 ],
             }
         )
@@ -93,6 +95,7 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
         "geometry_label": "Point records",
         "default_enabled": True,
         "applies_country_filter": True,
+        "applies_time_filter": True,
         "circle_enabled": True,
         "style": {
             "fill": "#2563eb",
@@ -102,6 +105,17 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
         },
         "features": features,
     }
+
+
+def parse_year_bp(value: str) -> int | None:
+    """Parse a numeric BP-year value from AADR date text."""
+    candidate = str(value).strip().replace(",", "")
+    if not candidate:
+        return None
+    try:
+        return int(round(float(candidate)))
+    except ValueError:
+        return None
 
 
 def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
@@ -181,6 +195,7 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
         "geometry_label": metadata.get(layer_key, {}).get("geometry_label", "Point records"),
         "default_enabled": True,
         "applies_country_filter": applies_country_filter,
+        "applies_time_filter": False,
         "circle_enabled": True,
         "style": styles.get(
             layer_key,
