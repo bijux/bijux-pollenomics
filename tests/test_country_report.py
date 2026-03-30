@@ -12,6 +12,7 @@ from bijux_pollenomics.reporting import (
     generate_published_reports,
     load_country_samples,
 )
+from bijux_pollenomics.reporting.artifacts import build_sample_geojson_feature, serialize_sample_record
 from bijux_pollenomics.reporting.paths import build_atlas_bundle_paths, build_country_bundle_paths
 
 
@@ -45,6 +46,23 @@ class CountryReportTests(unittest.TestCase):
         self.assertEqual(atlas_paths.map_html_path.name, "nordic_aadr_v62.0_map.html")
         self.assertEqual(atlas_paths.samples_geojson_path.name, "nordic_aadr_v62.0_samples.geojson")
         self.assertEqual(atlas_paths.summary_json_path.name, "nordic_aadr_v62.0_summary.json")
+
+    def test_sample_serialization_contract_stays_aligned_between_csv_and_geojson(self) -> None:
+        sample = self.sample_record(
+            genetic_id="SE1",
+            locality="Uppsala",
+            political_entity="Sweden",
+            datasets=("1240k", "ho"),
+        )
+
+        csv_payload = serialize_sample_record(sample)
+        geojson_feature = build_sample_geojson_feature(sample)
+
+        self.assertEqual(csv_payload["genetic_id"], geojson_feature["properties"]["genetic_id"])
+        self.assertEqual(csv_payload["locality"], geojson_feature["properties"]["locality"])
+        self.assertEqual(csv_payload["political_entity"], geojson_feature["properties"]["political_entity"])
+        self.assertEqual(csv_payload["datasets"], geojson_feature["properties"]["datasets"])
+        self.assertEqual(geojson_feature["geometry"]["coordinates"], [sample.longitude, sample.latitude])
 
     def test_load_country_samples_deduplicates_across_datasets(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -738,6 +756,34 @@ class CountryReportTests(unittest.TestCase):
     def write_json(self, path: Path, payload: dict[str, object]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload), encoding="utf-8")
+
+    def sample_record(
+        self,
+        genetic_id: str,
+        locality: str,
+        political_entity: str,
+        datasets: tuple[str, ...],
+    ):
+        from bijux_pollenomics.reporting.models import SampleRecord
+
+        return SampleRecord(
+            genetic_id=genetic_id,
+            master_id=genetic_id,
+            group_id=f"{political_entity}_Group",
+            locality=locality,
+            political_entity=political_entity,
+            latitude=59.8586,
+            longitude=17.6389,
+            latitude_text="59.8586",
+            longitude_text="17.6389",
+            publication="PaperA",
+            year_first_published="2022",
+            full_date="500 BCE",
+            date_mean_bp="2450",
+            data_type="AG",
+            molecular_sex="F",
+            datasets=datasets,
+        )
 
 
 if __name__ == "__main__":
