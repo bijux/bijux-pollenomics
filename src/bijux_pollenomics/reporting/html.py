@@ -335,6 +335,9 @@ def render_multi_country_map_html(
       .range-input,
       .search-input { width: 100%; }
       .range-input { accent-color: var(--gold); }
+      .search-shell {
+        position: relative;
+      }
       .search-input {
         padding: 12px 14px;
         border-radius: 14px;
@@ -342,6 +345,23 @@ def render_multi_country_map_html(
         background: rgba(255, 255, 255, 0.95);
         color: var(--ink);
         font: inherit;
+        padding-right: 46px;
+      }
+      .search-clear {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        appearance: none;
+        border: 0;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        font: inherit;
+        font-size: 16px;
+        cursor: pointer;
       }
       .search-input:focus {
         outline: 2px solid rgba(37, 99, 235, 0.25);
@@ -385,6 +405,23 @@ def render_multi_country_map_html(
         color: var(--muted);
         font-size: 12px;
         line-height: 1.55;
+      }
+      .search-result-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .search-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
       }
       .layer-card-top {
         display: flex;
@@ -871,7 +908,10 @@ def render_multi_country_map_html(
             <section id="search-panel" class="panel-card">
               <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
               <label class="sr-only" for="search-input">Search visible records</label>
-              <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
+              <div class="search-shell">
+                <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
+                <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+              </div>
               <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
             </section>
@@ -1000,6 +1040,7 @@ def render_multi_country_map_html(
       const legendItems = document.getElementById('legend-items');
       const scopeSummary = document.getElementById('scope-summary');
       const searchInput = document.getElementById('search-input');
+      const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
       const filterChips = document.getElementById('filter-chips');
@@ -1518,10 +1559,11 @@ def render_multi_country_map_html(
       }
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
+        searchClearButton.hidden = !query;
         if (!query) {
           const initial = visiblePointEntries.slice(0, 8);
           searchCount.textContent = `${visiblePointEntries.length} visible records`;
-          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
+          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
           searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
             button.addEventListener('click', () => {
               const match = initial[index];
@@ -1533,8 +1575,8 @@ def render_multi_country_map_html(
           return;
         }
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
-        searchCount.textContent = `${matches.length} matches`;
-        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
+        searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
+        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
             const match = matches[index];
@@ -1626,6 +1668,11 @@ def render_multi_country_map_html(
         });
       });
       searchInput.addEventListener('input', buildSearchResults);
+      searchClearButton.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+        buildSearchResults();
+      });
       searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           const firstResult = searchResults.querySelector('[data-search-index]');
