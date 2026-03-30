@@ -97,16 +97,20 @@ def collect_data(
     boundary_source: str | None = None
 
     if "aadr" in selected_sources:
-        reset_output_dir(output_root / "aadr")
-        aadr_report = download_aadr_anno_files(output_root=output_root / "aadr", version=version)
+        aadr_report = collect_into_staging_dir(
+            final_output_root=output_root / "aadr",
+            collect=lambda staging_root: download_aadr_anno_files(output_root=staging_root, version=version),
+        )
         counts["aadr_file_count"] = len(aadr_report.downloaded_files)
 
     need_boundaries = any(source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS))
     country_boundaries: dict[str, dict[str, object]] | None = None
     if need_boundaries:
         if "boundaries" in selected_sources:
-            reset_output_dir(output_root / "boundaries")
-            country_boundaries, _ = collect_boundaries_data(output_root / "boundaries")
+            country_boundaries, _ = collect_into_staging_dir(
+                final_output_root=output_root / "boundaries",
+                collect=collect_boundaries_data,
+            )
             boundary_source = "collected"
         else:
             country_boundaries = load_country_boundaries(output_root / "boundaries")
@@ -186,19 +190,36 @@ def collect_context_source(
 ) -> dict[str, int]:
     """Collect one context source and return the counts it contributes."""
     source_output_root = Path(output_root) / spec.output_dir_name
-    reset_output_dir(source_output_root)
     collect_function = resolve_context_collect_function(spec.name)
+    report = collect_into_staging_dir(
+        final_output_root=source_output_root,
+        collect=lambda staging_root: collect_context_source_into_dir(
+            spec=spec,
+            collect_function=collect_function,
+            source_output_root=staging_root,
+            country_boundaries=country_boundaries,
+        ),
+    )
+    return {
+        summary_field: int(getattr(report, report_field))
+        for summary_field, report_field in spec.count_attributes
+    }
+
+
+def collect_context_source_into_dir(
+    spec: ContextSourceSpec,
+    collect_function: Callable[..., object],
+    source_output_root: Path,
+    country_boundaries: dict[str, dict[str, object]],
+) -> object:
+    """Collect one context source into a prepared directory."""
     collect_kwargs = {
         "output_root": source_output_root,
         "country_boundaries": country_boundaries,
     }
     if spec.requires_bbox:
         collect_kwargs["bbox"] = NORDIC_BBOX
-    report = collect_function(**collect_kwargs)
-    return {
-        summary_field: int(getattr(report, report_field))
-        for summary_field, report_field in spec.count_attributes
-    }
+    return collect_function(**collect_kwargs)
 
 
 def resolve_context_collect_function(name: str) -> Callable[..., object]:
@@ -290,6 +311,31 @@ def reset_output_dir(path: Path) -> None:
     """Remove one generated source directory so recollection is deterministic."""
     if path.exists():
         shutil.rmtree(path)
+
+
+def build_staging_output_dir(final_output_root: Path) -> Path:
+    """Build the sibling staging directory used for safe source recollection."""
+    final_output_root = Path(final_output_root)
+    return final_output_root.parent / f".{final_output_root.name}.tmp"
+
+
+def collect_into_staging_dir(
+    final_output_root: Path,
+    collect: Callable[[Path], object],
+) -> object:
+    """Collect into a staging directory and swap it into place only after success."""
+    final_output_root = Path(final_output_root)
+    staging_output_root = build_staging_output_dir(final_output_root)
+    reset_output_dir(staging_output_root)
+    staging_output_root.mkdir(parents=True, exist_ok=True)
+    try:
+        report = collect(staging_output_root)
+        reset_output_dir(final_output_root)
+        staging_output_root.replace(final_output_root)
+        return report
+    except Exception:
+        reset_output_dir(staging_output_root)
+        raise
 
 
 def write_collection_summary(summary: DataCollectionSummary) -> None:

@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.collector import (
     AVAILABLE_SOURCES,
+    build_staging_output_dir,
     collect_data,
     normalize_requested_sources,
 )
@@ -46,14 +47,17 @@ class DataCollectorTests(unittest.TestCase):
                 report = collect_data(output_root=output_root, sources=("aadr", "raa"), version="v62.0")
 
             self.assertEqual(report.collected_sources, ("aadr", "raa"))
-            download_aadr.assert_called_once_with(output_root=output_root / "aadr", version="v62.0")
+            download_aadr.assert_called_once_with(
+                output_root=build_staging_output_dir(output_root / "aadr"),
+                version="v62.0",
+            )
             fetch_boundaries.assert_called_once()
             collect_boundaries.assert_not_called()
             collect_landclim.assert_not_called()
             collect_neotoma.assert_not_called()
             collect_sead.assert_not_called()
             collect_raa.assert_called_once_with(
-                output_root=output_root / "raa",
+                output_root=build_staging_output_dir(output_root / "raa"),
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
@@ -83,7 +87,7 @@ class DataCollectorTests(unittest.TestCase):
 
             self.assertEqual(report.collected_sources, AVAILABLE_SOURCES)
             download_aadr.assert_called_once()
-            collect_boundaries.assert_called_once_with(output_root / "boundaries")
+            collect_boundaries.assert_called_once_with(build_staging_output_dir(output_root / "boundaries"))
             collect_landclim.assert_called_once()
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
@@ -114,6 +118,30 @@ class DataCollectorTests(unittest.TestCase):
 
             self.assertFalse(stale_file.exists())
             self.assertTrue((output_root / "neotoma" / "normalized" / "fresh.csv").exists())
+
+    def test_collect_data_preserves_previous_source_dir_when_recollection_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            preserved_file = output_root / "neotoma" / "normalized" / "kept.csv"
+            preserved_file.parent.mkdir(parents=True, exist_ok=True)
+            preserved_file.write_text("kept", encoding="utf-8")
+
+            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+                fetch_boundaries.return_value = {"Sweden": {"features": []}}
+
+                def fail_after_partial_write(*, output_root: Path, country_boundaries: dict[str, object], bbox: tuple[float, ...]):
+                    normalized_dir = output_root / "normalized"
+                    normalized_dir.mkdir(parents=True, exist_ok=True)
+                    (normalized_dir / "partial.csv").write_text("partial", encoding="utf-8")
+                    raise RuntimeError("upstream failure")
+
+                collect_neotoma.side_effect = fail_after_partial_write
+                with self.assertRaisesRegex(RuntimeError, "upstream failure"):
+                    collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+
+            self.assertTrue(preserved_file.exists())
+            self.assertFalse((output_root / ".neotoma.tmp").exists())
 
     def test_collect_data_writes_output_root_specific_readme(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -179,7 +207,7 @@ class DataCollectorTests(unittest.TestCase):
 
             fetch_boundaries.assert_called_once()
             collect_landclim.assert_called_once_with(
-                output_root=output_root / "landclim",
+                output_root=build_staging_output_dir(output_root / "landclim"),
                 country_boundaries={"Sweden": {"features": []}},
                 bbox=(4.0, 54.0, 35.0, 72.0),
             )
