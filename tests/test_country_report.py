@@ -12,6 +12,7 @@ from bijux_pollenomics.reporting import (
     generate_published_reports,
     load_country_samples,
 )
+from bijux_pollenomics.reporting.paths import build_atlas_bundle_paths, build_country_bundle_paths
 
 
 HEADER = "\t".join(
@@ -34,6 +35,17 @@ HEADER = "\t".join(
 
 
 class CountryReportTests(unittest.TestCase):
+    def test_bundle_path_builders_keep_artifact_names_stable(self) -> None:
+        country_paths = build_country_bundle_paths(Path("/tmp/sweden"), "Sweden", "v62.0")
+        atlas_paths = build_atlas_bundle_paths(Path("/tmp/nordic"), "nordic", "v62.0")
+
+        self.assertEqual(country_paths.samples_csv_path.name, "sweden_aadr_v62.0_samples.csv")
+        self.assertEqual(country_paths.localities_csv_path.name, "sweden_aadr_v62.0_localities.csv")
+        self.assertEqual(country_paths.samples_markdown_path.name, "sweden_aadr_v62.0_samples.md")
+        self.assertEqual(atlas_paths.map_html_path.name, "nordic_aadr_v62.0_map.html")
+        self.assertEqual(atlas_paths.samples_geojson_path.name, "nordic_aadr_v62.0_samples.geojson")
+        self.assertEqual(atlas_paths.summary_json_path.name, "nordic_aadr_v62.0_summary.json")
+
     def test_load_country_samples_deduplicates_across_datasets(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"

@@ -20,6 +20,7 @@ from .context_layers import build_context_layers
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
+from .paths import build_atlas_bundle_paths, build_country_bundle_paths
 from .utils import slugify
 from ..settings import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
@@ -51,27 +52,21 @@ def generate_country_report(
         output_dir=output_dir,
     )
 
-    slug = slugify(country)
-    csv_path = output_dir / f"{slug}_aadr_{version}_samples.csv"
-    locality_csv_path = output_dir / f"{slug}_aadr_{version}_localities.csv"
-    geojson_path = output_dir / f"{slug}_aadr_{version}_samples.geojson"
-    sample_markdown_path = output_dir / f"{slug}_aadr_{version}_samples.md"
-    summary_json_path = output_dir / f"{slug}_aadr_{version}_summary.json"
-    readme_path = output_dir / "README.md"
+    bundle_paths = build_country_bundle_paths(output_dir=output_dir, country=country, version=version)
 
-    write_samples_csv(csv_path, report.samples)
-    write_localities_csv(locality_csv_path, report.localities)
-    write_samples_geojson(geojson_path, report.samples)
-    write_summary_json(summary_json_path, build_country_report_summary(report))
-    sample_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
-    readme_path.write_text(
+    write_samples_csv(bundle_paths.samples_csv_path, report.samples)
+    write_localities_csv(bundle_paths.localities_csv_path, report.localities)
+    write_samples_geojson(bundle_paths.samples_geojson_path, report.samples)
+    write_summary_json(bundle_paths.summary_json_path, build_country_report_summary(report))
+    bundle_paths.samples_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
+    bundle_paths.readme_path.write_text(
         render_summary_markdown(
             report=report,
-            samples_csv_name=csv_path.name,
-            localities_csv_name=locality_csv_path.name,
-            geojson_name=geojson_path.name,
-            sample_markdown_name=sample_markdown_path.name,
-            summary_json_name=summary_json_path.name,
+            samples_csv_name=bundle_paths.samples_csv_path.name,
+            localities_csv_name=bundle_paths.localities_csv_path.name,
+            geojson_name=bundle_paths.samples_geojson_path.name,
+            sample_markdown_name=bundle_paths.samples_markdown_path.name,
+            summary_json_name=bundle_paths.summary_json_path.name,
             map_reference=map_reference,
         ),
         encoding="utf-8",
@@ -112,13 +107,10 @@ def generate_multi_country_map(
     version = version_dir.name
     generated_on = str(date.today())
 
-    map_geojson_path = output_dir / f"{slug}_aadr_{version}_samples.geojson"
-    map_html_path = output_dir / f"{slug}_aadr_{version}_map.html"
-    summary_json_path = output_dir / f"{slug}_aadr_{version}_summary.json"
-    readme_path = output_dir / "README.md"
+    bundle_paths = build_atlas_bundle_paths(output_dir=output_dir, slug=slug, version=version)
 
     map_geojson = build_samples_geojson(all_samples)
-    map_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
+    bundle_paths.samples_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
 
     point_layers, polygon_layers, extra_artifacts = build_context_layers(
         samples=all_samples,
@@ -136,8 +128,8 @@ def generate_multi_country_map(
         total_unique_samples=len(all_samples),
         output_dir=output_dir,
     )
-    write_summary_json(summary_json_path, build_multi_country_map_summary(map_report))
-    map_html_path.write_text(
+    write_summary_json(bundle_paths.summary_json_path, build_multi_country_map_summary(map_report))
+    bundle_paths.map_html_path.write_text(
         render_multi_country_map_html(
             title=title,
             version=version,
@@ -149,16 +141,16 @@ def generate_multi_country_map(
         ),
         encoding="utf-8",
     )
-    readme_path.write_text(
+    bundle_paths.readme_path.write_text(
         render_multi_country_map_markdown(
             title=title,
             version=version,
             generated_on=generated_on,
             countries=normalized_countries,
             country_sample_counts=country_sample_counts,
-            map_html_name=map_html_path.name,
-            geojson_name=map_geojson_path.name,
-            summary_json_name=summary_json_path.name,
+            map_html_name=bundle_paths.map_html_path.name,
+            geojson_name=bundle_paths.samples_geojson_path.name,
+            summary_json_name=bundle_paths.summary_json_path.name,
             extra_artifacts=extra_artifacts,
         ),
         encoding="utf-8",
