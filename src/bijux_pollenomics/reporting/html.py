@@ -518,6 +518,49 @@ def render_multi_country_map_html(
         display: grid;
         gap: 10px;
       }
+      .coverage-matrix {
+        display: grid;
+        gap: 10px;
+      }
+      .coverage-row {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0)),
+          rgba(255, 255, 255, 0.74);
+      }
+      .coverage-row-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .coverage-row-head strong {
+        font-size: 14px;
+      }
+      .coverage-row-head span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .coverage-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .coverage-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: rgba(24, 37, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
       .search-result,
       .summary-item,
       .layer-card {
@@ -1218,6 +1261,7 @@ def render_multi_country_map_html(
           </section>
           <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
+            <button class="section-nav-button" type="button" data-section-target="coverage-panel">Coverage</button>
             <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
             <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
             <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
@@ -1231,6 +1275,11 @@ def render_multi_country_map_html(
               <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
               <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
               <div id="scope-summary" class="summary-list"></div>
+            </section>
+            <section id="coverage-panel" class="panel-card">
+              <div class="section-head"><h2>Source Coverage</h2><span id="coverage-summary" aria-live="polite">Dataset scope</span></div>
+              <p class="panel-copy">This matrix keeps geographic and geometry scope visible across sources so users do not mistake Sweden-only overlays for Nordic-wide evidence or confuse points with polygon summaries.</p>
+              <div id="coverage-matrix" class="coverage-matrix"></div>
             </section>
             <section id="country-panel" class="panel-card">
               <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
@@ -1425,6 +1474,8 @@ def render_multi_country_map_html(
       const layerFilters = document.getElementById('layer-filters');
       const legendItems = document.getElementById('legend-items');
       const scopeSummary = document.getElementById('scope-summary');
+      const coverageSummary = document.getElementById('coverage-summary');
+      const coverageMatrix = document.getElementById('coverage-matrix');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
@@ -1685,6 +1736,19 @@ def render_multi_country_map_html(
           TIME_HAS_DATA ? `AADR BP coverage: ${TIME_MIN_BP}-${TIME_MAX_BP}` : 'AADR BP coverage: no numeric BP years available'
         ];
         scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      }
+      function renderCoverageMatrix() {
+        const groupedSources = [...new Set(ALL_LAYERS.map((layer) => layer.source_name || layer.label))].map((sourceName) => {
+          const layers = ALL_LAYERS.filter((layer) => (layer.source_name || layer.label) === sourceName);
+          return { sourceName, layers };
+        });
+        coverageSummary.textContent = `${groupedSources.length} tracked sources`;
+        coverageMatrix.innerHTML = groupedSources.map(({ sourceName, layers }) => {
+          const coverage = [...new Set(layers.map((layer) => layer.coverage_label || 'Map-wide coverage'))];
+          const geometry = [...new Set(layers.map((layer) => layer.geometry_label || layerUnit(layer)))];
+          const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
+          return `<div class="coverage-row"><div class="coverage-row-head"><strong>${escapeHtml(sourceName)}</strong><span>${enabledCount}/${layers.length} layers enabled</span></div><div class="coverage-tags">${coverage.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}${geometry.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}</div></div>`;
+        }).join('');
       }
       function renderWorkspaceBrief() {
         const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
@@ -2206,6 +2270,7 @@ def render_multi_country_map_html(
         renderLegend();
         renderFilterChips();
         renderWorkspaceBrief();
+        renderCoverageMatrix();
         updateStats();
         updateSummary();
         buildSearchResults();
