@@ -298,6 +298,13 @@ def render_multi_country_map_html(
       }
       .stat-value { font-size: 24px; font-weight: 700; }
       .stat-value--compact { font-size: 18px; }
+      .stat-support {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
       .section-stack { display: grid; gap: 16px; }
       .section-nav {
         position: sticky;
@@ -1172,12 +1179,12 @@ def render_multi_country_map_html(
             <div id="workspace-brief-note" class="workspace-brief-note">The shared map starts with the full Nordic evidence stack visible so country, archaeology, and pollen context can be compared without extra setup.</div>
           </section>
           <section class="stats-grid">
-            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong></div>
-            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong></div>
-            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">__VERSION__</strong></div>
-            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong></div>
+            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong><span id="stat-visible-points-note" class="stat-support">Across enabled point layers.</span></div>
+            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong><span id="stat-visible-layers-note" class="stat-support">Polygon and boundary layers on the map.</span></div>
+            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong><span id="stat-visible-countries-note" class="stat-support">Selected country filters.</span></div>
+            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong><span id="stat-radius-note" class="stat-support">Derived from the active diameter setting.</span></div>
+            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">__VERSION__</strong><span class="stat-support">Primary evidence release loaded into this workspace.</span></div>
+            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong><span id="stat-context-sources-note" class="stat-support">Additional context datasets available for comparison.</span></div>
           </section>
           <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
@@ -1428,9 +1435,14 @@ def render_multi_country_map_html(
       const cursorReadout = document.getElementById('cursor-readout');
       const statVisiblePoints = document.getElementById('stat-visible-points');
       const statVisibleLayers = document.getElementById('stat-visible-layers');
+      const statVisiblePointsNote = document.getElementById('stat-visible-points-note');
+      const statVisibleLayersNote = document.getElementById('stat-visible-layers-note');
       const statVisibleCountries = document.getElementById('stat-visible-countries');
+      const statVisibleCountriesNote = document.getElementById('stat-visible-countries-note');
       const statRadius = document.getElementById('stat-radius');
+      const statRadiusNote = document.getElementById('stat-radius-note');
       const statContextSources = document.getElementById('stat-context-sources');
+      const statContextSourcesNote = document.getElementById('stat-context-sources-note');
       function parseHashState() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
@@ -2016,6 +2028,7 @@ def render_multi_country_map_html(
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const enabledPointLayers = POINT_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
         const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
           if (!layer.applies_time_filter) return false;
           return Number.isFinite(Number(feature.time_year_bp));
@@ -2025,6 +2038,17 @@ def render_multi_country_map_html(
         statVisibleCountries.textContent = String(activeCountries.size);
         statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        statVisiblePointsNote.textContent = `${enabledPointLayers} point layers currently contribute visible records.`;
+        statVisibleLayersNote.textContent = `${renderedPolygonLayers.length} polygon overlays are currently drawn on the map.`;
+        statVisibleCountriesNote.textContent = activeCountries.size === COUNTRIES.length
+          ? 'All configured countries are visible.'
+          : activeCountries.size
+            ? `${COUNTRIES.length - activeCountries.size} countries are currently excluded.`
+            : 'No countries are currently selected.';
+        statRadiusNote.textContent = Number(slider.value) > 0
+          ? `${Number(slider.value)} km diameter acceptance circles are active for point layers.`
+          : 'Acceptance circles are currently hidden.';
+        statContextSourcesNote.textContent = `${ALL_LAYERS.filter((layer) => layer.key !== 'aadr' && activeLayerKeys.has(layer.key)).length} context sources are currently enabled.`;
         timeRecordCount.textContent = TIME_HAS_DATA
           ? `${datedVisibleCount} dated records are visible in the active BP window.`
           : 'No dated records are available for BP filtering.';

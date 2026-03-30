@@ -220,6 +220,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Workspace Brief", map_html)
             self.assertIn("id=\"workspace-brief-geography\"", map_html)
             self.assertIn("renderWorkspaceBrief", map_html)
+            self.assertIn("id=\"stat-visible-points-note\"", map_html)
+            self.assertIn("id=\"stat-context-sources-note\"", map_html)
             self.assertIn("id=\"topbar-state-pill\"", map_html)
             self.assertIn("__TITLE__ map".replace("__TITLE__", "Nordic Countries"), map_html)
             self.assertIn("id=\"section-nav\"", map_html)
