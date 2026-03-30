@@ -202,7 +202,7 @@ def generate_published_reports(
             version_dir=version_dir,
             country=country,
             output_dir=country_dir,
-            map_reference=(f"{title} map", shared_map_path),
+            map_reference=(title, shared_map_path),
         )
         country_output_dirs.append(country_dir)
 

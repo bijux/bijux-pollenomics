@@ -39,7 +39,7 @@ def render_summary_markdown(
     map_line = ""
     if map_reference is not None:
         label, href = map_reference
-        map_line = f"- Shared interactive map: [`{label}`]({href})\n"
+        map_line = f'- Shared interactive map: <a href="{href}">{label}</a>\n'
 
     return f"""# {report.country} AADR {report.version} Report
 

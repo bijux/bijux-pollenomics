@@ -651,6 +651,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "norway" / "README.md").exists())
             sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
             self.assertIn("../nordic/nordic_aadr_v62.0_map.html", sweden_readme)
+            self.assertIn(">Nordic Evidence Atlas</a>", sweden_readme)
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
