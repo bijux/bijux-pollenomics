@@ -4,7 +4,7 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Data Layout
@@ -16,6 +16,7 @@ data
 ├── collection_summary.json
 ├── aadr
 ├── boundaries
+├── landclim
 ├── neotoma
 ├── raa
 └── sead
@@ -40,6 +41,21 @@ data
 │       ├── finland.geojson
 │       ├── norway.geojson
 │       └── sweden.geojson
+├── landclim
+│   ├── normalized
+│   │   ├── landclim_summary.json
+│   │   ├── nordic_pollen_site_sequences.csv
+│   │   ├── nordic_pollen_site_sequences.geojson
+│   │   └── nordic_reveals_grid_cells.geojson
+│   └── raw
+│       ├── landclim_i_land_cover_types.xlsx
+│       ├── landclim_i_plant_functional_types.xlsx
+│       ├── landclim_ii_grid_cell_quality.xlsx
+│       ├── landclim_ii_reveals_results.zip
+│       ├── landclim_ii_site_metadata.xlsx
+│       ├── landclim_ii_taxa_pft_ppe_fsp_values.csv
+│       ├── landclim_sources.json
+│       └── marquer_2017_reveals_taxa_grid_cells.xlsx
 ├── neotoma
 │   ├── normalized
 │   │   ├── nordic_pollen_sites.csv

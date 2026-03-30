@@ -4,7 +4,7 @@ audience: mixed
 type: workflow
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Rebuild the Data Tree
@@ -29,6 +29,7 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 flowchart TD
     CollectAll[collect-data all] --> AADR[data/aadr]
     CollectAll --> Boundaries[data/boundaries]
+    CollectAll --> LandClim[data/landclim]
     CollectAll --> Neotoma[data/neotoma]
     CollectAll --> RAA[data/raa]
     CollectAll --> SEAD[data/sead]
@@ -51,10 +52,11 @@ The current repository also supports:
 
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data landclim --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
 ```
 
 ## Purpose
 
-This page explains how the unified data collector maps directly onto the five tracked source categories.
+This page explains how the unified data collector maps directly onto the six tracked source categories.

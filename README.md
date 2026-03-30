@@ -4,7 +4,7 @@
 
 Today, this repository does four concrete things:
 
-- collects five tracked data categories under `data/`
+- collects six tracked data categories under `data/`
 - generates one shared Nordic map bundle under `docs/report/nordic/`
 - generates country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
 - builds a MkDocs documentation site under `artifacts/docs/site/`
@@ -16,7 +16,7 @@ It does not yet rank candidate sampling locations, compute lake intersections, o
 The current checked-in scope is deliberately narrow:
 
 - AADR is used from public `.anno` metadata files
-- boundaries, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
+- boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
 - published outputs are rebuilt from local commands and kept in the repository
 - the shared map is a publication artifact, not an analysis engine
 
@@ -36,6 +36,7 @@ The main checked-in areas are:
 ├── data/
 │   ├── aadr/
 │   ├── boundaries/
+│   ├── landclim/
 │   ├── neotoma/
 │   ├── raa/
 │   └── sead/

@@ -4,26 +4,28 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Data Categories
 
-The project tracks five first-class source categories:
+The project tracks six first-class source categories:
 
 ```text
 data
 ├── aadr
 ├── boundaries
+├── landclim
 ├── neotoma
 ├── raa
 └── sead
 ```
 
-## Why These Five
+## Why These Six
 
 - `aadr` provides ancient DNA sample locations and metadata
 - `boundaries` provides country polygons used to classify and filter records
+- `landclim` provides curated pollen-sequence inputs plus REVEALS reconstruction grid coverage from PANGAEA
 - `neotoma` provides pollen and paleoecology site coverage
 - `raa` provides Swedish archaeology context
 - `sead` provides environmental archaeology context
@@ -35,6 +37,7 @@ The current command surface treats every tracked source the same way:
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data landclim --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
@@ -56,6 +59,7 @@ The current `data/` tree contains:
 
 - tracked AADR `.anno` files under `data/aadr/v62.0/`
 - raw and normalized country boundaries
+- raw and normalized LandClim pollen-sequence and REVEALS grid outputs
 - raw and normalized Neotoma pollen-site outputs
 - raw and normalized SEAD site outputs
 - raw RAÄ metadata plus normalized Swedish archaeology density outputs

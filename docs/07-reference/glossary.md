@@ -4,7 +4,7 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Glossary
@@ -23,7 +23,7 @@ A country-specific AADR output bundle under `docs/report/<country>/`.
 
 ## Context Data
 
-Non-AADR layers used to enrich the spatial interpretation surface, currently boundaries, Neotoma, SEAD, and RAÄ.
+Non-AADR layers used to enrich the spatial interpretation surface, currently boundaries, LandClim, Neotoma, SEAD, and RAÄ.
 
 ## Data Tree
 

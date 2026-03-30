@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Data Collection Flow
@@ -18,9 +18,11 @@ flowchart TD
     CollectData[collect-data] --> Selector[Source selector]
     Selector --> AADR[aadr collector]
     Selector --> Boundaries[boundaries collector]
+    Selector --> LandClim[landclim collector]
     Selector --> Neotoma[neotoma collector]
     Selector --> RAA[raa collector]
     Selector --> SEAD[sead collector]
+    LandClim --> Classification
     Boundaries --> Classification[country classification]
     Neotoma --> Classification
     SEAD --> Classification

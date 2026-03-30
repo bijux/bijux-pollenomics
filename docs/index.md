@@ -4,14 +4,14 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Docs Index
 
 This is the canonical documentation home for `bijux-pollenomics`.
 
-The first page leads with the checked-in Nordic map because the map is the shortest way to inspect the repository’s current outputs: AADR sample points, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
+The first page leads with the checked-in Nordic map because the map is the shortest way to inspect the repository’s current outputs: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
 
 The current map groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
 
@@ -44,7 +44,7 @@ flowchart LR
 The docs are organized so a reader can move from the visible output into the supporting explanation they need:
 
 - what the repository produces today
-- how the five tracked data categories are collected
+- how the six tracked data categories are collected
 - how reports and the shared map are generated
 - how the source tree is organized
 - how local workflows stay reproducible

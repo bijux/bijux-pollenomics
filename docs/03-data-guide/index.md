@@ -4,17 +4,18 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-30
 ---
 
 # Data Guide
 
-This section explains the five tracked data categories under `data/`, the commands that build them, and the boundaries of what each source currently contributes.
+This section explains the six tracked data categories under `data/`, the commands that build them, and the boundaries of what each source currently contributes.
 
 ```mermaid
 flowchart TD
     Data[data/] --> AADR[aadr]
     Data --> Boundaries[boundaries]
+    Data --> LandClim[landclim]
     Data --> Neotoma[neotoma]
     Data --> RAA[raa]
     Data --> SEAD[sead]
@@ -25,6 +26,7 @@ flowchart TD
 - [Data categories](data-categories.md)
 - [AADR](aadr.md)
 - [Boundaries](boundaries.md)
+- [LandClim](landclim.md)
 - [Neotoma](neotoma.md)
 - [SEAD](sead.md)
 - [RAÄ](raa.md)
