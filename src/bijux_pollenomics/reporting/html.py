@@ -923,6 +923,13 @@ def render_multi_country_map_html(
               <div class="field-label" style="margin-top: 16px;"><span>Window interval</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
               <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
               <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+              <div class="preset-row" style="margin-top: 12px;">
+                <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+              </div>
+              <div id="time-record-count" class="search-meta">0 dated records are visible in the active BP window.</div>
               <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
             <section id="distance-panel" class="panel-card">
@@ -1053,6 +1060,7 @@ def render_multi_country_map_html(
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timeWindowValue = document.getElementById('time-window-value');
+      const timeRecordCount = document.getElementById('time-record-count');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -1176,8 +1184,15 @@ def render_multi_country_map_html(
           .join(', ');
       }
       function syncPresetButtons() {
-        document.querySelectorAll('.preset-button').forEach((button) => {
+        document.querySelectorAll('[data-km]').forEach((button) => {
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
+        });
+      }
+      function syncTimePresetButtons() {
+        document.querySelectorAll('[data-time-interval]').forEach((button) => {
+          const preset = button.dataset.timeInterval;
+          const active = preset === 'full' ? timeIntervalYears === TIME_INTERVAL_MAX : Number(preset) === Number(timeIntervalYears);
+          button.classList.toggle('is-active', active);
         });
       }
       function updateSectionNav(activeSectionId) {
@@ -1516,11 +1531,18 @@ def render_multi_country_map_html(
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
+          if (!layer.applies_time_filter) return false;
+          return Number.isFinite(Number(feature.time_year_bp));
+        }).length;
         statVisiblePoints.textContent = String(visiblePointEntries.length);
         statVisibleLayers.textContent = String(enabledLayers);
         statVisibleCountries.textContent = String(activeCountries.size);
         statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        timeRecordCount.textContent = TIME_HAS_DATA
+          ? `${datedVisibleCount} dated records are visible in the active BP window.`
+          : 'No dated records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
@@ -1598,6 +1620,7 @@ def render_multi_country_map_html(
         updateSummary();
         buildSearchResults();
         syncPresetButtons();
+        syncTimePresetButtons();
         diameterValue.textContent = `${Number(slider.value)} km diameter`;
         radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
@@ -1661,9 +1684,16 @@ def render_multi_country_map_html(
       timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
       timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
-      document.querySelectorAll('.preset-button').forEach((button) => {
+      document.querySelectorAll('[data-km]').forEach((button) => {
         button.addEventListener('click', () => {
           slider.value = button.dataset.km;
+          renderMapState();
+        });
+      });
+      document.querySelectorAll('[data-time-interval]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const preset = button.dataset.timeInterval;
+          timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
           renderMapState();
         });
       });
