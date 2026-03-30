@@ -4,12 +4,12 @@ audience: mixed
 type: workflow
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Generate Reports and Map Outputs
 
-Once the data tree exists, generate the shared map and any country reports you want to publish or inspect.
+Once the data tree exists, generate the shared map and any country reports you want to publish or inspect. This workflow rewrites tracked files under `docs/report/`.
 
 ## Current Published Set
 
@@ -20,10 +20,18 @@ make reports
 Equivalent direct command:
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Countries" --output-root docs/report --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data
 ```
 
-That command rebuilds the current checked-in report tree in one pass.
+That command is the direct match for the checked-in publication workflow. It rebuilds the current shared Nordic map bundle and the four current country bundles in one pass.
+
+## Which Command To Use
+
+- use `publish-reports` when you want the current checked-in publication tree rebuilt under `docs/report/`
+- use `report-multi-country-map` when you only want the shared multi-country HTML map bundle
+- use `report-country` when you want one country bundle without republishing everything else
+
+Those commands overlap, but they are not interchangeable.
 
 ## Shared Nordic Map
 
@@ -34,9 +42,15 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-
 That command reads:
 
 - AADR `.anno` files from `data/aadr/v62.0/`
-- normalized context layers from `data/boundaries/`, `data/neotoma/`, `data/sead/`, and `data/raa/`
+- normalized context layers from `data/boundaries/`, `data/landclim/`, `data/neotoma/`, `data/sead/`, and `data/raa/`
 
-and writes the checked-in Nordic bundle under `docs/report/nordic/`.
+and writes the shared Nordic bundle under `docs/report/nordic/`.
+
+What it does not do:
+
+- it does not regenerate country bundles
+- it does not rebuild `data/`
+- it does not make the shared map fully offline because basemap tiles still come from external providers at runtime
 
 ## Country Reports
 
@@ -48,6 +62,8 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-countr
 ```
 
 Each `report-country` command writes one country bundle under `docs/report/<country>/`.
+
+Country report generation is intentionally file-oriented. It produces inventories and summaries, not a second standalone HTML map.
 
 ## Output Model
 
