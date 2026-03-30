@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Boundaries
@@ -24,6 +24,7 @@ The current collector:
 - filters that global boundary collection down to Sweden, Norway, Finland, and Denmark
 - writes those filtered country files into the tracked raw boundary directory
 - builds one combined Nordic boundary GeoJSON for country classification and map framing
+- uses strict polygon containment first, then a narrow fallback for inland-water and near-coast points that sit just outside the published land polygons
 
 ## Current Raw Files
 
@@ -35,6 +36,10 @@ The current collector:
 ## Why It Matters
 
 Without boundaries, the repository cannot apply one consistent country filter to AADR, Neotoma, SEAD, and Sweden-specific archaeology overlays.
+
+## Classification Note
+
+The country polygons come from land-focused admin boundaries, which means some real research coordinates can fall into inland-water holes or just outside simplified coastlines. The shared classifier now recovers those cases conservatively instead of dropping them silently.
 
 ## Acquisition Command
 

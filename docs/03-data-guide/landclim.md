@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # LandClim
@@ -24,8 +24,9 @@ The current collector:
 
 - downloads the PANGAEA assets behind `10.1594/PANGAEA.900966`, `10.1594/PANGAEA.897303`, and `10.1594/PANGAEA.937075`
 - parses workbook-based metadata locally so the repository does not depend on external spreadsheet tooling
+- reads LandClim I site metadata from both published workbook variants instead of trusting a single sheet name
 - keeps pollen-sequence records whose coordinates fall inside the Nordic bounding box
-- assigns retained sequences and grid cells to Nordic countries using the tracked boundary layer
+- assigns retained sequences and grid cells to Nordic countries using the tracked boundary layer, then falls back to the workbook country field when the coordinate is valid but the boundary geometry is too coarse
 - merges identical 1 degree grid cells across LandClim I and LandClim II outputs while preserving dataset labels, time-window coverage, and LandClim II quality labels
 
 ## Why It Matters
@@ -41,6 +42,8 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 ## Normalization Rule
 
 The upstream LandClim records mix raw pollen-sequence inputs with processed REVEALS products and, in some cases, 1 degree aggregated land-cover reconstructions. The repository keeps that distinction visible by publishing separate point and grid layers instead of flattening everything into one generic pollen table.
+
+The normalized LandClim tree is still a Nordic subset. Coordinate-bearing rows outside the Nordic working extent are intentionally excluded even though they remain present in the raw tracked workbooks.
 
 ## Interpretation Caution
 

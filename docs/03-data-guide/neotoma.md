@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Neotoma
@@ -23,7 +23,7 @@ The current collector:
 - requests Neotoma `datasettype=pollen` rows from both the public `datasets` and `sites` endpoints
 - merges those responses by site and collection unit so newer pollen records from `datasets` are not lost and site-only rows from `sites` are still retained
 - keeps only rows whose representative point falls inside the Nordic bounding box
-- assigns each retained record to a Nordic country using the tracked boundary layer
+- assigns each retained record to a Nordic country using the tracked boundary layer, including a narrow boundary-proximity recovery so coastal and inland-water sites are not dropped by coarse land polygons
 - writes one raw JSON snapshot plus normalized CSV and GeoJSON outputs
 
 ## Why It Matters
