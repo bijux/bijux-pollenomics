@@ -191,6 +191,62 @@ def render_multi_country_map_html(
         gap: 12px;
         margin-bottom: 18px;
       }
+      .workspace-brief {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        margin-bottom: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        border-radius: 22px;
+        background:
+          linear-gradient(135deg, rgba(31, 94, 216, 0.08), rgba(14, 122, 114, 0.04) 52%, rgba(173, 103, 8, 0.08)),
+          rgba(255, 255, 255, 0.70);
+        box-shadow: var(--shadow-sm);
+      }
+      .workspace-brief-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+      .workspace-brief-head strong {
+        font-size: 15px;
+      }
+      .workspace-brief-head span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .workspace-brief-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .workspace-brief-card {
+        padding: 12px 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        background: rgba(255, 255, 255, 0.70);
+      }
+      .workspace-brief-label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .workspace-brief-value {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .workspace-brief-note {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
       .stat-card,
       .panel-card,
       .floating-legend,
@@ -1018,6 +1074,9 @@ def render_multi_country_map_html(
           max-height: min(72vh, 760px);
         }
         .sidebar-inner { padding: 16px; }
+        .workspace-brief-grid {
+          grid-template-columns: 1fr;
+        }
         .stats-grid { grid-template-columns: 1fr 1fr; }
         .map-topbar {
           left: 8px;
@@ -1091,6 +1150,27 @@ def render_multi_country_map_html(
             </div>
             <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
           </div>
+          <section class="workspace-brief">
+            <div class="workspace-brief-head">
+              <strong>Workspace Brief</strong>
+              <span id="workspace-brief-state" aria-live="polite">Default map state</span>
+            </div>
+            <div class="workspace-brief-grid">
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Geography</span>
+                <span id="workspace-brief-geography" class="workspace-brief-value">All countries</span>
+              </div>
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Evidence Stack</span>
+                <span id="workspace-brief-stack" class="workspace-brief-value">Default layers</span>
+              </div>
+              <div class="workspace-brief-card">
+                <span class="workspace-brief-label">Time Window</span>
+                <span id="workspace-brief-time" class="workspace-brief-value">__INITIAL_TIME_START_BP__-__INITIAL_TIME_END_BP__ BP</span>
+              </div>
+            </div>
+            <div id="workspace-brief-note" class="workspace-brief-note">The shared map starts with the full Nordic evidence stack visible so country, archaeology, and pollen context can be compared without extra setup.</div>
+          </section>
           <section class="stats-grid">
             <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
             <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
@@ -1312,6 +1392,11 @@ def render_multi_country_map_html(
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
+      const workspaceBriefState = document.getElementById('workspace-brief-state');
+      const workspaceBriefGeography = document.getElementById('workspace-brief-geography');
+      const workspaceBriefStack = document.getElementById('workspace-brief-stack');
+      const workspaceBriefTime = document.getElementById('workspace-brief-time');
+      const workspaceBriefNote = document.getElementById('workspace-brief-note');
       const filterChips = document.getElementById('filter-chips');
       const filterChipCount = document.getElementById('filter-chip-count');
       const slider = document.getElementById('diameter-slider');
@@ -1557,6 +1642,24 @@ def render_multi_country_map_html(
           TIME_HAS_DATA ? `AADR BP coverage: ${TIME_MIN_BP}-${TIME_MAX_BP}` : 'AADR BP coverage: no numeric BP years available'
         ];
         scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      }
+      function renderWorkspaceBrief() {
+        const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
+        const geographySummary = activeCountries.size === COUNTRIES.length
+          ? 'All Nordic countries'
+          : activeCountries.size
+            ? [...activeCountries].join(', ')
+            : 'No countries selected';
+        const timeSummary = TIME_HAS_DATA
+          ? `${timeStartBp}-${timeWindowEndBp()} BP`
+          : 'No dated records';
+        workspaceBriefState.textContent = filterChipCount.textContent === 'Defaults' ? 'Default map state' : `${filterChipCount.textContent} override map defaults`;
+        workspaceBriefGeography.textContent = geographySummary;
+        workspaceBriefStack.textContent = activeGroups.length ? activeGroups.join(' + ') : 'No active layers';
+        workspaceBriefTime.textContent = timeSummary;
+        workspaceBriefNote.textContent = TIME_HAS_DATA
+          ? `${visiblePointEntries.length} visible point records sit inside the current evidence stack and BP window.`
+          : `${visiblePointEntries.length} visible point records are available under the current layer and geography filters.`;
       }
       function renderCountryControls() {
         const pointCountsByCountry = Object.fromEntries(
@@ -2019,6 +2122,7 @@ def render_multi_country_map_html(
         renderCountryControls();
         renderLegend();
         renderFilterChips();
+        renderWorkspaceBrief();
         updateStats();
         updateSummary();
         buildSearchResults();
