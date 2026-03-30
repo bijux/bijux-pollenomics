@@ -225,6 +225,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("data-layer-preset=\"context\"", map_html)
             self.assertIn("Evidence only", map_html)
             self.assertIn("applyLayerPreset", map_html)
+            self.assertIn("layer-state-pill", map_html)
+            self.assertIn("layer-swatch-stack", map_html)
             self.assertIn("syncSectionNavWithScroll", map_html)
             self.assertIn("id=\"floating-legend\"", map_html)
             self.assertIn("right: 16px;", map_html)

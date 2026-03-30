@@ -392,6 +392,55 @@ def render_multi_country_map_html(
         gap: 12px;
         align-items: flex-start;
       }
+      .layer-card.is-enabled {
+        border-color: rgba(37, 99, 235, 0.22);
+        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+      }
+      .layer-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .layer-card-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .layer-card-text {
+        display: grid;
+        gap: 4px;
+      }
+      .layer-card-text strong {
+        margin: 0;
+      }
+      .layer-swatch-stack {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(20, 33, 61, 0.25);
+        flex: 0 0 auto;
+      }
+      .layer-state-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .layer-card.is-enabled .layer-state-pill {
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--blue);
+      }
       .layer-card label {
         display: flex;
         gap: 10px;
@@ -1177,7 +1226,10 @@ def render_multi_country_map_html(
             if (!layers.length) return '';
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
-              return `<div class="layer-card"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
+              const stateLabel = activeLayerKeys.has(layer.key) ? 'Enabled' : 'Hidden';
+              const swatchColor = layerColor(layer);
+              const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
+              return `<div class="layer-card ${activeLayerKeys.has(layer.key) ? 'is-enabled' : ''}"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div class="layer-card-head"><div class="layer-card-title"><span class="layer-swatch-stack" style="background:${escapeHtml(swatchColor)}; border-color:${escapeHtml(swatchBorder)};"></span><div class="layer-card-text"><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div></div><span class="layer-state-pill">${escapeHtml(stateLabel)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
             }).join('');
             return `<section class="layer-group"><div class="layer-group-head"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))}</span></div>${cards}</section>`;
           })
