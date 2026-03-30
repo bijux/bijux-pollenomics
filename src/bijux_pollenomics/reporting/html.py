@@ -155,6 +155,92 @@ def render_multi_country_map_html(
         opacity: 1;
         pointer-events: auto;
       }
+      .help-dialog {
+        position: fixed;
+        inset: 0;
+        z-index: 1400;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(24, 37, 61, 0.34);
+      }
+      .help-dialog[hidden] {
+        display: none;
+      }
+      .help-dialog-card {
+        width: min(760px, 100%);
+        max-height: min(88vh, 780px);
+        overflow: auto;
+        padding: 24px;
+        border-radius: 28px;
+        border: 1px solid rgba(24, 37, 61, 0.12);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
+          rgba(255, 252, 247, 0.98);
+        box-shadow: var(--shadow-lg);
+      }
+      .help-dialog-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+      .help-dialog-head h2 {
+        margin: 6px 0 0;
+        font-family: var(--font-display);
+        font-size: 30px;
+        line-height: 1.02;
+      }
+      .help-dialog-head p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .help-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .help-card {
+        padding: 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        background: rgba(255, 255, 255, 0.74);
+      }
+      .help-card h3 {
+        margin: 0 0 10px;
+        font-size: 14px;
+      }
+      .help-list {
+        display: grid;
+        gap: 10px;
+      }
+      .help-row {
+        display: grid;
+        grid-template-columns: minmax(84px, auto) minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      .help-key {
+        display: inline-flex;
+        justify-content: center;
+        padding: 6px 9px;
+        border-radius: 12px;
+        border: 1px solid rgba(24, 37, 61, 0.14);
+        background: rgba(24, 37, 61, 0.06);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .help-row span:last-child {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
       .map-stage { position: relative; min-height: 100vh; }
       #map { height: 100vh; width: 100%; }
       .eyebrow {
@@ -1168,6 +1254,9 @@ def render_multi_country_map_html(
           align-items: stretch;
           gap: 10px;
         }
+        .help-grid {
+          grid-template-columns: 1fr;
+        }
         .topbar-title {
           font-size: 14px;
         }
@@ -1383,6 +1472,7 @@ def render_multi_country_map_html(
             <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
             <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
             <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+            <button id="help-toggle" class="toolbar-button" type="button">Help</button>
             <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
           </div>
         </div>
@@ -1428,6 +1518,36 @@ def render_multi_country_map_html(
         </div>
       </main>
     </div>
+    <div id="help-dialog" class="help-dialog" hidden>
+      <div class="help-dialog-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
+        <div class="help-dialog-head">
+          <div>
+            <span class="eyebrow">Workspace Guide</span>
+            <h2 id="help-title">How to use this map</h2>
+            <p>This shared map combines ancient DNA, pollen, archaeology, and orientation layers. These controls keep the interface learnable without leaving the map.</p>
+          </div>
+          <button id="help-close" class="toolbar-button" type="button">Close</button>
+        </div>
+        <div class="help-grid">
+          <section class="help-card">
+            <h3>Keyboard shortcuts</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">?</span><span>Open this guide from anywhere in the report.</span></div>
+              <div class="help-row"><span class="help-key">Esc</span><span>Close the guide, or close the mobile filter drawer when it is open.</span></div>
+              <div class="help-row"><span class="help-key">Enter</span><span>Jump to the first visible match from the search field.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Recommended workflow</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">1</span><span>Use the workspace brief and source coverage panel to understand the current evidence stack.</span></div>
+              <div class="help-row"><span class="help-key">2</span><span>Narrow geography, time, and distance before inspecting individual records.</span></div>
+              <div class="help-row"><span class="help-key">3</span><span>Use the focus card to keep one selected record visible while the map continues moving.</span></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
     <script src="__ASSET_BASE_PATH__/leaflet/leaflet.js"></script>
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
     <script>
@@ -1467,6 +1587,9 @@ def render_multi_country_map_html(
       const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const helpToggleButton = document.getElementById('help-toggle');
+      const helpDialog = document.getElementById('help-dialog');
+      const helpCloseButton = document.getElementById('help-close');
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
       const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
@@ -1692,6 +1815,14 @@ def render_multi_country_map_html(
         legendBody.classList.toggle('is-collapsed', collapsed);
         legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
         if (persist) syncHashState();
+      }
+      function openHelpDialog() {
+        helpDialog.hidden = false;
+        document.body.classList.add('has-mobile-panel-open');
+      }
+      function closeHelpDialog() {
+        helpDialog.hidden = true;
+        syncMobilePanelState();
       }
       function syncHashState() {
         const params = new URLSearchParams();
@@ -2336,6 +2467,11 @@ def render_multi_country_map_html(
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      helpToggleButton.addEventListener('click', openHelpDialog);
+      helpCloseButton.addEventListener('click', closeHelpDialog);
+      helpDialog.addEventListener('click', (event) => {
+        if (event.target === helpDialog) closeHelpDialog();
+      });
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
@@ -2382,6 +2518,15 @@ def render_multi_country_map_html(
       map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
       document.addEventListener('keydown', (event) => {
+        if (event.key === '?') {
+          event.preventDefault();
+          openHelpDialog();
+          return;
+        }
+        if (event.key === 'Escape' && !helpDialog.hidden) {
+          closeHelpDialog();
+          return;
+        }
         if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {
           setPanelCollapsed(true);
         }
