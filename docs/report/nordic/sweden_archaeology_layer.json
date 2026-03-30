@@ -7,7 +7,7 @@
   "description": "Published archaeology density derived from Fornsök/RAÄ Open Data. The map renders grid-cell counts for `Fornlämning` records so Swedish archaeology is visible at national scale without loading hundreds of thousands of point markers.",
   "feature_type": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
   "grid_cell_size_degrees": 1.0,
-  "density_feature_count": 105,
+  "density_feature_count": 106,
   "counts": {
     "all_published_sites": 761917,
     "fornlamning": 318265,

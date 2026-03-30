@@ -79,76 +79,6 @@
           [
             [
               10.0,
-              57.0
-            ],
-            [
-              11.0,
-              57.0
-            ],
-            [
-              11.0,
-              58.0
-            ],
-            [
-              10.0,
-              58.0
-            ],
-            [
-              10.0,
-              57.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Denmark",
-        "record_id": "10.000000,57.000000,11.000000,58.000000",
-        "name": "10°E 58°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 26,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Denmark"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "26 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              10.0,
               60.0
             ],
             [
@@ -623,146 +553,6 @@
           {
             "label": "Time windows",
             "value": "28 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              12.0,
-              55.0
-            ],
-            [
-              13.0,
-              55.0
-            ],
-            [
-              13.0,
-              56.0
-            ],
-            [
-              12.0,
-              56.0
-            ],
-            [
-              12.0,
-              55.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Denmark",
-        "record_id": "12.000000,55.000000,13.000000,56.000000",
-        "name": "12°E 56°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Denmark"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "30 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              12.0,
-              56.0
-            ],
-            [
-              13.0,
-              56.0
-            ],
-            [
-              13.0,
-              57.0
-            ],
-            [
-              12.0,
-              57.0
-            ],
-            [
-              12.0,
-              56.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Sweden",
-        "record_id": "12.000000,56.000000,13.000000,57.000000",
-        "name": "12°E 57°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Sweden"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "30 windows"
           },
           {
             "label": "Window span",
@@ -2248,76 +2038,6 @@
         "coordinates": [
           [
             [
-              17.0,
-              68.0
-            ],
-            [
-              18.0,
-              68.0
-            ],
-            [
-              18.0,
-              69.0
-            ],
-            [
-              17.0,
-              69.0
-            ],
-            [
-              17.0,
-              68.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Norway",
-        "record_id": "17.000000,68.000000,18.000000,69.000000",
-        "name": "17°E 69°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Norway"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "30 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
               18.0,
               68.0
             ],
@@ -2933,76 +2653,6 @@
           {
             "label": "Time windows",
             "value": "30 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              21.0,
-              61.0
-            ],
-            [
-              22.0,
-              61.0
-            ],
-            [
-              22.0,
-              62.0
-            ],
-            [
-              21.0,
-              62.0
-            ],
-            [
-              21.0,
-              61.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Finland",
-        "record_id": "21.000000,61.000000,22.000000,62.000000",
-        "name": "21°E 62°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Finland"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "29 windows"
           },
           {
             "label": "Window span",
@@ -4418,76 +4068,6 @@
         "coordinates": [
           [
             [
-              28.0,
-              70.0
-            ],
-            [
-              29.0,
-              70.0
-            ],
-            [
-              29.0,
-              71.0
-            ],
-            [
-              28.0,
-              71.0
-            ],
-            [
-              28.0,
-              70.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-reveals-grid",
-        "layer_label": "LandClim REVEALS grid cells",
-        "category": "Vegetation reconstruction",
-        "country": "Norway",
-        "record_id": "28.000000,70.000000,29.000000,71.000000",
-        "name": "28°E 71°N grid cell",
-        "geometry_type": "Polygon",
-        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
-        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
-        "popup_rows": [
-          {
-            "label": "Datasets",
-            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOIs",
-            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Norway"
-          },
-          {
-            "label": "Variables",
-            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
-          },
-          {
-            "label": "Time windows",
-            "value": "28 windows"
-          },
-          {
-            "label": "Window span",
-            "value": "0-100 BP to 11200-11700 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
               29.0,
               61.0
             ],
@@ -5358,6 +4938,76 @@
         "country": "Norway",
         "record_id": "8.000000,61.000000,9.000000,62.000000",
         "name": "08°E 62°N grid cell",
+        "geometry_type": "Polygon",
+        "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
+        "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 30,
+        "popup_rows": [
+          {
+            "label": "Datasets",
+            "value": "LandClim I land-cover types, LandClim I plant functional types, LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOIs",
+            "value": "https://doi.org/10.1594/PANGAEA.897303, https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Variables",
+            "value": "land-cover types, plant functional types, taxa, plant functional types, land-cover types"
+          },
+          {
+            "label": "Time windows",
+            "value": "30 windows"
+          },
+          {
+            "label": "Window span",
+            "value": "0-100 BP to 11200-11700 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.0,
+              63.0
+            ],
+            [
+              9.0,
+              63.0
+            ],
+            [
+              9.0,
+              64.0
+            ],
+            [
+              8.0,
+              64.0
+            ],
+            [
+              8.0,
+              63.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-reveals-grid",
+        "layer_label": "LandClim REVEALS grid cells",
+        "category": "Vegetation reconstruction",
+        "country": "Norway",
+        "record_id": "8.000000,63.000000,9.000000,64.000000",
+        "name": "08°E 64°N grid cell",
         "geometry_type": "Polygon",
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",

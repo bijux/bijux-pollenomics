@@ -1,6 +1,6 @@
 # Nordic Countries Research Map
 
-This shared interactive map was generated on `2026-03-30` and combines AADR `v62.0` with the contextual datasets that are present in the repository at generation time.
+This shared interactive map was generated on `2026-03-31` and combines AADR `v62.0` with the contextual datasets that are present in the repository at generation time.
 
 ## Included Countries
 

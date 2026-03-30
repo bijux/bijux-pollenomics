@@ -1,6 +1,6 @@
 # Norway AADR v62.0 Sample Inventory
 
-Generated on `2026-03-30`. Total samples: `58`.
+Generated on `2026-03-31`. Total samples: `58`.
 
 | Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |
