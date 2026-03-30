@@ -514,6 +514,83 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("No visible point records are available under the current filters.", map_html)
             self.assertIn("| Iceland | 0 |", readme_text)
 
+    def test_generate_multi_country_map_rejects_context_point_layers_without_identity(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+            self.write_json(
+                context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                            "properties": {
+                                "layer_label": "Neotoma pollen sites",
+                                "country": "Sweden",
+                                "name": "Broken record",
+                            },
+                        }
+                    ],
+                },
+            )
+
+            with self.assertRaisesRegex(ValueError, "layer_key"):
+                generate_multi_country_map(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_dir=output,
+                    title="Nordic Countries",
+                    slug="nordic",
+                    context_root=context_root,
+                )
+
+    def test_generate_multi_country_map_rejects_context_polygon_layers_with_point_geometry(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+            self.write_json(
+                context_root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                            "properties": {
+                                "layer_key": "landclim-reveals-grid",
+                                "layer_label": "LandClim REVEALS grid cells",
+                            },
+                        }
+                    ],
+                },
+            )
+
+            with self.assertRaisesRegex(ValueError, "Polygon or MultiPolygon"):
+                generate_multi_country_map(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_dir=output,
+                    title="Nordic Countries",
+                    slug="nordic",
+                    context_root=context_root,
+                )
+
     def test_generate_multi_country_map_replaces_stale_bundle_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"

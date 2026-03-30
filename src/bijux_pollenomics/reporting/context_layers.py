@@ -33,7 +33,7 @@ def build_context_layers(
         destination_path = output_dir / source_path.name
         shutil.copyfile(source_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
-        point_layers.append(build_external_point_layer(geojson))
+        point_layers.append(build_external_point_layer(geojson, source_path=destination_path))
         extra_artifacts.append((label, destination_path.name))
 
     boundary_path = context_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
@@ -49,7 +49,7 @@ def build_context_layers(
         destination_path = output_dir / landclim_grid_path.name
         shutil.copyfile(landclim_grid_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
-        polygon_layers.append(build_external_polygon_layer(geojson))
+        polygon_layers.append(build_external_polygon_layer(geojson, source_path=destination_path))
         extra_artifacts.append(("LandClim REVEALS grid GeoJSON", destination_path.name))
 
     archaeology_path = context_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
@@ -127,19 +127,57 @@ def parse_year_bp(value: str) -> int | None:
         return None
 
 
-def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
-    """Convert normalized GeoJSON into a map layer payload."""
-    features = []
+def validate_feature_collection(
+    geojson: dict[str, object],
+    *,
+    source_path: Path | None,
+) -> list[dict[str, object]]:
+    """Validate a GeoJSON feature collection and return its feature list."""
+    source_label = str(source_path) if source_path is not None else "External GeoJSON"
+    if geojson.get("type") != "FeatureCollection":
+        raise ValueError(f"{source_label} must be a GeoJSON FeatureCollection")
     raw_features = geojson.get("features", [])
     if not isinstance(raw_features, list) or not raw_features:
-        raise ValueError("External GeoJSON did not contain any features")
+        raise ValueError(f"{source_label} did not contain any features")
+    normalized_features = [feature for feature in raw_features if isinstance(feature, dict)]
+    if len(normalized_features) != len(raw_features):
+        raise ValueError(f"{source_label} contains non-object features")
+    return normalized_features
 
+
+def extract_layer_identity(
+    raw_features: list[dict[str, object]],
+    *,
+    source_path: Path | None,
+) -> tuple[dict[str, object], str, str]:
+    """Extract and validate shared layer metadata from the first feature."""
+    source_label = str(source_path) if source_path is not None else "External GeoJSON"
     sample_properties = raw_features[0].get("properties", {})
     if not isinstance(sample_properties, dict):
-        raise ValueError("External GeoJSON properties must be an object")
+        raise ValueError(f"{source_label} properties must be an object")
 
     layer_key = str(sample_properties.get("layer_key", "")).strip()
     layer_label = str(sample_properties.get("layer_label", "")).strip()
+    if not layer_key:
+        raise ValueError(f"{source_label} is missing a non-empty layer_key property")
+    if not layer_label:
+        raise ValueError(f"{source_label} is missing a non-empty layer_label property")
+    return sample_properties, layer_key, layer_label
+
+
+def build_external_point_layer(
+    geojson: dict[str, object],
+    *,
+    source_path: Path | None = None,
+) -> dict[str, object]:
+    """Convert normalized GeoJSON into a map layer payload."""
+    features = []
+    source_label = str(source_path) if source_path is not None else "External GeoJSON"
+    raw_features = validate_feature_collection(geojson, source_path=source_path)
+    sample_properties, layer_key, layer_label = extract_layer_identity(
+        raw_features,
+        source_path=source_path,
+    )
     styles = {
         "neotoma-pollen": {
             "fill": "#b45309",
@@ -184,17 +222,24 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
         geometry = feature.get("geometry", {})
         properties = feature.get("properties", {})
         if not isinstance(geometry, dict) or not isinstance(properties, dict):
-            continue
+            raise ValueError(f"{source_label} contains a feature with invalid geometry or properties")
+        if geometry.get("type") != "Point":
+            raise ValueError(f"{source_label} point layers must contain only Point geometries")
         coordinates = geometry.get("coordinates", [])
         if not isinstance(coordinates, list) or len(coordinates) < 2:
-            continue
+            raise ValueError(f"{source_label} point layers must contain coordinate pairs")
         popup_rows = properties.get("popup_rows", [])
         if not isinstance(popup_rows, list):
             popup_rows = []
+        try:
+            longitude = float(coordinates[0])
+            latitude = float(coordinates[1])
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"{source_label} contains a point with non-numeric coordinates") from exc
         features.append(
             {
-                "latitude": float(coordinates[1]),
-                "longitude": float(coordinates[0]),
+                "latitude": latitude,
+                "longitude": longitude,
                 "country": str(properties.get("country", "")).strip(),
                 "title": str(properties.get("name", "")).strip(),
                 "subtitle": str(properties.get("category", "")).strip(),
@@ -281,18 +326,24 @@ def build_density_polygon_layer(geojson: dict[str, object]) -> dict[str, object]
     }
 
 
-def build_external_polygon_layer(geojson: dict[str, object]) -> dict[str, object]:
+def build_external_polygon_layer(
+    geojson: dict[str, object],
+    *,
+    source_path: Path | None = None,
+) -> dict[str, object]:
     """Convert normalized context polygons into a map layer payload."""
-    raw_features = geojson.get("features", [])
-    if not isinstance(raw_features, list) or not raw_features:
-        raise ValueError("External GeoJSON did not contain any features")
-
-    sample_properties = raw_features[0].get("properties", {})
-    if not isinstance(sample_properties, dict):
-        raise ValueError("External GeoJSON properties must be an object")
-
-    layer_key = str(sample_properties.get("layer_key", "")).strip()
-    layer_label = str(sample_properties.get("layer_label", "")).strip()
+    source_label = str(source_path) if source_path is not None else "External GeoJSON"
+    raw_features = validate_feature_collection(geojson, source_path=source_path)
+    sample_properties, layer_key, layer_label = extract_layer_identity(
+        raw_features,
+        source_path=source_path,
+    )
+    for feature in raw_features:
+        geometry = feature.get("geometry", {})
+        if not isinstance(geometry, dict):
+            raise ValueError(f"{source_label} contains a feature with invalid geometry")
+        if geometry.get("type") not in {"Polygon", "MultiPolygon"}:
+            raise ValueError(f"{source_label} polygon layers must contain Polygon or MultiPolygon geometries")
     styles = {
         "landclim-reveals-grid": {
             "fill": "rgba(132, 204, 22, 0.16)",
