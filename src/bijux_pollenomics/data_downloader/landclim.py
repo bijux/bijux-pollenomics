@@ -385,7 +385,10 @@ def build_landclim_grid_geojson(
 
     return {
         "type": "FeatureCollection",
-        "features": sorted(grid_features.values(), key=lambda feature: feature["properties"]["record_id"]),
+        "features": [
+            finalize_grid_feature(feature)
+            for feature in sorted(grid_features.values(), key=lambda feature: feature["properties"]["record_id"])
+        ],
     }
 
 
@@ -572,6 +575,15 @@ def add_grid_feature_source(
     if quality_summary:
         popup_rows.append(("LandClim II quality", quality_summary))
     properties["popup_rows"] = [{"label": label, "value": value} for label, value in popup_rows if value]
+
+
+def finalize_grid_feature(feature: dict[str, object]) -> dict[str, object]:
+    """Drop internal merge-only keys before GeoJSON export."""
+    return {
+        key: value
+        for key, value in feature.items()
+        if not key.startswith("_")
+    }
 
 
 def summarize_time_windows(time_windows: list[str]) -> str:

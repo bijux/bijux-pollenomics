@@ -121,6 +121,7 @@ class LandClimDataTests(unittest.TestCase):
 
             self.assertEqual(len(geojson["features"]), 1)
             properties = geojson["features"][0]["properties"]
+            self.assertNotIn("_dataset_labels", geojson["features"][0])
             popup = {row["label"]: row["value"] for row in properties["popup_rows"]}
             self.assertIn("LandClim I land-cover types", popup["Datasets"])
             self.assertIn("LandClim I plant functional types", popup["Datasets"])
