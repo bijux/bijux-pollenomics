@@ -33,6 +33,9 @@
         font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       }
       body { min-height: 100vh; }
+      body.has-mobile-panel-open {
+        overflow: hidden;
+      }
       .app-shell { position: relative; min-height: 100vh; }
       .sidebar {
         position: absolute;
@@ -57,6 +60,36 @@
         background: linear-gradient(180deg, rgba(255, 252, 247, 0.97), rgba(246, 241, 233, 0.92));
         backdrop-filter: blur(18px);
         box-shadow: var(--shadow-lg);
+      }
+      .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .sidebar-heading {
+        min-width: 0;
+      }
+      .mobile-panel-close {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        min-width: 88px;
+      }
+      .mobile-scrim {
+        position: fixed;
+        inset: 0;
+        z-index: 1180;
+        border: 0;
+        background: rgba(20, 33, 61, 0.28);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+      .mobile-scrim.is-visible {
+        opacity: 1;
+        pointer-events: auto;
       }
       .map-stage { position: relative; min-height: 100vh; }
       #map { height: 100vh; width: 100%; }
@@ -114,6 +147,39 @@
       .stat-value { font-size: 24px; font-weight: 700; }
       .stat-value--compact { font-size: 18px; }
       .section-stack { display: grid; gap: 16px; }
+      .section-nav {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 18px;
+        padding: 10px 0 14px;
+        background: linear-gradient(180deg, rgba(246, 241, 233, 0.98), rgba(246, 241, 233, 0.88), rgba(246, 241, 233, 0));
+      }
+      .section-nav-button {
+        appearance: none;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        transition: background 120ms ease, border-color 120ms ease, color 120ms ease, transform 120ms ease;
+      }
+      .section-nav-button:hover {
+        transform: translateY(-1px);
+      }
+      .section-nav-button.is-active {
+        background: rgba(37, 99, 235, 0.12);
+        border-color: rgba(37, 99, 235, 0.28);
+        color: var(--blue);
+      }
       .panel-card { border-radius: 20px; padding: 18px; }
       .section-head {
         display: flex;
@@ -194,6 +260,41 @@
         font-size: 13px;
         font-weight: 600;
       }
+      .topbar-context {
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+      .topbar-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .topbar-title-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      .topbar-title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .topbar-state-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
       .inline-button.is-primary,
       .toolbar-button.is-primary,
       .preset-button.is-active,
@@ -213,6 +314,9 @@
       .range-input,
       .search-input { width: 100%; }
       .range-input { accent-color: var(--gold); }
+      .search-shell {
+        position: relative;
+      }
       .search-input {
         padding: 12px 14px;
         border-radius: 14px;
@@ -220,6 +324,23 @@
         background: rgba(255, 255, 255, 0.95);
         color: var(--ink);
         font: inherit;
+        padding-right: 46px;
+      }
+      .search-clear {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        appearance: none;
+        border: 0;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        font: inherit;
+        font-size: 16px;
+        cursor: pointer;
       }
       .search-input:focus {
         outline: 2px solid rgba(37, 99, 235, 0.25);
@@ -233,7 +354,8 @@
       .search-results,
       .summary-list,
       .legend-list,
-      .layer-stack {
+      .layer-stack,
+      .filter-chip-list {
         display: grid;
         gap: 10px;
       }
@@ -263,11 +385,77 @@
         font-size: 12px;
         line-height: 1.55;
       }
+      .search-result-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .search-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
       .layer-card-top {
         display: flex;
         justify-content: space-between;
         gap: 12px;
         align-items: flex-start;
+      }
+      .layer-card.is-enabled {
+        border-color: rgba(37, 99, 235, 0.22);
+        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+      }
+      .layer-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .layer-card-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .layer-card-text {
+        display: grid;
+        gap: 4px;
+      }
+      .layer-card-text strong {
+        margin: 0;
+      }
+      .layer-swatch-stack {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(20, 33, 61, 0.25);
+        flex: 0 0 auto;
+      }
+      .layer-state-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.08);
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .layer-card.is-enabled .layer-state-pill {
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--blue);
       }
       .layer-card label {
         display: flex;
@@ -276,6 +464,49 @@
         width: 100%;
       }
       .layer-card input { margin-top: 3px; }
+      .filter-chip-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      .filter-chip {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .filter-chip strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+      .filter-chip span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .filter-chip-remove {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .filter-chip-empty {
+        padding: 12px 14px;
+        border: 1px dashed rgba(20, 33, 61, 0.16);
+        border-radius: 16px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.54);
+      }
       .layer-group {
         display: grid;
         gap: 10px;
@@ -331,6 +562,12 @@
         padding: 12px;
         border-radius: 20px;
       }
+      .map-topbar-main {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
       .sidebar.is-collapsed ~ .map-stage .map-topbar { left: 16px; }
       .floating-legend {
         position: absolute;
@@ -343,8 +580,44 @@
         padding: 16px;
         border-radius: 20px;
       }
-      .legend-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
-      .legend-list { margin-bottom: 14px; }
+      .legend-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .legend-title { font-size: 13px; font-weight: 700; }
+      .legend-toggle {
+        appearance: none;
+        border: 1px solid rgba(20, 33, 61, 0.12);
+        background: rgba(255, 255, 255, 0.84);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 6px 10px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .legend-body.is-collapsed {
+        display: none;
+      }
+      .legend-group {
+        display: grid;
+        gap: 8px;
+      }
+      .legend-group + .legend-group {
+        margin-top: 12px;
+      }
+      .legend-group-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .legend-list { margin-bottom: 0; }
       .legend-item {
         display: flex;
         align-items: flex-start;
@@ -385,6 +658,86 @@
         border-radius: 999px;
         color: var(--muted);
         font-size: 12px;
+      }
+      .focus-card {
+        position: absolute;
+        left: 16px;
+        bottom: 24px;
+        z-index: 1100;
+        width: min(360px, calc(100vw - 32px));
+        padding: 16px;
+        border-radius: 22px;
+      }
+      .focus-card[hidden] {
+        display: none;
+      }
+      .focus-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .focus-card-kicker {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .focus-card-title {
+        margin: 4px 0 0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .focus-card-subtitle {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .focus-close {
+        flex: 0 0 auto;
+        min-width: auto;
+        padding: 8px 10px;
+      }
+      .focus-meta {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 14px;
+      }
+      .focus-meta-row {
+        display: grid;
+        grid-template-columns: minmax(88px, auto) minmax(0, 1fr);
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+      .focus-meta-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .focus-meta-value {
+        font-size: 12px;
+        line-height: 1.5;
+        word-break: break-word;
+      }
+      .focus-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .focus-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
       }
       .empty-state {
         position: absolute;
@@ -471,8 +824,18 @@
           border-radius: 18px;
           justify-content: space-between;
         }
+        .focus-card {
+          left: 12px;
+          bottom: 76px;
+          width: min(340px, calc(100vw - 24px));
+        }
       }
       @media (max-width: 900px) {
+        body.has-mobile-panel-open .map-topbar,
+        body.has-mobile-panel-open .floating-legend,
+        body.has-mobile-panel-open .map-status {
+          filter: blur(1px);
+        }
         .sidebar {
           position: fixed;
           left: 10px;
@@ -489,6 +852,9 @@
           padding: 18px;
           border-radius: 24px;
         }
+        .mobile-panel-close {
+          display: inline-flex;
+        }
         .map-topbar {
           top: 10px;
           left: 10px;
@@ -498,6 +864,9 @@
           border-radius: 18px;
           flex-direction: column;
           align-items: stretch;
+        }
+        .map-topbar-main {
+          justify-content: space-between;
         }
         .topbar-row,
         .map-actions {
@@ -512,10 +881,18 @@
           border-radius: 18px;
         }
         .sidebar:not(.is-collapsed) ~ .map-stage .floating-legend,
-        .sidebar:not(.is-collapsed) ~ .map-stage .map-status {
+        .sidebar:not(.is-collapsed) ~ .map-stage .map-status,
+        .sidebar:not(.is-collapsed) ~ .map-stage .focus-card {
           opacity: 0;
           pointer-events: none;
           transform: translateY(12px);
+        }
+        .focus-card {
+          left: 10px;
+          right: 10px;
+          bottom: 76px;
+          width: auto;
+          transition: opacity 160ms ease, transform 160ms ease;
         }
         .map-status {
           left: 10px;
@@ -540,11 +917,31 @@
           right: 8px;
           top: 8px;
         }
+        .map-topbar-main {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+        .topbar-title {
+          font-size: 14px;
+        }
+        .topbar-state-pill {
+          width: fit-content;
+        }
         .floating-legend {
           right: 8px;
           bottom: 72px;
           width: min(220px, calc(100vw - 16px));
           padding: 10px;
+        }
+        .focus-card {
+          left: 8px;
+          right: 8px;
+          bottom: 72px;
+        }
+        .focus-meta-row {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
         .legend-title {
           font-size: 12px;
@@ -576,12 +973,17 @@
     <div class="app-shell">
       <aside id="sidebar" class="sidebar">
         <div class="sidebar-inner">
-          <span class="eyebrow">Nordic Multi-Evidence Map</span>
-          <h1>Nordic Countries</h1>
-          <p class="lede">
-            A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
-            AADR `v62.0` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
-          </p>
+          <div class="sidebar-header">
+            <div class="sidebar-heading">
+              <span class="eyebrow">Nordic Multi-Evidence Map</span>
+              <h1>Nordic Countries</h1>
+              <p class="lede">
+                A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
+                AADR `v62.0` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
+              </p>
+            </div>
+            <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
+          </div>
           <section class="stats-grid">
             <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong></div>
             <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong></div>
@@ -590,13 +992,23 @@
             <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">v62.0</strong></div>
             <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong></div>
           </section>
+          <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
+            <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
+            <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
+            <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
+            <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
+            <button class="section-nav-button" type="button" data-section-target="search-panel">Search</button>
+            <button class="section-nav-button" type="button" data-section-target="time-panel">Time</button>
+            <button class="section-nav-button" type="button" data-section-target="distance-panel">Distance</button>
+            <button class="section-nav-button" type="button" data-section-target="active-panel">State</button>
+          </nav>
           <div class="section-stack">
-            <section class="panel-card">
+            <section id="scope-panel" class="panel-card">
               <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
               <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
               <div id="scope-summary" class="summary-list"></div>
             </section>
-            <section class="panel-card">
+            <section id="country-panel" class="panel-card">
               <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
               <p class="panel-copy">These filters apply to every layer that carries country metadata. RAÄ archaeology density is Sweden-only and will disappear automatically when Sweden is excluded.</p>
               <div id="country-filters" class="chip-grid"></div>
@@ -607,19 +1019,33 @@
                 <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
               </div>
             </section>
-            <section class="panel-card">
+            <section id="layer-panel" class="panel-card">
               <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
               <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
+              <div class="inline-actions" style="margin-top: 0; margin-bottom: 14px;">
+                <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+              </div>
               <div id="layer-filters" class="layer-stack"></div>
             </section>
-            <section class="panel-card">
+            <section id="filters-panel" class="panel-card">
+              <div class="section-head"><h2>Active Filters</h2><span id="filter-chip-count" aria-live="polite">Defaults</span></div>
+              <p class="panel-copy">This section surfaces only the filter groups that currently differ from the default map state. Remove a chip to reset that part of the view without disturbing the rest.</p>
+              <div id="filter-chips" class="filter-chip-list"></div>
+            </section>
+            <section id="search-panel" class="panel-card">
               <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
               <label class="sr-only" for="search-input">Search visible records</label>
-              <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
+              <div class="search-shell">
+                <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
+                <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+              </div>
               <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
             </section>
-            <section class="panel-card">
+            <section id="time-panel" class="panel-card">
               <div class="section-head"><h2>Time Window</h2><span id="time-window-value">0-100 BP</span></div>
               <div class="field-label"><span>Window start (years BP)</span><span id="time-start-value">0 BP</span></div>
               <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
@@ -627,9 +1053,16 @@
               <div class="field-label" style="margin-top: 16px;"><span>Window interval</span><span id="time-interval-value">100 years</span></div>
               <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
               <input id="time-interval-slider" class="range-input" type="range" min="1" max="10420" step="1" value="100">
+              <div class="preset-row" style="margin-top: 12px;">
+                <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+              </div>
+              <div id="time-record-count" class="search-meta">0 dated records are visible in the active BP window.</div>
               <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
-            <section class="panel-card">
+            <section id="distance-panel" class="panel-card">
               <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">20 km diameter</span></div>
               <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">10.0 km</span></div>
               <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
@@ -646,21 +1079,31 @@
               <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
               <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
             </section>
-            <section class="panel-card">
+            <section id="active-panel" class="panel-card">
               <div class="section-head"><h2>Active View</h2><span>Live provenance</span></div>
               <div id="active-summary" class="summary-list"></div>
             </section>
           </div>
         </div>
       </aside>
+      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close filters" aria-hidden="true"></button>
       <main class="map-stage">
         <div class="map-topbar">
-          <div class="topbar-row">
-            <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
-            <div class="basemap-switch">
-              <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
-              <button class="basemap-button" type="button" data-basemap="light">Light</button>
-              <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+          <div class="map-topbar-main">
+            <div class="topbar-context">
+              <span class="topbar-label">Research Workspace</span>
+              <div class="topbar-title-row">
+                <span class="topbar-title">Nordic Countries map</span>
+                <span id="topbar-state-pill" class="topbar-state-pill">4 countries · 0 layers · 0 visible points</span>
+              </div>
+            </div>
+            <div class="topbar-row">
+              <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
+              <div class="basemap-switch">
+                <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
+                <button class="basemap-button" type="button" data-basemap="light">Light</button>
+                <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+              </div>
             </div>
           </div>
           <div class="map-actions">
@@ -676,15 +1119,35 @@
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
         <div id="floating-legend" class="floating-legend">
-          <div class="legend-title">Legend</div>
-          <div id="legend-items" class="legend-list"></div>
-          <div id="density-ramp" class="density-ramp">
-            <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
-            <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
-            <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+          <div class="legend-head">
+            <div class="legend-title">Legend</div>
+            <button id="legend-toggle" class="legend-toggle" type="button">Collapse</button>
+          </div>
+          <div id="legend-body" class="legend-body">
+            <div id="legend-items" class="legend-list"></div>
+            <div id="density-ramp" class="density-ramp">
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
+              <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+            </div>
           </div>
         </div>
+        <section id="focus-card" class="focus-card" hidden aria-live="polite">
+          <div class="focus-card-head">
+            <div>
+              <div class="focus-card-kicker">Focused Record</div>
+              <h2 id="focus-title" class="focus-card-title">No record selected</h2>
+              <p id="focus-subtitle" class="focus-card-subtitle">Choose a point, polygon, or search result to keep its details visible while you continue navigating the map.</p>
+            </div>
+            <button id="focus-close" class="toolbar-button focus-close" type="button">Clear</button>
+          </div>
+          <div id="focus-meta" class="focus-meta"></div>
+          <div class="focus-actions">
+            <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
+            <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
+          </div>
+        </section>
         <div class="map-status">
           <span id="zoom-readout">Zoom --</span>
           <span id="cursor-readout">Cursor --</span>
@@ -726,15 +1189,24 @@
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
       const sidebar = document.getElementById('sidebar');
+      const sidebarInner = document.querySelector('.sidebar-inner');
+      const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
+      const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const legendBody = document.getElementById('legend-body');
+      const legendToggleButton = document.getElementById('legend-toggle');
+      const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('layer-filters');
       const legendItems = document.getElementById('legend-items');
       const scopeSummary = document.getElementById('scope-summary');
       const searchInput = document.getElementById('search-input');
+      const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
+      const filterChips = document.getElementById('filter-chips');
+      const filterChipCount = document.getElementById('filter-chip-count');
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
@@ -743,6 +1215,7 @@
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timeWindowValue = document.getElementById('time-window-value');
+      const timeRecordCount = document.getElementById('time-record-count');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -750,6 +1223,14 @@
       const countrySummary = document.getElementById('country-summary');
       const layerSummary = document.getElementById('layer-summary');
       const activeSummary = document.getElementById('active-summary');
+      const topbarStatePill = document.getElementById('topbar-state-pill');
+      const focusCard = document.getElementById('focus-card');
+      const focusTitle = document.getElementById('focus-title');
+      const focusSubtitle = document.getElementById('focus-subtitle');
+      const focusMeta = document.getElementById('focus-meta');
+      const focusZoomButton = document.getElementById('focus-zoom');
+      const focusSourceLink = document.getElementById('focus-source-link');
+      const focusCloseButton = document.getElementById('focus-close');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
       const cursorReadout = document.getElementById('cursor-readout');
@@ -770,6 +1251,7 @@
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
+          legend: params.get('legend'),
         };
       }
       function normalizedSetFromList(raw, allowed, fallbackValues) {
@@ -830,6 +1312,8 @@
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
+      let legendCollapsed = initialState.legend === 'collapsed';
+      let focusState = null;
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
         Norway: { fill: '#0f766e', stroke: '#115e59' },
@@ -865,9 +1349,34 @@
           .join(', ');
       }
       function syncPresetButtons() {
-        document.querySelectorAll('.preset-button').forEach((button) => {
+        document.querySelectorAll('[data-km]').forEach((button) => {
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
         });
+      }
+      function syncTimePresetButtons() {
+        document.querySelectorAll('[data-time-interval]').forEach((button) => {
+          const preset = button.dataset.timeInterval;
+          const active = preset === 'full' ? timeIntervalYears === TIME_INTERVAL_MAX : Number(preset) === Number(timeIntervalYears);
+          button.classList.toggle('is-active', active);
+        });
+      }
+      function updateSectionNav(activeSectionId) {
+        sectionNavButtons.forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.sectionTarget === activeSectionId);
+        });
+      }
+      function syncSectionNavWithScroll() {
+        const cards = sectionNavButtons
+          .map((button) => document.getElementById(button.dataset.sectionTarget))
+          .filter(Boolean);
+        if (!cards.length) return;
+        let activeSectionId = cards[0].id;
+        for (const card of cards) {
+          if (card.offsetTop - sidebarInner.scrollTop <= 96) {
+            activeSectionId = card.id;
+          }
+        }
+        updateSectionNav(activeSectionId);
       }
       function updatePanelToggleLabel() {
         const collapsed = sidebar.classList.contains('is-collapsed');
@@ -877,10 +1386,25 @@
         }
         panelToggleButton.textContent = collapsed ? 'Show panel' : 'Hide panel';
       }
+      function syncMobilePanelState() {
+        const mobileOpen = mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed');
+        panelToggleButton.setAttribute('aria-expanded', String(!sidebar.classList.contains('is-collapsed')));
+        panelToggleButton.setAttribute('aria-controls', 'sidebar');
+        mobileScrim.classList.toggle('is-visible', mobileOpen);
+        mobileScrim.setAttribute('aria-hidden', mobileOpen ? 'false' : 'true');
+        document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
+      }
       function setPanelCollapsed(collapsed, persist = true) {
         sidebar.classList.toggle('is-collapsed', collapsed);
         updatePanelToggleLabel();
+        syncMobilePanelState();
         window.setTimeout(() => map.invalidateSize(), 180);
+        if (persist) syncHashState();
+      }
+      function setLegendCollapsed(collapsed, persist = true) {
+        legendCollapsed = collapsed;
+        legendBody.classList.toggle('is-collapsed', collapsed);
+        legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
         if (persist) syncHashState();
       }
       function syncHashState() {
@@ -895,9 +1419,27 @@
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
+        if (legendCollapsed) params.set('legend', 'collapsed');
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
+      }
+      function setFocusState(nextState) {
+        focusState = nextState;
+        renderFocusCard();
+      }
+      function renderFocusCard() {
+        if (!focusState || !activeLayerKeys.has(focusState.layerKey)) {
+          focusCard.hidden = true;
+          focusSourceLink.hidden = true;
+          return;
+        }
+        focusCard.hidden = false;
+        focusTitle.textContent = focusState.title;
+        focusSubtitle.textContent = focusState.subtitle;
+        focusMeta.innerHTML = focusState.meta.map((row) => `<div class="focus-meta-row"><span class="focus-meta-label">${escapeHtml(row.label)}</span><span class="focus-meta-value">${escapeHtml(row.value)}</span></div>`).join('');
+        focusSourceLink.hidden = !focusState.sourceUrl;
+        focusSourceLink.href = focusState.sourceUrl || '#';
       }
       function renderScopeSummary() {
         const summaries = [
@@ -938,7 +1480,10 @@
             if (!layers.length) return '';
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
-              return `<div class="layer-card"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
+              const stateLabel = activeLayerKeys.has(layer.key) ? 'Enabled' : 'Hidden';
+              const swatchColor = layerColor(layer);
+              const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
+              return `<div class="layer-card ${activeLayerKeys.has(layer.key) ? 'is-enabled' : ''}"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div class="layer-card-head"><div class="layer-card-title"><span class="layer-swatch-stack" style="background:${escapeHtml(swatchColor)}; border-color:${escapeHtml(swatchBorder)};"></span><div class="layer-card-text"><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div></div><span class="layer-state-pill">${escapeHtml(stateLabel)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
             }).join('');
             return `<section class="layer-group"><div class="layer-group-head"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))}</span></div>${cards}</section>`;
           })
@@ -950,10 +1495,113 @@
           });
         });
       }
+      function applyLayerPreset(preset) {
+        if (preset === 'evidence') {
+          activeLayerKeys = new Set(ALL_LAYERS.filter((layer) => layer.group === 'primary-evidence').map((layer) => layer.key));
+        }
+        if (preset === 'context') {
+          activeLayerKeys = new Set(
+            ALL_LAYERS
+              .filter((layer) => ['primary-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .map((layer) => layer.key)
+          );
+        }
+        if (preset === 'orientation') {
+          activeLayerKeys = new Set(
+            ALL_LAYERS
+              .filter((layer) => ['primary-evidence', 'orientation'].includes(layer.group))
+              .map((layer) => layer.key)
+          );
+        }
+        if (preset === 'all') {
+          activeLayerKeys = new Set(ALL_LAYERS.map((layer) => layer.key));
+        }
+        renderLayerControls();
+        renderMapState();
+      }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
-        legendItems.innerHTML = activeLegendLayers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
+        const pointLayers = activeLegendLayers.filter((layer) => Object.prototype.hasOwnProperty.call(layer, 'features'));
+        const polygonLayers = activeLegendLayers.filter((layer) => !Object.prototype.hasOwnProperty.call(layer, 'features'));
+        const renderGroup = (label, layers) => layers.length
+          ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
+          : '';
+        legendItems.innerHTML = [
+          renderGroup('Point layers', pointLayers),
+          renderGroup('Polygon overlays', polygonLayers),
+        ].join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
+      }
+      function renderFilterChips() {
+        const chips = [];
+        if (activeCountries.size !== COUNTRIES.length) {
+          chips.push({
+            kind: 'countries',
+            title: 'Countries',
+            value: activeCountries.size ? [...activeCountries].join(', ') : 'No countries selected',
+          });
+        }
+        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) {
+          chips.push({
+            kind: 'layers',
+            title: 'Layers',
+            value: activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'No layers enabled',
+          });
+        }
+        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) {
+          chips.push({
+            kind: 'time',
+            title: 'Time window',
+            value: `${timeStartBp}-${timeWindowEndBp()} BP · ${timeIntervalYears} years`,
+          });
+        }
+        if (Number(slider.value) !== 20) {
+          chips.push({
+            kind: 'distance',
+            title: 'Acceptance diameter',
+            value: `${Number(slider.value)} km`,
+          });
+        }
+        if (Math.round(densityOpacity * 100) !== 60) {
+          chips.push({
+            kind: 'density',
+            title: 'Archaeology opacity',
+            value: `${Math.round(densityOpacity * 100)}%`,
+          });
+        }
+        if (currentBasemap !== 'voyager') {
+          chips.push({
+            kind: 'basemap',
+            title: 'Basemap',
+            value: currentBasemap.charAt(0).toUpperCase() + currentBasemap.slice(1),
+          });
+        }
+
+        filterChipCount.textContent = chips.length ? `${chips.length} active` : 'Defaults';
+        filterChips.innerHTML = chips.length
+          ? chips.map((chip) => `<div class="filter-chip"><div><strong>${escapeHtml(chip.title)}</strong><span>${escapeHtml(chip.value)}</span></div><button class="filter-chip-remove" type="button" data-clear-kind="${escapeHtml(chip.kind)}" aria-label="Reset ${escapeHtml(chip.title)}">×</button></div>`).join('')
+          : '<div class="filter-chip-empty">No filter groups are currently overriding the default map state.</div>';
+
+        filterChips.querySelectorAll('[data-clear-kind]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const kind = button.dataset.clearKind;
+            if (kind === 'countries') activeCountries = new Set(DEFAULT_COUNTRIES);
+            if (kind === 'layers') activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
+            if (kind === 'time') {
+              timeStartBp = DEFAULT_TIME_START_BP;
+              timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
+            }
+            if (kind === 'distance') slider.value = String(20);
+            if (kind === 'density') {
+              densityOpacity = 0.6;
+              densityOpacitySlider.value = '60';
+            }
+            if (kind === 'basemap') setBasemap('voyager');
+            renderCountryControls();
+            renderLayerControls();
+            renderMapState();
+          });
+        });
       }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
@@ -1023,6 +1671,26 @@
             if (!pointFeatureVisible(layer, feature)) return;
             const marker = L.circleMarker([feature.latitude, feature.longitude], { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
             marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            marker.on('click', () => {
+              const meta = [
+                { label: 'Layer', value: layer.label },
+                { label: 'Country', value: feature.country || 'Unassigned' },
+                { label: 'Coordinates', value: `${Number(feature.latitude).toFixed(4)}, ${Number(feature.longitude).toFixed(4)}` },
+              ];
+              if (feature.time_year_bp !== null && feature.time_year_bp !== undefined && feature.time_year_bp !== '') {
+                meta.splice(2, 0, { label: 'Date', value: `${feature.time_year_bp} BP` });
+              }
+              setFocusState({
+                kind: 'point',
+                layerKey: layer.key,
+                title: feature.title || layer.label,
+                subtitle: feature.subtitle || 'Point record',
+                meta,
+                sourceUrl: feature.source_url || '',
+                latitude: Number(feature.latitude),
+                longitude: Number(feature.longitude),
+              });
+            });
             clusterGroup.addLayer(marker);
             visiblePointEntries.push({ layer, feature, marker });
             if (layer.circle_enabled && diameterKm > 0) {
@@ -1048,6 +1716,22 @@
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Country</strong> ${escapeHtml(feature.properties.name || '')}</div><div><strong>Filter state</strong> ${activeCountries.has(feature.properties.country) ? 'Visible' : 'Hidden'}</div></div>`);
+                featureLayer.on('click', () => {
+                  const bounds = featureLayer.getBounds();
+                  setFocusState({
+                    kind: 'polygon',
+                    layerKey: layer.key,
+                    title: feature.properties.name || layer.label,
+                    subtitle: 'Country boundary',
+                    meta: [
+                      { label: 'Layer', value: layer.label },
+                      { label: 'Country', value: feature.properties.country || 'Unassigned' },
+                      { label: 'State', value: activeCountries.has(feature.properties.country) ? 'Visible' : 'Hidden' },
+                    ],
+                    sourceUrl: '',
+                    bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
+                  });
+                });
               }
             });
           } else if (layer.kind === 'density') {
@@ -1059,6 +1743,22 @@
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(String(feature.properties.count_label || feature.properties.count || '0'))}</div></div>`);
+                featureLayer.on('click', () => {
+                  const bounds = featureLayer.getBounds();
+                  setFocusState({
+                    kind: 'polygon',
+                    layerKey: layer.key,
+                    title: feature.properties.country || layer.label,
+                    subtitle: 'Density cell',
+                    meta: [
+                      { label: 'Layer', value: layer.label },
+                      { label: 'Country', value: feature.properties.country || 'Unassigned' },
+                      { label: 'Records', value: String(feature.properties.count_label || feature.properties.count || '0') },
+                    ],
+                    sourceUrl: '',
+                    bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
+                  });
+                });
               }
             });
           } else {
@@ -1069,6 +1769,23 @@
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(polygonPopupHtml(layer, feature.properties || {}));
+                featureLayer.on('click', () => {
+                  const properties = feature.properties || {};
+                  const bounds = featureLayer.getBounds();
+                  setFocusState({
+                    kind: 'polygon',
+                    layerKey: layer.key,
+                    title: properties.name || layer.label,
+                    subtitle: properties.category || properties.geometry_type || 'Polygon record',
+                    meta: [
+                      { label: 'Layer', value: layer.label },
+                      { label: 'Country', value: properties.country || 'Unassigned' },
+                      { label: 'Type', value: properties.category || properties.geometry_type || 'Polygon record' },
+                    ],
+                    sourceUrl: properties.source_url || '',
+                    bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
+                  });
+                });
               }
             });
           }
@@ -1089,13 +1806,21 @@
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
+          if (!layer.applies_time_filter) return false;
+          return Number.isFinite(Number(feature.time_year_bp));
+        }).length;
         statVisiblePoints.textContent = String(visiblePointEntries.length);
         statVisibleLayers.textContent = String(enabledLayers);
         statVisibleCountries.textContent = String(activeCountries.size);
         statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        timeRecordCount.textContent = TIME_HAS_DATA
+          ? `${datedVisibleCount} dated records are visible in the active BP window.`
+          : 'No dated records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `Visible points ${visiblePointEntries.length} · overlays ${visiblePolygonLayers}`;
+        topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
         layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
         ALL_LAYERS.forEach((layer) => {
@@ -1131,27 +1856,49 @@
       }
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
+        searchClearButton.hidden = !query;
+        const focusMatch = (match) => {
+          setFocusState({
+            kind: 'point',
+            layerKey: match.layer.key,
+            title: match.feature.title || match.layer.label,
+            subtitle: match.feature.subtitle || 'Point record',
+            meta: [
+              { label: 'Layer', value: match.layer.label },
+              { label: 'Country', value: match.feature.country || 'Unassigned' },
+              ...(match.feature.time_year_bp !== null && match.feature.time_year_bp !== undefined && match.feature.time_year_bp !== ''
+                ? [{ label: 'Date', value: `${match.feature.time_year_bp} BP` }]
+                : []),
+              { label: 'Coordinates', value: `${Number(match.feature.latitude).toFixed(4)}, ${Number(match.feature.longitude).toFixed(4)}` },
+            ],
+            sourceUrl: match.feature.source_url || '',
+            latitude: Number(match.feature.latitude),
+            longitude: Number(match.feature.longitude),
+          });
+        };
         if (!query) {
           const initial = visiblePointEntries.slice(0, 8);
           searchCount.textContent = `${visiblePointEntries.length} visible records`;
-          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
+          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
           searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
             button.addEventListener('click', () => {
-              const match = initial[index];
-              if (!match) return;
-              map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
-              window.setTimeout(() => match.marker.openPopup(), 250);
-            });
+            const match = initial[index];
+            if (!match) return;
+            focusMatch(match);
+            map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            window.setTimeout(() => match.marker.openPopup(), 250);
+          });
           });
           return;
         }
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
-        searchCount.textContent = `${matches.length} matches`;
-        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(layer.label)} · ${escapeHtml(feature.subtitle || '')} · ${escapeHtml(feature.country || 'Unassigned')}</span></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
+        searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
+        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
             const match = matches[index];
             if (!match) return;
+            focusMatch(match);
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
           });
@@ -1164,10 +1911,13 @@
         renderPolygonLayers();
         renderCountryControls();
         renderLegend();
+        renderFilterChips();
         updateStats();
         updateSummary();
         buildSearchResults();
+        renderFocusCard();
         syncPresetButtons();
+        syncTimePresetButtons();
         diameterValue.textContent = `${Number(slider.value)} km diameter`;
         radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
@@ -1227,26 +1977,56 @@
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
+      mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
       timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
       timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
-      document.querySelectorAll('.preset-button').forEach((button) => {
+      document.querySelectorAll('[data-km]').forEach((button) => {
         button.addEventListener('click', () => {
           slider.value = button.dataset.km;
           renderMapState();
         });
       });
+      document.querySelectorAll('[data-time-interval]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const preset = button.dataset.timeInterval;
+          timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
+          renderMapState();
+        });
+      });
       searchInput.addEventListener('input', buildSearchResults);
+      searchClearButton.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+        buildSearchResults();
+      });
       searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           const firstResult = searchResults.querySelector('[data-search-index]');
           if (firstResult) firstResult.click();
         }
       });
+      focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusZoomButton.addEventListener('click', () => {
+        if (!focusState) return;
+        if (focusState.kind === 'polygon' && focusState.bounds) {
+          map.fitBounds(focusState.bounds, { padding: [32, 32] });
+          return;
+        }
+        if (Number.isFinite(focusState.latitude) && Number.isFinite(focusState.longitude)) {
+          map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+        }
+      });
       map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
       map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {
+          setPanelCollapsed(true);
+        }
+      });
       mobileLayoutQuery.addEventListener('change', () => {
         if (panelPreferenceFromHash() === null) {
           setPanelCollapsed(defaultPanelCollapsed(), false);
@@ -1254,6 +2034,19 @@
         }
         updatePanelToggleLabel();
       });
+      sectionNavButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.dataset.sectionTarget);
+          if (!target) return;
+          sidebarInner.scrollTo({ top: Math.max(target.offsetTop - 72, 0), behavior: 'smooth' });
+          updateSectionNav(button.dataset.sectionTarget);
+        });
+      });
+      document.querySelectorAll('[data-layer-preset]').forEach((button) => {
+        button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
+      });
+      legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
+      sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(Number(initialState.diameter || 20));
@@ -1263,6 +2056,8 @@
       renderLayerControls();
       renderMapState();
       setBasemap(currentBasemap);
+      setLegendCollapsed(legendCollapsed, false);
+      syncSectionNavWithScroll();
       resetView();
       zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
     </script>
