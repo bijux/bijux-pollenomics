@@ -183,6 +183,8 @@ def generate_published_reports(
         raise ValueError("At least one country is required to publish reports")
 
     shared_map_dir = output_root / slugify(slug)
+    desired_bundle_dirs = {shared_map_dir, *(output_root / slugify(country) for country in normalized_countries)}
+    remove_stale_published_bundle_dirs(output_root=output_root, keep_dirs=desired_bundle_dirs)
     map_report = generate_multi_country_map(
         version_dir=version_dir,
         countries=normalized_countries,
@@ -257,3 +259,28 @@ def reset_generated_output_dir(path: Path) -> None:
     """Remove one generated report bundle directory before regenerating it."""
     if path.exists():
         shutil.rmtree(path)
+
+
+def remove_stale_published_bundle_dirs(output_root: Path, keep_dirs: set[Path]) -> None:
+    """Remove previously published bundle directories that are no longer part of the current output set."""
+    summary_path = Path(output_root) / "published_reports_summary.json"
+    if not summary_path.exists():
+        return
+
+    previous = json.loads(summary_path.read_text(encoding="utf-8"))
+    candidate_paths = [previous.get("shared_map_dir"), *(previous.get("country_output_dirs") or [])]
+    normalized_keep_dirs = {Path(path).resolve() for path in keep_dirs}
+    normalized_output_root = Path(output_root).resolve()
+    for candidate in candidate_paths:
+        if not isinstance(candidate, str) or not candidate.strip():
+            continue
+        path = Path(candidate)
+        if not path.is_absolute():
+            path = normalized_output_root / path
+        resolved_path = path.resolve()
+        if resolved_path in normalized_keep_dirs:
+            continue
+        if resolved_path.parent != normalized_output_root:
+            continue
+        if resolved_path.exists():
+            shutil.rmtree(resolved_path)

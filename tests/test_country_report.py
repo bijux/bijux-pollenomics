@@ -540,6 +540,39 @@ class CountryReportTests(unittest.TestCase):
             sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
             self.assertIn("../nordic/nordic_aadr_v62.0_map.html", sweden_readme)
 
+    def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report"
+            self.write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                    "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tAG\tM",
+                ],
+            )
+
+            generate_published_reports(
+                version_dir=root,
+                countries=["Sweden", "Norway"],
+                output_root=output,
+                title="Nordic Countries",
+                slug="nordic",
+            )
+            self.assertTrue((output / "norway").exists())
+
+            generate_published_reports(
+                version_dir=root,
+                countries=["Sweden"],
+                output_root=output,
+                title="Nordic Countries",
+                slug="nordic",
+            )
+
+            self.assertFalse((output / "norway").exists())
+            self.assertTrue((output / "sweden").exists())
+            self.assertTrue((output / "nordic").exists())
+
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(HEADER + "\n" + "\n".join(rows) + "\n", encoding="utf-8")
