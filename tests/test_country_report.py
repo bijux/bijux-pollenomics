@@ -141,6 +141,7 @@ class CountryReportTests(unittest.TestCase):
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Shared interactive map", readme_text)
             self.assertIn("../nordic/nordic_aadr_v62.0_map.html", readme_text)
+            self.assertIn("Environmental and archaeology context layers are published in the shared map bundle", readme_text)
 
     def test_generate_country_report_replaces_stale_bundle_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -177,6 +178,7 @@ class CountryReportTests(unittest.TestCase):
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             samples_csv = (output / "finland_aadr_v62.0_samples.csv").read_text(encoding="utf-8")
             self.assertIn("| Dataset | Finland rows |", readme_text)
+            self.assertIn("It inventories only AADR sample rows that match the `Finland` country filter.", readme_text)
             self.assertIn("combined inventory for `Finland` contains `1` unique samples", readme_text)
             self.assertIn("Unspecified locality", readme_text)
             self.assertIn("Unspecified locality", samples_csv)
@@ -202,6 +204,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("No latitude values available", readme_text)
             self.assertIn("No matching localities", readme_text)
             self.assertIn("Machine-readable summary", readme_text)
+            self.assertIn("This country bundle is valid even when the filter returns zero AADR samples.", readme_text)
             self.assertIn("Total samples: `0`.", samples_markdown)
 
     def test_generate_multi_country_map_writes_shared_map_with_country_toggles(self) -> None:

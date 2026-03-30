@@ -43,7 +43,8 @@ def render_summary_markdown(
 
     return f"""# {report.country} AADR {report.version} Report
 
-This report was generated from the AADR `{report.version}` `.anno` files on `{report.generated_on}`.
+This bundle was generated from the AADR `{report.version}` `.anno` files on `{report.generated_on}`.
+It inventories only AADR sample rows that match the `{report.country}` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
 
@@ -52,6 +53,8 @@ This report was generated from the AADR `{report.version}` `.anno` files on `{re
 - Unique localities: `{report.total_unique_localities}`
 - Latitude range: {latitude_range}
 - Longitude range: {longitude_range}
+
+This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
 
 ## Dataset Coverage
 
