@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from .common import fetch_json, fetch_text
+from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
 from .geometry import build_grid_cell_geometry, geometry_bbox, grid_cell_relevant
 from .common import write_json, write_text
 
@@ -157,8 +158,8 @@ def collect_raa_data(
     write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"])
     write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", metadata["schema_xml"])
     write_json(raw_dir / "fornsok_domains.json", metadata["domain_payload"])
-    metadata_path = normalized_dir / "sweden_archaeology_layer.json"
-    density_path = normalized_dir / "sweden_archaeology_density.geojson"
+    metadata_path = RAA_LAYER_METADATA.source_path_under(output_root)
+    density_path = RAA_DENSITY_GEOJSON.source_path_under(output_root)
     write_json(metadata_path, metadata["layer_metadata"])
     write_json(density_path, metadata["density_geojson"])
 

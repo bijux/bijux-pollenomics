@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .common import slugify, write_json
 from .common import fetch_json
+from .contracts import BOUNDARY_COLLECTION
 
 
 NATURAL_EARTH_ADMIN0_URL = (
@@ -132,7 +133,7 @@ def collect_boundaries_data(output_root: Path) -> tuple[dict[str, dict[str, obje
     for country_name, payload in country_boundaries.items():
         write_json(raw_dir / f"{slugify(country_name)}.geojson", payload)
 
-    combined_path = normalized_dir / "nordic_country_boundaries.geojson"
+    combined_path = BOUNDARY_COLLECTION.source_path_under(output_root)
     write_json(combined_path, build_combined_country_boundaries(country_boundaries))
 
     return country_boundaries, BoundariesDataReport(

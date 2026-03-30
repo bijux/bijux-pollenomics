@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Iterable
 
 from .common import clean_optional_text, fetch_json, write_json
+from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from .geometry import classify_country, geometry_to_representative_point, point_in_bbox
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
@@ -334,8 +335,8 @@ def collect_neotoma_data(
         },
     )
     records = normalize_neotoma_rows(rows, bbox=bbox, country_boundaries=country_boundaries)
-    normalized_csv_path = normalized_dir / "nordic_pollen_sites.csv"
-    normalized_geojson_path = normalized_dir / "nordic_pollen_sites.geojson"
+    normalized_csv_path = NEOTOMA_POINT_CSV.source_path_under(output_root)
+    normalized_geojson_path = NEOTOMA_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
 

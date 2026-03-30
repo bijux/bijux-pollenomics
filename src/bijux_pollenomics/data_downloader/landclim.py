@@ -9,6 +9,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 from .common import clean_optional_text, fetch_binary, write_json
+from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
 from .geometry import classify_country, point_in_bbox
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
@@ -111,9 +112,9 @@ def collect_landclim_data(
         },
     )
 
-    normalized_sites_csv_path = normalized_dir / "nordic_pollen_site_sequences.csv"
-    normalized_sites_geojson_path = normalized_dir / "nordic_pollen_site_sequences.geojson"
-    normalized_grid_geojson_path = normalized_dir / "nordic_reveals_grid_cells.geojson"
+    normalized_sites_csv_path = LANDCLIM_SITE_CSV.source_path_under(output_root)
+    normalized_sites_geojson_path = LANDCLIM_SITE_GEOJSON.source_path_under(output_root)
+    normalized_grid_geojson_path = LANDCLIM_GRID_GEOJSON.source_path_under(output_root)
     summary_path = normalized_dir / "landclim_summary.json"
     write_context_points_csv(normalized_sites_csv_path, site_records)
     write_context_points_geojson(normalized_sites_geojson_path, site_records)

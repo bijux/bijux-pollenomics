@@ -2,12 +2,30 @@ from __future__ import annotations
 
 import json
 import unittest
+from pathlib import Path
 
+from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import normalize_sead_rows
 
 
 class ContextDataTests(unittest.TestCase):
+    def test_data_artifact_contracts_resolve_stable_paths(self) -> None:
+        root = Path("/tmp/data")
+
+        self.assertEqual(
+            BOUNDARY_COLLECTION.path_under(root),
+            root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
+        )
+        self.assertEqual(
+            NEOTOMA_POINT_GEOJSON.path_under(root),
+            root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
+        )
+        self.assertEqual(
+            LANDCLIM_GRID_GEOJSON.path_under(root),
+            root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson",
+        )
+
     def setUp(self) -> None:
         self.country_boundaries = {
             "Sweden": {

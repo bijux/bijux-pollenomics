@@ -5,6 +5,13 @@ import shutil
 from pathlib import Path
 from typing import Iterable
 
+from ..data_downloader.contracts import (
+    ATLAS_POINT_ARTIFACTS,
+    BOUNDARY_COLLECTION,
+    LANDCLIM_GRID_GEOJSON,
+    RAA_DENSITY_GEOJSON,
+    RAA_LAYER_METADATA,
+)
 from .models import SampleRecord
 
 
@@ -22,48 +29,44 @@ def build_context_layers(
         return point_layers, polygon_layers, extra_artifacts
 
     context_root = Path(context_root)
-    point_sources = [
-        ("LandClim pollen site GeoJSON", context_root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson"),
-        ("Neotoma pollen GeoJSON", context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"),
-        ("SEAD site GeoJSON", context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"),
-    ]
-    for label, source_path in point_sources:
+    for contract in ATLAS_POINT_ARTIFACTS:
+        source_path = contract.path_under(context_root)
         if not source_path.exists():
             continue
         destination_path = output_dir / source_path.name
         shutil.copyfile(source_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
         point_layers.append(build_external_point_layer(geojson, source_path=destination_path))
-        extra_artifacts.append((label, destination_path.name))
+        extra_artifacts.append((contract.label, destination_path.name))
 
-    boundary_path = context_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+    boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
     if boundary_path.exists():
         destination_path = output_dir / boundary_path.name
         shutil.copyfile(boundary_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
         polygon_layers.append(build_country_boundary_layer(geojson))
-        extra_artifacts.append(("Nordic country boundaries", destination_path.name))
+        extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
-    landclim_grid_path = context_root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson"
+    landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
     if landclim_grid_path.exists():
         destination_path = output_dir / landclim_grid_path.name
         shutil.copyfile(landclim_grid_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
         polygon_layers.append(build_external_polygon_layer(geojson, source_path=destination_path))
-        extra_artifacts.append(("LandClim REVEALS grid GeoJSON", destination_path.name))
+        extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
 
-    archaeology_path = context_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
-    archaeology_density_path = context_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
+    archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
+    archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
     if archaeology_path.exists():
         destination_path = output_dir / archaeology_path.name
         shutil.copyfile(archaeology_path, destination_path)
-        extra_artifacts.append(("RAÄ archaeology layer metadata", destination_path.name))
+        extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
     if archaeology_density_path.exists():
         destination_path = output_dir / archaeology_density_path.name
         shutil.copyfile(archaeology_density_path, destination_path)
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
         polygon_layers.append(build_density_polygon_layer(geojson))
-        extra_artifacts.append(("RAÄ archaeology density", destination_path.name))
+        extra_artifacts.append((RAA_DENSITY_GEOJSON.label, destination_path.name))
 
     return point_layers, polygon_layers, extra_artifacts
 

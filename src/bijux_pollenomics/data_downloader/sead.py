@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Iterable
 
 from .common import clean_optional_text, fetch_json, write_json
+from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
 from .geometry import classify_country
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
@@ -141,8 +142,8 @@ def collect_sead_data(
         },
     )
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
-    normalized_csv_path = normalized_dir / "nordic_environmental_sites.csv"
-    normalized_geojson_path = normalized_dir / "nordic_environmental_sites.geojson"
+    normalized_csv_path = SEAD_POINT_CSV.source_path_under(output_root)
+    normalized_geojson_path = SEAD_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
 
