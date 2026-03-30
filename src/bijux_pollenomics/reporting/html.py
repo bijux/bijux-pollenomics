@@ -806,6 +806,12 @@ def render_multi_country_map_html(
             <section id="layer-panel" class="panel-card">
               <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
               <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
+              <div class="inline-actions" style="margin-top: 0; margin-bottom: 14px;">
+                <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+              </div>
               <div id="layer-filters" class="layer-stack"></div>
             </section>
             <section id="filters-panel" class="panel-card">
@@ -1182,6 +1188,30 @@ def render_multi_country_map_html(
             renderMapState();
           });
         });
+      }
+      function applyLayerPreset(preset) {
+        if (preset === 'evidence') {
+          activeLayerKeys = new Set(ALL_LAYERS.filter((layer) => layer.group === 'primary-evidence').map((layer) => layer.key));
+        }
+        if (preset === 'context') {
+          activeLayerKeys = new Set(
+            ALL_LAYERS
+              .filter((layer) => ['primary-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .map((layer) => layer.key)
+          );
+        }
+        if (preset === 'orientation') {
+          activeLayerKeys = new Set(
+            ALL_LAYERS
+              .filter((layer) => ['primary-evidence', 'orientation'].includes(layer.group))
+              .map((layer) => layer.key)
+          );
+        }
+        if (preset === 'all') {
+          activeLayerKeys = new Set(ALL_LAYERS.map((layer) => layer.key));
+        }
+        renderLayerControls();
+        renderMapState();
       }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
@@ -1567,6 +1597,9 @@ def render_multi_country_map_html(
           sidebarInner.scrollTo({ top: Math.max(target.offsetTop - 72, 0), behavior: 'smooth' });
           updateSectionNav(button.dataset.sectionTarget);
         });
+      });
+      document.querySelectorAll('[data-layer-preset]').forEach((button) => {
+        button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
       });
       sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
