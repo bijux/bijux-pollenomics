@@ -1858,43 +1858,6 @@
         "coordinates": [
           [
             [
-              11.0,
-              63.0
-            ],
-            [
-              12.0,
-              63.0
-            ],
-            [
-              12.0,
-              64.0
-            ],
-            [
-              11.0,
-              64.0
-            ],
-            [
-              11.0,
-              63.0
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "layer_key": "raa-archaeology",
-        "layer_label": "RAÄ archaeology density",
-        "country": "Sweden",
-        "count": 6,
-        "count_label": "6"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
               12.0,
               63.0
             ],
@@ -2968,6 +2931,43 @@
         "coordinates": [
           [
             [
+              24.0,
+              65.0
+            ],
+            [
+              25.0,
+              65.0
+            ],
+            [
+              25.0,
+              66.0
+            ],
+            [
+              24.0,
+              66.0
+            ],
+            [
+              24.0,
+              65.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 125,
+        "count_label": "125"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               14.0,
               66.0
             ],
@@ -3329,6 +3329,43 @@
         "country": "Sweden",
         "count": 984,
         "count_label": "984"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.0,
+              66.0
+            ],
+            [
+              25.0,
+              66.0
+            ],
+            [
+              25.0,
+              67.0
+            ],
+            [
+              24.0,
+              67.0
+            ],
+            [
+              24.0,
+              66.0
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "layer_key": "raa-archaeology",
+        "layer_label": "RAÄ archaeology density",
+        "country": "Sweden",
+        "count": 128,
+        "count_label": "128"
       }
     },
     {

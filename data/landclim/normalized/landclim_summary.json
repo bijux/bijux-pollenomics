@@ -1,8 +1,8 @@
 {
-  "generated_on": "2026-03-30",
+  "generated_on": "2026-03-31",
   "source": "LandClim",
-  "site_count": 436,
-  "grid_cell_count": 82,
+  "site_count": 474,
+  "grid_cell_count": 77,
   "site_layer_key": "landclim-sites",
   "grid_layer_key": "landclim-reveals-grid"
 }

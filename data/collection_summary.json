@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-03-30",
+  "generated_on": "2026-03-31",
   "output_root": "data",
   "version": "v62.0",
   "collected_sources": [
@@ -12,10 +12,10 @@
   ],
   "boundary_source": "collected",
   "aadr_file_count": 2,
-  "landclim_site_count": 436,
-  "landclim_grid_cell_count": 82,
-  "neotoma_point_count": 38,
-  "sead_point_count": 1937,
+  "landclim_site_count": 474,
+  "landclim_grid_cell_count": 77,
+  "neotoma_point_count": 41,
+  "sead_point_count": 2069,
   "raa_total_site_count": 761917,
   "raa_heritage_site_count": 318265,
   "summary_path": "data/collection_summary.json"

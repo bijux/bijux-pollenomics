@@ -138,6 +138,142 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.526666666666667,
+          54.97944444444445
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Abborre Sø:54.979444:12.526667",
+        "name": "Abborre Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Dorte Almskou Jensen, Bent Odgaard"
+          },
+          {
+            "label": "Elevation",
+            "value": "91"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "2.5"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.526727,
+          54.979733
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Aborre",
+        "name": "Abborre Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 6,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Aborre"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "728"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "23"
+          },
+          {
+            "label": "Time windows",
+            "value": "6"
+          },
+          {
+            "label": "Top BP",
+            "value": "-57"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "6042"
+          },
+          {
+            "label": "Elevation",
+            "value": "91"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.45,
           63.88333333333333
         ]
@@ -1127,6 +1263,142 @@
           {
             "label": "Elevation",
             "value": "300"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.30888888888889,
+          55.158055555555556
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Arreskov Sø:55.158056:10.308889",
+        "name": "Arreskov Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "317"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.309068,
+          55.158053
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Arreskov",
+        "name": "Arreskov Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 13,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Arreskov"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "17"
+          },
+          {
+            "label": "Time windows",
+            "value": "13"
+          },
+          {
+            "label": "Top BP",
+            "value": "-74"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "8105"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
           }
         ]
       }
@@ -2721,7 +2993,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Norway",
         "record_id": "897303:Bjørnfjelltjørn:68.433333:18.066667",
         "name": "Bjørnfjelltjørn",
         "geometry_type": "Point",
@@ -2740,7 +3012,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Norway"
           },
           {
             "label": "Site type",
@@ -2783,7 +3055,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Norway",
         "record_id": "900966:GC33:Bjørnfjelltjørn",
         "name": "Bjørnfjelltjørn",
         "geometry_type": "Point",
@@ -2802,7 +3074,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Norway"
           },
           {
             "label": "Grid group",
@@ -2841,7 +3113,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Norway",
         "record_id": "937075:bjornfjell",
         "name": "Bjørnfjelltjørn",
         "geometry_type": "Point",
@@ -2860,7 +3132,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Norway"
           },
           {
             "label": "Reported country",
@@ -3437,6 +3709,142 @@
           {
             "label": "Elevation",
             "value": "12"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.377500000000001,
+          55.14694444444444
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Brahetrollebog Nørresø:55.146944:10.377500",
+        "name": "Brahetrollebog Nørresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Bent Odgaard"
+          },
+          {
+            "label": "Elevation",
+            "value": "40"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "69"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.377648,
+          55.146981
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Brahe",
+        "name": "Brahetrollebog Nørresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Brahe"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "-50"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "-50"
+          },
+          {
+            "label": "Elevation",
+            "value": "40"
           }
         ]
       }
@@ -4695,6 +5103,142 @@
           {
             "label": "Elevation",
             "value": "40"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.27888888888889,
+          55.48305555555556
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Dallund Sø:55.483056:10.278889",
+        "name": "Dallund Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Peter Rasmussen"
+          },
+          {
+            "label": "Elevation",
+            "value": "12"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "15"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.278832,
+          55.483274
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Dallund",
+        "name": "Dallund Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 8,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Dallund"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "26"
+          },
+          {
+            "label": "Time windows",
+            "value": "8"
+          },
+          {
+            "label": "Top BP",
+            "value": "-48"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "6167"
+          },
+          {
+            "label": "Elevation",
+            "value": "12"
           }
         ]
       }
@@ -8140,6 +8684,200 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.9,
+          58.13333333333333
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "897303:Grauthelleren:58.133333:7.900000",
+        "name": "Grauthelleren",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "NOR"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Bjune"
+          },
+          {
+            "label": "Elevation",
+            "value": "80"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "1.13*"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9,
+          58.13333333333333
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "900966:GC25:Grauthelleren",
+        "name": "Grauthelleren",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I sequence metadata from the Marquer et al. REVEALS taxa workbook.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.900966",
+        "record_count": 25,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Marquer et al. 2019 REVEALS taxa grid cells"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.900966"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Grid group",
+            "value": "GC25"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Elevation",
+            "value": "80"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "25 windows across 0-11700 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9,
+          58.133333
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "937075:grauthelleren",
+        "name": "Grauthelleren",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 22,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Reported country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "grauthelleren"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "923"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "70"
+          },
+          {
+            "label": "Time windows",
+            "value": "22"
+          },
+          {
+            "label": "Top BP",
+            "value": "-47"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "10227"
+          },
+          {
+            "label": "Elevation",
+            "value": "80"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.33388889,
           56.01444444
         ]
@@ -8535,6 +9273,142 @@
           {
             "label": "Elevation",
             "value": "180"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7,
+          55.150277777777774
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Gudme Sø:55.150278:10.700000",
+        "name": "Gudme Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Peter Rasmussen"
+          },
+          {
+            "label": "Elevation",
+            "value": "47"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "9"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.70005389,
+          55.15049722
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Gudme",
+        "name": "Gudme Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 15,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Gudme"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "74"
+          },
+          {
+            "label": "Time windows",
+            "value": "15"
+          },
+          {
+            "label": "Top BP",
+            "value": "-38"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "6652"
+          },
+          {
+            "label": "Elevation",
+            "value": "47"
           }
         ]
       }
@@ -9930,6 +10804,138 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.520833333333334,
+          54.98416666666667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Huno Sø:54.984167:12.520833",
+        "name": "Huno Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "89"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "5"
+          },
+          {
+            "label": "Time windows",
+            "value": "100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5208715,
+          54.984265
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Huno",
+        "name": "Huno Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Huno"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "728"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "89"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.863888888888889,
           55.52194444444444
         ]
@@ -10053,138 +11059,6 @@
           {
             "label": "Elevation",
             "value": "60"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.556111111111111,
-          56.44
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-sites",
-        "layer_label": "LandClim pollen sites",
-        "category": "Pollen sequence",
-        "country": "Sweden",
-        "record_id": "897303:Hälledammen:56.440000:12.556111",
-        "name": "Hälledammen",
-        "geometry_type": "Point",
-        "subtitle": "Pollen site sequences used in LandClim reconstructions",
-        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 3,
-        "popup_rows": [
-          {
-            "label": "Dataset",
-            "value": "Gaillard 2019 LandClim I REVEALS grids"
-          },
-          {
-            "label": "DOI",
-            "value": "https://doi.org/10.1594/PANGAEA.897303"
-          },
-          {
-            "label": "Country",
-            "value": "Sweden"
-          },
-          {
-            "label": "Reported country",
-            "value": "SWE"
-          },
-          {
-            "label": "Source archive",
-            "value": "Matts Lindbladh"
-          },
-          {
-            "label": "Elevation",
-            "value": "10"
-          },
-          {
-            "label": "Site area (ha)",
-            "value": "0.25*"
-          },
-          {
-            "label": "Time windows",
-            "value": "100-350 BP, 350-700 BP, 2700-3200 BP"
-          }
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.556111,
-          56.44
-        ]
-      },
-      "properties": {
-        "source": "LandClim",
-        "layer_key": "landclim-sites",
-        "layer_label": "LandClim pollen sites",
-        "category": "Pollen sequence",
-        "country": "Sweden",
-        "record_id": "937075:Hall",
-        "name": "Hälledammen",
-        "geometry_type": "Point",
-        "subtitle": "Pollen site sequences used in LandClim reconstructions",
-        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
-        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
-        "record_count": 7,
-        "popup_rows": [
-          {
-            "label": "Dataset",
-            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
-          },
-          {
-            "label": "DOI",
-            "value": "https://doi.org/10.1594/PANGAEA.937075"
-          },
-          {
-            "label": "Country",
-            "value": "Sweden"
-          },
-          {
-            "label": "Reported country",
-            "value": "Sweden"
-          },
-          {
-            "label": "Site type",
-            "value": "lake"
-          },
-          {
-            "label": "Sequence file",
-            "value": "Hall"
-          },
-          {
-            "label": "LCGRID_ID",
-            "value": "828"
-          },
-          {
-            "label": "Pollen samples",
-            "value": "31"
-          },
-          {
-            "label": "Time windows",
-            "value": "7"
-          },
-          {
-            "label": "Top BP",
-            "value": "184"
-          },
-          {
-            "label": "Bottom BP",
-            "value": "2806"
-          },
-          {
-            "label": "Elevation",
-            "value": "140"
           }
         ]
       }
@@ -11753,6 +12627,142 @@
           {
             "label": "Elevation",
             "value": "84"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.553333333333335,
+          56.05027777777777
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Klaresø:56.050278:12.553333",
+        "name": "Klaresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Bent Odgaard"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "3"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.55357722,
+          56.05051889
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:KlareSurface",
+        "name": "Klaresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "KlareSurface"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "828"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "-50"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "-50"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
           }
         ]
       }
@@ -14516,6 +15526,142 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.196944444444444,
+          55.43444444444444
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Langesø:55.434444:10.196944",
+        "name": "Langesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Peter Rasmussen"
+          },
+          {
+            "label": "Elevation",
+            "value": "26"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "18"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.197029,
+          55.434709
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Langesoe",
+        "name": "Langesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 7,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Langesoe"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "26"
+          },
+          {
+            "label": "Time windows",
+            "value": "7"
+          },
+          {
+            "label": "Top BP",
+            "value": "-49"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "6158"
+          },
+          {
+            "label": "Elevation",
+            "value": "26"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           29.1,
           63.61666666666667
         ]
@@ -15319,6 +16465,142 @@
           {
             "label": "Elevation",
             "value": "520"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.866666666666667,
+          68.51666666666667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "897303:Litlvatnet:68.516667:14.866667",
+        "name": "Litlvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "NOR"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Bjune"
+          },
+          {
+            "label": "Elevation",
+            "value": "106"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "2.50*"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.866667,
+          68.516667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "937075:Litlvatnet",
+        "name": "Litlvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 25,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Reported country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Litlvatnet"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "1430"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "51"
+          },
+          {
+            "label": "Time windows",
+            "value": "25"
+          },
+          {
+            "label": "Top BP",
+            "value": "-45"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "11432"
+          },
+          {
+            "label": "Elevation",
+            "value": "106"
           }
         ]
       }
@@ -16669,7 +17951,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Norway",
         "record_id": "897303:Morttjern:59.516667:11.616667",
         "name": "Morttjern",
         "geometry_type": "Point",
@@ -16688,7 +17970,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Norway"
           },
           {
             "label": "Site type",
@@ -16731,7 +18013,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Norway",
         "record_id": "937075:morttjern",
         "name": "Morttjern",
         "geometry_type": "Point",
@@ -16750,7 +18032,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Norway"
           },
           {
             "label": "Reported country",
@@ -16787,6 +18069,142 @@
           {
             "label": "Elevation",
             "value": "227"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6,
+          60.11666666666667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Finland",
+        "record_id": "897303:Mossen:60.116667:21.600000",
+        "name": "Mossen",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 3,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Site type",
+            "value": "Bog"
+          },
+          {
+            "label": "Reported country",
+            "value": "FIN"
+          },
+          {
+            "label": "Source archive",
+            "value": "EPD"
+          },
+          {
+            "label": "Elevation",
+            "value": "17"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "20.00*"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6,
+          60.116667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Finland",
+        "record_id": "937075:MOS",
+        "name": "Mossen",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 7,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Reported country",
+            "value": "Finland"
+          },
+          {
+            "label": "Site type",
+            "value": "bog"
+          },
+          {
+            "label": "Sequence file",
+            "value": "MOS"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "1037"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "56"
+          },
+          {
+            "label": "Time windows",
+            "value": "7"
+          },
+          {
+            "label": "Top BP",
+            "value": "15"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "2276"
+          },
+          {
+            "label": "Elevation",
+            "value": "17"
           }
         ]
       }
@@ -16937,7 +18355,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Finland",
         "record_id": "897303:Mukkavaara:68.916667:21.000000",
         "name": "Mukkavaara",
         "geometry_type": "Point",
@@ -16956,7 +18374,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Finland"
           },
           {
             "label": "Site type",
@@ -16999,7 +18417,7 @@
         "layer_key": "landclim-sites",
         "layer_label": "LandClim pollen sites",
         "category": "Pollen sequence",
-        "country": "Sweden",
+        "country": "Finland",
         "record_id": "937075:MUKK",
         "name": "Mukkavaara",
         "geometry_type": "Point",
@@ -17018,7 +18436,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Finland"
           },
           {
             "label": "Reported country",
@@ -17055,6 +18473,142 @@
           {
             "label": "Elevation",
             "value": "535"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.383333333333333,
+          68.65
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "897303:Myrvatnet:68.650000:16.383333",
+        "name": "Myrvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "NOR"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Bjune"
+          },
+          {
+            "label": "Elevation",
+            "value": "200"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "8.25*"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.383333,
+          68.65
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "937075:myrvatnet",
+        "name": "Myrvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 23,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Reported country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "myrvatnet"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "1432"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "63"
+          },
+          {
+            "label": "Time windows",
+            "value": "23"
+          },
+          {
+            "label": "Top BP",
+            "value": "-42"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "10441"
+          },
+          {
+            "label": "Elevation",
+            "value": "200"
           }
         ]
       }
@@ -17327,6 +18881,216 @@
           {
             "label": "Elevation",
             "value": "165"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.982222222222223,
+          54.845555555555556
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Møllesø:54.845556:11.982222",
+        "name": "Møllesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 2,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK (Denmark)"
+          },
+          {
+            "label": "Source archive",
+            "value": "Bent Odgaard; AB Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "18"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "10"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.97956556,
+          54.84561472
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Molle1800",
+        "name": "Møllesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Molle1800"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "727"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "18"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.97956556,
+          54.84561472
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:MolleSurface",
+        "name": "Møllesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "MolleSurface"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "727"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "-50"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "-50"
+          },
+          {
+            "label": "Elevation",
+            "value": "18"
           }
         ]
       }
@@ -21788,6 +23552,138 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.554722222222223,
+          56.04722222222222
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Sortesø:56.047222:12.554722",
+        "name": "Sortesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "11"
+          },
+          {
+            "label": "Time windows",
+            "value": "100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5548754,
+          56.0474309
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Sorte",
+        "name": "Sortesø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Sorte"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "828"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "32"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.813055555555556,
           57.024166666666666
         ]
@@ -22930,6 +24826,142 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.296944444444444,
+          55.11944444444445
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Store Øresø:55.119444:10.296944",
+        "name": "Store Øresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Bent Odgaard"
+          },
+          {
+            "label": "Elevation",
+            "value": "65"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "8"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.29720694,
+          55.11952056
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:StOereSurface",
+        "name": "Store Øresø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "StOereSurface"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "-50"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "-50"
+          },
+          {
+            "label": "Elevation",
+            "value": "65"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.583333333333334,
           60.3
         ]
@@ -23185,6 +25217,142 @@
           {
             "label": "Elevation",
             "value": "680"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.45,
+          63.46666666666667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "897303:Storsandvatnet:63.466667:8.450000",
+        "name": "Storsandvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 5,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "Lake"
+          },
+          {
+            "label": "Reported country",
+            "value": "NOR"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Bjune"
+          },
+          {
+            "label": "Elevation",
+            "value": "106"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "7.50*"
+          },
+          {
+            "label": "Time windows",
+            "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP, 5700-6200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.45,
+          63.466667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Norway",
+        "record_id": "937075:storsandvatnet",
+        "name": "Storsandvatnet",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 25,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Reported country",
+            "value": "Norway"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "storsandvatnet"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "1174"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "82"
+          },
+          {
+            "label": "Time windows",
+            "value": "25"
+          },
+          {
+            "label": "Top BP",
+            "value": "-8"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "13800"
+          },
+          {
+            "label": "Elevation",
+            "value": "106"
           }
         ]
       }
@@ -24191,6 +26359,402 @@
           {
             "label": "Time windows",
             "value": "0-100 BP, 100-350 BP, 350-700 BP, 2700-3200 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.208888888888888,
+          55.206944444444446
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Søbo Sø:55.206944:10.208889",
+        "name": "Søbo Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "38"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "21"
+          },
+          {
+            "label": "Time windows",
+            "value": "100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2089786,
+          55.207249
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Soebo",
+        "name": "Søbo Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Soebo"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "38"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.958888888888888,
+          55.24166666666667
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Sønderby Sø:55.241667:9.958889",
+        "name": "Sønderby Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "23"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "8"
+          },
+          {
+            "label": "Time windows",
+            "value": "100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9591105,
+          55.241695
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Soenderby",
+        "name": "Sønderby Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Soenderby"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "775"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "23"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.563055555555556,
+          55.073888888888895
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "897303:Sørup Sø:55.073889:10.563056",
+        "name": "Sørup Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim I site metadata tied to REVEALS PFT and LCT grid outputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.897303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Gaillard 2019 LandClim I REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.897303"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "DK"
+          },
+          {
+            "label": "Source archive",
+            "value": "Anne Birgitte Nielsen"
+          },
+          {
+            "label": "Elevation",
+            "value": "44"
+          },
+          {
+            "label": "Site area (ha)",
+            "value": "11"
+          },
+          {
+            "label": "Time windows",
+            "value": "100-350 BP"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5631734,
+          55.0740762
+        ]
+      },
+      "properties": {
+        "source": "LandClim",
+        "layer_key": "landclim-sites",
+        "layer_label": "LandClim pollen sites",
+        "category": "Pollen sequence",
+        "country": "Denmark",
+        "record_id": "937075:Soerup",
+        "name": "Sørup Sø",
+        "geometry_type": "Point",
+        "subtitle": "Pollen site sequences used in LandClim reconstructions",
+        "description": "LandClim II site metadata for REVEALS grid reconstruction inputs.",
+        "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Dataset",
+            "value": "Fyfe et al. 2021 LandClim II REVEALS grids"
+          },
+          {
+            "label": "DOI",
+            "value": "https://doi.org/10.1594/PANGAEA.937075"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Reported country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Site type",
+            "value": "lake"
+          },
+          {
+            "label": "Sequence file",
+            "value": "Soerup"
+          },
+          {
+            "label": "LCGRID_ID",
+            "value": "776"
+          },
+          {
+            "label": "Pollen samples",
+            "value": "1"
+          },
+          {
+            "label": "Time windows",
+            "value": "1"
+          },
+          {
+            "label": "Top BP",
+            "value": "150"
+          },
+          {
+            "label": "Bottom BP",
+            "value": "150"
+          },
+          {
+            "label": "Elevation",
+            "value": "44"
           }
         ]
       }

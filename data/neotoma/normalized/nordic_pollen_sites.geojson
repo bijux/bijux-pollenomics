@@ -336,6 +336,72 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.689085,
+          63.702905
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "947",
+        "name": "Grasvatn",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Shallow lake on the island of Frøya. Overgrown by aquatics. Physiography: Shellsand on gneisses. Surrounding vegetation: Heather, fens and bogs.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/947",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "947"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "25"
+          },
+          {
+            "label": "Description",
+            "value": "Shallow lake on the island of Frøya. Overgrown by aquatics. Physiography: Shellsand on gneisses. Surrounding vegetation: Heather, fens and bogs."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.53458,
           57.64055
         ]
@@ -728,6 +794,72 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          21.58979,
+          60.12146
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3299",
+        "name": "Mossen",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Well developed raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus dominated peat vegetation.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3299",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3299"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "6"
+          },
+          {
+            "label": "Description",
+            "value": "Well developed raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus dominated peat vegetation."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           21.0,
           68.91667
         ]
@@ -737,7 +869,7 @@
         "layer_key": "neotoma-pollen",
         "layer_label": "Neotoma pollen sites",
         "category": "Pollen",
-        "country": "Sweden",
+        "country": "Finland",
         "record_id": "3302",
         "name": "Mukkavaara",
         "geometry_type": "Point",
@@ -760,7 +892,7 @@
           },
           {
             "label": "Country",
-            "value": "Sweden"
+            "value": "Finland"
           },
           {
             "label": "Geometry",
@@ -1247,6 +1379,72 @@
           {
             "label": "Description",
             "value": "Raised bog. Physiography: Pinus dominated raised bog. Surrounding vegetation: Pinus, Lednum palustre, Vaccinium uliginosum."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.79939,
+          65.05699
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3414",
+        "name": "Sipola",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small fen. Physiography: dune ridges. Surrounding vegetation: patch of birch within pine forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3414",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3414"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "6"
+          },
+          {
+            "label": "Description",
+            "value": "Small fen. Physiography: dune ridges. Surrounding vegetation: patch of birch within pine forest."
           }
         ]
       }
