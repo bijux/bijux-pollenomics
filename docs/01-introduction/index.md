@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Introduction
@@ -54,6 +54,10 @@ The introduction pages answer four foundational questions:
 ## Reading Advice
 
 Start here if you are new to the repository, planning new data layers, or trying to understand why the docs homepage leads with the map instead of the codebase.
+
+## Honesty Rule
+
+This section is allowed to describe intent and product framing, but it should still stay bounded by current repository behavior. Future scientific or product ambitions belong here only when they are explicitly labeled as not-yet-implemented.
 
 ## Purpose
 

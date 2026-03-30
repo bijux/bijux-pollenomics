@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Docs Index
@@ -17,6 +17,17 @@ The current map groups layers by role, exposes filter state in the URL, and show
 
 <div class="bijux-callout">
   <strong>Start with the map.</strong> The rest of the docs explains exactly where its layers come from, which commands rebuild them, and which parts of the current behavior are still limited in scope.
+</div>
+
+<div class="bijux-panel-grid">
+  <div class="bijux-panel">
+    <h3>What this site can prove</h3>
+    <p>It can prove which files are checked in, which commands build them, which data sources are currently wired into the repository, and which limitations are intentionally left in place.</p>
+  </div>
+  <div class="bijux-panel">
+    <h3>What this site cannot prove</h3>
+    <p>It cannot prove that spatial proximity implies sampling priority, that the current evidence stack is scientifically complete, or that upstream services will always return identical results in the future.</p>
+  </div>
 </div>
 
 <div class="bijux-quicklinks">
@@ -81,6 +92,10 @@ flowchart TD
 - trying to understand the interactive outputs: go to [Reports](04-reports/index.md)
 - trying to extend the pipeline safely: read [Architecture](05-architecture/index.md) and [Development](06-development/index.md)
 - trying to find exact commands, paths, or artifact names: use [Reference](07-reference/index.md)
+
+## Reading Standard
+
+If a page in this site makes a claim about a command, file, layer, or artifact, that claim should be traceable to code or checked-in outputs in the same repository state. When a limit exists, the docs should say so directly instead of implying missing behavior is already implemented.
 
 ## Reading Rule
 
