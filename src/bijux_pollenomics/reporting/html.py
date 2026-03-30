@@ -596,6 +596,33 @@ def render_multi_country_map_html(
         color: var(--muted);
         font-size: 12px;
       }
+      .time-density {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 10px;
+      }
+      .time-density-bars {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        align-items: end;
+        gap: 6px;
+        min-height: 84px;
+      }
+      .time-density-bar {
+        min-height: 12px;
+        border-radius: 999px 999px 4px 4px;
+        background: rgba(24, 37, 61, 0.12);
+      }
+      .time-density-bar.is-active-window {
+        background: linear-gradient(180deg, rgba(31, 94, 216, 0.92), rgba(14, 122, 114, 0.82));
+      }
+      .time-density-labels {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 11px;
+      }
       .search-results,
       .summary-list,
       .legend-list,
@@ -1422,6 +1449,10 @@ def render_multi_country_map_html(
                 <button class="preset-button" type="button" data-time-interval="full">Full span</button>
               </div>
               <div id="time-record-count" class="search-meta">0 dated records are visible in the active BP window.</div>
+              <div class="time-density">
+                <div id="time-density-bars" class="time-density-bars"></div>
+                <div class="time-density-labels"><span>Earlier BP</span><span>Later BP</span></div>
+              </div>
               <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
             <section id="distance-panel" class="panel-card">
@@ -1619,6 +1650,7 @@ def render_multi_country_map_html(
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timeWindowValue = document.getElementById('time-window-value');
       const timeRecordCount = document.getElementById('time-record-count');
+      const timeDensityBars = document.getElementById('time-density-bars');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -1879,6 +1911,36 @@ def render_multi_country_map_html(
           const geometry = [...new Set(layers.map((layer) => layer.geometry_label || layerUnit(layer)))];
           const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
           return `<div class="coverage-row"><div class="coverage-row-head"><strong>${escapeHtml(sourceName)}</strong><span>${enabledCount}/${layers.length} layers enabled</span></div><div class="coverage-tags">${coverage.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}${geometry.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}</div></div>`;
+        }).join('');
+      }
+      function renderTimeDensity() {
+        if (!TIME_HAS_DATA) {
+          timeDensityBars.innerHTML = '<div class="filter-chip-empty">No dated records are available for the current workspace.</div>';
+          return;
+        }
+        const bins = 12;
+        const span = Math.max(1, TIME_MAX_BP - TIME_MIN_BP);
+        const bucketSize = Math.max(1, Math.ceil(span / bins));
+        const counts = new Array(bins).fill(0);
+        POINT_LAYERS
+          .filter((layer) => activeLayerKeys.has(layer.key) && layer.applies_time_filter)
+          .forEach((layer) => {
+            layer.features.forEach((feature) => {
+              const yearBp = Number(feature.time_year_bp);
+              if (!Number.isFinite(yearBp)) return;
+              if (feature.country && !activeCountries.has(feature.country)) return;
+              const index = Math.min(bins - 1, Math.max(0, Math.floor((yearBp - TIME_MIN_BP) / bucketSize)));
+              counts[index] += 1;
+            });
+          });
+        const maxCount = Math.max(...counts, 1);
+        const activeEnd = timeWindowEndBp();
+        timeDensityBars.innerHTML = counts.map((count, index) => {
+          const binStart = TIME_MIN_BP + (index * bucketSize);
+          const binEnd = index === bins - 1 ? TIME_MAX_BP : Math.min(TIME_MAX_BP, binStart + bucketSize);
+          const height = count > 0 ? Math.max(16, Math.round((count / maxCount) * 80)) : 12;
+          const overlapsWindow = binEnd >= timeStartBp && binStart <= activeEnd;
+          return `<div class="time-density-bar ${overlapsWindow ? 'is-active-window' : ''}" style="height:${height}px" title="${escapeHtml(`${count} dated records from ${binStart} to ${binEnd} BP`)}"></div>`;
         }).join('');
       }
       function renderWorkspaceBrief() {
@@ -2402,6 +2464,7 @@ def render_multi_country_map_html(
         renderFilterChips();
         renderWorkspaceBrief();
         renderCoverageMatrix();
+        renderTimeDensity();
         updateStats();
         updateSummary();
         buildSearchResults();
