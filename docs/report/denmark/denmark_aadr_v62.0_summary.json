@@ -8,5 +8,13 @@
     "1240k": 300,
     "ho": 300
   },
-  "output_dir": "docs/report/denmark"
+  "output_dir": "docs/report/denmark",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "denmark_aadr_v62.0_samples.csv",
+    "localities_csv": "denmark_aadr_v62.0_localities.csv",
+    "samples_geojson": "denmark_aadr_v62.0_samples.geojson",
+    "samples_markdown": "denmark_aadr_v62.0_samples.md",
+    "summary_json": "denmark_aadr_v62.0_summary.json"
+  }
 }

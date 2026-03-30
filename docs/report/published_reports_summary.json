@@ -14,5 +14,17 @@
     "docs/report/finland",
     "docs/report/denmark"
   ],
-  "summary_path": "docs/report/published_reports_summary.json"
+  "summary_path": "docs/report/published_reports_summary.json",
+  "artifacts": {
+    "shared_bundle": {
+      "slug": "nordic",
+      "directory": "docs/report/nordic"
+    },
+    "country_bundles": {
+      "sweden": "docs/report/sweden",
+      "norway": "docs/report/norway",
+      "finland": "docs/report/finland",
+      "denmark": "docs/report/denmark"
+    }
+  }
 }

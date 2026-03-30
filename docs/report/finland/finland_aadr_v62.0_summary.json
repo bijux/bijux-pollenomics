@@ -8,5 +8,13 @@
     "1240k": 13,
     "ho": 22
   },
-  "output_dir": "docs/report/finland"
+  "output_dir": "docs/report/finland",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "finland_aadr_v62.0_samples.csv",
+    "localities_csv": "finland_aadr_v62.0_localities.csv",
+    "samples_geojson": "finland_aadr_v62.0_samples.geojson",
+    "samples_markdown": "finland_aadr_v62.0_samples.md",
+    "summary_json": "finland_aadr_v62.0_summary.json"
+  }
 }

@@ -8,5 +8,13 @@
     "1240k": 47,
     "ho": 58
   },
-  "output_dir": "docs/report/norway"
+  "output_dir": "docs/report/norway",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "norway_aadr_v62.0_samples.csv",
+    "localities_csv": "norway_aadr_v62.0_localities.csv",
+    "samples_geojson": "norway_aadr_v62.0_samples.geojson",
+    "samples_markdown": "norway_aadr_v62.0_samples.md",
+    "summary_json": "norway_aadr_v62.0_summary.json"
+  }
 }

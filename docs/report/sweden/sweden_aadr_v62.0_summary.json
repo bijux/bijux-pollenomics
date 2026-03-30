@@ -8,5 +8,13 @@
     "1240k": 519,
     "ho": 519
   },
-  "output_dir": "docs/report/sweden"
+  "output_dir": "docs/report/sweden",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "sweden_aadr_v62.0_samples.csv",
+    "localities_csv": "sweden_aadr_v62.0_localities.csv",
+    "samples_geojson": "sweden_aadr_v62.0_samples.geojson",
+    "samples_markdown": "sweden_aadr_v62.0_samples.md",
+    "summary_json": "sweden_aadr_v62.0_summary.json"
+  }
 }
