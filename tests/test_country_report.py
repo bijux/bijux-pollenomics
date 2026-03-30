@@ -223,6 +223,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("id=\"stat-visible-points-note\"", map_html)
             self.assertIn("id=\"stat-context-sources-note\"", map_html)
             self.assertIn("id=\"topbar-state-pill\"", map_html)
+            self.assertIn("basemap-preview--voyager", map_html)
+            self.assertIn("Minimal contrast for evidence-first inspection.", map_html)
             self.assertIn("__TITLE__ map".replace("__TITLE__", "Nordic Countries"), map_html)
             self.assertIn("id=\"section-nav\"", map_html)
             self.assertIn("data-section-target=\"layer-panel\"", map_html)

@@ -490,10 +490,14 @@ def render_multi_country_map_html(
       .inline-actions,
       .preset-row,
       .topbar-row,
-      .basemap-switch,
       .map-actions {
         display: flex;
         flex-wrap: wrap;
+        gap: 10px;
+      }
+      .basemap-switch {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 10px;
       }
       .inline-actions { margin-top: 12px; }
@@ -504,6 +508,44 @@ def render_multi_country_map_html(
         padding: 10px 14px;
         font-size: 13px;
         font-weight: 600;
+      }
+      .basemap-button {
+        display: grid;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 18px;
+        text-align: left;
+      }
+      .basemap-preview {
+        height: 36px;
+        border-radius: 12px;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+      }
+      .basemap-preview--voyager {
+        background:
+          linear-gradient(135deg, rgba(196, 228, 248, 0.96), rgba(210, 236, 214, 0.88)),
+          linear-gradient(90deg, transparent 0 22%, rgba(255, 255, 255, 0.28) 22% 25%, transparent 25% 100%);
+      }
+      .basemap-preview--light {
+        background:
+          linear-gradient(135deg, rgba(246, 244, 239, 0.96), rgba(231, 232, 234, 0.94)),
+          linear-gradient(90deg, transparent 0 20%, rgba(196, 200, 207, 0.32) 20% 23%, transparent 23% 100%);
+      }
+      .basemap-preview--terrain {
+        background:
+          linear-gradient(135deg, rgba(220, 233, 213, 0.98), rgba(191, 208, 170, 0.90)),
+          linear-gradient(90deg, transparent 0 24%, rgba(110, 133, 87, 0.20) 24% 27%, transparent 27% 100%);
+      }
+      .basemap-title {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .basemap-copy {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
       }
       .topbar-context {
         display: grid;
@@ -1228,6 +1270,9 @@ def render_multi_country_map_html(
         .map-actions {
           justify-content: space-between;
         }
+        .basemap-switch {
+          grid-template-columns: 1fr;
+        }
         .floating-legend {
           right: 10px;
           bottom: 76px;
@@ -1493,9 +1538,9 @@ def render_multi_country_map_html(
             <div class="topbar-row">
               <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
               <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="voyager">Voyager</button>
-                <button class="basemap-button" type="button" data-basemap="light">Light</button>
-                <button class="basemap-button" type="button" data-basemap="terrain">Terrain</button>
+                <button class="basemap-button is-active" type="button" data-basemap="voyager"><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span><span class="basemap-copy">Balanced roads, labels, and water detail.</span></button>
+                <button class="basemap-button" type="button" data-basemap="light"><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span><span class="basemap-copy">Minimal contrast for evidence-first inspection.</span></button>
+                <button class="basemap-button" type="button" data-basemap="terrain"><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span><span class="basemap-copy">Relief-focused context for landform reading.</span></button>
               </div>
             </div>
           </div>
