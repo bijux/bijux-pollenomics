@@ -18,4 +18,4 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 - `docs/03-data-guide/index.md`
 - `docs/07-reference/data-layout.md`
 
-The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts and provenance metadata.
+The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.

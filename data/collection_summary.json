@@ -10,6 +10,15 @@
     "raa",
     "sead"
   ],
+  "source_output_roots": {
+    "aadr": "data/aadr",
+    "aadr_version_dir": "data/aadr/v62.0",
+    "boundaries": "data/boundaries",
+    "landclim": "data/landclim",
+    "neotoma": "data/neotoma",
+    "raa": "data/raa",
+    "sead": "data/sead"
+  },
   "boundary_source": "collected",
   "aadr_file_count": 2,
   "landclim_site_count": 474,
