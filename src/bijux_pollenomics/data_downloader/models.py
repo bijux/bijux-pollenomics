@@ -41,6 +41,7 @@ class DataCollectionSummary:
     output_root: Path
     version: str
     collected_sources: tuple[str, ...]
+    source_output_roots: dict[str, str]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int

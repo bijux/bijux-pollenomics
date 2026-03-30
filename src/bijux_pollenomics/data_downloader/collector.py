@@ -68,6 +68,7 @@ class DataCollectionReport:
     output_root: Path
     version: str
     collected_sources: tuple[str, ...]
+    source_output_roots: dict[str, str]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
@@ -87,9 +88,10 @@ def collect_data(
     """Collect one or more tracked data sources into the project data tree."""
     output_root = Path(output_root)
     output_root.mkdir(parents=True, exist_ok=True)
-    write_data_directory_readme(output_root)
+    write_data_directory_readme(output_root, version=version)
 
     selected_sources = normalize_requested_sources(sources)
+    source_output_roots = build_source_output_roots(output_root=output_root, version=version)
 
     counts = initialize_source_counts()
     boundary_source: str | None = None
@@ -133,6 +135,7 @@ def collect_data(
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
+        source_output_roots=source_output_roots,
         boundary_source=boundary_source,
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
@@ -150,6 +153,7 @@ def collect_data(
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
+        source_output_roots=source_output_roots,
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
         landclim_grid_cell_count=counts["landclim_grid_cell_count"],
@@ -230,19 +234,26 @@ def normalize_requested_sources(sources: Iterable[str]) -> tuple[str, ...]:
 
 def render_data_root_readme() -> str:
     """Render a stable README for the generated data root."""
-    return """# Data Layout
+    return render_data_root_readme_for(Path("data"), DEFAULT_AADR_VERSION)
 
-Tracked source data lives directly under `data/`:
+
+def render_data_root_readme_for(output_root: Path, version: str) -> str:
+    """Render the data-root README with the active output directory name."""
+    root_name = output_root.name or str(output_root)
+    tree_lines = [
+        root_name,
+        "├── aadr",
+        f"│   └── {version}",
+        *(f"├── {source}" for source in AVAILABLE_SOURCES[1:-1]),
+        f"└── {AVAILABLE_SOURCES[-1]}",
+    ]
+    tree_text = "\n".join(tree_lines)
+    return f"""# Data Layout
+
+Tracked source data lives directly under `{root_name}/`:
 
 ```text
-data
-├── aadr
-│   └── v62.0
-├── boundaries
-├── landclim
-├── neotoma
-├── raa
-└── sead
+{tree_text}
 ```
 
 Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
@@ -250,23 +261,29 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 - `docs/03-data-guide/index.md`
 - `docs/07-reference/data-layout.md`
 
-The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts and provenance metadata.
+The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 """
 
 
-def render_data_root_readme_for(output_root: Path) -> str:
-    """Render the data-root README with the active output directory name."""
-    root_name = output_root.name or str(output_root)
-    return render_data_root_readme().replace("under `data/`", f"under `{root_name}/`").replace(
-        "\ndata\n",
-        f"\n{root_name}\n",
-        1,
+def build_source_output_roots(output_root: Path, version: str) -> dict[str, str]:
+    """Build the machine-readable output-root mapping for every tracked source."""
+    roots = {
+        "aadr": str(Path(output_root) / "aadr"),
+        "aadr_version_dir": str(Path(output_root) / "aadr" / version),
+    }
+    roots.update(
+        {
+            source: str(Path(output_root) / source)
+            for source in AVAILABLE_SOURCES
+            if source != "aadr"
+        }
     )
+    return roots
 
 
-def write_data_directory_readme(output_root: Path) -> None:
+def write_data_directory_readme(output_root: Path, version: str) -> None:
     """Write the stable README that documents the generated data tree."""
-    write_text(Path(output_root) / "README.md", render_data_root_readme_for(Path(output_root)))
+    write_text(Path(output_root) / "README.md", render_data_root_readme_for(Path(output_root), version))
 
 
 def reset_output_dir(path: Path) -> None:
