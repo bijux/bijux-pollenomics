@@ -672,12 +672,20 @@ def render_multi_country_map_html(
         display: grid;
         gap: 10px;
       }
+      .layer-group.is-collapsed .layer-group-stack {
+        display: none;
+      }
       .layer-group-head {
         display: flex;
         justify-content: space-between;
         gap: 10px;
         align-items: baseline;
         padding: 0 2px;
+      }
+      .layer-group-head-main {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
       }
       .layer-group-head h3 {
         margin: 0;
@@ -688,6 +696,28 @@ def render_multi_country_map_html(
       .layer-group-head span {
         color: var(--muted);
         font-size: 11px;
+      }
+      .layer-group-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      .layer-group-button {
+        appearance: none;
+        border: 1px solid rgba(24, 37, 61, 0.10);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--muted);
+        padding: 6px 10px;
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .layer-group-stack {
+        display: grid;
+        gap: 10px;
       }
       .layer-meta {
         margin-top: 8px;
@@ -1517,6 +1547,7 @@ def render_multi_country_map_html(
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
       let legendCollapsed = initialState.legend === 'collapsed';
+      let collapsedLayerGroups = new Set();
       let focusState = null;
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
@@ -1700,6 +1731,8 @@ def render_multi_country_map_html(
           .map((group) => {
             const layers = ALL_LAYERS.filter((layer) => layer.group === group);
             if (!layers.length) return '';
+            const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
+            const collapsed = collapsedLayerGroups.has(group);
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
               const stateLabel = activeLayerKeys.has(layer.key) ? 'Enabled' : 'Hidden';
@@ -1707,13 +1740,39 @@ def render_multi_country_map_html(
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
               return `<div class="layer-card ${activeLayerKeys.has(layer.key) ? 'is-enabled' : ''}"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div class="layer-card-head"><div class="layer-card-title"><span class="layer-swatch-stack" style="background:${escapeHtml(swatchColor)}; border-color:${escapeHtml(swatchBorder)};"></span><div class="layer-card-text"><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div></div><span class="layer-state-pill">${escapeHtml(stateLabel)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
             }).join('');
-            return `<section class="layer-group"><div class="layer-group-head"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))}</span></div>${cards}</section>`;
+            return `<section class="layer-group ${collapsed ? 'is-collapsed' : ''}"><div class="layer-group-head"><div class="layer-group-head-main"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))} ${enabledCount}/${layers.length} enabled.</span></div><div class="layer-group-actions"><button class="layer-group-button" type="button" data-group-toggle="${escapeHtml(group)}">${enabledCount === layers.length ? 'Hide group' : 'Show group'}</button><button class="layer-group-button" type="button" data-group-collapse="${escapeHtml(group)}">${collapsed ? 'Expand' : 'Collapse'}</button></div></div><div class="layer-group-stack">${cards}</div></section>`;
           })
           .join('');
         document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
             renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-group-toggle]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const group = button.dataset.groupToggle;
+            const layers = ALL_LAYERS.filter((layer) => layer.group === group);
+            const allEnabled = layers.every((layer) => activeLayerKeys.has(layer.key));
+            layers.forEach((layer) => {
+              if (allEnabled) {
+                activeLayerKeys.delete(layer.key);
+              } else {
+                activeLayerKeys.add(layer.key);
+              }
+            });
+            renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-group-collapse]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const group = button.dataset.groupCollapse;
+            if (collapsedLayerGroups.has(group)) {
+              collapsedLayerGroups.delete(group);
+            } else {
+              collapsedLayerGroups.add(group);
+            }
+            renderLayerControls();
           });
         });
       }
