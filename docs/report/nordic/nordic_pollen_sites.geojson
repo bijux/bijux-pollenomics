@@ -336,6 +336,72 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          31.025864970930726,
+          70.32583493408067
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "700",
+        "name": "Domsvatnet",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "The lake occupies a shallow oblong basin, measuring about 150 m by 600 m, between gently sloping hills covered by drift. There are no apparent influents and only a small stream as an outflow. The dominant vegetation on the surrounding slopes is a dwarf-shrub tundra with Betula nana, Empetrum, Salix, Arctostaphylos alpinum, and Rubus chamaemorus as prominent elements. Cottongrass-sedge communities are abundant in wetter depressions.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/700",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "700"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "107"
+          },
+          {
+            "label": "Description",
+            "value": "The lake occupies a shallow oblong basin, measuring about 150 m by 600 m, between gently sloping hills covered by drift. There are no apparent influents and only a small stream as an outflow. The dominant vegetation on the surrounding slopes is a dwarf-shrub tundra with Betula nana, Empetrum, Salix, Arctostaphylos alpinum, and Rubus chamaemorus as prominent elements. Cottongrass-sedge communities are abundant in wetter depressions."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.689085025038441,
           63.702905183539094
         ]
@@ -917,6 +983,72 @@
           {
             "label": "Description",
             "value": "Lake. Physiography: hummocky till / ice contact drift. Surrounding vegetation: mountain birch woodland."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.06667,
+          69.13333
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "3311",
+        "name": "Nedre Draketjärn",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3311",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3311"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "-14"
+          },
+          {
+            "label": "Description",
+            "value": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce."
           }
         ]
       }
