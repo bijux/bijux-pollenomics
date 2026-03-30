@@ -234,6 +234,12 @@ class CountryReportTests(unittest.TestCase):
             )
 
             self.write_geojson(
+                context_root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+                layer_key="landclim-sites",
+                layer_label="LandClim pollen sites",
+                category="Pollen sequence",
+            )
+            self.write_geojson(
                 context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson",
                 layer_key="neotoma-pollen",
                 layer_label="Neotoma pollen sites",
@@ -267,6 +273,39 @@ class CountryReportTests(unittest.TestCase):
                                 "name": "Sweden",
                                 "layer_key": "country-boundaries",
                                 "layer_label": "Country boundaries",
+                            },
+                        }
+                    ],
+                },
+            )
+            self.write_json(
+                context_root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[16.0, 58.0], [17.0, 58.0], [17.0, 59.0], [16.0, 59.0], [16.0, 58.0]]],
+                            },
+                            "properties": {
+                                "source": "LandClim",
+                                "layer_key": "landclim-reveals-grid",
+                                "layer_label": "LandClim REVEALS grid cells",
+                                "category": "Vegetation reconstruction",
+                                "country": "Sweden",
+                                "record_id": "16,58,17,59",
+                                "name": "17E 59N grid cell",
+                                "geometry_type": "Polygon",
+                                "subtitle": "1 degree REVEALS grid-cell coverage",
+                                "description": "",
+                                "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+                                "record_count": 1,
+                                "popup_rows": [
+                                    {"label": "Datasets", "value": "LandClim II REVEALS grids"},
+                                    {"label": "Time windows", "value": "1 windows"},
+                                ],
                             },
                         }
                     ],
@@ -315,12 +354,18 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Copy link", map_html)
             self.assertIn("Primary Evidence", map_html)
             self.assertIn("Country boundaries", map_html)
+            self.assertIn("LandClim pollen sites", map_html)
+            self.assertIn("LandClim REVEALS grid cells", map_html)
             self.assertIn("Neotoma pollen sites", map_html)
             self.assertIn("SEAD sites", map_html)
             self.assertIn("RAÄ archaeology density", map_html)
             self.assertIn("Machine-readable summary", readme_text)
+            self.assertIn("nordic_pollen_site_sequences.geojson", readme_text)
+            self.assertIn("nordic_reveals_grid_cells.geojson", readme_text)
             self.assertIn("nordic_pollen_sites.geojson", readme_text)
             self.assertIn("# Nordic Countries Research Map", readme_text)
+            self.assertTrue((output / "nordic_pollen_site_sequences.geojson").exists())
+            self.assertTrue((output / "nordic_reveals_grid_cells.geojson").exists())
             self.assertTrue((output / "nordic_pollen_sites.geojson").exists())
             self.assertTrue((output / "nordic_environmental_sites.geojson").exists())
             self.assertTrue((output / "sweden_archaeology_layer.json").exists())

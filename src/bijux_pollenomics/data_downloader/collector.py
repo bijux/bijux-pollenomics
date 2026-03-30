@@ -9,6 +9,7 @@ from typing import Iterable
 from .aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
 from .common import write_json, write_text
+from .landclim import collect_landclim_data
 from .models import DataCollectionSummary
 from .neotoma import collect_neotoma_data
 from .raa import collect_raa_data
@@ -16,7 +17,7 @@ from .sead import collect_sead_data
 
 
 NORDIC_BBOX = (4.0, 54.0, 35.0, 72.0)
-AVAILABLE_SOURCES = ("aadr", "boundaries", "neotoma", "raa", "sead")
+AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 
 
 @dataclass(frozen=True)
@@ -26,6 +27,8 @@ class DataCollectionReport:
     version: str
     collected_sources: tuple[str, ...]
     aadr_file_count: int
+    landclim_site_count: int
+    landclim_grid_cell_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int
@@ -47,6 +50,8 @@ def collect_data(
     selected_sources = normalize_requested_sources(sources)
 
     aadr_file_count = 0
+    landclim_site_count = 0
+    landclim_grid_cell_count = 0
     neotoma_point_count = 0
     sead_point_count = 0
     raa_total_site_count = 0
@@ -58,7 +63,7 @@ def collect_data(
         aadr_report = download_aadr_anno_files(output_root=output_root / "aadr", version=version)
         aadr_file_count = len(aadr_report.downloaded_files)
 
-    need_boundaries = any(source in selected_sources for source in ("boundaries", "neotoma", "sead", "raa"))
+    need_boundaries = any(source in selected_sources for source in ("boundaries", "landclim", "neotoma", "sead", "raa"))
     country_boundaries: dict[str, dict[str, object]] | None = None
     if need_boundaries:
         if "boundaries" in selected_sources:
@@ -72,6 +77,16 @@ def collect_data(
             else:
                 country_boundaries = fetch_country_boundaries()
                 boundary_source = "network"
+
+    if "landclim" in selected_sources and country_boundaries is not None:
+        reset_output_dir(output_root / "landclim")
+        landclim_report = collect_landclim_data(
+            output_root=output_root / "landclim",
+            country_boundaries=country_boundaries,
+            bbox=NORDIC_BBOX,
+        )
+        landclim_site_count = landclim_report.site_count
+        landclim_grid_cell_count = landclim_report.grid_cell_count
 
     if "neotoma" in selected_sources and country_boundaries is not None:
         reset_output_dir(output_root / "neotoma")
@@ -108,6 +123,8 @@ def collect_data(
         collected_sources=selected_sources,
         boundary_source=boundary_source,
         aadr_file_count=aadr_file_count,
+        landclim_site_count=landclim_site_count,
+        landclim_grid_cell_count=landclim_grid_cell_count,
         neotoma_point_count=neotoma_point_count,
         sead_point_count=sead_point_count,
         raa_total_site_count=raa_total_site_count,
@@ -122,6 +139,8 @@ def collect_data(
         version=version,
         collected_sources=selected_sources,
         aadr_file_count=aadr_file_count,
+        landclim_site_count=landclim_site_count,
+        landclim_grid_cell_count=landclim_grid_cell_count,
         neotoma_point_count=neotoma_point_count,
         sead_point_count=sead_point_count,
         raa_total_site_count=raa_total_site_count,
@@ -159,6 +178,7 @@ data
 ├── aadr
 │   └── v62.0
 ├── boundaries
+├── landclim
 ├── neotoma
 ├── raa
 └── sead

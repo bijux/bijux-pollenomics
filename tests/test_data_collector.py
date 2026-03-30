@@ -30,11 +30,14 @@ class DataCollectorTests(unittest.TestCase):
             with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
                 patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
+                collect_landclim.return_value.site_count = 4
+                collect_landclim.return_value.grid_cell_count = 2
                 collect_neotoma.return_value.point_count = 6
                 collect_sead.return_value.point_count = 1937
                 collect_raa.return_value.total_site_count = 761786
@@ -46,6 +49,7 @@ class DataCollectorTests(unittest.TestCase):
             download_aadr.assert_called_once_with(output_root=output_root / "aadr", version="v62.0")
             fetch_boundaries.assert_called_once()
             collect_boundaries.assert_not_called()
+            collect_landclim.assert_not_called()
             collect_neotoma.assert_not_called()
             collect_sead.assert_not_called()
             collect_raa.assert_called_once_with(
@@ -62,11 +66,14 @@ class DataCollectorTests(unittest.TestCase):
 
             with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 collect_boundaries.return_value = ({"Sweden": {"features": []}}, object())
+                collect_landclim.return_value.site_count = 4
+                collect_landclim.return_value.grid_cell_count = 2
                 collect_neotoma.return_value.point_count = 6
                 collect_sead.return_value.point_count = 1937
                 collect_raa.return_value.total_site_count = 761786
@@ -77,6 +84,7 @@ class DataCollectorTests(unittest.TestCase):
             self.assertEqual(report.collected_sources, AVAILABLE_SOURCES)
             download_aadr.assert_called_once()
             collect_boundaries.assert_called_once_with(output_root / "boundaries")
+            collect_landclim.assert_called_once()
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
@@ -121,6 +129,8 @@ class DataCollectorTests(unittest.TestCase):
             summary = json.loads((output_root / "collection_summary.json").read_text(encoding="utf-8"))
             self.assertEqual(summary["collected_sources"], ["aadr"])
             self.assertIsNone(summary["boundary_source"])
+            self.assertEqual(summary["landclim_site_count"], 0)
+            self.assertEqual(summary["landclim_grid_cell_count"], 0)
 
     def test_collect_data_uses_local_boundaries_when_available(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -139,6 +149,27 @@ class DataCollectorTests(unittest.TestCase):
             fetch_boundaries.assert_not_called()
             collect_neotoma.assert_called_once()
             self.assertEqual(report.boundary_source, "local")
+
+    def test_collect_data_collects_landclim_with_boundaries(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+
+            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
+                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim:
+                fetch_boundaries.return_value = {"Sweden": {"features": []}}
+                collect_landclim.return_value.site_count = 11
+                collect_landclim.return_value.grid_cell_count = 7
+
+                report = collect_data(output_root=output_root, sources=("landclim",), version="v62.0")
+
+            fetch_boundaries.assert_called_once()
+            collect_landclim.assert_called_once_with(
+                output_root=output_root / "landclim",
+                country_boundaries={"Sweden": {"features": []}},
+                bbox=(4.0, 54.0, 35.0, 72.0),
+            )
+            self.assertEqual(report.landclim_site_count, 11)
+            self.assertEqual(report.landclim_grid_cell_count, 7)
 
 
 if __name__ == "__main__":

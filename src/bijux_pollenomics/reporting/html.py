@@ -804,7 +804,7 @@ def render_multi_country_map_html(
       }
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
-      function layerUnit(layer) { if (layer.kind === 'density') return 'cells'; if (layer.kind === 'country-boundaries') return 'countries'; return 'points'; }
+      function layerUnit(layer) { if (layer.kind === 'density' || layer.kind === 'context-polygons') return 'cells'; if (layer.kind === 'country-boundaries') return 'countries'; return 'points'; }
       function layerGroupLabel(group) {
         return {
           'primary-evidence': 'Primary Evidence',
@@ -907,6 +907,11 @@ def render_multi_country_map_html(
         const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
         return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
+      function polygonPopupHtml(layer, properties) {
+        const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
+        const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
+        return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+      }
       function densityFillColor(count, maxCount) {
         if (!maxCount || count <= 0) return '#fee2e2';
         const ratio = count / maxCount;
@@ -992,7 +997,7 @@ def render_multi_country_map_html(
                 featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Country</strong> ${escapeHtml(feature.properties.name || '')}</div><div><strong>Filter state</strong> ${activeCountries.has(feature.properties.country) ? 'Visible' : 'Hidden'}</div></div>`);
               }
             });
-          } else {
+          } else if (layer.kind === 'density') {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
               pane: 'polygonPane',
               style(feature) {
@@ -1001,6 +1006,16 @@ def render_multi_country_map_html(
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(String(feature.properties.count_label || feature.properties.count || '0'))}</div></div>`);
+              }
+            });
+          } else {
+            geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
+              pane: 'polygonPane',
+              style() {
+                return { color: layer.style.stroke, weight: 1.1, fillColor: layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
+              },
+              onEachFeature(feature, featureLayer) {
+                featureLayer.bindPopup(polygonPopupHtml(layer, feature.properties || {}));
               }
             });
           }

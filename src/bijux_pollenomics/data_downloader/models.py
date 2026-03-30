@@ -27,6 +27,8 @@ class ContextPointRecord:
 class ContextDataReport:
     generated_on: str
     output_root: Path
+    landclim_site_count: int
+    landclim_grid_cell_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int
@@ -41,6 +43,8 @@ class DataCollectionSummary:
     collected_sources: tuple[str, ...]
     boundary_source: str | None
     aadr_file_count: int
+    landclim_site_count: int
+    landclim_grid_cell_count: int
     neotoma_point_count: int
     sead_point_count: int
     raa_total_site_count: int

@@ -211,6 +211,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             f"Wrote data sources {', '.join(report.collected_sources)} to {report.output_root} with "
             f"{report.aadr_file_count} AADR .anno files, "
+            f"{report.landclim_site_count} LandClim pollen sequences, "
+            f"{report.landclim_grid_cell_count} LandClim REVEALS grid cells, "
             f"{report.neotoma_point_count} Neotoma points, "
             f"{report.sead_point_count} SEAD points, and "
             f"{report.raa_total_site_count} Swedish archaeology records in the RAÄ layer"

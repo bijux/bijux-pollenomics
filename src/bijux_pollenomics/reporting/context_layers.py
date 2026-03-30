@@ -23,6 +23,7 @@ def build_context_layers(
 
     context_root = Path(context_root)
     point_sources = [
+        ("LandClim pollen site GeoJSON", context_root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson"),
         ("Neotoma pollen GeoJSON", context_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"),
         ("SEAD site GeoJSON", context_root / "sead" / "normalized" / "nordic_environmental_sites.geojson"),
     ]
@@ -42,6 +43,14 @@ def build_context_layers(
         geojson = json.loads(destination_path.read_text(encoding="utf-8"))
         polygon_layers.append(build_country_boundary_layer(geojson))
         extra_artifacts.append(("Nordic country boundaries", destination_path.name))
+
+    landclim_grid_path = context_root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson"
+    if landclim_grid_path.exists():
+        destination_path = output_dir / landclim_grid_path.name
+        shutil.copyfile(landclim_grid_path, destination_path)
+        geojson = json.loads(destination_path.read_text(encoding="utf-8"))
+        polygon_layers.append(build_external_polygon_layer(geojson))
+        extra_artifacts.append(("LandClim REVEALS grid GeoJSON", destination_path.name))
 
     archaeology_path = context_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
     archaeology_density_path = context_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
@@ -138,6 +147,12 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
             "circleStroke": "rgba(180, 83, 9, 0.42)",
             "circleFill": "rgba(251, 191, 36, 0.10)",
         },
+        "landclim-sites": {
+            "fill": "#4d7c0f",
+            "stroke": "#365314",
+            "circleStroke": "rgba(77, 124, 15, 0.42)",
+            "circleFill": "rgba(163, 230, 53, 0.12)",
+        },
         "sead-sites": {
             "fill": "#0f766e",
             "stroke": "#134e4a",
@@ -150,6 +165,12 @@ def build_external_point_layer(geojson: dict[str, object]) -> dict[str, object]:
             "group": "environmental-context",
             "source_name": "Neotoma",
             "coverage_label": "Nordic pollen and paleoecology sites with coordinates.",
+            "geometry_label": "Point records",
+        },
+        "landclim-sites": {
+            "group": "environmental-context",
+            "source_name": "LandClim",
+            "coverage_label": "Nordic pollen sequences reused in LandClim REVEALS reconstructions.",
             "geometry_label": "Point records",
         },
         "sead-sites": {
@@ -256,5 +277,54 @@ def build_density_polygon_layer(geojson: dict[str, object]) -> dict[str, object]
             "stroke": "#7f1d1d",
             "fills": ["#fee2e2", "#fca5a5", "#f87171", "#ef4444", "#b91c1c", "#7f1d1d"],
         },
+        "geojson": geojson,
+    }
+
+
+def build_external_polygon_layer(geojson: dict[str, object]) -> dict[str, object]:
+    """Convert normalized context polygons into a map layer payload."""
+    raw_features = geojson.get("features", [])
+    if not isinstance(raw_features, list) or not raw_features:
+        raise ValueError("External GeoJSON did not contain any features")
+
+    sample_properties = raw_features[0].get("properties", {})
+    if not isinstance(sample_properties, dict):
+        raise ValueError("External GeoJSON properties must be an object")
+
+    layer_key = str(sample_properties.get("layer_key", "")).strip()
+    layer_label = str(sample_properties.get("layer_label", "")).strip()
+    styles = {
+        "landclim-reveals-grid": {
+            "fill": "rgba(132, 204, 22, 0.16)",
+            "stroke": "#4d7c0f",
+        },
+    }
+    metadata = {
+        "landclim-reveals-grid": {
+            "group": "environmental-context",
+            "source_name": "LandClim",
+            "coverage_label": "Nordic 1° REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
+            "geometry_label": "Grid-cell polygons",
+        },
+    }
+    return {
+        "key": layer_key,
+        "label": layer_label,
+        "count": len(raw_features),
+        "description": str(sample_properties.get("subtitle", "")).strip(),
+        "group": metadata.get(layer_key, {}).get("group", "context"),
+        "source_name": metadata.get(layer_key, {}).get("source_name", layer_label),
+        "coverage_label": metadata.get(layer_key, {}).get("coverage_label", "Country-aware context polygons."),
+        "geometry_label": metadata.get(layer_key, {}).get("geometry_label", "Polygon records"),
+        "default_enabled": True,
+        "kind": "context-polygons",
+        "applies_country_filter": True,
+        "style": styles.get(
+            layer_key,
+            {
+                "fill": "rgba(100, 116, 139, 0.14)",
+                "stroke": "#475569",
+            },
+        ),
         "geojson": geojson,
     }
