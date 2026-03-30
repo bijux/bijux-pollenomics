@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-03-23",
+  "generated_on": "2026-03-30",
   "output_root": "data",
   "version": "v62.0",
   "collected_sources": [
@@ -11,9 +11,9 @@
   ],
   "boundary_source": "collected",
   "aadr_file_count": 2,
-  "neotoma_point_count": 6,
+  "neotoma_point_count": 38,
   "sead_point_count": 1937,
-  "raa_total_site_count": 761786,
-  "raa_heritage_site_count": 318230,
+  "raa_total_site_count": 761917,
+  "raa_heritage_site_count": 318265,
   "summary_path": "data/collection_summary.json"
 }

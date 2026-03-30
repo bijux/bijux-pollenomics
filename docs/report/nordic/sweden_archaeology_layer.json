@@ -9,9 +9,9 @@
   "grid_cell_size_degrees": 1.0,
   "density_feature_count": 105,
   "counts": {
-    "all_published_sites": 761786,
-    "fornlamning": 318230,
-    "fornlamning_or_possible": 416842
+    "all_published_sites": 761917,
+    "fornlamning": 318265,
+    "fornlamning_or_possible": 416913
   },
   "domain_url": "https://app.raa.se/open/fornsok/api/lamning/domaner"
 }
