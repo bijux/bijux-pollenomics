@@ -1,6 +1,7 @@
 # Sweden AADR v62.0 Report
 
-This report was generated from the AADR `v62.0` `.anno` files on `2026-03-31`.
+This bundle was generated from the AADR `v62.0` `.anno` files on `2026-03-31`.
+It inventories only AADR sample rows that match the `Sweden` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
 
@@ -9,6 +10,8 @@ This report was generated from the AADR `v62.0` `.anno` files on `2026-03-31`.
 - Unique localities: `91`
 - Latitude range: `55.381000` to `63.200000`
 - Longitude range: `11.300700` to `18.700000`
+
+This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
 
 ## Dataset Coverage
 

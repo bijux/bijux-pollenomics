@@ -1364,31 +1364,31 @@
           <section class="workspace-brief">
             <div class="workspace-brief-head">
               <strong>Workspace Brief</strong>
-              <span id="workspace-brief-state" aria-live="polite">Default map state</span>
+              <span id="workspace-brief-state" aria-live="polite">Loading live map state</span>
             </div>
             <div class="workspace-brief-grid">
               <div class="workspace-brief-card">
                 <span class="workspace-brief-label">Geography</span>
-                <span id="workspace-brief-geography" class="workspace-brief-value">All countries</span>
+                <span id="workspace-brief-geography" class="workspace-brief-value">Loading country scope</span>
               </div>
               <div class="workspace-brief-card">
                 <span class="workspace-brief-label">Evidence Stack</span>
-                <span id="workspace-brief-stack" class="workspace-brief-value">Default layers</span>
+                <span id="workspace-brief-stack" class="workspace-brief-value">Loading evidence stack</span>
               </div>
               <div class="workspace-brief-card">
                 <span class="workspace-brief-label">Time Window</span>
                 <span id="workspace-brief-time" class="workspace-brief-value">0-100 BP</span>
               </div>
             </div>
-            <div id="workspace-brief-note" class="workspace-brief-note">The shared map starts with the full Nordic evidence stack visible so country, archaeology, and pollen context can be compared without extra setup.</div>
+            <div id="workspace-brief-note" class="workspace-brief-note">The initial HTML waits for live layer and filter state before describing the current workspace.</div>
           </section>
           <section class="stats-grid">
-            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">0</strong><span id="stat-visible-points-note" class="stat-support">Across enabled point layers.</span></div>
-            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">0</strong><span id="stat-visible-layers-note" class="stat-support">Polygon and boundary layers on the map.</span></div>
-            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">0</strong><span id="stat-visible-countries-note" class="stat-support">Selected country filters.</span></div>
-            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">0 km</strong><span id="stat-radius-note" class="stat-support">Derived from the active diameter setting.</span></div>
+            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">--</strong><span id="stat-visible-points-note" class="stat-support">Computed after the map loads enabled point layers.</span></div>
+            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">--</strong><span id="stat-visible-layers-note" class="stat-support">Computed after polygon and boundary overlays initialize.</span></div>
+            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">--</strong><span id="stat-visible-countries-note" class="stat-support">Derived from the current country filter state.</span></div>
+            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">--</strong><span id="stat-radius-note" class="stat-support">Derived from the active diameter setting after initialization.</span></div>
             <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">v62.0</strong><span class="stat-support">Primary evidence release loaded into this workspace.</span></div>
-            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">0</strong><span id="stat-context-sources-note" class="stat-support">Additional context datasets available for comparison.</span></div>
+            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">--</strong><span id="stat-context-sources-note" class="stat-support">Counted from contextual layers that are present in this bundle.</span></div>
           </section>
           <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
@@ -1463,7 +1463,7 @@
                 <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
                 <button class="preset-button" type="button" data-time-interval="full">Full span</button>
               </div>
-              <div id="time-record-count" class="search-meta">0 dated records are visible in the active BP window.</div>
+              <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
               <div class="time-density">
                 <div id="time-density-bars" class="time-density-bars"></div>
                 <div class="time-density-labels"><span>Earlier BP</span><span>Later BP</span></div>
@@ -1502,7 +1502,7 @@
               <span class="topbar-label">Research Workspace</span>
               <div class="topbar-title-row">
                 <span class="topbar-title">Nordic Countries map</span>
-                <span id="topbar-state-pill" class="topbar-state-pill">4 countries · 0 layers · 0 visible points</span>
+                <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
               </div>
             </div>
             <div class="topbar-row">
@@ -1564,8 +1564,8 @@
         <div class="map-status">
           <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
           <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
-          <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">--</span></div>
-          <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">Move over map</span></div>
+          <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
         </div>
       </main>
     </div>
