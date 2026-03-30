@@ -5,12 +5,15 @@
   "collected_sources": [
     "aadr",
     "boundaries",
+    "landclim",
     "neotoma",
     "raa",
     "sead"
   ],
   "boundary_source": "collected",
   "aadr_file_count": 2,
+  "landclim_site_count": 436,
+  "landclim_grid_cell_count": 82,
   "neotoma_point_count": 38,
   "sead_point_count": 1937,
   "raa_total_site_count": 761917,
