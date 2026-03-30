@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict
 import json
+import shutil
 from datetime import date
 from pathlib import Path
 from typing import Iterable
@@ -31,6 +32,7 @@ def generate_country_report(
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
+    reset_generated_output_dir(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     samples, dataset_counts = load_country_samples(version_dir=version_dir, country=country)
@@ -87,6 +89,7 @@ def generate_multi_country_map(
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
+    reset_generated_output_dir(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
@@ -248,3 +251,9 @@ def build_published_reports_summary(report: PublishedReportsReport) -> dict[str,
     payload["country_output_dirs"] = [str(path) for path in report.country_output_dirs]
     payload["summary_path"] = str(report.summary_path)
     return payload
+
+
+def reset_generated_output_dir(path: Path) -> None:
+    """Remove one generated report bundle directory before regenerating it."""
+    if path.exists():
+        shutil.rmtree(path)

@@ -124,6 +124,25 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Shared interactive map", readme_text)
             self.assertIn("../nordic/nordic_aadr_v62.0_map.html", readme_text)
 
+    def test_generate_country_report_replaces_stale_bundle_files(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "sweden"
+            output.mkdir(parents=True, exist_ok=True)
+            stale_file = output / "obsolete.txt"
+            stale_file.write_text("stale", encoding="utf-8")
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            generate_country_report(root, "Sweden", output)
+
+            self.assertFalse(stale_file.exists())
+            self.assertTrue((output / "README.md").exists())
+
     def test_generate_country_report_uses_country_specific_copy_and_locality_placeholder(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
@@ -459,6 +478,31 @@ class CountryReportTests(unittest.TestCase):
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("No visible point records are available under the current filters.", map_html)
             self.assertIn("| Iceland | 0 |", readme_text)
+
+    def test_generate_multi_country_map_replaces_stale_bundle_files(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic"
+            output.mkdir(parents=True, exist_ok=True)
+            stale_file = output / "stale.geojson"
+            stale_file.write_text("stale", encoding="utf-8")
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden"],
+                output_dir=output,
+                title="Nordic Countries",
+                slug="nordic",
+            )
+
+            self.assertFalse(stale_file.exists())
+            self.assertTrue((output / "nordic_aadr_v62.0_map.html").exists())
 
     def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
