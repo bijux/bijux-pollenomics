@@ -355,7 +355,8 @@ def render_multi_country_map_html(
       .search-results,
       .summary-list,
       .legend-list,
-      .layer-stack {
+      .layer-stack,
+      .filter-chip-list {
         display: grid;
         gap: 10px;
       }
@@ -398,6 +399,49 @@ def render_multi_country_map_html(
         width: 100%;
       }
       .layer-card input { margin-top: 3px; }
+      .filter-chip-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      .filter-chip {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .filter-chip strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+      .filter-chip span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .filter-chip-remove {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .filter-chip-empty {
+        padding: 12px 14px;
+        border: 1px dashed rgba(20, 33, 61, 0.16);
+        border-radius: 16px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.54);
+      }
       .layer-group {
         display: grid;
         gap: 10px;
@@ -736,6 +780,7 @@ def render_multi_country_map_html(
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
             <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
             <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
+            <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
             <button class="section-nav-button" type="button" data-section-target="search-panel">Search</button>
             <button class="section-nav-button" type="button" data-section-target="time-panel">Time</button>
             <button class="section-nav-button" type="button" data-section-target="distance-panel">Distance</button>
@@ -762,6 +807,11 @@ def render_multi_country_map_html(
               <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
               <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
               <div id="layer-filters" class="layer-stack"></div>
+            </section>
+            <section id="filters-panel" class="panel-card">
+              <div class="section-head"><h2>Active Filters</h2><span id="filter-chip-count" aria-live="polite">Defaults</span></div>
+              <p class="panel-copy">This section surfaces only the filter groups that currently differ from the default map state. Remove a chip to reset that part of the view without disturbing the rest.</p>
+              <div id="filter-chips" class="filter-chip-list"></div>
             </section>
             <section id="search-panel" class="panel-card">
               <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
@@ -897,6 +947,8 @@ def render_multi_country_map_html(
       const searchInput = document.getElementById('search-input');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
+      const filterChips = document.getElementById('filter-chips');
+      const filterChipCount = document.getElementById('filter-chip-count');
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
@@ -1136,6 +1188,77 @@ def render_multi_country_map_html(
         legendItems.innerHTML = activeLegendLayers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
+      function renderFilterChips() {
+        const chips = [];
+        if (activeCountries.size !== COUNTRIES.length) {
+          chips.push({
+            kind: 'countries',
+            title: 'Countries',
+            value: activeCountries.size ? [...activeCountries].join(', ') : 'No countries selected',
+          });
+        }
+        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) {
+          chips.push({
+            kind: 'layers',
+            title: 'Layers',
+            value: activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'No layers enabled',
+          });
+        }
+        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) {
+          chips.push({
+            kind: 'time',
+            title: 'Time window',
+            value: `${timeStartBp}-${timeWindowEndBp()} BP · ${timeIntervalYears} years`,
+          });
+        }
+        if (Number(slider.value) !== __INITIAL_DIAMETER__) {
+          chips.push({
+            kind: 'distance',
+            title: 'Acceptance diameter',
+            value: `${Number(slider.value)} km`,
+          });
+        }
+        if (Math.round(densityOpacity * 100) !== 60) {
+          chips.push({
+            kind: 'density',
+            title: 'Archaeology opacity',
+            value: `${Math.round(densityOpacity * 100)}%`,
+          });
+        }
+        if (currentBasemap !== 'voyager') {
+          chips.push({
+            kind: 'basemap',
+            title: 'Basemap',
+            value: currentBasemap.charAt(0).toUpperCase() + currentBasemap.slice(1),
+          });
+        }
+
+        filterChipCount.textContent = chips.length ? `${chips.length} active` : 'Defaults';
+        filterChips.innerHTML = chips.length
+          ? chips.map((chip) => `<div class="filter-chip"><div><strong>${escapeHtml(chip.title)}</strong><span>${escapeHtml(chip.value)}</span></div><button class="filter-chip-remove" type="button" data-clear-kind="${escapeHtml(chip.kind)}" aria-label="Reset ${escapeHtml(chip.title)}">×</button></div>`).join('')
+          : '<div class="filter-chip-empty">No filter groups are currently overriding the default map state.</div>';
+
+        filterChips.querySelectorAll('[data-clear-kind]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const kind = button.dataset.clearKind;
+            if (kind === 'countries') activeCountries = new Set(DEFAULT_COUNTRIES);
+            if (kind === 'layers') activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
+            if (kind === 'time') {
+              timeStartBp = DEFAULT_TIME_START_BP;
+              timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
+            }
+            if (kind === 'distance') slider.value = String(__INITIAL_DIAMETER__);
+            if (kind === 'density') {
+              densityOpacity = 0.6;
+              densityOpacitySlider.value = '60';
+            }
+            if (kind === 'basemap') setBasemap('voyager');
+            renderCountryControls();
+            renderLayerControls();
+            renderMapState();
+          });
+        });
+      }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
         const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
@@ -1346,6 +1469,7 @@ def render_multi_country_map_html(
         renderPolygonLayers();
         renderCountryControls();
         renderLegend();
+        renderFilterChips();
         updateStats();
         updateSummary();
         buildSearchResults();
