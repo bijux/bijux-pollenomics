@@ -48,6 +48,16 @@ LANDCLIM_BASIN_TYPE_LABELS = {
     "B": "Bog",
     "L": "Lake",
 }
+LANDCLIM_COUNTRY_HINTS = {
+    "denmark": "Denmark",
+    "dnk": "Denmark",
+    "fin": "Finland",
+    "finland": "Finland",
+    "nor": "Norway",
+    "norway": "Norway",
+    "swe": "Sweden",
+    "sweden": "Sweden",
+}
 
 
 @dataclass(frozen=True)
@@ -159,12 +169,15 @@ def build_landclim_site_records(
     country_boundaries: dict[str, dict[str, object]],
 ) -> list[ContextPointRecord]:
     """Build all Nordic LandClim pollen-site point records."""
-    records = [
+    records_by_id: dict[str, ContextPointRecord] = {}
+    for record in [
         *marquer_site_records(raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"], bbox, country_boundaries),
         *landclim_i_site_records(raw_paths["landclim_i_land_cover_types.xlsx"], bbox, country_boundaries),
+        *landclim_i_site_records(raw_paths["landclim_i_plant_functional_types.xlsx"], bbox, country_boundaries),
         *landclim_ii_site_records(raw_paths["landclim_ii_site_metadata.xlsx"], bbox, country_boundaries),
-    ]
-    return sorted(records, key=lambda record: (record.name.casefold(), record.record_id))
+    ]:
+        records_by_id.setdefault(record.record_id, record)
+    return sorted(records_by_id.values(), key=lambda record: (record.name.casefold(), record.record_id))
 
 
 def marquer_site_records(
@@ -234,7 +247,7 @@ def landclim_i_site_records(
     country_boundaries: dict[str, dict[str, object]],
 ) -> list[ContextPointRecord]:
     """Parse the LandClim I site metadata sheet into context points."""
-    rows = read_xlsx_sheet_rows(path, "SiteData")
+    rows = read_landclim_i_site_rows(path)
     time_windows = [clean_optional_text(value).replace(" cal ", " ") for value in rows[1][7:] if clean_optional_text(value)]
     records: list[ContextPointRecord] = []
     for row in rows[2:]:
@@ -244,7 +257,12 @@ def landclim_i_site_records(
         longitude = parse_coordinate(row[4])
         if latitude is None or longitude is None or not point_in_bbox(longitude, latitude, bbox):
             continue
-        country = classify_country(longitude, latitude, country_boundaries)
+        country = resolve_landclim_country(
+            longitude=longitude,
+            latitude=latitude,
+            country_boundaries=country_boundaries,
+            reported_country=row[0],
+        )
         if not country:
             continue
 
@@ -308,7 +326,12 @@ def landclim_ii_site_records(
         longitude = parse_decimal(row, index, "londd")
         if latitude is None or longitude is None or not point_in_bbox(longitude, latitude, bbox):
             continue
-        country = classify_country(longitude, latitude, country_boundaries)
+        country = resolve_landclim_country(
+            longitude=longitude,
+            latitude=latitude,
+            country_boundaries=country_boundaries,
+            reported_country=value_from_row(row, index, "Country"),
+        )
         if not country:
             continue
 
@@ -439,7 +462,12 @@ def merge_landclim_i_grid_features(
             center_latitude = (cell_geometry["coordinates"][0][0][1] + cell_geometry["coordinates"][0][2][1]) / 2
             if not point_in_bbox(center_longitude, center_latitude, bbox):
                 continue
-            country = classify_country(center_longitude, center_latitude, country_boundaries)
+            country = resolve_landclim_country(
+                longitude=center_longitude,
+                latitude=center_latitude,
+                country_boundaries=country_boundaries,
+                reported_country=row[0],
+            )
             if not country:
                 continue
             if not any(clean_optional_text(value) and clean_optional_text(value) != "No data" for value in row[4:]):
@@ -702,6 +730,44 @@ def time_window_sort_key(value: str) -> tuple[int, int, str]:
     if match is None:
         return (10**9, 10**9, value)
     return (int(match.group("start")), int(match.group("end")), value)
+
+
+def read_landclim_i_site_rows(path: Path) -> list[list[str]]:
+    """Read the LandClim I site sheet while tolerating workbook sheet-name variants."""
+    for sheet_name in ("SiteData", "Site Data"):
+        try:
+            return read_xlsx_sheet_rows(path, sheet_name)
+        except KeyError:
+            continue
+    raise KeyError(f"LandClim I site sheet not found in {path.name}")
+
+
+def resolve_landclim_country(
+    longitude: float,
+    latitude: float,
+    country_boundaries: dict[str, dict[str, object]],
+    reported_country: object,
+) -> str:
+    """Resolve a LandClim country from geometry first, then from reported metadata."""
+    country = classify_country(longitude, latitude, country_boundaries)
+    if country:
+        return country
+    return normalize_landclim_country_hint(reported_country)
+
+
+def normalize_landclim_country_hint(value: object) -> str:
+    """Normalize a LandClim country field into one tracked Nordic country name."""
+    text = clean_optional_text(value)
+    if not text:
+        return ""
+    normalized = (
+        text.casefold()
+        .replace("(", " ")
+        .replace(")", " ")
+        .replace("/", " ")
+        .split()[0]
+    )
+    return LANDCLIM_COUNTRY_HINTS.get(normalized, "")
 
 
 def parse_coordinate(value: str) -> float | None:

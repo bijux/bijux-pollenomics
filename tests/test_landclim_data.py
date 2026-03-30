@@ -8,6 +8,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 from bijux_pollenomics.data_downloader.landclim import (
+    build_landclim_site_records,
     build_landclim_grid_geojson,
     feature_key_from_center,
     feature_key_from_geometry,
@@ -142,6 +143,52 @@ class LandClimDataTests(unittest.TestCase):
         self.assertEqual(parse_coordinate("59.30.00s"), -59.5)
         self.assertIsNone(parse_coordinate("59.30N"))
         self.assertIsNone(parse_coordinate(""))
+
+    def test_build_landclim_site_records_reads_both_landclim_i_workbooks_and_uses_reported_country(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            raw_paths = {
+                "marquer_2017_reveals_taxa_grid_cells.xlsx": tmp_path / "marquer.xlsx",
+                "landclim_i_land_cover_types.xlsx": tmp_path / "landclim_i_lct.xlsx",
+                "landclim_i_plant_functional_types.xlsx": tmp_path / "landclim_i_pft.xlsx",
+                "landclim_ii_site_metadata.xlsx": tmp_path / "landclim_ii.xlsx",
+            }
+            write_xlsx(raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"], {"Metadata": [["Grid", "Site", "", "Lat.", "Long.", "", "", "Basin type"]]})
+            landclim_i_rows = [
+                [
+                    "Country",
+                    "Site name",
+                    "Database name\\Author\\LandClimI member collating the data",
+                    "Lat (DMS)",
+                    "Long (DMS)",
+                    "Elevation (masl)",
+                    "Area of site (ha) (*Actual size)",
+                    "Basin type (ie. Lake or Bog)",
+                    "",
+                ],
+                ["", "", "", "", "", "", "", "0-100 cal BP"],
+                ["FIN", "Fallback Site", "EPD", "60.00.00N", "20.00.00E", "10", "2", "L", "L"],
+            ]
+            write_xlsx(raw_paths["landclim_i_land_cover_types.xlsx"], {"SiteData": landclim_i_rows})
+            write_xlsx(raw_paths["landclim_i_plant_functional_types.xlsx"], {"Site Data": landclim_i_rows})
+            write_xlsx(
+                raw_paths["landclim_ii_site_metadata.xlsx"],
+                {
+                    "LANDCLIMII metadata file": [
+                        ["SiteName", "csvfilename", "siteType", "londd", "latdd", "Country", "nTWs"],
+                    ]
+                },
+            )
+
+            records = build_landclim_site_records(
+                raw_paths=raw_paths,
+                bbox=NORDIC_TEST_BBOX,
+                country_boundaries=SWEDEN_BOUNDARIES,
+            )
+
+            self.assertEqual(len(records), 1)
+            self.assertEqual(records[0].country, "Finland")
+            self.assertEqual(records[0].name, "Fallback Site")
 
 
 def write_landclim_ii_zip(path: Path, rows: list[dict[str, str]]) -> None:
