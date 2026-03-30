@@ -18,22 +18,11 @@ theme:
   name: material
   logo: assets/bijux_logo_hq.png
   favicon: assets/bijux_icon.png
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
-      primary: teal
-      accent: lime
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
+      primary: blue grey
+      accent: teal
   features:
     - navigation.tabs
     - navigation.tabs.sticky

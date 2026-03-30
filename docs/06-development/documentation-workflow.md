@@ -4,12 +4,12 @@ audience: mixed
 type: workflow
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Documentation Workflow
 
-The documentation system is now MkDocs-based and intentionally aligned with the broader Bijux project style.
+The documentation system is MkDocs-based and intentionally aligned with the repository’s checked-in outputs and the map-first reading model.
 
 ## Commands
 
@@ -24,6 +24,8 @@ make docs-serve
 
 The `make docs` and `make docs-serve` targets also set `NO_MKDOCS_2_WARNING=true` to suppress an upstream warning banner emitted by the installed Material theme package. That suppression only affects terminal noise; it does not change the generated site.
 
+The site theme is intentionally configured to avoid remote Google font dependencies and to keep the local docs build closer to the checked-in visual language used by the shared map.
+
 ## GitHub Pages Deployment
 
 The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
@@ -36,6 +38,7 @@ The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 ## Documentation Rules
 
 - the docs homepage should continue to lead with the shared Nordic map
+- the docs site should avoid generic styling defaults when a small amount of local CSS can make provenance-heavy pages easier to read
 - section index pages should explain how to read the section
 - diagrams should clarify architecture or workflow, not decorate pages
 - documentation should match the checked-in command surface and file layout exactly
