@@ -4,7 +4,7 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Data Layout
@@ -84,6 +84,13 @@ data
 - `aadr/<version>/<dataset>/...`
 - `<source>/raw/...`
 - `<source>/normalized/...`
+
+## Contract Notes
+
+- `aadr` is versioned because the checked-in `.anno` inputs are tied to a specific public release directory
+- the other source directories are not versioned in the path; their current snapshot is represented by the checked-in raw and normalized files in place
+- `collection_summary.json` is part of the contract, not an optional side artifact
+- source collectors replace their own output directories before writing new files, so this tree should not accumulate stale files from earlier collector behavior
 
 ## Purpose
 

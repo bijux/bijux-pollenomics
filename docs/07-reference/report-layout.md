@@ -4,7 +4,7 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Report Layout
@@ -20,12 +20,16 @@ docs/report/nordic
 ├── nordic_aadr_v62.0_samples.geojson
 ├── nordic_country_boundaries.geojson
 ├── nordic_environmental_sites.geojson
+├── nordic_pollen_site_sequences.geojson
 ├── nordic_pollen_sites.geojson
+├── nordic_reveals_grid_cells.geojson
 ├── sweden_archaeology_density.geojson
 └── sweden_archaeology_layer.json
 ```
 
 The checked-in Nordic bundle is currently the only shared HTML map bundle in the repository.
+
+`_map_assets/` is part of the published bundle contract even though its individual vendored files are not expanded in the tree above.
 
 ## Country Bundle Pattern
 
@@ -46,6 +50,13 @@ docs/report/<country>
 - `docs/report/norway/`
 - `docs/report/finland/`
 - `docs/report/denmark/`
+
+## Contract Notes
+
+- the shared Nordic bundle is a generated publication tree, not hand-written documentation
+- country bundles intentionally do not contain their own standalone HTML maps
+- the shared bundle carries local Leaflet assets but still depends on external basemap tile services at runtime
+- report publishing rewrites these artifacts in place, so reference expectations should stay aligned with the checked-in tree rather than older bundle shapes
 
 ## Purpose
 
