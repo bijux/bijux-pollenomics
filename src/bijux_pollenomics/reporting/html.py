@@ -385,12 +385,15 @@ def render_multi_country_map_html(
         padding: 12px;
         border-radius: 20px;
       }
+      .sidebar.is-collapsed ~ .map-stage .map-topbar { left: 16px; }
       .floating-legend {
         position: absolute;
-        left: max(452px, 26vw);
-        bottom: 24px;
+        right: 16px;
+        bottom: 88px;
         z-index: 1100;
-        width: min(360px, calc(100vw - 48px));
+        width: min(300px, calc(100vw - 32px));
+        max-height: min(42vh, 360px);
+        overflow: auto;
         padding: 16px;
         border-radius: 20px;
       }
@@ -502,17 +505,19 @@ def render_multi_country_map_html(
           bottom: auto;
           max-height: min(72vh, 920px);
         }
-        .map-topbar,
-        .floating-legend {
-          left: 12px;
-          width: auto;
-        }
         .map-topbar {
-          top: auto;
-          bottom: 132px;
+          top: 12px;
+          left: calc(min(400px, calc(100vw - 24px)) + 24px);
           right: 12px;
+          bottom: auto;
         }
-        .floating-legend { bottom: 76px; }
+        .sidebar.is-collapsed ~ .map-stage .map-topbar {
+          left: 12px;
+        }
+        .floating-legend {
+          right: 12px;
+          bottom: 76px;
+        }
         .map-status {
           left: 12px;
           right: 12px;
@@ -521,27 +526,102 @@ def render_multi_country_map_html(
           justify-content: space-between;
         }
       }
-      @media (max-width: 760px) {
+      @media (max-width: 900px) {
         .sidebar {
-          width: calc(100vw - 20px);
-          left: 10px;
-          top: 10px;
-        }
-        .sidebar-inner { padding: 18px; }
-        .stats-grid { grid-template-columns: 1fr 1fr; }
-        .map-topbar {
-          top: auto;
+          position: fixed;
           left: 10px;
           right: 10px;
-          bottom: 164px;
+          top: auto;
+          bottom: 10px;
+          width: auto;
+          max-height: min(68vh, 720px);
+        }
+        .sidebar.is-collapsed {
+          transform: translateY(calc(100% + 24px));
+        }
+        .sidebar-inner {
+          padding: 18px;
+          border-radius: 24px;
+        }
+        .map-topbar {
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          bottom: auto;
+          padding: 10px;
+          border-radius: 18px;
           flex-direction: column;
           align-items: stretch;
         }
+        .topbar-row,
+        .map-actions {
+          justify-content: space-between;
+        }
         .floating-legend {
+          right: 10px;
+          bottom: 76px;
+          width: min(248px, calc(100vw - 20px));
+          max-height: min(34vh, 260px);
+          padding: 12px;
+          border-radius: 18px;
+        }
+        .sidebar:not(.is-collapsed) ~ .map-stage .floating-legend,
+        .sidebar:not(.is-collapsed) ~ .map-stage .map-status {
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(12px);
+        }
+        .map-status {
           left: 10px;
           right: 10px;
-          bottom: 98px;
-          width: auto;
+          bottom: 10px;
+          border-radius: 18px;
+          justify-content: space-between;
+          transition: opacity 160ms ease, transform 160ms ease;
+        }
+      }
+      @media (max-width: 640px) {
+        .sidebar {
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          max-height: min(72vh, 760px);
+        }
+        .sidebar-inner { padding: 16px; }
+        .stats-grid { grid-template-columns: 1fr 1fr; }
+        .map-topbar {
+          left: 8px;
+          right: 8px;
+          top: 8px;
+        }
+        .floating-legend {
+          right: 8px;
+          bottom: 72px;
+          width: min(220px, calc(100vw - 16px));
+          padding: 10px;
+        }
+        .legend-title {
+          font-size: 12px;
+          margin-bottom: 8px;
+        }
+        .legend-item {
+          gap: 8px;
+          font-size: 11px;
+        }
+        .map-status {
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          gap: 10px;
+          padding: 10px 12px;
+          font-size: 11px;
+        }
+        .inline-button,
+        .preset-button,
+        .toolbar-button,
+        .basemap-button {
+          padding: 9px 12px;
+          font-size: 12px;
         }
       }
     </style>
@@ -649,7 +729,7 @@ def render_multi_country_map_html(
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
-        <div class="floating-legend">
+        <div id="floating-legend" class="floating-legend">
           <div class="legend-title">Legend</div>
           <div id="legend-items" class="legend-list"></div>
           <div id="density-ramp" class="density-ramp">
@@ -700,6 +780,7 @@ def render_multi_country_map_html(
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
       const sidebar = document.getElementById('sidebar');
+      const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const panelToggleButton = document.getElementById('panel-toggle');
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('layer-filters');
@@ -756,6 +837,16 @@ def render_multi_country_map_html(
       }
       function clampTimeInterval(value) {
         return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
+      }
+      function defaultPanelCollapsed() {
+        return mobileLayoutQuery.matches;
+      }
+      function panelPreferenceFromHash() {
+        const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+        const panel = new URLSearchParams(raw).get('panel');
+        if (panel === 'collapsed') return true;
+        if (panel === 'open') return false;
+        return null;
       }
       function clampTimeStart(value, intervalYears) {
         const maxStart = Math.max(TIME_MIN_BP, TIME_MAX_BP - intervalYears);
@@ -832,6 +923,20 @@ def render_multi_country_map_html(
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
         });
       }
+      function updatePanelToggleLabel() {
+        const collapsed = sidebar.classList.contains('is-collapsed');
+        if (mobileLayoutQuery.matches) {
+          panelToggleButton.textContent = collapsed ? 'Show filters' : 'Hide filters';
+          return;
+        }
+        panelToggleButton.textContent = collapsed ? 'Show panel' : 'Hide panel';
+      }
+      function setPanelCollapsed(collapsed, persist = true) {
+        sidebar.classList.toggle('is-collapsed', collapsed);
+        updatePanelToggleLabel();
+        window.setTimeout(() => map.invalidateSize(), 180);
+        if (persist) syncHashState();
+      }
       function syncHashState() {
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
@@ -841,7 +946,9 @@ def render_multi_country_map_html(
         if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
         if (currentBasemap !== 'voyager') params.set('basemap', currentBasemap);
-        if (sidebar.classList.contains('is-collapsed')) params.set('panel', 'collapsed');
+        if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
+          params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
+        }
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -1142,8 +1249,7 @@ def render_multi_country_map_html(
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
         densityOpacity = 0.6;
         densityOpacitySlider.value = '60';
-        if (sidebar.classList.contains('is-collapsed')) sidebar.classList.remove('is-collapsed');
-        panelToggleButton.textContent = 'Hide panel';
+        setPanelCollapsed(defaultPanelCollapsed(), false);
         searchInput.value = '';
         if (currentBasemap !== 'voyager') setBasemap('voyager');
         renderCountryControls();
@@ -1174,12 +1280,7 @@ def render_multi_country_map_html(
         if (!document.fullscreenElement) { await target.requestFullscreen(); } else { await document.exitFullscreen(); }
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap)));
-      panelToggleButton.addEventListener('click', () => {
-        sidebar.classList.toggle('is-collapsed');
-        panelToggleButton.textContent = sidebar.classList.contains('is-collapsed') ? 'Show panel' : 'Hide panel';
-        window.setTimeout(() => map.invalidateSize(), 180);
-        syncHashState();
-      });
+      panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
       slider.addEventListener('input', renderMapState);
       timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
       timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
@@ -1200,17 +1301,22 @@ def render_multi_country_map_html(
       map.on('zoomend', () => { zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`; });
       map.on('mousemove', (event) => { cursorReadout.textContent = `Cursor ${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
+      mobileLayoutQuery.addEventListener('change', () => {
+        if (panelPreferenceFromHash() === null) {
+          setPanelCollapsed(defaultPanelCollapsed(), false);
+          return;
+        }
+        updatePanelToggleLabel();
+      });
+      window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
+      setPanelCollapsed(panelPreferenceFromHash() ?? defaultPanelCollapsed(), false);
       renderScopeSummary();
       renderCountryControls();
       renderLayerControls();
       renderMapState();
       setBasemap(currentBasemap);
-      if (initialState.panel === 'collapsed') {
-        sidebar.classList.add('is-collapsed');
-        panelToggleButton.textContent = 'Show panel';
-      }
       resetView();
       zoomReadout.textContent = `Zoom ${map.getZoom().toFixed(1)}`;
     </script>
