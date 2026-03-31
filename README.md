@@ -39,35 +39,6 @@ What does not exist today:
 - archaeological-site scoring or ranking
 - automated sampling recommendations
 
-## Repository Layout
-
-The main checked-in areas are:
-
-```text
-.
-├── data/
-│   ├── aadr/
-│   ├── boundaries/
-│   ├── landclim/
-│   ├── neotoma/
-│   ├── raa/
-│   └── sead/
-├── docs/
-│   ├── report/
-│   └── ...
-├── src/
-├── tests/
-└── artifacts/
-```
-
-Use this distinction when working in the repo:
-
-- `data/` contains tracked source inputs and normalized source outputs
-- `docs/report/` contains tracked published report and map bundles
-- `artifacts/` contains transient local build outputs such as `.venv/`, `dist/`, and the built docs site
-- `src/bijux_pollenomics/settings.py` centralizes the checked-in publication defaults
-- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/paths.py` centralize file-contract names
-
 ## Working With Commands
 
 The root `Makefile` is the main local interface. Some targets only validate the checkout, while others rewrite tracked files.
@@ -132,14 +103,25 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 
 For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [`docs/reference/command-reference.md`](docs/reference/command-reference.md).
 
-## Operational Notes
+The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 
-These points are easy to miss and matter in review:
+## Repository Layout
 
-- collectors replace source-specific output directories before rewriting them, so reruns are intentionally destructive to stale generated files
-- `docs/report/` is not a scratch directory; it is a tracked publication tree that should change only when report outputs actually change
-- the shared Nordic HTML map carries local Leaflet assets, but its basemap tiles still come from external services at runtime
-- the checked-in map is an inspectable publication artifact, not an authenticated web application or an analysis backend
+Treat the top-level paths by ownership and review expectations:
+
+- `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
+- `pyproject.toml` and `uv.lock` define and lock the Python environment
+- `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
+- `docs/report/` contains tracked publication artifacts, including the shared atlas and country bundles
+- `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
+- `src/` contains the CLI, collectors, and report publishing logic
+- `tests/` contains unit, regression, and end-to-end coverage
+- `artifacts/` contains transient local outputs such as `.venv/`, `dist/`, and the built docs site
+
+Key checked-in contract files:
+
+- `src/bijux_pollenomics/settings.py` centralizes publication defaults such as the current AADR version
+- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/paths.py` centralize file and directory naming contracts
 
 ## Published Outputs
 
@@ -149,45 +131,39 @@ The main checked-in publication artifacts are:
 - shared Nordic report index: [`docs/report/nordic-atlas/README.md`](docs/report/nordic-atlas/README.md)
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
+- country bundles under `docs/report/sweden/`, `docs/report/norway/`, `docs/report/finland/`, and `docs/report/denmark/`
 
-Country bundles currently exist for:
+Important output limits:
 
-- Sweden
-- Norway
-- Finland
-- Denmark
-
-## Map Notes
-
-The shared map is an interactive publication artifact built from tracked outputs in this repository.
-
-Important limits:
-
-- it shows collected and normalized evidence layers; it does not decide where sampling should happen
-- it bundles local Leaflet and marker-cluster assets in the published map directory
-- it still depends on external basemap tiles at runtime, so full map display is not completely offline
+- the shared map is an inspectable publication artifact, not a site-selection engine
+- the published map bundles local Leaflet assets, but basemap tiles still come from external providers at runtime
 - RAÄ coverage is Sweden-only
+- country reports are file bundles and summaries, not standalone web applications
 
 ## Documentation
 
 The canonical project documentation lives in `docs/` and is built with MkDocs.
 
-- local docs build target: `make docs`
-- local docs serve target: `make docs-serve`
-- deploy workflow: [`.github/workflows/deploy-docs.yml`](.github/workflows/deploy-docs.yml)
-- docs homepage source: [`docs/index.md`](docs/index.md)
-
 Useful entry points:
 
+- docs home: [`docs/index.md`](docs/index.md)
+- product overview: [`docs/foundation/product-overview.md`](docs/foundation/product-overview.md)
 - data guide: [`docs/data-sources/index.md`](docs/data-sources/index.md)
-- reports guide: [`docs/outputs/index.md`](docs/outputs/index.md)
-- local workflow: [`docs/engineering/local-workflow.md`](docs/engineering/local-workflow.md)
+- install and verify workflow: [`docs/workflows/install-and-verify.md`](docs/workflows/install-and-verify.md)
+- report publishing workflow: [`docs/workflows/publish-report-artifacts.md`](docs/workflows/publish-report-artifacts.md)
+- atlas and report outputs guide: [`docs/outputs/index.md`](docs/outputs/index.md)
 - command reference: [`docs/reference/command-reference.md`](docs/reference/command-reference.md)
 
-## Honesty Notes
+## Working Rules
 
-This README tries to describe only the repo behavior that exists today.
+These behaviors matter in review:
 
-- If a command is not in the `Makefile` or CLI, this README should not imply it exists.
-- If an output is not checked in or reproducibly generated here, this README should not present it as available.
-- Scientific goals for later work belong in the docs as future direction, not as claims about current functionality.
+- collectors replace source-specific output directories before rewriting them, so reruns are intentionally destructive to stale generated files
+- `data/` and `docs/report/` are tracked outputs that should change only when the corresponding rebuild intent is explicit
+- `artifacts/` is disposable local state and should not be treated as a publication surface
+- this README should describe only commands, outputs, and limits that exist in the current repository state
+- if a change rewrites generated artifacts, review those diffs together with any narrative or workflow updates that explain them
+
+## License
+
+This repository is licensed under the Apache License 2.0. Copyright 2026 Bijan Mousavi <bijan@bijux.io>. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
