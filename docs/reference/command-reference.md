@@ -78,7 +78,7 @@ Use these only when you intend to rewrite tracked files. `make lock` updates `uv
 
 ## Notes
 
-- `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
+- `make data-prep` runs `collect-data all --version v62.0 --output-root data` and enables the controlled TLS retry used when some upstream providers present incomplete certificate chains
 - `make reports` expands to `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
 - `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
 - `make check` expands to `make lock-check`, `make lint`, `make test`, `make docs`, and `make package-verify`

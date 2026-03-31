@@ -67,6 +67,17 @@ Use `make package-check`, `make package-smoke`, and `make package-source-smoke` 
 
 This can still be expected when upstream sources are slow or large, but the RAÄ collector no longer rebuilds density through repeated live count queries per grid cell. It now archives the published feature inventory first and derives density locally from that snapshot.
 
+## `make data-prep` fails with certificate or TLS verification errors
+
+Check:
+
+- whether the failure comes from an upstream provider with an incomplete certificate chain rather than from local packaging or import errors
+- whether you ran `make data-prep` instead of a raw `collect-data` command, because the `Makefile` already enables `BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1` for this workflow
+- whether a direct CLI run succeeds once you add the same environment variable explicitly
+- whether your local network inserts an intercepting proxy or custom certificate authority that changes TLS behavior
+
+If `make data-prep` still fails after that fallback is enabled, treat the failure as an upstream outage or broader network issue rather than as a missing repository shim.
+
 ## `make docs` fails
 
 Check:

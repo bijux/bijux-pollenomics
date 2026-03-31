@@ -22,8 +22,11 @@ make data-prep
 Equivalent direct command:
 
 ```bash
+BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1 \
 artifacts/.venv/bin/bijux-pollenomics collect-data all --version v62.0 --output-root data
 ```
+
+`make data-prep` sets the same TLS fallback automatically. Use the environment variable only when you bypass the `Makefile` and invoke the CLI directly.
 
 ## When To Use This Workflow
 
@@ -42,6 +45,7 @@ Expect the full rebuild to:
 - overwrite tracked files under `data/`
 - take longer than lint or test commands
 - update `data/collection_summary.json` as part of the same run
+- retry once with opt-in insecure TLS only when an upstream provider fails certificate verification because of an incomplete CA chain
 
 If you only need environment verification, stop at the earlier [Install and verify](install-and-verify.md) workflow instead.
 
