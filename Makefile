@@ -12,6 +12,8 @@ DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
+PYTHON_RUNTIME_ENV := PYTHONDONTWRITEBYTECODE=1 PYTHONPYCACHEPREFIX=$(ARTIFACTS_ROOT)/pycache
+PACKAGE_METADATA_DIR := src/bijux_pollenomics.egg-info
 UV_PROJECT_ENVIRONMENT := $(VENV)
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --python $(PYTHON)
 
@@ -60,33 +62,33 @@ lint: install
 test: test-all
 
 test-all: install
-	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests -v
+	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests -v
 
 test-unit: install
-	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/unit -v
+	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/unit -v
 
 test-regression: install
-	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/regression -v
+	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/regression -v
 
 test-e2e: install
-	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
+	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
 
 data-prep: install
-	$(CLI) collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
+	$(PYTHON_RUNTIME_ENV) $(CLI) collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
 
 reports: install
-	$(CLI) publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
+	$(PYTHON_RUNTIME_ENV) $(CLI) publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
 
 app-state: data-prep reports docs
 
 build: install
-	rm -rf $(DIST_ROOT) build
+	rm -rf $(DIST_ROOT) build $(PACKAGE_METADATA_DIR)
 	mkdir -p $(DIST_ROOT)
-	$(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
-	rm -rf build
+	$(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
+	rm -rf build $(PACKAGE_METADATA_DIR)
 
 package-check: build
-	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
+	$(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
 
 package-smoke: build
 	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
@@ -105,7 +107,7 @@ package-source-smoke: build
 	rm -rf $(ARTIFACTS_ROOT)/tmp/package-source-smoke
 
 package-verify: build
-	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
+	$(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
 	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
 	$(UV) venv --python $(PYTHON) $(ARTIFACTS_ROOT)/tmp/package-smoke
 	$(UV) pip install --python $(ARTIFACTS_ROOT)/tmp/package-smoke/bin/python --no-deps $(DIST_ROOT)/*.whl
@@ -120,13 +122,13 @@ package-verify: build
 	rm -rf $(ARTIFACTS_ROOT)/tmp/package-source-smoke
 
 docs: install
-	$(MKDOCS_ENV) $(BIN)/mkdocs build --strict
+	$(PYTHON_RUNTIME_ENV) $(MKDOCS_ENV) $(BIN)/mkdocs build --strict
 
 docs-serve: install
-	SITE_URL=$(MKDOCS_LOCAL_SITE_URL) $(MKDOCS_ENV) $(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
+	SITE_URL=$(MKDOCS_LOCAL_SITE_URL) $(PYTHON_RUNTIME_ENV) $(MKDOCS_ENV) $(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
 
 clean:
-	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/docs $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
+	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/docs $(ARTIFACTS_ROOT)/htmlcov $(ARTIFACTS_ROOT)/pycache .pytest_cache .ruff_cache .mypy_cache htmlcov
 	find . -name ".DS_Store" -delete
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +
 	find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete
