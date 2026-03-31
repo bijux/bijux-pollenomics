@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .common import write_text
-from ..settings import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
+from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")

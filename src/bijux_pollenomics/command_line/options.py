@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from ..settings import (
+from ..config import (
     DEFAULT_AADR_ROOT,
     DEFAULT_AADR_VERSION,
     DEFAULT_ATLAS_SLUG,

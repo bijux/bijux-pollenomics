@@ -18,7 +18,7 @@ from .sead import collect_sead_data
 from .source_registry import CONTEXT_SOURCE_SPECS
 from .staging import build_staging_output_dir, collect_into_staging_dir
 from .summary_writer import write_collection_summary
-from ..settings import DEFAULT_AADR_VERSION
+from ..config import DEFAULT_AADR_VERSION
 
 __all__ = [
     "AVAILABLE_SOURCES",

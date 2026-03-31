@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 
 from ..data_downloader import AVAILABLE_SOURCES
-from ..settings import DEFAULT_AADR_VERSION, DEFAULT_CONTEXT_ROOT, DEFAULT_PUBLISHED_COUNTRIES
+from ..config import DEFAULT_AADR_VERSION, DEFAULT_CONTEXT_ROOT, DEFAULT_PUBLISHED_COUNTRIES
 from .options import (
     add_aadr_root_argument,
     add_atlas_identity_arguments,

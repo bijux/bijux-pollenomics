@@ -27,7 +27,7 @@ from .summaries import (
 )
 from .utils import slugify
 from .countries import normalize_requested_countries
-from ..settings import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
+from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 
 def generate_country_report(
