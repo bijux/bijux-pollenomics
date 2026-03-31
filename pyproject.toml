@@ -43,7 +43,6 @@ dev = [
 
 [project.scripts]
 bijux-pollenomics = "bijux_pollenomics.cli:main"
-bijux-pollenomics-aadr = "bijux_pollenomics.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
