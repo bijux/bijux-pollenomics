@@ -94,10 +94,17 @@ nav:
   - Home: index.md
   - Foundation:
       - Overview: foundation/index.md
-      - Repository Scope: foundation/repository-scope.md
       - Product Overview: foundation/product-overview.md
+      - Repository Scope: foundation/repository-scope.md
       - Scope and Non-Goals: foundation/scope-and-non-goals.md
       - Map-First Product Model: foundation/map-first-product-model.md
+  - Outputs:
+      - Overview: outputs/index.md
+      - Nordic Evidence Atlas: outputs/nordic-evidence-atlas.md
+      - Country Reports: outputs/country-reports.md
+      - Lyngsjön Lake Fieldwork: outputs/lyngsjon-lake-fieldwork.md
+      - Artifact Lifecycle: outputs/artifact-lifecycle.md
+      - Published Artifacts: outputs/published-artifacts.md
   - Workflows:
       - Overview: workflows/index.md
       - Install and Verify: workflows/install-and-verify.md
@@ -114,13 +121,6 @@ nav:
       - Neotoma: data-sources/neotoma.md
       - SEAD: data-sources/sead.md
       - RAÄ: data-sources/raa.md
-  - Outputs:
-      - Overview: outputs/index.md
-      - Country Reports: outputs/country-reports.md
-      - Nordic Evidence Atlas: outputs/nordic-evidence-atlas.md
-      - Lyngsjön Lake Fieldwork: outputs/lyngsjon-lake-fieldwork.md
-      - Artifact Lifecycle: outputs/artifact-lifecycle.md
-      - Published Artifacts: outputs/published-artifacts.md
   - Architecture:
       - Overview: architecture/index.md
       - System Overview: architecture/system-overview.md
@@ -131,9 +131,9 @@ nav:
       - Overview: engineering/index.md
       - Local Workflow: engineering/local-workflow.md
       - Automation Workflows: engineering/automation-workflows.md
-      - Documentation Standards: engineering/documentation-standards.md
-      - Change Review Checklist: engineering/change-review-checklist.md
       - Testing and Evidence: engineering/testing-and-evidence.md
+      - Change Review Checklist: engineering/change-review-checklist.md
+      - Documentation Standards: engineering/documentation-standards.md
   - Reference:
       - Overview: reference/index.md
       - Command Reference: reference/command-reference.md

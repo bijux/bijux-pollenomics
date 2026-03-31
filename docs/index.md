@@ -102,9 +102,9 @@ flowchart TD
 ## Documentation Sections
 
 - [Foundation](foundation/index.md)
-- [Data Sources](data-sources/index.md)
 - [Outputs](outputs/index.md)
 - [Workflows](workflows/index.md)
+- [Data Sources](data-sources/index.md)
 - [Architecture](architecture/index.md)
 - [Engineering](engineering/index.md)
 - [Reference](reference/index.md)
