@@ -897,9 +897,11 @@ def collect_neotoma_data(
             "endpoint": f"{NEOTOMA_DATA_URL}/datasets",
             "datasettype": NEOTOMA_DATASETTYPE,
             "loc": build_neotoma_bbox_geojson(bbox),
-            "row_count": len(matched_inventory_rows),
-            "dataset_count": len(dataset_ids),
-            "rows": matched_inventory_rows,
+            "queried_row_count": len(inventory_rows),
+            "retained_row_count": len(matched_inventory_rows),
+            "retained_dataset_count": len(dataset_ids),
+            "rows": inventory_rows,
+            "retained_rows": matched_inventory_rows,
         },
     )
     download_path = raw_dir / "neotoma_pollen_dataset_downloads.json"

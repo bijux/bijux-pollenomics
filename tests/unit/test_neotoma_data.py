@@ -1,16 +1,78 @@
 from __future__ import annotations
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.neotoma import (
     build_neotoma_site_snapshot_rows,
+    collect_neotoma_data,
     fetch_neotoma_pollen_rows,
     normalize_neotoma_rows,
 )
 
 
 class NeotomaDataTests(unittest.TestCase):
+    def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(self) -> None:
+        inventory_rows = [
+            {
+                "site": {
+                    "siteid": 20,
+                    "sitename": "Inside Nordic",
+                    "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                    "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                }
+            },
+            {
+                "site": {
+                    "siteid": 30,
+                    "sitename": "Outside Nordic",
+                    "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
+                    "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
+                }
+            },
+        ]
+        matched_inventory_rows = [inventory_rows[0]]
+        download_rows = []
+        rows = []
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "neotoma"
+            with patch(
+                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                return_value=inventory_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                return_value=matched_inventory_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                return_value=[201],
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                return_value=download_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                return_value=rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                return_value=[],
+            ):
+                collect_neotoma_data(
+                    output_root=output_root,
+                    country_boundaries={"Sweden": {"features": []}},
+                    bbox=(4.0, 54.0, 35.0, 72.0),
+                )
+
+            inventory_payload = json.loads((output_root / "raw" / "neotoma_pollen_dataset_inventory.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(inventory_payload["queried_row_count"], 2)
+        self.assertEqual(inventory_payload["retained_row_count"], 1)
+        self.assertEqual(inventory_payload["retained_dataset_count"], 1)
+        self.assertEqual([item["site"]["siteid"] for item in inventory_payload["rows"]], [20, 30])
+        self.assertEqual([item["site"]["siteid"] for item in inventory_payload["retained_rows"]], [20])
+
     def test_fetch_neotoma_pollen_rows_hydrates_full_dataset_downloads(self) -> None:
         country_boundaries = {
             "Sweden": {
