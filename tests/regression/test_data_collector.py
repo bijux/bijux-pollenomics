@@ -240,6 +240,15 @@ class DataCollectorTests(unittest.TestCase):
             self.assertEqual(report.landclim_site_count, 11)
             self.assertEqual(report.landclim_grid_cell_count, 7)
 
+    def test_collect_data_rejects_unsupported_sources_without_writing_output(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+
+            with self.assertRaisesRegex(ValueError, "Unsupported data source: unsupported"):
+                collect_data(output_root=output_root, sources=("unsupported",), version="v62.0")
+
+            self.assertFalse(output_root.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

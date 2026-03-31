@@ -55,11 +55,10 @@ def collect_data(
     version: str = DEFAULT_AADR_VERSION,
 ) -> DataCollectionReport:
     """Collect one or more tracked data sources into the project data tree."""
+    selected_sources = normalize_requested_sources(sources)
     output_root = Path(output_root)
     output_root.mkdir(parents=True, exist_ok=True)
     write_data_directory_readme(output_root, version=version)
-
-    selected_sources = normalize_requested_sources(sources)
     source_output_roots = build_source_output_roots(output_root=output_root, version=version)
 
     counts = initialize_source_counts()
