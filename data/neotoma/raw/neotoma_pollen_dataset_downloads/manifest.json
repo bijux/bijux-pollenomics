@@ -1,7 +1,7 @@
 {
-  "generated_on": "2026-03-31",
+  "generated_on": "2026-04-01",
   "source": "Neotoma",
-  "archive_dir": "data/neotoma/raw/neotoma_pollen_dataset_downloads",
+  "archive_dir": "raw/neotoma_pollen_dataset_downloads",
   "endpoint_template": "https://api.neotomadb.org/v2.0/data/downloads/{datasetid}",
   "datasettype": "pollen",
   "requested_dataset_count": 209,
