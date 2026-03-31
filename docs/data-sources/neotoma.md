@@ -39,7 +39,7 @@ Neotoma is the pollen-oriented source currently integrated into this repository.
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data neotoma --output-root data
 ```
 
 ## Normalization Rule

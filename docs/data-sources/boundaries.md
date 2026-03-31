@@ -54,7 +54,7 @@ The country polygons come from land-focused admin boundaries, which means some r
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data boundaries --output-root data
 ```
 
 ## Product Role

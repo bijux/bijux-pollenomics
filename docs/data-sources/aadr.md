@@ -48,7 +48,7 @@ The repository does not currently collect or use `.geno`, `.ind`, `.snp`, or spr
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data aadr --version v62.0 --output-root data
 ```
 
 ## Role In The Product

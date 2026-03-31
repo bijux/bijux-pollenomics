@@ -40,7 +40,7 @@ LandClim adds a source that is broader than point-only pollen catalogs. It contr
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data landclim --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data landclim --output-root data
 ```
 
 ## Normalization Rule

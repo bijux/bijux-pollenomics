@@ -43,7 +43,7 @@ flowchart LR
 ## Acquisition Command
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data raa --output-root data
 ```
 
 ## Scope Boundary
