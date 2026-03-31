@@ -7,12 +7,24 @@ from bijux_pollenomics.data_downloader.neotoma import fetch_neotoma_pollen_rows,
 
 
 class NeotomaDataTests(unittest.TestCase):
-    def test_fetch_neotoma_pollen_rows_merges_dataset_and_site_endpoints(self) -> None:
-        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
-            endpoint = url.rsplit("/", 1)[-1]
-            offset = params.get("offset") if params else None
+    def test_fetch_neotoma_pollen_rows_hydrates_full_dataset_downloads(self) -> None:
+        country_boundaries = {
+            "Sweden": {
+                "features": [
+                    {
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]
+                            ],
+                        }
+                    }
+                ]
+            }
+        }
 
-            if endpoint == "datasets" and offset == "0":
+        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
+            if url.endswith("/datasets"):
                 return {
                     "status": "success",
                     "message": "ok",
@@ -20,103 +32,134 @@ class NeotomaDataTests(unittest.TestCase):
                         {
                             "site": {
                                 "siteid": 20,
-                                "sitename": "Dataset overlap",
+                                "sitename": "Ageröds Mosse",
                                 "sitedescription": "",
-                                "geography": '{"type":"Point","coordinates":[18.0,59.0]}',
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
                                 "altitude": 10,
-                                "collectionunitid": 1,
-                                "collectionunit": "Core A",
-                                "handle": "CORE-A",
-                                "unittype": "Core",
                                 "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
                             }
                         },
                         {
                             "site": {
                                 "siteid": 20,
-                                "sitename": "Dataset overlap",
+                                "sitename": "Ageröds Mosse",
                                 "sitedescription": "",
-                                "geography": '{"type":"Point","coordinates":[18.0,59.0]}',
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
                                 "altitude": 10,
-                                "collectionunitid": 2,
-                                "collectionunit": "Core B",
-                                "handle": "CORE-B",
-                                "unittype": "Core",
                                 "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
                             }
                         },
                         {
                             "site": {
                                 "siteid": 30,
-                                "sitename": "Dataset only",
-                                "sitedescription": "Carried only by /datasets.",
-                                "geography": '{"type":"Point","coordinates":[19.0,60.0]}',
+                                "sitename": "Outside Nordic",
+                                "sitedescription": "",
+                                "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
                                 "altitude": 25,
-                                "collectionunitid": 3,
-                                "collectionunit": "Core C",
-                                "handle": "CORE-C",
-                                "unittype": "Core",
                                 "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
                             }
                         },
                     ],
                 }
-            if endpoint == "datasets":
-                return {"status": "success", "message": "ok", "data": []}
-
-            if endpoint == "sites" and offset == "0":
+            if url.endswith("/downloads/201"):
                 return {
                     "status": "success",
                     "message": "ok",
                     "data": [
                         {
-                            "siteid": 10,
-                            "sitename": "Site only",
-                            "sitedescription": "Carried only by /sites.",
-                            "geography": '{"type":"Point","coordinates":[17.0,58.0]}',
-                            "altitude": 15,
-                            "collectionunits": [
-                                {
-                                    "collectionunitid": 10,
-                                    "collectionunit": "Core Z",
-                                    "handle": "CORE-Z",
-                                    "collectionunittype": "Core",
-                                    "datasets": [{"datasetid": 101, "datasettype": "pollen"}],
-                                }
-                            ],
-                        },
-                        {
-                            "siteid": 20,
-                            "sitename": "Dataset overlap",
-                            "sitedescription": "Supplemental description from /sites.",
-                            "geography": '{"type":"Point","coordinates":[18.0,59.0]}',
-                            "altitude": 10,
-                            "collectionunits": [
-                                {
+                            "site": {
+                                "siteid": 20,
+                                "sitename": "Ageröds Mosse",
+                                "sitedescription": "Forested bog.",
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                                "altitude": 10,
+                                "chronologies": [{"chronologyid": 7001}],
+                                "defaultchronology": 7001,
+                                "collectionunit": {
                                     "collectionunitid": 1,
                                     "collectionunit": "Core A",
                                     "handle": "CORE-A",
-                                    "collectionunittype": "Core",
-                                    "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
-                                }
-                            ],
+                                    "collunittype": "Core",
+                                    "dataset": {
+                                        "datasetid": 201,
+                                        "datasettype": "pollen",
+                                        "database": "European Pollen Database",
+                                        "agerange": [{"units": "Calibrated radiocarbon years BP", "ageold": 2000, "ageyoung": 50}],
+                                        "samples": [
+                                            {
+                                                "sampleid": 9001,
+                                                "analysisunitid": 9101,
+                                                "ages": [{"agetype": "Calibrated radiocarbon years BP", "ageolder": 2100, "ageyounger": 30}],
+                                                "datum": [
+                                                    {"taxonid": 1, "variablename": "Betula"},
+                                                    {"taxonid": 2, "variablename": "Pinus"},
+                                                ],
+                                            }
+                                        ],
+                                    },
+                                },
+                            },
+                        }
+                    ],
+                }
+            if url.endswith("/downloads/202"):
+                return {
+                    "status": "success",
+                    "message": "ok",
+                    "data": [
+                        {
+                            "site": {
+                                "siteid": 20,
+                                "sitename": "Ageröds Mosse",
+                                "sitedescription": "Forested bog.",
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                                "altitude": 10,
+                                "chronologies": [{"chronologyid": 7002}],
+                                "defaultchronology": 7002,
+                                "collectionunit": {
+                                    "collectionunitid": 2,
+                                    "collectionunit": "Core B",
+                                    "handle": "CORE-B",
+                                    "collunittype": "Core",
+                                    "dataset": {
+                                        "datasetid": 202,
+                                        "datasettype": "pollen",
+                                        "database": "European Pollen Database",
+                                        "agerange": [{"units": "Calibrated radiocarbon years BP", "ageold": 3500, "ageyoung": 200}],
+                                        "samples": [
+                                            {
+                                                "sampleid": 9002,
+                                                "analysisunitid": 9102,
+                                                "ages": [{"agetype": "Calibrated radiocarbon years BP", "ageolder": 3600, "ageyounger": 180}],
+                                                "datum": [
+                                                    {"taxonid": 3, "variablename": "Alnus"},
+                                                ],
+                                            }
+                                        ],
+                                    },
+                                },
+                            },
                         },
                     ],
                 }
-            if endpoint == "sites":
-                return {"status": "success", "message": "ok", "data": []}
 
             raise AssertionError(f"Unexpected URL: {url}")
 
         with patch("bijux_pollenomics.data_downloader.neotoma.fetch_json", side_effect=fake_fetch_json):
-            rows = fetch_neotoma_pollen_rows()
+            rows = fetch_neotoma_pollen_rows(
+                bbox=(4.0, 54.0, 35.0, 72.0),
+                country_boundaries=country_boundaries,
+            )
 
-        self.assertEqual([row["siteid"] for row in rows], [10, 20, 30])
+        self.assertEqual([row["siteid"] for row in rows], [20])
         row_by_id = {row["siteid"]: row for row in rows}
 
-        self.assertEqual(row_by_id[10]["sitename"], "Site only")
-        self.assertEqual(row_by_id[30]["sitename"], "Dataset only")
-        self.assertEqual(row_by_id[20]["sitedescription"], "Supplemental description from /sites.")
+        self.assertEqual(row_by_id[20]["sitename"], "Ageröds Mosse")
+        self.assertEqual(row_by_id[20]["dataset_count"], 2)
+        self.assertEqual(row_by_id[20]["sample_count"], 2)
+        self.assertEqual(row_by_id[20]["chronology_count"], 2)
+        self.assertEqual(row_by_id[20]["taxon_count"], 3)
+        self.assertEqual(row_by_id[20]["databases"], ["European Pollen Database"])
         self.assertEqual(
             [unit["collectionunitid"] for unit in row_by_id[20]["collectionunits"]],
             [1, 2],
