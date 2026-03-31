@@ -21,7 +21,7 @@ NEOTOMA_LIMIT = 400
 NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
 NEOTOMA_REQUEST_TIMEOUT_SECONDS = 60.0
-NEOTOMA_DOWNLOAD_WORKERS = 8
+NEOTOMA_DOWNLOAD_WORKERS = 16
 NEOTOMA_DOWNLOAD_RETRIES = 3
 
 
@@ -198,6 +198,39 @@ def build_neotoma_site_rows_from_downloads(download_rows: Iterable[dict[str, obj
     for row in merged_rows:
         populate_neotoma_site_summary_fields(row)
     return merged_rows
+
+
+def build_neotoma_site_snapshot_rows(rows: Iterable[dict[str, object]]) -> list[dict[str, object]]:
+    """Build compact site-summary rows without duplicating full sample payloads."""
+    snapshot_rows: list[dict[str, object]] = []
+    for row in rows:
+        snapshot = copy.deepcopy(row)
+        snapshot_units = []
+        for unit in normalize_collection_units(snapshot.get("collectionunits")):
+            snapshot_unit = {key: copy.deepcopy(value) for key, value in unit.items() if key != "datasets"}
+            snapshot_unit["datasets"] = [
+                build_neotoma_dataset_snapshot(dataset)
+                for dataset in normalize_datasets(unit.get("datasets"))
+            ]
+            snapshot_unit["datasets"] = sort_datasets(snapshot_unit["datasets"])
+            snapshot_units.append(snapshot_unit)
+        snapshot["collectionunits"] = sorted(snapshot_units, key=collection_unit_sort_key)
+        snapshot_rows.append(snapshot)
+    return snapshot_rows
+
+
+def build_neotoma_dataset_snapshot(dataset: dict[str, object]) -> dict[str, object]:
+    """Build a compact dataset summary without nested samples or chronologies."""
+    snapshot = {
+        key: copy.deepcopy(value)
+        for key, value in dataset.items()
+        if key not in {"samples", "chronologies", "defaultchronology"}
+    }
+    snapshot["sample_count"] = count_neotoma_dataset_samples(dataset)
+    snapshot["analysis_unit_count"] = count_neotoma_dataset_analysis_units(dataset)
+    snapshot["chronology_count"] = count_neotoma_dataset_chronologies(dataset)
+    snapshot["taxon_count"] = count_neotoma_dataset_taxa(dataset)
+    return snapshot
 
 
 def build_neotoma_site_row_from_download(download_row: object) -> dict[str, object] | None:
@@ -493,6 +526,67 @@ def normalize_chronologies(value: object) -> list[dict[str, object]]:
     return [copy.deepcopy(item) for item in value if isinstance(item, dict)]
 
 
+def count_neotoma_dataset_samples(dataset: dict[str, object]) -> int:
+    """Count unique samples in one Neotoma dataset payload."""
+    samples = dataset.get("samples", [])
+    if not isinstance(samples, list):
+        return 0
+    return len(
+        {
+            clean_optional_text(sample.get("sampleid"))
+            for sample in samples
+            if isinstance(sample, dict) and clean_optional_text(sample.get("sampleid"))
+        }
+    )
+
+
+def count_neotoma_dataset_analysis_units(dataset: dict[str, object]) -> int:
+    """Count unique analysis units in one Neotoma dataset payload."""
+    samples = dataset.get("samples", [])
+    if not isinstance(samples, list):
+        return 0
+    return len(
+        {
+            clean_optional_text(sample.get("analysisunitid"))
+            for sample in samples
+            if isinstance(sample, dict) and clean_optional_text(sample.get("analysisunitid"))
+        }
+    )
+
+
+def count_neotoma_dataset_chronologies(dataset: dict[str, object]) -> int:
+    """Count unique chronologies in one Neotoma dataset payload."""
+    return len(
+        {
+            chronology_key(chronology)
+            for chronology in normalize_chronologies(dataset.get("chronologies"))
+            if chronology_key(chronology)
+        }
+    )
+
+
+def count_neotoma_dataset_taxa(dataset: dict[str, object]) -> int:
+    """Count unique taxa in one Neotoma dataset payload."""
+    samples = dataset.get("samples", [])
+    if not isinstance(samples, list):
+        return 0
+    taxon_keys: set[tuple[str, str]] = set()
+    for sample in samples:
+        if not isinstance(sample, dict):
+            continue
+        datum = sample.get("datum", [])
+        if not isinstance(datum, list):
+            continue
+        for item in datum:
+            if not isinstance(item, dict):
+                continue
+            taxon_id = clean_optional_text(item.get("taxonid"))
+            variable_name = clean_optional_text(item.get("variablename"))
+            if taxon_id or variable_name:
+                taxon_keys.add((taxon_id, variable_name))
+    return len(taxon_keys)
+
+
 def chronology_key(chronology: dict[str, object]) -> str:
     """Build a stable identity key for one chronology payload."""
     chronology_id = clean_optional_text(chronology.get("chronologyid"))
@@ -744,7 +838,7 @@ def collect_neotoma_data(
             "datasettype": NEOTOMA_DATASETTYPE,
             "site_count": len(rows),
             "dataset_count": len(dataset_ids),
-            "rows": rows,
+            "rows": build_neotoma_site_snapshot_rows(rows),
         },
     )
     records = normalize_neotoma_rows(rows, bbox=bbox, country_boundaries=country_boundaries)

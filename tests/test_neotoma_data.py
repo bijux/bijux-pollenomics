@@ -3,7 +3,11 @@ from __future__ import annotations
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.neotoma import fetch_neotoma_pollen_rows, normalize_neotoma_rows
+from bijux_pollenomics.data_downloader.neotoma import (
+    build_neotoma_site_snapshot_rows,
+    fetch_neotoma_pollen_rows,
+    normalize_neotoma_rows,
+)
 
 
 class NeotomaDataTests(unittest.TestCase):
@@ -217,6 +221,47 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual([record.name for record in records], ["Coastal site"])
         self.assertEqual(records[0].country, "Norway")
+
+    def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(self) -> None:
+        rows = [
+            {
+                "siteid": 20,
+                "sitename": "Snapshot test",
+                "collectionunits": [
+                    {
+                        "collectionunitid": 1,
+                        "datasets": [
+                            {
+                                "datasetid": 201,
+                                "datasettype": "pollen",
+                                "database": "European Pollen Database",
+                                "chronologies": [{"chronologyid": 7001}],
+                                "samples": [
+                                    {
+                                        "sampleid": 9001,
+                                        "analysisunitid": 9101,
+                                        "datum": [
+                                            {"taxonid": 1, "variablename": "Betula"},
+                                            {"taxonid": 2, "variablename": "Pinus"},
+                                        ],
+                                    }
+                                ],
+                            }
+                        ],
+                    }
+                ],
+            }
+        ]
+
+        snapshot_rows = build_neotoma_site_snapshot_rows(rows)
+
+        dataset = snapshot_rows[0]["collectionunits"][0]["datasets"][0]
+        self.assertEqual(dataset["sample_count"], 1)
+        self.assertEqual(dataset["analysis_unit_count"], 1)
+        self.assertEqual(dataset["chronology_count"], 1)
+        self.assertEqual(dataset["taxon_count"], 2)
+        self.assertNotIn("samples", dataset)
+        self.assertNotIn("chronologies", dataset)
 
 
 if __name__ == "__main__":
