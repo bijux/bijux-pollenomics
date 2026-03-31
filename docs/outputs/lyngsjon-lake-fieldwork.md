@@ -31,7 +31,13 @@ That makes the atlas more legible for readers who want to connect one visible ma
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
-Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Use the video button above to open the checked-in field recording.
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline>
+    <source src="../gallery/2026-02-26-data-collection.mov" type="video/quicktime">
+    <a href="../gallery/2026-02-26-data-collection.mov">Open the field video.</a>
+  </video>
+  <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts with sound off by default.</figcaption>
+</figure>
 
 ## Atlas Integration
 
