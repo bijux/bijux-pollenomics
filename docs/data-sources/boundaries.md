@@ -17,9 +17,9 @@ last_reviewed: 2026-03-31
 - a Natural Earth source manifest under `data/boundaries/raw/source_manifest.json`
 - a combined Nordic boundary collection under `data/boundaries/normalized/nordic_country_boundaries.geojson`
 
-## What The Current Collector Does
+## Collector Contract
 
-The current collector:
+The collector:
 
 - downloads Natural Earth 10m admin-0 country geometry from the pinned `v5.1.1` release asset
 - filters that global boundary collection down to Sweden, Norway, Finland, and Denmark
@@ -30,7 +30,7 @@ The current collector:
 - validates that every local raw boundary file still carries features and the expected `ADM0_A3` code before reuse
 - uses strict polygon containment first, then a narrow fallback for inland-water and near-coast points that sit just outside the published land polygons
 
-## Current Raw Files
+## Raw Files
 
 - `data/boundaries/raw/denmark.geojson`
 - `data/boundaries/raw/finland.geojson`
@@ -44,6 +44,12 @@ Without boundaries, the repository cannot apply one consistent country filter to
 ## Classification Note
 
 The country polygons come from land-focused admin boundaries, which means some real research coordinates can fall into inland-water holes or just outside simplified coastlines. The shared classifier now recovers those cases conservatively instead of dropping them silently.
+
+## Audit Artifacts
+
+- one raw GeoJSON per Nordic country
+- a pinned Natural Earth source manifest with release, asset, and digest details
+- one normalized combined boundary collection used by classifiers and the atlas
 
 ## Acquisition Command
 

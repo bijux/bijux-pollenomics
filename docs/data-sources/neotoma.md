@@ -18,9 +18,9 @@ last_reviewed: 2026-03-31
 - an aggregated site summary under `data/neotoma/raw/neotoma_pollen_sites.json`
 - normalized CSV and GeoJSON outputs under `data/neotoma/normalized/`
 
-## What The Current Collector Does
+## Collector Contract
 
-The current collector:
+The collector:
 
 - requests a short Neotoma `datasettype=pollen` inventory from the public `datasets` endpoint using a Nordic `loc` query
 - filters that inventory to tracked Nordic countries using the repository boundary layer
@@ -53,6 +53,13 @@ The repository reduces Neotoma geometries to representative points for map use, 
 - non-Nordic records returned by the upstream API queries
 
 The normalized outputs are intentionally compact for map use. The raw Neotoma artifacts now retain the full dataset downloads used to build those point summaries.
+
+## Audit Artifacts
+
+- a bbox inventory snapshot
+- a filtered Nordic inventory snapshot
+- full dataset download payloads for retained dataset IDs
+- an aggregated site summary that explains how the normalized points were derived
 
 ## Purpose
 

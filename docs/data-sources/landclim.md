@@ -18,9 +18,9 @@ last_reviewed: 2026-03-31
 - a normalized REVEALS grid-cell GeoJSON layer under `data/landclim/normalized/nordic_reveals_grid_cells.geojson`
 - a machine-readable source summary under `data/landclim/normalized/landclim_summary.json`
 
-## What The Current Collector Does
+## Collector Contract
 
-The current collector:
+The collector:
 
 - downloads the PANGAEA assets behind `10.1594/PANGAEA.900966`, `10.1594/PANGAEA.897303`, and `10.1594/PANGAEA.937075`
 - resolves those assets from the official PANGAEA landing and textfile records instead of fixed direct-download guesses
@@ -56,6 +56,12 @@ LandClim is useful precisely because it is mixed. That also means readers have t
 - a pollen-sequence point is not the same kind of evidence as a REVEALS grid cell
 - a processed regional reconstruction should not be described as if it were a raw site observation
 - presence in the normalized LandClim tree does not imply that every source row is comparable to Neotoma or SEAD records on a one-to-one basis
+
+## Audit Artifacts
+
+- raw workbook, CSV, and ZIP snapshots under `data/landclim/raw/`
+- a source manifest with resolved asset URLs, byte sizes, and SHA-256 digests
+- normalized site and grid outputs that preserve dataset labels and time-window coverage
 
 ## Purpose
 

@@ -16,9 +16,9 @@ last_reviewed: 2026-03-31
 - a raw site snapshot under `data/sead/raw/nordic_sites.json`
 - normalized CSV and GeoJSON outputs under `data/sead/normalized/`
 
-## What The Current Collector Does
+## Collector Contract
 
-The current collector:
+The collector:
 
 - queries the SEAD PostgREST `tbl_sites` surface inside the Nordic bounding box
 - applies explicit ordering to paged PostgREST reads so collection does not depend on unstable default row order
@@ -46,6 +46,11 @@ SEAD is especially useful for:
 - checking where environmental archaeology evidence clusters
 - comparing those clusters to aDNA and pollen locations
 - expanding context beyond purely genetic or pollen-specific layers
+
+## Audit Artifacts
+
+- a raw site snapshot with the linked-table footprint used during enrichment
+- normalized CSV and GeoJSON outputs with country assignments and temporal coverage when available
 
 ## Purpose
 
