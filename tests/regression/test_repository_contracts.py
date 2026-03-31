@@ -22,8 +22,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("DEFAULT_AADR_VERSION", makefile_text)
         self.assertIn("lock", makefile_text)
         self.assertIn("lock-check", makefile_text)
+        self.assertIn("package-verify", makefile_text)
         self.assertIn("package-check", makefile_text)
         self.assertIn("package-smoke", makefile_text)
+        self.assertIn("package-source-smoke", makefile_text)
         self.assertIn("test-unit: install", makefile_text)
         self.assertIn("test-regression: install", makefile_text)
         self.assertIn("test-e2e: install", makefile_text)
@@ -35,6 +37,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Apache License 2.0", readme_text)
         self.assertIn("make lock-check", readme_text)
         self.assertIn("make package-check", readme_text)
+        self.assertIn("make package-source-smoke", readme_text)
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)
@@ -50,6 +53,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("artifacts/.venv/bin/bijux-pollenomics collect-data all", command_reference)
         self.assertIn("make package-check", command_reference)
         self.assertIn("make package-smoke", command_reference)
+        self.assertIn("make package-source-smoke", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
