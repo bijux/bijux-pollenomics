@@ -15,7 +15,7 @@ Allen Ancient DNA Resource. In this repository, the public `.anno` files are the
 
 ## Nordic Evidence Atlas
 
-The multi-country interactive atlas published under `docs/report/nordic/`.
+The multi-country interactive atlas published under `docs/report/nordic-evidence-atlas/`.
 
 ## Country Report
 
