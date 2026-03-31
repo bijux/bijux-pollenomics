@@ -14,7 +14,7 @@ last_reviewed: 2026-03-31
 ## What It Produces
 
 - a dataset inventory audit artifact under `data/neotoma/raw/neotoma_pollen_dataset_inventory.json`
-- full dataset downloads under `data/neotoma/raw/neotoma_pollen_dataset_downloads.json`
+- a chunked full-download archive under `data/neotoma/raw/neotoma_pollen_dataset_downloads/`
 - an aggregated site summary under `data/neotoma/raw/neotoma_pollen_sites.json`
 - normalized CSV and GeoJSON outputs under `data/neotoma/normalized/`
 
@@ -30,7 +30,7 @@ The collector:
 - validates that every requested dataset ID is present in the collected download payloads before continuing
 - merges the full dataset records by site and collection unit
 - assigns each retained record to a Nordic country using the tracked boundary layer, including a narrow boundary-proximity recovery so coastal and inland-water sites are not dropped by coarse land polygons
-- writes raw inventory, raw dataset-download, and raw site-summary JSON artifacts plus normalized CSV and GeoJSON outputs
+- writes raw inventory, a chunked raw dataset-download archive, and a raw site-summary JSON artifact plus normalized CSV and GeoJSON outputs
 
 ## Why It Matters
 
@@ -58,7 +58,7 @@ The normalized outputs are intentionally compact for map use. The raw Neotoma ar
 
 - a bbox inventory snapshot
 - a filtered Nordic inventory snapshot
-- full dataset download payloads for retained dataset IDs
+- full dataset download payloads for retained dataset IDs split across numbered part files with one manifest
 - an aggregated site summary that explains how the normalized points were derived
 
 ## Purpose

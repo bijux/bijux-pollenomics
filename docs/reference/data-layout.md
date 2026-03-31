@@ -61,7 +61,9 @@ data
 │   │   ├── nordic_pollen_sites.csv
 │   │   └── nordic_pollen_sites.geojson
 │   └── raw
-│       ├── neotoma_pollen_dataset_downloads.json
+│       ├── neotoma_pollen_dataset_downloads
+│       │   ├── manifest.json
+│       │   └── part-001.json
 │       ├── neotoma_pollen_dataset_inventory.json
 │       └── neotoma_pollen_sites.json
 ├── raa
