@@ -6,22 +6,22 @@ from typing import Iterable
 from .aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
 from .boundary_sources import resolve_country_boundaries
-from .collection_reports import (
+from .pipeline.collection_reports import (
     build_data_collection_report,
     build_data_collection_summary,
     initialize_source_counts,
 )
-from .context_collection import collect_context_source
+from .pipeline.context_collection import collect_context_source
 from .data_layout import AVAILABLE_SOURCES, build_source_output_roots, write_data_directory_readme
 from .landclim import collect_landclim_data
 from .models import DataCollectionReport
 from .neotoma import collect_neotoma_data
+from .pipeline.requested_sources import normalize_requested_sources
+from .pipeline.source_registry import CONTEXT_SOURCE_SPECS
+from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
+from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
-from .requested_sources import normalize_requested_sources
 from .sead import collect_sead_data
-from .source_registry import CONTEXT_SOURCE_SPECS
-from .staging import build_staging_output_dir, collect_into_staging_dir
-from .summary_writer import write_collection_summary
 from ..config import DEFAULT_AADR_VERSION
 
 __all__ = [
