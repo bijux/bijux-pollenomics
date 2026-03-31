@@ -20,6 +20,7 @@ make test
 make docs
 make docs-serve
 make build
+make package-check
 make check
 ```
 
@@ -28,13 +29,13 @@ These commands create or validate local artifacts. They do not recollect source 
 ## Data Collection Commands
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data all --version v62.0 --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data landclim --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data all --version v62.0 --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data aadr --version v62.0 --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data boundaries --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data landclim --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data neotoma --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data raa --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data sead --output-root data
 ```
 
 These commands rewrite tracked source outputs under `data/`.
@@ -42,12 +43,12 @@ These commands rewrite tracked source outputs under `data/`.
 ## Report Commands
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --context-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --output-root docs/report --context-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+artifacts/.venv/bin/bijux-pollenomics report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --context-root data
+artifacts/.venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data
+artifacts/.venv/bin/bijux-pollenomics report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+artifacts/.venv/bin/bijux-pollenomics report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+artifacts/.venv/bin/bijux-pollenomics report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+artifacts/.venv/bin/bijux-pollenomics report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
 ```
 
 These commands rewrite checked-in report outputs under `docs/report/`.
@@ -67,7 +68,7 @@ Use these only when you intend to regenerate tracked data or tracked publication
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
 - `make reports` expands to `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
 - `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
-- `make check` expands to `make lock-check`, `make lint`, `make test`, and `make docs`
+- `make check` expands to `make lock-check`, `make lint`, `make test`, `make docs`, and `make package-check`
 - `make install` syncs the local environment under `artifacts/.venv/` from `uv.lock`
 - `make lock` refreshes `uv.lock` from `pyproject.toml`
 - `make lock-check` verifies that `uv.lock` matches `pyproject.toml`
