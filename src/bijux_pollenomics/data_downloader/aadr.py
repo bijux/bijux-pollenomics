@@ -5,7 +5,8 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .common import fetch_binary, fetch_text, write_json
+from ..core.http import fetch_binary, fetch_text
+from .common import write_json
 
 
 AADR_DATAVERSE_PERSISTENT_ID = "doi:10.7910/DVN/FFIDCW"

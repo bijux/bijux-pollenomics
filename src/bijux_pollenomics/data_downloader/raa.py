@@ -5,10 +5,10 @@ from datetime import date
 import math
 from pathlib import Path
 
-from .common import clean_optional_text, fetch_json, fetch_text
+from ..core.http import fetch_json, fetch_text
+from .common import clean_optional_text, write_json, write_text
 from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
 from .geometry import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
-from .common import write_json, write_text
 
 
 @dataclass(frozen=True)

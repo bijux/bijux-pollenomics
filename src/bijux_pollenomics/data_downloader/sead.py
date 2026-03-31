@@ -5,7 +5,8 @@ from datetime import date
 from pathlib import Path
 from typing import Iterable
 
-from .common import fetch_json, write_json
+from ..core.http import fetch_json
+from .common import write_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
 from .sead_fetch import (
     build_sead_in_filter as build_sead_in_filter_value,

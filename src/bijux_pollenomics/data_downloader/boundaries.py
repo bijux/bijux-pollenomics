@@ -6,7 +6,8 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from .common import clean_optional_text, fetch_text, slugify, write_json
+from ..core.http import fetch_text
+from .common import clean_optional_text, slugify, write_json
 from .contracts import BOUNDARY_COLLECTION
 
 
