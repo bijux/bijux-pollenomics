@@ -86,6 +86,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
 
+        self.assertIn("https://bijux.io/pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
         self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)
@@ -117,6 +118,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("branches:\n      - main", deploy_workflow)
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
+        self.assertIn("DOCS_PUBLISH_REPOSITORY: bijux/pollenomics", deploy_workflow)
+        self.assertIn("DOCS_SITE_URL: https://bijux.io/pollenomics/", deploy_workflow)
+        self.assertIn("POLLENOMICS_PUBLISH_TOKEN", deploy_workflow)
+        self.assertIn("git clone \"https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git\"", deploy_workflow)
         self.assertIn("custom_dir: docs/overrides", deploy_workflow)
         self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)
         self.assertIn("Validate published site root assets", deploy_workflow)
@@ -138,6 +143,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("fails if `make check` leaves tracked or untracked repository drift behind", automation_workflows)
         self.assertIn("published the browser-probed root icons into the site root", automation_workflows)
+        self.assertIn("dedicated `bijux/pollenomics` Pages repository", automation_workflows)
         self.assertIn("clean repository tree after verification", testing_and_evidence)
 
     def test_notice_file_keeps_copyright_holder(self) -> None:

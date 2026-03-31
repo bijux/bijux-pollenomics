@@ -39,9 +39,9 @@ The site theme is intentionally configured to avoid remote Google font dependenc
 
 The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 
-- pushes to `main` build the site and deploy it to GitHub Pages
+- pushes to `main` build the site and publish the rendered files into the separate `bijux/pollenomics` Pages repository
 - manual dispatch can build the same site without waiting for a push
-- the deploy job itself runs only for `main`
+- publication from this workflow requires a `POLLENOMICS_PUBLISH_TOKEN` repository secret with write access to `bijux/pollenomics`
 - the workflow validates that `mkdocs.yml` still writes to `artifacts/docs/site` and keeps `strict: true`
 
 ## Documentation Rules

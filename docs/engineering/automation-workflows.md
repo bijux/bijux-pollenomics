@@ -12,7 +12,7 @@ last_reviewed: 2026-03-31
 The repository uses two GitHub Actions workflows with distinct responsibilities:
 
 - `verify.yml` runs repository verification on pushes to `main`, pull requests targeting `main`, and manual dispatch
-- `deploy-docs.yml` builds and publishes the MkDocs site from `main` or manual dispatch
+- `deploy-docs.yml` builds the MkDocs site from `main` or manual dispatch and publishes the rendered site into the dedicated `bijux/pollenomics` Pages repository
 
 The workflow names are only useful if the responsibility split stays explicit.
 
@@ -48,8 +48,8 @@ It:
 - validates core MkDocs contract fields in `mkdocs.yml`
 - builds the docs site into `artifacts/docs/site`
 - verifies that the build published the browser-probed root icons into the site root
-- uploads that built site as the GitHub Pages artifact
-- deploys only when the ref is `refs/heads/main`
+- publishes that built site into the `bijux/pollenomics` repository when the ref is `refs/heads/main`
+- requires a `POLLENOMICS_PUBLISH_TOKEN` secret with write access to `bijux/pollenomics`
 
 It does not publish from tags, and it does not pretend to be the whole repository test suite.
 
