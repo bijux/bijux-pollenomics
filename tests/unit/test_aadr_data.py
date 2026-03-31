@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import json
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.aadr import dataset_directory_name, resolve_anno_files
+from bijux_pollenomics.data_downloader.aadr import dataset_directory_name, download_aadr_anno_files, resolve_anno_files
 
 
 class AadrDataTests(unittest.TestCase):
@@ -63,6 +67,48 @@ class AadrDataTests(unittest.TestCase):
                 ("1240k", "v54.1_1240k_public.anno", 302),
                 ("ho", "v54.1_HO_public.anno", 301),
             ],
+        )
+
+    def test_download_aadr_anno_files_writes_release_manifest(self) -> None:
+        metadata = {
+            "data": [
+                {
+                    "versionNumber": 9,
+                    "versionMinorNumber": 1,
+                    "releaseTime": "2024-09-17T04:23:58Z",
+                    "lastUpdateTime": "2024-09-17T04:23:58Z",
+                    "files": [
+                        {"dataFile": {"filename": "v62.0_1240k_public.anno", "id": 101, "md5": "aaa", "filesize": 11}},
+                        {"dataFile": {"filename": "v62.0_HO_public.anno", "id": 102, "md5": "bbb", "filesize": 12}},
+                    ],
+                }
+            ]
+        }
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp)
+            with patch(
+                "bijux_pollenomics.data_downloader.aadr.fetch_release_history_metadata",
+                return_value=metadata,
+            ), patch(
+                "bijux_pollenomics.data_downloader.aadr.fetch_binary",
+                side_effect=[b"first", b"second"],
+            ):
+                report = download_aadr_anno_files(output_root, "v62.0")
+
+            manifest = json.loads(report.manifest_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(report.downloaded_files[0].name, "v62.0_1240k_public.anno")
+        self.assertEqual(report.downloaded_files[1].name, "v62.0_HO_public.anno")
+        self.assertEqual(manifest["requested_version"], "v62.0")
+        self.assertEqual(manifest["dataverse_version_number"], 9)
+        self.assertEqual(
+            [item["dataset_name"] for item in manifest["anno_files"]],
+            ["1240k", "ho"],
+        )
+        self.assertEqual(
+            manifest["downloaded_files"],
+            ["1240k/v62.0_1240k_public.anno", "ho/v62.0_HO_public.anno"],
         )
 
 

@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-from .common import fetch_binary, fetch_text
+from .common import fetch_binary, fetch_text, write_json
 
 
 AADR_DATAVERSE_PERSISTENT_ID = "doi:10.7910/DVN/FFIDCW"
@@ -25,6 +25,15 @@ class AadrAnnoFile:
     filename: str
     file_id: int
     dataset_name: str
+    md5: str
+    filesize: int
+
+
+@dataclass(frozen=True)
+class AadrReleaseResolution:
+    version: str
+    dataset_version: dict[str, object]
+    anno_files: tuple[AadrAnnoFile, ...]
 
 
 @dataclass(frozen=True)
@@ -32,6 +41,7 @@ class AadrAnnoDownloadReport:
     version: str
     version_dir: Path
     downloaded_files: tuple[Path, ...]
+    manifest_path: Path
 
 
 def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloadReport:
@@ -40,9 +50,9 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
     version_dir = output_root / version
     version_dir.mkdir(parents=True, exist_ok=True)
 
-    anno_files = resolve_anno_files(version=version, metadata=fetch_release_history_metadata())
+    resolution = resolve_aadr_release(version=version, metadata=fetch_release_history_metadata())
     downloaded_files: list[Path] = []
-    for anno_file in anno_files:
+    for anno_file in resolution.anno_files:
         dataset_dir = version_dir / anno_file.dataset_name
         dataset_dir.mkdir(parents=True, exist_ok=True)
         destination = dataset_dir / anno_file.filename
@@ -54,20 +64,38 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
         )
         downloaded_files.append(destination)
 
+    manifest_path = version_dir / "release_manifest.json"
+    write_release_manifest(
+        manifest_path,
+        version=version,
+        resolution=resolution,
+        downloaded_files=downloaded_files,
+    )
+
     return AadrAnnoDownloadReport(
         version=version,
         version_dir=version_dir,
         downloaded_files=tuple(downloaded_files),
+        manifest_path=manifest_path,
     )
 
 
 def resolve_anno_files(version: str, metadata: dict[str, object]) -> tuple[AadrAnnoFile, ...]:
     """Extract one release's public .anno files from the Dataverse version history."""
+    return resolve_aadr_release(version=version, metadata=metadata).anno_files
+
+
+def resolve_aadr_release(version: str, metadata: dict[str, object]) -> AadrReleaseResolution:
+    """Resolve one requested AADR release from the Dataverse version history."""
     version_prefix = f"{version}_"
     for dataset_version in iter_release_versions(metadata):
         matched_files = extract_anno_files_from_release(dataset_version, version_prefix=version_prefix)
         if matched_files:
-            return tuple(sorted(matched_files, key=lambda item: item.dataset_name))
+            return AadrReleaseResolution(
+                version=version,
+                dataset_version=dataset_version,
+                anno_files=tuple(validate_anno_files(sorted(matched_files, key=lambda item: item.dataset_name))),
+            )
     raise ValueError(
         f"No public .anno files were found for {version} in {AADR_DATAVERSE_PERSISTENT_ID}"
     )
@@ -106,9 +134,57 @@ def extract_anno_files_from_release(
                 filename=filename,
                 file_id=int(data_file["id"]),
                 dataset_name=dataset_directory_name(filename),
+                md5=str(data_file.get("md5", "")).strip(),
+                filesize=int(data_file.get("filesize", 0) or 0),
             )
         )
     return matched_files
+
+
+def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
+    """Validate resolved AADR `.anno` files before download."""
+    seen_dataset_names: set[str] = set()
+    for file in files:
+        if not file.filename or file.file_id <= 0:
+            raise ValueError("Resolved AADR release includes an invalid public .anno entry")
+        if file.dataset_name in seen_dataset_names:
+            raise ValueError(f"Resolved AADR release contains duplicate dataset coverage for {file.dataset_name}")
+        seen_dataset_names.add(file.dataset_name)
+    return files
+
+
+def write_release_manifest(
+    path: Path,
+    *,
+    version: str,
+    resolution: AadrReleaseResolution,
+    downloaded_files: list[Path],
+) -> None:
+    """Persist the upstream Dataverse release metadata for one downloaded AADR version."""
+    dataset_version = resolution.dataset_version
+    write_json(
+        path,
+        {
+            "source": "AADR",
+            "persistent_id": AADR_DATAVERSE_PERSISTENT_ID,
+            "requested_version": version,
+            "dataverse_version_number": dataset_version.get("versionNumber"),
+            "dataverse_version_minor_number": dataset_version.get("versionMinorNumber"),
+            "release_time": dataset_version.get("releaseTime"),
+            "last_update_time": dataset_version.get("lastUpdateTime"),
+            "downloaded_files": [str(file.relative_to(path.parent)) for file in downloaded_files],
+            "anno_files": [
+                {
+                    "dataset_name": file.dataset_name,
+                    "filename": file.filename,
+                    "file_id": file.file_id,
+                    "md5": file.md5,
+                    "filesize": file.filesize,
+                }
+                for file in resolution.anno_files
+            ],
+        },
+    )
 
 
 def dataset_directory_name(filename: str) -> str:
