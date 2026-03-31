@@ -10,7 +10,7 @@ Bijan Mousavi <bijan@bijux.io>. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
 Today, this repository does four concrete things:
 
 - collects six tracked data categories under `data/`
-- generates the Nordic Evidence Atlas bundle under `docs/report/nordic/`
+- generates the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`
 - generates country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
 - builds a MkDocs documentation site under `artifacts/docs/site/`
 
@@ -76,7 +76,7 @@ Use this distinction when working in the repo:
 
 ### Verify The Environment First
 
-Prerequisite: `python3.11` must be available locally.
+Prerequisites: `python3.11` and `uv` must be available locally.
 
 ```bash
 make install
@@ -86,13 +86,14 @@ make test
 make test-unit
 make test-regression
 make test-e2e
+make package-check
 ```
 
 That path is the safest first run because it validates the local environment before any network-heavy or state-changing data workflow.
 
 ### Rebuild The Current Checked-In State
 
-Prerequisite: `python3.11` must be available locally.
+Prerequisites: `python3.11` and `uv` must be available locally.
 
 ```bash
 make app-state
@@ -124,6 +125,7 @@ make test-unit
 make test-regression
 make test-e2e
 make check
+make package-check
 make docs
 make docs-serve
 make build
@@ -138,7 +140,8 @@ What they do:
 - `make data-prep` runs `collect-data all --version v62.0 --output-root data`
 - `make reports` regenerates the current checked-in shared map and country bundles under `docs/report/`
 - `make app-state` runs the full current rebuild path: data, reports, and docs
-- `make check` runs the repository verification pass: lock check, lint, tests, and docs
+- `make check` runs the repository verification pass: lock check, lint, tests, docs, and distributions
+- `make package-check` rebuilds source and wheel distributions and validates them with `twine check`
 - `make test-unit` runs the fast logic-level unit suite under `tests/unit/`
 - `make test-regression` runs contract and artifact-regression checks under `tests/regression/`
 - `make test-e2e` runs end-to-end command-flow checks under `tests/e2e/`
@@ -157,8 +160,8 @@ These points are easy to miss and matter in review:
 
 The main checked-in publication artifacts are:
 
-- Nordic Evidence Atlas: [`docs/report/nordic/nordic_aadr_v62.0_map.html`](docs/report/nordic/nordic_aadr_v62.0_map.html)
-- shared Nordic report index: [`docs/report/nordic/README.md`](docs/report/nordic/README.md)
+- Nordic Evidence Atlas: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
+- shared Nordic report index: [`docs/report/nordic-atlas/README.md`](docs/report/nordic-atlas/README.md)
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
 
@@ -191,10 +194,10 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 
 Useful entry points:
 
-- data guide: [`docs/03-data-guide/index.md`](docs/03-data-guide/index.md)
-- reports guide: [`docs/04-reports/index.md`](docs/04-reports/index.md)
-- local workflow: [`docs/06-development/local-workflow.md`](docs/06-development/local-workflow.md)
-- command reference: [`docs/07-reference/command-surface.md`](docs/07-reference/command-surface.md)
+- data guide: [`docs/data-sources/index.md`](docs/data-sources/index.md)
+- reports guide: [`docs/outputs/index.md`](docs/outputs/index.md)
+- local workflow: [`docs/engineering/local-workflow.md`](docs/engineering/local-workflow.md)
+- command reference: [`docs/reference/command-reference.md`](docs/reference/command-reference.md)
 
 ## Honesty Notes
 
