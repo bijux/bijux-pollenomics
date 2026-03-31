@@ -1551,10 +1551,8 @@ def render_multi_country_map_html(
             <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
             <button class="section-nav-button" type="button" data-section-target="coverage-panel">Coverage</button>
             <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
-            <button class="section-nav-button" type="button" data-section-target="layer-panel">Layers</button>
             <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
             <button class="section-nav-button" type="button" data-section-target="search-panel">Search</button>
-            <button class="section-nav-button" type="button" data-section-target="time-panel">Time</button>
             <button class="section-nav-button" type="button" data-section-target="distance-panel">Distance</button>
             <button class="section-nav-button" type="button" data-section-target="active-panel">State</button>
           </nav>
@@ -1580,17 +1578,6 @@ def render_multi_country_map_html(
                 <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
               </div>
             </section>
-            <section id="layer-panel" class="panel-card">
-              <div class="section-head"><h2>Research Layers</h2><span id="layer-summary" aria-live="polite">All layers enabled</span></div>
-              <p class="panel-copy">Layers are grouped by role so the map separates primary evidence, environmental context, archaeology context, and orientation aids.</p>
-              <div class="inline-actions" style="margin-top: 0; margin-bottom: 14px;">
-                <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
-                <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
-                <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
-                <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
-              </div>
-              <div id="layer-filters" class="layer-stack"></div>
-            </section>
             <section id="filters-panel" class="panel-card">
               <div class="section-head"><h2>Active Filters</h2><span id="filter-chip-count" aria-live="polite">Defaults</span></div>
               <p class="panel-copy">This section surfaces only the filter groups that currently differ from the default map state. Remove a chip to reset that part of the view without disturbing the rest.</p>
@@ -1605,27 +1592,6 @@ def render_multi_country_map_html(
               </div>
               <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
               <div id="search-results" class="search-results"></div>
-            </section>
-            <section id="time-panel" class="panel-card">
-              <div class="section-head"><h2>Time Window</h2><span id="time-window-value">__INITIAL_TIME_START_BP__-__INITIAL_TIME_END_BP__ BP</span></div>
-              <div class="field-label"><span>Window start (years BP)</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
-              <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
-              <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
-              <div class="field-label" style="margin-top: 16px;"><span>Window interval</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
-              <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
-              <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
-              <div class="preset-row" style="margin-top: 12px;">
-                <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
-                <button class="preset-button" type="button" data-time-interval="500">500 years</button>
-                <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
-                <button class="preset-button" type="button" data-time-interval="full">Full span</button>
-              </div>
-              <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
-              <div class="time-density">
-                <div id="time-density-bars" class="time-density-bars"></div>
-                <div class="time-density-labels"><span>Earlier BP</span><span>Later BP</span></div>
-              </div>
-              <div id="time-help" class="search-meta">Point records with `Date mean in BP` are filtered to the active window. Default interval is `100 years` and can be adjusted.</div>
             </section>
             <section id="distance-panel" class="panel-card">
               <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
@@ -1699,6 +1665,56 @@ def render_multi_country_map_html(
             </div>
           </div>
         </div>
+        <section class="map-dock" aria-label="Map controls">
+          <div class="map-dock-card">
+            <div class="map-dock-head">
+              <div>
+                <span class="map-dock-label">Evidence</span>
+                <h2 class="map-dock-title">Layer Selection</h2>
+              </div>
+              <span id="dock-layer-summary" class="map-dock-summary">Loading enabled layers</span>
+            </div>
+            <div class="map-dock-grid">
+              <div class="dock-actions">
+                <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+              </div>
+              <div id="dock-layer-filters" class="dock-layer-grid"></div>
+            </div>
+          </div>
+          <div class="map-dock-card">
+            <div class="map-dock-head">
+              <div>
+                <span class="map-dock-label">Time</span>
+                <h2 class="map-dock-title">Date Window</h2>
+              </div>
+              <span id="dock-time-summary" class="map-dock-summary">Loading BP range</span>
+            </div>
+            <div class="map-dock-grid">
+              <div class="dock-range-stack">
+                <div>
+                  <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
+                  <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
+                  <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+                </div>
+                <div>
+                  <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
+                  <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
+                  <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+                </div>
+              </div>
+              <div class="dock-presets">
+                <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+              </div>
+              <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
+            </div>
+          </div>
+        </section>
         <section id="focus-card" class="focus-card" hidden aria-live="polite">
           <div class="focus-card-head">
             <div>
@@ -1803,7 +1819,7 @@ def render_multi_country_map_html(
       const legendToggleButton = document.getElementById('legend-toggle');
       const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
       const countryFilters = document.getElementById('country-filters');
-      const layerFilters = document.getElementById('layer-filters');
+      const layerFilters = document.getElementById('dock-layer-filters');
       const legendItems = document.getElementById('legend-items');
       const scopeSummary = document.getElementById('scope-summary');
       const coverageSummary = document.getElementById('coverage-summary');
@@ -1819,6 +1835,9 @@ def render_multi_country_map_html(
       const workspaceBriefNote = document.getElementById('workspace-brief-note');
       const filterChips = document.getElementById('filter-chips');
       const filterChipCount = document.getElementById('filter-chip-count');
+      const dockLayerSummary = document.getElementById('dock-layer-summary');
+      const dockTimeSummary = document.getElementById('dock-time-summary');
+      const dockLayerFilters = document.getElementById('dock-layer-filters');
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
@@ -1826,9 +1845,7 @@ def render_multi_country_map_html(
       const timeStartValue = document.getElementById('time-start-value');
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
-      const timeWindowValue = document.getElementById('time-window-value');
       const timeRecordCount = document.getElementById('time-record-count');
-      const timeDensityBars = document.getElementById('time-density-bars');
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
@@ -1908,7 +1925,7 @@ def render_multi_country_map_html(
         if (!TIME_HAS_DATA) {
           timeStartSlider.disabled = true;
           timeIntervalSlider.disabled = true;
-          timeWindowValue.textContent = 'No BP dates available';
+          dockTimeSummary.textContent = 'No BP dates available';
           timeStartValue.textContent = '--';
           timeIntervalValue.textContent = '--';
           return;
@@ -1922,7 +1939,7 @@ def render_multi_country_map_html(
         timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
         timeIntervalSlider.value = String(timeIntervalYears);
         const endBp = timeWindowEndBp();
-        timeWindowValue.textContent = `${timeStartBp}-${endBp} BP`;
+        dockTimeSummary.textContent = `${timeStartBp}-${endBp} BP`;
         timeStartValue.textContent = `${timeStartBp} BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
       }
@@ -2158,34 +2175,7 @@ def render_multi_country_map_html(
         }).join('');
       }
       function renderTimeDensity() {
-        if (!TIME_HAS_DATA) {
-          timeDensityBars.innerHTML = '<div class="filter-chip-empty">No dated records are available for the current workspace.</div>';
-          return;
-        }
-        const bins = 12;
-        const span = Math.max(1, TIME_MAX_BP - TIME_MIN_BP);
-        const bucketSize = Math.max(1, Math.ceil(span / bins));
-        const counts = new Array(bins).fill(0);
-        POINT_LAYERS
-          .filter((layer) => activeLayerKeys.has(layer.key) && layer.applies_time_filter)
-          .forEach((layer) => {
-            layer.features.forEach((feature) => {
-              const yearBp = Number(feature.time_year_bp);
-              if (!Number.isFinite(yearBp)) return;
-              if (feature.country && !activeCountries.has(feature.country)) return;
-              const index = Math.min(bins - 1, Math.max(0, Math.floor((yearBp - TIME_MIN_BP) / bucketSize)));
-              counts[index] += 1;
-            });
-          });
-        const maxCount = Math.max(...counts, 1);
-        const activeEnd = timeWindowEndBp();
-        timeDensityBars.innerHTML = counts.map((count, index) => {
-          const binStart = TIME_MIN_BP + (index * bucketSize);
-          const binEnd = index === bins - 1 ? TIME_MAX_BP : Math.min(TIME_MAX_BP, binStart + bucketSize);
-          const height = count > 0 ? Math.max(16, Math.round((count / maxCount) * 80)) : 12;
-          const overlapsWindow = binEnd >= timeStartBp && binStart <= activeEnd;
-          return `<div class="time-density-bar ${overlapsWindow ? 'is-active-window' : ''}" style="height:${height}px" title="${escapeHtml(`${count} dated records from ${binStart} to ${binEnd} BP`)}"></div>`;
-        }).join('');
+        // The time dock keeps only direct controls visible; explanatory density detail lives in the help surface.
       }
       function renderWorkspaceBrief() {
         const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
@@ -2232,48 +2222,20 @@ def render_multi_country_map_html(
           .map((group) => {
             const layers = ALL_LAYERS.filter((layer) => layer.group === group);
             if (!layers.length) return '';
-            const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
-            const collapsed = collapsedLayerGroups.has(group);
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
-              const stateLabel = activeLayerKeys.has(layer.key) ? 'Enabled' : 'Hidden';
               const swatchColor = layerColor(layer);
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
-              return `<div class="layer-card ${activeLayerKeys.has(layer.key) ? 'is-enabled' : ''}"><label><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><div style="width:100%;"><div class="layer-card-top"><div class="layer-card-head"><div class="layer-card-title"><span class="layer-swatch-stack" style="background:${escapeHtml(swatchColor)}; border-color:${escapeHtml(swatchBorder)};"></span><div class="layer-card-text"><strong>${escapeHtml(layer.label)}</strong><span>${escapeHtml(layer.description)}</span></div></div><span class="layer-state-pill">${escapeHtml(stateLabel)}</span></div><span class="layer-badge" id="layer-count-${escapeHtml(layer.key)}">${escapeHtml(String(layer.count))} ${escapeHtml(layerUnit(layer))}</span></div><div class="layer-meta"><span><strong>Source</strong> ${escapeHtml(layer.source_name || layer.label)}</span><span><strong>Coverage</strong> ${escapeHtml(layer.coverage_label || '')}</span><span><strong>Geometry</strong> ${escapeHtml(layer.geometry_label || layerUnit(layer))}</span></div></div></label></div>`;
+              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
             }).join('');
-            return `<section class="layer-group ${collapsed ? 'is-collapsed' : ''}"><div class="layer-group-head"><div class="layer-group-head-main"><h3>${escapeHtml(layerGroupLabel(group))}</h3><span>${escapeHtml(layerGroupSummary(group))} ${enabledCount}/${layers.length} enabled.</span></div><div class="layer-group-actions"><button class="layer-group-button" type="button" data-group-toggle="${escapeHtml(group)}">${enabledCount === layers.length ? 'Hide group' : 'Show group'}</button><button class="layer-group-button" type="button" data-group-collapse="${escapeHtml(group)}">${collapsed ? 'Expand' : 'Collapse'}</button></div></div><div class="layer-group-stack">${cards}</div></section>`;
+            return cards;
           })
           .join('');
+        dockLayerSummary.textContent = activeLayerKeys.size ? `${activeLayerKeys.size} layers enabled` : 'No layers enabled';
         document.querySelectorAll('.layer-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) { activeLayerKeys.add(checkbox.value); } else { activeLayerKeys.delete(checkbox.value); }
             renderMapState();
-          });
-        });
-        document.querySelectorAll('[data-group-toggle]').forEach((button) => {
-          button.addEventListener('click', () => {
-            const group = button.dataset.groupToggle;
-            const layers = ALL_LAYERS.filter((layer) => layer.group === group);
-            const allEnabled = layers.every((layer) => activeLayerKeys.has(layer.key));
-            layers.forEach((layer) => {
-              if (allEnabled) {
-                activeLayerKeys.delete(layer.key);
-              } else {
-                activeLayerKeys.add(layer.key);
-              }
-            });
-            renderMapState();
-          });
-        });
-        document.querySelectorAll('[data-group-collapse]').forEach((button) => {
-          button.addEventListener('click', () => {
-            const group = button.dataset.groupCollapse;
-            if (collapsedLayerGroups.has(group)) {
-              collapsedLayerGroups.delete(group);
-            } else {
-              collapsedLayerGroups.add(group);
-            }
-            renderLayerControls();
           });
         });
       }
@@ -2601,7 +2563,9 @@ def render_multi_country_map_html(
         selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
-        layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
+        if (layerSummary) {
+          layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
+        }
         ALL_LAYERS.forEach((layer) => {
           const badge = document.getElementById(`layer-count-${layer.key}`);
           if (!badge) return;
