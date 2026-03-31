@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Iterable
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 
 from .common import clean_optional_text, fetch_json, write_json
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
@@ -23,6 +23,7 @@ NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
 NEOTOMA_REQUEST_TIMEOUT_SECONDS = 60.0
 NEOTOMA_DOWNLOAD_WORKERS = 16
+NEOTOMA_API_RETRIES = 3
 NEOTOMA_DOWNLOAD_RETRIES = 3
 
 
@@ -101,8 +102,8 @@ def fetch_neotoma_dataset_download_row(dataset_id: int) -> list[dict[str, object
             if not isinstance(data, list):
                 return []
             return [copy.deepcopy(item) for item in data if isinstance(item, dict)]
-        except (TimeoutError, URLError):
-            if attempt + 1 >= NEOTOMA_DOWNLOAD_RETRIES:
+        except (TimeoutError, URLError, HTTPError) as exc:
+            if not neotoma_retryable_error(exc) or attempt + 1 >= NEOTOMA_DOWNLOAD_RETRIES:
                 raise
             time.sleep(float(attempt + 1))
     return []
@@ -170,12 +171,7 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
         }
         if extra_params:
             params.update(extra_params)
-        payload = fetch_json(
-            f"{NEOTOMA_DATA_URL}/{endpoint}",
-            params=params,
-            insecure=True,
-            timeout=NEOTOMA_REQUEST_TIMEOUT_SECONDS,
-        )
+        payload = fetch_neotoma_api_payload(endpoint, params=params)
         chunk = payload.get("data", [])
         if not isinstance(chunk, list) or not chunk:
             break
@@ -184,6 +180,33 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
             break
         offset += NEOTOMA_LIMIT
     return rows
+
+
+def fetch_neotoma_api_payload(endpoint: str, *, params: dict[str, str]) -> dict[str, object]:
+    """Fetch one Neotoma API payload with bounded retries for transient HTTP failures."""
+    for attempt in range(NEOTOMA_API_RETRIES):
+        try:
+            payload = fetch_json(
+                f"{NEOTOMA_DATA_URL}/{endpoint}",
+                params=params,
+                insecure=True,
+                timeout=NEOTOMA_REQUEST_TIMEOUT_SECONDS,
+            )
+            if not isinstance(payload, dict):
+                raise ValueError("Neotoma API response must be a JSON object")
+            return payload
+        except (TimeoutError, URLError, HTTPError) as exc:
+            if not neotoma_retryable_error(exc) or attempt + 1 >= NEOTOMA_API_RETRIES:
+                raise
+            time.sleep(float(attempt + 1))
+    raise RuntimeError("Neotoma API retries exhausted unexpectedly")
+
+
+def neotoma_retryable_error(exc: Exception) -> bool:
+    """Return whether one Neotoma transport failure is worth retrying."""
+    if isinstance(exc, HTTPError):
+        return exc.code == 429 or 500 <= exc.code <= 599
+    return isinstance(exc, (TimeoutError, URLError))
 
 
 def build_neotoma_bbox_geojson(bbox: tuple[float, float, float, float]) -> str:

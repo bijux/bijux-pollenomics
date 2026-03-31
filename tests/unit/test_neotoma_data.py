@@ -3,12 +3,15 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from io import BytesIO
 from pathlib import Path
 from unittest.mock import patch
+from urllib.error import HTTPError
 
 from bijux_pollenomics.data_downloader.neotoma import (
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
+    fetch_neotoma_api_rows,
     fetch_neotoma_dataset_download_rows,
     fetch_neotoma_pollen_rows,
     normalize_neotoma_rows,
@@ -16,6 +19,27 @@ from bijux_pollenomics.data_downloader.neotoma import (
 
 
 class NeotomaDataTests(unittest.TestCase):
+    def test_fetch_neotoma_api_rows_retries_retryable_http_errors(self) -> None:
+        retry_error = HTTPError(
+            url="https://api.neotomadb.org/v2.0/data/datasets",
+            code=503,
+            msg="Service Unavailable",
+            hdrs=None,
+            fp=BytesIO(b"retry later"),
+        )
+
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=[
+                retry_error,
+                {"data": [{"site": {"siteid": 20, "datasets": [{"datasetid": 201}]}}]},
+                {"data": []},
+            ],
+        ):
+            rows = fetch_neotoma_api_rows("datasets")
+
+        self.assertEqual(len(rows), 1)
+
     def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(self) -> None:
         inventory_rows = [
             {
@@ -256,6 +280,26 @@ class NeotomaDataTests(unittest.TestCase):
         ):
             with self.assertRaisesRegex(ValueError, "missing dataset IDs: 202"):
                 fetch_neotoma_dataset_download_rows([201, 202])
+
+    def test_fetch_neotoma_dataset_download_rows_retries_retryable_http_errors(self) -> None:
+        retry_error = HTTPError(
+            url="https://api.neotomadb.org/v2.0/data/downloads/201",
+            code=429,
+            msg="Too Many Requests",
+            hdrs=None,
+            fp=BytesIO(b"slow down"),
+        )
+
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=[
+                retry_error,
+                {"data": [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}]},
+            ],
+        ):
+            rows = fetch_neotoma_dataset_download_rows([201])
+
+        self.assertEqual(len(rows), 1)
 
     def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(self) -> None:
         country_boundaries = {
