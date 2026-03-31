@@ -9,6 +9,8 @@ last_reviewed: 2026-03-31
 
 # Command Reference
 
+Use this page for exact commands. Use the workflow pages when you need sequencing, prerequisites, or review advice.
+
 ## Bootstrap And Verification Commands
 
 ```bash
@@ -28,6 +30,8 @@ Use this order for a fresh local checkout. `make install` must run before any `a
 
 `make package-verify` is the default packaging proof surface. The narrower package targets remain available when you need to isolate metadata validation, wheel smoke installation, or source-distribution smoke installation separately.
 
+These are proof commands. They should not rewrite tracked `data/` or `docs/report/` outputs.
+
 ## Data Collection Commands
 
 ```bash
@@ -44,6 +48,8 @@ These commands rewrite tracked source outputs under `data/`.
 
 Source names are normalized case-insensitively by the CLI, so `collect-data AADR` and `collect-data aadr` resolve to the same tracked source.
 
+Use source-specific collection commands when reviewing one collector or one source snapshot. Use `collect-data all` when the checked-in `data/` tree itself is the review target.
+
 ## Report Commands
 
 ```bash
@@ -56,6 +62,8 @@ artifacts/.venv/bin/bijux-pollenomics report-country Denmark --version v62.0 --s
 ```
 
 These commands rewrite checked-in report outputs under `docs/report/`.
+
+`report-multi-country-map` builds only the shared map bundle. `publish-reports` builds the shared map plus country bundles.
 
 ## Make Targets That Change Tracked State
 
@@ -85,8 +93,9 @@ Use these only when you intend to rewrite tracked files. `make lock` updates `uv
 - `make reports` is the canonical `make` target for regenerating the checked-in report bundles
 - `make docs-serve` expects a healthy editable install and serves the site at `http://127.0.0.1:8000/`
 - `report-country` requires `--shared-map-label` and `--shared-map-path` together when you want a shared-map link in the generated README
-- `report-multi-country-map` builds only the shared map bundle; `publish-reports` builds the shared map plus country bundles
+- `make package-check` validates built package metadata
+- `make package-smoke` and `make package-source-smoke` isolate wheel-install and source-install failures when `make package-verify` is too broad
 
 ## Purpose
 
-This page centralizes the checked-in command surface in one place.
+This page centralizes the checked-in command surface in one exact reference sheet.

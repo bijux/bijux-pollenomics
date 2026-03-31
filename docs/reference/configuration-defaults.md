@@ -11,15 +11,17 @@ last_reviewed: 2026-03-31
 
 The repository keeps its shared publication defaults and path defaults in Python modules rather than in scattered string literals.
 
+`src/bijux_pollenomics/config.py` is the canonical source of truth. Compatibility modules such as `project.py` and `settings.py` expose the same defaults for older import paths.
+
 ## Core Defaults
 
 | Setting | Value | Source |
 | --- | --- | --- |
-| AADR version | `v62.0` | `src/bijux_pollenomics/project.py` |
-| Atlas slug | `nordic-atlas` | `src/bijux_pollenomics/project.py` |
-| Atlas title | `Nordic Evidence Atlas` | `src/bijux_pollenomics/project.py` |
-| Published countries | `Sweden`, `Norway`, `Finland`, `Denmark` | `src/bijux_pollenomics/project.py` |
-| Nordic bbox | `4.0, 54.0, 35.0, 72.0` | `src/bijux_pollenomics/project.py` |
+| AADR version | `v62.0` | `src/bijux_pollenomics/config.py` |
+| Atlas slug | `nordic-atlas` | `src/bijux_pollenomics/config.py` |
+| Atlas title | `Nordic Evidence Atlas` | `src/bijux_pollenomics/config.py` |
+| Published countries | `Sweden`, `Norway`, `Finland`, `Denmark` | `src/bijux_pollenomics/config.py` |
+| Nordic bbox | `4.0, 54.0, 35.0, 72.0` | `src/bijux_pollenomics/config.py` |
 
 ## Default Paths
 
