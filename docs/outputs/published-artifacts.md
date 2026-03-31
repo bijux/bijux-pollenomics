@@ -23,7 +23,7 @@ The checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It i
 - the interactive HTML map
 - a machine-readable summary JSON
 - bundled map UI assets under `_map_assets/`
-- copied LandClim, Neotoma, SEAD, boundaries, and RAÄ map assets
+- copied LandClim, Neotoma, SEAD, boundaries, and RAÄ layer files used by the shared map
 - a short bundle README
 
 The shared bundle is the only place where the interactive HTML map lives.

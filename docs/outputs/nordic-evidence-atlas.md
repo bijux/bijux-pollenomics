@@ -17,10 +17,9 @@ The Nordic Evidence Atlas is the main interactive product surface in this reposi
 - include and exclude by country
 - include and exclude by data layer
 - grouped layer controls for primary evidence, environmental context, archaeology context, and orientation
-- a workspace brief and source-coverage matrix that summarize the active evidence stack
 - distance circles around point layers
 - clustering, search, zoom, empty-state handling, and live layer summaries
-- a help dialog, focus inspector, and status dock for continuous review while navigating
+- a help dialog, focus inspector, floating legend, and status dock for continuous review while navigating
 - time-window presets plus a dated-record distribution chart
 - shareable URL state for country, layer, basemap, and distance selections
 - a fieldwork documentation point for the Lyngsjön Lake sampling visit, with direct links to checked-in photo and video evidence
@@ -33,7 +32,7 @@ The atlas is designed around one workflow:
 2. narrow the view by country, layer, time window, and distance settings
 3. inspect one focused record or overlay while the rest of the map remains interactive
 
-That is why the interface carries a brief, active-filter chips, grouped layer controls, a status dock, and a focused-record panel at the same time. They are part of the inspection workflow, not decorative UI.
+That is why the interface carries grouped layer controls, live state summaries, a help dialog, a status dock, and a focused-record panel at the same time. They are part of the inspection workflow, not decorative UI.
 
 ## Scope Limits
 
@@ -50,6 +49,7 @@ That is why the interface carries a brief, active-filter chips, grouped layer co
 flowchart LR
     AADR[AADR points] --> Map[Shared map]
     Fieldwork[Lyngsjön fieldwork point] --> Map
+    LandClim[LandClim pollen and REVEALS] --> Map
     Neotoma[Neotoma pollen] --> Map
     SEAD[SEAD sites] --> Map
     RAA[RAÄ archaeology density] --> Map
