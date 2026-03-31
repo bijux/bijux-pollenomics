@@ -7,7 +7,7 @@
     "Finland",
     "Denmark"
   ],
-  "shared_map_dir": "docs/report/nordic",
+  "shared_map_dir": "docs/report/nordic-atlas",
   "country_output_dirs": [
     "docs/report/sweden",
     "docs/report/norway",
@@ -17,8 +17,8 @@
   "summary_path": "docs/report/published_reports_summary.json",
   "artifacts": {
     "shared_bundle": {
-      "slug": "nordic",
-      "directory": "docs/report/nordic"
+      "slug": "nordic-atlas",
+      "directory": "docs/report/nordic-atlas"
     },
     "country_bundles": {
       "sweden": "docs/report/sweden",
