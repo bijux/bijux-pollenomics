@@ -6,9 +6,8 @@ from typing import Iterable
 
 from ..core.http import fetch_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
-from .sead_inventory import SeadSiteFetchResult, build_sead_site_inventory
-from .sead_archive import write_sead_site_archive
-from .sead_fetch import (
+from .sources.sead.archive import write_sead_site_archive
+from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
     fetch_sead_rows as fetch_sead_rows_from_api,
     fetch_sead_rows_by_ids as fetch_sead_rows_by_ids_from_api,
@@ -17,7 +16,8 @@ from .sead_fetch import (
     populate_sead_site_inventory_fields as populate_sead_site_inventory_fields_from_api,
     sead_dating_interval as sead_dating_interval_value,
 )
-from .sead_normalization import normalize_sead_rows
+from .sources.sead.inventory import SeadSiteFetchResult, build_sead_site_inventory
+from .sources.sead.normalization import normalize_sead_rows
 from .writers import write_context_points_csv, write_context_points_geojson
 
 
