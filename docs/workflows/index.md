@@ -17,7 +17,7 @@ It is ordered to keep environment verification separate from commands that rewri
 flowchart LR
     Checkout[Clone repo] --> Install[make install]
     Install --> LockCheck[make lock-check]
-    LockCheck --> Verify[make lint and make test]
+    LockCheck --> Verify[make lint, make test, make package-verify, and make docs]
     Verify --> DataPrep[make data-prep]
     DataPrep --> Reports[Publish report artifacts]
 ```
@@ -36,7 +36,7 @@ By the end of this section you should be able to:
 - sync the local project environment under `artifacts/.venv/` from `uv.lock`
 - confirm that the local Python and tooling match repository expectations
 - confirm that the dependency lock still matches the declared configuration
-- run lint and tests
+- run lint, tests, docs, and package verification
 - rebuild `data/` with one command
 - regenerate the shared Nordic map and country reports
 

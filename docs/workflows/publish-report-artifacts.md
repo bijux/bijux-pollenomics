@@ -25,6 +25,8 @@ artifacts/.venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --ve
 
 That command is the direct match for the checked-in publication workflow. It rebuilds the Nordic Evidence Atlas bundle and the four published country bundles in one pass.
 
+Publication now uses staging directories and swaps the finished tree into place only after success. A failed regeneration should not delete the previously published `docs/report/` tree.
+
 ## Which Command To Use
 
 - use `publish-reports` when you want the current checked-in publication tree rebuilt under `docs/report/`

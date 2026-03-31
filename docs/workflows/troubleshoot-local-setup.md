@@ -38,9 +38,18 @@ Check:
 - whether `LICENSE` and `NOTICE` are still included through `pyproject.toml`
 - whether `twine check` is reporting malformed metadata rather than a missing build artifact
 
+## `make package-verify` fails
+
+Check:
+
+- whether `make package-check` already isolates the failure to package metadata instead of installation
+- whether the built wheel starts correctly under `make package-smoke`
+- whether the built source distribution starts correctly under `make package-source-smoke`
+- whether a packaging change introduced a mismatch between `pyproject.toml`, `uv.lock`, and the package version exposed in `src/bijux_pollenomics/__init__.py`
+
 ## `make data-prep` is slow
 
-This can be expected when the RAÄ density layer is being rebuilt, because the collector issues repeated RAÄ WFS count queries across Swedish grid cells.
+This can still be expected when upstream sources are slow or large, but the RAÄ collector no longer rebuilds density through repeated live count queries per grid cell. It now archives the published feature inventory first and derives density locally from that snapshot.
 
 ## `make docs` fails
 
@@ -83,6 +92,7 @@ Check:
 - whether `make data-prep` ran after the last collector change
 - whether `docs/report/nordic-atlas/nordic-atlas_map.html` was regenerated in the same repository state
 - whether supporting gallery assets or context artifacts are present where the atlas expects them
+- whether a failed report regeneration left the previous published tree in place instead of partially replacing it
 
 ## Purpose
 
