@@ -10,6 +10,7 @@ from bijux_pollenomics.data_downloader.raa import (
     build_raa_density_geojson,
     collect_raa_data,
     count_raa_features,
+    fetch_raa_feature_page,
     fetch_raa_feature_inventory,
 )
 
@@ -60,6 +61,15 @@ class RaaDataTests(unittest.TestCase):
         )
         self.assertEqual(len(density["features"]), 1)
         self.assertEqual(density["features"][0]["properties"]["count"], 2)
+
+    def test_fetch_raa_feature_page_uses_explicit_sort_key(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.raa.fetch_json",
+            return_value={"type": "FeatureCollection", "features": []},
+        ) as fetch_json:
+            fetch_raa_feature_page(start_index=0)
+
+        self.assertEqual(fetch_json.call_args.kwargs["params"]["sortBy"], "lamningsnummer")
 
     def test_fetch_raa_feature_inventory_paginates_all_features(self) -> None:
         pages = [

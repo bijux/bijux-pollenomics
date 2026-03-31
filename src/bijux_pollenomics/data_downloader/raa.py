@@ -19,6 +19,7 @@ from ..core.http import fetch_json
 
 
 RAA_FEATURE_PAGE_SIZE = 10000
+RAA_FEATURE_SORT_KEY = "lamningsnummer"
 
 
 @dataclass(frozen=True)
@@ -47,6 +48,7 @@ def fetch_raa_feature_page(
         "srsName": "EPSG:4326",
         "startIndex": str(start_index),
         "count": str(count),
+        "sortBy": RAA_FEATURE_SORT_KEY,
     }
     if cql_filter:
         params["CQL_FILTER"] = cql_filter
