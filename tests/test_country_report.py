@@ -534,7 +534,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             self.assertEqual(report.total_unique_samples, 0)
-            map_html = (output / "north-atlantic_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "north-atlantic_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("No visible point records are available under the current filters.", map_html)
             self.assertIn("| Iceland | 0 |", readme_text)
