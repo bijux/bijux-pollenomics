@@ -57,4 +57,5 @@ class CommandLineUnitTests(unittest.TestCase):
     def test_package_version_matches_pyproject(self) -> None:
         pyproject_text = Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text(encoding="utf-8")
 
-        self.assertIn(f'version = "{__version__}"', pyproject_text)
+        self.assertIn('dynamic = ["version"]', pyproject_text)
+        self.assertIn(f'version = {{attr = "bijux_pollenomics.__version__"}}', pyproject_text)

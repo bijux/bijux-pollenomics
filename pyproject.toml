@@ -4,7 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bijux-pollenomics"
-version = "0.1.0"
 description = "Data collection, reporting, and mapping tools for Nordic aDNA and contextual evidence layers."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -14,6 +13,7 @@ authors = [
     { name = "Bijan Mousavi", email = "bijan@bijux.io" },
 ]
 keywords = ["aadr", "archaeology", "atlas", "paleoecology", "pollenomics"]
+dynamic = ["version"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -49,3 +49,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "bijux_pollenomics.__version__"}
