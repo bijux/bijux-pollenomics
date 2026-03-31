@@ -32,9 +32,9 @@ The current atlas groups layers by role, exposes filter state in the URL, and sh
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="03-data-guide/">Read the data guide</a>
-  <a class="md-button" href="04-reports/">Read the reports guide</a>
-  <a class="md-button" href="06-development/">Read the development workflow</a>
+  <a class="md-button" href="data-sources/">Read the data sources guide</a>
+  <a class="md-button" href="outputs/">Read the outputs guide</a>
+  <a class="md-button" href="engineering/">Read the engineering workflow</a>
 </div>
 
 <div class="bijux-map-frame">
@@ -46,7 +46,7 @@ The current atlas groups layers by role, exposes filter state in the URL, and sh
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="04-reports/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button md-button--primary" href="outputs/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
   <a class="md-button" href="gallery/2026-02-26-data-collection.mov">Open the field video</a>
 </div>
 
@@ -80,34 +80,34 @@ The docs are organized so a reader can move from the visible output into the sup
 
 ```mermaid
 flowchart TD
-    Home[Home and map] --> Intro[Introduction]
-    Home --> GettingStarted[Getting Started]
-    Home --> DataGuide[Data Guide]
-    Home --> Reports[Reports]
-    DataGuide --> Architecture[Architecture]
-    Reports --> Architecture
-    Architecture --> Development[Development]
-    Development --> Reference[Reference]
+    Home[Home and map] --> Foundation[Foundation]
+    Home --> Workflows[Workflows]
+    Home --> Sources[Data Sources]
+    Home --> Outputs[Outputs]
+    Sources --> Architecture[Architecture]
+    Outputs --> Architecture
+    Architecture --> Engineering[Engineering]
+    Engineering --> Reference[Reference]
 ```
 
 ## Canonical Sections
 
-- [Introduction](01-introduction/index.md)
-- [Getting Started](02-getting-started/index.md)
-- [Data Guide](03-data-guide/index.md)
-- [Reports](04-reports/index.md)
-- [Architecture](05-architecture/index.md)
-- [Development](06-development/index.md)
-- [Reference](07-reference/index.md)
+- [Foundation](foundation/index.md)
+- [Workflows](workflows/index.md)
+- [Data Sources](data-sources/index.md)
+- [Outputs](outputs/index.md)
+- [Architecture](architecture/index.md)
+- [Engineering](engineering/index.md)
+- [Reference](reference/index.md)
 
 ## Choose a Path
 
-- trying to understand the product goal: start with [Introduction](01-introduction/index.md)
-- trying to reproduce the repository state on a fresh machine: use [Getting Started](02-getting-started/index.md)
-- trying to understand one source dataset: go to [Data Guide](03-data-guide/index.md)
-- trying to understand the interactive outputs: go to [Reports](04-reports/index.md)
-- trying to extend the pipeline safely: read [Architecture](05-architecture/index.md) and [Development](06-development/index.md)
-- trying to find exact commands, paths, or artifact names: use [Reference](07-reference/index.md)
+- trying to understand the product goal: start with [Foundation](foundation/index.md)
+- trying to reproduce the repository state on a fresh machine: use [Workflows](workflows/index.md)
+- trying to understand one source dataset: go to [Data Sources](data-sources/index.md)
+- trying to understand the interactive outputs: go to [Outputs](outputs/index.md)
+- trying to extend the pipeline safely: read [Architecture](architecture/index.md) and [Engineering](engineering/index.md)
+- trying to find exact commands, paths, or artifact names: use [Reference](reference/index.md)
 
 ## Reading Standard
 

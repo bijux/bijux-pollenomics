@@ -86,7 +86,7 @@ After a full successful run, the checked-in tree should contain:
 - an updated `data/collection_summary.json`
 - no stale files left behind inside a rebuilt source directory from earlier collector versions
 
-The data collector does not regenerate `docs/report/`. Report publishing is a separate workflow documented in [Generate reports and map outputs](generate-reports-and-map.md).
+The data collector does not regenerate `docs/report/`. Report publishing is a separate workflow documented in [Publish report artifacts](publish-report-artifacts.md).
 
 ## Purpose
 

@@ -39,8 +39,8 @@ The introduction pages answer four foundational questions:
 
 ## Pages in This Section
 
-- [Current app scope](current-app-scope.md)
-- [What bijux-pollenomics does](what-bijux-pollenomics-does.md)
+- [Repository scope](repository-scope.md)
+- [Product overview](product-overview.md)
 - [Scope and non-goals](scope-and-non-goals.md)
 - [Map-first product model](map-first-product-model.md)
 

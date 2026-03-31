@@ -88,46 +88,46 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - Introduction:
-      - Overview: 01-introduction/index.md
-      - Current App Scope: 01-introduction/current-app-scope.md
-      - What bijux-pollenomics Does: 01-introduction/what-bijux-pollenomics-does.md
-      - Scope and Non-Goals: 01-introduction/scope-and-non-goals.md
-      - Map-First Product Model: 01-introduction/map-first-product-model.md
-  - Getting Started:
-      - Overview: 02-getting-started/index.md
-      - Install and Verify: 02-getting-started/install-and-verify.md
-      - Rebuild the Data Tree: 02-getting-started/rebuild-the-data-tree.md
-      - Generate Reports and Map Outputs: 02-getting-started/generate-reports-and-map.md
-      - Troubleshoot Early Problems: 02-getting-started/troubleshoot-early-problems.md
-  - Data Guide:
-      - Overview: 03-data-guide/index.md
-      - Data Categories: 03-data-guide/data-categories.md
-      - AADR: 03-data-guide/aadr.md
-      - Boundaries: 03-data-guide/boundaries.md
-      - LandClim: 03-data-guide/landclim.md
-      - Neotoma: 03-data-guide/neotoma.md
-      - SEAD: 03-data-guide/sead.md
-      - RAÄ: 03-data-guide/raa.md
-  - Reports:
-      - Overview: 04-reports/index.md
-      - Country Reports: 04-reports/country-reports.md
-      - Nordic Evidence Atlas: 04-reports/shared-nordic-map.md
-      - Lyngsjön Lake Fieldwork: 04-reports/lyngsjon-lake-fieldwork.md
-      - Published Artifacts: 04-reports/published-artifacts.md
+  - Foundation:
+      - Overview: foundation/index.md
+      - Repository Scope: foundation/repository-scope.md
+      - Product Overview: foundation/product-overview.md
+      - Scope and Non-Goals: foundation/scope-and-non-goals.md
+      - Map-First Product Model: foundation/map-first-product-model.md
+  - Workflows:
+      - Overview: workflows/index.md
+      - Install and Verify: workflows/install-and-verify.md
+      - Rebuild Data Tree: workflows/rebuild-data-tree.md
+      - Publish Report Artifacts: workflows/publish-report-artifacts.md
+      - Troubleshoot Local Setup: workflows/troubleshoot-local-setup.md
+  - Data Sources:
+      - Overview: data-sources/index.md
+      - Source Comparison: data-sources/source-comparison.md
+      - AADR: data-sources/aadr.md
+      - Boundaries: data-sources/boundaries.md
+      - LandClim: data-sources/landclim.md
+      - Neotoma: data-sources/neotoma.md
+      - SEAD: data-sources/sead.md
+      - RAÄ: data-sources/raa.md
+  - Outputs:
+      - Overview: outputs/index.md
+      - Country Reports: outputs/country-reports.md
+      - Nordic Evidence Atlas: outputs/nordic-evidence-atlas.md
+      - Lyngsjön Lake Fieldwork: outputs/lyngsjon-lake-fieldwork.md
+      - Published Artifacts: outputs/published-artifacts.md
   - Architecture:
-      - Overview: 05-architecture/index.md
-      - System Overview: 05-architecture/system-overview.md
-      - Data Collection Flow: 05-architecture/data-collection-flow.md
-      - Source Layout and Ownership: 05-architecture/source-layout-and-ownership.md
-  - Development:
-      - Overview: 06-development/index.md
-      - Local Workflow: 06-development/local-workflow.md
-      - Documentation Workflow: 06-development/documentation-workflow.md
-      - Testing and Evidence: 06-development/testing-and-evidence.md
+      - Overview: architecture/index.md
+      - System Overview: architecture/system-overview.md
+      - Data Collection Flow: architecture/data-collection-flow.md
+      - Codebase Layout and Ownership: architecture/codebase-layout-and-ownership.md
+  - Engineering:
+      - Overview: engineering/index.md
+      - Local Workflow: engineering/local-workflow.md
+      - Documentation Standards: engineering/documentation-standards.md
+      - Testing and Evidence: engineering/testing-and-evidence.md
   - Reference:
-      - Overview: 07-reference/index.md
-      - Command Surface: 07-reference/command-surface.md
-      - Data Layout: 07-reference/data-layout.md
-      - Report Layout: 07-reference/report-layout.md
-      - Glossary: 07-reference/glossary.md
+      - Overview: reference/index.md
+      - Command Reference: reference/command-reference.md
+      - Data Layout: reference/data-layout.md
+      - Report Layout: reference/report-layout.md
+      - Glossary: reference/glossary.md

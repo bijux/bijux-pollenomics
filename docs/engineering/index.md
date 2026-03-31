@@ -14,7 +14,7 @@ This section explains the local workflow expected when changing code, data prepa
 ## Pages in This Section
 
 - [Local workflow](local-workflow.md)
-- [Documentation workflow](documentation-workflow.md)
+- [Documentation standards](documentation-standards.md)
 - [Testing and evidence](testing-and-evidence.md)
 
 ## Purpose

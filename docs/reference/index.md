@@ -15,7 +15,7 @@ Use it only when you need precision. If you are trying to learn the repository f
 
 ## Pages in This Section
 
-- [Command surface](command-surface.md)
+- [Command reference](command-reference.md)
 - [Data layout](data-layout.md)
 - [Report layout](report-layout.md)
 - [Glossary](glossary.md)

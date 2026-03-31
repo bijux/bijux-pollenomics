@@ -16,7 +16,7 @@ It also documents the boundary between generated publication artifacts and inter
 ## Pages in This Section
 
 - [Country reports](country-reports.md)
-- [Shared Nordic map](shared-nordic-map.md)
+- [Nordic Evidence Atlas](nordic-evidence-atlas.md)
 - [Lyngsjön Lake fieldwork](lyngsjon-lake-fieldwork.md)
 - [Published artifacts](published-artifacts.md)
 

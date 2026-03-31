@@ -1,13 +1,13 @@
 ---
-title: What bijux-pollenomics Does
+title: Product Overview
 audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
-# What bijux-pollenomics Does
+# Product Overview
 
 `bijux-pollenomics` builds a Nordic evidence workspace for inspecting where currently tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
 

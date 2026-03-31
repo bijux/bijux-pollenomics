@@ -1,17 +1,17 @@
 ---
-title: Current App Scope
+title: Repository Scope
 audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
-# Current App Scope
+# Repository Scope
 
 This page defines the current finished scope of the repository as it exists today.
 
-## Included In The Current App
+## Included In This Repository
 
 - tracked source collection for `aadr`, `boundaries`, `neotoma`, `raa`, and `sead`
 - one shared Nordic map bundle under `docs/report/nordic-atlas/`
@@ -19,7 +19,7 @@ This page defines the current finished scope of the repository as it exists toda
 - machine-readable collection and report summaries
 - one-command rebuilds for data, reports, and the docs site
 
-## Current Deliverables
+## Delivered Outputs
 
 ```mermaid
 flowchart LR
@@ -30,9 +30,9 @@ flowchart LR
 - `make data-prep` rebuilds the tracked data tree
 - `make reports` rebuilds the published report bundles
 - `make docs` rebuilds the MkDocs site
-- `make app-state` rebuilds the current app scope end to end
+- `make app-state` rebuilds the checked-in repository outputs end to end
 
-## Not Included In The Current App
+## Not Included
 
 - lake distance intersections
 - archaeological ranking outside the current RAÄ layer

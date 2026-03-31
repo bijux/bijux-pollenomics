@@ -23,7 +23,7 @@ flowchart TD
 
 ## Pages in This Section
 
-- [Data categories](data-categories.md)
+- [Source comparison](source-comparison.md)
 - [AADR](aadr.md)
 - [Boundaries](boundaries.md)
 - [LandClim](landclim.md)
@@ -41,7 +41,7 @@ The collector also writes `data/collection_summary.json`, and when a source depe
 
 Use this section in two passes:
 
-1. read [Data categories](data-categories.md) when you need to compare sources against each other
+1. read [Source comparison](source-comparison.md) when you need to compare sources against each other
 2. read a source-specific page when you need the exact acquisition and normalization behavior for one source
 
 That split is intentional. The project uses multiple evidence types whose geometry, coverage, and limitations are not interchangeable.

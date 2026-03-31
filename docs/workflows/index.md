@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Workflows
 audience: mixed
 type: index
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Getting Started
+# Workflows
 
 This section is the shortest honest path from a fresh checkout to a working local environment, a rebuilt `data/` tree, and regenerated outputs.
 
@@ -24,9 +24,9 @@ flowchart LR
 ## Pages in This Section
 
 - [Install and verify](install-and-verify.md)
-- [Rebuild the data tree](rebuild-the-data-tree.md)
-- [Generate reports and map outputs](generate-reports-and-map.md)
-- [Troubleshoot early problems](troubleshoot-early-problems.md)
+- [Rebuild the data tree](rebuild-data-tree.md)
+- [Publish report artifacts](publish-report-artifacts.md)
+- [Troubleshoot local setup](troubleshoot-local-setup.md)
 
 ## Outcome
 
