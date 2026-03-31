@@ -13,6 +13,7 @@ from .country_classification import (
     polygon_boundary_distance,
     ring_boundary_distance,
 )
+from .grid_cells import build_grid_cell_geometry, geometry_bbox, grid_cell_relevant
 from .representative_points import (
     flatten_positions,
     geometry_to_representative_point,
@@ -26,8 +27,11 @@ __all__ = [
     "flatten_positions",
     "COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE",
     "classify_country",
+    "build_grid_cell_geometry",
     "geometry_boundary_distance",
+    "geometry_bbox",
     "geometry_to_representative_point",
+    "grid_cell_relevant",
     "multipolygon_representative_point",
     "nearest_country_by_boundary_distance",
     "point_in_bbox",
