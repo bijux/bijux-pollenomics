@@ -496,9 +496,9 @@ def render_multi_country_map_html(
         gap: 10px;
       }
       .basemap-switch {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
       .inline-button,
@@ -510,16 +510,19 @@ def render_multi_country_map_html(
         font-weight: 600;
       }
       .basemap-button {
-        display: grid;
+        display: inline-flex;
+        align-items: center;
         gap: 8px;
-        padding: 10px;
-        border-radius: 18px;
+        padding: 8px 10px;
+        border-radius: 999px;
         text-align: left;
       }
       .basemap-preview {
-        height: 36px;
-        border-radius: 12px;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
         border: 1px solid rgba(24, 37, 61, 0.10);
+        flex: 0 0 auto;
       }
       .basemap-preview--voyager {
         background:
@@ -538,14 +541,13 @@ def render_multi_country_map_html(
       }
       .basemap-title {
         display: block;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
       }
       .basemap-copy {
-        display: block;
-        color: var(--muted);
-        font-size: 11px;
-        line-height: 1.5;
+        display: none;
       }
       .topbar-context {
         display: grid;
