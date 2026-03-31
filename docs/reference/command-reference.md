@@ -9,12 +9,11 @@ last_reviewed: 2026-03-31
 
 # Command Reference
 
-## Verification And Local Build Commands
+## Bootstrap And Verification Commands
 
 ```bash
-artifacts/.venv/bin/bijux-pollenomics --version
 make install
-make lock
+artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 make lint
 make test
@@ -22,13 +21,12 @@ make docs
 make docs-serve
 make build
 make package-verify
-make package-check
-make package-smoke
-make package-source-smoke
 make check
 ```
 
-These commands create or validate local artifacts. They do not recollect source data unless you explicitly invoke the data or report workflows below.
+Use this order for a fresh local checkout. `make install` must run before any `artifacts/.venv/bin/...` command because it creates the editable environment and installs the console script there.
+
+`make package-verify` is the default packaging proof surface. The narrower package targets remain available when you need to isolate metadata validation, wheel smoke installation, or source-distribution smoke installation separately.
 
 ## Data Collection Commands
 
@@ -60,12 +58,13 @@ These commands rewrite checked-in report outputs under `docs/report/`.
 ## Make Targets That Change Tracked State
 
 ```bash
+make lock
 make data-prep
 make reports
 make app-state
 ```
 
-Use these only when you intend to regenerate tracked data or tracked publication artifacts.
+Use these only when you intend to rewrite tracked files. `make lock` updates `uv.lock`, `make data-prep` rewrites the tracked `data/` tree, `make reports` rewrites `docs/report/`, and `make app-state` runs the full tracked rebuild path.
 
 ## Notes
 
@@ -78,6 +77,7 @@ Use these only when you intend to regenerate tracked data or tracked publication
 - `make lock-check` verifies that `uv.lock` matches `pyproject.toml`
 - `make build` writes distributions into `artifacts/dist/`
 - `make package-verify` is the default packaging proof surface because it combines metadata validation with wheel and source smoke installs
+- `make package-check`, `make package-smoke`, and `make package-source-smoke` are narrower troubleshooting targets, not the recommended first packaging pass
 - `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
 - `make package-source-smoke` installs the built source distribution into a temporary environment and runs the CLI there
 - `make reports` is the canonical `make` target for regenerating the checked-in report bundles

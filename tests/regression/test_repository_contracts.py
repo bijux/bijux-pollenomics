@@ -59,10 +59,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             encoding="utf-8"
         )
 
+        bootstrap_section = command_reference.split("## Data Collection Commands", maxsplit=1)[0]
+
         self.assertIn("artifacts/.venv/bin/bijux-pollenomics collect-data all", command_reference)
+        self.assertLess(bootstrap_section.index("make install"), bootstrap_section.index("artifacts/.venv/bin/bijux-pollenomics --version"))
         self.assertIn("make package-check", command_reference)
         self.assertIn("make package-smoke", command_reference)
         self.assertIn("make package-source-smoke", command_reference)
+        self.assertIn("## Make Targets That Change Tracked State", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
