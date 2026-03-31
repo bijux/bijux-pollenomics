@@ -2,14 +2,16 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
 from ..core.http import fetch_text
-from ..core.files import write_json
 from ..core.text import clean_optional_text, slugify
-from .contracts import BOUNDARY_COLLECTION
+from .boundary_archive import (
+    BoundariesDataReport,
+    build_combined_country_boundaries,
+    write_boundary_archive,
+)
 
 
 NATURAL_EARTH_VERSION = "5.1.1"
@@ -24,14 +26,6 @@ BOUNDARY_CODES = {
     "Finland": "FIN",
     "Denmark": "DNK",
 }
-
-
-@dataclass(frozen=True)
-class BoundariesDataReport:
-    output_dir: Path
-    country_names: tuple[str, ...]
-    combined_path: Path
-    manifest_path: Path
 
 
 def fetch_natural_earth_admin0_payload() -> tuple[dict[str, object], dict[str, object]]:
@@ -160,52 +154,29 @@ def validate_boundary_collection(
     return payload
 
 
-def build_combined_country_boundaries(
-    country_boundaries: dict[str, dict[str, object]],
-) -> dict[str, object]:
-    """Combine individual Nordic country files into one GeoJSON collection."""
-    features = []
-    for country, payload in country_boundaries.items():
-        for feature in payload.get("features", []):
-            features.append(
-                {
-                    "type": "Feature",
-                    "geometry": feature["geometry"],
-                    "properties": {
-                        "country": country,
-                        "name": country,
-                        "layer_key": "country-boundaries",
-                        "layer_label": "Country boundaries",
-                    },
-                }
-            )
-    return {"type": "FeatureCollection", "features": features}
-
-
 def collect_boundaries_data(output_root: Path) -> tuple[dict[str, dict[str, object]], BoundariesDataReport]:
     """Download and write the Nordic boundary dataset under data/boundaries."""
-    output_root = Path(output_root)
-    raw_dir = output_root / "raw"
-    normalized_dir = output_root / "normalized"
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    normalized_dir.mkdir(parents=True, exist_ok=True)
-
     global_boundaries, source_manifest = fetch_natural_earth_admin0_payload()
     country_boundaries = {
         country: build_country_boundary_collection(global_boundaries, country_code)
         for country, country_code in BOUNDARY_CODES.items()
     }
-    for country_name, payload in country_boundaries.items():
-        write_json(raw_dir / f"{slugify(country_name)}.geojson", payload)
-    manifest_path = raw_dir / "source_manifest.json"
-    write_json(manifest_path, source_manifest)
-
-    combined_path = BOUNDARY_COLLECTION.source_path_under(output_root)
-    write_json(combined_path, build_combined_country_boundaries(country_boundaries))
-
-    return country_boundaries, BoundariesDataReport(
-        output_dir=output_root,
-        country_names=tuple(country_boundaries.keys()),
-        combined_path=combined_path,
-        manifest_path=manifest_path,
+    return country_boundaries, write_boundary_archive(
+        output_root,
+        country_boundaries=country_boundaries,
+        source_manifest=source_manifest,
     )
+
+
+__all__ = [
+    "BOUNDARY_CODES",
+    "BoundariesDataReport",
+    "NATURAL_EARTH_ADMIN0_URL",
+    "NATURAL_EARTH_VERSION",
+    "build_combined_country_boundaries",
+    "build_country_boundary_collection",
+    "collect_boundaries_data",
+    "fetch_country_boundaries",
+    "fetch_natural_earth_admin0_payload",
+    "load_country_boundaries",
+]
