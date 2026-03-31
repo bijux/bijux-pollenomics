@@ -9,9 +9,9 @@ last_reviewed: 2026-03-31
 
 # Repository Scope
 
-This page defines the current finished scope of the repository as it exists today.
+This page defines the delivered scope of the repository and the outer boundary it is expected to hold.
 
-## Included In This Repository
+## Delivered Capabilities
 
 - tracked source collection for `aadr`, `boundaries`, `neotoma`, `raa`, and `sead`
 - one shared Nordic map bundle under `docs/report/nordic-atlas/`
@@ -19,7 +19,7 @@ This page defines the current finished scope of the repository as it exists toda
 - machine-readable collection and report summaries
 - one-command rebuilds for data, reports, and the docs site
 
-## Delivered Outputs
+## Rebuild Surface
 
 ```mermaid
 flowchart LR
@@ -32,7 +32,7 @@ flowchart LR
 - `make docs` rebuilds the MkDocs site
 - `make app-state` rebuilds the checked-in repository outputs end to end
 
-## Not Included
+## Deliberate Exclusions
 
 - lake distance intersections
 - archaeological ranking outside the current RAÄ layer
@@ -40,10 +40,10 @@ flowchart LR
 - offline basemap tiles
 - genotype-level processing beyond tracked AADR `.anno` files
 
-## Why This Boundary Matters
+## Extension Rule
 
-The repository is strongest when it treats the present app scope as a stable evidence workspace rather than implying that later interpretation and ranking features already exist.
+The repository is strongest when it treats the delivered scope as a stable evidence workspace rather than implying that later interpretation and ranking features already exist. New capabilities should be added by extending this boundary deliberately, not by quietly stretching old language to cover unfinished behavior.
 
 ## Purpose
 
-This page records the current delivered app boundary so future work can extend it deliberately instead of blurring it.
+This page records the repository boundary so future work can extend it deliberately instead of blurring it.

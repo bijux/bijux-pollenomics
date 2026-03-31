@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Foundation
 audience: mixed
 type: index
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Introduction
+# Foundation
 
 This section gives the mental model for `bijux-pollenomics` before you start running commands or reading code.
 
@@ -29,9 +29,9 @@ flowchart TD
     SharedMap --> Interpretation
 ```
 
-The introduction pages answer four foundational questions:
+The foundation pages answer four foundational questions:
 
-- what the current app scope includes and excludes
+- what the repository scope includes and excludes
 - what the project is trying to support scientifically
 - what the repository produces today
 - which boundaries are intentional
@@ -61,7 +61,7 @@ This section is allowed to describe intent and product framing, but it should st
 
 ## Purpose
 
-This page explains the introduction section and routes readers to the foundational pages that define what `bijux-pollenomics` is building.
+This page explains the foundation section and routes readers to the pages that define what `bijux-pollenomics` is building.
 
 ## Stability
 

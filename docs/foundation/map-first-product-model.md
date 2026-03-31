@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Map-First Product Model
@@ -36,7 +36,7 @@ Starting with code would force most readers to reverse-engineer the repositoryâ€
 - what evidence is being combined
 - what geography is being covered
 - how filtering works
-- what kind of output the repository currently produces
+- what kind of output the repository produces
 
 ## Why Not Redirect Away From Documentation Entirely
 
@@ -49,6 +49,10 @@ The homepage embeds the map, but keeps the documentation shell around it, becaus
 - development workflow guidance
 
 The docs should not hide the map, and the map should not replace the docs.
+
+## Inspection Rule
+
+The homepage leads with the atlas because inspection is the first proof surface for the repository. The supporting pages exist to explain why the visible output should be trusted, where it comes from, and which limits still apply.
 
 ## Purpose
 

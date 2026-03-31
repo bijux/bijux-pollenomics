@@ -90,7 +90,7 @@ flowchart TD
     Engineering --> Reference[Reference]
 ```
 
-## Canonical Sections
+## Documentation Sections
 
 - [Foundation](foundation/index.md)
 - [Workflows](workflows/index.md)
@@ -100,7 +100,7 @@ flowchart TD
 - [Engineering](engineering/index.md)
 - [Reference](reference/index.md)
 
-## Choose a Path
+## Reader Paths
 
 - trying to understand the product goal: start with [Foundation](foundation/index.md)
 - trying to reproduce the repository state on a fresh machine: use [Workflows](workflows/index.md)
@@ -108,6 +108,18 @@ flowchart TD
 - trying to understand the interactive outputs: go to [Outputs](outputs/index.md)
 - trying to extend the pipeline safely: read [Architecture](architecture/index.md) and [Engineering](engineering/index.md)
 - trying to find exact commands, paths, or artifact names: use [Reference](reference/index.md)
+
+## Section Contract
+
+The documentation structure is intentionally role-based rather than numbered by authoring order:
+
+- `Foundation` explains what the project is and is not trying to deliver.
+- `Workflows` explains how to rebuild and verify the checked-in state.
+- `Data Sources` explains what each upstream source contributes and how it is collected.
+- `Outputs` explains the atlas, report bundles, and checked-in publication artifacts.
+- `Architecture` explains the code and file boundaries that make the pipeline reproducible.
+- `Engineering` explains the development and documentation quality bar.
+- `Reference` records exact commands, layouts, and terminology.
 
 ## Reading Standard
 

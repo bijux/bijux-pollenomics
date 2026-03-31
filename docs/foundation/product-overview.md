@@ -9,9 +9,9 @@ last_reviewed: 2026-03-31
 
 # Product Overview
 
-`bijux-pollenomics` builds a Nordic evidence workspace for inspecting where currently tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
+`bijux-pollenomics` builds a Nordic evidence workspace for inspecting where tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
 
-Today the checked-in workspace combines:
+The checked-in workspace combines:
 
 - ancient DNA sample locations from AADR
 - Nordic pollen and paleoecology locations from Neotoma
@@ -43,7 +43,13 @@ The repository is not just a static report dump. It is a file-oriented pipeline 
 3. generates country reports
 4. generates a shared Nordic map that can filter layers by country
 
-The longer-term research goal is to use those layers as one input to later site-selection work. The repository does not currently rank sites or recommend field locations automatically.
+The longer-term research goal is to use those layers as one input to later site-selection work. The repository does not rank sites or recommend field locations automatically.
+
+## Intended Readers
+
+- researchers who need to inspect the evidence surface before designing new spatial analysis
+- maintainers who need to rebuild the checked-in state and publish outputs reproducibly
+- reviewers who need to verify that a visible atlas or report change is grounded in tracked data and code
 
 ## Why The Map Is Central
 
@@ -56,7 +62,7 @@ The map is the fastest way to validate whether the repository is producing inter
 
 That is why the docs homepage embeds the shared map before anything else.
 
-## Current Durable Outputs
+## Durable Outputs
 
 - tracked source inputs under `data/`
 - normalized data products under `data/*/normalized/`
