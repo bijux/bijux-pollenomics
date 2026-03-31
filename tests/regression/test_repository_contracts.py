@@ -76,6 +76,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("make package-smoke", command_reference)
         self.assertIn("make package-source-smoke", command_reference)
         self.assertIn("## Make Targets That Change Tracked State", command_reference)
+        self.assertIn("normalized case-insensitively", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:

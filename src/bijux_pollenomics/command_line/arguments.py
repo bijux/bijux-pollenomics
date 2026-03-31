@@ -95,8 +95,8 @@ def build_parser() -> argparse.ArgumentParser:
     collect_parser.add_argument(
         "sources",
         nargs="+",
-        choices=("all", *AVAILABLE_SOURCES),
-        help="One or more data sources to collect, or `all`.",
+        metavar="source",
+        help="One or more data sources to collect, or `all`. Source names are normalized case-insensitively.",
     )
     add_version_argument(
         collect_parser,

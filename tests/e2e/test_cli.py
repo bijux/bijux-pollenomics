@@ -227,3 +227,21 @@ class CliTests(unittest.TestCase):
             self.assertIn("2 AADR .anno files", stdout.getvalue())
             self.assertTrue((output_root / "README.md").exists())
             self.assertTrue((output_root / "collection_summary.json").exists())
+
+    def test_collect_data_command_accepts_case_insensitive_source_names(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+                download_aadr.return_value.downloaded_files = ()
+
+                exit_code = main(
+                    [
+                        "collect-data",
+                        "AADR",
+                        "--output-root",
+                        str(output_root),
+                    ]
+                )
+
+            self.assertEqual(exit_code, 0)
+            self.assertTrue((output_root / "collection_summary.json").exists())

@@ -42,6 +42,8 @@ artifacts/.venv/bin/bijux-pollenomics collect-data sead --output-root data
 
 These commands rewrite tracked source outputs under `data/`.
 
+Source names are normalized case-insensitively by the CLI, so `collect-data AADR` and `collect-data aadr` resolve to the same tracked source.
+
 ## Report Commands
 
 ```bash
