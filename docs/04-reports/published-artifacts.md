@@ -15,7 +15,7 @@ These artifacts are generated outputs. They are not maintained by hand.
 
 ## Nordic Evidence Atlas Bundle
 
-The currently checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-evidence-atlas/`. It includes:
+The currently checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
 
 - a combined sample GeoJSON
 - the interactive HTML map

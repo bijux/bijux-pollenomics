@@ -12,12 +12,12 @@ last_reviewed: 2026-03-31
 ## Shared Map Bundle
 
 ```text
-docs/report/nordic-evidence-atlas
+docs/report/nordic-atlas
 ├── _map_assets
 ├── README.md
-├── nordic-evidence-atlas_v62.0_map.html
-├── nordic-evidence-atlas_v62.0_summary.json
-├── nordic-evidence-atlas_v62.0_samples.geojson
+├── nordic-atlas_map.html
+├── nordic-atlas_summary.json
+├── nordic-atlas_samples.geojson
 ├── nordic_country_boundaries.geojson
 ├── nordic_environmental_sites.geojson
 ├── nordic_pollen_site_sequences.geojson

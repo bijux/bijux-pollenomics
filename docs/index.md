@@ -31,14 +31,14 @@ The current atlas groups layers by role, exposes filter state in the URL, and sh
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="report/nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html">Open the Nordic Evidence Atlas</a>
+  <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="03-data-guide/">Read the data guide</a>
   <a class="md-button" href="04-reports/">Read the reports guide</a>
   <a class="md-button" href="06-development/">Read the development workflow</a>
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="report/nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html" title="Nordic Evidence Atlas"></iframe>
+  <iframe src="report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
 ## What This Documentation Set Explains

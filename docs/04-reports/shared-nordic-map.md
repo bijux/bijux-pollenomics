@@ -78,8 +78,8 @@ Use the map to inspect collected evidence and compare where sources overlap or d
 
 ## Current Published File
 
-- `docs/report/nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html`
-- `docs/report/nordic-evidence-atlas/nordic-evidence-atlas_v62.0_summary.json`
+- `docs/report/nordic-atlas/nordic-atlas_map.html`
+- `docs/report/nordic-atlas/nordic-atlas_summary.json`
 
 ## Purpose
 
