@@ -25,25 +25,13 @@ The repository already publishes database-derived evidence layers. This fieldwor
 
 That makes the atlas more legible for readers who want to connect one visible map point to a real collection day rather than to a database row alone.
 
-<div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="../report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="../gallery/2026-02-26-data-collection.mov">Open the field video</a>
-  <a class="md-button" href="../gallery/2026-02-26-data-collection.JPG">Open the field photo</a>
-</div>
+[Open the Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
+[Open the field video](../gallery/2026-02-26-data-collection.mov){ .md-button }
+[Open the field photo](../gallery/2026-02-26-data-collection.JPG){ .md-button }
 
-<div class="bijux-media-grid">
-  <figure class="bijux-media-card">
-    <img src="../gallery/2026-02-26-data-collection.JPG" alt="Field sampling at Lyngsjön Lake on 2026-02-26." loading="lazy">
-    <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26.</figcaption>
-  </figure>
-  <figure class="bijux-media-card">
-    <video controls preload="metadata" playsinline>
-      <source src="../gallery/2026-02-26-data-collection.mov" type="video/quicktime">
-      Your browser does not support embedded QuickTime playback. Use the direct video link above.
-    </video>
-    <figcaption>Short field video recorded during the Lyngsjön Lake sampling visit.</figcaption>
-  </figure>
-</div>
+![Field sampling at Lyngsjön Lake on 2026-02-26.](../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
+
+Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Use the video button above to open the checked-in field recording.
 
 ## Atlas Integration
 
