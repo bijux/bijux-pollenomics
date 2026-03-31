@@ -69,25 +69,21 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual(len(rows), 1)
 
-    def test_fetch_neotoma_dataset_inventory_rows_flattens_site_collectionunits(self) -> None:
+    def test_fetch_neotoma_dataset_inventory_rows_reads_dataset_inventory_rows(self) -> None:
         with patch(
             "bijux_pollenomics.data_downloader.neotoma.fetch_json",
             return_value={
                 "data": [
                     {
-                        "siteid": 20,
-                        "sitename": "Agerods Mosse",
-                        "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
-                        "collectionunits": [
-                            {
-                                "collectionunitid": 1,
-                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
-                            },
-                            {
-                                "collectionunitid": 2,
-                                "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
-                            },
-                        ],
+                        "site": {
+                            "siteid": 20,
+                            "sitename": "Agerods Mosse",
+                            "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                            "datasets": [
+                                {"datasetid": 201, "datasettype": "pollen"},
+                                {"datasetid": 202, "datasettype": "pollen"},
+                            ],
+                        }
                     }
                 ]
             },
@@ -105,21 +101,18 @@ class NeotomaDataTests(unittest.TestCase):
         observed_params: list[dict[str, str]] = []
 
         def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
-            self.assertEqual(url, "https://api.neotomadb.org/v2.0/data/sites")
+            self.assertEqual(url, "https://api.neotomadb.org/v2.0/data/datasets")
             self.assertIsNotNone(params)
             observed_params.append(dict(params or {}))
             return {
                 "data": [
                     {
-                        "siteid": 20,
-                        "sitename": "Agerods Mosse",
-                        "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
-                        "collectionunits": [
-                            {
-                                "collectionunitid": 1,
-                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
-                            }
-                        ],
+                        "site": {
+                            "siteid": 20,
+                            "sitename": "Agerods Mosse",
+                            "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                            "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                        }
                     }
                 ]
             }
@@ -188,7 +181,7 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(inventory_payload["queried_row_count"], 2)
         self.assertEqual(inventory_payload["retained_row_count"], 1)
         self.assertEqual(inventory_payload["retained_dataset_count"], 1)
-        self.assertEqual(inventory_payload["endpoint"], "https://api.neotomadb.org/v2.0/data/sites")
+        self.assertEqual(inventory_payload["endpoint"], "https://api.neotomadb.org/v2.0/data/datasets")
         self.assertEqual([item["site"]["siteid"] for item in inventory_payload["rows"]], [20, 30])
         self.assertEqual([item["site"]["siteid"] for item in inventory_payload["retained_rows"]], [20])
 
@@ -209,49 +202,40 @@ class NeotomaDataTests(unittest.TestCase):
         }
 
         def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
-            if url.endswith("/sites"):
+            if url.endswith("/datasets"):
                 return {
                     "status": "success",
                     "message": "ok",
                     "data": [
                         {
-                            "siteid": 20,
-                            "sitename": "Ageröds Mosse",
-                            "sitedescription": "",
-                            "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
-                            "altitude": 10,
-                            "collectionunits": [
-                                {
-                                    "collectionunitid": 1,
-                                    "collectionunit": "Core A",
-                                    "handle": "CORE-A",
-                                    "collectionunittype": "Core",
-                                    "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
-                                },
-                                {
-                                    "collectionunitid": 2,
-                                    "collectionunit": "Core B",
-                                    "handle": "CORE-B",
-                                    "collectionunittype": "Core",
-                                    "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
-                                },
-                            ],
+                            "site": {
+                                "siteid": 20,
+                                "sitename": "Ageröds Mosse",
+                                "sitedescription": "",
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                                "altitude": 10,
+                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                            }
                         },
                         {
-                            "siteid": 30,
-                            "sitename": "Outside Nordic",
-                            "sitedescription": "",
-                            "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
-                            "altitude": 25,
-                            "collectionunits": [
-                                {
-                                    "collectionunitid": 3,
-                                    "collectionunit": "Core C",
-                                    "handle": "CORE-C",
-                                    "collectionunittype": "Core",
-                                    "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
-                                }
-                            ],
+                            "site": {
+                                "siteid": 20,
+                                "sitename": "Ageröds Mosse",
+                                "sitedescription": "",
+                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                                "altitude": 10,
+                                "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
+                            }
+                        },
+                        {
+                            "site": {
+                                "siteid": 30,
+                                "sitename": "Outside Nordic",
+                                "sitedescription": "",
+                                "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
+                                "altitude": 25,
+                                "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
+                            }
                         },
                     ],
                 }
@@ -607,6 +591,7 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual(manifest_payload["requested_dataset_ids"], [201])
         self.assertEqual(manifest_payload["downloaded_dataset_ids"], [201])
+        self.assertEqual(manifest_payload["archive_dir"], "raw/neotoma_pollen_dataset_downloads")
         self.assertEqual(manifest_payload["part_count"], 1)
         self.assertEqual([part["filename"] for part in manifest_payload["parts"]], ["part-001.json"])
         self.assertEqual(part_payload["downloaded_dataset_ids"], [201])

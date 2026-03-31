@@ -49,6 +49,7 @@ def write_neotoma_download_archive(
     neotoma_data_url: str,
     neotoma_datasettype: str,
     neotoma_download_archive_dirname: str,
+    neotoma_download_archive_label: str,
     extract_neotoma_download_dataset_ids_fn,
 ) -> Path:
     """Write the full Neotoma dataset downloads into a chunked archive directory."""
@@ -98,7 +99,7 @@ def write_neotoma_download_archive(
         {
             "generated_on": str(date.today()),
             "source": "Neotoma",
-            "archive_dir": str(archive_dir),
+            "archive_dir": neotoma_download_archive_label,
             "endpoint_template": f"{neotoma_data_url}/downloads/{{datasetid}}",
             "datasettype": neotoma_datasettype,
             "requested_dataset_count": len(requested_ids),

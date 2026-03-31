@@ -39,7 +39,7 @@ from .shared.context_exports import write_context_points_csv, write_context_poin
 NEOTOMA_INVENTORY_QUERY_LIMIT = 400
 NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
-NEOTOMA_INVENTORY_ENDPOINT = "sites"
+NEOTOMA_INVENTORY_ENDPOINT = "datasets"
 NEOTOMA_REQUEST_TIMEOUT_SECONDS = 90.0
 NEOTOMA_DOWNLOAD_WORKERS = 16
 NEOTOMA_API_RETRIES = 5
@@ -220,6 +220,7 @@ def write_neotoma_download_archive(
         neotoma_data_url=NEOTOMA_DATA_URL,
         neotoma_datasettype=NEOTOMA_DATASETTYPE,
         neotoma_download_archive_dirname=NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME,
+        neotoma_download_archive_label=f"raw/{NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME}",
         extract_neotoma_download_dataset_ids_fn=extract_neotoma_download_dataset_ids,
     )
 
