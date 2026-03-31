@@ -15,6 +15,7 @@ Use the `Makefile` as the main local interface.
 
 ```bash
 make install
+artifacts/.venv/bin/bijux-pollenomics --version
 make lock
 make lock-check
 make reports
@@ -39,6 +40,7 @@ make docs-serve
 ## Artifact Paths
 
 - `make install` syncs `artifacts/.venv/` from `uv.lock`
+- `artifacts/.venv/bin/bijux-pollenomics --version` is the direct smoke check that the editable CLI is installed where the `Makefile` expects it
 - `make lock` rewrites the tracked dependency lockfile after dependency changes
 - `make lock-check` verifies that the tracked dependency lockfile is current
 - `make reports` regenerates the checked-in report bundles under `docs/report/`
@@ -64,7 +66,7 @@ The repository now has enough moving parts that a checked-in local workflow is m
 Choose the smallest honest verification surface for the change:
 
 - docs-only edits: run `make docs`
-- logic or command-surface edits: run `make lint`, the relevant test targets, and `make package-verify` when packaging or console entrypoints changed
+- logic or command-surface edits: run `make lint`, the relevant test targets, `artifacts/.venv/bin/bijux-pollenomics --version` for editable-install sanity, and `make package-verify` when packaging or console entrypoints changed
 - collector or reporting contract edits: run the relevant tests and regenerate affected checked-in artifacts
 - repository-wide refactors: run `make check` and rebuild whichever tracked outputs the change touches
 

@@ -54,6 +54,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertLess(install_index, console_version_index)
         self.assertIn("make package-verify", readme_text)
 
+    def test_install_workflow_uses_console_script_smoke_after_install(self) -> None:
+        workflow_text = (REPO_ROOT / "docs" / "workflows" / "install-and-verify.md").read_text(encoding="utf-8")
+
+        install_index = workflow_text.index("make install")
+        console_version_index = workflow_text.index("artifacts/.venv/bin/bijux-pollenomics --version")
+
+        self.assertLess(install_index, console_version_index)
+        self.assertNotIn("make package-check\nmake package-smoke\nmake package-source-smoke", workflow_text)
+
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (REPO_ROOT / "docs" / "reference" / "command-reference.md").read_text(
             encoding="utf-8"

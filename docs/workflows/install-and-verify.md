@@ -37,29 +37,25 @@ If `python3.11` is not available, fix that first. Do not continue with `make ins
 
 ```bash
 make install
+artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 make lint
 make test
 make package-verify
-make package-check
-make package-smoke
-make package-source-smoke
 make docs
 ```
 
 ## What These Commands Do
 
 - `make install` syncs `artifacts/.venv/` from the tracked `uv.lock` with the project installed in editable mode
+- `artifacts/.venv/bin/bijux-pollenomics --version` confirms that the installed console script resolves from the local editable environment
 - `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
 - `make lint` runs `ruff` across `src/` and `tests/`
 - `make test` runs the checked-in unittest suite with verbose discovery output
 - `make package-verify` rebuilds distributions, validates metadata, and smoke-tests both the wheel and source distribution in temporary environments
-- `make package-check` rebuilds the source and wheel distributions and validates them with `twine check`
-- `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
-- `make package-source-smoke` installs the built source distribution into a temporary environment and runs the CLI there
 - `make docs` verifies that the documentation shell still builds in strict mode
 
-Use `make package-verify` as the default packaging check. The three package-specific targets remain available when you need to isolate one failure surface.
+Use `make package-verify` as the default packaging check. The three package-specific targets remain available when you need to isolate one failure surface after the main verification path fails.
 
 ## What `make install` Actually Adds
 
@@ -79,6 +75,7 @@ After these commands:
 
 - `artifacts/.venv/` exists locally
 - `artifacts/.venv/bin/python` exists locally
+- `artifacts/.venv/bin/bijux-pollenomics` exists locally and reports the package version
 - `uv.lock` matches `pyproject.toml`
 - lint passes
 - the test suite passes

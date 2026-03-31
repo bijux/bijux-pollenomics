@@ -26,6 +26,7 @@ If needed:
 ```bash
 make clean
 make install
+artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 ```
 
@@ -45,6 +46,7 @@ Check:
 - whether `make package-check` already isolates the failure to package metadata instead of installation
 - whether the built wheel starts correctly under `make package-smoke`
 - whether the built source distribution starts correctly under `make package-source-smoke`
+- whether the editable install already fails under `artifacts/.venv/bin/bijux-pollenomics --version`
 - whether a packaging change introduced a mismatch between `pyproject.toml`, `uv.lock`, and the package version exposed in `src/bijux_pollenomics/__init__.py`
 
 ## `make data-prep` is slow
@@ -65,6 +67,7 @@ Check:
 Check:
 
 - whether `make install` completed successfully first
+- whether `artifacts/.venv/bin/bijux-pollenomics --version` succeeds from that environment
 - whether port `127.0.0.1:8000` is already in use
 - whether the local editable install is blocked by invalid packaging metadata
 - whether a stale `artifacts/.venv/` should be removed and rebuilt
