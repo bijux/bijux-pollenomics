@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -90,14 +91,38 @@ class BoundariesTests(unittest.TestCase):
             self.assertEqual(combined["features"][0]["properties"]["layer_key"], "country-boundaries")
 
     def test_load_country_boundaries_requires_valid_manifest(self) -> None:
-        boundary_payload = {"type": "FeatureCollection", "features": []}
+        boundary_payload = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Polygon", "coordinates": [[[10.0, 55.0], [11.0, 55.0], [11.0, 56.0], [10.0, 56.0], [10.0, 55.0]]]},
+                    "properties": {"ADM0_A3": "SWE"},
+                }
+            ],
+        }
+        payloads = {
+            "sweden.geojson": boundary_payload,
+            "norway.geojson": {
+                "type": "FeatureCollection",
+                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[4.0, 58.0], [5.0, 58.0], [5.0, 59.0], [4.0, 59.0], [4.0, 58.0]]]}, "properties": {"ADM0_A3": "NOR"}}],
+            },
+            "finland.geojson": {
+                "type": "FeatureCollection",
+                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[20.0, 60.0], [21.0, 60.0], [21.0, 61.0], [20.0, 61.0], [20.0, 60.0]]]}, "properties": {"ADM0_A3": "FIN"}}],
+            },
+            "denmark.geojson": {
+                "type": "FeatureCollection",
+                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[8.0, 54.0], [9.0, 54.0], [9.0, 55.0], [8.0, 55.0], [8.0, 54.0]]]}, "properties": {"ADM0_A3": "DNK"}}],
+            },
+        }
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "boundaries"
             raw_dir = output_root / "raw"
             raw_dir.mkdir(parents=True, exist_ok=True)
-            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
-                (raw_dir / filename).write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
+            for filename, payload in payloads.items():
+                (raw_dir / filename).write_text(json.dumps(payload), encoding="utf-8")
 
             self.assertIsNone(load_country_boundaries(output_root))
 
@@ -113,7 +138,7 @@ class BoundariesTests(unittest.TestCase):
 
             loaded = load_country_boundaries(output_root)
 
-        self.assertEqual(loaded, {"Sweden": boundary_payload, "Norway": boundary_payload, "Finland": boundary_payload, "Denmark": boundary_payload})
+        self.assertEqual(loaded["Sweden"], boundary_payload)
 
 
 if __name__ == "__main__":

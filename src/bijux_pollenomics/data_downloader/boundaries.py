@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from .common import fetch_text, slugify, write_json
+from .common import clean_optional_text, fetch_text, slugify, write_json
 from .contracts import BOUNDARY_COLLECTION
 
 
@@ -80,6 +80,7 @@ def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] |
             json.loads(path.read_text(encoding="utf-8")),
             path=path,
             country=country,
+            country_code=BOUNDARY_CODES[country],
         )
     return country_boundaries
 
@@ -129,7 +130,12 @@ def validate_boundary_manifest(payload: object, path: Path) -> dict[str, object]
     return payload
 
 
-def validate_boundary_collection(payload: object, path: Path, country: str) -> dict[str, object]:
+def validate_boundary_collection(
+    payload: object,
+    path: Path,
+    country: str,
+    country_code: str,
+) -> dict[str, object]:
     """Validate one stored boundary file before it is reused locally."""
     if not isinstance(payload, dict):
         raise ValueError(f"Boundary payload must be a GeoJSON object for {country}: {path}")
@@ -138,6 +144,17 @@ def validate_boundary_collection(payload: object, path: Path, country: str) -> d
     features = payload.get("features")
     if not isinstance(features, list):
         raise ValueError(f"Boundary payload must contain a feature list for {country}: {path}")
+    if not features:
+        raise ValueError(f"Boundary payload must contain at least one feature for {country}: {path}")
+    for feature in features:
+        if not isinstance(feature, dict):
+            raise ValueError(f"Boundary payload must contain GeoJSON features for {country}: {path}")
+        properties = feature.get("properties")
+        geometry = feature.get("geometry")
+        if not isinstance(properties, dict) or not isinstance(geometry, dict):
+            raise ValueError(f"Boundary feature must include properties and geometry for {country}: {path}")
+        if clean_optional_text(properties.get("ADM0_A3")) != country_code:
+            raise ValueError(f"Boundary feature must retain ADM0_A3={country_code} for {country}: {path}")
     return payload
 
 

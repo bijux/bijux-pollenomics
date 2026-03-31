@@ -169,9 +169,14 @@ class DataCollectorTests(unittest.TestCase):
             output_root = Path(tmp) / "data"
             raw_dir = output_root / "boundaries" / "raw"
             raw_dir.mkdir(parents=True, exist_ok=True)
-            boundary_payload = {"type": "FeatureCollection", "features": []}
-            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
-                (raw_dir / filename).write_text(json.dumps(boundary_payload), encoding="utf-8")
+            boundary_payloads = {
+                "sweden.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "SWE"}}]},
+                "norway.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "NOR"}}]},
+                "finland.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "FIN"}}]},
+                "denmark.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "DNK"}}]},
+            }
+            for filename, payload in boundary_payloads.items():
+                (raw_dir / filename).write_text(json.dumps(payload), encoding="utf-8")
             (raw_dir / "source_manifest.json").write_text(
                 json.dumps(
                     {
