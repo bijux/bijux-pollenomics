@@ -27,8 +27,19 @@ class SeadDataReport:
     normalized_geojson_path: Path
 
 
+@dataclass(frozen=True)
+class SeadSiteFetchResult:
+    rows: list[dict[str, object]]
+    inventory_summary: dict[str, int]
+
+
 def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[str, object]]:
     """Download SEAD site rows inside the Nordic bounding box."""
+    return fetch_sead_site_inventory(bbox).rows
+
+
+def fetch_sead_site_inventory(bbox: tuple[float, float, float, float]) -> SeadSiteFetchResult:
+    """Download SEAD site rows plus an audit summary of linked table coverage."""
     min_longitude, min_latitude, max_longitude, max_latitude = bbox
     rows = fetch_sead_rows(
         "tbl_sites",
@@ -45,8 +56,8 @@ def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[s
     for row in rows:
         deduplicated[str(row.get("site_id", ""))] = row
     deduplicated_rows = sorted(deduplicated.values(), key=lambda item: int(item.get("site_id", 0)))
-    populate_sead_site_inventory_fields(deduplicated_rows)
-    return deduplicated_rows
+    inventory_summary = populate_sead_site_inventory_fields(deduplicated_rows)
+    return SeadSiteFetchResult(rows=deduplicated_rows, inventory_summary=inventory_summary)
 
 
 def fetch_sead_rows(
@@ -150,7 +161,7 @@ def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | 
     )
 
 
-def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
+def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> dict[str, int]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
     site_ids = [int(row.get("site_id", 0)) for row in rows if row.get("site_id")]
     sample_groups = fetch_sead_rows_by_ids(
@@ -337,6 +348,18 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         time_interval = merge_sead_intervals(dating_intervals_by_site.get(site_id, []))
         row["time_start_bp"] = time_interval[0] if time_interval is not None else None
         row["time_end_bp"] = time_interval[1] if time_interval is not None else None
+    return {
+        "site_row_count": len(rows),
+        "sample_group_row_count": len(sample_groups),
+        "physical_sample_row_count": len(physical_samples),
+        "analysis_entity_row_count": len(analysis_entities),
+        "analysis_value_row_count": len(analysis_values),
+        "dating_range_row_count": len(dating_ranges),
+        "age_type_row_count": len(age_types),
+        "relative_date_row_count": len(relative_dates),
+        "dataset_row_count": len(datasets),
+        "site_reference_row_count": len(site_references),
+    }
 
 
 def normalize_sead_rows(
@@ -444,7 +467,8 @@ def collect_sead_data(
     raw_dir.mkdir(parents=True, exist_ok=True)
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
-    rows = fetch_sead_site_rows(bbox=bbox)
+    fetch_result = fetch_sead_site_inventory(bbox=bbox)
+    rows = fetch_result.rows
     raw_path = raw_dir / "nordic_sites.json"
     write_json(
         raw_path,
@@ -453,6 +477,20 @@ def collect_sead_data(
             "source": "SEAD",
             "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
             "row_count": len(rows),
+            "bbox": list(bbox),
+            "source_tables": [
+                "tbl_sites",
+                "tbl_sample_groups",
+                "tbl_physical_samples",
+                "tbl_analysis_entities",
+                "tbl_analysis_values",
+                "tbl_analysis_dating_ranges",
+                "tbl_age_types",
+                "tbl_relative_dates",
+                "tbl_datasets",
+                "tbl_site_references",
+            ],
+            "inventory_summary": fetch_result.inventory_summary,
             "rows": rows,
         },
     )

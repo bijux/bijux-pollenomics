@@ -9,7 +9,7 @@ from unittest.mock import patch
 from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
-from bijux_pollenomics.data_downloader.sead import fetch_sead_site_rows, normalize_sead_rows
+from bijux_pollenomics.data_downloader.sead import collect_sead_data, fetch_sead_site_rows, normalize_sead_rows
 from bijux_pollenomics.data_downloader.writers import write_context_points_csv, write_context_points_geojson
 from bijux_pollenomics.reporting.context_layers import build_external_point_layer, build_external_polygon_layer
 
@@ -187,6 +187,57 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn(("site_id",), seen_orders)
         self.assertIn(("site_id", "sample_group_id"), seen_orders)
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
+
+    def test_collect_sead_data_writes_inventory_summary(self) -> None:
+        rows = [
+            {
+                "site_id": 6468,
+                "site_name": "10412 Fjalkinge",
+                "national_site_identifier": "10412",
+                "latitude_dd": 56.05,
+                "longitude_dd": 14.28,
+                "altitude": 24,
+                "site_description": "",
+                "site_uuid": "uuid-1",
+                "dataset_count": 1,
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "sead"
+            with patch(
+                "bijux_pollenomics.data_downloader.sead.fetch_sead_site_inventory",
+                return_value=type(
+                    "FetchResult",
+                    (),
+                    {
+                        "rows": rows,
+                        "inventory_summary": {
+                            "site_row_count": 1,
+                            "sample_group_row_count": 2,
+                            "physical_sample_row_count": 3,
+                            "analysis_entity_row_count": 4,
+                            "analysis_value_row_count": 5,
+                            "dating_range_row_count": 6,
+                            "age_type_row_count": 7,
+                            "relative_date_row_count": 8,
+                            "dataset_row_count": 9,
+                            "site_reference_row_count": 10,
+                        },
+                    },
+                )(),
+            ):
+                report = collect_sead_data(
+                    output_root=output_root,
+                    country_boundaries=self.country_boundaries,
+                    bbox=(4.0, 54.0, 35.0, 72.0),
+                )
+
+            raw_payload = json.loads(report.raw_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(raw_payload["bbox"], [4.0, 54.0, 35.0, 72.0])
+        self.assertEqual(raw_payload["inventory_summary"]["dataset_row_count"], 9)
+        self.assertIn("tbl_analysis_dating_ranges", raw_payload["source_tables"])
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
