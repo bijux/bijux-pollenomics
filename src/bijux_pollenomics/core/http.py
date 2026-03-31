@@ -3,12 +3,14 @@ from __future__ import annotations
 import json
 import os
 import ssl
+import time
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
 INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
+HTTP_REQUEST_RETRIES = 3
 
 
 def allow_insecure_tls_fallback() -> bool:
@@ -19,6 +21,11 @@ def allow_insecure_tls_fallback() -> bool:
 def should_retry_insecure_tls(error: URLError) -> bool:
     """Return whether a failed request should retry with an unverified TLS context."""
     return isinstance(error.reason, ssl.SSLCertVerificationError)
+
+
+def should_retry_transient_network_error(error: Exception) -> bool:
+    """Return whether one transport failure is likely to succeed on a later attempt."""
+    return isinstance(error, (TimeoutError, URLError))
 
 
 def fetch_json(
@@ -45,15 +52,7 @@ def fetch_text(
         separator = "&" if "?" in url else "?"
         url = f"{url}{separator}{query}"
     request = Request(url, headers=headers or {})
-    context = ssl._create_unverified_context() if insecure else None
-    try:
-        with urlopen(request, context=context, timeout=timeout) as response:
-            return response.read().decode("utf-8")
-    except URLError as error:
-        if insecure or not allow_insecure_tls_fallback() or not should_retry_insecure_tls(error):
-            raise
-        with urlopen(request, context=ssl._create_unverified_context(), timeout=timeout) as response:
-            return response.read().decode("utf-8")
+    return fetch_url_bytes(request, insecure=insecure, timeout=timeout).decode("utf-8")
 
 
 def fetch_binary(
@@ -74,8 +73,31 @@ def fetch_binary(
         fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
         with urlopen(Request(url, headers=fallback_headers), context=ssl._create_unverified_context()) as response:
             return response.read()
-    except URLError as error:
-        if insecure or not allow_insecure_tls_fallback() or not should_retry_insecure_tls(error):
-            raise
-        with urlopen(request, context=ssl._create_unverified_context()) as response:
-            return response.read()
+    except (TimeoutError, URLError):
+        return fetch_url_bytes(request, insecure=insecure, timeout=None)
+
+
+def fetch_url_bytes(
+    request: Request,
+    *,
+    insecure: bool,
+    timeout: float | None,
+) -> bytes:
+    """Fetch one HTTP payload with TLS fallback and bounded retries for transient failures."""
+    context = ssl._create_unverified_context() if insecure else None
+    for attempt in range(HTTP_REQUEST_RETRIES):
+        try:
+            with urlopen(request, context=context, timeout=timeout) as response:
+                return response.read()
+        except URLError as error:
+            if not insecure and allow_insecure_tls_fallback() and should_retry_insecure_tls(error):
+                context = ssl._create_unverified_context()
+                insecure = True
+                continue
+            if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
+                raise
+        except TimeoutError as error:
+            if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
+                raise
+        time.sleep(float(attempt + 1))
+    raise RuntimeError("HTTP request retries exhausted unexpectedly")

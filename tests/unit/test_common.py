@@ -65,6 +65,16 @@ class CommonFetchTests(unittest.TestCase):
         self.assertIsNone(call_contexts[0])
         self.assertIsNotNone(call_contexts[1])
 
+    def test_fetch_text_retries_transient_network_errors(self) -> None:
+        with patch(
+            "bijux_pollenomics.core.http.urlopen",
+            side_effect=[
+                URLError(OSError(51, "Network is unreachable")),
+                _FakeResponse(b"payload"),
+            ],
+        ), patch("bijux_pollenomics.core.http.time.sleep"):
+            self.assertEqual(fetch_text("https://example.com/data.json"), "payload")
+
 
 if __name__ == "__main__":
     unittest.main()
