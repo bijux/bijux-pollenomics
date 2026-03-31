@@ -1,4 +1,5 @@
 from .handlers import run_collect_data, run_publish_reports, run_report_country, run_report_multi_country_map
+from .dispatch import run_command
 from .registry import CommandHandler, build_command_handlers, resolve_handler
 
 __all__ = [
@@ -6,6 +7,7 @@ __all__ = [
     "build_command_handlers",
     "resolve_handler",
     "run_collect_data",
+    "run_command",
     "run_publish_reports",
     "run_report_country",
     "run_report_multi_country_map",

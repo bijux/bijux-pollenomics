@@ -5,8 +5,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from bijux_pollenomics.command_line.arguments import build_parser
-from bijux_pollenomics.command_line.dispatch import run_command
+from bijux_pollenomics.command_line.parsing import build_parser
+from bijux_pollenomics.command_line.runtime import run_command
 
 
 class CommandLineUnitTests(unittest.TestCase):
@@ -14,7 +14,7 @@ class CommandLineUnitTests(unittest.TestCase):
         parser = build_parser()
         args = parser.parse_args(["collect-data", "aadr"])
 
-        with patch("bijux_pollenomics.command_line.dispatch.run_collect_data", return_value=7) as handler:
+        with patch("bijux_pollenomics.command_line.runtime.dispatch.run_collect_data", return_value=7) as handler:
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 7)
@@ -24,7 +24,7 @@ class CommandLineUnitTests(unittest.TestCase):
         parser = build_parser()
         args = parser.parse_args(["report-country", "Sweden"])
 
-        with patch("bijux_pollenomics.command_line.dispatch.run_report_country", return_value=5) as handler:
+        with patch("bijux_pollenomics.command_line.runtime.dispatch.run_report_country", return_value=5) as handler:
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 5)

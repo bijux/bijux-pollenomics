@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import argparse
 
-from .runtime.handlers import run_collect_data, run_publish_reports, run_report_country, run_report_multi_country_map
-from .runtime.registry import build_command_handlers, resolve_handler
+from .handlers import run_collect_data, run_publish_reports, run_report_country, run_report_multi_country_map
+from .registry import build_command_handlers, resolve_handler
 
 __all__ = [
     "run_collect_data",

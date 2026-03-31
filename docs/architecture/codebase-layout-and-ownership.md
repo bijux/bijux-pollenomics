@@ -91,7 +91,7 @@ src/bijux_pollenomics
 - `command_line/parser.py` owns root parser composition
 - `command_line/options.py` owns reusable option groups
 - `command_line/subcommands.py` owns subcommand-specific parser assembly
-- `command_line/dispatch.py` owns command routing
+- `command_line/runtime/dispatch.py` owns command routing
 - `command_line/registry.py` owns the direct-command handler registry
 - `command_line/handlers.py` owns user-facing command behavior
 - `project.py` and `settings.py` remain compatibility views over `config.py`
