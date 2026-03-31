@@ -6,7 +6,9 @@ from typing import Iterable
 
 from .aadr import load_country_samples, summarize_localities
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
+from .bundles.country_selection import normalize_requested_countries
 from .bundles.country_bundle import publish_country_report_bundle
+from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
 from .bundles.staging import publish_into_staging_dir
@@ -16,7 +18,6 @@ from .bundles.summaries import (
     build_published_reports_summary,
 )
 from .context.layers import build_context_layers
-from .map_inputs import load_multi_country_map_inputs
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .artifacts import (
     build_samples_geojson,
@@ -29,7 +30,6 @@ from .artifacts import (
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .utils import slugify
-from .countries import normalize_requested_countries
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 
