@@ -10,6 +10,7 @@ from bijux_pollenomics.data_downloader.landclim import (
     feature_key_from_center,
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
+    inspect_landclim_ii_archive,
     landclim_i_site_records,
     parse_coordinate,
     resolve_landclim_marquer_asset_urls,
@@ -123,6 +124,30 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(properties["time_end_bp"], 100)
             self.assertEqual(properties["time_mean_bp"], 50)
             self.assertEqual(properties["time_label"], "0-100 BP")
+
+    def test_inspect_landclim_ii_archive_validates_documented_structure(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "landclim_ii_reveals_results.zip"
+            write_landclim_ii_zip(path, [{"LCGRID_ID": "GC001", "lonDD": "17.5", "latDD": "59.5", "PICEA": "0.12"}])
+
+            summary = inspect_landclim_ii_archive(path)
+
+        self.assertEqual(summary["mean_file_count"], 25)
+        self.assertEqual(summary["standard_error_file_count"], 25)
+        self.assertEqual(summary["time_windows"][0], "0-100 BP")
+        self.assertEqual(summary["time_windows"][-1], "11200-11700 BP")
+
+    def test_inspect_landclim_ii_archive_rejects_missing_standard_error_folder(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "landclim_ii_reveals_results.zip"
+            write_landclim_ii_zip(
+                path,
+                [{"LCGRID_ID": "GC001", "lonDD": "17.5", "latDD": "59.5", "PICEA": "0.12"}],
+                include_standard_errors=False,
+            )
+
+            with self.assertRaisesRegex(ValueError, "standard-error"):
+                inspect_landclim_ii_archive(path)
 
     def test_landclim_grid_keys_match_between_workbook_and_csv_cells(self) -> None:
         geometry = grid_geometry_from_nw_cell_label("17°E 60°N")

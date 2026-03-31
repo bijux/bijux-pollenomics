@@ -6,16 +6,36 @@ from pathlib import Path
 from zipfile import ZipFile
 
 
-def write_landclim_ii_zip(path: Path, rows: list[dict[str, str]]) -> None:
-    """Write a minimal LandClim II CSV archive for tests."""
+def write_landclim_ii_zip(
+    path: Path,
+    rows: list[dict[str, str]],
+    *,
+    include_standard_errors: bool = True,
+    time_window_count: int = 25,
+) -> None:
+    """Write a LandClim II CSV archive for tests with the documented folder layout."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = ["LCGRID_ID", "lonDD", "latDD", "PICEA"]
-    buffer = io.StringIO()
-    writer = csv.DictWriter(buffer, fieldnames=fieldnames)
-    writer.writeheader()
-    writer.writerows(rows)
+    populated_buffer = io.StringIO()
+    populated_writer = csv.DictWriter(populated_buffer, fieldnames=fieldnames)
+    populated_writer.writeheader()
+    populated_writer.writerows(rows)
+    empty_buffer = io.StringIO()
+    empty_writer = csv.DictWriter(empty_buffer, fieldnames=fieldnames)
+    empty_writer.writeheader()
     with ZipFile(path, "w") as archive:
-        archive.writestr("LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv", buffer.getvalue())
+        for time_window_index in range(1, time_window_count + 1):
+            means_name = f"LANDCLIMII.RV.means.JUN2021/TW{time_window_index}.RV.estimates.jun21.csv"
+            archive.writestr(
+                means_name,
+                populated_buffer.getvalue() if time_window_index == 1 else empty_buffer.getvalue(),
+            )
+            if include_standard_errors:
+                standard_errors_name = (
+                    f"LANDCLIMII.RV.standarderrors.JUN2021/"
+                    f"TW{time_window_index}.standarderrors.jun21.csv"
+                )
+                archive.writestr(standard_errors_name, empty_buffer.getvalue())
 
 
 def write_xlsx(path: Path, sheets: dict[str, list[list[object]]]) -> None:

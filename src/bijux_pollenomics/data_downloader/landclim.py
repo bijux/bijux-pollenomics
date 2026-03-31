@@ -63,6 +63,9 @@ LANDCLIM_COUNTRY_HINTS = {
     "swe": "Sweden",
     "sweden": "Sweden",
 }
+LANDCLIM_II_MEANS_DIRECTORY = "LANDCLIMII.RV.means.JUN2021/"
+LANDCLIM_II_STANDARD_ERRORS_DIRECTORY = "LANDCLIMII.RV.standarderrors.JUN2021/"
+LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT = 25
 
 
 @dataclass(frozen=True)
@@ -90,6 +93,7 @@ def collect_landclim_data(
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
     raw_paths = download_landclim_raw_assets(raw_dir)
+    landclim_ii_archive_summary = inspect_landclim_ii_archive(raw_paths["landclim_ii_reveals_results.zip"])
     site_records = build_landclim_site_records(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
     grid_geojson = build_landclim_grid_geojson(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
 
@@ -123,6 +127,7 @@ def collect_landclim_data(
                         "landclim_ii_site_metadata.xlsx",
                         "landclim_ii_taxa_pft_ppe_fsp_values.csv",
                     ],
+                    "archive_summary": landclim_ii_archive_summary,
                 },
             ],
         },
@@ -168,6 +173,44 @@ def download_landclim_raw_assets(raw_dir: Path) -> dict[str, Path]:
         path.write_bytes(fetch_binary(url))
         raw_paths[filename] = path
     return raw_paths
+
+
+def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
+    """Validate the documented LandClim II archive structure and summarize its coverage."""
+    with ZipFile(path) as archive:
+        names = archive.namelist()
+    mean_files = sorted(
+        name
+        for name in names
+        if name.startswith(LANDCLIM_II_MEANS_DIRECTORY) and name.endswith(".csv")
+    )
+    standard_error_files = sorted(
+        name
+        for name in names
+        if name.startswith(LANDCLIM_II_STANDARD_ERRORS_DIRECTORY) and name.endswith(".csv")
+    )
+    expected_time_windows = [
+        time_window_from_tw_filename(f"TW{time_window_index}.RV.estimates.jun21.csv")
+        for time_window_index in range(1, LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT + 1)
+    ]
+    mean_time_windows = sorted(
+        {time_window_from_tw_filename(name) for name in mean_files},
+        key=time_window_sort_key,
+    )
+    standard_error_time_windows = sorted(
+        {time_window_from_tw_filename(name) for name in standard_error_files},
+        key=time_window_sort_key,
+    )
+    if mean_time_windows != expected_time_windows:
+        raise ValueError("LandClim II archive is missing documented mean time-window CSV files")
+    if standard_error_time_windows != expected_time_windows:
+        raise ValueError("LandClim II archive is missing documented standard-error time-window CSV files")
+    return {
+        "path": path.name,
+        "mean_file_count": len(mean_files),
+        "standard_error_file_count": len(standard_error_files),
+        "time_windows": expected_time_windows,
+    }
 
 
 def resolve_landclim_asset_urls() -> dict[str, str]:
@@ -594,7 +637,7 @@ def merge_landclim_ii_grid_features(
     """Merge LandClim II grid rows from the REVEALS CSV archive."""
     with ZipFile(zip_path) as archive:
         for name in sorted(archive.namelist()):
-            if not name.startswith("LANDCLIMII.RV.means.JUN2021/") or not name.endswith(".csv"):
+            if not name.startswith(LANDCLIM_II_MEANS_DIRECTORY) or not name.endswith(".csv"):
                 continue
             time_window = time_window_from_tw_filename(name)
             with archive.open(name) as handle:
