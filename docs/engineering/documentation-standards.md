@@ -1,5 +1,5 @@
 ---
-title: Documentation Workflow
+title: Documentation Standards
 audience: mixed
 type: workflow
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Documentation Workflow
+# Documentation Standards
 
 The documentation system is MkDocs-based and intentionally aligned with the repository’s checked-in outputs and the map-first reading model.
 
@@ -43,8 +43,23 @@ The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 - diagrams should clarify architecture or workflow, not decorate pages
 - documentation should match the checked-in command surface and file layout exactly
 - claims about current files, commands, counts, or layers should be verified against code or checked-in artifacts in the same change
-- the seven canonical sections should carry the narrative documentation load; duplicate side-channel guide pages should not reappear
+- the named documentation sections should carry the narrative documentation load; duplicate side-channel guide pages should not reappear
 - when scope is limited, say so explicitly instead of implying future capability is already present
+
+## Naming Rule
+
+- file and directory names should describe durable documentation intent, not temporary sequencing
+- section names should reflect reader needs such as `foundation`, `workflows`, or `reference`, not authoring order
+- page titles should stay valid even if the project grows for several years without another restructure
+
+## Change Rule
+
+When a documentation refactor moves pages or renames sections, update:
+
+1. `mkdocs.yml`
+2. internal links
+3. section index pages
+4. any workflow or reference page that names the old path directly
 
 ## Purpose
 
