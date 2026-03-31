@@ -1600,9 +1600,9 @@ def render_multi_country_map_html(
             <div class="topbar-row">
               <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
               <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="voyager"><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span><span class="basemap-copy">Balanced roads, labels, and water detail.</span></button>
-                <button class="basemap-button" type="button" data-basemap="light"><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span><span class="basemap-copy">Minimal contrast for evidence-first inspection.</span></button>
-                <button class="basemap-button" type="button" data-basemap="terrain"><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span><span class="basemap-copy">Relief-focused context for landform reading.</span></button>
+                <button class="basemap-button is-active" type="button" data-basemap="voyager" title="Balanced roads, labels, and water detail."><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span></button>
+                <button class="basemap-button" type="button" data-basemap="light" title="Minimal contrast for evidence-first inspection."><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span></button>
+                <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
               </div>
             </div>
           </div>
@@ -1733,9 +1733,41 @@ def render_multi_country_map_html(
           <section class="help-card">
             <h3>Recommended workflow</h3>
             <div class="help-list">
-              <div class="help-row"><span class="help-key">1</span><span>Use the workspace brief and source coverage panel to understand the current evidence stack.</span></div>
-              <div class="help-row"><span class="help-key">2</span><span>Narrow geography, time, and distance before inspecting individual records.</span></div>
+              <div class="help-row"><span class="help-key">1</span><span>Use the short sidebar only for geography, search, and distance context.</span></div>
+              <div class="help-row"><span class="help-key">2</span><span>Use the map dock above the status bar for frequent layer and BP-window changes.</span></div>
               <div class="help-row"><span class="help-key">3</span><span>Use the focus card to keep one selected record visible while the map continues moving.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Map dock</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Layers</span><span>Enable or disable evidence and context sources without reopening the sidebar.</span></div>
+              <div class="help-row"><span class="help-key">Presets</span><span>`Evidence only`, `Context stack`, `Map framing`, and `All layers` reset the active layer stack quickly.</span></div>
+              <div class="help-row"><span class="help-key">Time</span><span>The BP start and span sliders filter only layers that carry numeric BP dates.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Basemaps</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Voyager</span><span>Balanced roads, labels, and water detail.</span></div>
+              <div class="help-row"><span class="help-key">Light</span><span>Minimal contrast for evidence-first inspection.</span></div>
+              <div class="help-row"><span class="help-key">Terrain</span><span>Relief-focused context for landform reading.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Sidebar</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Workspace</span><span>Summarizes the active geography, evidence stack, and BP range without repeating every control on screen.</span></div>
+              <div class="help-row"><span class="help-key">Countries</span><span>Country toggles affect every layer that carries country metadata.</span></div>
+              <div class="help-row"><span class="help-key">Search</span><span>Search only scans currently visible point records, not hidden layers or filtered-out countries.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Status readout</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Zoom</span><span>The live Leaflet zoom level after fit, pan, or wheel interaction.</span></div>
+              <div class="help-row"><span class="help-key">Center</span><span>The current map center in latitude and longitude.</span></div>
+              <div class="help-row"><span class="help-key">Selection</span><span>The visible point and overlay count under the current workspace filters.</span></div>
             </div>
           </section>
         </div>
