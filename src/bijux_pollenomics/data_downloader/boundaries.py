@@ -6,12 +6,12 @@ from datetime import date
 from pathlib import Path
 
 from ..core.http import fetch_text
-from .boundary_archive import (
+from .sources.boundaries.archive import (
     BoundariesDataReport,
     build_combined_country_boundaries,
     write_boundary_archive,
 )
-from .boundary_store import (
+from .sources.boundaries.store import (
     load_country_boundaries as load_country_boundaries_from_store,
     validate_boundary_collection,
     validate_boundary_manifest,
