@@ -21,6 +21,9 @@ make check
 make clean
 make lint
 make test
+make test-unit
+make test-regression
+make test-e2e
 make data-prep
 make build
 make docs
@@ -33,6 +36,9 @@ make docs-serve
 - `make reports` regenerates the checked-in report bundles under `docs/report/`
 - `make app-state` rebuilds the current app scope end to end
 - `make check` runs the main repository verification suite in one command
+- `make test-unit` runs the logic-level unit suite
+- `make test-regression` runs artifact and workflow-regression checks
+- `make test-e2e` runs command-line end-to-end checks
 - `make build` writes distributions into `artifacts/dist/`
 - `make docs` writes the site into `artifacts/docs/site/`
 - `make docs-serve` serves the local docs at `http://127.0.0.1:8000/`

@@ -12,7 +12,7 @@ DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 
-.PHONY: app-state check clean install lint reports test data-prep build docs docs-serve help
+.PHONY: app-state check clean install lint reports test test-unit test-regression test-e2e test-all data-prep build docs docs-serve help
 
 help:
 	@printf "Available targets:\n"
@@ -21,7 +21,10 @@ help:
 	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
 	@printf "  check      Run lint, tests, and docs build\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
-	@printf "  test       Run the unittest suite\n"
+	@printf "  test       Run unit, regression, and e2e test suites\n"
+	@printf "  test-unit  Run the unit test suite\n"
+	@printf "  test-regression Run the regression test suite\n"
+	@printf "  test-e2e   Run the end-to-end test suite\n"
 	@printf "  data-prep  Rebuild the tracked data tree under %s\n" "$(DATA_ROOT)"
 	@printf "  build      Build source and wheel distributions into %s\n" "$(DIST_ROOT)"
 	@printf "  docs       Build the MkDocs site into %s\n" "$(DOCS_SITE_ROOT)"
@@ -45,8 +48,19 @@ check: lint test docs
 lint: install
 	$(RUFF) check src tests
 
-test: install
+test: test-all
+
+test-all: install
 	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests -v
+
+test-unit: install
+	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/unit -v
+
+test-regression: install
+	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/regression -v
+
+test-e2e: install
+	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
 
 data-prep: install
 	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollenomics.cli collect-data all --version $(VERSION) --output-root $(DATA_ROOT)

@@ -9,7 +9,20 @@ last_reviewed: 2026-03-31
 
 # Testing and Evidence
 
-The repository uses lightweight Python tests plus generated artifacts as evidence.
+The repository uses explicit unit, regression, and end-to-end suites plus generated artifacts as evidence.
+
+## Test Suites
+
+- `tests/unit/` covers small logic boundaries and helper contracts
+- `tests/regression/` covers generated outputs, artifact contracts, and workflow behavior that should not drift silently
+- `tests/e2e/` covers CLI command flows from the user-facing entry point
+
+The `Makefile` exposes these suites directly:
+
+- `make test-unit`
+- `make test-regression`
+- `make test-e2e`
+- `make test` for the full combined suite
 
 ## Current Evidence Types
 

@@ -82,6 +82,9 @@ Prerequisite: `python3.11` must be available locally.
 make install
 make lint
 make test
+make test-unit
+make test-regression
+make test-e2e
 ```
 
 That path is the safest first run because it validates the local environment before any network-heavy or state-changing data workflow.
@@ -114,6 +117,9 @@ make reports
 make app-state
 make lint
 make test
+make test-unit
+make test-regression
+make test-e2e
 make check
 make docs
 make docs-serve
@@ -127,6 +133,9 @@ What they do:
 - `make reports` regenerates the current checked-in shared map and country bundles under `docs/report/`
 - `make app-state` runs the full current rebuild path: data, reports, and docs
 - `make check` runs the repository verification pass: lint, tests, and docs
+- `make test-unit` runs the fast logic-level unit suite under `tests/unit/`
+- `make test-regression` runs contract and artifact-regression checks under `tests/regression/`
+- `make test-e2e` runs end-to-end command-flow checks under `tests/e2e/`
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 
 ## Operational Notes
