@@ -68,9 +68,27 @@ Use this distinction when working in the repo:
 - `src/bijux_pollenomics/settings.py` centralizes the checked-in publication defaults
 - `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/paths.py` centralize file-contract names
 
+## Working With Commands
+
+The root `Makefile` is the main local interface. Some targets only validate the checkout, while others rewrite tracked files.
+
+Validation-first targets:
+
+- `make install` creates or updates the editable environment under `artifacts/.venv/`
+- `make lock-check`, `make lint`, `make test`, `make docs`, `make package-verify`, and `make check` verify the repository without rewriting tracked data or report outputs
+
+State-changing targets:
+
+- `make lock` rewrites `uv.lock`
+- `make data-prep` rewrites tracked source outputs under `data/`
+- `make reports` rewrites tracked publication outputs under `docs/report/`
+- `make app-state` runs the full rebuild path and rewrites tracked data, tracked reports, and the local docs build
+
+If your goal is only to validate the repository, stop at the verification targets and do not start with `make app-state`.
+
 ## Quick Start
 
-### Verify The Environment First
+### Verify A Fresh Checkout
 
 Prerequisites: `python3.11` and `uv` must be available locally.
 
@@ -82,76 +100,37 @@ artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 make lint
 make test
-make test-unit
-make test-regression
-make test-e2e
 make package-verify
 make docs
 ```
 
-That path is the safest first run because it creates the local environment before invoking the installed CLI and keeps the recommended packaging proof surface to the single `make package-verify` target.
+This is the safest first run because it proves the editable environment, test surface, packaging surface, and docs build before any tracked data or report tree is regenerated.
 
-### Rebuild The Current Checked-In State
+### Rebuild The Checked-In Repository State
 
-Prerequisites: `python3.11` and `uv` must be available locally.
-
-```bash
-make app-state
-```
-
-That sequence does the full current rebuild path:
-
-1. syncs the local virtual environment under `artifacts/.venv/` from `pyproject.toml` and `uv.lock`
-2. rebuilds the tracked `data/` tree
-3. republishes the checked-in map and report bundles under `docs/report/`
-4. rebuilds the MkDocs site under `artifacts/docs/site/`
-
-Expect this path to take longer than lint and tests, to require network access, and to overwrite generated files that are intentionally checked in.
-
-## Main Commands
-
-The root `Makefile` is the main local interface:
+Use the explicit sequence when you want reviewable rebuild steps:
 
 ```bash
-make install
-make lock
-make lock-check
 make data-prep
 make reports
-make app-state
-make lint
-make test
-make test-unit
-make test-regression
-make test-e2e
-make package-verify
-make check
-make package-check
-make package-smoke
-make package-source-smoke
 make docs
-make docs-serve
-make build
-make clean
 ```
 
-What they do:
+Use `make app-state` when you want that same sequence as a single convenience target.
 
-- `make install` syncs the local editable environment from the tracked `uv.lock`
-- `make lock` refreshes `uv.lock` after dependency changes
-- `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
+Expect the rebuild path to take longer than lint and tests, to require network access, and to overwrite generated files that are intentionally checked in.
+
+## Common Workflows
+
+- `make install` syncs the editable environment from the tracked `uv.lock`
+- `make check` runs the main repository verification pass: lock check, lint, tests, docs, and distribution verification
 - `make data-prep` runs `collect-data all --version v62.0 --output-root data`
-- `make reports` regenerates the current checked-in shared map and country bundles under `docs/report/`
-- `make app-state` runs the full current rebuild path: data, reports, and docs
-- `make check` runs the repository verification pass: lock check, lint, tests, docs, and distributions
-- `make package-verify` rebuilds distributions, validates metadata, and smoke-tests the wheel and source distribution in temporary environments
-- `make package-check` rebuilds source and wheel distributions and validates them with `twine check`
-- `make package-smoke` installs the built wheel into a temporary environment and proves the CLI starts there
-- `make package-source-smoke` installs the built source distribution into a temporary environment and proves the CLI starts there
-- `make test-unit` runs the fast logic-level unit suite under `tests/unit/`
-- `make test-regression` runs contract and artifact-regression checks under `tests/regression/`
-- `make test-e2e` runs end-to-end command-flow checks under `tests/e2e/`
+- `make reports` runs `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
+- `make app-state` runs the full rebuild path: data, reports, and docs
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
+- `make clean` removes transient virtualenv, packaging, and cache artifacts
+
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [`docs/reference/command-reference.md`](docs/reference/command-reference.md).
 
 ## Operational Notes
 
