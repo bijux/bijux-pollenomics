@@ -10,6 +10,7 @@ from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
 from .geometry import classify_country
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
+from ..temporal import build_bp_interval_label, mean_bp_year_from_interval, normalize_bp_interval
 
 
 SEAD_LIMIT = 1000
@@ -120,6 +121,45 @@ def build_sead_in_filter(values: list[int]) -> str:
     return f"in.({','.join(str(value) for value in values)})"
 
 
+def parse_optional_int(value: object) -> int | None:
+    """Parse one optional integer-like SEAD field."""
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(round(value))
+    text = clean_optional_text(value)
+    if not text:
+        return None
+    try:
+        return int(round(float(text)))
+    except ValueError:
+        return None
+
+
+def sead_dating_interval(
+    dating_range: dict[str, object],
+    *,
+    age_type: str,
+) -> tuple[int, int] | None:
+    """Normalize one SEAD dating range when the age type is expressed in BP."""
+    if "bp" not in age_type.casefold():
+        return None
+    return normalize_bp_interval(
+        parse_optional_int(dating_range.get("low_value")),
+        parse_optional_int(dating_range.get("high_value")),
+    )
+
+
+def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | None:
+    """Merge multiple SEAD BP intervals into one site span."""
+    if not intervals:
+        return None
+    return (
+        min(start for start, _ in intervals),
+        max(end for _, end in intervals),
+    )
+
+
 def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
     site_ids = [int(row.get("site_id", 0)) for row in rows if row.get("site_id")]
@@ -151,6 +191,50 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         filter_field="physical_sample_id",
         ids=site_id_by_physical_sample_id,
     ) if site_id_by_physical_sample_id else []
+    analysis_entity_ids = [
+        int(row["analysis_entity_id"])
+        for row in analysis_entities
+        if row.get("analysis_entity_id") is not None
+    ]
+    analysis_values = fetch_sead_rows_by_ids(
+        "tbl_analysis_values",
+        select="analysis_value_id,analysis_entity_id",
+        filter_field="analysis_entity_id",
+        ids=analysis_entity_ids,
+    ) if analysis_entity_ids else []
+    analysis_entity_id_by_analysis_value_id = {
+        int(row["analysis_value_id"]): int(row["analysis_entity_id"])
+        for row in analysis_values
+        if row.get("analysis_value_id") is not None and row.get("analysis_entity_id") is not None
+    }
+    dating_ranges = fetch_sead_rows_by_ids(
+        "tbl_analysis_dating_ranges",
+        select="analysis_value_id,low_value,high_value,age_type_id",
+        filter_field="analysis_value_id",
+        ids=analysis_entity_id_by_analysis_value_id,
+    ) if analysis_entity_id_by_analysis_value_id else []
+    age_type_ids = [
+        int(row["age_type_id"])
+        for row in dating_ranges
+        if row.get("age_type_id") is not None
+    ]
+    age_types = fetch_sead_rows_by_ids(
+        "tbl_age_types",
+        select="age_type_id,age_type",
+        filter_field="age_type_id",
+        ids=age_type_ids,
+    ) if age_type_ids else []
+    age_type_by_id = {
+        int(row["age_type_id"]): clean_optional_text(row.get("age_type"))
+        for row in age_types
+        if row.get("age_type_id") is not None
+    }
+    relative_dates = fetch_sead_rows_by_ids(
+        "tbl_relative_dates",
+        select="relative_date_id,analysis_entity_id",
+        filter_field="analysis_entity_id",
+        ids=analysis_entity_ids,
+    ) if analysis_entity_ids else []
     dataset_ids = [
         int(row["dataset_id"])
         for row in analysis_entities
@@ -180,6 +264,9 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
     analysis_entity_ids_by_site: dict[int, set[int]] = {}
     dataset_ids_by_site: dict[int, set[int]] = {}
     reference_ids_by_site: dict[int, set[int]] = {}
+    relative_date_ids_by_site: dict[int, set[int]] = {}
+    dating_range_counts_by_site: dict[int, int] = {}
+    dating_intervals_by_site: dict[int, list[tuple[int, int]]] = {}
 
     for sample_group in sample_groups:
         site_id = int(sample_group.get("site_id") or 0)
@@ -201,6 +288,27 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
             analysis_entity_ids_by_site.setdefault(site_id, set()).add(analysis_entity_id)
         if dataset_id:
             dataset_ids_by_site.setdefault(site_id, set()).add(dataset_id)
+    site_id_by_analysis_entity_id = {
+        analysis_entity_id: site_id
+        for site_id, analysis_entity_ids in analysis_entity_ids_by_site.items()
+        for analysis_entity_id in analysis_entity_ids
+    }
+    for relative_date in relative_dates:
+        analysis_entity_id = int(relative_date.get("analysis_entity_id") or 0)
+        relative_date_id = int(relative_date.get("relative_date_id") or 0)
+        site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
+        if site_id and relative_date_id:
+            relative_date_ids_by_site.setdefault(site_id, set()).add(relative_date_id)
+    for dating_range in dating_ranges:
+        analysis_value_id = int(dating_range.get("analysis_value_id") or 0)
+        analysis_entity_id = analysis_entity_id_by_analysis_value_id.get(analysis_value_id, 0)
+        site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
+        age_type = age_type_by_id.get(int(dating_range.get("age_type_id") or 0), "")
+        interval = sead_dating_interval(dating_range, age_type=age_type)
+        if not site_id or interval is None:
+            continue
+        dating_intervals_by_site.setdefault(site_id, []).append(interval)
+        dating_range_counts_by_site[site_id] = dating_range_counts_by_site.get(site_id, 0) + 1
     for reference in site_references:
         site_id = int(reference.get("site_id") or 0)
         reference_id = int(reference.get("site_reference_id") or 0)
@@ -225,6 +333,11 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         row["dataset_count"] = len(dataset_ids_by_site.get(site_id, set()))
         row["dataset_names"] = dataset_names
         row["reference_count"] = len(reference_ids_by_site.get(site_id, set()))
+        row["relative_date_count"] = len(relative_date_ids_by_site.get(site_id, set()))
+        row["dating_range_count"] = dating_range_counts_by_site.get(site_id, 0)
+        time_interval = merge_sead_intervals(dating_intervals_by_site.get(site_id, []))
+        row["time_start_bp"] = time_interval[0] if time_interval is not None else None
+        row["time_end_bp"] = time_interval[1] if time_interval is not None else None
 
 
 def normalize_sead_rows(
@@ -252,9 +365,15 @@ def normalize_sead_rows(
         analysis_entity_count = int(row.get("analysis_entity_count") or 0)
         dataset_count = int(row.get("dataset_count") or 0)
         reference_count = int(row.get("reference_count") or 0)
+        relative_date_count = int(row.get("relative_date_count") or 0)
+        dating_range_count = int(row.get("dating_range_count") or 0)
         dataset_names = row.get("dataset_names")
         if not isinstance(dataset_names, list):
             dataset_names = []
+        time_interval = normalize_bp_interval(
+            parse_optional_int(row.get("time_start_bp")),
+            parse_optional_int(row.get("time_end_bp")),
+        )
 
         popup_rows = [
             ("Site ID", site_id),
@@ -274,6 +393,12 @@ def normalize_sead_rows(
             popup_rows.append(("Dataset names", ", ".join(dataset_names)))
         if reference_count:
             popup_rows.append(("References", str(reference_count)))
+        if relative_date_count:
+            popup_rows.append(("Relative dates", str(relative_date_count)))
+        if dating_range_count:
+            popup_rows.append(("Dating ranges", str(dating_range_count)))
+        if time_interval is not None:
+            popup_rows.append(("Date coverage", build_bp_interval_label(time_interval[0], time_interval[1])))
         if national_identifier:
             popup_rows.append(("National identifier", national_identifier))
         if altitude:
@@ -296,8 +421,12 @@ def normalize_sead_rows(
                 subtitle="Nordic environmental archaeology sites",
                 description=description,
                 source_url=source_url,
-                record_count=max(dataset_count, analysis_entity_count, 1),
+                record_count=max(dataset_count, analysis_entity_count, dating_range_count, 1),
                 popup_rows=tuple(popup_rows),
+                time_start_bp=time_interval[0] if time_interval is not None else None,
+                time_end_bp=time_interval[1] if time_interval is not None else None,
+                time_mean_bp=mean_bp_year_from_interval(time_interval),
+                time_label=build_bp_interval_label(time_interval[0], time_interval[1]) if time_interval is not None else "",
             )
         )
 

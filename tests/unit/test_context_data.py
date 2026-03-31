@@ -111,6 +111,10 @@ class ContextDataTests(unittest.TestCase):
                 "altitude": 24,
                 "site_description": "",
                 "site_uuid": "uuid-1",
+                "dataset_count": 2,
+                "analysis_entity_count": 3,
+                "time_start_bp": 200,
+                "time_end_bp": 800,
             }
         ]
 
@@ -122,6 +126,9 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(records[0].country, "Sweden")
         self.assertEqual(records[0].category, "Environmental archaeology")
         self.assertEqual(records[0].popup_rows[0], ("Site ID", "6468"))
+        self.assertEqual(records[0].time_start_bp, 200)
+        self.assertEqual(records[0].time_end_bp, 800)
+        self.assertEqual(records[0].time_mean_bp, 500)
 
     def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
         def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
@@ -144,6 +151,14 @@ class ContextDataTests(unittest.TestCase):
                 return [{"physical_sample_id": 20, "sample_group_id": 10}]
             if url.endswith("/tbl_analysis_entities"):
                 return [{"analysis_entity_id": 30, "physical_sample_id": 20, "dataset_id": 40}]
+            if url.endswith("/tbl_analysis_values"):
+                return [{"analysis_value_id": 35, "analysis_entity_id": 30}]
+            if url.endswith("/tbl_analysis_dating_ranges"):
+                return [{"analysis_value_id": 35, "low_value": 200, "high_value": 800, "age_type_id": 2}]
+            if url.endswith("/tbl_age_types"):
+                return [{"age_type_id": 2, "age_type": "calibrated years BP"}]
+            if url.endswith("/tbl_relative_dates"):
+                return [{"relative_date_id": 45, "analysis_entity_id": 30}]
             if url.endswith("/tbl_datasets"):
                 return [{"dataset_id": 40, "dataset_name": "Pollen counts"}]
             if url.endswith("/tbl_site_references"):
@@ -159,6 +174,10 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(rows[0]["dataset_count"], 1)
         self.assertEqual(rows[0]["dataset_names"], ["Pollen counts"])
         self.assertEqual(rows[0]["reference_count"], 1)
+        self.assertEqual(rows[0]["relative_date_count"], 1)
+        self.assertEqual(rows[0]["dating_range_count"], 1)
+        self.assertEqual(rows[0]["time_start_bp"], 200)
+        self.assertEqual(rows[0]["time_end_bp"], 800)
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
