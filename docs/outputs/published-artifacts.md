@@ -19,6 +19,15 @@ Publication writes these bundles into a staging tree first and swaps that tree i
 
 That staging step is an implementation detail. The checked-in summary JSON files inside the published bundles should always record the final `docs/report/...` output paths rather than hidden staging directories.
 
+## Artifact Contract
+
+Treat the `docs/report/` tree as a published file contract:
+
+- bundle `README.md` files are generated artifacts, not hand-maintained docs
+- summary JSON files are part of the machine-readable publication surface
+- copied GeoJSON, CSV, Markdown, and HTML files are all reviewable outputs
+- narrative pages under `docs/outputs/` explain this tree but are not themselves part of the generated bundle contract
+
 ## Nordic Evidence Atlas Bundle
 
 The checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
@@ -52,6 +61,18 @@ Each country bundle includes:
 
 Country bundles intentionally stay file-oriented and map-light. They summarize one political entity and link back to the shared map instead of embedding a second standalone map application.
 
+## Review Rule
+
+When a change affects `docs/report/`, reviewers should assume that:
+
+- HTML, JSON, CSV, GeoJSON, and generated README diffs may all be meaningful
+- `output_dir` and sibling path fields inside summary JSON files should point at the final `docs/report/...` output paths, not at hidden `.tmp` directories
+- artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
+
+The practical consequence is that reviewers should read `docs/outputs/` pages and `docs/report/` diffs together when output behavior changes.
+
+If a report build fails before the staged swap completes, the previously published `docs/report/` tree should remain intact.
+
 ## Why These Are Checked In
 
 Checked-in report outputs make it easier to:
@@ -59,19 +80,6 @@ Checked-in report outputs make it easier to:
 - review changes in git
 - verify that generated artifacts still match the source tree
 - publish the map and summary pages through MkDocs without an additional deployment pipeline
-
-## Review Rule
-
-When a change affects `docs/report/`, reviewers should assume that:
-
-- HTML, JSON, CSV, and GeoJSON diffs may all be meaningful
-- generated text inside bundle `README.md` files is part of the artifact contract
-- `output_dir` and sibling path fields inside summary JSON files should point at the final published tree, not at `.tmp` directories
-- artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
-
-The practical consequence is that reviewers should read `docs/outputs/` pages and `docs/report/` diffs together when output behavior changes.
-
-If a report build fails before that swap, the previously published `docs/report/` tree should remain intact.
 
 ## What This Page Is Not
 

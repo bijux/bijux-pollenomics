@@ -29,6 +29,13 @@ They are intentionally narrower than the shared map. A country report is the dur
 - `*_samples.geojson`
 - `*_samples.md`
 
+## Why They Stay Separate From The Atlas
+
+Country bundles exist because file-oriented review and country-specific inventory work are different jobs from multi-layer exploration in the shared atlas.
+
+- use a country bundle when you need exact sample inventories or locality groupings
+- use the atlas when you need cross-source visual comparison, context layers, or multi-country filtering
+
 ## What They Do Not Contain
 
 Country bundles do not contain their own standalone HTML map. They link back to the shared Nordic map when that link is provided during generation.
@@ -43,6 +50,10 @@ The map is good for exploration, but country reports are better for:
 - locality-level aggregation
 - quick country-specific review without filtering the shared map
 - stable file artifacts for git review
+
+## Review Rule
+
+Read country bundles as release-scoped AADR inventory outputs. They are not evidence-complete summaries of every contextual source used elsewhere in the repository, and they should not be reviewed as if they were mini atlases.
 
 ## Honesty Rule
 
@@ -62,4 +73,4 @@ The same command pattern is used for Norway, Finland, and Denmark in the checked
 
 ## Purpose
 
-This page explains why country reports remain first-class outputs even after the move to one shared map.
+This page explains why country reports remain first-class generated artifacts even after the move to one shared atlas.

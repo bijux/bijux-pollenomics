@@ -28,6 +28,16 @@ flowchart LR
     Narrative[docs/outputs/] --> Docs
 ```
 
+## Lifecycle Rule
+
+The lifecycle is intentionally asymmetric:
+
+- `docs/outputs/` pages are hand-maintained explanations
+- `docs/report/` is regenerated from code and tracked source files
+- `docs/gallery/` holds checked-in media evidence that can be referenced by either side
+
+That asymmetry is a feature. It keeps generated outputs reviewable without pretending every visible page came from the same process.
+
 ## Review Expectations
 
 When generated artifacts change:
@@ -47,4 +57,4 @@ Report publication now stages generated bundles first and swaps them into `docs/
 
 ## Purpose
 
-This page explains how generated publication artifacts, narrative output pages, and checked-in media are expected to evolve together.
+This page explains how generated publication artifacts, narrative output pages, and checked-in media are expected to evolve together without being mistaken for one another.
