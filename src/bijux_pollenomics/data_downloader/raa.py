@@ -144,16 +144,18 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
             if isinstance(feature, dict)
         ]
         if not page_features:
-            break
+            raise ValueError("RAÄ feature paging ended before the reported numberMatched was archived")
         features.extend(page_features)
         start_index += len(page_features)
-    return {
+    feature_inventory = {
         "type": "FeatureCollection",
         "features": features,
         "numberMatched": total_features,
         "crs": first_page.get("crs"),
         "timeStamp": first_page.get("timeStamp"),
     }
+    validate_raa_feature_inventory(feature_inventory)
+    return feature_inventory
 
 
 def build_raa_density_geojson(
@@ -222,6 +224,23 @@ def iter_raa_features(feature_inventory: dict[str, object]) -> list[dict[str, ob
     if not isinstance(features, list):
         raise ValueError("RAÄ feature inventory must contain a feature list")
     return [feature for feature in features if isinstance(feature, dict)]
+
+
+def validate_raa_feature_inventory(feature_inventory: dict[str, object]) -> None:
+    """Validate that archived RAÄ paging covered the reported feature inventory exactly once."""
+    features = iter_raa_features(feature_inventory)
+    number_matched = int(feature_inventory.get("numberMatched") or len(features))
+    if len(features) != number_matched:
+        raise ValueError(
+            f"RAÄ feature archive count mismatch: expected {number_matched}, archived {len(features)}"
+        )
+    feature_ids = [
+        clean_optional_text(feature.get("properties", {}).get("lamningsnummer"))
+        for feature in features
+    ]
+    populated_feature_ids = [feature_id for feature_id in feature_ids if feature_id]
+    if len(populated_feature_ids) != len(set(populated_feature_ids)):
+        raise ValueError("RAÄ feature archive contains duplicate lamningsnummer values")
 
 
 def format_count_label(count: int) -> str:

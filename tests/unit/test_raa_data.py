@@ -88,6 +88,26 @@ class RaaDataTests(unittest.TestCase):
         self.assertEqual(len(payload["features"]), 3)
         self.assertEqual(payload["numberMatched"], 3)
 
+    def test_fetch_raa_feature_inventory_rejects_short_paging(self) -> None:
+        pages = [
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [18.0, 57.0]}, "properties": {"lamningsnummer": "A"}},
+                ],
+                "numberMatched": 2,
+            },
+            {
+                "type": "FeatureCollection",
+                "features": [],
+                "numberMatched": 2,
+            },
+        ]
+
+        with patch("bijux_pollenomics.data_downloader.raa.fetch_raa_feature_page", side_effect=pages):
+            with self.assertRaisesRegex(ValueError, "paging ended before"):
+                fetch_raa_feature_inventory()
+
     def test_collect_raa_data_writes_raw_feature_archive(self) -> None:
         feature_inventory = {
             "type": "FeatureCollection",
