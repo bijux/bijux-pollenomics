@@ -5,11 +5,17 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+from urllib.error import URLError
 
 from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
-from bijux_pollenomics.data_downloader.sead import collect_sead_data, fetch_sead_site_rows, normalize_sead_rows
+from bijux_pollenomics.data_downloader.sead import (
+    collect_sead_data,
+    fetch_sead_rows,
+    fetch_sead_site_rows,
+    normalize_sead_rows,
+)
 from bijux_pollenomics.data_downloader.shared import write_context_points_csv, write_context_points_geojson
 from bijux_pollenomics.reporting.context import build_context_layers, build_external_point_layer, build_external_polygon_layer
 
@@ -187,6 +193,18 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn(("site_id",), seen_orders)
         self.assertIn(("site_id", "sample_group_id"), seen_orders)
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
+
+    def test_fetch_sead_rows_retries_retryable_network_errors(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.sead.fetch_json",
+            side_effect=[
+                URLError(OSError(51, "Network is unreachable")),
+                [{"site_id": 6468}],
+            ],
+        ), patch("bijux_pollenomics.data_downloader.sources.sead.api_client.time.sleep"):
+            rows = fetch_sead_rows("tbl_sites", select="site_id")
+
+        self.assertEqual(rows, [{"site_id": 6468}])
 
     def test_collect_sead_data_writes_inventory_summary(self) -> None:
         rows = [

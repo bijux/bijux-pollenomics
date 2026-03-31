@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
+import time
+from urllib.error import HTTPError, URLError
 
 SEAD_LIMIT = 1000
 SEAD_FILTER_BATCH_SIZE = 100
 SEAD_POSTGREST_ROOT = "https://browser.sead.se/postgrest"
+SEAD_REQUEST_RETRIES = 5
+SEAD_REQUEST_TIMEOUT_SECONDS = 60.0
 
 
 def fetch_sead_rows(
@@ -14,6 +18,8 @@ def fetch_sead_rows(
     filters: tuple[tuple[str, str], ...] | None = None,
     order_by: tuple[str, ...] = (),
     select: str,
+    request_retries: int = SEAD_REQUEST_RETRIES,
+    request_timeout_seconds: float = SEAD_REQUEST_TIMEOUT_SECONDS,
 ) -> list[dict[str, object]]:
     """Fetch every row from one SEAD PostgREST table for a selected projection."""
     rows: list[dict[str, object]] = []
@@ -24,13 +30,13 @@ def fetch_sead_rows(
     if order_by:
         params.append(("order", ",".join(order_by)))
     while True:
-        chunk = fetch_json_fn(
-            f"{SEAD_POSTGREST_ROOT}/{table_name}",
+        chunk = fetch_sead_chunk(
+            table_name,
+            fetch_json_fn=fetch_json_fn,
             params=params,
-            headers={
-                "Range-Unit": "items",
-                "Range": f"{start}-{start + SEAD_LIMIT - 1}",
-            },
+            start=start,
+            request_retries=request_retries,
+            request_timeout_seconds=request_timeout_seconds,
         )
         if not isinstance(chunk, list) or not chunk:
             break
@@ -49,6 +55,8 @@ def fetch_sead_rows_by_ids(
     ids: Iterable[int],
     order_by: tuple[str, ...] = (),
     select: str,
+    request_retries: int = SEAD_REQUEST_RETRIES,
+    request_timeout_seconds: float = SEAD_REQUEST_TIMEOUT_SECONDS,
 ) -> list[dict[str, object]]:
     """Fetch SEAD rows in manageable `in.(...)` batches."""
     unique_ids = sorted({int(value) for value in ids})
@@ -62,9 +70,46 @@ def fetch_sead_rows_by_ids(
                 select=select,
                 filters=((filter_field, build_sead_in_filter(batch)),),
                 order_by=order_by,
+                request_retries=request_retries,
+                request_timeout_seconds=request_timeout_seconds,
             )
         )
     return rows
+
+
+def fetch_sead_chunk(
+    table_name: str,
+    *,
+    fetch_json_fn: Callable[..., object],
+    params: list[tuple[str, str]],
+    start: int,
+    request_retries: int,
+    request_timeout_seconds: float,
+) -> object:
+    """Fetch one ranged SEAD chunk with bounded retries for transient transport failures."""
+    for attempt in range(request_retries):
+        try:
+            return fetch_json_fn(
+                f"{SEAD_POSTGREST_ROOT}/{table_name}",
+                params=params,
+                headers={
+                    "Range-Unit": "items",
+                    "Range": f"{start}-{start + SEAD_LIMIT - 1}",
+                },
+                timeout=request_timeout_seconds,
+            )
+        except (TimeoutError, URLError, HTTPError) as exc:
+            if not sead_retryable_error(exc) or attempt + 1 >= request_retries:
+                raise
+            time.sleep(float(attempt + 1))
+    raise RuntimeError("SEAD request retries exhausted unexpectedly")
+
+
+def sead_retryable_error(exc: Exception) -> bool:
+    """Return whether one SEAD transport failure is worth retrying."""
+    if isinstance(exc, HTTPError):
+        return exc.code == 429 or 500 <= exc.code <= 599
+    return isinstance(exc, (TimeoutError, URLError))
 
 
 def build_sead_in_filter(values: list[int]) -> str:
