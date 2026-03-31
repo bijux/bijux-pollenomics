@@ -38,14 +38,14 @@ HEADER = "\t".join(
 class CountryReportTests(unittest.TestCase):
     def test_bundle_path_builders_keep_artifact_names_stable(self) -> None:
         country_paths = build_country_bundle_paths(Path("/tmp/sweden"), "Sweden", "v62.0")
-        atlas_paths = build_atlas_bundle_paths(Path("/tmp/nordic"), "nordic", "v62.0")
+        atlas_paths = build_atlas_bundle_paths(Path("/tmp/nordic-atlas"), "nordic-atlas", "v62.0")
 
         self.assertEqual(country_paths.samples_csv_path.name, "sweden_aadr_v62.0_samples.csv")
         self.assertEqual(country_paths.localities_csv_path.name, "sweden_aadr_v62.0_localities.csv")
         self.assertEqual(country_paths.samples_markdown_path.name, "sweden_aadr_v62.0_samples.md")
-        self.assertEqual(atlas_paths.map_html_path.name, "nordic_v62.0_map.html")
-        self.assertEqual(atlas_paths.samples_geojson_path.name, "nordic_v62.0_samples.geojson")
-        self.assertEqual(atlas_paths.summary_json_path.name, "nordic_v62.0_summary.json")
+        self.assertEqual(atlas_paths.map_html_path.name, "nordic-atlas_map.html")
+        self.assertEqual(atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson")
+        self.assertEqual(atlas_paths.summary_json_path.name, "nordic-atlas_summary.json")
 
     def test_sample_serialization_contract_stays_aligned_between_csv_and_geojson(self) -> None:
         sample = self.sample_record(
@@ -168,12 +168,12 @@ class CountryReportTests(unittest.TestCase):
                 root,
                 "Sweden",
                 output,
-                map_reference=("Nordic Evidence Atlas", "../nordic/nordic_v62.0_map.html"),
+                map_reference=("Nordic Evidence Atlas", "../nordic-atlas/nordic-atlas_map.html"),
             )
 
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Shared interactive map", readme_text)
-            self.assertIn("../nordic/nordic_v62.0_map.html", readme_text)
+            self.assertIn("../nordic-atlas/nordic-atlas_map.html", readme_text)
             self.assertIn("Environmental and archaeology context layers are published in the shared map bundle", readme_text)
 
     def test_generate_country_report_replaces_stale_bundle_files(self) -> None:
