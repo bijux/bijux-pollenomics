@@ -4,7 +4,7 @@ audience: mixed
 type: workflow
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # Local Workflow
@@ -34,7 +34,7 @@ make docs-serve
 
 - `make install` uses `artifacts/.venv/`
 - `make reports` regenerates the checked-in report bundles under `docs/report/`
-- `make app-state` rebuilds the current app scope end to end
+- `make app-state` rebuilds the checked-in repository outputs end to end
 - `make check` runs the main repository verification suite in one command
 - `make test-unit` runs the logic-level unit suite
 - `make test-regression` runs artifact and workflow-regression checks
@@ -46,6 +46,15 @@ make docs-serve
 ## Why The Makefile Exists
 
 The repository now has enough moving parts that a checked-in local workflow is more reliable than asking contributors to remember raw commands.
+
+## Scope-Based Verification
+
+Choose the smallest honest verification surface for the change:
+
+- docs-only edits: run `make docs`
+- logic or command-surface edits: run `make lint` and the relevant test targets
+- collector or reporting contract edits: run the relevant tests and regenerate affected checked-in artifacts
+- repository-wide refactors: run `make check` and rebuild whichever tracked outputs the change touches
 
 ## Accuracy Rule
 

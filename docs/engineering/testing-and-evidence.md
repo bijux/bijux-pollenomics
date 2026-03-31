@@ -24,7 +24,7 @@ The `Makefile` exposes these suites directly:
 - `make test-e2e`
 - `make test` for the full combined suite
 
-## Current Evidence Types
+## Evidence Types
 
 - unittest coverage for collection, normalization, and report generation logic
 - checked-in `data/` source outputs
@@ -35,9 +35,20 @@ The `Makefile` exposes these suites directly:
 - successful `make lint`, `make test`, `make build`, and `make docs`
 - a combined `make check` run for one-command repository verification
 
+## Evidence Matrix
+
+- source-collection changes should leave behind test evidence plus changed `data/` artifacts or summaries
+- reporting changes should leave behind test evidence plus changed `docs/report/` artifacts when output behavior moved
+- documentation changes should leave behind a successful strict docs build
+- packaging or command-surface changes should leave behind the relevant `make` or CLI command evidence
+
 ## Why Generated Artifacts Matter
 
 The project is output-heavy. A change that preserves test behavior but silently changes the generated map or report assets can still be important, so artifact diffs are part of normal review.
+
+## Review Rule
+
+Do not treat one green command as universal proof. The evidence should match the surface area of the change.
 
 ## Purpose
 
