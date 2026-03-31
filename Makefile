@@ -17,7 +17,7 @@ UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen 
 
 .DEFAULT_GOAL := help
 
-.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check reports test test-all test-e2e test-regression test-unit
+.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check package-smoke reports test test-all test-e2e test-regression test-unit
 
 help:
 	@printf "Available targets:\n"
@@ -25,9 +25,10 @@ help:
 	@printf "  lock       Refresh uv.lock from pyproject.toml\n"
 	@printf "  lock-check Verify uv.lock matches pyproject.toml\n"
 	@printf "  package-check Build and validate source and wheel distributions\n"
+	@printf "  package-smoke Install the built wheel into a temporary environment and run the CLI\n"
 	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
 	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
-	@printf "  check      Verify uv.lock, lint, tests, docs, and distributions\n"
+	@printf "  check      Verify uv.lock, lint, tests, docs, and package installs\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run unit, regression, and e2e test suites\n"
 	@printf "  test-unit  Run the unit test suite\n"
@@ -49,7 +50,7 @@ lock:
 lock-check:
 	$(UV) lock --check --python $(PYTHON)
 
-check: lock-check lint test docs package-check
+check: lock-check lint test docs package-check package-smoke
 
 lint: install
 	$(RUFF) check src tests
@@ -84,6 +85,14 @@ build: install
 
 package-check: build
 	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
+
+package-smoke: build
+	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
+	$(UV) venv --python $(PYTHON) $(ARTIFACTS_ROOT)/tmp/package-smoke
+	$(UV) pip install --python $(ARTIFACTS_ROOT)/tmp/package-smoke/bin/python --no-deps $(DIST_ROOT)/*.whl
+	$(ARTIFACTS_ROOT)/tmp/package-smoke/bin/bijux-pollenomics --version
+	$(ARTIFACTS_ROOT)/tmp/package-smoke/bin/bijux-pollenomics --help > /dev/null
+	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
 
 docs: install
 	$(MKDOCS_ENV) $(BIN)/mkdocs build --strict
