@@ -112,7 +112,11 @@ class RaaDataTests(unittest.TestCase):
         feature_inventory = {
             "type": "FeatureCollection",
             "features": [
-                {"type": "Feature", "geometry": {"type": "Point", "coordinates": [18.0, 57.0]}, "properties": {"lamningsnummer": "A"}}
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [18.0, 57.0]},
+                    "properties": {"lamningsnummer": "A", "antikvariskbedomningtyp_namn": "Fornlämning"},
+                }
             ],
             "numberMatched": 1,
         }
@@ -138,9 +142,12 @@ class RaaDataTests(unittest.TestCase):
                 report = collect_raa_data(output_root, country_boundaries={"Sweden": {"features": []}})
 
             raw_payload = json.loads(report.raw_points_path.read_text(encoding="utf-8"))
+            summary_payload = json.loads((output_root / "raw" / "publicerade_lamningar_centrumpunkt_summary.json").read_text(encoding="utf-8"))
 
         self.assertEqual(raw_payload["numberMatched"], 1)
         self.assertEqual(raw_payload["features"][0]["properties"]["lamningsnummer"], "A")
+        self.assertEqual(summary_payload["archived_feature_count"], 1)
+        self.assertEqual(summary_payload["heritage_site_count"], 1)
         self.assertEqual(fetch_metadata.call_args.kwargs["feature_inventory"], feature_inventory)
 
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 import math
 from pathlib import Path
 
@@ -243,6 +244,29 @@ def validate_raa_feature_inventory(feature_inventory: dict[str, object]) -> None
         raise ValueError("RAÄ feature archive contains duplicate lamningsnummer values")
 
 
+def build_raa_inventory_summary(feature_inventory: dict[str, object]) -> dict[str, object]:
+    """Summarize the archived RAÄ feature inventory for raw-audit use."""
+    features = iter_raa_features(feature_inventory)
+    feature_ids = [
+        clean_optional_text(feature.get("properties", {}).get("lamningsnummer"))
+        for feature in features
+    ]
+    populated_feature_ids = [feature_id for feature_id in feature_ids if feature_id]
+    return {
+        "generated_on": str(date.today()),
+        "source": "Riksantikvarieämbetet",
+        "feature_type": RAA_FEATURE_TYPE,
+        "number_matched": int(feature_inventory.get("numberMatched") or len(features)),
+        "archived_feature_count": len(features),
+        "identified_feature_count": len(populated_feature_ids),
+        "heritage_site_count": count_raa_features(feature_inventory, heritage_statuses={"Fornlämning"}),
+        "heritage_or_possible_site_count": count_raa_features(
+            feature_inventory,
+            heritage_statuses={"Fornlämning", "Möjlig fornlämning"},
+        ),
+    }
+
+
 def format_count_label(count: int) -> str:
     """Render archaeology density counts in a compact human-readable form."""
     return f"{count:,}"
@@ -262,6 +286,7 @@ def collect_raa_data(
     raw_points_path = raw_dir / "publicerade_lamningar_centrumpunkt.geojson"
     feature_inventory = fetch_raa_feature_inventory()
     write_json(raw_points_path, feature_inventory)
+    write_json(raw_dir / "publicerade_lamningar_centrumpunkt_summary.json", build_raa_inventory_summary(feature_inventory))
     metadata = fetch_raa_archaeology_metadata(
         feature_inventory=feature_inventory,
         country_boundaries=country_boundaries,
