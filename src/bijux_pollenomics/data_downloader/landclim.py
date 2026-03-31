@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import re
 from dataclasses import dataclass
 from datetime import date
@@ -9,11 +8,22 @@ from io import TextIOWrapper
 from pathlib import Path
 from zipfile import ZipFile
 
-from ..core.http import fetch_binary, fetch_text
+from ..core.http import fetch_binary
 from ..core.files import write_json
 from ..core.text import clean_optional_text
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
 from .geometry import classify_country, point_in_bbox
+from .landclim_catalog import (
+    LANDCLIM_DATASET_METADATA,
+    LANDCLIM_II_MEANS_DIRECTORY,
+    build_landclim_raw_asset_summaries,
+    LandClimRawAssets,
+    inspect_landclim_ii_archive,
+    resolve_landclim_asset_urls as _resolve_landclim_asset_urls,
+    resolve_landclim_marquer_asset_urls,
+    resolve_landclim_tabular_asset_urls,
+    validate_landclim_raw_asset,
+)
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
 from .xlsx import list_xlsx_sheet_names, read_xlsx_sheet_rows
@@ -28,33 +38,6 @@ from ..core.bp_time import (
 
 LANDCLIM_SITE_LAYER_KEY = "landclim-sites"
 LANDCLIM_GRID_LAYER_KEY = "landclim-reveals-grid"
-LANDCLIM_MARQUER_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.900966"
-LANDCLIM_I_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.897303"
-LANDCLIM_II_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.937075"
-LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME = {
-    "MARQUER_QSR2017.xlsx": "marquer_2017_reveals_taxa_grid_cells.xlsx",
-    "LandClimILCTs.xlsx": "landclim_i_land_cover_types.xlsx",
-    "LandClimIPFTs.xlsx": "landclim_i_plant_functional_types.xlsx",
-    "LANDCLIMII.RV.results.JUN2021.zip": "landclim_ii_reveals_results.zip",
-    "GC_quality_by_TW.xlsx": "landclim_ii_grid_cell_quality.xlsx",
-    "LandClimII_contributors.xlsx": "landclim_ii_contributors.xlsx",
-    "LandClimII_metadata.xlsx": "landclim_ii_site_metadata.xlsx",
-    "Taxa_to_PFT_PPE_and_FSP_values.csv": "landclim_ii_taxa_pft_ppe_fsp_values.csv",
-}
-LANDCLIM_DATASET_METADATA = {
-    "900966": {
-        "label": "Marquer et al. 2019 REVEALS taxa grid cells",
-        "doi": "https://doi.org/10.1594/PANGAEA.900966",
-    },
-    "897303": {
-        "label": "Gaillard 2019 LandClim I REVEALS grids",
-        "doi": "https://doi.org/10.1594/PANGAEA.897303",
-    },
-    "937075": {
-        "label": "Fyfe et al. 2021 LandClim II REVEALS grids",
-        "doi": "https://doi.org/10.1594/PANGAEA.937075",
-    },
-}
 GRID_CELL_PATTERN = re.compile(r"(?P<lon>\d+(?:\.\d+)?)°(?P<eastwest>[EW])\s+(?P<lat>\d+(?:\.\d+)?)°(?P<northsouth>[NS])")
 TIME_WINDOW_PATTERN = re.compile(r"(?P<start>\d+)-(?P<end>\d+)BP")
 TW_FILE_PATTERN = re.compile(r"TW(?P<index>\d+)\.")
@@ -72,9 +55,6 @@ LANDCLIM_COUNTRY_HINTS = {
     "swe": "Sweden",
     "sweden": "Sweden",
 }
-LANDCLIM_II_MEANS_DIRECTORY = "LANDCLIMII.RV.means.JUN2021/"
-LANDCLIM_II_STANDARD_ERRORS_DIRECTORY = "LANDCLIMII.RV.standarderrors.JUN2021/"
-LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT = 25
 
 
 @dataclass(frozen=True)
@@ -88,11 +68,6 @@ class LandClimDataReport:
     normalized_grid_geojson_path: Path
     summary_path: Path
 
-
-@dataclass(frozen=True)
-class LandClimRawAssets:
-    paths: dict[str, Path]
-    asset_urls: dict[str, str]
 
 
 def collect_landclim_data(
@@ -181,6 +156,11 @@ def collect_landclim_data(
     )
 
 
+def resolve_landclim_asset_urls() -> dict[str, str]:
+    """Backward-compatible access to the LandClim source catalog resolver."""
+    return _resolve_landclim_asset_urls()
+
+
 def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:
     """Download the LandClim raw upstream assets used for normalization."""
     asset_urls = resolve_landclim_asset_urls()
@@ -192,140 +172,6 @@ def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:
         path.write_bytes(payload)
         raw_paths[filename] = path
     return LandClimRawAssets(paths=raw_paths, asset_urls=asset_urls)
-
-
-def validate_landclim_raw_asset(filename: str, payload: bytes) -> None:
-    """Reject empty LandClim downloads before they enter the tracked raw tree."""
-    if not payload:
-        raise ValueError(f"LandClim raw asset download was empty for {filename}")
-
-
-def build_landclim_raw_asset_summaries(
-    raw_paths: dict[str, Path],
-    asset_urls: dict[str, str],
-) -> list[dict[str, object]]:
-    """Build reproducible metadata for the downloaded LandClim raw assets."""
-    summaries: list[dict[str, object]] = []
-    for filename in sorted(raw_paths):
-        path = raw_paths[filename]
-        payload = path.read_bytes()
-        summaries.append(
-            {
-                "filename": filename,
-                "source_url": asset_urls[filename],
-                "size_bytes": len(payload),
-                "sha256": hashlib.sha256(payload).hexdigest(),
-            }
-        )
-    return summaries
-
-
-def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
-    """Validate the documented LandClim II archive structure and summarize its coverage."""
-    with ZipFile(path) as archive:
-        names = archive.namelist()
-    mean_files = sorted(
-        name
-        for name in names
-        if name.startswith(LANDCLIM_II_MEANS_DIRECTORY) and name.endswith(".csv")
-    )
-    standard_error_files = sorted(
-        name
-        for name in names
-        if name.startswith(LANDCLIM_II_STANDARD_ERRORS_DIRECTORY) and name.endswith(".csv")
-    )
-    expected_time_windows = [
-        time_window_from_tw_filename(f"TW{time_window_index}.RV.estimates.jun21.csv")
-        for time_window_index in range(1, LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT + 1)
-    ]
-    mean_time_windows = sorted(
-        {time_window_from_tw_filename(name) for name in mean_files},
-        key=time_window_sort_key,
-    )
-    standard_error_time_windows = sorted(
-        {time_window_from_tw_filename(name) for name in standard_error_files},
-        key=time_window_sort_key,
-    )
-    if mean_time_windows != expected_time_windows:
-        raise ValueError("LandClim II archive is missing documented mean time-window CSV files")
-    if standard_error_time_windows != expected_time_windows:
-        raise ValueError("LandClim II archive is missing documented standard-error time-window CSV files")
-    return {
-        "path": path.name,
-        "mean_file_count": len(mean_files),
-        "standard_error_file_count": len(standard_error_files),
-        "time_windows": expected_time_windows,
-    }
-
-
-def resolve_landclim_asset_urls() -> dict[str, str]:
-    """Resolve all required LandClim raw asset URLs from the official PANGAEA records."""
-    asset_urls: dict[str, str] = {}
-    asset_urls.update(resolve_landclim_marquer_asset_urls(fetch_text(LANDCLIM_MARQUER_DATASET_PAGE)))
-    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_I_DATASET_PAGE}?format=textfile")))
-    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_II_DATASET_PAGE}?format=textfile")))
-    missing = sorted(
-        expected_filename
-        for expected_filename in LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.values()
-        if expected_filename not in asset_urls
-    )
-    if missing:
-        raise ValueError(f"LandClim PANGAEA records are missing required assets: {', '.join(missing)}")
-    return asset_urls
-
-
-def resolve_landclim_marquer_asset_urls(page_html: str) -> dict[str, str]:
-    """Extract the Marquer workbook download URL from the PANGAEA landing page."""
-    match = re.search(r'id="static-download-link"[^>]+href="([^"]+MARQUER_QSR2017\.xlsx)"', page_html)
-    if match is None:
-        raise ValueError("Could not resolve the Marquer workbook from the PANGAEA landing page")
-    return {"marquer_2017_reveals_taxa_grid_cells.xlsx": match.group(1)}
-
-
-def resolve_landclim_tabular_asset_urls(textfile: str) -> dict[str, str]:
-    """Extract one PANGAEA text-matrix asset table into local LandClim filenames."""
-    rows = parse_pangaea_textfile_rows(textfile)
-    header = rows[0]
-    index = {column: position for position, column in enumerate(header)}
-    filename_field = "File name" if "File name" in index else "Binary"
-    url_field = "URL file" if "URL file" in index else ""
-    asset_urls: dict[str, str] = {}
-    for row in rows[1:]:
-        source_name = clean_optional_text(row[index[filename_field]]) if index[filename_field] < len(row) else ""
-        if not source_name:
-            continue
-        source_filename = source_name if "." in source_name else f"{source_name}.{clean_optional_text(row[index.get('File format', -1)]).casefold()}"
-        local_filename = LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.get(source_filename)
-        if not local_filename:
-            continue
-        if url_field:
-            url = clean_optional_text(row[index[url_field]]) if index[url_field] < len(row) else ""
-        else:
-            url = build_landclim_ii_file_url(source_filename)
-        asset_urls[local_filename] = url
-    return asset_urls
-
-
-def parse_pangaea_textfile_rows(textfile: str) -> list[list[str]]:
-    """Parse the data matrix from a PANGAEA `format=textfile` response."""
-    marker = "*/"
-    if marker not in textfile:
-        raise ValueError("Unexpected PANGAEA textfile response: missing data matrix marker")
-    data_text = textfile.split(marker, 1)[1].strip()
-    if not data_text:
-        raise ValueError("Unexpected PANGAEA textfile response: empty data matrix")
-    return [
-        row
-        for row in csv.reader(data_text.splitlines(), delimiter="\t")
-        if row
-    ]
-
-
-def build_landclim_ii_file_url(filename: str) -> str:
-    """Build one direct LandClim II file download URL from the documented filename."""
-    return f"https://download.pangaea.de/dataset/937075/files/{filename}"
-
-
 def build_landclim_site_records(
     raw_paths: dict[str, Path],
     bbox: tuple[float, float, float, float],
@@ -1034,3 +880,22 @@ def value_from_row(row: list[str], index: dict[str, int], field: str) -> str:
     if field not in index or index[field] >= len(row):
         return ""
     return clean_optional_text(row[index[field]])
+
+
+__all__ = [
+    "LandClimDataReport",
+    "build_landclim_grid_geojson",
+    "build_landclim_raw_asset_summaries",
+    "build_landclim_site_records",
+    "collect_landclim_data",
+    "download_landclim_raw_assets",
+    "feature_key_from_center",
+    "feature_key_from_geometry",
+    "grid_geometry_from_nw_cell_label",
+    "inspect_landclim_ii_archive",
+    "landclim_i_site_records",
+    "parse_coordinate",
+    "resolve_landclim_asset_urls",
+    "resolve_landclim_marquer_asset_urls",
+    "resolve_landclim_tabular_asset_urls",
+]
