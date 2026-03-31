@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 
-from .common import clean_optional_text
+from ..core.text import clean_optional_text
 from .geometry import classify_country
 from .models import ContextPointRecord
 from .sead_fetch import parse_optional_int

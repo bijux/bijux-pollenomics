@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .common import write_text
+from ..core.files import write_text
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 
 

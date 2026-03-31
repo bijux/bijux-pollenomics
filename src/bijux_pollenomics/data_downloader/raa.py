@@ -6,7 +6,8 @@ import math
 from pathlib import Path
 
 from ..core.http import fetch_json, fetch_text
-from .common import clean_optional_text, write_json, write_text
+from ..core.files import write_json, write_text
+from ..core.text import clean_optional_text
 from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
 from .geometry import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
 

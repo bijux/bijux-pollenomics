@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..data_downloader.common import slugify as shared_slugify
+from ..core.text import slugify as shared_slugify
 
 
 def pick_value(left: str, right: str) -> str:

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Iterable
 
-from .common import write_json
+from ..core.files import write_json
 from .models import ContextPointRecord
 
 

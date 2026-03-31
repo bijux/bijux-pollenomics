@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict
 
-from .common import write_json
+from ..core.files import write_json
 from .models import DataCollectionSummary
 
 

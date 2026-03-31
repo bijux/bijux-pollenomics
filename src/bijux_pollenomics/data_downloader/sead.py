@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Iterable
 
 from ..core.http import fetch_json
-from .common import write_json
+from ..core.files import write_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
 from .sead_fetch import (
     build_sead_in_filter as build_sead_in_filter_value,

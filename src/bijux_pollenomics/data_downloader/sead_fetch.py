@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Iterable
 
-from .common import clean_optional_text
+from ..core.text import clean_optional_text
 from ..temporal import normalize_bp_interval
 
 SEAD_LIMIT = 1000

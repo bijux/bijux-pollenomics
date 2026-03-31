@@ -7,7 +7,8 @@ from datetime import date
 from pathlib import Path
 
 from ..core.http import fetch_text
-from .common import clean_optional_text, slugify, write_json
+from ..core.files import write_json
+from ..core.text import clean_optional_text, slugify
 from .contracts import BOUNDARY_COLLECTION
 
 

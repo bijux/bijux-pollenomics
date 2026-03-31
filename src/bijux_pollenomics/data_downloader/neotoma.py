@@ -11,7 +11,8 @@ from typing import Iterable
 from urllib.error import HTTPError, URLError
 
 from ..core.http import fetch_json
-from .common import clean_optional_text, write_json
+from ..core.files import write_json
+from ..core.text import clean_optional_text
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from .geometry import classify_country, geometry_to_representative_point, point_in_bbox
 from .models import ContextPointRecord
