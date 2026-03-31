@@ -16,15 +16,27 @@ Use this page for local setup and publication failures before moving into deeper
 Check:
 
 - `python3.11 --version`
+- `uv --version`
 - whether `artifacts/.venv/` is in a broken partial state
-- whether `pyproject.toml` metadata still installs cleanly with editable builds
+- whether `uv.lock` still matches `pyproject.toml`
+- whether `pyproject.toml` metadata still installs cleanly with the current lockfile
 
 If needed:
 
 ```bash
 make clean
 make install
+make lock-check
 ```
+
+## `make package-check` fails
+
+Check:
+
+- whether `make build` succeeds first
+- whether package metadata still renders cleanly for both source and wheel distributions
+- whether `LICENSE` and `NOTICE` are still included through `pyproject.toml`
+- whether `twine check` is reporting malformed metadata rather than a missing build artifact
 
 ## `make data-prep` is slow
 

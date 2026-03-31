@@ -16,7 +16,8 @@ It is ordered to keep environment verification separate from commands that rewri
 ```mermaid
 flowchart LR
     Checkout[Clone repo] --> Install[make install]
-    Install --> Verify[make lint and make test]
+    Install --> LockCheck[make lock-check]
+    LockCheck --> Verify[make lint and make test]
     Verify --> DataPrep[make data-prep]
     DataPrep --> Reports[Publish report artifacts]
 ```
@@ -32,8 +33,9 @@ flowchart LR
 
 By the end of this section you should be able to:
 
-- create the local virtual environment under `artifacts/.venv/`
+- sync the local project environment under `artifacts/.venv/` from `uv.lock`
 - confirm that the local Python and tooling match repository expectations
+- confirm that the dependency lock still matches the declared configuration
 - run lint and tests
 - rebuild `data/` with one command
 - regenerate the shared Nordic map and country reports

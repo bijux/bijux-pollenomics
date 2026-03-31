@@ -40,6 +40,7 @@ make install
 make lock-check
 make lint
 make test
+make package-check
 make docs
 ```
 
@@ -49,6 +50,7 @@ make docs
 - `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
 - `make lint` runs `ruff` across `src/` and `tests/`
 - `make test` runs the checked-in unittest suite with verbose discovery output
+- `make package-check` rebuilds the source and wheel distributions and validates them with `twine check`
 - `make docs` verifies that the documentation shell still builds in strict mode
 
 ## What `make install` Actually Adds
@@ -72,6 +74,7 @@ After these commands:
 - `uv.lock` matches `pyproject.toml`
 - lint passes
 - the test suite passes
+- source and wheel distributions validate successfully
 - the docs site builds successfully
 
 ## What This Page Does Not Verify
