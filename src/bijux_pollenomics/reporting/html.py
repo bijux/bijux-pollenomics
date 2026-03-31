@@ -979,13 +979,14 @@ def render_multi_country_map_html(
       }
       .map-dock {
         position: absolute;
-        right: 16px;
+        left: max(452px, 26vw);
+        right: 332px;
         bottom: 124px;
         z-index: 1100;
-        width: min(420px, calc(100vw - 32px));
         display: grid;
         gap: 12px;
       }
+      .sidebar.is-collapsed ~ .map-stage .map-dock { left: 16px; }
       .map-dock-card {
         position: relative;
         overflow: hidden;
@@ -1326,8 +1327,12 @@ def render_multi_country_map_html(
           bottom: 76px;
         }
         .map-dock {
-          right: 12px;
+          left: calc(min(400px, calc(100vw - 24px)) + 24px);
+          right: 284px;
           bottom: 112px;
+        }
+        .sidebar.is-collapsed ~ .map-stage .map-dock {
+          left: 12px;
         }
         .map-status {
           left: 12px;
