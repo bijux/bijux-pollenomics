@@ -6,6 +6,7 @@ from pathlib import Path
 import json
 from unittest.mock import patch
 
+from bijux_pollenomics.data_downloader.boundaries import NATURAL_EARTH_ADMIN0_URL, NATURAL_EARTH_VERSION
 from bijux_pollenomics.data_downloader.collector import (
     AVAILABLE_SOURCES,
     build_staging_output_dir,
@@ -171,6 +172,16 @@ class DataCollectorTests(unittest.TestCase):
             boundary_payload = {"type": "FeatureCollection", "features": []}
             for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
                 (raw_dir / filename).write_text(json.dumps(boundary_payload), encoding="utf-8")
+            (raw_dir / "source_manifest.json").write_text(
+                json.dumps(
+                    {
+                        "source": "Natural Earth",
+                        "version": NATURAL_EARTH_VERSION,
+                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                    }
+                ),
+                encoding="utf-8",
+            )
 
             with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
                 patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
@@ -189,6 +200,16 @@ class DataCollectorTests(unittest.TestCase):
             invalid_payload = {"type": "Polygon"}
             for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
                 (raw_dir / filename).write_text(json.dumps(invalid_payload), encoding="utf-8")
+            (raw_dir / "source_manifest.json").write_text(
+                json.dumps(
+                    {
+                        "source": "Natural Earth",
+                        "version": NATURAL_EARTH_VERSION,
+                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                    }
+                ),
+                encoding="utf-8",
+            )
 
             with self.assertRaisesRegex(ValueError, "FeatureCollection"):
                 collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")

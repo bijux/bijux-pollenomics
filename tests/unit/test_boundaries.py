@@ -6,9 +6,12 @@ from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.boundaries import (
+    NATURAL_EARTH_ADMIN0_URL,
+    NATURAL_EARTH_VERSION,
     build_combined_country_boundaries,
     build_country_boundary_collection,
     collect_boundaries_data,
+    load_country_boundaries,
 )
 
 
@@ -64,16 +67,53 @@ class BoundariesTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "boundaries"
-            with patch("bijux_pollenomics.data_downloader.boundaries.fetch_json", return_value=natural_earth_payload):
+            with patch(
+                "bijux_pollenomics.data_downloader.boundaries.fetch_natural_earth_admin0_payload",
+                return_value=(
+                    natural_earth_payload,
+                    {
+                        "source": "Natural Earth",
+                        "version": NATURAL_EARTH_VERSION,
+                        "asset_url": NATURAL_EARTH_ADMIN0_URL,
+                    },
+                ),
+            ):
                 country_boundaries, report = collect_boundaries_data(output_root)
 
             self.assertEqual(tuple(country_boundaries.keys()), ("Sweden", "Norway", "Finland", "Denmark"))
             self.assertTrue((output_root / "raw" / "sweden.geojson").exists())
             self.assertTrue(report.combined_path.exists())
+            self.assertTrue(report.manifest_path.exists())
 
             combined = build_combined_country_boundaries(country_boundaries)
             self.assertEqual(len(combined["features"]), 4)
             self.assertEqual(combined["features"][0]["properties"]["layer_key"], "country-boundaries")
+
+    def test_load_country_boundaries_requires_valid_manifest(self) -> None:
+        boundary_payload = {"type": "FeatureCollection", "features": []}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "boundaries"
+            raw_dir = output_root / "raw"
+            raw_dir.mkdir(parents=True, exist_ok=True)
+            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
+                (raw_dir / filename).write_text('{"type":"FeatureCollection","features":[]}', encoding="utf-8")
+
+            self.assertIsNone(load_country_boundaries(output_root))
+
+            (raw_dir / "source_manifest.json").write_text(
+                (
+                    "{"
+                    f"\"source\":\"Natural Earth\",\"version\":\"{NATURAL_EARTH_VERSION}\","
+                    f"\"asset_url\":\"{NATURAL_EARTH_ADMIN0_URL}\""
+                    "}"
+                ),
+                encoding="utf-8",
+            )
+
+            loaded = load_country_boundaries(output_root)
+
+        self.assertEqual(loaded, {"Sweden": boundary_payload, "Norway": boundary_payload, "Finland": boundary_payload, "Denmark": boundary_payload})
 
 
 if __name__ == "__main__":
