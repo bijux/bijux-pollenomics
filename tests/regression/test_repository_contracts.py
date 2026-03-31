@@ -115,6 +115,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("branches:\n      - main", deploy_workflow)
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
+        self.assertIn("custom_dir: docs/overrides", deploy_workflow)
+        self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)
+        self.assertIn("Validate published site root assets", deploy_workflow)
 
     def test_report_docs_describe_final_summary_paths(self) -> None:
         published_artifacts = (REPO_ROOT / "docs" / "outputs" / "published-artifacts.md").read_text(encoding="utf-8")

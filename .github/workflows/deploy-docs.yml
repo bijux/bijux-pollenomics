@@ -61,10 +61,22 @@ jobs:
           strict_value = strict_match.group(1).lower() if strict_match else "false"
           if strict_value != "true":
               raise SystemExit(f"mkdocs strict must be true, got: {strict_value}")
+          if "custom_dir: docs/overrides" not in text:
+              raise SystemExit("mkdocs theme.custom_dir must point at docs/overrides")
+          if "hooks:" not in text or "docs/hooks/publish_site_assets.py" not in text:
+              raise SystemExit("mkdocs must publish site assets through docs/hooks/publish_site_assets.py")
           PY
 
       - name: Build docs site
         run: make docs PYTHON=python
+
+      - name: Validate published site root assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f artifacts/docs/site/favicon.ico
+          test -f artifacts/docs/site/apple-touch-icon.png
+          test -f artifacts/docs/site/apple-touch-icon-precomposed.png
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
