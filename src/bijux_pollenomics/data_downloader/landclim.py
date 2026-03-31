@@ -469,7 +469,7 @@ def merge_landclim_i_grid_features(
         rows = read_xlsx_sheet_rows(path, sheet_name)
         if len(rows) < 3:
             continue
-        time_window = sheet_name.replace("meanLC", " BP").replace("BP BP", "BP")
+        time_window = normalize_landclim_time_window_label(sheet_name.replace("meanLC", ""))
         for row in rows[2:]:
             if len(row) < 5 or clean_optional_text(row[2]) == "":
                 continue
@@ -609,6 +609,11 @@ def add_grid_feature_source(
     properties["source_url"] = sorted_dois[0] if sorted_dois else ""
     properties["record_count"] = len(feature["_time_windows"])
     time_windows = sorted(feature["_time_windows"], key=time_window_sort_key)
+    time_interval = landclim_time_windows_interval(time_windows)
+    properties["time_start_bp"] = time_interval[0] if time_interval is not None else None
+    properties["time_end_bp"] = time_interval[1] if time_interval is not None else None
+    properties["time_mean_bp"] = mean_bp_year_from_interval(time_interval)
+    properties["time_label"] = summarize_time_windows(time_windows) if time_windows else ""
     popup_rows = [
         ("Datasets", ", ".join(sorted(feature["_dataset_labels"]))),
         ("DOIs", ", ".join(sorted_dois)),
@@ -649,6 +654,14 @@ def landclim_time_windows_interval(time_windows: list[str]) -> tuple[int, int] |
 def landclim_top_bottom_interval(top_bp: int | None, bottom_bp: int | None) -> tuple[int, int] | None:
     """Normalize LandClim top and bottom BP metadata into one interval."""
     return normalize_bp_interval(top_bp, bottom_bp)
+
+
+def normalize_landclim_time_window_label(value: str) -> str:
+    """Normalize LandClim workbook labels to the shared `0-100 BP` form."""
+    text = clean_optional_text(value)
+    if text.endswith("BP") and not text.endswith(" BP"):
+        return f"{text[:-2]} BP".strip()
+    return text
 
 
 def summarize_quality_labels(labels: set[str]) -> str:

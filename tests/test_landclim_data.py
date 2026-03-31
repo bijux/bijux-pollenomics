@@ -133,6 +133,10 @@ class LandClimDataTests(unittest.TestCase):
             self.assertIn("LandClim I plant functional types", popup["Datasets"])
             self.assertIn("LandClim II REVEALS grids", popup["Datasets"])
             self.assertEqual(popup["LandClim II quality"], "high")
+            self.assertEqual(properties["time_start_bp"], 0)
+            self.assertEqual(properties["time_end_bp"], 100)
+            self.assertEqual(properties["time_mean_bp"], 50)
+            self.assertEqual(properties["time_label"], "0-100 BP")
 
     def test_landclim_grid_keys_match_between_workbook_and_csv_cells(self) -> None:
         geometry = grid_geometry_from_nw_cell_label("17°E 60°N")
