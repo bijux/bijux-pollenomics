@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import shutil
 from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
@@ -9,57 +8,15 @@ from typing import Callable, Iterable
 from .aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
 from .common import write_json, write_text
+from .data_layout import AVAILABLE_SOURCES, build_source_output_roots, write_data_directory_readme
 from .landclim import collect_landclim_data
 from .models import DataCollectionSummary
 from .neotoma import collect_neotoma_data
 from .raa import collect_raa_data
 from .sead import collect_sead_data
+from .source_registry import CONTEXT_SOURCE_SPECS, ContextSourceSpec, resolve_context_collect_function
+from .staging import build_staging_output_dir, collect_into_staging_dir
 from ..settings import DEFAULT_AADR_VERSION, NORDIC_BBOX
-
-
-AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
-
-
-@dataclass(frozen=True)
-class ContextSourceSpec:
-    name: str
-    output_dir_name: str
-    requires_bbox: bool
-    count_attributes: tuple[tuple[str, str], ...]
-
-
-CONTEXT_SOURCE_SPECS = {
-    "landclim": ContextSourceSpec(
-        name="landclim",
-        output_dir_name="landclim",
-        requires_bbox=True,
-        count_attributes=(
-            ("landclim_site_count", "site_count"),
-            ("landclim_grid_cell_count", "grid_cell_count"),
-        ),
-    ),
-    "neotoma": ContextSourceSpec(
-        name="neotoma",
-        output_dir_name="neotoma",
-        requires_bbox=True,
-        count_attributes=(("neotoma_point_count", "point_count"),),
-    ),
-    "raa": ContextSourceSpec(
-        name="raa",
-        output_dir_name="raa",
-        requires_bbox=False,
-        count_attributes=(
-            ("raa_total_site_count", "total_site_count"),
-            ("raa_heritage_site_count", "heritage_site_count"),
-        ),
-    ),
-    "sead": ContextSourceSpec(
-        name="sead",
-        output_dir_name="sead",
-        requires_bbox=True,
-        count_attributes=(("sead_point_count", "point_count"),),
-    ),
-}
 
 
 @dataclass(frozen=True)
@@ -251,91 +208,6 @@ def normalize_requested_sources(sources: Iterable[str]) -> tuple[str, ...]:
         if source not in unique_sources:
             unique_sources.append(source)
     return tuple(unique_sources)
-
-
-def render_data_root_readme() -> str:
-    """Render a stable README for the generated data root."""
-    return render_data_root_readme_for(Path("data"), DEFAULT_AADR_VERSION)
-
-
-def render_data_root_readme_for(output_root: Path, version: str) -> str:
-    """Render the data-root README with the active output directory name."""
-    root_name = output_root.name or str(output_root)
-    tree_lines = [
-        root_name,
-        "├── aadr",
-        f"│   └── {version}",
-        *(f"├── {source}" for source in AVAILABLE_SOURCES[1:-1]),
-        f"└── {AVAILABLE_SOURCES[-1]}",
-    ]
-    tree_text = "\n".join(tree_lines)
-    return f"""# Data Layout
-
-Tracked source data lives directly under `{root_name}/`:
-
-```text
-{tree_text}
-```
-
-Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
-
-- `docs/03-data-guide/index.md`
-- `docs/07-reference/data-layout.md`
-
-The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
-"""
-
-
-def build_source_output_roots(output_root: Path, version: str) -> dict[str, str]:
-    """Build the machine-readable output-root mapping for every tracked source."""
-    roots = {
-        "aadr": str(Path(output_root) / "aadr"),
-        "aadr_version_dir": str(Path(output_root) / "aadr" / version),
-    }
-    roots.update(
-        {
-            source: str(Path(output_root) / source)
-            for source in AVAILABLE_SOURCES
-            if source != "aadr"
-        }
-    )
-    return roots
-
-
-def write_data_directory_readme(output_root: Path, version: str) -> None:
-    """Write the stable README that documents the generated data tree."""
-    write_text(Path(output_root) / "README.md", render_data_root_readme_for(Path(output_root), version))
-
-
-def reset_output_dir(path: Path) -> None:
-    """Remove one generated source directory so recollection is deterministic."""
-    if path.exists():
-        shutil.rmtree(path)
-
-
-def build_staging_output_dir(final_output_root: Path) -> Path:
-    """Build the sibling staging directory used for safe source recollection."""
-    final_output_root = Path(final_output_root)
-    return final_output_root.parent / f".{final_output_root.name}.tmp"
-
-
-def collect_into_staging_dir(
-    final_output_root: Path,
-    collect: Callable[[Path], object],
-) -> object:
-    """Collect into a staging directory and swap it into place only after success."""
-    final_output_root = Path(final_output_root)
-    staging_output_root = build_staging_output_dir(final_output_root)
-    reset_output_dir(staging_output_root)
-    staging_output_root.mkdir(parents=True, exist_ok=True)
-    try:
-        report = collect(staging_output_root)
-        reset_output_dir(final_output_root)
-        staging_output_root.replace(final_output_root)
-        return report
-    except Exception:
-        reset_output_dir(staging_output_root)
-        raise
 
 
 def write_collection_summary(summary: DataCollectionSummary) -> None:

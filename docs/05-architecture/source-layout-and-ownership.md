@@ -46,11 +46,14 @@ src/bijux_pollenomics
     ├── common.py
     ├── contracts.py
     ├── context.py
+    ├── data_layout.py
     ├── geometry.py
     ├── models.py
     ├── neotoma.py
     ├── raa.py
     ├── sead.py
+    ├── source_registry.py
+    ├── staging.py
     └── writers.py
 ```
 
@@ -62,6 +65,10 @@ src/bijux_pollenomics
 - `command_line/handlers.py` owns user-facing command behavior
 - `settings.py` owns shared defaults for the current checked-in publication scope
 - `data_downloader/` owns source acquisition and normalization
+- `data_downloader/collector.py` owns high-level data-collection orchestration only
+- `data_downloader/source_registry.py` owns the tracked context-source registry
+- `data_downloader/staging.py` owns safe swap-in staging behavior
+- `data_downloader/data_layout.py` owns generated data-root layout contracts
 - `reporting/` owns report and map generation
 - `reporting/service.py` orchestrates report and map builds
 - `reporting/html.py` owns the standalone map document
@@ -71,7 +78,13 @@ src/bijux_pollenomics
 
 ## Collector Shape
 
-`data_downloader/collector.py` now uses an explicit context-source registry instead of one hardcoded branch per source. That keeps adding or reordering context collectors localized to one place instead of spreading dispatch rules across the module.
+The collector path is intentionally split into three seams:
+
+- orchestration in `data_downloader/collector.py`
+- source registration in `data_downloader/source_registry.py`
+- staging and generated layout contracts in `data_downloader/staging.py` and `data_downloader/data_layout.py`
+
+That keeps adding or reordering context collectors localized to one place instead of spreading dispatch rules, README rendering, and staging behavior across the same module.
 
 ## Why `reporting/` Is Separate
 
