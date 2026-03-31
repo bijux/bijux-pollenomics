@@ -27,6 +27,8 @@ The general expectation is:
 
 `aadr` is the main exception because the tracked `.anno` files already are the durable input contract used by the repository.
 
+Because the repository has older checked-in snapshots as well as newer refreshed ones, not every current source directory exposes the full latest manifest set yet. The refresh contract on this page describes what future recollection should preserve so those older snapshots can be brought forward deliberately instead of being silently reinterpreted.
+
 ## Refresh Rule
 
 Refreshing a source snapshot is not just “download again”.

@@ -75,6 +75,8 @@ The checked-in `data/` tree contains:
 - raw and normalized SEAD site outputs
 - raw RAÄ metadata plus normalized Swedish archaeology density outputs
 
+Some source-specific audit artifacts are part of the newer collector contract but are not yet present in every older checked-in snapshot. Read the individual source pages when you need to distinguish current files from next-refresh expectations.
+
 ## Comparison Rule
 
 Do not flatten these sources into one mental model.

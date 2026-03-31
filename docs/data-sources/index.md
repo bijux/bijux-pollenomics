@@ -44,7 +44,7 @@ The repository treats source collection as an auditable ingest step, not as a hi
 
 - raw upstream payloads stay in `raw/` whenever the upstream format matters for later audit or reprocessing
 - normalized outputs stay in `normalized/` when the repository needs stable map-ready or table-ready contracts
-- manifests and summaries are part of the checked-in evidence, not optional extras
+- manifests and summaries are part of the collector contract, and the newer checked-in snapshots should carry them rather than treating them as optional extras
 - a refreshed source snapshot should explain both where the files came from and why the normalized layer changed
 
 ## Reading Rule
