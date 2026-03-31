@@ -16,14 +16,32 @@ from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, D
 from tests.support.aadr import AADR_HEADER
 
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
+EDITABLE_CONSOLE_SCRIPT = REPO_ROOT / "artifacts" / ".venv" / "bin" / "bijux-pollenomics"
+
+
 class CliTests(unittest.TestCase):
+    def _require_console_script(self) -> Path:
+        configured_console_script = os.environ.get("BIJUX_POLLENOMICS_CONSOLE_SCRIPT")
+        if configured_console_script:
+            return Path(configured_console_script)
+
+        if EDITABLE_CONSOLE_SCRIPT.exists():
+            return EDITABLE_CONSOLE_SCRIPT
+
+        interpreter_sibling = Path(sys.executable).with_name("bijux-pollenomics")
+        if interpreter_sibling.exists():
+            return interpreter_sibling
+
+        self.skipTest("Installed console script not found. Run `make install` before installed-script checks.")
+
     def test_module_entrypoint_displays_help(self) -> None:
         environment = os.environ.copy()
         environment["PYTHONPATH"] = "src"
 
         result = subprocess.run(
             [sys.executable, "-m", "bijux_pollenomics", "--help"],
-            cwd=Path(__file__).resolve().parents[2],
+            cwd=REPO_ROOT,
             env=environment,
             capture_output=True,
             text=True,
@@ -35,10 +53,10 @@ class CliTests(unittest.TestCase):
         self.assertIn("publish-reports", result.stdout)
 
     def test_installed_console_script_displays_help(self) -> None:
-        console_script = Path(sys.executable).with_name("bijux-pollenomics")
+        console_script = self._require_console_script()
         result = subprocess.run(
             [str(console_script), "--help"],
-            cwd=Path(__file__).resolve().parents[2],
+            cwd=REPO_ROOT,
             capture_output=True,
             text=True,
             check=False,
@@ -49,10 +67,10 @@ class CliTests(unittest.TestCase):
         self.assertIn("collect-data", result.stdout)
 
     def test_installed_console_script_displays_package_version(self) -> None:
-        console_script = Path(sys.executable).with_name("bijux-pollenomics")
+        console_script = self._require_console_script()
         result = subprocess.run(
             [str(console_script), "--version"],
-            cwd=Path(__file__).resolve().parents[2],
+            cwd=REPO_ROOT,
             capture_output=True,
             text=True,
             check=False,
@@ -67,7 +85,7 @@ class CliTests(unittest.TestCase):
 
         result = subprocess.run(
             [sys.executable, "-m", "bijux_pollenomics", "collect-data", "--help"],
-            cwd=Path(__file__).resolve().parents[2],
+            cwd=REPO_ROOT,
             env=environment,
             capture_output=True,
             text=True,
