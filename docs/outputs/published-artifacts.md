@@ -17,6 +17,8 @@ Narrative pages under `docs/outputs/` explain those artifacts, but they are not 
 
 Publication writes these bundles into a staging tree first and swaps that tree into `docs/report/` only after generation succeeds.
 
+That staging step is an implementation detail. The checked-in summary JSON files inside the published bundles should always record the final `docs/report/...` output paths rather than hidden staging directories.
+
 ## Nordic Evidence Atlas Bundle
 
 The checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
@@ -64,6 +66,7 @@ When a change affects `docs/report/`, reviewers should assume that:
 
 - HTML, JSON, CSV, and GeoJSON diffs may all be meaningful
 - generated text inside bundle `README.md` files is part of the artifact contract
+- `output_dir` and sibling path fields inside summary JSON files should point at the final published tree, not at `.tmp` directories
 - artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
 
 The practical consequence is that reviewers should read `docs/outputs/` pages and `docs/report/` diffs together when output behavior changes.

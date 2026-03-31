@@ -111,6 +111,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
 
+    def test_report_docs_describe_final_summary_paths(self) -> None:
+        published_artifacts = (REPO_ROOT / "docs" / "outputs" / "published-artifacts.md").read_text(encoding="utf-8")
+        report_layout = (REPO_ROOT / "docs" / "reference" / "report-layout.md").read_text(encoding="utf-8")
+
+        self.assertIn("final `docs/report/...` output paths", published_artifacts)
+        self.assertIn("final `docs/report/...` bundle locations", report_layout)
+
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
 
