@@ -22,60 +22,99 @@ src/bijux_pollenomics
 ├── __init__.py
 ├── __main__.py
 ├── cli.py
+├── config.py
 ├── command_line
 │   ├── __init__.py
 │   ├── arguments.py
 │   ├── dispatch.py
-│   └── handlers.py
+│   ├── handlers.py
+│   ├── options.py
+│   ├── parser.py
+│   ├── registry.py
+│   └── subcommands.py
 ├── project.py
 ├── settings.py
 ├── reporting
 │   ├── __init__.py
+│   ├── aadr_localities.py
+│   ├── aadr_samples.py
+│   ├── aadr_schema.py
 │   ├── aadr.py
+│   ├── api.py
 │   ├── artifacts.py
+│   ├── context_point_layers.py
+│   ├── context_polygon_layers.py
+│   ├── context_time.py
 │   ├── context_layers.py
+│   ├── countries.py
 │   ├── html.py
+│   ├── map_document/
 │   ├── markdown.py
 │   ├── models.py
 │   ├── paths.py
 │   ├── service.py
 │   ├── staging.py
+│   ├── summaries.py
 │   └── utils.py
 └── data_downloader
+    ├── api.py
     ├── aadr.py
+    ├── boundary_sources.py
     ├── boundaries.py
     ├── collector.py
     ├── common.py
+    ├── context_collectors.py
+    ├── context_collection.py
     ├── contracts.py
     ├── context.py
     ├── data_layout.py
     ├── geometry.py
+    ├── landclim.py
     ├── models.py
     ├── neotoma.py
+    ├── requested_sources.py
     ├── raa.py
+    ├── sead_fetch.py
+    ├── sead_normalization.py
     ├── sead.py
     ├── source_registry.py
     ├── staging.py
+    ├── summary_writer.py
+    ├── xlsx.py
     └── writers.py
 ```
 
 ## Ownership Model
 
 - `cli.py` owns the stable top-level entry point only
-- `command_line/arguments.py` owns argument composition
+- `config.py` owns the canonical defaults model and flattened constants
+- `command_line/parser.py` owns root parser composition
+- `command_line/options.py` owns reusable option groups
+- `command_line/subcommands.py` owns subcommand-specific parser assembly
 - `command_line/dispatch.py` owns command routing
+- `command_line/registry.py` owns the direct-command handler registry
 - `command_line/handlers.py` owns user-facing command behavior
-- `project.py` owns canonical project defaults and path roots
-- `settings.py` owns shared defaults for the checked-in publication scope
+- `project.py` and `settings.py` remain compatibility views over `config.py`
 - `data_downloader/` owns source acquisition and normalization
+- `data_downloader/api.py` owns the public downloader package surface
 - `data_downloader/collector.py` owns high-level data-collection orchestration only
-- `data_downloader/source_registry.py` owns the tracked context-source registry
+- `data_downloader/requested_sources.py` owns source-selection normalization
+- `data_downloader/boundary_sources.py` owns boundary reuse and fallback policy
+- `data_downloader/context_collection.py` owns context-source execution into staged directories
+- `data_downloader/context_collectors.py` owns the executable collector registry
+- `data_downloader/source_registry.py` owns tracked source metadata only
 - `data_downloader/staging.py` owns safe swap-in staging behavior
 - `data_downloader/data_layout.py` owns generated data-root layout contracts
+- `data_downloader/summary_writer.py` owns collection-summary serialization
 - `reporting/` owns report and map generation
+- `reporting/api.py` owns the public reporting package surface
 - `reporting/service.py` orchestrates report and map builds
-- `reporting/html.py` owns the standalone map document
-- `reporting/aadr.py` owns AADR sample loading and locality aggregation
+- `reporting/map_document/` owns the standalone map template and derived render state
+- `reporting/context_layers.py` owns top-level context-layer orchestration only
+- `reporting/context_point_layers.py`, `reporting/context_polygon_layers.py`, and `reporting/context_time.py` own map-layer shaping details
+- `reporting/aadr_samples.py`, `reporting/aadr_schema.py`, and `reporting/aadr_localities.py` own AADR report loading seams
+- `reporting/summaries.py` owns machine-readable report summary payloads
+- `reporting/countries.py` owns country-list normalization for report workflows
 - `reporting/staging.py` owns safe swap-in staging for generated publication trees
 - `data_downloader/contracts.py` owns normalized data artifact names
 - `reporting/paths.py` owns generated report-bundle artifact names
@@ -85,10 +124,10 @@ src/bijux_pollenomics
 The collector path is intentionally split into three seams:
 
 - orchestration in `data_downloader/collector.py`
-- source registration in `data_downloader/source_registry.py`
+- source metadata in `data_downloader/source_registry.py` plus executable registry in `data_downloader/context_collectors.py`
 - staging and generated layout contracts in `data_downloader/staging.py` and `data_downloader/data_layout.py`
 
-That keeps adding or reordering context collectors localized to one place instead of spreading dispatch rules, README rendering, and staging behavior across the same module.
+That keeps adding or reordering context collectors localized to the registry modules instead of spreading dispatch rules, boundary reuse policy, README rendering, and staging behavior across the same module.
 
 ## Why `reporting/` Is Separate
 
