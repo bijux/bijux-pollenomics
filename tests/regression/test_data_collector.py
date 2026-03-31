@@ -144,6 +144,24 @@ class DataCollectorTests(unittest.TestCase):
             self.assertTrue(preserved_file.exists())
             self.assertFalse((output_root / ".neotoma.tmp").exists())
 
+    def test_collect_data_preserves_root_contract_files_when_collection_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            readme_path = output_root / "README.md"
+            summary_path = output_root / "collection_summary.json"
+            output_root.mkdir(parents=True, exist_ok=True)
+            readme_path.write_text("kept readme", encoding="utf-8")
+            summary_path.write_text('{"status": "kept"}', encoding="utf-8")
+
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+                download_aadr.side_effect = RuntimeError("download failure")
+
+                with self.assertRaisesRegex(RuntimeError, "download failure"):
+                    collect_data(output_root=output_root, sources=("aadr",), version="v62.0")
+
+            self.assertEqual(readme_path.read_text(encoding="utf-8"), "kept readme")
+            self.assertEqual(summary_path.read_text(encoding="utf-8"), '{"status": "kept"}')
+
     def test_collect_data_writes_output_root_specific_readme(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "custom-data"

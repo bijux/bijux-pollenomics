@@ -57,8 +57,6 @@ def collect_data(
     """Collect one or more tracked data sources into the project data tree."""
     selected_sources = normalize_requested_sources(sources)
     output_root = Path(output_root)
-    output_root.mkdir(parents=True, exist_ok=True)
-    write_data_directory_readme(output_root, version=version)
     source_output_roots = build_source_output_roots(output_root=output_root, version=version)
 
     counts = initialize_source_counts()
@@ -118,6 +116,8 @@ def collect_data(
         raa_heritage_site_count=counts["raa_heritage_site_count"],
         summary_path=summary_path,
     )
+    output_root.mkdir(parents=True, exist_ok=True)
+    write_data_directory_readme(output_root, version=version)
     write_collection_summary(summary)
 
     return DataCollectionReport(
