@@ -12,16 +12,20 @@ class AadrDataTests(unittest.TestCase):
 
     def test_resolve_anno_files_filters_to_requested_version(self) -> None:
         metadata = {
-            "data": {
-                "latestVersion": {
+            "data": [
+                {
                     "files": [
                         {"dataFile": {"filename": "v62.0_1240k_public.anno", "id": 101}},
                         {"dataFile": {"filename": "v62.0_HO_public.anno", "id": 102}},
-                        {"dataFile": {"filename": "v61.0_HO_public.anno", "id": 103}},
                         {"dataFile": {"filename": "v62.0_HO_public.geno", "id": 104}},
                     ]
-                }
-            }
+                },
+                {
+                    "files": [
+                        {"dataFile": {"filename": "v61.0_HO_public.anno", "id": 103}},
+                    ]
+                },
+            ]
         }
 
         files = resolve_anno_files(version="v62.0", metadata=metadata)
@@ -31,6 +35,33 @@ class AadrDataTests(unittest.TestCase):
             [
                 ("1240k", "v62.0_1240k_public.anno", 101),
                 ("ho", "v62.0_HO_public.anno", 102),
+            ],
+        )
+
+    def test_resolve_anno_files_finds_historical_release_outside_latest_version(self) -> None:
+        metadata = {
+            "data": [
+                {
+                    "files": [
+                        {"dataFile": {"filename": "v62.0_1240k_public.anno", "id": 201}},
+                    ]
+                },
+                {
+                    "files": [
+                        {"dataFile": {"filename": "v54.1_HO_public.anno", "id": 301}},
+                        {"dataFile": {"filename": "v54.1_1240k_public.anno", "id": 302}},
+                    ]
+                },
+            ]
+        }
+
+        files = resolve_anno_files(version="v54.1", metadata=metadata)
+
+        self.assertEqual(
+            [(item.dataset_name, item.filename, item.file_id) for item in files],
+            [
+                ("1240k", "v54.1_1240k_public.anno", 302),
+                ("ho", "v54.1_HO_public.anno", 301),
             ],
         )
 

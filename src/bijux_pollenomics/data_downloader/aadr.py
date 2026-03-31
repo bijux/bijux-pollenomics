@@ -12,6 +12,10 @@ AADR_DATAVERSE_API_URL = (
     "https://dataverse.harvard.edu/api/datasets/:persistentId/"
     "?persistentId=doi:10.7910/DVN/FFIDCW"
 )
+AADR_DATAVERSE_VERSIONS_URL = (
+    "https://dataverse.harvard.edu/api/datasets/:persistentId/versions"
+    "?persistentId=doi:10.7910/DVN/FFIDCW"
+)
 AADR_DOWNLOAD_URL_TEMPLATE = "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
 REQUEST_HEADERS = {"User-Agent": "bijux-pollenomics/1.0"}
 
@@ -36,7 +40,7 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
     version_dir = output_root / version
     version_dir.mkdir(parents=True, exist_ok=True)
 
-    anno_files = resolve_anno_files(version=version, metadata=fetch_release_metadata())
+    anno_files = resolve_anno_files(version=version, metadata=fetch_release_history_metadata())
     downloaded_files: list[Path] = []
     for anno_file in anno_files:
         dataset_dir = version_dir / anno_file.dataset_name
@@ -58,14 +62,36 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
 
 
 def resolve_anno_files(version: str, metadata: dict[str, object]) -> tuple[AadrAnnoFile, ...]:
-    """Extract the requested release's public .anno files from Dataverse metadata."""
-    latest_version = metadata.get("data", {}).get("latestVersion", {})
-    files = latest_version.get("files", [])
+    """Extract one release's public .anno files from the Dataverse version history."""
+    version_prefix = f"{version}_"
+    for dataset_version in iter_release_versions(metadata):
+        matched_files = extract_anno_files_from_release(dataset_version, version_prefix=version_prefix)
+        if matched_files:
+            return tuple(sorted(matched_files, key=lambda item: item.dataset_name))
+    raise ValueError(
+        f"No public .anno files were found for {version} in {AADR_DATAVERSE_PERSISTENT_ID}"
+    )
+
+
+def iter_release_versions(metadata: dict[str, object]) -> list[dict[str, object]]:
+    """Return Dataverse release versions in descending publication order."""
+    versions = metadata.get("data", [])
+    if not isinstance(versions, list):
+        raise ValueError("Unexpected Dataverse metadata: missing version history")
+    return [version for version in versions if isinstance(version, dict)]
+
+
+def extract_anno_files_from_release(
+    dataset_version: dict[str, object],
+    *,
+    version_prefix: str,
+) -> list[AadrAnnoFile]:
+    """Extract public `.anno` files for one Dataverse dataset version."""
+    files = dataset_version.get("files", [])
     if not isinstance(files, list):
-        raise ValueError("Unexpected Dataverse metadata: missing file manifest")
+        return []
 
     matched_files: list[AadrAnnoFile] = []
-    version_prefix = f"{version}_"
     for file_entry in files:
         if not isinstance(file_entry, dict):
             continue
@@ -75,20 +101,14 @@ def resolve_anno_files(version: str, metadata: dict[str, object]) -> tuple[AadrA
         filename = str(data_file.get("filename", "")).strip()
         if not filename.startswith(version_prefix) or not filename.endswith(".anno"):
             continue
-        file_id = int(data_file["id"])
         matched_files.append(
             AadrAnnoFile(
                 filename=filename,
-                file_id=file_id,
+                file_id=int(data_file["id"]),
                 dataset_name=dataset_directory_name(filename),
             )
         )
-
-    if not matched_files:
-        raise ValueError(
-            f"No public .anno files were found for {version} in {AADR_DATAVERSE_PERSISTENT_ID}"
-        )
-    return tuple(sorted(matched_files, key=lambda item: item.dataset_name))
+    return matched_files
 
 
 def dataset_directory_name(filename: str) -> str:
@@ -102,6 +122,6 @@ def dataset_directory_name(filename: str) -> str:
     return stem.split("_", 1)[-1].replace("_public", "").casefold()
 
 
-def fetch_release_metadata() -> dict[str, object]:
-    """Fetch the current AADR Dataverse metadata manifest."""
-    return json.loads(fetch_text(AADR_DATAVERSE_API_URL, headers={"User-Agent": "Mozilla/5.0"}, insecure=True))
+def fetch_release_history_metadata() -> dict[str, object]:
+    """Fetch the Dataverse release history for the public AADR dataset."""
+    return json.loads(fetch_text(AADR_DATAVERSE_VERSIONS_URL, headers={"User-Agent": "Mozilla/5.0"}, insecure=True))
