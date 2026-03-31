@@ -13,7 +13,7 @@ from ..data_downloader.contracts import (
     RAA_LAYER_METADATA,
 )
 from .models import SampleRecord
-from ..temporal import build_bp_interval_label, parse_numeric_bp_year
+from ..temporal import build_bp_interval_label, midpoint_bp_year, parse_numeric_bp_year
 
 
 def build_context_layers(
@@ -240,6 +240,7 @@ def build_external_point_layer(
             latitude = float(coordinates[1])
         except (TypeError, ValueError) as exc:
             raise ValueError(f"{source_label} contains a point with non-numeric coordinates") from exc
+        time_payload = feature_time_payload(properties)
         features.append(
             {
                 "latitude": latitude,
@@ -249,10 +250,12 @@ def build_external_point_layer(
                 "subtitle": str(properties.get("category", "")).strip(),
                 "popup_rows": popup_rows,
                 "source_url": str(properties.get("source_url", "")).strip(),
+                **time_payload,
             }
         )
 
     applies_country_filter = any(feature.get("country") for feature in features)
+    applies_time_filter = any(feature_has_time(feature) for feature in features)
 
     return {
         "key": layer_key,
@@ -265,7 +268,7 @@ def build_external_point_layer(
         "geometry_label": metadata.get(layer_key, {}).get("geometry_label", "Point records"),
         "default_enabled": True,
         "applies_country_filter": applies_country_filter,
-        "applies_time_filter": False,
+        "applies_time_filter": applies_time_filter,
         "circle_enabled": True,
         "style": styles.get(
             layer_key,
@@ -348,6 +351,11 @@ def build_external_polygon_layer(
             raise ValueError(f"{source_label} contains a feature with invalid geometry")
         if geometry.get("type") not in {"Polygon", "MultiPolygon"}:
             raise ValueError(f"{source_label} polygon layers must contain Polygon or MultiPolygon geometries")
+    applies_time_filter = any(
+        feature_has_time(feature.get("properties", {}))
+        for feature in raw_features
+        if isinstance(feature.get("properties", {}), dict)
+    )
     styles = {
         "landclim-reveals-grid": {
             "fill": "rgba(132, 204, 22, 0.16)",
@@ -374,6 +382,7 @@ def build_external_polygon_layer(
         "default_enabled": True,
         "kind": "context-polygons",
         "applies_country_filter": True,
+        "applies_time_filter": applies_time_filter,
         "style": styles.get(
             layer_key,
             {
@@ -383,3 +392,31 @@ def build_external_polygon_layer(
         ),
         "geojson": geojson,
     }
+
+
+def feature_time_payload(properties: dict[str, object]) -> dict[str, object]:
+    """Normalize temporal properties from external feature metadata."""
+    time_start_bp = parse_numeric_bp_year(properties.get("time_start_bp"))
+    time_end_bp = parse_numeric_bp_year(properties.get("time_end_bp"))
+    time_mean_bp = parse_numeric_bp_year(properties.get("time_mean_bp"))
+    if time_mean_bp is None and time_start_bp is not None and time_end_bp is not None:
+        time_mean_bp = midpoint_bp_year(time_start_bp, time_end_bp)
+    time_label = str(properties.get("time_label", "")).strip()
+    if not time_label and time_start_bp is not None and time_end_bp is not None:
+        time_label = build_bp_interval_label(time_start_bp, time_end_bp)
+    return {
+        "time_start_bp": time_start_bp,
+        "time_end_bp": time_end_bp,
+        "time_mean_bp": time_mean_bp,
+        "time_year_bp": time_mean_bp,
+        "time_label": time_label,
+    }
+
+
+def feature_has_time(feature: dict[str, object]) -> bool:
+    """Return whether a point or polygon feature carries temporal metadata."""
+    payload = feature_time_payload(feature)
+    return any(
+        payload.get(key) not in (None, "")
+        for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_label")
+    )

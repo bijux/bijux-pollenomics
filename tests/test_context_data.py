@@ -10,6 +10,7 @@ from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import normalize_sead_rows
 from bijux_pollenomics.data_downloader.writers import write_context_points_csv, write_context_points_geojson
+from bijux_pollenomics.reporting.context_layers import build_external_point_layer, build_external_polygon_layer
 
 
 class ContextDataTests(unittest.TestCase):
@@ -163,6 +164,59 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(properties["time_end_bp"], 700)
         self.assertEqual(properties["time_mean_bp"], 350)
         self.assertEqual(properties["time_label"], "0-700 BP")
+
+    def test_external_point_layers_enable_time_filter_when_temporal_properties_exist(self) -> None:
+        layer = build_external_point_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [17.0, 59.0]},
+                        "properties": {
+                            "layer_key": "landclim-sites",
+                            "layer_label": "LandClim pollen sites",
+                            "country": "Sweden",
+                            "name": "Lake One",
+                            "category": "Pollen sequence",
+                            "time_start_bp": 0,
+                            "time_end_bp": 700,
+                        },
+                    }
+                ],
+            }
+        )
+
+        self.assertTrue(layer["applies_time_filter"])
+        self.assertEqual(layer["features"][0]["time_start_bp"], 0)
+        self.assertEqual(layer["features"][0]["time_end_bp"], 700)
+        self.assertEqual(layer["features"][0]["time_mean_bp"], 350)
+        self.assertEqual(layer["features"][0]["time_label"], "0-700 BP")
+
+    def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(self) -> None:
+        layer = build_external_polygon_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [[[16.0, 58.0], [17.0, 58.0], [17.0, 59.0], [16.0, 59.0], [16.0, 58.0]]],
+                        },
+                        "properties": {
+                            "layer_key": "landclim-reveals-grid",
+                            "layer_label": "LandClim REVEALS grid cells",
+                            "country": "Sweden",
+                            "time_start_bp": 100,
+                            "time_end_bp": 1200,
+                        },
+                    }
+                ],
+            }
+        )
+
+        self.assertTrue(layer["applies_time_filter"])
 
 
 if __name__ == "__main__":
