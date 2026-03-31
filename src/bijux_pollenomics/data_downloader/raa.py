@@ -6,7 +6,7 @@ from pathlib import Path
 from ..core.files import write_json, write_text
 from ..core.text import clean_optional_text
 from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
-from .raa_outputs import (
+from .sources.raa.outputs import (
     RAA_FEATURE_TYPE,
     RAA_WFS_URL,
     build_raa_density_geojson,
