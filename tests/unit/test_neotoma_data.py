@@ -9,6 +9,7 @@ from unittest.mock import patch
 from bijux_pollenomics.data_downloader.neotoma import (
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
+    fetch_neotoma_dataset_download_rows,
     fetch_neotoma_pollen_rows,
     normalize_neotoma_rows,
 )
@@ -245,6 +246,17 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(records[0].time_end_bp, 3600)
         self.assertEqual(records[0].time_mean_bp, 1815)
 
+    def test_fetch_neotoma_dataset_download_rows_rejects_missing_dataset_payloads(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_row",
+            side_effect=[
+                [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}],
+                [],
+            ],
+        ):
+            with self.assertRaisesRegex(ValueError, "missing dataset IDs: 202"):
+                fetch_neotoma_dataset_download_rows([201, 202])
+
     def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(self) -> None:
         country_boundaries = {
             "Norway": {
@@ -379,6 +391,58 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(records[0].time_end_bp, 3600)
         self.assertEqual(records[0].time_mean_bp, 1800)
         self.assertEqual(records[0].time_label, "0-3600 Calibrated radiocarbon years BP")
+
+    def test_collect_neotoma_data_writes_download_coverage_summary(self) -> None:
+        inventory_rows = [
+            {
+                "site": {
+                    "siteid": 20,
+                    "sitename": "Inside Nordic",
+                    "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                    "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                }
+            }
+        ]
+        download_rows = [
+            {
+                "site": {
+                    "siteid": 20,
+                    "collectionunit": {"dataset": {"datasetid": 201, "datasettype": "pollen"}},
+                }
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "neotoma"
+            with patch(
+                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                return_value=inventory_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                return_value=inventory_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                return_value=[201],
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                return_value=download_rows,
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                return_value=[],
+            ), patch(
+                "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                return_value=[],
+            ):
+                collect_neotoma_data(
+                    output_root=output_root,
+                    country_boundaries={"Sweden": {"features": []}},
+                    bbox=(4.0, 54.0, 35.0, 72.0),
+                )
+
+            download_payload = json.loads((output_root / "raw" / "neotoma_pollen_dataset_downloads.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(download_payload["requested_dataset_ids"], [201])
+        self.assertEqual(download_payload["downloaded_dataset_ids"], [201])
 
 
 if __name__ == "__main__":

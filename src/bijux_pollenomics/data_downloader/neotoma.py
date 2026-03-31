@@ -84,6 +84,7 @@ def fetch_neotoma_dataset_download_rows(dataset_ids: Iterable[int]) -> list[dict
     rows: list[dict[str, object]] = []
     for dataset_id in unique_dataset_ids:
         rows.extend(rows_by_dataset_id.get(dataset_id, []))
+    validate_neotoma_download_coverage(unique_dataset_ids, rows)
     return rows
 
 
@@ -105,6 +106,56 @@ def fetch_neotoma_dataset_download_row(dataset_id: int) -> list[dict[str, object
                 raise
             time.sleep(float(attempt + 1))
     return []
+
+
+def validate_neotoma_download_coverage(
+    requested_dataset_ids: Iterable[int],
+    download_rows: Iterable[dict[str, object]],
+) -> None:
+    """Raise when a requested Neotoma dataset is absent from the collected download payloads."""
+    requested = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
+    returned = sorted(extract_neotoma_download_dataset_ids(download_rows))
+    missing = sorted(set(requested) - set(returned))
+    if missing:
+        missing_text = ", ".join(str(dataset_id) for dataset_id in missing[:10])
+        if len(missing) > 10:
+            missing_text = f"{missing_text}, ..."
+        raise ValueError(f"Neotoma download coverage missing dataset IDs: {missing_text}")
+
+
+def extract_neotoma_download_dataset_ids(download_rows: Iterable[dict[str, object]]) -> list[int]:
+    """Extract unique dataset identifiers from full Neotoma dataset download payloads."""
+    dataset_ids: set[int] = set()
+    for item in download_rows:
+        dataset_id = neotoma_download_dataset_id(item)
+        if dataset_id is not None:
+            dataset_ids.add(dataset_id)
+    return sorted(dataset_ids)
+
+
+def neotoma_download_dataset_id(download_row: object) -> int | None:
+    """Read one dataset identifier from a full Neotoma dataset download payload."""
+    if not isinstance(download_row, dict):
+        return None
+    site = download_row.get("site")
+    if not isinstance(site, dict):
+        return None
+    collection_unit = site.get("collectionunit")
+    if isinstance(collection_unit, dict) and isinstance(collection_unit.get("dataset"), dict):
+        dataset_id = collection_unit["dataset"].get("datasetid")
+    elif isinstance(site.get("dataset"), dict):
+        dataset_id = site["dataset"].get("datasetid")
+    else:
+        return None
+    if isinstance(dataset_id, int):
+        return dataset_id
+    text = clean_optional_text(dataset_id)
+    if not text:
+        return None
+    try:
+        return int(text)
+    except ValueError:
+        return None
 
 
 def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = None) -> list[object]:
@@ -886,6 +937,7 @@ def collect_neotoma_data(
     )
     dataset_ids = extract_neotoma_dataset_ids(matched_inventory_rows)
     download_rows = fetch_neotoma_dataset_download_rows(dataset_ids)
+    downloaded_dataset_ids = extract_neotoma_download_dataset_ids(download_rows)
     rows = build_neotoma_site_rows_from_downloads(download_rows)
 
     inventory_path = raw_dir / "neotoma_pollen_dataset_inventory.json"
@@ -912,7 +964,10 @@ def collect_neotoma_data(
             "source": "Neotoma",
             "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
             "datasettype": NEOTOMA_DATASETTYPE,
-            "dataset_count": len(dataset_ids),
+            "requested_dataset_count": len(dataset_ids),
+            "requested_dataset_ids": dataset_ids,
+            "downloaded_dataset_count": len(downloaded_dataset_ids),
+            "downloaded_dataset_ids": downloaded_dataset_ids,
             "row_count": len(download_rows),
             "rows": download_rows,
         },
