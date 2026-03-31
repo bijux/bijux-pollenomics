@@ -31,6 +31,7 @@ def download_aadr_anno_files(
         payload = fetch_binary_fn(
             AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
             headers=REQUEST_HEADERS,
+            insecure=True,
         )
         validate_downloaded_anno_payload(anno_file, payload)
         destination.write_bytes(payload)

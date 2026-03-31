@@ -5,7 +5,7 @@ import unittest
 from urllib.error import URLError
 from unittest.mock import patch
 
-from bijux_pollenomics.core.http import fetch_binary, fetch_text
+from bijux_pollenomics.core.http import INSECURE_TLS_ENV_VAR, fetch_binary, fetch_text
 
 
 class _FakeResponse:
@@ -48,6 +48,22 @@ class CommonFetchTests(unittest.TestCase):
 
         with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):
             self.assertEqual(fetch_binary("https://example.com/data.bin", insecure=True), b"\x00\x01")
+
+    def test_fetch_text_retries_with_unverified_context_when_env_flag_is_enabled(self) -> None:
+        call_contexts: list[object] = []
+
+        def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
+            call_contexts.append(context)
+            if len(call_contexts) == 1:
+                raise URLError(ssl.SSLCertVerificationError("certificate verify failed"))
+            return _FakeResponse(b"payload")
+
+        with patch.dict("os.environ", {INSECURE_TLS_ENV_VAR: "1"}, clear=False):
+            with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):
+                self.assertEqual(fetch_text("https://example.com/data.json"), "payload")
+
+        self.assertIsNone(call_contexts[0])
+        self.assertIsNotNone(call_contexts[1])
 
 
 if __name__ == "__main__":
