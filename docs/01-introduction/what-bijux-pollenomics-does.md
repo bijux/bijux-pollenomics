@@ -61,7 +61,7 @@ That is why the docs homepage embeds the shared map before anything else.
 - tracked source inputs under `data/`
 - normalized data products under `data/*/normalized/`
 - country report bundles under `docs/report/<country>/`
-- a shared Nordic interactive map under `docs/report/nordic/`
+- a shared Nordic interactive map under `docs/report/nordic-atlas/`
 
 ## Purpose
 

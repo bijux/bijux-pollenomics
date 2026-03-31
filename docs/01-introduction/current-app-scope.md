@@ -14,7 +14,7 @@ This page defines the current finished scope of the repository as it exists toda
 ## Included In The Current App
 
 - tracked source collection for `aadr`, `boundaries`, `neotoma`, `raa`, and `sead`
-- one shared Nordic map bundle under `docs/report/nordic/`
+- one shared Nordic map bundle under `docs/report/nordic-atlas/`
 - country report bundles for Sweden, Norway, Finland, and Denmark
 - machine-readable collection and report summaries
 - one-command rebuilds for data, reports, and the docs site
