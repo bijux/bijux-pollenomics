@@ -1299,7 +1299,7 @@ def render_multi_country_map_html(
                     <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
                     <button class="preset-button" type="button" data-time-interval="full">Full span</button>
                   </div>
-                  <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
+                  <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
               </details>
               <details class="control-group">
@@ -1392,7 +1392,7 @@ def render_multi_country_map_html(
             <div class="help-list">
               <div class="help-row"><span class="help-key">Layers</span><span>Enable or disable evidence and context sources without reopening the sidebar.</span></div>
               <div class="help-row"><span class="help-key">Presets</span><span>`Evidence only`, `Context stack`, `Map framing`, and `All layers` reset the active layer stack quickly.</span></div>
-              <div class="help-row"><span class="help-key">Time</span><span>The BP start and span sliders filter only layers that carry numeric BP dates.</span></div>
+              <div class="help-row"><span class="help-key">Time</span><span>The BP start and span sliders filter layers that carry BP dates or BP coverage ranges.</span></div>
             </div>
           </section>
           <section class="help-card">
@@ -1720,8 +1720,9 @@ def render_multi_country_map_html(
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
           { label: 'Coordinates', value: `${Number(entry.feature.latitude).toFixed(4)}, ${Number(entry.feature.longitude).toFixed(4)}` },
         ];
-        if (entry.feature.time_year_bp !== null && entry.feature.time_year_bp !== undefined && entry.feature.time_year_bp !== '') {
-          meta.splice(2, 0, { label: 'Date', value: `${entry.feature.time_year_bp} BP` });
+        const timeLabel = featureTimeLabel(entry.feature);
+        if (timeLabel) {
+          meta.splice(2, 0, { label: 'Date', value: timeLabel });
         }
         setFocusState({
           kind: 'point',
@@ -1874,6 +1875,12 @@ def render_multi_country_map_html(
         const activeWindow = { start: timeStartBp, end: timeWindowEndBp() };
         return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
       }
+      function featureTimeLabel(feature) {
+        if (feature.time_label) return String(feature.time_label);
+        const window = featureTimeWindow(feature);
+        if (!window) return '';
+        return window.start === window.end ? `${window.start} BP` : `${window.start}-${window.end} BP`;
+      }
       function pointFeatureInTimeWindow(layer, feature) {
         return featureInTimeWindow(layer, feature);
       }
@@ -2017,7 +2024,7 @@ def render_multi_country_map_html(
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: properties.country || 'Unassigned' },
                       { label: 'Type', value: properties.category || properties.geometry_type || 'Polygon record' },
-                    ],
+                    ].concat(featureTimeLabel(properties) ? [{ label: 'Date', value: featureTimeLabel(properties) }] : []),
                     sourceUrl: properties.source_url || '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
                   });
@@ -2042,13 +2049,19 @@ def render_multi_country_map_html(
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
-        const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
-          if (!layer.applies_time_filter) return false;
-          return Number.isFinite(Number(feature.time_year_bp));
-        }).length;
+        const timedVisiblePoints = visiblePointEntries.filter(({ layer, feature }) => layer.applies_time_filter && featureTimeWindow(feature)).length;
+        const timedVisiblePolygons = POLYGON_LAYERS.reduce((count, layer) => {
+          if (!activeLayerKeys.has(layer.key) || !layer.applies_time_filter) return count;
+          const features = Array.isArray(layer.geojson && layer.geojson.features) ? layer.geojson.features : [];
+          return count + features.filter((feature) => {
+            const properties = feature && feature.properties ? feature.properties : {};
+            return featureTimeWindow(properties) && polygonFeatureVisible(layer, properties);
+          }).length;
+        }, 0);
+        const timedVisibleCount = timedVisiblePoints + timedVisiblePolygons;
         timeRecordCount.textContent = TIME_HAS_DATA
-          ? `${datedVisibleCount} dated records are visible in the active BP window.`
-          : 'No dated records are available for BP filtering.';
+          ? `${timedVisibleCount} time-aware records are visible in the active BP window.`
+          : 'No time-aware records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
@@ -2063,10 +2076,10 @@ def render_multi_country_map_html(
           searchResults.innerHTML = '';
           return;
         }
-        const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
+        const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${featureTimeLabel(feature)}`.toLowerCase().includes(query)).slice(0, 12);
         searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
         searchResults.hidden = false;
-        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
+        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span>${featureTimeLabel(feature) ? `<span class="search-badge">${escapeHtml(featureTimeLabel(feature))}</span>` : ''}</div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
             const match = matches[index];
