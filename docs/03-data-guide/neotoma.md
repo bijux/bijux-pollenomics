@@ -13,18 +13,21 @@ last_reviewed: 2026-03-31
 
 ## What It Produces
 
-- a raw API snapshot under `data/neotoma/raw/neotoma_pollen_sites.json`
+- a short dataset inventory under `data/neotoma/raw/neotoma_pollen_dataset_inventory.json`
+- full dataset downloads under `data/neotoma/raw/neotoma_pollen_dataset_downloads.json`
+- an aggregated site summary under `data/neotoma/raw/neotoma_pollen_sites.json`
 - normalized CSV and GeoJSON outputs under `data/neotoma/normalized/`
 
 ## What The Current Collector Does
 
 The current collector:
 
-- requests Neotoma `datasettype=pollen` rows from both the public `datasets` and `sites` endpoints
-- merges those responses by site and collection unit so newer pollen records from `datasets` are not lost and site-only rows from `sites` are still retained
-- keeps only rows whose representative point falls inside the Nordic bounding box
+- requests a short Neotoma `datasettype=pollen` inventory from the public `datasets` endpoint using a Nordic `loc` query
+- filters that inventory to tracked Nordic countries using the repository boundary layer
+- downloads each surviving dataset through the full `downloads/{datasetid}` endpoint so samples, taxa, and chronologies are preserved
+- merges the full dataset records by site and collection unit
 - assigns each retained record to a Nordic country using the tracked boundary layer, including a narrow boundary-proximity recovery so coastal and inland-water sites are not dropped by coarse land polygons
-- writes one raw JSON snapshot plus normalized CSV and GeoJSON outputs
+- writes raw inventory, raw dataset-download, and raw site-summary JSON artifacts plus normalized CSV and GeoJSON outputs
 
 ## Why It Matters
 
@@ -40,13 +43,13 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 
 The repository reduces Neotoma geometries to representative points for map use, then assigns those points to Nordic countries using the tracked boundary layer.
 
-## What This Repository Intentionally Does Not Preserve
+## What This Repository Intentionally Does Not Preserve In The Normalized Layer
 
 - richer upstream geometry distinctions beyond the representative point used for map placement
-- every field that may exist in the upstream payload but is not needed by the current map and normalized exports
+- one point per individual sample or taxon observation
 - non-Nordic records returned by the upstream API queries
 
-That simplification is intentional. It makes the shared map tractable, but it also means the normalized Neotoma outputs are not a full mirror of the source system.
+The normalized outputs are intentionally compact for map use. The raw Neotoma artifacts now retain the full dataset downloads used to build those point summaries.
 
 ## Purpose
 

@@ -71,7 +71,7 @@ The current `data/` tree contains:
 - tracked AADR `.anno` files under `data/aadr/v62.0/`
 - raw and normalized country boundaries
 - raw and normalized LandClim pollen-sequence and REVEALS grid outputs
-- raw and normalized Neotoma pollen-site outputs
+- raw Neotoma inventory and dataset-download snapshots plus normalized pollen-site outputs
 - raw and normalized SEAD site outputs
 - raw RAÄ metadata plus normalized Swedish archaeology density outputs
 
