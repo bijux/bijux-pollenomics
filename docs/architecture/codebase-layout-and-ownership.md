@@ -24,77 +24,99 @@ src/bijux_pollenomics
 ├── cli.py
 ├── config.py
 ├── command_line
-│   ├── __init__.py
-│   ├── arguments.py
-│   ├── dispatch.py
-│   ├── handlers.py
-│   ├── options.py
-│   ├── parser.py
-│   ├── registry.py
-│   └── subcommands.py
-├── project.py
-├── settings.py
+│   ├── parsing
+│   │   ├── options.py
+│   │   ├── parser.py
+│   │   └── subcommands.py
+│   └── runtime
+│       ├── dispatch.py
+│       ├── handlers.py
+│       └── registry.py
+├── core
+│   ├── bp_time.py
+│   ├── files.py
+│   ├── http.py
+│   └── text.py
 ├── reporting
-│   ├── __init__.py
-│   ├── aadr_localities.py
-│   ├── aadr_samples.py
-│   ├── aadr_schema.py
-│   ├── aadr.py
 │   ├── api.py
-│   ├── artifacts.py
-│   ├── context_point_layers.py
-│   ├── context_polygon_layers.py
-│   ├── context_time.py
-│   ├── context_layers.py
-│   ├── countries.py
-│   ├── html.py
-│   ├── map_document/
-│   ├── markdown.py
 │   ├── models.py
-│   ├── paths.py
 │   ├── service.py
-│   ├── staging.py
-│   ├── summaries.py
-│   └── utils.py
+│   ├── aadr
+│   │   ├── api.py
+│   │   ├── localities.py
+│   │   ├── samples.py
+│   │   └── schema.py
+│   ├── bundles
+│   │   ├── atlas_bundle.py
+│   │   ├── country_bundle.py
+│   │   ├── country_selection.py
+│   │   ├── map_inputs.py
+│   │   ├── paths.py
+│   │   ├── published_reports.py
+│   │   ├── staging.py
+│   │   └── summary_builders
+│   ├── context
+│   │   ├── artifacts.py
+│   │   ├── layers.py
+│   │   ├── points
+│   │   ├── polygons
+│   │   └── time.py
+│   ├── map_document/
+│   ├── rendering
+│   │   ├── artifacts.py
+│   │   ├── html.py
+│   │   ├── markdown.py
+│   │   └── record_exports.py
+│   └── shared
+│       ├── merge.py
+│       └── text.py
 └── data_downloader
     ├── api.py
-    ├── aadr.py
-    ├── boundary_sources.py
     ├── boundaries.py
     ├── collector.py
-    ├── common.py
-    ├── context_collectors.py
-    ├── context_collection.py
     ├── contracts.py
-    ├── context.py
     ├── data_layout.py
-    ├── geometry.py
     ├── landclim.py
     ├── models.py
     ├── neotoma.py
-    ├── requested_sources.py
     ├── raa.py
-    ├── sead_fetch.py
-    ├── sead_normalization.py
     ├── sead.py
-    ├── source_registry.py
-    ├── staging.py
-    ├── summary_writer.py
-    ├── xlsx.py
-    └── writers.py
+    ├── pipeline
+    │   ├── collection_reports.py
+    │   ├── context_collection.py
+    │   ├── context_collectors.py
+    │   ├── requested_sources.py
+    │   ├── source_registry.py
+    │   ├── staging.py
+    │   └── summary_writer.py
+    ├── shared
+    │   ├── context_exports.py
+    │   └── workbooks.py
+    ├── sources
+    │   ├── aadr
+    │   ├── boundaries
+    │   ├── landclim
+    │   ├── neotoma
+    │   ├── raa
+    │   └── sead
+    └── spatial
+        ├── bboxes.py
+        ├── country_classification.py
+        ├── grid_cells.py
+        └── representative_points.py
 ```
 
 ## Ownership Model
 
 - `cli.py` owns the stable top-level entry point only
 - `config.py` owns the canonical defaults model and flattened constants
-- `command_line/parser.py` owns root parser composition
-- `command_line/options.py` owns reusable option groups
-- `command_line/subcommands.py` owns subcommand-specific parser assembly
+- `command_line/parsing/parser.py` owns root parser composition
+- `command_line/parsing/options.py` owns reusable option groups
+- `command_line/parsing/subcommands.py` owns subcommand-specific parser assembly
 - `command_line/runtime/dispatch.py` owns command routing
-- `command_line/registry.py` owns the direct-command handler registry
-- `command_line/handlers.py` owns user-facing command behavior
-- `project.py` and `settings.py` remain compatibility views over `config.py`
+- `command_line/runtime/registry.py` owns the direct-command handler registry
+- `command_line/runtime/handlers.py` owns user-facing command behavior
+- `core/http.py`, `core/files.py`, `core/text.py`, and `core/bp_time.py` own reusable cross-domain helpers rather than downloader-specific shims
 - `data_downloader/` owns source acquisition and normalization
 - `data_downloader/api.py` owns the public downloader package surface
 - `data_downloader/collector.py` owns high-level data-collection orchestration only
@@ -106,16 +128,22 @@ src/bijux_pollenomics
 - `data_downloader/pipeline/staging.py` owns safe swap-in staging behavior
 - `data_downloader/data_layout.py` owns generated data-root layout contracts
 - `data_downloader/pipeline/summary_writer.py` owns collection-summary serialization
+- `data_downloader/shared/context_exports.py` and `data_downloader/shared/workbooks.py` own shared export and workbook helpers
+- `data_downloader/spatial/` owns collector-facing bounding-box, country-classification, grid, and representative-point helpers
+- `data_downloader/sources/` owns source-specific fetch, archive, and normalization details
 - `reporting/` owns report and map generation
 - `reporting/api.py` owns the public reporting package surface
 - `reporting/service.py` orchestrates report and map builds
 - `reporting/map_document/` owns the standalone map template and derived render state
+- `reporting/context/artifacts.py` owns copied context-artifact staging
 - `reporting/context/layers.py` owns top-level context-layer orchestration only
 - `reporting/context/points/`, `reporting/context/polygons/`, and `reporting/context/time.py` own map-layer shaping details
 - `reporting/aadr/` owns AADR report loading seams
 - `reporting/bundles/summary_builders/` owns machine-readable report summary payloads
-- `reporting/countries.py` owns country-list normalization for report workflows
+- `reporting/bundles/country_selection.py` owns country-list normalization for report workflows
 - `reporting/bundles/staging.py` owns safe swap-in staging for generated publication trees
+- `reporting/rendering/` owns generated README, HTML, and record-export helpers
+- `reporting/shared/` owns merge and text helpers reused across reporting workflows
 - `data_downloader/contracts.py` owns normalized data artifact names
 - `reporting/bundles/paths.py` owns generated report-bundle artifact names
 

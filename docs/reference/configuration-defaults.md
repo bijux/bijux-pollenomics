@@ -11,7 +11,7 @@ last_reviewed: 2026-03-31
 
 The repository keeps its shared publication defaults and path defaults in Python modules rather than in scattered string literals.
 
-`src/bijux_pollenomics/config.py` is the canonical source of truth. Compatibility modules such as `project.py` and `settings.py` expose the same defaults for older import paths.
+`src/bijux_pollenomics/config.py` is the canonical source of truth for shared defaults. The CLI surface and `Makefile` derive their default AADR version from that module instead of carrying separate copies.
 
 ## Core Defaults
 

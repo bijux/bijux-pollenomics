@@ -13,10 +13,10 @@ last_reviewed: 2026-03-31
 
 ## Major Components
 
-- `src/bijux_pollenomics/command_line/`: parser composition, command routing, and CLI entry behavior
-- `src/bijux_pollenomics/config.py`: canonical defaults and shared project settings
-- `src/bijux_pollenomics/data_downloader/`: data acquisition, normalization, and collector orchestration
-- `src/bijux_pollenomics/reporting/`: AADR report generation, context-layer assembly, and atlas publication
+- `src/bijux_pollenomics/command_line/`: CLI parsing under `parsing/` plus command execution under `runtime/`
+- `src/bijux_pollenomics/config.py`: canonical defaults shared by the CLI, reporting workflows, and `Makefile`
+- `src/bijux_pollenomics/data_downloader/`: collection orchestration in `collector.py`, reusable collector workflow modules in `pipeline/`, source-owned logic in `sources/`, and shared spatial/export helpers in `spatial/` and `shared/`
+- `src/bijux_pollenomics/reporting/`: top-level publication orchestration in `service.py`, bundle assembly in `bundles/`, context-layer shaping in `context/`, AADR loading in `aadr/`, and generated output helpers in `rendering/`
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts
 - `mkdocs.yml` and `docs/`: published documentation shell
@@ -57,7 +57,7 @@ The repository’s outputs need to be:
 
 ## Why Configuration Is Centralized
 
-The repository keeps canonical defaults in `src/bijux_pollenomics/config.py` so command-line defaults, reporting defaults, and compatibility modules do not drift apart over time.
+The repository keeps canonical defaults in `src/bijux_pollenomics/config.py` so command-line defaults, `Makefile` defaults, and reporting defaults do not drift apart over time.
 
 ## Contract Modules
 
