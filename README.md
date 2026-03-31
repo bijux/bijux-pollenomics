@@ -20,7 +20,8 @@ It does not yet rank candidate sampling locations, compute lake intersections, o
 
 This repository has both verification commands and state-changing commands.
 
-- `make install`, `make lint`, `make test`, and `make docs` validate or build local artifacts
+- `make install` syncs the local development environment under `artifacts/.venv/`
+- `make lint`, `make test`, `make docs`, `make package-verify`, and `make check` validate or build local artifacts
 - `make data-prep` rewrites tracked source snapshots and normalized outputs under `data/`
 - `make reports` rewrites checked-in report artifacts under `docs/report/`
 - `make app-state` does the full current rebuild path and will rewrite both tracked data and tracked report artifacts
@@ -79,8 +80,10 @@ Use this distinction when working in the repo:
 Prerequisites: `python3.11` and `uv` must be available locally.
 
 ```bash
-artifacts/.venv/bin/bijux-pollenomics --version
+python3.11 --version
+uv --version
 make install
+artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 make lint
 make test
@@ -88,13 +91,10 @@ make test-unit
 make test-regression
 make test-e2e
 make package-verify
-make package-check
-make package-smoke
-make package-source-smoke
 make docs
 ```
 
-That path is the safest first run because it validates the local environment before any network-heavy or state-changing data workflow.
+That path is the safest first run because it creates the local environment before invoking the installed CLI and keeps the recommended packaging proof surface to the single `make package-verify` target.
 
 ### Rebuild The Current Checked-In State
 

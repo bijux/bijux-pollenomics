@@ -45,6 +45,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("tests/regression/", docs_text)
         self.assertIn("tests/e2e/", docs_text)
 
+    def test_readme_bootstrap_flow_installs_before_running_the_console_script(self) -> None:
+        readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+
+        install_index = readme_text.index("make install")
+        console_version_index = readme_text.index("artifacts/.venv/bin/bijux-pollenomics --version")
+
+        self.assertLess(install_index, console_version_index)
+        self.assertIn("make package-verify", readme_text)
+
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (REPO_ROOT / "docs" / "reference" / "command-reference.md").read_text(
             encoding="utf-8"
