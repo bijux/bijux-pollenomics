@@ -1,34 +1,34 @@
-locality,latitude,longitude,sample_count,datasets,sample_ids
-Bergen,60.359,5.358,11,ho,NOR101.HO;NOR106.HO;NOR107.HO;NOR108.HO;NOR109.HO;NOR111.HO;NOR119.HO;NOR124.HO;NOR126.HO;NOR146.HO;NOR148.HO
-Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim),63.43,10.39,7,"1240k,ho",VK113.SG;VK114.SG;VK116.SG;VK117.SG;VK118.SG;VK124.SG;VK125.SG
-"Nor South, Telemark (Vestfold og Telemark, Skien nor)",59.22,9.59,4,"1240k,ho",VK389.SG;VK390.SG;VK391.SG;VK392.SG
-"Nor South, Hedmark",61.15,11.34,3,"1240k,ho",VK394.SG;VK394_d.SG;VK422.SG
-Hummervikholmen,58.064,7.7437,2,"1240k,ho",Hum1.SG;Hum2.SG
-"Nor South, Oppland (Viken, Jevnaker nor)",60.31,10.43,2,"1240k,ho",VK387.SG;VK421.SG
-"Nordland (Bodø, Rønvik nedre (32/100, Rønvik))",67.28,14.39,2,"1240k,ho",VK515.SG;VK530.SG
-"Troms (Tromsø, Tussøy, Trygstad i Bø (188/10))",69.47,18,2,"1240k,ho",VK528.SG;VK531.SG
-"Hummervikholmen (Agder, Søgne nor)",58.064,7.7437,1,"1240k,ho",NEO17.SG
-"Nor South, Hedmark (Innlandet, Hamar nor)",60.8,11.1,1,"1240k,ho",VK420.SG
-"Nor South, Hedmark (Innlandet, Ringsaker nor)",60.84,11,1,"1240k,ho",VK393.SG
-"Nor South, Hedmark (Innlandet, Ringsaker nor)",60.8,10.87,1,"1240k,ho",VK448.SG
-"Nor South, Oppland",60.36,10.57,1,"1240k,ho",VK417.SG
-"Nor South, Oppland (Innlandet, Lesja nor)",62.09,9.05,1,"1240k,ho",VK386.SG
-"Nor South, Oppland (Innlandet, Skjåk nor)",61.88,8.4,1,"1240k,ho",VK414.SG
-"Nor South, Oppland (Viken, Lunner nor)",60.29,10.63,1,"1240k,ho",VK415.SG
-"Nord-Trøndelag (Stjørdal, Kil søndre)",63.44,11.22,1,"1240k,ho",VK548.SG
-"Nordland (Bodø, Rønvik Øvre (31/-))",67.29,14.42,1,"1240k,ho",VK419.SG
-"Nordland (Dønna, Hov (19/1, Løkta))",66.18,12.72,1,"1240k,ho",VK525.SG
-"Nordland (Herøy, Sørherøy (Prestegården, 4/1))",65.97,12.27,1,"1240k,ho",VK526.SG
-"Nordland (Lødingen, Ytterstad (17/-))",68.34,15.66,1,"1240k,ho",VK388.SG
-"Nordland (Nesna, Tommeidet (98/22))",66.26,12.73,1,"1240k,ho",VK524.SG
-"Nordland (Steigen, Leines (6/-))",67.64,14.79,1,"1240k,ho",VK529.SG
-"Nordland (Steigen, Steigen Mellem (78/- Hagbartsholm))",67.93,14.96,1,"1240k,ho",VK519.SG
-"Nordland (Steigen, Steigen øvre (77/1))",67.94,14.98,1,"1240k,ho",VK418.SG
-"Nordland (Steigen, Vikran Nordre (71/2))",67.91,15.13,1,"1240k,ho",VK514.SG
-"Nordland (Tjelsund, Stokke (79/1))",68.55,16.4,1,"1240k,ho",VK547.SG
-"Nordland (Værøy, Nordland, (17/- Vågehamn))",67.69,12.7,1,"1240k,ho",VK518.SG
-"Nordland, Alstahaug",66,12.7,1,"1240k,ho",hvr009.SG
-"Steigen (Nordland, Steigen nor)",67.81,14.681,1,"1240k,ho",Steigen.SG
-"Sør-Trøndelag (Bjugn, Melem (Herstaen) (84/-))",63.7,9.75,1,"1240k,ho",VK523.SG
-"Sør-Trøndelag (Ørlandet, Østråt (Austrått) (82/91))",63.7,9.75,1,"1240k,ho",VK516.SG
-"Troms (Tromsø, Tussøy, (188/1))",69.47,18,1,"1240k,ho",VK520.SG
+locality,latitude,longitude,sample_count,time_start_bp,time_end_bp,time_mean_bp,time_label,datasets,sample_ids
+Bergen,60.359,5.358,11,0,0,0,0 BP,ho,NOR101.HO;NOR106.HO;NOR107.HO;NOR108.HO;NOR109.HO;NOR111.HO;NOR119.HO;NOR124.HO;NOR126.HO;NOR146.HO;NOR148.HO
+Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim),63.43,10.39,7,634,866,750,634-866 BP,"1240k,ho",VK113.SG;VK114.SG;VK116.SG;VK117.SG;VK118.SG;VK124.SG;VK125.SG
+"Nor South, Telemark (Vestfold og Telemark, Skien nor)",59.22,9.59,4,926,1566,1246,926-1566 BP,"1240k,ho",VK389.SG;VK390.SG;VK391.SG;VK392.SG
+"Nor South, Hedmark",61.15,11.34,3,942,1058,1000,942-1058 BP,"1240k,ho",VK394.SG;VK394_d.SG;VK422.SG
+Hummervikholmen,58.064,7.7437,2,9262,9466,9364,9262-9466 BP,"1240k,ho",Hum1.SG;Hum2.SG
+"Nor South, Oppland (Viken, Jevnaker nor)",60.31,10.43,2,834,1066,950,834-1066 BP,"1240k,ho",VK387.SG;VK421.SG
+"Nordland (Bodø, Rønvik nedre (32/100, Rønvik))",67.28,14.39,2,942,1058,1000,942-1058 BP,"1240k,ho",VK515.SG;VK530.SG
+"Troms (Tromsø, Tussøy, Trygstad i Bø (188/10))",69.47,18,2,1034,4469,2752,1034-4469 BP,"1240k,ho",VK528.SG;VK531.SG
+"Hummervikholmen (Agder, Søgne nor)",58.064,7.7437,1,9282,9486,9384,9282-9486 BP,"1240k,ho",NEO17.SG
+"Nor South, Hedmark (Innlandet, Hamar nor)",60.8,11.1,1,820,1280,1050,820-1280 BP,"1240k,ho",VK420.SG
+"Nor South, Hedmark (Innlandet, Ringsaker nor)",60.84,11,1,942,1058,1000,942-1058 BP,"1240k,ho",VK393.SG
+"Nor South, Hedmark (Innlandet, Ringsaker nor)",60.8,10.87,1,820,1280,1050,820-1280 BP,"1240k,ho",VK448.SG
+"Nor South, Oppland",60.36,10.57,1,812,1388,1100,812-1388 BP,"1240k,ho",VK417.SG
+"Nor South, Oppland (Innlandet, Lesja nor)",62.09,9.05,1,826,1174,1000,826-1174 BP,"1240k,ho",VK386.SG
+"Nor South, Oppland (Innlandet, Skjåk nor)",61.88,8.4,1,834,1066,950,834-1066 BP,"1240k,ho",VK414.SG
+"Nor South, Oppland (Viken, Lunner nor)",60.29,10.63,1,820,1280,1050,820-1280 BP,"1240k,ho",VK415.SG
+"Nord-Trøndelag (Stjørdal, Kil søndre)",63.44,11.22,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK548.SG
+"Nordland (Bodø, Rønvik Øvre (31/-))",67.29,14.42,1,912,1488,1200,912-1488 BP,"1240k,ho",VK419.SG
+"Nordland (Dønna, Hov (19/1, Løkta))",66.18,12.72,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK525.SG
+"Nordland (Herøy, Sørherøy (Prestegården, 4/1))",65.97,12.27,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK526.SG
+"Nordland (Lødingen, Ytterstad (17/-))",68.34,15.66,1,280,1320,800,280-1320 BP,"1240k,ho",VK388.SG
+"Nordland (Nesna, Tommeidet (98/22))",66.26,12.73,1,942,1058,1000,942-1058 BP,"1240k,ho",VK524.SG
+"Nordland (Steigen, Leines (6/-))",67.64,14.79,1,1034,1266,1150,1034-1266 BP,"1240k,ho",VK529.SG
+"Nordland (Steigen, Steigen Mellem (78/- Hagbartsholm))",67.93,14.96,1,912,1488,1200,912-1488 BP,"1240k,ho",VK519.SG
+"Nordland (Steigen, Steigen øvre (77/1))",67.94,14.98,1,1542,1658,1600,1542-1658 BP,"1240k,ho",VK418.SG
+"Nordland (Steigen, Vikran Nordre (71/2))",67.91,15.13,1,912,1488,1200,912-1488 BP,"1240k,ho",VK514.SG
+"Nordland (Tjelsund, Stokke (79/1))",68.55,16.4,1,820,1280,1050,820-1280 BP,"1240k,ho",VK547.SG
+"Nordland (Værøy, Nordland, (17/- Vågehamn))",67.69,12.7,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK518.SG
+"Nordland, Alstahaug",66,12.7,1,1723,1903,1813,1723-1903 BP,"1240k,ho",hvr009.SG
+"Steigen (Nordland, Steigen nor)",67.81,14.681,1,5749,5965,5857,5749-5965 BP,"1240k,ho",Steigen.SG
+"Sør-Trøndelag (Bjugn, Melem (Herstaen) (84/-))",63.7,9.75,1,874,2026,1450,874-2026 BP,"1240k,ho",VK523.SG
+"Sør-Trøndelag (Ørlandet, Østråt (Austrått) (82/91))",63.7,9.75,1,942,1058,1000,942-1058 BP,"1240k,ho",VK516.SG
+"Troms (Tromsø, Tussøy, (188/1))",69.47,18,1,942,1058,1000,942-1058 BP,"1240k,ho",VK520.SG

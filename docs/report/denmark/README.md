@@ -12,6 +12,7 @@ It inventories only AADR sample rows that match the `Denmark` country filter. En
 - Longitude range: `8.760000` to `14.885000`
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
 
@@ -33,20 +34,20 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Top Localities
 
-| Locality | Samples | Latitude | Longitude | Datasets |
-| --- | ---: | ---: | ---: | --- |
-| Vor Frue Kirkegård (Aalborg) | 32 | 57.05 | 9.92 | `1240k,ho` |
-| Tjærby (Randers Municipality) | 28 | 56.47 | 10.1 | `1240k,ho` |
-| Ahlgade 15-17 (Holbæk) | 25 | 55.72 | 11.71 | `1240k,ho` |
-| Galgedil (Funen region) | 16 | 55.5 | 10.33 | `1240k,ho` |
-| Kopenhagen (Zealand region) | 15 | 55.675268 | 12.568294 | `1240k,ho` |
-| Bogevej (Langeland region) | 13 | 54.87 | 10.72 | `1240k,ho` |
-| Ribe (Jutland region) | 9 | 55.33 | 8.76 | `1240k,ho` |
-| Hesselbjerg (Jutland region) | 8 | 55.95 | 10.2 | `1240k,ho` |
-| Kaagarden (Langeland region) | 6 | 54.85 | 10.78 | `1240k,ho` |
-| Henriksholm-Bøgebakken (Vedbæk) (Zealand region) | 5 | 55.853 | 12.559 | `1240k,ho` |
-| Dragsholm (Zealand region) | 4 | 55.768 | 11.388 | `1240k,ho` |
-| Gerdrup (Zealand region) | 4 | 55.73 | 12.12 | `1240k,ho` |
-| Lejre (Zealand region) | 4 | 55.6 | 11.95 | `1240k,ho` |
-| Toftum Mose (Jutland region) | 4 | 55.895 | 9.987 | `1240k,ho` |
-| Tollemosegard (Zealand region) | 4 | 55.87 | 12.08 | `1240k,ho` |
+| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
+| --- | ---: | ---: | ---: | --- | --- |
+| Vor Frue Kirkegård (Aalborg) | 32 | 57.05 | 9.92 | 123-977 BP | `1240k,ho` |
+| Tjærby (Randers Municipality) | 28 | 56.47 | 10.1 | 542-974 BP | `1240k,ho` |
+| Ahlgade 15-17 (Holbæk) | 25 | 55.72 | 11.71 | -66-3166 BP | `1240k,ho` |
+| Galgedil (Funen region) | 16 | 55.5 | 10.33 | 820-1280 BP | `1240k,ho` |
+| Kopenhagen (Zealand region) | 15 | 55.675268 | 12.568294 | 842-958 BP | `1240k,ho` |
+| Bogevej (Langeland region) | 13 | 54.87 | 10.72 | 942-1058 BP | `1240k,ho` |
+| Ribe (Jutland region) | 9 | 55.33 | 8.76 | 800-1295 BP | `1240k,ho` |
+| Hesselbjerg (Jutland region) | 8 | 55.95 | 10.2 | 1047-1103 BP | `1240k,ho` |
+| Kaagarden (Langeland region) | 6 | 54.85 | 10.78 | 942-1058 BP | `1240k,ho` |
+| Henriksholm-Bøgebakken (Vedbæk) (Zealand region) | 5 | 55.853 | 12.559 | 6788-7414 BP | `1240k,ho` |
+| Dragsholm (Zealand region) | 4 | 55.768 | 11.388 | 5718-7296 BP | `1240k,ho` |
+| Gerdrup (Zealand region) | 4 | 55.73 | 12.12 | 1042-3944 BP | `1240k,ho` |
+| Lejre (Zealand region) | 4 | 55.6 | 11.95 | 1047-1103 BP | `1240k,ho` |
+| Toftum Mose (Jutland region) | 4 | 55.895 | 9.987 | 3923-4396 BP | `1240k,ho` |
+| Tollemosegard (Zealand region) | 4 | 55.87 | 12.08 | 926-1274 BP | `1240k,ho` |

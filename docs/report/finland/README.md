@@ -12,6 +12,7 @@ It inventories only AADR sample rows that match the `Finland` country filter. En
 - Longitude range: `22.410146` to `27.030000`
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
 
@@ -33,9 +34,9 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Top Localities
 
-| Locality | Samples | Latitude | Longitude | Datasets |
-| --- | ---: | ---: | ---: | --- |
-| Unspecified locality | 11 | 60.2 | 24.9 | `1240k,ho` |
-| Levanluhta (Isokyro) | 8 | 62.948744 | 22.410146 | `1240k,ho` |
-| Utsjoki | 2 | 69.91 | 27.03 | `1240k,ho` |
-| Enontekiö | 1 | 68.383893 | 23.632454 | `ho` |
+| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
+| --- | ---: | ---: | ---: | --- | --- |
+| Unspecified locality | 11 | 60.2 | 24.9 | 0 BP | `1240k,ho` |
+| Levanluhta (Isokyro) | 8 | 62.948744 | 22.410146 | 1112-1688 BP | `1240k,ho` |
+| Utsjoki | 2 | 69.91 | 27.03 | 0 BP | `1240k,ho` |
+| Enontekiö | 1 | 68.383893 | 23.632454 | 0 BP | `ho` |

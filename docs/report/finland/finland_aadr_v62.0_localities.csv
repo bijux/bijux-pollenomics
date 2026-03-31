@@ -1,5 +1,5 @@
-locality,latitude,longitude,sample_count,datasets,sample_ids
-Unspecified locality,60.2,24.9,11,"1240k,ho",HG00171.HO;HG00173.HO;HG00174.HO;HG00181.HO;HG00182.HO;HG00183.HO;HG00190.HO;HG00266.HO;S_Finnish-1.DG;S_Finnish-2.DG;S_Finnish-3.DG
-Levanluhta (Isokyro),62.948744,22.410146,8,"1240k,ho",DA237.SG;JK1963.AG;JK1967.AG;JK1968.AG;JK1970.AG;JK2065.AG;JK2066.AG;JK2067.AG
-Utsjoki,69.91,27.03,2,"1240k,ho",S_Saami-1.DG;S_Saami-2.DG
-Enontekiö,68.383893,23.632454,1,ho,SD60_297.HO
+locality,latitude,longitude,sample_count,time_start_bp,time_end_bp,time_mean_bp,time_label,datasets,sample_ids
+Unspecified locality,60.2,24.9,11,0,0,0,0 BP,"1240k,ho",HG00171.HO;HG00173.HO;HG00174.HO;HG00181.HO;HG00182.HO;HG00183.HO;HG00190.HO;HG00266.HO;S_Finnish-1.DG;S_Finnish-2.DG;S_Finnish-3.DG
+Levanluhta (Isokyro),62.948744,22.410146,8,1112,1688,1400,1112-1688 BP,"1240k,ho",DA237.SG;JK1963.AG;JK1967.AG;JK1968.AG;JK1970.AG;JK2065.AG;JK2066.AG;JK2067.AG
+Utsjoki,69.91,27.03,2,0,0,0,0 BP,"1240k,ho",S_Saami-1.DG;S_Saami-2.DG
+Enontekiö,68.383893,23.632454,1,0,0,0,0 BP,ho,SD60_297.HO

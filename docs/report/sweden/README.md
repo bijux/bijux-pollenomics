@@ -12,6 +12,7 @@ It inventories only AADR sample rows that match the `Sweden` country filter. Env
 - Longitude range: `11.300700` to `18.700000`
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
 
@@ -33,20 +34,20 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Top Localities
 
-| Locality | Samples | Latitude | Longitude | Datasets |
-| --- | ---: | ---: | ---: | --- |
-| Frälsegården | 107 | 58.1644 | 13.4547 | `1240k,ho` |
-| Rössberga | 48 | 58.22959 | 13.60585 | `1240k,ho` |
-| Hjelmars rör | 34 | 58.1697 | 13.578 | `1240k,ho` |
-| Varnhem (Västra Götalands län, Skara) | 31 | 58.38 | 13.65 | `1240k,ho` |
-| Frojel (Gotlands län, Gotland) | 29 | 57.34 | 18.19 | `1240k,ho` |
-| Landbogården | 28 | 58.1775 | 13.4344 | `1240k,ho` |
-| Kopparsvik (Gotlands län, Gotland) | 22 | 57.63 | 18.28 | `1240k,ho` |
-| Västerbjers (Gotland, Gothem parish) | 15 | 57.58 | 18.7 | `1240k,ho` |
-| Kronan (Kalmar län, Mörbylånga) | 12 | 56.4 | 16.6 | `1240k,ho` |
-| Nästegården | 12 | 58.1544 | 13.5222 | `1240k,ho` |
-| Falköping-5 (Västra Götalands län, Falköping) | 8 | 58.166 | 13.573 | `1240k,ho` |
-| Kanaljorden (Östergötlands län, Motala) | 8 | 58.535 | 15.046 | `1240k,ho` |
-| Sandby Borg (Kalmar län, Mörbylånga) | 7 | 56.55 | 16.63 | `1240k,ho` |
-| Stora-Karlsö (Gotlands län, Gotland) | 7 | 57.287 | 18.206 | `1240k,ho` |
-| Vasterhus (Jämtlands län, Östersund) | 7 | 63.2 | 14.5 | `1240k,ho` |
+| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
+| --- | ---: | ---: | ---: | --- | --- |
+| Frälsegården | 107 | 58.1644 | 13.4547 | 3859-5336 BP | `1240k,ho` |
+| Rössberga | 48 | 58.22959 | 13.60585 | 4488-5412 BP | `1240k,ho` |
+| Hjelmars rör | 34 | 58.1697 | 13.578 | 4815-5335 BP | `1240k,ho` |
+| Varnhem (Västra Götalands län, Skara) | 31 | 58.38 | 13.65 | 726-1074 BP | `1240k,ho` |
+| Frojel (Gotlands län, Gotland) | 29 | 57.34 | 18.19 | 889-1061 BP | `1240k,ho` |
+| Landbogården | 28 | 58.1775 | 13.4344 | 4546-5354 BP | `1240k,ho` |
+| Kopparsvik (Gotlands län, Gotland) | 22 | 57.63 | 18.28 | 889-1061 BP | `1240k,ho` |
+| Västerbjers (Gotland, Gothem parish) | 15 | 57.58 | 18.7 | 4383-5043 BP | `1240k,ho` |
+| Kronan (Kalmar län, Mörbylånga) | 12 | 56.4 | 16.6 | 274 BP | `1240k,ho` |
+| Nästegården | 12 | 58.1544 | 13.5222 | 3530-4128 BP | `1240k,ho` |
+| Falköping-5 (Västra Götalands län, Falköping) | 8 | 58.166 | 13.573 | 3587-4009 BP | `1240k,ho` |
+| Kanaljorden (Östergötlands län, Motala) | 8 | 58.535 | 15.046 | 7448-7868 BP | `1240k,ho` |
+| Sandby Borg (Kalmar län, Mörbylånga) | 7 | 56.55 | 16.63 | 1447-1503 BP | `1240k,ho` |
+| Stora-Karlsö (Gotlands län, Gotland) | 7 | 57.287 | 18.206 | 4027-7501 BP | `1240k,ho` |
+| Vasterhus (Jämtlands län, Östersund) | 7 | 63.2 | 14.5 | 669-953 BP | `1240k,ho` |

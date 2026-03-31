@@ -12,6 +12,7 @@ It inventories only AADR sample rows that match the `Norway` country filter. Env
 - Longitude range: `5.358000` to `18.000000`
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
 
@@ -33,20 +34,20 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Top Localities
 
-| Locality | Samples | Latitude | Longitude | Datasets |
-| --- | ---: | ---: | ---: | --- |
-| Bergen | 11 | 60.359 | 5.358 | `ho` |
-| Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim) | 7 | 63.43 | 10.39 | `1240k,ho` |
-| Nor South, Telemark (Vestfold og Telemark, Skien nor) | 4 | 59.22 | 9.59 | `1240k,ho` |
-| Nor South, Hedmark | 3 | 61.15 | 11.34 | `1240k,ho` |
-| Hummervikholmen | 2 | 58.064 | 7.7437 | `1240k,ho` |
-| Nor South, Oppland (Viken, Jevnaker nor) | 2 | 60.31 | 10.43 | `1240k,ho` |
-| Nordland (Bodø, Rønvik nedre (32/100, Rønvik)) | 2 | 67.28 | 14.39 | `1240k,ho` |
-| Troms (Tromsø, Tussøy, Trygstad i Bø (188/10)) | 2 | 69.47 | 18 | `1240k,ho` |
-| Hummervikholmen (Agder, Søgne nor) | 1 | 58.064 | 7.7437 | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Hamar nor) | 1 | 60.8 | 11.1 | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.84 | 11 | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.8 | 10.87 | `1240k,ho` |
-| Nor South, Oppland | 1 | 60.36 | 10.57 | `1240k,ho` |
-| Nor South, Oppland (Innlandet, Lesja nor) | 1 | 62.09 | 9.05 | `1240k,ho` |
-| Nor South, Oppland (Innlandet, Skjåk nor) | 1 | 61.88 | 8.4 | `1240k,ho` |
+| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
+| --- | ---: | ---: | ---: | --- | --- |
+| Bergen | 11 | 60.359 | 5.358 | 0 BP | `ho` |
+| Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim) | 7 | 63.43 | 10.39 | 634-866 BP | `1240k,ho` |
+| Nor South, Telemark (Vestfold og Telemark, Skien nor) | 4 | 59.22 | 9.59 | 926-1566 BP | `1240k,ho` |
+| Nor South, Hedmark | 3 | 61.15 | 11.34 | 942-1058 BP | `1240k,ho` |
+| Hummervikholmen | 2 | 58.064 | 7.7437 | 9262-9466 BP | `1240k,ho` |
+| Nor South, Oppland (Viken, Jevnaker nor) | 2 | 60.31 | 10.43 | 834-1066 BP | `1240k,ho` |
+| Nordland (Bodø, Rønvik nedre (32/100, Rønvik)) | 2 | 67.28 | 14.39 | 942-1058 BP | `1240k,ho` |
+| Troms (Tromsø, Tussøy, Trygstad i Bø (188/10)) | 2 | 69.47 | 18 | 1034-4469 BP | `1240k,ho` |
+| Hummervikholmen (Agder, Søgne nor) | 1 | 58.064 | 7.7437 | 9282-9486 BP | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Hamar nor) | 1 | 60.8 | 11.1 | 820-1280 BP | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.84 | 11 | 942-1058 BP | `1240k,ho` |
+| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.8 | 10.87 | 820-1280 BP | `1240k,ho` |
+| Nor South, Oppland | 1 | 60.36 | 10.57 | 812-1388 BP | `1240k,ho` |
+| Nor South, Oppland (Innlandet, Lesja nor) | 1 | 62.09 | 9.05 | 826-1174 BP | `1240k,ho` |
+| Nor South, Oppland (Innlandet, Skjåk nor) | 1 | 61.88 | 8.4 | 834-1066 BP | `1240k,ho` |
