@@ -14,6 +14,13 @@ def parse_numeric_bp_year(value: object) -> int | None:
         return None
 
 
+def clamp_bp_year(value: int | None, *, minimum: int = 0) -> int | None:
+    """Clamp a BP year to a stable lower bound."""
+    if value is None:
+        return None
+    return max(minimum, value)
+
+
 def normalize_bp_interval(start_bp: int | None, end_bp: int | None) -> tuple[int, int] | None:
     """Return a BP interval ordered from younger to older."""
     if start_bp is None or end_bp is None:

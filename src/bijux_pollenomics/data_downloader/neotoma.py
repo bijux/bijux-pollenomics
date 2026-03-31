@@ -15,6 +15,7 @@ from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from .geometry import classify_country, geometry_to_representative_point, point_in_bbox
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
+from ..temporal import build_bp_interval_label, clamp_bp_year, midpoint_bp_year, normalize_bp_interval
 
 
 NEOTOMA_LIMIT = 400
@@ -659,6 +660,85 @@ def format_neotoma_age_value(value: float | None) -> str:
     return f"{value:.2f}".rstrip("0").rstrip(".")
 
 
+def neotoma_time_interval(age_ranges: list[dict[str, object]]) -> tuple[int, int] | None:
+    """Choose a filterable BP interval from Neotoma site age coverage."""
+    preferred_ranges = sorted(
+        [
+            age_range
+            for age_range in age_ranges
+            if neotoma_age_range_units_supported(clean_optional_text(age_range.get("units")))
+        ],
+        key=neotoma_age_range_priority,
+    )
+    intervals: list[tuple[int, int]] = []
+    for age_range in preferred_ranges:
+        older = clamp_bp_year(round_age_value(age_range.get("ageold")))
+        younger = clamp_bp_year(round_age_value(age_range.get("ageyoung")))
+        interval = normalize_bp_interval(younger, older)
+        if interval is not None:
+            intervals.append(interval)
+    if not intervals:
+        return None
+    return (
+        min(start for start, _ in intervals),
+        max(end for _, end in intervals),
+    )
+
+
+def neotoma_time_label(
+    age_ranges: list[dict[str, object]],
+    interval: tuple[int, int] | None,
+) -> str:
+    """Render a human-readable Neotoma age-coverage label."""
+    preferred_ranges = sorted(
+        [
+            age_range
+            for age_range in age_ranges
+            if neotoma_age_range_units_supported(clean_optional_text(age_range.get("units")))
+        ],
+        key=neotoma_age_range_priority,
+    )
+    if preferred_ranges:
+        units = clean_optional_text(preferred_ranges[0].get("units"))
+        older = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageold")))
+        younger = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageyoung")))
+        preferred_interval = normalize_bp_interval(younger, older)
+        value = (
+            build_bp_interval_label(preferred_interval[0], preferred_interval[1]).replace(" BP", "")
+            if preferred_interval is not None
+            else format_neotoma_age_range(preferred_ranges[0])
+        )
+        if units and value:
+            return f"{value} {units}"
+    if interval is None:
+        return ""
+    return build_bp_interval_label(interval[0], interval[1])
+
+
+def neotoma_age_range_units_supported(units: str) -> bool:
+    """Return whether a Neotoma age range is expressed in BP units."""
+    return "bp" in units.casefold()
+
+
+def neotoma_age_range_priority(age_range: dict[str, object]) -> tuple[int, str]:
+    """Prefer calibrated BP ranges over uncalibrated BP ranges."""
+    units = clean_optional_text(age_range.get("units"))
+    normalized = units.casefold()
+    if "cal" in normalized and "bp" in normalized:
+        return (0, normalized)
+    if "bp" in normalized:
+        return (1, normalized)
+    return (2, normalized)
+
+
+def round_age_value(value: object) -> int | None:
+    """Round one Neotoma numeric age value to an integer BP year."""
+    numeric = numeric_age_value(value)
+    if numeric is None:
+        return None
+    return int(round(numeric))
+
+
 def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
@@ -720,6 +800,8 @@ def normalize_neotoma_rows(
                     if isinstance(sample, dict):
                         merge_age_ranges(age_ranges_by_units, sample.get("ages"))
             age_ranges = sorted(age_ranges_by_units.values(), key=lambda item: clean_optional_text(item.get("units")))
+        time_interval = neotoma_time_interval(age_ranges)
+        time_label = neotoma_time_label(age_ranges, time_interval)
         site_id = str(row.get("siteid", "")).strip()
         site_name = str(row.get("sitename", "")).strip() or f"Neotoma site {site_id}"
         source_url = f"https://apps.neotomadb.org/explorer/#/record/site/{site_id}"
@@ -774,6 +856,10 @@ def normalize_neotoma_rows(
                 source_url=source_url,
                 record_count=dataset_count,
                 popup_rows=tuple(popup_rows),
+                time_start_bp=time_interval[0] if time_interval is not None else None,
+                time_end_bp=time_interval[1] if time_interval is not None else None,
+                time_mean_bp=midpoint_bp_year(time_interval[0], time_interval[1]) if time_interval is not None else None,
+                time_label=time_label,
             )
         )
 

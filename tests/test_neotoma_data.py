@@ -177,6 +177,12 @@ class NeotomaDataTests(unittest.TestCase):
             [201, 202],
         )
 
+        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].time_start_bp, 30)
+        self.assertEqual(records[0].time_end_bp, 3600)
+        self.assertEqual(records[0].time_mean_bp, 1815)
+
     def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(self) -> None:
         country_boundaries = {
             "Norway": {
@@ -221,6 +227,8 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual([record.name for record in records], ["Coastal site"])
         self.assertEqual(records[0].country, "Norway")
+        self.assertIsNone(records[0].time_start_bp)
+        self.assertIsNone(records[0].time_end_bp)
 
     def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(self) -> None:
         rows = [
@@ -262,6 +270,53 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(dataset["taxon_count"], 2)
         self.assertNotIn("samples", dataset)
         self.assertNotIn("chronologies", dataset)
+
+    def test_normalize_neotoma_rows_derives_bp_interval_from_age_ranges(self) -> None:
+        country_boundaries = {
+            "Sweden": {
+                "features": [
+                    {
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]
+                            ],
+                        }
+                    }
+                ]
+            }
+        }
+        rows = [
+            {
+                "siteid": 20,
+                "sitename": "Ageröds Mosse",
+                "sitedescription": "Forested bog.",
+                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                "collectionunits": [
+                    {
+                        "datasets": [
+                            {
+                                "datasetid": 201,
+                                "datasettype": "pollen",
+                                "database": "European Pollen Database",
+                                "agerange": [
+                                    {"units": "Radiocarbon years BP", "ageold": 3200, "ageyoung": 120},
+                                    {"units": "Calibrated radiocarbon years BP", "ageold": 3600, "ageyoung": -20},
+                                ],
+                            }
+                        ],
+                    }
+                ],
+            }
+        ]
+
+        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0].time_start_bp, 0)
+        self.assertEqual(records[0].time_end_bp, 3600)
+        self.assertEqual(records[0].time_mean_bp, 1800)
+        self.assertEqual(records[0].time_label, "0-3600 Calibrated radiocarbon years BP")
 
 
 if __name__ == "__main__":
