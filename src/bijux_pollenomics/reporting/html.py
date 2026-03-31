@@ -977,6 +977,91 @@ def render_multi_country_map_html(
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
           var(--surface);
       }
+      .map-dock {
+        position: absolute;
+        right: 16px;
+        bottom: 124px;
+        z-index: 1100;
+        width: min(420px, calc(100vw - 32px));
+        display: grid;
+        gap: 12px;
+      }
+      .map-dock-card {
+        position: relative;
+        overflow: hidden;
+        padding: 14px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--surface-edge);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          var(--surface);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-md);
+      }
+      .map-dock-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
+        pointer-events: none;
+      }
+      .map-dock-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+      .map-dock-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .map-dock-title {
+        margin: 4px 0 0;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .map-dock-summary {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .map-dock-grid {
+        display: grid;
+        gap: 10px;
+      }
+      .dock-actions,
+      .dock-presets,
+      .dock-layer-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .dock-layer-grid {
+        align-items: stretch;
+      }
+      .dock-layer-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid rgba(20, 33, 61, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink-soft);
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .dock-layer-chip input {
+        margin: 0;
+      }
+      .dock-range-stack {
+        display: grid;
+        gap: 12px;
+      }
       .legend-head {
         display: flex;
         align-items: center;
@@ -1240,6 +1325,10 @@ def render_multi_country_map_html(
           right: 12px;
           bottom: 76px;
         }
+        .map-dock {
+          right: 12px;
+          bottom: 112px;
+        }
         .map-status {
           left: 12px;
           right: 12px;
@@ -1306,7 +1395,14 @@ def render_multi_country_map_html(
           padding: 12px;
           border-radius: 18px;
         }
+        .map-dock {
+          left: 10px;
+          right: 10px;
+          bottom: 86px;
+          width: auto;
+        }
         .sidebar:not(.is-collapsed) ~ .map-stage .floating-legend,
+        .sidebar:not(.is-collapsed) ~ .map-stage .map-dock,
         .sidebar:not(.is-collapsed) ~ .map-stage .map-status,
         .sidebar:not(.is-collapsed) ~ .map-stage .focus-card {
           opacity: 0;
@@ -1365,6 +1461,11 @@ def render_multi_country_map_html(
           bottom: 72px;
           width: min(220px, calc(100vw - 16px));
           padding: 10px;
+        }
+        .map-dock {
+          left: 8px;
+          right: 8px;
+          bottom: 78px;
         }
         .focus-card {
           left: 8px;
