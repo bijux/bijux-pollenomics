@@ -30,32 +30,17 @@ class SeadDataReport:
 def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[str, object]]:
     """Download SEAD site rows inside the Nordic bounding box."""
     min_longitude, min_latitude, max_longitude, max_latitude = bbox
-    base_url = (
-        f"{SEAD_POSTGREST_ROOT}/tbl_sites"
-        "?select=site_id,site_name,national_site_identifier,latitude_dd,longitude_dd,"
-        "altitude,site_description,site_uuid"
-        f"&latitude_dd=gte.{min_latitude}"
-        f"&latitude_dd=lte.{max_latitude}"
-        f"&longitude_dd=gte.{min_longitude}"
-        f"&longitude_dd=lte.{max_longitude}"
+    rows = fetch_sead_rows(
+        "tbl_sites",
+        select="site_id,site_name,national_site_identifier,latitude_dd,longitude_dd,altitude,site_description,site_uuid",
+        filters=(
+            ("latitude_dd", f"gte.{min_latitude}"),
+            ("latitude_dd", f"lte.{max_latitude}"),
+            ("longitude_dd", f"gte.{min_longitude}"),
+            ("longitude_dd", f"lte.{max_longitude}"),
+        ),
+        order_by=("site_id",),
     )
-    rows: list[dict[str, object]] = []
-    start = 0
-    while True:
-        chunk = fetch_json(
-            base_url,
-            headers={
-                "Range-Unit": "items",
-                "Range": f"{start}-{start + SEAD_LIMIT - 1}",
-            },
-        )
-        if not isinstance(chunk, list) or not chunk:
-            break
-        rows.extend(item for item in chunk if isinstance(item, dict))
-        if len(chunk) < SEAD_LIMIT:
-            break
-        start += SEAD_LIMIT
-
     deduplicated: dict[str, dict[str, object]] = {}
     for row in rows:
         deduplicated[str(row.get("site_id", ""))] = row
@@ -68,14 +53,17 @@ def fetch_sead_rows(
     table_name: str,
     *,
     select: str,
-    filters: dict[str, str] | None = None,
+    filters: tuple[tuple[str, str], ...] | None = None,
+    order_by: tuple[str, ...] = (),
 ) -> list[dict[str, object]]:
     """Fetch every row from one SEAD PostgREST table for a selected projection."""
     rows: list[dict[str, object]] = []
     start = 0
-    params = {"select": select}
+    params: list[tuple[str, str]] = [("select", select)]
     if filters:
-        params.update(filters)
+        params.extend(filters)
+    if order_by:
+        params.append(("order", ",".join(order_by)))
     while True:
         chunk = fetch_json(
             f"{SEAD_POSTGREST_ROOT}/{table_name}",
@@ -100,6 +88,7 @@ def fetch_sead_rows_by_ids(
     select: str,
     filter_field: str,
     ids: Iterable[int],
+    order_by: tuple[str, ...] = (),
 ) -> list[dict[str, object]]:
     """Fetch SEAD rows in manageable `in.(...)` batches."""
     unique_ids = sorted({int(value) for value in ids})
@@ -110,7 +99,8 @@ def fetch_sead_rows_by_ids(
             fetch_sead_rows(
                 table_name,
                 select=select,
-                filters={filter_field: build_sead_in_filter(batch)},
+                filters=((filter_field, build_sead_in_filter(batch)),),
+                order_by=order_by,
             )
         )
     return rows
@@ -168,6 +158,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="sample_group_id,site_id,sample_group_name",
         filter_field="site_id",
         ids=site_ids,
+        order_by=("site_id", "sample_group_id"),
     )
     sample_group_by_id = {
         int(row["sample_group_id"]): int(row["site_id"])
@@ -179,6 +170,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="physical_sample_id,sample_group_id",
         filter_field="sample_group_id",
         ids=sample_group_by_id,
+        order_by=("sample_group_id", "physical_sample_id"),
     ) if sample_group_by_id else []
     site_id_by_physical_sample_id = {
         int(row["physical_sample_id"]): sample_group_by_id.get(int(row["sample_group_id"]), 0)
@@ -190,6 +182,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="analysis_entity_id,physical_sample_id,dataset_id",
         filter_field="physical_sample_id",
         ids=site_id_by_physical_sample_id,
+        order_by=("physical_sample_id", "analysis_entity_id"),
     ) if site_id_by_physical_sample_id else []
     analysis_entity_ids = [
         int(row["analysis_entity_id"])
@@ -201,6 +194,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="analysis_value_id,analysis_entity_id",
         filter_field="analysis_entity_id",
         ids=analysis_entity_ids,
+        order_by=("analysis_entity_id", "analysis_value_id"),
     ) if analysis_entity_ids else []
     analysis_entity_id_by_analysis_value_id = {
         int(row["analysis_value_id"]): int(row["analysis_entity_id"])
@@ -212,6 +206,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="analysis_value_id,low_value,high_value,age_type_id",
         filter_field="analysis_value_id",
         ids=analysis_entity_id_by_analysis_value_id,
+        order_by=("analysis_value_id",),
     ) if analysis_entity_id_by_analysis_value_id else []
     age_type_ids = [
         int(row["age_type_id"])
@@ -223,6 +218,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="age_type_id,age_type",
         filter_field="age_type_id",
         ids=age_type_ids,
+        order_by=("age_type_id",),
     ) if age_type_ids else []
     age_type_by_id = {
         int(row["age_type_id"]): clean_optional_text(row.get("age_type"))
@@ -234,6 +230,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="relative_date_id,analysis_entity_id",
         filter_field="analysis_entity_id",
         ids=analysis_entity_ids,
+        order_by=("analysis_entity_id", "relative_date_id"),
     ) if analysis_entity_ids else []
     dataset_ids = [
         int(row["dataset_id"])
@@ -245,6 +242,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="dataset_id,dataset_name",
         filter_field="dataset_id",
         ids=dataset_ids,
+        order_by=("dataset_id",),
     ) if dataset_ids else []
     dataset_name_by_id = {
         int(row["dataset_id"]): clean_optional_text(row.get("dataset_name"))
@@ -256,6 +254,7 @@ def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> None:
         select="site_reference_id,site_id,biblio_id",
         filter_field="site_id",
         ids=site_ids,
+        order_by=("site_id", "site_reference_id"),
     ) if site_ids else []
 
     sample_group_ids_by_site: dict[int, set[int]] = {}

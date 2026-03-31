@@ -131,8 +131,14 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(records[0].time_mean_bp, 500)
 
     def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
-        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
-            if "/tbl_sites?" in url:
+        seen_orders: list[tuple[str, ...]] = []
+
+        def fake_fetch_json(url: str, params: list[tuple[str, str]] | None = None, **_: object) -> object:
+            params = params or []
+            order_values = tuple(value for key, value in params if key == "order")
+            if order_values:
+                seen_orders.extend(tuple(part.strip() for part in value.split(",")) for value in order_values)
+            if url.endswith("/tbl_sites"):
                 return [
                     {
                         "site_id": 6468,
@@ -178,6 +184,9 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(rows[0]["dating_range_count"], 1)
         self.assertEqual(rows[0]["time_start_bp"], 200)
         self.assertEqual(rows[0]["time_end_bp"], 800)
+        self.assertIn(("site_id",), seen_orders)
+        self.assertIn(("site_id", "sample_group_id"), seen_orders)
+        self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
