@@ -21,6 +21,20 @@ __all__ = [
 ]
 
 
+def build_neotoma_inventory_row(site_row: dict[str, object]) -> dict[str, object]:
+    """Normalize one Neotoma site-search row into the inventory row shape used downstream."""
+    site = copy.deepcopy(site_row)
+    datasets: list[dict[str, object]] = []
+    for collection_unit in site.get("collectionunits", []):
+        if not isinstance(collection_unit, dict):
+            continue
+        for dataset in collection_unit.get("datasets", []):
+            if isinstance(dataset, dict):
+                datasets.append(copy.deepcopy(dataset))
+    site["datasets"] = datasets
+    return {"site": site}
+
+
 def fetch_neotoma_dataset_inventory_rows(
     *,
     bbox: tuple[float, float, float, float],
@@ -29,11 +43,11 @@ def fetch_neotoma_dataset_inventory_rows(
     """Fetch short pollen dataset inventory rows for the Nordic bounding box."""
     rows: list[dict[str, object]] = []
     for item in fetch_neotoma_api_rows_fn(
-        "datasets",
+        "sites",
         extra_params={"loc": build_neotoma_bbox_geojson(bbox)},
     ):
         if isinstance(item, dict):
-            rows.append(copy.deepcopy(item))
+            rows.append(build_neotoma_inventory_row(item))
     return rows
 
 

@@ -13,6 +13,7 @@ from bijux_pollenomics.data_downloader.neotoma import (
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
     fetch_neotoma_api_rows,
+    fetch_neotoma_dataset_inventory_rows,
     fetch_neotoma_dataset_download_rows,
     fetch_neotoma_pollen_rows,
     normalize_neotoma_rows,
@@ -54,6 +55,51 @@ class NeotomaDataTests(unittest.TestCase):
             rows = fetch_neotoma_api_rows("datasets")
 
         self.assertEqual(len(rows), 1)
+
+    def test_fetch_neotoma_api_rows_retries_retryable_timeouts(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=[
+                TimeoutError("read timed out"),
+                {"data": [{"site": {"siteid": 20, "datasets": [{"datasetid": 201}]}}]},
+                {"data": []},
+            ],
+        ):
+            rows = fetch_neotoma_api_rows("datasets")
+
+        self.assertEqual(len(rows), 1)
+
+    def test_fetch_neotoma_dataset_inventory_rows_flattens_site_collectionunits(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            return_value={
+                "data": [
+                    {
+                        "siteid": 20,
+                        "sitename": "Agerods Mosse",
+                        "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                        "collectionunits": [
+                            {
+                                "collectionunitid": 1,
+                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                            },
+                            {
+                                "collectionunitid": 2,
+                                "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
+                            },
+                        ],
+                    }
+                ]
+            },
+        ):
+            rows = fetch_neotoma_dataset_inventory_rows((4.0, 54.0, 35.0, 72.0))
+
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["site"]["siteid"], 20)
+        self.assertEqual(
+            [dataset["datasetid"] for dataset in rows[0]["site"]["datasets"]],
+            [201, 202],
+        )
 
     def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(self) -> None:
         inventory_rows = [
@@ -130,40 +176,49 @@ class NeotomaDataTests(unittest.TestCase):
         }
 
         def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
-            if url.endswith("/datasets"):
+            if url.endswith("/sites"):
                 return {
                     "status": "success",
                     "message": "ok",
                     "data": [
                         {
-                            "site": {
-                                "siteid": 20,
-                                "sitename": "Ageröds Mosse",
-                                "sitedescription": "",
-                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
-                                "altitude": 10,
-                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
-                            }
+                            "siteid": 20,
+                            "sitename": "Ageröds Mosse",
+                            "sitedescription": "",
+                            "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
+                            "altitude": 10,
+                            "collectionunits": [
+                                {
+                                    "collectionunitid": 1,
+                                    "collectionunit": "Core A",
+                                    "handle": "CORE-A",
+                                    "collectionunittype": "Core",
+                                    "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                                },
+                                {
+                                    "collectionunitid": 2,
+                                    "collectionunit": "Core B",
+                                    "handle": "CORE-B",
+                                    "collectionunittype": "Core",
+                                    "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
+                                },
+                            ],
                         },
                         {
-                            "site": {
-                                "siteid": 20,
-                                "sitename": "Ageröds Mosse",
-                                "sitedescription": "",
-                                "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
-                                "altitude": 10,
-                                "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
-                            }
-                        },
-                        {
-                            "site": {
-                                "siteid": 30,
-                                "sitename": "Outside Nordic",
-                                "sitedescription": "",
-                                "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
-                                "altitude": 25,
-                                "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
-                            }
+                            "siteid": 30,
+                            "sitename": "Outside Nordic",
+                            "sitedescription": "",
+                            "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
+                            "altitude": 25,
+                            "collectionunits": [
+                                {
+                                    "collectionunitid": 3,
+                                    "collectionunit": "Core C",
+                                    "handle": "CORE-C",
+                                    "collectionunittype": "Core",
+                                    "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
+                                }
+                            ],
                         },
                     ],
                 }
@@ -309,6 +364,18 @@ class NeotomaDataTests(unittest.TestCase):
             "bijux_pollenomics.data_downloader.neotoma.fetch_json",
             side_effect=[
                 retry_error,
+                {"data": [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}]},
+            ],
+        ):
+            rows = fetch_neotoma_dataset_download_rows([201])
+
+        self.assertEqual(len(rows), 1)
+
+    def test_fetch_neotoma_dataset_download_rows_retries_retryable_timeouts(self) -> None:
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=[
+                TimeoutError("read timed out"),
                 {"data": [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}]},
             ],
         ):

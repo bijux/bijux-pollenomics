@@ -34,13 +34,13 @@ from .sources.neotoma.normalization import (
 from .shared.context_exports import write_context_points_csv, write_context_points_geojson
 
 
-NEOTOMA_LIMIT = 400
+NEOTOMA_INVENTORY_PAGE_SIZE = 100
 NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
-NEOTOMA_REQUEST_TIMEOUT_SECONDS = 60.0
+NEOTOMA_REQUEST_TIMEOUT_SECONDS = 90.0
 NEOTOMA_DOWNLOAD_WORKERS = 16
-NEOTOMA_API_RETRIES = 3
-NEOTOMA_DOWNLOAD_RETRIES = 3
+NEOTOMA_API_RETRIES = 5
+NEOTOMA_DOWNLOAD_RETRIES = 5
 NEOTOMA_DOWNLOAD_ROWS_PER_PART = 25
 NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME = "neotoma_pollen_dataset_downloads"
 
@@ -132,7 +132,7 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
         extra_params=extra_params,
         fetch_neotoma_api_payload_fn=fetch_neotoma_api_payload,
         neotoma_datasettype=NEOTOMA_DATASETTYPE,
-        neotoma_limit=NEOTOMA_LIMIT,
+        neotoma_limit=NEOTOMA_INVENTORY_PAGE_SIZE,
     )
 
 
