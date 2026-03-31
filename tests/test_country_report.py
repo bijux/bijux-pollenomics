@@ -243,7 +243,7 @@ class CountryReportTests(unittest.TestCase):
     def test_generate_multi_country_map_writes_shared_map_with_country_toggles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
             self.write_anno(
                 root / "1240k" / "v62.0_1240k_public.anno",
                 [
@@ -263,17 +263,17 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden", "Norway", "Finland"],
                 output_dir=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
             )
 
             self.assertEqual(report.total_unique_samples, 3)
             self.assertTrue((output / "README.md").exists())
-            self.assertTrue((output / "nordic_v62.0_map.html").exists())
-            self.assertTrue((output / "nordic_v62.0_samples.geojson").exists())
-            self.assertTrue((output / "nordic_v62.0_summary.json").exists())
+            self.assertTrue((output / "nordic-atlas_map.html").exists())
+            self.assertTrue((output / "nordic-atlas_samples.geojson").exists())
+            self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue((output / "_map_assets" / "leaflet" / "leaflet.js").exists())
 
-            map_html = (output / "nordic_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("country-checkbox", map_html)
             self.assertIn("Sweden", map_html)
@@ -363,16 +363,16 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
             self.assertNotIn("unpkg.com/leaflet", map_html)
 
-            geojson = json.loads((output / "nordic_v62.0_samples.geojson").read_text(encoding="utf-8"))
-            summary = json.loads((output / "nordic_v62.0_summary.json").read_text(encoding="utf-8"))
+            geojson = json.loads((output / "nordic-atlas_samples.geojson").read_text(encoding="utf-8"))
+            summary = json.loads((output / "nordic-atlas_summary.json").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
-            self.assertEqual(summary["artifacts"]["map_html"], "nordic_v62.0_map.html")
-            self.assertEqual(summary["artifacts"]["samples_geojson"], "nordic_v62.0_samples.geojson")
+            self.assertEqual(summary["artifacts"]["map_html"], "nordic-atlas_map.html")
+            self.assertEqual(summary["artifacts"]["samples_geojson"], "nordic-atlas_samples.geojson")
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
             context_root = Path(tmp) / "data"
             self.write_anno(
                 root / "ho" / "v62.0_HO_public.anno",
@@ -489,11 +489,11 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden"],
                 output_dir=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
                 context_root=context_root,
             )
 
-            map_html = (output / "nordic_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("Search Visible Records", map_html)
@@ -553,7 +553,7 @@ class CountryReportTests(unittest.TestCase):
     def test_generate_multi_country_map_rejects_context_point_layers_without_identity(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
             context_root = Path(tmp) / "data"
             self.write_anno(
                 root / "ho" / "v62.0_HO_public.anno",
@@ -585,14 +585,14 @@ class CountryReportTests(unittest.TestCase):
                     countries=["Sweden"],
                     output_dir=output,
                     title="Nordic Evidence Atlas",
-                    slug="nordic",
+                    slug="nordic-atlas",
                     context_root=context_root,
                 )
 
     def test_generate_multi_country_map_rejects_context_polygon_layers_with_point_geometry(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
             context_root = Path(tmp) / "data"
             self.write_anno(
                 root / "ho" / "v62.0_HO_public.anno",
@@ -623,14 +623,14 @@ class CountryReportTests(unittest.TestCase):
                     countries=["Sweden"],
                     output_dir=output,
                     title="Nordic Evidence Atlas",
-                    slug="nordic",
+                    slug="nordic-atlas",
                     context_root=context_root,
                 )
 
     def test_generate_multi_country_map_replaces_stale_bundle_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
             output.mkdir(parents=True, exist_ok=True)
             stale_file = output / "stale.geojson"
             stale_file.write_text("stale", encoding="utf-8")
@@ -646,11 +646,11 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden"],
                 output_dir=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
             )
 
             self.assertFalse(stale_file.exists())
-            self.assertTrue((output / "nordic_v62.0_map.html").exists())
+            self.assertTrue((output / "nordic-atlas_map.html").exists())
 
     def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
