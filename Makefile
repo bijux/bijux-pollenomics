@@ -78,6 +78,7 @@ reports: install
 app-state: data-prep reports docs
 
 build: install
+	rm -rf $(DIST_ROOT) build
 	mkdir -p $(DIST_ROOT)
 	$(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
 	rm -rf build
@@ -92,7 +93,7 @@ docs-serve: install
 	SITE_URL=$(MKDOCS_LOCAL_SITE_URL) $(MKDOCS_ENV) $(BIN)/mkdocs serve --dev-addr 127.0.0.1:8000
 
 clean:
-	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
+	rm -rf $(VENV) .venv build dist $(DIST_ROOT) $(ARTIFACTS_ROOT)/build $(ARTIFACTS_ROOT)/docs $(ARTIFACTS_ROOT)/htmlcov .pytest_cache .ruff_cache .mypy_cache htmlcov
 	find . -name ".DS_Store" -delete
 	find . -type d -name "__pycache__" -prune -exec rm -rf {} +
 	find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete
