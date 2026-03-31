@@ -24,6 +24,7 @@ It:
 - installs Python 3.11
 - installs `uv` with cache support
 - runs `make check PYTHON=python`
+- fails if `make check` leaves tracked or untracked repository drift behind
 
 That means GitHub verification now covers:
 
@@ -42,6 +43,7 @@ It:
 
 - validates core MkDocs contract fields in `mkdocs.yml`
 - builds the docs site into `artifacts/docs/site`
+- verifies that the build published the browser-probed root icons into the site root
 - uploads that built site as the GitHub Pages artifact
 - deploys only when the ref is `refs/heads/main`
 

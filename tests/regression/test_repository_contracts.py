@@ -126,6 +126,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("final `docs/report/...` output paths", published_artifacts)
         self.assertIn("final `docs/report/...` bundle locations", report_layout)
 
+    def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(self) -> None:
+        automation_workflows = (REPO_ROOT / "docs" / "engineering" / "automation-workflows.md").read_text(
+            encoding="utf-8"
+        )
+        testing_and_evidence = (REPO_ROOT / "docs" / "engineering" / "testing-and-evidence.md").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("fails if `make check` leaves tracked or untracked repository drift behind", automation_workflows)
+        self.assertIn("published the browser-probed root icons into the site root", automation_workflows)
+        self.assertIn("clean repository tree after verification", testing_and_evidence)
+
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
 

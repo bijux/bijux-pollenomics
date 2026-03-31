@@ -34,6 +34,7 @@ The `Makefile` exposes these suites directly:
 - explicit file-contract tests for normalized data paths, report bundle paths, and vendored map assets
 - successful `make lint`, `make test`, `make build`, `make package-verify`, and `make docs`
 - a combined `make check` run for one-command repository verification
+- a clean repository tree after verification, so command success is not masking unwanted generated drift in tracked files
 
 ## Evidence Matrix
 
