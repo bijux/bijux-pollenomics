@@ -20,6 +20,7 @@ from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
 from .paths import build_atlas_bundle_paths
+from .published_reports import publish_published_reports_tree
 from .staging import publish_into_staging_dir
 from .summaries import (
     build_country_report_summary,
@@ -167,51 +168,21 @@ def generate_published_reports(
         raise ValueError("At least one country is required to publish reports")
 
     atlas_slug = slugify(slug)
-    generated_report: PublishedReportsReport | None = None
-
-    def publish_report_tree(staging_output_root: Path) -> None:
-        nonlocal generated_report
-        shared_map_dir = staging_output_root / atlas_slug
-        map_report = generate_multi_country_map(
+    return publish_into_staging_dir(
+        output_root,
+        lambda staging_output_root: publish_published_reports_tree(
+            staging_output_root,
             version_dir=version_dir,
-            countries=normalized_countries,
-            output_dir=shared_map_dir,
+            output_root=output_root,
+            normalized_countries=normalized_countries,
             title=title,
-            slug=atlas_slug,
+            atlas_slug=atlas_slug,
             context_root=context_root,
-            published_output_dir=output_root / shared_map_dir.name,
-        )
-
-        country_output_dirs: list[Path] = []
-        shared_bundle_paths = build_atlas_bundle_paths(
-            output_dir=shared_map_dir,
-            slug=map_report.slug,
-            version=map_report.version,
-        )
-        shared_map_path = f"../{shared_map_dir.name}/{shared_bundle_paths.map_html_path.name}"
-        for country in normalized_countries:
-            country_dir = staging_output_root / slugify(country)
-            generate_country_report(
-                version_dir=version_dir,
-                country=country,
-                output_dir=country_dir,
-                map_reference=(title, shared_map_path),
-                published_output_dir=output_root / country_dir.name,
-            )
-            country_output_dirs.append(country_dir)
-
-        summary_path = staging_output_root / "published_reports_summary.json"
-        generated_report = PublishedReportsReport(
-            version=map_report.version,
-            generated_on=map_report.generated_on,
-            countries=normalized_countries,
-            shared_map_dir=output_root / shared_map_dir.name,
-            country_output_dirs=tuple(output_root / path.name for path in country_output_dirs),
-            summary_path=output_root / summary_path.name,
-        )
-        write_summary_json(summary_path, build_published_reports_summary(generated_report, map_report))
-
-    publish_into_staging_dir(output_root, publish_report_tree)
-    if generated_report is None:
-        raise AssertionError("published reports should be created before returning")
-    return generated_report
+            build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
+            build_published_reports_summary_fn=build_published_reports_summary,
+            generate_country_report_fn=generate_country_report,
+            generate_multi_country_map_fn=generate_multi_country_map,
+            slugify_fn=slugify,
+            write_summary_json_fn=write_summary_json,
+        ),
+    )
