@@ -16,17 +16,23 @@ class RaaDataReport:
     heritage_site_count: int
     metadata_path: Path
     density_path: Path
+    raw_points_path: Path
+
+
+RAA_WFS_URL = "https://karta.raa.se/geo/arkreg_v1.0/wfs"
+RAA_FEATURE_TYPE = "arkreg_v1.0:publicerade_lamningar_centrumpunkt"
+RAA_FEATURE_PAGE_SIZE = 10000
 
 
 def fetch_raa_archaeology_metadata(
     country_boundaries: dict[str, dict[str, object]],
 ) -> dict[str, object]:
     """Download Swedish archaeology layer metadata from RAÄ and Fornsök."""
-    capabilities_url = "https://karta.raa.se/geo/arkreg_v1.0/wfs?service=WFS&request=GetCapabilities"
+    capabilities_url = f"{RAA_WFS_URL}?service=WFS&request=GetCapabilities"
     schema_url = (
-        "https://karta.raa.se/geo/arkreg_v1.0/wfs"
+        f"{RAA_WFS_URL}"
         "?service=WFS&version=2.0.0&request=DescribeFeatureType"
-        "&typeNames=arkreg_v1.0:publicerade_lamningar_centrumpunkt"
+        f"&typeNames={RAA_FEATURE_TYPE}"
     )
     domain_url = "https://app.raa.se/open/fornsok/api/lamning/domaner"
 
@@ -52,7 +58,7 @@ def fetch_raa_archaeology_metadata(
             "The map renders grid-cell counts for `Fornlämning` records so Swedish archaeology is visible "
             "at national scale without loading hundreds of thousands of point markers."
         ),
-        "feature_type": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
+        "feature_type": RAA_FEATURE_TYPE,
         "grid_cell_size_degrees": 1.0,
         "density_feature_count": len(density_geojson["features"]),
         "counts": {
@@ -78,12 +84,12 @@ def fetch_raa_count(cql_filter: str | None = None) -> int:
         "service": "WFS",
         "version": "2.0.0",
         "request": "GetFeature",
-        "typeNames": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
+        "typeNames": RAA_FEATURE_TYPE,
         "resultType": "hits",
     }
     if cql_filter:
         params["CQL_FILTER"] = cql_filter
-    xml_text = fetch_text("https://karta.raa.se/geo/arkreg_v1.0/wfs", params=params)
+    xml_text = fetch_text(RAA_WFS_URL, params=params)
     marker = 'numberMatched="'
     start = xml_text.find(marker)
     if start == -1:
@@ -91,6 +97,61 @@ def fetch_raa_count(cql_filter: str | None = None) -> int:
     start += len(marker)
     end = xml_text.find('"', start)
     return int(xml_text[start:end])
+
+
+def fetch_raa_feature_page(
+    *,
+    start_index: int,
+    count: int = RAA_FEATURE_PAGE_SIZE,
+    cql_filter: str | None = None,
+) -> dict[str, object]:
+    """Fetch one page of published archaeology point features as GeoJSON."""
+    params = {
+        "service": "WFS",
+        "version": "2.0.0",
+        "request": "GetFeature",
+        "typeNames": RAA_FEATURE_TYPE,
+        "outputFormat": "application/json",
+        "srsName": "EPSG:4326",
+        "startIndex": str(start_index),
+        "count": str(count),
+    }
+    if cql_filter:
+        params["CQL_FILTER"] = cql_filter
+    payload = fetch_json(RAA_WFS_URL, params=params)
+    if not isinstance(payload, dict):
+        raise ValueError("RAÄ feature response must be a GeoJSON object")
+    return payload
+
+
+def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, object]:
+    """Fetch the full published archaeology point inventory with WFS paging."""
+    first_page = fetch_raa_feature_page(start_index=0, cql_filter=cql_filter)
+    features = [
+        feature
+        for feature in first_page.get("features", [])
+        if isinstance(feature, dict)
+    ]
+    total_features = int(first_page.get("numberMatched") or first_page.get("totalFeatures") or len(features))
+    start_index = len(features)
+    while start_index < total_features:
+        page = fetch_raa_feature_page(start_index=start_index, cql_filter=cql_filter)
+        page_features = [
+            feature
+            for feature in page.get("features", [])
+            if isinstance(feature, dict)
+        ]
+        if not page_features:
+            break
+        features.extend(page_features)
+        start_index += len(page_features)
+    return {
+        "type": "FeatureCollection",
+        "features": features,
+        "numberMatched": total_features,
+        "crs": first_page.get("crs"),
+        "timeStamp": first_page.get("timeStamp"),
+    }
 
 
 def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, object]:
@@ -154,6 +215,8 @@ def collect_raa_data(
     raw_dir.mkdir(parents=True, exist_ok=True)
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
+    raw_points_path = raw_dir / "publicerade_lamningar_centrumpunkt.geojson"
+    write_json(raw_points_path, fetch_raa_feature_inventory())
     metadata = fetch_raa_archaeology_metadata(country_boundaries=country_boundaries)
     write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"])
     write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", metadata["schema_xml"])
@@ -169,4 +232,5 @@ def collect_raa_data(
         heritage_site_count=metadata["layer_metadata"]["counts"]["fornlamning"],
         metadata_path=metadata_path,
         density_path=density_path,
+        raw_points_path=raw_points_path,
     )
