@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import asdict
 import json
-import shutil
 from datetime import date
 from pathlib import Path
 from typing import Iterable
@@ -21,6 +20,7 @@ from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
 from .paths import build_atlas_bundle_paths, build_country_bundle_paths
+from .staging import publish_into_staging_dir
 from .utils import slugify
 from ..settings import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
@@ -34,14 +34,15 @@ def generate_country_report(
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
-    reset_generated_output_dir(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    normalized_country = country.strip()
+    if not normalized_country:
+        raise ValueError("Country is required to build a country report")
 
-    samples, dataset_counts = load_country_samples(version_dir=version_dir, country=country)
+    samples, dataset_counts = load_country_samples(version_dir=version_dir, country=normalized_country)
     localities = summarize_localities(samples)
     version = version_dir.name
     report = CountryReport(
-        country=country,
+        country=normalized_country,
         version=version,
         generated_on=str(date.today()),
         total_unique_samples=len(samples),
@@ -52,25 +53,31 @@ def generate_country_report(
         output_dir=output_dir,
     )
 
-    bundle_paths = build_country_bundle_paths(output_dir=output_dir, country=country, version=version)
+    def publish_country_bundle(staging_output_dir: Path) -> None:
+        bundle_paths = build_country_bundle_paths(
+            output_dir=staging_output_dir,
+            country=normalized_country,
+            version=version,
+        )
+        write_samples_csv(bundle_paths.samples_csv_path, report.samples)
+        write_localities_csv(bundle_paths.localities_csv_path, report.localities)
+        write_samples_geojson(bundle_paths.samples_geojson_path, report.samples)
+        write_summary_json(bundle_paths.summary_json_path, build_country_report_summary(report, bundle_paths))
+        bundle_paths.samples_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
+        bundle_paths.readme_path.write_text(
+            render_summary_markdown(
+                report=report,
+                samples_csv_name=bundle_paths.samples_csv_path.name,
+                localities_csv_name=bundle_paths.localities_csv_path.name,
+                geojson_name=bundle_paths.samples_geojson_path.name,
+                sample_markdown_name=bundle_paths.samples_markdown_path.name,
+                summary_json_name=bundle_paths.summary_json_path.name,
+                map_reference=map_reference,
+            ),
+            encoding="utf-8",
+        )
 
-    write_samples_csv(bundle_paths.samples_csv_path, report.samples)
-    write_localities_csv(bundle_paths.localities_csv_path, report.localities)
-    write_samples_geojson(bundle_paths.samples_geojson_path, report.samples)
-    write_summary_json(bundle_paths.summary_json_path, build_country_report_summary(report, bundle_paths))
-    bundle_paths.samples_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
-    bundle_paths.readme_path.write_text(
-        render_summary_markdown(
-            report=report,
-            samples_csv_name=bundle_paths.samples_csv_path.name,
-            localities_csv_name=bundle_paths.localities_csv_path.name,
-            geojson_name=bundle_paths.samples_geojson_path.name,
-            sample_markdown_name=bundle_paths.samples_markdown_path.name,
-            summary_json_name=bundle_paths.summary_json_path.name,
-            map_reference=map_reference,
-        ),
-        encoding="utf-8",
-    )
+    publish_into_staging_dir(output_dir, publish_country_bundle)
     return report
 
 
@@ -289,12 +296,6 @@ def build_published_reports_summary(
         },
     }
     return payload
-
-
-def reset_generated_output_dir(path: Path) -> None:
-    """Remove one generated report bundle directory before regenerating it."""
-    if path.exists():
-        shutil.rmtree(path)
 
 
 def remove_stale_published_bundle_dirs(output_root: Path, keep_dirs: set[Path]) -> None:
