@@ -11,6 +11,14 @@ last_reviewed: 2026-03-31
 
 Use this page for local setup and publication failures before moving into deeper architecture or source-specific debugging.
 
+The fastest way to troubleshoot is to classify the failure first:
+
+- editable environment creation
+- package build or package installation
+- docs shell build
+- source collection
+- report publication
+
 ## `make install` fails
 
 Check:
@@ -30,6 +38,8 @@ artifacts/.venv/bin/bijux-pollenomics --version
 make lock-check
 ```
 
+If the console script still does not run after `make install`, treat that as an environment failure first, not as a collector or report failure.
+
 ## `make package-check` fails
 
 Check:
@@ -38,6 +48,8 @@ Check:
 - whether package metadata still renders cleanly for both source and wheel distributions
 - whether `LICENSE` and `NOTICE` are still included through `pyproject.toml`
 - whether `twine check` is reporting malformed metadata rather than a missing build artifact
+
+This is the right place to debug build metadata. Do not jump straight to report or docs issues until this passes.
 
 ## `make package-verify` fails
 
@@ -48,6 +60,8 @@ Check:
 - whether the built source distribution starts correctly under `make package-source-smoke`
 - whether the editable install already fails under `artifacts/.venv/bin/bijux-pollenomics --version`
 - whether a packaging change introduced a mismatch between `pyproject.toml`, `uv.lock`, and the package version exposed in `src/bijux_pollenomics/__init__.py`
+
+Use `make package-check`, `make package-smoke`, and `make package-source-smoke` to isolate which proof surface failed inside the broader packaging workflow.
 
 ## `make data-prep` is slow
 
@@ -71,6 +85,15 @@ Check:
 - whether port `127.0.0.1:8000` is already in use
 - whether the local editable install is blocked by invalid packaging metadata
 - whether a stale `artifacts/.venv/` should be removed and rebuilt
+
+## `make check` fails late
+
+Check which stage failed before rerunning everything blindly:
+
+- lock or install failures belong to environment setup
+- test failures belong to code or artifact contracts
+- docs failures belong to navigation, links, or strict-build warnings
+- package failures belong to metadata or installation surfaces
 
 ## The map opens but some layers are missing
 
@@ -97,6 +120,10 @@ Check:
 - whether supporting gallery assets or context artifacts are present where the atlas expects them
 - whether a failed report regeneration left the previous published tree in place instead of partially replacing it
 
+## Reading Rule
+
+Use this page to isolate a failure class. Move to [Architecture](../architecture/index.md) only after you know which seam failed, and move to [Data Sources](../data-sources/index.md) only after you know which collector or source artifact is involved.
+
 ## Purpose
 
-This page captures the most likely local setup and publication problems before deeper architecture or reference material is needed.
+This page captures the highest-probability local failures in the order that makes them easiest to isolate.

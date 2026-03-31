@@ -11,12 +11,18 @@ last_reviewed: 2026-03-31
 
 Use the local `Makefile` workflow from the repository root. This page is intentionally limited to environment setup and code verification. It does not rebuild tracked data or tracked reports.
 
+Stop here if your goal is only to prove that the local environment matches repository expectations.
+
 ## Prerequisites
 
 - `python3.11`
 - `uv`
 - network access for first-time dependency installation
 - permission to create the local virtual environment under `artifacts/.venv/`
+
+## Decision Boundary
+
+This workflow is complete when the editable environment exists and the verification commands pass. If you want to rewrite tracked files under `data/` or `docs/report/`, move to the later workflow pages after this page succeeds.
 
 ## Confirm The Python Runtime
 
@@ -33,7 +39,7 @@ Expected result:
 
 If `python3.11` is not available, fix that first. Do not continue with `make install` and hope the repository will select a compatible interpreter automatically.
 
-## Commands
+## Canonical Verification Sequence
 
 ```bash
 make install
@@ -45,7 +51,7 @@ make package-verify
 make docs
 ```
 
-## What These Commands Do
+## What Each Command Proves
 
 - `make install` syncs `artifacts/.venv/` from the tracked `uv.lock` with the project installed in editable mode
 - `artifacts/.venv/bin/bijux-pollenomics --version` confirms that the installed console script resolves from the local editable environment
@@ -85,7 +91,7 @@ After these commands:
 - the built source distribution installs and runs in a temporary environment
 - the docs site builds successfully
 
-## What This Page Does Not Verify
+## What This Workflow Does Not Prove
 
 This page does not prove that:
 
@@ -100,6 +106,12 @@ Those checks belong to later workflow pages because they mutate more state or de
 
 The repository should validate the code before pulling or regenerating data. That keeps failures easier to interpret and avoids mixing environment problems with acquisition problems.
 
+## When To Escalate
+
+- if `make install` fails, move to [Troubleshoot local setup](troubleshoot-local-setup.md)
+- if verification passes and you need new source files, move to [Rebuild the data tree](rebuild-data-tree.md)
+- if source data is already current and only report artifacts need regeneration, move to [Publish report artifacts](publish-report-artifacts.md)
+
 ## Purpose
 
-This page gives the minimum reliable setup path before any data or report workflow is attempted.
+This page gives the minimum reliable proof surface before any data or report workflow is attempted.
