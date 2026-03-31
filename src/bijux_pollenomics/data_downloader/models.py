@@ -21,6 +21,10 @@ class ContextPointRecord:
     source_url: str
     record_count: int
     popup_rows: tuple[tuple[str, str], ...]
+    time_start_bp: int | None = None
+    time_end_bp: int | None = None
+    time_mean_bp: int | None = None
+    time_label: str = ""
 
 
 @dataclass(frozen=True)

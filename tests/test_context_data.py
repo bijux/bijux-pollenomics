@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
 from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
+from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import normalize_sead_rows
+from bijux_pollenomics.data_downloader.writers import write_context_points_csv, write_context_points_geojson
 
 
 class ContextDataTests(unittest.TestCase):
@@ -117,6 +120,49 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(records[0].country, "Sweden")
         self.assertEqual(records[0].category, "Environmental archaeology")
         self.assertEqual(records[0].popup_rows[0], ("Site ID", "6468"))
+
+    def test_context_point_exports_preserve_temporal_fields(self) -> None:
+        record = ContextPointRecord(
+            source="LandClim",
+            layer_key="landclim-sites",
+            layer_label="LandClim pollen sites",
+            category="Pollen sequence",
+            country="Sweden",
+            record_id="site-1",
+            name="Lake One",
+            latitude=59.5,
+            longitude=17.5,
+            geometry_type="Point",
+            subtitle="Sequence",
+            description="Test record",
+            source_url="https://example.test/site-1",
+            record_count=3,
+            popup_rows=(("Time windows", "0-100 BP, 350-700 BP"),),
+            time_start_bp=0,
+            time_end_bp=700,
+            time_mean_bp=350,
+            time_label="0-700 BP",
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            csv_path = Path(tmp) / "records.csv"
+            geojson_path = Path(tmp) / "records.geojson"
+
+            write_context_points_csv(csv_path, [record])
+            write_context_points_geojson(geojson_path, [record])
+
+            csv_text = csv_path.read_text(encoding="utf-8")
+            geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
+
+        self.assertIn("time_start_bp", csv_text)
+        self.assertIn("time_end_bp", csv_text)
+        self.assertIn("time_mean_bp", csv_text)
+        self.assertIn("time_label", csv_text)
+        properties = geojson["features"][0]["properties"]
+        self.assertEqual(properties["time_start_bp"], 0)
+        self.assertEqual(properties["time_end_bp"], 700)
+        self.assertEqual(properties["time_mean_bp"], 350)
+        self.assertEqual(properties["time_label"], "0-700 BP")
 
 
 if __name__ == "__main__":

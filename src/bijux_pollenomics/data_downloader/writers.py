@@ -26,6 +26,10 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
         "description",
         "source_url",
         "record_count",
+        "time_start_bp",
+        "time_end_bp",
+        "time_mean_bp",
+        "time_label",
         "popup_rows_json",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -48,6 +52,10 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                     "description": record.description,
                     "source_url": record.source_url,
                     "record_count": record.record_count,
+                    "time_start_bp": record.time_start_bp if record.time_start_bp is not None else "",
+                    "time_end_bp": record.time_end_bp if record.time_end_bp is not None else "",
+                    "time_mean_bp": record.time_mean_bp if record.time_mean_bp is not None else "",
+                    "time_label": record.time_label,
                     "popup_rows_json": json.dumps(record.popup_rows, ensure_ascii=False),
                 }
             )
@@ -74,6 +82,10 @@ def write_context_points_geojson(path: Path, records: Iterable[ContextPointRecor
                     "description": record.description,
                     "source_url": record.source_url,
                     "record_count": record.record_count,
+                    "time_start_bp": record.time_start_bp,
+                    "time_end_bp": record.time_end_bp,
+                    "time_mean_bp": record.time_mean_bp,
+                    "time_label": record.time_label,
                     "popup_rows": [
                         {"label": label, "value": value}
                         for label, value in record.popup_rows
