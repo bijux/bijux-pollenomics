@@ -1,48 +1,43 @@
 # bijux-pollenomics
 
-`bijux-pollenomics` is a repository for collecting tracked Nordic context datasets and publishing checked-in map and report outputs from them.
+`bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
 
-## License
+The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
 
-This repository is licensed under the Apache License 2.0. Copyright 2026
-Bijan Mousavi <bijan@bijux.io>. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+## Start Here
 
-Today, this repository does four concrete things:
+- inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
+- read the canonical docs home: [`docs/index.md`](docs/index.md)
+- verify a fresh checkout: [`docs/workflows/install-and-verify.md`](docs/workflows/install-and-verify.md)
+- rebuild tracked data: [`docs/workflows/rebuild-data-tree.md`](docs/workflows/rebuild-data-tree.md)
+- republish checked-in outputs: [`docs/workflows/publish-report-artifacts.md`](docs/workflows/publish-report-artifacts.md)
 
-- collects six tracked data categories under `data/`
-- generates the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`
-- generates country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
-- builds a MkDocs documentation site under `artifacts/docs/site/`
+## What This Repository Produces
 
-It does not yet rank candidate sampling locations, compute lake intersections, or produce automated site-selection scores.
+Today, the checked-in repository produces four durable outcomes:
 
-## What Running Commands Changes
-
-This repository has both verification commands and state-changing commands.
-
-- `make install` syncs the local development environment under `artifacts/.venv/`
-- `make lint`, `make test`, `make docs`, `make package-verify`, and `make check` validate or build local artifacts
-- `make data-prep` rewrites tracked source snapshots and normalized outputs under `data/`
-- `make reports` rewrites checked-in report artifacts under `docs/report/`
-- `make app-state` does the full current rebuild path and will rewrite both tracked data and tracked report artifacts
-
-Use that distinction deliberately. A fresh contributor who only wants to verify the codebase should not start with the full rebuild command.
+- a tracked `data/` tree with six source categories and normalized outputs
+- the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`
+- country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
+- a MkDocs documentation site that builds into `artifacts/docs/site/`
 
 ## Current Scope
 
-The current checked-in scope is deliberately narrow:
+The current repository scope is deliberately narrower than later site-selection research.
+
+What exists today:
 
 - AADR is used from public `.anno` metadata files
 - boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
-- published outputs are rebuilt from local commands and kept in the repository
-- the shared map is a publication artifact, not an analysis engine
+- report bundles and the shared atlas are rebuilt from local commands and checked in
+- the shared map is a publication artifact for inspection, not an analysis engine
 
-The repository does not currently:
+What does not exist today:
 
-- ingest AADR genotype matrices such as `.geno`, `.ind`, or `.snp`
-- perform lake-distance intersection analysis
-- perform archaeological-site scoring
-- infer scientific conclusions from proximity alone
+- AADR genotype processing from `.geno`, `.ind`, or `.snp`
+- lake-intersection analysis
+- archaeological-site scoring or ranking
+- automated sampling recommendations
 
 ## Repository Layout
 
