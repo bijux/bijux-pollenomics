@@ -6,6 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.landclim import (
+    build_landclim_raw_asset_summaries,
     build_landclim_site_records,
     build_landclim_grid_geojson,
     download_landclim_raw_assets,
@@ -277,5 +278,22 @@ class LandClimDataTests(unittest.TestCase):
             ):
                 with self.assertRaisesRegex(ValueError, "empty for landclim_i_land_cover_types.xlsx"):
                     download_landclim_raw_assets(Path(tmp))
+
+    def test_build_landclim_raw_asset_summaries_records_source_urls_and_digests(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "landclim_i_land_cover_types.xlsx"
+            path.write_bytes(b"landclim")
+
+            summaries = build_landclim_raw_asset_summaries(
+                {"landclim_i_land_cover_types.xlsx": path},
+                {"landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"},
+            )
+
+        self.assertEqual(summaries[0]["source_url"], "https://example.test/lct.xlsx")
+        self.assertEqual(summaries[0]["size_bytes"], 8)
+        self.assertEqual(
+            summaries[0]["sha256"],
+            "f2865d4bfbd5fa4f19f5336385ef80d21ea03711c748736d3124f804dc1c2e14",
+        )
 if __name__ == "__main__":
     unittest.main()

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import re
 from dataclasses import dataclass
 from datetime import date
@@ -80,6 +81,12 @@ class LandClimDataReport:
     summary_path: Path
 
 
+@dataclass(frozen=True)
+class LandClimRawAssets:
+    paths: dict[str, Path]
+    asset_urls: dict[str, str]
+
+
 def collect_landclim_data(
     output_root: Path,
     country_boundaries: dict[str, dict[str, object]],
@@ -92,7 +99,8 @@ def collect_landclim_data(
     raw_dir.mkdir(parents=True, exist_ok=True)
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
-    raw_paths = download_landclim_raw_assets(raw_dir)
+    raw_assets = download_landclim_raw_assets(raw_dir)
+    raw_paths = raw_assets.paths
     landclim_ii_archive_summary = inspect_landclim_ii_archive(raw_paths["landclim_ii_reveals_results.zip"])
     site_records = build_landclim_site_records(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
     grid_geojson = build_landclim_grid_geojson(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
@@ -130,6 +138,7 @@ def collect_landclim_data(
                     "archive_summary": landclim_ii_archive_summary,
                 },
             ],
+            "assets": build_landclim_raw_asset_summaries(raw_paths, raw_assets.asset_urls),
         },
     )
 
@@ -164,7 +173,7 @@ def collect_landclim_data(
     )
 
 
-def download_landclim_raw_assets(raw_dir: Path) -> dict[str, Path]:
+def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:
     """Download the LandClim raw upstream assets used for normalization."""
     asset_urls = resolve_landclim_asset_urls()
     raw_paths: dict[str, Path] = {}
@@ -174,13 +183,33 @@ def download_landclim_raw_assets(raw_dir: Path) -> dict[str, Path]:
         validate_landclim_raw_asset(filename, payload)
         path.write_bytes(payload)
         raw_paths[filename] = path
-    return raw_paths
+    return LandClimRawAssets(paths=raw_paths, asset_urls=asset_urls)
 
 
 def validate_landclim_raw_asset(filename: str, payload: bytes) -> None:
     """Reject empty LandClim downloads before they enter the tracked raw tree."""
     if not payload:
         raise ValueError(f"LandClim raw asset download was empty for {filename}")
+
+
+def build_landclim_raw_asset_summaries(
+    raw_paths: dict[str, Path],
+    asset_urls: dict[str, str],
+) -> list[dict[str, object]]:
+    """Build reproducible metadata for the downloaded LandClim raw assets."""
+    summaries: list[dict[str, object]] = []
+    for filename in sorted(raw_paths):
+        path = raw_paths[filename]
+        payload = path.read_bytes()
+        summaries.append(
+            {
+                "filename": filename,
+                "source_url": asset_urls[filename],
+                "size_bytes": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+        )
+    return summaries
 
 
 def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
