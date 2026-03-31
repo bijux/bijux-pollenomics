@@ -7,7 +7,8 @@ from pathlib import Path
 
 from ...core.bp_time import build_bp_interval_label, midpoint_bp_year
 from ..models import SampleRecord
-from ..utils import clean_text, pick_value
+from ..shared.merge import pick_value
+from ..shared.text import clean_text
 from .schema import resolve_schema, sample_time_interval, sample_time_label, sample_time_mean
 
 __all__ = [

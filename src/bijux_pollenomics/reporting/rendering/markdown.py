@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ..models import CountryReport
-from ..utils import escape_pipes
+from ..shared.text import escape_pipes
 
 __all__ = [
     "render_multi_country_map_markdown",

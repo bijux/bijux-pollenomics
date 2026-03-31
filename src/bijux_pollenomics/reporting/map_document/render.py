@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..utils import escape_html
+from ..shared.text import escape_html
 from .payload import build_map_document_payload
 from .template import MAP_DOCUMENT_TEMPLATE
 

@@ -29,7 +29,7 @@ from .artifacts import (
 )
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
-from .utils import slugify
+from .shared.text import slugify
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 

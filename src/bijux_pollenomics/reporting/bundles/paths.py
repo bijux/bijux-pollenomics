@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ..utils import slugify
+from ..shared.text import slugify
 
 __all__ = [
     "AtlasBundlePaths",
