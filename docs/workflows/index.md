@@ -9,9 +9,14 @@ last_reviewed: 2026-03-31
 
 # Workflows
 
-This section is the shortest honest path from a fresh checkout to a working local environment, a rebuilt `data/` tree, and regenerated outputs.
+This section is the shortest honest path from a fresh checkout to a verified environment, a rebuilt `data/` tree, and regenerated publication artifacts.
 
-It is ordered to keep environment verification separate from commands that rewrite tracked repository state.
+It is ordered by mutation boundary:
+
+1. prove the environment
+2. rebuild tracked source data
+3. republish tracked report artifacts
+4. troubleshoot the workflow that failed
 
 ```mermaid
 flowchart LR
@@ -29,25 +34,21 @@ flowchart LR
 - [Publish report artifacts](publish-report-artifacts.md)
 - [Troubleshoot local setup](troubleshoot-local-setup.md)
 
-## Outcome
+## Use This Section When You Need To
 
-By the end of this section you should be able to:
-
-- sync the local project environment under `artifacts/.venv/` from `uv.lock`
-- confirm that the local Python and tooling match repository expectations
-- confirm that the dependency lock still matches the declared configuration
-- run lint, tests, docs, and package verification
-- rebuild `data/` with one command
-- regenerate the shared Nordic map and country reports
+- prepare a clean machine for local work
+- separate verification failures from data-collection failures
+- know which commands rewrite tracked repository state
+- republish `docs/report/` without guessing which prerequisites are required first
 
 ## Workflow Boundary
 
-This section is operational. It explains when a command should be run, what tracked state it rewrites, and what success should leave behind. It is not the place for architectural justification or full command inventories; those live in `Architecture` and `Reference`.
+This section is operational. It explains when to run a command, what tracked state it rewrites, and what success should leave behind. It is not the place for architectural justification or full command inventories; those live in [Architecture](../architecture/index.md) and [Reference](../reference/index.md).
 
 ## Reading Rule
 
-Start with [Install and verify](install-and-verify.md) even if you already know the repository. That page is the contract for what a clean environment must satisfy before any data or report outputs are regenerated.
+Start with [Install and verify](install-and-verify.md) even if you already know the repository. That page defines the proof surface that should pass before any data or report outputs are regenerated.
 
 ## Purpose
 
-This page organizes the first-run workflow into a sequence that matches the repository’s actual dependency order.
+This page organizes rebuild work by precondition and mutation scope instead of by command popularity.

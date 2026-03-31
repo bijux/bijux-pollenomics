@@ -9,15 +9,14 @@ last_reviewed: 2026-03-31
 
 # Foundation
 
-This section gives the mental model for `bijux-pollenomics` before you start running commands or reading code.
+This section gives the reader-facing contract for `bijux-pollenomics` before any commands or code details.
 
-The repository is easiest to understand when you separate five concerns:
+Read this section first if you need to answer:
 
-- tracked source data under `data/`
-- normalization and acquisition logic under `src/bijux_pollenomics/data_downloader/`
-- multi-source report and atlas generation under `src/bijux_pollenomics/reporting/`
-- the shared Nordic map as the primary interactive output
-- later spatial interpretation built on top of these reproducible layers
+- what the repository is trying to deliver today
+- what sits inside or outside the current repository boundary
+- why the shared atlas is the main visible output
+- how the product framing differs from later research interpretation work
 
 ```mermaid
 flowchart TD
@@ -29,40 +28,31 @@ flowchart TD
     SharedMap --> Interpretation
 ```
 
-The foundation pages answer four foundational questions:
-
-- what the repository scope includes and excludes
-- what the project is trying to support scientifically
-- what the repository produces today
-- which boundaries are intentional
-- why the map is the primary experience but not the only durable output
-
 ## Pages in This Section
 
-- [Repository scope](repository-scope.md)
 - [Product overview](product-overview.md)
+- [Repository scope](repository-scope.md)
 - [Scope and non-goals](scope-and-non-goals.md)
 - [Map-first product model](map-first-product-model.md)
 
-## What You Should Know After This Section
+## Section Contract
 
-- why the repository centers country-aware spatial evidence, not just raw files
-- why AADR `.anno` metadata is tracked while heavy genotype files are not
-- why the reporting layer now combines AADR outputs with the checked-in context layers
-- how the shared map and report outputs relate to the tracked `data/` tree
-- which next section to read for your role
+- [Product overview](product-overview.md) explains the delivered evidence workspace and its visible outputs.
+- [Repository scope](repository-scope.md) defines the operational boundary the repository is expected to hold.
+- [Scope and non-goals](scope-and-non-goals.md) records the work that is deliberately out of scope for now.
+- [Map-first product model](map-first-product-model.md) explains why the site opens with the atlas instead of code or command documentation.
 
 ## Reading Advice
 
-Start here if you are new to the repository, planning new data layers, or trying to understand why the docs homepage leads with the map instead of the codebase.
+Move to [Workflows](../workflows/index.md) once you understand the boundary and need rebuild steps. Move to [Data Sources](../data-sources/index.md) or [Outputs](../outputs/index.md) once you need source-specific or artifact-specific detail.
 
 ## Honesty Rule
 
-This section is allowed to describe intent and product framing, but it should still stay bounded by current repository behavior. Future scientific or product ambitions belong here only when they are explicitly labeled as not-yet-implemented.
+This section is allowed to describe intent, but it still has to stay bounded by current repository behavior. Later research ambitions belong here only when they are explicitly labeled as not yet implemented.
 
 ## Purpose
 
-This page explains the foundation section and routes readers to the pages that define what `bijux-pollenomics` is building.
+This page explains how to use the foundation section without repeating the details that belong on the pages beneath it.
 
 ## Stability
 

@@ -9,7 +9,7 @@ last_reviewed: 2026-03-31
 
 # Data Sources
 
-This section explains the six tracked data categories under `data/`, the commands that build them, and the boundaries of what each source contributes.
+This section explains the six tracked data categories under `data/`, what each one contributes to the atlas or reports, and how source refreshes stay reviewable.
 
 ```mermaid
 flowchart TD
@@ -32,11 +32,16 @@ flowchart TD
 - [SEAD](sead.md)
 - [RAÄ](raa.md)
 
+## Use This Section When You Need To
+
+- compare the tracked source categories against each other
+- understand what one source contributes to the atlas or report bundles
+- verify how raw payloads, normalized outputs, and collector summaries relate
+- review a source refresh without guessing which files matter
+
 ## Core Rule
 
-The filesystem model and the acquisition model should match. That is why `collect-data <source>` writes directly into `data/<source>/`.
-
-The collector also writes `data/collection_summary.json`, and when a source depends on boundaries it reuses tracked local boundary files when available instead of fetching them again unnecessarily.
+The filesystem model and the acquisition model should match. `collect-data <source>` writes directly into `data/<source>/`, and the shared collector summary records the top-level output roots in one machine-readable place.
 
 ## Trust Model
 
@@ -62,4 +67,4 @@ This section is the canonical source for data acquisition and storage guidance i
 
 ## Purpose
 
-This page organizes the source-specific documentation for the tracked data tree.
+This page organizes the repository’s source-specific documentation by comparison first and source detail second.

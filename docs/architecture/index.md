@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 This section explains how the repository is put together and where responsibilities live.
 
+Read it when the question is about seams, ownership, or flow between modules and generated trees rather than about command syntax.
+
 ## Pages in This Section
 
 - [System overview](system-overview.md)
@@ -28,6 +30,12 @@ flowchart LR
     DocsReport --> MkDocs[documentation site]
 ```
 
+## Use This Section When You Need To
+
+- trace how data moves from the CLI into `data/` and then into `docs/report/`
+- understand which module owns a contract or filename family
+- extend the codebase without collapsing source, reporting, and docs responsibilities into one place
+
 ## Purpose
 
-This page organizes the architecture explanations for the repository.
+This page organizes the architecture explanations around system seams instead of developer workflow.

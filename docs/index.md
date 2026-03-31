@@ -9,37 +9,46 @@ last_reviewed: 2026-03-31
 
 # Docs Index
 
-This is the canonical documentation home for `bijux-pollenomics`.
+`bijux-pollenomics` is a static, reviewable evidence workspace. The repository collects tracked Nordic source data, normalizes it into stable files, and publishes those files as country bundles plus one shared interactive atlas.
 
-The first page leads with the checked-in Nordic Evidence Atlas because the atlas is the shortest way to inspect the repository’s current outputs: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, and Nordic country boundaries.
-
-The current atlas groups layers by role, exposes filter state in the URL, and shows the AADR release as one provenance label inside a broader multi-source view.
+The homepage leads with the checked-in Nordic Evidence Atlas because it is the fastest way to inspect what the repository currently produces: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, fieldwork media, and Nordic country boundaries.
 
 <div class="bijux-callout">
-  <strong>Start with the atlas.</strong> The rest of the docs explains exactly where its layers come from, which commands rebuild it, and which parts of the current behavior are still limited in scope.
+  <strong>Start with the atlas.</strong> The rest of the site exists to answer four questions: what the repository is for, which commands rebuild it, where the files come from, and which limitations are still intentional.
 </div>
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel">
-    <h3>What this site can prove</h3>
-    <p>It can prove which files are checked in, which commands build them, which data sources are currently wired into the repository, and which limitations are intentionally left in place.</p>
+    <h3>What this site proves</h3>
+    <p>Which files are checked in, which commands rebuild them, which source categories feed the atlas, and which boundaries the repository is deliberately holding.</p>
   </div>
   <div class="bijux-panel">
-    <h3>What this site cannot prove</h3>
-    <p>It cannot prove that spatial proximity implies sampling priority, that the current evidence stack is scientifically complete, or that upstream services will always return identical results in the future.</p>
+    <h3>What this site does not prove</h3>
+    <p>That proximity implies sampling value, that the present layers are scientifically complete, or that mutable upstream services will always return identical data in the future.</p>
   </div>
 </div>
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="data-sources/">Read the data sources guide</a>
-  <a class="md-button" href="outputs/">Read the outputs guide</a>
-  <a class="md-button" href="engineering/">Read the engineering workflow</a>
+  <a class="md-button" href="foundation/">Read the product framing</a>
+  <a class="md-button" href="workflows/">Read the rebuild workflow</a>
+  <a class="md-button" href="reference/">Open the command and layout reference</a>
 </div>
 
 <div class="bijux-map-frame">
   <iframe src="report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
+
+## Start Here
+
+Use the path that matches what you need right now:
+
+- understanding the repository goal and current boundary: start with [Foundation](foundation/index.md)
+- reproducing the checked-in state on a fresh machine: use [Workflows](workflows/index.md)
+- checking what each tracked dataset contributes: use [Data Sources](data-sources/index.md)
+- reviewing the atlas, country bundles, and generated publication tree: use [Outputs](outputs/index.md)
+- extending code without breaking repository seams: read [Architecture](architecture/index.md) and [Engineering](engineering/index.md)
+- verifying exact commands, directories, and artifact names: use [Reference](reference/index.md)
 
 ## Fieldwork Evidence
 
@@ -70,11 +79,11 @@ flowchart LR
 
 The docs are organized so a reader can move from the visible output into the supporting explanation they need:
 
-- what the repository produces today
-- how the six tracked data categories are collected
+- what the repository produces today and why
+- how the tracked data categories are collected
 - how reports and the shared map are generated
-- how the source tree is organized
-- how local workflows stay reproducible
+- how the code and filesystem are divided by responsibility
+- how maintainers verify and review long-lived changes
 
 ## Reading Map
 
@@ -93,45 +102,16 @@ flowchart TD
 ## Documentation Sections
 
 - [Foundation](foundation/index.md)
-- [Workflows](workflows/index.md)
 - [Data Sources](data-sources/index.md)
 - [Outputs](outputs/index.md)
+- [Workflows](workflows/index.md)
 - [Architecture](architecture/index.md)
 - [Engineering](engineering/index.md)
 - [Reference](reference/index.md)
 
-## Reader Paths
-
-- trying to understand the product goal: start with [Foundation](foundation/index.md)
-- trying to reproduce the repository state on a fresh machine: use [Workflows](workflows/index.md)
-- trying to understand one source dataset: go to [Data Sources](data-sources/index.md)
-- trying to understand the interactive outputs: go to [Outputs](outputs/index.md)
-- trying to extend the pipeline safely: read [Architecture](architecture/index.md) and [Engineering](engineering/index.md)
-- trying to find exact commands, paths, or artifact names: use [Reference](reference/index.md)
-
-## Section Contract
-
-The documentation structure is intentionally role-based rather than numbered by authoring order:
-
-- `Foundation` explains what the project is and is not trying to deliver.
-- `Workflows` explains how to rebuild and verify the checked-in state.
-- `Data Sources` explains what each upstream source contributes and how it is collected.
-- `Outputs` explains the atlas, report bundles, and checked-in publication artifacts.
-- `Architecture` explains the code and file boundaries that make the pipeline reproducible.
-- `Engineering` explains the development and documentation quality bar.
-- `Reference` records exact commands, layouts, and terminology.
-
-## Reading Standard
-
-If a page in this site makes a claim about a command, file, layer, or artifact, that claim should be traceable to code or checked-in outputs in the same repository state. When a limit exists, the docs should say so directly instead of implying missing behavior is already implemented.
-
-## Reading Rule
-
-Use section index pages first when you are entering a topic for the first time. Use reference pages when you need commands, directories, file patterns, or output expectations verified against the current repository state.
-
 ## Purpose
 
-This page explains the `bijux-pollenomics` documentation spine and routes readers to the checked-in Nordic Evidence Atlas and the canonical docs that explain it.
+This page routes readers from the checked-in atlas into the documentation sections that explain repository scope, rebuild workflows, data provenance, architecture seams, and exact file contracts.
 
 ## Stability
 

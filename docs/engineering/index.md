@@ -9,7 +9,7 @@ last_reviewed: 2026-03-31
 
 # Engineering
 
-This section explains the local workflow expected when changing code, data preparation logic, reports, or docs.
+This section explains the maintainer quality bar when changing code, data preparation logic, reports, or docs.
 
 ## Pages in This Section
 
@@ -21,8 +21,14 @@ This section explains the local workflow expected when changing code, data prepa
 
 ## Section Boundary
 
-`Engineering` is where the repository records how maintainers are expected to work. It is different from `Workflows`, which explains how to run the project, and from `Reference`, which lists commands and layouts without process guidance.
+`Engineering` records how maintainers are expected to work. It is different from [Workflows](../workflows/index.md), which explains how to run the project, and from [Reference](../reference/index.md), which records exact commands and layouts without process guidance.
+
+## Use This Section When You Need To
+
+- choose an honest verification surface for a change
+- review a diff against repository contracts instead of intuition
+- confirm how docs, automation, and generated artifacts are expected to stay aligned
 
 ## Purpose
 
-This page organizes the engineering workflow guidance for the repository.
+This page organizes the repository’s maintainer process guidance.

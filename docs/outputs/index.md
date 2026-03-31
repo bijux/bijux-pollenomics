@@ -11,7 +11,11 @@ last_reviewed: 2026-03-31
 
 This section explains the browser-facing and file-facing outputs generated from the tracked `data/` tree.
 
-It also documents the boundary between generated publication artifacts and interactive interpretation. The shared map is the main visible output, but it is still a checked-in HTML artifact built from local commands rather than a live analysis service.
+It focuses on three things:
+
+- what a published artifact contains
+- what a published artifact is allowed to imply
+- how generated bundles differ from the hand-maintained documentation around them
 
 ## Pages in This Section
 
@@ -29,6 +33,12 @@ flowchart TD
     SharedMap --> Review
 ```
 
+## Use This Section When You Need To
+
+- understand the difference between the shared atlas and the country bundles
+- review a `docs/report/` change as a generated artifact rather than as hand-maintained prose
+- check which output limits are product boundaries rather than scientific conclusions
+
 ## Canonical Status
 
 This section is the canonical source for report and map documentation inside the docs site. It replaces the older narrative content that previously lived in separate `docs/report/...` guide pages.
@@ -39,4 +49,4 @@ Read this section when you need to know what a published artifact contains, what
 
 ## Purpose
 
-This page organizes the output-side documentation for `bijux-pollenomics`.
+This page organizes the output-side documentation around generated artifact families and the interpretation boundary they need to keep.
