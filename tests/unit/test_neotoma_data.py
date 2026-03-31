@@ -9,6 +9,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 from bijux_pollenomics.data_downloader.neotoma import (
+    build_neotoma_download_archive_parts,
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
     fetch_neotoma_api_rows,
@@ -19,6 +20,20 @@ from bijux_pollenomics.data_downloader.neotoma import (
 
 
 class NeotomaDataTests(unittest.TestCase):
+    def test_build_neotoma_download_archive_parts_splits_rows_into_stable_part_files(self) -> None:
+        rows = [
+            {"site": {"siteid": 20, "collectionunit": {"dataset": {"datasetid": 201}}}},
+            {"site": {"siteid": 21, "collectionunit": {"dataset": {"datasetid": 202}}}},
+            {"site": {"siteid": 22, "collectionunit": {"dataset": {"datasetid": 203}}}},
+        ]
+
+        parts = build_neotoma_download_archive_parts(rows, rows_per_part=2)
+
+        self.assertEqual([part["filename"] for part in parts], ["part-001.json", "part-002.json"])
+        self.assertEqual([part["row_count"] for part in parts], [2, 1])
+        self.assertEqual(parts[0]["downloaded_dataset_ids"], [201, 202])
+        self.assertEqual(parts[1]["downloaded_dataset_ids"], [203])
+
     def test_fetch_neotoma_api_rows_retries_retryable_http_errors(self) -> None:
         retry_error = HTTPError(
             url="https://api.neotomadb.org/v2.0/data/datasets",
@@ -483,10 +498,19 @@ class NeotomaDataTests(unittest.TestCase):
                     bbox=(4.0, 54.0, 35.0, 72.0),
                 )
 
-            download_payload = json.loads((output_root / "raw" / "neotoma_pollen_dataset_downloads.json").read_text(encoding="utf-8"))
+            manifest_payload = json.loads(
+                (output_root / "raw" / "neotoma_pollen_dataset_downloads" / "manifest.json").read_text(encoding="utf-8")
+            )
+            part_payload = json.loads(
+                (output_root / "raw" / "neotoma_pollen_dataset_downloads" / "part-001.json").read_text(encoding="utf-8")
+            )
 
-        self.assertEqual(download_payload["requested_dataset_ids"], [201])
-        self.assertEqual(download_payload["downloaded_dataset_ids"], [201])
+        self.assertEqual(manifest_payload["requested_dataset_ids"], [201])
+        self.assertEqual(manifest_payload["downloaded_dataset_ids"], [201])
+        self.assertEqual(manifest_payload["part_count"], 1)
+        self.assertEqual([part["filename"] for part in manifest_payload["parts"]], ["part-001.json"])
+        self.assertEqual(part_payload["downloaded_dataset_ids"], [201])
+        self.assertEqual(part_payload["row_count"], 1)
 
 
 if __name__ == "__main__":

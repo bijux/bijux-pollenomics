@@ -25,6 +25,8 @@ NEOTOMA_REQUEST_TIMEOUT_SECONDS = 60.0
 NEOTOMA_DOWNLOAD_WORKERS = 16
 NEOTOMA_API_RETRIES = 3
 NEOTOMA_DOWNLOAD_RETRIES = 3
+NEOTOMA_DOWNLOAD_ROWS_PER_PART = 25
+NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME = "neotoma_pollen_dataset_downloads"
 
 
 @dataclass(frozen=True)
@@ -292,6 +294,102 @@ def build_neotoma_site_snapshot_rows(rows: Iterable[dict[str, object]]) -> list[
         snapshot["collectionunits"] = sorted(snapshot_units, key=collection_unit_sort_key)
         snapshot_rows.append(snapshot)
     return snapshot_rows
+
+
+def build_neotoma_download_archive_parts(
+    download_rows: Iterable[dict[str, object]],
+    *,
+    rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
+) -> list[dict[str, object]]:
+    """Split large Neotoma download payloads into stable part files."""
+    if rows_per_part < 1:
+        raise ValueError("rows_per_part must be at least 1")
+
+    rows = list(download_rows)
+    part_count = (len(rows) + rows_per_part - 1) // rows_per_part
+    parts: list[dict[str, object]] = []
+    for index, start in enumerate(range(0, len(rows), rows_per_part), start=1):
+        part_rows = rows[start:start + rows_per_part]
+        part_dataset_ids = extract_neotoma_download_dataset_ids(part_rows)
+        parts.append(
+            {
+                "filename": f"part-{index:03d}.json",
+                "part_number": index,
+                "part_count": part_count,
+                "row_count": len(part_rows),
+                "downloaded_dataset_count": len(part_dataset_ids),
+                "downloaded_dataset_ids": part_dataset_ids,
+                "rows": part_rows,
+            }
+        )
+    return parts
+
+
+def write_neotoma_download_archive(
+    raw_dir: Path,
+    *,
+    requested_dataset_ids: Iterable[int],
+    downloaded_dataset_ids: Iterable[int],
+    download_rows: Iterable[dict[str, object]],
+    rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
+) -> Path:
+    """Write the full Neotoma dataset downloads into a chunked archive directory."""
+    archive_dir = Path(raw_dir) / NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    rows = list(download_rows)
+
+    requested_ids = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
+    returned_ids = sorted({int(dataset_id) for dataset_id in downloaded_dataset_ids})
+    parts = build_neotoma_download_archive_parts(rows, rows_per_part=rows_per_part)
+
+    manifest_parts: list[dict[str, object]] = []
+    for part in parts:
+        filename = str(part["filename"])
+        write_json(
+            archive_dir / filename,
+            {
+                "generated_on": str(date.today()),
+                "source": "Neotoma",
+                "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
+                "datasettype": NEOTOMA_DATASETTYPE,
+                "part_number": part["part_number"],
+                "part_count": part["part_count"],
+                "row_count": part["row_count"],
+                "downloaded_dataset_count": part["downloaded_dataset_count"],
+                "downloaded_dataset_ids": part["downloaded_dataset_ids"],
+                "rows": part["rows"],
+            },
+        )
+        manifest_parts.append(
+            {
+                "filename": filename,
+                "part_number": part["part_number"],
+                "row_count": part["row_count"],
+                "downloaded_dataset_count": part["downloaded_dataset_count"],
+                "downloaded_dataset_ids": part["downloaded_dataset_ids"],
+            }
+        )
+
+    manifest_path = archive_dir / "manifest.json"
+    write_json(
+        manifest_path,
+        {
+            "generated_on": str(date.today()),
+            "source": "Neotoma",
+            "archive_dir": str(archive_dir),
+            "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
+            "datasettype": NEOTOMA_DATASETTYPE,
+            "requested_dataset_count": len(requested_ids),
+            "requested_dataset_ids": requested_ids,
+            "downloaded_dataset_count": len(returned_ids),
+            "downloaded_dataset_ids": returned_ids,
+            "row_count": len(rows),
+            "rows_per_part": rows_per_part,
+            "part_count": len(parts),
+            "parts": manifest_parts,
+        },
+    )
+    return manifest_path
 
 
 def build_neotoma_dataset_snapshot(dataset: dict[str, object]) -> dict[str, object]:
@@ -979,21 +1077,11 @@ def collect_neotoma_data(
             "retained_rows": matched_inventory_rows,
         },
     )
-    download_path = raw_dir / "neotoma_pollen_dataset_downloads.json"
-    write_json(
-        download_path,
-        {
-            "generated_on": str(date.today()),
-            "source": "Neotoma",
-            "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
-            "datasettype": NEOTOMA_DATASETTYPE,
-            "requested_dataset_count": len(dataset_ids),
-            "requested_dataset_ids": dataset_ids,
-            "downloaded_dataset_count": len(downloaded_dataset_ids),
-            "downloaded_dataset_ids": downloaded_dataset_ids,
-            "row_count": len(download_rows),
-            "rows": download_rows,
-        },
+    write_neotoma_download_archive(
+        raw_dir,
+        requested_dataset_ids=dataset_ids,
+        downloaded_dataset_ids=downloaded_dataset_ids,
+        download_rows=download_rows,
     )
     raw_path = raw_dir / "neotoma_pollen_sites.json"
     write_json(
