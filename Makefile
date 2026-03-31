@@ -4,6 +4,7 @@ ARTIFACTS_ROOT ?= artifacts
 VENV ?= $(ARTIFACTS_ROOT)/.venv
 BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
+CLI := $(BIN)/bijux-pollenomics
 RUFF := $(BIN)/ruff
 VERSION ?= v62.0
 DATA_ROOT ?= data
@@ -69,10 +70,10 @@ test-e2e: install
 	PYTHONPATH=src $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
 
 data-prep: install
-	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollenomics.cli collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
+	$(CLI) collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
 
 reports: install
-	PYTHONPATH=src $(VENV_PYTHON) -m bijux_pollenomics.cli publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
+	$(CLI) publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
 
 app-state: data-prep reports docs
 
