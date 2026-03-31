@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from dataclasses import asdict
 import json
 from datetime import date
 from pathlib import Path
@@ -21,7 +20,13 @@ from .markdown import render_multi_country_map_markdown, render_sample_markdown,
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
 from .paths import build_atlas_bundle_paths, build_country_bundle_paths
 from .staging import publish_into_staging_dir
+from .summaries import (
+    build_country_report_summary,
+    build_multi_country_map_summary,
+    build_published_reports_summary,
+)
 from .utils import slugify
+from .countries import normalize_requested_countries
 from ..settings import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 
@@ -97,7 +102,7 @@ def generate_multi_country_map(
     output_dir = Path(output_dir)
     published_output_dir = Path(published_output_dir) if published_output_dir is not None else output_dir
 
-    normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
+    normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError("At least one country is required to build a multi-country map")
 
@@ -183,7 +188,7 @@ def generate_published_reports(
     version_dir = Path(version_dir)
     output_root = Path(output_root)
 
-    normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
+    normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError("At least one country is required to publish reports")
 
@@ -236,74 +241,3 @@ def generate_published_reports(
     if generated_report is None:
         raise AssertionError("published reports should be created before returning")
     return generated_report
-
-
-def build_country_report_summary(report: CountryReport, bundle_paths: object) -> dict[str, object]:
-    """Build a machine-readable summary for one country report."""
-    return {
-        "country": report.country,
-        "version": report.version,
-        "generated_on": report.generated_on,
-        "total_unique_samples": report.total_unique_samples,
-        "total_unique_localities": report.total_unique_localities,
-        "dataset_row_counts": report.dataset_row_counts,
-        "output_dir": str(report.output_dir),
-        "artifacts": {
-            "readme": bundle_paths.readme_path.name,
-            "samples_csv": bundle_paths.samples_csv_path.name,
-            "localities_csv": bundle_paths.localities_csv_path.name,
-            "samples_geojson": bundle_paths.samples_geojson_path.name,
-            "samples_markdown": bundle_paths.samples_markdown_path.name,
-            "summary_json": bundle_paths.summary_json_path.name,
-        },
-    }
-
-
-def build_multi_country_map_summary(
-    report: MultiCountryMapReport,
-    bundle_paths: object,
-    extra_artifacts: list[tuple[str, str]],
-) -> dict[str, object]:
-    """Build a machine-readable summary for one shared map bundle."""
-    return {
-        "title": report.title,
-        "slug": report.slug,
-        "version": report.version,
-        "generated_on": report.generated_on,
-        "countries": list(report.countries),
-        "country_sample_counts": report.country_sample_counts,
-        "total_unique_samples": report.total_unique_samples,
-        "output_dir": str(report.output_dir),
-        "artifacts": {
-            "readme": bundle_paths.readme_path.name,
-            "map_html": bundle_paths.map_html_path.name,
-            "samples_geojson": bundle_paths.samples_geojson_path.name,
-            "summary_json": bundle_paths.summary_json_path.name,
-            "extra_files": [
-                {"label": label, "filename": filename}
-                for label, filename in extra_artifacts
-            ],
-        },
-    }
-
-
-def build_published_reports_summary(
-    report: PublishedReportsReport,
-    map_report: MultiCountryMapReport,
-) -> dict[str, object]:
-    """Build a machine-readable summary for the current published report set."""
-    payload = asdict(report)
-    payload["shared_map_dir"] = str(report.shared_map_dir)
-    payload["country_output_dirs"] = [str(path) for path in report.country_output_dirs]
-    payload["summary_path"] = str(report.summary_path)
-    payload["artifacts"] = {
-        "shared_bundle": {
-            "slug": map_report.slug,
-            "directory": str(report.shared_map_dir),
-        },
-        "country_bundles": {
-            path.name: str(path)
-            for path in report.country_output_dirs
-        },
-    }
-    return payload
