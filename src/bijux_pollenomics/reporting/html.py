@@ -99,41 +99,6 @@ def render_multi_country_map_html(
         overflow: hidden;
       }
       .app-shell { position: relative; min-height: 100vh; }
-      .sidebar {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        bottom: 16px;
-        width: min(420px, calc(100vw - 32px));
-        z-index: 1200;
-        transition: transform 180ms ease, opacity 180ms ease;
-      }
-      .sidebar.is-collapsed {
-        transform: translateX(calc(-100% - 24px));
-        opacity: 0;
-        pointer-events: none;
-      }
-      .sidebar-inner {
-        height: 100%;
-        overflow-y: auto;
-        padding: 24px;
-        border: 1px solid var(--surface-edge-strong);
-        border-radius: 28px;
-        background:
-          var(--surface-wash),
-          linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(245, 239, 230, 0.92));
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow-lg);
-      }
-      .sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: flex-start;
-      }
-      .sidebar-heading {
-        min-width: 0;
-      }
       .mobile-panel-close {
         display: none;
         align-items: center;
@@ -256,85 +221,6 @@ def render_multi_country_map_html(
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      h1 {
-        margin: 16px 0 10px;
-        font-family: var(--font-display);
-        font-size: clamp(32px, 4vw, 44px);
-        font-weight: 700;
-        letter-spacing: -0.03em;
-        line-height: 0.98;
-      }
-      .lede {
-        margin: 0 0 22px;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.75;
-        max-width: 60ch;
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      .workspace-brief {
-        display: grid;
-        gap: 14px;
-        padding: 18px;
-        margin-bottom: 18px;
-        border: 1px solid rgba(24, 37, 61, 0.10);
-        border-radius: 22px;
-        background:
-          linear-gradient(135deg, rgba(31, 94, 216, 0.08), rgba(14, 122, 114, 0.04) 52%, rgba(173, 103, 8, 0.08)),
-          rgba(255, 255, 255, 0.70);
-        box-shadow: var(--shadow-sm);
-      }
-      .workspace-brief-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: baseline;
-      }
-      .workspace-brief-head strong {
-        font-size: 15px;
-      }
-      .workspace-brief-head span {
-        color: var(--muted);
-        font-size: 12px;
-      }
-      .workspace-brief-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-      .workspace-brief-card {
-        padding: 12px 14px;
-        border-radius: 18px;
-        border: 1px solid rgba(24, 37, 61, 0.10);
-        background: rgba(255, 255, 255, 0.70);
-      }
-      .workspace-brief-label {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--muted);
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      .workspace-brief-value {
-        display: block;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 1.4;
-      }
-      .workspace-brief-note {
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.6;
-      }
-      .stat-card,
-      .panel-card,
       .floating-legend,
       .map-topbar,
       .map-status,
@@ -344,8 +230,6 @@ def render_multi_country_map_html(
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow-md);
       }
-      .stat-card,
-      .panel-card,
       .floating-legend,
       .map-topbar,
       .map-status,
@@ -353,8 +237,6 @@ def render_multi_country_map_html(
         position: relative;
         overflow: hidden;
       }
-      .stat-card::before,
-      .panel-card::before,
       .floating-legend::before,
       .map-topbar::before,
       .map-status::before,
@@ -365,81 +247,6 @@ def render_multi_country_map_html(
         height: 1px;
         background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
         pointer-events: none;
-      }
-      .stat-card {
-        padding: 16px;
-        border-radius: 18px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0)),
-          var(--surface);
-      }
-      .stat-label {
-        display: block;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 11px;
-        font-weight: 700;
-        margin-bottom: 8px;
-      }
-      .stat-value { font-size: 24px; font-weight: 700; }
-      .stat-value--compact { font-size: 18px; }
-      .stat-support {
-        display: block;
-        margin-top: 8px;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.55;
-      }
-      .section-stack { display: grid; gap: 16px; }
-      .section-nav {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 0 0 18px;
-        padding: 10px 0 14px;
-        background: linear-gradient(180deg, rgba(246, 241, 233, 0.98), rgba(246, 241, 233, 0.88), rgba(246, 241, 233, 0));
-      }
-      .section-nav-button {
-        appearance: none;
-        border: 1px solid rgba(20, 33, 61, 0.10);
-        background: rgba(255, 255, 255, 0.84);
-        color: var(--muted);
-        border-radius: 999px;
-        padding: 8px 12px;
-        font: inherit;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-        cursor: pointer;
-        transition: background 120ms ease, border-color 120ms ease, color 120ms ease, transform 120ms ease;
-      }
-      .section-nav-button:hover {
-        transform: translateY(-1px);
-      }
-      .section-nav-button.is-active {
-        background: rgba(37, 99, 235, 0.12);
-        border-color: rgba(37, 99, 235, 0.28);
-        color: var(--blue);
-      }
-      .panel-card { border-radius: 20px; padding: 18px; }
-      .section-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: baseline;
-        margin-bottom: 10px;
-      }
-      .section-head h2 { margin: 0; font-size: 17px; }
-      .section-head span { color: var(--muted); font-size: 12px; }
-      .panel-copy {
-        margin: 0 0 14px;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.6;
       }
       .chip-grid { display: flex; flex-wrap: wrap; gap: 10px; }
       .chip-toggle,
@@ -462,30 +269,49 @@ def render_multi_country_map_html(
       .inline-button:hover,
       .basemap-button:hover {
         transform: translateY(-1px);
-        box-shadow: var(--shadow-sm);
+      }
+      .chip-toggle.is-active,
+      .toolbar-button.is-primary,
+      .preset-button.is-active,
+      .inline-button.is-primary,
+      .basemap-button.is-active {
+        border-color: rgba(37, 99, 235, 0.28);
+        background: linear-gradient(180deg, rgba(37, 99, 235, 0.16), rgba(14, 122, 114, 0.10));
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
       }
       .chip-toggle {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 10px 14px;
+        padding: 8px 12px;
       }
       .chip-toggle input { margin: 0; }
-      .chip-count {
-        padding: 3px 8px;
+      .chip-swatch,
+      .legend-swatch {
+        width: 10px;
+        height: 10px;
         border-radius: 999px;
-        background: rgba(20, 33, 61, 0.08);
+        border: 1px solid rgba(24, 37, 61, 0.28);
+        flex: 0 0 auto;
+      }
+      .chip-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: rgba(24, 37, 61, 0.08);
         color: var(--muted);
         font-size: 11px;
         font-weight: 700;
       }
-      .chip-swatch,
-      .legend-swatch {
-        width: 12px;
-        height: 12px;
-        border-radius: 999px;
-        display: inline-block;
-        border: 1px solid rgba(20, 33, 61, 0.35);
+      .toolbar-button,
+      .preset-button,
+      .inline-button {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 700;
       }
       .inline-actions,
       .preset-row,
@@ -501,14 +327,6 @@ def render_multi_country_map_html(
         gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
-      .inline-button,
-      .preset-button,
-      .toolbar-button,
-      .basemap-button {
-        padding: 10px 14px;
-        font-size: 13px;
-        font-weight: 600;
-      }
       .basemap-button {
         display: inline-flex;
         align-items: center;
@@ -669,58 +487,12 @@ def render_multi_country_map_html(
       }
       .search-results,
       .summary-list,
-      .legend-list,
-      .layer-stack,
-      .filter-chip-list {
+      .legend-list {
         display: grid;
         gap: 10px;
-      }
-      .coverage-matrix {
-        display: grid;
-        gap: 10px;
-      }
-      .coverage-row {
-        display: grid;
-        gap: 10px;
-        padding: 14px;
-        border: 1px solid rgba(20, 33, 61, 0.10);
-        border-radius: 18px;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0)),
-          rgba(255, 255, 255, 0.74);
-      }
-      .coverage-row-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: baseline;
-      }
-      .coverage-row-head strong {
-        font-size: 14px;
-      }
-      .coverage-row-head span {
-        color: var(--muted);
-        font-size: 12px;
-      }
-      .coverage-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .coverage-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 9px;
-        border-radius: 999px;
-        background: rgba(24, 37, 61, 0.08);
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 700;
       }
       .search-result,
-      .summary-item,
-      .layer-card {
+      .summary-item {
         padding: 12px 14px;
         border: 1px solid rgba(20, 33, 61, 0.10);
         border-radius: 16px;
@@ -736,10 +508,8 @@ def render_multi_country_map_html(
         font: inherit;
         color: inherit;
       }
-      .search-result strong,
-      .layer-card strong { display: block; font-size: 14px; }
+      .search-result strong { display: block; font-size: 14px; }
       .search-result span,
-      .layer-card span,
       .summary-item span {
         display: block;
         color: var(--muted);
@@ -762,183 +532,6 @@ def render_multi_country_map_html(
         color: var(--muted);
         font-size: 11px;
         font-weight: 700;
-      }
-      .layer-card-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        align-items: flex-start;
-      }
-      .layer-card.is-enabled {
-        border-color: rgba(37, 99, 235, 0.22);
-        box-shadow: 0 16px 34px rgba(31, 94, 216, 0.10);
-      }
-      .layer-card-head {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-      }
-      .layer-card-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .layer-card-text {
-        display: grid;
-        gap: 4px;
-      }
-      .layer-card-text strong {
-        margin: 0;
-      }
-      .layer-swatch-stack {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 18px;
-        height: 18px;
-        border-radius: 999px;
-        border: 1px solid rgba(20, 33, 61, 0.25);
-        flex: 0 0 auto;
-      }
-      .layer-state-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: rgba(20, 33, 61, 0.08);
-        color: var(--muted);
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .layer-card.is-enabled .layer-state-pill {
-        background: rgba(37, 99, 235, 0.12);
-        color: var(--blue);
-      }
-      .layer-card label {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        width: 100%;
-      }
-      .layer-card input { margin-top: 3px; }
-      .filter-chip-list {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      }
-      .filter-chip {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 12px 14px;
-        border: 1px solid rgba(20, 33, 61, 0.10);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.8);
-      }
-      .filter-chip strong {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 13px;
-      }
-      .filter-chip span {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.5;
-      }
-      .filter-chip-remove {
-        appearance: none;
-        border: 0;
-        background: transparent;
-        color: var(--muted);
-        font: inherit;
-        font-size: 18px;
-        line-height: 1;
-        cursor: pointer;
-      }
-      .filter-chip-empty {
-        padding: 12px 14px;
-        border: 1px dashed rgba(20, 33, 61, 0.16);
-        border-radius: 16px;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.6;
-        background: rgba(255, 255, 255, 0.54);
-      }
-      .layer-group {
-        display: grid;
-        gap: 10px;
-      }
-      .layer-group.is-collapsed .layer-group-stack {
-        display: none;
-      }
-      .layer-group-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        align-items: baseline;
-        padding: 0 2px;
-      }
-      .layer-group-head-main {
-        display: grid;
-        gap: 4px;
-        min-width: 0;
-      }
-      .layer-group-head h3 {
-        margin: 0;
-        font-size: 13px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .layer-group-head span {
-        color: var(--muted);
-        font-size: 11px;
-      }
-      .layer-group-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: flex-end;
-      }
-      .layer-group-button {
-        appearance: none;
-        border: 1px solid rgba(24, 37, 61, 0.10);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.82);
-        color: var(--muted);
-        padding: 6px 10px;
-        font: inherit;
-        font-size: 11px;
-        font-weight: 700;
-        cursor: pointer;
-      }
-      .layer-group-stack {
-        display: grid;
-        gap: 10px;
-      }
-      .layer-meta {
-        margin-top: 8px;
-        display: grid;
-        gap: 6px;
-      }
-      .layer-meta span {
-        display: block;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.5;
-      }
-      .layer-badge {
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: rgba(20, 33, 61, 0.08);
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
       }
       .map-topbar {
         position: absolute;
@@ -1849,7 +1442,6 @@ def render_multi_country_map_html(
       let visiblePointEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
-      const sidebarInner = document.querySelector('.control-panel-body');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
       const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
@@ -1859,23 +1451,16 @@ def render_multi_country_map_html(
       const helpCloseButton = document.getElementById('help-close');
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
-      const sectionNavButtons = Array.from(document.querySelectorAll('[data-section-target]'));
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('dock-layer-filters');
       const legendItems = document.getElementById('legend-items');
-      const scopeSummary = document.getElementById('scope-summary');
-      const coverageSummary = document.getElementById('coverage-summary');
-      const coverageMatrix = document.getElementById('coverage-matrix');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
       const controlPanelSummary = document.getElementById('control-panel-summary');
-      const filterChips = document.getElementById('filter-chips');
-      const filterChipCount = document.getElementById('filter-chip-count');
       const dockLayerSummary = document.getElementById('dock-layer-summary');
       const dockTimeSummary = document.getElementById('dock-time-summary');
-      const dockLayerFilters = document.getElementById('dock-layer-filters');
       const slider = document.getElementById('diameter-slider');
       const diameterValue = document.getElementById('diameter-value');
       const radiusValue = document.getElementById('radius-value');
@@ -1889,8 +1474,6 @@ def render_multi_country_map_html(
       const emptyState = document.getElementById('empty-state');
       const densityRamp = document.getElementById('density-ramp');
       const countrySummary = document.getElementById('country-summary');
-      const layerSummary = document.getElementById('layer-summary');
-      const activeSummary = document.getElementById('active-summary');
       const topbarStatePill = document.getElementById('topbar-state-pill');
       const focusCard = document.getElementById('focus-card');
       const focusTitle = document.getElementById('focus-title');
@@ -1905,16 +1488,6 @@ def render_multi_country_map_html(
       const zoomReadout = document.getElementById('zoom-readout');
       const centerReadout = document.getElementById('center-readout');
       const cursorReadout = document.getElementById('cursor-readout');
-      const statVisiblePoints = document.getElementById('stat-visible-points');
-      const statVisibleLayers = document.getElementById('stat-visible-layers');
-      const statVisiblePointsNote = document.getElementById('stat-visible-points-note');
-      const statVisibleLayersNote = document.getElementById('stat-visible-layers-note');
-      const statVisibleCountries = document.getElementById('stat-visible-countries');
-      const statVisibleCountriesNote = document.getElementById('stat-visible-countries-note');
-      const statRadius = document.getElementById('stat-radius');
-      const statRadiusNote = document.getElementById('stat-radius-note');
-      const statContextSources = document.getElementById('stat-context-sources');
-      const statContextSourcesNote = document.getElementById('stat-context-sources-note');
       function parseHashState() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
@@ -1989,7 +1562,6 @@ def render_multi_country_map_html(
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
       let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
       let legendCollapsed = initialState.legend === 'collapsed';
-      let collapsedLayerGroups = new Set();
       let focusState = null;
       const countryColors = {
         Sweden: { fill: '#2563eb', stroke: '#1d4ed8' },
@@ -2002,29 +1574,6 @@ def render_multi_country_map_html(
       }
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
-      function layerUnit(layer) { if (layer.kind === 'density' || layer.kind === 'context-polygons') return 'cells'; if (layer.kind === 'country-boundaries') return 'countries'; return 'points'; }
-      function layerGroupLabel(group) {
-        return {
-          'primary-evidence': 'Primary Evidence',
-          'environmental-context': 'Environmental Context',
-          'archaeology-context': 'Archaeology Context',
-          'orientation': 'Orientation'
-        }[group] || 'Other Layers';
-      }
-      function layerGroupSummary(group) {
-        return {
-          'primary-evidence': 'Core evidence used for ancient DNA site comparison.',
-          'environmental-context': 'Pollen and environmental archaeology context layers.',
-          'archaeology-context': 'Archaeological context layers and summarized national coverage.',
-          'orientation': 'Reference layers used for framing and navigation.'
-        }[group] || 'Supporting layers.';
-      }
-      function humanLayerList(keys) {
-        return ALL_LAYERS
-          .filter((layer) => keys.has(layer.key))
-          .map((layer) => layer.label)
-          .join(', ');
-      }
       function syncPresetButtons() {
         document.querySelectorAll('[data-km]').forEach((button) => {
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
@@ -2036,24 +1585,6 @@ def render_multi_country_map_html(
           const active = preset === 'full' ? timeIntervalYears === TIME_INTERVAL_MAX : Number(preset) === Number(timeIntervalYears);
           button.classList.toggle('is-active', active);
         });
-      }
-      function updateSectionNav(activeSectionId) {
-        sectionNavButtons.forEach((button) => {
-          button.classList.toggle('is-active', button.dataset.sectionTarget === activeSectionId);
-        });
-      }
-      function syncSectionNavWithScroll() {
-        const cards = sectionNavButtons
-          .map((button) => document.getElementById(button.dataset.sectionTarget))
-          .filter(Boolean);
-        if (!cards.length) return;
-        let activeSectionId = cards[0].id;
-        for (const card of cards) {
-          if (card.offsetTop - sidebarInner.scrollTop <= 96) {
-            activeSectionId = card.id;
-          }
-        }
-        updateSectionNav(activeSectionId);
       }
       function updatePanelToggleLabel() {
         const collapsed = sidebar.classList.contains('is-collapsed');
@@ -2189,85 +1720,20 @@ def render_multi_country_map_html(
           longitude: Number(entry.feature.longitude),
         });
       }
-      function renderScopeSummary() {
-        if (!scopeSummary) return;
-        const summaries = [
-          `Primary evidence: ${POINT_LAYERS.find((layer) => layer.key === 'aadr')?.label || 'AADR'}`,
-          `Environmental context: ${ALL_LAYERS.filter((layer) => layer.group === 'environmental-context').map((layer) => layer.source_name).join(', ') || 'none'}`,
-          `Archaeology context: ${ALL_LAYERS.filter((layer) => layer.group === 'archaeology-context').map((layer) => layer.coverage_label).join(' ') || 'none'}`,
-          `Orientation: ${ALL_LAYERS.filter((layer) => layer.group === 'orientation').map((layer) => layer.label).join(', ') || 'none'}`,
-          TIME_HAS_DATA ? `AADR BP coverage: ${TIME_MIN_BP}-${TIME_MAX_BP}` : 'AADR BP coverage: no numeric BP years available'
-        ];
-        scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
+      function countActiveOverrides() {
+        let count = 0;
+        if (activeCountries.size !== COUNTRIES.length) count += 1;
+        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
+        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
+        if (Number(slider.value) !== __INITIAL_DIAMETER__) count += 1;
+        if (Math.round(densityOpacity * 100) !== 60) count += 1;
+        if (currentBasemap !== 'voyager') count += 1;
+        return count;
       }
-      function renderCoverageMatrix() {
-        if (!coverageSummary || !coverageMatrix) return;
-        const groupedSources = [...new Set(ALL_LAYERS.map((layer) => layer.source_name || layer.label))].map((sourceName) => {
-          const layers = ALL_LAYERS.filter((layer) => (layer.source_name || layer.label) === sourceName);
-          return { sourceName, layers };
-        });
-        coverageSummary.textContent = `${groupedSources.length} tracked sources`;
-        coverageMatrix.innerHTML = groupedSources.map(({ sourceName, layers }) => {
-          const coverage = [...new Set(layers.map((layer) => layer.coverage_label || 'Map-wide coverage'))];
-          const geometry = [...new Set(layers.map((layer) => layer.geometry_label || layerUnit(layer)))];
-          const enabledCount = layers.filter((layer) => activeLayerKeys.has(layer.key)).length;
-          return `<div class="coverage-row"><div class="coverage-row-head"><strong>${escapeHtml(sourceName)}</strong><span>${enabledCount}/${layers.length} layers enabled</span></div><div class="coverage-tags">${coverage.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}${geometry.map((item) => `<span class="coverage-tag">${escapeHtml(item)}</span>`).join('')}</div></div>`;
-        }).join('');
-      }
-      function renderTimeDensity() {
-        // The time dock keeps only direct controls visible; explanatory density detail lives in the help surface.
-      }
-      function buildActiveFilterChips() {
-        const chips = [];
-        if (activeCountries.size !== COUNTRIES.length) {
-          chips.push({
-            kind: 'countries',
-            title: 'Countries',
-            value: activeCountries.size ? [...activeCountries].join(', ') : 'No countries selected',
-          });
-        }
-        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) {
-          chips.push({
-            kind: 'layers',
-            title: 'Layers',
-            value: activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'No layers enabled',
-          });
-        }
-        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) {
-          chips.push({
-            kind: 'time',
-            title: 'Time window',
-            value: `${timeStartBp}-${timeWindowEndBp()} BP · ${timeIntervalYears} years`,
-          });
-        }
-        if (Number(slider.value) !== __INITIAL_DIAMETER__) {
-          chips.push({
-            kind: 'distance',
-            title: 'Acceptance diameter',
-            value: `${Number(slider.value)} km`,
-          });
-        }
-        if (Math.round(densityOpacity * 100) !== 60) {
-          chips.push({
-            kind: 'density',
-            title: 'Archaeology opacity',
-            value: `${Math.round(densityOpacity * 100)}%`,
-          });
-        }
-        if (currentBasemap !== 'voyager') {
-          chips.push({
-            kind: 'basemap',
-            title: 'Basemap',
-            value: currentBasemap.charAt(0).toUpperCase() + currentBasemap.slice(1),
-          });
-        }
-        return chips;
-      }
-      function renderWorkspaceBrief() {
-        const activeFilterChips = buildActiveFilterChips();
-        if (controlPanelSummary) {
-          controlPanelSummary.textContent = activeFilterChips.length ? `${activeFilterChips.length} active overrides` : 'Default map state';
-        }
+      function renderControlPanelSummary() {
+        if (!controlPanelSummary) return;
+        const activeOverrideCount = countActiveOverrides();
+        controlPanelSummary.textContent = activeOverrideCount ? `${activeOverrideCount} active overrides` : 'Default view';
       }
       function renderCountryControls() {
         const pointCountsByCountry = Object.fromEntries(
@@ -2349,37 +1815,6 @@ def render_multi_country_map_html(
           renderGroup('Polygon overlays', polygonLayers),
         ].join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
-      }
-      function renderFilterChips() {
-        const chips = buildActiveFilterChips();
-        if (filterChipCount) {
-          filterChipCount.textContent = chips.length ? `${chips.length} active` : 'Defaults';
-        }
-        if (!filterChips) return;
-        filterChips.innerHTML = chips.length
-          ? chips.map((chip) => `<div class="filter-chip"><div><strong>${escapeHtml(chip.title)}</strong><span>${escapeHtml(chip.value)}</span></div><button class="filter-chip-remove" type="button" data-clear-kind="${escapeHtml(chip.kind)}" aria-label="Reset ${escapeHtml(chip.title)}">×</button></div>`).join('')
-          : '<div class="filter-chip-empty">No filter groups are currently overriding the default map state.</div>';
-
-        filterChips.querySelectorAll('[data-clear-kind]').forEach((button) => {
-          button.addEventListener('click', () => {
-            const kind = button.dataset.clearKind;
-            if (kind === 'countries') activeCountries = new Set(DEFAULT_COUNTRIES);
-            if (kind === 'layers') activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
-            if (kind === 'time') {
-              timeStartBp = DEFAULT_TIME_START_BP;
-              timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
-            }
-            if (kind === 'distance') slider.value = String(__INITIAL_DIAMETER__);
-            if (kind === 'density') {
-              densityOpacity = 0.6;
-              densityOpacitySlider.value = '60';
-            }
-            if (kind === 'basemap') setBasemap('voyager');
-            renderCountryControls();
-            renderLayerControls();
-            renderMapState();
-          });
-        });
       }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
@@ -2569,33 +2004,10 @@ def render_multi_country_map_html(
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
-        const enabledPointLayers = POINT_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
         const datedVisibleCount = visiblePointEntries.filter(({ layer, feature }) => {
           if (!layer.applies_time_filter) return false;
           return Number.isFinite(Number(feature.time_year_bp));
         }).length;
-        if (statVisiblePoints) statVisiblePoints.textContent = String(visiblePointEntries.length);
-        if (statVisibleLayers) statVisibleLayers.textContent = String(enabledLayers);
-        if (statVisibleCountries) statVisibleCountries.textContent = String(activeCountries.size);
-        if (statRadius) statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
-        if (statContextSources) statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
-        if (statVisiblePointsNote) statVisiblePointsNote.textContent = `${enabledPointLayers} point layers currently contribute visible records.`;
-        if (statVisibleLayersNote) statVisibleLayersNote.textContent = `${renderedPolygonLayers.length} polygon overlays are currently drawn on the map.`;
-        if (statVisibleCountriesNote) {
-          statVisibleCountriesNote.textContent = activeCountries.size === COUNTRIES.length
-            ? 'All configured countries are visible.'
-            : activeCountries.size
-              ? `${COUNTRIES.length - activeCountries.size} countries are currently excluded.`
-              : 'No countries are currently selected.';
-        }
-        if (statRadiusNote) {
-          statRadiusNote.textContent = Number(slider.value) > 0
-            ? `${Number(slider.value)} km diameter acceptance circles are active for point layers.`
-            : 'Acceptance circles are currently hidden.';
-        }
-        if (statContextSourcesNote) {
-          statContextSourcesNote.textContent = `${ALL_LAYERS.filter((layer) => layer.key !== 'aadr' && activeLayerKeys.has(layer.key)).length} context sources are currently enabled.`;
-        }
         timeRecordCount.textContent = TIME_HAS_DATA
           ? `${datedVisibleCount} dated records are visible in the active BP window.`
           : 'No dated records are available for BP filtering.';
@@ -2603,40 +2015,6 @@ def render_multi_country_map_html(
         selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
-        if (layerSummary) {
-          layerSummary.textContent = enabledLayers ? `${enabledLayers} layers enabled` : 'No layers enabled';
-        }
-        ALL_LAYERS.forEach((layer) => {
-          const badge = document.getElementById(`layer-count-${layer.key}`);
-          if (!badge) return;
-          if (Object.prototype.hasOwnProperty.call(layer, 'features')) {
-            const count = layer.features.filter((feature) => pointFeatureVisible(layer, feature)).length;
-            badge.textContent = `${count} ${layerUnit(layer)}`;
-          } else {
-            const count = (layer.geojson.features || []).filter((feature) => polygonFeatureVisible(layer, feature.properties || {})).length;
-            badge.textContent = `${count} ${layerUnit(layer)}`;
-          }
-        });
-      }
-      function updateSummary() {
-        if (!activeSummary) return;
-        const visibleCountriesText = activeCountries.size ? [...activeCountries].join(', ') : 'none selected';
-        const visibleLayersText = activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'none selected';
-        const timeWindowText = TIME_HAS_DATA
-          ? `${timeStartBp}-${timeWindowEndBp()} BP (${timeIntervalYears} years)`
-          : 'No numeric BP dates available';
-        const items = [
-          `Visible countries: ${visibleCountriesText}`,
-          `Visible layers: ${visibleLayersText}`,
-          `Time window: ${timeWindowText}`,
-          `Acceptance diameter: ${Number(slider.value)} km`,
-          `Acceptance radius: ${(Number(slider.value) / 2).toFixed(1)} km`,
-          `Archaeology opacity: ${Math.round(densityOpacity * 100)}%`,
-          `Map build date: __GENERATED_ON__`,
-          `AADR release: __VERSION__`,
-          `Archaeology coverage note: Sweden only in the current RAÄ layer`
-        ];
-        activeSummary.innerHTML = items.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
       }
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
@@ -2669,12 +2047,8 @@ def render_multi_country_map_html(
         renderPolygonLayers();
         renderCountryControls();
         renderLegend();
-        renderFilterChips();
-        renderWorkspaceBrief();
-        renderCoverageMatrix();
-        renderTimeDensity();
+        renderControlPanelSummary();
         updateStats();
-        updateSummary();
         buildSearchResults();
         renderFocusCard();
         syncPresetButtons();
@@ -2833,14 +2207,10 @@ def render_multi_country_map_html(
         button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
       });
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
-      if (sidebarInner) {
-        sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
-      }
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
       setPanelCollapsed(panelPreferenceFromHash() ?? defaultPanelCollapsed(), false);
-      renderScopeSummary();
       renderCountryControls();
       renderLayerControls();
       renderMapState();
