@@ -26,6 +26,8 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("Tracked source data lives directly under `custom-data/`", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
+        self.assertIn("[`docs/data-sources/index.md`](../docs/data-sources/index.md)", readme)
+        self.assertIn("[`docs/reference/data-layout.md`](../docs/reference/data-layout.md)", readme)
 
     def test_write_data_directory_readme_writes_readme_file(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
