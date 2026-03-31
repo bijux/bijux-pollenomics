@@ -5,7 +5,7 @@ import unittest
 from urllib.error import URLError
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.common import fetch_binary, fetch_text
+from bijux_pollenomics.core.http import fetch_binary, fetch_text
 
 
 class _FakeResponse:
@@ -25,7 +25,7 @@ class _FakeResponse:
 class CommonFetchTests(unittest.TestCase):
     def test_fetch_text_does_not_disable_tls_verification_implicitly(self) -> None:
         with patch(
-            "bijux_pollenomics.data_downloader.common.urlopen",
+            "bijux_pollenomics.core.http.urlopen",
             side_effect=URLError(ssl.SSLCertVerificationError("certificate verify failed")),
         ):
             with self.assertRaises(URLError):
@@ -37,7 +37,7 @@ class CommonFetchTests(unittest.TestCase):
             self.assertIsNone(timeout)
             return _FakeResponse(b"payload")
 
-        with patch("bijux_pollenomics.data_downloader.common.urlopen", side_effect=fake_urlopen):
+        with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):
             self.assertEqual(fetch_text("https://example.com/data.json", insecure=True), "payload")
 
     def test_fetch_binary_uses_unverified_context_only_when_requested(self) -> None:
@@ -46,7 +46,7 @@ class CommonFetchTests(unittest.TestCase):
             self.assertIsNone(timeout)
             return _FakeResponse(b"\x00\x01")
 
-        with patch("bijux_pollenomics.data_downloader.common.urlopen", side_effect=fake_urlopen):
+        with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):
             self.assertEqual(fetch_binary("https://example.com/data.bin", insecure=True), b"\x00\x01")
 
 
