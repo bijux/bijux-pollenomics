@@ -7,7 +7,7 @@ from pathlib import Path
 from ..core.files import write_json
 from ..core.http import fetch_binary
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
-from .landclim_catalog import (
+from .sources.landclim.catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
     build_landclim_raw_asset_summaries,
@@ -17,14 +17,14 @@ from .landclim_catalog import (
     resolve_landclim_tabular_asset_urls,
     validate_landclim_raw_asset,
 )
-from .landclim_grid import (
+from .sources.landclim.grid import (
     LANDCLIM_GRID_LAYER_KEY,
     build_landclim_grid_geojson,
     feature_key_from_center,
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
 )
-from .landclim_sites import (
+from .sources.landclim.sites import (
     LANDCLIM_SITE_LAYER_KEY,
     build_landclim_site_records,
     landclim_i_site_records,
