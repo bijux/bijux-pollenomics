@@ -4,7 +4,7 @@ from collections.abc import Iterable
 
 from ....core.bp_time import build_bp_interval_label, mean_bp_year_from_interval, normalize_bp_interval
 from ....core.text import clean_optional_text
-from ...geometry import classify_country
+from ...spatial import classify_country
 from ...models import ContextPointRecord
 from .fetch import parse_optional_int
 

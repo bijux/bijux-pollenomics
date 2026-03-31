@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollenomics.data_downloader.staging import build_staging_output_dir, collect_into_staging_dir
+from bijux_pollenomics.data_downloader.pipeline import build_staging_output_dir, collect_into_staging_dir
 
 
 class StagingUnitTests(unittest.TestCase):

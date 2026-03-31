@@ -10,8 +10,8 @@ from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LAN
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import collect_sead_data, fetch_sead_site_rows, normalize_sead_rows
-from bijux_pollenomics.data_downloader.writers import write_context_points_csv, write_context_points_geojson
-from bijux_pollenomics.reporting.context_layers import build_context_layers, build_external_point_layer, build_external_polygon_layer
+from bijux_pollenomics.data_downloader.shared import write_context_points_csv, write_context_points_geojson
+from bijux_pollenomics.reporting.context import build_context_layers, build_external_point_layer, build_external_polygon_layer
 
 
 class ContextDataTests(unittest.TestCase):

@@ -3,9 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable
 
-from .aadr import download_aadr_anno_files
+from .sources.aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
-from .boundary_sources import resolve_country_boundaries
 from .pipeline.collection_reports import (
     build_data_collection_report,
     build_data_collection_summary,
@@ -20,6 +19,7 @@ from .pipeline.requested_sources import normalize_requested_sources
 from .pipeline.source_registry import CONTEXT_SOURCE_SPECS
 from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
+from .sources.boundaries import resolve_country_boundaries
 from .raa import collect_raa_data
 from .sead import collect_sead_data
 from ..config import DEFAULT_AADR_VERSION

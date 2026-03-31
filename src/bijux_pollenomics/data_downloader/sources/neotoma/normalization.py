@@ -6,7 +6,7 @@ from typing import Iterable
 
 from ....core.bp_time import build_bp_interval_label, clamp_bp_year, midpoint_bp_year, normalize_bp_interval
 from ....core.text import clean_optional_text
-from ...geometry import classify_country, geometry_to_representative_point, point_in_bbox
+from ...spatial import classify_country, geometry_to_representative_point, point_in_bbox
 from ...models import ContextPointRecord
 
 __all__ = [

@@ -5,7 +5,7 @@ import math
 
 from ....core.http import fetch_json, fetch_text
 from ....core.text import clean_optional_text
-from ...geometry import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
+from ...spatial import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
 
 
 RAA_WFS_URL = "https://karta.raa.se/geo/arkreg_v1.0/wfs"

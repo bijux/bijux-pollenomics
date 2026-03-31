@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.data_downloader.geometry import classify_country, geometry_to_representative_point, point_in_geometry
+from bijux_pollenomics.data_downloader.spatial import classify_country, geometry_to_representative_point, point_in_geometry
 
 
 class GeometryTests(unittest.TestCase):

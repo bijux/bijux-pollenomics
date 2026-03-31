@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from bijux_pollenomics.data_downloader.xlsx import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from bijux_pollenomics.data_downloader.shared import list_xlsx_sheet_names, read_xlsx_sheet_rows
 from tests.support.workbooks import write_xlsx
 
 

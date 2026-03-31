@@ -121,7 +121,7 @@ Treat the top-level paths by ownership and review expectations:
 Key checked-in contract files:
 
 - `src/bijux_pollenomics/settings.py` centralizes publication defaults such as the current AADR version
-- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/paths.py` centralize file and directory naming contracts
+- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/bundles/paths.py` centralize file and directory naming contracts
 
 ## Published Outputs
 

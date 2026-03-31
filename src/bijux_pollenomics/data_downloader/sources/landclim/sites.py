@@ -10,7 +10,7 @@ from ....core.bp_time import (
     parse_bp_window_label,
 )
 from ....core.text import clean_optional_text
-from ...geometry import classify_country, point_in_bbox
+from ...spatial import classify_country, point_in_bbox
 from ...models import ContextPointRecord
 from ...shared.workbooks import read_xlsx_sheet_rows
 from .catalog import LANDCLIM_DATASET_METADATA

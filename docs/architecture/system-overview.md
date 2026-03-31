@@ -64,7 +64,7 @@ The repository keeps canonical defaults in `src/bijux_pollenomics/config.py` so 
 Two parts of the tree now carry explicit file contracts instead of relying on repeated string literals:
 
 - `src/bijux_pollenomics/data_downloader/contracts.py` owns normalized data artifact filenames that are reused by collectors and the atlas context-layer builder
-- `src/bijux_pollenomics/reporting/paths.py` owns the generated bundle artifact names for country bundles and the Nordic Evidence Atlas bundle
+- `src/bijux_pollenomics/reporting/bundles/paths.py` owns the generated bundle artifact names for country bundles and the Nordic Evidence Atlas bundle
 
 That split matters because the repository publishes generated files directly. A file rename is not just an implementation detail here; it is part of the output contract.
 

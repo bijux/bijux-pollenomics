@@ -98,14 +98,14 @@ src/bijux_pollenomics
 - `data_downloader/` owns source acquisition and normalization
 - `data_downloader/api.py` owns the public downloader package surface
 - `data_downloader/collector.py` owns high-level data-collection orchestration only
-- `data_downloader/requested_sources.py` owns source-selection normalization
-- `data_downloader/boundary_sources.py` owns boundary reuse and fallback policy
-- `data_downloader/context_collection.py` owns context-source execution into staged directories
-- `data_downloader/context_collectors.py` owns the executable collector registry
-- `data_downloader/source_registry.py` owns tracked source metadata only
-- `data_downloader/staging.py` owns safe swap-in staging behavior
+- `data_downloader/pipeline/requested_sources.py` owns source-selection normalization
+- `data_downloader/sources/boundaries/sources.py` owns boundary reuse and fallback policy
+- `data_downloader/pipeline/context_collection.py` owns context-source execution into staged directories
+- `data_downloader/pipeline/context_collectors.py` owns the executable collector registry
+- `data_downloader/pipeline/source_registry.py` owns tracked source metadata only
+- `data_downloader/pipeline/staging.py` owns safe swap-in staging behavior
 - `data_downloader/data_layout.py` owns generated data-root layout contracts
-- `data_downloader/summary_writer.py` owns collection-summary serialization
+- `data_downloader/pipeline/summary_writer.py` owns collection-summary serialization
 - `reporting/` owns report and map generation
 - `reporting/api.py` owns the public reporting package surface
 - `reporting/service.py` orchestrates report and map builds
@@ -124,8 +124,8 @@ src/bijux_pollenomics
 The collector path is intentionally split into three seams:
 
 - orchestration in `data_downloader/collector.py`
-- source metadata in `data_downloader/source_registry.py` plus executable registry in `data_downloader/context_collectors.py`
-- staging and generated layout contracts in `data_downloader/staging.py` and `data_downloader/data_layout.py`
+- source metadata in `data_downloader/pipeline/source_registry.py` plus executable registry in `data_downloader/pipeline/context_collectors.py`
+- staging and generated layout contracts in `data_downloader/pipeline/staging.py` and `data_downloader/data_layout.py`
 
 That keeps adding or reordering context collectors localized to the registry modules instead of spreading dispatch rules, boundary reuse policy, README rendering, and staging behavior across the same module.
 
