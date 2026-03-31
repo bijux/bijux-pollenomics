@@ -1,11 +1,13 @@
 from __future__ import annotations
 
-import json
-import ssl
-from pathlib import Path
 from urllib.error import HTTPError
-from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+
+from ..core import http as _http
+from ..core.files import write_json, write_text
+from ..core.text import clean_optional_text, slugify
+
+ssl = _http.ssl
 
 
 def fetch_json(
@@ -15,8 +17,12 @@ def fetch_json(
     insecure: bool = False,
     timeout: float | None = None,
 ) -> object:
-    """Fetch and decode a JSON payload."""
-    return json.loads(fetch_text(url, params=params, headers=headers, insecure=insecure, timeout=timeout))
+    """Compatibility wrapper for JSON fetches used by downloader modules and tests."""
+    _http.Request = Request
+    _http.urlopen = urlopen
+    _http.HTTPError = HTTPError
+    _http.ssl = ssl
+    return _http.fetch_json(url, params=params, headers=headers, insecure=insecure, timeout=timeout)
 
 
 def fetch_text(
@@ -26,15 +32,12 @@ def fetch_text(
     insecure: bool = False,
     timeout: float | None = None,
 ) -> str:
-    """Fetch a text payload using the standard library."""
-    if params:
-        query = urlencode(params)
-        separator = "&" if "?" in url else "?"
-        url = f"{url}{separator}{query}"
-    request = Request(url, headers=headers or {})
-    context = ssl._create_unverified_context() if insecure else None
-    with urlopen(request, context=context, timeout=timeout) as response:
-        return response.read().decode("utf-8")
+    """Compatibility wrapper for text fetches used by downloader modules and tests."""
+    _http.Request = Request
+    _http.urlopen = urlopen
+    _http.HTTPError = HTTPError
+    _http.ssl = ssl
+    return _http.fetch_text(url, params=params, headers=headers, insecure=insecure, timeout=timeout)
 
 
 def fetch_binary(
@@ -42,42 +45,24 @@ def fetch_binary(
     headers: dict[str, str] | None = None,
     insecure: bool = False,
 ) -> bytes:
-    """Fetch binary content with optional TLS fallback."""
-    request = Request(url, headers=headers or {})
-    context = ssl._create_unverified_context() if insecure else None
-    try:
-        with urlopen(request, context=context) as response:
-            return response.read()
-    except HTTPError as error:
-        if error.code != 403:
-            raise
-        fallback_headers = dict(headers or {})
-        fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
-        with urlopen(Request(url, headers=fallback_headers), context=ssl._create_unverified_context()) as response:
-            return response.read()
+    """Compatibility wrapper for binary fetches used by downloader modules and tests."""
+    _http.Request = Request
+    _http.urlopen = urlopen
+    _http.HTTPError = HTTPError
+    _http.ssl = ssl
+    return _http.fetch_binary(url, headers=headers, insecure=insecure)
 
 
-def write_json(path: Path, payload: object) -> None:
-    """Write JSON with stable formatting."""
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
-
-
-def write_text(path: Path, content: str) -> None:
-    """Write UTF-8 text content."""
-    path.write_text(content, encoding="utf-8")
-
-
-def clean_optional_text(value: object) -> str:
-    """Normalize optional text values used in normalized exports."""
-    if value is None:
-        return ""
-    text = str(value).strip()
-    return "" if text in {"", "null", "None"} else text
-
-
-def slugify(value: str) -> str:
-    """Convert a label into a stable file slug."""
-    slug = "".join(character.lower() if character.isalnum() else "-" for character in value)
-    while "--" in slug:
-        slug = slug.replace("--", "-")
-    return slug.strip("-")
+__all__ = [
+    "HTTPError",
+    "Request",
+    "clean_optional_text",
+    "fetch_binary",
+    "fetch_json",
+    "fetch_text",
+    "slugify",
+    "ssl",
+    "urlopen",
+    "write_json",
+    "write_text",
+]
