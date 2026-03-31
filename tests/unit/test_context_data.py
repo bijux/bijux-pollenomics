@@ -4,11 +4,12 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
-from bijux_pollenomics.data_downloader.sead import normalize_sead_rows
+from bijux_pollenomics.data_downloader.sead import fetch_sead_site_rows, normalize_sead_rows
 from bijux_pollenomics.data_downloader.writers import write_context_points_csv, write_context_points_geojson
 from bijux_pollenomics.reporting.context_layers import build_external_point_layer, build_external_polygon_layer
 
@@ -121,6 +122,43 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(records[0].country, "Sweden")
         self.assertEqual(records[0].category, "Environmental archaeology")
         self.assertEqual(records[0].popup_rows[0], ("Site ID", "6468"))
+
+    def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
+        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
+            if "/tbl_sites?" in url:
+                return [
+                    {
+                        "site_id": 6468,
+                        "site_name": "10412 Fjalkinge",
+                        "national_site_identifier": "10412",
+                        "latitude_dd": 56.05,
+                        "longitude_dd": 14.28,
+                        "altitude": 24,
+                        "site_description": "",
+                        "site_uuid": "uuid-1",
+                    }
+                ]
+            if url.endswith("/tbl_sample_groups"):
+                return [{"sample_group_id": 10, "site_id": 6468, "sample_group_name": "Layer A"}]
+            if url.endswith("/tbl_physical_samples"):
+                return [{"physical_sample_id": 20, "sample_group_id": 10}]
+            if url.endswith("/tbl_analysis_entities"):
+                return [{"analysis_entity_id": 30, "physical_sample_id": 20, "dataset_id": 40}]
+            if url.endswith("/tbl_datasets"):
+                return [{"dataset_id": 40, "dataset_name": "Pollen counts"}]
+            if url.endswith("/tbl_site_references"):
+                return [{"site_reference_id": 50, "site_id": 6468, "biblio_id": 60}]
+            raise AssertionError(f"Unexpected SEAD request: {url} params={params}")
+
+        with patch("bijux_pollenomics.data_downloader.sead.fetch_json", side_effect=fake_fetch_json):
+            rows = fetch_sead_site_rows((4.0, 54.0, 35.0, 72.0))
+
+        self.assertEqual(rows[0]["sample_group_count"], 1)
+        self.assertEqual(rows[0]["physical_sample_count"], 1)
+        self.assertEqual(rows[0]["analysis_entity_count"], 1)
+        self.assertEqual(rows[0]["dataset_count"], 1)
+        self.assertEqual(rows[0]["dataset_names"], ["Pollen counts"])
+        self.assertEqual(rows[0]["reference_count"], 1)
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
