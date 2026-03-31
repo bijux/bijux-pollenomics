@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -143,3 +144,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
 
         self.assertIn("Bijan Mousavi <bijan@bijux.io>", notice_text)
+
+    def test_repository_does_not_track_generated_cache_files(self) -> None:
+        tracked_files = subprocess.run(
+            ["git", "ls-files"],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.splitlines()
+
+        generated_cache_files = [
+            path
+            for path in tracked_files
+            if "/__pycache__/" in f"/{path}" or path.endswith((".pyc", ".pyo", ".DS_Store"))
+        ]
+
+        self.assertEqual(generated_cache_files, [])
