@@ -5,6 +5,18 @@ import json
 from .utils import escape_html
 
 
+def collect_feature_time_candidates(time_candidates: set[int], feature: dict[str, object]) -> None:
+    """Collect all numeric BP candidates exposed by one point or polygon feature."""
+    for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
+        raw = feature.get(key)
+        if raw is None:
+            continue
+        try:
+            time_candidates.add(int(round(float(raw))))
+        except (TypeError, ValueError):
+            continue
+
+
 def render_multi_country_map_html(
     title: str,
     version: str,
@@ -21,15 +33,18 @@ def render_multi_country_map_html(
     time_candidates: set[int] = set()
     for layer in point_layers:
         for feature in layer["features"]:
+            if isinstance(feature, dict):
+                collect_feature_time_candidates(time_candidates, feature)
+    for layer in polygon_layers:
+        geojson = layer.get("geojson", {})
+        if not isinstance(geojson, dict):
+            continue
+        for feature in geojson.get("features", []):
             if not isinstance(feature, dict):
                 continue
-            raw = feature.get("time_year_bp")
-            if raw is None:
-                continue
-            try:
-                time_candidates.add(int(round(float(raw))))
-            except (TypeError, ValueError):
-                continue
+            properties = feature.get("properties", {})
+            if isinstance(properties, dict):
+                collect_feature_time_candidates(time_candidates, properties)
     time_values = sorted(time_candidates)
     has_time_data = bool(time_values)
     if time_values:
@@ -1836,12 +1851,31 @@ def render_multi_country_map_html(
         if (ratio >= 0.08) return '#fca5a5';
         return '#fee2e2';
       }
-      function pointFeatureInTimeWindow(layer, feature) {
+      function featureTimeWindow(feature) {
+        const start = Number(feature.time_start_bp);
+        const end = Number(feature.time_end_bp);
+        if (Number.isFinite(start) && Number.isFinite(end)) {
+          return { start: Math.min(start, end), end: Math.max(start, end) };
+        }
+        const mean = Number(feature.time_mean_bp);
+        if (Number.isFinite(mean)) {
+          return { start: mean, end: mean };
+        }
+        const year = Number(feature.time_year_bp);
+        if (Number.isFinite(year)) {
+          return { start: year, end: year };
+        }
+        return null;
+      }
+      function featureInTimeWindow(layer, feature) {
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
-        const yearBp = Number(feature.time_year_bp);
-        if (!Number.isFinite(yearBp)) return true;
-        const endBp = timeWindowEndBp();
-        return yearBp >= timeStartBp && yearBp <= endBp;
+        const featureWindow = featureTimeWindow(feature);
+        if (!featureWindow) return true;
+        const activeWindow = { start: timeStartBp, end: timeWindowEndBp() };
+        return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
+      }
+      function pointFeatureInTimeWindow(layer, feature) {
+        return featureInTimeWindow(layer, feature);
       }
       function pointFeatureVisible(layer, feature) {
         return (
@@ -1852,7 +1886,11 @@ def render_multi_country_map_html(
       }
       function polygonFeatureVisible(layer, properties) {
         const country = properties.country || '';
-        return activeLayerKeys.has(layer.key) && (!layer.applies_country_filter || !country || activeCountries.has(country));
+        return (
+          activeLayerKeys.has(layer.key)
+          && (!layer.applies_country_filter || !country || activeCountries.has(country))
+          && featureInTimeWindow(layer, properties)
+        );
       }
       function removeRenderedLayers() {
         renderedPointGroups.forEach((group) => map.removeLayer(group));
