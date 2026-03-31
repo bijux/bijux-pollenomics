@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import date
 from pathlib import Path
 from typing import Iterable
 
 from ..core.http import fetch_json
-from ..core.files import write_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
+from .sead_archive import write_sead_site_archive
 from .sead_fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
     fetch_sead_rows as fetch_sead_rows_from_api,
@@ -142,30 +141,11 @@ def collect_sead_data(
 
     fetch_result = fetch_sead_site_inventory(bbox=bbox)
     rows = fetch_result.rows
-    raw_path = raw_dir / "nordic_sites.json"
-    write_json(
-        raw_path,
-        {
-            "generated_on": str(date.today()),
-            "source": "SEAD",
-            "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
-            "row_count": len(rows),
-            "bbox": list(bbox),
-            "source_tables": [
-                "tbl_sites",
-                "tbl_sample_groups",
-                "tbl_physical_samples",
-                "tbl_analysis_entities",
-                "tbl_analysis_values",
-                "tbl_analysis_dating_ranges",
-                "tbl_age_types",
-                "tbl_relative_dates",
-                "tbl_datasets",
-                "tbl_site_references",
-            ],
-            "inventory_summary": fetch_result.inventory_summary,
-            "rows": rows,
-        },
+    raw_path = write_sead_site_archive(
+        raw_dir,
+        bbox=bbox,
+        rows=rows,
+        inventory_summary=fetch_result.inventory_summary,
     )
     records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
     normalized_csv_path = SEAD_POINT_CSV.source_path_under(output_root)
