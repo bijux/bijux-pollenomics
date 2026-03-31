@@ -5,7 +5,6 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from bijux_pollenomics import __version__
 from bijux_pollenomics.command_line.arguments import build_parser
 from bijux_pollenomics.command_line.dispatch import run_command
 
@@ -58,4 +57,4 @@ class CommandLineUnitTests(unittest.TestCase):
         pyproject_text = Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text(encoding="utf-8")
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
-        self.assertIn(f'version = {{attr = "bijux_pollenomics.__version__"}}', pyproject_text)
+        self.assertIn('version = {attr = "bijux_pollenomics.__version__"}', pyproject_text)
