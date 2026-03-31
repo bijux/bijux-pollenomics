@@ -572,6 +572,87 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_archaeology_density.geojson").exists())
             self.assertTrue((output / "nordic_country_boundaries.geojson").exists())
 
+    def test_generate_multi_country_map_uses_context_layer_dates_for_time_window(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t\t\tHO\tF",
+                ],
+            )
+            self.write_json(
+                context_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[16.0, 58.0], [19.0, 58.0], [19.0, 60.0], [16.0, 60.0], [16.0, 58.0]]],
+                            },
+                            "properties": {
+                                "country": "Sweden",
+                                "name": "Sweden",
+                                "layer_key": "country-boundaries",
+                                "layer_label": "Country boundaries",
+                            },
+                        }
+                    ],
+                },
+            )
+            self.write_json(
+                context_root / "landclim" / "normalized" / "nordic_reveals_grid_cells.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[16.0, 58.0], [17.0, 58.0], [17.0, 59.0], [16.0, 59.0], [16.0, 58.0]]],
+                            },
+                            "properties": {
+                                "source": "LandClim",
+                                "layer_key": "landclim-reveals-grid",
+                                "layer_label": "LandClim REVEALS grid cells",
+                                "category": "Vegetation reconstruction",
+                                "country": "Sweden",
+                                "record_id": "16,58,17,59",
+                                "name": "17E 59N grid cell",
+                                "geometry_type": "Polygon",
+                                "subtitle": "1 degree REVEALS grid-cell coverage",
+                                "description": "",
+                                "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+                                "record_count": 1,
+                                "time_start_bp": 100,
+                                "time_end_bp": 3200,
+                                "popup_rows": [
+                                    {"label": "Time windows", "value": "100-3200 BP"},
+                                ],
+                            },
+                        }
+                    ],
+                },
+            )
+
+            generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden"],
+                output_dir=output,
+                title="Nordic Evidence Atlas",
+                slug="nordic-atlas",
+                context_root=context_root,
+            )
+
+            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            self.assertIn("const TIME_MIN_BP = 100;", map_html)
+            self.assertIn("const TIME_MAX_BP = 3200;", map_html)
+            self.assertIn("const TIME_HAS_DATA = true;", map_html)
+
     def test_generate_multi_country_map_handles_empty_aadr_selection(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
