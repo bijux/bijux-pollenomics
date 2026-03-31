@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 
 from ..core.text import clean_optional_text
-from ..temporal import normalize_bp_interval
+from ..core.bp_time import normalize_bp_interval
 
 SEAD_LIMIT = 1000
 SEAD_FILTER_BATCH_SIZE = 100

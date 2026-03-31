@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .models import SchemaError
 from .utils import clean_text
-from ..temporal import build_bp_interval_label, derive_bp_interval_from_mean_and_stddev, midpoint_bp_year
+from ..core.bp_time import build_bp_interval_label, derive_bp_interval_from_mean_and_stddev, midpoint_bp_year
 
 
 def resolve_schema(fieldnames: list[str]) -> dict[str, str | None]:

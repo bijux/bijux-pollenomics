@@ -8,7 +8,7 @@ from pathlib import Path
 from .aadr_schema import resolve_schema, sample_time_interval, sample_time_label, sample_time_mean
 from .models import SampleRecord
 from .utils import clean_text, pick_value
-from ..temporal import build_bp_interval_label, midpoint_bp_year
+from ..core.bp_time import build_bp_interval_label, midpoint_bp_year
 
 
 def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRecord], Counter[str]]:

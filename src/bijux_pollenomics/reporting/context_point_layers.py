@@ -12,7 +12,7 @@ from .context_time import (
     validate_feature_collection,
 )
 from .models import SampleRecord
-from ..temporal import build_bp_interval_label
+from ..core.bp_time import build_bp_interval_label
 
 LYNGSJON_FIELDWORK_LATITUDE = 55.9319529
 LYNGSJON_FIELDWORK_LONGITUDE = 14.0659044

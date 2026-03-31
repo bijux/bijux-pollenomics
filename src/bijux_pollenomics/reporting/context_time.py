@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..temporal import build_bp_interval_label, midpoint_bp_year, parse_numeric_bp_year
+from ..core.bp_time import build_bp_interval_label, midpoint_bp_year, parse_numeric_bp_year
 
 
 def parse_year_bp(value: str) -> int | None:

@@ -6,7 +6,7 @@ from ..core.text import clean_optional_text
 from .geometry import classify_country
 from .models import ContextPointRecord
 from .sead_fetch import parse_optional_int
-from ..temporal import build_bp_interval_label, mean_bp_year_from_interval, normalize_bp_interval
+from ..core.bp_time import build_bp_interval_label, mean_bp_year_from_interval, normalize_bp_interval
 
 
 def normalize_sead_rows(

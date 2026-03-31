@@ -4,7 +4,7 @@ from collections import defaultdict
 from collections.abc import Iterable
 
 from .models import LocalitySummary, SampleRecord
-from ..temporal import build_bp_interval_label, merge_bp_intervals, midpoint_bp_year
+from ..core.bp_time import build_bp_interval_label, merge_bp_intervals, midpoint_bp_year
 
 
 def summarize_localities(samples: Iterable[SampleRecord]) -> list[LocalitySummary]:
