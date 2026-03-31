@@ -13,9 +13,10 @@ def fetch_json(
     params: dict[str, str] | None = None,
     headers: dict[str, str] | None = None,
     insecure: bool = False,
+    timeout: float | None = None,
 ) -> object:
     """Fetch and decode a JSON payload."""
-    return json.loads(fetch_text(url, params=params, headers=headers, insecure=insecure))
+    return json.loads(fetch_text(url, params=params, headers=headers, insecure=insecure, timeout=timeout))
 
 
 def fetch_text(
@@ -23,6 +24,7 @@ def fetch_text(
     params: dict[str, str] | None = None,
     headers: dict[str, str] | None = None,
     insecure: bool = False,
+    timeout: float | None = None,
 ) -> str:
     """Fetch a text payload using the standard library."""
     if params:
@@ -31,7 +33,7 @@ def fetch_text(
         url = f"{url}{separator}{query}"
     request = Request(url, headers=headers or {})
     context = ssl._create_unverified_context() if insecure else None
-    with urlopen(request, context=context) as response:
+    with urlopen(request, context=context, timeout=timeout) as response:
         return response.read().decode("utf-8")
 
 

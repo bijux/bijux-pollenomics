@@ -32,16 +32,18 @@ class CommonFetchTests(unittest.TestCase):
                 fetch_text("https://example.com/data.json")
 
     def test_fetch_text_uses_unverified_context_only_when_requested(self) -> None:
-        def fake_urlopen(request, context=None):  # type: ignore[no-untyped-def]
+        def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
             self.assertIsNotNone(context)
+            self.assertIsNone(timeout)
             return _FakeResponse(b"payload")
 
         with patch("bijux_pollenomics.data_downloader.common.urlopen", side_effect=fake_urlopen):
             self.assertEqual(fetch_text("https://example.com/data.json", insecure=True), "payload")
 
     def test_fetch_binary_uses_unverified_context_only_when_requested(self) -> None:
-        def fake_urlopen(request, context=None):  # type: ignore[no-untyped-def]
+        def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
             self.assertIsNotNone(context)
+            self.assertIsNone(timeout)
             return _FakeResponse(b"\x00\x01")
 
         with patch("bijux_pollenomics.data_downloader.common.urlopen", side_effect=fake_urlopen):

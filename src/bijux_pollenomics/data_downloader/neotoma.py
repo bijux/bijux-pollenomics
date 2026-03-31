@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import copy
 import json
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Iterable
+from urllib.error import URLError
 
 from .common import clean_optional_text, fetch_json, write_json
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
@@ -17,6 +20,9 @@ from .writers import write_context_points_csv, write_context_points_geojson
 NEOTOMA_LIMIT = 400
 NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
+NEOTOMA_REQUEST_TIMEOUT_SECONDS = 60.0
+NEOTOMA_DOWNLOAD_WORKERS = 8
+NEOTOMA_DOWNLOAD_RETRIES = 3
 
 
 @dataclass(frozen=True)
@@ -59,14 +65,45 @@ def fetch_neotoma_dataset_inventory_rows(
 
 def fetch_neotoma_dataset_download_rows(dataset_ids: Iterable[int]) -> list[dict[str, object]]:
     """Fetch full Neotoma dataset downloads for each matched dataset identifier."""
+    unique_dataset_ids = sorted(set(int(dataset_id) for dataset_id in dataset_ids))
+    if not unique_dataset_ids:
+        return []
+
+    rows_by_dataset_id: dict[int, list[dict[str, object]]] = {}
+    worker_count = min(NEOTOMA_DOWNLOAD_WORKERS, len(unique_dataset_ids))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        future_to_dataset_id = {
+            executor.submit(fetch_neotoma_dataset_download_row, dataset_id): dataset_id
+            for dataset_id in unique_dataset_ids
+        }
+        for future in as_completed(future_to_dataset_id):
+            dataset_id = future_to_dataset_id[future]
+            rows_by_dataset_id[dataset_id] = future.result()
+
     rows: list[dict[str, object]] = []
-    for dataset_id in sorted(set(int(dataset_id) for dataset_id in dataset_ids)):
-        payload = fetch_json(f"{NEOTOMA_DATA_URL}/downloads/{dataset_id}", insecure=True)
-        data = payload.get("data", []) if isinstance(payload, dict) else []
-        if not isinstance(data, list):
-            continue
-        rows.extend(copy.deepcopy(item) for item in data if isinstance(item, dict))
+    for dataset_id in unique_dataset_ids:
+        rows.extend(rows_by_dataset_id.get(dataset_id, []))
     return rows
+
+
+def fetch_neotoma_dataset_download_row(dataset_id: int) -> list[dict[str, object]]:
+    """Fetch one full Neotoma dataset download with bounded retries."""
+    for attempt in range(NEOTOMA_DOWNLOAD_RETRIES):
+        try:
+            payload = fetch_json(
+                f"{NEOTOMA_DATA_URL}/downloads/{dataset_id}",
+                insecure=True,
+                timeout=NEOTOMA_REQUEST_TIMEOUT_SECONDS,
+            )
+            data = payload.get("data", []) if isinstance(payload, dict) else []
+            if not isinstance(data, list):
+                return []
+            return [copy.deepcopy(item) for item in data if isinstance(item, dict)]
+        except (TimeoutError, URLError):
+            if attempt + 1 >= NEOTOMA_DOWNLOAD_RETRIES:
+                raise
+            time.sleep(float(attempt + 1))
+    return []
 
 
 def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = None) -> list[object]:
@@ -85,6 +122,7 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
             f"{NEOTOMA_DATA_URL}/{endpoint}",
             params=params,
             insecure=True,
+            timeout=NEOTOMA_REQUEST_TIMEOUT_SECONDS,
         )
         chunk = payload.get("data", [])
         if not isinstance(chunk, list) or not chunk:
