@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import contextlib
 import io
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +16,37 @@ from tests.support.aadr import AADR_HEADER
 
 
 class CliTests(unittest.TestCase):
+    def test_module_entrypoint_displays_help(self) -> None:
+        environment = os.environ.copy()
+        environment["PYTHONPATH"] = "src"
+
+        result = subprocess.run(
+            [sys.executable, "-m", "bijux_pollenomics", "--help"],
+            cwd=Path(__file__).resolve().parents[2],
+            env=environment,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertIn("usage: bijux-pollenomics", result.stdout)
+        self.assertIn("publish-reports", result.stdout)
+
+    def test_installed_console_script_displays_help(self) -> None:
+        console_script = Path(sys.executable).with_name("bijux-pollenomics")
+        result = subprocess.run(
+            [str(console_script), "--help"],
+            cwd=Path(__file__).resolve().parents[2],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertIn("usage: bijux-pollenomics", result.stdout)
+        self.assertIn("collect-data", result.stdout)
+
     def test_parser_defaults_follow_project_settings(self) -> None:
         parser = build_parser()
 
