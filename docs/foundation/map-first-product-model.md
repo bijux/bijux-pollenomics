@@ -9,7 +9,7 @@ last_reviewed: 2026-03-31
 
 # Map-First Product Model
 
-The documentation homepage is map-first because the shared Nordic map is the most direct way to inspect the repository’s combined outputs.
+The documentation homepage is map-first because the shared Nordic map is the fastest honest proof surface for the repository’s combined outputs.
 
 ```mermaid
 flowchart TD
@@ -28,6 +28,10 @@ The map is a view over:
 - normalized geospatial outputs
 - generated report artifacts and context-layer copies assembled into the shared atlas bundle
 - documented commands that can reproduce the same state
+
+## Why The Homepage Starts Here
+
+Most readers need an answer to “what does this repository actually produce?” before they need a command list or a module tree. The atlas answers that question faster than prose because it exposes the current evidence stack directly.
 
 ## Why Not Start With Code
 
@@ -49,6 +53,12 @@ The homepage embeds the map, but keeps the documentation shell around it, becaus
 - development workflow guidance
 
 The docs should not hide the map, and the map should not replace the docs.
+
+## What Map-First Does Not Mean
+
+- it does not mean the atlas is the only artifact that matters
+- it does not mean the atlas is the final scientific interpretation
+- it does not mean readers should infer undocumented behavior from the UI alone
 
 ## Inspection Rule
 

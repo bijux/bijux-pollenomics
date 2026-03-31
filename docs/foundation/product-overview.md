@@ -11,6 +11,10 @@ last_reviewed: 2026-03-31
 
 `bijux-pollenomics` builds a Nordic evidence workspace for inspecting where tracked aDNA, pollen-related, environmental archaeology, and archaeology layers occur together.
 
+The repository is not a hosted analysis service. It is a file-oriented product that keeps the inputs, normalized layers, generated report bundles, and documentation in one reviewable tree.
+
+## Delivered Product Surface
+
 The checked-in workspace combines:
 
 - ancient DNA sample locations from AADR
@@ -40,7 +44,9 @@ mindmap
       map framing
 ```
 
-The repository is not just a static report dump. It is a file-oriented pipeline that:
+## How The Product Works
+
+The repository is a pipeline that:
 
 1. collects tracked source inputs
 2. normalizes them into a common geospatial shape
@@ -55,6 +61,14 @@ The longer-term research goal is to use those layers as one input to later site-
 - maintainers who need to rebuild the checked-in state and publish outputs reproducibly
 - reviewers who need to verify that a visible atlas or report change is grounded in tracked data and code
 
+## Current Deliverables
+
+- tracked source inputs under `data/`
+- normalized data products under `data/*/normalized/`
+- country report bundles under `docs/report/<country>/`
+- a shared Nordic interactive map under `docs/report/nordic-atlas/`
+- one MkDocs site that explains and hosts those checked-in artifacts
+
 ## Why The Map Is Central
 
 The map is the fastest way to validate whether the repository is producing interpretable spatial structure:
@@ -66,13 +80,10 @@ The map is the fastest way to validate whether the repository is producing inter
 
 That is why the docs homepage embeds the shared map before anything else.
 
-## Durable Outputs
+## Product Boundary
 
-- tracked source inputs under `data/`
-- normalized data products under `data/*/normalized/`
-- country report bundles under `docs/report/<country>/`
-- a shared Nordic interactive map under `docs/report/nordic-atlas/`
+Use this page to understand the delivered workspace. Use [Repository scope](repository-scope.md) when the question is whether something belongs inside the repository at all, and use [Scope and non-goals](scope-and-non-goals.md) when the question is whether a future-looking idea has been deliberately deferred.
 
 ## Purpose
 
-This page explains the product outcome of the repository so later workflow and architecture pages are read with the right expectations.
+This page explains the delivered product surface so later workflow and architecture pages are read with the right expectations.
