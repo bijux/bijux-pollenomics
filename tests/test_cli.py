@@ -8,6 +8,7 @@ from pathlib import Path
 
 from bijux_pollenomics.cli import build_parser, main
 from bijux_pollenomics.settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
+from tests.support.aadr import AADR_HEADER
 
 
 class CliTests(unittest.TestCase):
@@ -32,7 +33,7 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / "v62.0_HO_public.anno").write_text(
-                "Genetic ID\tMaster ID\tGroup ID\tLocality\tPolitical Entity\tLat.\tLong.\tPublication abbreviation\tYear first published\tFull Date\tDate mean in BP\tData type\tMolecular Sex\n",
+                AADR_HEADER + "\n",
                 encoding="utf-8",
             )
 
@@ -59,7 +60,7 @@ class CliTests(unittest.TestCase):
             (root / "v62.0_HO_public.anno").write_text(
                 "\n".join(
                     [
-                        "Genetic ID\tMaster ID\tGroup ID\tLocality\tPolitical Entity\tLat.\tLong.\tPublication abbreviation\tYear first published\tFull Date\tDate mean in BP\tData type\tMolecular Sex",
+                        AADR_HEADER,
                         "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
                     ]
                 )

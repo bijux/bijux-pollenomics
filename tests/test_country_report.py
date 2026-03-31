@@ -14,25 +14,7 @@ from bijux_pollenomics.reporting import (
 )
 from bijux_pollenomics.reporting.artifacts import build_sample_geojson_feature, serialize_sample_record
 from bijux_pollenomics.reporting.paths import build_atlas_bundle_paths, build_country_bundle_paths
-
-
-HEADER = "\t".join(
-    [
-        "Genetic ID",
-        "Master ID",
-        "Group ID",
-        "Locality",
-        "Political Entity",
-        "Lat.",
-        "Long.",
-        "Publication abbreviation",
-        "Year first published",
-        "Full Date",
-        "Date mean in BP",
-        "Data type",
-        "Molecular Sex",
-    ]
-)
+from tests.support.aadr import AADR_HEADER, write_anno_file
 
 
 class CountryReportTests(unittest.TestCase):
@@ -855,8 +837,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "nordic-atlas").exists())
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(HEADER + "\n" + "\n".join(rows) + "\n", encoding="utf-8")
+        write_anno_file(path, rows, header=AADR_HEADER)
 
     def write_geojson(self, path: Path, layer_key: str, layer_label: str, category: str) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
