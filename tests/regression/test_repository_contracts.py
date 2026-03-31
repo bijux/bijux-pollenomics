@@ -63,6 +63,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
         self.assertNotIn("cdn.jsdelivr.net/npm/mermaid", mkdocs_text)
 
+    def test_docs_publish_root_icons_and_fieldwork_compatibility_media_paths(self) -> None:
+        self.assertTrue((REPO_ROOT / "docs" / "favicon.ico").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "apple-touch-icon-precomposed.png").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "outputs" / "gallery" / "2026-02-26-data-collection.mov").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "outputs" / "gallery" / "2026-02-26-data-collection.mp4").exists())
+
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         verify_workflow = (REPO_ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")
         deploy_workflow = (REPO_ROOT / ".github" / "workflows" / "deploy-docs.yml").read_text(encoding="utf-8")
