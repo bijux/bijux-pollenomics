@@ -1,5 +1,5 @@
 ---
-title: Source Layout and Ownership
+title: Codebase Layout and Ownership
 audience: mixed
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Source Layout and Ownership
+# Codebase Layout and Ownership
 
 The source tree is intentionally split between three concerns:
 
@@ -15,7 +15,7 @@ The source tree is intentionally split between three concerns:
 - data acquisition
 - report generation
 
-## Current Layout
+## Codebase Layout
 
 ```text
 src/bijux_pollenomics
@@ -65,7 +65,7 @@ src/bijux_pollenomics
 - `command_line/dispatch.py` owns command routing
 - `command_line/handlers.py` owns user-facing command behavior
 - `project.py` owns canonical project defaults and path roots
-- `settings.py` owns shared defaults for the current checked-in publication scope
+- `settings.py` owns shared defaults for the checked-in publication scope
 - `data_downloader/` owns source acquisition and normalization
 - `data_downloader/collector.py` owns high-level data-collection orchestration only
 - `data_downloader/source_registry.py` owns the tracked context-source registry

@@ -13,7 +13,7 @@ Country reports summarize AADR samples for one political entity.
 
 They are intentionally narrower than the shared map. A country report is the durable inventory view for one country, not a second evidence-comparison surface.
 
-## Current Published Countries
+## Published Countries
 
 - Sweden
 - Norway
@@ -58,7 +58,7 @@ If a requested country has zero matching AADR samples in the selected release, t
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
 ```
 
-The same command pattern is used for Norway, Finland, and Denmark in the current checked-in outputs.
+The same command pattern is used for Norway, Finland, and Denmark in the checked-in outputs.
 
 ## Purpose
 

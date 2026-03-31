@@ -22,7 +22,7 @@ data
 └── sead
 ```
 
-## Current Checked-In Files
+## Checked-In Files
 
 ```text
 data

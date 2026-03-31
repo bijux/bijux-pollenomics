@@ -43,7 +43,7 @@ docs/report/<country>
 └── <country>_aadr_<version>_samples.md
 ```
 
-## Current Checked-In Country Bundles
+## Published Country Bundles
 
 - `docs/report/published_reports_summary.json`
 - `docs/report/sweden/`

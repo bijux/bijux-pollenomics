@@ -4,7 +4,7 @@ audience: mixed
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-30
+last_reviewed: 2026-03-31
 ---
 
 # Glossary
@@ -24,6 +24,14 @@ A country-specific AADR output bundle under `docs/report/<country>/`.
 ## Context Data
 
 Non-AADR layers used to enrich the spatial interpretation surface, currently boundaries, LandClim, Neotoma, SEAD, and RAÄ.
+
+## Generated Artifact
+
+A checked-in file under `docs/report/` or `data/` that is produced by repository commands rather than maintained by hand.
+
+## Narrative Documentation
+
+A hand-maintained page under `docs/` that explains repository behavior, contracts, or review expectations.
 
 ## Data Tree
 
