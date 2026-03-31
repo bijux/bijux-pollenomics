@@ -947,11 +947,11 @@ def render_multi_country_map_html(
         right: 16px;
         z-index: 1100;
         display: grid;
-        gap: 12px;
+        gap: 10px;
         padding: 12px;
-        border-radius: 20px;
+        border-radius: 22px;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0)),
           var(--surface);
         overflow: visible;
       }
@@ -967,6 +967,7 @@ def render_multi_country_map_html(
         position: relative;
         display: grid;
         gap: 8px;
+        width: min(620px, 100%);
         min-width: 0;
       }
       .topbar-search-meta {
@@ -1007,10 +1008,11 @@ def render_multi_country_map_html(
       }
       .control-panel {
         position: absolute;
-        top: 126px;
+        top: 116px;
         right: 16px;
         z-index: 1120;
-        width: min(320px, calc(100vw - 32px));
+        width: min(288px, calc(100vw - 32px));
+        max-height: calc(100vh - 208px);
         transition: transform 180ms ease, opacity 180ms ease;
       }
       .control-panel.is-collapsed {
@@ -1021,8 +1023,11 @@ def render_multi_country_map_html(
       .control-panel-card {
         position: relative;
         overflow: hidden;
-        padding: 14px;
-        border-radius: 22px;
+        display: flex;
+        flex-direction: column;
+        max-height: inherit;
+        padding: 12px;
+        border-radius: 24px;
         border: 1px solid var(--surface-edge);
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
@@ -1043,7 +1048,7 @@ def render_multi_country_map_html(
         justify-content: space-between;
         gap: 12px;
         align-items: flex-start;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .control-panel-head-side {
         display: grid;
@@ -1060,37 +1065,67 @@ def render_multi_country_map_html(
       }
       .control-panel-title {
         margin: 4px 0 0;
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 700;
       }
       .control-panel-summary,
       .control-group-summary {
         color: var(--muted);
-        font-size: 12px;
+        font-size: 11px;
       }
       .control-panel-body {
         display: grid;
-        gap: 12px;
+        gap: 8px;
+        overflow: auto;
+        padding-right: 2px;
       }
       .control-group {
         display: grid;
-        gap: 10px;
-        padding-top: 12px;
-        border-top: 1px solid rgba(24, 37, 61, 0.08);
-      }
-      .control-group:first-child {
-        padding-top: 0;
-        border-top: 0;
+        gap: 0;
+        border: 1px solid rgba(24, 37, 61, 0.08);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.68);
       }
       .control-group-head {
         display: flex;
         justify-content: space-between;
         gap: 10px;
-        align-items: baseline;
+        align-items: center;
+        padding: 10px 12px;
+        cursor: pointer;
+        list-style: none;
+      }
+      .control-group-head::-webkit-details-marker {
+        display: none;
+      }
+      .control-group-head::marker {
+        content: "";
+      }
+      .control-group-head::after {
+        content: "+";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.06);
+        color: var(--ink-soft);
+        font-size: 13px;
+        font-weight: 700;
+        flex: 0 0 auto;
+      }
+      .control-group[open] .control-group-head::after {
+        content: "−";
       }
       .control-group-head h3 {
         margin: 4px 0 0;
-        font-size: 14px;
+        font-size: 13px;
+      }
+      .control-group-body {
+        display: grid;
+        gap: 10px;
+        padding: 0 12px 12px;
       }
       .dock-actions,
       .dock-presets,
@@ -1374,7 +1409,7 @@ def render_multi_country_map_html(
           bottom: 76px;
         }
         .control-panel {
-          top: 122px;
+          top: 112px;
           right: 12px;
         }
         .map-status {
@@ -1529,7 +1564,7 @@ def render_multi_country_map_html(
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
-              <span class="eyebrow">Nordic Multi-Evidence Map</span>
+              <span class="eyebrow">Nordic Atlas</span>
               <div class="topbar-title-row">
                 <span class="topbar-title">__TITLE__</span>
                 <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
@@ -1552,12 +1587,12 @@ def render_multi_country_map_html(
             </div>
           </div>
           <div class="topbar-search">
-            <label class="sr-only" for="search-input">Search visible points and sites</label>
+            <label class="sr-only" for="search-input">Search points and sites</label>
             <div class="search-shell">
-              <input id="search-input" class="search-input" type="search" placeholder="Search visible points and sites by sample, locality, source, or country" aria-describedby="search-count">
+              <input id="search-input" class="search-input" type="search" placeholder="Search points and sites by sample, locality, source, or country" aria-describedby="search-count">
               <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
             </div>
-            <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search visible points and sites</div>
+            <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
             <div id="search-results" class="search-results search-results--floating" hidden></div>
           </div>
         </div>
@@ -1585,100 +1620,108 @@ def render_multi_country_map_html(
           <div class="control-panel-card">
             <div class="control-panel-head">
               <div>
-                <span class="control-panel-label">Controls</span>
-                <h2 class="control-panel-title">Research Workspace</h2>
+                <span class="control-panel-label">Map controls</span>
+                <h2 class="control-panel-title">Filters</h2>
               </div>
               <div class="control-panel-head-side">
-                <span id="control-panel-summary" class="control-panel-summary">Loading filters</span>
+                <span id="control-panel-summary" class="control-panel-summary">Loading view state</span>
                 <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
               </div>
             </div>
             <div class="control-panel-body">
-              <section class="control-group">
-                <div class="control-group-head">
+              <details class="control-group" open>
+                <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Countries</span>
                     <h3>Country Filters</h3>
                   </div>
                   <span id="country-summary" class="control-group-summary" aria-live="polite">All countries visible</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="country-filters" class="chip-grid"></div>
+                  <div class="inline-actions">
+                    <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
+                    <button id="countries-none" class="inline-button" type="button">Hide all</button>
+                    <button id="countries-fit" class="inline-button" type="button">Fit selected</button>
+                  </div>
                 </div>
-                <div id="country-filters" class="chip-grid"></div>
-                <div class="inline-actions">
-                  <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
-                  <button id="countries-none" class="inline-button" type="button">Hide all</button>
-                  <button id="countries-fit" class="inline-button" type="button">Fit selected</button>
-                </div>
-              </div>
-              <section class="control-group">
-                <div class="control-group-head">
+              </details>
+              <details class="control-group" open>
+                <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Evidence</span>
                     <h3>Layer Selection</h3>
                   </div>
                   <span id="dock-layer-summary" class="control-group-summary">Loading enabled layers</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="dock-actions">
+                    <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                    <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                    <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                    <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+                  </div>
+                  <div id="dock-layer-filters" class="dock-layer-grid"></div>
                 </div>
-                <div class="dock-actions">
-                  <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
-                  <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
-                  <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
-                  <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
-                </div>
-                <div id="dock-layer-filters" class="dock-layer-grid"></div>
-              </section>
-              <section class="control-group">
-                <div class="control-group-head">
+              </details>
+              <details class="control-group" open>
+                <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Time</span>
                     <h3>Date Window</h3>
                   </div>
                   <span id="dock-time-summary" class="control-group-summary">Loading BP range</span>
-                </div>
-                <div class="dock-range-stack">
-                  <div>
-                    <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
-                    <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
-                    <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+                </summary>
+                <div class="control-group-body">
+                  <div class="dock-range-stack">
+                    <div>
+                      <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
+                      <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
+                      <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+                    </div>
+                    <div>
+                      <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
+                      <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
+                      <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+                    </div>
                   </div>
-                  <div>
-                    <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
-                    <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
-                    <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+                  <div class="dock-presets">
+                    <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                    <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                    <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="full">Full span</button>
                   </div>
+                  <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
                 </div>
-                <div class="dock-presets">
-                  <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
-                  <button class="preset-button" type="button" data-time-interval="500">500 years</button>
-                  <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
-                  <button class="preset-button" type="button" data-time-interval="full">Full span</button>
-                </div>
-                <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
-              </section>
-              <section class="control-group">
-                <div class="control-group-head">
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Distance</span>
                     <h3>Acceptance Distance</h3>
                   </div>
                   <span id="diameter-value" class="control-group-summary">__INITIAL_DIAMETER__ km diameter</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
+                  <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
+                  <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__" aria-describedby="distance-help">
+                  <div class="dock-presets">
+                    <button class="preset-button" type="button" data-km="0">0 km</button>
+                    <button class="preset-button" type="button" data-km="10">10 km</button>
+                    <button class="preset-button is-active" type="button" data-km="20">20 km</button>
+                    <button class="preset-button" type="button" data-km="30">30 km</button>
+                    <button class="preset-button" type="button" data-km="50">50 km</button>
+                  </div>
+                  <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
+                  <div class="field-label"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
+                  <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
+                  <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
+                  <div class="inline-actions">
+                    <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
+                  </div>
                 </div>
-                <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
-                <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
-                <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__" aria-describedby="distance-help">
-                <div class="dock-presets">
-                  <button class="preset-button" type="button" data-km="0">0 km</button>
-                  <button class="preset-button" type="button" data-km="10">10 km</button>
-                  <button class="preset-button is-active" type="button" data-km="20">20 km</button>
-                  <button class="preset-button" type="button" data-km="30">30 km</button>
-                  <button class="preset-button" type="button" data-km="50">50 km</button>
-                </div>
-                <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
-                <div class="field-label"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
-                <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
-                <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
-                <div class="inline-actions">
-                  <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
-                </div>
-              </section>
+              </details>
             </div>
           </div>
         </aside>
