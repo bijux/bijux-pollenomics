@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .. import __version__
 from ..data_downloader import AVAILABLE_SOURCES
 from ..settings import (
     DEFAULT_AADR_ROOT,
@@ -20,6 +21,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="bijux-pollenomics",
         description="Generate Nordic country reports and the Nordic Evidence Atlas from tracked data sources.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 

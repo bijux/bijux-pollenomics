@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import argparse
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
+from bijux_pollenomics import __version__
 from bijux_pollenomics.command_line.arguments import build_parser
 from bijux_pollenomics.command_line.dispatch import run_command
 
@@ -35,6 +37,14 @@ class CommandLineUnitTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             parser.parse_args([])
 
+    def test_build_parser_supports_top_level_version_flag(self) -> None:
+        parser = build_parser()
+
+        with self.assertRaises(SystemExit) as error:
+            parser.parse_args(["--version"])
+
+        self.assertEqual(error.exception.code, 0)
+
     def test_run_command_rejects_unsupported_command(self) -> None:
         parser = build_parser()
         args = argparse.Namespace(command="unsupported")
@@ -43,3 +53,8 @@ class CommandLineUnitTests(unittest.TestCase):
             run_command(args, parser=parser)
 
         self.assertEqual(error.exception.code, 2)
+
+    def test_package_version_matches_pyproject(self) -> None:
+        pyproject_text = Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text(encoding="utf-8")
+
+        self.assertIn(f'version = "{__version__}"', pyproject_text)

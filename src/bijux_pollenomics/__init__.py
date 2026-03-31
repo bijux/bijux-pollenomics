@@ -10,12 +10,15 @@ from .reporting import (
     generate_published_reports,
 )
 
+__version__ = "0.1.0"
+
 __all__ = [
     "ContextDataReport",
     "CountryReport",
     "DataCollectionReport",
     "MultiCountryMapReport",
     "PublishedReportsReport",
+    "__version__",
     "collect_data",
     "collect_context_data",
     "generate_country_report",

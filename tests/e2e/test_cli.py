@@ -10,6 +10,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from bijux_pollenomics import __version__
 from bijux_pollenomics.cli import build_parser, main
 from bijux_pollenomics.settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
 from tests.support.aadr import AADR_HEADER
@@ -46,6 +47,19 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertIn("usage: bijux-pollenomics", result.stdout)
         self.assertIn("collect-data", result.stdout)
+
+    def test_installed_console_script_displays_package_version(self) -> None:
+        console_script = Path(sys.executable).with_name("bijux-pollenomics")
+        result = subprocess.run(
+            [str(console_script), "--version"],
+            cwd=Path(__file__).resolve().parents[2],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertEqual(result.stdout.strip(), f"bijux-pollenomics {__version__}")
 
     def test_parser_defaults_follow_project_settings(self) -> None:
         parser = build_parser()
