@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 Use the `Makefile` as the main local interface.
 
+This page is about how to choose and combine repository commands during maintenance work. For first-run setup, use [Install and verify](../workflows/install-and-verify.md).
+
 ## Primary Commands
 
 ```bash
@@ -37,7 +39,7 @@ make docs
 make docs-serve
 ```
 
-## Artifact Paths
+## What These Commands Are For
 
 - `make install` syncs `artifacts/.venv/` from `uv.lock`
 - `artifacts/.venv/bin/bijux-pollenomics --version` is the direct smoke check that the editable CLI is installed where the `Makefile` expects it
@@ -70,10 +72,17 @@ Choose the smallest honest verification surface for the change:
 - collector or reporting contract edits: run the relevant tests and regenerate affected checked-in artifacts
 - repository-wide refactors: run `make check` and rebuild whichever tracked outputs the change touches
 
+## Mutation Rule
+
+Separate proof commands from mutation commands in your own review notes and commit messages.
+
+- proof commands verify the current state, such as `make lint`, `make test`, `make docs`, or `make check`
+- mutation commands rewrite tracked state, such as `make lock`, `make data-prep`, `make reports`, or `make app-state`
+
 ## Accuracy Rule
 
 When docs or code comments describe a command, file, or artifact, verify it against the current repository state before merging the change.
 
 ## Purpose
 
-This page records the preferred local development surface.
+This page records how maintainers should use the checked-in command surface during day-to-day repository work.

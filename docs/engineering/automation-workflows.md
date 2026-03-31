@@ -14,6 +14,8 @@ The repository uses two GitHub Actions workflows with distinct responsibilities:
 - `verify.yml` runs repository verification on pushes to `main`, pull requests targeting `main`, and manual dispatch
 - `deploy-docs.yml` builds and publishes the MkDocs site from `main` or manual dispatch
 
+The workflow names are only useful if the responsibility split stays explicit.
+
 ## Verification Workflow
 
 `verify.yml` is the main repository guardrail in GitHub.
@@ -34,6 +36,8 @@ That means GitHub verification now covers:
 - strict MkDocs builds
 - source and wheel metadata validation
 - temporary-environment wheel smoke installation
+
+The clean-worktree check matters because it proves the verification path is not quietly leaving behind generated drift.
 
 ## Docs Deployment Workflow
 

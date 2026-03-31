@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 Use this checklist when reviewing nontrivial changes to code, data snapshots, or published outputs.
 
+Start by identifying which repository contract moved: source data, generated outputs, docs wording, command surface, or automation.
+
 ## Source And Data Changes
 
 - can the change be traced back to a specific source refresh, collector fix, or normalization rule
@@ -28,6 +30,7 @@ Use this checklist when reviewing nontrivial changes to code, data snapshots, or
 - do renamed pages keep `mkdocs.yml` and internal links in sync
 - do titles, file names, and section names describe durable intent rather than temporary sequencing
 - does the page stay honest about limitations instead of implying missing capability already exists
+- if a narrative page changed because an output contract moved, is the matching generated or reference surface updated too
 
 ## Verification Changes
 
@@ -35,6 +38,13 @@ Use this checklist when reviewing nontrivial changes to code, data snapshots, or
 - if a command was not run, is that gap stated explicitly in the change summary
 - if the repo contract changed, were tests or strict docs builds updated to cover it
 - if packaging, entrypoints, or automation changed, did the evidence include `make package-verify` or an explicit explanation of why a narrower package command was sufficient
+
+## Review Outcome
+
+The review should end with a clear answer to two questions:
+
+- what repository contract changed
+- what evidence proves the new state is intentional
 
 ## Purpose
 

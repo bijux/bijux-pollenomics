@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 The documentation system is MkDocs-based and intentionally aligned with the repository’s checked-in outputs and the map-first reading model.
 
+This page defines how narrative docs, generated artifacts, and docs infrastructure should stay aligned.
+
 ## Commands
 
 ```bash
@@ -25,6 +27,13 @@ make docs-serve
 The `make docs` and `make docs-serve` targets also set `NO_MKDOCS_2_WARNING=true` to suppress an upstream warning banner emitted by the installed Material theme package. That suppression only affects terminal noise; it does not change the generated site.
 
 The site theme is intentionally configured to avoid remote Google font dependencies and to keep the local docs build closer to the checked-in visual language used by the shared map.
+
+## Documentation Contract
+
+- homepage and section index pages should route readers by need, not by authoring history
+- workflow pages should explain decision boundaries and tracked mutations
+- output pages should distinguish generated artifacts from hand-maintained explanation
+- reference pages should stay exact and compact rather than repeating narrative workflow text
 
 ## GitHub Pages Deployment
 

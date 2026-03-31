@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 The repository uses explicit unit, regression, and end-to-end suites plus generated artifacts as evidence.
 
+Evidence in this repository is multi-surface by design. A green test run can still be incomplete if the change also rewrites tracked files or documentation contracts.
+
 ## Test Suites
 
 - `tests/unit/` covers small logic boundaries and helper contracts
@@ -23,6 +25,13 @@ The `Makefile` exposes these suites directly:
 - `make test-regression`
 - `make test-e2e`
 - `make test` for the full combined suite
+
+## Proof Surfaces
+
+- logic proof: `tests/unit/`
+- artifact and contract proof: `tests/regression/`
+- command-surface proof: `tests/e2e/`
+- repository-wide proof: `make check`
 
 ## Evidence Types
 
@@ -53,4 +62,4 @@ Do not treat one green command as universal proof. The evidence should match the
 
 ## Purpose
 
-This page explains how evidence is gathered for repository changes.
+This page explains how evidence is gathered and evaluated for repository changes.
