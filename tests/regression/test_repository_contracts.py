@@ -61,14 +61,22 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("edit/main/docs/", mkdocs_text)
         self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
+        self.assertIn("custom_dir: docs/overrides", mkdocs_text)
+        self.assertIn("favicon: assets/site-icons/favicon.ico", mkdocs_text)
+        self.assertIn("hooks:", mkdocs_text)
+        self.assertIn("docs/hooks/publish_site_assets.py", mkdocs_text)
         self.assertNotIn("cdn.jsdelivr.net/npm/mermaid", mkdocs_text)
 
-    def test_docs_publish_root_icons_and_fieldwork_compatibility_media_paths(self) -> None:
-        self.assertTrue((REPO_ROOT / "docs" / "favicon.ico").exists())
-        self.assertTrue((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
-        self.assertTrue((REPO_ROOT / "docs" / "apple-touch-icon-precomposed.png").exists())
-        self.assertTrue((REPO_ROOT / "docs" / "outputs" / "gallery" / "2026-02-26-data-collection.mov").exists())
-        self.assertTrue((REPO_ROOT / "docs" / "outputs" / "gallery" / "2026-02-26-data-collection.mp4").exists())
+    def test_docs_keep_browser_icon_sources_under_assets(self) -> None:
+        self.assertTrue((REPO_ROOT / "docs" / "assets" / "site-icons" / "favicon.ico").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "assets" / "site-icons" / "apple-touch-icon.png").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "assets" / "site-icons" / "apple-touch-icon-precomposed.png").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "overrides" / "main.html").exists())
+        self.assertTrue((REPO_ROOT / "docs" / "hooks" / "publish_site_assets.py").exists())
+        self.assertFalse((REPO_ROOT / "docs" / "favicon.ico").exists())
+        self.assertFalse((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
+        self.assertFalse((REPO_ROOT / "docs" / "apple-touch-icon-precomposed.png").exists())
+        self.assertFalse((REPO_ROOT / "docs" / "outputs" / "gallery").exists())
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         verify_workflow = (REPO_ROOT / ".github" / "workflows" / "verify.yml").read_text(encoding="utf-8")

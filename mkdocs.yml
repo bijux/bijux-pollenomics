@@ -16,8 +16,9 @@ validation:
 
 theme:
   name: material
+  custom_dir: docs/overrides
   logo: assets/bijux_logo_hq.png
-  favicon: assets/bijux_icon.png
+  favicon: assets/site-icons/favicon.ico
   font: false
   palette:
     - scheme: default
@@ -85,6 +86,9 @@ extra_css:
 extra_javascript:
   - assets/javascripts/vendor/mermaid-11.6.0.min.js
   - assets/javascripts/mermaid-init.js
+
+hooks:
+  - docs/hooks/publish_site_assets.py
 
 nav:
   - Home: index.md
