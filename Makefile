@@ -17,13 +17,14 @@ UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen 
 
 .DEFAULT_GOAL := help
 
-.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check package-smoke reports test test-all test-e2e test-regression test-unit
+.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check package-smoke package-verify reports test test-all test-e2e test-regression test-unit
 
 help:
 	@printf "Available targets:\n"
 	@printf "  install    Sync %s from pyproject.toml and uv.lock\n" "$(VENV)"
 	@printf "  lock       Refresh uv.lock from pyproject.toml\n"
 	@printf "  lock-check Verify uv.lock matches pyproject.toml\n"
+	@printf "  package-verify Build distributions, validate metadata, and smoke-test installation\n"
 	@printf "  package-check Build and validate source and wheel distributions\n"
 	@printf "  package-smoke Install the built wheel into a temporary environment and run the CLI\n"
 	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
@@ -50,7 +51,7 @@ lock:
 lock-check:
 	$(UV) lock --check --python $(PYTHON)
 
-check: lock-check lint test docs package-check package-smoke
+check: lock-check lint test docs package-verify
 
 lint: install
 	$(RUFF) check src tests
@@ -87,6 +88,15 @@ package-check: build
 	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
 
 package-smoke: build
+	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
+	$(UV) venv --python $(PYTHON) $(ARTIFACTS_ROOT)/tmp/package-smoke
+	$(UV) pip install --python $(ARTIFACTS_ROOT)/tmp/package-smoke/bin/python --no-deps $(DIST_ROOT)/*.whl
+	$(ARTIFACTS_ROOT)/tmp/package-smoke/bin/bijux-pollenomics --version
+	$(ARTIFACTS_ROOT)/tmp/package-smoke/bin/bijux-pollenomics --help > /dev/null
+	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
+
+package-verify: build
+	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
 	rm -rf $(ARTIFACTS_ROOT)/tmp/package-smoke
 	$(UV) venv --python $(PYTHON) $(ARTIFACTS_ROOT)/tmp/package-smoke
 	$(UV) pip install --python $(ARTIFACTS_ROOT)/tmp/package-smoke/bin/python --no-deps $(DIST_ROOT)/*.whl
