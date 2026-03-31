@@ -13,9 +13,11 @@ The `docs/report/` tree contains checked-in report artifacts used both for revie
 
 These artifacts are generated outputs. They are not maintained by hand.
 
+Narrative pages under `docs/outputs/` explain those artifacts, but they are not themselves generated bundle files.
+
 ## Nordic Evidence Atlas Bundle
 
-The currently checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
+The checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
 
 - a combined sample GeoJSON
 - the interactive HTML map
@@ -28,7 +30,7 @@ The shared bundle is the only place where the interactive HTML map lives.
 
 ## Country Bundles
 
-The currently checked-in country bundles are:
+The checked-in country bundles are:
 
 - `docs/report/sweden/`
 - `docs/report/norway/`
@@ -62,9 +64,11 @@ When a change affects `docs/report/`, reviewers should assume that:
 - generated text inside bundle `README.md` files is part of the artifact contract
 - artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
 
+The practical consequence is that reviewers should read `docs/outputs/` pages and `docs/report/` diffs together when output behavior changes.
+
 ## What This Page Is Not
 
-This page documents the current checked-in artifact policy. It is not a promise that every future output type will live under `docs/report/`.
+This page documents the checked-in artifact policy. It is not a promise that every future output type will live under `docs/report/`.
 
 ## Purpose
 

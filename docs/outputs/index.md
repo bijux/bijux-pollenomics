@@ -1,5 +1,5 @@
 ---
-title: Reports
+title: Outputs
 audience: mixed
 type: index
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Reports
+# Outputs
 
 This section explains the browser-facing and file-facing outputs generated from the tracked `data/` tree.
 
@@ -18,6 +18,7 @@ It also documents the boundary between generated publication artifacts and inter
 - [Country reports](country-reports.md)
 - [Nordic Evidence Atlas](nordic-evidence-atlas.md)
 - [Lyngsjön Lake fieldwork](lyngsjon-lake-fieldwork.md)
+- [Artifact lifecycle](artifact-lifecycle.md)
 - [Published artifacts](published-artifacts.md)
 
 ```mermaid
@@ -34,7 +35,7 @@ This section is the canonical source for report and map documentation inside the
 
 ## Reading Rule
 
-Read this section when you need to know what a published artifact contains, what it intentionally omits, and which current report behaviors are implementation limits rather than scientific conclusions.
+Read this section when you need to know what a published artifact contains, what it intentionally omits, and which output behaviors are implementation limits rather than scientific conclusions.
 
 ## Purpose
 

@@ -115,6 +115,7 @@ nav:
       - Country Reports: outputs/country-reports.md
       - Nordic Evidence Atlas: outputs/nordic-evidence-atlas.md
       - Lyngsjön Lake Fieldwork: outputs/lyngsjon-lake-fieldwork.md
+      - Artifact Lifecycle: outputs/artifact-lifecycle.md
       - Published Artifacts: outputs/published-artifacts.md
   - Architecture:
       - Overview: architecture/index.md
