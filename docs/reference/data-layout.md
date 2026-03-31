@@ -95,6 +95,7 @@ data
 - `collection_summary.json` now includes `source_output_roots` so tooling can discover where each tracked source writes its checked-in files without inferring that layout manually
 - normalized data filenames are defined in `src/bijux_pollenomics/data_downloader/contracts.py` and reused by both collectors and atlas bundle assembly
 - source collectors replace their own output directories before writing new files, so this tree should not accumulate stale files from earlier collector behavior
+- some collector-only audit artifacts, such as the current Natural Earth boundary source manifest, are written on refresh but are not yet present in every older checked-in source snapshot
 
 ## Purpose
 

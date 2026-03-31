@@ -14,8 +14,9 @@ last_reviewed: 2026-03-31
 ## What It Produces
 
 - raw country GeoJSON files under `data/boundaries/raw/`
-- a Natural Earth source manifest under `data/boundaries/raw/source_manifest.json`
 - a combined Nordic boundary collection under `data/boundaries/normalized/nordic_country_boundaries.geojson`
+
+The current checked-in snapshot contains the raw country GeoJSON files plus the normalized combined boundary layer. On the next boundary refresh, the collector also writes `data/boundaries/raw/source_manifest.json` so the pinned Natural Earth release can be audited directly from the raw tree.
 
 ## Collector Contract
 
@@ -48,7 +49,7 @@ The country polygons come from land-focused admin boundaries, which means some r
 ## Audit Artifacts
 
 - one raw GeoJSON per Nordic country
-- a pinned Natural Earth source manifest with release, asset, and digest details
+- a pinned Natural Earth source manifest with release, asset, and digest details when boundaries are recollected with the current collector contract
 - one normalized combined boundary collection used by classifiers and the atlas
 
 ## Acquisition Command
