@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Iterable
 
 from .artifacts import stage_context_point_layers, stage_context_polygon_layers
-from .point_layers import build_aadr_point_layer, build_external_point_layer, build_fieldwork_point_layer
-from .polygon_layers import (
+from .points import build_aadr_point_layer, build_external_point_layer, build_fieldwork_point_layer
+from .polygons import (
     build_country_boundary_layer,
     build_density_polygon_layer,
     build_external_polygon_layer,

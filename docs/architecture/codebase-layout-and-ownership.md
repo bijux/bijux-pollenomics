@@ -110,14 +110,14 @@ src/bijux_pollenomics
 - `reporting/api.py` owns the public reporting package surface
 - `reporting/service.py` orchestrates report and map builds
 - `reporting/map_document/` owns the standalone map template and derived render state
-- `reporting/context_layers.py` owns top-level context-layer orchestration only
-- `reporting/context_point_layers.py`, `reporting/context_polygon_layers.py`, and `reporting/context_time.py` own map-layer shaping details
-- `reporting/aadr_samples.py`, `reporting/aadr_schema.py`, and `reporting/aadr_localities.py` own AADR report loading seams
-- `reporting/summaries.py` owns machine-readable report summary payloads
+- `reporting/context/layers.py` owns top-level context-layer orchestration only
+- `reporting/context/points/`, `reporting/context/polygons/`, and `reporting/context/time.py` own map-layer shaping details
+- `reporting/aadr/` owns AADR report loading seams
+- `reporting/bundles/summary_builders/` owns machine-readable report summary payloads
 - `reporting/countries.py` owns country-list normalization for report workflows
-- `reporting/staging.py` owns safe swap-in staging for generated publication trees
+- `reporting/bundles/staging.py` owns safe swap-in staging for generated publication trees
 - `data_downloader/contracts.py` owns normalized data artifact names
-- `reporting/paths.py` owns generated report-bundle artifact names
+- `reporting/bundles/paths.py` owns generated report-bundle artifact names
 
 ## Collector Shape
 

@@ -12,12 +12,12 @@ from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
 from .bundles.staging import publish_into_staging_dir
-from .bundles.summaries import (
+from .bundles.summary_builders import (
     build_country_report_summary,
     build_multi_country_map_summary,
     build_published_reports_summary,
 )
-from .context.layers import build_context_layers
+from .context import build_context_layers
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .artifacts import (
     build_samples_geojson,
@@ -27,8 +27,7 @@ from .artifacts import (
     write_samples_geojson,
     write_summary_json,
 )
-from .html import render_multi_country_map_html
-from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
+from .rendering import render_multi_country_map_html, render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .shared.text import slugify
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 

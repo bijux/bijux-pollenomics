@@ -14,7 +14,7 @@ from bijux_pollenomics.reporting import (
     load_country_samples,
 )
 from bijux_pollenomics.reporting.artifacts import build_sample_geojson_feature, serialize_sample_record
-from bijux_pollenomics.reporting.paths import build_atlas_bundle_paths, build_country_bundle_paths
+from bijux_pollenomics.reporting.bundles import build_atlas_bundle_paths, build_country_bundle_paths
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 
