@@ -40,12 +40,12 @@ These commands rewrite tracked source outputs under `data/`.
 ## Report Commands
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-evidence-atlas --title "Nordic Evidence Atlas" --context-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic-evidence-atlas --title "Nordic Evidence Atlas" --output-root docs/report --context-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --output-root docs/report --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
 ```
 
 These commands rewrite checked-in report outputs under `docs/report/`.

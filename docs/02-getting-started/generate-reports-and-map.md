@@ -36,7 +36,7 @@ Those commands overlap, but they are not interchangeable.
 ## Nordic Evidence Atlas
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-evidence-atlas --title "Nordic Evidence Atlas" --context-root data
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-multi-country-map Sweden Norway Finland Denmark --version v62.0 --name nordic-atlas --title "Nordic Evidence Atlas" --context-root data
 ```
 
 That command reads:
@@ -44,7 +44,7 @@ That command reads:
 - AADR `.anno` files from `data/aadr/v62.0/`
 - normalized context layers from `data/boundaries/`, `data/landclim/`, `data/neotoma/`, `data/sead/`, and `data/raa/`
 
-and writes the Nordic Evidence Atlas bundle under `docs/report/nordic/`.
+and writes the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`.
 
 What it does not do:
 
@@ -55,10 +55,10 @@ What it does not do:
 ## Country Reports
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-evidence-atlas/nordic-evidence-atlas_v62.0_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Sweden --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Norway --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Finland --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
+PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli report-country Denmark --version v62.0 --shared-map-label "Nordic Evidence Atlas" --shared-map-path "../nordic-atlas/nordic-atlas_map.html"
 ```
 
 Each `report-country` command writes one country bundle under `docs/report/<country>/`.
