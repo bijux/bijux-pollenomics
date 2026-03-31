@@ -15,7 +15,7 @@ The repository is easiest to understand when you separate five concerns:
 
 - tracked source data under `data/`
 - normalization and acquisition logic under `src/bijux_pollenomics/data_downloader/`
-- AADR-driven report generation under `src/bijux_pollenomics/reporting/`
+- multi-source report and atlas generation under `src/bijux_pollenomics/reporting/`
 - the shared Nordic map as the primary interactive output
 - later spatial interpretation built on top of these reproducible layers
 
@@ -48,6 +48,7 @@ The foundation pages answer four foundational questions:
 
 - why the repository centers country-aware spatial evidence, not just raw files
 - why AADR `.anno` metadata is tracked while heavy genotype files are not
+- why the reporting layer now combines AADR outputs with the checked-in context layers
 - how the shared map and report outputs relate to the tracked `data/` tree
 - which next section to read for your role
 

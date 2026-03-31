@@ -44,8 +44,8 @@ The repository is not just a static report dump. It is a file-oriented pipeline 
 
 1. collects tracked source inputs
 2. normalizes them into a common geospatial shape
-3. generates country reports
-4. generates a shared Nordic map that can filter layers by country
+3. generates AADR country reports
+4. generates a shared Nordic map that combines those reports with the checked-in context layers and can filter them by country and time
 
 The longer-term research goal is to use those layers as one input to later site-selection work. The repository does not rank sites or recommend field locations automatically.
 

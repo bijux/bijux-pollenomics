@@ -26,7 +26,7 @@ The map is a view over:
 
 - tracked inputs
 - normalized geospatial outputs
-- generated report artifacts
+- generated report artifacts and context-layer copies assembled into the shared atlas bundle
 - documented commands that can reproduce the same state
 
 ## Why Not Start With Code
