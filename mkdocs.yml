@@ -132,6 +132,7 @@ nav:
   - Reference:
       - Overview: reference/index.md
       - Command Reference: reference/command-reference.md
+      - Configuration Defaults: reference/configuration-defaults.md
       - Data Layout: reference/data-layout.md
       - Report Layout: reference/report-layout.md
       - Glossary: reference/glossary.md

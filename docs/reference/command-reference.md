@@ -1,5 +1,5 @@
 ---
-title: Command Surface
+title: Command Reference
 audience: mixed
 type: reference
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Command Surface
+# Command Reference
 
 ## Verification And Local Build Commands
 
@@ -63,12 +63,13 @@ Use these only when you intend to regenerate tracked data or tracked publication
 ## Notes
 
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
-- `make reports` expands to `publish-reports --countries Sweden Norway Finland Denmark --version v62.0 --name nordic --title "Nordic Evidence Atlas" --output-root docs/report --context-root data`
+- `make reports` expands to `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
 - `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
 - `make check` expands to `make lint`, `make test`, and `make docs`
 - `make install` creates the local environment under `artifacts/.venv/`
 - `make build` writes distributions into `artifacts/dist/`
-- `make reports` is the canonical `make` target for regenerating the current checked-in report bundles
+- `make reports` is the canonical `make` target for regenerating the checked-in report bundles
+- `make docs-serve` expects a healthy editable install and serves the site at `http://127.0.0.1:8000/`
 - `report-country` requires `--shared-map-label` and `--shared-map-path` together when you want a shared-map link in the generated README
 - `report-multi-country-map` builds only the shared map bundle; `publish-reports` builds the shared map plus country bundles
 

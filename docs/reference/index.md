@@ -16,6 +16,7 @@ Use it only when you need precision. If you are trying to learn the repository f
 ## Pages in This Section
 
 - [Command reference](command-reference.md)
+- [Configuration defaults](configuration-defaults.md)
 - [Data layout](data-layout.md)
 - [Report layout](report-layout.md)
 - [Glossary](glossary.md)
