@@ -187,6 +187,11 @@ class CountryReportTests(unittest.TestCase):
                 rows = list(csv.DictReader(handle))
             self.assertEqual(len(rows), 2)
             self.assertEqual(rows[0]["political_entity"], "Sweden")
+            with (output / "sweden_aadr_v62.0_localities.csv").open(newline="", encoding="utf-8") as handle:
+                locality_rows = list(csv.DictReader(handle))
+            self.assertEqual(locality_rows[0]["time_start_bp"], "2450")
+            self.assertEqual(locality_rows[0]["time_end_bp"], "2550")
+            self.assertEqual(locality_rows[0]["time_label"], "2450-2550 BP")
 
             geojson = json.loads((output / "sweden_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
             summary = json.loads((output / "sweden_aadr_v62.0_summary.json").read_text(encoding="utf-8"))
@@ -253,6 +258,7 @@ class CountryReportTests(unittest.TestCase):
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             samples_csv = (output / "finland_aadr_v62.0_samples.csv").read_text(encoding="utf-8")
             self.assertIn("| Dataset | Finland rows |", readme_text)
+            self.assertIn("| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |", readme_text)
             self.assertIn("It inventories only AADR sample rows that match the `Finland` country filter.", readme_text)
             self.assertIn("combined inventory for `Finland` contains `1` unique samples", readme_text)
             self.assertIn("Unspecified locality", readme_text)

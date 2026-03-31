@@ -39,6 +39,10 @@ class LocalitySummary:
     sample_count: int
     sample_ids: tuple[str, ...]
     datasets: tuple[str, ...]
+    time_start_bp: int | None = None
+    time_end_bp: int | None = None
+    time_mean_bp: int | None = None
+    time_label: str = ""
 
 
 @dataclass(frozen=True)

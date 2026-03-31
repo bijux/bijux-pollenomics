@@ -36,6 +36,10 @@ LOCALITY_EXPORT_FIELDS = (
     "latitude",
     "longitude",
     "sample_count",
+    "time_start_bp",
+    "time_end_bp",
+    "time_mean_bp",
+    "time_label",
     "datasets",
     "sample_ids",
 )
@@ -73,6 +77,10 @@ def serialize_locality_summary(locality: LocalitySummary) -> dict[str, object]:
         "latitude": locality.latitude_text,
         "longitude": locality.longitude_text,
         "sample_count": locality.sample_count,
+        "time_start_bp": locality.time_start_bp,
+        "time_end_bp": locality.time_end_bp,
+        "time_mean_bp": locality.time_mean_bp,
+        "time_label": locality.time_label,
         "datasets": list(locality.datasets),
         "sample_ids": list(locality.sample_ids),
     }

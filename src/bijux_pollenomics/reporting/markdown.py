@@ -32,9 +32,9 @@ def render_summary_markdown(
         for dataset, count in sorted(report.dataset_row_counts.items())
     ) or "| No matching dataset rows | 0 |"
     top_locality_lines = "\n".join(
-        f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | `{','.join(locality.datasets)}` |"
+        f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | {escape_pipes(locality.time_label or '-')} | `{','.join(locality.datasets)}` |"
         for locality in report.localities[:15]
-    ) or "| No matching localities | 0 | - | - | - |"
+    ) or "| No matching localities | 0 | - | - | - | - |"
 
     map_line = ""
     if map_reference is not None:
@@ -55,6 +55,7 @@ It inventories only AADR sample rows that match the `{report.country}` country f
 - Longitude range: {longitude_range}
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
 
@@ -74,8 +75,8 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Top Localities
 
-| Locality | Samples | Latitude | Longitude | Datasets |
-| --- | ---: | ---: | ---: | --- |
+| Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
+| --- | ---: | ---: | ---: | --- | --- |
 {top_locality_lines}
 """
 
