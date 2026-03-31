@@ -28,6 +28,7 @@ make test-regression
 make test-e2e
 make data-prep
 make build
+make package-check
 make docs
 make docs-serve
 ```
@@ -44,6 +45,7 @@ make docs-serve
 - `make test-regression` runs artifact and workflow-regression checks
 - `make test-e2e` runs command-line end-to-end checks
 - `make build` writes distributions into `artifacts/dist/`
+- `make package-check` rebuilds and validates the source and wheel distributions
 - `make docs` writes the site into `artifacts/docs/site/`
 - `make docs-serve` serves the local docs at `http://127.0.0.1:8000/`
 
@@ -56,7 +58,7 @@ The repository now has enough moving parts that a checked-in local workflow is m
 Choose the smallest honest verification surface for the change:
 
 - docs-only edits: run `make docs`
-- logic or command-surface edits: run `make lint` and the relevant test targets
+- logic or command-surface edits: run `make lint`, the relevant test targets, and `make package-check` when packaging or console entrypoints changed
 - collector or reporting contract edits: run the relevant tests and regenerate affected checked-in artifacts
 - repository-wide refactors: run `make check` and rebuild whichever tracked outputs the change touches
 
