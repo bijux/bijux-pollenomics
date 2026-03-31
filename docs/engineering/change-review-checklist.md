@@ -34,6 +34,7 @@ Use this checklist when reviewing nontrivial changes to code, data snapshots, or
 - were the relevant commands run for the scope of the change
 - if a command was not run, is that gap stated explicitly in the change summary
 - if the repo contract changed, were tests or strict docs builds updated to cover it
+- if packaging, entrypoints, or automation changed, did the evidence include `make package-verify` or an explicit explanation of why a narrower package command was sufficient
 
 ## Purpose
 

@@ -32,7 +32,7 @@ The `Makefile` exposes these suites directly:
 - checked-in `docs/report/` outputs
 - checked-in report summary JSON files
 - explicit file-contract tests for normalized data paths, report bundle paths, and vendored map assets
-- successful `make lint`, `make test`, `make build`, `make package-check`, `make package-smoke`, `make package-source-smoke`, and `make docs`
+- successful `make lint`, `make test`, `make build`, `make package-verify`, and `make docs`
 - a combined `make check` run for one-command repository verification
 
 ## Evidence Matrix
@@ -40,7 +40,7 @@ The `Makefile` exposes these suites directly:
 - source-collection changes should leave behind test evidence plus changed `data/` artifacts or summaries
 - reporting changes should leave behind test evidence plus changed `docs/report/` artifacts when output behavior moved
 - documentation changes should leave behind a successful strict docs build
-- packaging or command-surface changes should leave behind the relevant `make` or CLI command evidence, including `make package-check`, `make package-smoke`, and `make package-source-smoke` when distribution metadata or entrypoints changed
+- packaging or command-surface changes should leave behind the relevant `make` or CLI command evidence, with `make package-verify` as the default proof surface and the narrower package targets available when one failure mode needs isolation
 
 ## Why Generated Artifacts Matter
 

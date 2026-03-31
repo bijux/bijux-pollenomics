@@ -28,6 +28,7 @@ make test-regression
 make test-e2e
 make data-prep
 make build
+make package-verify
 make package-check
 make package-smoke
 make package-source-smoke
@@ -47,6 +48,7 @@ make docs-serve
 - `make test-regression` runs artifact and workflow-regression checks
 - `make test-e2e` runs command-line end-to-end checks
 - `make build` writes distributions into `artifacts/dist/`
+- `make package-verify` rebuilds distributions, validates metadata, and smoke-tests both distribution formats
 - `make package-check` rebuilds and validates the source and wheel distributions
 - `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
 - `make package-source-smoke` installs the built source distribution into a temporary environment and runs the CLI there
@@ -62,7 +64,7 @@ The repository now has enough moving parts that a checked-in local workflow is m
 Choose the smallest honest verification surface for the change:
 
 - docs-only edits: run `make docs`
-- logic or command-surface edits: run `make lint`, the relevant test targets, and `make package-check` when packaging or console entrypoints changed
+- logic or command-surface edits: run `make lint`, the relevant test targets, and `make package-verify` when packaging or console entrypoints changed
 - collector or reporting contract edits: run the relevant tests and regenerate affected checked-in artifacts
 - repository-wide refactors: run `make check` and rebuild whichever tracked outputs the change touches
 

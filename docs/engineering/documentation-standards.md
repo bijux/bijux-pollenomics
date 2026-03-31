@@ -31,7 +31,7 @@ The site theme is intentionally configured to avoid remote Google font dependenc
 The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 
 - pushes to `main` build the site and deploy it to GitHub Pages
-- tags matching `v*` build the site as a release-quality validation step
+- manual dispatch can build the same site without waiting for a push
 - the deploy job itself runs only for `main`
 - the workflow validates that `mkdocs.yml` still writes to `artifacts/docs/site` and keeps `strict: true`
 
