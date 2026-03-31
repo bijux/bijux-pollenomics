@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -56,12 +57,12 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
         dataset_dir = version_dir / anno_file.dataset_name
         dataset_dir.mkdir(parents=True, exist_ok=True)
         destination = dataset_dir / anno_file.filename
-        destination.write_bytes(
-            fetch_binary(
-                AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
-                headers=REQUEST_HEADERS,
-            )
+        payload = fetch_binary(
+            AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
+            headers=REQUEST_HEADERS,
         )
+        validate_downloaded_anno_payload(anno_file, payload)
+        destination.write_bytes(payload)
         downloaded_files.append(destination)
 
     manifest_path = version_dir / "release_manifest.json"
@@ -151,6 +152,20 @@ def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
             raise ValueError(f"Resolved AADR release contains duplicate dataset coverage for {file.dataset_name}")
         seen_dataset_names.add(file.dataset_name)
     return files
+
+
+def validate_downloaded_anno_payload(anno_file: AadrAnnoFile, payload: bytes) -> None:
+    """Verify one downloaded AADR payload against the release metadata."""
+    if anno_file.filesize and len(payload) != anno_file.filesize:
+        raise ValueError(
+            f"Downloaded AADR file size mismatch for {anno_file.filename}: expected {anno_file.filesize}, got {len(payload)}"
+        )
+    if anno_file.md5:
+        digest = hashlib.md5(payload).hexdigest()
+        if digest != anno_file.md5.casefold():
+            raise ValueError(
+                f"Downloaded AADR checksum mismatch for {anno_file.filename}: expected {anno_file.md5}, got {digest}"
+            )
 
 
 def write_release_manifest(
