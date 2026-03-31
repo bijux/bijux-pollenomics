@@ -21,7 +21,8 @@ The repository publishes both narrative documentation and generated output artif
 
 ```mermaid
 flowchart LR
-    Data[data/] --> Reports[docs/report/]
+    Data[data/] --> ReportStaging[staging tree]
+    ReportStaging --> Reports[docs/report/]
     Reports --> Docs[mkdocs build]
     Gallery[docs/gallery/] --> Docs
     Narrative[docs/outputs/] --> Docs
@@ -35,6 +36,8 @@ When generated artifacts change:
 2. review the generated files under `docs/report/`
 3. update the narrative pages under `docs/outputs/` if the output contract changed
 4. rebuild the docs site so the published shell still matches the generated artifacts
+
+Report publication now stages generated bundles first and swaps them into `docs/report/` only after the build succeeds. That means reviewers should not expect half-written output trees from a failed regeneration.
 
 ## Editing Rule
 

@@ -15,6 +15,8 @@ These artifacts are generated outputs. They are not maintained by hand.
 
 Narrative pages under `docs/outputs/` explain those artifacts, but they are not themselves generated bundle files.
 
+Publication writes these bundles into a staging tree first and swaps that tree into `docs/report/` only after generation succeeds.
+
 ## Nordic Evidence Atlas Bundle
 
 The checked-in Nordic Evidence Atlas bundle is `docs/report/nordic-atlas/`. It includes:
@@ -65,6 +67,8 @@ When a change affects `docs/report/`, reviewers should assume that:
 - artifact changes are only trustworthy when they can be tied back to source or code changes in the same repository state
 
 The practical consequence is that reviewers should read `docs/outputs/` pages and `docs/report/` diffs together when output behavior changes.
+
+If a report build fails before that swap, the previously published `docs/report/` tree should remain intact.
 
 ## What This Page Is Not
 
