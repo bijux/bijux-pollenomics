@@ -47,6 +47,7 @@ help:
 install: pyproject.toml uv.lock
 	mkdir -p $(ARTIFACTS_ROOT)
 	$(UV_SYNC)
+	rm -rf $(PACKAGE_METADATA_DIR)
 
 lock:
 	$(UV) lock --python $(PYTHON)

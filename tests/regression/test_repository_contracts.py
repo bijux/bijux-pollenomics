@@ -31,6 +31,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("test-e2e: install", makefile_text)
         self.assertIn("PYTHONPYCACHEPREFIX=$(ARTIFACTS_ROOT)/pycache", makefile_text)
         self.assertIn("PACKAGE_METADATA_DIR := src/bijux_pollenomics.egg-info", makefile_text)
+        self.assertIn("$(UV_SYNC)\n\trm -rf $(PACKAGE_METADATA_DIR)", makefile_text)
 
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
