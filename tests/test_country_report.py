@@ -62,6 +62,10 @@ class CountryReportTests(unittest.TestCase):
         self.assertEqual(csv_payload["locality"], geojson_feature["properties"]["locality"])
         self.assertEqual(csv_payload["political_entity"], geojson_feature["properties"]["political_entity"])
         self.assertEqual(csv_payload["datasets"], geojson_feature["properties"]["datasets"])
+        self.assertEqual(csv_payload["date_stddev_bp"], geojson_feature["properties"]["date_stddev_bp"])
+        self.assertEqual(csv_payload["time_start_bp"], geojson_feature["properties"]["time_start_bp"])
+        self.assertEqual(csv_payload["time_end_bp"], geojson_feature["properties"]["time_end_bp"])
+        self.assertEqual(csv_payload["time_label"], geojson_feature["properties"]["time_label"])
         self.assertEqual(geojson_feature["geometry"]["coordinates"], [sample.longitude, sample.latitude])
 
     def test_load_country_samples_deduplicates_across_datasets(self) -> None:
@@ -110,6 +114,44 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(dataset_counts["1240k"], 1)
             self.assertEqual(len(samples), 1)
             self.assertEqual(samples[0].genetic_id, "SE3")
+
+    def test_load_country_samples_derives_bp_interval_from_mean_and_stddev_when_available(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            anno_path = root / "ho" / "v62.0_HO_public.anno"
+            anno_path.parent.mkdir(parents=True, exist_ok=True)
+            anno_path.write_text(
+                "\t".join(
+                    [
+                        "Genetic ID",
+                        "Master ID",
+                        "Group ID",
+                        "Locality",
+                        "Political Entity",
+                        "Lat.",
+                        "Long.",
+                        "Publication abbreviation",
+                        "Year first published",
+                        "Full Date",
+                        "Date mean in BP",
+                        "Date standard deviation in BP",
+                        "Data type",
+                        "Molecular Sex",
+                    ]
+                )
+                + "\n"
+                + "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\t125\tHO\tF\n",
+                encoding="utf-8",
+            )
+
+            samples, _ = load_country_samples(root, "Sweden")
+
+            self.assertEqual(len(samples), 1)
+            self.assertEqual(samples[0].date_stddev_bp, "125")
+            self.assertEqual(samples[0].time_start_bp, 2200)
+            self.assertEqual(samples[0].time_end_bp, 2700)
+            self.assertEqual(samples[0].time_mean_bp, 2450)
+            self.assertEqual(samples[0].time_label, "500 BCE")
 
     def test_generate_country_report_writes_expected_outputs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -775,9 +817,14 @@ class CountryReportTests(unittest.TestCase):
             year_first_published="2022",
             full_date="500 BCE",
             date_mean_bp="2450",
+            date_stddev_bp="125",
             data_type="AG",
             molecular_sex="F",
             datasets=datasets,
+            time_start_bp=2200,
+            time_end_bp=2700,
+            time_mean_bp=2450,
+            time_label="2200-2700 BP",
         )
 
 

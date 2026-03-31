@@ -19,9 +19,14 @@ class SampleRecord:
     year_first_published: str
     full_date: str
     date_mean_bp: str
+    date_stddev_bp: str
     data_type: str
     molecular_sex: str
     datasets: tuple[str, ...]
+    time_start_bp: int | None = None
+    time_end_bp: int | None = None
+    time_mean_bp: int | None = None
+    time_label: str = ""
 
 
 @dataclass(frozen=True)

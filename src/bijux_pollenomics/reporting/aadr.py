@@ -7,6 +7,7 @@ from typing import Iterable
 
 from .models import LocalitySummary, SampleRecord, SchemaError
 from .utils import clean_text, pick_value
+from ..temporal import build_bp_interval_label, derive_bp_interval_from_mean_and_stddev, midpoint_bp_year
 
 
 def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRecord], Counter[str]]:
@@ -27,6 +28,7 @@ def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRe
                 continue
 
             merged_datasets = tuple(sorted(set(existing.datasets) | set(sample.datasets)))
+            merged_interval = merge_sample_time_interval(existing, sample)
             combined[sample.genetic_id] = SampleRecord(
                 genetic_id=existing.genetic_id,
                 master_id=pick_value(existing.master_id, sample.master_id),
@@ -41,9 +43,14 @@ def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRe
                 year_first_published=pick_value(existing.year_first_published, sample.year_first_published),
                 full_date=pick_value(existing.full_date, sample.full_date),
                 date_mean_bp=pick_value(existing.date_mean_bp, sample.date_mean_bp),
+                date_stddev_bp=pick_value(existing.date_stddev_bp, sample.date_stddev_bp),
                 data_type=pick_value(existing.data_type, sample.data_type),
                 molecular_sex=pick_value(existing.molecular_sex, sample.molecular_sex),
                 datasets=merged_datasets,
+                time_start_bp=merged_interval[0] if merged_interval is not None else None,
+                time_end_bp=merged_interval[1] if merged_interval is not None else None,
+                time_mean_bp=mean_bp_from_samples(existing, sample, merged_interval),
+                time_label=pick_time_label(existing, sample, merged_interval),
             )
 
     samples = sorted(
@@ -109,6 +116,7 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
                 longitude = float(longitude_text)
             except ValueError:
                 continue
+            time_interval = sample_time_interval(row, schema)
             yield SampleRecord(
                 genetic_id=genetic_id,
                 master_id=clean_text(row.get(schema["master_id"], "")),
@@ -123,13 +131,18 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
                 year_first_published=clean_text(row.get(schema["year_first_published"], "")),
                 full_date=clean_text(row.get(schema["full_date"], "")),
                 date_mean_bp=clean_text(row.get(schema["date_mean_bp"], "")),
+                date_stddev_bp=clean_text(row.get(schema["date_stddev_bp"], "")),
                 data_type=clean_text(row.get(schema["data_type"], "")),
                 molecular_sex=clean_text(row.get(schema["molecular_sex"], "")),
                 datasets=(dataset_name,),
+                time_start_bp=time_interval[0] if time_interval is not None else None,
+                time_end_bp=time_interval[1] if time_interval is not None else None,
+                time_mean_bp=sample_time_mean(row, schema),
+                time_label=sample_time_label(row, schema),
             )
 
 
-def resolve_schema(fieldnames: list[str]) -> dict[str, str]:
+def resolve_schema(fieldnames: list[str]) -> dict[str, str | None]:
     """Map expected logical fields to raw AADR column names."""
     return {
         "genetic_id": find_column(fieldnames, "Genetic ID"),
@@ -147,6 +160,7 @@ def resolve_schema(fieldnames: list[str]) -> dict[str, str]:
         ),
         "full_date": find_column(fieldnames, "Full Date"),
         "date_mean_bp": find_column(fieldnames, "Date mean in BP"),
+        "date_stddev_bp": find_optional_column(fieldnames, "Date standard deviation in BP"),
         "data_type": find_column(fieldnames, "Data type"),
         "molecular_sex": find_column(fieldnames, "Molecular Sex"),
     }
@@ -165,3 +179,85 @@ def find_column(fieldnames: list[str], *prefixes: str) -> str:
             if field.casefold().startswith(prefix_key):
                 return field
     raise SchemaError(f"Could not find any of {prefixes!r} in anno columns")
+
+
+def find_optional_column(fieldnames: list[str], *prefixes: str) -> str | None:
+    """Find a column by exact name or prefix when present."""
+    try:
+        return find_column(fieldnames, *prefixes)
+    except SchemaError:
+        return None
+
+
+def sample_time_interval(row: dict[str, str], schema: dict[str, str | None]) -> tuple[int, int] | None:
+    """Derive one AADR BP interval from the row's mean and standard deviation."""
+    return derive_bp_interval_from_mean_and_stddev(
+        row.get(schema["date_mean_bp"], ""),
+        row.get(schema["date_stddev_bp"], ""),
+    )
+
+
+def sample_time_mean(row: dict[str, str], schema: dict[str, str | None]) -> int | None:
+    """Return the sample mean BP year used for time filtering summaries."""
+    interval = sample_time_interval(row, schema)
+    return midpoint_bp_year(interval[0], interval[1]) if interval is not None else None
+
+
+def sample_time_label(row: dict[str, str], schema: dict[str, str | None]) -> str:
+    """Return the best available human-readable AADR time label."""
+    full_date = clean_text(row.get(schema["full_date"], ""))
+    if full_date:
+        return full_date
+    interval = sample_time_interval(row, schema)
+    if interval is None:
+        return ""
+    return build_bp_interval_label(interval[0], interval[1])
+
+
+def merge_sample_time_interval(
+    left: SampleRecord,
+    right: SampleRecord,
+) -> tuple[int, int] | None:
+    """Merge two sample intervals into a single BP span."""
+    intervals = [
+        interval
+        for interval in (
+            (left.time_start_bp, left.time_end_bp) if left.time_start_bp is not None and left.time_end_bp is not None else None,
+            (right.time_start_bp, right.time_end_bp) if right.time_start_bp is not None and right.time_end_bp is not None else None,
+        )
+        if interval is not None
+    ]
+    if not intervals:
+        return None
+    return (
+        min(start for start, _ in intervals),
+        max(end for _, end in intervals),
+    )
+
+
+def mean_bp_from_samples(
+    left: SampleRecord,
+    right: SampleRecord,
+    merged_interval: tuple[int, int] | None,
+) -> int | None:
+    """Choose the best AADR midpoint for merged duplicate samples."""
+    for value in (left.time_mean_bp, right.time_mean_bp):
+        if value is not None:
+            return value
+    if merged_interval is None:
+        return None
+    return midpoint_bp_year(merged_interval[0], merged_interval[1])
+
+
+def pick_time_label(
+    left: SampleRecord,
+    right: SampleRecord,
+    merged_interval: tuple[int, int] | None,
+) -> str:
+    """Prefer explicit AADR date labels before falling back to a BP interval label."""
+    for value in (left.time_label, right.time_label, left.full_date, right.full_date):
+        if clean_text(value):
+            return clean_text(value)
+    if merged_interval is None:
+        return ""
+    return build_bp_interval_label(merged_interval[0], merged_interval[1])

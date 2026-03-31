@@ -13,6 +13,7 @@ from ..data_downloader.contracts import (
     RAA_LAYER_METADATA,
 )
 from .models import SampleRecord
+from ..temporal import build_bp_interval_label, parse_numeric_bp_year
 
 
 def build_context_layers(
@@ -82,7 +83,11 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
                 "country": sample.political_entity,
                 "title": sample.genetic_id,
                 "subtitle": sample.locality,
-                "time_year_bp": parse_year_bp(sample.date_mean_bp),
+                "time_start_bp": sample.time_start_bp,
+                "time_end_bp": sample.time_end_bp,
+                "time_mean_bp": sample.time_mean_bp,
+                "time_year_bp": sample.time_mean_bp,
+                "time_label": sample.time_label or build_bp_interval_label(sample.time_start_bp, sample.time_end_bp),
                 "popup_rows": [
                     {"label": "Genetic ID", "value": sample.genetic_id},
                     {"label": "Locality", "value": sample.locality},
@@ -93,6 +98,8 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
                     {"label": "Publication", "value": sample.publication},
                     {"label": "Date", "value": sample.full_date},
                     {"label": "Date mean in BP", "value": sample.date_mean_bp},
+                    {"label": "Date standard deviation in BP", "value": sample.date_stddev_bp},
+                    {"label": "BP coverage", "value": sample.time_label or build_bp_interval_label(sample.time_start_bp, sample.time_end_bp)},
                 ],
             }
         )
@@ -121,13 +128,7 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
 
 def parse_year_bp(value: str) -> int | None:
     """Parse a numeric BP-year value from AADR date text."""
-    candidate = str(value).strip().replace(",", "")
-    if not candidate:
-        return None
-    try:
-        return int(round(float(candidate)))
-    except ValueError:
-        return None
+    return parse_numeric_bp_year(value)
 
 
 def validate_feature_collection(
