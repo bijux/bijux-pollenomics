@@ -75,6 +75,18 @@ class CommonFetchTests(unittest.TestCase):
         ), patch("bijux_pollenomics.core.http.time.sleep"):
             self.assertEqual(fetch_text("https://example.com/data.json"), "payload")
 
+    def test_fetch_text_reraises_last_transient_network_error_after_retry_exhaustion(self) -> None:
+        with patch(
+            "bijux_pollenomics.core.http.urlopen",
+            side_effect=[
+                URLError(OSError(51, "Network is unreachable")),
+                URLError(OSError(51, "Network is unreachable")),
+                URLError(OSError(51, "Network is unreachable")),
+            ],
+        ), patch("bijux_pollenomics.core.http.time.sleep"):
+            with self.assertRaises(URLError):
+                fetch_text("https://example.com/data.json")
+
 
 if __name__ == "__main__":
     unittest.main()

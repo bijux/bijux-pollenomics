@@ -85,11 +85,13 @@ def fetch_url_bytes(
 ) -> bytes:
     """Fetch one HTTP payload with TLS fallback and bounded retries for transient failures."""
     context = ssl._create_unverified_context() if insecure else None
+    last_error: TimeoutError | URLError | None = None
     for attempt in range(HTTP_REQUEST_RETRIES):
         try:
             with urlopen(request, context=context, timeout=timeout) as response:
                 return response.read()
         except URLError as error:
+            last_error = error
             if not insecure and allow_insecure_tls_fallback() and should_retry_insecure_tls(error):
                 context = ssl._create_unverified_context()
                 insecure = True
@@ -97,7 +99,10 @@ def fetch_url_bytes(
             if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
                 raise
         except TimeoutError as error:
+            last_error = error
             if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
                 raise
         time.sleep(float(attempt + 1))
-    raise RuntimeError("HTTP request retries exhausted unexpectedly")
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("HTTP request completed without returning bytes")
