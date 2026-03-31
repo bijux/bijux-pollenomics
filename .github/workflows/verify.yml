@@ -35,3 +35,12 @@ jobs:
 
       - name: Run repository checks
         run: make check PYTHON=python
+
+      - name: Confirm clean worktree after checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -n "$(git status --short)" ]]; then
+            git status --short
+            exit 1
+          fi

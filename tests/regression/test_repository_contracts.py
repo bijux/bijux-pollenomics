@@ -108,6 +108,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         deploy_workflow = (REPO_ROOT / ".github" / "workflows" / "deploy-docs.yml").read_text(encoding="utf-8")
 
         self.assertIn("make check PYTHON=python", verify_workflow)
+        self.assertIn("Confirm clean worktree after checks", verify_workflow)
+        self.assertIn("git status --short", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
         self.assertIn("astral-sh/setup-uv", verify_workflow)
         self.assertIn("branches:\n      - main", deploy_workflow)
