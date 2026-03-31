@@ -15,6 +15,8 @@ MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 UV_PROJECT_ENVIRONMENT := $(VENV)
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --python $(PYTHON)
 
+.DEFAULT_GOAL := help
+
 .PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check reports test test-all test-e2e test-regression test-unit
 
 help:
@@ -37,12 +39,9 @@ help:
 	@printf "  docs-serve Serve the MkDocs site locally on %s\n" "$(MKDOCS_LOCAL_SITE_URL)"
 	@printf "  clean      Remove transient virtualenv and build/test caches\n"
 
-$(VENV)/.installed: pyproject.toml uv.lock
+install: pyproject.toml uv.lock
 	mkdir -p $(ARTIFACTS_ROOT)
 	$(UV_SYNC)
-	touch $@
-
-install: $(VENV)/.installed
 
 lock:
 	$(UV) lock --python $(PYTHON)
