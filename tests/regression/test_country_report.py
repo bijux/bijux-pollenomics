@@ -866,10 +866,18 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "norway" / "README.md").exists())
             sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
             published_summary = json.loads((output / "published_reports_summary.json").read_text(encoding="utf-8"))
+            atlas_summary = json.loads((output / "nordic-atlas" / "nordic-atlas_summary.json").read_text(encoding="utf-8"))
+            sweden_summary = json.loads((output / "sweden" / "sweden_aadr_v62.0_summary.json").read_text(encoding="utf-8"))
             self.assertIn("../nordic-atlas/nordic-atlas_map.html", sweden_readme)
             self.assertIn(">Nordic Evidence Atlas</a>", sweden_readme)
+            self.assertEqual(report.shared_map_dir, output / "nordic-atlas")
+            self.assertIn(output / "sweden", report.country_output_dirs)
             self.assertEqual(published_summary["artifacts"]["shared_bundle"]["slug"], "nordic-atlas")
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
+            self.assertEqual(atlas_summary["output_dir"], str(output / "nordic-atlas"))
+            self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
+            self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
+            self.assertNotIn(".report.tmp", sweden_summary["output_dir"])
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

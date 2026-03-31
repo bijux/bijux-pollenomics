@@ -30,10 +30,12 @@ def generate_country_report(
     country: str,
     output_dir: Path,
     map_reference: tuple[str, str] | None = None,
+    published_output_dir: Path | None = None,
 ) -> CountryReport:
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
+    published_output_dir = Path(published_output_dir) if published_output_dir is not None else output_dir
     normalized_country = country.strip()
     if not normalized_country:
         raise ValueError("Country is required to build a country report")
@@ -50,7 +52,7 @@ def generate_country_report(
         dataset_row_counts=dict(sorted(dataset_counts.items())),
         samples=tuple(samples),
         localities=tuple(localities),
-        output_dir=output_dir,
+        output_dir=published_output_dir,
     )
 
     def publish_country_bundle(staging_output_dir: Path) -> None:
@@ -88,10 +90,12 @@ def generate_multi_country_map(
     title: str,
     slug: str,
     context_root: Path | None = None,
+    published_output_dir: Path | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
+    published_output_dir = Path(published_output_dir) if published_output_dir is not None else output_dir
 
     normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
     if not normalized_countries:
@@ -119,7 +123,7 @@ def generate_multi_country_map(
         countries=normalized_countries,
         country_sample_counts=country_sample_counts,
         total_unique_samples=len(all_samples),
-        output_dir=output_dir,
+        output_dir=published_output_dir,
     )
 
     def publish_map_bundle(staging_output_dir: Path) -> None:
@@ -196,6 +200,7 @@ def generate_published_reports(
             title=title,
             slug=atlas_slug,
             context_root=context_root,
+            published_output_dir=output_root / shared_map_dir.name,
         )
 
         country_output_dirs: list[Path] = []
@@ -212,6 +217,7 @@ def generate_published_reports(
                 country=country,
                 output_dir=country_dir,
                 map_reference=(title, shared_map_path),
+                published_output_dir=output_root / country_dir.name,
             )
             country_output_dirs.append(country_dir)
 
@@ -301,4 +307,3 @@ def build_published_reports_summary(
         },
     }
     return payload
-
