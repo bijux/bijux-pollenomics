@@ -343,7 +343,7 @@ class ContextDataTests(unittest.TestCase):
             output_dir.mkdir(parents=True, exist_ok=True)
             gallery_root.mkdir(parents=True, exist_ok=True)
             (gallery_root / "2026-02-26-data-collection.JPG").write_bytes(b"jpeg")
-            (gallery_root / "2026-02-26-data-collection.mov").write_bytes(b"mov")
+            (gallery_root / "2026-02-26-data-collection.mp4").write_bytes(b"mp4")
 
             point_layers, polygon_layers, extra_artifacts = build_context_layers(
                 samples=(),
@@ -356,7 +356,7 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(point_layers[1]["key"], "fieldwork-documentation")
         self.assertEqual(point_layers[1]["features"][0]["title"], "Lyngsjön Lake field sampling")
         self.assertEqual(point_layers[1]["features"][0]["media_links"][0]["url"], "../../gallery/2026-02-26-data-collection.JPG")
-        self.assertEqual(point_layers[1]["features"][0]["media_links"][1]["url"], "../../gallery/2026-02-26-data-collection.mov")
+        self.assertEqual(point_layers[1]["features"][0]["media_links"][1]["url"], "../../gallery/2026-02-26-data-collection.mp4")
 
 
 if __name__ == "__main__":

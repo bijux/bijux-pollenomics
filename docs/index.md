@@ -47,7 +47,7 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="outputs/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
-  <a class="md-button" href="gallery/2026-02-26-data-collection.mov">Open the field video</a>
+  <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 </div>
 
 <div class="bijux-media-grid">

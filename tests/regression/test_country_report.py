@@ -428,7 +428,7 @@ class CountryReportTests(unittest.TestCase):
             gallery_root = Path(tmp) / "docs" / "gallery"
             gallery_root.mkdir(parents=True, exist_ok=True)
             (gallery_root / "2026-02-26-data-collection.JPG").write_bytes(b"jpeg")
-            (gallery_root / "2026-02-26-data-collection.mov").write_bytes(b"mov")
+            (gallery_root / "2026-02-26-data-collection.mp4").write_bytes(b"mp4")
             self.write_anno(
                 root / "ho" / "v62.0_HO_public.anno",
                 [
@@ -566,7 +566,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("SEAD sites", map_html)
             self.assertIn("Fieldwork documentation", map_html)
             self.assertIn("Lyngsjön Lake field sampling", map_html)
-            self.assertIn("../../gallery/2026-02-26-data-collection.mov", map_html)
+            self.assertIn("../../gallery/2026-02-26-data-collection.mp4", map_html)
             self.assertIn("popup-media-link", map_html)
             self.assertIn("RAÄ archaeology density", map_html)
             self.assertNotIn("Search Visible Records", map_html)

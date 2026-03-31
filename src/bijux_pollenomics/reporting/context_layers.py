@@ -20,7 +20,7 @@ LYNGSJON_FIELDWORK_LATITUDE = 55.9319529
 LYNGSJON_FIELDWORK_LONGITUDE = 14.0659044
 FIELDWORK_MEDIA_FILES = (
     ("photo", "Field photo", "2026-02-26-data-collection.JPG"),
-    ("video", "Field video", "2026-02-26-data-collection.mov"),
+    ("video", "Field video", "2026-02-26-data-collection.mp4"),
 )
 
 
