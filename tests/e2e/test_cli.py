@@ -5,6 +5,7 @@ import io
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from bijux_pollenomics.cli import build_parser, main
 from bijux_pollenomics.settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
@@ -85,3 +86,96 @@ class CliTests(unittest.TestCase):
                 )
 
         self.assertEqual(exit_code, 0)
+
+    def test_report_country_command_writes_country_bundle(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root.mkdir(parents=True, exist_ok=True)
+            (root / "v62.0_HO_public.anno").write_text(
+                "\n".join(
+                    [
+                        AADR_HEADER,
+                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            stdout = io.StringIO()
+            with contextlib.redirect_stdout(stdout):
+                exit_code = main(
+                    [
+                        "report-country",
+                        "Sweden",
+                        "--aadr-root",
+                        str(Path(tmp) / "data" / "aadr"),
+                        "--output-root",
+                        str(Path(tmp) / "docs" / "report"),
+                    ]
+                )
+
+            bundle_root = Path(tmp) / "docs" / "report" / "sweden"
+            self.assertEqual(exit_code, 0)
+            self.assertIn("1 unique samples", stdout.getvalue())
+            self.assertTrue((bundle_root / "README.md").exists())
+            self.assertTrue((bundle_root / "sweden_aadr_v62.0_summary.json").exists())
+
+    def test_report_multi_country_map_command_writes_atlas_bundle(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root.mkdir(parents=True, exist_ok=True)
+            (root / "v62.0_HO_public.anno").write_text(
+                "\n".join(
+                    [
+                        AADR_HEADER,
+                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                        "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tHO\tM",
+                    ]
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+
+            stdout = io.StringIO()
+            with contextlib.redirect_stdout(stdout):
+                exit_code = main(
+                    [
+                        "report-multi-country-map",
+                        "Sweden",
+                        "Norway",
+                        "--aadr-root",
+                        str(Path(tmp) / "data" / "aadr"),
+                        "--output-root",
+                        str(Path(tmp) / "docs" / "report"),
+                        "--context-root",
+                        str(Path(tmp) / "data"),
+                    ]
+                )
+
+            atlas_root = Path(tmp) / "docs" / "report" / "nordic-atlas"
+            self.assertEqual(exit_code, 0)
+            self.assertIn("2 unique samples", stdout.getvalue())
+            self.assertTrue((atlas_root / "nordic-atlas_map.html").exists())
+            self.assertTrue((atlas_root / "nordic-atlas_summary.json").exists())
+
+    def test_collect_data_command_writes_summary_and_readme(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            stdout = io.StringIO()
+            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+                download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
+                with contextlib.redirect_stdout(stdout):
+                    exit_code = main(
+                        [
+                            "collect-data",
+                            "aadr",
+                            "--output-root",
+                            str(output_root),
+                        ]
+                    )
+
+            self.assertEqual(exit_code, 0)
+            self.assertIn("2 AADR .anno files", stdout.getvalue())
+            self.assertTrue((output_root / "README.md").exists())
+            self.assertTrue((output_root / "collection_summary.json").exists())
