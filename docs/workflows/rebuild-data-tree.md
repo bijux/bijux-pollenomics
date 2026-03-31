@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 The repository uses one unified acquisition command, but that command rewrites tracked source outputs. Treat this workflow as a deliberate rebuild step, not as a harmless read-only refresh.
 
+This page is about the `data/` tree only. It does not republish `docs/report/`.
+
 ## Full Rebuild
 
 ```bash
@@ -22,6 +24,15 @@ Equivalent direct command:
 ```bash
 artifacts/.venv/bin/bijux-pollenomics collect-data all --version v62.0 --output-root data
 ```
+
+## When To Use This Workflow
+
+Use this page when:
+
+- collector code changed
+- a tracked source snapshot needs refresh
+- report publication depends on new source files
+- you need to prove that `data/` can still be rebuilt from the current repository state
 
 ## Before You Run It
 
@@ -52,6 +63,13 @@ When you rerun one source collector, that source directory is replaced before ne
 
 The important consequence is that a source-specific recollection is not additive. It replaces the tracked snapshot for that source.
 
+## Mutation Boundary
+
+- `collect-data` rewrites `data/`
+- it updates `data/collection_summary.json` as part of the same operation
+- it does not rewrite `docs/report/`
+- it does not hide which source roots changed; each source keeps its own top-level directory
+
 ## Single-Source Rebuilds
 
 ```bash
@@ -69,6 +87,16 @@ artifacts/.venv/bin/bijux-pollenomics collect-data landclim --output-root data
 artifacts/.venv/bin/bijux-pollenomics collect-data neotoma --output-root data
 artifacts/.venv/bin/bijux-pollenomics collect-data sead --output-root data
 ```
+
+## Review Expectations
+
+After a source-specific rebuild, review:
+
+- the changed source directory under `data/<source>/`
+- any changed raw inventories, manifests, or summaries
+- `data/collection_summary.json` if output-root metadata changed
+
+Do not treat a single-source rebuild as safe simply because the CLI command was narrower. It still replaces the tracked snapshot for that source.
 
 ## Which Arguments Matter By Source
 
@@ -88,6 +116,11 @@ After a full successful run, the checked-in tree should contain:
 
 The data collector does not regenerate `docs/report/`. Report publishing is a separate workflow documented in [Publish report artifacts](publish-report-artifacts.md).
 
+## After The Rebuild
+
+- if the changed source data should affect publication artifacts, continue to [Publish report artifacts](publish-report-artifacts.md)
+- if the rebuild failed, use [Troubleshoot local setup](troubleshoot-local-setup.md) to classify whether the failure was environment, collector, or upstream-data related
+
 ## Purpose
 
-This page explains how the unified data collector maps directly onto the six tracked source categories.
+This page explains how the unified data collector rewrites the tracked `data/` tree without blurring the boundaries between sources.
