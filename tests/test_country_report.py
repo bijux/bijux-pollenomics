@@ -676,20 +676,20 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden", "Norway"],
                 output_root=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
                 context_root=context_root,
             )
 
             self.assertEqual(report.countries, ("Sweden", "Norway"))
             self.assertTrue((output / "published_reports_summary.json").exists())
-            self.assertTrue((output / "nordic" / "nordic_v62.0_map.html").exists())
+            self.assertTrue((output / "nordic-atlas" / "nordic-atlas_map.html").exists())
             self.assertTrue((output / "sweden" / "README.md").exists())
             self.assertTrue((output / "norway" / "README.md").exists())
             sweden_readme = (output / "sweden" / "README.md").read_text(encoding="utf-8")
             published_summary = json.loads((output / "published_reports_summary.json").read_text(encoding="utf-8"))
-            self.assertIn("../nordic/nordic_v62.0_map.html", sweden_readme)
+            self.assertIn("../nordic-atlas/nordic-atlas_map.html", sweden_readme)
             self.assertIn(">Nordic Evidence Atlas</a>", sweden_readme)
-            self.assertEqual(published_summary["artifacts"]["shared_bundle"]["slug"], "nordic")
+            self.assertEqual(published_summary["artifacts"]["shared_bundle"]["slug"], "nordic-atlas")
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
@@ -709,7 +709,7 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden", "Norway"],
                 output_root=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
             )
             self.assertTrue((output / "norway").exists())
 
@@ -718,12 +718,12 @@ class CountryReportTests(unittest.TestCase):
                 countries=["Sweden"],
                 output_root=output,
                 title="Nordic Evidence Atlas",
-                slug="nordic",
+                slug="nordic-atlas",
             )
 
             self.assertFalse((output / "norway").exists())
             self.assertTrue((output / "sweden").exists())
-            self.assertTrue((output / "nordic").exists())
+            self.assertTrue((output / "nordic-atlas").exists())
 
     def write_anno(self, path: Path, rows: list[str]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
