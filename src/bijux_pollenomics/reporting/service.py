@@ -23,7 +23,7 @@ from .bundles.summaries import (
     build_multi_country_map_summary,
     build_published_reports_summary,
 )
-from .context_layers import build_context_layers
+from .context.layers import build_context_layers
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .map_inputs import load_multi_country_map_inputs
