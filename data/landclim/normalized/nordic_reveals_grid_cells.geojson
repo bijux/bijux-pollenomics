@@ -42,7 +42,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -62,13 +62,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -112,7 +116,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 27,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -132,13 +136,17 @@
           },
           {
             "label": "Time windows",
-            "value": "27 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -182,7 +190,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 26,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -202,13 +210,17 @@
           },
           {
             "label": "Time windows",
-            "value": "26 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -252,7 +264,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -272,13 +284,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -322,7 +338,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -342,13 +358,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -392,7 +412,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -412,13 +432,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -462,7 +486,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 27,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -482,13 +506,17 @@
           },
           {
             "label": "Time windows",
-            "value": "27 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -532,7 +560,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -552,13 +580,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -602,7 +634,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -622,13 +654,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -672,7 +708,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -692,13 +728,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -742,7 +782,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -762,13 +802,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -812,7 +856,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -832,13 +876,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -882,7 +930,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -902,13 +950,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -952,7 +1004,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -972,13 +1024,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1022,7 +1078,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1042,13 +1098,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1092,7 +1152,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1112,13 +1172,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1162,7 +1226,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1182,13 +1246,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1232,7 +1300,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1252,13 +1320,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1302,7 +1374,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1322,13 +1394,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1372,7 +1448,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1392,13 +1468,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1442,7 +1522,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1462,13 +1542,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1512,7 +1596,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1532,13 +1616,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1606,9 +1694,13 @@
           },
           {
             "label": "Window span",
-            "value": "0-100BP to 5700-6200BP"
+            "value": "0-100 BP to 5700-6200 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 6200,
+        "time_mean_bp": 3100,
+        "time_label": "0-100 BP to 5700-6200 BP"
       }
     },
     {
@@ -1652,7 +1744,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1672,13 +1764,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1722,7 +1818,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1742,13 +1838,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1792,7 +1892,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1812,13 +1912,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1862,7 +1966,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1882,13 +1986,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -1932,7 +2040,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -1952,13 +2060,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2002,7 +2114,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2022,13 +2134,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2072,7 +2188,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2092,13 +2208,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2142,7 +2262,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2162,13 +2282,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2212,7 +2336,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2232,13 +2356,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2282,7 +2410,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2302,13 +2430,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2352,7 +2484,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2372,13 +2504,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2422,7 +2558,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2442,13 +2578,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2492,7 +2632,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2512,13 +2652,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2562,7 +2706,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2582,13 +2726,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2632,7 +2780,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2652,13 +2800,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2702,7 +2854,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2722,13 +2874,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2798,7 +2954,11 @@
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2842,7 +3002,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2862,13 +3022,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -2912,7 +3076,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -2932,13 +3096,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3008,7 +3176,11 @@
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3052,7 +3224,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3072,13 +3244,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3122,7 +3298,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3142,13 +3318,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3192,7 +3372,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3212,13 +3392,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3262,7 +3446,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3282,13 +3466,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3332,7 +3520,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3352,13 +3540,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3402,7 +3594,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3422,13 +3614,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3472,7 +3668,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3492,13 +3688,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3542,7 +3742,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3562,13 +3762,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3612,7 +3816,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3632,13 +3836,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3682,7 +3890,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3702,13 +3910,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3752,7 +3964,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3772,13 +3984,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3822,7 +4038,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 27,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3842,13 +4058,17 @@
           },
           {
             "label": "Time windows",
-            "value": "27 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3892,7 +4112,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3912,13 +4132,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -3962,7 +4186,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -3982,13 +4206,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4032,7 +4260,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4052,13 +4280,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4102,7 +4334,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4122,13 +4354,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4198,7 +4434,11 @@
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4242,7 +4482,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4262,13 +4502,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4312,7 +4556,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 27,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4332,13 +4576,17 @@
           },
           {
             "label": "Time windows",
-            "value": "27 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4382,7 +4630,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4402,13 +4650,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4452,7 +4704,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4472,13 +4724,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4522,7 +4778,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4542,13 +4798,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4592,7 +4852,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4612,13 +4872,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4662,7 +4926,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4682,13 +4946,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4732,7 +5000,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4752,13 +5020,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4802,7 +5074,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4822,13 +5094,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4872,7 +5148,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 29,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4892,13 +5168,17 @@
           },
           {
             "label": "Time windows",
-            "value": "29 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -4942,7 +5222,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -4962,13 +5242,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5036,9 +5320,13 @@
           },
           {
             "label": "Window span",
-            "value": "100-350BP to 5700-6200BP"
+            "value": "100-350 BP to 5700-6200 BP"
           }
-        ]
+        ],
+        "time_start_bp": 100,
+        "time_end_bp": 6200,
+        "time_mean_bp": 3150,
+        "time_label": "100-350 BP to 5700-6200 BP"
       }
     },
     {
@@ -5082,7 +5370,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5102,13 +5390,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5152,7 +5444,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5172,13 +5464,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5246,9 +5542,13 @@
           },
           {
             "label": "Window span",
-            "value": "0-100BP to 5700-6200BP"
+            "value": "0-100 BP to 5700-6200 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 6200,
+        "time_mean_bp": 3100,
+        "time_label": "0-100 BP to 5700-6200 BP"
       }
     },
     {
@@ -5292,7 +5592,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5312,13 +5612,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5362,7 +5666,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5382,13 +5686,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5432,7 +5740,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5452,13 +5760,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5502,7 +5814,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5522,13 +5834,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5572,7 +5888,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 26,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5592,13 +5908,17 @@
           },
           {
             "label": "Time windows",
-            "value": "26 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5642,7 +5962,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5662,13 +5982,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5712,7 +6036,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5732,13 +6056,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5782,7 +6110,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5802,13 +6130,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5852,7 +6184,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 28,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5872,13 +6204,17 @@
           },
           {
             "label": "Time windows",
-            "value": "28 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5922,7 +6258,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -5942,13 +6278,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -5992,7 +6332,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -6012,13 +6352,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -6062,7 +6406,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -6082,13 +6426,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     },
     {
@@ -6132,7 +6480,7 @@
         "subtitle": "1° REVEALS grid-cell coverage from LandClim PANGAEA datasets",
         "description": "Grid cells summarize published REVEALS vegetation and land-cover coverage from LandClim PANGAEA datasets.",
         "source_url": "https://doi.org/10.1594/PANGAEA.897303",
-        "record_count": 30,
+        "record_count": 25,
         "popup_rows": [
           {
             "label": "Datasets",
@@ -6152,13 +6500,17 @@
           },
           {
             "label": "Time windows",
-            "value": "30 windows"
+            "value": "25 windows"
           },
           {
             "label": "Window span",
             "value": "0-100 BP to 11200-11700 BP"
           }
-        ]
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 11700,
+        "time_mean_bp": 5850,
+        "time_label": "0-100 BP to 11200-11700 BP"
       }
     }
   ]

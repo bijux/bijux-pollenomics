@@ -23,6 +23,10 @@
         "description": "Lake. Physiography: bedrock basin. Surrounding vegetation: Pinus sylvestris, Picea abies, Betula sp.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13338",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9815,
+        "time_mean_bp": 4908,
+        "time_label": "0-9815 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -105,6 +109,10 @@
         "description": "Small lake with marginal fen. Physiography: in hummocky morraine with exposed bedroc. Surrounding vegetation: mainly spruce with pine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2961",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -183,6 +191,10 @@
         "description": "Lake. Physiography: Mountain. Surrounding vegetation: Bogs and herbs. Vegetation formation: North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26128",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 13398,
+        "time_mean_bp": 6699,
+        "time_label": "0-13398 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -269,6 +281,10 @@
         "description": "Forested Sphagnum bog. Physiography: till. Surrounding vegetation: pasture and arable land.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/12",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11004,
+        "time_mean_bp": 5502,
+        "time_label": "0-11004 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -355,6 +371,10 @@
         "description": "Lake with mesic forest. Physiography: hilly morainic country. Surrounding vegetation: mesic spruce forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2966",
         "record_count": 1,
+        "time_start_bp": 840,
+        "time_end_bp": 13135,
+        "time_mean_bp": 6988,
+        "time_label": "840-13135 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -441,6 +461,10 @@
         "description": "Lake. Physiography: Hill of sandy/gravelly outwash. Surrounding vegetation: Thin pine forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/20",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11118,
+        "time_mean_bp": 5559,
+        "time_label": "0-11118 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -527,6 +551,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: Shrubs, herbs. Vegetation formation: North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26119",
         "record_count": 1,
+        "time_start_bp": 9,
+        "time_end_bp": 8834,
+        "time_mean_bp": 4422,
+        "time_label": "9-8834 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -613,6 +641,10 @@
         "description": "Very small bog. Physiography: on a bedrock ridge \"Horst\". Surrounding vegetation: mixed forest with spruce and birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2987",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -691,6 +723,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: Forest, shrubs, herbs. Vegetation formation: North-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26170",
         "record_count": 2,
+        "time_start_bp": 19,
+        "time_end_bp": 12458,
+        "time_mean_bp": 6238,
+        "time_label": "19-12458 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -773,6 +809,10 @@
         "description": "Lake. Physiography: Peninsula. Surrounding vegetation: Shrubs and dwarf shrubs. Vegetation formation: Between northern boreal and low-alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13389",
         "record_count": 1,
+        "time_start_bp": 79,
+        "time_end_bp": 9592,
+        "time_mean_bp": 4836,
+        "time_label": "79-9592 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -855,6 +895,10 @@
         "description": "Large lake-considerable input from north. Physiography: hummocky morraine and exposed bedrock. Surrounding vegetation: mainly spruce and pine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3009",
         "record_count": 1,
+        "time_start_bp": 8464,
+        "time_end_bp": 22911,
+        "time_mean_bp": 15688,
+        "time_label": "8464-22911 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -941,6 +985,10 @@
         "description": "A small lake. Physiography: On top of a mountain. Surrounding vegetation: Coniferous forest - pine/spruce/birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14054",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1019,6 +1067,10 @@
         "description": "Large peatbog. Physiography: hilly area in upland. Surrounding vegetation: Picea and Pinus forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28811",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2226,
+        "time_mean_bp": 1113,
+        "time_label": "0-2226 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1101,6 +1153,10 @@
         "description": "Small circular lake. Physiography: low hills. Surrounding vegetation: cultivated fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28871",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2803,
+        "time_mean_bp": 1402,
+        "time_label": "0-2803 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1187,6 +1243,10 @@
         "description": "A small lake. Physiography: on a plateau mountain. Surrounding vegetation: coniferous forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3018",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1265,6 +1325,10 @@
         "description": "Overgrown ancient lake, pasture land. Physiography: hummocky dead-ice tills. Surrounding vegetation: Fagus forests, pasture land.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3017",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 8814,
+        "time_mean_bp": 4407,
+        "time_label": "0-8814 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1351,6 +1415,10 @@
         "description": "Open fen dammed and flooded in 1970's to create a bird pond. \r\nPhysiography: Exposed hillslope of Björkeröd plateau. Surrounding vegetation: Alder fen, beech wood, pasture, arable.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3019",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1429,6 +1497,10 @@
         "description": "Bog pool, lake previously much bigger. Physiography: in a small valley surrounded by slopes. Surrounding vegetation: forests with pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3020",
         "record_count": 1,
+        "time_start_bp": 9386,
+        "time_end_bp": 15480,
+        "time_mean_bp": 12433,
+        "time_label": "9386-15480 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1515,6 +1587,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: Above Betula pub. forest limit. Vegetation formation: Low Alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26169",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11515,
+        "time_mean_bp": 5758,
+        "time_label": "0-11515 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1601,6 +1677,10 @@
         "description": "Bog. Physiography: bedrock depression. Surrounding vegetation: heath.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3025",
         "record_count": 1,
+        "time_start_bp": 810,
+        "time_end_bp": 14948,
+        "time_mean_bp": 7879,
+        "time_label": "810-14948 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1687,6 +1767,10 @@
         "description": "Lake with surrounding fen. Physiography: underlying bedrock (Amphibole/Gneiss). Surrounding vegetation: mixed pine/spruce forest/ombrogenic mire.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3022",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10793,
+        "time_mean_bp": 5396,
+        "time_label": "0-10793 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1773,6 +1857,10 @@
         "description": "Bog. Physiography: hollow in hilly landscape. Surrounding vegetation: Fagus and Picea forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28892",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2514,
+        "time_mean_bp": 1257,
+        "time_label": "0-2514 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1859,6 +1947,10 @@
         "description": "Small circular lake. Physiography: glacial origin. Surrounding vegetation: dwarf-shrub vegetation dominated by Calluna vulgaris, Empetrum nigrum, and Betula nana, with some stunted B. pubescens ssp. tortuosa.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/33300",
         "record_count": 1,
+        "time_start_bp": 7210,
+        "time_end_bp": 15418,
+        "time_mean_bp": 11314,
+        "time_label": "7210-15418 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -1941,6 +2033,10 @@
         "description": "Bedrock basin. Physiography: Montain. Surrounding vegetation: Salix and Betula shrubs, open grassland. Vegetation formation: Low alpine vegetation.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13391",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "12278 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2027,6 +2123,10 @@
         "description": "Lake. Physiography: Bedrock hills mantled by gl. drift (till. Surrounding vegetation: Thin mountain birch scrub.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/310",
         "record_count": 1,
+        "time_start_bp": 315,
+        "time_end_bp": 14441,
+        "time_mean_bp": 7378,
+        "time_label": "315-14441 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2113,6 +2213,10 @@
         "description": "Small eutrophic to hypertrophic lake. Physiography: steep hummocky topography depression. Surrounding vegetation: cultivated fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28869",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9262,
+        "time_mean_bp": 4631,
+        "time_label": "0-9262 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2195,6 +2299,10 @@
         "description": "Lake. Physiography: hydrological catchment. Surrounding vegetation: Forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28872",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5605,
+        "time_mean_bp": 2802,
+        "time_label": "0-5605 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2277,6 +2385,10 @@
         "description": "Raised Pinus-Sedum-Sphagnum bog. Physiography: tills and glaciofluvial depressions. Surrounding vegetation: Pinus-Betula (Picea) belt.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3077",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 8922,
+        "time_mean_bp": 4461,
+        "time_label": "0-8922 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2363,6 +2475,10 @@
         "description": "Lake. Physiography: Setesdal valley. Surrounding vegetation: Forest. Vegetation formation: Nemoral.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26219",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 20995,
+        "time_mean_bp": 10498,
+        "time_label": "0-20995 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2449,6 +2565,10 @@
         "description": "Lake. Physiography: Depression in the valley. Surrounding vegetation: Betula forest. Vegetation formation: Boreal forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13388",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "10541 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2535,6 +2655,10 @@
         "description": "A medium sized lake. Physiography: in a valley landscape. Surrounding vegetation: mainly spruce and birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3081",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2613,6 +2737,10 @@
         "description": "Ravine. Physiography: Valley. Surrounding vegetation: forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28409",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2691,6 +2819,10 @@
         "description": "Small lake, the highest on plateau. Physiography: Top of plateau with exposed rock. Surrounding vegetation: Coniferous forest of pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14458",
         "record_count": 1,
+        "time_start_bp": 10053,
+        "time_end_bp": 13646,
+        "time_mean_bp": 11850,
+        "time_label": "10053-13646 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2777,6 +2909,10 @@
         "description": "The lake occupies a shallow oblong basin, measuring about 150 m by 600 m, between gently sloping hills covered by drift. There are no apparent influents and only a small stream as an outflow. The dominant vegetation on the surrounding slopes is a dwarf-shrub tundra with Betula nana, Empetrum, Salix, Arctostaphylos alpinum, and Rubus chamaemorus as prominent elements. Cottongrass-sedge communities are abundant in wetter depressions.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/700",
         "record_count": 1,
+        "time_start_bp": 161,
+        "time_end_bp": 11704,
+        "time_mean_bp": 5932,
+        "time_label": "161-11704 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2863,6 +2999,10 @@
         "description": "Partly disturbed bog. Surrounding vegetation: Open.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13381",
         "record_count": 1,
+        "time_start_bp": 41,
+        "time_end_bp": 8367,
+        "time_mean_bp": 4204,
+        "time_label": "41-8367 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -2945,6 +3085,10 @@
         "description": "Bog. Physiography: fluvial system. Surrounding vegetation: agriculture and industry.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28455",
         "record_count": 1,
+        "time_start_bp": 9577,
+        "time_end_bp": 14440,
+        "time_mean_bp": 12008,
+        "time_label": "9577-14440 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3027,6 +3171,10 @@
         "description": "Bog. Physiography: depression. Surrounding vegetation: forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28868",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 7058,
+        "time_mean_bp": 3529,
+        "time_label": "0-7058 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3109,6 +3257,10 @@
         "description": "A lake. Physiography: an upland plateau with low relief. Surrounding vegetation: surrounded by mire, pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3104",
         "record_count": 1,
+        "time_start_bp": 8775,
+        "time_end_bp": 14893,
+        "time_mean_bp": 11834,
+        "time_label": "9780-14893 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3195,6 +3347,10 @@
         "description": "Surrounding vegetation: adjacent uppermost tree limit, Betula.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3105",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5845,
+        "time_mean_bp": 2922,
+        "time_label": "0-5845 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3281,6 +3437,10 @@
         "description": "Limnogenic bog. Physiography: Underlying bedrock (Phyllite +  Quartz). Surrounding vegetation: Subalpine birch forest rich in grasses.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3106",
         "record_count": 1,
+        "time_start_bp": 717,
+        "time_end_bp": 11141,
+        "time_mean_bp": 5929,
+        "time_label": "751-11141 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3367,6 +3527,10 @@
         "description": "Small bog. Physiography: bassin. Surrounding vegetation: Alder forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28867",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5611,
+        "time_mean_bp": 2806,
+        "time_label": "0-5611 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3453,6 +3617,10 @@
         "description": "Small lake. Physiography: Basin in peatland area. Surrounding vegetation: peatland, forest and farmland.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28889",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12010,
+        "time_mean_bp": 6005,
+        "time_label": "0-12010 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3535,6 +3703,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Shrubs. Vegetation formation: Northern-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26214",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10468,
+        "time_mean_bp": 5234,
+        "time_label": "0-10468 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3621,6 +3793,10 @@
         "description": "Slightly sloping and lime-rich fen. Physiography: micaschist bedrock. Surrounding vegetation: lime-rich fens and ridges, birch forests.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3115",
         "record_count": 1,
+        "time_start_bp": 685,
+        "time_end_bp": 13830,
+        "time_mean_bp": 7258,
+        "time_label": "1579-13830 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3707,6 +3883,10 @@
         "description": "Lake with rocky or sandy shore. Physiography: rocky hills and some moraine area. Surrounding vegetation: Quercus, Pinus, Fagus, Alnus-Rhamnus fen.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3102",
         "record_count": 1,
+        "time_start_bp": 66,
+        "time_end_bp": 12730,
+        "time_mean_bp": 6398,
+        "time_label": "66-12730 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3793,6 +3973,10 @@
         "description": "Bog. Physiography: basin. Surrounding vegetation: cultivated fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28870",
         "record_count": 1,
+        "time_start_bp": 328,
+        "time_end_bp": 8491,
+        "time_mean_bp": 4410,
+        "time_label": "328-8491 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3875,6 +4059,10 @@
         "description": "A smallish lake. Physiography: in a hilly area of rock exposures + till. Surrounding vegetation: mainly spruce and pine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3120",
         "record_count": 1,
+        "time_start_bp": 9909,
+        "time_end_bp": 13952,
+        "time_mean_bp": 11930,
+        "time_label": "9909-13952 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -3961,6 +4149,10 @@
         "description": "Lake. Physiography: Valley in fjord area. Surrounding vegetation: Shrubs and trees. Vegetation formation: Middle/North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26168",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10328,
+        "time_mean_bp": 5164,
+        "time_label": "0-10328 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4047,6 +4239,10 @@
         "description": "Lake. Physiography: moraine. Surrounding vegetation: Ulmus, Acer, Fraxinus, Picea, Pinus.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28866",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11100,
+        "time_mean_bp": 5550,
+        "time_label": "0-11100 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4129,6 +4325,10 @@
         "description": "Shallow lake on the island of Frøya. Overgrown by aquatics. Physiography: Shellsand on gneisses. Surrounding vegetation: Heather, fens and bogs.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/947",
         "record_count": 1,
+        "time_start_bp": 129,
+        "time_end_bp": 12861,
+        "time_mean_bp": 6495,
+        "time_label": "871-12861 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4215,6 +4415,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Boreo-nemoral.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26220",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 17946,
+        "time_mean_bp": 8973,
+        "time_label": "0-17946 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4301,6 +4505,10 @@
         "description": "Bog. Physiography: hummocky landscape. Surrounding vegetation: Picea, Fagus forest, agriculture land.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28812",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 3157,
+        "time_mean_bp": 1578,
+        "time_label": "0-3157 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4383,6 +4591,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Southern-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26217",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 13301,
+        "time_mean_bp": 6650,
+        "time_label": "0-13301 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4469,6 +4681,10 @@
         "description": "Lake with a marginal fen. Physiography: in a valley with rock exposures and till. Surrounding vegetation: mixed forest of spruce, pine and birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3141",
         "record_count": 1,
+        "time_start_bp": 9106,
+        "time_end_bp": 12231,
+        "time_mean_bp": 10668,
+        "time_label": "9106-12231 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4551,6 +4767,10 @@
         "description": "Cromer interglacial locality (Harreskov type) from middle Pleistocene. Sediments are made of calcareous gyttja overlain by diatomaceous gyttja.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/27349",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4629,6 +4849,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: South-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26210",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10911,
+        "time_mean_bp": 5456,
+        "time_label": "0-10911 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4715,6 +4939,10 @@
         "description": "Bog in slope. Physiography: glacial origine. Surrounding vegetation: forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28459",
         "record_count": 1,
+        "time_start_bp": 6361,
+        "time_end_bp": 10439,
+        "time_mean_bp": 8400,
+        "time_label": "6361-10439 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4797,6 +5025,10 @@
         "description": "Lake with marginal fen. Physiography: moraine. Surrounding vegetation: Picea forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3145",
         "record_count": 1,
+        "time_start_bp": 459,
+        "time_end_bp": 12964,
+        "time_mean_bp": 6712,
+        "time_label": "459-12964 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4883,6 +5115,10 @@
         "description": "Lake. Physiography: Hills and mountain. Surrounding vegetation: Shrubs and herbs. Vegetation formation: Low-alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26216",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11115,
+        "time_mean_bp": 5558,
+        "time_label": "0-11115 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -4969,6 +5205,10 @@
         "description": "Paleolake of Eemian age. Situated on the northern edge of the Gudenå valley 14 km southeast of Randers, between Langå and Ulstrup, in the eastern part of central Jylland.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/23293",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5047,6 +5287,10 @@
         "description": "Kettle lake. Physiography: Depression. Surrounding vegetation: Pinus sylvestris, Picea abies, Betula sp., Alnus incana, and Populus tremula. Vegetation formation: Southern boreal Forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14040",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11942,
+        "time_mean_bp": 5971,
+        "time_label": "0-11942 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5129,6 +5373,10 @@
         "description": "Small lake, probably in a kettle hole. Physiography: in hummocky morraine. Surrounding vegetation: mainly spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3140",
         "record_count": 1,
+        "time_start_bp": 10780,
+        "time_end_bp": 16858,
+        "time_mean_bp": 13819,
+        "time_label": "11877-16858 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5215,6 +5463,10 @@
         "description": "Water filled remnant of peat cutting. Physiography: in a narrow valley with steep sides. Surrounding vegetation: mixed beech-oak forest with pine+spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3138",
         "record_count": 1,
+        "time_start_bp": 9129,
+        "time_end_bp": 13337,
+        "time_mean_bp": 11233,
+        "time_label": "9129-13337 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5297,6 +5549,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Shrubs and herbs. Vegetation formation: North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26221",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10530,
+        "time_mean_bp": 5265,
+        "time_label": "0-10530 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5383,6 +5639,10 @@
         "description": "Young mire, former lake. Physiography: Sphagnum peat bog. Surrounding vegetation: Betula/Pinus (50/50%), Menyanthes.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3165",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 4667,
+        "time_mean_bp": 2334,
+        "time_label": "0-4667 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5469,6 +5729,10 @@
         "description": "A small lake with marginal fen. Physiography: mire pool enclosed by forest. Surrounding vegetation: forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3177",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11127,
+        "time_mean_bp": 5564,
+        "time_label": "0-11127 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5555,6 +5819,10 @@
         "description": "Fen surrounding a lake. Physiography: Sphagnum peat bog. Surrounding vegetation: Pinus forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3178",
         "record_count": 1,
+        "time_start_bp": 105,
+        "time_end_bp": 5344,
+        "time_mean_bp": 2724,
+        "time_label": "105-5344 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5641,6 +5909,10 @@
         "description": "Small lake - kettle hole. Physiography: in hummocky morraine. Surrounding vegetation: mainly spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3179",
         "record_count": 1,
+        "time_start_bp": 9591,
+        "time_end_bp": 14456,
+        "time_mean_bp": 12024,
+        "time_label": "10488-14456 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5727,6 +5999,10 @@
         "description": "Edge of a mire area between lakes. Physiography: undulating till. Surrounding vegetation: pine forest with spruce, some fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3180",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9887,
+        "time_mean_bp": 4944,
+        "time_label": "0-9887 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5813,6 +6089,10 @@
         "description": "Lake. Physiography: Rolling till surface. Surrounding vegetation: Pinus, Betula.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/1401",
         "record_count": 1,
+        "time_start_bp": 18,
+        "time_end_bp": 16752,
+        "time_mean_bp": 8385,
+        "time_label": "18-16752 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5899,6 +6179,10 @@
         "description": "Kassjon, a small boreal-forest lake in northem Sweden is dimictic with seasonal anoxia as a result has varved sediments covering the last 6300 years. Catchment surroundingthe lake is dominated by boreal forest, but 25% of thearea is covered by arable land",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3185",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 6434,
+        "time_mean_bp": 3217,
+        "time_label": "0-6434 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -5985,6 +6269,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Mid-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26211",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 14980,
+        "time_mean_bp": 7490,
+        "time_label": "0-14980 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6071,6 +6359,10 @@
         "description": "Young mire connecting island to mainland. Physiography: Sphagnum peat. Surrounding vegetation: deciduous forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3195",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 6118,
+        "time_mean_bp": 3059,
+        "time_label": "0-6118 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6157,6 +6449,10 @@
         "description": "Ditched wooded mire. Physiography: sand dunes. Surrounding vegetation: pine forest with birch and willow.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3196",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 1459,
+        "time_mean_bp": 730,
+        "time_label": "0-1459 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6243,6 +6539,10 @@
         "description": "",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13336",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10072,
+        "time_mean_bp": 5036,
+        "time_label": "0-10072 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6321,6 +6621,10 @@
         "description": "Lake. Physiography: hummocky dead-ice fills. Surrounding vegetation: 80% arable land, 20% Fagus forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3204",
         "record_count": 2,
+        "time_start_bp": 0,
+        "time_end_bp": 12209,
+        "time_mean_bp": 6104,
+        "time_label": "0-12209 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6407,6 +6711,10 @@
         "description": "Medium to large sized lake. Physiography: steeply sided hollow in bedrock. Surrounding vegetation: mainly spruce with birch and pine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3206",
         "record_count": 1,
+        "time_start_bp": 10273,
+        "time_end_bp": 13434,
+        "time_mean_bp": 11854,
+        "time_label": "10273-13434 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6489,6 +6797,10 @@
         "description": "Lake. Physiography: riverside lagoon. Surrounding vegetation: Pine forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28865",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 3601,
+        "time_mean_bp": 1800,
+        "time_label": "0-3601 Varve years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6571,6 +6883,10 @@
         "description": "Lake with marginal fen. Surrounding vegetation: mixed alder/birch/pine/spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3207",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6649,6 +6965,10 @@
         "description": "Lake surrounded by forest and minor field. Physiography: Till/sand. Surrounding vegetation: Betula, Picea, Pinus forest and fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3210",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10426,
+        "time_mean_bp": 5213,
+        "time_label": "0-10426 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6735,6 +7055,10 @@
         "description": "Bog. Physiography: depression in small plateau. Surrounding vegetation: Vaccinium, Rubus, Betula, Fagus, Quercus.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28861",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5460,
+        "time_mean_bp": 2730,
+        "time_label": "0-5460 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6817,6 +7141,10 @@
         "description": "Small shallow lake.\r\nPhysiography: basin.\r\nSurrounding vegetation: Pinus sylvestris &amp; Picea abies.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28072",
         "record_count": 1,
+        "time_start_bp": 113,
+        "time_end_bp": 8985,
+        "time_mean_bp": 4549,
+        "time_label": "11000 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6903,6 +7231,10 @@
         "description": "Small lake. Physiography: basin in Småland Uplands. Surrounding vegetation: Spruce and pine forest, pastures.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28887",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 7312,
+        "time_mean_bp": 3656,
+        "time_label": "0-7312 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -6985,6 +7317,10 @@
         "description": "Small lake. Physiography: depression in valley. Surrounding vegetation: fen and birch forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28144",
         "record_count": 1,
+        "time_start_bp": 14,
+        "time_end_bp": 10259,
+        "time_mean_bp": 5136,
+        "time_label": "14-10259 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7067,6 +7403,10 @@
         "description": "Lake Flarken is a shallow (0.9 m), partly over-grown polyhumic lake with a slightly elongated shape (ca. 300 by 600 m) surrounded by southern-Boreal vegetation",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3107",
         "record_count": 1,
+        "time_start_bp": 32,
+        "time_end_bp": 12471,
+        "time_mean_bp": 6252,
+        "time_label": "113-12471 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7153,6 +7493,10 @@
         "description": "Lake. Physiography: Plateau. Surrounding vegetation: Birch forest. Vegetation formation: Alpine zone.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13383",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 16000,
+        "time_mean_bp": 8000,
+        "time_label": "0-16000 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7239,6 +7583,10 @@
         "description": "Lake. Physiography: depression. Surrounding vegetation: dwarf-shrub tundra.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28431",
         "record_count": 1,
+        "time_start_bp": 149,
+        "time_end_bp": 14500,
+        "time_mean_bp": 7324,
+        "time_label": "149-14500 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7321,6 +7669,10 @@
         "description": "Lake. Physiography: Smooth topography. Surrounding vegetation: Treeless tundra.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13387",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10554,
+        "time_mean_bp": 5277,
+        "time_label": "0-10554 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7403,6 +7755,10 @@
         "description": "Physiography: Bowl-shaped basin. Surrounding vegetation: Treeless, alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13384",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12826,
+        "time_mean_bp": 6413,
+        "time_label": "0-12826 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7489,6 +7845,10 @@
         "description": "Round, big lake. Physiography: northern edge of a glacial-fluvial area. Surrounding vegetation: pine forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
         "record_count": 1,
+        "time_start_bp": 8516,
+        "time_end_bp": 17322,
+        "time_mean_bp": 12919,
+        "time_label": "9526-17322 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7575,6 +7935,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: dwarf-shrub tundra.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28411",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7653,6 +8017,10 @@
         "description": "Medium size lake. Physiography: Rolling rockland. Surrounding vegetation: Sparse mountain birch forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/24041",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10977,
+        "time_mean_bp": 5488,
+        "time_label": "0-10977 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7739,6 +8107,10 @@
         "description": "Lake. Physiography: proximal side of the Ra-moraine. Surrounding vegetation: Picea, Pinus, Betula, Populus.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28157",
         "record_count": 1,
+        "time_start_bp": 36,
+        "time_end_bp": 10509,
+        "time_mean_bp": 5272,
+        "time_label": "36-10509 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7825,6 +8197,10 @@
         "description": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3432",
         "record_count": 2,
+        "time_start_bp": 0,
+        "time_end_bp": 13410,
+        "time_mean_bp": 6705,
+        "time_label": "0-13410 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7911,6 +8287,10 @@
         "description": "Lake. Physiography: Mountain. Surrounding vegetation: dwarf-shrubs, willows, grasses, sedges.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28855",
         "record_count": 2,
+        "time_start_bp": 0,
+        "time_end_bp": 10502,
+        "time_mean_bp": 5251,
+        "time_label": "0-10502 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -7993,6 +8373,10 @@
         "description": "Lake. Physiography: depression in Mt Finnshø. Surrounding vegetation: lichen dominated dwarf-shrub tundra.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28440",
         "record_count": 1,
+        "time_start_bp": 1054,
+        "time_end_bp": 12933,
+        "time_mean_bp": 6994,
+        "time_label": "1054-12933 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8075,6 +8459,10 @@
         "description": "Lake. Physiography: basin in metamorphic/igneous bedrock. Surrounding vegetation: conifer forests, mires and fens.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28856",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10013,
+        "time_mean_bp": 5006,
+        "time_label": "0-10013 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8157,6 +8545,10 @@
         "description": "Lake. Physiography: Lake. Surrounding vegetation: 10-15 m broad and continuous Alnus belt.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3398",
         "record_count": 1,
+        "time_start_bp": 813,
+        "time_end_bp": 11498,
+        "time_mean_bp": 6156,
+        "time_label": "813-11498 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8243,6 +8635,10 @@
         "description": "Medium sized lake. Physiography: hummocky moraine landscape. Surrounding vegetation: Mixed forest with spruce, pine, birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/22656",
         "record_count": 1,
+        "time_start_bp": 10417,
+        "time_end_bp": 12476,
+        "time_mean_bp": 11446,
+        "time_label": "10417-12476 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8325,6 +8721,10 @@
         "description": "Lake. Physiography: depression in Kårsa valley. Surrounding vegetation: heath vegetation with birch forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28860",
         "record_count": 1,
+        "time_start_bp": 34,
+        "time_end_bp": 10606,
+        "time_mean_bp": 5320,
+        "time_label": "34-10606 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8407,6 +8807,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: dwarf-shrub tundra.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28412",
         "record_count": 1,
+        "time_start_bp": 6000,
+        "time_end_bp": 15401,
+        "time_mean_bp": 10700,
+        "time_label": "6000-15401 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8489,6 +8893,10 @@
         "description": "",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3477",
         "record_count": 1,
+        "time_start_bp": 920,
+        "time_end_bp": 12942,
+        "time_mean_bp": 6931,
+        "time_label": "1150-10208 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8571,6 +8979,10 @@
         "description": "Lake. Physiography: Rolling bedrock dominated landscape. Surrounding vegetation: Mountain birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/15733",
         "record_count": 1,
+        "time_start_bp": 16,
+        "time_end_bp": 10424,
+        "time_mean_bp": 5220,
+        "time_label": "16-10424 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8657,6 +9069,10 @@
         "description": "Lake. Physiography: depression in Abisko valley. Surrounding vegetation: Betula forest, isolated Pinus sylvestris.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28859",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "9060 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8739,6 +9155,10 @@
         "description": "Lake. Physiography: rolling hilly area. Surrounding vegetation: mixed woodlands and small-scale agriculture.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/30418",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 1471,
+        "time_mean_bp": 736,
+        "time_label": "0-1471 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8821,6 +9241,10 @@
         "description": "Forested peat bog. Physiography: Sphagnum peat bog. Surrounding vegetation: Pinus, Calluna, Empetrum, Vaccinium sp.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3221",
         "record_count": 1,
+        "time_start_bp": 15,
+        "time_end_bp": 4429,
+        "time_mean_bp": 2222,
+        "time_label": "15-4429 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8907,6 +9331,10 @@
         "description": "Small lake. Physiography: depression. Surrounding vegetation: pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28077",
         "record_count": 1,
+        "time_start_bp": 28,
+        "time_end_bp": 5344,
+        "time_mean_bp": 2686,
+        "time_label": "28-5344 Varve years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -8989,6 +9417,10 @@
         "description": "Raised bog and fen on glaciofluvial sands. Much of it already cut for peat in 1916.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/25958",
         "record_count": 2,
+        "time_start_bp": 81,
+        "time_end_bp": 10345,
+        "time_mean_bp": 5213,
+        "time_label": "81-10345 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9071,6 +9503,10 @@
         "description": "Bog. Physiography: depression in flat area. Surrounding vegetation: birch-forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28451",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "11795 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9153,6 +9589,10 @@
         "description": "Bog in Karmoy island. Physiography: basin in undulating area. Surrounding vegetation: Calluna, Erica, Polytricium, Eriophorum.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28452",
         "record_count": 1,
+        "time_start_bp": 9500,
+        "time_end_bp": 14351,
+        "time_mean_bp": 11926,
+        "time_label": "9500-14351 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9235,6 +9675,10 @@
         "description": "Lake with rocky shore. Physiography: Rolling till covered bedrock topography. Surrounding vegetation: Mixed Picea-Betula-Pinus forest.\r\nCatchment covers about 650 ha.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3234",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11510,
+        "time_mean_bp": 5755,
+        "time_label": "0-11510 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9321,6 +9765,10 @@
         "description": "Fairly small lake. Physiography: undulating landscape. Surrounding vegetation: mixed forest of spruce, birch, oak.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3237",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9399,6 +9847,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Herbs. Vegetation formation: Sub-alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26215",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 8802,
+        "time_mean_bp": 4401,
+        "time_label": "0-8802 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9485,6 +9937,10 @@
         "description": "Small lake in the hemiboreal vegetation zone dominated by coniferous forest with wide- spread occurrence of deciduous trees, mainly Quercus, Betula, and Populus. It is today a mosaic rural landscape with woodland and agricultural land in varying proportions.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/31818",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 3129,
+        "time_mean_bp": 1564,
+        "time_label": "0-3129 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9567,6 +10023,10 @@
         "description": "Small lake just above the marine limit. Physiography: in a bedrock till area, hummocky. Surrounding vegetation: mixed forest with a dominance of spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3238",
         "record_count": 1,
+        "time_start_bp": 9755,
+        "time_end_bp": 15307,
+        "time_mean_bp": 12531,
+        "time_label": "10365-15307 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9653,6 +10113,10 @@
         "description": "Lina myr (57° 34′ 31.764″ N, 18° 37′ 59.124″ E), situated 6.3 km southwest of Åminne and 21 km east of Visby, is a 9-km2 area of\r\ncultivated, drained fenland. The area stretches for 6 km from southwest to northeast and 2 km in an east to west direction. Lina myr drains in a northeast direction toward the east coast of\r\nGotland via the Gothem River. The Gothem River was straightened during the draining of the fen in the 1940s. Today, the elevation\r\nof the Lina myr fen is about 9 m a.s.l. The original basin threshold is estimated to be 9.5–9.9 m a.s.l., based on a cross-section established from modern digital evaluation models (Barliaev, 2017). To the west of the fen the surface geology consists of marl and\r\nfurther to the west of glacial till (Figure 1c). To the east, limestone bedrock is exposed. The island of Gotland consists of Silurian\r\nlimestone (Hede, 1925). The bedrock of Lina myr is classified as the Halla Formation (Laufeld, 1974).",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/29383",
         "record_count": 1,
+        "time_start_bp": 2117,
+        "time_end_bp": 10416,
+        "time_mean_bp": 6266,
+        "time_label": "2117-10416 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9735,6 +10199,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Middle-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26213",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10413,
+        "time_mean_bp": 5206,
+        "time_label": "0-10413 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9821,6 +10289,10 @@
         "description": "Glacial origin lake on Magerøya Island. The local bedrock is principally metamorphosed Late Proterozoic to Cambrian age sandstones, with quartzite, amphibolite and conglomerate layers. Site is located in tundra, a major component of which are dwarf-shrub communities dominated by Empetrum nigrum ssp. hermaphroditum, with Vaccinium vitis-idaea, V. uliginosum, V. myrtillus, and Betula nana as frequent and locally co-dominant components.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13476",
         "record_count": 1,
+        "time_start_bp": 69,
+        "time_end_bp": 13908,
+        "time_mean_bp": 6988,
+        "time_label": "69-13908 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9903,6 +10375,10 @@
         "description": "Lake. Physiography: Fjord area. Surrounding vegetation: Trees and shrubs. Vegetation formation: North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26167",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12528,
+        "time_mean_bp": 6264,
+        "time_label": "0-12528 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -9989,6 +10465,10 @@
         "description": "Bog pool. Physiography: upland plateau with low relief. Surrounding vegetation: mire, pine and spruce forests.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3240",
         "record_count": 1,
+        "time_start_bp": 11126,
+        "time_end_bp": 15342,
+        "time_mean_bp": 13234,
+        "time_label": "12630-15342 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10075,6 +10555,10 @@
         "description": "Small kettle lake. Physiography: basin. Surrounding vegetation: peatlands.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28853",
         "record_count": 1,
+        "time_start_bp": 194,
+        "time_end_bp": 10734,
+        "time_mean_bp": 5464,
+        "time_label": "377-10734 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10161,6 +10645,10 @@
         "description": "Rock-bed surrounded by hummocky morraine. Physiography: In a steep-sided rock basin. Surrounding vegetation: Mainly spruce, birch and alder.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/22660",
         "record_count": 1,
+        "time_start_bp": 9578,
+        "time_end_bp": 15262,
+        "time_mean_bp": 12420,
+        "time_label": "10719-15262 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10247,6 +10735,10 @@
         "description": "Small oval lake. Physiography: small cirque glacier that drained into Lusvatnet during the\r\nLateglacial. Surrounding vegetation: Open birch woodland dominated by Betula pubescens ssp. tortuosa and with a predominantly ericaceous or tall-fern-dominated understory clothes the steep lower slopes. Above the tree-line, the vegetation is composed of ericaceous dwarf-shrubs and grasses on sheltered slopes, open grass-heath on exposed ridges, and cliff vegetation around the head of the lake where several arctic-alpine and montane species occur.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/33301",
         "record_count": 1,
+        "time_start_bp": 7136,
+        "time_end_bp": 13705,
+        "time_mean_bp": 10420,
+        "time_label": "7136-13705 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10329,6 +10821,10 @@
         "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3288",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10407,6 +10903,10 @@
         "description": "Drained fen surrounding a lake. Physiography: rolling stagnation moraine. Surrounding vegetation: drained trichophorum caespitosum fen.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3264",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11564,
+        "time_mean_bp": 5782,
+        "time_label": "0-11564 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10493,6 +10993,10 @@
         "description": "Slightly raised Pinus-Ledum-Sphagnum bog. Physiography: Glaciofluvial deposits and tills. Surrounding vegetation: Pinus-Betula-Picea (Quercus).",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/15711",
         "record_count": 1,
+        "time_start_bp": 246,
+        "time_end_bp": 17309,
+        "time_mean_bp": 8778,
+        "time_label": "246-17309 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10579,6 +11083,10 @@
         "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3317",
         "record_count": 1,
+        "time_start_bp": 8396,
+        "time_end_bp": 14502,
+        "time_mean_bp": 11449,
+        "time_label": "8396-14502 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10665,6 +11173,10 @@
         "description": "Lake. Physiography: bedrock col mantled by till. Surrounding vegetation: dwarf shrub heath.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3277",
         "record_count": 1,
+        "time_start_bp": 1680,
+        "time_end_bp": 11020,
+        "time_mean_bp": 6350,
+        "time_label": "1680-11020 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10747,6 +11259,10 @@
         "description": "Bog. Physiography: central part of a braod terrace. Surrounding vegetation: forest, pastures, arable fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28891",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 7577,
+        "time_mean_bp": 3788,
+        "time_label": "0-7577 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10833,6 +11349,10 @@
         "description": "Lake with marginal willow-grey alder. Physiography: rolling stagnation moraine. Surrounding vegetation: spruce forest and drained mixed forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3279",
         "record_count": 1,
+        "time_start_bp": 60,
+        "time_end_bp": 8503,
+        "time_mean_bp": 4282,
+        "time_label": "60-8503 Radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10915,6 +11435,10 @@
         "description": "Medium sized lake. Physiography: in a valley surrounded by till, bedrock. Surrounding vegetation: mainly spruce with some birch and pine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3287",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -10993,6 +11517,10 @@
         "description": "Lake. Physiography: Plateau. Surrounding vegetation: Forest and bogs. Vegetation formation: Boreo-nemoral.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26123",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11765,
+        "time_mean_bp": 5882,
+        "time_label": "0-11765 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11079,6 +11607,10 @@
         "description": "Well developed raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus dominated peat vegetation.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3299",
         "record_count": 1,
+        "time_start_bp": 40,
+        "time_end_bp": 2477,
+        "time_mean_bp": 1258,
+        "time_label": "40-2477 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11165,6 +11697,10 @@
         "description": "Lake. Physiography: hummocky till / ice contact drift. Surrounding vegetation: mountain birch woodland.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3302",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12398,
+        "time_mean_bp": 6199,
+        "time_label": "0-12398 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11251,6 +11787,10 @@
         "description": "Glacial orgin lake. Surrounding vegetation: Trees and shrubs. Vegetation formation: North-Boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/25998",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 13364,
+        "time_mean_bp": 6682,
+        "time_label": "0-13364 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11337,6 +11877,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Mid-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26129",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 13549,
+        "time_mean_bp": 6774,
+        "time_label": "0-13549 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11423,6 +11967,10 @@
         "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3311",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11501,6 +12049,10 @@
         "description": "Small cirque lake, upland site. Physiography: ancient cirque basin, steep slopes. Surrounding vegetation: mainly beech, + alder swamp, + spruce pl.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11579,6 +12131,10 @@
         "description": "Glacial origin lake. Metamorphic rocks, mostly micaceous and garnetiferous schists and slates of Caledonian. age (ca 550–400Ma), predominate the catchment. Local vegetation is tundra, dwarf shrub communities dominated by Empetrum nigrum ssp. hermaphroditum, with Vaccinium spp. and Betula nana.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13478",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10201,
+        "time_mean_bp": 5100,
+        "time_label": "0-10201 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11661,6 +12217,10 @@
         "description": "Glacial origin lake lying within the Risvik sub-stage ice limit and just outside the Outer Porsanger moraine that runs along the ridge to the south of the lake. Site is located in tundra with are dwarf-shrub communities dominated by Empetrum nigrum ssp. hermaphroditum, with Vaccinium vitis-idaea, V. uliginosum, V. myrtillus, and Betula nana as frequent and locally co-dominant components. The local bedrock is mostly dark grey sandstone, alternating with layers of grey-black mudstone and shale, assigned to the Barents Sea group and marginal to the rocks of the Caledonian orogeny.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13481",
         "record_count": 1,
+        "time_start_bp": 42,
+        "time_end_bp": 13492,
+        "time_mean_bp": 6767,
+        "time_label": "42-13492 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11743,6 +12303,10 @@
         "description": "Small mire located close to the northern limit of pine forest in eastern Finnish Lapland. To the south, forest areas are dominated almost exclusively by Scots Pine (Pinus sylvestris) while, to the north, the regional vegetation type is mountain birch woodland (Betula pubescens ssp. czerepanovii).",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/30965",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 878,
+        "time_mean_bp": 439,
+        "time_label": "0-878 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11825,6 +12389,10 @@
         "description": "Lake with Phragmites. Physiography: rolling till-covered bedrock topography. Surrounding vegetation: Picea, Pinus, Fagus, Quercus.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
         "record_count": 1,
+        "time_start_bp": 18,
+        "time_end_bp": 11980,
+        "time_mean_bp": 5999,
+        "time_label": "18-11980 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11911,6 +12479,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest and bog. Vegetation formation: Boreo-nemoral.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26218",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11695,
+        "time_mean_bp": 5848,
+        "time_label": "0-11695 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -11997,6 +12569,10 @@
         "description": "Bog. Physiography: Roros mountains. Surrounding vegetation: grasses.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28457",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "8601 Calendar years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12079,6 +12655,10 @@
         "description": "Bog. Physiography: depression. Surrounding vegetation: cultivated fields, Alder forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28858",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5965,
+        "time_mean_bp": 2982,
+        "time_label": "0-5965 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12161,6 +12741,10 @@
         "description": "Shallow peat above the forest limit. Physiography: hill summit. Surrounding vegetation: Calluna, Empetrum, Vaccinium spp., Festuca.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3388",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 6090,
+        "time_mean_bp": 3045,
+        "time_label": "0-6090 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12247,6 +12831,10 @@
         "description": "Raised bog. Physiography: Sphagnum peat bog surrounded by fields. Surrounding vegetation: Pinus, dwarf shrubs.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3389",
         "record_count": 1,
+        "time_start_bp": 172,
+        "time_end_bp": 11001,
+        "time_mean_bp": 5586,
+        "time_label": "172-11001 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12333,6 +12921,10 @@
         "description": "The site is a small lake on a pine forest-clad bedrock hill in the valley of Skibottsdalen, about 5 km inland from Lyngenfjorden. It lies a couple of km inside the Skibotn end moraines and ice margin deltas, about 20 m above the marine limit.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3372",
         "record_count": 1,
+        "time_start_bp": 76,
+        "time_end_bp": 12335,
+        "time_mean_bp": 6206,
+        "time_label": "76-12335 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12419,6 +13011,10 @@
         "description": "Lake. Physiography: Valley. Surrounding vegetation: Herb.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26127",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11553,
+        "time_mean_bp": 5776,
+        "time_label": "0-11553 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12505,6 +13101,10 @@
         "description": "Raised bog. Currently being mined for peat.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/25895",
         "record_count": 2,
+        "time_start_bp": 357,
+        "time_end_bp": 6214,
+        "time_mean_bp": 3286,
+        "time_label": "357-6214 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12587,6 +13187,10 @@
         "description": "Lake with bog, fen and rocky shore. Physiography: Peatland and till. Surrounding vegetation: Pinus and other mire vegetation.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14455",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12665,6 +13269,10 @@
         "description": "Oligotrophic lake. Physiography: Mica schist/Phyllite bedrock. Surrounding vegetation: Heather.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13396",
         "record_count": 1,
+        "time_start_bp": 1561,
+        "time_end_bp": 10624,
+        "time_mean_bp": 6092,
+        "time_label": "1725-10624 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12751,6 +13359,10 @@
         "description": "Bog. Physiography: wet hollow in valley. Surrounding vegetation: Forest of Stensjönäs (Picea, Abies).",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28890",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2846,
+        "time_mean_bp": 1423,
+        "time_label": "0-2846 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12837,6 +13449,10 @@
         "description": "Small, deep lake, artificially lowered. Physiography: in an area of limestone. Surrounding vegetation: mixture of pine and arable agriculture.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -12915,6 +13531,10 @@
         "description": "Raised bog. Physiography: Pinus dominated raised bog. Surrounding vegetation: Pinus, Lednum palustre, Vaccinium uliginosum.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3412",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 5248,
+        "time_mean_bp": 2624,
+        "time_label": "0-5248 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13001,6 +13621,10 @@
         "description": "Small fen. Physiography: dune ridges. Surrounding vegetation: patch of birch within pine forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3414",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 781,
+        "time_mean_bp": 390,
+        "time_label": "0-781 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13087,6 +13711,10 @@
         "description": "Small lake dammed by peatland. Physiography: on the highest hill, surrounded by till. Surrounding vegetation: pine dominated.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3419",
         "record_count": 1,
+        "time_start_bp": 9807,
+        "time_end_bp": 19190,
+        "time_mean_bp": 14498,
+        "time_label": "9807-19190 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13173,6 +13801,10 @@
         "description": "Small bog. Physiography: on a sandy plain. Surrounding vegetation: pine, mixed forest-arable land dominant.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3421",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13251,6 +13883,10 @@
         "description": "Very big lake. Physiography: in a drumlin-reed area. Surrounding vegetation: mainly spruce with some birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3435",
         "record_count": 1,
+        "time_start_bp": 8943,
+        "time_end_bp": 17151,
+        "time_mean_bp": 13047,
+        "time_label": "9680-17151 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13337,6 +13973,10 @@
         "description": "Large, partly drained mire. Physiography: adjacent to fossil beach ridges. Surrounding vegetation: pine dominated.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3440",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13415,6 +14055,10 @@
         "description": "Small bog. Physiography: small basin in uplands. Surrounding vegetation: deciduous trees (Betula,Corylus,Tilia..)",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28873",
         "record_count": 1,
+        "time_start_bp": 70,
+        "time_end_bp": 10585,
+        "time_mean_bp": 5328,
+        "time_label": "70-10585 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13497,6 +14141,10 @@
         "description": "Bog in peatland. Physiography: glacial origine. Surrounding vegetation: Pine forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28885",
         "record_count": 1,
+        "time_start_bp": 58,
+        "time_end_bp": 11950,
+        "time_mean_bp": 6004,
+        "time_label": "58-11950 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13579,6 +14227,10 @@
         "description": "Swamp forest. Physiography: small depression. Surrounding vegetation: Picea, Betula, Alnus, Popoulus, Salix.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28864",
         "record_count": 1,
+        "time_start_bp": 101,
+        "time_end_bp": 9463,
+        "time_mean_bp": 4782,
+        "time_label": "101-9463 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13661,6 +14313,10 @@
         "description": "Small bog. Physiography: small basin (moraine ridge). Surrounding vegetation: Pinus, Ericaceae, Spruce and Birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28874",
         "record_count": 2,
+        "time_start_bp": 65,
+        "time_end_bp": 10874,
+        "time_mean_bp": 5470,
+        "time_label": "65-10874 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13743,6 +14399,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Shrubs. Vegetation formation: Coastal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26124",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 14180,
+        "time_mean_bp": 7090,
+        "time_label": "0-14180 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13829,6 +14489,10 @@
         "description": "Peat mire. Physiography: depression in amphibolite bedrock. Surrounding vegetation: mire, toundra, forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28854",
         "record_count": 1,
+        "time_start_bp": 161,
+        "time_end_bp": 9690,
+        "time_mean_bp": 4926,
+        "time_label": "161-9690 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13911,6 +14575,10 @@
         "description": "",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13335",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9575,
+        "time_mean_bp": 4788,
+        "time_label": "0-9575 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -13989,6 +14657,10 @@
         "description": "Lake. Physiography: hummocky, bouldery ablation moraine. Surrounding vegetation: thin birch and pine woodland.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3451",
         "record_count": 1,
+        "time_start_bp": 662,
+        "time_end_bp": 11183,
+        "time_mean_bp": 5922,
+        "time_label": "662-11183 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14075,6 +14747,10 @@
         "description": "Lake. Physiography: depression. Surrounding vegetation: P. abies with some P. sylvestris and B. pubescens.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/33292",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 8721,
+        "time_mean_bp": 4360,
+        "time_label": "0-8721 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14157,6 +14833,10 @@
         "description": "Lake in coastal region. Physiography: Hilly zone. Surrounding vegetation: Forest. Vegetation formation: Southern-boreal (oceanic).",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26125",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 16189,
+        "time_mean_bp": 8094,
+        "time_label": "0-16189 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14243,6 +14923,10 @@
         "description": "Restricted peat bog. Physiography: Suppasuo in connection with sandy harjut (esker). Surrounding vegetation: Pinus, tall dwarf shrubs.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3455",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11369,
+        "time_mean_bp": 5684,
+        "time_label": "0-11369 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14329,6 +15013,10 @@
         "description": "Fen. Physiography: undulating till. Surrounding vegetation: pine forest with some spruce, and a few fields.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3400",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 6943,
+        "time_mean_bp": 3472,
+        "time_label": "0-6943 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14415,6 +15103,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Shrubs and bogs. Vegetation formation: Mid-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26126",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12925,
+        "time_mean_bp": 6462,
+        "time_label": "0-12925 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14501,6 +15193,10 @@
         "description": "Former fen appears as a damp hollow. Physiography: small hollow, formerly a kettle hole. Surrounding vegetation: intensive agriculture.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3472",
         "record_count": 1,
+        "time_start_bp": 9384,
+        "time_end_bp": 13273,
+        "time_mean_bp": 11328,
+        "time_label": "10172-13273 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14587,6 +15283,10 @@
         "description": "Lake. Physiography: wide valley. Surrounding vegetation: Betula, Vaccinum, Empetrum & Sedge.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28074",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9584,
+        "time_mean_bp": 4792,
+        "time_label": "0-9584 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14673,6 +15373,10 @@
         "description": "Lacustrine deposits of interglacial paleolake. Physiography: Basin.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/14265",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14751,6 +15455,10 @@
         "description": "Bedrock basin. Physiography: Plateau. Surrounding vegetation: Betula pubescens and scattered birch. Vegetation formation: Low-alpine vegetation zone.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13390",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 11389,
+        "time_mean_bp": 5694,
+        "time_label": "13292 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14837,6 +15545,10 @@
         "description": "The lake is situated on a bedrock hill in the Alta valley sorne 10 km inland from the fiord head. The surroundinj vegetation is open pine forest grading uphill into mountain birch (Betula pubescens ssp. tortuosa) woodland. The tree line (birch) is at 300 to 400 m. The site is a few kilometres inside the Main Sub-stage (Younger Dryas) end-moraines, and it is weIl above the local marine limit (70-80 m.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3475",
         "record_count": 1,
+        "time_start_bp": 2250,
+        "time_end_bp": 13762,
+        "time_mean_bp": 8006,
+        "time_label": "2250-13762 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -14923,6 +15635,10 @@
         "description": "Marine site. Physiography: Fjord.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13395",
         "record_count": 1,
+        "time_start_bp": 5600,
+        "time_end_bp": 8608,
+        "time_mean_bp": 7104,
+        "time_label": "5600-8608 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15005,6 +15721,10 @@
         "description": "Treeless mire. Physiography: hilly area. Surrounding vegetation: open mire and forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28863",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 8090,
+        "time_mean_bp": 4045,
+        "time_label": "0-8090 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15087,6 +15807,10 @@
         "description": "Small wetland. Physiography: hilly area. Surrounding vegetation: Betula, Alnus, and Picea forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28857",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2948,
+        "time_mean_bp": 1474,
+        "time_label": "0-2948 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15169,6 +15893,10 @@
         "description": "Raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus forest, Lednum palustre, Eriophorum.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3479",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 3547,
+        "time_mean_bp": 1774,
+        "time_label": "0-3547 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15255,6 +15983,10 @@
         "description": "Little bog. Physiography: basin in river valley. Surrounding vegetation: Forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28813",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 4996,
+        "time_mean_bp": 2498,
+        "time_label": "0-4996 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15337,6 +16069,10 @@
         "description": "Lake. Surrounding vegetation: conifer forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3487",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15415,6 +16151,10 @@
         "description": "Mire, partly cultivated. Physiography: Sphagnum-Eriophorum peat. Surrounding vegetation: Pinus and tall dwarf shrubs.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3365",
         "record_count": 2,
+        "time_start_bp": 0,
+        "time_end_bp": 11143,
+        "time_mean_bp": 5572,
+        "time_label": "0-11143 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15501,6 +16241,10 @@
         "description": "Infilled gravel pit.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3491",
         "record_count": 2,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15579,6 +16323,10 @@
         "description": "Bedrock basin. Physiography: Fjord. Surrounding vegetation: Just above tree-line Betula alnus. Vegetation formation: Boreonemoral zone.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/13392",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 13615,
+        "time_mean_bp": 6808,
+        "time_label": "0-13615 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15665,6 +16413,10 @@
         "description": "A small lake. Physiography: in a sheltered position in a valley. Surrounding vegetation: mostly spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3493",
         "record_count": 1,
+        "time_start_bp": 8350,
+        "time_end_bp": 13786,
+        "time_mean_bp": 11068,
+        "time_label": "8803-13786 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15751,6 +16503,10 @@
         "description": "Undulating terrain dominated by till. Physiography: hollow in the bedrock and till. Surrounding vegetation: mainly spruce with some pine and birch.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3495",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15829,6 +16585,10 @@
         "description": "Lake. Physiography: Formely glaciated mountain. Surrounding vegetation: Above tree limit. Vegetation formation: Alpine.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26118",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9044,
+        "time_mean_bp": 4522,
+        "time_label": "0-9044 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15911,6 +16671,10 @@
         "description": "Lake. Physiography: Hillslopes valley. Surrounding vegetation: Birch forest and shrubs. Vegetation formation: North-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26117",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 10233,
+        "time_mean_bp": 5116,
+        "time_label": "0-10233 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -15997,6 +16761,10 @@
         "description": "Small bog. Physiography: till plateau. Surrounding vegetation: picea and Pinus forest, pasture.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28888",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 2160,
+        "time_mean_bp": 1080,
+        "time_label": "0-2160 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16079,6 +16847,10 @@
         "description": "Small lake. Physiography: basin in river valley of Mieån (moraine). Surrounding vegetation: Spruce forest and wet meadows.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28852",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 7706,
+        "time_mean_bp": 3853,
+        "time_label": "0-7706 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16161,6 +16933,10 @@
         "description": "Bog complex. Surrounding vegetation: submesic Pinus coniferous forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3513",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 9955,
+        "time_mean_bp": 4978,
+        "time_label": "0-9955 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16247,6 +17023,10 @@
         "description": "A mire pool. Physiography: basin sourrounded by hills. Surrounding vegetation: forests with pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
         "record_count": 1,
+        "time_start_bp": 6387,
+        "time_end_bp": 17638,
+        "time_mean_bp": 12012,
+        "time_label": "6834-17638 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16333,6 +17113,10 @@
         "description": "Small lake.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2986",
         "record_count": 1,
+        "time_start_bp": 8581,
+        "time_end_bp": 14690,
+        "time_mean_bp": 11636,
+        "time_label": "9417-12748 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16419,6 +17203,10 @@
         "description": "Small fen in a former lake. Physiography: hummocky landscape. Surrounding vegetation: Betula/Pinus/Picea forest and pastures.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28886",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 6945,
+        "time_mean_bp": 3472,
+        "time_label": "0-6945 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16501,6 +17289,10 @@
         "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3334",
         "record_count": 1,
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16579,6 +17371,10 @@
         "description": "Small mire. Physiography: depression. Surrounding vegetation: Forest.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/28862",
         "record_count": 1,
+        "time_start_bp": 56,
+        "time_end_bp": 1943,
+        "time_mean_bp": 1000,
+        "time_label": "56-1943 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
@@ -16661,6 +17457,10 @@
         "description": "Lake. Physiography: Hilly area. Surrounding vegetation: Forest. Vegetation formation: Middle-boreal.",
         "source_url": "https://apps.neotomadb.org/explorer/#/record/site/26212",
         "record_count": 1,
+        "time_start_bp": 0,
+        "time_end_bp": 12091,
+        "time_mean_bp": 6046,
+        "time_label": "0-12091 Calibrated radiocarbon years BP",
         "popup_rows": [
           {
             "label": "Site ID",
