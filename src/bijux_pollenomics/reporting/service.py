@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import json
 from datetime import date
 from pathlib import Path
 from typing import Iterable
 
 from .aadr import load_country_samples, summarize_localities
+from .atlas_bundle import publish_multi_country_map_bundle
 from .artifacts import (
     build_samples_geojson,
     copy_map_assets,
@@ -125,44 +125,25 @@ def generate_multi_country_map(
     )
 
     def publish_map_bundle(staging_output_dir: Path) -> None:
-        bundle_paths = build_atlas_bundle_paths(output_dir=staging_output_dir, slug=slug, version=version)
-        map_geojson = build_samples_geojson(all_samples)
-        bundle_paths.samples_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
-        point_layers, polygon_layers, extra_artifacts = build_context_layers(
-            samples=all_samples,
-            output_dir=staging_output_dir,
+        publish_multi_country_map_bundle(
+            staging_output_dir,
+            report=map_report,
+            title=title,
+            version=version,
+            generated_on=generated_on,
+            countries=normalized_countries,
+            country_sample_counts=country_sample_counts,
+            all_samples=all_samples,
             context_root=context_root,
-        )
-        copy_map_assets(staging_output_dir)
-        write_summary_json(
-            bundle_paths.summary_json_path,
-            build_multi_country_map_summary(map_report, bundle_paths, extra_artifacts),
-        )
-        bundle_paths.map_html_path.write_text(
-            render_multi_country_map_html(
-                title=title,
-                version=version,
-                generated_on=generated_on,
-                countries=normalized_countries,
-                point_layers=point_layers,
-                polygon_layers=polygon_layers,
-                asset_base_path="./_map_assets",
-            ),
-            encoding="utf-8",
-        )
-        bundle_paths.readme_path.write_text(
-            render_multi_country_map_markdown(
-                title=title,
-                version=version,
-                generated_on=generated_on,
-                countries=normalized_countries,
-                country_sample_counts=country_sample_counts,
-                map_html_name=bundle_paths.map_html_path.name,
-                geojson_name=bundle_paths.samples_geojson_path.name,
-                summary_json_name=bundle_paths.summary_json_path.name,
-                extra_artifacts=extra_artifacts,
-            ),
-            encoding="utf-8",
+            asset_base_path="./_map_assets",
+            build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
+            build_context_layers_fn=build_context_layers,
+            build_multi_country_map_summary_fn=build_multi_country_map_summary,
+            build_samples_geojson_fn=build_samples_geojson,
+            copy_map_assets_fn=copy_map_assets,
+            render_multi_country_map_html_fn=render_multi_country_map_html,
+            render_multi_country_map_markdown_fn=render_multi_country_map_markdown,
+            write_summary_json_fn=write_summary_json,
         )
 
     publish_into_staging_dir(output_dir, publish_map_bundle)
