@@ -12,6 +12,7 @@ last_reviewed: 2026-03-31
 ## Verification And Local Build Commands
 
 ```bash
+artifacts/.venv/bin/bijux-pollenomics --version
 make install
 make lock
 make lock-check
@@ -21,6 +22,7 @@ make docs
 make docs-serve
 make build
 make package-check
+make package-smoke
 make check
 ```
 
@@ -73,6 +75,7 @@ Use these only when you intend to regenerate tracked data or tracked publication
 - `make lock` refreshes `uv.lock` from `pyproject.toml`
 - `make lock-check` verifies that `uv.lock` matches `pyproject.toml`
 - `make build` writes distributions into `artifacts/dist/`
+- `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
 - `make reports` is the canonical `make` target for regenerating the checked-in report bundles
 - `make docs-serve` expects a healthy editable install and serves the site at `http://127.0.0.1:8000/`
 - `report-country` requires `--shared-map-label` and `--shared-map-path` together when you want a shared-map link in the generated README
