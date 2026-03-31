@@ -14,6 +14,7 @@ last_reviewed: 2026-03-31
 The checked-in workspace combines:
 
 - ancient DNA sample locations from AADR
+- Nordic pollen-sequence and REVEALS reconstruction coverage from LandClim
 - Nordic pollen and paleoecology locations from Neotoma
 - Nordic environmental archaeology locations from SEAD
 - Swedish archaeology coverage from RAÄ / Fornsök
@@ -25,6 +26,9 @@ mindmap
     AADR
       aDNA points
       country reports
+    LandClim
+      pollen sequences
+      REVEALS grid cells
     Neotoma
       pollen sites
     SEAD

@@ -13,7 +13,7 @@ The repository scope is deliberately narrower than the broader scientific ambiti
 
 ## In Scope
 
-- collecting tracked source data into the five top-level `data/` categories
+- collecting tracked source data into the six top-level `data/` categories
 - classifying compatible records by country
 - generating country-specific AADR reports
 - generating one shared Nordic map with multi-country filtering

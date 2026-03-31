@@ -13,7 +13,7 @@ This page defines the delivered scope of the repository and the outer boundary i
 
 ## Delivered Capabilities
 
-- tracked source collection for `aadr`, `boundaries`, `neotoma`, `raa`, and `sead`
+- tracked source collection for `aadr`, `boundaries`, `landclim`, `neotoma`, `raa`, and `sead`
 - one shared Nordic map bundle under `docs/report/nordic-atlas/`
 - country report bundles for Sweden, Norway, Finland, and Denmark
 - machine-readable collection and report summaries

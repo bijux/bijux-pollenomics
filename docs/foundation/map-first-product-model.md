@@ -26,7 +26,7 @@ The map is a view over:
 
 - tracked inputs
 - normalized geospatial outputs
-- copied report artifacts
+- generated report artifacts
 - documented commands that can reproduce the same state
 
 ## Why Not Start With Code
