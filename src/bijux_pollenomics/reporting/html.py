@@ -1539,33 +1539,11 @@ def render_multi_country_map_html(
             </div>
             <div id="workspace-brief-note" class="workspace-brief-note">The initial HTML waits for live layer and filter state before describing the current workspace.</div>
           </section>
-          <section class="stats-grid">
-            <div class="stat-card"><span class="stat-label">Visible Points</span><strong class="stat-value" id="stat-visible-points">--</strong><span id="stat-visible-points-note" class="stat-support">Computed after the map loads enabled point layers.</span></div>
-            <div class="stat-card"><span class="stat-label">Visible Overlays</span><strong class="stat-value" id="stat-visible-layers">--</strong><span id="stat-visible-layers-note" class="stat-support">Computed after polygon and boundary overlays initialize.</span></div>
-            <div class="stat-card"><span class="stat-label">Active Countries</span><strong class="stat-value" id="stat-visible-countries">--</strong><span id="stat-visible-countries-note" class="stat-support">Derived from the current country filter state.</span></div>
-            <div class="stat-card"><span class="stat-label">Acceptance Radius</span><strong class="stat-value" id="stat-radius">--</strong><span id="stat-radius-note" class="stat-support">Derived from the active diameter setting after initialization.</span></div>
-            <div class="stat-card"><span class="stat-label">AADR Release</span><strong class="stat-value stat-value--compact">__VERSION__</strong><span class="stat-support">Primary evidence release loaded into this workspace.</span></div>
-            <div class="stat-card"><span class="stat-label">Context Sources</span><strong class="stat-value stat-value--compact" id="stat-context-sources">--</strong><span id="stat-context-sources-note" class="stat-support">Counted from contextual layers that are present in this bundle.</span></div>
-          </section>
-          <nav id="section-nav" class="section-nav" aria-label="Sidebar sections">
-            <button class="section-nav-button is-active" type="button" data-section-target="scope-panel">Scope</button>
-            <button class="section-nav-button" type="button" data-section-target="coverage-panel">Coverage</button>
-            <button class="section-nav-button" type="button" data-section-target="country-panel">Countries</button>
-            <button class="section-nav-button" type="button" data-section-target="filters-panel">Filters</button>
-            <button class="section-nav-button" type="button" data-section-target="search-panel">Search</button>
-            <button class="section-nav-button" type="button" data-section-target="distance-panel">Distance</button>
-            <button class="section-nav-button" type="button" data-section-target="active-panel">State</button>
-          </nav>
           <div class="section-stack">
             <section id="scope-panel" class="panel-card">
-              <div class="section-head"><h2>Map Scope</h2><span>What is included</span></div>
-              <p class="panel-copy">This map combines one primary evidence layer with environmental and archaeological context. Coverage is not identical across sources, so every layer card states its geographic scope.</p>
+              <div class="section-head"><h2>Workspace</h2><span>At a glance</span></div>
+              <p class="panel-copy">This sidebar is intentionally short. Use the map dock for frequent layer and time changes, then open Help when you need the full explanation of controls and data scope.</p>
               <div id="scope-summary" class="summary-list"></div>
-            </section>
-            <section id="coverage-panel" class="panel-card">
-              <div class="section-head"><h2>Source Coverage</h2><span id="coverage-summary" aria-live="polite">Dataset scope</span></div>
-              <p class="panel-copy">This matrix keeps geographic and geometry scope visible across sources so users do not mistake Sweden-only overlays for Nordic-wide evidence or confuse points with polygon summaries.</p>
-              <div id="coverage-matrix" class="coverage-matrix"></div>
             </section>
             <section id="country-panel" class="panel-card">
               <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
@@ -1577,11 +1555,6 @@ def render_multi_country_map_html(
                 <button id="countries-fit" class="inline-button" type="button">Fit selected countries</button>
                 <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
               </div>
-            </section>
-            <section id="filters-panel" class="panel-card">
-              <div class="section-head"><h2>Active Filters</h2><span id="filter-chip-count" aria-live="polite">Defaults</span></div>
-              <p class="panel-copy">This section surfaces only the filter groups that currently differ from the default map state. Remove a chip to reset that part of the view without disturbing the rest.</p>
-              <div id="filter-chips" class="filter-chip-list"></div>
             </section>
             <section id="search-panel" class="panel-card">
               <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
@@ -1609,10 +1582,6 @@ def render_multi_country_map_html(
               <div class="field-label" style="margin-top: 16px;"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
               <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
               <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
-            </section>
-            <section id="active-panel" class="panel-card">
-              <div class="section-head"><h2>Active View</h2><span>Live provenance</span></div>
-              <div id="active-summary" class="summary-list"></div>
             </section>
           </div>
         </div>
@@ -2162,6 +2131,7 @@ def render_multi_country_map_html(
         scopeSummary.innerHTML = summaries.map((item) => `<div class="summary-item"><span>${escapeHtml(item)}</span></div>`).join('');
       }
       function renderCoverageMatrix() {
+        if (!coverageSummary || !coverageMatrix) return;
         const groupedSources = [...new Set(ALL_LAYERS.map((layer) => layer.source_name || layer.label))].map((sourceName) => {
           const layers = ALL_LAYERS.filter((layer) => (layer.source_name || layer.label) === sourceName);
           return { sourceName, layers };
@@ -2177,8 +2147,55 @@ def render_multi_country_map_html(
       function renderTimeDensity() {
         // The time dock keeps only direct controls visible; explanatory density detail lives in the help surface.
       }
+      function buildActiveFilterChips() {
+        const chips = [];
+        if (activeCountries.size !== COUNTRIES.length) {
+          chips.push({
+            kind: 'countries',
+            title: 'Countries',
+            value: activeCountries.size ? [...activeCountries].join(', ') : 'No countries selected',
+          });
+        }
+        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) {
+          chips.push({
+            kind: 'layers',
+            title: 'Layers',
+            value: activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'No layers enabled',
+          });
+        }
+        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) {
+          chips.push({
+            kind: 'time',
+            title: 'Time window',
+            value: `${timeStartBp}-${timeWindowEndBp()} BP · ${timeIntervalYears} years`,
+          });
+        }
+        if (Number(slider.value) !== __INITIAL_DIAMETER__) {
+          chips.push({
+            kind: 'distance',
+            title: 'Acceptance diameter',
+            value: `${Number(slider.value)} km`,
+          });
+        }
+        if (Math.round(densityOpacity * 100) !== 60) {
+          chips.push({
+            kind: 'density',
+            title: 'Archaeology opacity',
+            value: `${Math.round(densityOpacity * 100)}%`,
+          });
+        }
+        if (currentBasemap !== 'voyager') {
+          chips.push({
+            kind: 'basemap',
+            title: 'Basemap',
+            value: currentBasemap.charAt(0).toUpperCase() + currentBasemap.slice(1),
+          });
+        }
+        return chips;
+      }
       function renderWorkspaceBrief() {
         const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
+        const activeFilterChips = buildActiveFilterChips();
         const geographySummary = activeCountries.size === COUNTRIES.length
           ? 'All Nordic countries'
           : activeCountries.size
@@ -2187,7 +2204,7 @@ def render_multi_country_map_html(
         const timeSummary = TIME_HAS_DATA
           ? `${timeStartBp}-${timeWindowEndBp()} BP`
           : 'No dated records';
-        workspaceBriefState.textContent = filterChipCount.textContent === 'Defaults' ? 'Default map state' : `${filterChipCount.textContent} override map defaults`;
+        workspaceBriefState.textContent = activeFilterChips.length ? `${activeFilterChips.length} active workspace overrides` : 'Default map state';
         workspaceBriefGeography.textContent = geographySummary;
         workspaceBriefStack.textContent = activeGroups.length ? activeGroups.join(' + ') : 'No active layers';
         workspaceBriefTime.textContent = timeSummary;
@@ -2277,51 +2294,11 @@ def render_multi_country_map_html(
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function renderFilterChips() {
-        const chips = [];
-        if (activeCountries.size !== COUNTRIES.length) {
-          chips.push({
-            kind: 'countries',
-            title: 'Countries',
-            value: activeCountries.size ? [...activeCountries].join(', ') : 'No countries selected',
-          });
+        const chips = buildActiveFilterChips();
+        if (filterChipCount) {
+          filterChipCount.textContent = chips.length ? `${chips.length} active` : 'Defaults';
         }
-        if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) {
-          chips.push({
-            kind: 'layers',
-            title: 'Layers',
-            value: activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'No layers enabled',
-          });
-        }
-        if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) {
-          chips.push({
-            kind: 'time',
-            title: 'Time window',
-            value: `${timeStartBp}-${timeWindowEndBp()} BP · ${timeIntervalYears} years`,
-          });
-        }
-        if (Number(slider.value) !== __INITIAL_DIAMETER__) {
-          chips.push({
-            kind: 'distance',
-            title: 'Acceptance diameter',
-            value: `${Number(slider.value)} km`,
-          });
-        }
-        if (Math.round(densityOpacity * 100) !== 60) {
-          chips.push({
-            kind: 'density',
-            title: 'Archaeology opacity',
-            value: `${Math.round(densityOpacity * 100)}%`,
-          });
-        }
-        if (currentBasemap !== 'voyager') {
-          chips.push({
-            kind: 'basemap',
-            title: 'Basemap',
-            value: currentBasemap.charAt(0).toUpperCase() + currentBasemap.slice(1),
-          });
-        }
-
-        filterChipCount.textContent = chips.length ? `${chips.length} active` : 'Defaults';
+        if (!filterChips) return;
         filterChips.innerHTML = chips.length
           ? chips.map((chip) => `<div class="filter-chip"><div><strong>${escapeHtml(chip.title)}</strong><span>${escapeHtml(chip.value)}</span></div><button class="filter-chip-remove" type="button" data-clear-kind="${escapeHtml(chip.kind)}" aria-label="Reset ${escapeHtml(chip.title)}">×</button></div>`).join('')
           : '<div class="filter-chip-empty">No filter groups are currently overriding the default map state.</div>';
@@ -2540,22 +2517,28 @@ def render_multi_country_map_html(
           if (!layer.applies_time_filter) return false;
           return Number.isFinite(Number(feature.time_year_bp));
         }).length;
-        statVisiblePoints.textContent = String(visiblePointEntries.length);
-        statVisibleLayers.textContent = String(enabledLayers);
-        statVisibleCountries.textContent = String(activeCountries.size);
-        statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
-        statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
-        statVisiblePointsNote.textContent = `${enabledPointLayers} point layers currently contribute visible records.`;
-        statVisibleLayersNote.textContent = `${renderedPolygonLayers.length} polygon overlays are currently drawn on the map.`;
-        statVisibleCountriesNote.textContent = activeCountries.size === COUNTRIES.length
-          ? 'All configured countries are visible.'
-          : activeCountries.size
-            ? `${COUNTRIES.length - activeCountries.size} countries are currently excluded.`
-            : 'No countries are currently selected.';
-        statRadiusNote.textContent = Number(slider.value) > 0
-          ? `${Number(slider.value)} km diameter acceptance circles are active for point layers.`
-          : 'Acceptance circles are currently hidden.';
-        statContextSourcesNote.textContent = `${ALL_LAYERS.filter((layer) => layer.key !== 'aadr' && activeLayerKeys.has(layer.key)).length} context sources are currently enabled.`;
+        if (statVisiblePoints) statVisiblePoints.textContent = String(visiblePointEntries.length);
+        if (statVisibleLayers) statVisibleLayers.textContent = String(enabledLayers);
+        if (statVisibleCountries) statVisibleCountries.textContent = String(activeCountries.size);
+        if (statRadius) statRadius.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
+        if (statContextSources) statContextSources.textContent = String(ALL_LAYERS.filter((layer) => layer.key !== 'aadr').length);
+        if (statVisiblePointsNote) statVisiblePointsNote.textContent = `${enabledPointLayers} point layers currently contribute visible records.`;
+        if (statVisibleLayersNote) statVisibleLayersNote.textContent = `${renderedPolygonLayers.length} polygon overlays are currently drawn on the map.`;
+        if (statVisibleCountriesNote) {
+          statVisibleCountriesNote.textContent = activeCountries.size === COUNTRIES.length
+            ? 'All configured countries are visible.'
+            : activeCountries.size
+              ? `${COUNTRIES.length - activeCountries.size} countries are currently excluded.`
+              : 'No countries are currently selected.';
+        }
+        if (statRadiusNote) {
+          statRadiusNote.textContent = Number(slider.value) > 0
+            ? `${Number(slider.value)} km diameter acceptance circles are active for point layers.`
+            : 'Acceptance circles are currently hidden.';
+        }
+        if (statContextSourcesNote) {
+          statContextSourcesNote.textContent = `${ALL_LAYERS.filter((layer) => layer.key !== 'aadr' && activeLayerKeys.has(layer.key)).length} context sources are currently enabled.`;
+        }
         timeRecordCount.textContent = TIME_HAS_DATA
           ? `${datedVisibleCount} dated records are visible in the active BP window.`
           : 'No dated records are available for BP filtering.';
@@ -2579,6 +2562,7 @@ def render_multi_country_map_html(
         });
       }
       function updateSummary() {
+        if (!activeSummary) return;
         const visibleCountriesText = activeCountries.size ? [...activeCountries].join(', ') : 'none selected';
         const visibleLayersText = activeLayerKeys.size ? humanLayerList(activeLayerKeys) : 'none selected';
         const timeWindowText = TIME_HAS_DATA
