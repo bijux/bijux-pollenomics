@@ -1,19 +1,20 @@
 :root {
-  --bijux-ink: #18253d;
-  --bijux-muted: #5d6f89;
-  --bijux-border: rgba(24, 37, 61, 0.12);
-  --bijux-panel: rgba(24, 37, 61, 0.04);
-  --bijux-panel-strong: rgba(24, 37, 61, 0.06);
-  --bijux-map-shadow: 0 22px 54px rgba(24, 37, 61, 0.16);
+  --bijux-ink: #1e2852;
+  --bijux-muted: #5f6d8d;
+  --bijux-border: rgba(49, 46, 129, 0.16);
+  --bijux-panel: rgba(79, 70, 229, 0.05);
+  --bijux-panel-strong: rgba(79, 70, 229, 0.08);
+  --bijux-map-shadow: 0 22px 54px rgba(30, 41, 89, 0.14);
   --bijux-surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
 }
 
 [data-md-color-scheme="default"] {
-  --md-default-bg-color: #f7f1e7;
-  --md-default-bg-color--light: #fbf7f1;
+  --md-default-bg-color: #f5f7fd;
+  --md-default-bg-color--light: #fbfcff;
   --md-default-fg-color: var(--bijux-ink);
-  --md-primary-fg-color: #32435e;
-  --md-accent-fg-color: #0f766e;
+  --md-primary-fg-color: #3f51b5;
+  --md-accent-fg-color: #4f46e5;
+  --md-typeset-a-color: #3949ab;
 }
 
 body,
@@ -57,7 +58,7 @@ button {
 }
 
 .md-typeset blockquote {
-  border-left: 0.2rem solid #1f5ed8;
+  border-left: 0.2rem solid #4f46e5;
   background: var(--bijux-panel);
   padding: 0.1rem 0.8rem;
 }
@@ -75,7 +76,7 @@ button {
 }
 
 .bijux-map-frame {
-  background: linear-gradient(180deg, rgba(31, 94, 216, 0.08), rgba(14, 122, 114, 0.05));
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.09), rgba(99, 102, 241, 0.05));
   border: 1px solid var(--bijux-border);
   border-radius: 1.2rem;
   box-shadow: var(--bijux-map-shadow);
@@ -110,7 +111,7 @@ button {
 }
 
 .bijux-callout {
-  background: linear-gradient(135deg, rgba(31, 94, 216, 0.08), rgba(14, 122, 114, 0.06));
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(99, 102, 241, 0.06));
   border: 1px solid var(--bijux-border);
   border-radius: 1rem;
   padding: 1rem 1.1rem;
@@ -129,7 +130,7 @@ button {
 }
 
 .md-typeset .md-button--primary {
-  background: linear-gradient(135deg, #1f5ed8, #0f766e);
+  background: linear-gradient(135deg, #3949ab, #4f46e5);
   border-color: transparent;
 }
 

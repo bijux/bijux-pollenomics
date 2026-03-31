@@ -21,8 +21,8 @@ theme:
   font: false
   palette:
     - scheme: default
-      primary: blue grey
-      accent: teal
+      primary: indigo
+      accent: indigo
   features:
     - navigation.tabs
     - navigation.tabs.sticky
