@@ -1,0 +1,56 @@
+{
+  "title": "Nordic Evidence Atlas",
+  "slug": "nordic-atlas",
+  "version": "v62.0",
+  "generated_on": "2026-03-31",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "country_sample_counts": {
+    "Sweden": 519,
+    "Norway": 58,
+    "Finland": 22,
+    "Denmark": 300
+  },
+  "total_unique_samples": 899,
+  "output_dir": "docs/report/nordic-atlas",
+  "artifacts": {
+    "readme": "README.md",
+    "map_html": "nordic-atlas_map.html",
+    "samples_geojson": "nordic-atlas_samples.geojson",
+    "summary_json": "nordic-atlas_summary.json",
+    "extra_files": [
+      {
+        "label": "LandClim pollen site GeoJSON",
+        "filename": "nordic_pollen_site_sequences.geojson"
+      },
+      {
+        "label": "Neotoma pollen GeoJSON",
+        "filename": "nordic_pollen_sites.geojson"
+      },
+      {
+        "label": "SEAD site GeoJSON",
+        "filename": "nordic_environmental_sites.geojson"
+      },
+      {
+        "label": "Nordic country boundaries",
+        "filename": "nordic_country_boundaries.geojson"
+      },
+      {
+        "label": "LandClim REVEALS grid GeoJSON",
+        "filename": "nordic_reveals_grid_cells.geojson"
+      },
+      {
+        "label": "RA\u00c4 archaeology layer metadata",
+        "filename": "sweden_archaeology_layer.json"
+      },
+      {
+        "label": "RA\u00c4 archaeology density",
+        "filename": "sweden_archaeology_density.geojson"
+      }
+    ]
+  }
+}

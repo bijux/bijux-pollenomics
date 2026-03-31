@@ -1,0 +1,2839 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.15584,
+          57.20045
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "2961",
+        "name": "Aborregöl",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small lake with marginal fen. Physiography: in hummocky morraine with exposed bedroc. Surrounding vegetation: mainly spruce with pine.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2961",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "2961"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "81"
+          },
+          {
+            "label": "Description",
+            "value": "Small lake with marginal fen. Physiography: in hummocky morraine with exposed bedroc. Surrounding vegetation: mainly spruce with pine."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.427739999030344,
+          55.93447499595802
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "12",
+        "name": "Ageröds Mosse",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Forested Sphagnum bog. Physiography: till. Surrounding vegetation: pasture and arable land.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/12",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "12"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "47"
+          },
+          {
+            "label": "Description",
+            "value": "Forested Sphagnum bog. Physiography: till. Surrounding vegetation: pasture and arable land."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.21692,
+          61.8947
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "2966",
+        "name": "Aholammi",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake with mesic forest. Physiography: hilly morainic country. Surrounding vegetation: mesic spruce forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2966",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "2966"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "87"
+          },
+          {
+            "label": "Description",
+            "value": "Lake with mesic forest. Physiography: hilly morainic country. Surrounding vegetation: mesic spruce forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.67406,
+          69.12326
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "20",
+        "name": "Akuvaara",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: Hill of sandy/gravelly outwash. Surrounding vegetation: Thin pine forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/20",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "20"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "159"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: Hill of sandy/gravelly outwash. Surrounding vegetation: Thin pine forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.40720499748462,
+          70.18108999380313
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "310",
+        "name": "Bruvatnet [Rovvejávri]",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: Bedrock hills mantled by gl. drift (till. Surrounding vegetation: Thin mountain birch scrub.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/310",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "310"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "110"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: Bedrock hills mantled by gl. drift (till. Surrounding vegetation: Thin mountain birch scrub."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.025864970930726,
+          70.32583493408067
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "700",
+        "name": "Domsvatnet",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "The lake occupies a shallow oblong basin, measuring about 150 m by 600 m, between gently sloping hills covered by drift. There are no apparent influents and only a small stream as an outflow. The dominant vegetation on the surrounding slopes is a dwarf-shrub tundra with Betula nana, Empetrum, Salix, Arctostaphylos alpinum, and Rubus chamaemorus as prominent elements. Cottongrass-sedge communities are abundant in wetter depressions.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/700",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "700"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "107"
+          },
+          {
+            "label": "Description",
+            "value": "The lake occupies a shallow oblong basin, measuring about 150 m by 600 m, between gently sloping hills covered by drift. There are no apparent influents and only a small stream as an outflow. The dominant vegetation on the surrounding slopes is a dwarf-shrub tundra with Betula nana, Empetrum, Salix, Arctostaphylos alpinum, and Rubus chamaemorus as prominent elements. Cottongrass-sedge communities are abundant in wetter depressions."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.689085025038441,
+          63.702905183539094
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "947",
+        "name": "Grasvatn",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Shallow lake on the island of Frøya. Overgrown by aquatics. Physiography: Shellsand on gneisses. Surrounding vegetation: Heather, fens and bogs.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/947",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "947"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "25"
+          },
+          {
+            "label": "Description",
+            "value": "Shallow lake on the island of Frøya. Overgrown by aquatics. Physiography: Shellsand on gneisses. Surrounding vegetation: Heather, fens and bogs."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.53458,
+          57.64055
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "1401",
+        "name": "Kansjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: Rolling till surface. Surrounding vegetation: Pinus, Betula.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/1401",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "1401"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "299"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: Rolling till surface. Surrounding vegetation: Pinus, Betula."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.21136,
+          58.31761
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3303",
+        "name": "Lake Mullsjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Round, big lake. Physiography: northern edge of a glacial-fluvial area. Surrounding vegetation: pine forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3303",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3303"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "155"
+          },
+          {
+            "label": "Description",
+            "value": "Round, big lake. Physiography: northern edge of a glacial-fluvial area. Surrounding vegetation: pine forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.613409950326526,
+          56.12845967631802
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Denmark",
+        "record_id": "3432",
+        "name": "Lake Solsø",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3432",
+        "record_count": 2,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3432"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "2"
+          },
+          {
+            "label": "Datasets",
+            "value": "2"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "24"
+          },
+          {
+            "label": "Description",
+            "value": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.41426,
+          57.16313
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3398",
+        "name": "Lake Sämbosjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: Lake. Surrounding vegetation: 10-15 m broad and continuous Alnus belt.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3398",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3398"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "12"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: Lake. Surrounding vegetation: 10-15 m broad and continuous Alnus belt."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.82952,
+          56.863
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3477",
+        "name": "Lake Trummen",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3477",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3477"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "162"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.17463,
+          58.5959
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3317",
+        "name": "Madtjärn",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3317",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3317"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "140"
+          },
+          {
+            "label": "Description",
+            "value": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.58979,
+          60.12146
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3299",
+        "name": "Mossen",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Well developed raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus dominated peat vegetation.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3299",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3299"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "6"
+          },
+          {
+            "label": "Description",
+            "value": "Well developed raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus dominated peat vegetation."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.0,
+          68.91667
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3302",
+        "name": "Mukkavaara",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: hummocky till / ice contact drift. Surrounding vegetation: mountain birch woodland.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3302",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3302"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "511"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: hummocky till / ice contact drift. Surrounding vegetation: mountain birch woodland."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.06667,
+          69.13333
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "3311",
+        "name": "Nedre Draketjärn",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3311",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3311"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "-14"
+          },
+          {
+            "label": "Description",
+            "value": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.27565,
+          56.00394
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3326",
+        "name": "Odensjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small cirque lake, upland site. Physiography: ancient cirque basin, steep slopes. Surrounding vegetation: mainly beech, + alder swamp, + spruce pl.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3326",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3326"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "71"
+          },
+          {
+            "label": "Description",
+            "value": "Small cirque lake, upland site. Physiography: ancient cirque basin, steep slopes. Surrounding vegetation: mainly beech, + alder swamp, + spruce pl."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.29056,
+          56.28145
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3370",
+        "name": "Ran Viken",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake with Phragmites. Physiography: rolling till-covered bedrock topography. Surrounding vegetation: Picea, Pinus, Fagus, Quercus.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3370",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3370"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "77"
+          },
+          {
+            "label": "Description",
+            "value": "Lake with Phragmites. Physiography: rolling till-covered bedrock topography. Surrounding vegetation: Picea, Pinus, Fagus, Quercus."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.15,
+          66.16667
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3388",
+        "name": "Rukatunturi",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Shallow peat above the forest limit. Physiography: hill summit. Surrounding vegetation: Calluna, Empetrum, Vaccinium spp., Festuca.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3388",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3388"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "451"
+          },
+          {
+            "label": "Description",
+            "value": "Shallow peat above the forest limit. Physiography: hill summit. Surrounding vegetation: Calluna, Empetrum, Vaccinium spp., Festuca."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.17711007789191,
+          60.43836519483447
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3389",
+        "name": "Ryönänsuo",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Raised bog. Physiography: Sphagnum peat bog surrounded by fields. Surrounding vegetation: Pinus, dwarf shrubs.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3389",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3389"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "85"
+          },
+          {
+            "label": "Description",
+            "value": "Raised bog. Physiography: Sphagnum peat bog surrounded by fields. Surrounding vegetation: Pinus, dwarf shrubs."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.31667,
+          69.35
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "3372",
+        "name": "Råttuvarri",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "The site is a small lake on a pine forest-clad bedrock hill in the valley of Skibottsdalen, about 5 km inland from Lyngenfjorden. It lies a couple of km inside the Skibotn end moraines and ice margin deltas, about 20 m above the marine limit.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3372",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3372"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "121"
+          },
+          {
+            "label": "Description",
+            "value": "The site is a small lake on a pine forest-clad bedrock hill in the valley of Skibottsdalen, about 5 km inland from Lyngenfjorden. It lies a couple of km inside the Skibotn end moraines and ice margin deltas, about 20 m above the marine limit."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.52596,
+          57.34248
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3411",
+        "name": "Sigvalde Träsk",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small, deep lake, artificially lowered. Physiography: in an area of limestone. Surrounding vegetation: mixture of pine and arable agriculture.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3411",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3411"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "27"
+          },
+          {
+            "label": "Description",
+            "value": "Small, deep lake, artificially lowered. Physiography: in an area of limestone. Surrounding vegetation: mixture of pine and arable agriculture."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.06667,
+          61.3
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3412",
+        "name": "Siikasuo",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Raised bog. Physiography: Pinus dominated raised bog. Surrounding vegetation: Pinus, Lednum palustre, Vaccinium uliginosum.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3412",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3412"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "24"
+          },
+          {
+            "label": "Description",
+            "value": "Raised bog. Physiography: Pinus dominated raised bog. Surrounding vegetation: Pinus, Lednum palustre, Vaccinium uliginosum."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.79939,
+          65.05699
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3414",
+        "name": "Sipola",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small fen. Physiography: dune ridges. Surrounding vegetation: patch of birch within pine forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3414",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3414"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "6"
+          },
+          {
+            "label": "Description",
+            "value": "Small fen. Physiography: dune ridges. Surrounding vegetation: patch of birch within pine forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.15266,
+          57.1894
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3419",
+        "name": "Skvarran",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small lake dammed by peatland. Physiography: on the highest hill, surrounded by till. Surrounding vegetation: pine dominated.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3419",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3419"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "85"
+          },
+          {
+            "label": "Description",
+            "value": "Small lake dammed by peatland. Physiography: on the highest hill, surrounded by till. Surrounding vegetation: pine dominated."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.01667,
+          56.43333
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3421",
+        "name": "Slatten",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small bog. Physiography: on a sandy plain. Surrounding vegetation: pine, mixed forest-arable land dominant.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3421",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3421"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "6"
+          },
+          {
+            "label": "Description",
+            "value": "Small bog. Physiography: on a sandy plain. Surrounding vegetation: pine, mixed forest-arable land dominant."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.59256,
+          56.68361
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3435",
+        "name": "Spjällsjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Very big lake. Physiography: in a drumlin-reed area. Surrounding vegetation: mainly spruce with some birch.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3435",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3435"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "151"
+          },
+          {
+            "label": "Description",
+            "value": "Very big lake. Physiography: in a drumlin-reed area. Surrounding vegetation: mainly spruce with some birch."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.36941,
+          57.34167
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3440",
+        "name": "Stangsmyr",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Large, partly drained mire. Physiography: adjacent to fossil beach ridges. Surrounding vegetation: pine dominated.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3440",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3440"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "47"
+          },
+          {
+            "label": "Description",
+            "value": "Large, partly drained mire. Physiography: adjacent to fossil beach ridges. Surrounding vegetation: pine dominated."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.83694,
+          69.603
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3451",
+        "name": "Suovalampi",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Physiography: hummocky, bouldery ablation moraine. Surrounding vegetation: thin birch and pine woodland.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3451",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3451"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "84"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Physiography: hummocky, bouldery ablation moraine. Surrounding vegetation: thin birch and pine woodland."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.11667,
+          61.21667
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3455",
+        "name": "Syrjälänsuo",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Restricted peat bog. Physiography: Suppasuo in connection with sandy harjut (esker). Surrounding vegetation: Pinus, tall dwarf shrubs.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3455",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3455"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "85"
+          },
+          {
+            "label": "Description",
+            "value": "Restricted peat bog. Physiography: Suppasuo in connection with sandy harjut (esker). Surrounding vegetation: Pinus, tall dwarf shrubs."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.18661,
+          65.91702
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3400",
+        "name": "Särkikangas",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Fen. Physiography: undulating till. Surrounding vegetation: pine forest with some spruce, and a few fields.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3400",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3400"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "258"
+          },
+          {
+            "label": "Description",
+            "value": "Fen. Physiography: undulating till. Surrounding vegetation: pine forest with some spruce, and a few fields."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.36716,
+          55.60223
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3472",
+        "name": "Toppeladugärd",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Former fen appears as a damp hollow. Physiography: small hollow, formerly a kettle hole. Surrounding vegetation: intensive agriculture.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3472",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3472"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "22"
+          },
+          {
+            "label": "Description",
+            "value": "Former fen appears as a damp hollow. Physiography: small hollow, formerly a kettle hole. Surrounding vegetation: intensive agriculture."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.459200033549845,
+          69.87599009994717
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Norway",
+        "record_id": "3475",
+        "name": "Trollvatnet",
+        "geometry_type": "Polygon",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "The lake is situated on a bedrock hill in the Alta valley sorne 10 km inland from the fiord head. The surroundinj vegetation is open pine forest grading uphill into mountain birch (Betula pubescens ssp. tortuosa) woodland. The tree line (birch) is at 300 to 400 m. The site is a few kilometres inside the Main Sub-stage (Younger Dryas) end-moraines, and it is weIl above the local marine limit (70-80 m.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3475",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3475"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Norway"
+          },
+          {
+            "label": "Geometry",
+            "value": "Polygon"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "180"
+          },
+          {
+            "label": "Description",
+            "value": "The lake is situated on a bedrock hill in the Alta valley sorne 10 km inland from the fiord head. The surroundinj vegetation is open pine forest grading uphill into mountain birch (Betula pubescens ssp. tortuosa) woodland. The tree line (birch) is at 300 to 400 m. The site is a few kilometres inside the Main Sub-stage (Younger Dryas) end-moraines, and it is weIl above the local marine limit (70-80 m."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.95107,
+          61.3398
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3479",
+        "name": "Tullerinsuo",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus forest, Lednum palustre, Eriophorum.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3479",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3479"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "32"
+          },
+          {
+            "label": "Description",
+            "value": "Raised bog. Physiography: Sphagnum peat. Surrounding vegetation: Pinus forest, Lednum palustre, Eriophorum."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.17938,
+          66.18043
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3487",
+        "name": "Valtavaaranlampi",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Lake. Surrounding vegetation: conifer forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3487",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3487"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "418"
+          },
+          {
+            "label": "Description",
+            "value": "Lake. Surrounding vegetation: conifer forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8601,
+          64.67355
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3365",
+        "name": "Vasikkasuo",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Mire, partly cultivated. Physiography: Sphagnum-Eriophorum peat. Surrounding vegetation: Pinus and tall dwarf shrubs.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3365",
+        "record_count": 2,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3365"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "2"
+          },
+          {
+            "label": "Datasets",
+            "value": "2"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "275"
+          },
+          {
+            "label": "Description",
+            "value": "Mire, partly cultivated. Physiography: Sphagnum-Eriophorum peat. Surrounding vegetation: Pinus and tall dwarf shrubs."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.71667,
+          55.61667
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Denmark",
+        "record_id": "3491",
+        "name": "Vejlby",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Infilled gravel pit.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3491",
+        "record_count": 2,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3491"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Denmark"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "2"
+          },
+          {
+            "label": "Datasets",
+            "value": "2"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "5"
+          },
+          {
+            "label": "Description",
+            "value": "Infilled gravel pit."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.93773,
+          57.13371
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3493",
+        "name": "Vingölen",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A small lake. Physiography: in a sheltered position in a valley. Surrounding vegetation: mostly spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3493",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3493"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "96"
+          },
+          {
+            "label": "Description",
+            "value": "A small lake. Physiography: in a sheltered position in a valley. Surrounding vegetation: mostly spruce."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.10997,
+          56.3311
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3495",
+        "name": "Vitavattsgyl",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Undulating terrain dominated by till. Physiography: hollow in the bedrock and till. Surrounding vegetation: mainly spruce with some pine and birch.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3495",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3495"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "65"
+          },
+          {
+            "label": "Description",
+            "value": "Undulating terrain dominated by till. Physiography: hollow in the bedrock and till. Surrounding vegetation: mainly spruce with some pine and birch."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.86667,
+          62.13333
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Finland",
+        "record_id": "3513",
+        "name": "Ylimysneva",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Bog complex. Surrounding vegetation: submesic Pinus coniferous forest.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3513",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3513"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Finland"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "150"
+          },
+          {
+            "label": "Description",
+            "value": "Bog complex. Surrounding vegetation: submesic Pinus coniferous forest."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.46667,
+          57.48333
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3470",
+        "name": "Åkerhultagöl [Tomtabaken]",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A mire pool. Physiography: basin sourrounded by hills. Surrounding vegetation: forests with pine and spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3470",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3470"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "297"
+          },
+          {
+            "label": "Description",
+            "value": "A mire pool. Physiography: basin sourrounded by hills. Surrounding vegetation: forests with pine and spruce."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.81996,
+          58.40981
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "2986",
+        "name": "Åsbotorpsjön",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "Small lake.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/2986",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "2986"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "284"
+          },
+          {
+            "label": "Description",
+            "value": "Small lake."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.18333,
+          58.6
+        ]
+      },
+      "properties": {
+        "source": "Neotoma",
+        "layer_key": "neotoma-pollen",
+        "layer_label": "Neotoma pollen sites",
+        "category": "Pollen",
+        "country": "Sweden",
+        "record_id": "3334",
+        "name": "Övre Draketjärn",
+        "geometry_type": "Point",
+        "subtitle": "Nordic pollen and paleoecology sites",
+        "description": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce.",
+        "source_url": "https://apps.neotomadb.org/explorer/#/record/site/3334",
+        "record_count": 1,
+        "popup_rows": [
+          {
+            "label": "Site ID",
+            "value": "3334"
+          },
+          {
+            "label": "Category",
+            "value": "Pollen"
+          },
+          {
+            "label": "Source",
+            "value": "Neotoma"
+          },
+          {
+            "label": "Country",
+            "value": "Sweden"
+          },
+          {
+            "label": "Geometry",
+            "value": "Point"
+          },
+          {
+            "label": "Collection units",
+            "value": "1"
+          },
+          {
+            "label": "Datasets",
+            "value": "1"
+          },
+          {
+            "label": "Dataset types",
+            "value": "pollen"
+          },
+          {
+            "label": "Altitude",
+            "value": "148"
+          },
+          {
+            "label": "Description",
+            "value": "A small lake in a hilly area. Physiography: surrounded by till and bedrock. Surrounding vegetation: pine and spruce."
+          }
+        ]
+      }
+    }
+  ]
+}

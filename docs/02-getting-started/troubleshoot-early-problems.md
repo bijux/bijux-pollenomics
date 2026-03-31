@@ -41,7 +41,7 @@ Check:
 
 - whether `make data-prep` completed successfully
 - whether `report-multi-country-map` ran after the last data refresh
-- whether the copied files exist under `docs/report/nordic/`
+- whether the copied files exist under `docs/report/nordic-atlas/`
 
 ## Docs pages or links look wrong
 
