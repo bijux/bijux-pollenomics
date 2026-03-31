@@ -12,6 +12,8 @@ from bijux_pollenomics.data_downloader.landclim import (
     grid_geometry_from_nw_cell_label,
     landclim_i_site_records,
     parse_coordinate,
+    resolve_landclim_marquer_asset_urls,
+    resolve_landclim_tabular_asset_urls,
 )
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
@@ -206,5 +208,35 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(records[0].time_end_bp, 2150)
             self.assertEqual(records[0].time_mean_bp, 1150)
             self.assertEqual(records[0].time_label, "150-2150 BP")
+
+    def test_resolve_landclim_asset_urls_reads_pangaea_record_formats(self) -> None:
+        marquer_html = '<a id="static-download-link" href="https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx">Download dataset</a>'
+        self.assertEqual(
+            resolve_landclim_marquer_asset_urls(marquer_html),
+            {
+                "marquer_2017_reveals_taxa_grid_cells.xlsx": "https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx"
+            },
+        )
+
+        landclim_i_text = """/* DATA DESCRIPTION: */\nContent\tFile name\tFile format\tFile size [kByte]\tURL file\nLCT\tLandClimILCTs\tXLSX\t216.697\thttps://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimILCTs.xlsx\nPFT\tLandClimIPFTs\tXLSX\t344.248\thttps://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx\n"""
+        self.assertEqual(
+            resolve_landclim_tabular_asset_urls(landclim_i_text),
+            {
+                "landclim_i_land_cover_types.xlsx": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimILCTs.xlsx",
+                "landclim_i_plant_functional_types.xlsx": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx",
+            },
+        )
+
+        landclim_ii_text = """/* DATA DESCRIPTION: */\nContent\tBinary\nREVEALS\tLANDCLIMII.RV.results.JUN2021.zip\nQuality\tGC_quality_by_TW.xlsx\nContributors\tLandClimII_contributors.xlsx\nMetadata\tLandClimII_metadata.xlsx\nTaxa\tTaxa_to_PFT_PPE_and_FSP_values.csv\n"""
+        self.assertEqual(
+            resolve_landclim_tabular_asset_urls(landclim_ii_text),
+            {
+                "landclim_ii_reveals_results.zip": "https://download.pangaea.de/dataset/937075/files/LANDCLIMII.RV.results.JUN2021.zip",
+                "landclim_ii_grid_cell_quality.xlsx": "https://download.pangaea.de/dataset/937075/files/GC_quality_by_TW.xlsx",
+                "landclim_ii_contributors.xlsx": "https://download.pangaea.de/dataset/937075/files/LandClimII_contributors.xlsx",
+                "landclim_ii_site_metadata.xlsx": "https://download.pangaea.de/dataset/937075/files/LandClimII_metadata.xlsx",
+                "landclim_ii_taxa_pft_ppe_fsp_values.csv": "https://download.pangaea.de/dataset/937075/files/Taxa_to_PFT_PPE_and_FSP_values.csv",
+            },
+        )
 if __name__ == "__main__":
     unittest.main()

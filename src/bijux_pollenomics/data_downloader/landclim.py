@@ -8,7 +8,7 @@ from io import TextIOWrapper
 from pathlib import Path
 from zipfile import ZipFile
 
-from .common import clean_optional_text, fetch_binary, write_json
+from .common import clean_optional_text, fetch_binary, fetch_text, write_json
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
 from .geometry import classify_country, point_in_bbox
 from .models import ContextPointRecord
@@ -19,14 +19,18 @@ from ..temporal import build_bp_interval_label, mean_bp_year_from_interval, merg
 
 LANDCLIM_SITE_LAYER_KEY = "landclim-sites"
 LANDCLIM_GRID_LAYER_KEY = "landclim-reveals-grid"
-LANDCLIM_DATASET_URLS = {
-    "marquer_2017_reveals_taxa_grid_cells.xlsx": "https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx",
-    "landclim_i_land_cover_types.xlsx": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimILCTs.xlsx",
-    "landclim_i_plant_functional_types.xlsx": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx",
-    "landclim_ii_reveals_results.zip": "https://download.pangaea.de/dataset/937075/files/LANDCLIMII.RV.results.JUN2021.zip",
-    "landclim_ii_grid_cell_quality.xlsx": "https://download.pangaea.de/dataset/937075/files/GC_quality_by_TW.xlsx",
-    "landclim_ii_site_metadata.xlsx": "https://download.pangaea.de/dataset/937075/files/LandClimII_metadata.xlsx",
-    "landclim_ii_taxa_pft_ppe_fsp_values.csv": "https://download.pangaea.de/dataset/937075/files/Taxa_to_PFT_PPE_and_FSP_values.csv",
+LANDCLIM_MARQUER_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.900966"
+LANDCLIM_I_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.897303"
+LANDCLIM_II_DATASET_PAGE = "https://doi.pangaea.de/10.1594/PANGAEA.937075"
+LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME = {
+    "MARQUER_QSR2017.xlsx": "marquer_2017_reveals_taxa_grid_cells.xlsx",
+    "LandClimILCTs.xlsx": "landclim_i_land_cover_types.xlsx",
+    "LandClimIPFTs.xlsx": "landclim_i_plant_functional_types.xlsx",
+    "LANDCLIMII.RV.results.JUN2021.zip": "landclim_ii_reveals_results.zip",
+    "GC_quality_by_TW.xlsx": "landclim_ii_grid_cell_quality.xlsx",
+    "LandClimII_contributors.xlsx": "landclim_ii_contributors.xlsx",
+    "LandClimII_metadata.xlsx": "landclim_ii_site_metadata.xlsx",
+    "Taxa_to_PFT_PPE_and_FSP_values.csv": "landclim_ii_taxa_pft_ppe_fsp_values.csv",
 }
 LANDCLIM_DATASET_METADATA = {
     "900966": {
@@ -115,6 +119,7 @@ def collect_landclim_data(
                     "files": [
                         "landclim_ii_reveals_results.zip",
                         "landclim_ii_grid_cell_quality.xlsx",
+                        "landclim_ii_contributors.xlsx",
                         "landclim_ii_site_metadata.xlsx",
                         "landclim_ii_taxa_pft_ppe_fsp_values.csv",
                     ],
@@ -156,12 +161,81 @@ def collect_landclim_data(
 
 def download_landclim_raw_assets(raw_dir: Path) -> dict[str, Path]:
     """Download the LandClim raw upstream assets used for normalization."""
+    asset_urls = resolve_landclim_asset_urls()
     raw_paths: dict[str, Path] = {}
-    for filename, url in LANDCLIM_DATASET_URLS.items():
+    for filename, url in asset_urls.items():
         path = Path(raw_dir) / filename
         path.write_bytes(fetch_binary(url))
         raw_paths[filename] = path
     return raw_paths
+
+
+def resolve_landclim_asset_urls() -> dict[str, str]:
+    """Resolve all required LandClim raw asset URLs from the official PANGAEA records."""
+    asset_urls: dict[str, str] = {}
+    asset_urls.update(resolve_landclim_marquer_asset_urls(fetch_text(LANDCLIM_MARQUER_DATASET_PAGE)))
+    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_I_DATASET_PAGE}?format=textfile")))
+    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_II_DATASET_PAGE}?format=textfile")))
+    missing = sorted(
+        expected_filename
+        for expected_filename in LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.values()
+        if expected_filename not in asset_urls
+    )
+    if missing:
+        raise ValueError(f"LandClim PANGAEA records are missing required assets: {', '.join(missing)}")
+    return asset_urls
+
+
+def resolve_landclim_marquer_asset_urls(page_html: str) -> dict[str, str]:
+    """Extract the Marquer workbook download URL from the PANGAEA landing page."""
+    match = re.search(r'id="static-download-link"[^>]+href="([^"]+MARQUER_QSR2017\.xlsx)"', page_html)
+    if match is None:
+        raise ValueError("Could not resolve the Marquer workbook from the PANGAEA landing page")
+    return {"marquer_2017_reveals_taxa_grid_cells.xlsx": match.group(1)}
+
+
+def resolve_landclim_tabular_asset_urls(textfile: str) -> dict[str, str]:
+    """Extract one PANGAEA text-matrix asset table into local LandClim filenames."""
+    rows = parse_pangaea_textfile_rows(textfile)
+    header = rows[0]
+    index = {column: position for position, column in enumerate(header)}
+    filename_field = "File name" if "File name" in index else "Binary"
+    url_field = "URL file" if "URL file" in index else ""
+    asset_urls: dict[str, str] = {}
+    for row in rows[1:]:
+        source_name = clean_optional_text(row[index[filename_field]]) if index[filename_field] < len(row) else ""
+        if not source_name:
+            continue
+        source_filename = source_name if "." in source_name else f"{source_name}.{clean_optional_text(row[index.get('File format', -1)]).casefold()}"
+        local_filename = LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.get(source_filename)
+        if not local_filename:
+            continue
+        if url_field:
+            url = clean_optional_text(row[index[url_field]]) if index[url_field] < len(row) else ""
+        else:
+            url = build_landclim_ii_file_url(source_filename)
+        asset_urls[local_filename] = url
+    return asset_urls
+
+
+def parse_pangaea_textfile_rows(textfile: str) -> list[list[str]]:
+    """Parse the data matrix from a PANGAEA `format=textfile` response."""
+    marker = "*/"
+    if marker not in textfile:
+        raise ValueError("Unexpected PANGAEA textfile response: missing data matrix marker")
+    data_text = textfile.split(marker, 1)[1].strip()
+    if not data_text:
+        raise ValueError("Unexpected PANGAEA textfile response: empty data matrix")
+    return [
+        row
+        for row in csv.reader(data_text.splitlines(), delimiter="\t")
+        if row
+    ]
+
+
+def build_landclim_ii_file_url(filename: str) -> str:
+    """Build one direct LandClim II file download URL from the documented filename."""
+    return f"https://download.pangaea.de/dataset/937075/files/{filename}"
 
 
 def build_landclim_site_records(
