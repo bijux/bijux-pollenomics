@@ -6,6 +6,7 @@ from typing import Iterable
 
 from ..core.http import fetch_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
+from .sead_inventory import SeadSiteFetchResult, build_sead_site_inventory
 from .sead_archive import write_sead_site_archive
 from .sead_fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
@@ -28,13 +29,6 @@ class SeadDataReport:
     normalized_csv_path: Path
     normalized_geojson_path: Path
 
-
-@dataclass(frozen=True)
-class SeadSiteFetchResult:
-    rows: list[dict[str, object]]
-    inventory_summary: dict[str, int]
-
-
 def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[str, object]]:
     """Download SEAD site rows inside the Nordic bounding box."""
     return fetch_sead_site_inventory(bbox).rows
@@ -42,24 +36,11 @@ def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[s
 
 def fetch_sead_site_inventory(bbox: tuple[float, float, float, float]) -> SeadSiteFetchResult:
     """Download SEAD site rows plus an audit summary of linked table coverage."""
-    min_longitude, min_latitude, max_longitude, max_latitude = bbox
-    rows = fetch_sead_rows(
-        "tbl_sites",
-        select="site_id,site_name,national_site_identifier,latitude_dd,longitude_dd,altitude,site_description,site_uuid",
-        filters=(
-            ("latitude_dd", f"gte.{min_latitude}"),
-            ("latitude_dd", f"lte.{max_latitude}"),
-            ("longitude_dd", f"gte.{min_longitude}"),
-            ("longitude_dd", f"lte.{max_longitude}"),
-        ),
-        order_by=("site_id",),
+    return build_sead_site_inventory(
+        bbox=bbox,
+        fetch_sead_rows_fn=fetch_sead_rows,
+        populate_inventory_fields_fn=populate_sead_site_inventory_fields,
     )
-    deduplicated: dict[str, dict[str, object]] = {}
-    for row in rows:
-        deduplicated[str(row.get("site_id", ""))] = row
-    deduplicated_rows = sorted(deduplicated.values(), key=lambda item: int(item.get("site_id", 0)))
-    inventory_summary = populate_sead_site_inventory_fields(deduplicated_rows)
-    return SeadSiteFetchResult(rows=deduplicated_rows, inventory_summary=inventory_summary)
 
 
 def fetch_sead_rows(
