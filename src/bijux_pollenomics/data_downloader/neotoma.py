@@ -34,9 +34,12 @@ from .sources.neotoma.normalization import (
 from .shared.context_exports import write_context_points_csv, write_context_points_geojson
 
 
-NEOTOMA_INVENTORY_PAGE_SIZE = 100
+# Neotoma bbox searches drop valid Nordic sites when paginated in smaller chunks.
+# Keep the inventory query large enough to fit in one response under current coverage.
+NEOTOMA_INVENTORY_QUERY_LIMIT = 400
 NEOTOMA_DATA_URL = "https://api.neotomadb.org/v2.0/data"
 NEOTOMA_DATASETTYPE = "pollen"
+NEOTOMA_INVENTORY_ENDPOINT = "sites"
 NEOTOMA_REQUEST_TIMEOUT_SECONDS = 90.0
 NEOTOMA_DOWNLOAD_WORKERS = 16
 NEOTOMA_API_RETRIES = 5
@@ -132,7 +135,7 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
         extra_params=extra_params,
         fetch_neotoma_api_payload_fn=fetch_neotoma_api_payload,
         neotoma_datasettype=NEOTOMA_DATASETTYPE,
-        neotoma_limit=NEOTOMA_INVENTORY_PAGE_SIZE,
+        neotoma_limit=NEOTOMA_INVENTORY_QUERY_LIMIT,
     )
 
 
@@ -250,7 +253,7 @@ def collect_neotoma_data(
         {
             "generated_on": str(date.today()),
             "source": "Neotoma",
-            "endpoint": f"{NEOTOMA_DATA_URL}/datasets",
+            "endpoint": f"{NEOTOMA_DATA_URL}/{NEOTOMA_INVENTORY_ENDPOINT}",
             "datasettype": NEOTOMA_DATASETTYPE,
             "loc": build_neotoma_bbox_geojson(bbox),
             "queried_row_count": len(inventory_rows),
