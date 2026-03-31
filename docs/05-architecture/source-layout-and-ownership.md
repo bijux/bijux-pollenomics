@@ -20,7 +20,13 @@ The source tree is intentionally split between three concerns:
 ```text
 src/bijux_pollenomics
 ├── __init__.py
+├── __main__.py
 ├── cli.py
+├── command_line
+│   ├── __init__.py
+│   ├── arguments.py
+│   ├── dispatch.py
+│   └── handlers.py
 ├── settings.py
 ├── reporting
 │   ├── __init__.py
@@ -50,7 +56,10 @@ src/bijux_pollenomics
 
 ## Ownership Model
 
-- `cli.py` owns command parsing and user-facing entry points
+- `cli.py` owns the stable top-level entry point only
+- `command_line/arguments.py` owns argument composition
+- `command_line/dispatch.py` owns command routing
+- `command_line/handlers.py` owns user-facing command behavior
 - `settings.py` owns shared defaults for the current checked-in publication scope
 - `data_downloader/` owns source acquisition and normalization
 - `reporting/` owns report and map generation
