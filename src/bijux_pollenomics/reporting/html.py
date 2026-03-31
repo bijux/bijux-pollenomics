@@ -1,5 +1,2 @@
-from __future__ import annotations
-
-from .map_document import render_multi_country_map_html
-
-__all__ = ["render_multi_country_map_html"]
+from .rendering.html import *  # noqa: F403
+from .rendering.html import __all__ as __all__
