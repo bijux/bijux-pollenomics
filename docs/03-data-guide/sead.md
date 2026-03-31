@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # SEAD
@@ -22,6 +22,8 @@ The current collector:
 
 - queries the SEAD PostgREST `tbl_sites` surface inside the Nordic bounding box
 - drops rows without coordinates
+- follows linked SEAD tables to attach sample-group, physical-sample, analysis-entity, dataset, reference, relative-date, and dating-range counts
+- derives filterable BP coverage from linked dating ranges when SEAD exposes BP age types
 - assigns each retained point to a Nordic country using the tracked boundary layer
 - writes one raw JSON snapshot plus normalized CSV and GeoJSON outputs
 

@@ -13,7 +13,7 @@ last_reviewed: 2026-03-31
 
 ## What It Produces
 
-- a short dataset inventory under `data/neotoma/raw/neotoma_pollen_dataset_inventory.json`
+- a dataset inventory audit artifact under `data/neotoma/raw/neotoma_pollen_dataset_inventory.json`
 - full dataset downloads under `data/neotoma/raw/neotoma_pollen_dataset_downloads.json`
 - an aggregated site summary under `data/neotoma/raw/neotoma_pollen_sites.json`
 - normalized CSV and GeoJSON outputs under `data/neotoma/normalized/`
@@ -24,7 +24,9 @@ The current collector:
 
 - requests a short Neotoma `datasettype=pollen` inventory from the public `datasets` endpoint using a Nordic `loc` query
 - filters that inventory to tracked Nordic countries using the repository boundary layer
+- preserves both the full bbox inventory and the retained Nordic subset so boundary filtering remains auditable
 - downloads each surviving dataset through the full `downloads/{datasetid}` endpoint so samples, taxa, and chronologies are preserved
+- validates that every requested dataset ID is present in the collected download payloads before continuing
 - merges the full dataset records by site and collection unit
 - assigns each retained record to a Nordic country using the tracked boundary layer, including a narrow boundary-proximity recovery so coastal and inland-water sites are not dropped by coarse land polygons
 - writes raw inventory, raw dataset-download, and raw site-summary JSON artifacts plus normalized CSV and GeoJSON outputs

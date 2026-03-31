@@ -14,16 +14,19 @@ last_reviewed: 2026-03-31
 ## What It Produces
 
 - raw country GeoJSON files under `data/boundaries/raw/`
+- a Natural Earth source manifest under `data/boundaries/raw/source_manifest.json`
 - a combined Nordic boundary collection under `data/boundaries/normalized/nordic_country_boundaries.geojson`
 
 ## What The Current Collector Does
 
 The current collector:
 
-- downloads Natural Earth 10m admin-0 country geometry
+- downloads Natural Earth 10m admin-0 country geometry from the pinned `v5.1.1` release asset
 - filters that global boundary collection down to Sweden, Norway, Finland, and Denmark
+- writes a provenance manifest with the pinned asset URL, version, feature count, and SHA-256 digest
 - writes those filtered country files into the tracked raw boundary directory
 - builds one combined Nordic boundary GeoJSON for country classification and map framing
+- only reuses local raw boundaries when that provenance manifest is present and valid
 - uses strict polygon containment first, then a narrow fallback for inland-water and near-coast points that sit just outside the published land polygons
 
 ## Current Raw Files

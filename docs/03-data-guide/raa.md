@@ -14,6 +14,7 @@ last_reviewed: 2026-03-31
 ## What It Produces
 
 - raw capabilities, schema, and domain metadata under `data/raa/raw/`
+- a full published archaeology point archive under `data/raa/raw/publicerade_lamningar_centrumpunkt.geojson`
 - Swedish archaeology metadata and density GeoJSON under `data/raa/normalized/`
 
 ## What The Current Collector Does
@@ -22,8 +23,9 @@ The current collector:
 
 - downloads RAÄ WFS capabilities and schema metadata
 - downloads Fornsök domain metadata
-- queries exact RAÄ feature counts for all published sites, `Fornlämning`, and `Fornlämning` plus `Möjlig fornlämning`
-- builds a 1-degree Swedish density grid by issuing RAÄ WFS count queries cell by cell
+- archives the full published archaeology point inventory with WFS paging
+- derives Swedish counts for all published sites, `Fornlämning`, and `Fornlämning` plus `Möjlig fornlämning` from that archived inventory
+- builds a 1-degree Swedish density grid from the archived feature inventory instead of issuing WFS count queries cell by cell
 
 ## Why Density Instead Of Every Point
 
@@ -31,7 +33,8 @@ RAÄ currently contributes national-scale Swedish archaeology context. The check
 
 ```mermaid
 flowchart LR
-    WFS[RAÄ WFS counts] --> Density[Sweden archaeology density grid]
+    WFS[RAÄ WFS points] --> Archive[Tracked raw point archive]
+    Archive --> Density[Sweden archaeology density grid]
     Density --> SharedMap[Shared Nordic map]
 ```
 
