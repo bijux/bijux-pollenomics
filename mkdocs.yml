@@ -4,7 +4,7 @@ site_url: !ENV [SITE_URL, https://bijux.github.io/bijux-pollenomics/]
 site_author: Bijan Mousavi
 repo_name: bijux/bijux-pollenomics
 repo_url: https://github.com/bijux/bijux-pollenomics
-edit_uri: edit/master/docs/
+edit_uri: edit/main/docs/
 strict: true
 use_directory_urls: true
 dev_addr: 127.0.0.1:8000
