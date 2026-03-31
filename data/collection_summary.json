@@ -3,12 +3,7 @@
   "output_root": "data",
   "version": "v62.0",
   "collected_sources": [
-    "aadr",
-    "boundaries",
-    "landclim",
-    "neotoma",
-    "raa",
-    "sead"
+    "neotoma"
   ],
   "source_output_roots": {
     "aadr": "data/aadr",
@@ -19,13 +14,13 @@
     "raa": "data/raa",
     "sead": "data/sead"
   },
-  "boundary_source": "collected",
-  "aadr_file_count": 2,
-  "landclim_site_count": 492,
-  "landclim_grid_cell_count": 88,
-  "neotoma_point_count": 43,
-  "sead_point_count": 2069,
-  "raa_total_site_count": 761917,
-  "raa_heritage_site_count": 318265,
+  "boundary_source": "local",
+  "aadr_file_count": 0,
+  "landclim_site_count": 0,
+  "landclim_grid_cell_count": 0,
+  "neotoma_point_count": 200,
+  "sead_point_count": 0,
+  "raa_total_site_count": 0,
+  "raa_heritage_site_count": 0,
   "summary_path": "data/collection_summary.json"
 }
