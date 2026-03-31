@@ -121,6 +121,7 @@ nav:
       - Overview: architecture/index.md
       - System Overview: architecture/system-overview.md
       - Data Collection Flow: architecture/data-collection-flow.md
+      - Publication Flow: architecture/publication-flow.md
       - Codebase Layout and Ownership: architecture/codebase-layout-and-ownership.md
   - Engineering:
       - Overview: engineering/index.md

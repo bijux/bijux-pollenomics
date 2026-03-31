@@ -15,6 +15,7 @@ This section explains how the repository is put together and where responsibilit
 
 - [System overview](system-overview.md)
 - [Data collection flow](data-collection-flow.md)
+- [Publication flow](publication-flow.md)
 - [Codebase layout and ownership](codebase-layout-and-ownership.md)
 
 ## Core Boundary

@@ -31,7 +31,7 @@ flowchart TD
     DataTree --> ReportCountry
     DataTree --> ReportMap
     ReportCountry --> DocsReport[docs/report/<country>]
-    ReportMap --> DocsNordic[docs/report/nordic]
+    ReportMap --> DocsNordic[docs/report/nordic-atlas]
     DocsNordic --> MkDocs[docs homepage iframe]
 ```
 
@@ -52,6 +52,16 @@ Two parts of the tree now carry explicit file contracts instead of relying on re
 - `src/bijux_pollenomics/reporting/paths.py` owns the generated bundle artifact names for country bundles and the Nordic Evidence Atlas bundle
 
 That split matters because the repository publishes generated files directly. A file rename is not just an implementation detail here; it is part of the output contract.
+
+## Publication Boundary
+
+The repository draws a hard boundary between:
+
+- source collection under `data/`
+- generated publication bundles under `docs/report/`
+- hand-maintained documentation under `docs/`
+
+That boundary keeps generated artifacts reviewable without pretending that narrative documentation is itself machine-generated.
 
 ## Purpose
 
