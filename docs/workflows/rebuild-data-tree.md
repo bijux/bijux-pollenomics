@@ -1,5 +1,5 @@
 ---
-title: Rebuild the Data Tree
+title: Rebuild Data Tree
 audience: mixed
 type: workflow
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Rebuild the Data Tree
+# Rebuild Data Tree
 
 The repository uses one unified acquisition command, but that command rewrites tracked source outputs. Treat this workflow as a deliberate rebuild step, not as a harmless read-only refresh.
 
@@ -61,7 +61,7 @@ PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data 
 
 Use source-specific runs when you are iterating on one acquisition area and do not want to refresh the entire tree.
 
-The current repository also supports:
+The repository also supports:
 
 ```bash
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data

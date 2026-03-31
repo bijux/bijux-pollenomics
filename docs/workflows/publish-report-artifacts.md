@@ -1,5 +1,5 @@
 ---
-title: Generate Reports and Map Outputs
+title: Publish Report Artifacts
 audience: mixed
 type: workflow
 status: canonical
@@ -7,11 +7,11 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Generate Reports and Map Outputs
+# Publish Report Artifacts
 
 Once the data tree exists, generate the shared map and any country reports you want to publish or inspect. This workflow rewrites tracked files under `docs/report/`.
 
-## Current Published Set
+## Canonical Publication Command
 
 ```bash
 make reports
@@ -23,7 +23,7 @@ Equivalent direct command:
 PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data
 ```
 
-That command is the direct match for the checked-in publication workflow. It rebuilds the current Nordic Evidence Atlas bundle and the four current country bundles in one pass.
+That command is the direct match for the checked-in publication workflow. It rebuilds the Nordic Evidence Atlas bundle and the four published country bundles in one pass.
 
 ## Which Command To Use
 
@@ -65,11 +65,21 @@ Each `report-country` command writes one country bundle under `docs/report/<coun
 
 Country report generation is intentionally file-oriented. It produces inventories and summaries, not a second standalone HTML map.
 
+## Publication Checklist
+
+Use this order when republishing checked-in outputs:
+
+1. run [Install and verify](install-and-verify.md)
+2. run [Rebuild data tree](rebuild-data-tree.md) if the source data needs refresh
+3. run `make reports` to regenerate `docs/report/`
+4. run `make docs` to verify that the documentation shell still builds against the regenerated artifacts
+5. review diffs in `docs/report/` and any changed narrative pages together
+
 ## Output Model
 
 ```mermaid
 flowchart LR
-    Data[data/] --> SharedMap[docs/report/nordic]
+    Data[data/] --> SharedMap[docs/report/nordic-atlas]
     Data --> Sweden[docs/report/sweden]
     Data --> Norway[docs/report/norway]
     Data --> Finland[docs/report/finland]
@@ -78,4 +88,4 @@ flowchart LR
 
 ## Purpose
 
-This page gives the report-generation commands used for the current checked-in outputs.
+This page gives the publication workflow used for the checked-in atlas and country bundles.

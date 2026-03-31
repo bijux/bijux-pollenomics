@@ -18,7 +18,7 @@ flowchart LR
     Checkout[Clone repo] --> Install[make install]
     Install --> Verify[make lint and make test]
     Verify --> DataPrep[make data-prep]
-    DataPrep --> Reports[Generate reports and map]
+    DataPrep --> Reports[Publish report artifacts]
 ```
 
 ## Pages in This Section
@@ -37,6 +37,10 @@ By the end of this section you should be able to:
 - run lint and tests
 - rebuild `data/` with one command
 - regenerate the shared Nordic map and country reports
+
+## Workflow Boundary
+
+This section is operational. It explains when a command should be run, what tracked state it rewrites, and what success should leave behind. It is not the place for architectural justification or full command inventories; those live in `Architecture` and `Reference`.
 
 ## Reading Rule
 

@@ -38,6 +38,7 @@ If `python3.11` is not available, fix that first. Do not continue with `make ins
 make install
 make lint
 make test
+make docs
 ```
 
 ## What These Commands Do
@@ -45,6 +46,7 @@ make test
 - `make install` creates `artifacts/.venv/` and installs the project with dev tooling
 - `make lint` runs `ruff` across `src/` and `tests/`
 - `make test` runs the checked-in unittest suite with verbose discovery output
+- `make docs` verifies that the documentation shell still builds in strict mode
 
 ## What `make install` Actually Adds
 
@@ -64,6 +66,7 @@ After these commands:
 - `artifacts/.venv/bin/python` exists locally
 - lint passes
 - the test suite passes
+- the docs site builds successfully
 
 ## What This Page Does Not Verify
 
@@ -72,7 +75,7 @@ This page does not prove that:
 - network-backed collectors can reach upstream data providers
 - the tracked `data/` tree can be rebuilt successfully
 - the tracked `docs/report/` tree can be republished successfully
-- the MkDocs site still builds under `strict: true`
+- published report artifacts are up to date with the code and data in the same repository state
 
 Those checks belong to later workflow pages because they mutate more state or depend on more external systems.
 

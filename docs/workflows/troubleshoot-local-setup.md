@@ -1,13 +1,15 @@
 ---
-title: Troubleshoot Early Problems
+title: Troubleshoot Local Setup
 audience: mixed
 type: troubleshooting
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
-# Troubleshoot Early Problems
+# Troubleshoot Local Setup
+
+Use this page for local setup and publication failures before moving into deeper architecture or source-specific debugging.
 
 ## `make install` fails
 
@@ -15,6 +17,7 @@ Check:
 
 - `python3.11 --version`
 - whether `artifacts/.venv/` is in a broken partial state
+- whether `pyproject.toml` metadata still installs cleanly with editable builds
 
 If needed:
 
@@ -25,7 +28,7 @@ make install
 
 ## `make data-prep` is slow
 
-This can be expected when the RAÄ density layer is being rebuilt, because the current collector issues repeated RAÄ WFS count queries across Swedish grid cells.
+This can be expected when the RAÄ density layer is being rebuilt, because the collector issues repeated RAÄ WFS count queries across Swedish grid cells.
 
 ## `make docs` fails
 
@@ -34,6 +37,16 @@ Check:
 - missing Markdown pages referenced in navigation
 - broken relative links
 - files moved without updating `mkdocs.yml`
+- warnings emitted by plugins that become hard failures under `strict: true`
+
+## `make docs-serve` fails
+
+Check:
+
+- whether `make install` completed successfully first
+- whether port `127.0.0.1:8000` is already in use
+- whether the local editable install is blocked by invalid packaging metadata
+- whether a stale `artifacts/.venv/` should be removed and rebuilt
 
 ## The map opens but some layers are missing
 
@@ -49,8 +62,16 @@ Check:
 
 - whether `make docs` passes in strict mode
 - whether a page was moved without updating `mkdocs.yml`
-- whether a link still points to a retired duplicate doc instead of one of the seven canonical sections
+- whether a link still points to a retired path instead of the durable section names under `foundation/`, `workflows/`, `data-sources/`, `outputs/`, `architecture/`, `engineering/`, and `reference/`
+
+## `make reports` finishes but the atlas does not match expectations
+
+Check:
+
+- whether `make data-prep` ran after the last collector change
+- whether `docs/report/nordic-atlas/nordic-atlas_map.html` was regenerated in the same repository state
+- whether supporting gallery assets or context artifacts are present where the atlas expects them
 
 ## Purpose
 
-This page captures the most likely first-run problems before deeper architecture or reference material is needed.
+This page captures the most likely local setup and publication problems before deeper architecture or reference material is needed.
