@@ -18,7 +18,8 @@ from .context_layers import build_context_layers
 from .country_bundle import publish_country_report_bundle
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
-from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
+from .map_inputs import load_multi_country_map_inputs
+from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .paths import build_atlas_bundle_paths
 from .published_reports import publish_published_reports_tree
 from .staging import publish_into_staging_dir
@@ -100,17 +101,10 @@ def generate_multi_country_map(
     if not normalized_countries:
         raise ValueError("At least one country is required to build a multi-country map")
 
-    country_samples: dict[str, tuple[SampleRecord, ...]] = {}
-    country_sample_counts: dict[str, int] = {}
-    for country in normalized_countries:
-        samples, _ = load_country_samples(version_dir=version_dir, country=country)
-        country_samples[country] = tuple(samples)
-        country_sample_counts[country] = len(samples)
-
-    all_samples = tuple(
-        sample
-        for country in normalized_countries
-        for sample in country_samples[country]
+    map_inputs = load_multi_country_map_inputs(
+        version_dir=version_dir,
+        countries=normalized_countries,
+        load_country_samples_fn=load_country_samples,
     )
     version = version_dir.name
     generated_on = str(date.today())
@@ -120,8 +114,8 @@ def generate_multi_country_map(
         version=version,
         generated_on=generated_on,
         countries=normalized_countries,
-        country_sample_counts=country_sample_counts,
-        total_unique_samples=len(all_samples),
+        country_sample_counts=map_inputs.country_sample_counts,
+        total_unique_samples=len(map_inputs.all_samples),
         output_dir=published_output_dir,
     )
 
@@ -133,8 +127,8 @@ def generate_multi_country_map(
             version=version,
             generated_on=generated_on,
             countries=normalized_countries,
-            country_sample_counts=country_sample_counts,
-            all_samples=all_samples,
+            country_sample_counts=map_inputs.country_sample_counts,
+            all_samples=map_inputs.all_samples,
             context_root=context_root,
             asset_base_path="./_map_assets",
             build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
