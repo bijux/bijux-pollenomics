@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from pathlib import Path
 
-from .common import fetch_json, fetch_text
+from .common import clean_optional_text, fetch_json, fetch_text
 from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
-from .geometry import build_grid_cell_geometry, geometry_bbox, grid_cell_relevant
+from .geometry import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
 from .common import write_json, write_text
 
 
@@ -25,6 +26,7 @@ RAA_FEATURE_PAGE_SIZE = 10000
 
 
 def fetch_raa_archaeology_metadata(
+    feature_inventory: dict[str, object],
     country_boundaries: dict[str, dict[str, object]],
 ) -> dict[str, object]:
     """Download Swedish archaeology layer metadata from RAÄ and Fornsök."""
@@ -40,12 +42,16 @@ def fetch_raa_archaeology_metadata(
     schema_xml = fetch_text(schema_url)
     domain_payload = fetch_json(domain_url)
 
-    count_all = fetch_raa_count()
-    count_fornlamning = fetch_raa_count("antikvariskbedomningtyp_namn='Fornlämning'")
-    count_fornlamning_or_possible = fetch_raa_count(
-        "antikvariskbedomningtyp_namn IN ('Fornlämning','Möjlig fornlämning')"
+    count_all = count_raa_features(feature_inventory)
+    count_fornlamning = count_raa_features(feature_inventory, heritage_statuses={"Fornlämning"})
+    count_fornlamning_or_possible = count_raa_features(
+        feature_inventory,
+        heritage_statuses={"Fornlämning", "Möjlig fornlämning"},
     )
-    density_geojson = fetch_raa_density_geojson(country_boundaries["Sweden"])
+    density_geojson = build_raa_density_geojson(
+        feature_inventory=feature_inventory,
+        sweden_boundary=country_boundaries["Sweden"],
+    )
 
     layer_metadata = {
         "source": "Riksantikvarieämbetet",
@@ -78,25 +84,21 @@ def fetch_raa_archaeology_metadata(
     }
 
 
-def fetch_raa_count(cql_filter: str | None = None) -> int:
-    """Query the Swedish archaeology WFS for an exact feature count."""
-    params = {
-        "service": "WFS",
-        "version": "2.0.0",
-        "request": "GetFeature",
-        "typeNames": RAA_FEATURE_TYPE,
-        "resultType": "hits",
-    }
-    if cql_filter:
-        params["CQL_FILTER"] = cql_filter
-    xml_text = fetch_text(RAA_WFS_URL, params=params)
-    marker = 'numberMatched="'
-    start = xml_text.find(marker)
-    if start == -1:
-        raise ValueError("Could not find RAÄ count in WFS hits response")
-    start += len(marker)
-    end = xml_text.find('"', start)
-    return int(xml_text[start:end])
+def count_raa_features(
+    feature_inventory: dict[str, object],
+    *,
+    heritage_statuses: set[str] | None = None,
+) -> int:
+    """Count archived RAÄ features, optionally filtered by heritage-status labels."""
+    statuses = {status.casefold() for status in heritage_statuses or set()}
+    count = 0
+    for feature in iter_raa_features(feature_inventory):
+        if statuses:
+            status = clean_optional_text(feature.get("properties", {}).get("antikvariskbedomningtyp_namn")).casefold()
+            if status not in statuses:
+                continue
+        count += 1
+    return count
 
 
 def fetch_raa_feature_page(
@@ -154,11 +156,16 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
     }
 
 
-def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, object]:
-    """Build a Swedish archaeology density grid from RAÄ WFS counts."""
+def build_raa_density_geojson(
+    *,
+    feature_inventory: dict[str, object],
+    sweden_boundary: dict[str, object],
+) -> dict[str, object]:
+    """Build a Swedish archaeology density grid from archived RAÄ point features."""
     geometry = sweden_boundary["features"][0]["geometry"]
     min_longitude, min_latitude, max_longitude, max_latitude = geometry_bbox(geometry)
     cell_size = 1.0
+    cell_counts = raa_density_counts_by_grid_cell(feature_inventory)
     features = []
     latitude = int(min_latitude)
     while latitude < int(max_latitude) + 1:
@@ -172,13 +179,7 @@ def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, o
             if not grid_cell_relevant(cell["coordinates"][0], geometry):
                 longitude += 1
                 continue
-            count = fetch_raa_count(
-                (
-                    "BBOX(centrumpunkt,"
-                    f"{longitude},{latitude},{longitude + cell_size},{latitude + cell_size},'EPSG:4326') "
-                    "AND antikvariskbedomningtyp_namn='Fornlämning'"
-                )
-            )
+            count = cell_counts.get((longitude, latitude), 0)
             if count > 0:
                 features.append(
                     {
@@ -199,6 +200,30 @@ def fetch_raa_density_geojson(sweden_boundary: dict[str, object]) -> dict[str, o
     return {"type": "FeatureCollection", "features": features}
 
 
+def raa_density_counts_by_grid_cell(feature_inventory: dict[str, object]) -> dict[tuple[int, int], int]:
+    """Count archived RAÄ heritage records in 1 degree grid cells."""
+    counts: dict[tuple[int, int], int] = {}
+    for feature in iter_raa_features(feature_inventory):
+        status = clean_optional_text(feature.get("properties", {}).get("antikvariskbedomningtyp_namn"))
+        if status != "Fornlämning":
+            continue
+        representative_point = geometry_to_representative_point(feature.get("geometry", {}))
+        if representative_point is None:
+            continue
+        longitude, latitude, _ = representative_point
+        cell_key = (math.floor(longitude), math.floor(latitude))
+        counts[cell_key] = counts.get(cell_key, 0) + 1
+    return counts
+
+
+def iter_raa_features(feature_inventory: dict[str, object]) -> list[dict[str, object]]:
+    """Return archived RAÄ features as a validated list."""
+    features = feature_inventory.get("features", [])
+    if not isinstance(features, list):
+        raise ValueError("RAÄ feature inventory must contain a feature list")
+    return [feature for feature in features if isinstance(feature, dict)]
+
+
 def format_count_label(count: int) -> str:
     """Render archaeology density counts in a compact human-readable form."""
     return f"{count:,}"
@@ -216,8 +241,12 @@ def collect_raa_data(
     normalized_dir.mkdir(parents=True, exist_ok=True)
 
     raw_points_path = raw_dir / "publicerade_lamningar_centrumpunkt.geojson"
-    write_json(raw_points_path, fetch_raa_feature_inventory())
-    metadata = fetch_raa_archaeology_metadata(country_boundaries=country_boundaries)
+    feature_inventory = fetch_raa_feature_inventory()
+    write_json(raw_points_path, feature_inventory)
+    metadata = fetch_raa_archaeology_metadata(
+        feature_inventory=feature_inventory,
+        country_boundaries=country_boundaries,
+    )
     write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"])
     write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", metadata["schema_xml"])
     write_json(raw_dir / "fornsok_domains.json", metadata["domain_payload"])

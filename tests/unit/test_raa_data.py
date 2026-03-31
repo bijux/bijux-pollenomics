@@ -6,10 +6,61 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.raa import collect_raa_data, fetch_raa_feature_inventory
+from bijux_pollenomics.data_downloader.raa import (
+    build_raa_density_geojson,
+    collect_raa_data,
+    count_raa_features,
+    fetch_raa_feature_inventory,
+)
 
 
 class RaaDataTests(unittest.TestCase):
+    def test_count_and_density_are_derived_from_archived_features(self) -> None:
+        feature_inventory = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [18.2, 57.4]},
+                    "properties": {"lamningsnummer": "A", "antikvariskbedomningtyp_namn": "Fornlämning"},
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [18.8, 57.7]},
+                    "properties": {"lamningsnummer": "B", "antikvariskbedomningtyp_namn": "Fornlämning"},
+                },
+                {
+                    "type": "Feature",
+                    "geometry": {"type": "Point", "coordinates": [19.1, 58.3]},
+                    "properties": {"lamningsnummer": "C", "antikvariskbedomningtyp_namn": "Möjlig fornlämning"},
+                },
+            ],
+        }
+        sweden_boundary = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[[17.0, 57.0], [20.0, 57.0], [20.0, 59.0], [17.0, 59.0], [17.0, 57.0]]],
+                    },
+                    "properties": {},
+                }
+            ],
+        }
+
+        density = build_raa_density_geojson(feature_inventory=feature_inventory, sweden_boundary=sweden_boundary)
+
+        self.assertEqual(count_raa_features(feature_inventory), 3)
+        self.assertEqual(count_raa_features(feature_inventory, heritage_statuses={"Fornlämning"}), 2)
+        self.assertEqual(
+            count_raa_features(feature_inventory, heritage_statuses={"Fornlämning", "Möjlig fornlämning"}),
+            3,
+        )
+        self.assertEqual(len(density["features"]), 1)
+        self.assertEqual(density["features"][0]["properties"]["count"], 2)
+
     def test_fetch_raa_feature_inventory_paginates_all_features(self) -> None:
         pages = [
             {
@@ -63,13 +114,14 @@ class RaaDataTests(unittest.TestCase):
             with patch("bijux_pollenomics.data_downloader.raa.fetch_raa_feature_inventory", return_value=feature_inventory), patch(
                 "bijux_pollenomics.data_downloader.raa.fetch_raa_archaeology_metadata",
                 return_value=metadata,
-            ):
+            ) as fetch_metadata:
                 report = collect_raa_data(output_root, country_boundaries={"Sweden": {"features": []}})
 
             raw_payload = json.loads(report.raw_points_path.read_text(encoding="utf-8"))
 
         self.assertEqual(raw_payload["numberMatched"], 1)
         self.assertEqual(raw_payload["features"][0]["properties"]["lamningsnummer"], "A")
+        self.assertEqual(fetch_metadata.call_args.kwargs["feature_inventory"], feature_inventory)
 
 
 if __name__ == "__main__":
