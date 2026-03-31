@@ -29,6 +29,7 @@ make test-e2e
 make data-prep
 make build
 make package-check
+make package-smoke
 make docs
 make docs-serve
 ```
@@ -46,6 +47,7 @@ make docs-serve
 - `make test-e2e` runs command-line end-to-end checks
 - `make build` writes distributions into `artifacts/dist/`
 - `make package-check` rebuilds and validates the source and wheel distributions
+- `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
 - `make docs` writes the site into `artifacts/docs/site/`
 - `make docs-serve` serves the local docs at `http://127.0.0.1:8000/`
 
