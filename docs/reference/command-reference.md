@@ -21,6 +21,7 @@ make test
 make docs
 make docs-serve
 make build
+make package-verify
 make package-check
 make package-smoke
 make package-source-smoke
@@ -71,11 +72,12 @@ Use these only when you intend to regenerate tracked data or tracked publication
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
 - `make reports` expands to `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
 - `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
-- `make check` expands to `make lock-check`, `make lint`, `make test`, `make docs`, and `make package-check`
+- `make check` expands to `make lock-check`, `make lint`, `make test`, `make docs`, and `make package-verify`
 - `make install` syncs the local environment under `artifacts/.venv/` from `uv.lock`
 - `make lock` refreshes `uv.lock` from `pyproject.toml`
 - `make lock-check` verifies that `uv.lock` matches `pyproject.toml`
 - `make build` writes distributions into `artifacts/dist/`
+- `make package-verify` is the default packaging proof surface because it combines metadata validation with wheel and source smoke installs
 - `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
 - `make package-source-smoke` installs the built source distribution into a temporary environment and runs the CLI there
 - `make reports` is the canonical `make` target for regenerating the checked-in report bundles

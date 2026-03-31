@@ -34,6 +34,8 @@ The repository keeps its shared publication defaults and path defaults in Python
 
 These defaults influence collectors, reporting commands, and the published atlas. Recording them in one reference page makes it easier to review changes when one of those defaults moves.
 
+The CLI parser and `Makefile` default surface both derive from these Python defaults rather than carrying separate hard-coded copies.
+
 ## Purpose
 
 This page records the shared repository defaults that shape data collection and publication behavior.
