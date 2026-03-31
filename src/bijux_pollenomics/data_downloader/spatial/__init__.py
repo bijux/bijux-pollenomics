@@ -1,4 +1,18 @@
 from .bboxes import point_in_bbox
+from .country_classification import (
+    COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
+    classify_country,
+    geometry_boundary_distance,
+    nearest_country_by_boundary_distance,
+    point_in_geometry,
+    point_in_geometry_ignoring_holes,
+    point_in_outer_ring,
+    point_in_polygon,
+    point_in_ring,
+    point_to_segment_distance,
+    polygon_boundary_distance,
+    ring_boundary_distance,
+)
 from .representative_points import (
     flatten_positions,
     geometry_to_representative_point,
@@ -10,10 +24,22 @@ from .representative_points import (
 
 __all__ = [
     "flatten_positions",
+    "COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE",
+    "classify_country",
+    "geometry_boundary_distance",
     "geometry_to_representative_point",
     "multipolygon_representative_point",
+    "nearest_country_by_boundary_distance",
     "point_in_bbox",
+    "point_in_geometry",
+    "point_in_geometry_ignoring_holes",
+    "point_in_outer_ring",
+    "point_in_polygon",
+    "point_in_ring",
+    "point_to_segment_distance",
     "polygon_area",
+    "polygon_boundary_distance",
     "polygon_representative_point",
+    "ring_boundary_distance",
     "ring_centroid",
 ]
