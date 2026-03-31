@@ -12,7 +12,7 @@ from ....core.bp_time import (
 from ....core.text import clean_optional_text
 from ...geometry import classify_country, point_in_bbox
 from ...models import ContextPointRecord
-from ...xlsx import read_xlsx_sheet_rows
+from ...shared.workbooks import read_xlsx_sheet_rows
 from .catalog import LANDCLIM_DATASET_METADATA
 
 __all__ = [

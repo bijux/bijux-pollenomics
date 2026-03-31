@@ -31,7 +31,7 @@ from .sources.neotoma.normalization import (
     classify_neotoma_site_country,
     normalize_neotoma_rows,
 )
-from .writers import write_context_points_csv, write_context_points_geojson
+from .shared.context_exports import write_context_points_csv, write_context_points_geojson
 
 
 NEOTOMA_LIMIT = 400

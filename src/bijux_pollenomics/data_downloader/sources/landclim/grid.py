@@ -9,7 +9,7 @@ from zipfile import ZipFile
 from ....core.bp_time import mean_bp_year_from_interval
 from ....core.text import clean_optional_text
 from ...geometry import classify_country, point_in_bbox
-from ...xlsx import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from ...shared.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
     LANDCLIM_II_MEANS_DIRECTORY,
