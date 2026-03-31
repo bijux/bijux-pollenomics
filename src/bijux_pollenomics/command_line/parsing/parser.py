@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import argparse
 
-from .. import __version__
+from ... import __version__
 from .subcommands import register_subcommands
+
+__all__ = ["build_parser"]
 
 
 def build_parser() -> argparse.ArgumentParser:

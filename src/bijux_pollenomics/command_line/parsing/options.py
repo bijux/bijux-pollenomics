@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from ..config import (
+from ...config import (
     DEFAULT_AADR_ROOT,
     DEFAULT_AADR_VERSION,
     DEFAULT_ATLAS_SLUG,
@@ -11,6 +11,14 @@ from ..config import (
     DEFAULT_CONTEXT_ROOT,
     DEFAULT_REPORT_ROOT,
 )
+
+__all__ = [
+    "add_aadr_root_argument",
+    "add_atlas_identity_arguments",
+    "add_context_root_argument",
+    "add_output_root_argument",
+    "add_version_argument",
+]
 
 
 def add_aadr_root_argument(parser: argparse.ArgumentParser) -> None:

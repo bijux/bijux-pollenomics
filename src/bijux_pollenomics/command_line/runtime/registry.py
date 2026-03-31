@@ -5,6 +5,8 @@ from collections.abc import Callable
 
 CommandHandler = Callable[[argparse.Namespace], int]
 
+__all__ = ["CommandHandler", "build_command_handlers", "resolve_handler"]
+
 def build_command_handlers(
     *,
     run_collect_data: CommandHandler,

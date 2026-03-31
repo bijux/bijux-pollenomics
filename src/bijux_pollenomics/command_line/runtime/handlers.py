@@ -2,8 +2,15 @@ from __future__ import annotations
 
 import argparse
 
-from ..data_downloader import collect_data
-from ..reporting import generate_country_report, generate_multi_country_map, generate_published_reports, slugify
+from ...data_downloader import collect_data
+from ...reporting import generate_country_report, generate_multi_country_map, generate_published_reports, slugify
+
+__all__ = [
+    "run_collect_data",
+    "run_publish_reports",
+    "run_report_country",
+    "run_report_multi_country_map",
+]
 
 
 def run_report_country(args: argparse.Namespace, *, parser: argparse.ArgumentParser) -> int:
