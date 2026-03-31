@@ -92,8 +92,6 @@ def generate_multi_country_map(
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
-    reset_generated_output_dir(output_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
 
     normalized_countries = tuple(dict.fromkeys(country.strip() for country in countries if country.strip()))
     if not normalized_countries:
@@ -113,18 +111,6 @@ def generate_multi_country_map(
     )
     version = version_dir.name
     generated_on = str(date.today())
-
-    bundle_paths = build_atlas_bundle_paths(output_dir=output_dir, slug=slug, version=version)
-
-    map_geojson = build_samples_geojson(all_samples)
-    bundle_paths.samples_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
-
-    point_layers, polygon_layers, extra_artifacts = build_context_layers(
-        samples=all_samples,
-        output_dir=output_dir,
-        context_root=context_root,
-    )
-    copy_map_assets(output_dir)
     map_report = MultiCountryMapReport(
         title=title,
         slug=slug,
@@ -135,36 +121,49 @@ def generate_multi_country_map(
         total_unique_samples=len(all_samples),
         output_dir=output_dir,
     )
-    write_summary_json(
-        bundle_paths.summary_json_path,
-        build_multi_country_map_summary(map_report, bundle_paths, extra_artifacts),
-    )
-    bundle_paths.map_html_path.write_text(
-        render_multi_country_map_html(
-            title=title,
-            version=version,
-            generated_on=generated_on,
-            countries=normalized_countries,
-            point_layers=point_layers,
-            polygon_layers=polygon_layers,
-            asset_base_path="./_map_assets",
-        ),
-        encoding="utf-8",
-    )
-    bundle_paths.readme_path.write_text(
-        render_multi_country_map_markdown(
-            title=title,
-            version=version,
-            generated_on=generated_on,
-            countries=normalized_countries,
-            country_sample_counts=country_sample_counts,
-            map_html_name=bundle_paths.map_html_path.name,
-            geojson_name=bundle_paths.samples_geojson_path.name,
-            summary_json_name=bundle_paths.summary_json_path.name,
-            extra_artifacts=extra_artifacts,
-        ),
-        encoding="utf-8",
-    )
+
+    def publish_map_bundle(staging_output_dir: Path) -> None:
+        bundle_paths = build_atlas_bundle_paths(output_dir=staging_output_dir, slug=slug, version=version)
+        map_geojson = build_samples_geojson(all_samples)
+        bundle_paths.samples_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
+        point_layers, polygon_layers, extra_artifacts = build_context_layers(
+            samples=all_samples,
+            output_dir=staging_output_dir,
+            context_root=context_root,
+        )
+        copy_map_assets(staging_output_dir)
+        write_summary_json(
+            bundle_paths.summary_json_path,
+            build_multi_country_map_summary(map_report, bundle_paths, extra_artifacts),
+        )
+        bundle_paths.map_html_path.write_text(
+            render_multi_country_map_html(
+                title=title,
+                version=version,
+                generated_on=generated_on,
+                countries=normalized_countries,
+                point_layers=point_layers,
+                polygon_layers=polygon_layers,
+                asset_base_path="./_map_assets",
+            ),
+            encoding="utf-8",
+        )
+        bundle_paths.readme_path.write_text(
+            render_multi_country_map_markdown(
+                title=title,
+                version=version,
+                generated_on=generated_on,
+                countries=normalized_countries,
+                country_sample_counts=country_sample_counts,
+                map_html_name=bundle_paths.map_html_path.name,
+                geojson_name=bundle_paths.samples_geojson_path.name,
+                summary_json_name=bundle_paths.summary_json_path.name,
+                extra_artifacts=extra_artifacts,
+            ),
+            encoding="utf-8",
+        )
+
+    publish_into_staging_dir(output_dir, publish_map_bundle)
     return map_report
 
 

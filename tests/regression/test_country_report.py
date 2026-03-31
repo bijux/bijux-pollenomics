@@ -800,6 +800,37 @@ class CountryReportTests(unittest.TestCase):
             self.assertFalse(stale_file.exists())
             self.assertTrue((output / "nordic-atlas_map.html").exists())
 
+    def test_generate_multi_country_map_preserves_previous_bundle_when_publication_fails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
+            output.mkdir(parents=True, exist_ok=True)
+            preserved_file = output / "README.md"
+            preserved_file.write_text("kept", encoding="utf-8")
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+
+            def fail_after_partial_write(path: Path, payload: dict[str, object]) -> None:
+                path.write_text("partial", encoding="utf-8")
+                raise RuntimeError("summary failure")
+
+            with patch("bijux_pollenomics.reporting.service.write_summary_json", side_effect=fail_after_partial_write):
+                with self.assertRaisesRegex(RuntimeError, "summary failure"):
+                    generate_multi_country_map(
+                        version_dir=root,
+                        countries=["Sweden"],
+                        output_dir=output,
+                        title="Nordic Evidence Atlas",
+                        slug="nordic-atlas",
+                    )
+
+            self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
+            self.assertFalse((output.parent / ".nordic-atlas.tmp").exists())
+
     def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
