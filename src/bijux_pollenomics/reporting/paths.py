@@ -56,7 +56,7 @@ def build_atlas_bundle_paths(output_dir: Path, slug: str, version: str) -> Atlas
         slug=atlas_slug,
         version=version,
         readme_path=output_dir / "README.md",
-        map_html_path=output_dir / f"{atlas_slug}_aadr_{version}_map.html",
-        samples_geojson_path=output_dir / f"{atlas_slug}_aadr_{version}_samples.geojson",
-        summary_json_path=output_dir / f"{atlas_slug}_aadr_{version}_summary.json",
+        map_html_path=output_dir / f"{atlas_slug}_{version}_map.html",
+        samples_geojson_path=output_dir / f"{atlas_slug}_{version}_samples.geojson",
+        summary_json_path=output_dir / f"{atlas_slug}_{version}_summary.json",
     )
