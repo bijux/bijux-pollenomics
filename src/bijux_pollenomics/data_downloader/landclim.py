@@ -170,9 +170,17 @@ def download_landclim_raw_assets(raw_dir: Path) -> dict[str, Path]:
     raw_paths: dict[str, Path] = {}
     for filename, url in asset_urls.items():
         path = Path(raw_dir) / filename
-        path.write_bytes(fetch_binary(url))
+        payload = fetch_binary(url)
+        validate_landclim_raw_asset(filename, payload)
+        path.write_bytes(payload)
         raw_paths[filename] = path
     return raw_paths
+
+
+def validate_landclim_raw_asset(filename: str, payload: bytes) -> None:
+    """Reject empty LandClim downloads before they enter the tracked raw tree."""
+    if not payload:
+        raise ValueError(f"LandClim raw asset download was empty for {filename}")
 
 
 def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:

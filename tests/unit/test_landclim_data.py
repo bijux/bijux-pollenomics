@@ -3,10 +3,12 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.landclim import (
     build_landclim_site_records,
     build_landclim_grid_geojson,
+    download_landclim_raw_assets,
     feature_key_from_center,
     feature_key_from_geometry,
     grid_geometry_from_nw_cell_label,
@@ -263,5 +265,17 @@ class LandClimDataTests(unittest.TestCase):
                 "landclim_ii_taxa_pft_ppe_fsp_values.csv": "https://download.pangaea.de/dataset/937075/files/Taxa_to_PFT_PPE_and_FSP_values.csv",
             },
         )
+
+    def test_download_landclim_raw_assets_rejects_empty_payloads(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch(
+                "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
+                return_value={"landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"},
+            ), patch(
+                "bijux_pollenomics.data_downloader.landclim.fetch_binary",
+                return_value=b"",
+            ):
+                with self.assertRaisesRegex(ValueError, "empty for landclim_i_land_cover_types.xlsx"):
+                    download_landclim_raw_assets(Path(tmp))
 if __name__ == "__main__":
     unittest.main()
