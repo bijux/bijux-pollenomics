@@ -14,8 +14,9 @@ last_reviewed: 2026-03-31
 ## What It Produces
 
 - raw capabilities, schema, and domain metadata under `data/raa/raw/`
-- a full published archaeology point archive under `data/raa/raw/publicerade_lamningar_centrumpunkt.geojson`
 - Swedish archaeology metadata and density GeoJSON under `data/raa/normalized/`
+
+The current checked-in snapshot contains the metadata files plus the normalized Swedish archaeology outputs. When RAÄ is recollected with the current collector contract, the raw tree also gains `publicerade_lamningar_centrumpunkt.geojson` and a compact paging summary so the archived inventory can be audited directly.
 
 ## Collector Contract
 
@@ -61,8 +62,8 @@ The normalized RAÄ outputs are designed for national-scale archaeological conte
 ## Audit Artifacts
 
 - raw WFS capabilities, schema, and domain metadata
-- a full archived raw point inventory
-- a compact raw inventory summary that proves paging completeness
+- a full archived raw point inventory when RAÄ is recollected with the current collector contract
+- a compact raw inventory summary that proves paging completeness when that archived inventory is rebuilt
 - a normalized density layer and companion metadata JSON used by the atlas
 
 ## Purpose
