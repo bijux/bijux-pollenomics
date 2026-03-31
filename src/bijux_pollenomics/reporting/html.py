@@ -943,26 +943,54 @@ def render_multi_country_map_html(
       .map-topbar {
         position: absolute;
         top: 16px;
-        left: max(452px, 26vw);
+        left: 16px;
         right: 16px;
         z-index: 1100;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
         gap: 12px;
-        align-items: center;
         padding: 12px;
         border-radius: 20px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
           var(--surface);
+        overflow: visible;
       }
       .map-topbar-main {
         display: flex;
-        align-items: center;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
         gap: 14px;
         min-width: 0;
       }
-      .sidebar.is-collapsed ~ .map-stage .map-topbar { left: 16px; }
+      .topbar-search {
+        position: relative;
+        display: grid;
+        gap: 8px;
+        min-width: 0;
+      }
+      .topbar-search-meta {
+        margin: 0;
+      }
+      .search-results--floating {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: min(560px, 100%);
+        max-height: min(44vh, 420px);
+        overflow: auto;
+        padding: 10px;
+        border-radius: 18px;
+        border: 1px solid var(--surface-edge);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0)),
+          var(--surface-strong);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow-md);
+      }
+      .search-results--floating[hidden] {
+        display: none;
+      }
       .floating-legend {
         position: absolute;
         right: 16px;
@@ -977,29 +1005,32 @@ def render_multi_country_map_html(
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
           var(--surface);
       }
-      .map-dock {
+      .control-panel {
         position: absolute;
-        left: max(452px, 26vw);
-        right: 332px;
-        bottom: 124px;
-        z-index: 1100;
-        display: grid;
-        gap: 12px;
+        top: 126px;
+        right: 16px;
+        z-index: 1120;
+        width: min(320px, calc(100vw - 32px));
+        transition: transform 180ms ease, opacity 180ms ease;
       }
-      .sidebar.is-collapsed ~ .map-stage .map-dock { left: 16px; }
-      .map-dock-card {
+      .control-panel.is-collapsed {
+        transform: translateX(calc(100% + 20px));
+        opacity: 0;
+        pointer-events: none;
+      }
+      .control-panel-card {
         position: relative;
         overflow: hidden;
-        padding: 14px 16px;
-        border-radius: 20px;
+        padding: 14px;
+        border-radius: 22px;
         border: 1px solid var(--surface-edge);
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
-          var(--surface);
+          var(--surface-strong);
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow-md);
       }
-      .map-dock-card::before {
+      .control-panel-card::before {
         content: "";
         position: absolute;
         inset: 0 0 auto;
@@ -1007,32 +1038,59 @@ def render_multi_country_map_html(
         background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
         pointer-events: none;
       }
-      .map-dock-head {
+      .control-panel-head {
         display: flex;
         justify-content: space-between;
         gap: 12px;
-        align-items: baseline;
+        align-items: flex-start;
         margin-bottom: 12px;
       }
-      .map-dock-label {
+      .control-panel-head-side {
+        display: grid;
+        justify-items: end;
+        gap: 8px;
+      }
+      .control-panel-label,
+      .control-group-label {
         color: var(--muted);
         font-size: 10px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      .map-dock-title {
+      .control-panel-title {
         margin: 4px 0 0;
-        font-size: 15px;
+        font-size: 17px;
         font-weight: 700;
       }
-      .map-dock-summary {
+      .control-panel-summary,
+      .control-group-summary {
         color: var(--muted);
         font-size: 12px;
       }
-      .map-dock-grid {
+      .control-panel-body {
+        display: grid;
+        gap: 12px;
+      }
+      .control-group {
         display: grid;
         gap: 10px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(24, 37, 61, 0.08);
+      }
+      .control-group:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+      .control-group-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: baseline;
+      }
+      .control-group-head h3 {
+        margin: 4px 0 0;
+        font-size: 14px;
       }
       .dock-actions,
       .dock-presets,
@@ -1306,33 +1364,18 @@ def render_multi_country_map_html(
         box-shadow: 0 10px 24px rgba(20, 33, 61, 0.20);
       }
       @media (max-width: 1080px) {
-        .sidebar {
-          width: min(400px, calc(100vw - 24px));
-          top: 12px;
-          left: 12px;
-          bottom: auto;
-          max-height: min(72vh, 920px);
-        }
         .map-topbar {
           top: 12px;
-          left: calc(min(400px, calc(100vw - 24px)) + 24px);
-          right: 12px;
-          bottom: auto;
-        }
-        .sidebar.is-collapsed ~ .map-stage .map-topbar {
           left: 12px;
+          right: 12px;
         }
         .floating-legend {
           right: 12px;
           bottom: 76px;
         }
-        .map-dock {
-          left: calc(min(400px, calc(100vw - 24px)) + 24px);
-          right: 284px;
-          bottom: 112px;
-        }
-        .sidebar.is-collapsed ~ .map-stage .map-dock {
-          left: 12px;
+        .control-panel {
+          top: 122px;
+          right: 12px;
         }
         .map-status {
           left: 12px;
@@ -1353,21 +1396,17 @@ def render_multi_country_map_html(
         body.has-mobile-panel-open .map-status {
           filter: blur(1px);
         }
-        .sidebar {
+        .control-panel {
           position: fixed;
           left: 10px;
           right: 10px;
           top: auto;
           bottom: 10px;
           width: auto;
-          max-height: min(68vh, 720px);
+          max-height: min(72vh, 760px);
         }
-        .sidebar.is-collapsed {
+        .control-panel.is-collapsed {
           transform: translateY(calc(100% + 24px));
-        }
-        .sidebar-inner {
-          padding: 18px;
-          border-radius: 24px;
         }
         .mobile-panel-close {
           display: inline-flex;
@@ -1379,18 +1418,18 @@ def render_multi_country_map_html(
           bottom: auto;
           padding: 10px;
           border-radius: 18px;
-          flex-direction: column;
-          align-items: stretch;
         }
         .map-topbar-main {
-          justify-content: space-between;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
         }
         .topbar-row,
         .map-actions {
           justify-content: space-between;
         }
-        .basemap-switch {
-          grid-template-columns: 1fr;
+        .search-results--floating {
+          width: 100%;
         }
         .floating-legend {
           right: 10px;
@@ -1399,20 +1438,6 @@ def render_multi_country_map_html(
           max-height: min(34vh, 260px);
           padding: 12px;
           border-radius: 18px;
-        }
-        .map-dock {
-          left: 10px;
-          right: 10px;
-          bottom: 86px;
-          width: auto;
-        }
-        .sidebar:not(.is-collapsed) ~ .map-stage .floating-legend,
-        .sidebar:not(.is-collapsed) ~ .map-stage .map-dock,
-        .sidebar:not(.is-collapsed) ~ .map-stage .map-status,
-        .sidebar:not(.is-collapsed) ~ .map-stage .focus-card {
-          opacity: 0;
-          pointer-events: none;
-          transform: translateY(12px);
         }
         .focus-card {
           left: 10px;
@@ -1431,17 +1456,6 @@ def render_multi_country_map_html(
         }
       }
       @media (max-width: 640px) {
-        .sidebar {
-          left: 8px;
-          right: 8px;
-          bottom: 8px;
-          max-height: min(72vh, 760px);
-        }
-        .sidebar-inner { padding: 16px; }
-        .workspace-brief-grid {
-          grid-template-columns: 1fr;
-        }
-        .stats-grid { grid-template-columns: 1fr 1fr; }
         .map-topbar {
           left: 8px;
           right: 8px;
@@ -1467,10 +1481,10 @@ def render_multi_country_map_html(
           width: min(220px, calc(100vw - 16px));
           padding: 10px;
         }
-        .map-dock {
+        .control-panel {
           left: 8px;
           right: 8px;
-          bottom: 78px;
+          bottom: 8px;
         }
         .focus-card {
           left: 8px;
@@ -1510,113 +1524,41 @@ def render_multi_country_map_html(
   </head>
   <body>
     <div class="app-shell">
-      <aside id="sidebar" class="sidebar">
-        <div class="sidebar-inner">
-          <div class="sidebar-header">
-            <div class="sidebar-heading">
-              <span class="eyebrow">Nordic Multi-Evidence Map</span>
-              <h1>__TITLE__</h1>
-              <p class="lede">
-                A shared decision map for ancient DNA, pollen, environmental archaeology, and archaeology context.
-                AADR `__VERSION__` is one input to this view, not the whole map. Use the filters, search, time-window, and acceptance-distance controls to compare evidence in one workspace.
-              </p>
-            </div>
-            <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
-          </div>
-          <section class="workspace-brief">
-            <div class="workspace-brief-head">
-              <strong>Workspace Brief</strong>
-              <span id="workspace-brief-state" aria-live="polite">Loading live map state</span>
-            </div>
-            <div class="workspace-brief-grid">
-              <div class="workspace-brief-card">
-                <span class="workspace-brief-label">Geography</span>
-                <span id="workspace-brief-geography" class="workspace-brief-value">Loading country scope</span>
-              </div>
-              <div class="workspace-brief-card">
-                <span class="workspace-brief-label">Evidence Stack</span>
-                <span id="workspace-brief-stack" class="workspace-brief-value">Loading evidence stack</span>
-              </div>
-              <div class="workspace-brief-card">
-                <span class="workspace-brief-label">Time Window</span>
-                <span id="workspace-brief-time" class="workspace-brief-value">__INITIAL_TIME_START_BP__-__INITIAL_TIME_END_BP__ BP</span>
-              </div>
-            </div>
-            <div id="workspace-brief-note" class="workspace-brief-note">The initial HTML waits for live layer and filter state before describing the current workspace.</div>
-          </section>
-          <div class="section-stack">
-            <section id="scope-panel" class="panel-card">
-              <div class="section-head"><h2>Workspace</h2><span>At a glance</span></div>
-              <p class="panel-copy">This sidebar is intentionally short. Use the map dock for frequent layer and time changes, then open Help when you need the full explanation of controls and data scope.</p>
-              <div id="scope-summary" class="summary-list"></div>
-            </section>
-            <section id="country-panel" class="panel-card">
-              <div class="section-head"><h2>Country Filters</h2><span id="country-summary" aria-live="polite">All countries visible</span></div>
-              <p class="panel-copy">These filters apply to every layer that carries country metadata. RAÄ archaeology density is Sweden-only and will disappear automatically when Sweden is excluded.</p>
-              <div id="country-filters" class="chip-grid"></div>
-              <div class="inline-actions">
-                <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
-                <button id="countries-none" class="inline-button" type="button">Hide all</button>
-                <button id="countries-fit" class="inline-button" type="button">Fit selected countries</button>
-                <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
-              </div>
-            </section>
-            <section id="search-panel" class="panel-card">
-              <div class="section-head"><h2>Search Visible Records</h2><span id="search-count" aria-live="polite">0 matches</span></div>
-              <label class="sr-only" for="search-input">Search visible records</label>
-              <div class="search-shell">
-                <input id="search-input" class="search-input" type="search" placeholder="Search by sample ID, locality, site name, or source" aria-describedby="search-meta">
-                <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
-              </div>
-              <div id="search-meta" class="search-meta">Search only scans records that are visible under the current country and layer filters. Press Enter to jump to the first visible match.</div>
-              <div id="search-results" class="search-results"></div>
-            </section>
-            <section id="distance-panel" class="panel-card">
-              <div class="section-head"><h2>Acceptance Distance</h2><span id="diameter-value">__INITIAL_DIAMETER__ km diameter</span></div>
-              <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
-              <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
-              <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__" aria-describedby="distance-help">
-              <div class="preset-row" style="margin-top: 12px;">
-                <button class="preset-button" type="button" data-km="0">0 km</button>
-                <button class="preset-button" type="button" data-km="10">10 km</button>
-                <button class="preset-button is-active" type="button" data-km="20">20 km</button>
-                <button class="preset-button" type="button" data-km="30">30 km</button>
-                <button class="preset-button" type="button" data-km="50">50 km</button>
-              </div>
-              <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
-              <div class="field-label" style="margin-top: 16px;"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
-              <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
-              <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
-            </section>
-          </div>
-        </div>
-      </aside>
-      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close filters" aria-hidden="true"></button>
+      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close controls" aria-hidden="true"></button>
       <main class="map-stage">
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
-              <span class="topbar-label">Research Workspace</span>
+              <span class="eyebrow">Nordic Multi-Evidence Map</span>
               <div class="topbar-title-row">
                 <span class="topbar-title">__TITLE__</span>
                 <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
               </div>
             </div>
             <div class="topbar-row">
-              <button id="panel-toggle" class="toolbar-button" type="button">Hide panel</button>
               <div class="basemap-switch">
                 <button class="basemap-button is-active" type="button" data-basemap="voyager" title="Balanced roads, labels, and water detail."><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span></button>
                 <button class="basemap-button" type="button" data-basemap="light" title="Minimal contrast for evidence-first inspection."><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span></button>
                 <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
               </div>
+              <div class="map-actions">
+                <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+                <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls</button>
+                <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                <button id="help-toggle" class="toolbar-button" type="button">Help</button>
+                <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+              </div>
             </div>
           </div>
-          <div class="map-actions">
-            <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-            <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
-            <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
-            <button id="help-toggle" class="toolbar-button" type="button">Help</button>
-            <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+          <div class="topbar-search">
+            <label class="sr-only" for="search-input">Search visible points and sites</label>
+            <div class="search-shell">
+              <input id="search-input" class="search-input" type="search" placeholder="Search visible points and sites by sample, locality, source, or country" aria-describedby="search-count">
+              <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+            </div>
+            <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search visible points and sites</div>
+            <div id="search-results" class="search-results search-results--floating" hidden></div>
           </div>
         </div>
         <div id="map" aria-label="__TITLE__"></div>
@@ -1639,56 +1581,107 @@ def render_multi_country_map_html(
             </div>
           </div>
         </div>
-        <section class="map-dock" aria-label="Map controls">
-          <div class="map-dock-card">
-            <div class="map-dock-head">
+        <aside id="sidebar" class="control-panel" aria-label="Map controls">
+          <div class="control-panel-card">
+            <div class="control-panel-head">
               <div>
-                <span class="map-dock-label">Evidence</span>
-                <h2 class="map-dock-title">Layer Selection</h2>
+                <span class="control-panel-label">Controls</span>
+                <h2 class="control-panel-title">Research Workspace</h2>
               </div>
-              <span id="dock-layer-summary" class="map-dock-summary">Loading enabled layers</span>
-            </div>
-            <div class="map-dock-grid">
-              <div class="dock-actions">
-                <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
-                <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
-                <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
-                <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+              <div class="control-panel-head-side">
+                <span id="control-panel-summary" class="control-panel-summary">Loading filters</span>
+                <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
               </div>
-              <div id="dock-layer-filters" class="dock-layer-grid"></div>
             </div>
-          </div>
-          <div class="map-dock-card">
-            <div class="map-dock-head">
-              <div>
-                <span class="map-dock-label">Time</span>
-                <h2 class="map-dock-title">Date Window</h2>
-              </div>
-              <span id="dock-time-summary" class="map-dock-summary">Loading BP range</span>
-            </div>
-            <div class="map-dock-grid">
-              <div class="dock-range-stack">
-                <div>
-                  <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
-                  <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
-                  <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+            <div class="control-panel-body">
+              <section class="control-group">
+                <div class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Countries</span>
+                    <h3>Country Filters</h3>
+                  </div>
+                  <span id="country-summary" class="control-group-summary" aria-live="polite">All countries visible</span>
                 </div>
-                <div>
-                  <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
-                  <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
-                  <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+                <div id="country-filters" class="chip-grid"></div>
+                <div class="inline-actions">
+                  <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
+                  <button id="countries-none" class="inline-button" type="button">Hide all</button>
+                  <button id="countries-fit" class="inline-button" type="button">Fit selected</button>
                 </div>
               </div>
-              <div class="dock-presets">
-                <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
-                <button class="preset-button" type="button" data-time-interval="500">500 years</button>
-                <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
-                <button class="preset-button" type="button" data-time-interval="full">Full span</button>
-              </div>
-              <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
+              <section class="control-group">
+                <div class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Evidence</span>
+                    <h3>Layer Selection</h3>
+                  </div>
+                  <span id="dock-layer-summary" class="control-group-summary">Loading enabled layers</span>
+                </div>
+                <div class="dock-actions">
+                  <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                  <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                  <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                  <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+                </div>
+                <div id="dock-layer-filters" class="dock-layer-grid"></div>
+              </section>
+              <section class="control-group">
+                <div class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Time</span>
+                    <h3>Date Window</h3>
+                  </div>
+                  <span id="dock-time-summary" class="control-group-summary">Loading BP range</span>
+                </div>
+                <div class="dock-range-stack">
+                  <div>
+                    <div class="field-label"><span>Window start</span><span id="time-start-value">__INITIAL_TIME_START_BP__ BP</span></div>
+                    <label class="sr-only" for="time-start-slider">Time window start in years BP</label>
+                    <input id="time-start-slider" class="range-input" type="range" min="__TIME_MIN_BP__" max="__TIME_MAX_BP__" step="1" value="__INITIAL_TIME_START_BP__">
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Window span</span><span id="time-interval-value">__INITIAL_TIME_INTERVAL__ years</span></div>
+                    <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
+                    <input id="time-interval-slider" class="range-input" type="range" min="1" max="__TIME_INTERVAL_MAX__" step="1" value="__INITIAL_TIME_INTERVAL__">
+                  </div>
+                </div>
+                <div class="dock-presets">
+                  <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                  <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                  <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                  <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+                </div>
+                <div id="time-record-count" class="search-meta">Calculating dated records in the active BP window.</div>
+              </section>
+              <section class="control-group">
+                <div class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Distance</span>
+                    <h3>Acceptance Distance</h3>
+                  </div>
+                  <span id="diameter-value" class="control-group-summary">__INITIAL_DIAMETER__ km diameter</span>
+                </div>
+                <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">__INITIAL_RADIUS__ km</span></div>
+                <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
+                <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="__INITIAL_DIAMETER__" aria-describedby="distance-help">
+                <div class="dock-presets">
+                  <button class="preset-button" type="button" data-km="0">0 km</button>
+                  <button class="preset-button" type="button" data-km="10">10 km</button>
+                  <button class="preset-button is-active" type="button" data-km="20">20 km</button>
+                  <button class="preset-button" type="button" data-km="30">30 km</button>
+                  <button class="preset-button" type="button" data-km="50">50 km</button>
+                </div>
+                <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
+                <div class="field-label"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
+                <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
+                <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
+                <div class="inline-actions">
+                  <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
+                </div>
+              </section>
             </div>
           </div>
-        </section>
+        </aside>
         <section id="focus-card" class="focus-card" hidden aria-live="polite">
           <div class="focus-card-head">
             <div>
@@ -1813,7 +1806,7 @@ def render_multi_country_map_html(
       let visiblePointEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
-      const sidebarInner = document.querySelector('.sidebar-inner');
+      const sidebarInner = document.querySelector('.control-panel-body');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
       const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
@@ -1834,11 +1827,7 @@ def render_multi_country_map_html(
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
       const searchCount = document.getElementById('search-count');
-      const workspaceBriefState = document.getElementById('workspace-brief-state');
-      const workspaceBriefGeography = document.getElementById('workspace-brief-geography');
-      const workspaceBriefStack = document.getElementById('workspace-brief-stack');
-      const workspaceBriefTime = document.getElementById('workspace-brief-time');
-      const workspaceBriefNote = document.getElementById('workspace-brief-note');
+      const controlPanelSummary = document.getElementById('control-panel-summary');
       const filterChips = document.getElementById('filter-chips');
       const filterChipCount = document.getElementById('filter-chip-count');
       const dockLayerSummary = document.getElementById('dock-layer-summary');
@@ -2026,10 +2015,10 @@ def render_multi_country_map_html(
       function updatePanelToggleLabel() {
         const collapsed = sidebar.classList.contains('is-collapsed');
         if (mobileLayoutQuery.matches) {
-          panelToggleButton.textContent = collapsed ? 'Show filters' : 'Hide filters';
+          panelToggleButton.textContent = collapsed ? 'Show controls' : 'Hide controls';
           return;
         }
-        panelToggleButton.textContent = collapsed ? 'Show panel' : 'Hide panel';
+        panelToggleButton.textContent = collapsed ? 'Show controls' : 'Hide controls';
       }
       function syncMobilePanelState() {
         const mobileOpen = mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed');
@@ -2158,6 +2147,7 @@ def render_multi_country_map_html(
         });
       }
       function renderScopeSummary() {
+        if (!scopeSummary) return;
         const summaries = [
           `Primary evidence: ${POINT_LAYERS.find((layer) => layer.key === 'aadr')?.label || 'AADR'}`,
           `Environmental context: ${ALL_LAYERS.filter((layer) => layer.group === 'environmental-context').map((layer) => layer.source_name).join(', ') || 'none'}`,
@@ -2231,23 +2221,10 @@ def render_multi_country_map_html(
         return chips;
       }
       function renderWorkspaceBrief() {
-        const activeGroups = [...new Set(ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).map((layer) => layerGroupLabel(layer.group)))];
         const activeFilterChips = buildActiveFilterChips();
-        const geographySummary = activeCountries.size === COUNTRIES.length
-          ? 'All Nordic countries'
-          : activeCountries.size
-            ? [...activeCountries].join(', ')
-            : 'No countries selected';
-        const timeSummary = TIME_HAS_DATA
-          ? `${timeStartBp}-${timeWindowEndBp()} BP`
-          : 'No dated records';
-        workspaceBriefState.textContent = activeFilterChips.length ? `${activeFilterChips.length} active workspace overrides` : 'Default map state';
-        workspaceBriefGeography.textContent = geographySummary;
-        workspaceBriefStack.textContent = activeGroups.length ? activeGroups.join(' + ') : 'No active layers';
-        workspaceBriefTime.textContent = timeSummary;
-        workspaceBriefNote.textContent = TIME_HAS_DATA
-          ? `${visiblePointEntries.length} visible point records sit inside the current evidence stack and BP window.`
-          : `${visiblePointEntries.length} visible point records are available under the current layer and geography filters.`;
+        if (controlPanelSummary) {
+          controlPanelSummary.textContent = activeFilterChips.length ? `${activeFilterChips.length} active overrides` : 'Default map state';
+        }
       }
       function renderCountryControls() {
         const pointCountsByCountry = Object.fromEntries(
@@ -2622,22 +2599,14 @@ def render_multi_country_map_html(
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
         if (!query) {
-          const initial = visiblePointEntries.slice(0, 8);
-          searchCount.textContent = `${visiblePointEntries.length} visible records`;
-          searchResults.innerHTML = initial.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible point records are available under the current filters.</span></div>';
-          searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
-            button.addEventListener('click', () => {
-            const match = initial[index];
-            if (!match) return;
-            focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
-            map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
-            window.setTimeout(() => match.marker.openPopup(), 250);
-          });
-          });
+          searchCount.textContent = `${visiblePointEntries.length} visible points and sites`;
+          searchResults.hidden = true;
+          searchResults.innerHTML = '';
           return;
         }
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''}`.toLowerCase().includes(query)).slice(0, 12);
         searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
+        searchResults.hidden = false;
         searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span></div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
@@ -2646,6 +2615,7 @@ def render_multi_country_map_html(
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([match.feature.latitude, match.feature.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
+            searchResults.hidden = true;
           });
         });
       }
@@ -2755,10 +2725,16 @@ def render_multi_country_map_html(
         searchInput.focus();
         buildSearchResults();
       });
+      searchInput.addEventListener('focus', buildSearchResults);
       searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
           const firstResult = searchResults.querySelector('[data-search-index]');
           if (firstResult) firstResult.click();
+        }
+      });
+      document.addEventListener('click', (event) => {
+        if (!searchResults.contains(event.target) && event.target !== searchInput) {
+          searchResults.hidden = true;
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
@@ -2810,19 +2786,13 @@ def render_multi_country_map_html(
         }
         updatePanelToggleLabel();
       });
-      sectionNavButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const target = document.getElementById(button.dataset.sectionTarget);
-          if (!target) return;
-          sidebarInner.scrollTo({ top: Math.max(target.offsetTop - 72, 0), behavior: 'smooth' });
-          updateSectionNav(button.dataset.sectionTarget);
-        });
-      });
       document.querySelectorAll('[data-layer-preset]').forEach((button) => {
         button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));
       });
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
-      sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
+      if (sidebarInner) {
+        sidebarInner.addEventListener('scroll', syncSectionNavWithScroll);
+      }
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
@@ -2833,7 +2803,6 @@ def render_multi_country_map_html(
       renderMapState();
       setBasemap(currentBasemap);
       setLegendCollapsed(legendCollapsed, false);
-      syncSectionNavWithScroll();
       resetView();
       zoomReadout.textContent = map.getZoom().toFixed(1);
       centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
