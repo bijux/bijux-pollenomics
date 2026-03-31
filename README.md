@@ -2,6 +2,11 @@
 
 `bijux-pollenomics` is a repository for collecting tracked Nordic context datasets and publishing checked-in map and report outputs from them.
 
+## License
+
+This repository is licensed under the Apache License 2.0. Copyright 2026
+Bijan Mousavi <bijan@bijux.io>. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+
 Today, this repository does four concrete things:
 
 - collects six tracked data categories under `data/`
