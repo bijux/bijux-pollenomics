@@ -1,5 +1,5 @@
 ---
-title: Data Guide
+title: Data Sources
 audience: mixed
 type: index
 status: canonical
@@ -7,9 +7,9 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-03-31
 ---
 
-# Data Guide
+# Data Sources
 
-This section explains the six tracked data categories under `data/`, the commands that build them, and the boundaries of what each source currently contributes.
+This section explains the six tracked data categories under `data/`, the commands that build them, and the boundaries of what each source contributes.
 
 ```mermaid
 flowchart TD
@@ -24,6 +24,7 @@ flowchart TD
 ## Pages in This Section
 
 - [Source comparison](source-comparison.md)
+- [Provenance and refresh policy](provenance-and-refresh-policy.md)
 - [AADR](aadr.md)
 - [Boundaries](boundaries.md)
 - [LandClim](landclim.md)
@@ -36,6 +37,15 @@ flowchart TD
 The filesystem model and the acquisition model should match. That is why `collect-data <source>` writes directly into `data/<source>/`.
 
 The collector also writes `data/collection_summary.json`, and when a source depends on boundaries it reuses tracked local boundary files when available instead of fetching them again unnecessarily.
+
+## Trust Model
+
+The repository treats source collection as an auditable ingest step, not as a hidden precondition.
+
+- raw upstream payloads stay in `raw/` whenever the upstream format matters for later audit or reprocessing
+- normalized outputs stay in `normalized/` when the repository needs stable map-ready or table-ready contracts
+- manifests and summaries are part of the checked-in evidence, not optional extras
+- a refreshed source snapshot should explain both where the files came from and why the normalized layer changed
 
 ## Reading Rule
 

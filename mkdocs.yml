@@ -103,6 +103,7 @@ nav:
   - Data Sources:
       - Overview: data-sources/index.md
       - Source Comparison: data-sources/source-comparison.md
+      - Provenance and Refresh Policy: data-sources/provenance-and-refresh-policy.md
       - AADR: data-sources/aadr.md
       - Boundaries: data-sources/boundaries.md
       - LandClim: data-sources/landclim.md
