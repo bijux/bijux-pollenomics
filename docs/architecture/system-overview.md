@@ -14,7 +14,7 @@ last_reviewed: 2026-03-31
 ## Major Components
 
 - `src/bijux_pollenomics/data_downloader/`: data acquisition and normalization
-- `src/bijux_pollenomics/reporting/`: AADR report and map generation
+- `src/bijux_pollenomics/reporting/`: AADR report generation, context-layer assembly, and atlas publication
 - `src/bijux_pollenomics/settings.py`: shared publication defaults and Nordic atlas identity
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts

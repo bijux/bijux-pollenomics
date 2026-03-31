@@ -39,6 +39,7 @@ src/bijux_pollenomics
 │   ├── models.py
 │   ├── paths.py
 │   ├── service.py
+│   ├── staging.py
 │   └── utils.py
 └── data_downloader
     ├── aadr.py
@@ -75,6 +76,7 @@ src/bijux_pollenomics
 - `reporting/service.py` orchestrates report and map builds
 - `reporting/html.py` owns the standalone map document
 - `reporting/aadr.py` owns AADR sample loading and locality aggregation
+- `reporting/staging.py` owns safe swap-in staging for generated publication trees
 - `data_downloader/contracts.py` owns normalized data artifact names
 - `reporting/paths.py` owns generated report-bundle artifact names
 
