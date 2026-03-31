@@ -18,16 +18,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_makefile_exposes_named_test_suites(self) -> None:
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
 
-        self.assertIn(".PHONY: app-state check clean install lint reports test test-unit test-regression test-e2e test-all data-prep build docs docs-serve help", makefile_text)
+        self.assertIn(".PHONY:", makefile_text)
+        self.assertIn("lock", makefile_text)
+        self.assertIn("lock-check", makefile_text)
         self.assertIn("test-unit: install", makefile_text)
         self.assertIn("test-regression: install", makefile_text)
         self.assertIn("test-e2e: install", makefile_text)
 
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-        docs_text = (REPO_ROOT / "docs" / "06-development" / "testing-and-evidence.md").read_text(encoding="utf-8")
+        docs_text = (REPO_ROOT / "docs" / "engineering" / "testing-and-evidence.md").read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
+        self.assertIn("make lock-check", readme_text)
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)

@@ -13,6 +13,8 @@ last_reviewed: 2026-03-31
 
 ```bash
 make install
+make lock
+make lock-check
 make lint
 make test
 make docs
@@ -65,8 +67,10 @@ Use these only when you intend to regenerate tracked data or tracked publication
 - `make data-prep` expands to `collect-data all --version v62.0 --output-root data`
 - `make reports` expands to `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
 - `make app-state` expands to `make data-prep`, `make reports`, and `make docs`
-- `make check` expands to `make lint`, `make test`, and `make docs`
-- `make install` creates the local environment under `artifacts/.venv/`
+- `make check` expands to `make lock-check`, `make lint`, `make test`, and `make docs`
+- `make install` syncs the local environment under `artifacts/.venv/` from `uv.lock`
+- `make lock` refreshes `uv.lock` from `pyproject.toml`
+- `make lock-check` verifies that `uv.lock` matches `pyproject.toml`
 - `make build` writes distributions into `artifacts/dist/`
 - `make reports` is the canonical `make` target for regenerating the checked-in report bundles
 - `make docs-serve` expects a healthy editable install and serves the site at `http://127.0.0.1:8000/`

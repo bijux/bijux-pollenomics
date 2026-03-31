@@ -1,9 +1,9 @@
 PYTHON ?= python3.11
+UV ?= uv
 ARTIFACTS_ROOT ?= artifacts
 VENV ?= $(ARTIFACTS_ROOT)/.venv
 BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
-PIP := $(BIN)/pip
 RUFF := $(BIN)/ruff
 VERSION ?= v62.0
 DATA_ROOT ?= data
@@ -11,15 +11,19 @@ DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
+UV_PROJECT_ENVIRONMENT := $(VENV)
+UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --extra dev --python $(PYTHON)
 
-.PHONY: app-state check clean install lint reports test test-unit test-regression test-e2e test-all data-prep build docs docs-serve help
+.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check reports test test-all test-e2e test-regression test-unit
 
 help:
 	@printf "Available targets:\n"
-	@printf "  install    Create %s and install the project with dev tools\n" "$(VENV)"
+	@printf "  install    Sync %s from pyproject.toml and uv.lock\n" "$(VENV)"
+	@printf "  lock       Refresh uv.lock from pyproject.toml\n"
+	@printf "  lock-check Verify uv.lock matches pyproject.toml\n"
 	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
 	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
-	@printf "  check      Run lint, tests, and docs build\n"
+	@printf "  check      Verify uv.lock, lint, tests, and docs build\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run unit, regression, and e2e test suites\n"
 	@printf "  test-unit  Run the unit test suite\n"
@@ -31,19 +35,20 @@ help:
 	@printf "  docs-serve Serve the MkDocs site locally on %s\n" "$(MKDOCS_LOCAL_SITE_URL)"
 	@printf "  clean      Remove transient virtualenv and build/test caches\n"
 
-$(VENV_PYTHON):
-	rm -rf $(VENV)
+$(VENV)/.installed: pyproject.toml uv.lock
 	mkdir -p $(ARTIFACTS_ROOT)
-	$(PYTHON) -m venv $(VENV)
-	$(PIP) install --upgrade pip
-
-$(VENV)/.installed: pyproject.toml $(VENV_PYTHON)
-	$(PIP) install -e ".[dev]"
+	$(UV_SYNC)
 	touch $@
 
 install: $(VENV)/.installed
 
-check: lint test docs
+lock:
+	$(UV) lock --python $(PYTHON)
+
+lock-check:
+	$(UV) lock --check --python $(PYTHON)
+
+check: lock-check lint test docs
 
 lint: install
 	$(RUFF) check src tests

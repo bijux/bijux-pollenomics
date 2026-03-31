@@ -80,6 +80,7 @@ Prerequisite: `python3.11` must be available locally.
 
 ```bash
 make install
+make lock-check
 make lint
 make test
 make test-unit
@@ -99,7 +100,7 @@ make app-state
 
 That sequence does the full current rebuild path:
 
-1. creates the local virtual environment under `artifacts/.venv/`
+1. syncs the local virtual environment under `artifacts/.venv/` from `pyproject.toml` and `uv.lock`
 2. rebuilds the tracked `data/` tree
 3. republishes the checked-in map and report bundles under `docs/report/`
 4. rebuilds the MkDocs site under `artifacts/docs/site/`
@@ -112,6 +113,8 @@ The root `Makefile` is the main local interface:
 
 ```bash
 make install
+make lock
+make lock-check
 make data-prep
 make reports
 make app-state
@@ -129,10 +132,13 @@ make clean
 
 What they do:
 
+- `make install` syncs the local editable environment from the tracked `uv.lock`
+- `make lock` refreshes `uv.lock` after dependency changes
+- `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
 - `make data-prep` runs `collect-data all --version v62.0 --output-root data`
 - `make reports` regenerates the current checked-in shared map and country bundles under `docs/report/`
 - `make app-state` runs the full current rebuild path: data, reports, and docs
-- `make check` runs the repository verification pass: lint, tests, and docs
+- `make check` runs the repository verification pass: lock check, lint, tests, and docs
 - `make test-unit` runs the fast logic-level unit suite under `tests/unit/`
 - `make test-regression` runs contract and artifact-regression checks under `tests/regression/`
 - `make test-e2e` runs end-to-end command-flow checks under `tests/e2e/`

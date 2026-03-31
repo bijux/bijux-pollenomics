@@ -14,6 +14,7 @@ Use the local `Makefile` workflow from the repository root. This page is intenti
 ## Prerequisites
 
 - `python3.11`
+- `uv`
 - network access for first-time dependency installation
 - permission to create the local virtual environment under `artifacts/.venv/`
 
@@ -36,6 +37,7 @@ If `python3.11` is not available, fix that first. Do not continue with `make ins
 
 ```bash
 make install
+make lock-check
 make lint
 make test
 make docs
@@ -43,7 +45,8 @@ make docs
 
 ## What These Commands Do
 
-- `make install` creates `artifacts/.venv/` and installs the project with dev tooling
+- `make install` syncs `artifacts/.venv/` from the tracked `uv.lock` with the project installed in editable mode
+- `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
 - `make lint` runs `ruff` across `src/` and `tests/`
 - `make test` runs the checked-in unittest suite with verbose discovery output
 - `make docs` verifies that the documentation shell still builds in strict mode
@@ -58,12 +61,15 @@ The local development dependency set currently includes:
 
 That means a successful `make install` is enough to support linting, tests, builds, and docs work from the same environment.
 
+The repository also checks in `uv.lock` so dependency resolution is explicit and repeatable across machines. When dependency declarations change, refresh the lockfile with `make lock`.
+
 ## Expected Result
 
 After these commands:
 
 - `artifacts/.venv/` exists locally
 - `artifacts/.venv/bin/python` exists locally
+- `uv.lock` matches `pyproject.toml`
 - lint passes
 - the test suite passes
 - the docs site builds successfully

@@ -15,6 +15,8 @@ Use the `Makefile` as the main local interface.
 
 ```bash
 make install
+make lock
+make lock-check
 make reports
 make app-state
 make check
@@ -32,7 +34,9 @@ make docs-serve
 
 ## Artifact Paths
 
-- `make install` uses `artifacts/.venv/`
+- `make install` syncs `artifacts/.venv/` from `uv.lock`
+- `make lock` rewrites the tracked dependency lockfile after dependency changes
+- `make lock-check` verifies that the tracked dependency lockfile is current
 - `make reports` regenerates the checked-in report bundles under `docs/report/`
 - `make app-state` rebuilds the checked-in repository outputs end to end
 - `make check` runs the main repository verification suite in one command
