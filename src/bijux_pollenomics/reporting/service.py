@@ -191,7 +191,12 @@ def generate_published_reports(
     )
 
     country_output_dirs: list[Path] = []
-    shared_map_path = f"../{shared_map_dir.name}/{shared_map_dir.name}_aadr_{map_report.version}_map.html"
+    shared_bundle_paths = build_atlas_bundle_paths(
+        output_dir=shared_map_dir,
+        slug=map_report.slug,
+        version=map_report.version,
+    )
+    shared_map_path = f"../{shared_map_dir.name}/{shared_bundle_paths.map_html_path.name}"
     for country in normalized_countries:
         country_dir = output_root / slugify(country)
         generate_country_report(
