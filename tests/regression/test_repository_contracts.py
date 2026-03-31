@@ -19,6 +19,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
 
         self.assertIn(".PHONY:", makefile_text)
+        self.assertIn("DEFAULT_AADR_VERSION", makefile_text)
         self.assertIn("lock", makefile_text)
         self.assertIn("lock-check", makefile_text)
         self.assertIn("package-check", makefile_text)

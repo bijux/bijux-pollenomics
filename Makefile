@@ -6,7 +6,7 @@ BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
 CLI := $(BIN)/bijux-pollenomics
 RUFF := $(BIN)/ruff
-VERSION ?= v62.0
+VERSION ?= $(shell PYTHONPATH=src $(PYTHON) -c "from bijux_pollenomics.settings import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)")
 DATA_ROOT ?= data
 DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
