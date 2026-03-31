@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from os.path import relpath
 import shutil
 from pathlib import Path
 from typing import Iterable
@@ -15,6 +16,13 @@ from ..data_downloader.contracts import (
 from .models import SampleRecord
 from ..temporal import build_bp_interval_label, midpoint_bp_year, parse_numeric_bp_year
 
+LYNGSJON_FIELDWORK_LATITUDE = 55.9319529
+LYNGSJON_FIELDWORK_LONGITUDE = 14.0659044
+FIELDWORK_MEDIA_FILES = (
+    ("photo", "Field photo", "2026-02-26-data-collection.JPG"),
+    ("video", "Field video", "2026-02-26-data-collection.mov"),
+)
+
 
 def build_context_layers(
     samples: Iterable[SampleRecord],
@@ -25,6 +33,10 @@ def build_context_layers(
     point_layers = [build_aadr_point_layer(samples)]
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
+
+    fieldwork_layer = build_fieldwork_point_layer(output_dir)
+    if fieldwork_layer is not None:
+        point_layers.append(fieldwork_layer)
 
     if context_root is None:
         return point_layers, polygon_layers, extra_artifacts
@@ -124,6 +136,74 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
         },
         "features": features,
     }
+
+
+def build_fieldwork_point_layer(output_dir: Path) -> dict[str, object] | None:
+    """Build a checked-in fieldwork documentation layer when gallery media exists."""
+    docs_root = find_docs_root(output_dir)
+    if docs_root is None:
+        return None
+
+    media_links = []
+    gallery_root = docs_root / "gallery"
+    for kind, label, filename in FIELDWORK_MEDIA_FILES:
+        media_path = gallery_root / filename
+        if not media_path.exists():
+            continue
+        media_links.append(
+            {
+                "kind": kind,
+                "label": label,
+                "url": relpath(media_path, output_dir).replace("\\", "/"),
+            }
+        )
+
+    if not media_links:
+        return None
+
+    return {
+        "key": "fieldwork-documentation",
+        "label": "Fieldwork documentation",
+        "count": 1,
+        "description": "Checked-in media from lake sampling at Lyngsjön Lake.",
+        "group": "environmental-context",
+        "source_name": "Bijux fieldwork",
+        "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsjön Lake.",
+        "geometry_label": "Documented sampling point",
+        "default_enabled": True,
+        "applies_country_filter": True,
+        "applies_time_filter": False,
+        "circle_enabled": True,
+        "style": {
+            "fill": "#1d4ed8",
+            "stroke": "#1e3a8a",
+            "circleStroke": "rgba(29, 78, 216, 0.42)",
+            "circleFill": "rgba(59, 130, 246, 0.12)",
+        },
+        "features": [
+            {
+                "latitude": LYNGSJON_FIELDWORK_LATITUDE,
+                "longitude": LYNGSJON_FIELDWORK_LONGITUDE,
+                "country": "Sweden",
+                "title": "Lyngsjön Lake field sampling",
+                "subtitle": "Fieldwork documentation",
+                "popup_rows": [
+                    {"label": "Sampling date", "value": "2026-02-26"},
+                    {"label": "Place", "value": "Lyngsjön Lake, southwest of Kristianstad"},
+                    {"label": "Context", "value": "Winter lake sampling on ice during field collection"},
+                ],
+                "media_links": media_links,
+            }
+        ],
+    }
+
+
+def find_docs_root(output_dir: Path) -> Path | None:
+    """Resolve the docs root that owns the current report output."""
+    for candidate in (output_dir, *output_dir.parents):
+        if candidate.name == "docs" and (candidate / "gallery").exists():
+            return candidate
+    return None
 
 
 def parse_year_bp(value: str) -> int | None:
@@ -250,6 +330,7 @@ def build_external_point_layer(
                 "subtitle": str(properties.get("category", "")).strip(),
                 "popup_rows": popup_rows,
                 "source_url": str(properties.get("source_url", "")).strip(),
+                "media_links": normalize_media_links(properties.get("media_links", [])),
                 **time_payload,
             }
         )
@@ -411,6 +492,23 @@ def feature_time_payload(properties: dict[str, object]) -> dict[str, object]:
         "time_year_bp": time_mean_bp,
         "time_label": time_label,
     }
+
+
+def normalize_media_links(value: object) -> list[dict[str, str]]:
+    """Normalize map popup media links into a stable list structure."""
+    if not isinstance(value, list):
+        return []
+    links: list[dict[str, str]] = []
+    for raw_link in value:
+        if not isinstance(raw_link, dict):
+            continue
+        label = str(raw_link.get("label", "")).strip()
+        url = str(raw_link.get("url", "")).strip()
+        kind = str(raw_link.get("kind", "")).strip().lower() or "link"
+        if not label or not url:
+            continue
+        links.append({"label": label, "url": url, "kind": kind})
+    return links
 
 
 def feature_has_time(feature: dict[str, object]) -> bool:

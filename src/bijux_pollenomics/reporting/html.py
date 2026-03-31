@@ -994,6 +994,32 @@ def render_multi_country_map_html(
       .leaflet-popup-content-wrapper { border-radius: 18px; }
       .popup-grid { display: grid; gap: 6px; font-size: 13px; }
       .popup-grid strong { display: inline-block; min-width: 96px; }
+      .popup-media-list {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        vertical-align: middle;
+      }
+      .popup-media-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        background: rgba(37, 99, 235, 0.08);
+        color: #1e3a8a;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .popup-media-link:hover {
+        background: rgba(37, 99, 235, 0.14);
+      }
+      .popup-media-link svg {
+        width: 14px;
+        height: 14px;
+        flex: 0 0 auto;
+      }
       .cluster-pill {
         display: inline-flex;
         align-items: center;
@@ -1587,6 +1613,24 @@ def render_multi_country_map_html(
       function escapeHtml(value) {
         return String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
       }
+      function normalizedMediaLinks(value) {
+        if (!Array.isArray(value)) return [];
+        return value.filter((link) => link && link.label && link.url);
+      }
+      function mediaIconSvg(kind) {
+        if (kind === 'video') {
+          return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 6h11a2 2 0 0 1 2 2v1.2l3.4-2.26A1 1 0 0 1 22 7.77v8.46a1 1 0 0 1-1.6.83L17 14.8V16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Zm0 2v8h11V8H4Z"/></svg>';
+        }
+        return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9 4.5 7.5 6H5a2 2 0 0 0-2 2v8.5a2.5 2.5 0 0 0 2.5 2.5h13a2.5 2.5 0 0 0 2.5-2.5V8a2 2 0 0 0-2-2h-2.5L15 4.5H9Zm3 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>';
+      }
+      function mediaLinksHtml(value) {
+        const links = normalizedMediaLinks(value);
+        if (!links.length) return '';
+        const items = links
+          .map((link) => `<a class="popup-media-link" href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${mediaIconSvg(String(link.kind || '').toLowerCase())}<span>${escapeHtml(link.label)}</span></a>`)
+          .join('');
+        return `<div><strong>Media</strong> <span class="popup-media-list">${items}</span></div>`;
+      }
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
       function syncPresetButtons() {
@@ -1706,6 +1750,7 @@ def render_multi_country_map_html(
         focusTitle.textContent = focusState.title;
         focusSubtitle.textContent = focusState.subtitle;
         focusMeta.innerHTML = focusState.meta.map((row) => `<div class="focus-meta-row"><span class="focus-meta-label">${escapeHtml(row.label)}</span><span class="focus-meta-value">${escapeHtml(row.value)}</span></div>`).join('');
+        focusSourceLink.textContent = focusState.sourceLabel || 'Open source';
         focusSourceLink.hidden = !focusState.sourceUrl;
         focusSourceLink.href = focusState.sourceUrl || '#';
         const canStep = focusState.kind === 'point' && visiblePointEntries.length > 1;
@@ -1715,6 +1760,10 @@ def render_multi_country_map_html(
       function focusPointAtVisibleIndex(index) {
         const entry = visiblePointEntries[index];
         if (!entry) return;
+        const mediaLinks = normalizedMediaLinks(entry.feature.media_links);
+        const primaryAction = entry.feature.source_url
+          ? { label: 'Open source', url: entry.feature.source_url }
+          : (mediaLinks[0] ? { label: `Open ${mediaLinks[0].kind === 'video' ? 'video' : 'media'}`, url: mediaLinks[0].url } : null);
         const meta = [
           { label: 'Layer', value: entry.layer.label },
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
@@ -1731,7 +1780,8 @@ def render_multi_country_map_html(
           title: entry.feature.title || entry.layer.label,
           subtitle: entry.feature.subtitle || 'Point record',
           meta,
-          sourceUrl: entry.feature.source_url || '',
+          sourceUrl: primaryAction ? primaryAction.url : '',
+          sourceLabel: primaryAction ? primaryAction.label : 'Open source',
           latitude: Number(entry.feature.latitude),
           longitude: Number(entry.feature.longitude),
         });
@@ -1835,7 +1885,7 @@ def render_multi_country_map_html(
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
         const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
-        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
+        return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
         const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
