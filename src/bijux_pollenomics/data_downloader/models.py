@@ -55,3 +55,21 @@ class DataCollectionSummary:
     raa_total_site_count: int
     raa_heritage_site_count: int
     summary_path: Path
+
+
+@dataclass(frozen=True)
+class DataCollectionReport:
+    generated_on: str
+    output_root: Path
+    version: str
+    collected_sources: tuple[str, ...]
+    source_output_roots: dict[str, str]
+    aadr_file_count: int
+    landclim_site_count: int
+    landclim_grid_cell_count: int
+    neotoma_point_count: int
+    sead_point_count: int
+    raa_total_site_count: int
+    raa_heritage_site_count: int
+    boundary_source: str | None
+    summary_path: Path

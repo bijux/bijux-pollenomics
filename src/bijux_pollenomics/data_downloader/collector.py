@@ -1,52 +1,32 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
 from datetime import date
 from pathlib import Path
-from typing import Callable, Iterable
+from typing import Iterable
 
 from .aadr import download_aadr_anno_files
 from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
-from .common import write_json
+from .boundary_sources import resolve_country_boundaries
+from .context_collection import collect_context_source
 from .data_layout import AVAILABLE_SOURCES, build_source_output_roots, write_data_directory_readme
 from .landclim import collect_landclim_data
-from .models import DataCollectionSummary
+from .models import DataCollectionReport, DataCollectionSummary
 from .neotoma import collect_neotoma_data
 from .raa import collect_raa_data
+from .requested_sources import normalize_requested_sources
 from .sead import collect_sead_data
-from .source_registry import CONTEXT_SOURCE_SPECS, ContextSourceSpec
+from .source_registry import CONTEXT_SOURCE_SPECS
 from .staging import build_staging_output_dir, collect_into_staging_dir
-from ..settings import DEFAULT_AADR_VERSION, NORDIC_BBOX
+from .summary_writer import write_collection_summary
+from ..settings import DEFAULT_AADR_VERSION
 
 __all__ = [
     "AVAILABLE_SOURCES",
     "DataCollectionReport",
     "build_staging_output_dir",
-    "collect_landclim_data",
-    "collect_neotoma_data",
-    "collect_raa_data",
-    "collect_sead_data",
     "collect_data",
     "normalize_requested_sources",
 ]
-
-
-@dataclass(frozen=True)
-class DataCollectionReport:
-    generated_on: str
-    output_root: Path
-    version: str
-    collected_sources: tuple[str, ...]
-    source_output_roots: dict[str, str]
-    aadr_file_count: int
-    landclim_site_count: int
-    landclim_grid_cell_count: int
-    neotoma_point_count: int
-    sead_point_count: int
-    raa_total_site_count: int
-    raa_heritage_site_count: int
-    boundary_source: str | None
-    summary_path: Path
 
 
 def collect_data(
@@ -69,22 +49,14 @@ def collect_data(
         )
         counts["aadr_file_count"] = len(aadr_report.downloaded_files)
 
-    need_boundaries = any(source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS))
-    country_boundaries: dict[str, dict[str, object]] | None = None
-    if need_boundaries:
-        if "boundaries" in selected_sources:
-            country_boundaries, _ = collect_into_staging_dir(
-                final_output_root=output_root / "boundaries",
-                collect=collect_boundaries_data,
-            )
-            boundary_source = "collected"
-        else:
-            country_boundaries = load_country_boundaries(output_root / "boundaries")
-            if country_boundaries is not None:
-                boundary_source = "local"
-            else:
-                country_boundaries = fetch_country_boundaries()
-                boundary_source = "network"
+    country_boundaries, boundary_source = resolve_country_boundaries(
+        output_root=output_root,
+        selected_sources=selected_sources,
+        collect_boundaries_data=collect_boundaries_data,
+        collect_into_staging_dir=collect_into_staging_dir,
+        fetch_country_boundaries=fetch_country_boundaries,
+        load_country_boundaries=load_country_boundaries,
+    )
 
     if country_boundaries is not None:
         for source_name in selected_sources:
@@ -93,6 +65,7 @@ def collect_data(
                 continue
             counts.update(
                 collect_context_source(
+                    collect_function=resolve_context_collect_function(source_name),
                     spec=spec,
                     output_root=output_root,
                     country_boundaries=country_boundaries,
@@ -151,46 +124,7 @@ def initialize_source_counts() -> dict[str, int]:
     }
 
 
-def collect_context_source(
-    spec: ContextSourceSpec,
-    output_root: Path,
-    country_boundaries: dict[str, dict[str, object]],
-) -> dict[str, int]:
-    """Collect one context source and return the counts it contributes."""
-    source_output_root = Path(output_root) / spec.output_dir_name
-    collect_function = resolve_context_collect_function(spec.name)
-    report = collect_into_staging_dir(
-        final_output_root=source_output_root,
-        collect=lambda staging_root: collect_context_source_into_dir(
-            spec=spec,
-            collect_function=collect_function,
-            source_output_root=staging_root,
-            country_boundaries=country_boundaries,
-        ),
-    )
-    return {
-        summary_field: int(getattr(report, report_field))
-        for summary_field, report_field in spec.count_attributes
-    }
-
-
-def collect_context_source_into_dir(
-    spec: ContextSourceSpec,
-    collect_function: Callable[..., object],
-    source_output_root: Path,
-    country_boundaries: dict[str, dict[str, object]],
-) -> object:
-    """Collect one context source into a prepared directory."""
-    collect_kwargs = {
-        "output_root": source_output_root,
-        "country_boundaries": country_boundaries,
-    }
-    if spec.requires_bbox:
-        collect_kwargs["bbox"] = NORDIC_BBOX
-    return collect_function(**collect_kwargs)
-
-
-def resolve_context_collect_function(name: str) -> Callable[..., object]:
+def resolve_context_collect_function(name: str):
     """Resolve a context-source collector function by tracked source name."""
     functions = {
         "landclim": collect_landclim_data,
@@ -202,28 +136,3 @@ def resolve_context_collect_function(name: str) -> Callable[..., object]:
         return functions[name]
     except KeyError as exc:
         raise ValueError(f"Unsupported context source: {name}") from exc
-
-
-def normalize_requested_sources(sources: Iterable[str]) -> tuple[str, ...]:
-    """Normalize user-selected sources and expand `all`."""
-    requested = tuple(source.strip().casefold() for source in sources if source.strip())
-    if not requested:
-        raise ValueError("At least one data source is required")
-    if "all" in requested:
-        return AVAILABLE_SOURCES
-
-    unique_sources: list[str] = []
-    for source in requested:
-        if source not in AVAILABLE_SOURCES:
-            raise ValueError(f"Unsupported data source: {source}")
-        if source not in unique_sources:
-            unique_sources.append(source)
-    return tuple(unique_sources)
-
-
-def write_collection_summary(summary: DataCollectionSummary) -> None:
-    """Write a machine-readable summary for the collected data tree."""
-    payload = asdict(summary)
-    payload["output_root"] = str(summary.output_root)
-    payload["summary_path"] = str(summary.summary_path)
-    write_json(summary.summary_path, payload)
