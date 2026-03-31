@@ -41,6 +41,22 @@ The current atlas groups layers by role, exposes filter state in the URL, and sh
   <iframe src="report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
+## Fieldwork Evidence
+
+The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
+
+<div class="bijux-quicklinks">
+  <a class="md-button md-button--primary" href="04-reports/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button" href="gallery/2026-02-26-data-collection.mov">Open the field video</a>
+</div>
+
+<div class="bijux-media-grid">
+  <figure class="bijux-media-card">
+    <img src="gallery/2026-02-26-data-collection.JPG" alt="Field sampling at Lyngsjön Lake on 2026-02-26." loading="lazy">
+    <figcaption>Lyngsjön Lake, southwest of Kristianstad, during winter field collection on 2026-02-26.</figcaption>
+  </figure>
+</div>
+
 ## What This Documentation Set Explains
 
 ```mermaid

@@ -17,6 +17,7 @@ It also documents the boundary between generated publication artifacts and inter
 
 - [Country reports](country-reports.md)
 - [Shared Nordic map](shared-nordic-map.md)
+- [Lyngsjön Lake fieldwork](lyngsjon-lake-fieldwork.md)
 - [Published artifacts](published-artifacts.md)
 
 ```mermaid

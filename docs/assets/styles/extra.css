@@ -132,3 +132,32 @@ button {
   background: linear-gradient(135deg, #1f5ed8, #0f766e);
   border-color: transparent;
 }
+
+.bijux-media-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: 1.5rem 0;
+}
+
+.bijux-media-card {
+  margin: 0;
+  background: var(--bijux-surface-gradient), var(--bijux-panel);
+  border: 1px solid var(--bijux-border);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--bijux-map-shadow);
+}
+
+.bijux-media-card img,
+.bijux-media-card video {
+  display: block;
+  width: 100%;
+  background: #0f172a;
+}
+
+.bijux-media-card figcaption {
+  padding: 0.9rem 1rem 1rem;
+  color: var(--bijux-muted);
+  font-size: 0.95rem;
+}

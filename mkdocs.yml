@@ -113,6 +113,7 @@ nav:
       - Overview: 04-reports/index.md
       - Country Reports: 04-reports/country-reports.md
       - Nordic Evidence Atlas: 04-reports/shared-nordic-map.md
+      - Lyngsjön Lake Fieldwork: 04-reports/lyngsjon-lake-fieldwork.md
       - Published Artifacts: 04-reports/published-artifacts.md
   - Architecture:
       - Overview: 05-architecture/index.md

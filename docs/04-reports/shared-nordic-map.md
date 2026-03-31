@@ -23,6 +23,7 @@ The Nordic Evidence Atlas is the main interactive product surface in this reposi
 - a help dialog, focus inspector, and status dock for continuous review while navigating
 - time-window presets plus a dated-record distribution chart
 - shareable URL state for country, layer, basemap, and distance selections
+- a fieldwork documentation point for the Lyngsjön Lake sampling visit, with direct links to checked-in photo and video evidence
 
 ## Interaction Model
 
@@ -48,6 +49,7 @@ That is why the interface carries a brief, active-filter chips, grouped layer co
 ```mermaid
 flowchart LR
     AADR[AADR points] --> Map[Shared map]
+    Fieldwork[Lyngsjön fieldwork point] --> Map
     Neotoma[Neotoma pollen] --> Map
     SEAD[SEAD sites] --> Map
     RAA[RAÄ archaeology density] --> Map
