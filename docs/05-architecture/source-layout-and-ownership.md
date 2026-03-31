@@ -27,6 +27,7 @@ src/bijux_pollenomics
 │   ├── arguments.py
 │   ├── dispatch.py
 │   └── handlers.py
+├── project.py
 ├── settings.py
 ├── reporting
 │   ├── __init__.py
@@ -63,6 +64,7 @@ src/bijux_pollenomics
 - `command_line/arguments.py` owns argument composition
 - `command_line/dispatch.py` owns command routing
 - `command_line/handlers.py` owns user-facing command behavior
+- `project.py` owns canonical project defaults and path roots
 - `settings.py` owns shared defaults for the current checked-in publication scope
 - `data_downloader/` owns source acquisition and normalization
 - `data_downloader/collector.py` owns high-level data-collection orchestration only

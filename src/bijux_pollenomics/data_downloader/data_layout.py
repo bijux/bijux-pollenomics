@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .common import write_text
-from ..settings import DEFAULT_AADR_VERSION
+from ..settings import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
@@ -11,7 +11,7 @@ AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 
 def render_data_root_readme() -> str:
     """Render a stable README for the generated data root."""
-    return render_data_root_readme_for(Path("data"), DEFAULT_AADR_VERSION)
+    return render_data_root_readme_for(DEFAULT_DATA_ROOT, DEFAULT_AADR_VERSION)
 
 
 def render_data_root_readme_for(output_root: Path, version: str) -> str:

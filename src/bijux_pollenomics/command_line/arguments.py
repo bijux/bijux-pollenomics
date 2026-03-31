@@ -4,7 +4,15 @@ import argparse
 from pathlib import Path
 
 from ..data_downloader import AVAILABLE_SOURCES
-from ..settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
+from ..settings import (
+    DEFAULT_AADR_ROOT,
+    DEFAULT_AADR_VERSION,
+    DEFAULT_ATLAS_SLUG,
+    DEFAULT_ATLAS_TITLE,
+    DEFAULT_CONTEXT_ROOT,
+    DEFAULT_PUBLISHED_COUNTRIES,
+    DEFAULT_REPORT_ROOT,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -91,7 +99,7 @@ def build_parser() -> argparse.ArgumentParser:
     collect_parser.add_argument(
         "--output-root",
         type=Path,
-        default=Path("data"),
+        default=DEFAULT_CONTEXT_ROOT,
         help="Directory where tracked data should be written. Default: data",
     )
     return parser
@@ -102,7 +110,7 @@ def add_aadr_root_argument(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--aadr-root",
         type=Path,
-        default=Path("data/aadr"),
+        default=DEFAULT_AADR_ROOT,
         help="Root directory containing AADR versions. Default: data/aadr",
     )
 
@@ -121,7 +129,7 @@ def add_output_root_argument(parser: argparse.ArgumentParser, *, help_text: str)
     parser.add_argument(
         "--output-root",
         type=Path,
-        default=Path("docs/report"),
+        default=DEFAULT_REPORT_ROOT,
         help=help_text,
     )
 
@@ -131,7 +139,7 @@ def add_context_root_argument(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--context-root",
         type=Path,
-        default=Path("data"),
+        default=DEFAULT_CONTEXT_ROOT,
         help="Directory containing normalized context datasets. Default: data",
     )
 
