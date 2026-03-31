@@ -268,12 +268,12 @@ class CountryReportTests(unittest.TestCase):
 
             self.assertEqual(report.total_unique_samples, 3)
             self.assertTrue((output / "README.md").exists())
-            self.assertTrue((output / "nordic_aadr_v62.0_map.html").exists())
-            self.assertTrue((output / "nordic_aadr_v62.0_samples.geojson").exists())
-            self.assertTrue((output / "nordic_aadr_v62.0_summary.json").exists())
+            self.assertTrue((output / "nordic_v62.0_map.html").exists())
+            self.assertTrue((output / "nordic_v62.0_samples.geojson").exists())
+            self.assertTrue((output / "nordic_v62.0_summary.json").exists())
             self.assertTrue((output / "_map_assets" / "leaflet" / "leaflet.js").exists())
 
-            map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "nordic_v62.0_map.html").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("country-checkbox", map_html)
             self.assertIn("Sweden", map_html)
@@ -363,11 +363,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
             self.assertNotIn("unpkg.com/leaflet", map_html)
 
-            geojson = json.loads((output / "nordic_aadr_v62.0_samples.geojson").read_text(encoding="utf-8"))
-            summary = json.loads((output / "nordic_aadr_v62.0_summary.json").read_text(encoding="utf-8"))
+            geojson = json.loads((output / "nordic_v62.0_samples.geojson").read_text(encoding="utf-8"))
+            summary = json.loads((output / "nordic_v62.0_summary.json").read_text(encoding="utf-8"))
             self.assertEqual(len(geojson["features"]), 3)
-            self.assertEqual(summary["artifacts"]["map_html"], "nordic_aadr_v62.0_map.html")
-            self.assertEqual(summary["artifacts"]["samples_geojson"], "nordic_aadr_v62.0_samples.geojson")
+            self.assertEqual(summary["artifacts"]["map_html"], "nordic_v62.0_map.html")
+            self.assertEqual(summary["artifacts"]["samples_geojson"], "nordic_v62.0_samples.geojson")
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -493,7 +493,7 @@ class CountryReportTests(unittest.TestCase):
                 context_root=context_root,
             )
 
-            map_html = (output / "nordic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "nordic_v62.0_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("Search Visible Records", map_html)
@@ -545,7 +545,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             self.assertEqual(report.total_unique_samples, 0)
-            map_html = (output / "north-atlantic_aadr_v62.0_map.html").read_text(encoding="utf-8")
+            map_html = (output / "north-atlantic_v62.0_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("No visible point records are available under the current filters.", map_html)
             self.assertIn("| Iceland | 0 |", readme_text)
@@ -650,7 +650,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             self.assertFalse(stale_file.exists())
-            self.assertTrue((output / "nordic_aadr_v62.0_map.html").exists())
+            self.assertTrue((output / "nordic_v62.0_map.html").exists())
 
     def test_generate_published_reports_writes_shared_and_country_bundles(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
