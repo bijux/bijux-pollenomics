@@ -1,0 +1,61 @@
+---
+title: Automation Workflows
+audience: mixed
+type: explanation
+status: canonical
+owner: bijux-pollenomics-docs
+last_reviewed: 2026-03-31
+---
+
+# Automation Workflows
+
+The repository uses two GitHub Actions workflows with distinct responsibilities:
+
+- `verify.yml` runs repository verification on pushes to `main`, pull requests targeting `main`, and manual dispatch
+- `deploy-docs.yml` builds and publishes the MkDocs site from `main` or manual dispatch
+
+## Verification Workflow
+
+`verify.yml` is the main repository guardrail in GitHub.
+
+It:
+
+- checks out the repository
+- installs Python 3.11
+- installs `uv` with cache support
+- runs `make check PYTHON=python`
+
+That means GitHub verification now covers:
+
+- lockfile validity
+- lint
+- unit, regression, and end-to-end tests
+- strict MkDocs builds
+- source and wheel metadata validation
+- temporary-environment wheel smoke installation
+
+## Docs Deployment Workflow
+
+`deploy-docs.yml` is intentionally narrower than the verification workflow.
+
+It:
+
+- validates core MkDocs contract fields in `mkdocs.yml`
+- builds the docs site into `artifacts/docs/site`
+- uploads that built site as the GitHub Pages artifact
+- deploys only when the ref is `refs/heads/main`
+
+It does not publish from tags, and it does not pretend to be the whole repository test suite.
+
+## Separation Rule
+
+Keep verification and publication separate:
+
+- verification proves that the repository state is coherent
+- docs deployment publishes one checked-in surface derived from that state
+
+If a future automation change mixes those responsibilities, document the new boundary explicitly instead of relying on workflow names alone.
+
+## Purpose
+
+This page records the intended GitHub automation contract for the repository.

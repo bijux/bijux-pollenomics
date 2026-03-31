@@ -126,6 +126,7 @@ nav:
   - Engineering:
       - Overview: engineering/index.md
       - Local Workflow: engineering/local-workflow.md
+      - Automation Workflows: engineering/automation-workflows.md
       - Documentation Standards: engineering/documentation-standards.md
       - Change Review Checklist: engineering/change-review-checklist.md
       - Testing and Evidence: engineering/testing-and-evidence.md

@@ -14,6 +14,7 @@ This section explains the local workflow expected when changing code, data prepa
 ## Pages in This Section
 
 - [Local workflow](local-workflow.md)
+- [Automation workflows](automation-workflows.md)
 - [Documentation standards](documentation-standards.md)
 - [Change review checklist](change-review-checklist.md)
 - [Testing and evidence](testing-and-evidence.md)
