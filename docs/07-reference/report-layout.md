@@ -12,12 +12,12 @@ last_reviewed: 2026-03-31
 ## Shared Map Bundle
 
 ```text
-docs/report/nordic
+docs/report/nordic-evidence-atlas
 ├── _map_assets
 ├── README.md
-├── nordic_aadr_v62.0_map.html
-├── nordic_aadr_v62.0_summary.json
-├── nordic_aadr_v62.0_samples.geojson
+├── nordic-evidence-atlas_v62.0_map.html
+├── nordic-evidence-atlas_v62.0_summary.json
+├── nordic-evidence-atlas_v62.0_samples.geojson
 ├── nordic_country_boundaries.geojson
 ├── nordic_environmental_sites.geojson
 ├── nordic_pollen_site_sequences.geojson
@@ -27,7 +27,7 @@ docs/report/nordic
 └── sweden_archaeology_layer.json
 ```
 
-The checked-in Nordic bundle is currently the only shared HTML map bundle in the repository.
+The checked-in Nordic atlas bundle is currently the only shared HTML map bundle in the repository.
 
 `_map_assets/` is part of the published bundle contract even though its individual vendored files are not expanded in the tree above.
 
