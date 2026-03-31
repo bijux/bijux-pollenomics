@@ -61,6 +61,23 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertEqual(result.stdout.strip(), f"bijux-pollenomics {__version__}")
 
+    def test_collect_data_help_lists_accepted_source_names(self) -> None:
+        environment = os.environ.copy()
+        environment["PYTHONPATH"] = "src"
+
+        result = subprocess.run(
+            [sys.executable, "-m", "bijux_pollenomics", "collect-data", "--help"],
+            cwd=Path(__file__).resolve().parents[2],
+            env=environment,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        self.assertEqual(result.returncode, 0)
+        self.assertIn("Accepted values:", result.stdout)
+        self.assertIn("all, aadr, boundaries, landclim, neotoma, raa, sead.", result.stdout)
+
     def test_parser_defaults_follow_project_settings(self) -> None:
         parser = build_parser()
 

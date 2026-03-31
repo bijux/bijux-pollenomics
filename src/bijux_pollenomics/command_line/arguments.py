@@ -18,6 +18,7 @@ from ..settings import (
 
 def build_parser() -> argparse.ArgumentParser:
     """Build the command-line interface."""
+    available_sources_label = ", ".join(("all", *AVAILABLE_SOURCES))
     parser = argparse.ArgumentParser(
         prog="bijux-pollenomics",
         description="Generate Nordic country reports and the Nordic Evidence Atlas from tracked data sources.",
@@ -96,7 +97,10 @@ def build_parser() -> argparse.ArgumentParser:
         "sources",
         nargs="+",
         metavar="source",
-        help="One or more data sources to collect, or `all`. Source names are normalized case-insensitively.",
+        help=(
+            "One or more data sources to collect. "
+            f"Accepted values: {available_sources_label}. Source names are normalized case-insensitively."
+        ),
     )
     add_version_argument(
         collect_parser,
