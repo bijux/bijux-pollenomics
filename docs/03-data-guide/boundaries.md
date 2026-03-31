@@ -27,6 +27,7 @@ The current collector:
 - writes those filtered country files into the tracked raw boundary directory
 - builds one combined Nordic boundary GeoJSON for country classification and map framing
 - only reuses local raw boundaries when that provenance manifest is present and valid
+- validates that every local raw boundary file still carries features and the expected `ADM0_A3` code before reuse
 - uses strict polygon containment first, then a narrow fallback for inland-water and near-coast points that sit just outside the published land polygons
 
 ## Current Raw Files

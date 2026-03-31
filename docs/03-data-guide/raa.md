@@ -24,8 +24,10 @@ The current collector:
 - downloads RAÄ WFS capabilities and schema metadata
 - downloads Fornsök domain metadata
 - archives the full published archaeology point inventory with WFS paging
+- validates that archived paging covered the reported `numberMatched` inventory exactly once
 - derives Swedish counts for all published sites, `Fornlämning`, and `Fornlämning` plus `Möjlig fornlämning` from that archived inventory
 - builds a 1-degree Swedish density grid from the archived feature inventory instead of issuing WFS count queries cell by cell
+- writes a compact raw summary for the archived point inventory alongside the full GeoJSON
 
 ## Why Density Instead Of Every Point
 

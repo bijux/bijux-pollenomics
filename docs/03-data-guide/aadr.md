@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-23
+last_reviewed: 2026-03-31
 ---
 
 # AADR
@@ -30,10 +30,12 @@ Those fields are already in the public `.anno` files, so tracking the heavier ge
 
 ## What The Collector Does
 
-The current collector resolves the requested `.anno` files from the public AADR Harvard Dataverse metadata and writes them into:
+The current collector resolves the requested `.anno` files from the public AADR Harvard Dataverse version history and writes them into:
 
 - `data/aadr/v62.0/1240k/v62.0_1240k_public.anno`
 - `data/aadr/v62.0/ho/v62.0_HO_public.anno`
+
+It also writes a release manifest with the Dataverse version number, release timestamps, file identifiers, and local paths, and it verifies downloaded payloads against the upstream `filesize` and `md5` metadata before keeping them.
 
 The repository does not currently collect or use `.geno`, `.ind`, `.snp`, or spreadsheet companions.
 

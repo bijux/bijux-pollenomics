@@ -24,12 +24,14 @@ The current collector:
 
 - downloads the PANGAEA assets behind `10.1594/PANGAEA.900966`, `10.1594/PANGAEA.897303`, and `10.1594/PANGAEA.937075`
 - resolves those assets from the official PANGAEA landing and textfile records instead of fixed direct-download guesses
+- rejects empty upstream asset downloads before they enter the tracked raw tree
 - parses workbook-based metadata locally so the repository does not depend on external spreadsheet tooling
 - reads LandClim I site metadata from both published workbook variants instead of trusting a single sheet name
 - keeps pollen-sequence records whose coordinates fall inside the Nordic bounding box
 - assigns retained sequences and grid cells to Nordic countries using the tracked boundary layer, then falls back to the workbook country field when the coordinate is valid but the boundary geometry is too coarse
 - merges identical 1 degree grid cells across LandClim I and LandClim II outputs while preserving dataset labels, time-window coverage, and LandClim II quality labels
 - validates that the LandClim II results archive contains the documented 25 mean and 25 standard-error CSV windows before normalization
+- records resolved asset URLs, byte sizes, and SHA-256 digests in the raw source manifest
 
 ## Why It Matters
 
