@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import Iterable
 
 from .aadr import load_country_samples, summarize_localities
-from .atlas_bundle import publish_multi_country_map_bundle
 from .artifacts import (
     build_samples_geojson,
     copy_map_assets,
@@ -14,20 +13,21 @@ from .artifacts import (
     write_samples_geojson,
     write_summary_json,
 )
-from .context_layers import build_context_layers
-from .country_bundle import publish_country_report_bundle
-from .html import render_multi_country_map_html
-from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
-from .map_inputs import load_multi_country_map_inputs
-from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
-from .paths import build_atlas_bundle_paths
-from .published_reports import publish_published_reports_tree
-from .staging import publish_into_staging_dir
-from .summaries import (
+from .bundles.atlas_bundle import publish_multi_country_map_bundle
+from .bundles.country_bundle import publish_country_report_bundle
+from .bundles.paths import build_atlas_bundle_paths
+from .bundles.published_reports import publish_published_reports_tree
+from .bundles.staging import publish_into_staging_dir
+from .bundles.summaries import (
     build_country_report_summary,
     build_multi_country_map_summary,
     build_published_reports_summary,
 )
+from .context_layers import build_context_layers
+from .html import render_multi_country_map_html
+from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
+from .map_inputs import load_multi_country_map_inputs
+from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .utils import slugify
 from .countries import normalize_requested_countries
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
