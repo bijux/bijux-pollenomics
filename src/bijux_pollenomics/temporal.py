@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 import math
+import re
+
+
+BP_WINDOW_PATTERN = re.compile(r"(?P<start>-?\d+)\s*-\s*(?P<end>-?\d+)\s*BP", re.IGNORECASE)
 
 
 def parse_numeric_bp_year(value: object) -> int | None:
@@ -79,6 +83,18 @@ def mean_bp_year_from_interval(interval: tuple[int, int] | None) -> int | None:
     if interval is None:
         return None
     return midpoint_bp_year(interval[0], interval[1])
+
+
+def parse_bp_window_label(value: object) -> tuple[int, int] | None:
+    """Parse a BP window label such as `0-100 BP`."""
+    text = str(value).strip()
+    match = BP_WINDOW_PATTERN.fullmatch(text)
+    if match is None:
+        return None
+    return normalize_bp_interval(
+        parse_numeric_bp_year(match.group("start")),
+        parse_numeric_bp_year(match.group("end")),
+    )
 
 
 def sqrt_uniform_interval_width(stddev_bp: object) -> float | None:

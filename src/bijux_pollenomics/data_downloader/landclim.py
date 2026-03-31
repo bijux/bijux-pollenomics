@@ -14,6 +14,7 @@ from .geometry import classify_country, point_in_bbox
 from .models import ContextPointRecord
 from .writers import write_context_points_csv, write_context_points_geojson
 from .xlsx import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from ..temporal import build_bp_interval_label, mean_bp_year_from_interval, merge_bp_intervals, normalize_bp_interval, parse_bp_window_label
 
 
 LANDCLIM_SITE_LAYER_KEY = "landclim-sites"
@@ -236,6 +237,10 @@ def marquer_site_records(
                 source_url=LANDCLIM_DATASET_METADATA["900966"]["doi"],
                 record_count=25,
                 popup_rows=tuple(popup_rows),
+                time_start_bp=0,
+                time_end_bp=11700,
+                time_mean_bp=5850,
+                time_label="0-11700 BP",
             )
         )
     return records
@@ -271,6 +276,7 @@ def landclim_i_site_records(
             for index, marker in enumerate(row[7:7 + len(time_windows)])
             if index < len(time_windows) and clean_optional_text(marker)
         ]
+        time_interval = landclim_time_windows_interval(available_windows)
         site_name = clean_optional_text(row[1])
         popup_rows = [
             ("Dataset", LANDCLIM_DATASET_METADATA["897303"]["label"]),
@@ -306,6 +312,10 @@ def landclim_i_site_records(
                 source_url=LANDCLIM_DATASET_METADATA["897303"]["doi"],
                 record_count=max(len(available_windows), 1),
                 popup_rows=tuple((label, value) for label, value in popup_rows if value),
+                time_start_bp=time_interval[0] if time_interval is not None else None,
+                time_end_bp=time_interval[1] if time_interval is not None else None,
+                time_mean_bp=mean_bp_year_from_interval(time_interval),
+                time_label=summarize_time_windows(available_windows) if available_windows else "",
             )
         )
     return records
@@ -349,6 +359,10 @@ def landclim_ii_site_records(
             ("Bottom BP", value_from_row(row, index, "BotBP")),
             ("Elevation", value_from_row(row, index, "Elevation")),
         ]
+        time_interval = landclim_top_bottom_interval(
+            parse_int(value_from_row(row, index, "TopBP")),
+            parse_int(value_from_row(row, index, "BotBP")),
+        )
         records.append(
             ContextPointRecord(
                 source="LandClim",
@@ -366,6 +380,10 @@ def landclim_ii_site_records(
                 source_url=LANDCLIM_DATASET_METADATA["937075"]["doi"],
                 record_count=max(parse_int(value_from_row(row, index, "nTWs")) or 0, 1),
                 popup_rows=tuple((label, value) for label, value in popup_rows if value),
+                time_start_bp=time_interval[0] if time_interval is not None else None,
+                time_end_bp=time_interval[1] if time_interval is not None else None,
+                time_mean_bp=mean_bp_year_from_interval(time_interval),
+                time_label=build_bp_interval_label(time_interval[0], time_interval[1]) if time_interval is not None else "",
             )
         )
     return records
@@ -621,6 +639,16 @@ def summarize_time_windows(time_windows: list[str]) -> str:
     if len(time_windows) == 1:
         return time_windows[0]
     return f"{time_windows[0]} to {time_windows[-1]}"
+
+
+def landclim_time_windows_interval(time_windows: list[str]) -> tuple[int, int] | None:
+    """Merge LandClim time-window labels into one BP interval."""
+    return merge_bp_intervals(*(parse_bp_window_label(window) for window in time_windows))
+
+
+def landclim_top_bottom_interval(top_bp: int | None, bottom_bp: int | None) -> tuple[int, int] | None:
+    """Normalize LandClim top and bottom BP metadata into one interval."""
+    return normalize_bp_interval(top_bp, bottom_bp)
 
 
 def summarize_quality_labels(labels: set[str]) -> str:

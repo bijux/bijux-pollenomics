@@ -68,6 +68,10 @@ class LandClimDataTests(unittest.TestCase):
             popup = {label: value for label, value in records[0].popup_rows}
             self.assertEqual(popup["Site type"], "Lake")
             self.assertEqual(popup["Time windows"], "0-100 BP, 350-700 BP")
+            self.assertEqual(records[0].time_start_bp, 0)
+            self.assertEqual(records[0].time_end_bp, 700)
+            self.assertEqual(records[0].time_mean_bp, 350)
+            self.assertEqual(records[0].time_label, "0-100 BP to 350-700 BP")
 
     def test_landclim_grid_merge_uses_one_feature_for_same_cell(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -189,6 +193,31 @@ class LandClimDataTests(unittest.TestCase):
             self.assertEqual(len(records), 1)
             self.assertEqual(records[0].country, "Finland")
             self.assertEqual(records[0].name, "Fallback Site")
+            self.assertEqual(records[0].time_start_bp, 0)
+            self.assertEqual(records[0].time_end_bp, 100)
+
+    def test_landclim_ii_site_records_use_top_and_bottom_bp_as_interval(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "landclim_ii.xlsx"
+            write_xlsx(
+                path,
+                {
+                    "LANDCLIMII metadata file": [
+                        ["SiteName", "csvfilename", "siteType", "londd", "latdd", "Country", "nTWs", "TopBP", "BotBP"],
+                        ["Lake Two", "lake-two.csv", "Lake", "17.5", "59.5", "Sweden", "4", "150", "2150"],
+                    ]
+                },
+            )
+
+            from bijux_pollenomics.data_downloader.landclim import landclim_ii_site_records
+
+            records = landclim_ii_site_records(path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES)
+
+            self.assertEqual(len(records), 1)
+            self.assertEqual(records[0].time_start_bp, 150)
+            self.assertEqual(records[0].time_end_bp, 2150)
+            self.assertEqual(records[0].time_mean_bp, 1150)
+            self.assertEqual(records[0].time_label, "150-2150 BP")
 
 
 def write_landclim_ii_zip(path: Path, rows: list[dict[str, str]]) -> None:
