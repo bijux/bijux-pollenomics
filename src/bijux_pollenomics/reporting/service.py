@@ -15,10 +15,11 @@ from .artifacts import (
     write_summary_json,
 )
 from .context_layers import build_context_layers
+from .country_bundle import publish_country_report_bundle
 from .html import render_multi_country_map_html
 from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport, SampleRecord
-from .paths import build_atlas_bundle_paths, build_country_bundle_paths
+from .paths import build_atlas_bundle_paths
 from .staging import publish_into_staging_dir
 from .summaries import (
     build_country_report_summary,
@@ -61,27 +62,19 @@ def generate_country_report(
     )
 
     def publish_country_bundle(staging_output_dir: Path) -> None:
-        bundle_paths = build_country_bundle_paths(
-            output_dir=staging_output_dir,
+        publish_country_report_bundle(
+            staging_output_dir,
+            report=report,
             country=normalized_country,
             version=version,
-        )
-        write_samples_csv(bundle_paths.samples_csv_path, report.samples)
-        write_localities_csv(bundle_paths.localities_csv_path, report.localities)
-        write_samples_geojson(bundle_paths.samples_geojson_path, report.samples)
-        write_summary_json(bundle_paths.summary_json_path, build_country_report_summary(report, bundle_paths))
-        bundle_paths.samples_markdown_path.write_text(render_sample_markdown(report), encoding="utf-8")
-        bundle_paths.readme_path.write_text(
-            render_summary_markdown(
-                report=report,
-                samples_csv_name=bundle_paths.samples_csv_path.name,
-                localities_csv_name=bundle_paths.localities_csv_path.name,
-                geojson_name=bundle_paths.samples_geojson_path.name,
-                sample_markdown_name=bundle_paths.samples_markdown_path.name,
-                summary_json_name=bundle_paths.summary_json_path.name,
-                map_reference=map_reference,
-            ),
-            encoding="utf-8",
+            map_reference=map_reference,
+            build_country_report_summary_fn=build_country_report_summary,
+            render_sample_markdown_fn=render_sample_markdown,
+            render_summary_markdown_fn=render_summary_markdown,
+            write_localities_csv_fn=write_localities_csv,
+            write_samples_csv_fn=write_samples_csv,
+            write_samples_geojson_fn=write_samples_geojson,
+            write_summary_json_fn=write_summary_json,
         )
 
     publish_into_staging_dir(output_dir, publish_country_bundle)
