@@ -10,11 +10,11 @@ from ..core.files import write_json
 from ..core.http import fetch_json
 from ..core.text import clean_optional_text
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
-from .neotoma_archive import (
+from .sources.neotoma.archive import (
     build_neotoma_download_archive_parts as build_neotoma_download_archive_parts_from_archive,
     write_neotoma_download_archive as write_neotoma_download_archive_to_dir,
 )
-from .neotoma_client import (
+from .sources.neotoma.client import (
     build_neotoma_bbox_geojson as build_neotoma_bbox_geojson_from_client,
     extract_neotoma_download_dataset_ids as extract_neotoma_download_dataset_ids_from_client,
     fetch_neotoma_api_payload as fetch_neotoma_api_payload_from_client,
@@ -25,7 +25,7 @@ from .neotoma_client import (
     neotoma_download_dataset_id as neotoma_download_dataset_id_from_client,
     validate_neotoma_download_coverage as validate_neotoma_download_coverage_from_client,
 )
-from .neotoma_normalization import (
+from .sources.neotoma.normalization import (
     build_neotoma_site_rows_from_downloads,
     build_neotoma_site_snapshot_rows,
     classify_neotoma_site_country,
