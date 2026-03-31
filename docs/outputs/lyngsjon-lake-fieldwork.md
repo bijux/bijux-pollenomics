@@ -11,6 +11,8 @@ last_reviewed: 2026-03-31
 
 This page documents the field sampling visit that now appears in the Nordic Evidence Atlas as a dedicated point layer entry.
 
+It is evidence of one documented field visit, not a substitute for the broader source-derived layers in the atlas.
+
 ## Site
 
 - lake: Lyngsjön Lake
@@ -48,6 +50,10 @@ The atlas now publishes this location as `Fieldwork documentation`.
 - country filter: Sweden
 - layer group: environmental context
 
+## Interpretation Boundary
+
+The point is useful because it ties the atlas to a specific checked-in collection event. It does not turn the atlas into a field-log system, and it does not imply that every mapped evidence point has matching field media.
+
 ## Purpose
 
-This page anchors the checked-in field media to the atlas and explains why the Lyngsjön Lake sampling visit is visible in the published documentation set.
+This page anchors the checked-in field media to the atlas and explains what that fieldwork evidence does and does not represent.
