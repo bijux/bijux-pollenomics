@@ -9,7 +9,7 @@ description = "Data collection, reporting, and mapping tools for Nordic aDNA and
 readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 authors = [
     { name = "Bijan Mousavi", email = "bijan@bijux.io" },
 ]
@@ -29,7 +29,7 @@ Documentation = "https://bijux.github.io/bijux-pollenomics/"
 Repository = "https://github.com/bijux/bijux-pollenomics"
 Issues = "https://github.com/bijux/bijux-pollenomics/issues"
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "build>=1.2.2",
     "mkdocs>=1.6.1",
@@ -38,6 +38,7 @@ dev = [
     "mkdocs-material>=9.6.12",
     "pymdown-extensions>=10.15",
     "ruff>=0.13.0",
+    "twine>=6.1.0",
 ]
 
 [project.scripts]

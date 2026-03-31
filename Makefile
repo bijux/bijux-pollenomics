@@ -12,18 +12,19 @@ DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 UV_PROJECT_ENVIRONMENT := $(VENV)
-UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --extra dev --python $(PYTHON)
+UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --python $(PYTHON)
 
-.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check reports test test-all test-e2e test-regression test-unit
+.PHONY: app-state build check clean data-prep docs docs-serve help install lint lock lock-check package-check reports test test-all test-e2e test-regression test-unit
 
 help:
 	@printf "Available targets:\n"
 	@printf "  install    Sync %s from pyproject.toml and uv.lock\n" "$(VENV)"
 	@printf "  lock       Refresh uv.lock from pyproject.toml\n"
 	@printf "  lock-check Verify uv.lock matches pyproject.toml\n"
+	@printf "  package-check Build and validate source and wheel distributions\n"
 	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
 	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
-	@printf "  check      Verify uv.lock, lint, tests, and docs build\n"
+	@printf "  check      Verify uv.lock, lint, tests, docs, and distributions\n"
 	@printf "  lint       Run ruff on src/ and tests/\n"
 	@printf "  test       Run unit, regression, and e2e test suites\n"
 	@printf "  test-unit  Run the unit test suite\n"
@@ -48,7 +49,7 @@ lock:
 lock-check:
 	$(UV) lock --check --python $(PYTHON)
 
-check: lock-check lint test docs
+check: lock-check lint test docs package-check
 
 lint: install
 	$(RUFF) check src tests
@@ -79,6 +80,9 @@ build: install
 	mkdir -p $(DIST_ROOT)
 	$(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
 	rm -rf build
+
+package-check: build
+	$(VENV_PYTHON) -m twine check $(DIST_ROOT)/*
 
 docs: install
 	$(MKDOCS_ENV) $(BIN)/mkdocs build --strict
