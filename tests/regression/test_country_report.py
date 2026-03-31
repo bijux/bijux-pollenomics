@@ -642,6 +642,9 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("const TIME_MIN_BP = 100;", map_html)
             self.assertIn("const TIME_MAX_BP = 3200;", map_html)
             self.assertIn("const TIME_HAS_DATA = true;", map_html)
+            self.assertIn("const DEFAULT_TIME_START_BP = 100;", map_html)
+            self.assertIn("const DEFAULT_TIME_INTERVAL_YEARS = 3100;", map_html)
+            self.assertIn('data-time-interval="full">Full span</button>', map_html)
 
     def test_generate_multi_country_map_handles_empty_aadr_selection(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

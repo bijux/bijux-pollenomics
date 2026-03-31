@@ -1245,16 +1245,16 @@
                       <input id="time-start-slider" class="range-input" type="range" min="-187" max="22911" step="1" value="-187">
                     </div>
                     <div>
-                      <div class="field-label"><span>Window span</span><span id="time-interval-value">100 years</span></div>
+                      <div class="field-label"><span>Window span</span><span id="time-interval-value">23098 years</span></div>
                       <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
-                      <input id="time-interval-slider" class="range-input" type="range" min="1" max="23098" step="1" value="100">
+                      <input id="time-interval-slider" class="range-input" type="range" min="1" max="23098" step="1" value="23098">
                     </div>
                   </div>
                   <div class="dock-presets">
-                    <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                    <button class="preset-button" type="button" data-time-interval="100">100 years</button>
                     <button class="preset-button" type="button" data-time-interval="500">500 years</button>
                     <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
-                    <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+                    <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
@@ -1393,7 +1393,7 @@
       const TIME_MAX_BP = 22911;
       const TIME_HAS_DATA = true;
       const DEFAULT_TIME_START_BP = -187;
-      const DEFAULT_TIME_INTERVAL_YEARS = 100;
+      const DEFAULT_TIME_INTERVAL_YEARS = 23098;
       const TIME_INTERVAL_MAX = 23098;
       const map = L.map('map', { preferCanvas: true, zoomControl: false });
       const basemaps = {

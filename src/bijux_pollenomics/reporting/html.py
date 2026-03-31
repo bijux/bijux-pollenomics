@@ -28,7 +28,6 @@ def render_multi_country_map_html(
 ) -> str:
     """Render an advanced standalone interactive HTML map."""
     initial_diameter_km = 20
-    initial_time_interval_years = 100
     map_points = [feature for layer in point_layers for feature in layer["features"]]
     time_candidates: set[int] = set()
     for layer in point_layers:
@@ -50,11 +49,13 @@ def render_multi_country_map_html(
     if time_values:
         time_min_bp = min(time_values)
         time_max_bp = max(time_values)
-        max_time_span = max(initial_time_interval_years, time_max_bp - time_min_bp)
+        max_time_span = max(1, time_max_bp - time_min_bp)
+        initial_time_interval_years = max_time_span
         initial_time_start_bp = time_min_bp
     else:
         time_min_bp = 0
         time_max_bp = 0
+        initial_time_interval_years = 100
         max_time_span = initial_time_interval_years
         initial_time_start_bp = 0
     initial_time_end_bp = min(time_max_bp, initial_time_start_bp + initial_time_interval_years)
@@ -1320,10 +1321,10 @@ def render_multi_country_map_html(
                     </div>
                   </div>
                   <div class="dock-presets">
-                    <button class="preset-button is-active" type="button" data-time-interval="100">100 years</button>
+                    <button class="preset-button" type="button" data-time-interval="100">100 years</button>
                     <button class="preset-button" type="button" data-time-interval="500">500 years</button>
                     <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
-                    <button class="preset-button" type="button" data-time-interval="full">Full span</button>
+                    <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
