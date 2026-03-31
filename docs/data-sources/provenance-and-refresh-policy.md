@@ -11,12 +11,23 @@ last_reviewed: 2026-03-31
 
 The repository treats source collection as a documented, reviewable ingest process.
 
+The goal is not just to fetch files again. The goal is to leave behind enough evidence that a later reviewer can explain where the refreshed snapshot came from and why the downstream outputs changed.
+
 ## What Every Source Refresh Should Preserve
 
 - a stable top-level source root under `data/<source>/`
 - enough raw upstream material to audit the normalized outputs later
 - normalized outputs that are safe for downstream reports and the shared atlas
 - machine-readable provenance or summary artifacts when the upstream source is mutable
+
+## Refresh Contract
+
+A source refresh should preserve four facts:
+
+1. what upstream release, endpoint, or asset set was targeted
+2. which raw files or inventories were kept for later audit
+3. which normalized outputs now define the repository-facing contract
+4. which generated atlas or report changes should be expected downstream
 
 ## Raw And Normalized Contract
 
@@ -48,9 +59,17 @@ When a source snapshot changes, reviewers should be able to answer:
 - whether the raw inventory and normalized outputs still match each other
 - whether the resulting atlas or report changes are explained by the source refresh
 
+## Why Summary Files Matter
+
+The collector summary and source-specific manifests are not side notes. They are the machine-readable bridge between a refresh command and the changed repository tree. Without them, later review turns into guesswork.
+
 ## Why This Matters
 
 Without an explicit provenance rule, a checked-in data tree becomes hard to trust over multi-year work. The repository is meant to support long-lived spatial interpretation, so collection history and normalization history need to stay inspectable instead of being collapsed into one opaque refresh step.
+
+## Reading Rule
+
+Use this page with [Source comparison](source-comparison.md): the comparison page tells you why a source matters, and this page tells you what a refresh of that source has to preserve.
 
 ## Purpose
 
