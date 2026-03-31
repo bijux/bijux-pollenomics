@@ -14,6 +14,10 @@ from ..core.files import write_json
 from ..core.http import fetch_json
 from ..core.text import clean_optional_text
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
+from .neotoma_archive import (
+    build_neotoma_download_archive_parts as build_neotoma_download_archive_parts_from_archive,
+    write_neotoma_download_archive as write_neotoma_download_archive_to_dir,
+)
 from .neotoma_normalization import (
     build_neotoma_site_rows_from_downloads,
     build_neotoma_site_snapshot_rows,
@@ -275,27 +279,11 @@ def build_neotoma_download_archive_parts(
     rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
 ) -> list[dict[str, object]]:
     """Split large Neotoma download payloads into stable part files."""
-    if rows_per_part < 1:
-        raise ValueError("rows_per_part must be at least 1")
-
-    rows = list(download_rows)
-    part_count = (len(rows) + rows_per_part - 1) // rows_per_part
-    parts: list[dict[str, object]] = []
-    for index, start in enumerate(range(0, len(rows), rows_per_part), start=1):
-        part_rows = rows[start:start + rows_per_part]
-        part_dataset_ids = extract_neotoma_download_dataset_ids(part_rows)
-        parts.append(
-            {
-                "filename": f"part-{index:03d}.json",
-                "part_number": index,
-                "part_count": part_count,
-                "row_count": len(part_rows),
-                "downloaded_dataset_count": len(part_dataset_ids),
-                "downloaded_dataset_ids": part_dataset_ids,
-                "rows": part_rows,
-            }
-        )
-    return parts
+    return build_neotoma_download_archive_parts_from_archive(
+        download_rows,
+        rows_per_part=rows_per_part,
+        extract_neotoma_download_dataset_ids_fn=extract_neotoma_download_dataset_ids,
+    )
 
 
 def write_neotoma_download_archive(
@@ -307,62 +295,17 @@ def write_neotoma_download_archive(
     rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
 ) -> Path:
     """Write the full Neotoma dataset downloads into a chunked archive directory."""
-    archive_dir = Path(raw_dir) / NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME
-    archive_dir.mkdir(parents=True, exist_ok=True)
-    rows = list(download_rows)
-
-    requested_ids = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
-    returned_ids = sorted({int(dataset_id) for dataset_id in downloaded_dataset_ids})
-    parts = build_neotoma_download_archive_parts(rows, rows_per_part=rows_per_part)
-
-    manifest_parts: list[dict[str, object]] = []
-    for part in parts:
-        filename = str(part["filename"])
-        write_json(
-            archive_dir / filename,
-            {
-                "generated_on": str(date.today()),
-                "source": "Neotoma",
-                "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
-                "datasettype": NEOTOMA_DATASETTYPE,
-                "part_number": part["part_number"],
-                "part_count": part["part_count"],
-                "row_count": part["row_count"],
-                "downloaded_dataset_count": part["downloaded_dataset_count"],
-                "downloaded_dataset_ids": part["downloaded_dataset_ids"],
-                "rows": part["rows"],
-            },
-        )
-        manifest_parts.append(
-            {
-                "filename": filename,
-                "part_number": part["part_number"],
-                "row_count": part["row_count"],
-                "downloaded_dataset_count": part["downloaded_dataset_count"],
-                "downloaded_dataset_ids": part["downloaded_dataset_ids"],
-            }
-        )
-
-    manifest_path = archive_dir / "manifest.json"
-    write_json(
-        manifest_path,
-        {
-            "generated_on": str(date.today()),
-            "source": "Neotoma",
-            "archive_dir": str(archive_dir),
-            "endpoint_template": f"{NEOTOMA_DATA_URL}/downloads/{{datasetid}}",
-            "datasettype": NEOTOMA_DATASETTYPE,
-            "requested_dataset_count": len(requested_ids),
-            "requested_dataset_ids": requested_ids,
-            "downloaded_dataset_count": len(returned_ids),
-            "downloaded_dataset_ids": returned_ids,
-            "row_count": len(rows),
-            "rows_per_part": rows_per_part,
-            "part_count": len(parts),
-            "parts": manifest_parts,
-        },
+    return write_neotoma_download_archive_to_dir(
+        raw_dir,
+        requested_dataset_ids=requested_dataset_ids,
+        downloaded_dataset_ids=downloaded_dataset_ids,
+        download_rows=download_rows,
+        rows_per_part=rows_per_part,
+        neotoma_data_url=NEOTOMA_DATA_URL,
+        neotoma_datasettype=NEOTOMA_DATASETTYPE,
+        neotoma_download_archive_dirname=NEOTOMA_DOWNLOAD_ARCHIVE_DIRNAME,
+        extract_neotoma_download_dataset_ids_fn=extract_neotoma_download_dataset_ids,
     )
-    return manifest_path
 
 
 def collect_neotoma_data(
