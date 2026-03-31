@@ -20,7 +20,7 @@ make data-prep
 Equivalent direct command:
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data all --version v62.0 --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data all --version v62.0 --output-root data
 ```
 
 ## Before You Run It
@@ -55,8 +55,8 @@ The important consequence is that a source-specific recollection is not additive
 ## Single-Source Rebuilds
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data aadr --version v62.0 --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data raa --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data aadr --version v62.0 --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data raa --output-root data
 ```
 
 Use source-specific runs when you are iterating on one acquisition area and do not want to refresh the entire tree.
@@ -64,10 +64,10 @@ Use source-specific runs when you are iterating on one acquisition area and do n
 The repository also supports:
 
 ```bash
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data boundaries --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data landclim --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data neotoma --output-root data
-PYTHONPATH=src artifacts/.venv/bin/python -m bijux_pollenomics.cli collect-data sead --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data boundaries --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data landclim --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data neotoma --output-root data
+artifacts/.venv/bin/bijux-pollenomics collect-data sead --output-root data
 ```
 
 ## Which Arguments Matter By Source
