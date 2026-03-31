@@ -42,6 +42,7 @@ make lint
 make test
 make package-check
 make package-smoke
+make package-source-smoke
 make docs
 ```
 
@@ -53,6 +54,7 @@ make docs
 - `make test` runs the checked-in unittest suite with verbose discovery output
 - `make package-check` rebuilds the source and wheel distributions and validates them with `twine check`
 - `make package-smoke` installs the built wheel into a temporary environment and runs the CLI there
+- `make package-source-smoke` installs the built source distribution into a temporary environment and runs the CLI there
 - `make docs` verifies that the documentation shell still builds in strict mode
 
 ## What `make install` Actually Adds
@@ -78,6 +80,7 @@ After these commands:
 - the test suite passes
 - source and wheel distributions validate successfully
 - the built wheel installs and runs in a temporary environment
+- the built source distribution installs and runs in a temporary environment
 - the docs site builds successfully
 
 ## What This Page Does Not Verify

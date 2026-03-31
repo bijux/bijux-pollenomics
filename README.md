@@ -89,6 +89,7 @@ make test-regression
 make test-e2e
 make package-check
 make package-smoke
+make package-source-smoke
 make docs
 ```
 
@@ -130,6 +131,7 @@ make test-e2e
 make check
 make package-check
 make package-smoke
+make package-source-smoke
 make docs
 make docs-serve
 make build
@@ -147,6 +149,7 @@ What they do:
 - `make check` runs the repository verification pass: lock check, lint, tests, docs, and distributions
 - `make package-check` rebuilds source and wheel distributions and validates them with `twine check`
 - `make package-smoke` installs the built wheel into a temporary environment and proves the CLI starts there
+- `make package-source-smoke` installs the built source distribution into a temporary environment and proves the CLI starts there
 - `make test-unit` runs the fast logic-level unit suite under `tests/unit/`
 - `make test-regression` runs contract and artifact-regression checks under `tests/regression/`
 - `make test-e2e` runs end-to-end command-flow checks under `tests/e2e/`
