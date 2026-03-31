@@ -5,7 +5,7 @@ from pathlib import Path
 
 from .source_registry import ContextSourceSpec
 from .staging import collect_into_staging_dir
-from ...settings import NORDIC_BBOX
+from ...config import NORDIC_BBOX
 
 __all__ = ["collect_context_source", "collect_context_source_into_dir"]
 

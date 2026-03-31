@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 from bijux_pollenomics import __version__
 from bijux_pollenomics.cli import build_parser, main
-from bijux_pollenomics.settings import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
+from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
 from tests.support.aadr import AADR_HEADER
 
 

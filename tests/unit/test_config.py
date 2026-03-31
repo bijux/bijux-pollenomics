@@ -3,8 +3,10 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from bijux_pollenomics.project import ATLAS_DEFAULTS, DATA_DEFAULTS, PROJECT_PATHS
-from bijux_pollenomics.settings import (
+from bijux_pollenomics.config import (
+    ATLAS_DEFAULTS,
+    DATA_DEFAULTS,
+    PROJECT_PATHS,
     DEFAULT_AADR_ROOT,
     DEFAULT_AADR_VERSION,
     DEFAULT_ATLAS_SLUG,
@@ -17,8 +19,8 @@ from bijux_pollenomics.settings import (
 )
 
 
-class ProjectDefaultsUnitTests(unittest.TestCase):
-    def test_project_module_keeps_canonical_default_values(self) -> None:
+class ConfigDefaultsUnitTests(unittest.TestCase):
+    def test_config_module_keeps_canonical_default_values(self) -> None:
         self.assertEqual(DATA_DEFAULTS.aadr_version, "v62.0")
         self.assertEqual(DATA_DEFAULTS.nordic_bbox, (4.0, 54.0, 35.0, 72.0))
         self.assertEqual(ATLAS_DEFAULTS.slug, "nordic-atlas")
@@ -26,7 +28,7 @@ class ProjectDefaultsUnitTests(unittest.TestCase):
         self.assertEqual(PROJECT_PATHS.data_root, Path("data"))
         self.assertEqual(PROJECT_PATHS.report_root, Path("docs/report"))
 
-    def test_settings_exports_match_project_defaults(self) -> None:
+    def test_default_exports_match_config_structures(self) -> None:
         self.assertEqual(DEFAULT_AADR_VERSION, DATA_DEFAULTS.aadr_version)
         self.assertEqual(NORDIC_BBOX, DATA_DEFAULTS.nordic_bbox)
         self.assertEqual(DEFAULT_ATLAS_SLUG, ATLAS_DEFAULTS.slug)
