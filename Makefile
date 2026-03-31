@@ -6,16 +6,18 @@ BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
 CLI := $(BIN)/bijux-pollenomics
 RUFF := $(BIN)/ruff
-VERSION ?= $(shell PYTHONPATH=src $(PYTHON) -c "from bijux_pollenomics.settings import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)")
+VERSION ?= $(shell PYTHONPATH=src $(PYTHON) -c "from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)")
 DATA_ROOT ?= data
 DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
 MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 PYTHON_RUNTIME_ENV := PYTHONDONTWRITEBYTECODE=1 PYTHONPYCACHEPREFIX=$(ARTIFACTS_ROOT)/pycache
+DATA_PREP_RUNTIME_ENV := $(PYTHON_RUNTIME_ENV) BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1
 PACKAGE_METADATA_DIR := src/bijux_pollenomics.egg-info
 UV_PROJECT_ENVIRONMENT := $(VENV)
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --python $(PYTHON)
+VERSION_ARG = $(if $(strip $(VERSION)),--version $(VERSION),)
 
 .DEFAULT_GOAL := help
 
@@ -75,10 +77,10 @@ test-e2e: install
 	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
 
 data-prep: install
-	$(PYTHON_RUNTIME_ENV) $(CLI) collect-data all --version $(VERSION) --output-root $(DATA_ROOT)
+	$(DATA_PREP_RUNTIME_ENV) $(CLI) collect-data all $(VERSION_ARG) --output-root $(DATA_ROOT)
 
 reports: install
-	$(PYTHON_RUNTIME_ENV) $(CLI) publish-reports --aadr-root $(DATA_ROOT)/aadr --version $(VERSION) --output-root docs/report --context-root $(DATA_ROOT)
+	$(PYTHON_RUNTIME_ENV) $(CLI) publish-reports --aadr-root $(DATA_ROOT)/aadr $(VERSION_ARG) --output-root docs/report --context-root $(DATA_ROOT)
 
 app-state: data-prep reports docs
 
