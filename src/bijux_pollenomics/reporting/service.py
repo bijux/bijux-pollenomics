@@ -19,7 +19,7 @@ from .bundles.summary_builders import (
 )
 from .context import build_context_layers
 from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
-from .artifacts import (
+from .rendering import (
     build_samples_geojson,
     copy_map_assets,
     write_localities_csv,
