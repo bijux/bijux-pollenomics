@@ -13,9 +13,10 @@ last_reviewed: 2026-03-31
 
 ## Major Components
 
-- `src/bijux_pollenomics/data_downloader/`: data acquisition and normalization
+- `src/bijux_pollenomics/command_line/`: parser composition, command routing, and CLI entry behavior
+- `src/bijux_pollenomics/config.py`: canonical defaults and shared project settings
+- `src/bijux_pollenomics/data_downloader/`: data acquisition, normalization, and collector orchestration
 - `src/bijux_pollenomics/reporting/`: AADR report generation, context-layer assembly, and atlas publication
-- `src/bijux_pollenomics/settings.py`: shared publication defaults and Nordic atlas identity
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts
 - `mkdocs.yml` and `docs/`: published documentation shell
@@ -35,6 +36,16 @@ flowchart TD
     DocsNordic --> MkDocs[docs homepage iframe]
 ```
 
+## System Seams
+
+The repository stays maintainable by keeping five seams explicit:
+
+- command parsing and dispatch decide which workflow to run
+- collectors write source-specific outputs into `data/`
+- reporting reads those tracked inputs and assembles publication bundles
+- publication writes generated artifacts under `docs/report/`
+- MkDocs publishes the narrative docs shell around those generated artifacts
+
 ## Why This Architecture Is File-Centric
 
 The repository’s outputs need to be:
@@ -43,6 +54,10 @@ The repository’s outputs need to be:
 - reviewable in git
 - publishable as static documentation assets
 - easy to rebuild without hidden services
+
+## Why Configuration Is Centralized
+
+The repository keeps canonical defaults in `src/bijux_pollenomics/config.py` so command-line defaults, reporting defaults, and compatibility modules do not drift apart over time.
 
 ## Contract Modules
 
@@ -63,6 +78,10 @@ The repository draws a hard boundary between:
 
 That boundary keeps generated artifacts reviewable without pretending that narrative documentation is itself machine-generated.
 
+## Reading Rule
+
+Use this page for the top-level system shape. Use [Data collection flow](data-collection-flow.md) or [Publication flow](publication-flow.md) when you need one pipeline path in detail, and use [Codebase layout and ownership](codebase-layout-and-ownership.md) when you need module-level ownership.
+
 ## Purpose
 
-This page explains the top-level system shape before readers move into source ownership or collection flow details.
+This page explains the top-level system shape before readers move into collection, publication, or ownership details.
