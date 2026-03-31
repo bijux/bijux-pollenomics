@@ -87,6 +87,7 @@ make test
 make test-unit
 make test-regression
 make test-e2e
+make package-verify
 make package-check
 make package-smoke
 make package-source-smoke
@@ -128,6 +129,7 @@ make test
 make test-unit
 make test-regression
 make test-e2e
+make package-verify
 make check
 make package-check
 make package-smoke
@@ -147,6 +149,7 @@ What they do:
 - `make reports` regenerates the current checked-in shared map and country bundles under `docs/report/`
 - `make app-state` runs the full current rebuild path: data, reports, and docs
 - `make check` runs the repository verification pass: lock check, lint, tests, docs, and distributions
+- `make package-verify` rebuilds distributions, validates metadata, and smoke-tests the wheel and source distribution in temporary environments
 - `make package-check` rebuilds source and wheel distributions and validates them with `twine check`
 - `make package-smoke` installs the built wheel into a temporary environment and proves the CLI starts there
 - `make package-source-smoke` installs the built source distribution into a temporary environment and proves the CLI starts there
