@@ -1,3 +1,5 @@
+INHERIT: mkdocs.shared.yml
+
 site_name: Bijux Pollenomics
 site_description: Nordic aDNA, pollen, environmental archaeology, and archaeology mapping documentation for data preparation, reporting, and spatial interpretation workflows.
 site_url: !ENV [SITE_URL, https://bijux.io/pollenomics/]
@@ -5,72 +7,8 @@ site_author: Bijan Mousavi
 repo_name: bijux/bijux-pollenomics
 repo_url: https://github.com/bijux/bijux-pollenomics
 edit_uri: edit/main/docs/
-strict: true
-use_directory_urls: true
-dev_addr: 127.0.0.1:8000
 docs_dir: docs
 site_dir: artifacts/docs/site
-
-validation:
-  omitted_files: ignore
-
-theme:
-  name: material
-  custom_dir: docs/overrides
-  logo: assets/bijux_logo_hq.png
-  favicon: assets/site-icons/favicon.ico
-  font: false
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.indexes
-    - navigation.top
-    - navigation.path
-    - navigation.tracking
-    - navigation.instant
-    - toc.follow
-    - search.suggest
-    - search.highlight
-    - content.tabs.link
-    - content.code.annotate
-    - content.code.copy
-    - content.code.select
-    - content.action.edit
-    - content.action.view
-    - navigation.footer
-  icon:
-    repo: fontawesome/brands/github
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-
-plugins:
-  - search
-  - autorefs
-  - git-revision-date-localized:
-      enable_creation_date: false
-      fallback_to_build_date: true
 
 not_in_nav: |
   assets/**
@@ -79,16 +17,6 @@ not_in_nav: |
   report/**/*.html
   report/**/*.json
   report/**/*.md
-
-extra_css:
-  - assets/styles/extra.css
-
-extra_javascript:
-  - assets/javascripts/vendor/mermaid-11.6.0.min.js
-  - assets/javascripts/mermaid-init.js
-
-hooks:
-  - docs/hooks/publish_site_assets.py
 
 nav:
   - Home: index.md
