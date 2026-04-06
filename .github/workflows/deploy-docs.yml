@@ -78,17 +78,12 @@ jobs:
           test -f artifacts/docs/site/apple-touch-icon-precomposed.png
 
       - name: Publish built site to docs repository
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' && (secrets.POLLENOMICS_PUBLISH_TOKEN != '' || secrets.BIJUX_PUBLISH_TOKEN != '') }}
         env:
           DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN || secrets.BIJUX_PUBLISH_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "${DOCS_PUBLISH_TOKEN:-}" ]]; then
-            echo "Missing docs publication secret. Configure POLLENOMICS_PUBLISH_TOKEN (preferred) or BIJUX_PUBLISH_TOKEN."
-            exit 1
-          fi
-
           publish_root="$(mktemp -d)"
           git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git" "$publish_root"
 
@@ -108,3 +103,10 @@ jobs:
           git -C "$publish_root" add --all
           git -C "$publish_root" commit -m "docs: publish site from ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
           git -C "$publish_root" push origin HEAD:main
+
+      - name: Explain skipped docs publication
+        if: ${{ github.ref == 'refs/heads/main' && secrets.POLLENOMICS_PUBLISH_TOKEN == '' && secrets.BIJUX_PUBLISH_TOKEN == '' }}
+        shell: bash
+        run: |
+          echo "Docs site build succeeded, but publication was skipped because no publish token is configured."
+          echo "Set POLLENOMICS_PUBLISH_TOKEN (preferred) or BIJUX_PUBLISH_TOKEN to enable deployment to ${DOCS_PUBLISH_REPOSITORY}."
