@@ -80,13 +80,13 @@ jobs:
       - name: Publish built site to docs repository
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
-          DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN || secrets.BIJUX_PUBLISH_TOKEN }}
+          DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN || secrets.BIJUX_PUBLISH_TOKEN || secrets.DOCS_PUBLISH_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ -z "${DOCS_PUBLISH_TOKEN:-}" ]]; then
             echo "Docs site build succeeded, but publication was skipped because no publish token is configured."
-            echo "Set POLLENOMICS_PUBLISH_TOKEN (preferred) or BIJUX_PUBLISH_TOKEN to enable deployment to ${DOCS_PUBLISH_REPOSITORY}."
+            echo "Set POLLENOMICS_PUBLISH_TOKEN (preferred), BIJUX_PUBLISH_TOKEN, or DOCS_PUBLISH_TOKEN to enable deployment to ${DOCS_PUBLISH_REPOSITORY}."
             exit 0
           fi
 
