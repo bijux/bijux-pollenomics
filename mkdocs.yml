@@ -9,6 +9,13 @@ repo_url: https://github.com/bijux/bijux-pollenomics
 edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: artifacts/docs/site
+strict: true
+
+theme:
+  custom_dir: docs/overrides
+
+hooks:
+  - docs/hooks/publish_site_assets.py
 
 not_in_nav: |
   assets/**
