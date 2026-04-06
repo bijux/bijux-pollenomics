@@ -25,7 +25,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://bijux.github.io/bijux-pollenomics/"
+Documentation = "https://bijux.io/bijux-pollenomics/"
 Repository = "https://github.com/bijux/bijux-pollenomics"
 Issues = "https://github.com/bijux/bijux-pollenomics/issues"
 

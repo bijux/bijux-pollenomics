@@ -2,8 +2,8 @@ INHERIT: mkdocs.shared.yml
 
 site_name: Bijux Pollenomics
 site_description: Nordic aDNA, pollen, environmental archaeology, and archaeology mapping documentation for data preparation, reporting, and spatial interpretation workflows.
-site_url: !ENV [SITE_URL, https://bijux.io/pollenomics/]
-site_author: Bijan Mousavi
+site_url: !ENV [SITE_URL, https://bijux.io/bijux-pollenomics/]
+site_author: Bijan Mousavi <bijan@bijux.io>
 repo_name: bijux/bijux-pollenomics
 repo_url: https://github.com/bijux/bijux-pollenomics
 edit_uri: edit/main/docs/
