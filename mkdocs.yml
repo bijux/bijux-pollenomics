@@ -2,7 +2,7 @@ INHERIT: mkdocs.shared.yml
 
 site_name: Bijux Pollenomics
 site_description: Nordic aDNA, pollen, environmental archaeology, and archaeology mapping documentation for data preparation, reporting, and spatial interpretation workflows.
-site_url: !ENV [SITE_URL, https://bijux.io/bijux-pollenomics/]
+site_url: !ENV [SITE_URL, https://bijux.io/pollenomics/]
 site_author: Bijan Mousavi <bijan@bijux.io>
 repo_name: bijux/bijux-pollenomics
 repo_url: https://github.com/bijux/bijux-pollenomics
@@ -13,9 +13,14 @@ strict: true
 
 theme:
   custom_dir: docs/overrides
+  favicon: assets/site-icons/favicon.ico
 
 hooks:
   - docs/hooks/publish_site_assets.py
+
+extra_javascript:
+  - assets/javascripts/vendor/mermaid-11.6.0.min.js
+  - assets/javascripts/mermaid-init.js
 
 not_in_nav: |
   assets/**

@@ -80,12 +80,12 @@ jobs:
       - name: Publish built site to docs repository
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
-          DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN }}
+          DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN || secrets.BIJUX_PUBLISH_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ -z "${DOCS_PUBLISH_TOKEN:-}" ]]; then
-            echo "Missing POLLENOMICS_PUBLISH_TOKEN secret for docs publication."
+            echo "Missing docs publication secret. Configure POLLENOMICS_PUBLISH_TOKEN (preferred) or BIJUX_PUBLISH_TOKEN."
             exit 1
           fi
 
