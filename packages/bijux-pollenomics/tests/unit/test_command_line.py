@@ -57,4 +57,5 @@ class CommandLineUnitTests(unittest.TestCase):
         pyproject_text = Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text(encoding="utf-8")
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
-        self.assertIn('version = {attr = "bijux_pollenomics.__version__"}', pyproject_text)
+        self.assertIn('[tool.hatch.version]', pyproject_text)
+        self.assertIn('path = "src/bijux_pollenomics/__init__.py"', pyproject_text)

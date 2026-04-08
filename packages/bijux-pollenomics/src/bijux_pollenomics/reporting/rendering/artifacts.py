@@ -14,7 +14,17 @@ from .record_exports import (
     write_samples_geojson,
 )
 
-MAP_ASSET_SOURCE_DIR = Path(__file__).resolve().parents[4] / "docs" / "assets" / "vendor" / "map"
+def resolve_repository_root() -> Path:
+    """Locate the repository root from the installed or editable runtime package path."""
+    current = Path(__file__).resolve()
+    for parent in current.parents:
+        candidate = parent / "docs" / "assets" / "vendor" / "map"
+        if candidate.exists():
+            return parent
+    raise FileNotFoundError("Unable to locate the repository root for vendored map assets")
+
+
+MAP_ASSET_SOURCE_DIR = resolve_repository_root() / "docs" / "assets" / "vendor" / "map"
 
 
 def write_summary_json(path: Path, payload: dict[str, object]) -> None:
