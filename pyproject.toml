@@ -15,6 +15,9 @@ Issues = "https://github.com/bijux/bijux-pollenomics/issues"
 dev = [
     "bijux-pollenomics[dev]",
     "bijux-pollenomics-dev",
+    "PyYAML>=6.0,<7.0",
+    "prance>=23.6.21.0",
+    "openapi-spec-validator>=0.7.1",
 ]
 
 [tool.commitizen]
