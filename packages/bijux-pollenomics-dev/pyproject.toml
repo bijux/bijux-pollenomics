@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.27.0,<1.28"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bijux-pollenomics-dev"
+version = "0.1.0"
+description = "Repository-owned developer tooling for bijux-pollenomics."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Bijan Mousavi", email = "bijan@bijux.io" },
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://bijux.io/bijux-pollenomics/"
+Repository = "https://github.com/bijux/bijux-pollenomics"
+Issues = "https://github.com/bijux/bijux-pollenomics/issues"
+
+[tool.hatch.build]
+include = [
+    "README.md",
+    "src/bijux_pollenomics_dev/**",
+]
+force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bijux_pollenomics_dev"]

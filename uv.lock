@@ -2,6 +2,13 @@ version = 1
 revision = 3
 requires-python = ">=3.11"
 
+[manifest]
+members = [
+    "bijux-pollenomics",
+    "bijux-pollenomics-dev",
+    "bijux-pollenomics-repository",
+]
+
 [[package]]
 name = "babel"
 version = "2.18.0"
@@ -36,9 +43,9 @@ wheels = [
 
 [[package]]
 name = "bijux-pollenomics"
-source = { editable = "." }
+source = { editable = "packages/bijux-pollenomics" }
 
-[package.dev-dependencies]
+[package.optional-dependencies]
 dev = [
     { name = "build" },
     { name = "mkdocs" },
@@ -51,17 +58,40 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [
+    { name = "build", marker = "extra == 'dev'", specifier = ">=1.2.2" },
+    { name = "mkdocs", marker = "extra == 'dev'", specifier = ">=1.6.1" },
+    { name = "mkdocs-autorefs", marker = "extra == 'dev'", specifier = ">=1.4.2" },
+    { name = "mkdocs-git-revision-date-localized-plugin", marker = "extra == 'dev'", specifier = ">=1.4.7" },
+    { name = "mkdocs-material", marker = "extra == 'dev'", specifier = ">=9.6.12" },
+    { name = "pymdown-extensions", marker = "extra == 'dev'", specifier = ">=10.15" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.13.0" },
+    { name = "twine", marker = "extra == 'dev'", specifier = ">=6.1.0" },
+]
+provides-extras = ["dev"]
+
+[[package]]
+name = "bijux-pollenomics-dev"
+version = "0.1.0"
+source = { editable = "packages/bijux-pollenomics-dev" }
+
+[[package]]
+name = "bijux-pollenomics-repository"
+version = "0.1.0"
+source = { virtual = "." }
+
+[package.dev-dependencies]
+dev = [
+    { name = "bijux-pollenomics", extra = ["dev"] },
+    { name = "bijux-pollenomics-dev" },
+]
+
+[package.metadata]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "build", specifier = ">=1.2.2" },
-    { name = "mkdocs", specifier = ">=1.6.1" },
-    { name = "mkdocs-autorefs", specifier = ">=1.4.2" },
-    { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.4.7" },
-    { name = "mkdocs-material", specifier = ">=9.6.12" },
-    { name = "pymdown-extensions", specifier = ">=10.15" },
-    { name = "ruff", specifier = ">=0.13.0" },
-    { name = "twine", specifier = ">=6.1.0" },
+    { name = "bijux-pollenomics", extras = ["dev"], editable = "packages/bijux-pollenomics" },
+    { name = "bijux-pollenomics-dev", editable = "packages/bijux-pollenomics-dev" },
 ]
 
 [[package]]
