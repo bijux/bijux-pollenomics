@@ -26,7 +26,7 @@ ROOT_PYTHONPATH := $(abspath $(ROOT_PACKAGE_DIR)):$(abspath $(ROOT_PACKAGE_SRC_D
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(VENV) $(UV) sync --frozen --group dev --python $(PYTHON)
 
 include $(ROOT_MAKEFILE_DIR)/gates.mk
-include $(ROOT_MAKEFILE_DIR)/bijux-py/standard.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/shared-bijux-py.mk
 
 .PHONY: all app-state check clean help install lock lock-check
 
@@ -57,3 +57,4 @@ HELP_WIDTH := 22
 include $(ROOT_MAKEFILE_DIR)/bijux-py/help.mk
 
 help: ## Show generated repository commands from included make modules
+check-shared-bijux-py: ## Verify shared bijux-py make modules match across sibling repositories

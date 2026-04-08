@@ -3,9 +3,9 @@ BIJUX_PY_REPOS ?= bijux-canon bijux-proteomics bijux-pollenomics
 BIJUX_PY_REQUIRED_FILES ?= api.mk build.mk docs.mk help.mk lint.mk quality.mk root-env.mk root-lifecycle.mk sbom.mk security.mk util.mk
 BIJUX_PY_OPTIONAL_FILES ?= test.mk
 
-.PHONY: standard-bijux-py
+.PHONY: check-shared-bijux-py
 
-standard-bijux-py: ## Verify shared bijux-py make modules match across sibling repositories
+check-shared-bijux-py: ## Verify shared bijux-py make modules match across sibling repositories
 	@set -eu; \
 	current_repo="$(PROJECT_SLUG)"; \
 	workspace_dir="$(BIJUX_PY_WORKSPACE_DIR)"; \
