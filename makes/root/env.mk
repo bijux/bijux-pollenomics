@@ -1,10 +1,6 @@
-.DELETE_ON_ERROR:
-.DEFAULT_GOAL := help
-.SHELLFLAGS := -eu -o pipefail -c
-SHELL := bash
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root-env.mk
 
-PYTHON ?= python3.11
-UV ?= uv
+.DEFAULT_GOAL := help
 ARTIFACTS_ROOT ?= artifacts
 VENV ?= $(ARTIFACTS_ROOT)/.venv
 BIN := $(VENV)/bin
@@ -22,7 +18,6 @@ PROJECT_SLUG ?= bijux-pollenomics
 PROJECT_ARTIFACTS_DIR ?= $(ARTIFACTS_ROOT)
 CONFIG_DIR ?= configs
 MKDOCS_CFG ?= $(PROJECT_DIR)/mkdocs.yml
-SELF_MAKE ?= $(MAKE)
 ROOT_PYTHONPATH := $(abspath $(ROOT_PACKAGE_DIR)):$(abspath $(ROOT_PACKAGE_SRC_DIR)):$(abspath $(ROOT_DEV_SRC_DIR))
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(VENV) $(UV) sync --frozen --group dev --python $(PYTHON)
 

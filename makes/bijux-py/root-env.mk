@@ -1,0 +1,17 @@
+.DELETE_ON_ERROR:
+.DEFAULT_GOAL ?= all
+.SHELLFLAGS ?= -eu -o pipefail -c
+SHELL ?= bash
+
+PYTHON ?= python3.11
+UV ?= uv
+RM ?= rm -rf
+
+PROJECT_DIR ?= $(CURDIR)
+PROJECT_SLUG ?= $(notdir $(abspath $(PROJECT_DIR)))
+PROJECT_ARTIFACTS_DIR ?= artifacts
+MKDOCS_CFG ?= $(PROJECT_DIR)/mkdocs.yml
+SELF_MAKE ?= $(MAKE)
+ROOT_NOTPARALLEL_TARGETS ?= all clean
+
+.NOTPARALLEL: $(ROOT_NOTPARALLEL_TARGETS)

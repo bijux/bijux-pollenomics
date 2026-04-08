@@ -1,19 +1,12 @@
 .PHONY: all app-state check clean help install lock lock-check
 
-install: pyproject.toml uv.lock
-	@mkdir -p "$(ARTIFACTS_ROOT)" "$(ROOT_ARTIFACTS_DIR)"
-	@$(UV_SYNC)
+ROOT_INSTALL_PREREQS := pyproject.toml uv.lock
+ROOT_INSTALL_COMMAND := @mkdir -p "$(ARTIFACTS_ROOT)" "$(ROOT_ARTIFACTS_DIR)" && $(UV_SYNC)
+ROOT_ALL_TARGETS := install lint test quality security docs build sbom api
 
-lock:
-	@$(UV) lock --python $(PYTHON)
-
-lock-check:
-	@$(UV) lock --check --python $(PYTHON)
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root-lifecycle.mk
 
 check: lock-check lint test quality security docs build sbom api
-
-all: install lint test quality security docs build sbom api
-	@echo "✔ Repository targets completed"
 
 app-state: install
 	@$(MAKE) data-prep
