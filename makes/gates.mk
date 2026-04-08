@@ -116,5 +116,6 @@ DOCS_SERVE_ENV ?= NO_MKDOCS_2_WARNING=true
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/docs.mk
 
-API_MODE ?= none
+API_MODE ?= freeze
+API_REPO_DIR := $(ROOT_MAKEFILE_DIR)/api
 include $(ROOT_MAKEFILE_DIR)/bijux-py/api.mk
