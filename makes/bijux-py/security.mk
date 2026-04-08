@@ -10,6 +10,7 @@ BANDIT_TXT                    := $(SECURITY_REPORT_DIR)/bandit.txt
 PIPA_JSON                     := $(SECURITY_REPORT_DIR)/pip-audit.json
 PIPA_TXT                      := $(SECURITY_REPORT_DIR)/pip-audit.txt
 SECURITY_REQS                 ?= $(SECURITY_REPORT_DIR)/requirements.txt
+SECURITY_PYCACHE_PREFIX       ?= $(SECURITY_REPORT_DIR)/pycache
 
 SECURITY_IGNORE_IDS           ?= PYSEC-2022-42969
 SECURITY_IGNORE_FLAGS          = $(foreach V,$(SECURITY_IGNORE_IDS),--ignore-vuln $(V))
@@ -17,7 +18,7 @@ PIP_AUDIT_CONSOLE_FLAGS       ?= --skip-editable --progress-spinner off
 PIP_AUDIT_INPUTS              ?=
 SECURITY_STRICT               ?= 1
 
-BANDIT_EXCLUDES               ?= .venv,venv,build,dist,.tox,.mypy_cache,.pytest_cache
+BANDIT_EXCLUDES               ?= artifacts,build,dist,.tox,.mypy_cache,.pytest_cache
 BANDIT_THREADS                ?= 0
 SECURITY_BANDIT_SKIP_IDS      ?=
 BANDIT_FLAGS                  ?=
@@ -27,6 +28,7 @@ SECURITY_EXTRA_TARGETS        ?=
 SECURITY_SELF_MAKE            ?= $(MAKE)
 
 SECURITY_BANDIT_SKIP_FLAG := $(if $(SECURITY_BANDIT_SKIP_IDS),--skip $(SECURITY_BANDIT_SKIP_IDS),)
+SECURITY_PYTHON_ENV := PYTHONPYCACHEPREFIX="$(abspath $(SECURITY_PYCACHE_PREFIX))"
 
 include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/util.mk
 
@@ -40,18 +42,18 @@ security-bandit:
 	@if [ "$(SKIP_BANDIT)" = "1" ]; then \
 	  echo "→ Skipping bandit" >"$(BANDIT_TXT)"; \
 	else \
-	  $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -f json -o "$(BANDIT_JSON)" -n $(BANDIT_THREADS) || true; \
-	  $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -n $(BANDIT_THREADS) | tee "$(BANDIT_TXT)"; \
+	  $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -f json -o "$(BANDIT_JSON)" -n $(BANDIT_THREADS) || true; \
+	  $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -n $(BANDIT_THREADS) | tee "$(BANDIT_TXT)"; \
 	fi
 
 security-audit:
 	@mkdir -p "$(SECURITY_REPORT_DIR)"
 	@echo "→ Pip-audit (dependency vulnerability scan)"
 	@if [ "$(SECURITY_AUDIT_PREPARE_MODE)" = "pyproject" ]; then \
-	  $(VENV_PYTHON) -c "import tomllib; from pathlib import Path; data=tomllib.loads(Path('pyproject.toml').read_text()); reqs=data.get('project', {}).get('dependencies', []); Path('$(SECURITY_REQS)').write_text('\\n'.join(reqs) + '\\n')"; \
+	  $(SECURITY_PYTHON_ENV) $(VENV_PYTHON) -c "import tomllib; from pathlib import Path; data=tomllib.loads(Path('pyproject.toml').read_text()); reqs=data.get('project', {}).get('dependencies', []); Path('$(SECURITY_REQS)').write_text('\\n'.join(reqs) + '\\n')"; \
 	fi
 	@set -e; RC=0; \
-	$(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) \
+	$(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) \
 	  -f json -o "$(PIPA_JSON)" >/dev/null 2>&1 || RC=$$?; \
 	if [ $$RC -gt 1 ]; then \
 	  echo "! pip-audit invocation failed (rc=$$RC)"; \
@@ -63,7 +65,7 @@ security-audit:
 	  SECURITY_IGNORE_IDS="$(SECURITY_IGNORE_IDS)" \
 	  $(SECURITY_PIP_AUDIT_TEXT_COMMAND) >"$(PIPA_TXT)"; \
 	else \
-	  $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) 2>&1 | tee "$(PIPA_TXT)" || true; \
+	  $(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) 2>&1 | tee "$(PIPA_TXT)" || true; \
 	fi
 	@cat "$(PIPA_TXT)"
 
