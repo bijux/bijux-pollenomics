@@ -1,0 +1,19 @@
+line-length = 88
+target-version = "py311"
+src = [
+  "packages/bijux-pollenomics/src",
+  "packages/bijux-pollenomics/tests",
+  "packages/bijux-pollenomics-dev/src",
+  "docs/hooks",
+]
+extend-exclude = [
+  "artifacts",
+  "data",
+  "docs/report",
+]
+
+[lint]
+preview = true
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
