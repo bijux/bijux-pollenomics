@@ -13,6 +13,7 @@ BUILD_PACKAGE_DIR         ?= .
 BUILD_PACKAGE_NAME        ?= $(if $(strip $(PACKAGE_NAME)),$(PACKAGE_NAME),$(PROJECT_SLUG))
 BUILD_PER_PACKAGE_DIRS    ?= 0
 ROOT_BUILD_PACKAGE_DIRS   ?=
+ROOT_BUILD_ALIAS_PACKAGES ?=
 BUILD_TOOLS_COMMAND       ?= $(UV) pip install --python "$(BUILD_PYTHON)" --upgrade build twine
 BUILD_SELF_MAKE           ?= $(MAKE) -f $(firstword $(MAKEFILE_LIST))
 BUILD_COMMAND             ?= $(BUILD_PYTHON) -m build --wheel --sdist --outdir "$(BUILD_DIR_ABS)" .
@@ -27,6 +28,14 @@ PYPROJECT_ABS := $(abspath pyproject.toml)
 TWINE         ?= $(BUILD_PYTHON) -m twine
 
 .PHONY: build build-package build-sdist build-wheel build-check build-tools build-clean build-clean-temp release-dry
+
+define define_root_build_alias
+build-$(1):
+	@$$(MAKE) build-package PACKAGE_DIR=packages/$(1) PACKAGE_NAME=$(1)
+.PHONY: build-$(1)
+endef
+
+$(foreach package,$(ROOT_BUILD_ALIAS_PACKAGES),$(eval $(call define_root_build_alias,$(package))))
 
 build-tools: | $(VENV)
 	@echo "→ Ensuring build toolchain..."
