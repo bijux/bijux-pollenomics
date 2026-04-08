@@ -10,8 +10,12 @@ QUALITY_PRE_TARGETS            ?=
 QUALITY_POST_TARGETS           ?=
 QUALITY_RUN_MKDOCS             ?= 0
 QUALITY_MKDOCS_CONFIG          ?= $(MKDOCS_CFG)
-QUALITY_CLEAN_SITE             ?= 0
 QUALITY_MYPY_CACHE_DIR         ?= $(QUALITY_ARTIFACTS_DIR)/.mypy_cache
+QUALITY_MKDOCS_SITE_DIR        ?= $(QUALITY_ARTIFACTS_DIR)/docs/site
+QUALITY_MKDOCS_CACHE_DIR       ?= $(QUALITY_ARTIFACTS_DIR)/docs/.cache
+QUALITY_MKDOCS_PYCACHE_DIR     ?= $(QUALITY_ARTIFACTS_DIR)/docs/pycache
+QUALITY_MKDOCS_PYTHON          ?= $(VENV_PYTHON)
+QUALITY_MKDOCS_BUILD_FLAGS     ?= --strict --config-file "$(QUALITY_MKDOCS_CONFIG)" --site-dir "$(QUALITY_MKDOCS_SITE_DIR)"
 QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) $(QUALITY_PATHS)
 QUALITY_SELF_MAKE              ?= $(MAKE)
 
@@ -40,7 +44,6 @@ endif
 quality:
 	@echo "→ Running quality checks..."
 	@mkdir -p "$(QUALITY_ARTIFACTS_DIR)" "$(QUALITY_MYPY_CACHE_DIR)"
-	@if [ "$(QUALITY_CLEAN_SITE)" = "1" ]; then rm -rf site; fi
 	$(call run_make_targets,$(QUALITY_PRE_TARGETS),$(QUALITY_SELF_MAKE))
 	@echo "   - Dead code analysis (Vulture)"
 	@set -eu; \
@@ -71,7 +74,8 @@ quality:
 	$(call run_make_targets,$(QUALITY_POST_TARGETS),$(QUALITY_SELF_MAKE))
 	@if [ "$(QUALITY_RUN_MKDOCS)" = "1" ]; then \
 	  echo "   - MkDocs build"; \
-	  $(PYTHON) -m mkdocs build --strict --config-file "$(QUALITY_MKDOCS_CONFIG)"; \
+	  mkdir -p "$(QUALITY_MKDOCS_SITE_DIR)" "$(QUALITY_MKDOCS_CACHE_DIR)"; \
+	  XDG_CACHE_HOME="$(QUALITY_MKDOCS_CACHE_DIR)" PYTHONPYCACHEPREFIX="$(QUALITY_MKDOCS_PYCACHE_DIR)" "$(QUALITY_MKDOCS_PYTHON)" -m mkdocs build $(QUALITY_MKDOCS_BUILD_FLAGS); \
 	fi
 	@echo "✔ Quality checks passed"
 	@printf "OK\n" >"$(QUALITY_OK_MARKER)"
