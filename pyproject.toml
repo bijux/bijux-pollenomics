@@ -24,6 +24,7 @@ annotated_tag = true
 update_changelog_on_bump = false
 
 [tool.bijux_pollenomics]
+api_dir = "apis"
 packages = [
     "bijux-pollenomics",
     "bijux-pollenomics-dev",

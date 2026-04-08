@@ -1,0 +1,261 @@
+{
+  "components": {
+    "schemas": {
+      "AtlasSummaryResponse": {
+        "properties": {
+          "atlas_path": {
+            "type": "string"
+          },
+          "country_count": {
+            "minimum": "0",
+            "type": "integer"
+          },
+          "generated_on": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "sample_count": {
+            "minimum": "0",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "generated_on",
+          "atlas_path",
+          "sample_count",
+          "country_count"
+        ],
+        "type": "object"
+      },
+      "CountryAadrSummary": {
+        "properties": {
+          "country": {
+            "$ref": "#/components/schemas/CountryCode"
+          },
+          "locality_count": {
+            "minimum": "0",
+            "type": "integer"
+          },
+          "sample_count": {
+            "minimum": "0",
+            "type": "integer"
+          },
+          "summary_path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "country",
+          "sample_count",
+          "locality_count",
+          "summary_path"
+        ],
+        "type": "object"
+      },
+      "CountryCode": {
+        "enum": [
+          "denmark",
+          "finland",
+          "norway",
+          "sweden"
+        ],
+        "type": "string"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object"
+      },
+      "HealthStatus": {
+        "properties": {
+          "generated_on": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "release": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ok"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "release",
+          "generated_on"
+        ],
+        "type": "object"
+      },
+      "PublishedReportItem": {
+        "properties": {
+          "country": {
+            "$ref": "#/components/schemas/CountryCode"
+          },
+          "sample_count": {
+            "minimum": "0",
+            "type": "integer"
+          },
+          "summary_path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "country",
+          "summary_path",
+          "sample_count"
+        ],
+        "type": "object"
+      },
+      "PublishedReportsResponse": {
+        "properties": {
+          "generated_on": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "reports": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedReportItem"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "generated_on",
+          "reports"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "This checked-in OpenAPI contract defines the stable public surface that future\nBijux Pollenomics HTTP delivery should preserve for evidence summaries,\npublished report discovery, and atlas metadata.\n",
+    "summary": "Freeze-only contract for pollenomics publication and evidence summary surfaces.",
+    "title": "Bijux Pollenomics Public API",
+    "version": "1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/v1/aadr/summaries/{country}": {
+      "get": {
+        "operationId": "getCountryAadrSummary",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "country",
+            "required": "true",
+            "schema": {
+              "$ref": "#/components/schemas/CountryCode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryAadrSummary"
+                }
+              }
+            },
+            "description": "One country summary."
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Country report is not available."
+          }
+        },
+        "summary": "Return one country summary from the checked-in AADR report bundle.",
+        "tags": [
+          "reports"
+        ]
+      }
+    },
+    "/v1/atlas/summary": {
+      "get": {
+        "operationId": "getAtlasSummary",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AtlasSummaryResponse"
+                }
+              }
+            },
+            "description": "Shared atlas metadata."
+          }
+        },
+        "summary": "Return atlas-level output metadata.",
+        "tags": [
+          "atlas"
+        ]
+      }
+    },
+    "/v1/health": {
+      "get": {
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthStatus"
+                }
+              }
+            },
+            "description": "API health details."
+          }
+        },
+        "summary": "Report repository API readiness.",
+        "tags": [
+          "system"
+        ]
+      }
+    },
+    "/v1/reports/published": {
+      "get": {
+        "operationId": "listPublishedReports",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublishedReportsResponse"
+                }
+              }
+            },
+            "description": "Published report manifest."
+          }
+        },
+        "summary": "List checked-in published report bundles.",
+        "tags": [
+          "reports"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://bijux.io/pollenomics"
+    }
+  ]
+}

@@ -46,7 +46,7 @@ The root `Makefile` is the main local interface. Some targets only validate the 
 Validation-first targets:
 
 - `make install` creates or updates the editable environment under `artifacts/.venv/`
-- `make lock-check`, `make lint`, `make test`, `make docs`, `make package-verify`, and `make check` verify the repository without rewriting tracked data or report outputs
+- `make lock-check`, `make lint`, `make test`, `make api`, `make docs`, `make package-verify`, and `make check` verify the repository without rewriting tracked data or report outputs
 
 State-changing targets:
 
@@ -121,6 +121,7 @@ Treat the top-level paths by ownership and review expectations:
 Key checked-in contract files:
 
 - `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` centralizes publication defaults such as the current AADR version
+- `apis/bijux-pollenomics/v1/` contains the checked-in public API contract, pinned canonical JSON, and schema digest
 - `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/contracts.py` and `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py` centralize file and directory naming contracts
 
 ## Published Outputs

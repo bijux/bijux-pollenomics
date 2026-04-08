@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Bijux Pollenomics Public API
+  version: 1.0.0
+  summary: Freeze-only contract for pollenomics publication and evidence summary surfaces.
+  description: |
+    This checked-in OpenAPI contract defines the stable public surface that future
+    Bijux Pollenomics HTTP delivery should preserve for evidence summaries,
+    published report discovery, and atlas metadata.
+servers:
+  - url: https://bijux.io/pollenomics
+paths:
+  /v1/health:
+    get:
+      operationId: getHealth
+      summary: Report repository API readiness.
+      tags: [system]
+      responses:
+        '200':
+          description: API health details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+  /v1/reports/published:
+    get:
+      operationId: listPublishedReports
+      summary: List checked-in published report bundles.
+      tags: [reports]
+      responses:
+        '200':
+          description: Published report manifest.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublishedReportsResponse'
+  /v1/atlas/summary:
+    get:
+      operationId: getAtlasSummary
+      summary: Return atlas-level output metadata.
+      tags: [atlas]
+      responses:
+        '200':
+          description: Shared atlas metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasSummaryResponse'
+  /v1/aadr/summaries/{country}:
+    get:
+      operationId: getCountryAadrSummary
+      summary: Return one country summary from the checked-in AADR report bundle.
+      tags: [reports]
+      parameters:
+        - in: path
+          name: country
+          required: true
+          schema:
+            $ref: '#/components/schemas/CountryCode'
+      responses:
+        '200':
+          description: One country summary.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryAadrSummary'
+        '404':
+          description: Country report is not available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      required: [status, release, generated_on]
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        release:
+          type: string
+        generated_on:
+          type: string
+          format: date-time
+    PublishedReportItem:
+      type: object
+      required: [country, summary_path, sample_count]
+      properties:
+        country:
+          $ref: '#/components/schemas/CountryCode'
+        summary_path:
+          type: string
+        sample_count:
+          type: integer
+          minimum: 0
+    PublishedReportsResponse:
+      type: object
+      required: [generated_on, reports]
+      properties:
+        generated_on:
+          type: string
+          format: date-time
+        reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/PublishedReportItem'
+    AtlasSummaryResponse:
+      type: object
+      required: [generated_on, atlas_path, sample_count, country_count]
+      properties:
+        generated_on:
+          type: string
+          format: date-time
+        atlas_path:
+          type: string
+        sample_count:
+          type: integer
+          minimum: 0
+        country_count:
+          type: integer
+          minimum: 0
+    CountryAadrSummary:
+      type: object
+      required: [country, sample_count, locality_count, summary_path]
+      properties:
+        country:
+          $ref: '#/components/schemas/CountryCode'
+        sample_count:
+          type: integer
+          minimum: 0
+        locality_count:
+          type: integer
+          minimum: 0
+        summary_path:
+          type: string
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+    CountryCode:
+      type: string
+      enum: [denmark, finland, norway, sweden]
