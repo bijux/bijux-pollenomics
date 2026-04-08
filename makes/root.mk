@@ -22,14 +22,7 @@ MKDOCS_CFG ?= $(PROJECT_DIR)/mkdocs.yml
 ROOT_PYTHONPATH := $(abspath $(ROOT_PACKAGE_DIR)):$(abspath $(ROOT_PACKAGE_SRC_DIR)):$(abspath $(ROOT_DEV_SRC_DIR))
 UV_SYNC := UV_PROJECT_ENVIRONMENT=$(VENV) $(UV) sync --frozen --group dev --python $(PYTHON)
 
-include $(ROOT_MAKEFILE_DIR)/lint.mk
-include $(ROOT_MAKEFILE_DIR)/test.mk
-include $(ROOT_MAKEFILE_DIR)/quality.mk
-include $(ROOT_MAKEFILE_DIR)/security.mk
-include $(ROOT_MAKEFILE_DIR)/build.mk
-include $(ROOT_MAKEFILE_DIR)/sbom.mk
-include $(ROOT_MAKEFILE_DIR)/docs.mk
-include $(ROOT_MAKEFILE_DIR)/api.mk
+include $(ROOT_MAKEFILE_DIR)/gates.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/standard.mk
 
 .PHONY: all app-state check clean help install lock lock-check
