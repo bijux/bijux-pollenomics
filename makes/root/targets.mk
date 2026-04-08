@@ -3,6 +3,11 @@
 ROOT_INSTALL_PREREQS := pyproject.toml uv.lock
 ROOT_INSTALL_COMMAND := @mkdir -p "$(ARTIFACTS_ROOT)" "$(ROOT_ARTIFACTS_DIR)" && $(UV_SYNC)
 ROOT_ALL_TARGETS := install lint test quality security docs build sbom api
+ROOT_CLEAN_COMMAND := @rm -rf "$(PROJECT_ARTIFACTS_DIR)" && \
+	find . -name ".DS_Store" -delete && \
+	find . -type d -name "__pycache__" -prune -exec rm -rf {} + && \
+	find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete && \
+	find . -type d -name "*.egg-info" -prune -exec rm -rf {} +
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root-lifecycle.mk
 
@@ -29,10 +34,3 @@ help:
 	@printf "  check         Run the full repository verification flow\n"
 	@printf "  app-state     Rebuild tracked data, reports, and docs\n"
 	@printf "  clean         Remove local virtualenvs and generated artifacts\n"
-
-clean:
-	@rm -rf "$(VENV)" .venv build dist "$(ARTIFACTS_ROOT)/build" "$(ARTIFACTS_ROOT)/docs" "$(ARTIFACTS_ROOT)/security" "$(ARTIFACTS_ROOT)/sbom" "$(ROOT_ARTIFACTS_DIR)" .pytest_cache .ruff_cache .mypy_cache htmlcov
-	@find . -name ".DS_Store" -delete
-	@find . -type d -name "__pycache__" -prune -exec rm -rf {} +
-	@find . -type f \( -name "*.pyc" -o -name "*.pyo" \) -delete
-	@find . -type d -name "*.egg-info" -prune -exec rm -rf {} +
