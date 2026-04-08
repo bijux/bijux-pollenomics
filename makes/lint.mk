@@ -1,8 +1,9 @@
-LINT_TARGETS ?= $(ROOT_PACKAGE_SRC_DIR) $(ROOT_PACKAGE_TEST_DIR) $(ROOT_DEV_SRC_DIR) docs/hooks
+PROJECT_ARTIFACTS_DIR ?= $(ARTIFACTS_ROOT)
+LINT_DIRS ?= $(ROOT_PACKAGE_SRC_DIR) $(ROOT_PACKAGE_TEST_DIR) $(ROOT_DEV_SRC_DIR) docs/hooks
 RUFF_CONFIG ?= configs/ruff.toml
+ENABLE_MYPY ?= 0
+ENABLE_CODESPELL ?= 0
+ENABLE_RADON ?= 0
+ENABLE_PYDOCSTYLE ?= 0
 
-.PHONY: lint
-
-lint: install
-	@mkdir -p "$(ARTIFACTS_ROOT)/lint"
-	@$(ACT)/ruff check --config "$(RUFF_CONFIG)" $(LINT_TARGETS) | tee "$(ARTIFACTS_ROOT)/lint/ruff.log"
+include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/bijux-py/lint.mk

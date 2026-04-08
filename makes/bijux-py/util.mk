@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright © 2026 Bijan Mousavi
+
+define run_make_targets
+	@if [ -n "$(strip $(1))" ]; then \
+	  for target in $(1); do \
+	    echo "→ Running $$target"; \
+	    $(2) "$$target"; \
+	  done; \
+	fi
+endef
+
+define clean_paths
+	@if [ -n "$(strip $(1))" ]; then \
+	  rm -rf $(1); \
+	fi
+endef

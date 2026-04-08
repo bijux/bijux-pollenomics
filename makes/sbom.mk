@@ -1,5 +1,6 @@
-.PHONY: sbom
+PROJECT_ARTIFACTS_DIR ?= $(ARTIFACTS_ROOT)
+PACKAGE_NAME ?= bijux-pollenomics
+SBOM_DIR ?= $(ARTIFACTS_ROOT)/sbom
+PIP_AUDIT ?= $(ACT)/pip-audit
 
-sbom: install
-	@mkdir -p "$(ARTIFACTS_ROOT)/sbom"
-	@"$(ACT)/pip-audit" --progress-spinner off --format cyclonedx-json --output "$(ARTIFACTS_ROOT)/sbom/bijux-pollenomics.cdx.json" || true
+include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/bijux-py/sbom.mk
