@@ -13,12 +13,11 @@ VERSION ?= $(shell PYTHONPATH=$(ROOT_PACKAGE_SRC_DIR) $(PYTHON) -c "from bijux_p
 VERSION_ARG = $(if $(strip $(VERSION)),--version $(VERSION),)
 DATA_ROOT ?= data
 
-.PHONY: data-prep reports test test-all test-e2e test-regression test-unit
+.PHONY: data-prep reports test test-all test-dev test-e2e test-regression test-unit
 
 test: test-all
 
-test-all: install
-	@PYTHONPATH="$(ROOT_PYTHONPATH)" "$(VENV_PYTHON)" -m unittest discover -s "$(ROOT_PACKAGE_TEST_DIR)" -v
+test-all: test-unit test-regression test-e2e test-dev
 
 test-unit: install
 	@PYTHONPATH="$(ROOT_PYTHONPATH)" "$(VENV_PYTHON)" -m unittest discover -s "$(ROOT_PACKAGE_TEST_DIR)/unit" -v
@@ -28,6 +27,9 @@ test-regression: install
 
 test-e2e: install
 	@PYTHONPATH="$(ROOT_PYTHONPATH)" "$(VENV_PYTHON)" -m unittest discover -s "$(ROOT_PACKAGE_TEST_DIR)/e2e" -v
+
+test-dev: install
+	@PYTHONPATH="$(ROOT_PYTHONPATH)" "$(VENV_PYTHON)" -m unittest discover -s "$(ROOT_DEV_TEST_DIR)" -v
 
 data-prep: install
 	@BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1 PYTHONPATH="$(ROOT_PYTHONPATH)" "$(CLI)" collect-data all $(VERSION_ARG) --output-root "$(DATA_ROOT)"

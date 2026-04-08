@@ -13,9 +13,9 @@ def _load_schema(text: str) -> dict:
     return yaml.safe_load(text) or {}
 
 
-def _git_show(path: str) -> str | None:
+def _git_show(repo_root: Path, path: str) -> str | None:
     try:
-        return subprocess.check_output(["git", "show", f"HEAD~1:{path}"], text=True)
+        return subprocess.check_output(["git", "-C", str(repo_root), "show", f"HEAD~1:{path}"], text=True)
     except Exception:
         return None
 
@@ -41,7 +41,7 @@ def run(repo_root: Path) -> int:
     for schema_path in schema_paths:
         rel = schema_path.relative_to(repo_root).as_posix()
         current_schema = _load_schema(schema_path.read_text(encoding="utf-8"))
-        previous_text = _git_show(rel)
+        previous_text = _git_show(repo_root, rel)
         if not previous_text:
             continue
         previous_schema = _load_schema(previous_text)
