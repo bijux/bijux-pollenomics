@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.27.0,<1.28"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bijux-pollenomics"
+description = "Data collection, reporting, and mapping tools for Nordic aDNA and contextual evidence layers."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Bijan Mousavi", email = "bijan@bijux.io" },
+]
+keywords = ["aadr", "archaeology", "atlas", "paleoecology", "pollenomics"]
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://bijux.io/bijux-pollenomics/"
+Repository = "https://github.com/bijux/bijux-pollenomics"
+Issues = "https://github.com/bijux/bijux-pollenomics/issues"
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2.2",
+    "mkdocs>=1.6.1",
+    "mkdocs-autorefs>=1.4.2",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.7",
+    "mkdocs-material>=9.6.12",
+    "pymdown-extensions>=10.15",
+    "ruff>=0.13.0",
+    "twine>=6.1.0",
+]
+
+[project.scripts]
+bijux-pollenomics = "bijux_pollenomics.cli:main"
+
+[tool.hatch.version]
+path = "src/bijux_pollenomics/__init__.py"
+
+[tool.hatch.build]
+include = [
+    "README.md",
+    "src/bijux_pollenomics/**",
+]
+force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bijux_pollenomics"]

@@ -6,7 +6,10 @@ BIN := $(VENV)/bin
 VENV_PYTHON := $(BIN)/python
 CLI := $(BIN)/bijux-pollenomics
 RUFF := $(BIN)/ruff
-VERSION ?= $(shell PYTHONPATH=src $(PYTHON) -c "from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)")
+PACKAGE_DIR := packages/bijux-pollenomics
+PACKAGE_SRC_DIR := $(PACKAGE_DIR)/src
+PACKAGE_TEST_DIR := $(PACKAGE_DIR)/tests
+VERSION ?= $(shell PYTHONPATH=$(PACKAGE_SRC_DIR) $(PYTHON) -c "from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)")
 DATA_ROOT ?= data
 DIST_ROOT ?= $(ARTIFACTS_ROOT)/dist
 DOCS_SITE_ROOT ?= $(ARTIFACTS_ROOT)/docs/site
@@ -14,9 +17,9 @@ MKDOCS_LOCAL_SITE_URL ?= http://127.0.0.1:8000/
 MKDOCS_ENV := NO_MKDOCS_2_WARNING=true
 PYTHON_RUNTIME_ENV := PYTHONDONTWRITEBYTECODE=1 PYTHONPYCACHEPREFIX=$(ARTIFACTS_ROOT)/pycache
 DATA_PREP_RUNTIME_ENV := $(PYTHON_RUNTIME_ENV) BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1
-PACKAGE_METADATA_DIR := src/bijux_pollenomics.egg-info
+PACKAGE_METADATA_DIR := $(PACKAGE_SRC_DIR)/bijux_pollenomics.egg-info
 UV_PROJECT_ENVIRONMENT := $(VENV)
-UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --python $(PYTHON)
+UV_SYNC := UV_PROJECT_ENVIRONMENT=$(UV_PROJECT_ENVIRONMENT) $(UV) sync --frozen --group dev --python $(PYTHON)
 VERSION_ARG = $(if $(strip $(VERSION)),--version $(VERSION),)
 
 .DEFAULT_GOAL := help
@@ -35,7 +38,7 @@ help:
 	@printf "  reports    Regenerate the checked-in report bundles under docs/report\n"
 	@printf "  app-state  Rebuild data, reports, and docs for the current app scope\n"
 	@printf "  check      Verify uv.lock, lint, tests, docs, and package installs\n"
-	@printf "  lint       Run ruff on src/ and tests/\n"
+	@printf "  lint       Run ruff on %s and %s\n" "$(PACKAGE_SRC_DIR)" "$(PACKAGE_TEST_DIR)"
 	@printf "  test       Run unit, regression, and e2e test suites\n"
 	@printf "  test-unit  Run the unit test suite\n"
 	@printf "  test-regression Run the regression test suite\n"
@@ -60,21 +63,21 @@ lock-check:
 check: lock-check lint test docs package-verify
 
 lint: install
-	$(RUFF) check src tests
+	$(RUFF) check $(PACKAGE_SRC_DIR) $(PACKAGE_TEST_DIR)
 
 test: test-all
 
 test-all: install
-	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests -v
+	PYTHONPATH=$(PACKAGE_SRC_DIR) $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s $(PACKAGE_TEST_DIR) -v
 
 test-unit: install
-	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/unit -v
+	PYTHONPATH=$(PACKAGE_SRC_DIR) $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s $(PACKAGE_TEST_DIR)/unit -v
 
 test-regression: install
-	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/regression -v
+	PYTHONPATH=$(PACKAGE_SRC_DIR) $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s $(PACKAGE_TEST_DIR)/regression -v
 
 test-e2e: install
-	PYTHONPATH=src $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s tests/e2e -v
+	PYTHONPATH=$(PACKAGE_SRC_DIR) $(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m unittest discover -s $(PACKAGE_TEST_DIR)/e2e -v
 
 data-prep: install
 	$(DATA_PREP_RUNTIME_ENV) $(CLI) collect-data all $(VERSION_ARG) --output-root $(DATA_ROOT)
@@ -87,7 +90,7 @@ app-state: data-prep reports docs
 build: install
 	rm -rf $(DIST_ROOT) build $(PACKAGE_METADATA_DIR)
 	mkdir -p $(DIST_ROOT)
-	$(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m build --outdir $(DIST_ROOT)
+	$(PYTHON_RUNTIME_ENV) $(VENV_PYTHON) -m build --outdir $(DIST_ROOT) $(PACKAGE_DIR)
 	rm -rf build $(PACKAGE_METADATA_DIR)
 
 package-check: build
