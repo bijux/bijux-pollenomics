@@ -148,6 +148,7 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 Useful entry points:
 
 - docs home: [`docs/index.md`](docs/index.md)
+- API governance: [`docs/bijux-pollenomics/api-and-schema-governance.md`](docs/bijux-pollenomics/api-and-schema-governance.md)
 - product overview: [`docs/foundation/product-overview.md`](docs/foundation/product-overview.md)
 - data guide: [`docs/data-sources/index.md`](docs/data-sources/index.md)
 - install and verify workflow: [`docs/workflows/install-and-verify.md`](docs/workflows/install-and-verify.md)

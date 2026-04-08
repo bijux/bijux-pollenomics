@@ -74,6 +74,9 @@ nav:
       - Testing and Evidence: engineering/testing-and-evidence.md
       - Change Review Checklist: engineering/change-review-checklist.md
       - Documentation Standards: engineering/documentation-standards.md
+  - API Governance:
+      - API and Schema Governance: bijux-pollenomics/api-and-schema-governance.md
+      - API Contracts: bijux-pollenomics/apis.md
   - Reference:
       - Overview: reference/index.md
       - Command Reference: reference/command-reference.md
