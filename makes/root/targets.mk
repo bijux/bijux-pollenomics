@@ -15,26 +15,15 @@ $(VENV):
 	@mkdir -p "$(ROOT_ARTIFACTS_DIR)"
 	@$(UV) venv --python "$(PYTHON)" "$(VENV)"
 
-check: lock-check lint test quality security docs build sbom api
+##@ Repository
+check: lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
 
-app-state: install
+app-state: install ## Rebuild tracked data, reports, and docs
 	@$(MAKE) data-prep
 	@$(MAKE) reports
 	@$(MAKE) docs
 
-help:
-	@printf "Available targets:\n"
-	@printf "  install       Sync %s from pyproject.toml and uv.lock\n" "$(VENV)"
-	@printf "  lock          Refresh uv.lock from pyproject.toml\n"
-	@printf "  lock-check    Verify uv.lock matches pyproject.toml\n"
-	@printf "  lint          Run Ruff checks\n"
-	@printf "  test          Run unit, regression, and e2e suites\n"
-	@printf "  quality       Run repository quality checks\n"
-	@printf "  security      Run Bandit and pip-audit\n"
-	@printf "  docs          Build the MkDocs site\n"
-	@printf "  build         Build runtime package distributions\n"
-	@printf "  sbom          Write CycloneDX-style audit artifacts\n"
-	@printf "  api           Verify API contract state\n"
-	@printf "  check         Run the full repository verification flow\n"
-	@printf "  app-state     Rebuild tracked data, reports, and docs\n"
-	@printf "  clean         Remove local virtualenvs and generated artifacts\n"
+HELP_WIDTH := 22
+include $(ROOT_MAKEFILE_DIR)/bijux-py/help.mk
+
+help: ## Show generated repository commands from included make modules
