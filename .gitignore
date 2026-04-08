@@ -1,30 +1,47 @@
 data/**/~$*.xlsx
 
-# macOS
 .DS_Store
-
-# Editors
 .idea/
 .vscode/
-
-# Python cache
-__pycache__/
-*.py[cod]
-
-# Virtual environments
+.tox/
 .venv/
-venv/
-env/
-
-# Test and tooling caches
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
 .coverage
-htmlcov/
-
-# Packaging and build artifacts
-artifacts/
+.coverage.*
+.python-version
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.hypothesis/
+.nox/
+.cache/
+.tmp/
+artifacts/*
+!artifacts/.gitkeep
+site/
 build/
 dist/
+htmlcov/
+node_modules/
 *.egg-info/
+pip-wheel-metadata/
+
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/.pytype/
+**/.hypothesis/
+**/.benchmarks/
+**/.tox/
+**/.venv/
+**/.nox/
+**/.cache/
+**/site/
+**/build/
+**/dist/
+**/htmlcov/
+**/*.egg-info/
+**/*.pyc
+**/*.pyo
+*.swp
+*.swo
