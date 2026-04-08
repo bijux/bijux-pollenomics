@@ -20,7 +20,7 @@ make docs
 make docs-serve
 ```
 
-`make docs` builds the site into `artifacts/docs/site/`.
+`make docs` builds the site into `artifacts/root/docs/site/`.
 
 `make docs-serve` is configured to serve the local site at `http://127.0.0.1:8000/` so homepage links and iframe paths resolve against the local root instead of the GitHub Pages project path.
 
@@ -42,7 +42,7 @@ The repository deploys documentation with `.github/workflows/deploy-docs.yml`.
 - pushes to `main` build the site and publish the rendered files into the separate `bijux/pollenomics` Pages repository
 - manual dispatch can build the same site without waiting for a push
 - publication from this workflow requires a `POLLENOMICS_PUBLISH_TOKEN` repository secret with write access to `bijux/pollenomics`
-- the workflow validates that `mkdocs.yml` still writes to `artifacts/docs/site` and keeps `strict: true`
+- the workflow validates that `mkdocs.yml` still writes to `artifacts/root/docs/site` and keeps `strict: true`
 
 ## Documentation Rules
 

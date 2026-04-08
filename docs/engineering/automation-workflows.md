@@ -46,7 +46,7 @@ The clean-worktree check matters because it proves the verification path is not 
 It:
 
 - validates core MkDocs contract fields in `mkdocs.yml`
-- builds the docs site into `artifacts/docs/site`
+- builds the docs site into `artifacts/root/docs/site`
 - verifies that the build published the browser-probed root icons into the site root
 - publishes that built site into the `bijux/pollenomics` repository when the ref is `refs/heads/main`
 - requires a `POLLENOMICS_PUBLISH_TOKEN` secret with write access to `bijux/pollenomics`

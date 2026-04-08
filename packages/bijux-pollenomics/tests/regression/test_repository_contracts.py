@@ -5,34 +5,41 @@ import unittest
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+PACKAGE_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
     def test_pyproject_declares_apache_license_and_author(self) -> None:
-        pyproject_text = (REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        root_pyproject_text = (REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        package_pyproject_text = (PACKAGE_ROOT / "pyproject.toml").read_text(encoding="utf-8")
 
-        self.assertIn('license = "Apache-2.0"', pyproject_text)
-        self.assertIn('license-files = ["LICENSE", "NOTICE"]', pyproject_text)
-        self.assertIn('{ name = "Bijan Mousavi", email = "bijan@bijux.io" }', pyproject_text)
+        self.assertIn('members = ["packages/*"]', root_pyproject_text)
+        self.assertIn('docs_package = "bijux-pollenomics-dev"', root_pyproject_text)
+        self.assertIn('license = { text = "Apache-2.0" }', package_pyproject_text)
+        self.assertIn('force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }', package_pyproject_text)
+        self.assertIn('{ name = "Bijan Mousavi", email = "bijan@bijux.io" }', package_pyproject_text)
 
     def test_makefile_exposes_named_test_suites(self) -> None:
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
+        root_targets_text = (REPO_ROOT / "makes" / "root" / "targets.mk").read_text(encoding="utf-8")
+        root_env_text = (REPO_ROOT / "makes" / "root" / "env.mk").read_text(encoding="utf-8")
+        test_targets_text = (REPO_ROOT / "makes" / "test.mk").read_text(encoding="utf-8")
+        build_targets_text = (REPO_ROOT / "makes" / "build.mk").read_text(encoding="utf-8")
 
-        self.assertIn(".PHONY:", makefile_text)
-        self.assertIn("DEFAULT_AADR_VERSION", makefile_text)
-        self.assertIn("lock", makefile_text)
-        self.assertIn("lock-check", makefile_text)
-        self.assertIn("package-verify", makefile_text)
-        self.assertIn("package-check", makefile_text)
-        self.assertIn("package-smoke", makefile_text)
-        self.assertIn("package-source-smoke", makefile_text)
-        self.assertIn("test-unit: install", makefile_text)
-        self.assertIn("test-regression: install", makefile_text)
-        self.assertIn("test-e2e: install", makefile_text)
-        self.assertIn("PYTHONPYCACHEPREFIX=$(ARTIFACTS_ROOT)/pycache", makefile_text)
-        self.assertIn("PACKAGE_METADATA_DIR := src/bijux_pollenomics.egg-info", makefile_text)
-        self.assertIn("$(UV_SYNC)\n\trm -rf $(PACKAGE_METADATA_DIR)", makefile_text)
+        self.assertIn("include makes/root.mk", makefile_text)
+        self.assertIn("lock", root_targets_text)
+        self.assertIn("lock-check", root_targets_text)
+        self.assertIn("package-verify", build_targets_text)
+        self.assertIn("package-check", build_targets_text)
+        self.assertIn("package-smoke", build_targets_text)
+        self.assertIn("package-source-smoke", build_targets_text)
+        self.assertIn("test-unit: install", test_targets_text)
+        self.assertIn("test-regression: install", test_targets_text)
+        self.assertIn("test-e2e: install", test_targets_text)
+        self.assertIn("ROOT_PACKAGE_TEST_DIR := $(ROOT_PACKAGE_DIR)/tests", root_env_text)
+        self.assertIn("ROOT_PYTHONPATH := $(abspath $(ROOT_PACKAGE_DIR)):$(abspath $(ROOT_PACKAGE_SRC_DIR)):$(abspath $(ROOT_DEV_SRC_DIR))", root_env_text)
+        self.assertIn("export PYTHONPYCACHEPREFIX := $(ROOT_ARTIFACTS_DIR)/pycache", root_env_text)
 
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -45,9 +52,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)
-        self.assertIn("tests/unit/", docs_text)
-        self.assertIn("tests/regression/", docs_text)
-        self.assertIn("tests/e2e/", docs_text)
+        self.assertIn("packages/bijux-pollenomics/tests/unit/", docs_text)
+        self.assertIn("packages/bijux-pollenomics/tests/regression/", docs_text)
+        self.assertIn("packages/bijux-pollenomics/tests/e2e/", docs_text)
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -88,6 +95,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("https://bijux.io/pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
+        self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
         self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)
         self.assertIn("favicon: assets/site-icons/favicon.ico", mkdocs_text)
@@ -121,6 +129,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("DOCS_PUBLISH_REPOSITORY: bijux/pollenomics", deploy_workflow)
         self.assertIn("DOCS_SITE_URL: https://bijux.io/pollenomics/", deploy_workflow)
         self.assertIn("POLLENOMICS_PUBLISH_TOKEN", deploy_workflow)
+        self.assertIn("artifacts/root/docs/site", deploy_workflow)
         self.assertIn("git clone \"https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git\"", deploy_workflow)
         self.assertIn("custom_dir: docs/overrides", deploy_workflow)
         self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)

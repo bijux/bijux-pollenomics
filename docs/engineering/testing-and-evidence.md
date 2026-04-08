@@ -15,9 +15,9 @@ Evidence in this repository is multi-surface by design. A green test run can sti
 
 ## Test Suites
 
-- `tests/unit/` covers small logic boundaries and helper contracts
-- `tests/regression/` covers generated outputs, artifact contracts, and workflow behavior that should not drift silently
-- `tests/e2e/` covers CLI command flows from the user-facing entry point
+- `packages/bijux-pollenomics/tests/unit/` covers small logic boundaries and helper contracts
+- `packages/bijux-pollenomics/tests/regression/` covers generated outputs, artifact contracts, and workflow behavior that should not drift silently
+- `packages/bijux-pollenomics/tests/e2e/` covers CLI command flows from the user-facing entry point
 
 The `Makefile` exposes these suites directly:
 
@@ -28,9 +28,9 @@ The `Makefile` exposes these suites directly:
 
 ## Proof Surfaces
 
-- logic proof: `tests/unit/`
-- artifact and contract proof: `tests/regression/`
-- command-surface proof: `tests/e2e/`
+- logic proof: `packages/bijux-pollenomics/tests/unit/`
+- artifact and contract proof: `packages/bijux-pollenomics/tests/regression/`
+- command-surface proof: `packages/bijux-pollenomics/tests/e2e/`
 - repository-wide proof: `make check`
 
 ## Evidence Types

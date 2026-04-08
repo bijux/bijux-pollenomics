@@ -18,7 +18,7 @@ The source tree is intentionally split between three concerns:
 ## Codebase Layout
 
 ```text
-src/bijux_pollenomics
+packages/bijux-pollenomics/src/bijux_pollenomics
 ├── __init__.py
 ├── __main__.py
 ├── cli.py

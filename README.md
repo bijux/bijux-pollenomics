@@ -19,7 +19,7 @@ Today, the checked-in repository produces four durable outcomes:
 - a tracked `data/` tree with six source categories and normalized outputs
 - the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`
 - country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
-- a MkDocs documentation site that builds into `artifacts/docs/site/`
+- a MkDocs documentation site that builds into `artifacts/root/docs/site/`
 
 ## Current Scope
 
@@ -114,14 +114,14 @@ Treat the top-level paths by ownership and review expectations:
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
 - `docs/report/` contains tracked publication artifacts, including the shared atlas and country bundles
 - `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
-- `src/` contains the CLI, collectors, and report publishing logic
-- `tests/` contains unit, regression, and end-to-end coverage
+- `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
+- `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
 - `artifacts/` contains transient local outputs such as `.venv/`, `dist/`, and the built docs site
 
 Key checked-in contract files:
 
-- `src/bijux_pollenomics/config.py` centralizes publication defaults such as the current AADR version
-- `src/bijux_pollenomics/data_downloader/contracts.py` and `src/bijux_pollenomics/reporting/bundles/paths.py` centralize file and directory naming contracts
+- `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` centralizes publication defaults such as the current AADR version
+- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/contracts.py` and `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py` centralize file and directory naming contracts
 
 ## Published Outputs
 

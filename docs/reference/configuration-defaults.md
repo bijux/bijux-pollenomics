@@ -11,17 +11,17 @@ last_reviewed: 2026-03-31
 
 The repository keeps its shared publication defaults and path defaults in Python modules rather than in scattered string literals.
 
-`src/bijux_pollenomics/config.py` is the canonical source of truth for shared defaults. The CLI surface and `Makefile` derive their default AADR version from that module instead of carrying separate copies.
+`packages/bijux-pollenomics/src/bijux_pollenomics/config.py` is the canonical source of truth for shared defaults. The CLI surface and `Makefile` derive their default AADR version from that module instead of carrying separate copies.
 
 ## Core Defaults
 
 | Setting | Value | Source |
 | --- | --- | --- |
-| AADR version | `v62.0` | `src/bijux_pollenomics/config.py` |
-| Atlas slug | `nordic-atlas` | `src/bijux_pollenomics/config.py` |
-| Atlas title | `Nordic Evidence Atlas` | `src/bijux_pollenomics/config.py` |
-| Published countries | `Sweden`, `Norway`, `Finland`, `Denmark` | `src/bijux_pollenomics/config.py` |
-| Nordic bbox | `4.0, 54.0, 35.0, 72.0` | `src/bijux_pollenomics/config.py` |
+| AADR version | `v62.0` | `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` |
+| Atlas slug | `nordic-atlas` | `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` |
+| Atlas title | `Nordic Evidence Atlas` | `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` |
+| Published countries | `Sweden`, `Norway`, `Finland`, `Denmark` | `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` |
+| Nordic bbox | `4.0, 54.0, 35.0, 72.0` | `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` |
 
 ## Default Paths
 

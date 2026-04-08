@@ -56,7 +56,7 @@ make docs
 - `make install` syncs `artifacts/.venv/` from the tracked `uv.lock` with the project installed in editable mode
 - `artifacts/.venv/bin/bijux-pollenomics --version` confirms that the installed console script resolves from the local editable environment
 - `make lock-check` verifies that `uv.lock` still matches `pyproject.toml`
-- `make lint` runs `ruff` across `src/` and `tests/`
+- `make lint` runs `ruff` across `packages/bijux-pollenomics/src/` and `packages/bijux-pollenomics/tests/`
 - `make test` runs the checked-in unittest suite with verbose discovery output
 - `make package-verify` rebuilds distributions, validates metadata, and smoke-tests both the wheel and source distribution in temporary environments
 - `make docs` verifies that the documentation shell still builds in strict mode

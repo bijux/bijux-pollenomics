@@ -52,8 +52,8 @@ jobs:
           text = pathlib.Path("mkdocs.yml").read_text()
           site_dir_match = re.search(r"(?m)^site_dir:\s*(\S+)\s*$", text)
           site_dir = site_dir_match.group(1) if site_dir_match else "site"
-          if site_dir != "artifacts/docs/site":
-              raise SystemExit(f"mkdocs site_dir must be artifacts/docs/site, got: {site_dir}")
+          if site_dir != "artifacts/root/docs/site":
+              raise SystemExit(f"mkdocs site_dir must be artifacts/root/docs/site, got: {site_dir}")
           strict_match = re.search(r"(?m)^strict:\s*(\S+)\s*$", text)
           strict_value = strict_match.group(1).lower() if strict_match else "false"
           if strict_value != "true":
@@ -73,9 +73,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifacts/docs/site/favicon.ico
-          test -f artifacts/docs/site/apple-touch-icon.png
-          test -f artifacts/docs/site/apple-touch-icon-precomposed.png
+          test -f artifacts/root/docs/site/favicon.ico
+          test -f artifacts/root/docs/site/apple-touch-icon.png
+          test -f artifacts/root/docs/site/apple-touch-icon-precomposed.png
 
       - name: Publish built site to docs repository
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -94,7 +94,7 @@ jobs:
           git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git" "$publish_root"
 
           find "$publish_root" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-          cp -R artifacts/docs/site/. "$publish_root"/
+          cp -R artifacts/root/docs/site/. "$publish_root"/
           rm -f "$publish_root/CNAME"
           touch "$publish_root/.nojekyll"
 

@@ -59,7 +59,7 @@ Check:
 - whether the built wheel starts correctly under `make package-smoke`
 - whether the built source distribution starts correctly under `make package-source-smoke`
 - whether the editable install already fails under `artifacts/.venv/bin/bijux-pollenomics --version`
-- whether a packaging change introduced a mismatch between `pyproject.toml`, `uv.lock`, and the package version exposed in `src/bijux_pollenomics/__init__.py`
+- whether a packaging change introduced a mismatch between `pyproject.toml`, `uv.lock`, and the package version exposed in `packages/bijux-pollenomics/src/bijux_pollenomics/__init__.py`
 
 Use `make package-check`, `make package-smoke`, and `make package-source-smoke` to isolate which proof surface failed inside the broader packaging workflow.
 

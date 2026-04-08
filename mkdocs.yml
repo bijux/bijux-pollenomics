@@ -8,7 +8,7 @@ repo_name: bijux/bijux-pollenomics
 repo_url: https://github.com/bijux/bijux-pollenomics
 edit_uri: edit/main/docs/
 docs_dir: docs
-site_dir: artifacts/docs/site
+site_dir: artifacts/root/docs/site
 strict: true
 
 theme:

@@ -58,7 +58,7 @@ docs/report/<country>
 - the shared bundle carries local Leaflet assets but still depends on external basemap tile services at runtime
 - country and atlas summary JSON files now include explicit `artifacts` inventories so downstream tooling can rely on bundle contents without reimplementing filename conventions
 - summary JSON path fields such as `output_dir` are part of the published contract and should name the final `docs/report/...` bundle locations, not the hidden staging directories used during regeneration
-- generated report-bundle filenames are defined in `src/bijux_pollenomics/reporting/bundles/paths.py`
+- generated report-bundle filenames are defined in `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py`
 - report publishing now writes into a staging tree and swaps that tree into place only after success, so reference expectations should stay aligned with the checked-in tree rather than older bundle shapes
 
 ## Purpose

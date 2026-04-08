@@ -13,10 +13,10 @@ last_reviewed: 2026-03-31
 
 ## Major Components
 
-- `src/bijux_pollenomics/command_line/`: CLI parsing under `parsing/` plus command execution under `runtime/`
-- `src/bijux_pollenomics/config.py`: canonical defaults shared by the CLI, reporting workflows, and `Makefile`
-- `src/bijux_pollenomics/data_downloader/`: collection orchestration in `collector.py`, reusable collector workflow modules in `pipeline/`, source-owned logic in `sources/`, and shared spatial/export helpers in `spatial/` and `shared/`
-- `src/bijux_pollenomics/reporting/`: top-level publication orchestration in `service.py`, bundle assembly in `bundles/`, context-layer shaping in `context/`, AADR loading in `aadr/`, and generated output helpers in `rendering/`
+- `packages/bijux-pollenomics/src/bijux_pollenomics/command_line/`: CLI parsing under `parsing/` plus command execution under `runtime/`
+- `packages/bijux-pollenomics/src/bijux_pollenomics/config.py`: canonical defaults shared by the CLI, reporting workflows, and `Makefile`
+- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/`: collection orchestration in `collector.py`, reusable collector workflow modules in `pipeline/`, source-owned logic in `sources/`, and shared spatial/export helpers in `spatial/` and `shared/`
+- `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/`: top-level publication orchestration in `service.py`, bundle assembly in `bundles/`, context-layer shaping in `context/`, AADR loading in `aadr/`, and generated output helpers in `rendering/`
 - `data/`: tracked source inputs and normalized source products
 - `docs/report/`: generated report artifacts
 - `mkdocs.yml` and `docs/`: published documentation shell
@@ -57,14 +57,14 @@ The repository’s outputs need to be:
 
 ## Why Configuration Is Centralized
 
-The repository keeps canonical defaults in `src/bijux_pollenomics/config.py` so command-line defaults, `Makefile` defaults, and reporting defaults do not drift apart over time.
+The repository keeps canonical defaults in `packages/bijux-pollenomics/src/bijux_pollenomics/config.py` so command-line defaults, `Makefile` defaults, and reporting defaults do not drift apart over time.
 
 ## Contract Modules
 
 Two parts of the tree now carry explicit file contracts instead of relying on repeated string literals:
 
-- `src/bijux_pollenomics/data_downloader/contracts.py` owns normalized data artifact filenames that are reused by collectors and the atlas context-layer builder
-- `src/bijux_pollenomics/reporting/bundles/paths.py` owns the generated bundle artifact names for country bundles and the Nordic Evidence Atlas bundle
+- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/contracts.py` owns normalized data artifact filenames that are reused by collectors and the atlas context-layer builder
+- `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py` owns the generated bundle artifact names for country bundles and the Nordic Evidence Atlas bundle
 
 That split matters because the repository publishes generated files directly. A file rename is not just an implementation detail here; it is part of the output contract.
 
