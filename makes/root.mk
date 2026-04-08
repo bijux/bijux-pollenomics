@@ -10,3 +10,4 @@ include $(ROOT_MAKEFILE_DIR)/sbom.mk
 include $(ROOT_MAKEFILE_DIR)/docs.mk
 include $(ROOT_MAKEFILE_DIR)/api.mk
 include $(ROOT_MAKEFILE_DIR)/root/targets.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/standard.mk
