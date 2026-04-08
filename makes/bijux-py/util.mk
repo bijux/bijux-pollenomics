@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright © 2026 Bijan Mousavi
-
 define run_make_targets
 	@if [ -n "$(strip $(1))" ]; then \
 	  for target in $(1); do \

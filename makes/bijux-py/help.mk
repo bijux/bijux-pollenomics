@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright © 2026 Bijan Mousavi
-
 HELP_DEFINE_TARGET ?= 1
 HELP_TARGET ?= help
 HELP_FILES ?= $(MAKEFILE_LIST)

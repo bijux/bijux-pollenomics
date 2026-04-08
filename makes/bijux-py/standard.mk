@@ -1,6 +1,3 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright © 2026 Bijan Mousavi
-
 BIJUX_PY_WORKSPACE_DIR ?= $(abspath $(PROJECT_DIR)/..)
 BIJUX_PY_REPOS ?= bijux-canon bijux-proteomics bijux-pollenomics
 BIJUX_PY_REQUIRED_FILES ?= build.mk docs.mk help.mk lint.mk quality.mk root-env.mk root-lifecycle.mk sbom.mk security.mk util.mk
