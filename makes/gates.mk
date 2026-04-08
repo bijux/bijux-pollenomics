@@ -114,8 +114,5 @@ DOCS_SERVE_ENV ?= NO_MKDOCS_2_WARNING=true
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/docs.mk
 
-.PHONY: api
-
-api: install
-	@mkdir -p "$(ARTIFACTS_ROOT)/api"
-	@echo "No API contracts are defined for bijux-pollenomics." | tee "$(ARTIFACTS_ROOT)/api/status.txt"
+API_MODE ?= none
+include $(ROOT_MAKEFILE_DIR)/bijux-py/api.mk
