@@ -1,11 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 import subprocess
 import unittest
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[2]
 REPO_ROOT = Path(__file__).resolve().parents[4]
+WORKFLOW_URL_RE = re.compile(
+    r"https://github\.com/(?P<repo>[^/\s]+/[^/\s]+)/actions/workflows/"
+    r"(?P<workflow>[A-Za-z0-9_.-]+)"
+)
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
@@ -208,6 +213,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("custom_dir: docs/overrides", deploy_workflow)
         self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)
         self.assertIn("Validate published site root assets", deploy_workflow)
+
+    def test_root_readme_workflow_links_follow_checked_in_workflow_tree(self) -> None:
+        readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        workflows_dir = REPO_ROOT / ".github" / "workflows"
+        known_workflows = {path.name for path in workflows_dir.glob("*.yml")}
+        found_workflows = set()
+
+        for match in WORKFLOW_URL_RE.finditer(readme_text):
+            self.assertEqual(match.group("repo"), "bijux/bijux-pollenomics")
+            workflow_name = match.group("workflow")
+            self.assertIn(workflow_name, known_workflows)
+            found_workflows.add(workflow_name)
+
+        self.assertTrue({"verify.yml", "publish.yml", "deploy-docs.yml"} <= found_workflows)
 
     def test_report_docs_describe_final_summary_paths(self) -> None:
         published_artifacts = (
