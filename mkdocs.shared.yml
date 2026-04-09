@@ -8,7 +8,6 @@ validation:
 theme:
   name: material
   language: en
-  custom_dir: docs/overrides
   logo: assets/bijux_logo_hq.png
   favicon: assets/site-icons/favicon.ico
   font: false
@@ -74,9 +73,9 @@ markdown_extensions:
 
 extra:
   homepage: https://bijux.io/
-  generator: true
   bijux:
     repository: bijux-pollenomics
+    docs_package: bijux-pollenomics-dev
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/bijux
@@ -87,8 +86,6 @@ extra_css:
 extra_javascript:
   - assets/javascripts/vendor/mermaid-11.6.0.min.js
   - assets/javascripts/mermaid-init.js
+  - assets/javascripts/navigation-sync.js
 
-hooks:
-  - docs/hooks/publish_site_assets.py
-
-copyright: "© 2026 Bijan Mousavi"
+copyright: "© 2026 Bijan Mousavi <bijan@bijux.io>"
