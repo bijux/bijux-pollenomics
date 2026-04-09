@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from email.message import Message
 from io import BytesIO
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
@@ -44,7 +46,7 @@ class NeotomaDataTests(unittest.TestCase):
             url="https://api.neotomadb.org/v2.0/data/datasets",
             code=503,
             msg="Service Unavailable",
-            hdrs=None,
+            hdrs=Message(),
             fp=BytesIO(b"retry later"),
         )
 
@@ -95,11 +97,13 @@ class NeotomaDataTests(unittest.TestCase):
             },
         ):
             rows = fetch_neotoma_dataset_inventory_rows((4.0, 54.0, 35.0, 72.0))
+        site = cast(dict[str, object], rows[0]["site"])
+        datasets = cast(list[dict[str, object]], site["datasets"])
 
         self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["site"]["siteid"], 20)
+        self.assertEqual(site["siteid"], 20)
         self.assertEqual(
-            [dataset["datasetid"] for dataset in rows[0]["site"]["datasets"]],
+            [dataset["datasetid"] for dataset in datasets],
             [201, 202],
         )
 
@@ -161,8 +165,8 @@ class NeotomaDataTests(unittest.TestCase):
             },
         ]
         matched_inventory_rows = [inventory_rows[0]]
-        download_rows = []
-        rows = []
+        download_rows: list[dict[str, object]] = []
+        rows: list[dict[str, object]] = []
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "neotoma"
@@ -415,6 +419,9 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual([row["siteid"] for row in rows], [20])
         row_by_id = {row["siteid"]: row for row in rows}
+        collection_units = cast(
+            list[dict[str, object]], row_by_id[20]["collectionunits"]
+        )
 
         self.assertEqual(row_by_id[20]["sitename"], "Ageröds Mosse")
         self.assertEqual(row_by_id[20]["dataset_count"], 2)
@@ -423,14 +430,14 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(row_by_id[20]["taxon_count"], 3)
         self.assertEqual(row_by_id[20]["databases"], ["European Pollen Database"])
         self.assertEqual(
-            [unit["collectionunitid"] for unit in row_by_id[20]["collectionunits"]],
+            [unit["collectionunitid"] for unit in collection_units],
             [1, 2],
         )
         self.assertEqual(
             [
                 dataset["datasetid"]
-                for unit in row_by_id[20]["collectionunits"]
-                for dataset in unit["datasets"]
+                for unit in collection_units
+                for dataset in cast(list[dict[str, object]], unit["datasets"])
             ],
             [201, 202],
         )
@@ -465,7 +472,7 @@ class NeotomaDataTests(unittest.TestCase):
             url="https://api.neotomadb.org/v2.0/data/downloads/201",
             code=429,
             msg="Too Many Requests",
-            hdrs=None,
+            hdrs=Message(),
             fp=BytesIO(b"slow down"),
         )
 
@@ -593,8 +600,11 @@ class NeotomaDataTests(unittest.TestCase):
         ]
 
         snapshot_rows = build_neotoma_site_snapshot_rows(rows)
-
-        dataset = snapshot_rows[0]["collectionunits"][0]["datasets"][0]
+        collection_units = cast(
+            list[dict[str, object]], snapshot_rows[0]["collectionunits"]
+        )
+        datasets = cast(list[dict[str, object]], collection_units[0]["datasets"])
+        dataset = datasets[0]
         self.assertEqual(dataset["sample_count"], 1)
         self.assertEqual(dataset["analysis_unit_count"], 1)
         self.assertEqual(dataset["chronology_count"], 1)

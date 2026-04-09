@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from collections.abc import Collection
 import csv
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 
@@ -17,6 +19,7 @@ from bijux_pollenomics.reporting.bundles import (
     build_atlas_bundle_paths,
     build_country_bundle_paths,
 )
+from bijux_pollenomics.reporting.models import SampleRecord
 from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,
@@ -63,35 +66,25 @@ class CountryReportTests(unittest.TestCase):
 
         csv_payload = serialize_sample_record(sample)
         geojson_feature = build_sample_geojson_feature(sample)
+        properties = cast(dict[str, object], geojson_feature["properties"])
+        geometry = cast(dict[str, object], geojson_feature["geometry"])
 
-        self.assertEqual(
-            csv_payload["genetic_id"], geojson_feature["properties"]["genetic_id"]
-        )
-        self.assertEqual(
-            csv_payload["locality"], geojson_feature["properties"]["locality"]
-        )
+        self.assertEqual(csv_payload["genetic_id"], properties["genetic_id"])
+        self.assertEqual(csv_payload["locality"], properties["locality"])
         self.assertEqual(
             csv_payload["political_entity"],
-            geojson_feature["properties"]["political_entity"],
+            properties["political_entity"],
         )
-        self.assertEqual(
-            csv_payload["datasets"], geojson_feature["properties"]["datasets"]
-        )
+        self.assertEqual(csv_payload["datasets"], properties["datasets"])
         self.assertEqual(
             csv_payload["date_stddev_bp"],
-            geojson_feature["properties"]["date_stddev_bp"],
+            properties["date_stddev_bp"],
         )
+        self.assertEqual(csv_payload["time_start_bp"], properties["time_start_bp"])
+        self.assertEqual(csv_payload["time_end_bp"], properties["time_end_bp"])
+        self.assertEqual(csv_payload["time_label"], properties["time_label"])
         self.assertEqual(
-            csv_payload["time_start_bp"], geojson_feature["properties"]["time_start_bp"]
-        )
-        self.assertEqual(
-            csv_payload["time_end_bp"], geojson_feature["properties"]["time_end_bp"]
-        )
-        self.assertEqual(
-            csv_payload["time_label"], geojson_feature["properties"]["time_label"]
-        )
-        self.assertEqual(
-            geojson_feature["geometry"]["coordinates"],
+            geometry["coordinates"],
             [sample.longitude, sample.latitude],
         )
 
@@ -657,7 +650,7 @@ class CountryReportTests(unittest.TestCase):
             )
             self.write_json(
                 context_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
-                archaeology_metadata,
+                cast(dict[str, object], archaeology_metadata),
             )
             self.write_json(
                 context_root
@@ -1201,7 +1194,9 @@ class CountryReportTests(unittest.TestCase):
         }
         path.write_text(json.dumps(payload), encoding="utf-8")
 
-    def write_json(self, path: Path, payload: dict[str, object]) -> None:
+    def write_json(
+        self, path: Path, payload: dict[str, object] | Collection[str]
+    ) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload), encoding="utf-8")
 
@@ -1211,7 +1206,7 @@ class CountryReportTests(unittest.TestCase):
         locality: str,
         political_entity: str,
         datasets: tuple[str, ...],
-    ):
+    ) -> SampleRecord:
         from bijux_pollenomics.reporting.models import SampleRecord
 
         return SampleRecord(

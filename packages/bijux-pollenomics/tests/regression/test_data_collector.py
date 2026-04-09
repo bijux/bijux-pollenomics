@@ -159,7 +159,7 @@ class DataCollectorTests(unittest.TestCase):
                     output_root: Path,
                     country_boundaries: dict[str, object],
                     bbox: tuple[float, ...],
-                ):
+                ) -> object:
                     normalized_dir = output_root / "normalized"
                     normalized_dir.mkdir(parents=True, exist_ok=True)
                     (normalized_dir / "fresh.csv").write_text("fresh", encoding="utf-8")
@@ -203,7 +203,7 @@ class DataCollectorTests(unittest.TestCase):
                     output_root: Path,
                     country_boundaries: dict[str, object],
                     bbox: tuple[float, ...],
-                ):
+                ) -> object:
                     normalized_dir = output_root / "normalized"
                     normalized_dir.mkdir(parents=True, exist_ok=True)
                     (normalized_dir / "partial.csv").write_text(

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 
@@ -13,6 +14,9 @@ from bijux_pollenomics.data_downloader.raa import (
     fetch_raa_feature_inventory,
     fetch_raa_feature_page,
 )
+
+GeoJsonFeature = dict[str, object]
+GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
 
 
 class RaaDataTests(unittest.TestCase):
@@ -71,6 +75,9 @@ class RaaDataTests(unittest.TestCase):
         density = build_raa_density_geojson(
             feature_inventory=feature_inventory, sweden_boundary=sweden_boundary
         )
+        density_features = cast(
+            list[GeoJsonFeature], cast(GeoJsonCollection, density)["features"]
+        )
 
         self.assertEqual(count_raa_features(feature_inventory), 3)
         self.assertEqual(
@@ -83,8 +90,9 @@ class RaaDataTests(unittest.TestCase):
             ),
             3,
         )
-        self.assertEqual(len(density["features"]), 1)
-        self.assertEqual(density["features"][0]["properties"]["count"], 2)
+        self.assertEqual(len(density_features), 1)
+        properties = cast(dict[str, object], density_features[0]["properties"])
+        self.assertEqual(properties["count"], 2)
 
     def test_fetch_raa_feature_page_uses_explicit_sort_key(self) -> None:
         with patch(
@@ -135,8 +143,11 @@ class RaaDataTests(unittest.TestCase):
             side_effect=pages,
         ):
             payload = fetch_raa_feature_inventory()
+        payload_features = cast(
+            list[GeoJsonFeature], cast(GeoJsonCollection, payload)["features"]
+        )
 
-        self.assertEqual(len(payload["features"]), 3)
+        self.assertEqual(len(payload_features), 3)
         self.assertEqual(payload["numberMatched"], 3)
 
     def test_fetch_raa_feature_inventory_rejects_short_paging(self) -> None:

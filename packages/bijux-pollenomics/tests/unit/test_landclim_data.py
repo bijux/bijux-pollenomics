@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 
@@ -22,6 +24,10 @@ from bijux_pollenomics.data_downloader.landclim import (
 
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
+
+GeoJsonFeature = dict[str, object]
+GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
+CountryBoundaries = Mapping[str, Mapping[str, object]]
 
 
 class LandClimDataTests(unittest.TestCase):
@@ -82,7 +88,11 @@ class LandClimDataTests(unittest.TestCase):
                 },
             )
 
-            records = landclim_i_site_records(path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES)
+            records = landclim_i_site_records(
+                path,
+                NORDIC_TEST_BBOX,
+                cast(CountryBoundaries, SWEDEN_BOUNDARIES),
+            )
 
             self.assertEqual(len(records), 1)
             popup = dict(records[0].popup_rows)
@@ -148,16 +158,21 @@ class LandClimDataTests(unittest.TestCase):
             )
 
             geojson = build_landclim_grid_geojson(
-                raw_paths, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
+                raw_paths, NORDIC_TEST_BBOX, cast(CountryBoundaries, SWEDEN_BOUNDARIES)
+            )
+            geojson_features = cast(
+                list[GeoJsonFeature], cast(GeoJsonCollection, geojson)["features"]
             )
 
-            self.assertEqual(len(geojson["features"]), 1)
-            properties = geojson["features"][0]["properties"]
-            self.assertNotIn("_dataset_labels", geojson["features"][0])
-            popup = {row["label"]: row["value"] for row in properties["popup_rows"]}
-            self.assertIn("LandClim I land-cover types", popup["Datasets"])
-            self.assertIn("LandClim I plant functional types", popup["Datasets"])
-            self.assertIn("LandClim II REVEALS grids", popup["Datasets"])
+            self.assertEqual(len(geojson_features), 1)
+            properties = cast(dict[str, object], geojson_features[0]["properties"])
+            self.assertNotIn("_dataset_labels", geojson_features[0])
+            popup_rows = cast(list[dict[str, object]], properties["popup_rows"])
+            popup = {row["label"]: row["value"] for row in popup_rows}
+            dataset_text = cast(str, popup["Datasets"])
+            self.assertIn("LandClim I land-cover types", dataset_text)
+            self.assertIn("LandClim I plant functional types", dataset_text)
+            self.assertIn("LandClim II REVEALS grids", dataset_text)
             self.assertEqual(popup["LandClim II quality"], "high")
             self.assertEqual(properties["time_start_bp"], 0)
             self.assertEqual(properties["time_end_bp"], 100)
@@ -180,11 +195,12 @@ class LandClimDataTests(unittest.TestCase):
             )
 
             summary = inspect_landclim_ii_archive(path)
+        time_windows = cast(list[str], summary["time_windows"])
 
         self.assertEqual(summary["mean_file_count"], 25)
         self.assertEqual(summary["standard_error_file_count"], 25)
-        self.assertEqual(summary["time_windows"][0], "0-100 BP")
-        self.assertEqual(summary["time_windows"][-1], "11200-11700 BP")
+        self.assertEqual(time_windows[0], "0-100 BP")
+        self.assertEqual(time_windows[-1], "11200-11700 BP")
 
     def test_inspect_landclim_ii_archive_rejects_missing_standard_error_folder(
         self,
@@ -210,6 +226,8 @@ class LandClimDataTests(unittest.TestCase):
     def test_landclim_grid_keys_match_between_workbook_and_csv_cells(self) -> None:
         geometry = grid_geometry_from_nw_cell_label("17°E 60°N")
         self.assertIsNotNone(geometry)
+        if geometry is None:
+            raise AssertionError("Expected grid geometry")
         self.assertEqual(
             feature_key_from_geometry(geometry), feature_key_from_center(17.5, 59.5)
         )
@@ -243,7 +261,7 @@ class LandClimDataTests(unittest.TestCase):
                     ]
                 },
             )
-            landclim_i_rows = [
+            landclim_i_rows: list[list[object]] = [
                 [
                     "Country",
                     "Site name",
@@ -296,7 +314,7 @@ class LandClimDataTests(unittest.TestCase):
             records = build_landclim_site_records(
                 raw_paths=raw_paths,
                 bbox=NORDIC_TEST_BBOX,
-                country_boundaries=SWEDEN_BOUNDARIES,
+                country_boundaries=cast(CountryBoundaries, SWEDEN_BOUNDARIES),
             )
 
             self.assertEqual(len(records), 1)
@@ -343,7 +361,7 @@ class LandClimDataTests(unittest.TestCase):
             )
 
             records = landclim_ii_site_records(
-                path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
+                path, NORDIC_TEST_BBOX, cast(CountryBoundaries, SWEDEN_BOUNDARIES)
             )
 
             self.assertEqual(len(records), 1)

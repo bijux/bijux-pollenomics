@@ -43,7 +43,7 @@ class CliTests(unittest.TestCase):
         self.skipTest(
             "Installed console script not found. Run `make install` before installed-script checks."
         )
-        return None
+        raise AssertionError("unreachable")
 
     def test_module_entrypoint_displays_help(self) -> None:
         environment = os.environ.copy()

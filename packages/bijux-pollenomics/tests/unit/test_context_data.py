@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 from urllib.error import URLError
@@ -344,12 +345,15 @@ class ContextDataTests(unittest.TestCase):
 
             csv_text = csv_path.read_text(encoding="utf-8")
             geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
+            geojson_features = cast(
+                list[dict[str, object]], cast(dict[str, object], geojson)["features"]
+            )
 
         self.assertIn("time_start_bp", csv_text)
         self.assertIn("time_end_bp", csv_text)
         self.assertIn("time_mean_bp", csv_text)
         self.assertIn("time_label", csv_text)
-        properties = geojson["features"][0]["properties"]
+        properties = cast(dict[str, object], geojson_features[0]["properties"])
         self.assertEqual(properties["time_start_bp"], 0)
         self.assertEqual(properties["time_end_bp"], 700)
         self.assertEqual(properties["time_mean_bp"], 350)
@@ -380,10 +384,11 @@ class ContextDataTests(unittest.TestCase):
         )
 
         self.assertTrue(layer["applies_time_filter"])
-        self.assertEqual(layer["features"][0]["time_start_bp"], 0)
-        self.assertEqual(layer["features"][0]["time_end_bp"], 700)
-        self.assertEqual(layer["features"][0]["time_mean_bp"], 350)
-        self.assertEqual(layer["features"][0]["time_label"], "0-700 BP")
+        layer_features = cast(list[dict[str, object]], layer["features"])
+        self.assertEqual(layer_features[0]["time_start_bp"], 0)
+        self.assertEqual(layer_features[0]["time_end_bp"], 700)
+        self.assertEqual(layer_features[0]["time_mean_bp"], 350)
+        self.assertEqual(layer_features[0]["time_label"], "0-700 BP")
 
     def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
         self,
@@ -441,15 +446,17 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(len(polygon_layers), 0)
         self.assertEqual(extra_artifacts, [])
         self.assertEqual(point_layers[1]["key"], "fieldwork-documentation")
-        self.assertEqual(
-            point_layers[1]["features"][0]["title"], "Lyngsjön Lake field sampling"
+        fieldwork_features = cast(list[dict[str, object]], point_layers[1]["features"])
+        media_links = cast(
+            list[dict[str, object]], fieldwork_features[0]["media_links"]
         )
+        self.assertEqual(fieldwork_features[0]["title"], "Lyngsjön Lake field sampling")
         self.assertEqual(
-            point_layers[1]["features"][0]["media_links"][0]["url"],
+            media_links[0]["url"],
             "../../gallery/2026-02-26-data-collection.JPG",
         )
         self.assertEqual(
-            point_layers[1]["features"][0]["media_links"][1]["url"],
+            media_links[1]["url"],
             "../../gallery/2026-02-26-data-collection.mp4",
         )
 

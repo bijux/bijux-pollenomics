@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ssl
+from types import TracebackType
 import unittest
 from unittest.mock import patch
 from urllib.error import URLError
@@ -15,7 +16,12 @@ class _FakeResponse:
     def __enter__(self) -> _FakeResponse:
         return self
 
-    def __exit__(self, exc_type, exc, tb) -> None:
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        tb: TracebackType | None,
+    ) -> None:
         return None
 
     def read(self) -> bytes:

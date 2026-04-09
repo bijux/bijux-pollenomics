@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from typing import cast
 import unittest
 from unittest.mock import patch
 
@@ -14,6 +15,9 @@ from bijux_pollenomics.data_downloader.boundaries import (
     collect_boundaries_data,
     load_country_boundaries,
 )
+
+GeoJsonFeature = dict[str, object]
+GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
 
 
 class BoundariesTests(unittest.TestCase):
@@ -59,9 +63,13 @@ class BoundariesTests(unittest.TestCase):
         }
 
         denmark = build_country_boundary_collection(global_boundaries, "DNK")
+        denmark_features = cast(
+            list[GeoJsonFeature], cast(GeoJsonCollection, denmark)["features"]
+        )
 
-        self.assertEqual(len(denmark["features"]), 1)
-        self.assertEqual(denmark["features"][0]["properties"]["NAME"], "Denmark")
+        self.assertEqual(len(denmark_features), 1)
+        properties = cast(dict[str, object], denmark_features[0]["properties"])
+        self.assertEqual(properties["NAME"], "Denmark")
 
     def test_collect_boundaries_data_writes_country_files_and_combined_geojson(
         self,
@@ -160,9 +168,15 @@ class BoundariesTests(unittest.TestCase):
             self.assertTrue(report.manifest_path.exists())
 
             combined = build_combined_country_boundaries(country_boundaries)
-            self.assertEqual(len(combined["features"]), 4)
+            combined_features = cast(
+                list[GeoJsonFeature], cast(GeoJsonCollection, combined)["features"]
+            )
+            self.assertEqual(len(combined_features), 4)
             self.assertEqual(
-                combined["features"][0]["properties"]["layer_key"], "country-boundaries"
+                cast(dict[str, object], combined_features[0]["properties"])[
+                    "layer_key"
+                ],
+                "country-boundaries",
             )
 
     def test_load_country_boundaries_requires_valid_manifest(self) -> None:
@@ -275,6 +289,9 @@ class BoundariesTests(unittest.TestCase):
 
             loaded = load_country_boundaries(output_root)
 
+        self.assertIsNotNone(loaded)
+        if loaded is None:
+            raise AssertionError("Expected boundaries payload to load")
         self.assertEqual(loaded["Sweden"], boundary_payload)
 
 

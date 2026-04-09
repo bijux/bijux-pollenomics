@@ -32,8 +32,12 @@ class GeometryTests(unittest.TestCase):
             geometry
         ) or (None, None, None)
 
+        self.assertIsNotNone(longitude)
+        self.assertIsNotNone(latitude)
         self.assertEqual(geometry_type, "Polygon")
         self.assertNotEqual((longitude, latitude), (2.0, 2.0))
+        if longitude is None or latitude is None:
+            raise AssertionError("Expected representative point coordinates")
         self.assertTrue(point_in_geometry(longitude, latitude, geometry))
 
     def test_geometry_to_representative_point_uses_largest_polygon_in_multipolygon(
@@ -59,7 +63,11 @@ class GeometryTests(unittest.TestCase):
             geometry
         ) or (None, None, None)
 
+        self.assertIsNotNone(longitude)
+        self.assertIsNotNone(latitude)
         self.assertEqual(geometry_type, "MultiPolygon")
+        if longitude is None or latitude is None:
+            raise AssertionError("Expected representative point coordinates")
         self.assertGreater(longitude, 10.0)
         self.assertGreater(latitude, 10.0)
         self.assertTrue(point_in_geometry(longitude, latitude, geometry))
