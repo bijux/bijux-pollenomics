@@ -98,9 +98,7 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
                 ),
                 full_date=clean_text(schema_value(row, schema, "full_date")),
                 date_mean_bp=clean_text(schema_value(row, schema, "date_mean_bp")),
-                date_stddev_bp=clean_text(
-                    schema_value(row, schema, "date_stddev_bp")
-                ),
+                date_stddev_bp=clean_text(schema_value(row, schema, "date_stddev_bp")),
                 data_type=clean_text(schema_value(row, schema, "data_type")),
                 molecular_sex=clean_text(schema_value(row, schema, "molecular_sex")),
                 datasets=(dataset_name,),

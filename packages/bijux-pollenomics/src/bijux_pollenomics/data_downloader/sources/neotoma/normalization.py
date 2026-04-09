@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping, Sequence
 import copy
 import json
+from typing import TypedDict
 
 from ....core.bp_time import (
     build_bp_interval_label,
@@ -20,6 +21,12 @@ __all__ = [
     "classify_neotoma_site_country",
     "normalize_neotoma_rows",
 ]
+
+
+class AgeRangeAggregate(TypedDict):
+    units: str
+    ageold: float | None
+    ageyoung: float | None
 
 
 def build_neotoma_site_rows_from_downloads(
@@ -140,7 +147,10 @@ def build_neotoma_dataset_from_download(
             for key, value in collection_unit["dataset"].items()
         }
     elif isinstance(site.get("dataset"), dict):
-        dataset = {key: copy.deepcopy(value) for key, value in site["dataset"].items()}
+        site_dataset = site.get("dataset")
+        if not isinstance(site_dataset, dict):
+            return None
+        dataset = {key: copy.deepcopy(value) for key, value in site_dataset.items()}
     else:
         return None
     dataset["chronologies"] = copy.deepcopy(site.get("chronologies", []))
@@ -356,7 +366,7 @@ def populate_neotoma_site_summary_fields(row: dict[str, object]) -> None:
     analysis_unit_ids: set[str] = set()
     chronology_ids: set[str] = set()
     taxon_keys: set[tuple[str, str]] = set()
-    age_ranges_by_units: dict[str, dict[str, float | str]] = {}
+    age_ranges_by_units: dict[str, AgeRangeAggregate] = {}
 
     for dataset in datasets:
         for chronology in normalize_chronologies(dataset.get("chronologies")):
@@ -481,7 +491,7 @@ def chronology_key(chronology: dict[str, object]) -> str:
 
 
 def merge_age_ranges(
-    age_ranges_by_units: dict[str, dict[str, float | str | None]],
+    age_ranges_by_units: dict[str, AgeRangeAggregate],
     values: object,
 ) -> None:
     """Aggregate Neotoma age ranges by units."""
@@ -690,7 +700,7 @@ def normalize_neotoma_rows(
             )
         age_ranges = row.get("age_ranges")
         if not isinstance(age_ranges, list):
-            age_ranges_by_units: dict[str, dict[str, float | str | None]] = {}
+            age_ranges_by_units: dict[str, AgeRangeAggregate] = {}
             for dataset in datasets:
                 merge_age_ranges(age_ranges_by_units, dataset.get("agerange"))
                 samples = dataset.get("samples", [])
@@ -736,8 +746,6 @@ def normalize_neotoma_rows(
         if databases:
             popup_rows.append(("Databases", ", ".join(databases)))
         for age_range in age_ranges:
-            if not isinstance(age_range, dict):
-                continue
             units = clean_optional_text(age_range.get("units"))
             value = format_neotoma_age_range(age_range)
             if units and value:

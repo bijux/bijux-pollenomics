@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
 
 from ....core.bp_time import (
@@ -51,7 +52,7 @@ LANDCLIM_COUNTRY_HINTS = {
 def build_landclim_site_records(
     raw_paths: dict[str, Path],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Build all Nordic LandClim pollen-site point records."""
     records_by_id: dict[str, ContextPointRecord] = {}
@@ -83,7 +84,7 @@ def build_landclim_site_records(
 def marquer_site_records(
     path: Path,
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Parse the Marquer et al. site metadata sheet into context points."""
     rows = read_xlsx_sheet_rows(path, "Metadata")
@@ -150,7 +151,7 @@ def marquer_site_records(
 def landclim_i_site_records(
     path: Path,
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Parse the LandClim I site metadata sheet into context points."""
     rows = read_landclim_i_site_rows(path)
@@ -235,7 +236,7 @@ def landclim_i_site_records(
 def landclim_ii_site_records(
     path: Path,
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Parse the LandClim II site metadata workbook into context points."""
     rows = read_xlsx_sheet_rows(path, "LANDCLIMII metadata file")
@@ -320,7 +321,7 @@ def read_landclim_i_site_rows(path: Path) -> list[list[str]]:
 def resolve_landclim_country(
     longitude: float,
     latitude: float,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
     reported_country: object,
 ) -> str:
     """Resolve a LandClim country from geometry first, then from reported metadata."""

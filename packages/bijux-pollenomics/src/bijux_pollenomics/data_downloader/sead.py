@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -132,7 +132,7 @@ def populate_sead_site_inventory_fields(
 
 def collect_sead_data(
     output_root: Path,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
     bbox: tuple[float, float, float, float],
 ) -> SeadDataReport:
     """Download and write the SEAD dataset under data/sead."""

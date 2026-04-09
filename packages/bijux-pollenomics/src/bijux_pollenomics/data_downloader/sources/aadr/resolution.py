@@ -120,7 +120,9 @@ def fetch_release_history_metadata(
     )
     mapping = as_mapping(payload)
     if mapping is None:
-        raise ValueError("Unexpected Dataverse metadata: root payload must be a JSON object")
+        raise ValueError(
+            "Unexpected Dataverse metadata: root payload must be a JSON object"
+        )
     return {str(key): value for key, value in mapping.items()}
 
 

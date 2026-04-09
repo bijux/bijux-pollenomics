@@ -193,10 +193,11 @@ def build_raa_inventory_summary(
     """Summarize the archived RAÄ feature inventory for raw-audit use."""
     features = iter_raa_features(feature_inventory)
     feature_ids = [
-        clean_optional_text(as_mapping(feature.get("properties")).get("lamningsnummer"))
-        if as_mapping(feature.get("properties")) is not None
+        clean_optional_text(properties.get("lamningsnummer"))
+        if properties is not None
         else ""
         for feature in features
+        for properties in (as_mapping(feature.get("properties")),)
     ]
     populated_feature_ids = [feature_id for feature_id in feature_ids if feature_id]
     return {

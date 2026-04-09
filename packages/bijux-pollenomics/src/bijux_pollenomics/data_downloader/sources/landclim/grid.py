@@ -287,7 +287,9 @@ def add_grid_feature_source(
     properties = feature_properties(feature)
     sorted_dois = sorted(feature_set(feature, "_dataset_dois"))
     properties["source_url"] = sorted_dois[0] if sorted_dois else ""
-    time_windows = sorted(feature_set(feature, "_time_windows"), key=time_window_sort_key)
+    time_windows = sorted(
+        feature_set(feature, "_time_windows"), key=time_window_sort_key
+    )
     properties["record_count"] = len(time_windows)
     time_interval = landclim_time_windows_interval(time_windows)
     properties["time_start_bp"] = (

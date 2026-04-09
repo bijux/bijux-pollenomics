@@ -16,9 +16,7 @@ def resolve_country_boundaries(
     output_root: Path,
     selected_sources: tuple[str, ...],
     collect_boundaries_data: Callable[[Path], tuple[CountryBoundaries, object]],
-    collect_into_staging_dir: Callable[
-        ..., tuple[CountryBoundaries, object]
-    ],
+    collect_into_staging_dir: Callable[..., tuple[CountryBoundaries, object]],
     fetch_country_boundaries: Callable[[], CountryBoundaries],
     load_country_boundaries: Callable[[Path], CountryBoundaries | None],
 ) -> tuple[CountryBoundaries | None, str | None]:

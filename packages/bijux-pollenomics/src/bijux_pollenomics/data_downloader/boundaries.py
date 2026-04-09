@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from datetime import date
 import hashlib
 import json
@@ -75,7 +76,7 @@ def load_country_boundaries(output_root: Path) -> dict[str, dict[str, object]] |
 
 
 def build_country_boundary_collection(
-    global_boundaries: dict[str, object],
+    global_boundaries: Mapping[str, object],
     country_code: str,
 ) -> dict[str, object]:
     """Filter the Natural Earth admin-0 collection down to one country code."""

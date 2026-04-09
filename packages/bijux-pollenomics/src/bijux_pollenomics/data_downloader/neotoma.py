@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 import copy
 from dataclasses import dataclass
 from datetime import date
@@ -79,7 +79,7 @@ class NeotomaDataReport:
 
 def fetch_neotoma_pollen_rows(
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[dict[str, object]]:
     """Download and summarize Nordic Neotoma pollen sites from full dataset records."""
     inventory_rows = fetch_neotoma_dataset_inventory_rows(bbox)
@@ -129,22 +129,22 @@ def fetch_neotoma_dataset_download_row(dataset_id: int) -> list[dict[str, object
 
 def validate_neotoma_download_coverage(
     requested_dataset_ids: Iterable[int],
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
 ) -> None:
     """Raise when a requested Neotoma dataset is absent from the collected download payloads."""
     validate_neotoma_download_coverage_from_client(
         requested_dataset_ids,
-        download_rows,
+        (dict(row) for row in download_rows),
         extract_neotoma_download_dataset_ids_fn=extract_neotoma_download_dataset_ids,
     )
 
 
 def extract_neotoma_download_dataset_ids(
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
 ) -> list[int]:
     """Extract unique dataset identifiers from full Neotoma dataset download payloads."""
     return extract_neotoma_download_dataset_ids_from_client(
-        download_rows,
+        (dict(row) for row in download_rows),
         clean_optional_text_fn=clean_optional_text,
     )
 
@@ -191,7 +191,7 @@ def build_neotoma_bbox_geojson(bbox: tuple[float, float, float, float]) -> str:
 def filter_neotoma_dataset_inventory_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[dict[str, object]]:
     """Keep only short inventory rows whose site geometry resolves to a tracked Nordic country."""
     filtered_rows: list[dict[str, object]] = []
@@ -224,7 +224,7 @@ def extract_neotoma_dataset_ids(rows: Iterable[dict[str, object]]) -> list[int]:
 
 
 def build_neotoma_download_archive_parts(
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
     *,
     rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
 ) -> list[dict[str, object]]:
@@ -241,7 +241,7 @@ def write_neotoma_download_archive(
     *,
     requested_dataset_ids: Iterable[int],
     downloaded_dataset_ids: Iterable[int],
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
     rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
 ) -> Path:
     """Write the full Neotoma dataset downloads into a chunked archive directory."""
@@ -261,7 +261,7 @@ def write_neotoma_download_archive(
 
 def collect_neotoma_data(
     output_root: Path,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
     bbox: tuple[float, float, float, float],
 ) -> NeotomaDataReport:
     """Download and write the Neotoma dataset under data/neotoma."""

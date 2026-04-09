@@ -99,7 +99,9 @@ def validate_raa_feature_inventory(feature_inventory: dict[str, object]) -> None
             f"RAÄ feature archive count mismatch: expected {number_matched}, archived {len(features)}"
         )
     feature_ids = [
-        clean_optional_text(mapping.get("lamningsnummer")) if mapping is not None else ""
+        clean_optional_text(mapping.get("lamningsnummer"))
+        if mapping is not None
+        else ""
         for feature in features
         for mapping in (as_mapping(feature.get("properties")),)
     ]
@@ -152,9 +154,7 @@ def collect_raa_data(
 
     return RaaDataReport(
         output_dir=output_root,
-        total_site_count=int_or_default(
-            counts.get("all_published_sites"), default=0
-        ),
+        total_site_count=int_or_default(counts.get("all_published_sites"), default=0),
         heritage_site_count=int_or_default(counts.get("fornlamning"), default=0),
         metadata_path=metadata_path,
         density_path=density_path,

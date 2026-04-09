@@ -36,9 +36,7 @@ def normalize_sead_rows(
         description = str(row.get("site_description", "") or "").strip()
         sample_group_count = parse_int_or_default(row.get("sample_group_count"))
         physical_sample_count = parse_int_or_default(row.get("physical_sample_count"))
-        analysis_entity_count = parse_int_or_default(
-            row.get("analysis_entity_count")
-        )
+        analysis_entity_count = parse_int_or_default(row.get("analysis_entity_count"))
         dataset_count = parse_int_or_default(row.get("dataset_count"))
         reference_count = parse_int_or_default(row.get("reference_count"))
         relative_date_count = parse_int_or_default(row.get("relative_date_count"))
