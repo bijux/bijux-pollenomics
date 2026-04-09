@@ -56,10 +56,12 @@ security-audit:
 	@if [ "$(SECURITY_AUDIT_PREPARE_MODE)" = "pyproject" ]; then \
 	  $(SECURITY_PYTHON_ENV) $(VENV_PYTHON) -c "import tomllib; from pathlib import Path; data=tomllib.loads(Path('pyproject.toml').read_text()); reqs=data.get('project', {}).get('dependencies', []); Path('$(SECURITY_REQS)').write_text('\\n'.join(reqs) + '\\n')"; \
 	fi
-	@set -e; JSON_RC=0; TEXT_RC=0; \
+	@set -e; \
+	JSON_RC=0; \
+	TEXT_RC=0; \
 	$(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) \
 	  -f json -o "$(PIPA_JSON)" >/dev/null 2>&1 || JSON_RC=$$?; \
-	@if [ -n "$(strip $(SECURITY_PIP_AUDIT_TEXT_COMMAND))" ]; then \
+	if [ -n "$(strip $(SECURITY_PIP_AUDIT_TEXT_COMMAND))" ]; then \
 	  PIPA_JSON="$(PIPA_JSON)" \
 	  SECURITY_STRICT="$(SECURITY_STRICT)" \
 	  SECURITY_IGNORE_IDS="$(SECURITY_IGNORE_IDS)" \
@@ -67,10 +69,12 @@ security-audit:
 	else \
 	  RC_FILE="$(SECURITY_REPORT_DIR)/.pip-audit.rc"; \
 	  { set +e; $(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS); RC=$$?; echo $$RC > "$$RC_FILE"; exit 0; } 2>&1 | tee "$(PIPA_TXT)"; \
-	  TEXT_RC=$$(cat "$$RC_FILE"); rm -f "$$RC_FILE"; \
-	fi
-	@cat "$(PIPA_TXT)"; \
-	RC=$$TEXT_RC; if [ $$RC -eq 0 ]; then RC=$$JSON_RC; fi; \
+	  TEXT_RC=$$(cat "$$RC_FILE"); \
+	  rm -f "$$RC_FILE"; \
+	fi; \
+	cat "$(PIPA_TXT)"; \
+	RC=$$TEXT_RC; \
+	if [ $$RC -eq 0 ]; then RC=$$JSON_RC; fi; \
 	if [ $$RC -gt 1 ]; then echo "! pip-audit invocation failed (rc=$$RC)"; fi; \
 	if [ $$RC -ne 0 ] && [ "$(SECURITY_STRICT)" = "1" ]; then exit $$RC; fi
 
