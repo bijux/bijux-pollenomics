@@ -10,7 +10,8 @@ last_reviewed: 2026-04-10
 # bijux-pollenomics-data
 
 `bijux-pollenomics-data` is the handbook root for tracked source inputs,
-normalized datasets, and publication-facing output references.
+normalized datasets, field documentation, and publication-facing output
+references.
 
 Use this section when the question is about where a layer comes from, what file
 family it lands in, how its provenance is preserved, or which migration hazards
@@ -21,6 +22,7 @@ exist when the data layout changes.
 - [Foundation](foundation/index.md)
 - [Sources](sources/index.md)
 - [Outputs](outputs/index.md)
+- [Fieldwork](fieldwork/index.md)
 
 ## Purpose
 

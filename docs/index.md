@@ -13,7 +13,9 @@ last_reviewed: 2026-03-31
 
 The homepage leads with the checked-in Nordic Evidence Atlas because it is the fastest way to inspect what the repository currently produces: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, fieldwork media, and Nordic country boundaries.
 
-The page layout follows the shared Bijux handbook pattern used across the documentation family: start from the visible output, then move into boundary, workflow, provenance, architecture, and exact reference pages.
+The page layout now follows the package-handbook pattern used across Bijux
+documentation: one handbook for the runtime package, one reference tree for
+tracked data and outputs, and one handbook for repository maintenance.
 
 <div class="bijux-callout">
   <strong>Start with the atlas.</strong> The rest of the site exists to answer four questions: what the repository is for, which commands rebuild it, where the files come from, and which limitations are still intentional.
@@ -32,9 +34,9 @@ The page layout follows the shared Bijux handbook pattern used across the docume
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="foundation/">Read the product framing</a>
-  <a class="md-button" href="workflows/">Read the rebuild workflow</a>
-  <a class="md-button" href="reference/">Open the command and layout reference</a>
+  <a class="md-button" href="bijux-pollenomics/">Open the package handbook</a>
+  <a class="md-button" href="bijux-pollenomics-data/">Open the data reference</a>
+  <a class="md-button" href="bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
 
 <div class="bijux-map-frame">
@@ -45,19 +47,21 @@ The page layout follows the shared Bijux handbook pattern used across the docume
 
 Use the path that matches what you need right now:
 
-- understanding the repository goal and current boundary: start with [Foundation](foundation/index.md)
-- reproducing the checked-in state on a fresh machine: use [Workflows](workflows/index.md)
-- checking what each tracked dataset contributes: use [Data Sources](data-sources/index.md)
-- reviewing the atlas, country bundles, and generated publication tree: use [Outputs](outputs/index.md)
-- extending code without breaking repository seams: read [Architecture](architecture/index.md) and [Engineering](engineering/index.md)
-- verifying exact commands, directories, and artifact names: use [Reference](reference/index.md)
+- understanding the runtime package boundary and public contracts: start with
+  [bijux-pollenomics](bijux-pollenomics/index.md)
+- checking what each tracked dataset contributes and where it lands: use
+  [bijux-pollenomics-data](bijux-pollenomics-data/index.md)
+- reviewing CI, release, docs, and make-system maintenance rules: use
+  [bijux-pollenomics-maintain](bijux-pollenomics-maintain/index.md)
+- inspecting the current visible artifact first: open the embedded atlas and the
+  checked-in `docs/report/` bundles
 
 ## Fieldwork Evidence
 
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="outputs/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button md-button--primary" href="bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
   <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 </div>
 
@@ -82,38 +86,39 @@ flowchart LR
 The docs are organized so a reader can move from the visible output into the supporting explanation they need:
 
 - what the repository produces today and why
-- how the tracked data categories are collected
+- how the tracked data categories are collected and normalized
 - how reports and the shared map are generated
-- how the code and filesystem are divided by responsibility
+- how the runtime package is divided by responsibility
 - how maintainers verify and review long-lived changes
 
 ## Reading Map
 
 ```mermaid
 flowchart TD
-    Home[Home and map] --> Foundation[Foundation]
-    Home --> Workflows[Workflows]
-    Home --> Sources[Data Sources]
-    Home --> Outputs[Outputs]
-    Sources --> Architecture[Architecture]
-    Outputs --> Architecture
-    Architecture --> Engineering[Engineering]
-    Engineering --> Reference[Reference]
+    Home[Home and map] --> Package[bijux-pollenomics]
+    Home --> Data[bijux-pollenomics-data]
+    Home --> Maintain[bijux-pollenomics-maintain]
+    Data --> Package
+    Package --> Maintain
 ```
 
-## Documentation Sections
+## Documentation Families
 
-- [Foundation](foundation/index.md)
-- [Outputs](outputs/index.md)
-- [Workflows](workflows/index.md)
-- [Data Sources](data-sources/index.md)
-- [Architecture](architecture/index.md)
-- [Engineering](engineering/index.md)
-- [Reference](reference/index.md)
+- [bijux-pollenomics](bijux-pollenomics/index.md)
+- [bijux-pollenomics-data](bijux-pollenomics-data/index.md)
+- [bijux-pollenomics-maintain](bijux-pollenomics-maintain/index.md)
+
+## Current Issues and Migration Notes
+
+- package limits and active risks: [Known Limitations](bijux-pollenomics/quality/known-limitations.md)
+- data-tree migration issues: [Migration Issues](bijux-pollenomics-data/foundation/migration-issues.md)
+- package risk tracking: [Risk Register](bijux-pollenomics/quality/risk-register.md)
 
 ## Purpose
 
-This page routes readers from the checked-in atlas into the documentation sections that explain repository scope, rebuild workflows, data provenance, architecture seams, and exact file contracts.
+This page routes readers from the checked-in atlas into the runtime, data, and
+maintainer handbooks that explain repository scope, rebuild workflows, data
+provenance, architecture seams, and exact file contracts.
 
 ## Stability
 

@@ -14,9 +14,9 @@ The fastest way to understand the current product is to open the Nordic Evidence
 
 - inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
 - read the canonical docs home: [`docs/index.md`](docs/index.md)
-- verify a fresh checkout: [`docs/workflows/install-and-verify.md`](docs/workflows/install-and-verify.md)
-- rebuild tracked data: [`docs/workflows/rebuild-data-tree.md`](docs/workflows/rebuild-data-tree.md)
-- republish checked-in outputs: [`docs/workflows/publish-report-artifacts.md`](docs/workflows/publish-report-artifacts.md)
+- review the runtime handbook: [`docs/bijux-pollenomics/index.md`](docs/bijux-pollenomics/index.md)
+- inspect the data reference: [`docs/bijux-pollenomics-data/index.md`](docs/bijux-pollenomics-data/index.md)
+- inspect repository maintenance rules: [`docs/bijux-pollenomics-maintain/index.md`](docs/bijux-pollenomics-maintain/index.md)
 
 ## What This Repository Produces
 
@@ -107,7 +107,7 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [`docs/reference/command-reference.md`](docs/reference/command-reference.md).
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [`docs/bijux-pollenomics/interfaces/entrypoints-and-examples.md`](docs/bijux-pollenomics/interfaces/entrypoints-and-examples.md) and [`docs/bijux-pollenomics/operations/common-workflows.md`](docs/bijux-pollenomics/operations/common-workflows.md).
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 
@@ -154,13 +154,12 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 Useful entry points:
 
 - docs home: [`docs/index.md`](docs/index.md)
-- API governance: [`docs/bijux-pollenomics/api-and-schema-governance.md`](docs/bijux-pollenomics/api-and-schema-governance.md)
-- product overview: [`docs/foundation/product-overview.md`](docs/foundation/product-overview.md)
-- data guide: [`docs/data-sources/index.md`](docs/data-sources/index.md)
-- install and verify workflow: [`docs/workflows/install-and-verify.md`](docs/workflows/install-and-verify.md)
-- report publishing workflow: [`docs/workflows/publish-report-artifacts.md`](docs/workflows/publish-report-artifacts.md)
-- atlas and report outputs guide: [`docs/outputs/index.md`](docs/outputs/index.md)
-- command reference: [`docs/reference/command-reference.md`](docs/reference/command-reference.md)
+- runtime package handbook: [`docs/bijux-pollenomics/index.md`](docs/bijux-pollenomics/index.md)
+- package operations guide: [`docs/bijux-pollenomics/operations/index.md`](docs/bijux-pollenomics/operations/index.md)
+- package interface reference: [`docs/bijux-pollenomics/interfaces/index.md`](docs/bijux-pollenomics/interfaces/index.md)
+- data reference: [`docs/bijux-pollenomics-data/index.md`](docs/bijux-pollenomics-data/index.md)
+- fieldwork reference: [`docs/bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md`](docs/bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md)
+- maintainer handbook: [`docs/bijux-pollenomics-maintain/index.md`](docs/bijux-pollenomics-maintain/index.md)
 
 ## Working Rules
 
