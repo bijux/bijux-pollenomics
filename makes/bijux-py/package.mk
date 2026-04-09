@@ -124,7 +124,12 @@ PACKAGE_ALL_TARGETS ?= clean install test lint quality security api build sbom
 PACKAGE_ALL_MESSAGE ?= ✔ All targets completed
 PACKAGE_HELP_WIDTH ?= 20
 PACKAGE_BOOTSTRAP_TARGETS ?=
-PACKAGE_INSTALL_TARGETS ?=
+PACKAGE_INSTALL_TARGETS ?= \
+	lint-artifacts mypy-core mypy-extended \
+	test test-unit test-e2e test-regression test-evaluation real-local \
+	quality interrogate-report docs-links \
+	security-bandit security-audit security-deps \
+	build sbom api
 PACKAGE_DEFINE_ALL_PARALLEL ?= 0
 PACKAGE_ALL_PARALLEL_PRE_TARGETS ?= clean install
 PACKAGE_ALL_PARALLEL_MAIN_TARGETS ?= quality security api
