@@ -29,38 +29,30 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_makefile_exposes_named_test_suites(self) -> None:
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
-        root_targets_text = (REPO_ROOT / "makes" / "root" / "targets.mk").read_text(
+        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(
             encoding="utf-8"
         )
-        root_env_text = (REPO_ROOT / "makes" / "root" / "env.mk").read_text(
+        root_env_text = (REPO_ROOT / "makes" / "bijux-py" / "root" / "env.mk").read_text(
             encoding="utf-8"
         )
-        test_targets_text = (REPO_ROOT / "makes" / "test.mk").read_text(
-            encoding="utf-8"
-        )
-        build_targets_text = (REPO_ROOT / "makes" / "build.mk").read_text(
-            encoding="utf-8"
-        )
+        test_targets_text = (
+            REPO_ROOT / "makes" / "bijux-py" / "ci" / "test.mk"
+        ).read_text(encoding="utf-8")
 
         self.assertIn("include makes/root.mk", makefile_text)
-        self.assertIn("lock", root_targets_text)
-        self.assertIn("lock-check", root_targets_text)
-        self.assertIn("package-verify", build_targets_text)
-        self.assertIn("package-check", build_targets_text)
-        self.assertIn("package-smoke", build_targets_text)
-        self.assertIn("package-source-smoke", build_targets_text)
-        self.assertIn("test-unit: install", test_targets_text)
-        self.assertIn("test-regression: install", test_targets_text)
-        self.assertIn("test-e2e: install", test_targets_text)
+        self.assertIn("lock", root_make_text)
+        self.assertIn("lock-check", root_make_text)
+        self.assertIn("package-verify", root_make_text)
+        self.assertIn("package-check", root_make_text)
+        self.assertIn("package-smoke", root_make_text)
+        self.assertIn("package-source-smoke", root_make_text)
+        self.assertIn("test-unit:", test_targets_text)
+        self.assertIn("test-regression:", test_targets_text)
+        self.assertIn("test-e2e:", test_targets_text)
+        self.assertIn("ROOT_ARTIFACTS_DIR ?= $(PROJECT_ARTIFACTS_DIR)/root", root_env_text)
+        self.assertIn("ROOT_VENV ?= $(ROOT_ARTIFACTS_DIR)/venv", root_env_text)
         self.assertIn(
-            "ROOT_PACKAGE_TEST_DIR := $(ROOT_PACKAGE_DIR)/tests", root_env_text
-        )
-        self.assertIn(
-            "ROOT_PYTHONPATH := $(abspath $(ROOT_PACKAGE_DIR)):$(abspath $(ROOT_PACKAGE_SRC_DIR)):$(abspath $(ROOT_DEV_SRC_DIR))",
-            root_env_text,
-        )
-        self.assertIn(
-            "export PYTHONPYCACHEPREFIX := $(ROOT_ARTIFACTS_DIR)/pycache", root_env_text
+            "export PYTHONPYCACHEPREFIX ?= $(ROOT_PYCACHE_DIR)", root_env_text
         )
 
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
