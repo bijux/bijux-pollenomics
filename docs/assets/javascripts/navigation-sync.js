@@ -117,6 +117,9 @@ function bijuxSyncDetailStripActiveState() {
 }
 
 function bijuxRevealActiveNavigationTarget() {
+  const activeHubLink = document.querySelector(
+    ".bijux-hub-strip .bijux-tabs__item--active a"
+  );
   const activeSiteLink = document.querySelector(
     ".bijux-site-tabs .bijux-tabs__item--active a"
   );
@@ -127,6 +130,10 @@ function bijuxRevealActiveNavigationTarget() {
     ".md-sidebar--primary .md-nav__link--active"
   );
 
+  activeHubLink?.scrollIntoView({
+    block: "nearest",
+    inline: "center",
+  });
   activeSiteLink?.scrollIntoView({
     block: "nearest",
     inline: "center",

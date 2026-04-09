@@ -71,29 +71,31 @@
         </ul>
       </nav>
     {% endif %}
-    {% if config.theme.palette %}
-      {% if not config.theme.palette is mapping %}
-        {% include "partials/palette.html" %}
+    <div class="bijux-header-tools">
+      {% if config.theme.palette %}
+        {% if not config.theme.palette is mapping %}
+          {% include "partials/palette.html" %}
+        {% endif %}
       {% endif %}
-    {% endif %}
-    {% if not config.theme.palette is mapping %}
-      {% include "partials/javascripts/palette.html" %}
-    {% endif %}
-    {% if config.extra.alternate %}
-      {% include "partials/alternate.html" %}
-    {% endif %}
-    {% if "material/search" in config.plugins %}
-      <label class="md-header__button md-icon" for="__search">
-        {% set icon = config.theme.icon.search or "material/magnify" %}
-        {% include ".icons/" ~ icon ~ ".svg" %}
-      </label>
-      {% include "partials/search.html" %}
-    {% endif %}
-    {% if config.repo_url %}
-      <div class="md-header__source">
-        {% include "partials/source.html" %}
-      </div>
-    {% endif %}
+      {% if not config.theme.palette is mapping %}
+        {% include "partials/javascripts/palette.html" %}
+      {% endif %}
+      {% if config.extra.alternate %}
+        {% include "partials/alternate.html" %}
+      {% endif %}
+      {% if "material/search" in config.plugins %}
+        <label class="md-header__button md-icon" for="__search">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+      {% if config.repo_url %}
+        <div class="md-header__source">
+          {% include "partials/source.html" %}
+        </div>
+      {% endif %}
+    </div>
   </nav>
   <nav class="md-tabs bijux-site-tabs" aria-label="{{ config.site_name }} navigation" data-md-component="tabs">
     <div class="md-grid">
