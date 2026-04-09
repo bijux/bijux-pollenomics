@@ -1,5 +1,5 @@
 MAKE_LAYOUT_REQUIRED_FILES ?= env.mk packages.mk publish.mk root.mk
-MAKE_LAYOUT_REQUIRED_DIRS ?= api bijux-py package packages
+MAKE_LAYOUT_REQUIRED_DIRS ?= api bijux-py packages
 MAKE_LAYOUT_API_FILES ?= contract.mk freeze.mk live-contract.mk
 
 .PHONY: check-make-layout

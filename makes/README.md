@@ -36,7 +36,7 @@ configs/
 
 - `bijux-py/`: byte-identical shared implementation modules that must stay in sync across every Bijux Python repository.
 - `api/`: stable API mode entrypoints. These files stay thin and delegate to shared `bijux-py` API modules.
-- `package/`: repo-local package archetypes only. Keep this directory only for policy that is genuinely local to one repository.
+- root `*.mk`: repo-local package archetypes and repository-specific policy that are genuinely local to one repository.
 - `packages/`: leaf package profiles. These declare package-specific policy and package-specific commands only.
 - `env.mk`: repository-local environment policy and repository-specific command defaults.
 - `packages.mk`: repository package inventory, aliases, and root-target routing metadata.
@@ -46,7 +46,7 @@ configs/
 ## Design Rules
 
 - Keep `bijux-py/` implementation-first and shared-first. If logic is generic, it belongs here.
-- Keep `package/` local-only. If a package archetype is shared, include the `bijux-py` module directly from the package profile.
+- Keep repo-local archetypes in clearly named root makefiles. If a package archetype is shared, include the `bijux-py` module directly from the package profile.
 - Keep `packages/*.mk` focused on one package each. Shared defaults belong in archetypes, not repeated in every profile.
 - Keep repository policy local. If a setting depends on repo identity, repo paths, or repo release policy, it belongs outside shared modules.
 - Prefer durable names that describe intent and scope, not temporary rollout language.
@@ -62,7 +62,7 @@ configs/
 When a change touches more than one package profile or more than one repository, first ask whether it should become:
 
 1. a shared `bijux-py` module,
-2. a repo-local archetype under `makes/package/`, or
+2. a repo-local archetype in a clearly named `makes/*.mk` file, or
 3. a single package-specific setting in `makes/packages/*.mk`.
 
 Choose the highest layer that keeps the policy honest.

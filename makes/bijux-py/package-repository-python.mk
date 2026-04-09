@@ -1,4 +1,4 @@
-include $(ROOT_MAKE_DIR)/package/python-package.mk
+include $(ROOT_MAKE_DIR)/bijux-py/package-python.mk
 
 PACKAGE_INSTALL_SPEC ?= .
 RUFF_CONFIG ?= $(MONOREPO_ROOT)/configs/ruff.toml
