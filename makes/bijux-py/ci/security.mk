@@ -42,8 +42,12 @@ security-bandit:
 	@if [ "$(SKIP_BANDIT)" = "1" ]; then \
 	  echo "→ Skipping bandit" >"$(BANDIT_TXT)"; \
 	else \
-	  $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -f json -o "$(BANDIT_JSON)" -n $(BANDIT_THREADS) || true; \
-	  $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -n $(BANDIT_THREADS) | tee "$(BANDIT_TXT)"; \
+	  set -e; JSON_RC=0; TEXT_RC=0; RC_FILE="$(SECURITY_REPORT_DIR)/.bandit.rc"; \
+	  $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -f json -o "$(BANDIT_JSON)" -n $(BANDIT_THREADS) || JSON_RC=$$?; \
+	  { set +e; $(SECURITY_PYTHON_ENV) $(BANDIT) -r "$(SECURITY_PATHS)" -x "$(BANDIT_EXCLUDES)" $(SECURITY_BANDIT_SKIP_FLAG) $(BANDIT_FLAGS) -n $(BANDIT_THREADS); RC=$$?; echo $$RC > "$$RC_FILE"; exit 0; } 2>&1 | tee "$(BANDIT_TXT)"; \
+	  TEXT_RC=$$(cat "$$RC_FILE"); rm -f "$$RC_FILE"; \
+	  RC=$$TEXT_RC; if [ $$RC -eq 0 ]; then RC=$$JSON_RC; fi; \
+	  if [ $$RC -ne 0 ] && [ "$(SECURITY_STRICT)" = "1" ]; then exit $$RC; fi; \
 	fi
 
 security-audit:
@@ -52,22 +56,23 @@ security-audit:
 	@if [ "$(SECURITY_AUDIT_PREPARE_MODE)" = "pyproject" ]; then \
 	  $(SECURITY_PYTHON_ENV) $(VENV_PYTHON) -c "import tomllib; from pathlib import Path; data=tomllib.loads(Path('pyproject.toml').read_text()); reqs=data.get('project', {}).get('dependencies', []); Path('$(SECURITY_REQS)').write_text('\\n'.join(reqs) + '\\n')"; \
 	fi
-	@set -e; RC=0; \
+	@set -e; JSON_RC=0; TEXT_RC=0; \
 	$(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) \
-	  -f json -o "$(PIPA_JSON)" >/dev/null 2>&1 || RC=$$?; \
-	if [ $$RC -gt 1 ]; then \
-	  echo "! pip-audit invocation failed (rc=$$RC)"; \
-	  if [ "$(SECURITY_STRICT)" = "1" ]; then exit $$RC; fi; \
-	fi
+	  -f json -o "$(PIPA_JSON)" >/dev/null 2>&1 || JSON_RC=$$?; \
 	@if [ -n "$(strip $(SECURITY_PIP_AUDIT_TEXT_COMMAND))" ]; then \
 	  PIPA_JSON="$(PIPA_JSON)" \
 	  SECURITY_STRICT="$(SECURITY_STRICT)" \
 	  SECURITY_IGNORE_IDS="$(SECURITY_IGNORE_IDS)" \
-	  $(SECURITY_PIP_AUDIT_TEXT_COMMAND) >"$(PIPA_TXT)"; \
+	  $(SECURITY_PIP_AUDIT_TEXT_COMMAND) >"$(PIPA_TXT)" || TEXT_RC=$$?; \
 	else \
-	  $(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS) 2>&1 | tee "$(PIPA_TXT)" || true; \
+	  RC_FILE="$(SECURITY_REPORT_DIR)/.pip-audit.rc"; \
+	  { set +e; $(SECURITY_PYTHON_ENV) $(PIP_AUDIT) $(SECURITY_IGNORE_FLAGS) $(PIP_AUDIT_CONSOLE_FLAGS) $(PIP_AUDIT_INPUTS); RC=$$?; echo $$RC > "$$RC_FILE"; exit 0; } 2>&1 | tee "$(PIPA_TXT)"; \
+	  TEXT_RC=$$(cat "$$RC_FILE"); rm -f "$$RC_FILE"; \
 	fi
-	@cat "$(PIPA_TXT)"
+	@cat "$(PIPA_TXT)"; \
+	RC=$$TEXT_RC; if [ $$RC -eq 0 ]; then RC=$$JSON_RC; fi; \
+	if [ $$RC -gt 1 ]; then echo "! pip-audit invocation failed (rc=$$RC)"; fi; \
+	if [ $$RC -ne 0 ] && [ "$(SECURITY_STRICT)" = "1" ]; then exit $$RC; fi
 
 security-deps:
 	$(call run_make_targets,$(SECURITY_EXTRA_TARGETS),$(SECURITY_SELF_MAKE))
