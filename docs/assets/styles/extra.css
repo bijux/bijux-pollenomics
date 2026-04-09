@@ -4,6 +4,7 @@
   --bijux-border: rgba(49, 46, 129, 0.16);
   --bijux-panel: rgba(79, 70, 229, 0.05);
   --bijux-panel-strong: rgba(79, 70, 229, 0.08);
+  --bijux-card-shadow: 0 18px 42px rgba(30, 41, 89, 0.09);
   --bijux-map-shadow: 0 22px 54px rgba(30, 41, 89, 0.14);
   --bijux-surface-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0));
   --bijux-shell-width: 84rem;
@@ -113,15 +114,17 @@ button {
 
 .bijux-panel-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin: 1.5rem 0;
+  gap: 1.15rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin: 1.75rem 0;
 }
 
 .bijux-panel {
   background: var(--bijux-surface-gradient), var(--bijux-panel);
   border: 1px solid var(--bijux-border);
   border-radius: 1rem;
+  box-shadow: var(--bijux-card-shadow);
+  min-height: 100%;
   padding: 1rem 1.1rem;
 }
 
@@ -133,6 +136,7 @@ button {
   background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(99, 102, 241, 0.06));
   border: 1px solid var(--bijux-border);
   border-radius: 1rem;
+  box-shadow: var(--bijux-card-shadow);
   padding: 1rem 1.1rem;
   margin: 1rem 0 1.5rem;
 }
@@ -146,11 +150,15 @@ button {
 
 .md-typeset .md-button {
   border-radius: 999px;
+  font-weight: 700;
+  min-height: 2.6rem;
+  padding-inline: 1.15rem;
 }
 
 .md-typeset .md-button--primary {
   background: linear-gradient(135deg, #3949ab, #4f46e5);
   border-color: transparent;
+  box-shadow: 0 12px 28px rgba(63, 81, 181, 0.22);
 }
 
 .bijux-site-tabs,
