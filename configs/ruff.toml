@@ -1,19 +1,48 @@
-line-length = 88
 target-version = "py311"
+line-length = 88
+respect-gitignore = true
 src = [
   "packages/bijux-pollenomics/src",
   "packages/bijux-pollenomics/tests",
   "packages/bijux-pollenomics-dev/src",
+  "packages/bijux-pollenomics-dev/tests",
   "docs/hooks",
 ]
-extend-exclude = [
+exclude = [
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".pytest_cache",
+  ".ruff_cache",
+  ".tox",
+  ".venv",
   "artifacts",
-  "data",
+  "build",
+  "dist",
   "docs/report",
+  "htmlcov",
+  "__pycache__",
+  "migrations",
+  "node_modules",
+  "*.egg-info",
+  "site",
 ]
+extend-exclude = ["data"]
 
 [lint]
-preview = true
+select = ["E", "F", "I", "B", "UP", "SIM", "PT", "N", "A", "C4", "S", "TID", "PERF"]
+ignore = ["E501", "E203"]
 
 [lint.per-file-ignores]
+"packages/*/tests/**" = ["S101"]
 "__init__.py" = ["F401"]
+
+[lint.isort]
+force-sort-within-sections = true
+required-imports = ["from __future__ import annotations"]
+
+[lint.flake8-tidy-imports]
+ban-relative-imports = "parents"
+
+[lint.mccabe]
+max-complexity = 10
