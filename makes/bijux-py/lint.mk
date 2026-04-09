@@ -53,9 +53,9 @@ fmt: fmt-artifacts
 
 fmt-artifacts: | $(VENV)
 	@mkdir -p "$(LINT_ARTIFACTS_DIR)" "$(RUFF_CACHE_DIR)"
-	@$(LINT_PYCACHE_ENV) $(RUFF) format --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(FMT_DIRS) 2>&1 | tee "$(FMT_LOG)"
+	@$(LINT_PYCACHE_ENV) $(RUFF) format --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(FMT_DIRS) 2>&1 | tee "$(FMT_LOG)"; test $${PIPESTATUS[0]} -eq 0
 	@if [ "$(FMT_RUN_RUFF_CHECK_FIX)" = "1" ]; then \
-	  $(LINT_PYCACHE_ENV) $(RUFF) check --config "$(RUFF_CONFIG)" --fix --cache-dir "$(RUFF_CACHE_DIR)" $(FMT_DIRS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/fmt-ruff-fix.log"; \
+	  $(LINT_PYCACHE_ENV) $(RUFF) check --config "$(RUFF_CONFIG)" --fix --cache-dir "$(RUFF_CACHE_DIR)" $(FMT_DIRS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/fmt-ruff-fix.log"; test $${PIPESTATUS[0]} -eq 0; \
 	fi
 
 lint: lint-artifacts
@@ -67,20 +67,20 @@ lint-artifacts: | $(VENV)
 	@{ \
 	  echo "→ Ruff format (check)"; \
 	  $(LINT_PYCACHE_ENV) $(RUFF) format --check --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS); \
-	} 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff-format.log"
-	@$(LINT_PYCACHE_ENV) $(RUFF) check $(RUFF_FIX_FLAG) --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff.log"
+	} 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff-format.log"; test $${PIPESTATUS[0]} -eq 0
+	@$(LINT_PYCACHE_ENV) $(RUFF) check $(RUFF_FIX_FLAG) --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff.log"; test $${PIPESTATUS[0]} -eq 0
 	@if [ "$(ENABLE_MYPY)" = "1" ]; then \
-	  $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR)" $(MYPY_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; \
+	  $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR)" $(MYPY_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; test $${PIPESTATUS[0]} -eq 0; \
 	else \
 	  echo "→ Skipping mypy" | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; \
 	fi
 	@if [ "$(ENABLE_CODESPELL)" = "1" ]; then \
-	  $(CODESPELL) $(CODESPELL_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/codespell.log"; \
+	  $(CODESPELL) $(CODESPELL_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/codespell.log"; test $${PIPESTATUS[0]} -eq 0; \
 	else \
 	  echo "→ Skipping codespell" | tee "$(LINT_ARTIFACTS_DIR)/codespell.log"; \
 	fi
 	@if [ "$(ENABLE_RADON)" = "1" ]; then \
-	  $(LINT_PYCACHE_ENV) $(RADON) cc -s -a $(RADON_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/radon.log"; \
+	  $(LINT_PYCACHE_ENV) $(RADON) cc -s -a $(RADON_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/radon.log"; test $${PIPESTATUS[0]} -eq 0; \
 	  if [ -n "$(RADON_COMPLEXITY_MAX)" ]; then \
 	    $(LINT_PYCACHE_ENV) $(RADON) cc -j $(RADON_TARGETS) | $(LINT_PYCACHE_ENV) $(VENV_PYTHON) -c 'import json, sys; payload=json.load(sys.stdin); max_score=int(sys.argv[1]); violations=[]; [violations.append((path, item.get("name"), item.get("complexity", 0))) for path, items in payload.items() for item in items if item.get("type") in {"function", "method"} and item.get("complexity", 0) > max_score]; print(f"Radon complexity threshold exceeded (>{max_score})") if violations else None; [print(f"{path}: {name} ({complexity})") for path, name, complexity in violations]; sys.exit(1 if violations else 0)' "$(RADON_COMPLEXITY_MAX)"; \
 	  fi; \
@@ -88,7 +88,7 @@ lint-artifacts: | $(VENV)
 	  echo "→ Skipping radon" | tee "$(LINT_ARTIFACTS_DIR)/radon.log"; \
 	fi
 	@if [ "$(ENABLE_PYDOCSTYLE)" = "1" ]; then \
-	  $(LINT_PYCACHE_ENV) $(PYDOCSTYLE) $(PYDOCSTYLE_ARGS) $(PYDOCSTYLE_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/pydocstyle.log"; \
+	  $(LINT_PYCACHE_ENV) $(PYDOCSTYLE) $(PYDOCSTYLE_ARGS) $(PYDOCSTYLE_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/pydocstyle.log"; test $${PIPESTATUS[0]} -eq 0; \
 	else \
 	  echo "→ Skipping pydocstyle" | tee "$(LINT_ARTIFACTS_DIR)/pydocstyle.log"; \
 	fi
