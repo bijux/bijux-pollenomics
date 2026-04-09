@@ -18,6 +18,7 @@ SBOM_DEV_REQ             ?= $(SBOM_DIR)/requirements.dev.txt
 SBOM_PROD_REQ_INPUT      ?=
 SBOM_DEV_REQ_INPUT       ?=
 PIP_AUDIT                ?= $(if $(ACT),$(ACT)/pip-audit,pip-audit)
+SBOM_PIP_AUDIT           ?= $(VENV_PYTHON) -m pip_audit
 SBOM_PIP_AUDIT_FLAGS     ?= --progress-spinner off --format $(SBOM_FORMAT)
 PIP_AUDIT_FLAGS          ?= $(SBOM_PIP_AUDIT_FLAGS) $(SBOM_IGNORE_FLAGS)
 SBOM_PROD_FILE            = $(SBOM_DIR)/$(PACKAGE_NAME)-$(SBOM_VERSION_SAFE)-$(GIT_SHA).prod.cdx.json
@@ -29,7 +30,7 @@ sbom: sbom-clean sbom-prod sbom-dev sbom-summary
 	@echo "✔ SBOMs generated in $(SBOM_DIR)"
 
 sbom-tooling: | $(VENV)
-	@if ! command -v $(PIP_AUDIT) >/dev/null 2>&1; then \
+	@if ! "$(VENV_PYTHON)" -c "import pip_audit" >/dev/null 2>&1; then \
 	  echo "→ Installing pip-audit into $(VENV)"; \
 	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade pip-audit >/dev/null; \
 	fi
@@ -43,10 +44,10 @@ sbom-prod: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_PROD_REQ)" ]; then \
 	  echo "→ SBOM (prod via $(SBOM_PROD_REQ))"; \
-	  $(PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)" || true; \
 	else \
 	  echo "→ SBOM (prod fallback: current venv)"; \
-	  $(PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)" || true; \
 	fi
 
 sbom-dev: sbom-tooling
@@ -58,10 +59,10 @@ sbom-dev: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_DEV_REQ)" ]; then \
 	  echo "→ SBOM (dev via $(SBOM_DEV_REQ))"; \
-	  $(PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)" || true; \
 	else \
 	  echo "→ SBOM (dev fallback: current venv)"; \
-	  $(PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)" || true; \
 	fi
 
 sbom-validate:
