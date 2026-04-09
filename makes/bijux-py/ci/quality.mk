@@ -18,6 +18,7 @@ QUALITY_MKDOCS_PYTHON          ?= $(VENV_PYTHON)
 QUALITY_MKDOCS_BUILD_FLAGS     ?= --strict --config-file "$(QUALITY_MKDOCS_CONFIG)" --site-dir "$(QUALITY_MKDOCS_SITE_DIR)"
 QUALITY_DEPTRY_TARGET          ?= $(PROJECT_DIR)
 QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) --config "$(DEPTRY_CONFIG)" "$(QUALITY_DEPTRY_TARGET)"
+QUALITY_DEPTRY_VERSION_COMMAND ?= $(DEPTRY) --version
 QUALITY_SELF_MAKE              ?= $(SELF_MAKE)
 
 PYTHON      ?= $(shell command -v python3 || command -v python)
@@ -72,8 +73,12 @@ quality:
 	@if [ "$(SKIP_DEPTRY)" = "1" ]; then \
 	  echo "   • SKIP_DEPTRY=1; skipping Deptry" | tee "$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
 	else \
-	  set -eu; \
-	    { $(DEPTRY) --version 2>/dev/null || true; } >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	  set -euo pipefail; \
+	    if [ -n "$(strip $(QUALITY_DEPTRY_VERSION_COMMAND))" ]; then \
+	      { $(QUALITY_DEPTRY_VERSION_COMMAND) 2>/dev/null || true; } >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	    else \
+	      : >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	    fi; \
 	    $(QUALITY_DEPTRY_COMMAND) 2>&1 | tee -a "$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
 	fi
 	@echo "   - Static typing (Mypy)"
