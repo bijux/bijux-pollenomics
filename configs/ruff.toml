@@ -30,7 +30,7 @@ exclude = [
 extend-exclude = ["data"]
 
 [lint]
-select = ["E", "F", "I", "B", "UP", "SIM", "PT", "N", "A", "C4", "S", "TID", "PERF"]
+select = ["E", "F", "I", "B", "UP", "SIM", "C4", "PERF"]
 ignore = ["E501", "E203"]
 
 [lint.per-file-ignores]
@@ -39,10 +39,6 @@ ignore = ["E501", "E203"]
 
 [lint.isort]
 force-sort-within-sections = true
-required-imports = ["from __future__ import annotations"]
-
-[lint.flake8-tidy-imports]
-ban-relative-imports = "parents"
 
 [lint.mccabe]
 max-complexity = 10
