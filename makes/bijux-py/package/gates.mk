@@ -1,12 +1,12 @@
-include $(ROOT_MAKE_DIR)/bijux-py/lint.mk
-include $(ROOT_MAKE_DIR)/bijux-py/test.mk
-include $(ROOT_MAKE_DIR)/bijux-py/quality.mk
-include $(ROOT_MAKE_DIR)/bijux-py/security.mk
-include $(ROOT_MAKE_DIR)/bijux-py/build.mk
-include $(ROOT_MAKE_DIR)/bijux-py/sbom.mk
-include $(ROOT_MAKE_DIR)/bijux-py/api.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/lint.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/test.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/quality.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/security.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/build.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/sbom.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api/root.mk
 include $(ROOT_MAKE_DIR)/publish.mk
-include $(ROOT_MAKE_DIR)/bijux-py/package-lifecycle.mk
+include $(ROOT_MAKE_DIR)/bijux-py/package/lifecycle.mk
 
 PACKAGE_DEFINE_ALL_PARALLEL ?= 0
 PACKAGE_ALL_PARALLEL_PRE_TARGETS ?= clean install

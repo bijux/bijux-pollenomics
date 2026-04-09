@@ -3,7 +3,7 @@
 .SHELLFLAGS := -eu -o pipefail -c
 SHELL := bash
 
-MONOREPO_ROOT ?= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../..)
+MONOREPO_ROOT ?= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../..)
 PROJECT_DIR ?= $(CURDIR)
 PROJECT_SLUG ?= $(notdir $(abspath $(PROJECT_DIR)))
 ROOT_MAKE_DIR ?= $(MONOREPO_ROOT)/makes

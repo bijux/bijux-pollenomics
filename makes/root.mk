@@ -1,6 +1,6 @@
 ROOT_MAKEFILE_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 
-include $(ROOT_MAKEFILE_DIR)/bijux-py/root-env.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root/env.mk
 include $(ROOT_MAKEFILE_DIR)/env.mk
 include $(ROOT_MAKEFILE_DIR)/packages.mk
 
@@ -12,13 +12,13 @@ CLI := $(ROOT_CHECK_VENV)/bin/bijux-pollenomics
 DEV_RUN := PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(ROOT_CHECK_PYTHON)"
 DOCS_RENDER_SERVE_CONFIG := 0
 
-include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-root.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
-include $(ROOT_MAKEFILE_DIR)/bijux-py/root-package-dispatch.mk
-include $(ROOT_MAKEFILE_DIR)/bijux-py/root-docs.mk
-include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-config-layout.mk
-include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-make-layout.mk
-include $(ROOT_MAKEFILE_DIR)/bijux-py/shared-bijux-py.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root/docs.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/config-layout.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/make-layout.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/bijux.mk
 
 .PHONY: \
 	help list list-all install lock lock-check lint quality security test docs docs-check docs-serve api build sbom clean all \
@@ -59,7 +59,7 @@ package-verify: package-check package-smoke package-source-smoke ## Run the full
 .PHONY: package-verify
 
 HELP_WIDTH := 22
-include $(ROOT_MAKEFILE_DIR)/bijux-py/help.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/ci/help.mk
 
 ##@ Repository
 help: ## Show generated repository commands from included make modules

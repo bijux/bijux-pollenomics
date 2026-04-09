@@ -31,4 +31,4 @@ DOCS_CHECK_SITE_URL ?= http://$(ROOT_DOCS_DEV_ADDR)/
 DOCS_SERVE_SITE_URL ?= http://$(ROOT_DOCS_DEV_ADDR)/
 DOCS_EXTRA_CLEAN_PATHS ?= "$(ROOT_DOCS_SERVE_CFG)" "$(ROOT_DOCS_CACHE_DIR)"
 
-include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/docs.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/docs.mk

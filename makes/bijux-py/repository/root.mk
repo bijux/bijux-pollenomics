@@ -55,4 +55,4 @@ ROOT_CLEAN_ROOT_ARTIFACTS_COMMAND ?= @rm -rf $(ROOT_FORBIDDEN_ARTIFACTS) || true
 ROOT_ALL_TARGETS ?= test lint quality security docs api build sbom
 ROOT_DEFINE_CLEAN ?= 0
 
-include $(ROOT_MAKEFILE_DIR)/bijux-py/root-lifecycle.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/root/lifecycle.mk

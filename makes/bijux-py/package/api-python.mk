@@ -1,4 +1,4 @@
-include $(ROOT_MAKE_DIR)/bijux-py/package-python.mk
+include $(ROOT_MAKE_DIR)/bijux-py/package/python.mk
 
 PYTHON ?= python3.11
 ENABLE_CODESPELL ?= 1

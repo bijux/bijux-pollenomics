@@ -108,5 +108,5 @@ endif
 
 ifeq ($(PACKAGE_DEFINE_HELP),1)
 HELP_WIDTH := $(PACKAGE_HELP_WIDTH)
-include $(ROOT_MAKE_DIR)/bijux-py/help.mk
+include $(ROOT_MAKE_DIR)/bijux-py/ci/help.mk
 endif
