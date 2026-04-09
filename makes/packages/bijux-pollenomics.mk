@@ -18,7 +18,6 @@ SKIP_INTERROGATE := 1
 SKIP_MYPY := 1
 QUALITY_POST_TARGETS := quality-compileall
 BUILD_PACKAGE_NAME := bijux-pollenomics
-BUILD_CHECK_DISTS := 0
 BUILD_TEMP_CLEAN_PATHS := build dist *.egg-info
 PACKAGE_NAME := bijux-pollenomics
 API_FREEZE_COMMAND := $(VENV_PYTHON) -m bijux_pollenomics_dev.api.freeze_contracts
