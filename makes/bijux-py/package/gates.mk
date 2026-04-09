@@ -4,7 +4,7 @@ include $(ROOT_MAKE_DIR)/bijux-py/ci/quality.mk
 include $(ROOT_MAKE_DIR)/bijux-py/ci/security.mk
 include $(ROOT_MAKE_DIR)/bijux-py/ci/build.mk
 include $(ROOT_MAKE_DIR)/bijux-py/ci/sbom.mk
-include $(ROOT_MAKE_DIR)/bijux-py/api/root.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api.mk
 include $(ROOT_MAKE_DIR)/publish.mk
 include $(ROOT_MAKE_DIR)/bijux-py/package/lifecycle.mk
 

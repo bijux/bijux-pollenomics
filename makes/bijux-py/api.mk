@@ -37,9 +37,9 @@ api-clean:
 	@rm -rf "$(API_ARTIFACTS_DIR)"
 else
 ifeq ($(API_MODE),contract)
-include $(ROOT_MAKE_DIR)/bijux-py/api/contract.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api-contract.mk
 else ifeq ($(API_MODE),live-contract)
-include $(ROOT_MAKE_DIR)/bijux-py/api/live-contract.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api-live-contract.mk
 else ifeq ($(API_MODE),freeze)
 include $(API_FREEZE_MAKEFILE)
 else
