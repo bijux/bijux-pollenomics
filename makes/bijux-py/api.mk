@@ -8,6 +8,7 @@ API_PORT ?= 8000
 API_NONE_PREREQS ?= install
 API_NONE_MESSAGE ?= No API contracts are defined for $(PROJECT_SLUG).
 API_NONE_STATUS_FILE ?= $(API_ARTIFACTS_DIR)/status.txt
+API_FREEZE_MAKEFILE ?= $(ROOT_MAKE_DIR)/api/freeze.mk
 API_ARTIFACTS_DIR_ABS := $(abspath $(API_ARTIFACTS_DIR))
 API_LINT_DIR_ABS := $(abspath $(API_LINT_DIR))
 API_TEST_DIR_ABS := $(abspath $(API_TEST_DIR))
@@ -35,16 +36,12 @@ openapi-drift:
 api-clean:
 	@rm -rf "$(API_ARTIFACTS_DIR)"
 else
-ifeq ($(strip $(API_REPO_DIR)),)
-$(error API_REPO_DIR is required before including bijux-py/api.mk when API_MODE is not none)
-endif
-
 ifeq ($(API_MODE),contract)
-include $(API_REPO_DIR)/contract.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api-contract.mk
 else ifeq ($(API_MODE),live-contract)
-include $(API_REPO_DIR)/live-contract.mk
+include $(ROOT_MAKE_DIR)/bijux-py/api-live-contract.mk
 else ifeq ($(API_MODE),freeze)
-include $(API_REPO_DIR)/freeze.mk
+include $(API_FREEZE_MAKEFILE)
 else
 $(error Unsupported API_MODE '$(API_MODE)'; expected none, contract, live-contract, or freeze)
 endif

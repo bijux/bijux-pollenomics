@@ -4,7 +4,6 @@ include $(ROOT_MAKE_DIR)/bijux-py/quality.mk
 include $(ROOT_MAKE_DIR)/bijux-py/security.mk
 include $(ROOT_MAKE_DIR)/bijux-py/build.mk
 include $(ROOT_MAKE_DIR)/bijux-py/sbom.mk
-API_REPO_DIR ?= $(ROOT_MAKE_DIR)/api
 include $(ROOT_MAKE_DIR)/bijux-py/api.mk
 include $(ROOT_MAKE_DIR)/publish.mk
 include $(ROOT_MAKE_DIR)/bijux-py/package-lifecycle.mk
