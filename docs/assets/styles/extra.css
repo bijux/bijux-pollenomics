@@ -203,7 +203,7 @@ button {
   align-items: center;
   display: flex;
   flex: 0 0 auto;
-  gap: 0.65rem;
+  gap: 0.5rem;
   margin-inline-start: auto;
 }
 
@@ -216,12 +216,19 @@ button {
 }
 
 .bijux-header-tools .md-search__inner {
-  width: clamp(10.25rem, 14vw, 12.5rem);
+  width: clamp(8.75rem, 12vw, 10.75rem);
+}
+
+.bijux-header-tools .md-header__source {
+  flex: 0 0 auto;
+  width: auto;
 }
 
 .bijux-header-tools .md-search__form,
 .bijux-header-tools .md-source {
   border-radius: 0.95rem;
+  max-width: none;
+  width: auto;
 }
 
 .bijux-site-tabs {
