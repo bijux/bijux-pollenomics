@@ -1,9 +1,10 @@
-PRANCE ?= $(if $(ACT),$(ACT)/prance,prance)
-OPENAPI_SPEC_VALIDATOR ?= $(if $(ACT),$(ACT)/openapi-spec-validator,openapi-spec-validator)
+PRANCE ?= $(ACT)/prance
+OPENAPI_SPEC_VALIDATOR ?= $(ACT)/openapi-spec-validator
 ALL_API_SCHEMAS := $(shell if [ -d "$(API_DIR)" ]; then find "$(API_DIR)" -type f -path '*/v1/schema.yaml'; fi)
 API_LINT_DIR_ABS := $(abspath $(API_LINT_DIR))
 API_FREEZE_COMMAND ?=
 API_OPENAPI_DRIFT_COMMAND ?=
+API_INSTALL_PYTHON_PACKAGES ?= click prance openapi-spec-validator
 API_NO_SCHEMA_MESSAGE ?= ✘ No OpenAPI schemas found under $(API_DIR)/*/v1/schema.yaml
 
 .PHONY: api api-install api-lint api-freeze openapi-drift api-clean api-test api-serve api-serve-bg api-stop
@@ -11,10 +12,11 @@ API_NO_SCHEMA_MESSAGE ?= ✘ No OpenAPI schemas found under $(API_DIR)/*/v1/sche
 api: api-install api-lint api-freeze openapi-drift
 	@echo "✔ API checks passed"
 
-api-install:
+api-install: install
 	@echo "→ API tooling is managed by the package install target"
-	@"$(VENV_PYTHON)" -m prance --version >/dev/null
-	@"$(VENV_PYTHON)" -m openapi_spec_validator --help >/dev/null
+	@$(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(API_INSTALL_PYTHON_PACKAGES) >/dev/null
+	@"$(PRANCE)" --version >/dev/null
+	@"$(OPENAPI_SPEC_VALIDATOR)" --help >/dev/null
 
 api-lint:
 	@if [ -z "$(ALL_API_SCHEMAS)" ]; then echo "$(API_NO_SCHEMA_MESSAGE)"; exit 1; fi
@@ -32,7 +34,7 @@ api-lint:
 
 api-freeze:
 	@echo "→ Enforcing API schema freeze contracts"
-	@$(API_FREEZE_COMMAND)
+	@cd "$(MONOREPO_ROOT)" && $(API_FREEZE_COMMAND)
 	@echo "✔ API freeze contracts validated"
 
 openapi-drift:
@@ -40,7 +42,7 @@ openapi-drift:
 	  echo "→ No live OpenAPI drift command configured; skipping"; \
 	else \
 	  echo "→ Checking OpenAPI drift"; \
-	  $(API_OPENAPI_DRIFT_COMMAND); \
+	  cd "$(MONOREPO_ROOT)" && $(API_OPENAPI_DRIFT_COMMAND); \
 	  echo "✔ OpenAPI drift check complete"; \
 	fi
 
