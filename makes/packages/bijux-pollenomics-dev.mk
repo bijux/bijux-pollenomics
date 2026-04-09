@@ -1,4 +1,4 @@
-include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../bijux-py/package/profile.mk
+include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../bijux-py/package/bootstrap.mk
 include $(ROOT_MAKE_DIR)/bijux-py/package/python.mk
 
 PACKAGE_IMPORT_NAME := bijux_pollenomics_dev
