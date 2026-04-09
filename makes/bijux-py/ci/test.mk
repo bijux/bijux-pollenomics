@@ -37,6 +37,7 @@ TEST_PYTHON               ?= $(if $(wildcard $(VENV_PYTHON)),$(abspath $(VENV_PY
 PYTEST                    ?= $(TEST_PYTHON) -m pytest
 PYTEST_CONFIG             ?= $(MONOREPO_ROOT)/configs/pytest.ini
 COVERAGE_CONFIG           ?= $(MONOREPO_ROOT)/configs/coveragerc.ini
+PYTEST_ROOTDIR            ?= $(MONOREPO_ROOT)
 TEST_SELF_MAKE            ?= $(SELF_MAKE)
 
 include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/util.mk
@@ -55,6 +56,9 @@ endef
 empty :=
 space := $(empty) $(empty)
 
+PROJECT_DIR_ABS           := $(abspath $(PROJECT_DIR))
+MONOREPO_ROOT_ABS         := $(abspath $(MONOREPO_ROOT))
+PYTEST_ROOTDIR_ABS        := $(abspath $(PYTEST_ROOTDIR))
 PYTEST_INI_ABS            := $(abspath $(PYTEST_CONFIG))
 COVCFG_ABS                := $(abspath $(COVERAGE_CONFIG))
 COV_HTML_ABS              := $(abspath $(TEST_ARTIFACTS_DIR)/htmlcov)
@@ -75,7 +79,15 @@ HYPOTHESIS_DB_ABS         := $(abspath $(HYPOTHESIS_DB_DIR))
 BENCHMARK_DIR_ABS         := $(abspath $(BENCHMARK_DIR))
 TEST_PYCACHE_PREFIX_ABS   := $(abspath $(TEST_PYCACHE_PREFIX))
 TEST_PYCACHE_ENV          := $(if $(strip $(TEST_PYCACHE_PREFIX)),PYTHONPYCACHEPREFIX="$(TEST_PYCACHE_PREFIX_ABS)",)
-TEST_PATH_ARGS            := $(foreach path,$(TEST_PATHS_ABS),"$(path)")
+pytest_abs_path           = $(abspath $(if $(filter /%,$(strip $(1))),$(strip $(1)),$(PROJECT_DIR_ABS)/$(strip $(1))))
+to_pytest_path            = $(if $(strip $(1)),$(patsubst $(PYTEST_ROOTDIR_ABS)/%,%,$(call pytest_abs_path,$(1))),)
+TEST_PATH_ARGS            := $(foreach path,$(TEST_PATHS),"$(call to_pytest_path,$(path))")
+TEST_PATHS_UNIT_ARG       := $(call to_pytest_path,$(TEST_PATHS_UNIT))
+TEST_PATHS_E2E_ARG        := $(call to_pytest_path,$(TEST_PATHS_E2E))
+TEST_PATHS_REGRESSION_ARG := $(call to_pytest_path,$(TEST_PATHS_REGRESSION))
+TEST_PATHS_EVALUATION_ARG := $(call to_pytest_path,$(TEST_PATHS_EVALUATION))
+TEST_REAL_LOCAL_ARG       := $(call to_pytest_path,$(TEST_REAL_LOCAL_PATH))
+TEST_COVERAGE_TARGET_ARGS := $(foreach path,$(TEST_COVERAGE_TARGETS),"$(call to_pytest_path,$(path))")
 
 PYTEST_COV_FLAGS = $(foreach path,$(TEST_COVERAGE_SOURCE_ABS),--cov="$(path)")
 
@@ -110,13 +122,13 @@ test:
 	else \
 	  echo "   • pytest-benchmark disabled or not installed"; \
 	fi; \
-	( cd "$(TEST_ARTIFACTS_DIR)" && \
+	( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	  PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	  PYTHONDONTWRITEBYTECODE=1 \
 	  COVERAGE_FILE="$(COV_DATA_ABS)" \
 	  HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	  $(TEST_PYCACHE_ENV) \
-	  sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" $(TEST_PATH_ARGS) $(TEST_MAIN_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" )
+	  sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" $(TEST_PATH_ARGS) $(TEST_MAIN_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" )
 	$(call clean_paths,$(TEST_CLEAN_PATHS))
 
 test-unit:
@@ -139,22 +151,22 @@ test-unit:
 	fi; \
 	if [ -d "$(TEST_PATHS_UNIT)" ] && find "$(TEST_PATHS_UNIT)" -type f -name 'test_*.py' | grep -q .; then \
 	  echo "   • detected $(TEST_PATHS_UNIT) — targeting that directory"; \
-	  ( cd "$(TEST_ARTIFACTS_DIR)" && \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	    PYTHONDONTWRITEBYTECODE=1 \
 	    COVERAGE_FILE="$(COV_DATA_ABS)" \
 	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_UNIT_ABS)" $(TEST_UNIT_DIR_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" ); \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_UNIT_ARG)" $(TEST_UNIT_DIR_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" ); \
 	else \
 	  echo "   • no $(TEST_PATHS_UNIT); falling back to filtered suite"; \
-	  ( cd "$(TEST_ARTIFACTS_DIR)" && \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	    PYTHONDONTWRITEBYTECODE=1 \
 	    COVERAGE_FILE="$(COV_DATA_ABS)" \
 	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" $(TEST_PATH_ARGS) $(TEST_UNIT_FALLBACK_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" ); \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" $(TEST_PATH_ARGS) $(TEST_UNIT_FALLBACK_ARGS) $(PYTEST_FLAGS) '"$$BENCH_FLAGS" ); \
 	fi
 	$(call clean_paths,$(TEST_CLEAN_PATHS))
 
@@ -166,13 +178,13 @@ test-e2e:
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
 	$(call clean_paths,$(TEST_CLEAN_PATHS))
 	@if [ -n "$(TEST_PATHS_E2E)" ] && [ -d "$(TEST_PATHS_E2E)" ] && find "$(TEST_PATHS_E2E)" -type f -name 'test_*.py' | grep -q .; then \
-	  ( cd "$(TEST_ARTIFACTS_DIR)" && \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	    PYTHONDONTWRITEBYTECODE=1 \
 	    COVERAGE_FILE="$(COV_DATA_ABS)" \
 	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_E2E_ABS)" $(TEST_E2E_ARGS) $(PYTEST_FLAGS)' ); \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_E2E_ARG)" $(TEST_E2E_ARGS) $(PYTEST_FLAGS)' ); \
 	else \
 	  echo "   • no $(TEST_PATHS_E2E); skipping"; \
 	fi
@@ -186,13 +198,13 @@ test-regression:
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
 	@rm -rf $(TEST_CLEAN_PATHS) || true
 	@if [ -n "$(TEST_PATHS_REGRESSION)" ] && [ -d "$(TEST_PATHS_REGRESSION)" ] && find "$(TEST_PATHS_REGRESSION)" -type f -name 'test_*.py' | grep -q .; then \
-	  ( cd "$(TEST_ARTIFACTS_DIR)" && \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	    PYTHONDONTWRITEBYTECODE=1 \
 	    COVERAGE_FILE="$(COV_DATA_ABS)" \
 	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_REGRESSION_ABS)" $(TEST_REGRESSION_ARGS) $(PYTEST_FLAGS)' ); \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_REGRESSION_ARG)" $(TEST_REGRESSION_ARGS) $(PYTEST_FLAGS)' ); \
 	else \
 	  echo "   • no $(TEST_PATHS_REGRESSION); skipping"; \
 	fi
@@ -206,13 +218,13 @@ test-evaluation:
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
 	@rm -rf $(TEST_CLEAN_PATHS) || true
 	@if [ -n "$(TEST_PATHS_EVALUATION)" ] && [ -d "$(TEST_PATHS_EVALUATION)" ] && find "$(TEST_PATHS_EVALUATION)" -type f -name 'test_*.py' | grep -q .; then \
-	  ( cd "$(TEST_ARTIFACTS_DIR)" && \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
 	    PYTHONDONTWRITEBYTECODE=1 \
 	    COVERAGE_FILE="$(COV_DATA_ABS)" \
 	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
 	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_EVALUATION_ABS)" $(TEST_EVALUATION_ARGS) $(PYTEST_FLAGS)' ); \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" "$(TEST_PATHS_EVALUATION_ARG)" $(TEST_EVALUATION_ARGS) $(PYTEST_FLAGS)' ); \
 	else \
 	  echo "   • no $(TEST_PATHS_EVALUATION); skipping"; \
 	fi
@@ -238,12 +250,13 @@ coverage-core:
 	@echo "→ Coverage focus run (fail-under=$(TEST_COVERAGE_FAIL_UNDER)%)"
 	@rm -rf "$(TMP_DIR_ABS)" .coverage .coverage.*
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)"
-	@PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
-	PYTHONDONTWRITEBYTECODE=1 \
-	COVERAGE_FILE="$(COV_DATA_ABS)" \
-	HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
-	$(TEST_PYCACHE_ENV) \
-	$(PYTEST) -c "$(PYTEST_INI_ABS)" $(TEST_COVERAGE_TARGETS) --cov="$(TEST_SOURCE_PATH_ABS)" --cov-report=term-missing --cov-fail-under=$(TEST_COVERAGE_FAIL_UNDER)
+	@( cd "$(PYTEST_ROOTDIR_ABS)" && \
+	  PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
+	  PYTHONDONTWRITEBYTECODE=1 \
+	  COVERAGE_FILE="$(COV_DATA_ABS)" \
+	  HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
+	  $(TEST_PYCACHE_ENV) \
+	  $(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" $(TEST_COVERAGE_TARGET_ARGS) --cov="$(TEST_SOURCE_PATH_ABS)" --cov-report=term-missing --cov-fail-under=$(TEST_COVERAGE_FAIL_UNDER) )
 
 real-local:
 	@if [ -z "$(TEST_REAL_LOCAL_PATH)" ] || [ ! -d "$(TEST_REAL_LOCAL_PATH)" ]; then \
@@ -253,7 +266,8 @@ real-local:
 	@echo "→ Running real local model tests (manual only)"
 	$(call run_make_targets,$(TEST_PRE_TARGETS),$(TEST_SELF_MAKE))
 	@$(PYTEST) $(PYTEST_INFO_FLAGS) --version
-	@$(PYTEST) -c "$(PYTEST_INI_ABS)" -o addopts= "$(TEST_REAL_LOCAL_ABS)" $(TEST_REAL_LOCAL_ARGS)
+	@( cd "$(PYTEST_ROOTDIR_ABS)" && \
+	  $(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" -o addopts= "$(TEST_REAL_LOCAL_ARG)" $(TEST_REAL_LOCAL_ARGS) )
 
 ##@ Test
 test:            ## Run the full test suite with artifacts under $(PROJECT_ARTIFACTS_DIR)/test
