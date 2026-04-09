@@ -1,0 +1,33 @@
+---
+title: Domain Language
+audience: mixed
+type: explanation
+status: canonical
+owner: bijux-pollenomics-docs
+last_reviewed: 2026-04-10
+---
+
+# Domain Language
+
+Use the package's own language consistently so code, docs, and review comments
+describe the same objects.
+
+## Preferred Terms
+
+- `source` means an upstream dataset family such as AADR or Neotoma
+- `raw` means fetched or copied upstream material before package normalization
+- `normalized` means tracked outputs reshaped into repository-friendly files
+- `context` means non-AADR layers that help interpret AADR locations
+- `report bundle` means a published directory under `docs/report/<slug>/`
+- `atlas` means the shared multi-country map bundle under
+  `docs/report/nordic-atlas/`
+
+## Terms To Avoid
+
+- avoid calling the package a service when it is a file-producing runtime
+- avoid using `database` for tracked file trees unless a real database exists
+- avoid naming speculative research outcomes as if they are current outputs
+
+## Purpose
+
+This page keeps boundary discussions precise by using stable package language.
