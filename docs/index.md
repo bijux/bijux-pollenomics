@@ -1,5 +1,5 @@
 ---
-title: bijux-pollenomics Documentation
+title: Bijux Pollenomics
 audience: mixed
 type: index
 status: canonical

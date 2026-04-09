@@ -77,6 +77,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("packages/bijux-pollenomics/tests/regression/", docs_text)
         self.assertIn("packages/bijux-pollenomics/tests/e2e/", docs_text)
 
+    def test_docs_home_page_uses_repository_name_for_title_and_h1(self) -> None:
+        docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
+
+        self.assertIn("title: Bijux Pollenomics", docs_index)
+        self.assertIn("# Bijux Pollenomics", docs_index)
+        self.assertNotIn("# Docs Index", docs_index)
+
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
     ) -> None:
@@ -187,8 +194,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("workflow_call:", ci_workflow)
         self.assertIn("cache-dependency-glob: uv.lock", ci_workflow)
-        self.assertIn("make -f \"$makefile\" -C", ci_workflow)
-        self.assertIn('name: publish', publish_workflow)
+        self.assertIn('make -f "$makefile" -C', ci_workflow)
+        self.assertIn("name: publish", publish_workflow)
         self.assertIn("build-release-artifacts.yml", publish_workflow)
         self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
         self.assertIn("make check PYTHON=python", verify_workflow)
@@ -226,7 +233,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             self.assertIn(workflow_name, known_workflows)
             found_workflows.add(workflow_name)
 
-        self.assertTrue({"verify.yml", "publish.yml", "deploy-docs.yml"} <= found_workflows)
+        self.assertTrue(
+            {"verify.yml", "publish.yml", "deploy-docs.yml"} <= found_workflows
+        )
 
     def test_report_docs_describe_final_summary_paths(self) -> None:
         published_artifacts = (
