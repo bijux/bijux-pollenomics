@@ -31,6 +31,7 @@ def _extract_hash_value(path: Path) -> str | None:
 
 
 def run(repo_root: Path) -> int:
+    """Validate pinned API freeze artifacts for every checked-in schema."""
     failures: list[str] = []
     schema_paths = sorted((repo_root / "apis").glob("*/v1/schema.yaml"))
     if not schema_paths:
@@ -71,6 +72,7 @@ def run(repo_root: Path) -> int:
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for the API freeze validator."""
     parser = argparse.ArgumentParser(
         description="Validate checked-in API freeze contracts for a repository root."
     )
@@ -84,6 +86,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
+    """Execute the API freeze validator and return its process exit code."""
     args = parse_args()
     return run(args.repo_root.resolve())
 

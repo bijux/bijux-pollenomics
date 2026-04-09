@@ -1,3 +1,5 @@
+"""Helpers for copying root-level site icon assets into the built site."""
+
 from __future__ import annotations
 
 from pathlib import Path
