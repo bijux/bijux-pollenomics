@@ -9,7 +9,6 @@ repo_url: https://github.com/bijux/bijux-pollenomics
 edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: artifacts/root/docs/site
-strict: true
 watch:
   - docs
   - docs/assets
@@ -20,7 +19,6 @@ watch:
 
 theme:
   custom_dir: docs/overrides
-  favicon: assets/site-icons/favicon.ico
 
 extra:
   bijux:
@@ -55,10 +53,6 @@ extra:
 hooks:
   - docs/hooks/publish_site_assets.py
 
-extra_javascript:
-  - assets/javascripts/vendor/mermaid-11.6.0.min.js
-  - assets/javascripts/mermaid-init.js
-
 not_in_nav: |
   assets/**
   report/**/*.csv
@@ -69,8 +63,8 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - bijux-pollenomics:
-      - Overview: bijux-pollenomics/index.md
+  - Repository Handbook:
+      - Repository Handbook: bijux-pollenomics/index.md
       - Foundation:
           - Foundation: bijux-pollenomics/foundation/index.md
           - Package Overview: bijux-pollenomics/foundation/package-overview.md
@@ -126,8 +120,8 @@ nav:
           - Change Validation: bijux-pollenomics/quality/change-validation.md
           - Known Limitations: bijux-pollenomics/quality/known-limitations.md
           - Risk Register: bijux-pollenomics/quality/risk-register.md
-  - bijux-pollenomics-data:
-      - Overview: bijux-pollenomics-data/index.md
+  - Data Reference:
+      - Data Reference: bijux-pollenomics-data/index.md
       - Foundation:
           - Foundation: bijux-pollenomics-data/foundation/index.md
           - Data System Overview: bijux-pollenomics-data/foundation/data-system-overview.md
@@ -164,8 +158,8 @@ nav:
       - Fieldwork:
           - Fieldwork: bijux-pollenomics-data/fieldwork/index.md
           - Lyngsjön Lake Fieldwork: bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md
-  - bijux-pollenomics-maintain:
-      - Overview: bijux-pollenomics-maintain/index.md
+  - Maintainer Handbook:
+      - Maintainer Handbook: bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev:
           - bijux-pollenomics-dev: bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
           - Package Overview: bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md
