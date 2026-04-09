@@ -1,6 +1,5 @@
-MAKE_LAYOUT_REQUIRED_FILES ?= env.mk packages.mk publish.mk root.mk
-MAKE_LAYOUT_REQUIRED_DIRS ?= api bijux-py packages
-MAKE_LAYOUT_API_FILES ?= freeze.mk
+MAKE_LAYOUT_REQUIRED_FILES ?= api-freeze.mk env.mk packages.mk publish.mk root.mk
+MAKE_LAYOUT_REQUIRED_DIRS ?= bijux-py packages
 
 .PHONY: check-make-layout
 
@@ -12,9 +11,6 @@ check-make-layout: ## Validate the repository make tree shape and required entry
 	done; \
 	for dir in $(MAKE_LAYOUT_REQUIRED_DIRS); do \
 	  test -d "$$make_dir/$$dir" || { echo "✘ Missing make directory: $$make_dir/$$dir"; exit 1; }; \
-	done; \
-	for file in $(MAKE_LAYOUT_API_FILES); do \
-	  test -f "$$make_dir/api/$$file" || { echo "✘ Missing API make entrypoint: $$make_dir/api/$$file"; exit 1; }; \
 	done; \
 	for mapping in $(PACKAGE_PROFILE_MAPPINGS); do \
 	  profile_path="$${mapping#*=}"; \
