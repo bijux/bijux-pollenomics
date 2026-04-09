@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import argparse
-import unittest
 from pathlib import Path
+import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics.command_line.parsing import build_parser
@@ -14,7 +14,10 @@ class CommandLineUnitTests(unittest.TestCase):
         parser = build_parser()
         args = parser.parse_args(["collect-data", "aadr"])
 
-        with patch("bijux_pollenomics.command_line.runtime.dispatch.run_collect_data", return_value=7) as handler:
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_collect_data",
+            return_value=7,
+        ) as handler:
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 7)
@@ -24,7 +27,10 @@ class CommandLineUnitTests(unittest.TestCase):
         parser = build_parser()
         args = parser.parse_args(["report-country", "Sweden"])
 
-        with patch("bijux_pollenomics.command_line.runtime.dispatch.run_report_country", return_value=5) as handler:
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_report_country",
+            return_value=5,
+        ) as handler:
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 5)
@@ -54,8 +60,14 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(error.exception.code, 2)
 
     def test_package_version_matches_pyproject(self) -> None:
-        pyproject_text = Path(__file__).resolve().parents[2].joinpath("pyproject.toml").read_text(encoding="utf-8")
+        pyproject_text = (
+            Path(__file__)
+            .resolve()
+            .parents[2]
+            .joinpath("pyproject.toml")
+            .read_text(encoding="utf-8")
+        )
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
-        self.assertIn('[tool.hatch.version]', pyproject_text)
+        self.assertIn("[tool.hatch.version]", pyproject_text)
         self.assertIn('path = "src/bijux_pollenomics/__init__.py"', pyproject_text)

@@ -7,15 +7,21 @@ from pathlib import Path
 from ..core.files import write_json
 from ..core.http import fetch_binary
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
+from .shared.context_exports import (
+    write_context_points_csv,
+    write_context_points_geojson,
+)
 from .sources.landclim.catalog import (
     LANDCLIM_DATASET_METADATA,
     LandClimRawAssets,
     build_landclim_raw_asset_summaries,
     inspect_landclim_ii_archive,
-    resolve_landclim_asset_urls as _resolve_landclim_asset_urls,
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
     validate_landclim_raw_asset,
+)
+from .sources.landclim.catalog import (
+    resolve_landclim_asset_urls as _resolve_landclim_asset_urls,
 )
 from .sources.landclim.grid import (
     LANDCLIM_GRID_LAYER_KEY,
@@ -31,7 +37,6 @@ from .sources.landclim.sites import (
     landclim_ii_site_records,
     parse_coordinate,
 )
-from .shared.context_exports import write_context_points_csv, write_context_points_geojson
 
 
 @dataclass(frozen=True)
@@ -60,9 +65,15 @@ def collect_landclim_data(
 
     raw_assets = download_landclim_raw_assets(raw_dir)
     raw_paths = raw_assets.paths
-    landclim_ii_archive_summary = inspect_landclim_ii_archive(raw_paths["landclim_ii_reveals_results.zip"])
-    site_records = build_landclim_site_records(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
-    grid_geojson = build_landclim_grid_geojson(raw_paths, bbox=bbox, country_boundaries=country_boundaries)
+    landclim_ii_archive_summary = inspect_landclim_ii_archive(
+        raw_paths["landclim_ii_reveals_results.zip"]
+    )
+    site_records = build_landclim_site_records(
+        raw_paths, bbox=bbox, country_boundaries=country_boundaries
+    )
+    grid_geojson = build_landclim_grid_geojson(
+        raw_paths, bbox=bbox, country_boundaries=country_boundaries
+    )
 
     raw_manifest_path = raw_dir / "landclim_sources.json"
     write_json(
@@ -97,7 +108,9 @@ def collect_landclim_data(
                     "archive_summary": landclim_ii_archive_summary,
                 },
             ],
-            "assets": build_landclim_raw_asset_summaries(raw_paths, raw_assets.asset_urls),
+            "assets": build_landclim_raw_asset_summaries(
+                raw_paths, raw_assets.asset_urls
+            ),
         },
     )
 

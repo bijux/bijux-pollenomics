@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 POLYGON_LAYER_STYLES = {
     "landclim-reveals-grid": {
         "fill": "rgba(132, 204, 22, 0.16)",

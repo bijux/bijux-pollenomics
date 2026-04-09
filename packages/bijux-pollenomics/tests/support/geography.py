@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 NORDIC_TEST_BBOX = (4.0, 54.0, 35.0, 72.0)
 
 
@@ -19,7 +18,15 @@ def rectangular_country_boundaries(
                 {
                     "geometry": {
                         "type": "Polygon",
-                        "coordinates": [[[west, south], [east, south], [east, north], [west, north], [west, south]]],
+                        "coordinates": [
+                            [
+                                [west, south],
+                                [east, south],
+                                [east, north],
+                                [west, north],
+                                [west, south],
+                            ]
+                        ],
                     }
                 }
             ]

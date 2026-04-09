@@ -1,6 +1,10 @@
 from __future__ import annotations
 
-from ...core.bp_time import build_bp_interval_label, derive_bp_interval_from_mean_and_stddev, midpoint_bp_year
+from ...core.bp_time import (
+    build_bp_interval_label,
+    derive_bp_interval_from_mean_and_stddev,
+    midpoint_bp_year,
+)
 from ..models import SchemaError
 from ..shared.text import clean_text
 
@@ -32,7 +36,9 @@ def resolve_schema(fieldnames: list[str]) -> dict[str, str | None]:
         ),
         "full_date": find_column(fieldnames, "Full Date"),
         "date_mean_bp": find_column(fieldnames, "Date mean in BP"),
-        "date_stddev_bp": find_optional_column(fieldnames, "Date standard deviation in BP"),
+        "date_stddev_bp": find_optional_column(
+            fieldnames, "Date standard deviation in BP"
+        ),
         "data_type": find_column(fieldnames, "Data type"),
         "molecular_sex": find_column(fieldnames, "Molecular Sex"),
     }
@@ -61,7 +67,9 @@ def find_optional_column(fieldnames: list[str], *prefixes: str) -> str | None:
         return None
 
 
-def sample_time_interval(row: dict[str, str], schema: dict[str, str | None]) -> tuple[int, int] | None:
+def sample_time_interval(
+    row: dict[str, str], schema: dict[str, str | None]
+) -> tuple[int, int] | None:
     """Derive one AADR BP interval from the row's mean and standard deviation."""
     return derive_bp_interval_from_mean_and_stddev(
         row.get(schema["date_mean_bp"], ""),

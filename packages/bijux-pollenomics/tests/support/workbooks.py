@@ -28,7 +28,9 @@ def write_landclim_ii_zip(
             means_name = f"LANDCLIMII.RV.means.JUN2021/TW{time_window_index}.RV.estimates.jun21.csv"
             archive.writestr(
                 means_name,
-                populated_buffer.getvalue() if time_window_index == 1 else empty_buffer.getvalue(),
+                populated_buffer.getvalue()
+                if time_window_index == 1
+                else empty_buffer.getvalue(),
             )
             if include_standard_errors:
                 standard_errors_name = (
@@ -57,7 +59,9 @@ def write_xlsx(path: Path, sheets: dict[str, list[list[object]]]) -> None:
                     continue
                 reference = f"{column_letters(column_number)}{row_number}"
                 if isinstance(value, bool):
-                    cells.append(f'<c r="{reference}" t="b"><v>{"1" if value else "0"}</v></c>')
+                    cells.append(
+                        f'<c r="{reference}" t="b"><v>{"1" if value else "0"}</v></c>'
+                    )
                 elif isinstance(value, (int, float)):
                     cells.append(f'<c r="{reference}"><v>{value}</v></c>')
                 else:
@@ -65,22 +69,26 @@ def write_xlsx(path: Path, sheets: dict[str, list[list[object]]]) -> None:
                     if text not in shared_string_index:
                         shared_string_index[text] = len(shared_strings)
                         shared_strings.append(text)
-                    cells.append(f'<c r="{reference}" t="s"><v>{shared_string_index[text]}</v></c>')
+                    cells.append(
+                        f'<c r="{reference}" t="s"><v>{shared_string_index[text]}</v></c>'
+                    )
             cells_by_row.append(f'<row r="{row_number}">{"".join(cells)}</row>')
 
         worksheet_documents[f"xl/worksheets/sheet{sheet_number}.xml"] = (
             '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
             '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
-            f'<sheetData>{"".join(cells_by_row)}</sheetData>'
+            f"<sheetData>{''.join(cells_by_row)}</sheetData>"
             "</worksheet>"
         )
         relationships.append(
-            '<Relationship '
+            "<Relationship "
             f'Id="rId{sheet_number}" '
             'Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" '
             f'Target="worksheets/sheet{sheet_number}.xml"/>'
         )
-        workbook_sheets.append(f'<sheet name="{sheet_name}" sheetId="{sheet_number}" r:id="rId{sheet_number}"/>')
+        workbook_sheets.append(
+            f'<sheet name="{sheet_name}" sheetId="{sheet_number}" r:id="rId{sheet_number}"/>'
+        )
 
     shared_strings_xml = (
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
@@ -93,7 +101,7 @@ def write_xlsx(path: Path, sheets: dict[str, list[list[object]]]) -> None:
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
         '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
         'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
-        f'<sheets>{"".join(workbook_sheets)}</sheets>'
+        f"<sheets>{''.join(workbook_sheets)}</sheets>"
         "</workbook>"
     )
     relationships_xml = (

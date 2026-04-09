@@ -62,7 +62,7 @@ def fetch_sead_rows_by_ids(
     unique_ids = sorted({int(value) for value in ids})
     rows: list[dict[str, object]] = []
     for start in range(0, len(unique_ids), SEAD_FILTER_BATCH_SIZE):
-        batch = unique_ids[start:start + SEAD_FILTER_BATCH_SIZE]
+        batch = unique_ids[start : start + SEAD_FILTER_BATCH_SIZE]
         rows.extend(
             fetch_sead_rows(
                 table_name,

@@ -11,7 +11,9 @@ def clean_optional_text(value: object) -> str:
 
 def slugify(value: str) -> str:
     """Convert a label into a stable file slug."""
-    slug = "".join(character.lower() if character.isalnum() else "-" for character in value)
+    slug = "".join(
+        character.lower() if character.isalnum() else "-" for character in value
+    )
     while "--" in slug:
         slug = slug.replace("--", "-")
     return slug.strip("-")

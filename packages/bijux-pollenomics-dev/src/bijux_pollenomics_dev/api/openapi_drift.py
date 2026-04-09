@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
 
 import yaml
 
@@ -15,7 +15,9 @@ def _load_schema(text: str) -> dict:
 
 def _git_show(repo_root: Path, path: str) -> str | None:
     try:
-        return subprocess.check_output(["git", "-C", str(repo_root), "show", f"HEAD~1:{path}"], text=True)
+        return subprocess.check_output(
+            ["git", "-C", str(repo_root), "show", f"HEAD~1:{path}"], text=True
+        )
     except Exception:
         return None
 
@@ -45,7 +47,9 @@ def run(repo_root: Path) -> int:
         if not previous_text:
             continue
         previous_schema = _load_schema(previous_text)
-        removed_fields = _extract_fields(previous_schema) - _extract_fields(current_schema)
+        removed_fields = _extract_fields(previous_schema) - _extract_fields(
+            current_schema
+        )
         if not removed_fields:
             continue
         current_version = (current_schema.get("info") or {}).get("version")

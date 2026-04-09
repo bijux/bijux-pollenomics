@@ -17,7 +17,9 @@ def build_map_document_payload(
     escape_html_fn,
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
-    state = build_map_document_state(point_layers=point_layers, polygon_layers=polygon_layers)
+    state = build_map_document_state(
+        point_layers=point_layers, polygon_layers=polygon_layers
+    )
     return {
         "__TITLE__": escape_html_fn(title),
         "__VERSION__": escape_html_fn(version),

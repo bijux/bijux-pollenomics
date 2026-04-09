@@ -18,7 +18,9 @@ def resolve_country_boundaries(
     load_country_boundaries: Callable[[Path], dict[str, dict[str, object]] | None],
 ) -> tuple[dict[str, dict[str, object]] | None, str | None]:
     """Resolve the country-boundary set needed by context collectors."""
-    need_boundaries = any(source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS))
+    need_boundaries = any(
+        source in selected_sources for source in ("boundaries", *CONTEXT_SOURCE_SPECS)
+    )
     if not need_boundaries:
         return None, None
     if "boundaries" in selected_sources:

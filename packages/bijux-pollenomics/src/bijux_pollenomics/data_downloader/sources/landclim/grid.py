@@ -1,15 +1,15 @@
 from __future__ import annotations
 
 import csv
-import re
 from io import TextIOWrapper
 from pathlib import Path
+import re
 from zipfile import ZipFile
 
 from ....core.bp_time import mean_bp_year_from_interval
 from ....core.text import clean_optional_text
-from ...spatial import classify_country, point_in_bbox
 from ...shared.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from ...spatial import classify_country, point_in_bbox
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
     LANDCLIM_II_MEANS_DIRECTORY,
@@ -33,7 +33,9 @@ __all__ = [
 
 
 LANDCLIM_GRID_LAYER_KEY = "landclim-reveals-grid"
-GRID_CELL_PATTERN = re.compile(r"(?P<lon>\d+(?:\.\d+)?)°(?P<eastwest>[EW])\s+(?P<lat>\d+(?:\.\d+)?)°(?P<northsouth>[NS])")
+GRID_CELL_PATTERN = re.compile(
+    r"(?P<lon>\d+(?:\.\d+)?)°(?P<eastwest>[EW])\s+(?P<lat>\d+(?:\.\d+)?)°(?P<northsouth>[NS])"
+)
 
 
 def build_landclim_grid_geojson(
@@ -42,7 +44,9 @@ def build_landclim_grid_geojson(
     country_boundaries: dict[str, dict[str, object]],
 ) -> dict[str, object]:
     """Build a merged GeoJSON layer for Nordic LandClim REVEALS grid cells."""
-    quality_by_grid = landclim_ii_quality_lookup(raw_paths["landclim_ii_grid_cell_quality.xlsx"])
+    quality_by_grid = landclim_ii_quality_lookup(
+        raw_paths["landclim_ii_grid_cell_quality.xlsx"]
+    )
     grid_features: dict[str, dict[str, object]] = {}
 
     merge_landclim_i_grid_features(
@@ -75,7 +79,10 @@ def build_landclim_grid_geojson(
         "type": "FeatureCollection",
         "features": [
             finalize_grid_feature(feature)
-            for feature in sorted(grid_features.values(), key=lambda feature: feature["properties"]["record_id"])
+            for feature in sorted(
+                grid_features.values(),
+                key=lambda feature: feature["properties"]["record_id"],
+            )
         ],
     }
 
@@ -116,15 +123,23 @@ def merge_landclim_i_grid_features(
         rows = read_xlsx_sheet_rows(path, sheet_name)
         if len(rows) < 3:
             continue
-        time_window = normalize_landclim_time_window_label(sheet_name.replace("meanLC", ""))
+        time_window = normalize_landclim_time_window_label(
+            sheet_name.replace("meanLC", "")
+        )
         for row in rows[2:]:
             if len(row) < 5 or clean_optional_text(row[2]) == "":
                 continue
             cell_geometry = grid_geometry_from_nw_cell_label(row[2])
             if cell_geometry is None:
                 continue
-            center_longitude = (cell_geometry["coordinates"][0][0][0] + cell_geometry["coordinates"][0][2][0]) / 2
-            center_latitude = (cell_geometry["coordinates"][0][0][1] + cell_geometry["coordinates"][0][2][1]) / 2
+            center_longitude = (
+                cell_geometry["coordinates"][0][0][0]
+                + cell_geometry["coordinates"][0][2][0]
+            ) / 2
+            center_latitude = (
+                cell_geometry["coordinates"][0][0][1]
+                + cell_geometry["coordinates"][0][2][1]
+            ) / 2
             if not point_in_bbox(center_longitude, center_latitude, bbox):
                 continue
             country = resolve_landclim_country(
@@ -135,7 +150,10 @@ def merge_landclim_i_grid_features(
             )
             if not country:
                 continue
-            if not any(clean_optional_text(value) and clean_optional_text(value) != "No data" for value in row[4:]):
+            if not any(
+                clean_optional_text(value) and clean_optional_text(value) != "No data"
+                for value in row[4:]
+            ):
                 continue
 
             record_id = feature_key_from_geometry(cell_geometry)
@@ -167,35 +185,51 @@ def merge_landclim_ii_grid_features(
     """Merge LandClim II grid rows from the REVEALS CSV archive."""
     with ZipFile(zip_path) as archive:
         for name in sorted(archive.namelist()):
-            if not name.startswith(LANDCLIM_II_MEANS_DIRECTORY) or not name.endswith(".csv"):
+            if not name.startswith(LANDCLIM_II_MEANS_DIRECTORY) or not name.endswith(
+                ".csv"
+            ):
                 continue
             time_window = time_window_from_tw_filename(name)
             with archive.open(name) as handle:
                 reader = csv.DictReader(TextIOWrapper(handle, encoding="utf-8"))
                 for row in reader:
-                    center_longitude = parse_float(clean_optional_text(row.get("lonDD")))
+                    center_longitude = parse_float(
+                        clean_optional_text(row.get("lonDD"))
+                    )
                     center_latitude = parse_float(clean_optional_text(row.get("latDD")))
                     if center_longitude is None or center_latitude is None:
                         continue
                     if not point_in_bbox(center_longitude, center_latitude, bbox):
                         continue
-                    country = classify_country(center_longitude, center_latitude, country_boundaries)
+                    country = classify_country(
+                        center_longitude, center_latitude, country_boundaries
+                    )
                     if not country:
                         continue
 
-                    record_id = feature_key_from_center(center_longitude, center_latitude)
+                    record_id = feature_key_from_center(
+                        center_longitude, center_latitude
+                    )
                     feature = features.setdefault(
                         record_id,
                         base_landclim_grid_feature(
                             record_id=record_id,
-                            geometry=grid_geometry_from_center(center_longitude, center_latitude),
+                            geometry=grid_geometry_from_center(
+                                center_longitude, center_latitude
+                            ),
                             country=country,
                             name=f"{center_longitude:.1f}E {center_latitude:.1f}N grid cell",
                         ),
                     )
                     grid_id = clean_optional_text(row.get("LCGRID_ID"))
-                    if grid_id and grid_id in quality_by_grid and time_window in quality_by_grid[grid_id]:
-                        feature.setdefault("_quality_labels", set()).add(quality_by_grid[grid_id][time_window])
+                    if (
+                        grid_id
+                        and grid_id in quality_by_grid
+                        and time_window in quality_by_grid[grid_id]
+                    ):
+                        feature.setdefault("_quality_labels", set()).add(
+                            quality_by_grid[grid_id][time_window]
+                        )
                     add_grid_feature_source(
                         feature,
                         dataset_label="LandClim II REVEALS grids",
@@ -257,10 +291,14 @@ def add_grid_feature_source(
     properties["record_count"] = len(feature["_time_windows"])
     time_windows = sorted(feature["_time_windows"], key=time_window_sort_key)
     time_interval = landclim_time_windows_interval(time_windows)
-    properties["time_start_bp"] = time_interval[0] if time_interval is not None else None
+    properties["time_start_bp"] = (
+        time_interval[0] if time_interval is not None else None
+    )
     properties["time_end_bp"] = time_interval[1] if time_interval is not None else None
     properties["time_mean_bp"] = mean_bp_year_from_interval(time_interval)
-    properties["time_label"] = summarize_time_windows(time_windows) if time_windows else ""
+    properties["time_label"] = (
+        summarize_time_windows(time_windows) if time_windows else ""
+    )
     popup_rows = [
         ("Datasets", ", ".join(sorted(feature["_dataset_labels"]))),
         ("DOIs", ", ".join(sorted_dois)),
@@ -272,16 +310,14 @@ def add_grid_feature_source(
     quality_summary = summarize_quality_labels(feature["_quality_labels"])
     if quality_summary:
         popup_rows.append(("LandClim II quality", quality_summary))
-    properties["popup_rows"] = [{"label": label, "value": value} for label, value in popup_rows if value]
+    properties["popup_rows"] = [
+        {"label": label, "value": value} for label, value in popup_rows if value
+    ]
 
 
 def finalize_grid_feature(feature: dict[str, object]) -> dict[str, object]:
     """Drop internal merge-only keys before GeoJSON export."""
-    return {
-        key: value
-        for key, value in feature.items()
-        if not key.startswith("_")
-    }
+    return {key: value for key, value in feature.items() if not key.startswith("_")}
 
 
 def normalize_landclim_time_window_label(value: str) -> str:
@@ -294,7 +330,9 @@ def normalize_landclim_time_window_label(value: str) -> str:
 
 def summarize_quality_labels(labels: set[str]) -> str:
     """Summarize LandClim II grid quality classes."""
-    ordered = sorted(clean_optional_text(label) for label in labels if clean_optional_text(label))
+    ordered = sorted(
+        clean_optional_text(label) for label in labels if clean_optional_text(label)
+    )
     if not ordered:
         return ""
     quality_map = {
@@ -333,13 +371,15 @@ def grid_geometry_from_nw_cell_label(cell_label: str) -> dict[str, object] | Non
         latitude *= -1
     return {
         "type": "Polygon",
-        "coordinates": [[
-            [longitude, latitude - 1],
-            [longitude + 1, latitude - 1],
-            [longitude + 1, latitude],
-            [longitude, latitude],
-            [longitude, latitude - 1],
-        ]],
+        "coordinates": [
+            [
+                [longitude, latitude - 1],
+                [longitude + 1, latitude - 1],
+                [longitude + 1, latitude],
+                [longitude, latitude],
+                [longitude, latitude - 1],
+            ]
+        ],
     }
 
 
@@ -347,13 +387,15 @@ def grid_geometry_from_center(longitude: float, latitude: float) -> dict[str, ob
     """Build a 1° polygon from a cell center coordinate."""
     return {
         "type": "Polygon",
-        "coordinates": [[
-            [longitude - 0.5, latitude - 0.5],
-            [longitude + 0.5, latitude - 0.5],
-            [longitude + 0.5, latitude + 0.5],
-            [longitude - 0.5, latitude + 0.5],
-            [longitude - 0.5, latitude - 0.5],
-        ]],
+        "coordinates": [
+            [
+                [longitude - 0.5, latitude - 0.5],
+                [longitude + 0.5, latitude - 0.5],
+                [longitude + 0.5, latitude + 0.5],
+                [longitude - 0.5, latitude + 0.5],
+                [longitude - 0.5, latitude - 0.5],
+            ]
+        ],
     }
 
 

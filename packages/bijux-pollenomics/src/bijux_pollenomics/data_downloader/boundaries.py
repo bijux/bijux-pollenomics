@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from datetime import date
 import hashlib
 import json
-from datetime import date
 from pathlib import Path
 
 from ..core.http import fetch_text
@@ -13,10 +13,11 @@ from .sources.boundaries.archive import (
 )
 from .sources.boundaries.store import (
     load_country_boundaries as load_country_boundaries_from_store,
+)
+from .sources.boundaries.store import (
     validate_boundary_collection,
     validate_boundary_manifest,
 )
-
 
 NATURAL_EARTH_VERSION = "5.1.1"
 NATURAL_EARTH_RELEASE_PAGE_URL = "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/"
@@ -46,7 +47,9 @@ def fetch_natural_earth_admin0_payload() -> tuple[dict[str, object], dict[str, o
         "release_page_url": NATURAL_EARTH_RELEASE_PAGE_URL,
         "asset_url": NATURAL_EARTH_ADMIN0_URL,
         "sha256": hashlib.sha256(payload_text.encode("utf-8")).hexdigest(),
-        "feature_count": len(payload.get("features", [])) if isinstance(payload.get("features"), list) else 0,
+        "feature_count": len(payload.get("features", []))
+        if isinstance(payload.get("features"), list)
+        else 0,
         "country_codes": BOUNDARY_CODES,
     }
     return payload, manifest
@@ -103,7 +106,9 @@ def build_country_boundary_collection(
     return {"type": "FeatureCollection", "features": country_features}
 
 
-def collect_boundaries_data(output_root: Path) -> tuple[dict[str, dict[str, object]], BoundariesDataReport]:
+def collect_boundaries_data(
+    output_root: Path,
+) -> tuple[dict[str, dict[str, object]], BoundariesDataReport]:
     """Download and write the Nordic boundary dataset under data/boundaries."""
     global_boundaries, source_manifest = fetch_natural_earth_admin0_payload()
     country_boundaries = {

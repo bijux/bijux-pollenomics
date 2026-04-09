@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import csv
-import hashlib
-import re
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
+import re
 from zipfile import ZipFile
 
 from ....core.http import fetch_binary, fetch_text
@@ -124,7 +124,8 @@ def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
     standard_error_files = sorted(
         name
         for name in names
-        if name.startswith(LANDCLIM_II_STANDARD_ERRORS_DIRECTORY) and name.endswith(".csv")
+        if name.startswith(LANDCLIM_II_STANDARD_ERRORS_DIRECTORY)
+        and name.endswith(".csv")
     )
     expected_time_windows = [
         time_window_from_tw_filename(f"TW{time_window_index}.RV.estimates.jun21.csv")
@@ -139,9 +140,13 @@ def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
         key=time_window_sort_key,
     )
     if mean_time_windows != expected_time_windows:
-        raise ValueError("LandClim II archive is missing documented mean time-window CSV files")
+        raise ValueError(
+            "LandClim II archive is missing documented mean time-window CSV files"
+        )
     if standard_error_time_windows != expected_time_windows:
-        raise ValueError("LandClim II archive is missing documented standard-error time-window CSV files")
+        raise ValueError(
+            "LandClim II archive is missing documented standard-error time-window CSV files"
+        )
     return {
         "path": path.name,
         "mean_file_count": len(mean_files),
@@ -153,24 +158,40 @@ def inspect_landclim_ii_archive(path: Path) -> dict[str, object]:
 def resolve_landclim_asset_urls() -> dict[str, str]:
     """Resolve all required LandClim raw asset URLs from the official PANGAEA records."""
     asset_urls: dict[str, str] = {}
-    asset_urls.update(resolve_landclim_marquer_asset_urls(fetch_text(LANDCLIM_MARQUER_DATASET_PAGE)))
-    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_I_DATASET_PAGE}?format=textfile")))
-    asset_urls.update(resolve_landclim_tabular_asset_urls(fetch_text(f"{LANDCLIM_II_DATASET_PAGE}?format=textfile")))
+    asset_urls.update(
+        resolve_landclim_marquer_asset_urls(fetch_text(LANDCLIM_MARQUER_DATASET_PAGE))
+    )
+    asset_urls.update(
+        resolve_landclim_tabular_asset_urls(
+            fetch_text(f"{LANDCLIM_I_DATASET_PAGE}?format=textfile")
+        )
+    )
+    asset_urls.update(
+        resolve_landclim_tabular_asset_urls(
+            fetch_text(f"{LANDCLIM_II_DATASET_PAGE}?format=textfile")
+        )
+    )
     missing = sorted(
         expected_filename
         for expected_filename in LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.values()
         if expected_filename not in asset_urls
     )
     if missing:
-        raise ValueError(f"LandClim PANGAEA records are missing required assets: {', '.join(missing)}")
+        raise ValueError(
+            f"LandClim PANGAEA records are missing required assets: {', '.join(missing)}"
+        )
     return asset_urls
 
 
 def resolve_landclim_marquer_asset_urls(page_html: str) -> dict[str, str]:
     """Extract the Marquer workbook download URL from the PANGAEA landing page."""
-    match = re.search(r'id="static-download-link"[^>]+href="([^"]+MARQUER_QSR2017\.xlsx)"', page_html)
+    match = re.search(
+        r'id="static-download-link"[^>]+href="([^"]+MARQUER_QSR2017\.xlsx)"', page_html
+    )
     if match is None:
-        raise ValueError("Could not resolve the Marquer workbook from the PANGAEA landing page")
+        raise ValueError(
+            "Could not resolve the Marquer workbook from the PANGAEA landing page"
+        )
     return {"marquer_2017_reveals_taxa_grid_cells.xlsx": match.group(1)}
 
 
@@ -183,15 +204,27 @@ def resolve_landclim_tabular_asset_urls(textfile: str) -> dict[str, str]:
     url_field = "URL file" if "URL file" in index else ""
     asset_urls: dict[str, str] = {}
     for row in rows[1:]:
-        source_name = clean_optional_text(row[index[filename_field]]) if index[filename_field] < len(row) else ""
+        source_name = (
+            clean_optional_text(row[index[filename_field]])
+            if index[filename_field] < len(row)
+            else ""
+        )
         if not source_name:
             continue
-        source_filename = source_name if "." in source_name else f"{source_name}.{clean_optional_text(row[index.get('File format', -1)]).casefold()}"
+        source_filename = (
+            source_name
+            if "." in source_name
+            else f"{source_name}.{clean_optional_text(row[index.get('File format', -1)]).casefold()}"
+        )
         local_filename = LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME.get(source_filename)
         if not local_filename:
             continue
         if url_field:
-            url = clean_optional_text(row[index[url_field]]) if index[url_field] < len(row) else ""
+            url = (
+                clean_optional_text(row[index[url_field]])
+                if index[url_field] < len(row)
+                else ""
+            )
         else:
             url = build_landclim_ii_file_url(source_filename)
         asset_urls[local_filename] = url
@@ -202,7 +235,9 @@ def parse_pangaea_textfile_rows(textfile: str) -> list[list[str]]:
     """Parse the data matrix from a PANGAEA `format=textfile` response."""
     marker = "*/"
     if marker not in textfile:
-        raise ValueError("Unexpected PANGAEA textfile response: missing data matrix marker")
+        raise ValueError(
+            "Unexpected PANGAEA textfile response: missing data matrix marker"
+        )
     data_text = textfile.split(marker, 1)[1].strip()
     if not data_text:
         raise ValueError("Unexpected PANGAEA textfile response: empty data matrix")

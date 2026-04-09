@@ -3,16 +3,24 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable
 
+from ..models import SampleRecord
 from .artifacts import stage_context_point_layers, stage_context_polygon_layers
-from .points import build_aadr_point_layer, build_external_point_layer, build_fieldwork_point_layer
+from .points import (
+    build_aadr_point_layer,
+    build_external_point_layer,
+    build_fieldwork_point_layer,
+)
 from .polygons import (
     build_country_boundary_layer,
     build_density_polygon_layer,
     build_external_polygon_layer,
 )
-from ..models import SampleRecord
 
-__all__ = ["build_context_layers", "build_external_point_layer", "build_external_polygon_layer"]
+__all__ = [
+    "build_context_layers",
+    "build_external_point_layer",
+    "build_external_polygon_layer",
+]
 
 
 def build_context_layers(

@@ -3,21 +3,28 @@ from __future__ import annotations
 import contextlib
 import io
 import os
+from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics import __version__
 from bijux_pollenomics.cli import build_parser, main
-from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE, DEFAULT_PUBLISHED_COUNTRIES
+from bijux_pollenomics.config import (
+    DEFAULT_AADR_VERSION,
+    DEFAULT_ATLAS_SLUG,
+    DEFAULT_ATLAS_TITLE,
+    DEFAULT_PUBLISHED_COUNTRIES,
+)
+
 from tests.support.aadr import AADR_HEADER
 
-
 REPO_ROOT = Path(__file__).resolve().parents[2]
-EDITABLE_CONSOLE_SCRIPT = REPO_ROOT / "artifacts" / ".venv" / "bin" / "bijux-pollenomics"
+EDITABLE_CONSOLE_SCRIPT = (
+    REPO_ROOT / "artifacts" / ".venv" / "bin" / "bijux-pollenomics"
+)
 
 
 class CliTests(unittest.TestCase):
@@ -33,7 +40,9 @@ class CliTests(unittest.TestCase):
         if interpreter_sibling.exists():
             return interpreter_sibling
 
-        self.skipTest("Installed console script not found. Run `make install` before installed-script checks.")
+        self.skipTest(
+            "Installed console script not found. Run `make install` before installed-script checks."
+        )
 
     def test_module_entrypoint_displays_help(self) -> None:
         environment = os.environ.copy()
@@ -94,7 +103,9 @@ class CliTests(unittest.TestCase):
 
         self.assertEqual(result.returncode, 0)
         self.assertIn("Accepted values:", result.stdout)
-        self.assertIn("all, aadr, boundaries, landclim, neotoma, raa, sead.", result.stdout)
+        self.assertIn(
+            "all, aadr, boundaries, landclim, neotoma, raa, sead.", result.stdout
+        )
 
     def test_parser_defaults_follow_project_settings(self) -> None:
         parser = build_parser()
@@ -246,7 +257,9 @@ class CliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             stdout = io.StringIO()
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+            with patch(
+                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+            ) as download_aadr:
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 with contextlib.redirect_stdout(stdout):
                     exit_code = main(
@@ -266,7 +279,9 @@ class CliTests(unittest.TestCase):
     def test_collect_data_command_accepts_case_insensitive_source_names(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+            with patch(
+                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+            ) as download_aadr:
                 download_aadr.return_value.downloaded_files = ()
 
                 exit_code = main(

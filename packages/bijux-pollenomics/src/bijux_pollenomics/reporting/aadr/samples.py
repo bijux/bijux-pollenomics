@@ -1,15 +1,20 @@
 from __future__ import annotations
 
-import csv
 from collections import Counter
 from collections.abc import Iterable
+import csv
 from pathlib import Path
 
 from ...core.bp_time import build_bp_interval_label, midpoint_bp_year
 from ..models import SampleRecord
 from ..shared.merge import pick_value
 from ..shared.text import clean_text
-from .schema import resolve_schema, sample_time_interval, sample_time_label, sample_time_mean
+from .schema import (
+    resolve_schema,
+    sample_time_interval,
+    sample_time_label,
+    sample_time_mean,
+)
 
 __all__ = [
     "discover_anno_files",
@@ -18,7 +23,9 @@ __all__ = [
 ]
 
 
-def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRecord], Counter[str]]:
+def load_country_samples(
+    version_dir: Path, country: str
+) -> tuple[list[SampleRecord], Counter[str]]:
     """Load and deduplicate all samples for a country across every anno file in a version directory."""
     combined: dict[str, SampleRecord] = {}
     dataset_counts: Counter[str] = Counter()
@@ -38,7 +45,11 @@ def load_country_samples(version_dir: Path, country: str) -> tuple[list[SampleRe
 
     samples = sorted(
         combined.values(),
-        key=lambda sample: (sample.locality.casefold(), sample.master_id.casefold(), sample.genetic_id.casefold()),
+        key=lambda sample: (
+            sample.locality.casefold(),
+            sample.master_id.casefold(),
+            sample.genetic_id.casefold(),
+        ),
     )
     return samples, dataset_counts
 
@@ -72,14 +83,17 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
                 genetic_id=genetic_id,
                 master_id=clean_text(row.get(schema["master_id"], "")),
                 group_id=clean_text(row.get(schema["group_id"], "")),
-                locality=clean_text(row.get(schema["locality"], "")) or "Unspecified locality",
+                locality=clean_text(row.get(schema["locality"], ""))
+                or "Unspecified locality",
                 political_entity=clean_text(row.get(schema["political_entity"], "")),
                 latitude=latitude,
                 longitude=longitude,
                 latitude_text=latitude_text,
                 longitude_text=longitude_text,
                 publication=clean_text(row.get(schema["publication"], "")),
-                year_first_published=clean_text(row.get(schema["year_first_published"], "")),
+                year_first_published=clean_text(
+                    row.get(schema["year_first_published"], "")
+                ),
                 full_date=clean_text(row.get(schema["full_date"], "")),
                 date_mean_bp=clean_text(row.get(schema["date_mean_bp"], "")),
                 date_stddev_bp=clean_text(row.get(schema["date_stddev_bp"], "")),
@@ -93,7 +107,9 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
             )
 
 
-def merge_duplicate_samples(existing: SampleRecord, sample: SampleRecord) -> SampleRecord:
+def merge_duplicate_samples(
+    existing: SampleRecord, sample: SampleRecord
+) -> SampleRecord:
     """Merge duplicate AADR sample rows across datasets."""
     merged_datasets = tuple(sorted(set(existing.datasets) | set(sample.datasets)))
     merged_interval = merge_sample_time_interval(existing, sample)
@@ -108,7 +124,9 @@ def merge_duplicate_samples(existing: SampleRecord, sample: SampleRecord) -> Sam
         latitude_text=pick_value(existing.latitude_text, sample.latitude_text),
         longitude_text=pick_value(existing.longitude_text, sample.longitude_text),
         publication=pick_value(existing.publication, sample.publication),
-        year_first_published=pick_value(existing.year_first_published, sample.year_first_published),
+        year_first_published=pick_value(
+            existing.year_first_published, sample.year_first_published
+        ),
         full_date=pick_value(existing.full_date, sample.full_date),
         date_mean_bp=pick_value(existing.date_mean_bp, sample.date_mean_bp),
         date_stddev_bp=pick_value(existing.date_stddev_bp, sample.date_stddev_bp),
@@ -122,13 +140,19 @@ def merge_duplicate_samples(existing: SampleRecord, sample: SampleRecord) -> Sam
     )
 
 
-def merge_sample_time_interval(left: SampleRecord, right: SampleRecord) -> tuple[int, int] | None:
+def merge_sample_time_interval(
+    left: SampleRecord, right: SampleRecord
+) -> tuple[int, int] | None:
     """Merge two sample intervals into a single BP span."""
     intervals = [
         interval
         for interval in (
-            (left.time_start_bp, left.time_end_bp) if left.time_start_bp is not None and left.time_end_bp is not None else None,
-            (right.time_start_bp, right.time_end_bp) if right.time_start_bp is not None and right.time_end_bp is not None else None,
+            (left.time_start_bp, left.time_end_bp)
+            if left.time_start_bp is not None and left.time_end_bp is not None
+            else None,
+            (right.time_start_bp, right.time_end_bp)
+            if right.time_start_bp is not None and right.time_end_bp is not None
+            else None,
         )
         if interval is not None
     ]

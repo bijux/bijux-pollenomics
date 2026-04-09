@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ...core.bp_time import build_bp_interval_label, midpoint_bp_year, parse_numeric_bp_year
+from ...core.bp_time import (
+    build_bp_interval_label,
+    midpoint_bp_year,
+    parse_numeric_bp_year,
+)
 
 __all__ = [
     "extract_layer_identity",
@@ -59,7 +63,9 @@ def validate_feature_collection(
     raw_features = geojson.get("features", [])
     if not isinstance(raw_features, list) or not raw_features:
         raise ValueError(f"{source_label} did not contain any features")
-    normalized_features = [feature for feature in raw_features if isinstance(feature, dict)]
+    normalized_features = [
+        feature for feature in raw_features if isinstance(feature, dict)
+    ]
     if len(normalized_features) != len(raw_features):
         raise ValueError(f"{source_label} contains non-object features")
     return normalized_features

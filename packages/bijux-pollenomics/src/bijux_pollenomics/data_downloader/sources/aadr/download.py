@@ -4,7 +4,11 @@ import hashlib
 from pathlib import Path
 from typing import Callable
 
-from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DOWNLOAD_URL_TEMPLATE, REQUEST_HEADERS
+from .constants import (
+    AADR_DATAVERSE_PERSISTENT_ID,
+    AADR_DOWNLOAD_URL_TEMPLATE,
+    REQUEST_HEADERS,
+)
 from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
 from .resolution import resolve_aadr_release
 
@@ -22,7 +26,9 @@ def download_aadr_anno_files(
     version_dir = output_root / version
     version_dir.mkdir(parents=True, exist_ok=True)
 
-    resolution = resolve_aadr_release(version=version, metadata=fetch_release_history_metadata_fn())
+    resolution = resolve_aadr_release(
+        version=version, metadata=fetch_release_history_metadata_fn()
+    )
     downloaded_files: list[Path] = []
     for anno_file in resolution.anno_files:
         dataset_dir = version_dir / anno_file.dataset_name
@@ -88,7 +94,9 @@ def write_release_manifest(
             "dataverse_version_minor_number": dataset_version.get("versionMinorNumber"),
             "release_time": dataset_version.get("releaseTime"),
             "last_update_time": dataset_version.get("lastUpdateTime"),
-            "downloaded_files": [str(file.relative_to(path.parent)) for file in downloaded_files],
+            "downloaded_files": [
+                str(file.relative_to(path.parent)) for file in downloaded_files
+            ],
             "anno_files": [
                 {
                     "dataset_name": file.dataset_name,

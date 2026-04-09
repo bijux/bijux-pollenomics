@@ -11,18 +11,24 @@ from .constants import (
 )
 from .download import (
     download_aadr_anno_files as _download_aadr_anno_files,
+)
+from .download import (
     validate_downloaded_anno_payload,
+)
+from .download import (
     write_release_manifest as _write_release_manifest,
 )
 from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
 from .resolution import (
     dataset_directory_name,
     extract_anno_files_from_release,
-    fetch_release_history_metadata as _fetch_release_history_metadata,
     iter_release_versions,
     resolve_aadr_release,
     resolve_anno_files,
     validate_anno_files,
+)
+from .resolution import (
+    fetch_release_history_metadata as _fetch_release_history_metadata,
 )
 
 
@@ -57,6 +63,7 @@ def download_aadr_anno_files(output_root: Path, version: str) -> AadrAnnoDownloa
         fetch_release_history_metadata_fn=fetch_release_history_metadata,
         write_json_fn=write_json,
     )
+
 
 __all__ = [
     "AADR_DATAVERSE_API_URL",

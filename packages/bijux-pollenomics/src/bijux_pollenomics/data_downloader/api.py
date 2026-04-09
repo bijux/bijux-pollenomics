@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
 from .models import ContextDataReport, DataCollectionSummary
+from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
 __all__ = [
     "AadrAnnoDownloadReport",
@@ -18,7 +18,10 @@ __all__ = [
 
 def collect_context_data(output_root: Path) -> ContextDataReport:
     """Collect the tracked context sources into the project data tree."""
-    report = collect_data(output_root=Path(output_root), sources=("boundaries", "landclim", "neotoma", "sead", "raa"))
+    report = collect_data(
+        output_root=Path(output_root),
+        sources=("boundaries", "landclim", "neotoma", "sead", "raa"),
+    )
     return ContextDataReport(
         generated_on=report.generated_on,
         output_root=report.output_root,

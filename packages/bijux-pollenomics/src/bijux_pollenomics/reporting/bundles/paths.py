@@ -37,7 +37,9 @@ class AtlasBundlePaths:
     summary_json_path: Path
 
 
-def build_country_bundle_paths(output_dir: Path, country: str, version: str) -> CountryBundlePaths:
+def build_country_bundle_paths(
+    output_dir: Path, country: str, version: str
+) -> CountryBundlePaths:
     """Build the stable artifact paths for one country bundle."""
     output_dir = Path(output_dir)
     country_slug = slugify(country)
@@ -47,14 +49,18 @@ def build_country_bundle_paths(output_dir: Path, country: str, version: str) -> 
         version=version,
         readme_path=output_dir / "README.md",
         samples_csv_path=output_dir / f"{country_slug}_aadr_{version}_samples.csv",
-        localities_csv_path=output_dir / f"{country_slug}_aadr_{version}_localities.csv",
-        samples_geojson_path=output_dir / f"{country_slug}_aadr_{version}_samples.geojson",
+        localities_csv_path=output_dir
+        / f"{country_slug}_aadr_{version}_localities.csv",
+        samples_geojson_path=output_dir
+        / f"{country_slug}_aadr_{version}_samples.geojson",
         samples_markdown_path=output_dir / f"{country_slug}_aadr_{version}_samples.md",
         summary_json_path=output_dir / f"{country_slug}_aadr_{version}_summary.json",
     )
 
 
-def build_atlas_bundle_paths(output_dir: Path, slug: str, version: str) -> AtlasBundlePaths:
+def build_atlas_bundle_paths(
+    output_dir: Path, slug: str, version: str
+) -> AtlasBundlePaths:
     """Build the stable artifact paths for one atlas bundle."""
     output_dir = Path(output_dir)
     atlas_slug = slugify(slug)

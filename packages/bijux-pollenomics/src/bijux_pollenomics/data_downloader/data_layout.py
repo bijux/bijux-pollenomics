@@ -2,9 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..core.files import write_text
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
-
+from ..core.files import write_text
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 
@@ -60,4 +59,7 @@ def build_source_output_roots(output_root: Path, version: str) -> dict[str, str]
 
 def write_data_directory_readme(output_root: Path, version: str) -> None:
     """Write the stable README that documents the generated data tree."""
-    write_text(Path(output_root) / "README.md", render_data_root_readme_for(Path(output_root), version))
+    write_text(
+        Path(output_root) / "README.md",
+        render_data_root_readme_for(Path(output_root), version),
+    )

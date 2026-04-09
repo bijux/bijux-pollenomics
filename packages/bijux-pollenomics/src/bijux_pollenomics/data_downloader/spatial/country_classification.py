@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from itertools import pairwise
 import math
-
 
 COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE = 0.15
 
@@ -15,13 +15,17 @@ def classify_country(
     for country, payload in country_boundaries.items():
         for feature in payload.get("features", []):
             geometry = feature.get("geometry", {})
-            if isinstance(geometry, dict) and point_in_geometry(longitude, latitude, geometry):
+            if isinstance(geometry, dict) and point_in_geometry(
+                longitude, latitude, geometry
+            ):
                 return country
 
     for country, payload in country_boundaries.items():
         for feature in payload.get("features", []):
             geometry = feature.get("geometry", {})
-            if isinstance(geometry, dict) and point_in_geometry_ignoring_holes(longitude, latitude, geometry):
+            if isinstance(geometry, dict) and point_in_geometry_ignoring_holes(
+                longitude, latitude, geometry
+            ):
                 return country
 
     nearest_country = nearest_country_by_boundary_distance(
@@ -35,25 +39,33 @@ def classify_country(
     return ""
 
 
-def point_in_geometry(longitude: float, latitude: float, geometry: dict[str, object]) -> bool:
+def point_in_geometry(
+    longitude: float, latitude: float, geometry: dict[str, object]
+) -> bool:
     """Check whether a point falls inside a GeoJSON Polygon or MultiPolygon."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
         return point_in_polygon(longitude, latitude, coordinates)
     if geometry_type == "MultiPolygon":
-        return any(point_in_polygon(longitude, latitude, polygon) for polygon in coordinates)
+        return any(
+            point_in_polygon(longitude, latitude, polygon) for polygon in coordinates
+        )
     return False
 
 
-def point_in_geometry_ignoring_holes(longitude: float, latitude: float, geometry: dict[str, object]) -> bool:
+def point_in_geometry_ignoring_holes(
+    longitude: float, latitude: float, geometry: dict[str, object]
+) -> bool:
     """Check containment using only polygon outer rings for country-assignment fallbacks."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
         return point_in_outer_ring(longitude, latitude, coordinates)
     if geometry_type == "MultiPolygon":
-        return any(point_in_outer_ring(longitude, latitude, polygon) for polygon in coordinates)
+        return any(
+            point_in_outer_ring(longitude, latitude, polygon) for polygon in coordinates
+        )
     return False
 
 
@@ -69,7 +81,9 @@ def point_in_polygon(longitude: float, latitude: float, polygon: list[object]) -
     return True
 
 
-def point_in_outer_ring(longitude: float, latitude: float, polygon: list[object]) -> bool:
+def point_in_outer_ring(
+    longitude: float, latitude: float, polygon: list[object]
+) -> bool:
     """Check whether a point lies inside the outer ring of one polygon."""
     if not polygon:
         return False
@@ -115,7 +129,9 @@ def nearest_country_by_boundary_distance(
     return ""
 
 
-def geometry_boundary_distance(longitude: float, latitude: float, geometry: dict[str, object]) -> float:
+def geometry_boundary_distance(
+    longitude: float, latitude: float, geometry: dict[str, object]
+) -> float:
     """Return the minimum distance from a point to a polygon or multipolygon boundary."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
@@ -131,7 +147,9 @@ def geometry_boundary_distance(longitude: float, latitude: float, geometry: dict
     return math.inf
 
 
-def polygon_boundary_distance(longitude: float, latitude: float, polygon: list[object]) -> float:
+def polygon_boundary_distance(
+    longitude: float, latitude: float, polygon: list[object]
+) -> float:
     """Return the minimum distance from a point to any ring in one polygon."""
     distances = [
         ring_boundary_distance(longitude, latitude, ring)
@@ -141,7 +159,9 @@ def polygon_boundary_distance(longitude: float, latitude: float, polygon: list[o
     return min(distances) if distances else math.inf
 
 
-def ring_boundary_distance(longitude: float, latitude: float, ring: list[object]) -> float:
+def ring_boundary_distance(
+    longitude: float, latitude: float, ring: list[object]
+) -> float:
     """Return the minimum distance from a point to one linear-ring edge."""
     if len(ring) < 2:
         return math.inf
@@ -154,7 +174,7 @@ def ring_boundary_distance(longitude: float, latitude: float, ring: list[object]
             float(end[0]),
             float(end[1]),
         )
-        for start, end in zip(ring, ring[1:])
+        for start, end in pairwise(ring)
         if len(start) >= 2 and len(end) >= 2
     )
 

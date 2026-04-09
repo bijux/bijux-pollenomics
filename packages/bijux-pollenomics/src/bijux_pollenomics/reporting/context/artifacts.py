@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-import shutil
 from pathlib import Path
+import shutil
 from typing import Callable
 
 from ...data_downloader.contracts import (
@@ -29,9 +29,13 @@ def stage_context_point_layers(
         source_path = contract.path_under(context_root)
         if not source_path.exists():
             continue
-        destination_path = stage_context_artifact(source_path=source_path, output_dir=output_dir)
+        destination_path = stage_context_artifact(
+            source_path=source_path, output_dir=output_dir
+        )
         geojson = load_context_geojson(destination_path)
-        point_layers.append(build_external_point_layer_fn(geojson, source_path=destination_path))
+        point_layers.append(
+            build_external_point_layer_fn(geojson, source_path=destination_path)
+        )
         extra_artifacts.append((contract.label, destination_path.name))
     return point_layers, extra_artifacts
 
@@ -50,27 +54,41 @@ def stage_context_polygon_layers(
 
     boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
     if boundary_path.exists():
-        destination_path = stage_context_artifact(source_path=boundary_path, output_dir=output_dir)
-        polygon_layers.append(build_country_boundary_layer_fn(load_context_geojson(destination_path)))
+        destination_path = stage_context_artifact(
+            source_path=boundary_path, output_dir=output_dir
+        )
+        polygon_layers.append(
+            build_country_boundary_layer_fn(load_context_geojson(destination_path))
+        )
         extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
     landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
     if landclim_grid_path.exists():
-        destination_path = stage_context_artifact(source_path=landclim_grid_path, output_dir=output_dir)
+        destination_path = stage_context_artifact(
+            source_path=landclim_grid_path, output_dir=output_dir
+        )
         polygon_layers.append(
-            build_external_polygon_layer_fn(load_context_geojson(destination_path), source_path=destination_path)
+            build_external_polygon_layer_fn(
+                load_context_geojson(destination_path), source_path=destination_path
+            )
         )
         extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
 
     archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
     if archaeology_path.exists():
-        destination_path = stage_context_artifact(source_path=archaeology_path, output_dir=output_dir)
+        destination_path = stage_context_artifact(
+            source_path=archaeology_path, output_dir=output_dir
+        )
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
     if archaeology_density_path.exists():
-        destination_path = stage_context_artifact(source_path=archaeology_density_path, output_dir=output_dir)
-        polygon_layers.append(build_density_polygon_layer_fn(load_context_geojson(destination_path)))
+        destination_path = stage_context_artifact(
+            source_path=archaeology_density_path, output_dir=output_dir
+        )
+        polygon_layers.append(
+            build_density_polygon_layer_fn(load_context_geojson(destination_path))
+        )
         extra_artifacts.append((RAA_DENSITY_GEOJSON.label, destination_path.name))
 
     return polygon_layers, extra_artifacts

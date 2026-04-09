@@ -7,21 +7,31 @@ from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL
 from .models import AadrAnnoFile, AadrReleaseResolution
 
 
-def resolve_anno_files(version: str, metadata: dict[str, object]) -> tuple[AadrAnnoFile, ...]:
+def resolve_anno_files(
+    version: str, metadata: dict[str, object]
+) -> tuple[AadrAnnoFile, ...]:
     """Extract one release's public .anno files from the Dataverse version history."""
     return resolve_aadr_release(version=version, metadata=metadata).anno_files
 
 
-def resolve_aadr_release(version: str, metadata: dict[str, object]) -> AadrReleaseResolution:
+def resolve_aadr_release(
+    version: str, metadata: dict[str, object]
+) -> AadrReleaseResolution:
     """Resolve one requested AADR release from the Dataverse version history."""
     version_prefix = f"{version}_"
     for dataset_version in iter_release_versions(metadata):
-        matched_files = extract_anno_files_from_release(dataset_version, version_prefix=version_prefix)
+        matched_files = extract_anno_files_from_release(
+            dataset_version, version_prefix=version_prefix
+        )
         if matched_files:
             return AadrReleaseResolution(
                 version=version,
                 dataset_version=dataset_version,
-                anno_files=tuple(validate_anno_files(sorted(matched_files, key=lambda item: item.dataset_name))),
+                anno_files=tuple(
+                    validate_anno_files(
+                        sorted(matched_files, key=lambda item: item.dataset_name)
+                    )
+                ),
             )
     raise ValueError(
         f"No public .anno files were found for {version} in {AADR_DATAVERSE_PERSISTENT_ID}"
@@ -73,9 +83,13 @@ def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
     seen_dataset_names: set[str] = set()
     for file in files:
         if not file.filename or file.file_id <= 0:
-            raise ValueError("Resolved AADR release includes an invalid public .anno entry")
+            raise ValueError(
+                "Resolved AADR release includes an invalid public .anno entry"
+            )
         if file.dataset_name in seen_dataset_names:
-            raise ValueError(f"Resolved AADR release contains duplicate dataset coverage for {file.dataset_name}")
+            raise ValueError(
+                f"Resolved AADR release contains duplicate dataset coverage for {file.dataset_name}"
+            )
         seen_dataset_names.add(file.dataset_name)
     return files
 
@@ -96,7 +110,13 @@ def fetch_release_history_metadata(
     fetch_text_fn: Callable[..., str],
 ) -> dict[str, object]:
     """Fetch the Dataverse release history for the public AADR dataset."""
-    return json.loads(fetch_text_fn(AADR_DATAVERSE_VERSIONS_URL, headers={"User-Agent": "Mozilla/5.0"}, insecure=True))
+    return json.loads(
+        fetch_text_fn(
+            AADR_DATAVERSE_VERSIONS_URL,
+            headers={"User-Agent": "Mozilla/5.0"},
+            insecure=True,
+        )
+    )
 
 
 __all__ = [

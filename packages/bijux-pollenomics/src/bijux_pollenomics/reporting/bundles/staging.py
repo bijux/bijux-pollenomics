@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+import shutil
 from typing import Callable, TypeVar
-
 
 T = TypeVar("T")
 
@@ -22,7 +21,9 @@ def build_staging_output_dir(final_output_root: Path) -> Path:
     return final_output_root.parent / f".{final_output_root.name}.tmp"
 
 
-def publish_into_staging_dir(final_output_root: Path, publish: Callable[[Path], T]) -> T:
+def publish_into_staging_dir(
+    final_output_root: Path, publish: Callable[[Path], T]
+) -> T:
     """Publish into a staging directory and swap it into place only after success."""
     final_output_root = Path(final_output_root)
     staging_output_root = build_staging_output_dir(final_output_root)

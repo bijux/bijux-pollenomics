@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from itertools import pairwise
 
-def geometry_to_representative_point(geometry: dict[str, object]) -> tuple[float, float, str] | None:
+
+def geometry_to_representative_point(
+    geometry: dict[str, object],
+) -> tuple[float, float, str] | None:
     """Reduce a GeoJSON geometry to one representative point for map display."""
     geometry_type = str(geometry.get("type", "")).strip()
     coordinates = geometry.get("coordinates")
@@ -37,7 +41,11 @@ def flatten_positions(coordinates: object) -> list[tuple[float, float]]:
     """Flatten nested GeoJSON coordinate arrays into lon/lat pairs."""
     if not isinstance(coordinates, list):
         return []
-    if len(coordinates) >= 2 and isinstance(coordinates[0], (int, float)) and isinstance(coordinates[1], (int, float)):
+    if (
+        len(coordinates) >= 2
+        and isinstance(coordinates[0], (int, float))
+        and isinstance(coordinates[1], (int, float))
+    ):
         return [(float(coordinates[0]), float(coordinates[1]))]
 
     positions: list[tuple[float, float]] = []
@@ -69,7 +77,9 @@ def polygon_representative_point(polygon: object) -> tuple[float, float] | None:
     return flattened[0]
 
 
-def multipolygon_representative_point(multipolygon: object) -> tuple[float, float] | None:
+def multipolygon_representative_point(
+    multipolygon: object,
+) -> tuple[float, float] | None:
     """Return a representative point from the largest polygon inside a multipolygon."""
     if not isinstance(multipolygon, list) or not multipolygon:
         return None
@@ -91,7 +101,7 @@ def ring_centroid(ring: list[object]) -> tuple[float, float] | None:
     twice_area = 0.0
     centroid_x = 0.0
     centroid_y = 0.0
-    for start, end in zip(ring, ring[1:]):
+    for start, end in pairwise(ring):
         if len(start) < 2 or len(end) < 2:
             return None
         cross = float(start[0]) * float(end[1]) - float(end[0]) * float(start[1])
@@ -108,7 +118,7 @@ def polygon_area(outer_ring: list[object]) -> float:
     if len(outer_ring) < 4:
         return 0.0
     area = 0.0
-    for start, end in zip(outer_ring, outer_ring[1:]):
+    for start, end in pairwise(outer_ring):
         if len(start) < 2 or len(end) < 2:
             return 0.0
         area += float(start[0]) * float(end[1]) - float(end[0]) * float(start[1])

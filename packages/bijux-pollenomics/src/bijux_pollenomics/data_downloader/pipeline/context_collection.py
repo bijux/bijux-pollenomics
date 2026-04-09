@@ -3,9 +3,9 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
+from ...config import NORDIC_BBOX
 from .source_registry import ContextSourceSpec
 from .staging import collect_into_staging_dir
-from ...config import NORDIC_BBOX
 
 __all__ = ["collect_context_source", "collect_context_source_into_dir"]
 

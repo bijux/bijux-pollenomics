@@ -20,18 +20,26 @@ def build_external_point_layer(
     """Convert normalized GeoJSON into a map layer payload."""
     source_label = str(source_path) if source_path is not None else "External GeoJSON"
     raw_features = validate_feature_collection(geojson, source_path=source_path)
-    sample_properties, layer_key, layer_label = extract_layer_identity(raw_features, source_path=source_path)
+    sample_properties, layer_key, layer_label = extract_layer_identity(
+        raw_features, source_path=source_path
+    )
     features = []
     for feature in raw_features:
         geometry = feature.get("geometry", {})
         properties = feature.get("properties", {})
         if not isinstance(geometry, dict) or not isinstance(properties, dict):
-            raise ValueError(f"{source_label} contains a feature with invalid geometry or properties")
+            raise ValueError(
+                f"{source_label} contains a feature with invalid geometry or properties"
+            )
         if geometry.get("type") != "Point":
-            raise ValueError(f"{source_label} point layers must contain only Point geometries")
+            raise ValueError(
+                f"{source_label} point layers must contain only Point geometries"
+            )
         coordinates = geometry.get("coordinates", [])
         if not isinstance(coordinates, list) or len(coordinates) < 2:
-            raise ValueError(f"{source_label} point layers must contain coordinate pairs")
+            raise ValueError(
+                f"{source_label} point layers must contain coordinate pairs"
+            )
         popup_rows = properties.get("popup_rows", [])
         if not isinstance(popup_rows, list):
             popup_rows = []
@@ -39,7 +47,9 @@ def build_external_point_layer(
             longitude = float(coordinates[0])
             latitude = float(coordinates[1])
         except (TypeError, ValueError) as exc:
-            raise ValueError(f"{source_label} contains a point with non-numeric coordinates") from exc
+            raise ValueError(
+                f"{source_label} contains a point with non-numeric coordinates"
+            ) from exc
         features.append(
             {
                 "latitude": latitude,
@@ -62,9 +72,15 @@ def build_external_point_layer(
         "count": len(features),
         "description": str(sample_properties.get("subtitle", "")).strip(),
         "group": POINT_LAYER_METADATA.get(layer_key, {}).get("group", "context"),
-        "source_name": POINT_LAYER_METADATA.get(layer_key, {}).get("source_name", layer_label),
-        "coverage_label": POINT_LAYER_METADATA.get(layer_key, {}).get("coverage_label", "Country-aware contextual points."),
-        "geometry_label": POINT_LAYER_METADATA.get(layer_key, {}).get("geometry_label", "Point records"),
+        "source_name": POINT_LAYER_METADATA.get(layer_key, {}).get(
+            "source_name", layer_label
+        ),
+        "coverage_label": POINT_LAYER_METADATA.get(layer_key, {}).get(
+            "coverage_label", "Country-aware contextual points."
+        ),
+        "geometry_label": POINT_LAYER_METADATA.get(layer_key, {}).get(
+            "geometry_label", "Point records"
+        ),
         "default_enabled": True,
         "applies_country_filter": applies_country_filter,
         "applies_time_filter": applies_time_filter,

@@ -42,7 +42,9 @@ def publish_published_reports_tree(
         slug=map_report.slug,
         version=map_report.version,
     )
-    shared_map_path = f"../{shared_map_dir.name}/{shared_bundle_paths.map_html_path.name}"
+    shared_map_path = (
+        f"../{shared_map_dir.name}/{shared_bundle_paths.map_html_path.name}"
+    )
     for country in normalized_countries:
         country_dir = staging_output_root / slugify_fn(country)
         generate_country_report_fn(
@@ -60,8 +62,12 @@ def publish_published_reports_tree(
         generated_on=map_report.generated_on,
         countries=normalized_countries,
         shared_map_dir=output_root / shared_map_dir.name,
-        country_output_dirs=tuple(output_root / path.name for path in country_output_dirs),
+        country_output_dirs=tuple(
+            output_root / path.name for path in country_output_dirs
+        ),
         summary_path=output_root / summary_path.name,
     )
-    write_summary_json_fn(summary_path, build_published_reports_summary_fn(generated_report, map_report))
+    write_summary_json_fn(
+        summary_path, build_published_reports_summary_fn(generated_report, map_report)
+    )
     return generated_report

@@ -3,7 +3,11 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Iterable
 
-from ...core.bp_time import build_bp_interval_label, merge_bp_intervals, midpoint_bp_year
+from ...core.bp_time import (
+    build_bp_interval_label,
+    merge_bp_intervals,
+    midpoint_bp_year,
+)
 from ..models import LocalitySummary, SampleRecord
 
 __all__ = ["summarize_localities"]
@@ -13,12 +17,19 @@ def summarize_localities(samples: Iterable[SampleRecord]) -> list[LocalitySummar
     """Aggregate samples into unique locality coordinates."""
     grouped: dict[tuple[str, str, str], list[SampleRecord]] = defaultdict(list)
     for sample in samples:
-        grouped[(sample.locality, sample.latitude_text, sample.longitude_text)].append(sample)
+        grouped[(sample.locality, sample.latitude_text, sample.longitude_text)].append(
+            sample
+        )
 
     summaries: list[LocalitySummary] = []
     for (locality, latitude_text, longitude_text), records in grouped.items():
-        datasets = tuple(sorted({dataset for record in records for dataset in record.datasets}))
-        sample_ids = tuple(record.genetic_id for record in sorted(records, key=lambda item: item.genetic_id))
+        datasets = tuple(
+            sorted({dataset for record in records for dataset in record.datasets})
+        )
+        sample_ids = tuple(
+            record.genetic_id
+            for record in sorted(records, key=lambda item: item.genetic_id)
+        )
         time_interval = merge_bp_intervals(
             *[
                 (record.time_start_bp, record.time_end_bp)
@@ -39,7 +50,9 @@ def summarize_localities(samples: Iterable[SampleRecord]) -> list[LocalitySummar
                 time_start_bp=time_interval[0] if time_interval is not None else None,
                 time_end_bp=time_interval[1] if time_interval is not None else None,
                 time_mean_bp=mean_bp_from_interval(time_interval),
-                time_label=build_bp_interval_label(time_interval[0], time_interval[1]) if time_interval is not None else "",
+                time_label=build_bp_interval_label(time_interval[0], time_interval[1])
+                if time_interval is not None
+                else "",
             )
         )
 

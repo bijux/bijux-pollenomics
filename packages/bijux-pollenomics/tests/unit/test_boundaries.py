@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.boundaries import (
@@ -17,18 +17,42 @@ from bijux_pollenomics.data_downloader.boundaries import (
 
 
 class BoundariesTests(unittest.TestCase):
-    def test_build_country_boundary_collection_filters_natural_earth_by_adm0_code(self) -> None:
+    def test_build_country_boundary_collection_filters_natural_earth_by_adm0_code(
+        self,
+    ) -> None:
         global_boundaries = {
             "type": "FeatureCollection",
             "features": [
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[10.0, 55.0], [11.0, 55.0], [11.0, 56.0], [10.0, 56.0], [10.0, 55.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [10.0, 55.0],
+                                [11.0, 55.0],
+                                [11.0, 56.0],
+                                [10.0, 56.0],
+                                [10.0, 55.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "DNK", "NAME": "Denmark"},
                 },
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[-45.0, 59.0], [-40.0, 59.0], [-40.0, 61.0], [-45.0, 61.0], [-45.0, 59.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [-45.0, 59.0],
+                                [-40.0, 59.0],
+                                [-40.0, 61.0],
+                                [-45.0, 61.0],
+                                [-45.0, 59.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "GRL", "NAME": "Greenland"},
                 },
             ],
@@ -39,28 +63,74 @@ class BoundariesTests(unittest.TestCase):
         self.assertEqual(len(denmark["features"]), 1)
         self.assertEqual(denmark["features"][0]["properties"]["NAME"], "Denmark")
 
-    def test_collect_boundaries_data_writes_country_files_and_combined_geojson(self) -> None:
+    def test_collect_boundaries_data_writes_country_files_and_combined_geojson(
+        self,
+    ) -> None:
         natural_earth_payload = {
             "type": "FeatureCollection",
             "features": [
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[16.0, 58.0], [19.0, 58.0], [19.0, 60.0], [16.0, 60.0], [16.0, 58.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [16.0, 58.0],
+                                [19.0, 58.0],
+                                [19.0, 60.0],
+                                [16.0, 60.0],
+                                [16.0, 58.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "SWE", "NAME": "Sweden"},
                 },
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[4.0, 58.0], [12.0, 58.0], [12.0, 71.0], [4.0, 71.0], [4.0, 58.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [4.0, 58.0],
+                                [12.0, 58.0],
+                                [12.0, 71.0],
+                                [4.0, 71.0],
+                                [4.0, 58.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "NOR", "NAME": "Norway"},
                 },
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[20.0, 60.0], [31.0, 60.0], [31.0, 70.0], [20.0, 70.0], [20.0, 60.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [20.0, 60.0],
+                                [31.0, 60.0],
+                                [31.0, 70.0],
+                                [20.0, 70.0],
+                                [20.0, 60.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "FIN", "NAME": "Finland"},
                 },
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[8.0, 54.0], [13.0, 54.0], [13.0, 58.0], [8.0, 58.0], [8.0, 54.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [8.0, 54.0],
+                                [13.0, 54.0],
+                                [13.0, 58.0],
+                                [8.0, 58.0],
+                                [8.0, 54.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "DNK", "NAME": "Denmark"},
                 },
             ],
@@ -81,14 +151,19 @@ class BoundariesTests(unittest.TestCase):
             ):
                 country_boundaries, report = collect_boundaries_data(output_root)
 
-            self.assertEqual(tuple(country_boundaries.keys()), ("Sweden", "Norway", "Finland", "Denmark"))
+            self.assertEqual(
+                tuple(country_boundaries.keys()),
+                ("Sweden", "Norway", "Finland", "Denmark"),
+            )
             self.assertTrue((output_root / "raw" / "sweden.geojson").exists())
             self.assertTrue(report.combined_path.exists())
             self.assertTrue(report.manifest_path.exists())
 
             combined = build_combined_country_boundaries(country_boundaries)
             self.assertEqual(len(combined["features"]), 4)
-            self.assertEqual(combined["features"][0]["properties"]["layer_key"], "country-boundaries")
+            self.assertEqual(
+                combined["features"][0]["properties"]["layer_key"], "country-boundaries"
+            )
 
     def test_load_country_boundaries_requires_valid_manifest(self) -> None:
         boundary_payload = {
@@ -96,7 +171,18 @@ class BoundariesTests(unittest.TestCase):
             "features": [
                 {
                     "type": "Feature",
-                    "geometry": {"type": "Polygon", "coordinates": [[[10.0, 55.0], [11.0, 55.0], [11.0, 56.0], [10.0, 56.0], [10.0, 55.0]]]},
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [10.0, 55.0],
+                                [11.0, 55.0],
+                                [11.0, 56.0],
+                                [10.0, 56.0],
+                                [10.0, 55.0],
+                            ]
+                        ],
+                    },
                     "properties": {"ADM0_A3": "SWE"},
                 }
             ],
@@ -105,15 +191,66 @@ class BoundariesTests(unittest.TestCase):
             "sweden.geojson": boundary_payload,
             "norway.geojson": {
                 "type": "FeatureCollection",
-                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[4.0, 58.0], [5.0, 58.0], [5.0, 59.0], [4.0, 59.0], [4.0, 58.0]]]}, "properties": {"ADM0_A3": "NOR"}}],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [4.0, 58.0],
+                                    [5.0, 58.0],
+                                    [5.0, 59.0],
+                                    [4.0, 59.0],
+                                    [4.0, 58.0],
+                                ]
+                            ],
+                        },
+                        "properties": {"ADM0_A3": "NOR"},
+                    }
+                ],
             },
             "finland.geojson": {
                 "type": "FeatureCollection",
-                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[20.0, 60.0], [21.0, 60.0], [21.0, 61.0], [20.0, 61.0], [20.0, 60.0]]]}, "properties": {"ADM0_A3": "FIN"}}],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [20.0, 60.0],
+                                    [21.0, 60.0],
+                                    [21.0, 61.0],
+                                    [20.0, 61.0],
+                                    [20.0, 60.0],
+                                ]
+                            ],
+                        },
+                        "properties": {"ADM0_A3": "FIN"},
+                    }
+                ],
             },
             "denmark.geojson": {
                 "type": "FeatureCollection",
-                "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[8.0, 54.0], [9.0, 54.0], [9.0, 55.0], [8.0, 55.0], [8.0, 54.0]]]}, "properties": {"ADM0_A3": "DNK"}}],
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "Polygon",
+                            "coordinates": [
+                                [
+                                    [8.0, 54.0],
+                                    [9.0, 54.0],
+                                    [9.0, 55.0],
+                                    [8.0, 55.0],
+                                    [8.0, 54.0],
+                                ]
+                            ],
+                        },
+                        "properties": {"ADM0_A3": "DNK"},
+                    }
+                ],
             },
         }
 
@@ -129,8 +266,8 @@ class BoundariesTests(unittest.TestCase):
             (raw_dir / "source_manifest.json").write_text(
                 (
                     "{"
-                    f"\"source\":\"Natural Earth\",\"version\":\"{NATURAL_EARTH_VERSION}\","
-                    f"\"asset_url\":\"{NATURAL_EARTH_ADMIN0_URL}\""
+                    f'"source":"Natural Earth","version":"{NATURAL_EARTH_VERSION}",'
+                    f'"asset_url":"{NATURAL_EARTH_ADMIN0_URL}"'
                     "}"
                 ),
                 encoding="utf-8",

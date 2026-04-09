@@ -1,14 +1,15 @@
 from __future__ import annotations
 
-import re
 from pathlib import Path
-from zipfile import ZipFile
+import re
 from xml.etree import ElementTree as ET
-
+from zipfile import ZipFile
 
 SPREADSHEET_NS = {"main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 PACKAGE_NS = {"pkg": "http://schemas.openxmlformats.org/package/2006/relationships"}
-RELATIONSHIP_ATTRIBUTE = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+RELATIONSHIP_ATTRIBUTE = (
+    "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+)
 CELL_REFERENCE_PATTERN = re.compile(r"([A-Z]+)(\d+)")
 
 
@@ -20,7 +21,11 @@ def list_xlsx_sheet_names(path: Path) -> list[str]:
         sheets = workbook_document.find("main:sheets", SPREADSHEET_NS)
         if sheets is None:
             return []
-        return [sheet.attrib.get("name", "") for sheet in sheets if sheet.attrib.get("name", "")]
+        return [
+            sheet.attrib.get("name", "")
+            for sheet in sheets
+            if sheet.attrib.get("name", "")
+        ]
 
 
 def read_xlsx_sheet_rows(path: Path, sheet_name: str) -> list[list[str]]:
@@ -54,7 +59,11 @@ def load_shared_strings(workbook: ZipFile) -> list[str]:
     document = ET.fromstring(workbook.read("xl/sharedStrings.xml"))
     values: list[str] = []
     for item in document.findall("main:si", SPREADSHEET_NS):
-        values.append("".join(node.text or "" for node in item.findall(".//main:t", SPREADSHEET_NS)))
+        values.append(
+            "".join(
+                node.text or "" for node in item.findall(".//main:t", SPREADSHEET_NS)
+            )
+        )
     return values
 
 
@@ -95,7 +104,9 @@ def column_index_from_reference(reference: str) -> int:
 
 def cell_value(cell: ET.Element, shared_strings: list[str]) -> str:
     """Decode one worksheet cell into a string value."""
-    inline_text = "".join(node.text or "" for node in cell.findall("main:is//main:t", SPREADSHEET_NS))
+    inline_text = "".join(
+        node.text or "" for node in cell.findall("main:is//main:t", SPREADSHEET_NS)
+    )
     if inline_text:
         return inline_text
 

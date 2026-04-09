@@ -11,7 +11,11 @@ from .artifacts import (
     write_summary_json,
 )
 from .html import render_multi_country_map_html
-from .markdown import render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
+from .markdown import (
+    render_multi_country_map_markdown,
+    render_sample_markdown,
+    render_summary_markdown,
+)
 
 __all__ = [
     "build_sample_geojson_feature",

@@ -55,11 +55,17 @@ def validate_boundary_manifest(
     if not isinstance(payload, dict):
         raise ValueError(f"Boundary source manifest must be an object: {path}")
     if payload.get("source") != "Natural Earth":
-        raise ValueError(f"Boundary source manifest must identify Natural Earth: {path}")
+        raise ValueError(
+            f"Boundary source manifest must identify Natural Earth: {path}"
+        )
     if payload.get("version") != natural_earth_version:
-        raise ValueError(f"Boundary source manifest must match Natural Earth {natural_earth_version}: {path}")
+        raise ValueError(
+            f"Boundary source manifest must match Natural Earth {natural_earth_version}: {path}"
+        )
     if payload.get("asset_url") != natural_earth_admin0_url:
-        raise ValueError(f"Boundary source manifest must record the pinned admin-0 asset URL: {path}")
+        raise ValueError(
+            f"Boundary source manifest must record the pinned admin-0 asset URL: {path}"
+        )
     return payload
 
 
@@ -72,21 +78,35 @@ def validate_boundary_collection(
 ) -> dict[str, object]:
     """Validate one stored boundary file before it is reused locally."""
     if not isinstance(payload, dict):
-        raise ValueError(f"Boundary payload must be a GeoJSON object for {country}: {path}")
+        raise ValueError(
+            f"Boundary payload must be a GeoJSON object for {country}: {path}"
+        )
     if payload.get("type") != "FeatureCollection":
-        raise ValueError(f"Boundary payload must be a FeatureCollection for {country}: {path}")
+        raise ValueError(
+            f"Boundary payload must be a FeatureCollection for {country}: {path}"
+        )
     features = payload.get("features")
     if not isinstance(features, list):
-        raise ValueError(f"Boundary payload must contain a feature list for {country}: {path}")
+        raise ValueError(
+            f"Boundary payload must contain a feature list for {country}: {path}"
+        )
     if not features:
-        raise ValueError(f"Boundary payload must contain at least one feature for {country}: {path}")
+        raise ValueError(
+            f"Boundary payload must contain at least one feature for {country}: {path}"
+        )
     for feature in features:
         if not isinstance(feature, dict):
-            raise ValueError(f"Boundary payload must contain GeoJSON features for {country}: {path}")
+            raise ValueError(
+                f"Boundary payload must contain GeoJSON features for {country}: {path}"
+            )
         properties = feature.get("properties")
         geometry = feature.get("geometry")
         if not isinstance(properties, dict) or not isinstance(geometry, dict):
-            raise ValueError(f"Boundary feature must include properties and geometry for {country}: {path}")
+            raise ValueError(
+                f"Boundary feature must include properties and geometry for {country}: {path}"
+            )
         if clean_optional_text(properties.get("ADM0_A3")) != country_code:
-            raise ValueError(f"Boundary feature must retain ADM0_A3={country_code} for {country}: {path}")
+            raise ValueError(
+                f"Boundary feature must retain ADM0_A3={country_code} for {country}: {path}"
+            )
     return payload

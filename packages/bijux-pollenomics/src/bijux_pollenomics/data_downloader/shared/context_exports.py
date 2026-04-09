@@ -52,23 +52,36 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                     "description": record.description,
                     "source_url": record.source_url,
                     "record_count": record.record_count,
-                    "time_start_bp": record.time_start_bp if record.time_start_bp is not None else "",
-                    "time_end_bp": record.time_end_bp if record.time_end_bp is not None else "",
-                    "time_mean_bp": record.time_mean_bp if record.time_mean_bp is not None else "",
+                    "time_start_bp": record.time_start_bp
+                    if record.time_start_bp is not None
+                    else "",
+                    "time_end_bp": record.time_end_bp
+                    if record.time_end_bp is not None
+                    else "",
+                    "time_mean_bp": record.time_mean_bp
+                    if record.time_mean_bp is not None
+                    else "",
                     "time_label": record.time_label,
-                    "popup_rows_json": json.dumps(record.popup_rows, ensure_ascii=False),
+                    "popup_rows_json": json.dumps(
+                        record.popup_rows, ensure_ascii=False
+                    ),
                 }
             )
 
 
-def write_context_points_geojson(path: Path, records: Iterable[ContextPointRecord]) -> None:
+def write_context_points_geojson(
+    path: Path, records: Iterable[ContextPointRecord]
+) -> None:
     """Write normalized context point records as GeoJSON."""
     features = []
     for record in records:
         features.append(
             {
                 "type": "Feature",
-                "geometry": {"type": "Point", "coordinates": [record.longitude, record.latitude]},
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [record.longitude, record.latitude],
+                },
                 "properties": {
                     "source": record.source,
                     "layer_key": record.layer_key,

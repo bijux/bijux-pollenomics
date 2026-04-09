@@ -23,7 +23,7 @@ def build_neotoma_download_archive_parts(
     part_count = (len(rows) + rows_per_part - 1) // rows_per_part
     parts: list[dict[str, object]] = []
     for index, start in enumerate(range(0, len(rows), rows_per_part), start=1):
-        part_rows = rows[start:start + rows_per_part]
+        part_rows = rows[start : start + rows_per_part]
         part_dataset_ids = extract_neotoma_download_dataset_ids_fn(part_rows)
         parts.append(
             {

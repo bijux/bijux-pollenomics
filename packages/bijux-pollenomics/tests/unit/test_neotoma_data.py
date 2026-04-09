@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+from io import BytesIO
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from io import BytesIO
-from pathlib import Path
 from unittest.mock import patch
 from urllib.error import HTTPError
 
@@ -13,15 +13,17 @@ from bijux_pollenomics.data_downloader.neotoma import (
     build_neotoma_site_snapshot_rows,
     collect_neotoma_data,
     fetch_neotoma_api_rows,
-    fetch_neotoma_dataset_inventory_rows,
     fetch_neotoma_dataset_download_rows,
+    fetch_neotoma_dataset_inventory_rows,
     fetch_neotoma_pollen_rows,
     normalize_neotoma_rows,
 )
 
 
 class NeotomaDataTests(unittest.TestCase):
-    def test_build_neotoma_download_archive_parts_splits_rows_into_stable_part_files(self) -> None:
+    def test_build_neotoma_download_archive_parts_splits_rows_into_stable_part_files(
+        self,
+    ) -> None:
         rows = [
             {"site": {"siteid": 20, "collectionunit": {"dataset": {"datasetid": 201}}}},
             {"site": {"siteid": 21, "collectionunit": {"dataset": {"datasetid": 202}}}},
@@ -30,7 +32,9 @@ class NeotomaDataTests(unittest.TestCase):
 
         parts = build_neotoma_download_archive_parts(rows, rows_per_part=2)
 
-        self.assertEqual([part["filename"] for part in parts], ["part-001.json", "part-002.json"])
+        self.assertEqual(
+            [part["filename"] for part in parts], ["part-001.json", "part-002.json"]
+        )
         self.assertEqual([part["row_count"] for part in parts], [2, 1])
         self.assertEqual(parts[0]["downloaded_dataset_ids"], [201, 202])
         self.assertEqual(parts[1]["downloaded_dataset_ids"], [203])
@@ -69,7 +73,9 @@ class NeotomaDataTests(unittest.TestCase):
 
         self.assertEqual(len(rows), 1)
 
-    def test_fetch_neotoma_dataset_inventory_rows_reads_dataset_inventory_rows(self) -> None:
+    def test_fetch_neotoma_dataset_inventory_rows_reads_dataset_inventory_rows(
+        self,
+    ) -> None:
         with patch(
             "bijux_pollenomics.data_downloader.neotoma.fetch_json",
             return_value={
@@ -97,10 +103,14 @@ class NeotomaDataTests(unittest.TestCase):
             [201, 202],
         )
 
-    def test_fetch_neotoma_dataset_inventory_rows_uses_wide_bbox_inventory_limit(self) -> None:
+    def test_fetch_neotoma_dataset_inventory_rows_uses_wide_bbox_inventory_limit(
+        self,
+    ) -> None:
         observed_params: list[dict[str, str]] = []
 
-        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
+        def fake_fetch_json(
+            url: str, params: dict[str, str] | None = None, **_: object
+        ) -> object:
             self.assertEqual(url, "https://api.neotomadb.org/v2.0/data/datasets")
             self.assertIsNotNone(params)
             observed_params.append(dict(params or {}))
@@ -117,7 +127,10 @@ class NeotomaDataTests(unittest.TestCase):
                 ]
             }
 
-        with patch("bijux_pollenomics.data_downloader.neotoma.fetch_json", side_effect=fake_fetch_json):
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=fake_fetch_json,
+        ):
             rows = fetch_neotoma_dataset_inventory_rows((4.0, 54.0, 35.0, 72.0))
 
         self.assertEqual(len(rows), 1)
@@ -126,7 +139,9 @@ class NeotomaDataTests(unittest.TestCase):
         self.assertEqual(observed_params[0]["offset"], "0")
         self.assertEqual(observed_params[0]["datasettype"], "pollen")
 
-    def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(self) -> None:
+    def test_collect_neotoma_data_preserves_full_inventory_and_retained_subset(
+        self,
+    ) -> None:
         inventory_rows = [
             {
                 "site": {
@@ -151,24 +166,31 @@ class NeotomaDataTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "neotoma"
-            with patch(
-                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
-                return_value=inventory_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
-                return_value=matched_inventory_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
-                return_value=[201],
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
-                return_value=download_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
-                return_value=rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
-                return_value=[],
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                    return_value=inventory_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                    return_value=matched_inventory_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                    return_value=[201],
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                    return_value=download_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                    return_value=rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                    return_value=[],
+                ),
             ):
                 collect_neotoma_data(
                     output_root=output_root,
@@ -176,14 +198,26 @@ class NeotomaDataTests(unittest.TestCase):
                     bbox=(4.0, 54.0, 35.0, 72.0),
                 )
 
-            inventory_payload = json.loads((output_root / "raw" / "neotoma_pollen_dataset_inventory.json").read_text(encoding="utf-8"))
+            inventory_payload = json.loads(
+                (
+                    output_root / "raw" / "neotoma_pollen_dataset_inventory.json"
+                ).read_text(encoding="utf-8")
+            )
 
         self.assertEqual(inventory_payload["queried_row_count"], 2)
         self.assertEqual(inventory_payload["retained_row_count"], 1)
         self.assertEqual(inventory_payload["retained_dataset_count"], 1)
-        self.assertEqual(inventory_payload["endpoint"], "https://api.neotomadb.org/v2.0/data/datasets")
-        self.assertEqual([item["site"]["siteid"] for item in inventory_payload["rows"]], [20, 30])
-        self.assertEqual([item["site"]["siteid"] for item in inventory_payload["retained_rows"]], [20])
+        self.assertEqual(
+            inventory_payload["endpoint"],
+            "https://api.neotomadb.org/v2.0/data/datasets",
+        )
+        self.assertEqual(
+            [item["site"]["siteid"] for item in inventory_payload["rows"]], [20, 30]
+        )
+        self.assertEqual(
+            [item["site"]["siteid"] for item in inventory_payload["retained_rows"]],
+            [20],
+        )
 
     def test_fetch_neotoma_pollen_rows_hydrates_full_dataset_downloads(self) -> None:
         country_boundaries = {
@@ -193,7 +227,13 @@ class NeotomaDataTests(unittest.TestCase):
                         "geometry": {
                             "type": "Polygon",
                             "coordinates": [
-                                [[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]
+                                [
+                                    [10.0, 55.0],
+                                    [25.0, 55.0],
+                                    [25.0, 70.0],
+                                    [10.0, 70.0],
+                                    [10.0, 55.0],
+                                ]
                             ],
                         }
                     }
@@ -201,7 +241,9 @@ class NeotomaDataTests(unittest.TestCase):
             }
         }
 
-        def fake_fetch_json(url: str, params: dict[str, str] | None = None, **_: object) -> object:
+        def fake_fetch_json(
+            url: str, params: dict[str, str] | None = None, **_: object
+        ) -> object:
             if url.endswith("/datasets"):
                 return {
                     "status": "success",
@@ -214,7 +256,9 @@ class NeotomaDataTests(unittest.TestCase):
                                 "sitedescription": "",
                                 "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
                                 "altitude": 10,
-                                "datasets": [{"datasetid": 201, "datasettype": "pollen"}],
+                                "datasets": [
+                                    {"datasetid": 201, "datasettype": "pollen"}
+                                ],
                             }
                         },
                         {
@@ -224,7 +268,9 @@ class NeotomaDataTests(unittest.TestCase):
                                 "sitedescription": "",
                                 "geography": '{"type":"Point","coordinates":[13.6,55.9]}',
                                 "altitude": 10,
-                                "datasets": [{"datasetid": 202, "datasettype": "pollen"}],
+                                "datasets": [
+                                    {"datasetid": 202, "datasettype": "pollen"}
+                                ],
                             }
                         },
                         {
@@ -234,7 +280,9 @@ class NeotomaDataTests(unittest.TestCase):
                                 "sitedescription": "",
                                 "geography": '{"type":"Point","coordinates":[40.0,60.0]}',
                                 "altitude": 25,
-                                "datasets": [{"datasetid": 301, "datasettype": "pollen"}],
+                                "datasets": [
+                                    {"datasetid": 301, "datasettype": "pollen"}
+                                ],
                             }
                         },
                     ],
@@ -262,15 +310,33 @@ class NeotomaDataTests(unittest.TestCase):
                                         "datasetid": 201,
                                         "datasettype": "pollen",
                                         "database": "European Pollen Database",
-                                        "agerange": [{"units": "Calibrated radiocarbon years BP", "ageold": 2000, "ageyoung": 50}],
+                                        "agerange": [
+                                            {
+                                                "units": "Calibrated radiocarbon years BP",
+                                                "ageold": 2000,
+                                                "ageyoung": 50,
+                                            }
+                                        ],
                                         "samples": [
                                             {
                                                 "sampleid": 9001,
                                                 "analysisunitid": 9101,
-                                                "ages": [{"agetype": "Calibrated radiocarbon years BP", "ageolder": 2100, "ageyounger": 30}],
+                                                "ages": [
+                                                    {
+                                                        "agetype": "Calibrated radiocarbon years BP",
+                                                        "ageolder": 2100,
+                                                        "ageyounger": 30,
+                                                    }
+                                                ],
                                                 "datum": [
-                                                    {"taxonid": 1, "variablename": "Betula"},
-                                                    {"taxonid": 2, "variablename": "Pinus"},
+                                                    {
+                                                        "taxonid": 1,
+                                                        "variablename": "Betula",
+                                                    },
+                                                    {
+                                                        "taxonid": 2,
+                                                        "variablename": "Pinus",
+                                                    },
                                                 ],
                                             }
                                         ],
@@ -303,14 +369,29 @@ class NeotomaDataTests(unittest.TestCase):
                                         "datasetid": 202,
                                         "datasettype": "pollen",
                                         "database": "European Pollen Database",
-                                        "agerange": [{"units": "Calibrated radiocarbon years BP", "ageold": 3500, "ageyoung": 200}],
+                                        "agerange": [
+                                            {
+                                                "units": "Calibrated radiocarbon years BP",
+                                                "ageold": 3500,
+                                                "ageyoung": 200,
+                                            }
+                                        ],
                                         "samples": [
                                             {
                                                 "sampleid": 9002,
                                                 "analysisunitid": 9102,
-                                                "ages": [{"agetype": "Calibrated radiocarbon years BP", "ageolder": 3600, "ageyounger": 180}],
+                                                "ages": [
+                                                    {
+                                                        "agetype": "Calibrated radiocarbon years BP",
+                                                        "ageolder": 3600,
+                                                        "ageyounger": 180,
+                                                    }
+                                                ],
                                                 "datum": [
-                                                    {"taxonid": 3, "variablename": "Alnus"},
+                                                    {
+                                                        "taxonid": 3,
+                                                        "variablename": "Alnus",
+                                                    },
                                                 ],
                                             }
                                         ],
@@ -323,7 +404,10 @@ class NeotomaDataTests(unittest.TestCase):
 
             raise AssertionError(f"Unexpected URL: {url}")
 
-        with patch("bijux_pollenomics.data_downloader.neotoma.fetch_json", side_effect=fake_fetch_json):
+        with patch(
+            "bijux_pollenomics.data_downloader.neotoma.fetch_json",
+            side_effect=fake_fetch_json,
+        ):
             rows = fetch_neotoma_pollen_rows(
                 bbox=(4.0, 54.0, 35.0, 72.0),
                 country_boundaries=country_boundaries,
@@ -351,13 +435,17 @@ class NeotomaDataTests(unittest.TestCase):
             [201, 202],
         )
 
-        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+        records = normalize_neotoma_rows(
+            rows, (4.0, 54.0, 35.0, 72.0), country_boundaries
+        )
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].time_start_bp, 30)
         self.assertEqual(records[0].time_end_bp, 3600)
         self.assertEqual(records[0].time_mean_bp, 1815)
 
-    def test_fetch_neotoma_dataset_download_rows_rejects_missing_dataset_payloads(self) -> None:
+    def test_fetch_neotoma_dataset_download_rows_rejects_missing_dataset_payloads(
+        self,
+    ) -> None:
         with patch(
             "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_row",
             side_effect=[
@@ -368,7 +456,9 @@ class NeotomaDataTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "missing dataset IDs: 202"):
                 fetch_neotoma_dataset_download_rows([201, 202])
 
-    def test_fetch_neotoma_dataset_download_rows_retries_retryable_http_errors(self) -> None:
+    def test_fetch_neotoma_dataset_download_rows_retries_retryable_http_errors(
+        self,
+    ) -> None:
         retry_error = HTTPError(
             url="https://api.neotomadb.org/v2.0/data/downloads/201",
             code=429,
@@ -381,26 +471,38 @@ class NeotomaDataTests(unittest.TestCase):
             "bijux_pollenomics.data_downloader.neotoma.fetch_json",
             side_effect=[
                 retry_error,
-                {"data": [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}]},
+                {
+                    "data": [
+                        {"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}
+                    ]
+                },
             ],
         ):
             rows = fetch_neotoma_dataset_download_rows([201])
 
         self.assertEqual(len(rows), 1)
 
-    def test_fetch_neotoma_dataset_download_rows_retries_retryable_timeouts(self) -> None:
+    def test_fetch_neotoma_dataset_download_rows_retries_retryable_timeouts(
+        self,
+    ) -> None:
         with patch(
             "bijux_pollenomics.data_downloader.neotoma.fetch_json",
             side_effect=[
                 TimeoutError("read timed out"),
-                {"data": [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}]},
+                {
+                    "data": [
+                        {"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}
+                    ]
+                },
             ],
         ):
             rows = fetch_neotoma_dataset_download_rows([201])
 
         self.assertEqual(len(rows), 1)
 
-    def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(self) -> None:
+    def test_normalize_neotoma_rows_recovers_coastal_nordic_sites_without_widening_scope(
+        self,
+    ) -> None:
         country_boundaries = {
             "Norway": {
                 "features": [
@@ -408,7 +510,13 @@ class NeotomaDataTests(unittest.TestCase):
                         "geometry": {
                             "type": "Polygon",
                             "coordinates": [
-                                [[10.0, 60.0], [13.0, 60.0], [13.0, 63.0], [10.0, 63.0], [10.0, 60.0]]
+                                [
+                                    [10.0, 60.0],
+                                    [13.0, 60.0],
+                                    [13.0, 63.0],
+                                    [10.0, 63.0],
+                                    [10.0, 60.0],
+                                ]
                             ],
                         }
                     }
@@ -440,14 +548,18 @@ class NeotomaDataTests(unittest.TestCase):
             },
         ]
 
-        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+        records = normalize_neotoma_rows(
+            rows, (4.0, 54.0, 35.0, 72.0), country_boundaries
+        )
 
         self.assertEqual([record.name for record in records], ["Coastal site"])
         self.assertEqual(records[0].country, "Norway")
         self.assertIsNone(records[0].time_start_bp)
         self.assertIsNone(records[0].time_end_bp)
 
-    def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(self) -> None:
+    def test_build_neotoma_site_snapshot_rows_drops_nested_sample_payloads(
+        self,
+    ) -> None:
         rows = [
             {
                 "siteid": 20,
@@ -496,7 +608,13 @@ class NeotomaDataTests(unittest.TestCase):
                         "geometry": {
                             "type": "Polygon",
                             "coordinates": [
-                                [[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]
+                                [
+                                    [10.0, 55.0],
+                                    [25.0, 55.0],
+                                    [25.0, 70.0],
+                                    [10.0, 70.0],
+                                    [10.0, 55.0],
+                                ]
                             ],
                         }
                     }
@@ -517,8 +635,16 @@ class NeotomaDataTests(unittest.TestCase):
                                 "datasettype": "pollen",
                                 "database": "European Pollen Database",
                                 "agerange": [
-                                    {"units": "Radiocarbon years BP", "ageold": 3200, "ageyoung": 120},
-                                    {"units": "Calibrated radiocarbon years BP", "ageold": 3600, "ageyoung": -20},
+                                    {
+                                        "units": "Radiocarbon years BP",
+                                        "ageold": 3200,
+                                        "ageyoung": 120,
+                                    },
+                                    {
+                                        "units": "Calibrated radiocarbon years BP",
+                                        "ageold": 3600,
+                                        "ageyoung": -20,
+                                    },
                                 ],
                             }
                         ],
@@ -527,13 +653,17 @@ class NeotomaDataTests(unittest.TestCase):
             }
         ]
 
-        records = normalize_neotoma_rows(rows, (4.0, 54.0, 35.0, 72.0), country_boundaries)
+        records = normalize_neotoma_rows(
+            rows, (4.0, 54.0, 35.0, 72.0), country_boundaries
+        )
 
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].time_start_bp, 0)
         self.assertEqual(records[0].time_end_bp, 3600)
         self.assertEqual(records[0].time_mean_bp, 1800)
-        self.assertEqual(records[0].time_label, "0-3600 Calibrated radiocarbon years BP")
+        self.assertEqual(
+            records[0].time_label, "0-3600 Calibrated radiocarbon years BP"
+        )
 
     def test_collect_neotoma_data_writes_download_coverage_summary(self) -> None:
         inventory_rows = [
@@ -550,31 +680,40 @@ class NeotomaDataTests(unittest.TestCase):
             {
                 "site": {
                     "siteid": 20,
-                    "collectionunit": {"dataset": {"datasetid": 201, "datasettype": "pollen"}},
+                    "collectionunit": {
+                        "dataset": {"datasetid": 201, "datasettype": "pollen"}
+                    },
                 }
             }
         ]
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "neotoma"
-            with patch(
-                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
-                return_value=inventory_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
-                return_value=inventory_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
-                return_value=[201],
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
-                return_value=download_rows,
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
-                return_value=[],
-            ), patch(
-                "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
-                return_value=[],
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_inventory_rows",
+                    return_value=inventory_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.filter_neotoma_dataset_inventory_rows",
+                    return_value=inventory_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.extract_neotoma_dataset_ids",
+                    return_value=[201],
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_rows",
+                    return_value=download_rows,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.build_neotoma_site_rows_from_downloads",
+                    return_value=[],
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.neotoma.normalize_neotoma_rows",
+                    return_value=[],
+                ),
             ):
                 collect_neotoma_data(
                     output_root=output_root,
@@ -583,17 +722,31 @@ class NeotomaDataTests(unittest.TestCase):
                 )
 
             manifest_payload = json.loads(
-                (output_root / "raw" / "neotoma_pollen_dataset_downloads" / "manifest.json").read_text(encoding="utf-8")
+                (
+                    output_root
+                    / "raw"
+                    / "neotoma_pollen_dataset_downloads"
+                    / "manifest.json"
+                ).read_text(encoding="utf-8")
             )
             part_payload = json.loads(
-                (output_root / "raw" / "neotoma_pollen_dataset_downloads" / "part-001.json").read_text(encoding="utf-8")
+                (
+                    output_root
+                    / "raw"
+                    / "neotoma_pollen_dataset_downloads"
+                    / "part-001.json"
+                ).read_text(encoding="utf-8")
             )
 
         self.assertEqual(manifest_payload["requested_dataset_ids"], [201])
         self.assertEqual(manifest_payload["downloaded_dataset_ids"], [201])
-        self.assertEqual(manifest_payload["archive_dir"], "raw/neotoma_pollen_dataset_downloads")
+        self.assertEqual(
+            manifest_payload["archive_dir"], "raw/neotoma_pollen_dataset_downloads"
+        )
         self.assertEqual(manifest_payload["part_count"], 1)
-        self.assertEqual([part["filename"] for part in manifest_payload["parts"]], ["part-001.json"])
+        self.assertEqual(
+            [part["filename"] for part in manifest_payload["parts"]], ["part-001.json"]
+        )
         self.assertEqual(part_payload["downloaded_dataset_ids"], [201])
         self.assertEqual(part_payload["row_count"], 1)
 

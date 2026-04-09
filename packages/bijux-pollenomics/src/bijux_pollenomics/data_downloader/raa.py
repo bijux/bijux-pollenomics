@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..core.files import write_json, write_text
+from ..core.http import fetch_json
 from ..core.text import clean_optional_text
 from .contracts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
 from .sources.raa.outputs import (
@@ -15,8 +16,6 @@ from .sources.raa.outputs import (
     fetch_raa_archaeology_metadata,
     iter_raa_features,
 )
-from ..core.http import fetch_json
-
 
 RAA_FEATURE_PAGE_SIZE = 10000
 RAA_FEATURE_SORT_KEY = "lamningsnummer"
@@ -66,17 +65,21 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
         for feature in first_page.get("features", [])
         if isinstance(feature, dict)
     ]
-    total_features = int(first_page.get("numberMatched") or first_page.get("totalFeatures") or len(features))
+    total_features = int(
+        first_page.get("numberMatched")
+        or first_page.get("totalFeatures")
+        or len(features)
+    )
     start_index = len(features)
     while start_index < total_features:
         page = fetch_raa_feature_page(start_index=start_index, cql_filter=cql_filter)
         page_features = [
-            feature
-            for feature in page.get("features", [])
-            if isinstance(feature, dict)
+            feature for feature in page.get("features", []) if isinstance(feature, dict)
         ]
         if not page_features:
-            raise ValueError("RAÄ feature paging ended before the reported numberMatched was archived")
+            raise ValueError(
+                "RAÄ feature paging ended before the reported numberMatched was archived"
+            )
         features.extend(page_features)
         start_index += len(page_features)
     feature_inventory = {
@@ -121,13 +124,21 @@ def collect_raa_data(
     raw_points_path = raw_dir / "publicerade_lamningar_centrumpunkt.geojson"
     feature_inventory = fetch_raa_feature_inventory()
     write_json(raw_points_path, feature_inventory)
-    write_json(raw_dir / "publicerade_lamningar_centrumpunkt_summary.json", build_raa_inventory_summary(feature_inventory))
+    write_json(
+        raw_dir / "publicerade_lamningar_centrumpunkt_summary.json",
+        build_raa_inventory_summary(feature_inventory),
+    )
     metadata = fetch_raa_archaeology_metadata(
         feature_inventory=feature_inventory,
         country_boundaries=country_boundaries,
     )
-    write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"])
-    write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", metadata["schema_xml"])
+    write_text(
+        raw_dir / "arkreg_v1_0_wfs_capabilities.xml", metadata["capabilities_xml"]
+    )
+    write_text(
+        raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml",
+        metadata["schema_xml"],
+    )
     write_json(raw_dir / "fornsok_domains.json", metadata["domain_payload"])
     metadata_path = RAA_LAYER_METADATA.source_path_under(output_root)
     density_path = RAA_DENSITY_GEOJSON.source_path_under(output_root)

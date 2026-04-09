@@ -33,14 +33,20 @@ def render_summary_markdown(
         else "No longitude values available"
     )
 
-    dataset_lines = "\n".join(
-        f"| `{dataset}` | {count} |"
-        for dataset, count in sorted(report.dataset_row_counts.items())
-    ) or "| No matching dataset rows | 0 |"
-    top_locality_lines = "\n".join(
-        f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | {escape_pipes(locality.time_label or '-')} | `{','.join(locality.datasets)}` |"
-        for locality in report.localities[:15]
-    ) or "| No matching localities | 0 | - | - | - | - |"
+    dataset_lines = (
+        "\n".join(
+            f"| `{dataset}` | {count} |"
+            for dataset, count in sorted(report.dataset_row_counts.items())
+        )
+        or "| No matching dataset rows | 0 |"
+    )
+    top_locality_lines = (
+        "\n".join(
+            f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | {escape_pipes(locality.time_label or '-')} | `{','.join(locality.datasets)}` |"
+            for locality in report.localities[:15]
+        )
+        or "| No matching localities | 0 | - | - | - | - |"
+    )
 
     map_line = ""
     if map_reference is not None:
@@ -132,10 +138,12 @@ def render_multi_country_map_markdown(
     extra_artifacts: list[tuple[str, str]],
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
-    rows = "\n".join(
-        f"| {country} | {country_sample_counts[country]} |"
-        for country in countries
-    ) or "| No countries requested | 0 |"
+    rows = (
+        "\n".join(
+            f"| {country} | {country_sample_counts[country]} |" for country in countries
+        )
+        or "| No countries requested | 0 |"
+    )
     artifact_lines = "\n".join(
         f"- {label}: [`{filename}`](./{filename})"
         for label, filename in extra_artifacts

@@ -5,8 +5,12 @@ import math
 
 from ....core.http import fetch_json, fetch_text
 from ....core.text import clean_optional_text
-from ...spatial import build_grid_cell_geometry, geometry_bbox, geometry_to_representative_point, grid_cell_relevant
-
+from ...spatial import (
+    build_grid_cell_geometry,
+    geometry_bbox,
+    geometry_to_representative_point,
+    grid_cell_relevant,
+)
 
 RAA_WFS_URL = "https://karta.raa.se/geo/arkreg_v1.0/wfs"
 RAA_FEATURE_TYPE = "arkreg_v1.0:publicerade_lamningar_centrumpunkt"
@@ -30,7 +34,9 @@ def fetch_raa_archaeology_metadata(
     domain_payload = fetch_json(domain_url)
 
     count_all = count_raa_features(feature_inventory)
-    count_fornlamning = count_raa_features(feature_inventory, heritage_statuses={"Fornlämning"})
+    count_fornlamning = count_raa_features(
+        feature_inventory, heritage_statuses={"Fornlämning"}
+    )
     count_fornlamning_or_possible = count_raa_features(
         feature_inventory,
         heritage_statuses={"Fornlämning", "Möjlig fornlämning"},
@@ -81,7 +87,9 @@ def count_raa_features(
     count = 0
     for feature in iter_raa_features(feature_inventory):
         if statuses:
-            status = clean_optional_text(feature.get("properties", {}).get("antikvariskbedomningtyp_namn")).casefold()
+            status = clean_optional_text(
+                feature.get("properties", {}).get("antikvariskbedomningtyp_namn")
+            ).casefold()
             if status not in statuses:
                 continue
         count += 1
@@ -132,14 +140,20 @@ def build_raa_density_geojson(
     return {"type": "FeatureCollection", "features": features}
 
 
-def raa_density_counts_by_grid_cell(feature_inventory: dict[str, object]) -> dict[tuple[int, int], int]:
+def raa_density_counts_by_grid_cell(
+    feature_inventory: dict[str, object],
+) -> dict[tuple[int, int], int]:
     """Count archived RAÄ heritage records in 1 degree grid cells."""
     counts: dict[tuple[int, int], int] = {}
     for feature in iter_raa_features(feature_inventory):
-        status = clean_optional_text(feature.get("properties", {}).get("antikvariskbedomningtyp_namn"))
+        status = clean_optional_text(
+            feature.get("properties", {}).get("antikvariskbedomningtyp_namn")
+        )
         if status != "Fornlämning":
             continue
-        representative_point = geometry_to_representative_point(feature.get("geometry", {}))
+        representative_point = geometry_to_representative_point(
+            feature.get("geometry", {})
+        )
         if representative_point is None:
             continue
         longitude, latitude, _ = representative_point
@@ -156,7 +170,9 @@ def iter_raa_features(feature_inventory: dict[str, object]) -> list[dict[str, ob
     return [feature for feature in features if isinstance(feature, dict)]
 
 
-def build_raa_inventory_summary(feature_inventory: dict[str, object]) -> dict[str, object]:
+def build_raa_inventory_summary(
+    feature_inventory: dict[str, object],
+) -> dict[str, object]:
     """Summarize the archived RAÄ feature inventory for raw-audit use."""
     features = iter_raa_features(feature_inventory)
     feature_ids = [
@@ -171,7 +187,9 @@ def build_raa_inventory_summary(feature_inventory: dict[str, object]) -> dict[st
         "number_matched": int(feature_inventory.get("numberMatched") or len(features)),
         "archived_feature_count": len(features),
         "identified_feature_count": len(populated_feature_ids),
-        "heritage_site_count": count_raa_features(feature_inventory, heritage_statuses={"Fornlämning"}),
+        "heritage_site_count": count_raa_features(
+            feature_inventory, heritage_statuses={"Fornlämning"}
+        ),
         "heritage_or_possible_site_count": count_raa_features(
             feature_inventory,
             heritage_statuses={"Fornlämning", "Möjlig fornlämning"},

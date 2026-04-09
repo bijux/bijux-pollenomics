@@ -141,4 +141,6 @@ def write_localities_csv(path: Path, localities: Iterable[LocalitySummary]) -> N
 
 def write_samples_geojson(path: Path, samples: Iterable[SampleRecord]) -> None:
     """Write map-ready sample points as GeoJSON."""
-    path.write_text(json.dumps(build_samples_geojson(samples), indent=2), encoding="utf-8")
+    path.write_text(
+        json.dumps(build_samples_geojson(samples), indent=2), encoding="utf-8"
+    )

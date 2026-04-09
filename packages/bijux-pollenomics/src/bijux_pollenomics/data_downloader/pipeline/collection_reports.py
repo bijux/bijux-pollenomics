@@ -54,7 +54,9 @@ def build_data_collection_summary(
     )
 
 
-def build_data_collection_report(summary: DataCollectionSummary) -> DataCollectionReport:
+def build_data_collection_report(
+    summary: DataCollectionSummary,
+) -> DataCollectionReport:
     """Build the public collection report from the persisted summary contract."""
     return DataCollectionReport(
         generated_on=summary.generated_on,

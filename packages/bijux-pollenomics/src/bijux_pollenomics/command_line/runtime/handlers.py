@@ -3,7 +3,12 @@ from __future__ import annotations
 import argparse
 
 from ...data_downloader import collect_data
-from ...reporting import generate_country_report, generate_multi_country_map, generate_published_reports, slugify
+from ...reporting import (
+    generate_country_report,
+    generate_multi_country_map,
+    generate_published_reports,
+    slugify,
+)
 
 __all__ = [
     "run_collect_data",
@@ -13,10 +18,14 @@ __all__ = [
 ]
 
 
-def run_report_country(args: argparse.Namespace, *, parser: argparse.ArgumentParser) -> int:
+def run_report_country(
+    args: argparse.Namespace, *, parser: argparse.ArgumentParser
+) -> int:
     """Run the country-report command."""
     if bool(args.shared_map_label) != bool(args.shared_map_path):
-        parser.error("--shared-map-label and --shared-map-path must be provided together")
+        parser.error(
+            "--shared-map-label and --shared-map-path must be provided together"
+        )
     version_dir = args.aadr_root / args.version
     output_dir = args.output_root / slugify(args.country)
     map_reference = None
@@ -56,7 +65,9 @@ def run_report_multi_country_map(args: argparse.Namespace) -> int:
 
 def run_collect_data(args: argparse.Namespace) -> int:
     """Run the data-collection command."""
-    report = collect_data(output_root=args.output_root, sources=args.sources, version=args.version)
+    report = collect_data(
+        output_root=args.output_root, sources=args.sources, version=args.version
+    )
     print(
         f"Wrote data sources {', '.join(report.collected_sources)} to {report.output_root} with "
         f"{report.aadr_file_count} AADR .anno files, "

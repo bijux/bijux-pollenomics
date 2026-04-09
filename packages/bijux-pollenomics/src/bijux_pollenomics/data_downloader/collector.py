@@ -3,26 +3,34 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Iterable
 
-from .sources.aadr import download_aadr_anno_files
-from .boundaries import collect_boundaries_data, fetch_country_boundaries, load_country_boundaries
+from ..config import DEFAULT_AADR_VERSION
+from .boundaries import (
+    collect_boundaries_data,
+    fetch_country_boundaries,
+    load_country_boundaries,
+)
+from .data_layout import (
+    AVAILABLE_SOURCES,
+    build_source_output_roots,
+    write_data_directory_readme,
+)
+from .landclim import collect_landclim_data
+from .models import DataCollectionReport
+from .neotoma import collect_neotoma_data
 from .pipeline.collection_reports import (
     build_data_collection_report,
     build_data_collection_summary,
     initialize_source_counts,
 )
 from .pipeline.context_collection import collect_context_source
-from .data_layout import AVAILABLE_SOURCES, build_source_output_roots, write_data_directory_readme
-from .landclim import collect_landclim_data
-from .models import DataCollectionReport
-from .neotoma import collect_neotoma_data
 from .pipeline.requested_sources import normalize_requested_sources
 from .pipeline.source_registry import CONTEXT_SOURCE_SPECS
 from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
-from .sources.boundaries import resolve_country_boundaries
 from .raa import collect_raa_data
 from .sead import collect_sead_data
-from ..config import DEFAULT_AADR_VERSION
+from .sources.aadr import download_aadr_anno_files
+from .sources.boundaries import resolve_country_boundaries
 
 __all__ = [
     "AVAILABLE_SOURCES",
@@ -41,7 +49,9 @@ def collect_data(
     """Collect one or more tracked data sources into the project data tree."""
     selected_sources = normalize_requested_sources(sources)
     output_root = Path(output_root)
-    source_output_roots = build_source_output_roots(output_root=output_root, version=version)
+    source_output_roots = build_source_output_roots(
+        output_root=output_root, version=version
+    )
 
     counts = initialize_source_counts()
     boundary_source: str | None = None
@@ -49,7 +59,9 @@ def collect_data(
     if "aadr" in selected_sources:
         aadr_report = collect_into_staging_dir(
             final_output_root=output_root / "aadr",
-            collect=lambda staging_root: download_aadr_anno_files(output_root=staging_root, version=version),
+            collect=lambda staging_root: download_aadr_anno_files(
+                output_root=staging_root, version=version
+            ),
         )
         counts["aadr_file_count"] = len(aadr_report.downloaded_files)
 
@@ -73,7 +85,7 @@ def collect_data(
                     spec=spec,
                     output_root=output_root,
                     country_boundaries=country_boundaries,
-                    )
+                )
             )
 
     summary = build_data_collection_summary(

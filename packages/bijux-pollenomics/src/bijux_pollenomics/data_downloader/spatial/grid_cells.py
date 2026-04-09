@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .representative_points import flatten_positions
 from .country_classification import point_in_geometry
+from .representative_points import flatten_positions
 
 
 def geometry_bbox(geometry: dict[str, object]) -> tuple[float, float, float, float]:
@@ -22,13 +22,15 @@ def build_grid_cell_geometry(
     max_latitude = min_latitude + cell_size
     return {
         "type": "Polygon",
-        "coordinates": [[
-            [min_longitude, min_latitude],
-            [max_longitude, min_latitude],
-            [max_longitude, max_latitude],
-            [min_longitude, max_latitude],
-            [min_longitude, min_latitude],
-        ]],
+        "coordinates": [
+            [
+                [min_longitude, min_latitude],
+                [max_longitude, min_latitude],
+                [max_longitude, max_latitude],
+                [min_longitude, max_latitude],
+                [min_longitude, min_latitude],
+            ]
+        ],
     }
 
 

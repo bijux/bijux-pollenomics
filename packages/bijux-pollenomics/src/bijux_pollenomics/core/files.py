@@ -12,4 +12,3 @@ def write_json(path: Path, payload: object) -> None:
 def write_text(path: Path, content: str) -> None:
     """Write UTF-8 text content."""
     path.write_text(content, encoding="utf-8")
-

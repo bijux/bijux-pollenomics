@@ -10,19 +10,41 @@ from ..core.files import write_json
 from ..core.http import fetch_json
 from ..core.text import clean_optional_text
 from .contracts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
+from .shared.context_exports import (
+    write_context_points_csv,
+    write_context_points_geojson,
+)
 from .sources.neotoma.archive import (
     build_neotoma_download_archive_parts as build_neotoma_download_archive_parts_from_archive,
+)
+from .sources.neotoma.archive import (
     write_neotoma_download_archive as write_neotoma_download_archive_to_dir,
 )
 from .sources.neotoma.client import (
     build_neotoma_bbox_geojson as build_neotoma_bbox_geojson_from_client,
+)
+from .sources.neotoma.client import (
     extract_neotoma_download_dataset_ids as extract_neotoma_download_dataset_ids_from_client,
+)
+from .sources.neotoma.client import (
     fetch_neotoma_api_payload as fetch_neotoma_api_payload_from_client,
+)
+from .sources.neotoma.client import (
     fetch_neotoma_api_rows as fetch_neotoma_api_rows_from_client,
+)
+from .sources.neotoma.client import (
     fetch_neotoma_dataset_download_row as fetch_neotoma_dataset_download_row_from_client,
+)
+from .sources.neotoma.client import (
     fetch_neotoma_dataset_download_rows as fetch_neotoma_dataset_download_rows_from_client,
+)
+from .sources.neotoma.client import (
     fetch_neotoma_dataset_inventory_rows as fetch_neotoma_dataset_inventory_rows_from_client,
+)
+from .sources.neotoma.client import (
     neotoma_download_dataset_id as neotoma_download_dataset_id_from_client,
+)
+from .sources.neotoma.client import (
     validate_neotoma_download_coverage as validate_neotoma_download_coverage_from_client,
 )
 from .sources.neotoma.normalization import (
@@ -31,8 +53,6 @@ from .sources.neotoma.normalization import (
     classify_neotoma_site_country,
     normalize_neotoma_rows,
 )
-from .shared.context_exports import write_context_points_csv, write_context_points_geojson
-
 
 # Neotoma bbox searches drop valid Nordic sites when paginated in smaller chunks.
 # Keep the inventory query large enough to fit in one response under current coverage.
@@ -68,7 +88,9 @@ def fetch_neotoma_pollen_rows(
         bbox=bbox,
         country_boundaries=country_boundaries,
     )
-    download_rows = fetch_neotoma_dataset_download_rows(extract_neotoma_dataset_ids(matched_inventory_rows))
+    download_rows = fetch_neotoma_dataset_download_rows(
+        extract_neotoma_dataset_ids(matched_inventory_rows)
+    )
     return build_neotoma_site_rows_from_downloads(download_rows)
 
 
@@ -82,7 +104,9 @@ def fetch_neotoma_dataset_inventory_rows(
     )
 
 
-def fetch_neotoma_dataset_download_rows(dataset_ids: Iterable[int]) -> list[dict[str, object]]:
+def fetch_neotoma_dataset_download_rows(
+    dataset_ids: Iterable[int],
+) -> list[dict[str, object]]:
     """Fetch full Neotoma dataset downloads for each matched dataset identifier."""
     return fetch_neotoma_dataset_download_rows_from_client(
         dataset_ids,
@@ -115,7 +139,9 @@ def validate_neotoma_download_coverage(
     )
 
 
-def extract_neotoma_download_dataset_ids(download_rows: Iterable[dict[str, object]]) -> list[int]:
+def extract_neotoma_download_dataset_ids(
+    download_rows: Iterable[dict[str, object]],
+) -> list[int]:
     """Extract unique dataset identifiers from full Neotoma dataset download payloads."""
     return extract_neotoma_download_dataset_ids_from_client(
         download_rows,
@@ -125,10 +151,14 @@ def extract_neotoma_download_dataset_ids(download_rows: Iterable[dict[str, objec
 
 def neotoma_download_dataset_id(download_row: object) -> int | None:
     """Read one dataset identifier from a full Neotoma dataset download payload."""
-    return neotoma_download_dataset_id_from_client(download_row, clean_optional_text_fn=clean_optional_text)
+    return neotoma_download_dataset_id_from_client(
+        download_row, clean_optional_text_fn=clean_optional_text
+    )
 
 
-def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = None) -> list[object]:
+def fetch_neotoma_api_rows(
+    endpoint: str, extra_params: dict[str, str] | None = None
+) -> list[object]:
     """Fetch all rows from one Neotoma data endpoint with stable chunked pagination."""
     return fetch_neotoma_api_rows_from_client(
         endpoint,
@@ -139,7 +169,9 @@ def fetch_neotoma_api_rows(endpoint: str, extra_params: dict[str, str] | None = 
     )
 
 
-def fetch_neotoma_api_payload(endpoint: str, *, params: dict[str, str]) -> dict[str, object]:
+def fetch_neotoma_api_payload(
+    endpoint: str, *, params: dict[str, str]
+) -> dict[str, object]:
     """Fetch one Neotoma API payload with bounded retries for transient HTTP failures."""
     return fetch_neotoma_api_payload_from_client(
         endpoint,
@@ -167,7 +199,9 @@ def filter_neotoma_dataset_inventory_rows(
         site = item.get("site")
         if not isinstance(site, dict):
             continue
-        if not classify_neotoma_site_country(site, bbox=bbox, country_boundaries=country_boundaries):
+        if not classify_neotoma_site_country(
+            site, bbox=bbox, country_boundaries=country_boundaries
+        ):
             continue
         filtered_rows.append(copy.deepcopy(item))
     return filtered_rows
@@ -282,7 +316,9 @@ def collect_neotoma_data(
             "rows": build_neotoma_site_snapshot_rows(rows),
         },
     )
-    records = normalize_neotoma_rows(rows, bbox=bbox, country_boundaries=country_boundaries)
+    records = normalize_neotoma_rows(
+        rows, bbox=bbox, country_boundaries=country_boundaries
+    )
     normalized_csv_path = NEOTOMA_POINT_CSV.source_path_under(output_root)
     normalized_geojson_path = NEOTOMA_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)

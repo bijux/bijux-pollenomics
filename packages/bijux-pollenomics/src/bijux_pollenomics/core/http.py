@@ -8,14 +8,18 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
-
 INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
 HTTP_REQUEST_RETRIES = 3
 
 
 def allow_insecure_tls_fallback() -> bool:
     """Return whether network fetches may retry with TLS verification disabled."""
-    return os.getenv(INSECURE_TLS_ENV_VAR, "").strip().casefold() in {"1", "true", "yes", "on"}
+    return os.getenv(INSECURE_TLS_ENV_VAR, "").strip().casefold() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+    }
 
 
 def should_retry_insecure_tls(error: URLError) -> bool:
@@ -36,7 +40,11 @@ def fetch_json(
     timeout: float | None = None,
 ) -> object:
     """Fetch and decode a JSON payload."""
-    return json.loads(fetch_text(url, params=params, headers=headers, insecure=insecure, timeout=timeout))
+    return json.loads(
+        fetch_text(
+            url, params=params, headers=headers, insecure=insecure, timeout=timeout
+        )
+    )
 
 
 def fetch_text(
@@ -71,7 +79,10 @@ def fetch_binary(
             raise
         fallback_headers = dict(headers or {})
         fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
-        with urlopen(Request(url, headers=fallback_headers), context=ssl._create_unverified_context()) as response:
+        with urlopen(
+            Request(url, headers=fallback_headers),
+            context=ssl._create_unverified_context(),
+        ) as response:
             return response.read()
     except (TimeoutError, URLError):
         return fetch_url_bytes(request, insecure=insecure, timeout=None)
@@ -92,15 +103,25 @@ def fetch_url_bytes(
                 return response.read()
         except URLError as error:
             last_error = error
-            if not insecure and allow_insecure_tls_fallback() and should_retry_insecure_tls(error):
+            if (
+                not insecure
+                and allow_insecure_tls_fallback()
+                and should_retry_insecure_tls(error)
+            ):
                 context = ssl._create_unverified_context()
                 insecure = True
                 continue
-            if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
+            if (
+                not should_retry_transient_network_error(error)
+                or attempt + 1 >= HTTP_REQUEST_RETRIES
+            ):
                 raise
         except TimeoutError as error:
             last_error = error
-            if not should_retry_transient_network_error(error) or attempt + 1 >= HTTP_REQUEST_RETRIES:
+            if (
+                not should_retry_transient_network_error(error)
+                or attempt + 1 >= HTTP_REQUEST_RETRIES
+            ):
                 raise
         time.sleep(float(attempt + 1))
     if last_error is not None:

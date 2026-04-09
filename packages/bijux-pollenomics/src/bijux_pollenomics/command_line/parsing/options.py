@@ -31,16 +31,21 @@ def add_aadr_root_argument(parser: argparse.ArgumentParser) -> None:
     )
 
 
-def add_version_argument(parser: argparse.ArgumentParser, *, help_text: str | None = None) -> None:
+def add_version_argument(
+    parser: argparse.ArgumentParser, *, help_text: str | None = None
+) -> None:
     """Add the shared version option."""
     parser.add_argument(
         "--version",
         default=DEFAULT_AADR_VERSION,
-        help=help_text or f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
+        help=help_text
+        or f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
     )
 
 
-def add_output_root_argument(parser: argparse.ArgumentParser, *, help_text: str) -> None:
+def add_output_root_argument(
+    parser: argparse.ArgumentParser, *, help_text: str
+) -> None:
     """Add the shared output root option."""
     parser.add_argument(
         "--output-root",

@@ -7,6 +7,7 @@ CommandHandler = Callable[[argparse.Namespace], int]
 
 __all__ = ["CommandHandler", "build_command_handlers", "resolve_handler"]
 
+
 def build_command_handlers(
     *,
     run_collect_data: CommandHandler,
@@ -21,7 +22,9 @@ def build_command_handlers(
     }
 
 
-def resolve_handler(command_name: str, *, handlers: dict[str, CommandHandler]) -> CommandHandler:
+def resolve_handler(
+    command_name: str, *, handlers: dict[str, CommandHandler]
+) -> CommandHandler:
     """Resolve the handler for one parsed command from a provided registry."""
     try:
         return handlers[command_name]

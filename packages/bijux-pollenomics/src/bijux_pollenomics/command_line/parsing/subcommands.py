@@ -3,7 +3,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from ...config import DEFAULT_AADR_VERSION, DEFAULT_CONTEXT_ROOT, DEFAULT_PUBLISHED_COUNTRIES
+from ...config import (
+    DEFAULT_AADR_VERSION,
+    DEFAULT_CONTEXT_ROOT,
+    DEFAULT_PUBLISHED_COUNTRIES,
+)
 from ...data_downloader import AVAILABLE_SOURCES
 from .options import (
     add_aadr_root_argument,
@@ -22,7 +26,9 @@ __all__ = [
 ]
 
 
-def register_subcommands(subparsers: argparse._SubParsersAction[argparse.ArgumentParser]) -> None:
+def register_subcommands(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> None:
     """Register every supported subcommand on the root parser."""
     build_report_country_parser(subparsers)
     build_multi_country_map_parser(subparsers)
@@ -38,7 +44,9 @@ def build_report_country_parser(
         "report-country",
         help="Filter AADR anno files by country and write a report bundle.",
     )
-    parser.add_argument("country", help="Political Entity value to filter, for example Sweden.")
+    parser.add_argument(
+        "country", help="Political Entity value to filter, for example Sweden."
+    )
     add_aadr_root_argument(parser)
     add_version_argument(parser)
     add_output_root_argument(

@@ -2,9 +2,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .context_collectors import resolve_context_collect_function as resolve_registered_context_collector
+from .context_collectors import (
+    resolve_context_collect_function as resolve_registered_context_collector,
+)
 
-__all__ = ["CONTEXT_SOURCE_SPECS", "ContextSourceSpec", "resolve_context_collect_function"]
+__all__ = [
+    "CONTEXT_SOURCE_SPECS",
+    "ContextSourceSpec",
+    "resolve_context_collect_function",
+]
 
 
 @dataclass(frozen=True)

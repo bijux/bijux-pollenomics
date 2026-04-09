@@ -10,9 +10,9 @@ from ....core.bp_time import (
     parse_bp_window_label,
 )
 from ....core.text import clean_optional_text
-from ...spatial import classify_country, point_in_bbox
 from ...models import ContextPointRecord
 from ...shared.workbooks import read_xlsx_sheet_rows
+from ...spatial import classify_country, point_in_bbox
 from .catalog import LANDCLIM_DATASET_METADATA
 
 __all__ = [
@@ -56,13 +56,28 @@ def build_landclim_site_records(
     """Build all Nordic LandClim pollen-site point records."""
     records_by_id: dict[str, ContextPointRecord] = {}
     for record in [
-        *marquer_site_records(raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"], bbox, country_boundaries),
-        *landclim_i_site_records(raw_paths["landclim_i_land_cover_types.xlsx"], bbox, country_boundaries),
-        *landclim_i_site_records(raw_paths["landclim_i_plant_functional_types.xlsx"], bbox, country_boundaries),
-        *landclim_ii_site_records(raw_paths["landclim_ii_site_metadata.xlsx"], bbox, country_boundaries),
+        *marquer_site_records(
+            raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"],
+            bbox,
+            country_boundaries,
+        ),
+        *landclim_i_site_records(
+            raw_paths["landclim_i_land_cover_types.xlsx"], bbox, country_boundaries
+        ),
+        *landclim_i_site_records(
+            raw_paths["landclim_i_plant_functional_types.xlsx"],
+            bbox,
+            country_boundaries,
+        ),
+        *landclim_ii_site_records(
+            raw_paths["landclim_ii_site_metadata.xlsx"], bbox, country_boundaries
+        ),
     ]:
         records_by_id.setdefault(record.record_id, record)
-    return sorted(records_by_id.values(), key=lambda record: (record.name.casefold(), record.record_id))
+    return sorted(
+        records_by_id.values(),
+        key=lambda record: (record.name.casefold(), record.record_id),
+    )
 
 
 def marquer_site_records(
@@ -81,7 +96,11 @@ def marquer_site_records(
             current_grid_group = row[0].replace("-", "").strip()
         latitude = parse_coordinate(row[3])
         longitude = parse_coordinate(row[4])
-        if latitude is None or longitude is None or not point_in_bbox(longitude, latitude, bbox):
+        if (
+            latitude is None
+            or longitude is None
+            or not point_in_bbox(longitude, latitude, bbox)
+        ):
             continue
         country = classify_country(longitude, latitude, country_boundaries)
         if not country:
@@ -135,14 +154,22 @@ def landclim_i_site_records(
 ) -> list[ContextPointRecord]:
     """Parse the LandClim I site metadata sheet into context points."""
     rows = read_landclim_i_site_rows(path)
-    time_windows = [clean_optional_text(value).replace(" cal ", " ") for value in rows[1][7:] if clean_optional_text(value)]
+    time_windows = [
+        clean_optional_text(value).replace(" cal ", " ")
+        for value in rows[1][7:]
+        if clean_optional_text(value)
+    ]
     records: list[ContextPointRecord] = []
     for row in rows[2:]:
         if len(row) < 8 or not clean_optional_text(row[1]):
             continue
         latitude = parse_coordinate(row[3])
         longitude = parse_coordinate(row[4])
-        if latitude is None or longitude is None or not point_in_bbox(longitude, latitude, bbox):
+        if (
+            latitude is None
+            or longitude is None
+            or not point_in_bbox(longitude, latitude, bbox)
+        ):
             continue
         country = resolve_landclim_country(
             longitude=longitude,
@@ -154,7 +181,7 @@ def landclim_i_site_records(
             continue
         available_windows = [
             time_windows[index]
-            for index, marker in enumerate(row[7:7 + len(time_windows)])
+            for index, marker in enumerate(row[7 : 7 + len(time_windows)])
             if index < len(time_windows) and clean_optional_text(marker)
         ]
         time_interval = landclim_time_windows_interval(available_windows)
@@ -194,8 +221,12 @@ def landclim_i_site_records(
                 time_start_bp=time_interval[0] if time_interval else None,
                 time_end_bp=time_interval[1] if time_interval else None,
                 time_mean_bp=mean_bp_year_from_interval(time_interval),
-                time_label=summarize_time_windows(available_windows) if available_windows else "",
-                popup_rows=tuple((label, value) for label, value in popup_rows if value),
+                time_label=summarize_time_windows(available_windows)
+                if available_windows
+                else "",
+                popup_rows=tuple(
+                    (label, value) for label, value in popup_rows if value
+                ),
             )
         )
     return records
@@ -214,7 +245,11 @@ def landclim_ii_site_records(
     for row in rows[1:]:
         latitude = parse_decimal(row, index, "latdd")
         longitude = parse_decimal(row, index, "londd")
-        if latitude is None or longitude is None or not point_in_bbox(longitude, latitude, bbox):
+        if (
+            latitude is None
+            or longitude is None
+            or not point_in_bbox(longitude, latitude, bbox)
+        ):
             continue
         country = resolve_landclim_country(
             longitude=longitude,
@@ -261,8 +296,12 @@ def landclim_ii_site_records(
                 time_start_bp=time_interval[0] if time_interval else None,
                 time_end_bp=time_interval[1] if time_interval else None,
                 time_mean_bp=mean_bp_year_from_interval(time_interval),
-                time_label=build_bp_interval_label(time_interval[0], time_interval[1]) if time_interval is not None else "",
-                popup_rows=tuple((label, value) for label, value in popup_rows if value),
+                time_label=build_bp_interval_label(time_interval[0], time_interval[1])
+                if time_interval is not None
+                else "",
+                popup_rows=tuple(
+                    (label, value) for label, value in popup_rows if value
+                ),
             )
         )
     return records
@@ -297,11 +336,7 @@ def normalize_landclim_country_hint(value: object) -> str:
     if not text:
         return ""
     normalized = (
-        text.casefold()
-        .replace("(", " ")
-        .replace(")", " ")
-        .replace("/", " ")
-        .split()[0]
+        text.casefold().replace("(", " ").replace(")", " ").replace("/", " ").split()[0]
     )
     return LANDCLIM_COUNTRY_HINTS.get(normalized, "")
 
@@ -380,10 +415,14 @@ def summarize_time_windows(time_windows: list[str]) -> str:
 
 def landclim_time_windows_interval(time_windows: list[str]) -> tuple[int, int] | None:
     """Merge LandClim time-window labels into one BP interval."""
-    return merge_bp_intervals(*(parse_bp_window_label(window) for window in time_windows))
+    return merge_bp_intervals(
+        *(parse_bp_window_label(window) for window in time_windows)
+    )
 
 
-def landclim_top_bottom_interval(top_bp: int | None, bottom_bp: int | None) -> tuple[int, int] | None:
+def landclim_top_bottom_interval(
+    top_bp: int | None, bottom_bp: int | None
+) -> tuple[int, int] | None:
     """Build a LandClim interval from top and bottom BP fields."""
     return normalize_bp_interval(top_bp, bottom_bp)
 

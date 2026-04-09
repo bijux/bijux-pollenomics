@@ -10,7 +10,9 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
     """Build the AADR point layer payload used by the shared map."""
     features = []
     for sample in samples:
-        bp_coverage = sample.time_label or build_bp_interval_label(sample.time_start_bp, sample.time_end_bp)
+        bp_coverage = sample.time_label or build_bp_interval_label(
+            sample.time_start_bp, sample.time_end_bp
+        )
         features.append(
             {
                 "latitude": sample.latitude,
@@ -33,7 +35,10 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
                     {"label": "Publication", "value": sample.publication},
                     {"label": "Date", "value": sample.full_date},
                     {"label": "Date mean in BP", "value": sample.date_mean_bp},
-                    {"label": "Date standard deviation in BP", "value": sample.date_stddev_bp},
+                    {
+                        "label": "Date standard deviation in BP",
+                        "value": sample.date_stddev_bp,
+                    },
                     {"label": "BP coverage", "value": bp_coverage},
                 ],
             }

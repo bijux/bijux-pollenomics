@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+import shutil
 from typing import Callable
 
 __all__ = ["build_staging_output_dir", "collect_into_staging_dir", "reset_output_dir"]

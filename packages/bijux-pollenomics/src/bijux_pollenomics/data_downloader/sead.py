@@ -6,19 +6,34 @@ from typing import Iterable
 
 from ..core.http import fetch_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON
+from .shared.context_exports import (
+    write_context_points_csv,
+    write_context_points_geojson,
+)
 from .sources.sead.archive import write_sead_site_archive
 from .sources.sead.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
+)
+from .sources.sead.fetch import (
     fetch_sead_rows as fetch_sead_rows_from_api,
+)
+from .sources.sead.fetch import (
     fetch_sead_rows_by_ids as fetch_sead_rows_by_ids_from_api,
+)
+from .sources.sead.fetch import (
     merge_sead_intervals as merge_sead_intervals_value,
+)
+from .sources.sead.fetch import (
     parse_optional_int as parse_optional_int_value,
+)
+from .sources.sead.fetch import (
     populate_sead_site_inventory_fields as populate_sead_site_inventory_fields_from_api,
+)
+from .sources.sead.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
 from .sources.sead.inventory import SeadSiteFetchResult, build_sead_site_inventory
 from .sources.sead.normalization import normalize_sead_rows
-from .shared.context_exports import write_context_points_csv, write_context_points_geojson
 
 
 @dataclass(frozen=True)
@@ -29,12 +44,17 @@ class SeadDataReport:
     normalized_csv_path: Path
     normalized_geojson_path: Path
 
-def fetch_sead_site_rows(bbox: tuple[float, float, float, float]) -> list[dict[str, object]]:
+
+def fetch_sead_site_rows(
+    bbox: tuple[float, float, float, float],
+) -> list[dict[str, object]]:
     """Download SEAD site rows inside the Nordic bounding box."""
     return fetch_sead_site_inventory(bbox).rows
 
 
-def fetch_sead_site_inventory(bbox: tuple[float, float, float, float]) -> SeadSiteFetchResult:
+def fetch_sead_site_inventory(
+    bbox: tuple[float, float, float, float],
+) -> SeadSiteFetchResult:
     """Download SEAD site rows plus an audit summary of linked table coverage."""
     return build_sead_site_inventory(
         bbox=bbox,
@@ -103,7 +123,9 @@ def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | 
     return merge_sead_intervals_value(intervals)
 
 
-def populate_sead_site_inventory_fields(rows: list[dict[str, object]]) -> dict[str, int]:
+def populate_sead_site_inventory_fields(
+    rows: list[dict[str, object]],
+) -> dict[str, int]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
     return populate_sead_site_inventory_fields_from_api(rows, fetch_json_fn=fetch_json)
 

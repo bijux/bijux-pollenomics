@@ -61,8 +61,14 @@ def build_fieldwork_point_layer(output_dir: Path) -> dict[str, object] | None:
                 "subtitle": "Fieldwork documentation",
                 "popup_rows": [
                     {"label": "Sampling date", "value": "2026-02-26"},
-                    {"label": "Place", "value": "Lyngsjön Lake, southwest of Kristianstad"},
-                    {"label": "Context", "value": "Winter lake sampling on lake ice during field collection"},
+                    {
+                        "label": "Place",
+                        "value": "Lyngsjön Lake, southwest of Kristianstad",
+                    },
+                    {
+                        "label": "Context",
+                        "value": "Winter lake sampling on lake ice during field collection",
+                    },
                 ],
                 "media_links": media_links,
             }

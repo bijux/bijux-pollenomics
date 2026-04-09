@@ -31,7 +31,9 @@ def load_multi_country_map_inputs(
         country_samples[country] = tuple(samples)
         country_sample_counts[country] = len(samples)
 
-    all_samples = tuple(sample for country in countries for sample in country_samples[country])
+    all_samples = tuple(
+        sample for country in countries for sample in country_samples[country]
+    )
     return MultiCountryMapInputs(
         countries=countries,
         country_samples=country_samples,

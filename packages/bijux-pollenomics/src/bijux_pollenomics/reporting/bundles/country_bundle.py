@@ -16,7 +16,9 @@ def publish_country_report_bundle(
     country: str,
     version: str,
     map_reference: tuple[str, str] | None,
-    build_country_report_summary_fn: Callable[[CountryReport, object], dict[str, object]],
+    build_country_report_summary_fn: Callable[
+        [CountryReport, object], dict[str, object]
+    ],
     render_sample_markdown_fn: Callable[[CountryReport], str],
     render_summary_markdown_fn: Callable[..., str],
     write_localities_csv_fn: Callable[[Path, object], None],
@@ -33,8 +35,13 @@ def publish_country_report_bundle(
     write_samples_csv_fn(bundle_paths.samples_csv_path, report.samples)
     write_localities_csv_fn(bundle_paths.localities_csv_path, report.localities)
     write_samples_geojson_fn(bundle_paths.samples_geojson_path, report.samples)
-    write_summary_json_fn(bundle_paths.summary_json_path, build_country_report_summary_fn(report, bundle_paths))
-    bundle_paths.samples_markdown_path.write_text(render_sample_markdown_fn(report), encoding="utf-8")
+    write_summary_json_fn(
+        bundle_paths.summary_json_path,
+        build_country_report_summary_fn(report, bundle_paths),
+    )
+    bundle_paths.samples_markdown_path.write_text(
+        render_sample_markdown_fn(report), encoding="utf-8"
+    )
     bundle_paths.readme_path.write_text(
         render_summary_markdown_fn(
             report=report,

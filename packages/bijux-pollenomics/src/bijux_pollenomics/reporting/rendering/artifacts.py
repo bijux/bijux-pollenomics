@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-import shutil
 from pathlib import Path
+import shutil
 
 from .record_exports import (
     build_sample_geojson_feature,
@@ -14,6 +14,7 @@ from .record_exports import (
     write_samples_geojson,
 )
 
+
 def resolve_repository_root() -> Path:
     """Locate the repository root from the installed or editable runtime package path."""
     current = Path(__file__).resolve()
@@ -21,7 +22,9 @@ def resolve_repository_root() -> Path:
         candidate = parent / "docs" / "assets" / "vendor" / "map"
         if candidate.exists():
             return parent
-    raise FileNotFoundError("Unable to locate the repository root for vendored map assets")
+    raise FileNotFoundError(
+        "Unable to locate the repository root for vendored map assets"
+    )
 
 
 MAP_ASSET_SOURCE_DIR = resolve_repository_root() / "docs" / "assets" / "vendor" / "map"
@@ -44,7 +47,9 @@ def resolve_map_asset_source_dir() -> Path:
     missing = [path for path in required_paths if not path.exists()]
     if missing:
         missing_text = ", ".join(str(path) for path in missing)
-        raise FileNotFoundError(f"Vendored map asset bundle is incomplete: {missing_text}")
+        raise FileNotFoundError(
+            f"Vendored map asset bundle is incomplete: {missing_text}"
+        )
     return MAP_ASSET_SOURCE_DIR
 
 

@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.sources.aadr import (
@@ -23,7 +23,12 @@ class AadrDataTests(unittest.TestCase):
             "data": [
                 {
                     "files": [
-                        {"dataFile": {"filename": "v62.0_1240k_public.anno", "id": 101}},
+                        {
+                            "dataFile": {
+                                "filename": "v62.0_1240k_public.anno",
+                                "id": 101,
+                            }
+                        },
                         {"dataFile": {"filename": "v62.0_HO_public.anno", "id": 102}},
                         {"dataFile": {"filename": "v62.0_HO_public.geno", "id": 104}},
                     ]
@@ -46,18 +51,30 @@ class AadrDataTests(unittest.TestCase):
             ],
         )
 
-    def test_resolve_anno_files_finds_historical_release_outside_latest_version(self) -> None:
+    def test_resolve_anno_files_finds_historical_release_outside_latest_version(
+        self,
+    ) -> None:
         metadata = {
             "data": [
                 {
                     "files": [
-                        {"dataFile": {"filename": "v62.0_1240k_public.anno", "id": 201}},
+                        {
+                            "dataFile": {
+                                "filename": "v62.0_1240k_public.anno",
+                                "id": 201,
+                            }
+                        },
                     ]
                 },
                 {
                     "files": [
                         {"dataFile": {"filename": "v54.1_HO_public.anno", "id": 301}},
-                        {"dataFile": {"filename": "v54.1_1240k_public.anno", "id": 302}},
+                        {
+                            "dataFile": {
+                                "filename": "v54.1_1240k_public.anno",
+                                "id": 302,
+                            }
+                        },
                     ]
                 },
             ]
@@ -107,12 +124,15 @@ class AadrDataTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp)
-            with patch(
-                "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
-                return_value=metadata,
-            ), patch(
-                "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
-                side_effect=[first_payload, second_payload],
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
+                    return_value=metadata,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
+                    side_effect=[first_payload, second_payload],
+                ),
             ):
                 report = download_aadr_anno_files(output_root, "v62.0")
 
@@ -151,12 +171,15 @@ class AadrDataTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp)
-            with patch(
-                "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
-                return_value=metadata,
-            ), patch(
-                "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
-                return_value=b"second",
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_release_history_metadata",
+                    return_value=metadata,
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
+                    return_value=b"second",
+                ),
             ):
                 with self.assertRaisesRegex(ValueError, "checksum mismatch"):
                     download_aadr_anno_files(output_root, "v62.0")

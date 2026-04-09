@@ -1,13 +1,17 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 from urllib.error import URLError
 
-from bijux_pollenomics.data_downloader.contracts import BOUNDARY_COLLECTION, LANDCLIM_GRID_GEOJSON, NEOTOMA_POINT_GEOJSON
+from bijux_pollenomics.data_downloader.contracts import (
+    BOUNDARY_COLLECTION,
+    LANDCLIM_GRID_GEOJSON,
+    NEOTOMA_POINT_GEOJSON,
+)
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import (
@@ -16,8 +20,15 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     normalize_sead_rows,
 )
-from bijux_pollenomics.data_downloader.shared import write_context_points_csv, write_context_points_geojson
-from bijux_pollenomics.reporting.context import build_context_layers, build_external_point_layer, build_external_polygon_layer
+from bijux_pollenomics.data_downloader.shared import (
+    write_context_points_csv,
+    write_context_points_geojson,
+)
+from bijux_pollenomics.reporting.context import (
+    build_context_layers,
+    build_external_point_layer,
+    build_external_polygon_layer,
+)
 
 
 class ContextDataTests(unittest.TestCase):
@@ -46,7 +57,15 @@ class ContextDataTests(unittest.TestCase):
                         "type": "Feature",
                         "geometry": {
                             "type": "Polygon",
-                            "coordinates": [[[10.0, 55.0], [25.0, 55.0], [25.0, 70.0], [10.0, 70.0], [10.0, 55.0]]],
+                            "coordinates": [
+                                [
+                                    [10.0, 55.0],
+                                    [25.0, 55.0],
+                                    [25.0, 70.0],
+                                    [10.0, 70.0],
+                                    [10.0, 55.0],
+                                ]
+                            ],
                         },
                         "properties": {"name": "Sweden"},
                     }
@@ -54,7 +73,9 @@ class ContextDataTests(unittest.TestCase):
             }
         }
 
-    def test_normalize_neotoma_rows_filters_to_nordic_bbox_and_reduces_polygons(self) -> None:
+    def test_normalize_neotoma_rows_filters_to_nordic_bbox_and_reduces_polygons(
+        self,
+    ) -> None:
         rows = [
             {
                 "siteid": 2961,
@@ -86,7 +107,9 @@ class ContextDataTests(unittest.TestCase):
                 "siteid": 5000,
                 "sitename": "Outside Nordic",
                 "sitedescription": "Ignored.",
-                "geography": json.dumps({"type": "Point", "coordinates": [-100.0, 40.0]}),
+                "geography": json.dumps(
+                    {"type": "Point", "coordinates": [-100.0, 40.0]}
+                ),
                 "altitude": 10,
                 "collectionunits": [],
             },
@@ -139,11 +162,16 @@ class ContextDataTests(unittest.TestCase):
     def test_fetch_sead_site_rows_adds_linked_inventory_counts(self) -> None:
         seen_orders: list[tuple[str, ...]] = []
 
-        def fake_fetch_json(url: str, params: list[tuple[str, str]] | None = None, **_: object) -> object:
+        def fake_fetch_json(
+            url: str, params: list[tuple[str, str]] | None = None, **_: object
+        ) -> object:
             params = params or []
             order_values = tuple(value for key, value in params if key == "order")
             if order_values:
-                seen_orders.extend(tuple(part.strip() for part in value.split(",")) for value in order_values)
+                seen_orders.extend(
+                    tuple(part.strip() for part in value.split(","))
+                    for value in order_values
+                )
             if url.endswith("/tbl_sites"):
                 return [
                     {
@@ -158,15 +186,34 @@ class ContextDataTests(unittest.TestCase):
                     }
                 ]
             if url.endswith("/tbl_sample_groups"):
-                return [{"sample_group_id": 10, "site_id": 6468, "sample_group_name": "Layer A"}]
+                return [
+                    {
+                        "sample_group_id": 10,
+                        "site_id": 6468,
+                        "sample_group_name": "Layer A",
+                    }
+                ]
             if url.endswith("/tbl_physical_samples"):
                 return [{"physical_sample_id": 20, "sample_group_id": 10}]
             if url.endswith("/tbl_analysis_entities"):
-                return [{"analysis_entity_id": 30, "physical_sample_id": 20, "dataset_id": 40}]
+                return [
+                    {
+                        "analysis_entity_id": 30,
+                        "physical_sample_id": 20,
+                        "dataset_id": 40,
+                    }
+                ]
             if url.endswith("/tbl_analysis_values"):
                 return [{"analysis_value_id": 35, "analysis_entity_id": 30}]
             if url.endswith("/tbl_analysis_dating_ranges"):
-                return [{"analysis_value_id": 35, "low_value": 200, "high_value": 800, "age_type_id": 2}]
+                return [
+                    {
+                        "analysis_value_id": 35,
+                        "low_value": 200,
+                        "high_value": 800,
+                        "age_type_id": 2,
+                    }
+                ]
             if url.endswith("/tbl_age_types"):
                 return [{"age_type_id": 2, "age_type": "calibrated years BP"}]
             if url.endswith("/tbl_relative_dates"):
@@ -177,7 +224,10 @@ class ContextDataTests(unittest.TestCase):
                 return [{"site_reference_id": 50, "site_id": 6468, "biblio_id": 60}]
             raise AssertionError(f"Unexpected SEAD request: {url} params={params}")
 
-        with patch("bijux_pollenomics.data_downloader.sead.fetch_json", side_effect=fake_fetch_json):
+        with patch(
+            "bijux_pollenomics.data_downloader.sead.fetch_json",
+            side_effect=fake_fetch_json,
+        ):
             rows = fetch_sead_site_rows((4.0, 54.0, 35.0, 72.0))
 
         self.assertEqual(rows[0]["sample_group_count"], 1)
@@ -195,13 +245,18 @@ class ContextDataTests(unittest.TestCase):
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
 
     def test_fetch_sead_rows_retries_retryable_network_errors(self) -> None:
-        with patch(
-            "bijux_pollenomics.data_downloader.sead.fetch_json",
-            side_effect=[
-                URLError(OSError(51, "Network is unreachable")),
-                [{"site_id": 6468}],
-            ],
-        ), patch("bijux_pollenomics.data_downloader.sources.sead.api_client.time.sleep"):
+        with (
+            patch(
+                "bijux_pollenomics.data_downloader.sead.fetch_json",
+                side_effect=[
+                    URLError(OSError(51, "Network is unreachable")),
+                    [{"site_id": 6468}],
+                ],
+            ),
+            patch(
+                "bijux_pollenomics.data_downloader.sources.sead.api_client.time.sleep"
+            ),
+        ):
             rows = fetch_sead_rows("tbl_sites", select="site_id")
 
         self.assertEqual(rows, [{"site_id": 6468}])
@@ -300,7 +355,9 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(properties["time_mean_bp"], 350)
         self.assertEqual(properties["time_label"], "0-700 BP")
 
-    def test_external_point_layers_enable_time_filter_when_temporal_properties_exist(self) -> None:
+    def test_external_point_layers_enable_time_filter_when_temporal_properties_exist(
+        self,
+    ) -> None:
         layer = build_external_point_layer(
             {
                 "type": "FeatureCollection",
@@ -328,7 +385,9 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(layer["features"][0]["time_mean_bp"], 350)
         self.assertEqual(layer["features"][0]["time_label"], "0-700 BP")
 
-    def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(self) -> None:
+    def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(
+        self,
+    ) -> None:
         layer = build_external_polygon_layer(
             {
                 "type": "FeatureCollection",
@@ -337,7 +396,15 @@ class ContextDataTests(unittest.TestCase):
                         "type": "Feature",
                         "geometry": {
                             "type": "Polygon",
-                            "coordinates": [[[16.0, 58.0], [17.0, 58.0], [17.0, 59.0], [16.0, 59.0], [16.0, 58.0]]],
+                            "coordinates": [
+                                [
+                                    [16.0, 58.0],
+                                    [17.0, 58.0],
+                                    [17.0, 59.0],
+                                    [16.0, 59.0],
+                                    [16.0, 58.0],
+                                ]
+                            ],
                         },
                         "properties": {
                             "layer_key": "landclim-reveals-grid",
@@ -353,7 +420,9 @@ class ContextDataTests(unittest.TestCase):
 
         self.assertTrue(layer["applies_time_filter"])
 
-    def test_build_context_layers_adds_fieldwork_point_when_gallery_media_exists(self) -> None:
+    def test_build_context_layers_adds_fieldwork_point_when_gallery_media_exists(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
             output_dir = docs_root / "report" / "nordic-atlas"
@@ -372,9 +441,17 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(len(polygon_layers), 0)
         self.assertEqual(extra_artifacts, [])
         self.assertEqual(point_layers[1]["key"], "fieldwork-documentation")
-        self.assertEqual(point_layers[1]["features"][0]["title"], "Lyngsjön Lake field sampling")
-        self.assertEqual(point_layers[1]["features"][0]["media_links"][0]["url"], "../../gallery/2026-02-26-data-collection.JPG")
-        self.assertEqual(point_layers[1]["features"][0]["media_links"][1]["url"], "../../gallery/2026-02-26-data-collection.mp4")
+        self.assertEqual(
+            point_layers[1]["features"][0]["title"], "Lyngsjön Lake field sampling"
+        )
+        self.assertEqual(
+            point_layers[1]["features"][0]["media_links"][0]["url"],
+            "../../gallery/2026-02-26-data-collection.JPG",
+        )
+        self.assertEqual(
+            point_layers[1]["features"][0]["media_links"][1]["url"],
+            "../../gallery/2026-02-26-data-collection.mp4",
+        )
 
 
 if __name__ == "__main__":

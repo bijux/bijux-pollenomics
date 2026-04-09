@@ -20,8 +20,7 @@ def build_published_reports_summary(
             "directory": str(report.shared_map_dir),
         },
         "country_bundles": {
-            path.name: str(path)
-            for path in report.country_output_dirs
+            path.name: str(path) for path in report.country_output_dirs
         },
     }
     return payload

@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
-import json
 from unittest.mock import patch
 
-from bijux_pollenomics.data_downloader.boundaries import NATURAL_EARTH_ADMIN0_URL, NATURAL_EARTH_VERSION
+from bijux_pollenomics.data_downloader.boundaries import (
+    NATURAL_EARTH_ADMIN0_URL,
+    NATURAL_EARTH_VERSION,
+)
 from bijux_pollenomics.data_downloader.collector import (
     AVAILABLE_SOURCES,
     build_staging_output_dir,
@@ -29,13 +32,29 @@ class DataCollectorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
-                patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                ) as download_aadr,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                ) as fetch_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_boundaries_data"
+                ) as collect_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                ) as collect_landclim,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                ) as collect_neotoma,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_sead_data"
+                ) as collect_sead,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_raa_data"
+                ) as collect_raa,
+            ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
                 collect_landclim.return_value.site_count = 4
@@ -45,7 +64,9 @@ class DataCollectorTests(unittest.TestCase):
                 collect_raa.return_value.total_site_count = 761786
                 collect_raa.return_value.heritage_site_count = 318230
 
-                report = collect_data(output_root=output_root, sources=("aadr", "raa"), version="v62.0")
+                report = collect_data(
+                    output_root=output_root, sources=("aadr", "raa"), version="v62.0"
+                )
 
             self.assertEqual(report.collected_sources, ("aadr", "raa"))
             download_aadr.assert_called_once_with(
@@ -69,14 +90,31 @@ class DataCollectorTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_boundaries_data") as collect_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_sead_data") as collect_sead, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_raa_data") as collect_raa:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                ) as download_aadr,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_boundaries_data"
+                ) as collect_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                ) as collect_landclim,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                ) as collect_neotoma,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_sead_data"
+                ) as collect_sead,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_raa_data"
+                ) as collect_raa,
+            ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
-                collect_boundaries.return_value = ({"Sweden": {"features": []}}, object())
+                collect_boundaries.return_value = (
+                    {"Sweden": {"features": []}},
+                    object(),
+                )
                 collect_landclim.return_value.site_count = 4
                 collect_landclim.return_value.grid_cell_count = 2
                 collect_neotoma.return_value.point_count = 6
@@ -84,11 +122,15 @@ class DataCollectorTests(unittest.TestCase):
                 collect_raa.return_value.total_site_count = 761786
                 collect_raa.return_value.heritage_site_count = 318230
 
-                report = collect_data(output_root=output_root, sources=("all",), version="v62.0")
+                report = collect_data(
+                    output_root=output_root, sources=("all",), version="v62.0"
+                )
 
             self.assertEqual(report.collected_sources, AVAILABLE_SOURCES)
             download_aadr.assert_called_once()
-            collect_boundaries.assert_called_once_with(build_staging_output_dir(output_root / "boundaries"))
+            collect_boundaries.assert_called_once_with(
+                build_staging_output_dir(output_root / "boundaries")
+            )
             collect_landclim.assert_called_once()
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
@@ -102,49 +144,85 @@ class DataCollectorTests(unittest.TestCase):
             stale_file.parent.mkdir(parents=True, exist_ok=True)
             stale_file.write_text("stale", encoding="utf-8")
 
-            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                ) as fetch_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                ) as collect_neotoma,
+            ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
 
-                def write_fresh_dataset(*, output_root: Path, country_boundaries: dict[str, object], bbox: tuple[float, ...]):
+                def write_fresh_dataset(
+                    *,
+                    output_root: Path,
+                    country_boundaries: dict[str, object],
+                    bbox: tuple[float, ...],
+                ):
                     normalized_dir = output_root / "normalized"
                     normalized_dir.mkdir(parents=True, exist_ok=True)
                     (normalized_dir / "fresh.csv").write_text("fresh", encoding="utf-8")
+
                     class Report:
                         point_count = 1
+
                     return Report()
 
                 collect_neotoma.side_effect = write_fresh_dataset
-                collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+                collect_data(
+                    output_root=output_root, sources=("neotoma",), version="v62.0"
+                )
 
             self.assertFalse(stale_file.exists())
-            self.assertTrue((output_root / "neotoma" / "normalized" / "fresh.csv").exists())
+            self.assertTrue(
+                (output_root / "neotoma" / "normalized" / "fresh.csv").exists()
+            )
 
-    def test_collect_data_preserves_previous_source_dir_when_recollection_fails(self) -> None:
+    def test_collect_data_preserves_previous_source_dir_when_recollection_fails(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             preserved_file = output_root / "neotoma" / "normalized" / "kept.csv"
             preserved_file.parent.mkdir(parents=True, exist_ok=True)
             preserved_file.write_text("kept", encoding="utf-8")
 
-            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                ) as fetch_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                ) as collect_neotoma,
+            ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
 
-                def fail_after_partial_write(*, output_root: Path, country_boundaries: dict[str, object], bbox: tuple[float, ...]):
+                def fail_after_partial_write(
+                    *,
+                    output_root: Path,
+                    country_boundaries: dict[str, object],
+                    bbox: tuple[float, ...],
+                ):
                     normalized_dir = output_root / "normalized"
                     normalized_dir.mkdir(parents=True, exist_ok=True)
-                    (normalized_dir / "partial.csv").write_text("partial", encoding="utf-8")
+                    (normalized_dir / "partial.csv").write_text(
+                        "partial", encoding="utf-8"
+                    )
                     raise RuntimeError("upstream failure")
 
                 collect_neotoma.side_effect = fail_after_partial_write
                 with self.assertRaisesRegex(RuntimeError, "upstream failure"):
-                    collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+                    collect_data(
+                        output_root=output_root, sources=("neotoma",), version="v62.0"
+                    )
 
             self.assertTrue(preserved_file.exists())
             self.assertFalse((output_root / ".neotoma.tmp").exists())
 
-    def test_collect_data_preserves_root_contract_files_when_collection_fails(self) -> None:
+    def test_collect_data_preserves_root_contract_files_when_collection_fails(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             readme_path = output_root / "README.md"
@@ -153,31 +231,50 @@ class DataCollectorTests(unittest.TestCase):
             readme_path.write_text("kept readme", encoding="utf-8")
             summary_path.write_text('{"status": "kept"}', encoding="utf-8")
 
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+            with patch(
+                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+            ) as download_aadr:
                 download_aadr.side_effect = RuntimeError("download failure")
 
                 with self.assertRaisesRegex(RuntimeError, "download failure"):
-                    collect_data(output_root=output_root, sources=("aadr",), version="v62.0")
+                    collect_data(
+                        output_root=output_root, sources=("aadr",), version="v62.0"
+                    )
 
             self.assertEqual(readme_path.read_text(encoding="utf-8"), "kept readme")
-            self.assertEqual(summary_path.read_text(encoding="utf-8"), '{"status": "kept"}')
+            self.assertEqual(
+                summary_path.read_text(encoding="utf-8"), '{"status": "kept"}'
+            )
 
     def test_collect_data_writes_output_root_specific_readme(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "custom-data"
 
-            with patch("bijux_pollenomics.data_downloader.collector.download_aadr_anno_files") as download_aadr:
+            with patch(
+                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+            ) as download_aadr:
                 download_aadr.return_value.downloaded_files = ()
-                collect_data(output_root=output_root, sources=("aadr",), version="v62.0")
+                collect_data(
+                    output_root=output_root, sources=("aadr",), version="v62.0"
+                )
 
             readme_text = (output_root / "README.md").read_text(encoding="utf-8")
-            self.assertIn("Tracked source data lives directly under `custom-data/`", readme_text)
+            self.assertIn(
+                "Tracked source data lives directly under `custom-data/`", readme_text
+            )
             self.assertIn("\ncustom-data\n", readme_text)
             self.assertIn("│   └── v62.0", readme_text)
-            summary = json.loads((output_root / "collection_summary.json").read_text(encoding="utf-8"))
+            summary = json.loads(
+                (output_root / "collection_summary.json").read_text(encoding="utf-8")
+            )
             self.assertEqual(summary["collected_sources"], ["aadr"])
-            self.assertEqual(summary["source_output_roots"]["aadr"], str(output_root / "aadr"))
-            self.assertEqual(summary["source_output_roots"]["aadr_version_dir"], str(output_root / "aadr" / "v62.0"))
+            self.assertEqual(
+                summary["source_output_roots"]["aadr"], str(output_root / "aadr")
+            )
+            self.assertEqual(
+                summary["source_output_roots"]["aadr_version_dir"],
+                str(output_root / "aadr" / "v62.0"),
+            )
             self.assertIsNone(summary["boundary_source"])
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
@@ -188,10 +285,46 @@ class DataCollectorTests(unittest.TestCase):
             raw_dir = output_root / "boundaries" / "raw"
             raw_dir.mkdir(parents=True, exist_ok=True)
             boundary_payloads = {
-                "sweden.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "SWE"}}]},
-                "norway.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "NOR"}}]},
-                "finland.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "FIN"}}]},
-                "denmark.geojson": {"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": []}, "properties": {"ADM0_A3": "DNK"}}]},
+                "sweden.geojson": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Polygon", "coordinates": []},
+                            "properties": {"ADM0_A3": "SWE"},
+                        }
+                    ],
+                },
+                "norway.geojson": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Polygon", "coordinates": []},
+                            "properties": {"ADM0_A3": "NOR"},
+                        }
+                    ],
+                },
+                "finland.geojson": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Polygon", "coordinates": []},
+                            "properties": {"ADM0_A3": "FIN"},
+                        }
+                    ],
+                },
+                "denmark.geojson": {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {"type": "Polygon", "coordinates": []},
+                            "properties": {"ADM0_A3": "DNK"},
+                        }
+                    ],
+                },
             }
             for filename, payload in boundary_payloads.items():
                 (raw_dir / filename).write_text(json.dumps(payload), encoding="utf-8")
@@ -206,10 +339,18 @@ class DataCollectorTests(unittest.TestCase):
                 encoding="utf-8",
             )
 
-            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_neotoma_data") as collect_neotoma:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                ) as fetch_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_neotoma_data"
+                ) as collect_neotoma,
+            ):
                 collect_neotoma.return_value.point_count = 6
-                report = collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+                report = collect_data(
+                    output_root=output_root, sources=("neotoma",), version="v62.0"
+                )
 
             fetch_boundaries.assert_not_called()
             collect_neotoma.assert_called_once()
@@ -221,8 +362,15 @@ class DataCollectorTests(unittest.TestCase):
             raw_dir = output_root / "boundaries" / "raw"
             raw_dir.mkdir(parents=True, exist_ok=True)
             invalid_payload = {"type": "Polygon"}
-            for filename in ("sweden.geojson", "norway.geojson", "finland.geojson", "denmark.geojson"):
-                (raw_dir / filename).write_text(json.dumps(invalid_payload), encoding="utf-8")
+            for filename in (
+                "sweden.geojson",
+                "norway.geojson",
+                "finland.geojson",
+                "denmark.geojson",
+            ):
+                (raw_dir / filename).write_text(
+                    json.dumps(invalid_payload), encoding="utf-8"
+                )
             (raw_dir / "source_manifest.json").write_text(
                 json.dumps(
                     {
@@ -235,19 +383,29 @@ class DataCollectorTests(unittest.TestCase):
             )
 
             with self.assertRaisesRegex(ValueError, "FeatureCollection"):
-                collect_data(output_root=output_root, sources=("neotoma",), version="v62.0")
+                collect_data(
+                    output_root=output_root, sources=("neotoma",), version="v62.0"
+                )
 
     def test_collect_data_collects_landclim_with_boundaries(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with patch("bijux_pollenomics.data_downloader.collector.fetch_country_boundaries") as fetch_boundaries, \
-                patch("bijux_pollenomics.data_downloader.collector.collect_landclim_data") as collect_landclim:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.fetch_country_boundaries"
+                ) as fetch_boundaries,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.collect_landclim_data"
+                ) as collect_landclim,
+            ):
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
                 collect_landclim.return_value.site_count = 11
                 collect_landclim.return_value.grid_cell_count = 7
 
-                report = collect_data(output_root=output_root, sources=("landclim",), version="v62.0")
+                report = collect_data(
+                    output_root=output_root, sources=("landclim",), version="v62.0"
+                )
 
             fetch_boundaries.assert_called_once()
             collect_landclim.assert_called_once_with(
@@ -258,12 +416,18 @@ class DataCollectorTests(unittest.TestCase):
             self.assertEqual(report.landclim_site_count, 11)
             self.assertEqual(report.landclim_grid_cell_count, 7)
 
-    def test_collect_data_rejects_unsupported_sources_without_writing_output(self) -> None:
+    def test_collect_data_rejects_unsupported_sources_without_writing_output(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
-            with self.assertRaisesRegex(ValueError, "Unsupported data source: unsupported"):
-                collect_data(output_root=output_root, sources=("unsupported",), version="v62.0")
+            with self.assertRaisesRegex(
+                ValueError, "Unsupported data source: unsupported"
+            ):
+                collect_data(
+                    output_root=output_root, sources=("unsupported",), version="v62.0"
+                )
 
             self.assertFalse(output_root.exists())
 

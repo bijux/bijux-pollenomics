@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import copy
 import json
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Iterable
 from urllib.error import HTTPError, URLError
 
@@ -53,7 +53,9 @@ def fetch_neotoma_dataset_download_rows(
     worker_count = min(download_workers, len(unique_dataset_ids))
     with ThreadPoolExecutor(max_workers=worker_count) as executor:
         future_to_dataset_id = {
-            executor.submit(fetch_neotoma_dataset_download_row_fn, dataset_id): dataset_id
+            executor.submit(
+                fetch_neotoma_dataset_download_row_fn, dataset_id
+            ): dataset_id
             for dataset_id in unique_dataset_ids
         }
         for future in as_completed(future_to_dataset_id):
@@ -108,20 +110,28 @@ def validate_neotoma_download_coverage(
         missing_text = ", ".join(str(dataset_id) for dataset_id in missing[:10])
         if len(missing) > 10:
             missing_text = f"{missing_text}, ..."
-        raise ValueError(f"Neotoma download coverage missing dataset IDs: {missing_text}")
+        raise ValueError(
+            f"Neotoma download coverage missing dataset IDs: {missing_text}"
+        )
 
 
-def extract_neotoma_download_dataset_ids(download_rows: Iterable[dict[str, object]], *, clean_optional_text_fn) -> list[int]:
+def extract_neotoma_download_dataset_ids(
+    download_rows: Iterable[dict[str, object]], *, clean_optional_text_fn
+) -> list[int]:
     """Extract unique dataset identifiers from full Neotoma dataset download payloads."""
     dataset_ids: set[int] = set()
     for item in download_rows:
-        dataset_id = neotoma_download_dataset_id(item, clean_optional_text_fn=clean_optional_text_fn)
+        dataset_id = neotoma_download_dataset_id(
+            item, clean_optional_text_fn=clean_optional_text_fn
+        )
         if dataset_id is not None:
             dataset_ids.add(dataset_id)
     return sorted(dataset_ids)
 
 
-def neotoma_download_dataset_id(download_row: object, *, clean_optional_text_fn) -> int | None:
+def neotoma_download_dataset_id(
+    download_row: object, *, clean_optional_text_fn
+) -> int | None:
     """Read one dataset identifier from a full Neotoma dataset download payload."""
     if not isinstance(download_row, dict):
         return None
@@ -129,7 +139,9 @@ def neotoma_download_dataset_id(download_row: object, *, clean_optional_text_fn)
     if not isinstance(site, dict):
         return None
     collection_unit = site.get("collectionunit")
-    if isinstance(collection_unit, dict) and isinstance(collection_unit.get("dataset"), dict):
+    if isinstance(collection_unit, dict) and isinstance(
+        collection_unit.get("dataset"), dict
+    ):
         dataset_id = collection_unit["dataset"].get("datasetid")
     elif isinstance(site.get("dataset"), dict):
         dataset_id = site["dataset"].get("datasetid")

@@ -23,7 +23,12 @@ def publish_multi_country_map_bundle(
     context_root: Path | None,
     asset_base_path: str,
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
-    build_context_layers_fn: Callable[..., tuple[list[dict[str, object]], list[dict[str, object]], list[dict[str, object]]]],
+    build_context_layers_fn: Callable[
+        ...,
+        tuple[
+            list[dict[str, object]], list[dict[str, object]], list[dict[str, object]]
+        ],
+    ],
     build_multi_country_map_summary_fn: Callable[..., dict[str, object]],
     build_samples_geojson_fn: Callable[[tuple[object, ...]], dict[str, object]],
     copy_map_assets_fn: Callable[[Path], None],
@@ -32,9 +37,13 @@ def publish_multi_country_map_bundle(
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
-    bundle_paths = build_atlas_bundle_paths_fn(output_dir=staging_output_dir, slug=report.slug, version=version)
+    bundle_paths = build_atlas_bundle_paths_fn(
+        output_dir=staging_output_dir, slug=report.slug, version=version
+    )
     map_geojson = build_samples_geojson_fn(all_samples)
-    bundle_paths.samples_geojson_path.write_text(json.dumps(map_geojson, indent=2), encoding="utf-8")
+    bundle_paths.samples_geojson_path.write_text(
+        json.dumps(map_geojson, indent=2), encoding="utf-8"
+    )
     point_layers, polygon_layers, extra_artifacts = build_context_layers_fn(
         samples=all_samples,
         output_dir=staging_output_dir,

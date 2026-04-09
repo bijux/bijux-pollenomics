@@ -34,6 +34,10 @@ def build_sead_site_inventory(
     deduplicated: dict[str, dict[str, object]] = {}
     for row in rows:
         deduplicated[str(row.get("site_id", ""))] = row
-    deduplicated_rows = sorted(deduplicated.values(), key=lambda item: int(item.get("site_id", 0)))
+    deduplicated_rows = sorted(
+        deduplicated.values(), key=lambda item: int(item.get("site_id", 0))
+    )
     inventory_summary = populate_inventory_fields_fn(deduplicated_rows)
-    return SeadSiteFetchResult(rows=deduplicated_rows, inventory_summary=inventory_summary)
+    return SeadSiteFetchResult(
+        rows=deduplicated_rows, inventory_summary=inventory_summary
+    )

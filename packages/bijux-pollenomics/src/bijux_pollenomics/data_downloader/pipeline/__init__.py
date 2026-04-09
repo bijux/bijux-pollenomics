@@ -5,7 +5,11 @@ from .collection_reports import (
 )
 from .context_collection import collect_context_source, collect_context_source_into_dir
 from .requested_sources import normalize_requested_sources
-from .source_registry import CONTEXT_SOURCE_SPECS, ContextSourceSpec, resolve_context_collect_function
+from .source_registry import (
+    CONTEXT_SOURCE_SPECS,
+    ContextSourceSpec,
+    resolve_context_collect_function,
+)
 from .staging import build_staging_output_dir, collect_into_staging_dir
 from .summary_writer import write_collection_summary
 

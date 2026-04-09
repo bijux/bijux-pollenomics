@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-
 LYNGSJON_FIELDWORK_LATITUDE = 55.9319529
 LYNGSJON_FIELDWORK_LONGITUDE = 14.0659044
 FIELDWORK_MEDIA_FILES = (

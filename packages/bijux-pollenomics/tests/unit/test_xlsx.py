@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
-from bijux_pollenomics.data_downloader.shared import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from bijux_pollenomics.data_downloader.shared import (
+    list_xlsx_sheet_names,
+    read_xlsx_sheet_rows,
+)
+
 from tests.support.workbooks import write_xlsx
 
 
@@ -35,5 +39,7 @@ class XlsxReaderTests(unittest.TestCase):
                 read_xlsx_sheet_rows(path, "SiteData"),
                 [["Label", "Boolean", "Number"], ["Shared", "TRUE", "2"]],
             )
+
+
 if __name__ == "__main__":
     unittest.main()

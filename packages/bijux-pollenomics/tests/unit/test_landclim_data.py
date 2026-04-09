@@ -1,14 +1,14 @@
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.data_downloader.landclim import (
+    build_landclim_grid_geojson,
     build_landclim_raw_asset_summaries,
     build_landclim_site_records,
-    build_landclim_grid_geojson,
     download_landclim_raw_assets,
     feature_key_from_center,
     feature_key_from_geometry,
@@ -19,12 +19,15 @@ from bijux_pollenomics.data_downloader.landclim import (
     resolve_landclim_marquer_asset_urls,
     resolve_landclim_tabular_asset_urls,
 )
+
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
 
 
 class LandClimDataTests(unittest.TestCase):
-    def test_landclim_i_site_records_keep_basin_type_separate_from_time_windows(self) -> None:
+    def test_landclim_i_site_records_keep_basin_type_separate_from_time_windows(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "landclim_i.xlsx"
             write_xlsx(
@@ -46,8 +49,35 @@ class LandClimDataTests(unittest.TestCase):
                             "",
                             "No. of dates for model (*incl. top)",
                         ],
-                        ["", "", "", "", "", "", "", "0-100 cal BP", "100-350 cal BP", "350-700 cal BP", "2700-3200 cal BP", "5700-6200 cal BP"],
-                        ["SWE", "Lake One", "EPD", "59.00.00N", "17.00.00E", "15", "20", "L", "", "L", "", "", "4*"],
+                        [
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "0-100 cal BP",
+                            "100-350 cal BP",
+                            "350-700 cal BP",
+                            "2700-3200 cal BP",
+                            "5700-6200 cal BP",
+                        ],
+                        [
+                            "SWE",
+                            "Lake One",
+                            "EPD",
+                            "59.00.00N",
+                            "17.00.00E",
+                            "15",
+                            "20",
+                            "L",
+                            "",
+                            "L",
+                            "",
+                            "",
+                            "4*",
+                        ],
                     ],
                 },
             )
@@ -67,10 +97,14 @@ class LandClimDataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             raw_paths = {
-                "landclim_i_land_cover_types.xlsx": tmp_path / "landclim_i_land_cover_types.xlsx",
-                "landclim_i_plant_functional_types.xlsx": tmp_path / "landclim_i_plant_functional_types.xlsx",
-                "landclim_ii_grid_cell_quality.xlsx": tmp_path / "landclim_ii_grid_cell_quality.xlsx",
-                "landclim_ii_reveals_results.zip": tmp_path / "landclim_ii_reveals_results.zip",
+                "landclim_i_land_cover_types.xlsx": tmp_path
+                / "landclim_i_land_cover_types.xlsx",
+                "landclim_i_plant_functional_types.xlsx": tmp_path
+                / "landclim_i_plant_functional_types.xlsx",
+                "landclim_ii_grid_cell_quality.xlsx": tmp_path
+                / "landclim_ii_grid_cell_quality.xlsx",
+                "landclim_ii_reveals_results.zip": tmp_path
+                / "landclim_ii_reveals_results.zip",
             }
             write_xlsx(
                 raw_paths["landclim_i_land_cover_types.xlsx"],
@@ -113,7 +147,9 @@ class LandClimDataTests(unittest.TestCase):
                 ],
             )
 
-            geojson = build_landclim_grid_geojson(raw_paths, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES)
+            geojson = build_landclim_grid_geojson(
+                raw_paths, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
+            )
 
             self.assertEqual(len(geojson["features"]), 1)
             properties = geojson["features"][0]["properties"]
@@ -131,7 +167,17 @@ class LandClimDataTests(unittest.TestCase):
     def test_inspect_landclim_ii_archive_validates_documented_structure(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "landclim_ii_reveals_results.zip"
-            write_landclim_ii_zip(path, [{"LCGRID_ID": "GC001", "lonDD": "17.5", "latDD": "59.5", "PICEA": "0.12"}])
+            write_landclim_ii_zip(
+                path,
+                [
+                    {
+                        "LCGRID_ID": "GC001",
+                        "lonDD": "17.5",
+                        "latDD": "59.5",
+                        "PICEA": "0.12",
+                    }
+                ],
+            )
 
             summary = inspect_landclim_ii_archive(path)
 
@@ -140,12 +186,21 @@ class LandClimDataTests(unittest.TestCase):
         self.assertEqual(summary["time_windows"][0], "0-100 BP")
         self.assertEqual(summary["time_windows"][-1], "11200-11700 BP")
 
-    def test_inspect_landclim_ii_archive_rejects_missing_standard_error_folder(self) -> None:
+    def test_inspect_landclim_ii_archive_rejects_missing_standard_error_folder(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "landclim_ii_reveals_results.zip"
             write_landclim_ii_zip(
                 path,
-                [{"LCGRID_ID": "GC001", "lonDD": "17.5", "latDD": "59.5", "PICEA": "0.12"}],
+                [
+                    {
+                        "LCGRID_ID": "GC001",
+                        "lonDD": "17.5",
+                        "latDD": "59.5",
+                        "PICEA": "0.12",
+                    }
+                ],
                 include_standard_errors=False,
             )
 
@@ -155,7 +210,9 @@ class LandClimDataTests(unittest.TestCase):
     def test_landclim_grid_keys_match_between_workbook_and_csv_cells(self) -> None:
         geometry = grid_geometry_from_nw_cell_label("17°E 60°N")
         self.assertIsNotNone(geometry)
-        self.assertEqual(feature_key_from_geometry(geometry), feature_key_from_center(17.5, 59.5))
+        self.assertEqual(
+            feature_key_from_geometry(geometry), feature_key_from_center(17.5, 59.5)
+        )
 
     def test_parse_coordinate_supports_decimal_and_dms_inputs(self) -> None:
         self.assertEqual(parse_coordinate("59.5"), 59.5)
@@ -166,16 +223,26 @@ class LandClimDataTests(unittest.TestCase):
         self.assertIsNone(parse_coordinate("59.30N"))
         self.assertIsNone(parse_coordinate(""))
 
-    def test_build_landclim_site_records_reads_both_landclim_i_workbooks_and_uses_reported_country(self) -> None:
+    def test_build_landclim_site_records_reads_both_landclim_i_workbooks_and_uses_reported_country(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             tmp_path = Path(tmp)
             raw_paths = {
                 "marquer_2017_reveals_taxa_grid_cells.xlsx": tmp_path / "marquer.xlsx",
                 "landclim_i_land_cover_types.xlsx": tmp_path / "landclim_i_lct.xlsx",
-                "landclim_i_plant_functional_types.xlsx": tmp_path / "landclim_i_pft.xlsx",
+                "landclim_i_plant_functional_types.xlsx": tmp_path
+                / "landclim_i_pft.xlsx",
                 "landclim_ii_site_metadata.xlsx": tmp_path / "landclim_ii.xlsx",
             }
-            write_xlsx(raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"], {"Metadata": [["Grid", "Site", "", "Lat.", "Long.", "", "", "Basin type"]]})
+            write_xlsx(
+                raw_paths["marquer_2017_reveals_taxa_grid_cells.xlsx"],
+                {
+                    "Metadata": [
+                        ["Grid", "Site", "", "Lat.", "Long.", "", "", "Basin type"]
+                    ]
+                },
+            )
             landclim_i_rows = [
                 [
                     "Country",
@@ -189,15 +256,39 @@ class LandClimDataTests(unittest.TestCase):
                     "",
                 ],
                 ["", "", "", "", "", "", "", "0-100 cal BP"],
-                ["FIN", "Fallback Site", "EPD", "60.00.00N", "20.00.00E", "10", "2", "L", "L"],
+                [
+                    "FIN",
+                    "Fallback Site",
+                    "EPD",
+                    "60.00.00N",
+                    "20.00.00E",
+                    "10",
+                    "2",
+                    "L",
+                    "L",
+                ],
             ]
-            write_xlsx(raw_paths["landclim_i_land_cover_types.xlsx"], {"SiteData": landclim_i_rows})
-            write_xlsx(raw_paths["landclim_i_plant_functional_types.xlsx"], {"Site Data": landclim_i_rows})
+            write_xlsx(
+                raw_paths["landclim_i_land_cover_types.xlsx"],
+                {"SiteData": landclim_i_rows},
+            )
+            write_xlsx(
+                raw_paths["landclim_i_plant_functional_types.xlsx"],
+                {"Site Data": landclim_i_rows},
+            )
             write_xlsx(
                 raw_paths["landclim_ii_site_metadata.xlsx"],
                 {
                     "LANDCLIMII metadata file": [
-                        ["SiteName", "csvfilename", "siteType", "londd", "latdd", "Country", "nTWs"],
+                        [
+                            "SiteName",
+                            "csvfilename",
+                            "siteType",
+                            "londd",
+                            "latdd",
+                            "Country",
+                            "nTWs",
+                        ],
                     ]
                 },
             )
@@ -221,15 +312,39 @@ class LandClimDataTests(unittest.TestCase):
                 path,
                 {
                     "LANDCLIMII metadata file": [
-                        ["SiteName", "csvfilename", "siteType", "londd", "latdd", "Country", "nTWs", "TopBP", "BotBP"],
-                        ["Lake Two", "lake-two.csv", "Lake", "17.5", "59.5", "Sweden", "4", "150", "2150"],
+                        [
+                            "SiteName",
+                            "csvfilename",
+                            "siteType",
+                            "londd",
+                            "latdd",
+                            "Country",
+                            "nTWs",
+                            "TopBP",
+                            "BotBP",
+                        ],
+                        [
+                            "Lake Two",
+                            "lake-two.csv",
+                            "Lake",
+                            "17.5",
+                            "59.5",
+                            "Sweden",
+                            "4",
+                            "150",
+                            "2150",
+                        ],
                     ]
                 },
             )
 
-            from bijux_pollenomics.data_downloader.landclim import landclim_ii_site_records
+            from bijux_pollenomics.data_downloader.landclim import (
+                landclim_ii_site_records,
+            )
 
-            records = landclim_ii_site_records(path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES)
+            records = landclim_ii_site_records(
+                path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
+            )
 
             self.assertEqual(len(records), 1)
             self.assertEqual(records[0].time_start_bp, 150)
@@ -269,17 +384,26 @@ class LandClimDataTests(unittest.TestCase):
 
     def test_download_landclim_raw_assets_rejects_empty_payloads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            with patch(
-                "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
-                return_value={"landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"},
-            ), patch(
-                "bijux_pollenomics.data_downloader.landclim.fetch_binary",
-                return_value=b"",
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
+                    return_value={
+                        "landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"
+                    },
+                ),
+                patch(
+                    "bijux_pollenomics.data_downloader.landclim.fetch_binary",
+                    return_value=b"",
+                ),
             ):
-                with self.assertRaisesRegex(ValueError, "empty for landclim_i_land_cover_types.xlsx"):
+                with self.assertRaisesRegex(
+                    ValueError, "empty for landclim_i_land_cover_types.xlsx"
+                ):
                     download_landclim_raw_assets(Path(tmp))
 
-    def test_build_landclim_raw_asset_summaries_records_source_urls_and_digests(self) -> None:
+    def test_build_landclim_raw_asset_summaries_records_source_urls_and_digests(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "landclim_i_land_cover_types.xlsx"
             path.write_bytes(b"landclim")
@@ -295,5 +419,7 @@ class LandClimDataTests(unittest.TestCase):
             summaries[0]["sha256"],
             "f2865d4bfbd5fa4f19f5336385ef80d21ea03711c748736d3124f804dc1c2e14",
         )
+
+
 if __name__ == "__main__":
     unittest.main()

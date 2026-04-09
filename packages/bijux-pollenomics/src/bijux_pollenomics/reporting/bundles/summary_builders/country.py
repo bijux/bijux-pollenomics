@@ -3,7 +3,9 @@ from __future__ import annotations
 from ...models import CountryReport
 
 
-def build_country_report_summary(report: CountryReport, bundle_paths: object) -> dict[str, object]:
+def build_country_report_summary(
+    report: CountryReport, bundle_paths: object
+) -> dict[str, object]:
     """Build a machine-readable summary for one country report."""
     return {
         "country": report.country,

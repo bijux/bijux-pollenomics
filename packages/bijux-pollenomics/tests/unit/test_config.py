@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import unittest
 from pathlib import Path
+import unittest
 
 from bijux_pollenomics.config import (
     ATLAS_DEFAULTS,
     DATA_DEFAULTS,
-    PROJECT_PATHS,
     DEFAULT_AADR_ROOT,
     DEFAULT_AADR_VERSION,
     DEFAULT_ATLAS_SLUG,
@@ -16,6 +15,7 @@ from bijux_pollenomics.config import (
     DEFAULT_PUBLISHED_COUNTRIES,
     DEFAULT_REPORT_ROOT,
     NORDIC_BBOX,
+    PROJECT_PATHS,
 )
 
 
@@ -33,7 +33,9 @@ class ConfigDefaultsUnitTests(unittest.TestCase):
         self.assertEqual(NORDIC_BBOX, DATA_DEFAULTS.nordic_bbox)
         self.assertEqual(DEFAULT_ATLAS_SLUG, ATLAS_DEFAULTS.slug)
         self.assertEqual(DEFAULT_ATLAS_TITLE, ATLAS_DEFAULTS.title)
-        self.assertEqual(DEFAULT_PUBLISHED_COUNTRIES, ATLAS_DEFAULTS.published_countries)
+        self.assertEqual(
+            DEFAULT_PUBLISHED_COUNTRIES, ATLAS_DEFAULTS.published_countries
+        )
         self.assertEqual(DEFAULT_DATA_ROOT, PROJECT_PATHS.data_root)
         self.assertEqual(DEFAULT_AADR_ROOT, PROJECT_PATHS.aadr_root)
         self.assertEqual(DEFAULT_REPORT_ROOT, PROJECT_PATHS.report_root)

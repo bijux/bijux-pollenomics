@@ -4,10 +4,11 @@ from datetime import date
 from pathlib import Path
 from typing import Iterable
 
+from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .aadr import load_country_samples, summarize_localities
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
-from .bundles.country_selection import normalize_requested_countries
 from .bundles.country_bundle import publish_country_report_bundle
+from .bundles.country_selection import normalize_requested_countries
 from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
@@ -22,14 +23,16 @@ from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .rendering import (
     build_samples_geojson,
     copy_map_assets,
+    render_multi_country_map_html,
+    render_multi_country_map_markdown,
+    render_sample_markdown,
+    render_summary_markdown,
     write_localities_csv,
     write_samples_csv,
     write_samples_geojson,
     write_summary_json,
 )
-from .rendering import render_multi_country_map_html, render_multi_country_map_markdown, render_sample_markdown, render_summary_markdown
 from .shared.text import slugify
-from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 
 
 def generate_country_report(
@@ -42,12 +45,16 @@ def generate_country_report(
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
-    published_output_dir = Path(published_output_dir) if published_output_dir is not None else output_dir
+    published_output_dir = (
+        Path(published_output_dir) if published_output_dir is not None else output_dir
+    )
     normalized_country = country.strip()
     if not normalized_country:
         raise ValueError("Country is required to build a country report")
 
-    samples, dataset_counts = load_country_samples(version_dir=version_dir, country=normalized_country)
+    samples, dataset_counts = load_country_samples(
+        version_dir=version_dir, country=normalized_country
+    )
     localities = summarize_localities(samples)
     version = version_dir.name
     report = CountryReport(
@@ -94,11 +101,15 @@ def generate_multi_country_map(
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
-    published_output_dir = Path(published_output_dir) if published_output_dir is not None else output_dir
+    published_output_dir = (
+        Path(published_output_dir) if published_output_dir is not None else output_dir
+    )
 
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
-        raise ValueError("At least one country is required to build a multi-country map")
+        raise ValueError(
+            "At least one country is required to build a multi-country map"
+        )
 
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,

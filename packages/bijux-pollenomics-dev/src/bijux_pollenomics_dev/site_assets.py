@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
-
+import shutil
 
 ROOT_ICON_FILENAMES = (
     "favicon.ico",

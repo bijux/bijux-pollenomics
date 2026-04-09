@@ -1,17 +1,22 @@
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
-from bijux_pollenomics.data_downloader.pipeline import build_staging_output_dir, collect_into_staging_dir
+from bijux_pollenomics.data_downloader.pipeline import (
+    build_staging_output_dir,
+    collect_into_staging_dir,
+)
 
 
 class StagingUnitTests(unittest.TestCase):
     def test_build_staging_output_dir_uses_hidden_sibling_directory(self) -> None:
         final_output_root = Path("/tmp/data/neotoma")
 
-        self.assertEqual(build_staging_output_dir(final_output_root), Path("/tmp/data/.neotoma.tmp"))
+        self.assertEqual(
+            build_staging_output_dir(final_output_root), Path("/tmp/data/.neotoma.tmp")
+        )
 
     def test_collect_into_staging_dir_swaps_in_completed_output(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -19,7 +24,9 @@ class StagingUnitTests(unittest.TestCase):
 
             def collect(staging_root: Path) -> str:
                 (staging_root / "normalized").mkdir(parents=True, exist_ok=True)
-                (staging_root / "normalized" / "fresh.csv").write_text("fresh", encoding="utf-8")
+                (staging_root / "normalized" / "fresh.csv").write_text(
+                    "fresh", encoding="utf-8"
+                )
                 return "ok"
 
             report = collect_into_staging_dir(final_output_root, collect)

@@ -16,7 +16,9 @@ class MapDocumentState:
     time_min_bp: int
 
 
-def collect_feature_time_candidates(time_candidates: set[int], feature: dict[str, object]) -> None:
+def collect_feature_time_candidates(
+    time_candidates: set[int], feature: dict[str, object]
+) -> None:
     """Collect all numeric BP candidates exposed by one point or polygon feature."""
     for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
         raw = feature.get(key)
@@ -66,7 +68,9 @@ def build_map_document_state(
         initial_time_interval_years = 100
         max_time_span = initial_time_interval_years
         initial_time_start_bp = 0
-    initial_time_end_bp = min(time_max_bp, initial_time_start_bp + initial_time_interval_years)
+    initial_time_end_bp = min(
+        time_max_bp, initial_time_start_bp + initial_time_interval_years
+    )
     if map_points:
         latitude_values = [float(feature["latitude"]) for feature in map_points]
         longitude_values = [float(feature["longitude"]) for feature in map_points]

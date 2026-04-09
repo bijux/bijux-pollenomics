@@ -9,7 +9,9 @@ AADR_DATAVERSE_VERSIONS_URL = (
     "https://dataverse.harvard.edu/api/datasets/:persistentId/versions"
     "?persistentId=doi:10.7910/DVN/FFIDCW"
 )
-AADR_DOWNLOAD_URL_TEMPLATE = "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
+AADR_DOWNLOAD_URL_TEMPLATE = (
+    "https://dataverse.harvard.edu/api/access/datafile/{file_id}"
+)
 REQUEST_HEADERS = {"User-Agent": "bijux-pollenomics/1.0"}
 
 __all__ = [
