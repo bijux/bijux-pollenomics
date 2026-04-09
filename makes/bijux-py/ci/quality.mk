@@ -32,7 +32,7 @@ include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/util.mk
 
 SKIP_DEPTRY      ?= 0
 SKIP_INTERROGATE ?= 0
-SKIP_MYPY        ?= 1
+SKIP_MYPY        ?= 0
 
 ifeq ($(shell uname -s),Darwin)
   BREW_PREFIX  := $(shell command -v brew >/dev/null 2>&1 && brew --prefix)
@@ -72,29 +72,33 @@ quality:
 	  if [ -z "$$OUT" ]; then echo "✔ Vulture: no dead code found." >>"$(QUALITY_ARTIFACTS_DIR)/vulture.log"; fi
 	@echo "   - Dependency hygiene (Deptry)"
 	@if [ "$(SKIP_DEPTRY)" = "1" ]; then \
-	  echo "   • SKIP_DEPTRY=1; skipping Deptry" | tee "$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
-	else \
-	  set -euo pipefail; \
-	    if [ -n "$(strip $(QUALITY_DEPTRY_VERSION_COMMAND))" ]; then \
-	      { $(QUALITY_DEPTRY_VERSION_COMMAND) 2>/dev/null || true; } >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
-	    else \
-	      : >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
-	    fi; \
-	    $(QUALITY_DEPTRY_COMMAND) 2>&1 | tee -a "$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	  echo "✖ Deptry must remain enabled for $(PROJECT_SLUG)" | tee "$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	  exit 1; \
 	fi
+	@set -euo pipefail; \
+	  if [ -n "$(strip $(QUALITY_DEPTRY_VERSION_COMMAND))" ]; then \
+	    { $(QUALITY_DEPTRY_VERSION_COMMAND) 2>/dev/null || true; } >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	  else \
+	    : >"$(QUALITY_ARTIFACTS_DIR)/deptry.log"; \
+	  fi; \
+	  $(QUALITY_DEPTRY_COMMAND) 2>&1 | tee -a "$(QUALITY_ARTIFACTS_DIR)/deptry.log"
 	@echo "   - Static typing (Mypy)"
-	@if [ "$(SKIP_MYPY)" = "1" ] || [ -z "$(QUALITY_MYPY_CONFIG)" ]; then \
-	  echo "   • Skipping Mypy" | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
-	else \
-	  set -euo pipefail; \
-	    $(MYPY) --config-file "$(QUALITY_MYPY_CONFIG)" $(QUALITY_MYPY_FLAGS) --cache-dir "$(QUALITY_MYPY_CACHE_DIR)" $(QUALITY_MYPY_TARGETS) 2>&1 | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
+	@if [ "$(SKIP_MYPY)" = "1" ]; then \
+	  echo "✖ Mypy must remain enabled for $(PROJECT_SLUG)" | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
+	  exit 1; \
 	fi
+	@if [ -z "$(QUALITY_MYPY_CONFIG)" ]; then \
+	  echo "✖ QUALITY_MYPY_CONFIG is required for $(PROJECT_SLUG)" | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
+	  exit 1; \
+	fi
+	@set -euo pipefail; \
+	  $(MYPY) --config-file "$(QUALITY_MYPY_CONFIG)" $(QUALITY_MYPY_FLAGS) --cache-dir "$(QUALITY_MYPY_CACHE_DIR)" $(QUALITY_MYPY_TARGETS) 2>&1 | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"
 	@echo "   - Documentation coverage (Interrogate)"
 	@if [ "$(SKIP_INTERROGATE)" = "1" ]; then \
-	  echo "   • SKIP_INTERROGATE=1; skipping Interrogate" | tee "$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
-	else \
-	  $(call run_interrogate_report); \
+	  echo "✖ Interrogate must remain enabled for $(PROJECT_SLUG)" | tee "$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
+	  exit 1; \
 	fi
+	@$(call run_interrogate_report)
 	$(call run_make_targets,$(QUALITY_POST_TARGETS),$(QUALITY_SELF_MAKE))
 	@if [ "$(QUALITY_RUN_MKDOCS)" = "1" ]; then \
 	  echo "   - MkDocs build"; \

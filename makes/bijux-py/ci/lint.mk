@@ -77,11 +77,11 @@ lint-artifacts: | $(VENV)
 	  $(LINT_PYCACHE_ENV) $(RUFF) format --check --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS); \
 	} 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff-format.log"; test $${PIPESTATUS[0]} -eq 0
 	@$(LINT_PYCACHE_ENV) $(RUFF) check $(RUFF_FIX_FLAG) --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff.log"; test $${PIPESTATUS[0]} -eq 0
-	@if [ "$(ENABLE_MYPY)" = "1" ]; then \
-	  cd "$(MYPY_RUN_DIR)" && $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG_ABS)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR_ABS)" $(MYPY_TARGETS_ABS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; test $${PIPESTATUS[0]} -eq 0; \
-	else \
-	  echo "→ Skipping mypy" | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; \
+	@if [ "$(ENABLE_MYPY)" != "1" ]; then \
+	  echo "✖ Mypy must remain enabled for $(PROJECT_SLUG)" | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; \
+	  exit 1; \
 	fi
+	@cd "$(MYPY_RUN_DIR)" && $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG_ABS)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR_ABS)" $(MYPY_TARGETS_ABS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; test $${PIPESTATUS[0]} -eq 0
 	@if [ "$(ENABLE_CODESPELL)" = "1" ]; then \
 	  $(CODESPELL) $(CODESPELL_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/codespell.log"; test $${PIPESTATUS[0]} -eq 0; \
 	else \
