@@ -4,6 +4,15 @@ ROOT_SHARED_CHECK_OVERRIDES := \
 	PYTHON="$(abspath $(ROOT_CHECK_PYTHON))" \
 	ACT="$(abspath $(ROOT_CHECK_VENV))/bin"
 
+define ROOT_PACKAGE_CONTEXT_OVERRIDES
+MONOREPO_ROOT="$(abspath $(MONOREPO_ROOT))" \
+ROOT_MAKE_DIR="$(abspath $(ROOT_MAKE_DIR))" \
+CONFIG_DIR="$(abspath $(CONFIG_DIR))" \
+PROJECT_DIR="$(abspath $(MONOREPO_ROOT))/packages/$(1)" \
+PROJECT_ARTIFACTS_DIR="$(abspath $(MONOREPO_ROOT))/artifacts/$(1)" \
+API_DIR="$(abspath $(MONOREPO_ROOT))/apis/$(1)"
+endef
+
 define run_root_package_target
 	@set -eu; \
 	resolved_package="$(call resolve_package,$(PACKAGE))"; \
@@ -33,11 +42,15 @@ define run_root_package_target
 	  if [ "$(3)" = "1" ]; then \
 	    if ! $(MAKE) -C "packages/$$package" -f "$$profile_path" \
 	      PROJECT_SLUG="$$package" \
+	      $(call ROOT_PACKAGE_CONTEXT_OVERRIDES,$$package) \
 	      $(ROOT_SHARED_CHECK_OVERRIDES) \
 	      $(1); then \
 	      failures="$$failures $$package"; \
 	    fi; \
-	  elif ! $(MAKE) -C "packages/$$package" -f "$$profile_path" PROJECT_SLUG="$$package" $(1); then \
+	  elif ! $(MAKE) -C "packages/$$package" -f "$$profile_path" \
+	    PROJECT_SLUG="$$package" \
+	    $(call ROOT_PACKAGE_CONTEXT_OVERRIDES,$$package) \
+	    $(1); then \
 	    failures="$$failures $$package"; \
 	  fi; \
 	done; \
