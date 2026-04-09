@@ -36,7 +36,7 @@ DOCS_SERVE_PRE_CLEAN_PATHS   ?=
 DOCS_BUILD_ENV               ?=
 DOCS_CHECK_ENV               ?=
 DOCS_SERVE_ENV               ?=
-DOCS_SERVE_REUSE_MATCH       ?= $(DOCS_SERVE_CONFIG_FILE)
+DOCS_SERVE_REUSE_MATCH       ?= $(if $(filter 1,$(DOCS_RENDER_SERVE_CONFIG)),$(DOCS_SERVE_CONFIG_FILE),$(DOCS_BASE_CONFIG_FILE))
 DOCS_SERVE_STATUS_FILE       ?= $(DOCS_CACHE_DIR)/.serve-state
 DOCS_SERVE_LOCK_DIR          ?= $(DOCS_CACHE_DIR)/.serve-lock
 DOCS_RENDER_SERVE_CONFIG     ?= 0
@@ -103,8 +103,12 @@ docs-serve-run:
 	$(call clean_paths,$(DOCS_SERVE_PRE_CLEAN_PATHS))
 	$(call run_make_targets,$(DOCS_SERVE_PREPARE_TARGETS),$(MAKE))
 	@echo "→ Serving documentation on http://$(DOCS_DEV_ADDR)/"
-	@exec env XDG_CACHE_HOME="$(DOCS_CACHE_DIR)" $(DOCS_ENV) $(DOCS_SERVE_ENV) SITE_URL="$(DOCS_SERVE_SITE_URL)" \
-	  "$(DOCS_PYTHON)" -m mkdocs serve $(DOCS_SERVE_FLAGS) --config-file "$(DOCS_SERVE_CONFIG_FILE)" --dev-addr "$(DOCS_DEV_ADDR)"
+	@config_file="$(DOCS_SERVE_CONFIG_FILE)"; \
+	if [ "$(DOCS_RENDER_SERVE_CONFIG)" != "1" ]; then \
+	  config_file="$(DOCS_BASE_CONFIG_FILE)"; \
+	fi; \
+	exec env XDG_CACHE_HOME="$(DOCS_CACHE_DIR)" $(DOCS_ENV) $(DOCS_SERVE_ENV) SITE_URL="$(DOCS_SERVE_SITE_URL)" \
+	  "$(DOCS_PYTHON)" -m mkdocs serve $(DOCS_SERVE_FLAGS) --config-file "$$config_file" --dev-addr "$(DOCS_DEV_ADDR)"
 
 docs-deploy:
 	$(call run_make_targets,$(DOCS_BUILD_BOOTSTRAP_TARGETS),$(MAKE))
@@ -190,20 +194,20 @@ docs-assert-serve-port:
 docs-render-serve-config:
 	@if [ "$(DOCS_RENDER_SERVE_CONFIG)" != "1" ]; then \
 	  echo "→ Serve config rendering is not enabled for this docs profile"; \
-	  exit 0; \
+	else \
+	  if [ -z "$(strip $(DOCS_CONFIG_CLI))" ]; then \
+	    echo "✘ DOCS_CONFIG_CLI is required when DOCS_RENDER_SERVE_CONFIG=1"; \
+	    exit 2; \
+	  fi; \
+	  mkdir -p "$(dir $(DOCS_SERVE_CONFIG_FILE))"; \
+	  "$(DOCS_PYTHON)" $(DOCS_CONFIG_CLI) render-serve-config \
+	    --source-config "$(DOCS_BASE_CONFIG_FILE)" \
+	    --output-config "$(DOCS_SERVE_CONFIG_FILE)" \
+	    --docs-dir "$(DOCS_RENDERED_DOCS_DIR)" \
+	    --site-dir "$(DOCS_SERVE_SITE_DIR)" \
+	    --site-url "$(DOCS_SERVE_SITE_URL)" \
+	    $(if $(strip $(DOCS_SHARED_CONFIG_FILE)),--inherit-config "$(DOCS_SHARED_CONFIG_FILE)"); \
 	fi
-	@if [ -z "$(strip $(DOCS_CONFIG_CLI))" ]; then \
-	  echo "✘ DOCS_CONFIG_CLI is required when DOCS_RENDER_SERVE_CONFIG=1"; \
-	  exit 2; \
-	fi
-	@mkdir -p "$(dir $(DOCS_SERVE_CONFIG_FILE))"
-	@"$(DOCS_PYTHON)" $(DOCS_CONFIG_CLI) render-serve-config \
-	  --source-config "$(DOCS_BASE_CONFIG_FILE)" \
-	  --output-config "$(DOCS_SERVE_CONFIG_FILE)" \
-	  --docs-dir "$(DOCS_RENDERED_DOCS_DIR)" \
-	  --site-dir "$(DOCS_SERVE_SITE_DIR)" \
-	  --site-url "$(DOCS_SERVE_SITE_URL)" \
-	  $(if $(strip $(DOCS_SHARED_CONFIG_FILE)),--inherit-config "$(DOCS_SHARED_CONFIG_FILE)")
 
 ##@ Docs
 docs:         ## Build the documentation site
