@@ -15,6 +15,14 @@
   --md-primary-fg-color: #3f51b5;
   --md-accent-fg-color: #4f46e5;
   --md-typeset-a-color: #3949ab;
+  --bijux-hub-bg: rgba(30, 40, 82, 0.96);
+  --bijux-hub-border: rgba(255, 255, 255, 0.12);
+  --bijux-hub-link: rgba(255, 255, 255, 0.76);
+  --bijux-hub-link-active-bg: rgba(255, 255, 255, 0.14);
+  --bijux-detail-bg: rgba(255, 255, 255, 0.94);
+  --bijux-detail-border: rgba(63, 81, 181, 0.12);
+  --bijux-detail-link: #31406f;
+  --bijux-detail-link-active-bg: rgba(79, 70, 229, 0.12);
 }
 
 body,
@@ -73,6 +81,14 @@ button {
   border-radius: 0.9rem;
   padding: 1rem;
   overflow-x: auto;
+  text-align: center;
+}
+
+.md-typeset .mermaid svg {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  max-width: 100%;
 }
 
 .bijux-map-frame {
@@ -132,6 +148,195 @@ button {
 .md-typeset .md-button--primary {
   background: linear-gradient(135deg, #3949ab, #4f46e5);
   border-color: transparent;
+}
+
+.bijux-site-tabs,
+.bijux-detail-tabs {
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--bijux-hub-border);
+}
+
+.bijux-hub-strip {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.bijux-site-tabs {
+  background: rgba(40, 53, 123, 0.98);
+}
+
+.bijux-detail-tabs {
+  background: var(--bijux-detail-bg);
+  border-color: var(--bijux-detail-border);
+  box-shadow: inset 0 -1px 0 var(--bijux-detail-border);
+}
+
+.bijux-tabs__list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding-inline: 0.1rem;
+  padding: 0.55rem 0;
+  overflow-x: auto;
+  scroll-padding-inline: 1.25rem;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+.bijux-tabs__list::-webkit-scrollbar {
+  display: none;
+}
+
+.bijux-tabs__item {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.bijux-tabs__link {
+  display: block;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--bijux-hub-link);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  padding: 0.45rem 0.85rem;
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.bijux-tabs__link--hub {
+  font-size: 0.74rem;
+}
+
+.bijux-hub-strip .bijux-tabs__link:hover,
+.bijux-hub-strip .bijux-tabs__item--active .bijux-tabs__link {
+  background: var(--bijux-hub-link-active-bg);
+  border-color: var(--bijux-hub-border);
+  color: #fff;
+}
+
+.bijux-tabs__link--site {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.bijux-site-tabs .bijux-tabs__link:hover,
+.bijux-site-tabs .bijux-tabs__item--active .bijux-tabs__link {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.bijux-tabs__link--detail {
+  color: var(--bijux-detail-link);
+  font-size: 0.76rem;
+}
+
+.bijux-detail-tabs .bijux-tabs__link:hover,
+.bijux-detail-tabs .bijux-tabs__item--active .bijux-tabs__link {
+  background: var(--bijux-detail-link-active-bg);
+  border-color: var(--bijux-detail-border);
+  color: var(--bijux-ink);
+}
+
+.bijux-site-tabs .md-grid,
+.bijux-detail-tabs .md-grid {
+  position: relative;
+}
+
+.bijux-site-tabs .md-grid::before,
+.bijux-site-tabs .md-grid::after,
+.bijux-detail-tabs .md-grid::before,
+.bijux-detail-tabs .md-grid::after {
+  content: "";
+  inset-block: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 1.5rem;
+  z-index: 1;
+}
+
+.bijux-site-tabs .md-grid::before,
+.bijux-detail-tabs .md-grid::before {
+  inset-inline-start: 0;
+}
+
+.bijux-site-tabs .md-grid::after,
+.bijux-detail-tabs .md-grid::after {
+  inset-inline-end: 0;
+}
+
+.bijux-site-tabs .md-grid::before {
+  background: linear-gradient(90deg, rgba(40, 53, 123, 0.98), rgba(40, 53, 123, 0));
+}
+
+.bijux-site-tabs .md-grid::after {
+  background: linear-gradient(270deg, rgba(40, 53, 123, 0.98), rgba(40, 53, 123, 0));
+}
+
+.bijux-detail-tabs .md-grid::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+}
+
+.bijux-detail-tabs .md-grid::after {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+}
+
+.md-sidebar--primary .md-nav {
+  padding-right: 0.2rem;
+}
+
+.md-sidebar--primary [data-bijux-nav-empty="true"] {
+  display: none;
+}
+
+.md-sidebar--primary:has([data-bijux-nav-empty="true"]) {
+  display: none;
+}
+
+.md-sidebar--primary .md-nav__title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.md-sidebar--primary .md-nav__link,
+.md-sidebar--primary .md-nav__container > .md-nav__link {
+  border-radius: 0.75rem;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.md-sidebar--primary .md-nav__link:hover,
+.md-sidebar--primary .md-nav__container > .md-nav__link:hover {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.md-sidebar--primary .md-nav__item--active > .md-nav__container > .md-nav__link,
+.md-sidebar--primary .md-nav__link--active {
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--bijux-ink);
+  font-weight: 700;
+}
+
+.md-tabs__list {
+  flex-wrap: nowrap;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-header__title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 76.2344em) {
+  .bijux-hub-strip,
+  .bijux-site-tabs,
+  .bijux-detail-tabs {
+    display: none;
+  }
 }
 
 .bijux-media-grid {
