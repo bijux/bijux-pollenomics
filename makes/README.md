@@ -36,7 +36,8 @@ configs/
 - `bijux-py/bijux.mk`: shared anchor that verifies the full shared make module tree stays byte-identical across repositories.
 - `bijux-py/api*.mk`: shared API contract, live-contract, freeze-mode, and dispatch orchestration.
 - `bijux-py/ci/`: shared lint, test, quality, security, build, docs, and SBOM gates.
-- `bijux-py/package/`: shared package bootstrap, archetypes, package lifecycle, and package catalog logic.
+- `bijux-py/package.mk`: shared package entrypoint that bootstraps package context, applies package archetypes, and exposes the shared package gate surface.
+- `bijux-py/package-catalog.mk`: shared package inventory and root dispatch catalog logic.
 - `bijux-py/repository/`: shared repository-level environment, publication, and layout checks.
 - `bijux-py/root/`: shared root orchestration for repository docs, lifecycle, and package dispatch.
 - `api-freeze.mk`: repository-local API freeze and drift policy.
@@ -49,7 +50,7 @@ configs/
 
 ## Design Rules
 
-- Keep `bijux-py/` grouped by durable module boundaries. Put shared API logic in `api*.mk`, shared gates in `ci/`, package archetypes in `package/`, repository checks in `repository/`, and root orchestration in `root/`.
+- Keep `bijux-py/` grouped by durable module boundaries. Put shared API logic in `api*.mk`, shared gates in `ci/`, shared package orchestration in `package*.mk`, repository checks in `repository/`, and root orchestration in `root/`.
 - Keep `api-freeze.mk` local-only. Shared API contract and live-contract behavior belongs in `bijux-py`.
 - Keep repo-local archetypes in clearly named root makefiles. If a package archetype is shared, include the `bijux-py` module directly from the package profile.
 - Keep `packages/*.mk` focused on one package each. Shared defaults belong in archetypes, not repeated in every profile.
