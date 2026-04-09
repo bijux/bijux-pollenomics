@@ -16,14 +16,17 @@ Schema = dict[str, Any]
 
 
 def _as_schema(value: object) -> Schema:
+    """Coerce to schema."""
     return value if isinstance(value, dict) else {}
 
 
 def _load_schema(text: str) -> Schema:
+    """Load schema."""
     return _as_schema(yaml.safe_load(text))
 
 
 def _git_show(repo_root: Path, path: str) -> str | None:
+    """Handle Git show."""
     git_bin = shutil.which("git")
     if git_bin is None:
         return None
@@ -44,6 +47,7 @@ def _git_show(repo_root: Path, path: str) -> str | None:
 
 
 def _extract_fields(schema: Schema) -> set[str]:
+    """Extract fields."""
     fields: set[str] = set()
     components = _as_schema(schema.get("components"))
     schemas = _as_schema(components.get("schemas"))

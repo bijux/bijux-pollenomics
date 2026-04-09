@@ -15,6 +15,7 @@ import yaml
 
 
 def _load_artifact(path: Path) -> Any:
+    """Load artifact."""
     text = path.read_text(encoding="utf-8")
     if path.suffix == ".json":
         return json.loads(text)
@@ -22,6 +23,7 @@ def _load_artifact(path: Path) -> Any:
 
 
 def _canonicalize(payload: Any) -> Any:
+    """Handle canonicalize."""
     if isinstance(payload, dict):
         return {
             str(key): _canonicalize(value)
@@ -41,6 +43,7 @@ def _canonicalize(payload: Any) -> Any:
 
 
 def _extract_hash_value(path: Path) -> str | None:
+    """Extract hash value."""
     for line in path.read_text(encoding="utf-8").splitlines():
         if line.startswith("sha256:"):
             return line.split(":", 1)[1].strip()

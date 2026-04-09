@@ -19,6 +19,7 @@ TomlTable = dict[str, Any]
 
 
 def _as_table(value: object) -> TomlTable:
+    """Coerce to table."""
     return value if isinstance(value, dict) else {}
 
 

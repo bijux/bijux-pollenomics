@@ -25,6 +25,7 @@ class TrustedCommandError(RuntimeError):
 
 
 def _normalize_command(command: Sequence[CommandArg]) -> list[str]:
+    """Normalize command."""
     if not command:
         raise ValueError("trusted command is empty")
     executable = Path(os.fspath(command[0])).expanduser()
