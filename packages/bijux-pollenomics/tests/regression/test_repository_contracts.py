@@ -29,12 +29,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_makefile_exposes_named_test_suites(self) -> None:
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
-        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(
-            encoding="utf-8"
-        )
-        root_env_text = (REPO_ROOT / "makes" / "bijux-py" / "root" / "env.mk").read_text(
-            encoding="utf-8"
-        )
+        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
+        root_env_text = (
+            REPO_ROOT / "makes" / "bijux-py" / "root" / "env.mk"
+        ).read_text(encoding="utf-8")
         test_targets_text = (
             REPO_ROOT / "makes" / "bijux-py" / "ci" / "test.mk"
         ).read_text(encoding="utf-8")
@@ -49,7 +47,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("test-unit:", test_targets_text)
         self.assertIn("test-regression:", test_targets_text)
         self.assertIn("test-e2e:", test_targets_text)
-        self.assertIn("ROOT_ARTIFACTS_DIR ?= $(PROJECT_ARTIFACTS_DIR)/root", root_env_text)
+        self.assertIn(
+            "ROOT_ARTIFACTS_DIR ?= $(PROJECT_ARTIFACTS_DIR)/root", root_env_text
+        )
         self.assertIn("ROOT_VENV ?= $(ROOT_ARTIFACTS_DIR)/venv", root_env_text)
         self.assertIn(
             "export PYTHONPYCACHEPREFIX ?= $(ROOT_PYCACHE_DIR)", root_env_text
