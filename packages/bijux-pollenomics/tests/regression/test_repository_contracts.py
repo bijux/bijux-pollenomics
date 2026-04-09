@@ -167,6 +167,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertFalse((REPO_ROOT / "docs" / "outputs" / "gallery").exists())
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
+        ci_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "ci-package.yml"
+        ).read_text(encoding="utf-8")
+        publish_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "publish.yml"
+        ).read_text(encoding="utf-8")
         verify_workflow = (
             REPO_ROOT / ".github" / "workflows" / "verify.yml"
         ).read_text(encoding="utf-8")
@@ -174,12 +180,21 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / ".github" / "workflows" / "deploy-docs.yml"
         ).read_text(encoding="utf-8")
 
+        self.assertIn("workflow_call:", ci_workflow)
+        self.assertIn("cache-dependency-glob: uv.lock", ci_workflow)
+        self.assertIn("make -f \"$makefile\" -C", ci_workflow)
+        self.assertIn('name: publish', publish_workflow)
+        self.assertIn("build-release-artifacts.yml", publish_workflow)
+        self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
         self.assertIn("make check PYTHON=python", verify_workflow)
+        self.assertIn("check-shared-bijux-py", verify_workflow)
+        self.assertIn("uses: ./.github/workflows/ci-package.yml", verify_workflow)
+        self.assertIn("bijux-pollenomics-dev", verify_workflow)
         self.assertIn("Confirm clean worktree after checks", verify_workflow)
         self.assertIn("git status --short", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
         self.assertIn("astral-sh/setup-uv", verify_workflow)
-        self.assertIn("branches:\n      - main", deploy_workflow)
+        self.assertIn("branches: [main]", deploy_workflow)
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
         self.assertIn("DOCS_PUBLISH_REPOSITORY: bijux/pollenomics", deploy_workflow)
@@ -219,6 +234,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "fails if `make check` leaves tracked or untracked repository drift behind",
             automation_workflows,
         )
+        self.assertIn("`publish.yml` publishes release artifacts", automation_workflows)
+        self.assertIn("`ci-package.yml`", automation_workflows)
+        self.assertIn("`build-release-artifacts.yml`", automation_workflows)
         self.assertIn(
             "published the browser-probed root icons into the site root",
             automation_workflows,

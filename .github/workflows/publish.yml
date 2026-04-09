@@ -1,0 +1,61 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: build-${{ matrix.package_slug }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package_slug: bijux-pollenomics
+            package_dir: packages/bijux-pollenomics
+            artifacts_dir: artifacts/bijux-pollenomics
+            build_targets: "build sbom"
+    uses: ./.github/workflows/build-release-artifacts.yml
+    with:
+      package_slug: ${{ matrix.package_slug }}
+      package_dir: ${{ matrix.package_dir }}
+      artifacts_dir: ${{ matrix.artifacts_dir }}
+      build_targets: ${{ matrix.build_targets || 'build' }}
+      dist_subdir: ${{ matrix.dist_subdir || 'build' }}
+
+  publish:
+    name: publish-${{ matrix.package_slug }}
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package_slug: bijux-pollenomics
+    environment:
+      name: pypi
+    permissions:
+      contents: read
+
+    steps:
+      - name: Download publish artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: ${{ matrix.package_slug }}-pypi-dist
+          path: .github/tmp/${{ matrix.package_slug }}-dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
+          skip-existing: true

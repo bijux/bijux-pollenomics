@@ -1,0 +1,90 @@
+name: build-release-artifacts
+
+on:
+  workflow_call:
+    inputs:
+      package_slug:
+        required: true
+        type: string
+      package_dir:
+        required: true
+        type: string
+      artifacts_dir:
+        required: true
+        type: string
+      build_targets:
+        required: false
+        type: string
+        default: "build"
+      dist_subdir:
+        required: false
+        type: string
+        default: build
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-release-artifacts-${{ inputs.package_slug }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACTS_DIR: ${{ inputs.artifacts_dir }}
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - uses: astral-sh/setup-uv@v8
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install package toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          makefile="${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          make -f "$makefile" -C "${{ inputs.package_dir }}" install
+
+      - name: Build release artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          makefile="${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          for target in ${{ inputs.build_targets }}; do
+            make -f "$makefile" -C "${{ inputs.package_dir }}" "$target"
+          done
+
+      - name: Stage publish artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          stage_dir=".github/tmp/${{ inputs.package_slug }}-dist"
+          mkdir -p "$stage_dir"
+          cp "${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"/*.whl "$stage_dir"/
+          cp "${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"/*.tar.gz "$stage_dir"/
+
+      - name: Upload publish artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ inputs.package_slug }}-pypi-dist
+          path: .github/tmp/${{ inputs.package_slug }}-dist/*
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ inputs.package_slug }}-release
+          path: ${{ env.ARTIFACTS_DIR }}
+          if-no-files-found: ignore
+          retention-days: 14

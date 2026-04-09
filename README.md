@@ -1,5 +1,11 @@
 # bijux-pollenomics
 
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
+[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
+[![Publish](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml)
+[![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
+
 `bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
 
 The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.

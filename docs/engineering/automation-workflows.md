@@ -4,15 +4,18 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-03-31
+last_reviewed: 2026-04-09
 ---
 
 # Automation Workflows
 
-The repository uses two GitHub Actions workflows with distinct responsibilities:
+The repository uses three repository-facing GitHub Actions workflows plus two reusable workflow primitives:
 
-- `verify.yml` runs repository verification on pushes to `main`, pull requests targeting `main`, and manual dispatch
+- `verify.yml` runs repository contracts plus package verification on pushes to `main`, pull requests targeting `main`, and manual dispatch
+- `publish.yml` builds and publishes the release distribution from the shared `v*` tag contract or manual dispatch
 - `deploy-docs.yml` builds the MkDocs site from `main` or manual dispatch and publishes the rendered site into the dedicated `bijux/pollenomics` Pages repository
+- `ci-package.yml` is the reusable package verification primitive used by `verify.yml`
+- `build-release-artifacts.yml` is the reusable release-build primitive used by `publish.yml`
 
 The workflow names are only useful if the responsibility split stays explicit.
 
@@ -25,8 +28,10 @@ It:
 - checks out the repository
 - installs Python 3.11
 - installs `uv` with cache support
+- runs repository layout and shared-make contract checks
 - runs `make check PYTHON=python`
 - fails if `make check` leaves tracked or untracked repository drift behind
+- runs package-level verification through the reusable `ci-package.yml` matrix for both `bijux-pollenomics` and `bijux-pollenomics-dev`
 
 That means GitHub verification now covers:
 
@@ -38,6 +43,19 @@ That means GitHub verification now covers:
 - temporary-environment wheel smoke installation
 
 The clean-worktree check matters because it proves the verification path is not quietly leaving behind generated drift.
+
+## Publish Workflow
+
+`publish.yml` publishes release artifacts and serves as the release entrypoint for the repository.
+
+It:
+
+- reuses `build-release-artifacts.yml` to build the distribution from the package-scoped make entrypoint
+- stages wheel and source distribution artifacts from the package release output
+- uploads the release artifact bundle for review
+- publishes the staged distribution through the PyPI action using `PYPI_API_TOKEN`
+
+This keeps release build logic reusable while exposing only one public publish entrypoint.
 
 ## Docs Deployment Workflow
 
