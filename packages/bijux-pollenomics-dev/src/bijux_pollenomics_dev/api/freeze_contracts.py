@@ -2,20 +2,25 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
 import sys
+from typing import Any
 
 import yaml
 
 
-def _load_schema(path: Path) -> dict:
-    return yaml.load(path.read_text(encoding="utf-8"), Loader=yaml.BaseLoader) or {}
+def _load_artifact(path: Path) -> Any:
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".json":
+        return json.loads(text)
+    return yaml.safe_load(text)
 
 
-def _canonical_json_text(payload: dict) -> str:
-    return json.dumps(payload, indent=2, sort_keys=True) + "\n"
+def _canonicalize(payload: Any) -> Any:
+    return json.loads(json.dumps(payload, sort_keys=True))
 
 
 def _extract_hash_value(path: Path) -> str | None:
@@ -43,17 +48,19 @@ def run(repo_root: Path) -> int:
             failures.append(f"{package_dir}: missing schema.hash")
             continue
 
-        canonical = _canonical_json_text(_load_schema(schema_path))
-        pinned_text = pinned_path.read_text(encoding="utf-8")
-        if canonical != pinned_text:
+        expected = _canonicalize(_load_artifact(schema_path))
+        actual = _canonicalize(_load_artifact(pinned_path))
+        if expected != actual:
             failures.append(
                 f"{package_dir}: pinned_openapi.json does not match schema.yaml"
             )
 
-        digest = hashlib.sha256(pinned_text.encode("utf-8")).hexdigest()
-        pinned_digest = _extract_hash_value(hash_path)
-        if pinned_digest != digest:
-            failures.append(f"{package_dir}: schema.hash does not match pinned_openapi")
+        digest = hashlib.sha256(
+            schema_path.read_text(encoding="utf-8").encode("utf-8")
+        ).hexdigest()
+        schema_digest = _extract_hash_value(hash_path)
+        if schema_digest != digest:
+            failures.append(f"{package_dir}: schema.hash does not match schema.yaml")
 
     if failures:
         print("API freeze contract violations detected:", file=sys.stderr)
@@ -63,8 +70,22 @@ def run(repo_root: Path) -> int:
     return 0
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Validate checked-in API freeze contracts for a repository root."
+    )
+    parser.add_argument(
+        "--repo-root",
+        type=Path,
+        default=Path.cwd(),
+        help="Repository root that contains the apis/ contract tree.",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
-    return run(Path.cwd())
+    args = parse_args()
+    return run(args.repo_root.resolve())
 
 
 if __name__ == "__main__":
