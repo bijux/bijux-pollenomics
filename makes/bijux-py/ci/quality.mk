@@ -16,7 +16,8 @@ QUALITY_MKDOCS_CACHE_DIR       ?= $(QUALITY_ARTIFACTS_DIR)/docs/.cache
 QUALITY_MKDOCS_PYCACHE_DIR     ?= $(QUALITY_ARTIFACTS_DIR)/docs/pycache
 QUALITY_MKDOCS_PYTHON          ?= $(VENV_PYTHON)
 QUALITY_MKDOCS_BUILD_FLAGS     ?= --strict --config-file "$(QUALITY_MKDOCS_CONFIG)" --site-dir "$(QUALITY_MKDOCS_SITE_DIR)"
-QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) $(QUALITY_PATHS)
+QUALITY_DEPTRY_TARGET          ?= $(PROJECT_DIR)
+QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) --config "$(DEPTRY_CONFIG)" "$(QUALITY_DEPTRY_TARGET)"
 QUALITY_SELF_MAKE              ?= $(SELF_MAKE)
 
 PYTHON      ?= $(shell command -v python3 || command -v python)
@@ -38,6 +39,22 @@ ifeq ($(shell uname -s),Darwin)
 else
   QUALITY_ENV  :=
 endif
+
+define run_interrogate_report
+	echo "→ Generating docstring coverage report (<100%)"; \
+	mkdir -p "$(QUALITY_ARTIFACTS_DIR)"; \
+	set +e; \
+	  OUT="$$( $(QUALITY_ENV) $(INTERROGATE) --fail-under 0 --verbose $(INTERROGATE_PATHS) )"; \
+	  rc=$$?; \
+	  printf '%s\n' "$$OUT" >"$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
+	  OFF="$$(printf '%s\n' "$$OUT" | awk -F'|' 'NR>3 && $$0 ~ /^\|/ { \
+	    name=$$2; cov=$$6; gsub(/^[ \t]+|[ \t]+$$/, "", name); gsub(/^[ \t]+|[ \t]+$$/, "", cov); \
+	    if (name !~ /^-+$$/ && cov != "100%") printf("  - %s (%s)\n", name, cov); \
+	  }')"; \
+	  printf '%s\n' "$$OFF" >"$(QUALITY_ARTIFACTS_DIR)/interrogate.offenders.txt"; \
+	  if [ -n "$$OFF" ]; then printf '%s\n' "$$OFF"; else echo "✔ All files 100% documented"; fi; \
+	  exit $$rc
+endef
 
 .PHONY: quality interrogate-report docs-links quality-clean
 
@@ -69,7 +86,7 @@ quality:
 	@if [ "$(SKIP_INTERROGATE)" = "1" ]; then \
 	  echo "   • SKIP_INTERROGATE=1; skipping Interrogate" | tee "$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
 	else \
-	  $(QUALITY_SELF_MAKE) interrogate-report; \
+	  $(call run_interrogate_report); \
 	fi
 	$(call run_make_targets,$(QUALITY_POST_TARGETS),$(QUALITY_SELF_MAKE))
 	@if [ "$(QUALITY_RUN_MKDOCS)" = "1" ]; then \
@@ -81,19 +98,7 @@ quality:
 	@printf "OK\n" >"$(QUALITY_OK_MARKER)"
 
 interrogate-report:
-	@echo "→ Generating docstring coverage report (<100%)"
-	@mkdir -p "$(QUALITY_ARTIFACTS_DIR)"
-	@set +e; \
-	  OUT="$$( $(QUALITY_ENV) $(INTERROGATE) --fail-under 0 --verbose $(INTERROGATE_PATHS) )"; \
-	  rc=$$?; \
-	  printf '%s\n' "$$OUT" >"$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
-	  OFF="$$(printf '%s\n' "$$OUT" | awk -F'|' 'NR>3 && $$0 ~ /^\|/ { \
-	    name=$$2; cov=$$6; gsub(/^[ \t]+|[ \t]+$$/, "", name); gsub(/^[ \t]+|[ \t]+$$/, "", cov); \
-	    if (name !~ /^-+$$/ && cov != "100%") printf("  - %s (%s)\n", name, cov); \
-	  }')"; \
-	  printf '%s\n' "$$OFF" >"$(QUALITY_ARTIFACTS_DIR)/interrogate.offenders.txt"; \
-	  if [ -n "$$OFF" ]; then printf '%s\n' "$$OFF"; else echo "✔ All files 100% documented"; fi; \
-	  exit $$rc
+	$(call run_interrogate_report)
 
 docs-links:
 	@echo "→ docs-links is not configured for $(PROJECT_SLUG)"
