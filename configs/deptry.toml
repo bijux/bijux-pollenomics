@@ -1,0 +1,13 @@
+[tool.deptry]
+pep621_dev_dependency_groups = ["dev"]
+ignore = ["DEP002", "DEP003"]
+extend_exclude = ["docs", "apis", "artifacts", "site"]
+package_module_name_map = { "bijux-pollenomics" = "bijux_pollenomics", "bijux-pollenomics-dev" = "bijux_pollenomics_dev", "mkdocs-autorefs" = "mkdocs_autorefs", "mkdocs-git-revision-date-localized-plugin" = "mkdocs_git_revision_date_localized_plugin", "openapi-spec-validator" = "openapi_spec_validator" }
+
+[tool.repo_deptry.packages."bijux-pollenomics"]
+known_first_party = ["bijux_pollenomics"]
+ignore = ["DEP002", "DEP003"]
+
+[tool.repo_deptry.packages."bijux-pollenomics-dev"]
+known_first_party = ["bijux_pollenomics_dev"]
+ignore = ["DEP002", "DEP003"]
