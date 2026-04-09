@@ -1,7 +1,8 @@
 include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../bijux-py/package/profile.mk
-include $(ROOT_MAKE_DIR)/bijux-py/package/freeze-python.mk
+include $(ROOT_MAKE_DIR)/bijux-py/package/repository-python.mk
 
 PACKAGE_IMPORT_NAME := bijux_pollenomics
+API_MODE := freeze
 PACKAGE_LINT_EXTRA_DIRS := $(MONOREPO_ROOT)/docs/hooks
 PACKAGE_INSTALL_PYTHON_PACKAGES := $(MONOREPO_ROOT)/packages/bijux-pollenomics-dev
 LINT_DIRS := src tests $(PACKAGE_LINT_EXTRA_DIRS)

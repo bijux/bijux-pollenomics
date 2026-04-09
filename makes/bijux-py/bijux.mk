@@ -1,6 +1,6 @@
 BIJUX_PY_WORKSPACE_DIR ?= $(abspath $(PROJECT_DIR)/..)
 BIJUX_PY_REPOS ?= bijux-canon bijux-proteomics bijux-pollenomics
-BIJUX_PY_REQUIRED_FILES ?= api-contract.mk api-freeze.mk api-live-contract.mk api.mk bijux.mk ci/build.mk ci/docs.mk ci/help.mk ci/lint.mk ci/quality.mk ci/sbom.mk ci/security.mk ci/test.mk ci/util.mk package/api-python.mk package/catalog.mk package/freeze-python.mk package/gates.mk package/lifecycle.mk package/profile.mk package/python.mk package/repository-python.mk package/workspace-python.mk repository/config-layout.mk repository/env.mk repository/make-layout.mk repository/publish.mk repository/root.mk root/docs.mk root/env.mk root/lifecycle.mk root/package-dispatch.mk
+BIJUX_PY_REQUIRED_FILES ?= api-contract.mk api-freeze.mk api-live-contract.mk api.mk bijux.mk ci/build.mk ci/docs.mk ci/help.mk ci/lint.mk ci/quality.mk ci/sbom.mk ci/security.mk ci/test.mk ci/util.mk package/api-python.mk package/catalog.mk package/gates.mk package/lifecycle.mk package/profile.mk package/python.mk package/repository-python.mk package/workspace-python.mk repository/config-layout.mk repository/env.mk repository/make-layout.mk repository/publish.mk repository/root.mk root/docs.mk root/env.mk root/lifecycle.mk root/package-dispatch.mk
 BIJUX_PY_OPTIONAL_FILES ?=
 
 .PHONY: check-shared-bijux-py
