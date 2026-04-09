@@ -1,7 +1,7 @@
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL ?= all
-.SHELLFLAGS ?= -eu -o pipefail -c
-SHELL ?= bash
+.SHELLFLAGS := -eu -o pipefail -c
+SHELL := bash
 
 PYTHON ?= python3.11
 UV ?= uv

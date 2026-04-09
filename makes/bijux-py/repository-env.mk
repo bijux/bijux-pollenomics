@@ -1,7 +1,7 @@
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL ?= all
-.SHELLFLAGS ?= -eu -o pipefail -c
-SHELL ?= bash
+.SHELLFLAGS := -eu -o pipefail -c
+SHELL := bash
 
 MONOREPO_ROOT ?= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../..)
 PROJECT_DIR ?= $(CURDIR)
