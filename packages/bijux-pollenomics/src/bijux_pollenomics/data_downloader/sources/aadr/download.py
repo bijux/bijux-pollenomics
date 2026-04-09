@@ -67,7 +67,7 @@ def validate_downloaded_anno_payload(anno_file: AadrAnnoFile, payload: bytes) ->
             f"Downloaded AADR file size mismatch for {anno_file.filename}: expected {anno_file.filesize}, got {len(payload)}"
         )
     if anno_file.md5:
-        digest = hashlib.md5(payload).hexdigest()
+        digest = hashlib.md5(payload, usedforsecurity=False).hexdigest()
         if digest != anno_file.md5.casefold():
             raise ValueError(
                 f"Downloaded AADR checksum mismatch for {anno_file.filename}: expected {anno_file.md5}, got {digest}"

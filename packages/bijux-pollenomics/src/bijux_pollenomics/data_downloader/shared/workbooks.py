@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
-from xml.etree import ElementTree as ET
 from zipfile import ZipFile
+
+from defusedxml import ElementTree as ET
 
 SPREADSHEET_NS = {"main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 PACKAGE_NS = {"pkg": "http://schemas.openxmlformats.org/package/2006/relationships"}

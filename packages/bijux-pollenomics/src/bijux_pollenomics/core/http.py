@@ -5,11 +5,12 @@ import os
 import ssl
 import time
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
 INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
 HTTP_REQUEST_RETRIES = 3
+ALLOWED_URL_SCHEMES = frozenset({"http", "https"})
 
 
 def allow_insecure_tls_fallback() -> bool:
@@ -30,6 +31,23 @@ def should_retry_insecure_tls(error: URLError) -> bool:
 def should_retry_transient_network_error(error: Exception) -> bool:
     """Return whether one transport failure is likely to succeed on a later attempt."""
     return isinstance(error, (TimeoutError, URLError))
+
+
+def validate_http_url(url: str) -> None:
+    """Reject unexpected URL schemes before handing a request to urllib."""
+    parsed = urlparse(url)
+    if parsed.scheme not in ALLOWED_URL_SCHEMES or not parsed.netloc:
+        raise ValueError(f"Unsupported URL for network fetch: {url}")
+
+
+def build_ssl_context(*, insecure: bool) -> ssl.SSLContext | None:
+    """Create an SSL context only when an insecure TLS retry is explicitly enabled."""
+    if not insecure:
+        return None
+    context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
+    return context
 
 
 def fetch_json(
@@ -59,6 +77,7 @@ def fetch_text(
         query = urlencode(params)
         separator = "&" if "?" in url else "?"
         url = f"{url}{separator}{query}"
+    validate_http_url(url)
     request = Request(url, headers=headers or {})
     return fetch_url_bytes(request, insecure=insecure, timeout=timeout).decode("utf-8")
 
@@ -69,10 +88,11 @@ def fetch_binary(
     insecure: bool = False,
 ) -> bytes:
     """Fetch binary content with optional TLS fallback."""
+    validate_http_url(url)
     request = Request(url, headers=headers or {})
-    context = ssl._create_unverified_context() if insecure else None
+    context = build_ssl_context(insecure=insecure)
     try:
-        with urlopen(request, context=context) as response:
+        with urlopen(request, context=context) as response:  # nosec B310
             return response.read()
     except HTTPError as error:
         if error.code != 403:
@@ -81,8 +101,8 @@ def fetch_binary(
         fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
         with urlopen(
             Request(url, headers=fallback_headers),
-            context=ssl._create_unverified_context(),
-        ) as response:
+            context=build_ssl_context(insecure=True),
+        ) as response:  # nosec B310
             return response.read()
     except (TimeoutError, URLError):
         return fetch_url_bytes(request, insecure=insecure, timeout=None)
@@ -95,11 +115,12 @@ def fetch_url_bytes(
     timeout: float | None,
 ) -> bytes:
     """Fetch one HTTP payload with TLS fallback and bounded retries for transient failures."""
-    context = ssl._create_unverified_context() if insecure else None
+    validate_http_url(request.full_url)
+    context = build_ssl_context(insecure=insecure)
     last_error: TimeoutError | URLError | None = None
     for attempt in range(HTTP_REQUEST_RETRIES):
         try:
-            with urlopen(request, context=context, timeout=timeout) as response:
+            with urlopen(request, context=context, timeout=timeout) as response:  # nosec B310
                 return response.read()
         except URLError as error:
             last_error = error
@@ -108,7 +129,7 @@ def fetch_url_bytes(
                 and allow_insecure_tls_fallback()
                 and should_retry_insecure_tls(error)
             ):
-                context = ssl._create_unverified_context()
+                context = build_ssl_context(insecure=True)
                 insecure = True
                 continue
             if (

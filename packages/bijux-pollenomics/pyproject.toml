@@ -21,7 +21,9 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
-dependencies = []
+dependencies = [
+    "defusedxml>=0.7.1",
+]
 
 [project.urls]
 Documentation = "https://bijux.io/bijux-pollenomics/"

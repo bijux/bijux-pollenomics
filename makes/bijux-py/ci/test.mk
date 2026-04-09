@@ -41,6 +41,17 @@ TEST_SELF_MAKE            ?= $(SELF_MAKE)
 
 include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/util.mk
 
+define run_test_syntax
+	@if [ -n "$(TEST_SYNTAX_PATHS)" ]; then \
+	  echo "→ Running syntax-only checks (compileall $(TEST_SYNTAX_PATHS))"; \
+	  if [ -n "$(strip $(TEST_PYCACHE_PREFIX))" ]; then mkdir -p "$(TEST_PYCACHE_PREFIX_ABS)"; fi; \
+	  PYTHONDONTWRITEBYTECODE=1 $(TEST_PYCACHE_ENV) \
+	    "$(TEST_PYTHON)" -m compileall $(TEST_SYNTAX_PATHS); \
+	else \
+	  echo "→ No syntax-only checks configured"; \
+	fi
+endef
+
 empty :=
 space := $(empty) $(empty)
 
@@ -84,7 +95,7 @@ PYTEST_INFO_FLAGS = -o cache_dir="$(CACHE_DIR_ABS)"
 test:
 	@echo "→ Running full test suite on $(TEST_PATHS)"
 	$(call run_make_targets,$(TEST_PRE_TARGETS),$(TEST_SELF_MAKE))
-	@$(TEST_SELF_MAKE) test-syntax
+	$(call run_test_syntax)
 	@if [ "$(TEST_RESET_PYCACHE)" = "1" ]; then find . -type d -name '__pycache__' -exec rm -rf {} + >/dev/null 2>&1 || true; fi
 	@rm -rf "$(TMP_DIR_ABS)"
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
@@ -217,14 +228,7 @@ test-clean:
 	@echo "✔ done"
 
 test-syntax:
-	@if [ -n "$(TEST_SYNTAX_PATHS)" ]; then \
-	  echo "→ Running syntax-only checks (compileall $(TEST_SYNTAX_PATHS))"; \
-	  if [ -n "$(strip $(TEST_PYCACHE_PREFIX))" ]; then mkdir -p "$(TEST_PYCACHE_PREFIX_ABS)"; fi; \
-	  PYTHONDONTWRITEBYTECODE=1 $(TEST_PYCACHE_ENV) \
-	    "$(TEST_PYTHON)" -m compileall $(TEST_SYNTAX_PATHS); \
-	else \
-	  echo "→ No syntax-only checks configured"; \
-	fi
+	$(call run_test_syntax)
 
 coverage-core:
 	@if [ -z "$(TEST_COVERAGE_TARGETS)" ]; then \
