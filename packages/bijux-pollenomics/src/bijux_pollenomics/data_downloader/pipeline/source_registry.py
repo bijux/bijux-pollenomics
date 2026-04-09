@@ -3,6 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .context_collectors import (
+    ContextCollectFunction,
+)
+from .context_collectors import (
     resolve_context_collect_function as resolve_registered_context_collector,
 )
 
@@ -55,6 +58,6 @@ CONTEXT_SOURCE_SPECS = {
 }
 
 
-def resolve_context_collect_function(name: str):
+def resolve_context_collect_function(name: str) -> ContextCollectFunction:
     """Resolve a context-source collector function by tracked source name."""
     return resolve_registered_context_collector(name)

@@ -4,6 +4,7 @@ import json
 import os
 import ssl
 import time
+from typing import cast
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
@@ -93,7 +94,7 @@ def fetch_binary(
     context = build_ssl_context(insecure=insecure)
     try:
         with urlopen(request, context=context) as response:  # nosec B310
-            return response.read()
+            return cast(bytes, response.read())
     except HTTPError as error:
         if error.code != 403:
             raise
@@ -103,7 +104,7 @@ def fetch_binary(
             Request(url, headers=fallback_headers),
             context=build_ssl_context(insecure=True),
         ) as response:  # nosec B310
-            return response.read()
+            return cast(bytes, response.read())
     except (TimeoutError, URLError):
         return fetch_url_bytes(request, insecure=insecure, timeout=None)
 
@@ -121,7 +122,7 @@ def fetch_url_bytes(
     for attempt in range(HTTP_REQUEST_RETRIES):
         try:
             with urlopen(request, context=context, timeout=timeout) as response:  # nosec B310
-                return response.read()
+                return cast(bytes, response.read())
         except URLError as error:
             last_error = error
             if (

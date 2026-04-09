@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.files import write_json
+from ....core.geojson import CountryBoundaryCollection, feature_list
 from ....core.text import slugify
 from ...contracts import BOUNDARY_COLLECTION
 
@@ -23,12 +24,12 @@ class BoundariesDataReport:
 
 
 def build_combined_country_boundaries(
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: CountryBoundaryCollection,
 ) -> dict[str, object]:
     """Combine individual Nordic country files into one GeoJSON collection."""
     features = []
     for country, payload in country_boundaries.items():
-        for feature in payload.get("features", []):
+        for feature in feature_list(payload):
             features.append(
                 {
                     "type": "Feature",
@@ -47,7 +48,7 @@ def build_combined_country_boundaries(
 def write_boundary_archive(
     output_root: Path,
     *,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: CountryBoundaryCollection,
     source_manifest: dict[str, object],
 ) -> BoundariesDataReport:
     """Write raw and normalized boundary artifacts into one output root."""

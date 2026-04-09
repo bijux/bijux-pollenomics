@@ -5,6 +5,7 @@ from datetime import date
 from pathlib import Path
 
 from ..core.files import write_json
+from ..core.geojson import feature_list
 from ..core.http import fetch_binary
 from .contracts import LANDCLIM_GRID_GEOJSON, LANDCLIM_SITE_CSV, LANDCLIM_SITE_GEOJSON
 from .shared.context_exports import (
@@ -127,7 +128,7 @@ def collect_landclim_data(
             "generated_on": str(date.today()),
             "source": "LandClim",
             "site_count": len(site_records),
-            "grid_cell_count": len(grid_geojson.get("features", [])),
+            "grid_cell_count": len(feature_list(grid_geojson)),
             "site_layer_key": LANDCLIM_SITE_LAYER_KEY,
             "grid_layer_key": LANDCLIM_GRID_LAYER_KEY,
         },
@@ -136,7 +137,7 @@ def collect_landclim_data(
     return LandClimDataReport(
         output_dir=output_root,
         site_count=len(site_records),
-        grid_cell_count=len(grid_geojson.get("features", [])),
+        grid_cell_count=len(feature_list(grid_geojson)),
         raw_manifest_path=raw_manifest_path,
         normalized_sites_csv_path=normalized_sites_csv_path,
         normalized_sites_geojson_path=normalized_sites_geojson_path,

@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 
+from .inventory_fields import parse_optional_int
+
 __all__ = ["SeadSiteFetchResult", "build_sead_site_inventory"]
 
 
@@ -35,7 +37,8 @@ def build_sead_site_inventory(
     for row in rows:
         deduplicated[str(row.get("site_id", ""))] = row
     deduplicated_rows = sorted(
-        deduplicated.values(), key=lambda item: int(item.get("site_id", 0))
+        deduplicated.values(),
+        key=lambda item: parse_optional_int(item.get("site_id")) or 0,
     )
     inventory_summary = populate_inventory_fields_fn(deduplicated_rows)
     return SeadSiteFetchResult(

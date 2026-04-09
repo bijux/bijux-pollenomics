@@ -2,12 +2,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from ....core.geojson import JsonObject, as_mapping
 from ..time import extract_layer_identity, feature_has_time, validate_feature_collection
 from .shared import POLYGON_LAYER_METADATA, POLYGON_LAYER_STYLES
 
 
 def build_external_polygon_layer(
-    geojson: dict[str, object],
+    geojson: JsonObject,
     *,
     source_path: Path | None = None,
 ) -> dict[str, object]:
@@ -18,17 +19,18 @@ def build_external_polygon_layer(
         raw_features, source_path=source_path
     )
     for feature in raw_features:
-        geometry = feature.get("geometry", {})
-        if not isinstance(geometry, dict):
+        geometry = as_mapping(feature.get("geometry"))
+        if geometry is None:
             raise ValueError(f"{source_label} contains a feature with invalid geometry")
         if geometry.get("type") not in {"Polygon", "MultiPolygon"}:
             raise ValueError(
                 f"{source_label} polygon layers must contain Polygon or MultiPolygon geometries"
             )
     applies_time_filter = any(
-        feature_has_time(feature.get("properties", {}))
+        feature_has_time(properties)
         for feature in raw_features
-        if isinstance(feature.get("properties", {}), dict)
+        for properties in [as_mapping(feature.get("properties"))]
+        if properties is not None
     )
     return {
         "key": layer_key,

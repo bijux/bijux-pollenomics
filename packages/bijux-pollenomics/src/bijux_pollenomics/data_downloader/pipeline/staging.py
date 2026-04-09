@@ -3,6 +3,9 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 import shutil
+from typing import TypeVar
+
+ReportT = TypeVar("ReportT")
 
 __all__ = ["build_staging_output_dir", "collect_into_staging_dir", "reset_output_dir"]
 
@@ -21,8 +24,8 @@ def build_staging_output_dir(final_output_root: Path) -> Path:
 
 def collect_into_staging_dir(
     final_output_root: Path,
-    collect: Callable[[Path], object],
-) -> object:
+    collect: Callable[[Path], ReportT],
+) -> ReportT:
     """Collect into a staging directory and swap it into place only after success."""
     final_output_root = Path(final_output_root)
     staging_output_root = build_staging_output_dir(final_output_root)

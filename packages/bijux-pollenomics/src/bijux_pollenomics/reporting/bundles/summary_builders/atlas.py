@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from ...models import MultiCountryMapReport
+from ..paths import AtlasBundlePaths
 
 
 def build_multi_country_map_summary(
     report: MultiCountryMapReport,
-    bundle_paths: object,
+    bundle_paths: AtlasBundlePaths,
     extra_artifacts: list[tuple[str, str]],
 ) -> dict[str, object]:
     """Build a machine-readable summary for one shared map bundle."""

@@ -1,12 +1,15 @@
 from __future__ import annotations
 
+from ....core.geojson import JsonObject, feature_list
 
-def build_country_boundary_layer(geojson: dict[str, object]) -> dict[str, object]:
+
+def build_country_boundary_layer(geojson: JsonObject) -> dict[str, object]:
     """Convert country boundary GeoJSON into a map polygon layer payload."""
+    features = feature_list(geojson)
     return {
         "key": "country-boundaries",
         "label": "Country boundaries",
-        "count": len(geojson.get("features", [])),
+        "count": len(features),
         "description": "Administrative outlines used for country filtering and visual framing.",
         "group": "orientation",
         "source_name": "Natural Earth country boundaries",

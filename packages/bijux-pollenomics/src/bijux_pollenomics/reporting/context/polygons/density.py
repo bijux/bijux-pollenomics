@@ -1,17 +1,26 @@
 from __future__ import annotations
 
+from ....core.geojson import JsonObject, as_mapping, feature_list
 
-def build_density_polygon_layer(geojson: dict[str, object]) -> dict[str, object]:
+
+def build_density_polygon_layer(geojson: JsonObject) -> dict[str, object]:
     """Convert RAÄ archaeology density GeoJSON into a map polygon layer payload."""
-    counts = [
-        int(feature.get("properties", {}).get("count", 0))
-        for feature in geojson.get("features", [])
-        if int(feature.get("properties", {}).get("count", 0)) > 0
-    ]
+    features = feature_list(geojson)
+    counts: list[int] = []
+    for feature in features:
+        properties = as_mapping(feature.get("properties"))
+        if properties is None:
+            continue
+        raw_count = properties.get("count", 0)
+        if not isinstance(raw_count, (int, float, str)):
+            continue
+        count = int(raw_count)
+        if count > 0:
+            counts.append(count)
     return {
         "key": "raa-archaeology",
         "label": "RAÄ archaeology density",
-        "count": len(geojson.get("features", [])),
+        "count": len(features),
         "description": "Swedish archaeology density from RAÄ Fornsök `Fornlämning` counts in 1° grid cells.",
         "group": "archaeology-context",
         "source_name": "RAÄ Fornsök",

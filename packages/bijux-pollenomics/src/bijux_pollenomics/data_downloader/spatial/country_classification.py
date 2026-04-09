@@ -3,27 +3,38 @@ from __future__ import annotations
 from itertools import pairwise
 import math
 
+from ...core.geojson import (
+    CountryBoundaryCollection,
+    JsonObject,
+    LinearRing,
+    Polygon,
+    as_mapping,
+    feature_list,
+    parse_multipolygon,
+    parse_polygon,
+)
+
 COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE = 0.15
 
 
 def classify_country(
     longitude: float,
     latitude: float,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: CountryBoundaryCollection,
 ) -> str:
     """Assign a point to one of the Nordic countries based on polygon containment."""
     for country, payload in country_boundaries.items():
-        for feature in payload.get("features", []):
-            geometry = feature.get("geometry", {})
-            if isinstance(geometry, dict) and point_in_geometry(
+        for feature in feature_list(payload):
+            geometry = as_mapping(feature.get("geometry"))
+            if geometry is not None and point_in_geometry(
                 longitude, latitude, geometry
             ):
                 return country
 
     for country, payload in country_boundaries.items():
-        for feature in payload.get("features", []):
-            geometry = feature.get("geometry", {})
-            if isinstance(geometry, dict) and point_in_geometry_ignoring_holes(
+        for feature in feature_list(payload):
+            geometry = as_mapping(feature.get("geometry"))
+            if geometry is not None and point_in_geometry_ignoring_holes(
                 longitude, latitude, geometry
             ):
                 return country
@@ -39,37 +50,49 @@ def classify_country(
     return ""
 
 
-def point_in_geometry(
-    longitude: float, latitude: float, geometry: dict[str, object]
-) -> bool:
+def point_in_geometry(longitude: float, latitude: float, geometry: JsonObject) -> bool:
     """Check whether a point falls inside a GeoJSON Polygon or MultiPolygon."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
-        return point_in_polygon(longitude, latitude, coordinates)
+        polygon = parse_polygon(coordinates)
+        return (
+            point_in_polygon(longitude, latitude, polygon)
+            if polygon is not None
+            else False
+        )
     if geometry_type == "MultiPolygon":
+        multipolygon = parse_multipolygon(coordinates)
         return any(
-            point_in_polygon(longitude, latitude, polygon) for polygon in coordinates
+            point_in_polygon(longitude, latitude, polygon)
+            for polygon in multipolygon or []
         )
     return False
 
 
 def point_in_geometry_ignoring_holes(
-    longitude: float, latitude: float, geometry: dict[str, object]
+    longitude: float, latitude: float, geometry: JsonObject
 ) -> bool:
     """Check containment using only polygon outer rings for country-assignment fallbacks."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
-        return point_in_outer_ring(longitude, latitude, coordinates)
+        polygon = parse_polygon(coordinates)
+        return (
+            point_in_outer_ring(longitude, latitude, polygon)
+            if polygon is not None
+            else False
+        )
     if geometry_type == "MultiPolygon":
+        multipolygon = parse_multipolygon(coordinates)
         return any(
-            point_in_outer_ring(longitude, latitude, polygon) for polygon in coordinates
+            point_in_outer_ring(longitude, latitude, polygon)
+            for polygon in multipolygon or []
         )
     return False
 
 
-def point_in_polygon(longitude: float, latitude: float, polygon: list[object]) -> bool:
+def point_in_polygon(longitude: float, latitude: float, polygon: Polygon) -> bool:
     """Ray-casting point-in-polygon with support for holes."""
     if not polygon:
         return False
@@ -78,22 +101,20 @@ def point_in_polygon(longitude: float, latitude: float, polygon: list[object]) -
     return all(not point_in_ring(longitude, latitude, hole) for hole in polygon[1:])
 
 
-def point_in_outer_ring(
-    longitude: float, latitude: float, polygon: list[object]
-) -> bool:
+def point_in_outer_ring(longitude: float, latitude: float, polygon: Polygon) -> bool:
     """Check whether a point lies inside the outer ring of one polygon."""
     if not polygon:
         return False
     return point_in_ring(longitude, latitude, polygon[0])
 
 
-def point_in_ring(longitude: float, latitude: float, ring: list[object]) -> bool:
+def point_in_ring(longitude: float, latitude: float, ring: LinearRing) -> bool:
     """Return True when a point is inside a linear ring."""
     inside = False
     previous = ring[-1]
     for current in ring:
-        x1, y1 = previous[0], previous[1]
-        x2, y2 = current[0], current[1]
+        x1, y1 = previous
+        x2, y2 = current
         crosses = ((y1 > latitude) != (y2 > latitude)) and (
             longitude < (x2 - x1) * (latitude - y1) / ((y2 - y1) or 1e-12) + x1
         )
@@ -106,16 +127,16 @@ def point_in_ring(longitude: float, latitude: float, ring: list[object]) -> bool
 def nearest_country_by_boundary_distance(
     longitude: float,
     latitude: float,
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: CountryBoundaryCollection,
     max_distance: float,
 ) -> str:
     """Return the nearest country when a point falls just outside tracked boundaries."""
     nearest_country = ""
     nearest_distance = math.inf
     for country, payload in country_boundaries.items():
-        for feature in payload.get("features", []):
-            geometry = feature.get("geometry", {})
-            if not isinstance(geometry, dict):
+        for feature in feature_list(payload):
+            geometry = as_mapping(feature.get("geometry"))
+            if geometry is None:
                 continue
             distance = geometry_boundary_distance(longitude, latitude, geometry)
             if distance < nearest_distance:
@@ -127,37 +148,40 @@ def nearest_country_by_boundary_distance(
 
 
 def geometry_boundary_distance(
-    longitude: float, latitude: float, geometry: dict[str, object]
+    longitude: float, latitude: float, geometry: JsonObject
 ) -> float:
     """Return the minimum distance from a point to a polygon or multipolygon boundary."""
     geometry_type = geometry.get("type")
     coordinates = geometry.get("coordinates", [])
     if geometry_type == "Polygon":
-        return polygon_boundary_distance(longitude, latitude, coordinates)
+        polygon = parse_polygon(coordinates)
+        return (
+            polygon_boundary_distance(longitude, latitude, polygon)
+            if polygon is not None
+            else math.inf
+        )
     if geometry_type == "MultiPolygon":
+        multipolygon = parse_multipolygon(coordinates)
         distances = [
             polygon_boundary_distance(longitude, latitude, polygon)
-            for polygon in coordinates
-            if isinstance(polygon, list)
+            for polygon in multipolygon or []
         ]
         return min(distances) if distances else math.inf
     return math.inf
 
 
 def polygon_boundary_distance(
-    longitude: float, latitude: float, polygon: list[object]
+    longitude: float, latitude: float, polygon: Polygon
 ) -> float:
     """Return the minimum distance from a point to any ring in one polygon."""
     distances = [
-        ring_boundary_distance(longitude, latitude, ring)
-        for ring in polygon
-        if isinstance(ring, list) and ring
+        ring_boundary_distance(longitude, latitude, ring) for ring in polygon if ring
     ]
     return min(distances) if distances else math.inf
 
 
 def ring_boundary_distance(
-    longitude: float, latitude: float, ring: list[object]
+    longitude: float, latitude: float, ring: LinearRing
 ) -> float:
     """Return the minimum distance from a point to one linear-ring edge."""
     if len(ring) < 2:
@@ -166,13 +190,12 @@ def ring_boundary_distance(
         point_to_segment_distance(
             longitude,
             latitude,
-            float(start[0]),
-            float(start[1]),
-            float(end[0]),
-            float(end[1]),
+            start[0],
+            start[1],
+            end[0],
+            end[1],
         )
         for start, end in pairwise(ring)
-        if len(start) >= 2 and len(end) >= 2
     )
 
 

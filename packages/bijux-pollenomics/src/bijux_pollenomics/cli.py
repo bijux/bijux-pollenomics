@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from collections.abc import Sequence
 from typing import Any
 
@@ -9,13 +10,19 @@ from .command_line import run_command as dispatch_command
 __all__ = ["build_parser", "main", "run_command"]
 
 
-def build_parser():
+def build_parser() -> argparse.ArgumentParser:
     """Build the canonical command-line argument parser."""
     return build_command_parser()
 
 
-def run_command(args: Any, *, parser=None) -> int:
+def run_command(
+    args: Any,
+    *,
+    parser: argparse.ArgumentParser | None = None,
+) -> int:
     """Dispatch parsed command-line arguments through the CLI handler registry."""
+    if parser is None:
+        parser = build_parser()
     return dispatch_command(args, parser=parser)
 
 

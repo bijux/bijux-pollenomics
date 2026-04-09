@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from ...core.geojson import JsonObject, LinearRing
 from .country_classification import point_in_geometry
 from .representative_points import flatten_positions
 
 
-def geometry_bbox(geometry: dict[str, object]) -> tuple[float, float, float, float]:
+def geometry_bbox(geometry: JsonObject) -> tuple[float, float, float, float]:
     """Return the bounding box of a GeoJSON geometry."""
     flattened = flatten_positions(geometry.get("coordinates", []))
     longitudes = [position[0] for position in flattened]
@@ -34,7 +35,7 @@ def build_grid_cell_geometry(
     }
 
 
-def grid_cell_relevant(ring: list[object], geometry: dict[str, object]) -> bool:
+def grid_cell_relevant(ring: LinearRing, geometry: JsonObject) -> bool:
     """Keep a density cell when its center or corners overlap the Sweden boundary."""
     center_longitude = (ring[0][0] + ring[2][0]) / 2
     center_latitude = (ring[0][1] + ring[2][1]) / 2

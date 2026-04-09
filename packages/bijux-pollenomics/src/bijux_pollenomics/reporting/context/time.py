@@ -7,6 +7,7 @@ from ...core.bp_time import (
     midpoint_bp_year,
     parse_numeric_bp_year,
 )
+from ...core.geojson import JsonObject, as_mapping
 
 __all__ = [
     "extract_layer_identity",
@@ -23,7 +24,7 @@ def parse_year_bp(value: str) -> int | None:
     return parse_numeric_bp_year(value)
 
 
-def feature_time_payload(properties: dict[str, object]) -> dict[str, object]:
+def feature_time_payload(properties: JsonObject) -> dict[str, object]:
     """Normalize temporal properties from external feature metadata."""
     time_start_bp = parse_numeric_bp_year(properties.get("time_start_bp"))
     time_end_bp = parse_numeric_bp_year(properties.get("time_end_bp"))
@@ -42,7 +43,7 @@ def feature_time_payload(properties: dict[str, object]) -> dict[str, object]:
     }
 
 
-def feature_has_time(feature: dict[str, object]) -> bool:
+def feature_has_time(feature: JsonObject) -> bool:
     """Return whether a point or polygon feature carries temporal metadata."""
     payload = feature_time_payload(feature)
     return any(
@@ -52,10 +53,10 @@ def feature_has_time(feature: dict[str, object]) -> bool:
 
 
 def validate_feature_collection(
-    geojson: dict[str, object],
+    geojson: JsonObject,
     *,
     source_path: Path | None,
-) -> list[dict[str, object]]:
+) -> list[JsonObject]:
     """Validate a GeoJSON feature collection and return its feature list."""
     source_label = str(source_path) if source_path is not None else "External GeoJSON"
     if geojson.get("type") != "FeatureCollection":
@@ -63,7 +64,7 @@ def validate_feature_collection(
     raw_features = geojson.get("features", [])
     if not isinstance(raw_features, list) or not raw_features:
         raise ValueError(f"{source_label} did not contain any features")
-    normalized_features = [
+    normalized_features: list[JsonObject] = [
         feature for feature in raw_features if isinstance(feature, dict)
     ]
     if len(normalized_features) != len(raw_features):
@@ -72,14 +73,14 @@ def validate_feature_collection(
 
 
 def extract_layer_identity(
-    raw_features: list[dict[str, object]],
+    raw_features: list[JsonObject],
     *,
     source_path: Path | None,
-) -> tuple[dict[str, object], str, str]:
+) -> tuple[JsonObject, str, str]:
     """Extract and validate shared layer metadata from the first feature."""
     source_label = str(source_path) if source_path is not None else "External GeoJSON"
-    sample_properties = raw_features[0].get("properties", {})
-    if not isinstance(sample_properties, dict):
+    sample_properties = as_mapping(raw_features[0].get("properties"))
+    if sample_properties is None:
         raise ValueError(f"{source_label} properties must be an object")
 
     layer_key = str(sample_properties.get("layer_key", "")).strip()

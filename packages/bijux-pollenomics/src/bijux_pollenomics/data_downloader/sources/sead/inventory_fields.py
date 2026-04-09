@@ -43,13 +43,22 @@ def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | 
     return (min(start for start, _ in intervals), max(end for _, end in intervals))
 
 
+def parse_required_int(value: object) -> int:
+    """Parse one required SEAD integer-like field or fall back to zero."""
+    return parse_optional_int(value) or 0
+
+
 def populate_sead_site_inventory_fields(
     rows: list[dict[str, object]],
     *,
     fetch_json_fn: Callable[..., object],
 ) -> dict[str, int]:
     """Attach linked sample, dataset, and reference counts to SEAD site rows."""
-    site_ids = [int(row.get("site_id", 0)) for row in rows if row.get("site_id")]
+    site_ids = [
+        site_id
+        for row in rows
+        if (site_id := parse_optional_int(row.get("site_id"))) is not None
+    ]
     sample_groups = fetch_sead_rows_by_ids(
         "tbl_sample_groups",
         fetch_json_fn=fetch_json_fn,
@@ -59,7 +68,7 @@ def populate_sead_site_inventory_fields(
         order_by=("site_id", "sample_group_id"),
     )
     sample_group_by_id = {
-        int(row["sample_group_id"]): int(row["site_id"])
+        parse_required_int(row["sample_group_id"]): parse_required_int(row["site_id"])
         for row in sample_groups
         if row.get("sample_group_id") is not None and row.get("site_id") is not None
     }
@@ -76,8 +85,8 @@ def populate_sead_site_inventory_fields(
         else []
     )
     site_id_by_physical_sample_id = {
-        int(row["physical_sample_id"]): sample_group_by_id.get(
-            int(row["sample_group_id"]), 0
+        parse_required_int(row["physical_sample_id"]): sample_group_by_id.get(
+            parse_required_int(row["sample_group_id"]), 0
         )
         for row in physical_samples
         if row.get("physical_sample_id") is not None
@@ -96,7 +105,7 @@ def populate_sead_site_inventory_fields(
         else []
     )
     analysis_entity_ids = [
-        int(row["analysis_entity_id"])
+        parse_required_int(row["analysis_entity_id"])
         for row in analysis_entities
         if row.get("analysis_entity_id") is not None
     ]
@@ -113,7 +122,9 @@ def populate_sead_site_inventory_fields(
         else []
     )
     analysis_entity_id_by_analysis_value_id = {
-        int(row["analysis_value_id"]): int(row["analysis_entity_id"])
+        parse_required_int(row["analysis_value_id"]): parse_required_int(
+            row["analysis_entity_id"]
+        )
         for row in analysis_values
         if row.get("analysis_value_id") is not None
         and row.get("analysis_entity_id") is not None
@@ -131,7 +142,7 @@ def populate_sead_site_inventory_fields(
         else []
     )
     age_type_ids = [
-        int(row["age_type_id"])
+        parse_required_int(row["age_type_id"])
         for row in dating_ranges
         if row.get("age_type_id") is not None
     ]
@@ -148,7 +159,7 @@ def populate_sead_site_inventory_fields(
         else []
     )
     age_type_by_id = {
-        int(row["age_type_id"]): clean_optional_text(row.get("age_type"))
+        parse_required_int(row["age_type_id"]): clean_optional_text(row.get("age_type"))
         for row in age_types
         if row.get("age_type_id") is not None
     }
@@ -165,7 +176,7 @@ def populate_sead_site_inventory_fields(
         else []
     )
     dataset_ids = [
-        int(row["dataset_id"])
+        parse_required_int(row["dataset_id"])
         for row in analysis_entities
         if row.get("dataset_id") is not None
     ]
@@ -182,7 +193,9 @@ def populate_sead_site_inventory_fields(
         else []
     )
     dataset_name_by_id = {
-        int(row["dataset_id"]): clean_optional_text(row.get("dataset_name"))
+        parse_required_int(row["dataset_id"]): clean_optional_text(
+            row.get("dataset_name")
+        )
         for row in datasets
         if row.get("dataset_id") is not None
     }
@@ -210,8 +223,8 @@ def populate_sead_site_inventory_fields(
     dating_intervals_by_site: dict[int, list[tuple[int, int]]] = {}
 
     for sample_group in sample_groups:
-        site_id = int(sample_group.get("site_id") or 0)
-        sample_group_id = int(sample_group.get("sample_group_id") or 0)
+        site_id = parse_required_int(sample_group.get("site_id"))
+        sample_group_id = parse_required_int(sample_group.get("sample_group_id"))
         if site_id and sample_group_id:
             sample_group_ids_by_site.setdefault(site_id, set()).add(sample_group_id)
             site_id_by_sample_group_id[sample_group_id] = site_id
@@ -221,9 +234,9 @@ def populate_sead_site_inventory_fields(
                 physical_sample_id
             )
     for entity in analysis_entities:
-        physical_sample_id = int(entity.get("physical_sample_id") or 0)
-        analysis_entity_id = int(entity.get("analysis_entity_id") or 0)
-        dataset_id = int(entity.get("dataset_id") or 0)
+        physical_sample_id = parse_required_int(entity.get("physical_sample_id"))
+        analysis_entity_id = parse_required_int(entity.get("analysis_entity_id"))
+        dataset_id = parse_required_int(entity.get("dataset_id"))
         site_id = site_id_by_physical_sample_id.get(physical_sample_id, 0)
         if not site_id:
             continue
@@ -239,18 +252,20 @@ def populate_sead_site_inventory_fields(
         for analysis_entity_id in analysis_entity_ids
     }
     for relative_date in relative_dates:
-        analysis_entity_id = int(relative_date.get("analysis_entity_id") or 0)
-        relative_date_id = int(relative_date.get("relative_date_id") or 0)
+        analysis_entity_id = parse_required_int(relative_date.get("analysis_entity_id"))
+        relative_date_id = parse_required_int(relative_date.get("relative_date_id"))
         site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
         if site_id and relative_date_id:
             relative_date_ids_by_site.setdefault(site_id, set()).add(relative_date_id)
     for dating_range in dating_ranges:
-        analysis_value_id = int(dating_range.get("analysis_value_id") or 0)
+        analysis_value_id = parse_required_int(dating_range.get("analysis_value_id"))
         analysis_entity_id = analysis_entity_id_by_analysis_value_id.get(
             analysis_value_id, 0
         )
         site_id = site_id_by_analysis_entity_id.get(analysis_entity_id, 0)
-        age_type = age_type_by_id.get(int(dating_range.get("age_type_id") or 0), "")
+        age_type = age_type_by_id.get(
+            parse_required_int(dating_range.get("age_type_id")), ""
+        )
         interval = sead_dating_interval(dating_range, age_type=age_type)
         if not site_id or interval is None:
             continue
@@ -259,13 +274,13 @@ def populate_sead_site_inventory_fields(
             dating_range_counts_by_site.get(site_id, 0) + 1
         )
     for reference in site_references:
-        site_id = int(reference.get("site_id") or 0)
-        reference_id = int(reference.get("site_reference_id") or 0)
+        site_id = parse_required_int(reference.get("site_id"))
+        reference_id = parse_required_int(reference.get("site_reference_id"))
         if site_id and reference_id:
             reference_ids_by_site.setdefault(site_id, set()).add(reference_id)
 
     for row in rows:
-        site_id = int(row.get("site_id") or 0)
+        site_id = parse_required_int(row.get("site_id"))
         dataset_names = [
             name
             for name in sorted(
@@ -308,6 +323,7 @@ def populate_sead_site_inventory_fields(
 __all__ = [
     "merge_sead_intervals",
     "parse_optional_int",
+    "parse_required_int",
     "populate_sead_site_inventory_fields",
     "sead_dating_interval",
 ]

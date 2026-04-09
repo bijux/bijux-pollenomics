@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 
+from ...core.geojson import JsonObject
 from .state import build_map_document_state
 
 
@@ -11,10 +13,10 @@ def build_map_document_payload(
     version: str,
     generated_on: str,
     countries: tuple[str, ...],
-    point_layers: list[dict[str, object]],
-    polygon_layers: list[dict[str, object]],
+    point_layers: list[JsonObject],
+    polygon_layers: list[JsonObject],
     asset_base_path: str,
-    escape_html_fn,
+    escape_html_fn: Callable[[str], str],
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
     state = build_map_document_state(

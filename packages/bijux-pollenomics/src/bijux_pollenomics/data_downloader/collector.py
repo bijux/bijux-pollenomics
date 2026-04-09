@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION
@@ -103,9 +103,9 @@ def collect_data(
     return build_data_collection_report(summary)
 
 
-def resolve_context_collect_function(name: str):
+def resolve_context_collect_function(name: str) -> Callable[..., object]:
     """Resolve a context-source collector function by tracked source name."""
-    functions = {
+    functions: dict[str, Callable[..., object]] = {
         "landclim": collect_landclim_data,
         "neotoma": collect_neotoma_data,
         "raa": collect_raa_data,

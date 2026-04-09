@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 from ...models import CountryReport
+from ..paths import CountryBundlePaths
 
 
 def build_country_report_summary(
-    report: CountryReport, bundle_paths: object
+    report: CountryReport, bundle_paths: CountryBundlePaths
 ) -> dict[str, object]:
     """Build a machine-readable summary for one country report."""
     return {

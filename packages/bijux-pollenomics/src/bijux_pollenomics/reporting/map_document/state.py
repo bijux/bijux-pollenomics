@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from ...core.geojson import JsonObject, as_mapping, feature_list
+
 
 @dataclass(frozen=True)
 class MapDocumentState:
@@ -17,12 +19,14 @@ class MapDocumentState:
 
 
 def collect_feature_time_candidates(
-    time_candidates: set[int], feature: dict[str, object]
+    time_candidates: set[int], feature: JsonObject
 ) -> None:
     """Collect all numeric BP candidates exposed by one point or polygon feature."""
     for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
         raw = feature.get(key)
         if raw is None:
+            continue
+        if not isinstance(raw, (int, float, str)):
             continue
         try:
             time_candidates.add(int(round(float(raw))))
@@ -32,26 +36,23 @@ def collect_feature_time_candidates(
 
 def build_map_document_state(
     *,
-    point_layers: list[dict[str, object]],
-    polygon_layers: list[dict[str, object]],
+    point_layers: list[JsonObject],
+    polygon_layers: list[JsonObject],
 ) -> MapDocumentState:
     """Build the shared derived state needed by the standalone map document."""
     initial_diameter_km = 20
     time_candidates: set[int] = set()
-    map_points = [feature for layer in point_layers for feature in layer["features"]]
+    map_points = [feature for layer in point_layers for feature in feature_list(layer)]
     for layer in point_layers:
-        for feature in layer["features"]:
-            if isinstance(feature, dict):
-                collect_feature_time_candidates(time_candidates, feature)
+        for feature in feature_list(layer):
+            collect_feature_time_candidates(time_candidates, feature)
     for layer in polygon_layers:
-        geojson = layer.get("geojson", {})
-        if not isinstance(geojson, dict):
+        geojson = as_mapping(layer.get("geojson"))
+        if geojson is None:
             continue
-        for feature in geojson.get("features", []):
-            if not isinstance(feature, dict):
-                continue
-            properties = feature.get("properties", {})
-            if isinstance(properties, dict):
+        for feature in feature_list(geojson):
+            properties = as_mapping(feature.get("properties"))
+            if properties is not None:
                 collect_feature_time_candidates(time_candidates, properties)
 
     time_values = sorted(time_candidates)
@@ -72,12 +73,25 @@ def build_map_document_state(
         time_max_bp, initial_time_start_bp + initial_time_interval_years
     )
     if map_points:
-        latitude_values = [float(feature["latitude"]) for feature in map_points]
-        longitude_values = [float(feature["longitude"]) for feature in map_points]
-        bounds = [
-            [min(latitude_values), min(longitude_values)],
-            [max(latitude_values), max(longitude_values)],
+        latitude_values = [
+            float(latitude)
+            for feature in map_points
+            for latitude in [feature.get("latitude")]
+            if isinstance(latitude, (int, float, str))
         ]
+        longitude_values = [
+            float(longitude)
+            for feature in map_points
+            for longitude in [feature.get("longitude")]
+            if isinstance(longitude, (int, float, str))
+        ]
+        if latitude_values and longitude_values:
+            bounds = [
+                [min(latitude_values), min(longitude_values)],
+                [max(latitude_values), max(longitude_values)],
+            ]
+        else:
+            bounds = [[54.0, 4.0], [72.0, 35.0]]
     else:
         bounds = [[54.0, 4.0], [72.0, 35.0]]
     return MapDocumentState(
