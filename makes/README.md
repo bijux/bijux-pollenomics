@@ -36,7 +36,7 @@ configs/
 
 - `bijux-py/`: byte-identical shared implementation modules that must stay in sync across every Bijux Python repository.
 - `api/`: stable API mode entrypoints. These files stay thin and delegate to shared `bijux-py` API modules.
-- `package/`: stable package archetype entrypoints. These files stay thin and delegate to shared modules or repo-local archetypes.
+- `package/`: repo-local package archetypes only. Keep this directory only for policy that is genuinely local to one repository.
 - `packages/`: leaf package profiles. These declare package-specific policy and package-specific commands only.
 - `env.mk`: repository-local environment policy and repository-specific command defaults.
 - `packages.mk`: repository package inventory, aliases, and root-target routing metadata.
@@ -46,7 +46,7 @@ configs/
 ## Design Rules
 
 - Keep `bijux-py/` implementation-first and shared-first. If logic is generic, it belongs here.
-- Keep `api/` and `package/` as stable wrapper surfaces. They should usually only set local defaults and include shared modules.
+- Keep `package/` local-only. If a package archetype is shared, include the `bijux-py` module directly from the package profile.
 - Keep `packages/*.mk` focused on one package each. Shared defaults belong in archetypes, not repeated in every profile.
 - Keep repository policy local. If a setting depends on repo identity, repo paths, or repo release policy, it belongs outside shared modules.
 - Prefer durable names that describe intent and scope, not temporary rollout language.

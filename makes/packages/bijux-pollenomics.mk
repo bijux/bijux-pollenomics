@@ -1,4 +1,4 @@
-include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../package/profile.mk
+include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../bijux-py/package-profile.mk
 include $(ROOT_MAKE_DIR)/bijux-py/package-freeze-python.mk
 
 PACKAGE_IMPORT_NAME := bijux_pollenomics
@@ -29,4 +29,4 @@ quality-compileall:
 	@"$(VENV_PYTHON)" -m compileall src | tee "$(PROJECT_ARTIFACTS_DIR)/quality/compileall.log"
 .PHONY: quality-compileall
 
-include $(ROOT_MAKE_DIR)/package/gates.mk
+include $(ROOT_MAKE_DIR)/bijux-py/package-gates.mk
