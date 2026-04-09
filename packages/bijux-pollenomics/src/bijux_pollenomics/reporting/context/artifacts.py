@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 from pathlib import Path
 import shutil
-from typing import Callable
 
 from ...data_downloader.contracts import (
     ATLAS_POINT_ARTIFACTS,

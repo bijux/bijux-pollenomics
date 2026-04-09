@@ -75,10 +75,7 @@ def point_in_polygon(longitude: float, latitude: float, polygon: list[object]) -
         return False
     if not point_in_ring(longitude, latitude, polygon[0]):
         return False
-    for hole in polygon[1:]:
-        if point_in_ring(longitude, latitude, hole):
-            return False
-    return True
+    return all(not point_in_ring(longitude, latitude, hole) for hole in polygon[1:])
 
 
 def point_in_outer_ring(

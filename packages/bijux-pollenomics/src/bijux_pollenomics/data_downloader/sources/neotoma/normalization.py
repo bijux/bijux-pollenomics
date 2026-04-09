@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 import copy
 import json
-from typing import Iterable
 
 from ....core.bp_time import (
     build_bp_interval_label,

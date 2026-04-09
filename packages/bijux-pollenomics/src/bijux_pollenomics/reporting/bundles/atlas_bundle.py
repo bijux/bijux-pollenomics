@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 from pathlib import Path
-from typing import Callable
 
 from ..models import MultiCountryMapReport
 from .paths import AtlasBundlePaths

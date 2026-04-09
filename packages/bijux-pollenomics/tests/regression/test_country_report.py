@@ -313,12 +313,14 @@ class CountryReportTests(unittest.TestCase):
                 path.write_text("partial", encoding="utf-8")
                 raise RuntimeError("write failure")
 
-            with patch(
-                "bijux_pollenomics.reporting.service.write_samples_csv",
-                side_effect=fail_after_partial_write,
+            with (
+                patch(
+                    "bijux_pollenomics.reporting.service.write_samples_csv",
+                    side_effect=fail_after_partial_write,
+                ),
+                self.assertRaisesRegex(RuntimeError, "write failure"),
             ):
-                with self.assertRaisesRegex(RuntimeError, "write failure"):
-                    generate_country_report(root, "Sweden", output)
+                generate_country_report(root, "Sweden", output)
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
             self.assertFalse((output.parent / ".sweden.tmp").exists())
@@ -1016,18 +1018,20 @@ class CountryReportTests(unittest.TestCase):
                 path.write_text("partial", encoding="utf-8")
                 raise RuntimeError("summary failure")
 
-            with patch(
-                "bijux_pollenomics.reporting.service.write_summary_json",
-                side_effect=fail_after_partial_write,
+            with (
+                patch(
+                    "bijux_pollenomics.reporting.service.write_summary_json",
+                    side_effect=fail_after_partial_write,
+                ),
+                self.assertRaisesRegex(RuntimeError, "summary failure"),
             ):
-                with self.assertRaisesRegex(RuntimeError, "summary failure"):
-                    generate_multi_country_map(
-                        version_dir=root,
-                        countries=["Sweden"],
-                        output_dir=output,
-                        title="Nordic Evidence Atlas",
-                        slug="nordic-atlas",
-                    )
+                generate_multi_country_map(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_dir=output,
+                    title="Nordic Evidence Atlas",
+                    slug="nordic-atlas",
+                )
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
             self.assertFalse((output.parent / ".nordic-atlas.tmp").exists())
@@ -1150,18 +1154,20 @@ class CountryReportTests(unittest.TestCase):
                 path.write_text("partial", encoding="utf-8")
                 raise RuntimeError("summary failure")
 
-            with patch(
-                "bijux_pollenomics.reporting.service.write_summary_json",
-                side_effect=fail_after_partial_write,
+            with (
+                patch(
+                    "bijux_pollenomics.reporting.service.write_summary_json",
+                    side_effect=fail_after_partial_write,
+                ),
+                self.assertRaisesRegex(RuntimeError, "summary failure"),
             ):
-                with self.assertRaisesRegex(RuntimeError, "summary failure"):
-                    generate_published_reports(
-                        version_dir=root,
-                        countries=["Sweden"],
-                        output_root=output,
-                        title="Nordic Evidence Atlas",
-                        slug="nordic-atlas",
-                    )
+                generate_published_reports(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_root=output,
+                    title="Nordic Evidence Atlas",
+                    slug="nordic-atlas",
+                )
 
             self.assertEqual(preserved_file.read_text(encoding="utf-8"), "kept")
             self.assertFalse((output.parent / ".report.tmp").exists())

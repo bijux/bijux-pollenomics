@@ -446,15 +446,17 @@ class NeotomaDataTests(unittest.TestCase):
     def test_fetch_neotoma_dataset_download_rows_rejects_missing_dataset_payloads(
         self,
     ) -> None:
-        with patch(
-            "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_row",
-            side_effect=[
-                [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}],
-                [],
-            ],
+        with (
+            patch(
+                "bijux_pollenomics.data_downloader.neotoma.fetch_neotoma_dataset_download_row",
+                side_effect=[
+                    [{"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}],
+                    [],
+                ],
+            ),
+            self.assertRaisesRegex(ValueError, "missing dataset IDs: 202"),
         ):
-            with self.assertRaisesRegex(ValueError, "missing dataset IDs: 202"):
-                fetch_neotoma_dataset_download_rows([201, 202])
+            fetch_neotoma_dataset_download_rows([201, 202])
 
     def test_fetch_neotoma_dataset_download_rows_retries_retryable_http_errors(
         self,

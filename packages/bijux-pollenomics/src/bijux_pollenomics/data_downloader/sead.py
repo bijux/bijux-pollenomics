@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
 
 from ..core.http import fetch_json
 from .contracts import SEAD_POINT_CSV, SEAD_POINT_GEOJSON

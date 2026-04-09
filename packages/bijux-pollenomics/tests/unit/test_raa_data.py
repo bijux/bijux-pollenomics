@@ -159,12 +159,14 @@ class RaaDataTests(unittest.TestCase):
             },
         ]
 
-        with patch(
-            "bijux_pollenomics.data_downloader.raa.fetch_raa_feature_page",
-            side_effect=pages,
+        with (
+            patch(
+                "bijux_pollenomics.data_downloader.raa.fetch_raa_feature_page",
+                side_effect=pages,
+            ),
+            self.assertRaisesRegex(ValueError, "paging ended before"),
         ):
-            with self.assertRaisesRegex(ValueError, "paging ended before"):
-                fetch_raa_feature_inventory()
+            fetch_raa_feature_inventory()
 
     def test_collect_raa_data_writes_raw_feature_archive(self) -> None:
         feature_inventory = {

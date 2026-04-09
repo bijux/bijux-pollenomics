@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import copy
 import json
 import time
-from typing import Iterable
 from urllib.error import HTTPError, URLError
 
 __all__ = [
@@ -45,7 +45,7 @@ def fetch_neotoma_dataset_download_rows(
     validate_neotoma_download_coverage_fn,
 ) -> list[dict[str, object]]:
     """Fetch full Neotoma dataset downloads for each matched dataset identifier."""
-    unique_dataset_ids = sorted(set(int(dataset_id) for dataset_id in dataset_ids))
+    unique_dataset_ids = sorted({int(dataset_id) for dataset_id in dataset_ids})
     if not unique_dataset_ids:
         return []
 

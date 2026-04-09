@@ -180,9 +180,9 @@ class AadrDataTests(unittest.TestCase):
                     "bijux_pollenomics.data_downloader.sources.aadr.fetch_binary",
                     return_value=b"second",
                 ),
+                self.assertRaisesRegex(ValueError, "checksum mismatch"),
             ):
-                with self.assertRaisesRegex(ValueError, "checksum mismatch"):
-                    download_aadr_anno_files(output_root, "v62.0")
+                download_aadr_anno_files(output_root, "v62.0")
 
 
 if __name__ == "__main__":

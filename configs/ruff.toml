@@ -30,11 +30,10 @@ exclude = [
 extend-exclude = ["data"]
 
 [lint]
-select = ["E", "F", "I", "B"]
+select = ["E", "F", "I", "B", "UP", "SIM", "C4", "PIE", "RET", "ISC"]
 ignore = ["E501", "E203"]
 
 [lint.per-file-ignores]
-"packages/*/tests/**" = ["S101"]
 "__init__.py" = ["F401"]
 
 [lint.isort]

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
-from typing import Callable
 
 from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL
 from .models import AadrAnnoFile, AadrReleaseResolution

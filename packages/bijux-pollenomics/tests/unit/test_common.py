@@ -12,7 +12,7 @@ class _FakeResponse:
     def __init__(self, payload: bytes) -> None:
         self.payload = payload
 
-    def __enter__(self) -> "_FakeResponse":
+    def __enter__(self) -> _FakeResponse:
         return self
 
     def __exit__(self, exc_type, exc, tb) -> None:
@@ -24,14 +24,16 @@ class _FakeResponse:
 
 class CommonFetchTests(unittest.TestCase):
     def test_fetch_text_does_not_disable_tls_verification_implicitly(self) -> None:
-        with patch(
-            "bijux_pollenomics.core.http.urlopen",
-            side_effect=URLError(
-                ssl.SSLCertVerificationError("certificate verify failed")
+        with (
+            patch(
+                "bijux_pollenomics.core.http.urlopen",
+                side_effect=URLError(
+                    ssl.SSLCertVerificationError("certificate verify failed")
+                ),
             ),
+            self.assertRaises(URLError),
         ):
-            with self.assertRaises(URLError):
-                fetch_text("https://example.com/data.json")
+            fetch_text("https://example.com/data.json")
 
     def test_fetch_text_uses_unverified_context_only_when_requested(self) -> None:
         def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
@@ -68,9 +70,11 @@ class CommonFetchTests(unittest.TestCase):
                 )
             return _FakeResponse(b"payload")
 
-        with patch.dict("os.environ", {INSECURE_TLS_ENV_VAR: "1"}, clear=False):
-            with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):
-                self.assertEqual(fetch_text("https://example.com/data.json"), "payload")
+        with (
+            patch.dict("os.environ", {INSECURE_TLS_ENV_VAR: "1"}, clear=False),
+            patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen),
+        ):
+            self.assertEqual(fetch_text("https://example.com/data.json"), "payload")
 
         self.assertIsNone(call_contexts[0])
         self.assertIsNotNone(call_contexts[1])
@@ -101,9 +105,9 @@ class CommonFetchTests(unittest.TestCase):
                 ],
             ),
             patch("bijux_pollenomics.core.http.time.sleep"),
+            self.assertRaises(URLError),
         ):
-            with self.assertRaises(URLError):
-                fetch_text("https://example.com/data.json")
+            fetch_text("https://example.com/data.json")
 
 
 if __name__ == "__main__":

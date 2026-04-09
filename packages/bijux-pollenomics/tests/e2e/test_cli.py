@@ -43,6 +43,7 @@ class CliTests(unittest.TestCase):
         self.skipTest(
             "Installed console script not found. Run `make install` before installed-script checks."
         )
+        return None
 
     def test_module_entrypoint_displays_help(self) -> None:
         environment = os.environ.copy()
@@ -133,18 +134,20 @@ class CliTests(unittest.TestCase):
             )
 
             stderr = io.StringIO()
-            with contextlib.redirect_stderr(stderr):
-                with self.assertRaises(SystemExit) as error:
-                    main(
-                        [
-                            "report-country",
-                            "Sweden",
-                            "--aadr-root",
-                            str(Path(tmp) / "data" / "aadr"),
-                            "--shared-map-label",
-                            "Nordic map",
-                        ]
-                    )
+            with (
+                contextlib.redirect_stderr(stderr),
+                self.assertRaises(SystemExit) as error,
+            ):
+                main(
+                    [
+                        "report-country",
+                        "Sweden",
+                        "--aadr-root",
+                        str(Path(tmp) / "data" / "aadr"),
+                        "--shared-map-label",
+                        "Nordic map",
+                    ]
+                )
 
         self.assertEqual(error.exception.code, 2)
 

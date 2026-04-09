@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 import hashlib
 from pathlib import Path
-from typing import Callable
 
 from .constants import (
     AADR_DATAVERSE_PERSISTENT_ID,

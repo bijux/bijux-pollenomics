@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
-from typing import Iterable
 
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .aadr import load_country_samples, summarize_localities

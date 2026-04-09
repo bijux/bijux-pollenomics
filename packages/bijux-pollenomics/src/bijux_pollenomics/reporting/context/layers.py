@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 from ..models import SampleRecord
 from .artifacts import stage_context_point_layers, stage_context_polygon_layers

@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 import copy
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Iterable
 
 from ..core.files import write_json
 from ..core.http import fetch_json

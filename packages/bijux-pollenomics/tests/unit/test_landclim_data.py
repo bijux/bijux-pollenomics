@@ -85,7 +85,7 @@ class LandClimDataTests(unittest.TestCase):
             records = landclim_i_site_records(path, NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES)
 
             self.assertEqual(len(records), 1)
-            popup = {label: value for label, value in records[0].popup_rows}
+            popup = dict(records[0].popup_rows)
             self.assertEqual(popup["Site type"], "Lake")
             self.assertEqual(popup["Time windows"], "0-100 BP, 350-700 BP")
             self.assertEqual(records[0].time_start_bp, 0)
@@ -383,23 +383,23 @@ class LandClimDataTests(unittest.TestCase):
         )
 
     def test_download_landclim_raw_assets_rejects_empty_payloads(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            with (
-                patch(
-                    "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
-                    return_value={
-                        "landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"
-                    },
-                ),
-                patch(
-                    "bijux_pollenomics.data_downloader.landclim.fetch_binary",
-                    return_value=b"",
-                ),
-            ):
-                with self.assertRaisesRegex(
-                    ValueError, "empty for landclim_i_land_cover_types.xlsx"
-                ):
-                    download_landclim_raw_assets(Path(tmp))
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch(
+                "bijux_pollenomics.data_downloader.landclim.resolve_landclim_asset_urls",
+                return_value={
+                    "landclim_i_land_cover_types.xlsx": "https://example.test/lct.xlsx"
+                },
+            ),
+            patch(
+                "bijux_pollenomics.data_downloader.landclim.fetch_binary",
+                return_value=b"",
+            ),
+            self.assertRaisesRegex(
+                ValueError, "empty for landclim_i_land_cover_types.xlsx"
+            ),
+        ):
+            download_landclim_raw_assets(Path(tmp))
 
     def test_build_landclim_raw_asset_summaries_records_source_urls_and_digests(
         self,
