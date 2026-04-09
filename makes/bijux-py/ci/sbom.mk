@@ -21,6 +21,8 @@ PIP_AUDIT                ?= $(if $(ACT),$(ACT)/pip-audit,pip-audit)
 SBOM_PIP_AUDIT           ?= $(VENV_PYTHON) -m pip_audit
 SBOM_PIP_AUDIT_FLAGS     ?= --progress-spinner off --format $(SBOM_FORMAT)
 PIP_AUDIT_FLAGS          ?= $(SBOM_PIP_AUDIT_FLAGS) $(SBOM_IGNORE_FLAGS)
+SBOM_CACHE_DIR           ?= $(SBOM_DIR)/.cache
+SBOM_CACHE_ENV           ?= XDG_CACHE_HOME="$(SBOM_CACHE_DIR)" PIP_CACHE_DIR="$(SBOM_CACHE_DIR)/pip"
 SBOM_PROD_FILE            = $(SBOM_DIR)/$(PACKAGE_NAME)-$(SBOM_VERSION_SAFE)-$(GIT_SHA).prod.cdx.json
 SBOM_DEV_FILE             = $(SBOM_DIR)/$(PACKAGE_NAME)-$(SBOM_VERSION_SAFE)-$(GIT_SHA).dev.cdx.json
 
@@ -36,7 +38,7 @@ sbom-tooling: | $(VENV)
 	fi
 
 sbom-prod: sbom-tooling
-	@mkdir -p "$(SBOM_DIR)"
+	@mkdir -p "$(SBOM_DIR)" "$(SBOM_CACHE_DIR)"
 	@if [ -n "$(strip $(SBOM_REQUIREMENTS_WRITER))" ]; then \
 	  $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group prod --output "$(SBOM_PROD_REQ)"; \
 	elif [ -n "$(strip $(SBOM_PROD_REQ_INPUT))" ] && [ -f "$(SBOM_PROD_REQ_INPUT)" ]; then \
@@ -44,14 +46,14 @@ sbom-prod: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_PROD_REQ)" ]; then \
 	  echo "→ SBOM (prod via $(SBOM_PROD_REQ))"; \
-	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)" || true; \
 	else \
 	  echo "→ SBOM (prod fallback: current venv)"; \
-	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)" || true; \
 	fi
 
 sbom-dev: sbom-tooling
-	@mkdir -p "$(SBOM_DIR)"
+	@mkdir -p "$(SBOM_DIR)" "$(SBOM_CACHE_DIR)"
 	@if [ -n "$(strip $(SBOM_REQUIREMENTS_WRITER))" ]; then \
 	  $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group dev --optional-group "$(SBOM_DEV_GROUP)" --output "$(SBOM_DEV_REQ)"; \
 	elif [ -n "$(strip $(SBOM_DEV_REQ_INPUT))" ] && [ -f "$(SBOM_DEV_REQ_INPUT)" ]; then \
@@ -59,10 +61,10 @@ sbom-dev: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_DEV_REQ)" ]; then \
 	  echo "→ SBOM (dev via $(SBOM_DEV_REQ))"; \
-	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)" || true; \
 	else \
 	  echo "→ SBOM (dev fallback: current venv)"; \
-	  $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)" || true; \
 	fi
 
 sbom-validate:
@@ -106,6 +108,7 @@ sbom-clean:
 	@echo "→ Cleaning SBOM artifacts"
 	@mkdir -p "$(SBOM_DIR)"
 	@rm -f "$(SBOM_DIR)"/*.cdx.json "$(SBOM_DIR)"/summary.txt "$(SBOM_DIR)"/requirements.*.txt || true
+	@rm -rf "$(SBOM_CACHE_DIR)" || true
 
 ##@ SBOM
 sbom:           ## Generate prod/dev SBOMs and a short summary
