@@ -16,6 +16,22 @@ makes/
 └── root.mk
 ```
 
+## Neighbor Contract
+
+Each repository also carries a sibling `configs/` tree that provides the shared tool configuration consumed by the `bijux-py/` modules:
+
+```
+configs/
+├── coveragerc.ini
+├── deptry.toml
+├── mypy.ini
+├── package-lock.json
+├── package.json
+├── pytest.ini
+├── ruff.toml
+└── schemathesis.toml
+```
+
 ## Layer Roles
 
 - `bijux-py/`: byte-identical shared implementation modules that must stay in sync across every Bijux Python repository.
@@ -38,6 +54,7 @@ makes/
 ## Verification
 
 - `make check-shared-bijux-py`: verifies shared `bijux-py` modules are identical across sibling repositories.
+- `make check-config-layout`: verifies the repository `configs/` tree exposes the full shared tool configuration surface.
 - `make check-make-layout`: verifies the repository `makes/` tree contains the expected directories, wrapper entrypoints, and package profiles.
 
 ## Refactoring Heuristic

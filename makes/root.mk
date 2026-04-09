@@ -16,6 +16,7 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-root.mk
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root-package-dispatch.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root-docs.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-config-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository-make-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/shared-bijux-py.mk
 
@@ -63,4 +64,5 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/help.mk
 ##@ Repository
 help: ## Show generated repository commands from included make modules
 check-shared-bijux-py: ## Verify shared bijux-py make modules match across sibling repositories
+check-config-layout: ## Validate the repository config tree shape and required tool configs
 check-make-layout: ## Validate the repository make tree shape and required entrypoints
