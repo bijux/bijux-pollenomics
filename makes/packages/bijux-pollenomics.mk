@@ -1,6 +1,4 @@
-include $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../bijux-py/package/bootstrap.mk
-include $(ROOT_MAKE_DIR)/bijux-py/package/repository-python.mk
-
+PACKAGE_KIND := repository-python
 PACKAGE_IMPORT_NAME := bijux_pollenomics
 API_MODE := freeze
 PACKAGE_LINT_EXTRA_DIRS := $(MONOREPO_ROOT)/docs/hooks
@@ -30,4 +28,4 @@ quality-compileall:
 	@"$(VENV_PYTHON)" -m compileall src | tee "$(PROJECT_ARTIFACTS_DIR)/quality/compileall.log"
 .PHONY: quality-compileall
 
-include $(ROOT_MAKE_DIR)/bijux-py/package/gates.mk
+include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
