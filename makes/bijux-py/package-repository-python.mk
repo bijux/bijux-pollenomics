@@ -1,0 +1,11 @@
+include $(ROOT_MAKE_DIR)/package/python-package.mk
+
+PACKAGE_INSTALL_SPEC ?= .
+RUFF_CONFIG ?= $(MONOREPO_ROOT)/configs/ruff.toml
+TEST_PATHS ?= tests
+TEST_SOURCE_PATHS ?= src
+INTERROGATE_PATHS ?= src
+QUALITY_PATHS ?= $(TEST_SOURCE_PATHS)
+SECURITY_PATHS ?= $(TEST_SOURCE_PATHS)
+BUILD_DIR ?= $(MONOREPO_ROOT)/artifacts/build
+SBOM_DIR ?= $(MONOREPO_ROOT)/artifacts/sbom
