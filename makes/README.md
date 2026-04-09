@@ -1,12 +1,33 @@
 # Make Architecture
 
-The `makes/` tree is organized as a layered make system with stable entrypoints and shared implementation modules.
+`makes/` is the operational control plane for this repository. It should keep
+the root entrypoints small, keep shared implementation in `bijux-py/`, and
+keep package-specific policy in leaf package profiles.
 
-## Target Shape
+## Design Goals
+
+- expose a small, durable root command surface
+- keep shared implementation byte-identical across sibling repositories
+- let package profiles declare identity and local policy without copying gate
+  logic
+- keep repository-specific behavior local when it depends on package catalog,
+  paths, release policy, or API freeze policy
+
+## Layout
 
 ```
 makes/
 ├── bijux-py/
+│   ├── ci/
+│   ├── repository/
+│   ├── root/
+│   ├── api-contract.mk
+│   ├── api-freeze.mk
+│   ├── api-live-contract.mk
+│   ├── api.mk
+│   ├── bijux.mk
+│   ├── package-catalog.mk
+│   └── package.mk
 ├── packages/
 ├── api-freeze.mk
 ├── env.mk
@@ -15,9 +36,15 @@ makes/
 └── root.mk
 ```
 
+Repositories may add another top-level makefile when a repository-specific
+archetype earns a durable home, but that file should extend the same layout
+instead of copying shared logic out of `bijux-py/`.
+
 ## Neighbor Contract
 
-Each repository also carries a sibling `configs/` tree that provides the shared tool configuration consumed by the `bijux-py/` modules:
+Shared gates in `bijux-py/` consume the repository `configs/` tree rather than
+hardcoded tool flags. Every repository is expected to expose the same config
+surface:
 
 ```
 configs/
@@ -31,44 +58,79 @@ configs/
 └── schemathesis.toml
 ```
 
-## Layer Roles
+## Layer Boundaries
 
-- `bijux-py/bijux.mk`: shared anchor that verifies the full shared make module tree stays byte-identical across repositories.
-- `bijux-py/api*.mk`: shared API contract, live-contract, freeze-mode, and dispatch orchestration.
-- `bijux-py/ci/`: shared lint, test, quality, security, build, docs, and SBOM gates.
-- `bijux-py/package.mk`: shared package entrypoint that bootstraps package context, applies package archetypes, and exposes the shared package gate surface.
-- `bijux-py/package-catalog.mk`: shared package inventory and root dispatch catalog logic.
-- `bijux-py/repository/`: shared repository-level environment, publication, and layout checks.
-- `bijux-py/root/`: shared root orchestration for repository docs, lifecycle, and package dispatch.
-- `api-freeze.mk`: repository-local API freeze and drift policy.
-- root `*.mk`: repo-local package archetypes and repository-specific policy that are genuinely local to one repository.
-- `packages/`: leaf package profiles. These declare package-specific policy and package-specific commands only.
-- `env.mk`: repository-local environment policy and repository-specific command defaults.
-- `packages.mk`: repository package inventory, aliases, and root-target routing metadata.
-- `publish.mk`: repository-local publication policy layered on top of the shared publication workflow.
-- `root.mk`: repository entrypoint that composes shared root orchestration with repository-specific commands.
+- `bijux-py/bijux.mk` is the shared anchor. It verifies that the shared make
+  series stays identical across repositories and provides the shared include
+  root.
+- `bijux-py/ci/` owns shared gates such as `lint`, `test`, `quality`,
+  `security`, `build`, `docs`, and `sbom`.
+- `bijux-py/api*.mk` owns shared API contract generation, live contract checks,
+  freeze-mode behavior, and API dispatch helpers.
+- `bijux-py/package.mk` owns the shared package gate surface and the common
+  package bootstrap.
+- `bijux-py/package-catalog.mk` owns shared package catalog traversal and root
+  dispatch helpers.
+- `bijux-py/repository/` owns shared repository-level checks for environment,
+  publication, config layout, and make layout.
+- `bijux-py/root/` owns shared root help, docs, lifecycle, and package dispatch
+  orchestration.
+- `packages/*.mk` are leaf package profiles. They should declare package
+  identity, include the right archetypes, and define only package-local
+  overrides.
+- `env.mk`, `packages.mk`, `publish.mk`, and `root.mk` are repository-owned
+  entrypoints and policy layers.
+- `api-freeze.mk` stays repository-local because freeze and drift policy is tied
+  to repository-owned contracts and release intent.
 
-## Design Rules
+## Placement Rules
 
-- Keep `bijux-py/` grouped by durable module boundaries. Put shared API logic in `api*.mk`, shared gates in `ci/`, shared package orchestration in `package*.mk`, repository checks in `repository/`, and root orchestration in `root/`.
-- Keep `api-freeze.mk` local-only. Shared API contract and live-contract behavior belongs in `bijux-py`.
-- Keep repo-local archetypes in clearly named root makefiles. If a package archetype is shared, include the `bijux-py` module directly from the package profile.
-- Keep `packages/*.mk` focused on one package each. Shared defaults belong in archetypes, not repeated in every profile.
-- Keep repository policy local. If a setting depends on repo identity, repo paths, or repo release policy, it belongs outside shared modules.
-- Prefer durable names that describe intent and scope, not temporary rollout language.
+1. If the behavior must stay identical in every repository, put it in
+   `makes/bijux-py/`.
+2. If the behavior is shared inside one repository but depends on that
+   repository's package catalog, paths, or publication policy, keep it in a
+   clearly named top-level makefile under `makes/`.
+3. If the behavior belongs to exactly one package, keep it in
+   `makes/packages/<package>.mk`.
+4. If a package profile starts carrying real workflow logic instead of
+   declarations, move that logic up into a shared module or a repository-local
+   archetype.
+
+## What Does Not Belong Here
+
+- duplicated gate recipes across package profiles
+- repository identity or path assumptions embedded in `bijux-py/`
+- long-lived migration wrappers that only preserve old names
+- file names based on temporary planning language instead of durable intent
+
+## Working Rules
+
+- root makefiles are stable entrypoints, not dumping grounds
+- package profiles should stay declarative and short
+- shared gates should read from `configs/`, not from hand-written per-recipe
+  tool flags
+- API freeze behavior stays local, while shared API workflow logic stays in
+  `bijux-py/`
+- every new makefile should earn a durable domain name that will still make
+  sense years later
 
 ## Verification
 
-- `make check-shared-bijux-py`: verifies shared `bijux-py` modules are identical across sibling repositories.
-- `make check-config-layout`: verifies the repository `configs/` tree exposes the full shared tool configuration surface.
-- `make check-make-layout`: verifies the repository `makes/` tree contains the expected directories, wrapper entrypoints, and package profiles.
+- `make help`, `make list`, and `make list-all` expose the root command surface
+- `make check-shared-bijux-py` verifies that the shared make series is still
+  byte-identical across repositories
+- `make check-config-layout` verifies that the repository exports the expected
+  shared config surface
+- `make check-make-layout` verifies that the repository keeps the expected make
+  directories, entrypoints, and package profiles
 
-## Refactoring Heuristic
+## Refactoring Test
 
-When a change touches more than one package profile or more than one repository, first ask whether it should become:
+Before adding a rule, ask three questions:
 
-1. a shared `bijux-py` module,
-2. a repo-local archetype in a clearly named `makes/*.mk` file, or
-3. a single package-specific setting in `makes/packages/*.mk`.
+1. Does every repository need the exact same implementation?
+2. Is this repository policy rather than shared framework behavior?
+3. Is this owned by one package only?
 
-Choose the highest layer that keeps the policy honest.
+Choose the highest honest layer. The best `makes/` tree is the one where each
+rule has one obvious home and no file exists just to repeat another one.
