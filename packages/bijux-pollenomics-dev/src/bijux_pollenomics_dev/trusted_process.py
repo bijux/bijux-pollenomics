@@ -10,6 +10,17 @@ import subprocess  # nosec B404
 CommandArg = str | os.PathLike[str]
 
 
+class TrustedCommandError(RuntimeError):
+    """Raised when a trusted command exits with a non-zero status."""
+
+    def __init__(self, command: Sequence[CommandArg], error: subprocess.CalledProcessError):
+        self.command = [os.fspath(part) for part in command]
+        self.returncode = error.returncode
+        self.stdout = error.stdout
+        self.stderr = error.stderr
+        super().__init__(f"trusted command failed: {' '.join(self.command)}")
+
+
 def _normalize_command(command: Sequence[CommandArg]) -> list[str]:
     if not command:
         raise ValueError("trusted command is empty")
@@ -29,10 +40,14 @@ def run_text(
     capture_output: bool = False,
 ) -> subprocess.CompletedProcess[str]:
     """Run a trusted command and return its completed process record."""
-    return subprocess.run(  # nosec B603
-        _normalize_command(command),
-        cwd=cwd,
-        check=check,
-        capture_output=capture_output,
-        text=True,
-    )
+    normalized = _normalize_command(command)
+    try:
+        return subprocess.run(  # nosec B603
+            normalized,
+            cwd=cwd,
+            check=check,
+            capture_output=capture_output,
+            text=True,
+        )
+    except subprocess.CalledProcessError as error:
+        raise TrustedCommandError(normalized, error) from error
