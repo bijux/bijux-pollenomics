@@ -1,0 +1,13 @@
+{
+  "name": "bijux-canon-openapi-tooling",
+  "private": true,
+  "description": "Shared Node toolchain for repository OpenAPI validation.",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "2.27.0",
+    "@redocly/cli": "2.0.5"
+  }
+}
