@@ -19,6 +19,7 @@ QUALITY_MKDOCS_BUILD_FLAGS     ?= --strict --config-file "$(QUALITY_MKDOCS_CONFI
 QUALITY_DEPTRY_TARGET          ?= $(PROJECT_DIR)
 QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) --config "$(DEPTRY_CONFIG)" "$(QUALITY_DEPTRY_TARGET)"
 QUALITY_DEPTRY_VERSION_COMMAND ?= $(DEPTRY) --version
+QUALITY_INTERROGATE_FLAGS      ?=
 QUALITY_SELF_MAKE              ?= $(SELF_MAKE)
 
 PYTHON      ?= $(shell command -v python3 || command -v python)
@@ -45,7 +46,7 @@ define run_interrogate_report
 	echo "→ Generating docstring coverage report (<100%)"; \
 	mkdir -p "$(QUALITY_ARTIFACTS_DIR)"; \
 	set +e; \
-	  OUT="$$( $(QUALITY_ENV) $(INTERROGATE) --fail-under 0 --verbose $(INTERROGATE_PATHS) )"; \
+	  OUT="$$( $(QUALITY_ENV) $(INTERROGATE) $(QUALITY_INTERROGATE_FLAGS) --verbose $(INTERROGATE_PATHS) )"; \
 	  rc=$$?; \
 	  printf '%s\n' "$$OUT" >"$(QUALITY_ARTIFACTS_DIR)/interrogate.full.txt"; \
 	  OFF="$$(printf '%s\n' "$$OUT" | awk -F'|' 'NR>3 && $$0 ~ /^\|/ { \
@@ -85,7 +86,8 @@ quality:
 	@if [ "$(SKIP_MYPY)" = "1" ] || [ -z "$(QUALITY_MYPY_CONFIG)" ]; then \
 	  echo "   • Skipping Mypy" | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
 	else \
-	  $(MYPY) --config-file "$(QUALITY_MYPY_CONFIG)" $(QUALITY_MYPY_FLAGS) --cache-dir "$(QUALITY_MYPY_CACHE_DIR)" $(QUALITY_MYPY_TARGETS) 2>&1 | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
+	  set -euo pipefail; \
+	    $(MYPY) --config-file "$(QUALITY_MYPY_CONFIG)" $(QUALITY_MYPY_FLAGS) --cache-dir "$(QUALITY_MYPY_CACHE_DIR)" $(QUALITY_MYPY_TARGETS) 2>&1 | tee "$(QUALITY_ARTIFACTS_DIR)/mypy.log"; \
 	fi
 	@echo "   - Documentation coverage (Interrogate)"
 	@if [ "$(SKIP_INTERROGATE)" = "1" ]; then \
