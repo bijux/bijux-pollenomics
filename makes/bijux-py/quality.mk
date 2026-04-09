@@ -17,7 +17,7 @@ QUALITY_MKDOCS_PYCACHE_DIR     ?= $(QUALITY_ARTIFACTS_DIR)/docs/pycache
 QUALITY_MKDOCS_PYTHON          ?= $(VENV_PYTHON)
 QUALITY_MKDOCS_BUILD_FLAGS     ?= --strict --config-file "$(QUALITY_MKDOCS_CONFIG)" --site-dir "$(QUALITY_MKDOCS_SITE_DIR)"
 QUALITY_DEPTRY_COMMAND         ?= $(DEPTRY) $(QUALITY_PATHS)
-QUALITY_SELF_MAKE              ?= $(MAKE)
+QUALITY_SELF_MAKE              ?= $(SELF_MAKE)
 
 PYTHON      ?= $(shell command -v python3 || command -v python)
 VULTURE     ?= $(VENV_PYTHON) -m vulture

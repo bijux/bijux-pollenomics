@@ -22,7 +22,7 @@ FMT_LOG                ?= $(LINT_ARTIFACTS_DIR)/fmt.log
 RUFF_CACHE_DIR         ?= $(LINT_ARTIFACTS_DIR)/.ruff_cache
 MYPY_CACHE_DIR         ?= $(LINT_ARTIFACTS_DIR)/.mypy_cache
 LINT_PYCACHE_PREFIX    ?= $(LINT_ARTIFACTS_DIR)/pycache
-LINT_SELF_MAKE         ?= $(MAKE)
+LINT_SELF_MAKE         ?= $(SELF_MAKE)
 
 RUFF_CONFIG            ?= $(CONFIG_DIR)/ruff.toml
 MYPY_CONFIG            ?= $(CONFIG_DIR)/mypy.ini
