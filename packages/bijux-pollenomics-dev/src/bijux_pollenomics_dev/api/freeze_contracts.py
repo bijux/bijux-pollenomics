@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+from datetime import date, datetime
+from enum import Enum
 import hashlib
 import json
 from pathlib import Path
@@ -20,7 +22,22 @@ def _load_artifact(path: Path) -> Any:
 
 
 def _canonicalize(payload: Any) -> Any:
-    return json.loads(json.dumps(payload, sort_keys=True))
+    if isinstance(payload, dict):
+        return {
+            str(key): _canonicalize(value)
+            for key, value in sorted(payload.items(), key=lambda item: str(item[0]))
+        }
+    if isinstance(payload, list):
+        return [_canonicalize(item) for item in payload]
+    if isinstance(payload, tuple):
+        return [_canonicalize(item) for item in payload]
+    if isinstance(payload, (datetime, date)):
+        return payload.isoformat()
+    if isinstance(payload, Enum):
+        return payload.value
+    if isinstance(payload, Path):
+        return str(payload)
+    return payload
 
 
 def _extract_hash_value(path: Path) -> str | None:

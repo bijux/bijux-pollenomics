@@ -7,7 +7,7 @@
             "type": "string"
           },
           "country_count": {
-            "minimum": "0",
+            "minimum": 0,
             "type": "integer"
           },
           "generated_on": {
@@ -15,7 +15,7 @@
             "type": "string"
           },
           "sample_count": {
-            "minimum": "0",
+            "minimum": 0,
             "type": "integer"
           }
         },
@@ -33,11 +33,11 @@
             "$ref": "#/components/schemas/CountryCode"
           },
           "locality_count": {
-            "minimum": "0",
+            "minimum": 0,
             "type": "integer"
           },
           "sample_count": {
-            "minimum": "0",
+            "minimum": 0,
             "type": "integer"
           },
           "summary_path": {
@@ -105,7 +105,7 @@
             "$ref": "#/components/schemas/CountryCode"
           },
           "sample_count": {
-            "minimum": "0",
+            "minimum": 0,
             "type": "integer"
           },
           "summary_path": {
@@ -155,7 +155,7 @@
           {
             "in": "path",
             "name": "country",
-            "required": "true",
+            "required": true,
             "schema": {
               "$ref": "#/components/schemas/CountryCode"
             }
