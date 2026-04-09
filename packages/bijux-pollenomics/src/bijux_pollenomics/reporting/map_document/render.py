@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from ...core.geojson import JsonObject
 from ..shared.text import escape_html
 from .payload import build_map_document_payload
 from .template import MAP_DOCUMENT_TEMPLATE
@@ -10,8 +11,8 @@ def render_multi_country_map_html(
     version: str,
     generated_on: str,
     countries: tuple[str, ...],
-    point_layers: list[dict[str, object]],
-    polygon_layers: list[dict[str, object]],
+    point_layers: list[JsonObject],
+    polygon_layers: list[JsonObject],
     asset_base_path: str,
 ) -> str:
     """Render the standalone interactive map document."""

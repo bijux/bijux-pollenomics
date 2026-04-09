@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import copy
 import json
@@ -24,7 +24,7 @@ __all__ = [
 def fetch_neotoma_dataset_inventory_rows(
     *,
     bbox: tuple[float, float, float, float],
-    fetch_neotoma_api_rows_fn,
+    fetch_neotoma_api_rows_fn: Callable[..., list[object]],
 ) -> list[dict[str, object]]:
     """Fetch short pollen dataset inventory rows for the Nordic bounding box."""
     rows: list[dict[str, object]] = []
@@ -41,8 +41,10 @@ def fetch_neotoma_dataset_download_rows(
     dataset_ids: Iterable[int],
     *,
     download_workers: int,
-    fetch_neotoma_dataset_download_row_fn,
-    validate_neotoma_download_coverage_fn,
+    fetch_neotoma_dataset_download_row_fn: Callable[[int], list[dict[str, object]]],
+    validate_neotoma_download_coverage_fn: Callable[
+        [Iterable[int], Iterable[dict[str, object]]], None
+    ],
 ) -> list[dict[str, object]]:
     """Fetch full Neotoma dataset downloads for each matched dataset identifier."""
     unique_dataset_ids = sorted({int(dataset_id) for dataset_id in dataset_ids})
@@ -72,7 +74,7 @@ def fetch_neotoma_dataset_download_rows(
 def fetch_neotoma_dataset_download_row(
     dataset_id: int,
     *,
-    fetch_json_fn,
+    fetch_json_fn: Callable[..., object],
     neotoma_data_url: str,
     request_timeout_seconds: float,
     download_retries: int,
@@ -100,7 +102,9 @@ def validate_neotoma_download_coverage(
     requested_dataset_ids: Iterable[int],
     download_rows: Iterable[dict[str, object]],
     *,
-    extract_neotoma_download_dataset_ids_fn,
+    extract_neotoma_download_dataset_ids_fn: Callable[
+        [Iterable[dict[str, object]]], list[int]
+    ],
 ) -> None:
     """Raise when a requested Neotoma dataset is absent from the collected download payloads."""
     requested = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
@@ -116,7 +120,9 @@ def validate_neotoma_download_coverage(
 
 
 def extract_neotoma_download_dataset_ids(
-    download_rows: Iterable[dict[str, object]], *, clean_optional_text_fn
+    download_rows: Iterable[dict[str, object]],
+    *,
+    clean_optional_text_fn: Callable[[object], str],
 ) -> list[int]:
     """Extract unique dataset identifiers from full Neotoma dataset download payloads."""
     dataset_ids: set[int] = set()
@@ -130,7 +136,7 @@ def extract_neotoma_download_dataset_ids(
 
 
 def neotoma_download_dataset_id(
-    download_row: object, *, clean_optional_text_fn
+    download_row: object, *, clean_optional_text_fn: Callable[[object], str]
 ) -> int | None:
     """Read one dataset identifier from a full Neotoma dataset download payload."""
     if not isinstance(download_row, dict):
@@ -162,7 +168,7 @@ def fetch_neotoma_api_rows(
     endpoint: str,
     *,
     extra_params: dict[str, str] | None,
-    fetch_neotoma_api_payload_fn,
+    fetch_neotoma_api_payload_fn: Callable[..., dict[str, object]],
     neotoma_datasettype: str,
     neotoma_limit: int,
 ) -> list[object]:
@@ -192,7 +198,7 @@ def fetch_neotoma_api_payload(
     endpoint: str,
     *,
     params: dict[str, str],
-    fetch_json_fn,
+    fetch_json_fn: Callable[..., object],
     neotoma_data_url: str,
     request_timeout_seconds: float,
     api_retries: int,

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 
 from ....core.bp_time import (
     build_bp_interval_label,
@@ -17,18 +17,16 @@ __all__ = ["normalize_sead_rows"]
 
 def normalize_sead_rows(
     rows: Iterable[dict[str, object]],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Convert SEAD site rows into compact environmental archaeology records."""
     records: list[ContextPointRecord] = []
     for row in rows:
-        latitude = row.get("latitude_dd")
-        longitude = row.get("longitude_dd")
+        latitude = parse_optional_float(row.get("latitude_dd"))
+        longitude = parse_optional_float(row.get("longitude_dd"))
         if latitude is None or longitude is None:
             continue
-        country = classify_country(
-            float(longitude), float(latitude), country_boundaries
-        )
+        country = classify_country(longitude, latitude, country_boundaries)
         if not country:
             continue
         site_id = str(row.get("site_id", "")).strip()
@@ -36,13 +34,15 @@ def normalize_sead_rows(
         national_identifier = str(row.get("national_site_identifier", "") or "").strip()
         altitude = clean_optional_text(row.get("altitude"))
         description = str(row.get("site_description", "") or "").strip()
-        sample_group_count = int(row.get("sample_group_count") or 0)
-        physical_sample_count = int(row.get("physical_sample_count") or 0)
-        analysis_entity_count = int(row.get("analysis_entity_count") or 0)
-        dataset_count = int(row.get("dataset_count") or 0)
-        reference_count = int(row.get("reference_count") or 0)
-        relative_date_count = int(row.get("relative_date_count") or 0)
-        dating_range_count = int(row.get("dating_range_count") or 0)
+        sample_group_count = parse_int_or_default(row.get("sample_group_count"))
+        physical_sample_count = parse_int_or_default(row.get("physical_sample_count"))
+        analysis_entity_count = parse_int_or_default(
+            row.get("analysis_entity_count")
+        )
+        dataset_count = parse_int_or_default(row.get("dataset_count"))
+        reference_count = parse_int_or_default(row.get("reference_count"))
+        relative_date_count = parse_int_or_default(row.get("relative_date_count"))
+        dating_range_count = parse_int_or_default(row.get("dating_range_count"))
         dataset_names = row.get("dataset_names")
         if not isinstance(dataset_names, list):
             dataset_names = []
@@ -96,8 +96,8 @@ def normalize_sead_rows(
                 country=country,
                 record_id=site_id,
                 name=site_name,
-                latitude=float(latitude),
-                longitude=float(longitude),
+                latitude=latitude,
+                longitude=longitude,
                 geometry_type="Point",
                 subtitle="Nordic environmental archaeology sites",
                 description=description,
@@ -115,3 +115,31 @@ def normalize_sead_rows(
             )
         )
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def parse_optional_float(value: object) -> float | None:
+    """Parse one optional numeric field as float."""
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = clean_optional_text(value)
+    if not text:
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def parse_int_or_default(value: object, *, default: int = 0) -> int:
+    """Parse one optional numeric field as integer with fallback."""
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    text = clean_optional_text(value)
+    if not text:
+        return default
+    try:
+        return int(text)
+    except ValueError:
+        return default

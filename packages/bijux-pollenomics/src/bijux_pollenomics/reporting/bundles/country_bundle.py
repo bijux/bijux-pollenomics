@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
-from ..models import CountryReport
-from .paths import build_country_bundle_paths
+from ..models import CountryReport, LocalitySummary, SampleRecord
+from .paths import CountryBundlePaths, build_country_bundle_paths
 
 __all__ = ["publish_country_report_bundle"]
 
@@ -17,13 +17,13 @@ def publish_country_report_bundle(
     version: str,
     map_reference: tuple[str, str] | None,
     build_country_report_summary_fn: Callable[
-        [CountryReport, object], dict[str, object]
+        [CountryReport, CountryBundlePaths], dict[str, object]
     ],
     render_sample_markdown_fn: Callable[[CountryReport], str],
     render_summary_markdown_fn: Callable[..., str],
-    write_localities_csv_fn: Callable[[Path, object], None],
-    write_samples_csv_fn: Callable[[Path, object], None],
-    write_samples_geojson_fn: Callable[[Path, object], None],
+    write_localities_csv_fn: Callable[[Path, Iterable[LocalitySummary]], None],
+    write_samples_csv_fn: Callable[[Path, Iterable[SampleRecord]], None],
+    write_samples_geojson_fn: Callable[[Path, Iterable[SampleRecord]], None],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> None:
     """Write the full country report artifact bundle into one staging directory."""

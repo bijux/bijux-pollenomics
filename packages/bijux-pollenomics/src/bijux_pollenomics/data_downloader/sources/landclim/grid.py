@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import csv
 from io import TextIOWrapper
 from pathlib import Path
@@ -7,6 +8,7 @@ import re
 from zipfile import ZipFile
 
 from ....core.bp_time import mean_bp_year_from_interval
+from ....core.geojson import parse_linear_ring
 from ....core.text import clean_optional_text
 from ...shared.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
 from ...spatial import classify_country, point_in_bbox
@@ -41,7 +43,7 @@ GRID_CELL_PATTERN = re.compile(
 def build_landclim_grid_geojson(
     raw_paths: dict[str, Path],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> dict[str, object]:
     """Build a merged GeoJSON layer for Nordic LandClim REVEALS grid cells."""
     quality_by_grid = landclim_ii_quality_lookup(
@@ -81,7 +83,7 @@ def build_landclim_grid_geojson(
             finalize_grid_feature(feature)
             for feature in sorted(
                 grid_features.values(),
-                key=lambda feature: feature["properties"]["record_id"],
+                key=grid_feature_record_id,
             )
         ],
     }
@@ -114,7 +116,7 @@ def merge_landclim_i_grid_features(
     dataset_doi: str,
     variable_group: str,
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> None:
     """Merge LandClim I grid rows into the shared feature collection."""
     for sheet_name in list_xlsx_sheet_names(path):
@@ -132,14 +134,11 @@ def merge_landclim_i_grid_features(
             cell_geometry = grid_geometry_from_nw_cell_label(row[2])
             if cell_geometry is None:
                 continue
-            center_longitude = (
-                cell_geometry["coordinates"][0][0][0]
-                + cell_geometry["coordinates"][0][2][0]
-            ) / 2
-            center_latitude = (
-                cell_geometry["coordinates"][0][0][1]
-                + cell_geometry["coordinates"][0][2][1]
-            ) / 2
+            ring = geometry_ring(cell_geometry)
+            if ring is None:
+                continue
+            center_longitude = (ring[0][0] + ring[2][0]) / 2
+            center_latitude = (ring[0][1] + ring[2][1]) / 2
             if not point_in_bbox(center_longitude, center_latitude, bbox):
                 continue
             country = resolve_landclim_country(
@@ -180,7 +179,7 @@ def merge_landclim_ii_grid_features(
     zip_path: Path,
     quality_by_grid: dict[str, dict[str, str]],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> None:
     """Merge LandClim II grid rows from the REVEALS CSV archive."""
     with ZipFile(zip_path) as archive:
@@ -227,7 +226,7 @@ def merge_landclim_ii_grid_features(
                         and grid_id in quality_by_grid
                         and time_window in quality_by_grid[grid_id]
                     ):
-                        feature.setdefault("_quality_labels", set()).add(
+                        feature_set(feature, "_quality_labels").add(
                             quality_by_grid[grid_id][time_window]
                         )
                     add_grid_feature_source(
@@ -280,16 +279,16 @@ def add_grid_feature_source(
     variable_group: str,
 ) -> None:
     """Accumulate source metadata for one grid feature."""
-    feature["_dataset_labels"].add(dataset_label)
-    feature["_dataset_dois"].add(dataset_doi)
-    feature["_time_windows"].add(time_window)
-    feature["_variable_groups"].add(variable_group)
+    feature_set(feature, "_dataset_labels").add(dataset_label)
+    feature_set(feature, "_dataset_dois").add(dataset_doi)
+    feature_set(feature, "_time_windows").add(time_window)
+    feature_set(feature, "_variable_groups").add(variable_group)
 
-    properties = feature["properties"]
-    sorted_dois = sorted(feature["_dataset_dois"])
+    properties = feature_properties(feature)
+    sorted_dois = sorted(feature_set(feature, "_dataset_dois"))
     properties["source_url"] = sorted_dois[0] if sorted_dois else ""
-    properties["record_count"] = len(feature["_time_windows"])
-    time_windows = sorted(feature["_time_windows"], key=time_window_sort_key)
+    time_windows = sorted(feature_set(feature, "_time_windows"), key=time_window_sort_key)
+    properties["record_count"] = len(time_windows)
     time_interval = landclim_time_windows_interval(time_windows)
     properties["time_start_bp"] = (
         time_interval[0] if time_interval is not None else None
@@ -300,14 +299,14 @@ def add_grid_feature_source(
         summarize_time_windows(time_windows) if time_windows else ""
     )
     popup_rows = [
-        ("Datasets", ", ".join(sorted(feature["_dataset_labels"]))),
+        ("Datasets", ", ".join(sorted(feature_set(feature, "_dataset_labels")))),
         ("DOIs", ", ".join(sorted_dois)),
         ("Country", clean_optional_text(properties.get("country"))),
-        ("Variables", ", ".join(sorted(feature["_variable_groups"]))),
+        ("Variables", ", ".join(sorted(feature_set(feature, "_variable_groups")))),
         ("Time windows", f"{len(time_windows)} windows"),
         ("Window span", summarize_time_windows(time_windows)),
     ]
-    quality_summary = summarize_quality_labels(feature["_quality_labels"])
+    quality_summary = summarize_quality_labels(feature_set(feature, "_quality_labels"))
     if quality_summary:
         popup_rows.append(("LandClim II quality", quality_summary))
     properties["popup_rows"] = [
@@ -345,7 +344,9 @@ def summarize_quality_labels(labels: set[str]) -> str:
 
 def feature_key_from_geometry(geometry: dict[str, object]) -> str:
     """Create a stable geometry key from polygon bounds."""
-    ring = geometry["coordinates"][0]
+    ring = geometry_ring(geometry)
+    if ring is None:
+        raise ValueError("LandClim grid geometry must include a valid polygon ring")
     west = min(point[0] for point in ring[:4])
     south = min(point[1] for point in ring[:4])
     east = max(point[0] for point in ring[:4])
@@ -397,6 +398,42 @@ def grid_geometry_from_center(longitude: float, latitude: float) -> dict[str, ob
             ]
         ],
     }
+
+
+def grid_feature_record_id(feature: dict[str, object]) -> str:
+    """Return a stable record identifier for sorting merged grid features."""
+    return clean_optional_text(feature_properties(feature).get("record_id"))
+
+
+def feature_properties(feature: dict[str, object]) -> dict[str, object]:
+    """Return the mutable feature properties dictionary."""
+    properties = feature.get("properties")
+    if isinstance(properties, dict):
+        return properties
+    fallback: dict[str, object] = {}
+    feature["properties"] = fallback
+    return fallback
+
+
+def feature_set(feature: dict[str, object], key: str) -> set[str]:
+    """Return one mutable set-valued merge field from a feature payload."""
+    value = feature.get(key)
+    if isinstance(value, set):
+        return value
+    fallback: set[str] = set()
+    feature[key] = fallback
+    return fallback
+
+
+def geometry_ring(geometry: Mapping[str, object]) -> list[tuple[float, float]] | None:
+    """Return the first polygon ring from a GeoJSON geometry payload."""
+    coordinates = geometry.get("coordinates")
+    if not isinstance(coordinates, list) or not coordinates:
+        return None
+    ring = parse_linear_ring(coordinates[0])
+    if ring is None:
+        return None
+    return ring
 
 
 __all__ = [

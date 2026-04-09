@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping, Sequence
 import copy
 import json
 
@@ -46,16 +46,16 @@ def build_neotoma_site_snapshot_rows(
         snapshot = copy.deepcopy(row)
         snapshot_units = []
         for unit in normalize_collection_units(snapshot.get("collectionunits")):
-            snapshot_unit = {
+            snapshot_unit: dict[str, object] = {
                 key: copy.deepcopy(value)
                 for key, value in unit.items()
                 if key != "datasets"
             }
-            snapshot_unit["datasets"] = [
+            snapshot_datasets = [
                 build_neotoma_dataset_snapshot(dataset)
                 for dataset in normalize_datasets(unit.get("datasets"))
             ]
-            snapshot_unit["datasets"] = sort_datasets(snapshot_unit["datasets"])
+            snapshot_unit["datasets"] = sort_datasets(snapshot_datasets)
             snapshot_units.append(snapshot_unit)
         snapshot["collectionunits"] = sorted(
             snapshot_units, key=collection_unit_sort_key
@@ -135,9 +135,12 @@ def build_neotoma_dataset_from_download(
     if isinstance(collection_unit, dict) and isinstance(
         collection_unit.get("dataset"), dict
     ):
-        dataset = copy.deepcopy(collection_unit["dataset"])
+        dataset = {
+            key: copy.deepcopy(value)
+            for key, value in collection_unit["dataset"].items()
+        }
     elif isinstance(site.get("dataset"), dict):
-        dataset = copy.deepcopy(site["dataset"])
+        dataset = {key: copy.deepcopy(value) for key, value in site["dataset"].items()}
     else:
         return None
     dataset["chronologies"] = copy.deepcopy(site.get("chronologies", []))
@@ -163,7 +166,10 @@ def merge_neotoma_site_rows(
             continue
         merge_neotoma_site_row(existing, row)
 
-    return sorted(merged_rows.values(), key=lambda item: int(item.get("siteid", 0)))
+    return sorted(
+        merged_rows.values(),
+        key=lambda item: parse_int_or_default(item.get("siteid")),
+    )
 
 
 def merge_neotoma_site_row(
@@ -251,7 +257,7 @@ def normalize_datasets(value: object) -> list[dict[str, object]]:
 def classify_neotoma_site_country(
     site: dict[str, object],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> str:
     """Resolve a Neotoma site payload to one tracked Nordic country, if any."""
     representative_point = neotoma_site_representative_point(site)
@@ -475,7 +481,7 @@ def chronology_key(chronology: dict[str, object]) -> str:
 
 
 def merge_age_ranges(
-    age_ranges_by_units: dict[str, dict[str, float | str]],
+    age_ranges_by_units: dict[str, dict[str, float | str | None]],
     values: object,
 ) -> None:
     """Aggregate Neotoma age ranges by units."""
@@ -520,7 +526,7 @@ def numeric_age_value(value: object) -> float | None:
         return None
 
 
-def format_neotoma_age_range(age_range: dict[str, object]) -> str:
+def format_neotoma_age_range(age_range: Mapping[str, object]) -> str:
     """Render one aggregated Neotoma age range for popup display."""
     younger = numeric_age_value(age_range.get("ageyoung"))
     older = numeric_age_value(age_range.get("ageold"))
@@ -544,7 +550,7 @@ def format_neotoma_age_value(value: float | None) -> str:
 
 
 def neotoma_time_interval(
-    age_ranges: list[dict[str, object]],
+    age_ranges: Sequence[Mapping[str, object]],
 ) -> tuple[int, int] | None:
     """Choose a filterable BP interval from Neotoma site age coverage."""
     preferred_ranges = sorted(
@@ -573,7 +579,7 @@ def neotoma_time_interval(
 
 
 def neotoma_time_label(
-    age_ranges: list[dict[str, object]],
+    age_ranges: Sequence[Mapping[str, object]],
     interval: tuple[int, int] | None,
 ) -> str:
     """Render a human-readable Neotoma age-coverage label."""
@@ -611,7 +617,7 @@ def neotoma_age_range_units_supported(units: str) -> bool:
     return "bp" in units.casefold()
 
 
-def neotoma_age_range_priority(age_range: dict[str, object]) -> tuple[int, str]:
+def neotoma_age_range_priority(age_range: Mapping[str, object]) -> tuple[int, str]:
     """Prefer calibrated BP ranges over uncalibrated BP ranges."""
     units = clean_optional_text(age_range.get("units"))
     normalized = units.casefold()
@@ -633,7 +639,7 @@ def round_age_value(value: object) -> int | None:
 def normalize_neotoma_rows(
     rows: Iterable[dict[str, object]],
     bbox: tuple[float, float, float, float],
-    country_boundaries: dict[str, dict[str, object]],
+    country_boundaries: Mapping[str, Mapping[str, object]],
 ) -> list[ContextPointRecord]:
     """Convert raw Neotoma rows into compact Nordic pollen site records."""
     records: list[ContextPointRecord] = []
@@ -665,14 +671,14 @@ def normalize_neotoma_rows(
                 }
             )
 
-        dataset_count = int(
-            row.get("dataset_count")
-            or len({dataset_key(dataset) for dataset in datasets})
+        dataset_count = parse_int_or_default(
+            row.get("dataset_count"),
+            default=len({dataset_key(dataset) for dataset in datasets}),
         )
         collection_unit_count = len(collection_units)
-        sample_count = int(row.get("sample_count") or 0)
-        chronology_count = int(row.get("chronology_count") or 0)
-        taxon_count = int(row.get("taxon_count") or 0)
+        sample_count = parse_int_or_default(row.get("sample_count"))
+        chronology_count = parse_int_or_default(row.get("chronology_count"))
+        taxon_count = parse_int_or_default(row.get("taxon_count"))
         databases = row.get("databases")
         if not isinstance(databases, list):
             databases = sorted(
@@ -684,7 +690,7 @@ def normalize_neotoma_rows(
             )
         age_ranges = row.get("age_ranges")
         if not isinstance(age_ranges, list):
-            age_ranges_by_units: dict[str, dict[str, float | str]] = {}
+            age_ranges_by_units: dict[str, dict[str, float | str | None]] = {}
             for dataset in datasets:
                 merge_age_ranges(age_ranges_by_units, dataset.get("agerange"))
                 samples = dataset.get("samples", [])
@@ -697,6 +703,9 @@ def normalize_neotoma_rows(
                 age_ranges_by_units.values(),
                 key=lambda item: clean_optional_text(item.get("units")),
             )
+        age_ranges = [
+            age_range for age_range in age_ranges if isinstance(age_range, dict)
+        ]
         time_interval = neotoma_time_interval(age_ranges)
         time_label = neotoma_time_label(age_ranges, time_interval)
         site_id = str(row.get("siteid", "")).strip()
@@ -765,6 +774,21 @@ def normalize_neotoma_rows(
         )
 
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def parse_int_or_default(value: object, *, default: int = 0) -> int:
+    """Parse one optional numeric field as integer with fallback."""
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    text = clean_optional_text(value)
+    if not text:
+        return default
+    try:
+        return int(text)
+    except ValueError:
+        return default
 
 
 __all__ = [

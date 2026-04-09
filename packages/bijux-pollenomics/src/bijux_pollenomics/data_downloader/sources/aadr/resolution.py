@@ -1,21 +1,22 @@
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 import json
 
+from ....core.geojson import as_mapping
 from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL
 from .models import AadrAnnoFile, AadrReleaseResolution
 
 
 def resolve_anno_files(
-    version: str, metadata: dict[str, object]
+    version: str, metadata: Mapping[str, object]
 ) -> tuple[AadrAnnoFile, ...]:
     """Extract one release's public .anno files from the Dataverse version history."""
     return resolve_aadr_release(version=version, metadata=metadata).anno_files
 
 
 def resolve_aadr_release(
-    version: str, metadata: dict[str, object]
+    version: str, metadata: Mapping[str, object]
 ) -> AadrReleaseResolution:
     """Resolve one requested AADR release from the Dataverse version history."""
     version_prefix = f"{version}_"
@@ -38,7 +39,7 @@ def resolve_aadr_release(
     )
 
 
-def iter_release_versions(metadata: dict[str, object]) -> list[dict[str, object]]:
+def iter_release_versions(metadata: Mapping[str, object]) -> list[dict[str, object]]:
     """Return Dataverse release versions in descending publication order."""
     versions = metadata.get("data", [])
     if not isinstance(versions, list):
@@ -110,13 +111,17 @@ def fetch_release_history_metadata(
     fetch_text_fn: Callable[..., str],
 ) -> dict[str, object]:
     """Fetch the Dataverse release history for the public AADR dataset."""
-    return json.loads(
+    payload = json.loads(
         fetch_text_fn(
             AADR_DATAVERSE_VERSIONS_URL,
             headers={"User-Agent": "Mozilla/5.0"},
             insecure=True,
         )
     )
+    mapping = as_mapping(payload)
+    if mapping is None:
+        raise ValueError("Unexpected Dataverse metadata: root payload must be a JSON object")
+    return {str(key): value for key, value in mapping.items()}
 
 
 __all__ = [

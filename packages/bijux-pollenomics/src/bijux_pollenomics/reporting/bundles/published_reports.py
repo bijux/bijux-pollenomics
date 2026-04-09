@@ -3,7 +3,8 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
-from ..models import PublishedReportsReport
+from ..models import MultiCountryMapReport, PublishedReportsReport
+from .paths import AtlasBundlePaths
 
 __all__ = ["publish_published_reports_tree"]
 
@@ -17,10 +18,10 @@ def publish_published_reports_tree(
     title: str,
     atlas_slug: str,
     context_root: Path | None,
-    build_atlas_bundle_paths_fn,
-    build_published_reports_summary_fn,
-    generate_country_report_fn,
-    generate_multi_country_map_fn,
+    build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
+    build_published_reports_summary_fn: Callable[..., dict[str, object]],
+    generate_country_report_fn: Callable[..., object],
+    generate_multi_country_map_fn: Callable[..., MultiCountryMapReport],
     slugify_fn: Callable[[str], str],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> PublishedReportsReport:

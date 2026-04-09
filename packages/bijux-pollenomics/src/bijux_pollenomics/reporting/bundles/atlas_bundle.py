@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 import json
 from pathlib import Path
 
-from ..models import MultiCountryMapReport
+from ...core.geojson import JsonObject
+from ..models import MultiCountryMapReport, SampleRecord
 from .paths import AtlasBundlePaths
 
 __all__ = ["publish_multi_country_map_bundle"]
@@ -19,19 +20,17 @@ def publish_multi_country_map_bundle(
     generated_on: str,
     countries: tuple[str, ...],
     country_sample_counts: dict[str, int],
-    all_samples: tuple[object, ...],
+    all_samples: tuple[SampleRecord, ...],
     context_root: Path | None,
     asset_base_path: str,
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
     build_context_layers_fn: Callable[
         ...,
-        tuple[
-            list[dict[str, object]], list[dict[str, object]], list[dict[str, object]]
-        ],
+        tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]],
     ],
     build_multi_country_map_summary_fn: Callable[..., dict[str, object]],
-    build_samples_geojson_fn: Callable[[tuple[object, ...]], dict[str, object]],
-    copy_map_assets_fn: Callable[[Path], None],
+    build_samples_geojson_fn: Callable[[Iterable[SampleRecord]], JsonObject],
+    copy_map_assets_fn: Callable[[Path], Path],
     render_multi_country_map_html_fn: Callable[..., str],
     render_multi_country_map_markdown_fn: Callable[..., str],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],

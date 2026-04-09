@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import shutil
 
+from ...core.geojson import as_mapping
 from ...data_downloader.contracts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
@@ -103,4 +104,8 @@ def stage_context_artifact(*, source_path: Path, output_dir: Path) -> Path:
 
 def load_context_geojson(path: Path) -> dict[str, object]:
     """Load one staged GeoJSON artifact."""
-    return json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    mapping = as_mapping(payload)
+    if mapping is None:
+        raise ValueError(f"Context GeoJSON must be a JSON object: {path}")
+    return {str(key): value for key, value in mapping.items()}

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 import csv
 from pathlib import Path
 
@@ -66,11 +66,11 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
     """Yield normalized sample records from a single AADR anno file."""
     with path.open(encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle, delimiter="\t")
-        schema = resolve_schema(reader.fieldnames or [])
+        schema = resolve_schema(reader.fieldnames or ())
         for row in reader:
-            genetic_id = clean_text(row.get(schema["genetic_id"], ""))
-            latitude_text = clean_text(row.get(schema["latitude"], ""))
-            longitude_text = clean_text(row.get(schema["longitude"], ""))
+            genetic_id = clean_text(schema_value(row, schema, "genetic_id"))
+            latitude_text = clean_text(schema_value(row, schema, "latitude"))
+            longitude_text = clean_text(schema_value(row, schema, "longitude"))
             if not genetic_id or not latitude_text or not longitude_text:
                 continue
             try:
@@ -81,24 +81,28 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[SampleReco
             time_interval = sample_time_interval(row, schema)
             yield SampleRecord(
                 genetic_id=genetic_id,
-                master_id=clean_text(row.get(schema["master_id"], "")),
-                group_id=clean_text(row.get(schema["group_id"], "")),
-                locality=clean_text(row.get(schema["locality"], ""))
+                master_id=clean_text(schema_value(row, schema, "master_id")),
+                group_id=clean_text(schema_value(row, schema, "group_id")),
+                locality=clean_text(schema_value(row, schema, "locality"))
                 or "Unspecified locality",
-                political_entity=clean_text(row.get(schema["political_entity"], "")),
+                political_entity=clean_text(
+                    schema_value(row, schema, "political_entity")
+                ),
                 latitude=latitude,
                 longitude=longitude,
                 latitude_text=latitude_text,
                 longitude_text=longitude_text,
-                publication=clean_text(row.get(schema["publication"], "")),
+                publication=clean_text(schema_value(row, schema, "publication")),
                 year_first_published=clean_text(
-                    row.get(schema["year_first_published"], "")
+                    schema_value(row, schema, "year_first_published")
                 ),
-                full_date=clean_text(row.get(schema["full_date"], "")),
-                date_mean_bp=clean_text(row.get(schema["date_mean_bp"], "")),
-                date_stddev_bp=clean_text(row.get(schema["date_stddev_bp"], "")),
-                data_type=clean_text(row.get(schema["data_type"], "")),
-                molecular_sex=clean_text(row.get(schema["molecular_sex"], "")),
+                full_date=clean_text(schema_value(row, schema, "full_date")),
+                date_mean_bp=clean_text(schema_value(row, schema, "date_mean_bp")),
+                date_stddev_bp=clean_text(
+                    schema_value(row, schema, "date_stddev_bp")
+                ),
+                data_type=clean_text(schema_value(row, schema, "data_type")),
+                molecular_sex=clean_text(schema_value(row, schema, "molecular_sex")),
                 datasets=(dataset_name,),
                 time_start_bp=time_interval[0] if time_interval is not None else None,
                 time_end_bp=time_interval[1] if time_interval is not None else None,
@@ -187,3 +191,13 @@ def pick_time_label(
     if merged_interval is None:
         return ""
     return build_bp_interval_label(merged_interval[0], merged_interval[1])
+
+
+def schema_value(
+    row: Mapping[str, str], schema: Mapping[str, str | None], key: str
+) -> str:
+    """Read one row value via a schema key while handling optional schema columns."""
+    column_name = schema.get(key)
+    if not column_name:
+        return ""
+    return row.get(column_name, "")

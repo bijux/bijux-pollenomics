@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable, Mapping
 from datetime import date
 from pathlib import Path
 
@@ -10,16 +10,18 @@ __all__ = ["build_neotoma_download_archive_parts", "write_neotoma_download_archi
 
 
 def build_neotoma_download_archive_parts(
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
     *,
     rows_per_part: int,
-    extract_neotoma_download_dataset_ids_fn,
+    extract_neotoma_download_dataset_ids_fn: Callable[
+        [Iterable[Mapping[str, object]]], list[int]
+    ],
 ) -> list[dict[str, object]]:
     """Split large Neotoma download payloads into stable part files."""
     if rows_per_part < 1:
         raise ValueError("rows_per_part must be at least 1")
 
-    rows = list(download_rows)
+    rows = [dict(row) for row in download_rows]
     part_count = (len(rows) + rows_per_part - 1) // rows_per_part
     parts: list[dict[str, object]] = []
     for index, start in enumerate(range(0, len(rows), rows_per_part), start=1):
@@ -44,18 +46,20 @@ def write_neotoma_download_archive(
     *,
     requested_dataset_ids: Iterable[int],
     downloaded_dataset_ids: Iterable[int],
-    download_rows: Iterable[dict[str, object]],
+    download_rows: Iterable[Mapping[str, object]],
     rows_per_part: int,
     neotoma_data_url: str,
     neotoma_datasettype: str,
     neotoma_download_archive_dirname: str,
     neotoma_download_archive_label: str,
-    extract_neotoma_download_dataset_ids_fn,
+    extract_neotoma_download_dataset_ids_fn: Callable[
+        [Iterable[Mapping[str, object]]], list[int]
+    ],
 ) -> Path:
     """Write the full Neotoma dataset downloads into a chunked archive directory."""
     archive_dir = Path(raw_dir) / neotoma_download_archive_dirname
     archive_dir.mkdir(parents=True, exist_ok=True)
-    rows = list(download_rows)
+    rows = [dict(row) for row in download_rows]
 
     requested_ids = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
     returned_ids = sorted({int(dataset_id) for dataset_id in downloaded_dataset_ids})

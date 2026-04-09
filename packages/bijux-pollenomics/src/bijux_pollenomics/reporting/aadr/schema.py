@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
+
 from ...core.bp_time import (
     build_bp_interval_label,
     derive_bp_interval_from_mean_and_stddev,
@@ -18,7 +20,7 @@ __all__ = [
 ]
 
 
-def resolve_schema(fieldnames: list[str]) -> dict[str, str | None]:
+def resolve_schema(fieldnames: Sequence[str]) -> dict[str, str | None]:
     """Map expected logical fields to raw AADR column names."""
     return {
         "genetic_id": find_column(fieldnames, "Genetic ID"),
@@ -44,7 +46,7 @@ def resolve_schema(fieldnames: list[str]) -> dict[str, str | None]:
     }
 
 
-def find_column(fieldnames: list[str], *prefixes: str) -> str:
+def find_column(fieldnames: Sequence[str], *prefixes: str) -> str:
     """Find a column by exact name or a stable prefix."""
     lowered = {field.casefold(): field for field in fieldnames}
     for prefix in prefixes:
@@ -59,7 +61,7 @@ def find_column(fieldnames: list[str], *prefixes: str) -> str:
     raise SchemaError(f"Could not find any of {prefixes!r} in anno columns")
 
 
-def find_optional_column(fieldnames: list[str], *prefixes: str) -> str | None:
+def find_optional_column(fieldnames: Sequence[str], *prefixes: str) -> str | None:
     """Find a column by exact name or prefix when present."""
     try:
         return find_column(fieldnames, *prefixes)
@@ -68,27 +70,39 @@ def find_optional_column(fieldnames: list[str], *prefixes: str) -> str | None:
 
 
 def sample_time_interval(
-    row: dict[str, str], schema: dict[str, str | None]
+    row: Mapping[str, str], schema: Mapping[str, str | None]
 ) -> tuple[int, int] | None:
     """Derive one AADR BP interval from the row's mean and standard deviation."""
     return derive_bp_interval_from_mean_and_stddev(
-        row.get(schema["date_mean_bp"], ""),
-        row.get(schema["date_stddev_bp"], ""),
+        schema_value(row, schema, "date_mean_bp"),
+        schema_value(row, schema, "date_stddev_bp"),
     )
 
 
-def sample_time_mean(row: dict[str, str], schema: dict[str, str | None]) -> int | None:
+def sample_time_mean(
+    row: Mapping[str, str], schema: Mapping[str, str | None]
+) -> int | None:
     """Return the sample mean BP year used for time filtering summaries."""
     interval = sample_time_interval(row, schema)
     return midpoint_bp_year(interval[0], interval[1]) if interval is not None else None
 
 
-def sample_time_label(row: dict[str, str], schema: dict[str, str | None]) -> str:
+def sample_time_label(row: Mapping[str, str], schema: Mapping[str, str | None]) -> str:
     """Return the best available human-readable AADR time label."""
-    full_date = clean_text(row.get(schema["full_date"], ""))
+    full_date = clean_text(schema_value(row, schema, "full_date"))
     if full_date:
         return full_date
     interval = sample_time_interval(row, schema)
     if interval is None:
         return ""
     return build_bp_interval_label(interval[0], interval[1])
+
+
+def schema_value(
+    row: Mapping[str, str], schema: Mapping[str, str | None], key: str
+) -> str:
+    """Read one row value via a schema key while handling optional schema columns."""
+    column_name = schema.get(key)
+    if not column_name:
+        return ""
+    return row.get(column_name, "")
