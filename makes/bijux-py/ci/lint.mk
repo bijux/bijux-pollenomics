@@ -45,6 +45,14 @@ FMT_RUN_RUFF_CHECK_FIX ?= 0
 
 RUFF_FIX_FLAG := $(if $(filter 1,$(RUFF_CHECK_FIX)),--fix,)
 LINT_PYCACHE_ENV := PYTHONPYCACHEPREFIX="$(abspath $(LINT_PYCACHE_PREFIX))"
+MYPY_RUN_DIR ?= $(MONOREPO_ROOT)
+MYPY_CONFIG_ABS := $(abspath $(MYPY_CONFIG))
+MYPY_CACHE_DIR_ABS := $(abspath $(MYPY_CACHE_DIR))
+MYPY_TARGETS_ABS := $(foreach target,$(MYPY_TARGETS),$(if $(filter /%,$(target)),$(target),$(abspath $(target))))
+MYPY_CORE_CONFIG_ABS := $(if $(MYPY_CORE_CONFIG),$(abspath $(MYPY_CORE_CONFIG)))
+MYPY_CORE_TARGETS_ABS := $(foreach target,$(MYPY_CORE_TARGETS),$(if $(filter /%,$(target)),$(target),$(abspath $(target))))
+MYPY_EXTENDED_CONFIG_ABS := $(if $(MYPY_EXTENDED_CONFIG),$(abspath $(MYPY_EXTENDED_CONFIG)))
+MYPY_EXTENDED_TARGETS_ABS := $(foreach target,$(MYPY_EXTENDED_TARGETS),$(if $(filter /%,$(target)),$(target),$(abspath $(target))))
 
 .PHONY: fmt fmt-artifacts lint lint-artifacts lint-file lint-dir lint-clean mypy-core mypy-extended
 
@@ -70,7 +78,7 @@ lint-artifacts: | $(VENV)
 	} 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff-format.log"; test $${PIPESTATUS[0]} -eq 0
 	@$(LINT_PYCACHE_ENV) $(RUFF) check $(RUFF_FIX_FLAG) --config "$(RUFF_CONFIG)" --cache-dir "$(RUFF_CACHE_DIR)" $(LINT_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/ruff.log"; test $${PIPESTATUS[0]} -eq 0
 	@if [ "$(ENABLE_MYPY)" = "1" ]; then \
-	  $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR)" $(MYPY_TARGETS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; test $${PIPESTATUS[0]} -eq 0; \
+	  cd "$(MYPY_RUN_DIR)" && $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CONFIG_ABS)" $(MYPY_FLAGS) --cache-dir "$(MYPY_CACHE_DIR_ABS)" $(MYPY_TARGETS_ABS) 2>&1 | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; test $${PIPESTATUS[0]} -eq 0; \
 	else \
 	  echo "→ Skipping mypy" | tee "$(LINT_ARTIFACTS_DIR)/mypy.log"; \
 	fi
@@ -108,14 +116,14 @@ endif
 
 mypy-core:
 	@if [ -n "$(MYPY_CORE_CONFIG)" ]; then \
-	  $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CORE_CONFIG)" $(MYPY_CORE_FLAGS) --cache-dir "$(MYPY_CACHE_DIR)" $(MYPY_CORE_TARGETS); \
+	  cd "$(MYPY_RUN_DIR)" && $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_CORE_CONFIG_ABS)" $(MYPY_CORE_FLAGS) --cache-dir "$(MYPY_CACHE_DIR_ABS)" $(MYPY_CORE_TARGETS_ABS); \
 	else \
 	  echo "→ mypy-core is not configured for $(PROJECT_SLUG)"; \
 	fi
 
 mypy-extended:
 	@if [ -n "$(MYPY_EXTENDED_CONFIG)" ]; then \
-	  $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_EXTENDED_CONFIG)" $(MYPY_EXTENDED_FLAGS) --cache-dir "$(MYPY_CACHE_DIR)" $(MYPY_EXTENDED_TARGETS); \
+	  cd "$(MYPY_RUN_DIR)" && $(LINT_PYCACHE_ENV) $(MYPY) --config-file "$(MYPY_EXTENDED_CONFIG_ABS)" $(MYPY_EXTENDED_FLAGS) --cache-dir "$(MYPY_CACHE_DIR_ABS)" $(MYPY_EXTENDED_TARGETS_ABS); \
 	else \
 	  echo "→ mypy-extended is not configured for $(PROJECT_SLUG)"; \
 	fi
