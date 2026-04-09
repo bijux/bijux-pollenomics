@@ -30,9 +30,7 @@ def parse_args() -> argparse.Namespace:
         required=True,
         help="Path to the package root containing pyproject.toml.",
     )
-    parser.add_argument(
-        "--deptry-bin", default="", help="Deptry executable to invoke."
-    )
+    parser.add_argument("--deptry-bin", default="", help="Deptry executable to invoke.")
     parser.add_argument(
         "roots",
         nargs="*",
@@ -92,8 +90,8 @@ def merge_deptry_config(
 
     if "known_first_party" not in merged_config:
         merged_config["known_first_party"] = [package_slug.replace("-", "_")]
-    optional_dependencies = (
-        package_pyproject.get("project", {}).get("optional-dependencies", {})
+    optional_dependencies = package_pyproject.get("project", {}).get(
+        "optional-dependencies", {}
     )
     available_groups = set(optional_dependencies)
     for key in ("pep621_dev_dependency_groups", "optional_dependencies_dev_groups"):
