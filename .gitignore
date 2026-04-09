@@ -17,6 +17,7 @@ data/**/~$*.xlsx
 .tmp/
 artifacts/*
 !artifacts/.gitkeep
+packages/*/artifacts/
 site/
 build/
 dist/
