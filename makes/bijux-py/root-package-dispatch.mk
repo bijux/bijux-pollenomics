@@ -1,8 +1,8 @@
 ROOT_SHARED_CHECK_OVERRIDES := \
-	VENV="$(ROOT_CHECK_VENV)" \
-	VENV_PYTHON="$(ROOT_CHECK_PYTHON)" \
-	PYTHON="$(ROOT_CHECK_PYTHON)" \
-	ACT="$(ROOT_CHECK_VENV)/bin"
+	VENV="$(abspath $(ROOT_CHECK_VENV))" \
+	VENV_PYTHON="$(abspath $(ROOT_CHECK_PYTHON))" \
+	PYTHON="$(abspath $(ROOT_CHECK_PYTHON))" \
+	ACT="$(abspath $(ROOT_CHECK_VENV))/bin"
 
 define run_root_package_target
 	@set -eu; \
