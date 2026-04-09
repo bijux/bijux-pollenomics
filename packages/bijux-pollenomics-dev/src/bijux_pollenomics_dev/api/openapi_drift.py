@@ -5,11 +5,12 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import shutil
-import subprocess
 import sys
 from typing import Any
 
 import yaml
+
+from bijux_pollenomics_dev.trusted_process import run_text
 
 Schema = dict[str, Any]
 
@@ -30,13 +31,14 @@ def _git_show(repo_root: Path, path: str) -> str | None:
     if Path(path).is_absolute() or ".." in path_parts:
         return None
     try:
-        completed = subprocess.run(
+        completed = run_text(
             [git_bin, "-C", str(repo_root), "show", f"HEAD~1:{path}"],
             check=True,
             capture_output=True,
-            text=True,
         )
-    except (FileNotFoundError, subprocess.CalledProcessError):
+    except (FileNotFoundError, ValueError):
+        return None
+    except Exception:
         return None
     return completed.stdout
 

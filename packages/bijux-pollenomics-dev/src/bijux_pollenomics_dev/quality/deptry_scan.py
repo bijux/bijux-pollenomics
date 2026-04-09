@@ -8,11 +8,12 @@ import os
 from pathlib import Path
 import shlex
 import shutil
-import subprocess
 import sys
 import tempfile
 import tomllib
 from typing import Any
+
+from bijux_pollenomics_dev.trusted_process import run_text
 
 TomlTable = dict[str, Any]
 
@@ -168,7 +169,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="deptry-") as tmpdir:
         merged_pyproject = Path(tmpdir) / "pyproject.toml"
         merged_pyproject.write_text(merged_text, encoding="utf-8")
-        completed = subprocess.run(
+        completed = run_text(
             [*deptry_command, "--config", os.fspath(merged_pyproject), *args.roots],
             cwd=project_dir,
             check=False,
