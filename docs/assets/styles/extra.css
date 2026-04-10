@@ -425,6 +425,27 @@ button {
   padding-right: 0.2rem;
 }
 
+.bijux-nav__title {
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bijux-nav__title-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bijux-nav__site-name {
+  font-weight: 700;
+}
+
+.bijux-nav__section-name {
+  color: var(--bijux-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.01em;
+}
+
 .md-sidebar--primary .bijux-nav--mobile {
   display: none;
 }
