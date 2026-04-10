@@ -20,6 +20,8 @@ dependencies = [
 Documentation = "https://bijux.io/bijux-pollenomics/"
 Repository = "https://github.com/bijux/bijux-pollenomics"
 Issues = "https://github.com/bijux/bijux-pollenomics/issues"
+Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md"
+Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [project.optional-dependencies]
 dev = [
@@ -47,6 +49,7 @@ dev = [
 [tool.hatch.build]
 include = [
     "README.md",
+    "CHANGELOG.md",
     "src/bijux_pollenomics_dev/**",
 ]
 force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }

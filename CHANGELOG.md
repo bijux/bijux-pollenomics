@@ -8,7 +8,7 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
-## Unreleased
+## 0.1.0 - 2026-04-10
 
 ### Added
 
@@ -27,6 +27,13 @@ change contributor and maintainer workflows across the repository.
   preserving tracked repository-owned artifact placeholders.
 - Root `tox.ini` now provides a standard entrypoint for repository test, lint,
   quality, security, docs, build, SBOM, and API checks.
+
+### Fixed
+
+- Release-facing package metadata now exposes changelog and security links for
+  the runtime and maintainer distributions.
+- Package README pages now point readers to PyPI, documentation, source,
+  changelog, security policy, and release workflow surfaces.
 
 ## Changelog Scope
 
