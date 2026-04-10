@@ -622,6 +622,19 @@ button {
     display: none;
   }
 
+  .md-content__inner > .md-content__button {
+    background: var(--bijux-panel);
+    border: 1px solid var(--bijux-border);
+    border-radius: 999px;
+    float: none;
+    margin: 0 0.4rem 0.7rem 0;
+    padding: 0.35rem;
+  }
+
+  .md-content__inner > h1 {
+    clear: both;
+  }
+
   .bijux-header-tools .md-search__inner {
     width: min(10.5rem, calc(100vw - 9rem));
   }
