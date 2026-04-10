@@ -11,7 +11,11 @@ last_reviewed: 2026-04-10
 
 `bijux-pollenomics` is a static, reviewable evidence workspace. The repository collects tracked Nordic source data, normalizes it into stable files, and publishes those files as country bundles plus one shared interactive atlas.
 
-The homepage leads with the checked-in Nordic Evidence Atlas because it is the fastest way to inspect what the repository currently produces: AADR sample points, LandClim pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology density from RAÄ, fieldwork media, and Nordic country boundaries.
+Start here with the checked-in Nordic Evidence Atlas. It is the fastest way to
+inspect what the repository currently produces: AADR sample points, LandClim
+pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
+Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
+boundaries.
 
 The page layout now follows the package-handbook pattern used across Bijux
 documentation: one handbook for the runtime package, one reference tree for
@@ -128,7 +132,7 @@ flowchart TD
 
 ## Purpose
 
-This page routes readers from the checked-in atlas into the runtime, data, and
+Use this page to move from the checked-in atlas into the runtime, data, and
 maintainer handbooks that explain repository scope, rebuild workflows, data
 provenance, architecture seams, and exact file contracts.
 
