@@ -1,3 +1,5 @@
+BIJUX_REPOSITORY_ENV_OVERLAY_INCLUDED := 1
+
 MONOREPO_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
 ROOT_MAKE_DIR := $(MONOREPO_ROOT)/makes
 QUALITY_GATE_PYTHON ?= $(if $(wildcard $(VENV_PYTHON)),$(abspath $(VENV_PYTHON)),$(if $(wildcard $(VENV)/bin/python),$(abspath $(VENV)/bin/python),$(PYTHON)))
