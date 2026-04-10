@@ -26,11 +26,16 @@
 {% import "partials/nav-item.html" as item with context %}
 {% set bijux_primary_section_nav = false %}
 <nav class="{{ class }} bijux-nav bijux-nav--mobile" aria-label="{{ lang.t('nav') }}" data-bijux-nav-variant="mobile" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
+  <label class="md-nav__title bijux-nav__title" for="__drawer">
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
       {% include "partials/logo.html" %}
     </a>
-    {{ config.site_name }}
+    <span class="bijux-nav__title-text">
+      <span class="bijux-nav__site-name">{{ config.site_name }}</span>
+      {% if active_root.item and active_root.item.title != "Home" %}
+        <span class="bijux-nav__section-name">{{ active_root.item.title }}</span>
+      {% endif %}
+    </span>
   </label>
   {% if config.repo_url %}
     <div class="md-nav__source">
