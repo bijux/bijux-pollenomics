@@ -491,6 +491,22 @@ button {
   border-radius: 0.75rem;
 }
 
+.bijux-nav--mobile .md-nav__link,
+.bijux-nav--mobile .md-nav__container > .md-nav__link,
+.bijux-nav--mobile .md-nav__title {
+  min-height: 2.85rem;
+  padding-block: 0.62rem;
+}
+
+.bijux-nav--mobile .md-nav__link .md-ellipsis,
+.bijux-nav--mobile .md-nav__title {
+  line-height: 1.35;
+}
+
+.bijux-nav--mobile .md-nav__icon::after {
+  inset: -0.3rem;
+}
+
 .md-sidebar--primary [data-bijux-nav-empty="true"] {
   display: none;
 }
