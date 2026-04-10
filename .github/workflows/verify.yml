@@ -3,6 +3,7 @@ name: verify
 on:
   push:
     branches: [main]
+    # Keep branch verification focused on automation, docs, and package surfaces.
     paths:
       - ".github/workflows/**"
       - "configs/**"
@@ -15,6 +16,7 @@ on:
       - "uv.lock"
   pull_request:
     branches: [main]
+    # Mirror the push filter so pull requests validate the same repository surfaces.
     paths:
       - ".github/workflows/**"
       - "configs/**"
