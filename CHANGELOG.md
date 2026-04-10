@@ -34,6 +34,13 @@ change contributor and maintainer workflows across the repository.
   the runtime and maintainer distributions.
 - Package README pages now point readers to PyPI, documentation, source,
   changelog, security policy, and release workflow surfaces.
+- Tox checks now delegate installation ownership to the repository make system,
+  matching the release-gate execution model.
+- API freeze and OpenAPI drift commands now resolve the active Python
+  interpreter at execution time.
+- Workbook parsing now keeps `defusedxml` as the runtime XML implementation
+  while preserving static typing clarity.
+- Repository contract tests now follow the enforced Ruff formatting baseline.
 
 ## Changelog Scope
 

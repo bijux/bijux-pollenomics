@@ -10,3 +10,9 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
   review, quality gates, release support, and documentation integrity checks.
 - Package README, changelog, and metadata links for maintainers reviewing the
   first public release.
+
+### Fixed
+
+- API freeze and OpenAPI drift command wiring now resolves the active Python
+  interpreter at execution time.
+- Repository contract tests now follow the enforced Ruff formatting baseline.

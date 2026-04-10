@@ -12,3 +12,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
   repository verification workflows.
 - Package metadata, README links, changelog, and security references for the
   first public release.
+
+### Fixed
+
+- Workbook parsing now keeps `defusedxml` as the runtime XML implementation
+  while preserving static typing clarity.
