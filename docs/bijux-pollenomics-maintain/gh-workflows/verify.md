@@ -14,6 +14,12 @@ last_reviewed: 2026-04-10
 It runs repository checks first and then fans out into package-level checks for
 `bijux-pollenomics` and `bijux-pollenomics-dev`.
 
+The job tree is intentionally split. `repository` runs shared automation
+contracts first, `package` fans out by package through `ci-package.yml`, and
+each reusable package run splits again into package-scoped `tests`, `checks`,
+and `lint` jobs.
+
 ## Purpose
 
-This page records the role of the main verification workflow.
+Use this page to understand when verification runs and how it branches from
+repository checks into package-level jobs.

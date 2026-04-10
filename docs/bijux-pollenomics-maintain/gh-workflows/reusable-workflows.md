@@ -19,8 +19,10 @@ shared and explicit.
 
 These files are workflow building blocks rather than top-level entrypoints, so
 they run through `verify.yml` and `publish.yml` instead of appearing as
-standalone manual workflows.
+standalone manual workflows. Their job names stay package-scoped so the Actions
+UI shows which package and check actually ran.
 
 ## Purpose
 
-This page records the reusable workflow layer used by the repository.
+Use this page to see which workflows are building blocks and which top-level
+workflows call them.

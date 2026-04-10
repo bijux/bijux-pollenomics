@@ -14,6 +14,11 @@ to the docs repository when credentials are available.
 
 It also validates the docs output contract before publication.
 
+It runs on `main` when docs-related files change and can also be started
+manually. The job tree stays small on purpose: validate the docs contract,
+build the site, validate the published assets, then deploy the Pages artifact.
+
 ## Purpose
 
-This page records the role of the docs deployment workflow.
+Use this page to understand when documentation publication runs and which site
+inputs it validates before deploy.

@@ -42,6 +42,7 @@ env:
 
 jobs:
   tests:
+    name: tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -89,6 +90,7 @@ jobs:
           retention-days: 14
 
   checks:
+    name: checks-${{ inputs.package_slug }}-${{ matrix.target }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -142,6 +144,7 @@ jobs:
           retention-days: 14
 
   lint:
+    name: lint-${{ inputs.package_slug }}
     runs-on: ubuntu-latest
 
     steps:

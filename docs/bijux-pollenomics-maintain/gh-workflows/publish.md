@@ -16,6 +16,10 @@ It delegates build work to the reusable release workflow and then publishes the
 staged distribution artifacts to PyPI, the staged release bundle to GHCR, and
 the staged release assets to the repository release page.
 
+It runs for version tags and manual dispatch. The job tree stays split by
+package so PyPI publication, GHCR bundle publication, and release asset staging
+can proceed in parallel after the shared build stage completes.
+
 ## Current Job Tree
 
 - `build` creates the staged release bundle for `bijux-pollenomics`
@@ -25,4 +29,5 @@ the staged release assets to the repository release page.
 
 ## Purpose
 
-This page records the role of the publish workflow.
+Use this page to understand which release surfaces are published and how the
+tag-driven job tree is split.
