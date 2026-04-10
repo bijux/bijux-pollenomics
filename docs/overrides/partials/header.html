@@ -11,7 +11,7 @@
 {% import "partials/bijux-nav.html" as bijux_nav with context %}
 {% macro site_label(title) -%}
   {% if title == "Repository Handbook" -%}
-    Repository
+    Home
   {%- elif title == "Maintainer Handbook" -%}
     Maintainer
   {%- elif active_repository and title.startswith(active_repository ~ "-") -%}
