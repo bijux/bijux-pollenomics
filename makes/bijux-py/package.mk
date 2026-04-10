@@ -161,13 +161,22 @@ $(PACKAGE_INSTALL_STAMP): $(VENV)
 	@echo "$(PACKAGE_INSTALL_MESSAGE)"
 	@mkdir -p "$(PROJECT_ARTIFACTS_DIR)"
 	@if [ -n "$(strip $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); \
+	  fi; \
 	fi
 	@if [ -n "$(strip $(PACKAGE_INSTALL_PYTHON_PACKAGES))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); \
+	  fi; \
 	fi
 	@if [ "$(PACKAGE_INSTALL_EDITABLE)" = "1" ] && [ -n "$(strip $(PACKAGE_INSTALL_SPEC))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --editable "$(PACKAGE_INSTALL_SPEC)"; \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$(PACKAGE_INSTALL_SPEC)"; then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --editable "$(PACKAGE_INSTALL_SPEC)"; \
+	  fi; \
 	fi
 	@touch "$(PACKAGE_INSTALL_STAMP)"
 
@@ -176,13 +185,22 @@ else
 install: $(VENV)
 	@echo "$(PACKAGE_INSTALL_MESSAGE)"
 	@if [ -n "$(strip $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --upgrade $(PACKAGE_INSTALL_BOOTSTRAP_PACKAGES); \
+	  fi; \
 	fi
 	@if [ -n "$(strip $(PACKAGE_INSTALL_PYTHON_PACKAGES))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --upgrade $(PACKAGE_INSTALL_PYTHON_PACKAGES); \
+	  fi; \
 	fi
 	@if [ "$(PACKAGE_INSTALL_EDITABLE)" = "1" ] && [ -n "$(strip $(PACKAGE_INSTALL_SPEC))" ]; then \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --editable "$(PACKAGE_INSTALL_SPEC)"; \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$(PACKAGE_INSTALL_SPEC)"; then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --editable "$(PACKAGE_INSTALL_SPEC)"; \
+	  fi; \
 	fi
 endif
 .PHONY: install
@@ -247,16 +265,25 @@ ifeq ($(PACKAGE_KIND),workspace-python)
 ensure-venv: $(VENV) ## Ensure venv exists and deps are installed
 	@set -e; \
 	echo "→ Ensuring dependencies in $(VENV) ..."; \
-	$(UV) pip install --python "$(VENV_PYTHON)" --upgrade pip setuptools wheel; \
+	if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade pip setuptools wheel; then \
+	  echo "→ uv pip install failed; retrying with python -m pip"; \
+	  "$(VENV_PYTHON)" -m pip install --upgrade pip setuptools wheel; \
+	fi; \
 	echo "→ Installing workspace runtime dependencies"; \
 	$(WORKSPACE_DEPENDENCY_PATHS) | while IFS= read -r package_dir; do \
 	  [ -n "$$package_dir" ] || continue; \
-	  $(UV) pip install --python "$(VENV_PYTHON)" --editable "$$package_dir"; \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$$package_dir"; then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --editable "$$package_dir"; \
+	  fi; \
 	done; \
 	EXTRAS="$(WORKSPACE_EDITABLE_EXTRAS)"; \
 	if [ -n "$$EXTRAS" ]; then SPEC=".[$$EXTRAS]"; else SPEC="."; fi; \
 	echo "→ Installing: $$SPEC"; \
-	$(UV) pip install --python "$(VENV_PYTHON)" --editable "$$SPEC"
+	if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$$SPEC"; then \
+	  echo "→ uv pip install failed; retrying with python -m pip"; \
+	  "$(VENV_PYTHON)" -m pip install --editable "$$SPEC"; \
+	fi
 
 install: ensure-venv ## Install project into .venv (dev)
 	@true
