@@ -12,6 +12,15 @@ last_reviewed: 2026-04-10
 This section explains the normalized and published file families that the data
 system produces.
 
+## Start Here
+
+- open [Collection Summary](collection-summary.md) for the shortest overview of
+  what is currently checked in
+- open [Published Reports](published-reports.md) when the question is about the
+  country bundles rather than intermediate normalized files
+- open [Nordic Atlas Outputs](nordic-atlas.md) when the question starts from the
+  map rather than from a source family
+
 ## Pages In This Section
 
 - [Collection Summary](collection-summary.md)
@@ -23,3 +32,8 @@ system produces.
 - [Normalized SEAD Outputs](normalized-sead.md)
 - [Published Reports](published-reports.md)
 - [Nordic Atlas Outputs](nordic-atlas.md)
+
+## Purpose
+
+This page organizes the normalized and publication-facing output families of the
+data system.

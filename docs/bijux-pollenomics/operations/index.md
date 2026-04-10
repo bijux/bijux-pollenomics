@@ -14,6 +14,15 @@ runtime package in the context of the tracked repository workflow.
 
 Use it when the question is procedural rather than structural.
 
+## Start Here
+
+- open [Installation and Setup](installation-and-setup.md) for environment and
+  bootstrap expectations
+- open [Common Workflows](common-workflows.md) for the main rebuild and verify
+  paths
+- open [Release and Versioning](release-and-versioning.md) when the question is
+  about tags, package artifacts, or release evidence
+
 ## Pages In This Section
 
 - [Installation and Setup](installation-and-setup.md)
@@ -25,3 +34,8 @@ Use it when the question is procedural rather than structural.
 - [Release and Versioning](release-and-versioning.md)
 - [Security and Safety](security-and-safety.md)
 - [Deployment Boundaries](deployment-boundaries.md)
+
+## Purpose
+
+This page organizes the operational procedures for running and releasing the
+runtime package.

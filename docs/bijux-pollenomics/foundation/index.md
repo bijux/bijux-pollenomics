@@ -16,6 +16,15 @@ absorbing.
 Use this section before changing module boundaries or public contracts. It is
 the place to confirm that a change still matches the package's intended role.
 
+## Start Here
+
+- open [Package Overview](package-overview.md) for the shortest statement of the
+  package's job
+- open [Scope and Non-Goals](scope-and-non-goals.md) before adding new runtime
+  responsibilities
+- open [Ownership Boundary](ownership-boundary.md) when the question may belong
+  in repository, data, or maintainer docs instead
+
 ## Pages In This Section
 
 - [Package Overview](package-overview.md)
