@@ -224,16 +224,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("branches: [main]", deploy_workflow)
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
-        self.assertIn("DOCS_PUBLISH_REPOSITORY: bijux/pollenomics", deploy_workflow)
         self.assertIn(
             "DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/",
             deploy_workflow,
         )
-        self.assertIn("POLLENOMICS_PUBLISH_TOKEN", deploy_workflow)
+        self.assertIn("pages: write", deploy_workflow)
+        self.assertIn("id-token: write", deploy_workflow)
+        self.assertIn("actions/configure-pages@v5", deploy_workflow)
+        self.assertIn("actions/upload-pages-artifact@v3", deploy_workflow)
+        self.assertIn("actions/deploy-pages@v4", deploy_workflow)
         self.assertIn("DOCS_SITE_DIR: artifacts/root/docs/build-site", deploy_workflow)
         self.assertIn("artifacts/root/docs/site", deploy_workflow)
         self.assertIn(
-            'git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git"',
+            'make docs PYTHON=python3.11 DOCS_BUILD_SITE_URL="${DOCS_SITE_URL}"',
             deploy_workflow,
         )
         self.assertIn("custom_dir: docs/overrides", deploy_workflow)

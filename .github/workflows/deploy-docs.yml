@@ -17,19 +17,20 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: deploy-docs-${{ github.ref }}
   cancel-in-progress: true
 
 env:
-  DOCS_PUBLISH_REPOSITORY: bijux/pollenomics
   DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/
   DOCS_SITE_DIR: artifacts/root/docs/build-site
 
 jobs:
-  build-and-publish:
-    name: build-and-publish-docs
+  build:
+    name: Build docs site
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -49,6 +50,9 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Validate docs output contract
         shell: bash
@@ -74,9 +78,7 @@ jobs:
           PY
 
       - name: Build docs site
-        env:
-          SITE_URL: ${{ env.DOCS_SITE_URL }}
-        run: make docs PYTHON=python3.11
+        run: make docs PYTHON=python3.11 DOCS_BUILD_SITE_URL="${DOCS_SITE_URL}"
 
       - name: Validate published site root assets
         shell: bash
@@ -86,35 +88,20 @@ jobs:
           test -f "${DOCS_SITE_DIR}/apple-touch-icon.png"
           test -f "${DOCS_SITE_DIR}/apple-touch-icon-precomposed.png"
 
-      - name: Publish built site to docs repository
-        if: ${{ github.ref == 'refs/heads/main' }}
-        env:
-          DOCS_PUBLISH_TOKEN: ${{ secrets.POLLENOMICS_PUBLISH_TOKEN || secrets.BIJUX_PUBLISH_TOKEN || secrets.DOCS_PUBLISH_TOKEN }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ -z "${DOCS_PUBLISH_TOKEN:-}" ]]; then
-            echo "Docs site build succeeded, but publication was skipped because no publish token is configured."
-            echo "Set POLLENOMICS_PUBLISH_TOKEN (preferred), BIJUX_PUBLISH_TOKEN, or DOCS_PUBLISH_TOKEN to enable deployment to ${DOCS_PUBLISH_REPOSITORY}."
-            exit 0
-          fi
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.DOCS_SITE_DIR }}
 
-          publish_root="$(mktemp -d)"
-          git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git" "$publish_root"
+  deploy:
+    name: Deploy docs site
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-          find "$publish_root" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-          cp -R "${DOCS_SITE_DIR}"/. "$publish_root"/
-          rm -f "$publish_root/CNAME"
-          touch "$publish_root/.nojekyll"
-
-          git -C "$publish_root" config user.name "github-actions[bot]"
-          git -C "$publish_root" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if [[ -z "$(git -C "$publish_root" status --short)" ]]; then
-            echo "No docs changes to publish."
-            exit 0
-          fi
-
-          git -C "$publish_root" add --all
-          git -C "$publish_root" commit -m "docs: publish site from ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
-          git -C "$publish_root" push origin HEAD:main
+    steps:
+      - name: Deploy Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
