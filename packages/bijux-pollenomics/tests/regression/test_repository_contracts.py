@@ -155,6 +155,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertNotIn("cdn.jsdelivr.net/npm/mermaid", mkdocs_text)
 
+    def test_docs_header_uses_repository_label_for_repository_handbook(self) -> None:
+        header_text = (
+            REPO_ROOT / "docs" / "overrides" / "partials" / "header.html"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('title == "Repository Handbook"', header_text)
+        self.assertIn("Repository", header_text)
+        self.assertNotIn("\n    Home\n", header_text)
+
     def test_docs_keep_browser_icon_sources_under_assets(self) -> None:
         self.assertTrue(
             (REPO_ROOT / "docs" / "assets" / "site-icons" / "favicon.ico").exists()
@@ -198,6 +207,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "[data-bijux-detail-path][aria-current='page']",
             script_text,
+        )
+
+    def test_fieldwork_page_embeds_video_from_site_root_gallery(self) -> None:
+        fieldwork_text = (
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics-data"
+            / "fieldwork"
+            / "lyngsjon-lake-fieldwork.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn(
+            '<source src="../../../gallery/2026-02-26-data-collection.mp4"',
+            fieldwork_text,
+        )
+        self.assertIn(
+            '<a href="../../../gallery/2026-02-26-data-collection.mp4">',
+            fieldwork_text,
         )
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
