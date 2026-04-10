@@ -76,6 +76,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Package docs are built by the repository docs workflow, so package checks stay code-focused.
           - package_slug: bijux-pollenomics
             package_dir: packages/bijux-pollenomics
             artifacts_dir: artifacts/bijux-pollenomics
