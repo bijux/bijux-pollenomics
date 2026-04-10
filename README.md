@@ -71,7 +71,7 @@ The root `Makefile` is the main local interface. Some targets only validate the 
 
 Validation-first targets:
 
-- `make install` creates or updates the editable environment under `artifacts/.venv/`
+- `make install` creates or updates the editable environment under `artifacts/root/check-venv/`
 - `make lock-check`, `make lint`, `make test`, `make api`, `make docs`, `make package-verify`, and `make check` verify the repository without rewriting tracked data or report outputs
 
 State-changing targets:
@@ -93,7 +93,7 @@ Prerequisites: `python3.11` and `uv` must be available locally.
 python3.11 --version
 uv --version
 make install
-artifacts/.venv/bin/bijux-pollenomics --version
+artifacts/root/check-venv/bin/bijux-pollenomics --version
 make lock-check
 make lint
 make test
