@@ -443,9 +443,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "validates the docs output contract before publication",
             automation_workflows,
         )
+        self.assertIn(
+            "root-level browser icons copied by `docs/hooks/publish_site_assets.py`",
+            automation_workflows,
+        )
+        self.assertIn("`favicon.ico`", automation_workflows)
         self.assertIn("strict MkDocs builds", testing_and_evidence)
         self.assertIn("site asset support", testing_and_evidence)
         self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)
+        self.assertIn(
+            "`bijux_pollenomics_dev.docs.site_assets`",
+            testing_and_evidence,
+        )
+        self.assertIn("Browsers still expect", testing_and_evidence)
 
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")

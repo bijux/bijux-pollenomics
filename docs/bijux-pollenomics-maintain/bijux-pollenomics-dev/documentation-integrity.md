@@ -17,7 +17,18 @@ real runtime and workflow surfaces.
 
 - `mkdocs.yml`
 - `docs/hooks/publish_site_assets.py`
-- `bijux_pollenomics_dev.site_assets`
+- `bijux_pollenomics_dev.docs.site_assets`
+
+## Why The Hook Exists
+
+The repository keeps browser icon sources under `docs/assets/site-icons/` so
+they stay versioned with the rest of the docs theme. Browsers still expect
+those files at the published site root, so `publish_site_assets.py` copies the
+checked-in sources into the build output after MkDocs finishes.
+
+That means docs integrity here is not only about Markdown and navigation. It
+also includes the root asset contract that makes the generated atlas and report
+pages render with the expected icons when they are opened directly.
 
 ## Purpose
 
