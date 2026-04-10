@@ -321,6 +321,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("publish_pypi:", publish_workflow)
         self.assertIn("publish_ghcr:", publish_workflow)
         self.assertIn("softprops/action-gh-release@v2", publish_workflow)
+        self.assertIn("overwrite_files: false", publish_workflow)
         self.assertIn("oras-project/setup-oras@v1", publish_workflow)
         self.assertIn("packages: write", publish_workflow)
         self.assertNotIn("PYPI_API_TOKEN", publish_workflow)
