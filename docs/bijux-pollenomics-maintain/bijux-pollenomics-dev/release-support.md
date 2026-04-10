@@ -12,6 +12,13 @@ last_reviewed: 2026-04-10
 The maintainer package supports releases by keeping API contracts, site assets,
 and repository-health checks stable before package artifacts are published.
 
+## Current Release Surfaces
+
+- `release/version_resolver.py`
+- `release/publication_guard.py`
+- API freeze and OpenAPI drift helpers
+- site asset publication helpers
+
 ## Purpose
 
 This page explains the maintainer package role in release readiness.
