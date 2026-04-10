@@ -33,6 +33,13 @@ deploy workflow therefore depends on the post-build hook to copy:
 The hook is repository-specific because these atlas and report pages are also
 published directly from the docs site root. It is not a generic MkDocs concern.
 
+## Trigger Surface
+
+The workflow should run when either authored docs inputs or the shared docs
+shell changes. That includes `docs/**`, `mkdocs.yml`, and
+`mkdocs.shared.yml`, because the shared MkDocs config changes site behavior
+even when no Markdown page changes.
+
 ## Purpose
 
 Use this page to understand when documentation publication runs and which site
