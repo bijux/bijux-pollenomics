@@ -204,10 +204,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("name: publish", publish_workflow)
         self.assertIn("build-release-artifacts.yml", publish_workflow)
         self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
-        self.assertIn("make check PYTHON=python", verify_workflow)
         self.assertIn("check-shared-bijux-py", verify_workflow)
+        self.assertIn("check-config-layout", verify_workflow)
+        self.assertIn("check-make-layout", verify_workflow)
+        self.assertIn(
+            "make check-shared-bijux-py check-config-layout check-make-layout help",
+            verify_workflow,
+        )
         self.assertIn("uses: ./.github/workflows/ci-package.yml", verify_workflow)
         self.assertIn("bijux-pollenomics-dev", verify_workflow)
+        self.assertIn("check_targets: '[\"quality\", \"security\", \"api\", \"build\", \"sbom\"]'", verify_workflow)
         self.assertIn("Confirm clean worktree after checks", verify_workflow)
         self.assertIn("git status --short", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
@@ -221,6 +227,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             deploy_workflow,
         )
         self.assertIn("POLLENOMICS_PUBLISH_TOKEN", deploy_workflow)
+        self.assertIn("DOCS_SITE_DIR: artifacts/root/docs/build-site", deploy_workflow)
         self.assertIn("artifacts/root/docs/site", deploy_workflow)
         self.assertIn(
             'git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git"',
