@@ -539,6 +539,10 @@ button {
     display: none;
   }
 
+  .bijux-nav--mobile .md-nav__source {
+    display: none;
+  }
+
   .md-sidebar--primary .bijux-nav--mobile {
     display: block;
   }
