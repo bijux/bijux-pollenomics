@@ -69,9 +69,17 @@ jobs:
         run: |
           set -euo pipefail
           stage_dir=".github/tmp/${{ inputs.package_slug }}-dist"
+          dist_dir="${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"
           mkdir -p "$stage_dir"
-          cp "${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"/*.whl "$stage_dir"/
-          cp "${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"/*.tar.gz "$stage_dir"/
+          mapfile -d '' dist_files < <(
+            find "$dist_dir" -type f \( -name '*.whl' -o -name '*.tar.gz' \) -print0 | sort -z
+          )
+          if [ "${#dist_files[@]}" -eq 0 ]; then
+            echo "✘ No publish artifacts found under $dist_dir"
+            find "${ARTIFACTS_DIR}" -maxdepth 4 -type f | sort || true
+            exit 1
+          fi
+          cp "${dist_files[@]}" "$stage_dir"/
 
       - name: Upload publish artifacts
         uses: actions/upload-artifact@v6
