@@ -1,5 +1,7 @@
 """Data collection, reporting, and mapping tools for bijux-pollenomics."""
 
+from importlib import metadata
+
 from .data_downloader.api import (
     ContextDataReport,
     DataCollectionReport,
@@ -15,7 +17,10 @@ from .reporting.api import (
     generate_published_reports,
 )
 
-__version__ = "0.1.0"
+try:
+    __version__ = metadata.version("bijux-pollenomics")
+except metadata.PackageNotFoundError:
+    __version__ = "0.1.0"
 
 __all__ = [
     "ContextDataReport",

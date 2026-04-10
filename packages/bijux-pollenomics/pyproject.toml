@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling>=1.27.0,<1.28"]
+requires = ["hatchling>=1.27.0,<1.28", "hatch-vcs>=0.4.0,<1.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -50,7 +50,10 @@ dev = [
 bijux-pollenomics = "bijux_pollenomics.cli:main"
 
 [tool.hatch.version]
-path = "src/bijux_pollenomics/__init__.py"
+source = "vcs"
+tag-pattern = "^v(?P<version>.*)$"
+fallback-version = "0.1.0"
+raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = "../..", search_parent_directories = true }
 
 [tool.hatch.build]
 include = [

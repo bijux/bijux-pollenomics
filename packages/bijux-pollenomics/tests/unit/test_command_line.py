@@ -70,4 +70,5 @@ class CommandLineUnitTests(unittest.TestCase):
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
         self.assertIn("[tool.hatch.version]", pyproject_text)
-        self.assertIn('path = "src/bijux_pollenomics/__init__.py"', pyproject_text)
+        self.assertIn('source = "vcs"', pyproject_text)
+        self.assertIn('fallback-version = "0.1.0"', pyproject_text)

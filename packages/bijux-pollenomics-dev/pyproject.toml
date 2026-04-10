@@ -1,10 +1,9 @@
 [build-system]
-requires = ["hatchling>=1.27.0,<1.28"]
+requires = ["hatchling>=1.27.0,<1.28", "hatch-vcs>=0.4.0,<1.0"]
 build-backend = "hatchling.build"
 
 [project]
 name = "bijux-pollenomics-dev"
-version = "0.1.0"
 description = "Repository-owned developer tooling for bijux-pollenomics."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -15,6 +14,7 @@ authors = [
 dependencies = [
     "PyYAML>=6.0,<7.0",
 ]
+dynamic = ["version"]
 
 [project.urls]
 Documentation = "https://bijux.io/bijux-pollenomics/"
@@ -56,3 +56,9 @@ force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bijux_pollenomics_dev"]
+
+[tool.hatch.version]
+source = "vcs"
+tag-pattern = "^v(?P<version>.*)$"
+fallback-version = "0.1.0"
+raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = "../..", search_parent_directories = true }
