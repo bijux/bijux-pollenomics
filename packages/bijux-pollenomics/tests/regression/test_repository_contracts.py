@@ -11,9 +11,51 @@ WORKFLOW_URL_RE = re.compile(
     r"https://github\.com/(?P<repo>[^/\s]+/[^/\s]+)/actions/workflows/"
     r"(?P<workflow>[A-Za-z0-9_.-]+)"
 )
+MERMAID_RESERVED_IDS = {
+    "class",
+    "classdef",
+    "click",
+    "default",
+    "end",
+    "graph",
+    "linkstyle",
+    "style",
+    "subgraph",
+}
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
+    @staticmethod
+    def _declared_mermaid_node_ids(block: str) -> set[str]:
+        ids: set[str] = set()
+        for line in block.splitlines():
+            match = re.match(r"\s*([A-Za-z_][A-Za-z0-9_-]*)\s*\[", line)
+            if match:
+                ids.add(match.group(1).lower())
+        return ids
+
+    def test_docs_mermaid_diagrams_avoid_reserved_node_ids(self) -> None:
+        failures: list[str] = []
+
+        for path in (REPO_ROOT / "docs").rglob("*.md"):
+            text = path.read_text(encoding="utf-8")
+            for match in re.finditer(r"```mermaid\n([\s\S]*?)\n```", text):
+                reserved_ids = sorted(
+                    MERMAID_RESERVED_IDS.intersection(
+                        self._declared_mermaid_node_ids(match.group(1))
+                    )
+                )
+                if reserved_ids:
+                    failures.append(
+                        f"{path.relative_to(REPO_ROOT)}: reserved Mermaid ids "
+                        + ", ".join(reserved_ids)
+                    )
+
+        self.assertFalse(
+            failures,
+            "Mermaid diagrams use reserved node ids:\n" + "\n".join(failures),
+        )
+
     def test_pyproject_declares_apache_license_and_author(self) -> None:
         root_pyproject_text = (REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8")
         package_pyproject_text = (PACKAGE_ROOT / "pyproject.toml").read_text(
