@@ -39,6 +39,14 @@ Today, the checked-in repository produces four durable outcomes:
 - country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
 
+## Package Map
+
+The `01` publishable package in this repository is:
+
+| Package | Role | Links |
+| --- | --- | --- |
+| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | [![PyPI](https://img.shields.io/pypi/v/bijux-pollenomics?label=PyPI&logo=pypi)](https://pypi.org/project/bijux-pollenomics/) [![Docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics/) [`source`](packages/bijux-pollenomics) |
+
 ## Current Scope
 
 The current repository scope is deliberately narrower than later site-selection research.
