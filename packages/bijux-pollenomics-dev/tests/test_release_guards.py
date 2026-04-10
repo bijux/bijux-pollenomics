@@ -4,14 +4,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 from bijux_pollenomics_dev.release.publication_guard import (
     artifact_versions,
     assert_artifacts_match_version,
     assert_publishable_version,
 )
 from bijux_pollenomics_dev.release.version_resolver import resolve_version
+import pytest
 
 
 def test_resolve_version_uses_static_pyproject_version(tmp_path: Path) -> None:
