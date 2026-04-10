@@ -12,6 +12,10 @@ on:
       artifacts_dir:
         required: true
         type: string
+      makefile_path:
+        required: false
+        type: string
+        default: ""
       build_targets:
         required: false
         type: string
@@ -52,14 +56,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          makefile="${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          makefile="${{ inputs.makefile_path }}"
+          if [ -z "$makefile" ]; then
+            makefile="makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          fi
+          makefile="${GITHUB_WORKSPACE}/$makefile"
           make -f "$makefile" -C "${{ inputs.package_dir }}" install
 
       - name: Build release artifacts
         shell: bash
         run: |
           set -euo pipefail
-          makefile="${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          makefile="${{ inputs.makefile_path }}"
+          if [ -z "$makefile" ]; then
+            makefile="makes/packages/$(basename '${{ inputs.package_dir }}').mk"
+          fi
+          makefile="${GITHUB_WORKSPACE}/$makefile"
           for target in ${{ inputs.build_targets }}; do
             make -f "$makefile" -C "${{ inputs.package_dir }}" "$target"
           done
