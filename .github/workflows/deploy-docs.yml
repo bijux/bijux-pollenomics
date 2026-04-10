@@ -76,7 +76,7 @@ jobs:
       - name: Build docs site
         env:
           SITE_URL: ${{ env.DOCS_SITE_URL }}
-        run: make docs PYTHON=python
+        run: make docs PYTHON=python3.11
 
       - name: Validate published site root assets
         shell: bash

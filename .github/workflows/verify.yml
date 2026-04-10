@@ -55,7 +55,7 @@ jobs:
       - name: Run repository checks
         run: |
           make check-shared-bijux-py check-config-layout check-make-layout
-          make check PYTHON=python
+          make check PYTHON=python3.11
 
       - name: Confirm clean worktree after checks
         shell: bash
