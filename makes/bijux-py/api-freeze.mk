@@ -6,6 +6,7 @@ API_FREEZE_COMMAND ?=
 API_OPENAPI_DRIFT_COMMAND ?=
 API_INSTALL_PYTHON_PACKAGES ?= click prance openapi-spec-validator
 API_NO_SCHEMA_MESSAGE ?= ✘ No OpenAPI schemas found under $(API_DIR)/*/v1/schema.yaml
+API_PYTHON_ENV ?= $(CANON_DEV_PYTHON_ENV)
 
 .PHONY: api api-install api-lint api-freeze openapi-drift api-clean api-test api-serve api-serve-bg api-stop
 
@@ -34,7 +35,7 @@ api-lint:
 
 api-freeze:
 	@echo "→ Enforcing API schema freeze contracts"
-	@cd "$(MONOREPO_ROOT)" && $(API_FREEZE_COMMAND)
+	@cd "$(MONOREPO_ROOT)" && $(API_PYTHON_ENV) $(API_FREEZE_COMMAND)
 	@echo "✔ API freeze contracts validated"
 
 openapi-drift:
@@ -42,7 +43,7 @@ openapi-drift:
 	  echo "→ No live OpenAPI drift command configured; skipping"; \
 	else \
 	  echo "→ Checking OpenAPI drift"; \
-	  cd "$(MONOREPO_ROOT)" && $(API_OPENAPI_DRIFT_COMMAND); \
+	  cd "$(MONOREPO_ROOT)" && $(API_PYTHON_ENV) $(API_OPENAPI_DRIFT_COMMAND); \
 	  echo "✔ OpenAPI drift check complete"; \
 	fi
 

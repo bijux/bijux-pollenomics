@@ -48,6 +48,7 @@ API_NODE_LOCKFILE_ABS           := $(abspath $(API_NODE_LOCKFILE))
 API_SCHEMATHESIS_FILTER_MODE    ?= none
 API_OPENAPI_DRIFT_CHECK         ?=
 API_OPENAPI_DRIFT_COMMAND       ?=
+API_PYTHON_ENV                  ?= $(CANON_DEV_PYTHON_ENV)
 API_ENABLE_REPRO                ?= 0
 SCHEMATHESIS_OPTS               ?= \
   --checks=all --max-failures=1 \
@@ -96,7 +97,7 @@ api: api-install api-lint api-test
 
 openapi-drift:
 	@if [ -n "$(strip $(API_OPENAPI_DRIFT_COMMAND))" ]; then \
-	  $(API_OPENAPI_DRIFT_COMMAND); \
+	  $(API_PYTHON_ENV) $(API_OPENAPI_DRIFT_COMMAND); \
 	elif [ -n "$(strip $(API_OPENAPI_DRIFT_CHECK))" ] && [ -f "$(API_OPENAPI_DRIFT_CHECK)" ]; then \
 	  $(PYTHON) "$(API_OPENAPI_DRIFT_CHECK)"; \
 	else \

@@ -3,7 +3,8 @@ SBOM_METADATA_PYTHON     ?= $(if $(wildcard $(VENV_PYTHON)),$(VENV_PYTHON),pytho
 GIT_SHA                  ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo unknown)
 SBOM_PYPROJECT           ?= pyproject.toml
 SBOM_VERSION_RESOLVER    ?=
-SBOM_VERSION             ?= $(strip $(if $(SBOM_VERSION_RESOLVER),$(shell $(SBOM_METADATA_PYTHON) $(SBOM_VERSION_RESOLVER) --pyproject "$(SBOM_PYPROJECT)" --package-name "$(PACKAGE_NAME)" 2>/dev/null || echo 0.0.0),$(if $(strip $(PKG_VERSION)),$(PKG_VERSION),0.0.0)))
+SBOM_PYTHON_ENV          ?=
+SBOM_VERSION             ?= $(strip $(if $(SBOM_VERSION_RESOLVER),$(shell $(SBOM_PYTHON_ENV) $(SBOM_METADATA_PYTHON) $(SBOM_VERSION_RESOLVER) --pyproject "$(SBOM_PYPROJECT)" --package-name "$(PACKAGE_NAME)" 2>/dev/null || echo 0.0.0),$(if $(strip $(PKG_VERSION)),$(PKG_VERSION),0.0.0)))
 SBOM_VERSION_SAFE         = $(shell printf '%s' "$(SBOM_VERSION)" | tr ' /' '__' | tr -s '_' '_')
 
 SBOM_DIR                 ?= $(PROJECT_ARTIFACTS_DIR)/sbom
@@ -40,7 +41,7 @@ sbom-tooling: | $(VENV)
 sbom-prod: sbom-tooling
 	@mkdir -p "$(SBOM_DIR)" "$(SBOM_CACHE_DIR)"
 	@if [ -n "$(strip $(SBOM_REQUIREMENTS_WRITER))" ]; then \
-	  $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group prod --output "$(SBOM_PROD_REQ)"; \
+	  $(SBOM_PYTHON_ENV) $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group prod --output "$(SBOM_PROD_REQ)"; \
 	elif [ -n "$(strip $(SBOM_PROD_REQ_INPUT))" ] && [ -f "$(SBOM_PROD_REQ_INPUT)" ]; then \
 	  cp "$(SBOM_PROD_REQ_INPUT)" "$(SBOM_PROD_REQ)"; \
 	fi
@@ -55,7 +56,7 @@ sbom-prod: sbom-tooling
 sbom-dev: sbom-tooling
 	@mkdir -p "$(SBOM_DIR)" "$(SBOM_CACHE_DIR)"
 	@if [ -n "$(strip $(SBOM_REQUIREMENTS_WRITER))" ]; then \
-	  $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group dev --optional-group "$(SBOM_DEV_GROUP)" --output "$(SBOM_DEV_REQ)"; \
+	  $(SBOM_PYTHON_ENV) $(VENV_PYTHON) $(SBOM_REQUIREMENTS_WRITER) --pyproject "$(SBOM_PYPROJECT)" --group dev --optional-group "$(SBOM_DEV_GROUP)" --output "$(SBOM_DEV_REQ)"; \
 	elif [ -n "$(strip $(SBOM_DEV_REQ_INPUT))" ] && [ -f "$(SBOM_DEV_REQ_INPUT)" ]; then \
 	  cp "$(SBOM_DEV_REQ_INPUT)" "$(SBOM_DEV_REQ)"; \
 	fi

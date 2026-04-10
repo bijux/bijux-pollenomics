@@ -96,6 +96,7 @@ PACKAGE_HELP_WIDTH ?= 22
 PACKAGE_VENV_CREATE_MESSAGE ?= → Creating virtualenv at '$(VENV)' with '$$(which $(PYTHON))' ...
 WORKSPACE_EDITABLE_EXTRAS ?= $${EXTRAS:-dev}
 WORKSPACE_DEPENDENCY_PATHS ?= "$(VENV_PYTHON)" -c 'from packaging.requirements import Requirement; from pathlib import Path; import tomllib; root = Path("$(MONOREPO_ROOT)"); workspace = tomllib.loads((root / "pyproject.toml").read_text()); package = tomllib.loads(Path("pyproject.toml").read_text()); package_dirs = workspace.get("tool", {}).get("bijux_canon", {}).get("package_dirs", {}); dependencies = package.get("project", {}).get("dependencies", []); current_name = package.get("project", {}).get("name"); [print(root / package_dirs[name]) for dep in dependencies if (name := Requirement(dep).name) != current_name and name in package_dirs]'
+WORKSPACE_EXTERNAL_DEPENDENCIES ?= "$(VENV_PYTHON)" -c 'import os, tomllib; from packaging.requirements import Requirement; from pathlib import Path; root = Path("$(MONOREPO_ROOT)"); workspace = tomllib.loads((root / "pyproject.toml").read_text()); package = tomllib.loads(Path("pyproject.toml").read_text()); package_dirs = workspace.get("tool", {}).get("bijux_canon", {}).get("package_dirs", {}); local_names = set(package_dirs); dependencies = list(package.get("project", {}).get("dependencies", [])); extras = [extra.strip() for extra in os.environ.get("EXTRAS", "dev").split(",") if extra.strip()]; optional = package.get("project", {}).get("optional-dependencies", {}); [dependencies.extend(optional.get(extra, [])) for extra in extras]; current_name = package.get("project", {}).get("name"); [print(dep) for dep in dependencies if (name := Requirement(dep).name) != current_name and name not in local_names]'
 WORKSPACE_SOFT_CLEAN_PATHS ?= $(COMMON_PYTHON_CLEAN_PATHS) demo .tmp_home $(COMMON_ARTIFACT_CLEAN_PATHS)
 else
 $(error Unsupported PACKAGE_KIND '$(PACKAGE_KIND)'; expected python, repository-python, api-python, or workspace-python)
@@ -265,9 +266,22 @@ ifeq ($(PACKAGE_KIND),workspace-python)
 ensure-venv: $(VENV) ## Ensure venv exists and deps are installed
 	@set -e; \
 	echo "→ Ensuring dependencies in $(VENV) ..."; \
+	mkdir -p "$(PROJECT_ARTIFACTS_DIR)"; \
 	if ! $(UV) pip install --python "$(VENV_PYTHON)" --upgrade pip setuptools wheel; then \
 	  echo "→ uv pip install failed; retrying with python -m pip"; \
 	  "$(VENV_PYTHON)" -m pip install --upgrade pip setuptools wheel; \
+	fi; \
+	EXTRAS="$(WORKSPACE_EDITABLE_EXTRAS)"; \
+	if [ -n "$$EXTRAS" ]; then SPEC=".[$$EXTRAS]"; else SPEC="."; fi; \
+	EXTERNAL_REQS_FILE="$(PROJECT_ARTIFACTS_DIR)/workspace-external-requirements.txt"; \
+	: > "$$EXTERNAL_REQS_FILE"; \
+	EXTRAS="$$EXTRAS" $(WORKSPACE_EXTERNAL_DEPENDENCIES) > "$$EXTERNAL_REQS_FILE"; \
+	if [ -s "$$EXTERNAL_REQS_FILE" ]; then \
+	  echo "→ Installing external workspace dependencies"; \
+	  if ! $(UV) pip install --python "$(VENV_PYTHON)" --requirement "$$EXTERNAL_REQS_FILE"; then \
+	    echo "→ uv pip install failed; retrying with python -m pip"; \
+	    "$(VENV_PYTHON)" -m pip install --requirement "$$EXTERNAL_REQS_FILE"; \
+	  fi; \
 	fi; \
 	echo "→ Installing workspace runtime dependencies"; \
 	$(WORKSPACE_DEPENDENCY_PATHS) | while IFS= read -r package_dir; do \
@@ -277,12 +291,10 @@ ensure-venv: $(VENV) ## Ensure venv exists and deps are installed
 	    "$(VENV_PYTHON)" -m pip install --editable "$$package_dir"; \
 	  fi; \
 	done; \
-	EXTRAS="$(WORKSPACE_EDITABLE_EXTRAS)"; \
-	if [ -n "$$EXTRAS" ]; then SPEC=".[$$EXTRAS]"; else SPEC="."; fi; \
 	echo "→ Installing: $$SPEC"; \
-	if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$$SPEC"; then \
+	if ! $(UV) pip install --python "$(VENV_PYTHON)" --editable "$$SPEC" --no-deps; then \
 	  echo "→ uv pip install failed; retrying with python -m pip"; \
-	  "$(VENV_PYTHON)" -m pip install --editable "$$SPEC"; \
+	  "$(VENV_PYTHON)" -m pip install --editable "$$SPEC" --no-deps; \
 	fi
 
 install: ensure-venv ## Install project into .venv (dev)

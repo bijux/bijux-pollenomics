@@ -2,6 +2,7 @@ API_SCHEMA                ?= $(API_DIR)/v1/schema.yaml
 API_SERVER_LOG            ?= $(API_ARTIFACTS_DIR)/server.log
 API_DRIFT_OUT             ?= $(API_ARTIFACTS_DIR)/openapi.generated.json
 API_OPENAPI_DRIFT_COMMAND ?=
+API_PYTHON_ENV            ?= $(CANON_DEV_PYTHON_ENV)
 API_UVICORN               ?= $(ACT)/uvicorn
 PRANCE                    ?= $(ACT)/prance
 OPENAPI_SPEC_VALIDATOR    ?= $(ACT)/openapi-spec-validator
@@ -64,7 +65,7 @@ api-test:
 openapi-drift:
 	@mkdir -p "$(API_ARTIFACTS_DIR_ABS)"
 	@echo "→ Checking OpenAPI drift"
-	@$(API_OPENAPI_DRIFT_COMMAND)
+	@$(API_PYTHON_ENV) $(API_OPENAPI_DRIFT_COMMAND)
 
 api-drift: openapi-drift
 
