@@ -101,15 +101,29 @@ jobs:
           stage_dir=".github/tmp/${{ inputs.package_slug }}-release"
           dist_dir="${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"
           rm -rf "$stage_dir"
-          mkdir -p "$stage_dir/dist"
+          mkdir -p "$stage_dir"
           while IFS= read -r -d '' file_path; do
-            cp "$file_path" "$stage_dir/dist"/
+            asset_name="${{ inputs.package_slug }}-dist-$(basename "$file_path")"
+            cp "$file_path" "$stage_dir/$asset_name"
           done < <(find "$dist_dir" -type f -print0 | sort -z)
           sbom_dir="${ARTIFACTS_DIR}/sbom"
           if [ -d "$sbom_dir" ]; then
-            mkdir -p "$stage_dir/sbom"
             while IFS= read -r -d '' file_path; do
-              cp "$file_path" "$stage_dir/sbom"/
+              case "$(basename "$file_path")" in
+                *.prod.cdx.json)
+                  asset_name="${{ inputs.package_slug }}-sbom-prod.cdx.json"
+                  ;;
+                *.dev.cdx.json)
+                  asset_name="${{ inputs.package_slug }}-sbom-dev.cdx.json"
+                  ;;
+                summary.txt)
+                  asset_name="${{ inputs.package_slug }}-sbom-summary.txt"
+                  ;;
+                *)
+                  continue
+                  ;;
+              esac
+              cp "$file_path" "$stage_dir/$asset_name"
             done < <(find "$sbom_dir" -type f -print0 | sort -z)
           fi
 
