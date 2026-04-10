@@ -317,11 +317,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("name: publish", publish_workflow)
         self.assertIn("build-release-artifacts.yml", publish_workflow)
         self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
+        self.assertIn("id-token: write", publish_workflow)
         self.assertIn("publish_pypi:", publish_workflow)
         self.assertIn("publish_ghcr:", publish_workflow)
         self.assertIn("softprops/action-gh-release@v2", publish_workflow)
         self.assertIn("oras-project/setup-oras@v1", publish_workflow)
         self.assertIn("packages: write", publish_workflow)
+        self.assertNotIn("PYPI_API_TOKEN", publish_workflow)
         build_release_workflow = (
             REPO_ROOT / ".github" / "workflows" / "build-release-artifacts.yml"
         ).read_text(encoding="utf-8")
