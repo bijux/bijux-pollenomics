@@ -10,16 +10,19 @@
   --bijux-shell-width: 84rem;
   --bijux-shell-width-wide: 92rem;
   --bijux-shell-width-ultra: 102rem;
+  --bijux-ribbon-bg: #2b2f6e;
+  --bijux-ribbon-bg-strong: #4338ca;
+  --bijux-ribbon-fade: rgba(43, 47, 110, 0);
 }
 
 [data-md-color-scheme="default"] {
   --md-default-bg-color: #f5f7fd;
   --md-default-bg-color--light: #fbfcff;
   --md-default-fg-color: var(--bijux-ink);
-  --md-primary-fg-color: #3f51b5;
+  --md-primary-fg-color: #4338ca;
   --md-accent-fg-color: #4f46e5;
-  --md-typeset-a-color: #3949ab;
-  --bijux-hub-bg: rgba(30, 40, 82, 0.96);
+  --md-typeset-a-color: #3730a3;
+  --bijux-hub-bg: rgba(24, 28, 64, 0.96);
   --bijux-hub-border: rgba(255, 255, 255, 0.12);
   --bijux-hub-link: rgba(255, 255, 255, 0.76);
   --bijux-hub-link-active-bg: rgba(255, 255, 255, 0.14);
@@ -27,6 +30,37 @@
   --bijux-detail-border: rgba(63, 81, 181, 0.12);
   --bijux-detail-link: #31406f;
   --bijux-detail-link-active-bg: rgba(79, 70, 229, 0.12);
+}
+
+[data-md-color-scheme="slate"] {
+  --bijux-ink: #e8ecff;
+  --bijux-muted: #b6bfdc;
+  --bijux-border: rgba(129, 140, 248, 0.2);
+  --bijux-panel: rgba(99, 102, 241, 0.12);
+  --bijux-panel-strong: rgba(99, 102, 241, 0.18);
+  --bijux-card-shadow: 0 24px 48px rgba(2, 6, 23, 0.38);
+  --bijux-map-shadow: 0 28px 58px rgba(2, 6, 23, 0.5);
+  --bijux-surface-gradient: linear-gradient(180deg, rgba(30, 41, 59, 0.42), rgba(15, 23, 42, 0));
+  --md-default-bg-color: #0b1120;
+  --md-default-bg-color--light: #111827;
+  --md-default-fg-color: #e8ecff;
+  --md-default-fg-color--light: #cdd5f3;
+  --md-default-fg-color--lighter: #9ea9d0;
+  --md-primary-fg-color: #4338ca;
+  --md-primary-fg-color--light: #6366f1;
+  --md-accent-fg-color: #a5b4fc;
+  --md-typeset-a-color: #a5b4fc;
+  --bijux-hub-bg: rgba(8, 11, 29, 0.98);
+  --bijux-hub-border: rgba(129, 140, 248, 0.16);
+  --bijux-hub-link: rgba(229, 231, 255, 0.82);
+  --bijux-hub-link-active-bg: rgba(129, 140, 248, 0.16);
+  --bijux-detail-bg: rgba(15, 23, 42, 0.96);
+  --bijux-detail-border: rgba(129, 140, 248, 0.18);
+  --bijux-detail-link: #c7d2fe;
+  --bijux-detail-link-active-bg: rgba(99, 102, 241, 0.18);
+  --bijux-ribbon-bg: #151a43;
+  --bijux-ribbon-bg-strong: #312e81;
+  --bijux-ribbon-fade: rgba(21, 26, 67, 0);
 }
 
 body,
@@ -211,6 +245,11 @@ button {
   margin: 0;
 }
 
+.bijux-header-tools .md-header__button,
+.bijux-header-tools .md-header__option {
+  border-radius: 999px;
+}
+
 .bijux-header-tools .md-search {
   padding: 0;
 }
@@ -232,7 +271,7 @@ button {
 }
 
 .bijux-site-tabs {
-  background: rgba(40, 53, 123, 0.98);
+  background: linear-gradient(90deg, var(--bijux-ribbon-bg), var(--bijux-ribbon-bg-strong));
 }
 
 .bijux-detail-tabs {
@@ -367,19 +406,19 @@ button {
 }
 
 .bijux-site-tabs .md-grid::before {
-  background: linear-gradient(90deg, rgba(40, 53, 123, 0.98), rgba(40, 53, 123, 0));
+  background: linear-gradient(90deg, var(--bijux-ribbon-bg), var(--bijux-ribbon-fade));
 }
 
 .bijux-site-tabs .md-grid::after {
-  background: linear-gradient(270deg, rgba(40, 53, 123, 0.98), rgba(40, 53, 123, 0));
+  background: linear-gradient(270deg, var(--bijux-ribbon-bg-strong), var(--bijux-ribbon-fade));
 }
 
 .bijux-detail-tabs .md-grid::before {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, var(--bijux-detail-bg), rgba(255, 255, 255, 0));
 }
 
 .bijux-detail-tabs .md-grid::after {
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+  background: linear-gradient(270deg, var(--bijux-detail-bg), rgba(255, 255, 255, 0));
 }
 
 .md-sidebar--primary .md-nav {
@@ -454,11 +493,53 @@ button {
   }
 }
 
+@media screen and (max-width: 60em) {
+  .bijux-header-tools {
+    gap: 0.35rem;
+  }
+
+  .bijux-header-tools .md-search__inner {
+    width: min(11.5rem, 46vw);
+  }
+
+  .bijux-map-frame iframe {
+    min-height: 64vh;
+  }
+}
+
 @media screen and (max-width: 76.2344em) {
   .bijux-hub-strip,
   .bijux-site-tabs,
   .bijux-detail-tabs {
     display: none;
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .bijux-header-tools .md-source {
+    display: none;
+  }
+
+  .bijux-header-tools .md-search__inner {
+    width: min(10.5rem, calc(100vw - 9rem));
+  }
+
+  .bijux-quicklinks {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .md-typeset .md-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .bijux-map-frame iframe {
+    min-height: 58vh;
+  }
+
+  .bijux-media-grid {
+    grid-template-columns: 1fr;
   }
 }
 
