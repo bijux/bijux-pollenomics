@@ -641,7 +641,22 @@ button {
 
   .bijux-quicklinks {
     display: grid;
+    gap: 0.65rem;
     grid-template-columns: 1fr;
+  }
+
+  .bijux-panel-grid,
+  .bijux-media-grid {
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+    margin: 1.25rem 0;
+  }
+
+  .bijux-panel,
+  .bijux-callout {
+    border-radius: 0.9rem;
+    box-shadow: 0 12px 26px rgba(30, 41, 89, 0.08);
+    padding: 0.95rem 1rem;
   }
 
   .md-typeset .md-button {
@@ -653,9 +668,6 @@ button {
     min-height: 58vh;
   }
 
-  .bijux-media-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .bijux-media-grid {
