@@ -8,6 +8,15 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.1 - 2026-04-10
+
+### Changed
+
+- Tag-derived fallback versions now align with the synchronized `v0.1.1`
+  pollenomics release line.
+- Source-checkout version fallbacks and command-line version checks now target
+  `0.1.1` as the current package release version.
+
 ## 0.1.0 - 2026-04-10
 
 ### Added
