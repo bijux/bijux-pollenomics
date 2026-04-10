@@ -32,8 +32,8 @@ jobs:
       build_targets: ${{ matrix.build_targets || 'build' }}
       dist_subdir: ${{ matrix.dist_subdir || 'build' }}
 
-  publish:
-    name: publish-${{ matrix.package_slug }}
+  publish_pypi:
+    name: publish-pypi-${{ matrix.package_slug }}
     needs: build
     runs-on: ubuntu-latest
     strategy:
@@ -59,3 +59,76 @@ jobs:
           password: ${{ secrets.PYPI_API_TOKEN }}
           packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
           skip-existing: true
+
+  publish_ghcr:
+    name: publish-ghcr-${{ matrix.package_slug }}
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package_slug: bijux-pollenomics
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Download release artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: ${{ matrix.package_slug }}-release
+          path: .github/tmp/${{ matrix.package_slug }}-release
+
+      - name: Install ORAS
+        uses: oras-project/setup-oras@v1
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish release bundle to GHCR
+        shell: bash
+        run: |
+          set -euo pipefail
+          stage_dir=".github/tmp/${{ matrix.package_slug }}-release"
+          archive_dir=".github/tmp/${{ matrix.package_slug }}-ghcr"
+          archive_path="${archive_dir}/${{ matrix.package_slug }}-${{ github.ref_name }}.tar.gz"
+          package_ref="ghcr.io/${{ github.repository }}/${{ matrix.package_slug }}"
+          mkdir -p "$archive_dir"
+          tar -C "$stage_dir" -czf "$archive_path" .
+          oras push "${package_ref}:${{ github.ref_name }}" \
+            --artifact-type application/vnd.bijux.release-bundle.v1+tar \
+            --annotation "org.opencontainers.image.title=${{ matrix.package_slug }}" \
+            --annotation "org.opencontainers.image.version=${{ github.ref_name }}" \
+            --annotation "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --annotation "org.opencontainers.image.revision=${{ github.sha }}" \
+            "${archive_path}:application/gzip"
+          oras tag "${package_ref}:${{ github.ref_name }}" latest
+
+  release:
+    name: github-release
+    needs:
+      - build
+      - publish_pypi
+      - publish_ghcr
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download staged release assets
+        uses: actions/download-artifact@v5
+        with:
+          pattern: "*-release"
+          path: .github/tmp/release-assets
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: .github/tmp/release-assets/**/*
+          fail_on_unmatched_files: true
+          generate_release_notes: true

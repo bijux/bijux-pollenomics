@@ -17,6 +17,7 @@ same thing.
 - `__version__` in `bijux_pollenomics/__init__.py`
 - package metadata in `packages/bijux-pollenomics/pyproject.toml`
 - AADR input version defaults in `config.py`
+- `publish.yml` for build, PyPI, GHCR, and GitHub Release publication
 
 ## Release Rule
 
