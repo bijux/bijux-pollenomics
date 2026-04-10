@@ -79,6 +79,7 @@ jobs:
           - package_slug: bijux-pollenomics
             package_dir: packages/bijux-pollenomics
             artifacts_dir: artifacts/bijux-pollenomics
+            check_targets: '["quality", "security", "api", "build", "sbom"]'
           - package_slug: bijux-pollenomics-dev
             package_dir: packages/bijux-pollenomics-dev
             artifacts_dir: artifacts/bijux-pollenomics-dev
