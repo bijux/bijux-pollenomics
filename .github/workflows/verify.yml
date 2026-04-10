@@ -6,11 +6,13 @@ on:
     # Keep branch verification focused on automation, docs, and package surfaces.
     paths:
       - ".github/workflows/**"
+      - "apis/**"
       - "configs/**"
       - "docs/**"
       - "makes/**"
       - "packages/**"
       - "Makefile"
+      - "mkdocs.shared.yml"
       - "mkdocs.yml"
       - "pyproject.toml"
       - "uv.lock"
@@ -19,11 +21,13 @@ on:
     # Mirror the push filter so pull requests validate the same repository surfaces.
     paths:
       - ".github/workflows/**"
+      - "apis/**"
       - "configs/**"
       - "docs/**"
       - "makes/**"
       - "packages/**"
       - "Makefile"
+      - "mkdocs.shared.yml"
       - "mkdocs.yml"
       - "pyproject.toml"
       - "uv.lock"
