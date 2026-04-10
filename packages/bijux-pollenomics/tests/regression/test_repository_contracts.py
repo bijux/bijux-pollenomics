@@ -126,7 +126,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("report-country <country>", command_reference)
         self.assertIn("report-multi-country-map <countries...>", command_reference)
         self.assertIn("publish-reports", command_reference)
-        self.assertIn("`--output-root` defaults to `data` for collection", command_reference)
+        self.assertIn(
+            "`--output-root` defaults to `data` for collection", command_reference
+        )
         self.assertIn("for collection or `docs/report` for", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
 
@@ -260,9 +262,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("Published report bundles live under `docs/report/<country-slug>/`", published_artifacts)
-        self.assertIn("country bundles under `docs/report/<country-slug>/`", report_layout)
-        self.assertIn("the shared atlas under `docs/report/nordic-atlas/`", report_layout)
+        self.assertIn(
+            "Published report bundles live under `docs/report/<country-slug>/`",
+            published_artifacts,
+        )
+        self.assertIn(
+            "country bundles under `docs/report/<country-slug>/`", report_layout
+        )
+        self.assertIn(
+            "the shared atlas under `docs/report/nordic-atlas/`", report_layout
+        )
 
     def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(
         self,
@@ -282,8 +291,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("`deploy-docs.yml` builds the strict MkDocs site", automation_workflows)
-        self.assertIn("validates the docs output contract before publication", automation_workflows)
+        self.assertIn(
+            "`deploy-docs.yml` builds the strict MkDocs site", automation_workflows
+        )
+        self.assertIn(
+            "validates the docs output contract before publication",
+            automation_workflows,
+        )
         self.assertIn("strict MkDocs builds", testing_and_evidence)
         self.assertIn("site asset support", testing_and_evidence)
         self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)

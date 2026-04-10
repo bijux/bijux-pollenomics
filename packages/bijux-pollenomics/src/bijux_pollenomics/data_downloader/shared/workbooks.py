@@ -2,13 +2,10 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
-from typing import TYPE_CHECKING
+from typing import cast
 from zipfile import ZipFile
 
-if TYPE_CHECKING:
-    from xml.etree import ElementTree as ET
-else:
-    from defusedxml import ElementTree as ET
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 SPREADSHEET_NS = {"main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 PACKAGE_NS = {"pkg": "http://schemas.openxmlformats.org/package/2006/relationships"}
@@ -128,7 +125,7 @@ def cell_value(cell: ET.Element, shared_strings: list[str]) -> str:
             return ""
     if cell_type == "b":
         return "TRUE" if value == "1" else "FALSE"
-    return value
+    return cast(str, value)
 
 
 def trim_trailing_empty_values(values: list[str]) -> list[str]:

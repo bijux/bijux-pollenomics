@@ -20,8 +20,8 @@ QUALITY_POST_TARGETS := quality-compileall
 BUILD_PACKAGE_NAME := bijux-pollenomics
 BUILD_TEMP_CLEAN_PATHS := build dist *.egg-info
 PACKAGE_NAME := bijux-pollenomics
-API_FREEZE_COMMAND := $(VENV_PYTHON) -m bijux_pollenomics_dev.api.freeze_contracts
-API_OPENAPI_DRIFT_COMMAND := $(VENV_PYTHON) -m bijux_pollenomics_dev.api.openapi_drift
+API_FREEZE_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.freeze_contracts
+API_OPENAPI_DRIFT_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.openapi_drift
 
 quality-compileall:
 	@"$(VENV_PYTHON)" -m compileall src | tee "$(PROJECT_ARTIFACTS_DIR)/quality/compileall.log"
