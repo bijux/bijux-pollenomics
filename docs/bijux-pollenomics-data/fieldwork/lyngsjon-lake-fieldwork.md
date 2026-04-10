@@ -41,8 +41,8 @@ map point to a real collection day rather than to a database row alone.
 
 <figure class="bijux-media-card">
   <video controls preload="metadata" muted playsinline>
-    <source src="../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
-    <a href="../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
+    <source src="../../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
+    <a href="../../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
   </video>
   <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts with sound off by default.</figcaption>
 </figure>
