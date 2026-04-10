@@ -21,7 +21,7 @@ The supported setup path is repository-first.
 
 ```bash
 make install
-artifacts/.venv/bin/bijux-pollenomics --version
+artifacts/root/check-venv/bin/bijux-pollenomics --version
 ```
 
 `make install` creates the editable repository environment used for package,

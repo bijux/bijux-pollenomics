@@ -10,7 +10,7 @@ last_reviewed: 2026-04-10
 # Environment Model
 
 The make system centers on one repository-local virtual environment under
-`artifacts/.venv` and shared environment variables defined by the root make
+`artifacts/root/check-venv` and shared environment variables defined by the root make
 files.
 
 ## Purpose

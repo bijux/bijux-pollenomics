@@ -133,7 +133,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         install_index = readme_text.index("make install")
         console_version_index = readme_text.index(
-            "artifacts/.venv/bin/bijux-pollenomics --version"
+            "artifacts/root/check-venv/bin/bijux-pollenomics --version"
         )
 
         self.assertLess(install_index, console_version_index)
@@ -150,7 +150,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         install_index = workflow_text.index("make install")
         console_version_index = workflow_text.index(
-            "artifacts/.venv/bin/bijux-pollenomics --version"
+            "artifacts/root/check-venv/bin/bijux-pollenomics --version"
         )
 
         self.assertLess(install_index, console_version_index)
