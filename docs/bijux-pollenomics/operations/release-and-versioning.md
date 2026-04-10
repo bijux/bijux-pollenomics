@@ -14,10 +14,17 @@ same thing.
 
 ## Version Anchors
 
-- `__version__` in `bijux_pollenomics/__init__.py`
-- package metadata in `packages/bijux-pollenomics/pyproject.toml`
+- `tool.hatch.version` in `packages/bijux-pollenomics/pyproject.toml`
+- installed package metadata resolved by `importlib.metadata`
 - AADR input version defaults in `config.py`
 - `publish.yml` for build, PyPI, GHCR, and GitHub Release publication
+
+## Version Source
+
+Package versions are derived from repository tags through `hatch-vcs`, with a
+checked-in fallback for source trees that are not inside a Git tag context.
+That keeps local builds, CI builds, and published releases on one versioning
+model instead of mixing static file versions with tag-driven publication.
 
 ## Release Rule
 
