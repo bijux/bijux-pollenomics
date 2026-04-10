@@ -169,8 +169,45 @@ function bijuxRevealActiveNavigationTarget() {
   });
 }
 
+function bijuxRevealMobileDrawerContext() {
+  if (!window.matchMedia("(max-width: 76.2344em)").matches) {
+    return;
+  }
+
+  const activeMobileLink = document.querySelector(
+    ".md-sidebar--primary .bijux-nav--mobile .md-nav__link--active, " +
+      ".md-sidebar--primary .bijux-nav--mobile .md-nav__item--active > .md-nav__container > .md-nav__link, " +
+      ".md-sidebar--primary .bijux-nav--mobile .md-nav__item--active > .md-nav__link"
+  );
+
+  activeMobileLink?.scrollIntoView({
+    behavior: "auto",
+    block: "center",
+    inline: "nearest",
+  });
+}
+
+function bijuxBindMobileDrawerReveal() {
+  const drawerToggle = document.querySelector("#__drawer");
+  if (!drawerToggle || drawerToggle.dataset.bijuxRevealBound === "true") {
+    return;
+  }
+
+  drawerToggle.dataset.bijuxRevealBound = "true";
+  drawerToggle.addEventListener("change", () => {
+    if (!drawerToggle.checked) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      bijuxRevealMobileDrawerContext();
+    }, 180);
+  });
+}
+
 document$.subscribe(() => {
   bijuxSyncDetailStripVisibility();
   bijuxSyncDetailStripActiveState();
   bijuxRevealActiveNavigationTarget();
+  bijuxBindMobileDrawerReveal();
 });
