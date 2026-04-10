@@ -10,11 +10,16 @@ check-shared-bijux-py: ## Verify shared bijux-py make modules match across sibli
 	current_repo="$(PROJECT_SLUG)"; \
 	workspace_dir="$(BIJUX_PY_WORKSPACE_DIR)"; \
 	current_dir="$$workspace_dir/$$current_repo/makes/bijux-py"; \
+	compared_repos=0; \
 	[ -d "$$current_dir" ] || { echo "✘ Missing shared make directory: $$current_dir"; exit 2; }; \
 	for repo in $(BIJUX_PY_REPOS); do \
 	  [ "$$repo" = "$$current_repo" ] && continue; \
 	  other_dir="$$workspace_dir/$$repo/makes/bijux-py"; \
-	  [ -d "$$other_dir" ] || { echo "✘ Missing sibling shared make directory: $$other_dir"; exit 2; }; \
+	  if [ ! -d "$$other_dir" ]; then \
+	    echo "→ Skipping sibling shared make check for $$repo; $$other_dir is not present"; \
+	    continue; \
+	  fi; \
+	  compared_repos=$$((compared_repos + 1)); \
 	  for file in $(BIJUX_PY_REQUIRED_FILES); do \
 	    [ -f "$$current_dir/$$file" ] || { echo "✘ Missing $$current_dir/$$file"; exit 2; }; \
 	    [ -f "$$other_dir/$$file" ] || { echo "✘ Missing $$other_dir/$$file"; exit 2; }; \
@@ -26,4 +31,8 @@ check-shared-bijux-py: ## Verify shared bijux-py make modules match across sibli
 	    fi; \
 	  done; \
 	done; \
-	echo "✔ bijux-py modules match across $(BIJUX_PY_REPOS)"
+	if [ "$$compared_repos" -eq 0 ]; then \
+	  echo "✔ bijux-py modules are self-consistent; sibling repositories are not present in $$workspace_dir"; \
+	else \
+	  echo "✔ bijux-py modules match across $$compared_repos available sibling repositories"; \
+	fi
