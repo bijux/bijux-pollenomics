@@ -339,6 +339,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("check-shared-bijux-py", verify_workflow)
         self.assertIn("check-config-layout", verify_workflow)
         self.assertIn("check-make-layout", verify_workflow)
+        self.assertIn('"apis/**"', verify_workflow)
+        self.assertIn('"mkdocs.shared.yml"', verify_workflow)
         self.assertIn(
             "make check-shared-bijux-py check-config-layout check-make-layout help",
             verify_workflow,
