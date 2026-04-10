@@ -5,6 +5,15 @@ function bijuxNormalizePath(target) {
 }
 
 function bijuxBestSitePath() {
+  const authoredActiveLink = document.querySelector(
+    ".bijux-site-tabs [data-bijux-site-path][aria-current='page'], .bijux-site-tabs .bijux-tabs__item--active [data-bijux-site-path]"
+  );
+  if (authoredActiveLink) {
+    return bijuxNormalizePath(
+      authoredActiveLink.getAttribute("data-bijux-site-path") || "/"
+    );
+  }
+
   const currentPath = bijuxNormalizePath(window.location.pathname);
   const siteLinks = document.querySelectorAll(
     ".bijux-site-tabs [data-bijux-site-path]"
@@ -77,6 +86,9 @@ function bijuxSyncDetailStripVisibility() {
 function bijuxSyncDetailStripActiveState() {
   const activeStrip = document.querySelector("[data-bijux-detail-strip]:not([hidden])");
   const currentPath = bijuxNormalizePath(window.location.pathname);
+  const authoredActiveLink = activeStrip?.querySelector(
+    "[data-bijux-detail-path][aria-current='page'], .bijux-tabs__item--active [data-bijux-detail-path]"
+  );
 
   for (const item of document.querySelectorAll(
     "[data-bijux-detail-strip] .bijux-tabs__item"
@@ -95,16 +107,25 @@ function bijuxSyncDetailStripActiveState() {
 
   let activeLink = null;
 
-  for (const link of activeStrip.querySelectorAll("[data-bijux-detail-path]")) {
-    const linkPath = bijuxNormalizePath(
-      link.getAttribute("data-bijux-detail-path") || "/"
-    );
-    const isMatch =
-      currentPath === linkPath ||
-      (linkPath !== "/" && currentPath.startsWith(`${linkPath}/`));
+  if (authoredActiveLink) {
+    activeLink = {
+      path: bijuxNormalizePath(
+        authoredActiveLink.getAttribute("data-bijux-detail-path") || "/"
+      ),
+      node: authoredActiveLink,
+    };
+  } else {
+    for (const link of activeStrip.querySelectorAll("[data-bijux-detail-path]")) {
+      const linkPath = bijuxNormalizePath(
+        link.getAttribute("data-bijux-detail-path") || "/"
+      );
+      const isMatch =
+        currentPath === linkPath ||
+        (linkPath !== "/" && currentPath.startsWith(`${linkPath}/`));
 
-    if (isMatch && (!activeLink || linkPath.length > activeLink.path.length)) {
-      activeLink = { path: linkPath, node: link };
+      if (isMatch && (!activeLink || linkPath.length > activeLink.path.length)) {
+        activeLink = { path: linkPath, node: link };
+      }
     }
   }
 

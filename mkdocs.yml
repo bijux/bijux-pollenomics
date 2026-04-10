@@ -38,9 +38,6 @@ extra:
       - key: bijux-atlas
         label: Atlas
         url: https://bijux.io/bijux-atlas/
-      - key: bijux-genomics
-        label: Genomics
-        url: https://bijux.io/bijux-genomics/
       - key: bijux-proteomics
         label: Proteomics
         url: https://bijux.io/bijux-proteomics/

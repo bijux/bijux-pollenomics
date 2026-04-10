@@ -137,6 +137,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("https://bijux.io/bijux-pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
+        self.assertIn("https://bijux.io/bijux-core/", mkdocs_text)
+        self.assertNotIn("bijux-genomics", mkdocs_text)
         self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)
         self.assertIn("hooks:", mkdocs_text)
@@ -183,6 +185,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             (REPO_ROOT / "docs" / "apple-touch-icon-precomposed.png").exists()
         )
         self.assertFalse((REPO_ROOT / "docs" / "outputs" / "gallery").exists())
+
+    def test_navigation_sync_prefers_authored_active_links(self) -> None:
+        script_text = (
+            REPO_ROOT / "docs" / "assets" / "javascripts" / "navigation-sync.js"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn(
+            "[data-bijux-site-path][aria-current='page']",
+            script_text,
+        )
+        self.assertIn(
+            "[data-bijux-detail-path][aria-current='page']",
+            script_text,
+        )
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         ci_workflow = (
