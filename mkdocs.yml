@@ -16,7 +16,7 @@ watch:
   - docs/overrides
   - mkdocs.yml
   - mkdocs.shared.yml
-  - packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev
+  - packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs
 
 theme:
   custom_dir: docs/overrides

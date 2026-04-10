@@ -12,8 +12,8 @@ last_reviewed: 2026-04-10
 ## Current Areas
 
 - `api/` for freeze and drift tooling
+- `docs/site_assets.py` for docs publication assets
 - `quality/deptry_scan.py` for dependency review support
-- `site_assets.py` for docs publication assets
 - `trusted_process.py` for repository-safe command helpers
 
 ## Purpose

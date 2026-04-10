@@ -183,6 +183,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertNotIn("bijux-genomics", mkdocs_text)
         self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)
+        self.assertIn(
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs",
+            mkdocs_text,
+        )
+        self.assertNotIn(
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev\n",
+            mkdocs_text,
+        )
         self.assertIn("hooks:", mkdocs_text)
         self.assertIn("docs/hooks/publish_site_assets.py", mkdocs_text)
         self.assertTrue(
@@ -229,6 +237,17 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertTrue(
             (REPO_ROOT / "docs" / "hooks" / "publish_site_assets.py").exists()
+        )
+        self.assertTrue(
+            (
+                REPO_ROOT
+                / "packages"
+                / "bijux-pollenomics-dev"
+                / "src"
+                / "bijux_pollenomics_dev"
+                / "docs"
+                / "site_assets.py"
+            ).exists()
         )
         self.assertFalse((REPO_ROOT / "docs" / "favicon.ico").exists())
         self.assertFalse((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
