@@ -24,7 +24,28 @@
   {% set bijux_expand_scoped_groups = true %}
 {% endif %}
 {% import "partials/nav-item.html" as item with context %}
-<nav class="{{ class }}" aria-label="{{ lang.t('nav') }}" data-bijux-nav-empty="{{ 'false' if scoped.visible else 'true' }}" data-md-level="0">
+{% set bijux_primary_section_nav = false %}
+<nav class="{{ class }} bijux-nav bijux-nav--mobile" aria-label="{{ lang.t('nav') }}" data-bijux-nav-variant="mobile" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    {{ config.site_name }}
+  </label>
+  {% if config.repo_url %}
+    <div class="md-nav__source">
+      {% include "partials/source.html" %}
+    </div>
+  {% endif %}
+  <ul class="md-nav__list" data-md-scrollfix>
+    {% for nav_item in nav %}
+      {% set path = "__nav_mobile_" ~ loop.index %}
+      {{ item.render(nav_item, path, 1) }}
+    {% endfor %}
+  </ul>
+</nav>
+{% set bijux_primary_section_nav = true %}
+<nav class="{{ class }} bijux-nav bijux-nav--scoped" aria-label="{{ lang.t('nav') }}" data-bijux-nav-empty="{{ 'false' if scoped.visible else 'true' }}" data-bijux-nav-variant="scoped" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
       {% include "partials/logo.html" %}
@@ -39,7 +60,7 @@
   <ul class="md-nav__list" data-md-scrollfix>
     {% if scoped.visible %}
       {% for nav_item in scoped.items %}
-        {% set path = "__nav_" ~ loop.index %}
+        {% set path = "__nav_scoped_" ~ loop.index %}
         {{ item.render(nav_item, path, 1) }}
       {% endfor %}
     {% endif %}

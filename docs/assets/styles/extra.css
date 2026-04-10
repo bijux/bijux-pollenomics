@@ -425,11 +425,15 @@ button {
   padding-right: 0.2rem;
 }
 
+.md-sidebar--primary .bijux-nav--mobile {
+  display: none;
+}
+
 .md-sidebar--primary [data-bijux-nav-empty="true"] {
   display: none;
 }
 
-.md-sidebar--primary:has([data-bijux-nav-empty="true"]) {
+.md-sidebar--primary:has(.bijux-nav--scoped[data-bijux-nav-empty="true"]) {
   display: none;
 }
 
@@ -512,6 +516,22 @@ button {
   .bijux-site-tabs,
   .bijux-detail-tabs {
     display: none;
+  }
+
+  .md-sidebar--primary .bijux-nav--mobile {
+    display: block;
+  }
+
+  .md-sidebar--primary .bijux-nav--scoped {
+    display: none;
+  }
+
+  .md-sidebar--primary:has(.bijux-nav--mobile) {
+    display: block;
+  }
+
+  .md-sidebar--primary .bijux-nav--mobile[data-bijux-nav-empty="true"] {
+    display: block;
   }
 }
 
