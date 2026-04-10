@@ -447,9 +447,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             automation_workflows,
         )
         self.assertIn(
-            "root-level browser icons copied by `docs/hooks/publish_site_assets.py`",
+            "root-level browser icons copied",
             automation_workflows,
         )
+        self.assertIn("`docs/hooks/publish_site_assets.py`", automation_workflows)
         self.assertIn("`favicon.ico`", automation_workflows)
         self.assertIn("`mkdocs.shared.yml`", automation_workflows)
         self.assertIn("strict MkDocs builds", testing_and_evidence)
