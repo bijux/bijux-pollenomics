@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Protocol
 
-from bijux_pollenomics_dev.site_assets import publish_root_site_icons
+from bijux_pollenomics_dev.docs.site_assets import publish_root_site_icons
 
 
 class MkDocsBuildConfig(Protocol):
