@@ -13,10 +13,10 @@ The fastest way to understand the current product is to open the Nordic Evidence
 ## Start Here
 
 - inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
-- read the canonical docs home: [`docs/index.md`](docs/index.md)
-- review the runtime handbook: [`docs/bijux-pollenomics/index.md`](docs/bijux-pollenomics/index.md)
-- inspect the data reference: [`docs/bijux-pollenomics-data/index.md`](docs/bijux-pollenomics-data/index.md)
-- inspect repository maintenance rules: [`docs/bijux-pollenomics-maintain/index.md`](docs/bijux-pollenomics-maintain/index.md)
+- read the public docs home: <https://bijux.io/bijux-pollenomics/>
+- review the runtime handbook: <https://bijux.io/bijux-pollenomics/bijux-pollenomics/>
+- inspect the data reference: <https://bijux.io/bijux-pollenomics/bijux-pollenomics-data/>
+- inspect repository maintenance rules: <https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/>
 
 ## What This Repository Produces
 
@@ -107,7 +107,7 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [`docs/bijux-pollenomics/interfaces/entrypoints-and-examples.md`](docs/bijux-pollenomics/interfaces/entrypoints-and-examples.md) and [`docs/bijux-pollenomics/operations/common-workflows.md`](docs/bijux-pollenomics/operations/common-workflows.md).
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use <https://bijux.io/bijux-pollenomics/bijux-pollenomics/interfaces/entrypoints-and-examples/> and <https://bijux.io/bijux-pollenomics/bijux-pollenomics/operations/common-workflows/>.
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 

@@ -139,7 +139,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
 
-        self.assertIn("https://bijux.io/pollenomics/", mkdocs_text)
+        self.assertIn("https://bijux.io/bijux-pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
         self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
         self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
@@ -210,7 +210,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
         self.assertIn("DOCS_PUBLISH_REPOSITORY: bijux/pollenomics", deploy_workflow)
-        self.assertIn("DOCS_SITE_URL: https://bijux.io/pollenomics/", deploy_workflow)
+        self.assertIn(
+            "DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/",
+            deploy_workflow,
+        )
         self.assertIn("POLLENOMICS_PUBLISH_TOKEN", deploy_workflow)
         self.assertIn("artifacts/root/docs/site", deploy_workflow)
         self.assertIn(

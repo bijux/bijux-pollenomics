@@ -24,7 +24,7 @@ concurrency:
 
 env:
   DOCS_PUBLISH_REPOSITORY: bijux/pollenomics
-  DOCS_SITE_URL: https://bijux.io/pollenomics/
+  DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/
 
 jobs:
   build-and-publish:

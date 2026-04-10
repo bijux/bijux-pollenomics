@@ -8,7 +8,7 @@ info:
     Bijux Pollenomics HTTP delivery should preserve for evidence summaries,
     published report discovery, and atlas metadata.
 servers:
-  - url: https://bijux.io/pollenomics
+  - url: https://bijux.io/bijux-pollenomics
 paths:
   /v1/health:
     get:
