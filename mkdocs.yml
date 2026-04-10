@@ -31,7 +31,7 @@ extra:
         url: https://bijux.io/
       - key: core
         label: Core
-        url: https://bijux.io/
+        url: https://bijux.io/bijux-core/
       - key: bijux-canon
         label: Canon
         url: https://bijux.io/bijux-canon/
