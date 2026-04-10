@@ -93,6 +93,25 @@ jobs:
           fi
           cp "${dist_files[@]}" "$stage_dir"/
 
+      - name: Stage GitHub release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          stage_dir=".github/tmp/${{ inputs.package_slug }}-release"
+          dist_dir="${ARTIFACTS_DIR}/${{ inputs.dist_subdir }}"
+          rm -rf "$stage_dir"
+          mkdir -p "$stage_dir/dist"
+          while IFS= read -r -d '' file_path; do
+            cp "$file_path" "$stage_dir/dist"/
+          done < <(find "$dist_dir" -type f -print0 | sort -z)
+          sbom_dir="${ARTIFACTS_DIR}/sbom"
+          if [ -d "$sbom_dir" ]; then
+            mkdir -p "$stage_dir/sbom"
+            while IFS= read -r -d '' file_path; do
+              cp "$file_path" "$stage_dir/sbom"/
+            done < <(find "$sbom_dir" -type f -print0 | sort -z)
+          fi
+
       - name: Upload publish artifacts
         uses: actions/upload-artifact@v6
         with:
@@ -105,6 +124,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ inputs.package_slug }}-release
-          path: ${{ env.ARTIFACTS_DIR }}
-          if-no-files-found: ignore
+          path: .github/tmp/${{ inputs.package_slug }}-release/**/*
+          if-no-files-found: error
           retention-days: 14

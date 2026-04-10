@@ -17,6 +17,10 @@ shared and explicit.
 - `ci-package.yml`
 - `build-release-artifacts.yml`
 
+These files are workflow building blocks rather than top-level entrypoints, so
+they run through `verify.yml` and `publish.yml` instead of appearing as
+standalone manual workflows.
+
 ## Purpose
 
 This page records the reusable workflow layer used by the repository.

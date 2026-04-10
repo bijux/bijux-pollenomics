@@ -289,6 +289,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("name: publish", publish_workflow)
         self.assertIn("build-release-artifacts.yml", publish_workflow)
         self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
+        self.assertIn("publish_pypi:", publish_workflow)
+        self.assertIn("publish_ghcr:", publish_workflow)
+        self.assertIn("softprops/action-gh-release@v2", publish_workflow)
+        self.assertIn("oras-project/setup-oras@v1", publish_workflow)
+        self.assertIn("packages: write", publish_workflow)
         build_release_workflow = (
             REPO_ROOT / ".github" / "workflows" / "build-release-artifacts.yml"
         ).read_text(encoding="utf-8")
@@ -297,6 +302,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "No publish artifacts found under $dist_dir",
             build_release_workflow,
         )
+        self.assertIn("Stage GitHub release assets", build_release_workflow)
+        self.assertIn('sbom_dir="${ARTIFACTS_DIR}/sbom"', build_release_workflow)
         self.assertIn("check-shared-bijux-py", verify_workflow)
         self.assertIn("check-config-layout", verify_workflow)
         self.assertIn("check-make-layout", verify_workflow)
