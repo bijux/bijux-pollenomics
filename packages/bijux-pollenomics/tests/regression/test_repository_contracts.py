@@ -247,6 +247,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("name: publish", publish_workflow)
         self.assertIn("build-release-artifacts.yml", publish_workflow)
         self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
+        build_release_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "build-release-artifacts.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn('find "$dist_dir" -type f', build_release_workflow)
+        self.assertIn(
+            "No publish artifacts found under $dist_dir",
+            build_release_workflow,
+        )
         self.assertIn("check-shared-bijux-py", verify_workflow)
         self.assertIn("check-config-layout", verify_workflow)
         self.assertIn("check-make-layout", verify_workflow)
