@@ -369,6 +369,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("actions/deploy-pages@v4", deploy_workflow)
         self.assertIn("DOCS_SITE_DIR: artifacts/root/docs/build-site", deploy_workflow)
         self.assertIn("artifacts/root/docs/site", deploy_workflow)
+        self.assertIn('"mkdocs.shared.yml"', deploy_workflow)
         self.assertIn(
             'make docs PYTHON=python3.11 DOCS_BUILD_SITE_URL="${DOCS_SITE_URL}"',
             deploy_workflow,
@@ -450,6 +451,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             automation_workflows,
         )
         self.assertIn("`favicon.ico`", automation_workflows)
+        self.assertIn("`mkdocs.shared.yml`", automation_workflows)
         self.assertIn("strict MkDocs builds", testing_and_evidence)
         self.assertIn("site asset support", testing_and_evidence)
         self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)
