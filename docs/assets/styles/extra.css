@@ -659,6 +659,32 @@ button {
     padding: 0.95rem 1rem;
   }
 
+  .md-typeset pre,
+  .md-typeset .mermaid,
+  .md-typeset table:not([class]) {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .md-typeset pre > code {
+    font-size: 0.78rem;
+  }
+
+  .md-typeset table:not([class]) {
+    display: block;
+    font-size: 0.82rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .md-typeset .mermaid {
+    padding: 0.75rem;
+  }
+
+  .md-typeset .mermaid svg {
+    max-width: none;
+    min-width: 24rem;
+  }
+
   .md-typeset .md-button {
     justify-content: center;
     width: 100%;
