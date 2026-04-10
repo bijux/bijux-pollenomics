@@ -27,7 +27,7 @@ tracked data and outputs, and one handbook for repository maintenance.
 
 [![bijux-pollenomics](https://img.shields.io/pypi/v/bijux-pollenomics?label=bijux--pollenomics&logo=pypi)](https://pypi.org/project/bijux-pollenomics/)
 [![Atlas](https://img.shields.io/badge/product-nordic%20atlas-2563EB?logo=leaflet&logoColor=white)](report/nordic-atlas/nordic-atlas_map.html)
-[![Fieldwork](https://img.shields.io/badge/product-fieldwork-2563EB?logo=materialformkdocs&logoColor=white)](bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/)
+[![Fieldwork](https://img.shields.io/badge/product-fieldwork-2563EB?logo=materialformkdocs&logoColor=white)](bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md)
 
 [![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
 [![Data docs](https://img.shields.io/badge/docs-data-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics-data/)
