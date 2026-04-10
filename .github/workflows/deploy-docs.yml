@@ -25,6 +25,7 @@ concurrency:
 env:
   DOCS_PUBLISH_REPOSITORY: bijux/pollenomics
   DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/
+  DOCS_SITE_DIR: artifacts/root/docs/build-site
 
 jobs:
   build-and-publish:
@@ -81,9 +82,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f artifacts/root/docs/site/favicon.ico
-          test -f artifacts/root/docs/site/apple-touch-icon.png
-          test -f artifacts/root/docs/site/apple-touch-icon-precomposed.png
+          test -f "${DOCS_SITE_DIR}/favicon.ico"
+          test -f "${DOCS_SITE_DIR}/apple-touch-icon.png"
+          test -f "${DOCS_SITE_DIR}/apple-touch-icon-precomposed.png"
 
       - name: Publish built site to docs repository
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -102,7 +103,7 @@ jobs:
           git clone "https://x-access-token:${DOCS_PUBLISH_TOKEN}@github.com/${DOCS_PUBLISH_REPOSITORY}.git" "$publish_root"
 
           find "$publish_root" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
-          cp -R artifacts/root/docs/site/. "$publish_root"/
+          cp -R "${DOCS_SITE_DIR}"/. "$publish_root"/
           rm -f "$publish_root/CNAME"
           touch "$publish_root/.nojekyll"
 
