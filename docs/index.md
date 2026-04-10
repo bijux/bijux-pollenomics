@@ -55,6 +55,13 @@ tracked data and outputs, and one handbook for repository maintenance.
   <a class="md-button" href="bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
 
+<div class="bijux-map-mobile-note">
+  <strong>Phone view:</strong> Open the atlas in its own tab for panning, layer toggles, and map controls. The inline embed stays available on larger screens where the full layer stack fits.
+  <div class="bijux-quicklinks">
+    <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
+  </div>
+</div>
+
 <div class="bijux-map-frame">
   <iframe src="report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>

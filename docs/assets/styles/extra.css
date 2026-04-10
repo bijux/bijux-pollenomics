@@ -146,6 +146,11 @@ button {
   background: #fff;
 }
 
+.bijux-map-mobile-note {
+  display: none;
+  margin: 1rem 0 1.5rem;
+}
+
 .bijux-panel-grid {
   display: grid;
   gap: 1.15rem;
@@ -692,6 +697,14 @@ button {
 
   .bijux-map-frame iframe {
     min-height: 58vh;
+  }
+
+  .bijux-map-mobile-note {
+    display: block;
+  }
+
+  .bijux-map-frame {
+    display: none;
   }
 
 }
