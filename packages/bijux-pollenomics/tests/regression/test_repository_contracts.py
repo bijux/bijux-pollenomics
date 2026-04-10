@@ -350,9 +350,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("uses: ./.github/workflows/ci-package.yml", verify_workflow)
         self.assertIn("bijux-pollenomics-dev", verify_workflow)
         self.assertIn(
-            'check_targets: \'["quality", "security", "api", "build", "sbom"]\'',
+            'check_targets: \'["quality", "security", "api", "openapi-drift", "build", "sbom"]\'',
             verify_workflow,
         )
+        self.assertIn('["api", "openapi-drift"]', verify_workflow)
         self.assertIn("Confirm clean worktree after checks", verify_workflow)
         self.assertIn("git status --short", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
