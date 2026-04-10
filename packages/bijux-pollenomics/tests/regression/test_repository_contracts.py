@@ -63,7 +63,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         docs_text = (
-            REPO_ROOT / "docs" / "engineering" / "testing-and-evidence.md"
+            REPO_ROOT / "docs" / "bijux-pollenomics" / "quality" / "test-strategy.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -73,9 +73,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("make test-unit", readme_text)
         self.assertIn("make test-regression", readme_text)
         self.assertIn("make test-e2e", readme_text)
-        self.assertIn("packages/bijux-pollenomics/tests/unit/", docs_text)
-        self.assertIn("packages/bijux-pollenomics/tests/regression/", docs_text)
-        self.assertIn("packages/bijux-pollenomics/tests/e2e/", docs_text)
+        self.assertIn("`tests/unit/`", docs_text)
+        self.assertIn("`tests/regression/`", docs_text)
+        self.assertIn("`tests/e2e/`", docs_text)
 
     def test_docs_home_page_uses_repository_name_for_title_and_h1(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
@@ -99,7 +99,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_install_workflow_uses_console_script_smoke_after_install(self) -> None:
         workflow_text = (
-            REPO_ROOT / "docs" / "workflows" / "install-and-verify.md"
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics"
+            / "operations"
+            / "installation-and-setup.md"
         ).read_text(encoding="utf-8")
 
         install_index = workflow_text.index("make install")
@@ -115,25 +119,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (
-            REPO_ROOT / "docs" / "reference" / "command-reference.md"
+            REPO_ROOT / "docs" / "bijux-pollenomics" / "interfaces" / "cli-surface.md"
         ).read_text(encoding="utf-8")
 
-        bootstrap_section = command_reference.split(
-            "## Data Collection Commands", maxsplit=1
-        )[0]
-
-        self.assertIn(
-            "artifacts/.venv/bin/bijux-pollenomics collect-data all", command_reference
-        )
-        self.assertLess(
-            bootstrap_section.index("make install"),
-            bootstrap_section.index("artifacts/.venv/bin/bijux-pollenomics --version"),
-        )
-        self.assertIn("make package-check", command_reference)
-        self.assertIn("make package-smoke", command_reference)
-        self.assertIn("make package-source-smoke", command_reference)
-        self.assertIn("## Make Targets That Change Tracked State", command_reference)
-        self.assertIn("normalized case-insensitively", command_reference)
+        self.assertIn("collect-data <sources...>", command_reference)
+        self.assertIn("report-country <country>", command_reference)
+        self.assertIn("report-multi-country-map <countries...>", command_reference)
+        self.assertIn("publish-reports", command_reference)
+        self.assertIn("`--output-root` defaults to `data` for collection", command_reference)
+        self.assertIn("for collection or `docs/report` for", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
@@ -142,11 +136,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("https://bijux.io/bijux-pollenomics/", mkdocs_text)
         self.assertIn("edit/main/docs/", mkdocs_text)
         self.assertIn("site_dir: artifacts/root/docs/site", mkdocs_text)
-        self.assertIn("assets/javascripts/vendor/mermaid-11.6.0.min.js", mkdocs_text)
         self.assertIn("custom_dir: docs/overrides", mkdocs_text)
-        self.assertIn("favicon: assets/site-icons/favicon.ico", mkdocs_text)
         self.assertIn("hooks:", mkdocs_text)
         self.assertIn("docs/hooks/publish_site_assets.py", mkdocs_text)
+        self.assertTrue(
+            (
+                REPO_ROOT
+                / "docs"
+                / "assets"
+                / "javascripts"
+                / "vendor"
+                / "mermaid-11.6.0.min.js"
+            ).exists()
+        )
         self.assertNotIn("cdn.jsdelivr.net/npm/mermaid", mkdocs_text)
 
     def test_docs_keep_browser_icon_sources_under_assets(self) -> None:
@@ -167,7 +169,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "apple-touch-icon-precomposed.png"
             ).exists()
         )
-        self.assertTrue((REPO_ROOT / "docs" / "overrides" / "main.html").exists())
+        self.assertTrue(
+            (REPO_ROOT / "docs" / "overrides" / "partials" / "header.html").exists()
+        )
         self.assertTrue(
             (REPO_ROOT / "docs" / "hooks" / "publish_site_assets.py").exists()
         )
@@ -242,40 +246,47 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_report_docs_describe_final_summary_paths(self) -> None:
         published_artifacts = (
-            REPO_ROOT / "docs" / "outputs" / "published-artifacts.md"
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics-data"
+            / "outputs"
+            / "published-reports.md"
         ).read_text(encoding="utf-8")
         report_layout = (
-            REPO_ROOT / "docs" / "reference" / "report-layout.md"
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics"
+            / "interfaces"
+            / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("final `docs/report/...` output paths", published_artifacts)
-        self.assertIn("final `docs/report/...` bundle locations", report_layout)
+        self.assertIn("Published report bundles live under `docs/report/<country-slug>/`", published_artifacts)
+        self.assertIn("country bundles under `docs/report/<country-slug>/`", report_layout)
+        self.assertIn("the shared atlas under `docs/report/nordic-atlas/`", report_layout)
 
     def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(
         self,
     ) -> None:
         automation_workflows = (
-            REPO_ROOT / "docs" / "engineering" / "automation-workflows.md"
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics-maintain"
+            / "gh-workflows"
+            / "deploy-docs.md"
         ).read_text(encoding="utf-8")
         testing_and_evidence = (
-            REPO_ROOT / "docs" / "engineering" / "testing-and-evidence.md"
+            REPO_ROOT
+            / "docs"
+            / "bijux-pollenomics-maintain"
+            / "bijux-pollenomics-dev"
+            / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn(
-            "fails if `make check` leaves tracked or untracked repository drift behind",
-            automation_workflows,
-        )
-        self.assertIn("`publish.yml` publishes release artifacts", automation_workflows)
-        self.assertIn("`ci-package.yml`", automation_workflows)
-        self.assertIn("`build-release-artifacts.yml`", automation_workflows)
-        self.assertIn(
-            "published the browser-probed root icons into the site root",
-            automation_workflows,
-        )
-        self.assertIn(
-            "dedicated `bijux/pollenomics` Pages repository", automation_workflows
-        )
-        self.assertIn("clean repository tree after verification", testing_and_evidence)
+        self.assertIn("`deploy-docs.yml` builds the strict MkDocs site", automation_workflows)
+        self.assertIn("validates the docs output contract before publication", automation_workflows)
+        self.assertIn("strict MkDocs builds", testing_and_evidence)
+        self.assertIn("site asset support", testing_and_evidence)
+        self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)
 
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
