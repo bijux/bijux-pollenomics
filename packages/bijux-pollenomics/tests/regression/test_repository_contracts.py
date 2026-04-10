@@ -284,6 +284,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("workflow_call:", ci_workflow)
+        self.assertIn(
+            "name: tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
+            ci_workflow,
+        )
+        self.assertIn(
+            "name: checks-${{ inputs.package_slug }}-${{ matrix.target }}",
+            ci_workflow,
+        )
+        self.assertIn("name: lint-${{ inputs.package_slug }}", ci_workflow)
         self.assertIn("cache-dependency-glob: uv.lock", ci_workflow)
         self.assertIn('make -f "$makefile" -C', ci_workflow)
         self.assertIn("name: publish", publish_workflow)
@@ -300,6 +309,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn('find "$dist_dir" -type f', build_release_workflow)
         self.assertIn(
             "No publish artifacts found under $dist_dir",
+            build_release_workflow,
+        )
+        self.assertIn(
+            "name: build-release-artifacts-${{ inputs.package_slug }}",
             build_release_workflow,
         )
         self.assertIn("Stage GitHub release assets", build_release_workflow)

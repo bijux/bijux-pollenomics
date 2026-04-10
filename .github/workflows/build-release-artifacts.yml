@@ -34,6 +34,7 @@ concurrency:
 
 jobs:
   build:
+    name: build-release-artifacts-${{ inputs.package_slug }}
     runs-on: ubuntu-latest
     env:
       ARTIFACTS_DIR: ${{ inputs.artifacts_dir }}
