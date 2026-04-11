@@ -1,10 +1,14 @@
+[build-system]
+requires = ["hatchling>=1.27.0,<1.28", "hatch-vcs>=0.4.0,<1.0"]
+build-backend = "hatchling.build"
+
 [project]
 name = "bijux-pollenomics-repository"
-version = "0.1.2"
 description = "Repository workspace for bijux-pollenomics."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+dynamic = ["version"]
 
 [project.urls]
 Documentation = "https://bijux.io/bijux-pollenomics/"
@@ -27,6 +31,8 @@ dev = [
 name = "cz_conventional_commits"
 major_version_zero = true
 annotated_tag = true
+version_provider = "scm"
+tag_format = "v$version"
 update_changelog_on_bump = false
 
 [tool.bijux_pollenomics]
@@ -45,3 +51,12 @@ bijux-pollenomics-dev = { workspace = true }
 
 [tool.uv.workspace]
 members = ["packages/*"]
+
+[tool.hatch.version]
+source = "vcs"
+tag-pattern = "^v(?P<version>.*)$"
+fallback-version = "0.1.2"
+raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = ".", search_parent_directories = true }
+
+[tool.hatch.build.targets.wheel]
+bypass-selection = true

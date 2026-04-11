@@ -263,8 +263,7 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "bijux-pollenomics-repository"
-version = "0.1.2"
-source = { virtual = "." }
+source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
