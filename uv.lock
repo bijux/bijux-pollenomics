@@ -208,7 +208,6 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "bijux-pollenomics-dev"
-version = "0.1.0"
 source = { editable = "packages/bijux-pollenomics-dev" }
 dependencies = [
     { name = "pyyaml" },
@@ -264,7 +263,7 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "bijux-pollenomics-repository"
-version = "0.1.0"
+version = "0.1.2"
 source = { virtual = "." }
 
 [package.dev-dependencies]
