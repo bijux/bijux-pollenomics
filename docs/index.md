@@ -21,17 +21,22 @@ The page layout now follows the package-handbook pattern used across Bijux
 documentation: one handbook for the runtime package, one reference tree for
 tracked data and outputs, and one handbook for repository maintenance.
 
+<!-- bijux-pollenomics-badges:generated:start -->
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
+[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
+[![Publish](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml)
+[![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 [![Release](https://img.shields.io/github/v/release/bijux/bijux-pollenomics?display_name=tag&label=release)](https://github.com/bijux/bijux-pollenomics/releases)
-[![GHCR bundles](https://img.shields.io/badge/ghcr-01%20bundle-181717?logo=github)](https://github.com/orgs/bijux/packages?repo_name=bijux-pollenomics)
-[![Published packages](https://img.shields.io/badge/published%20packages-01-2563EB)](https://github.com/bijux/bijux-pollenomics/tree/main/packages)
+[![GHCR packages](https://img.shields.io/badge/ghcr-1%20packages-181717?logo=github)](https://github.com/bijux?tab=packages)
+[![Published packages](https://img.shields.io/badge/published%20packages-1-2563EB)](https://github.com/bijux/bijux-pollenomics/tree/main/packages)
 
 [![bijux-pollenomics](https://img.shields.io/pypi/v/bijux-pollenomics?label=bijux--pollenomics&logo=pypi)](https://pypi.org/project/bijux-pollenomics/)
-[![Atlas](https://img.shields.io/badge/product-nordic%20atlas-2563EB?logo=leaflet&logoColor=white)](report/nordic-atlas/nordic-atlas_map.html)
-[![Fieldwork](https://img.shields.io/badge/product-fieldwork-2563EB?logo=materialformkdocs&logoColor=white)](bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md)
+
+[![bijux-pollenomics](https://img.shields.io/badge/bijux--pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics)
 
 [![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
-[![Data docs](https://img.shields.io/badge/docs-data-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics-data/)
-[![Fieldwork docs](https://img.shields.io/badge/docs-fieldwork-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/)
+<!-- bijux-pollenomics-badges:generated:end -->
 
 <div class="bijux-callout">
   <strong>Start with the atlas.</strong> The rest of the site exists to answer four questions: what the repository is for, which commands rebuild it, where the files come from, and which limitations are still intentional.
