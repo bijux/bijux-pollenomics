@@ -1,26 +1,30 @@
 # bijux-pollenomics
 
+<!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
 [![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
 [![Publish](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 [![Release](https://img.shields.io/github/v/release/bijux/bijux-pollenomics?display_name=tag&label=release)](https://github.com/bijux/bijux-pollenomics/releases)
-[![GHCR bundles](https://img.shields.io/badge/ghcr-01%20bundle-181717?logo=github)](https://github.com/orgs/bijux/packages?repo_name=bijux-pollenomics)
-[![Published packages](https://img.shields.io/badge/published%20packages-01-2563EB)](https://github.com/bijux/bijux-pollenomics/tree/main/packages)
+[![GHCR packages](https://img.shields.io/badge/ghcr-1%20packages-181717?logo=github)](https://github.com/bijux?tab=packages)
+[![Published packages](https://img.shields.io/badge/published%20packages-1-2563EB)](https://github.com/bijux/bijux-pollenomics/tree/main/packages)
 
 [![bijux-pollenomics](https://img.shields.io/pypi/v/bijux-pollenomics?label=bijux--pollenomics&logo=pypi)](https://pypi.org/project/bijux-pollenomics/)
 
+[![bijux-pollenomics](https://img.shields.io/badge/bijux--pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics)
+
 [![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
+<!-- bijux-pollenomics-badges:generated:end -->
 
 `bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
 
 The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
 
-This repository publishes `01` package. Each release tag builds one staged
+This repository publishes `1` package. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
-to `ghcr.io/bijux/bijux-pollenomics/bijux-pollenomics`, and attaches the same
-staged assets to the GitHub Release.
+to its exact GHCR package page under the `bijux` account, and attaches the
+same staged assets to the GitHub Release.
 
 ## Start Here
 
@@ -41,11 +45,11 @@ Today, the checked-in repository produces four durable outcomes:
 
 ## Package Map
 
-The `01` publishable package in this repository is:
+The `1` publishable package in this repository is:
 
 | Package | Role | Links |
 | --- | --- | --- |
-| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | [![PyPI](https://img.shields.io/pypi/v/bijux-pollenomics?label=PyPI&logo=pypi)](https://pypi.org/project/bijux-pollenomics/) [![Docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/bijux-pollenomics/) [`source`](packages/bijux-pollenomics) |
+| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | [PyPI](https://pypi.org/project/bijux-pollenomics/) [Docs](https://bijux.io/bijux-pollenomics/bijux-pollenomics/) <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="packages/bijux-pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
 
 ## Current Scope
 
