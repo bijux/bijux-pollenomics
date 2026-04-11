@@ -8,6 +8,15 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.2 - 2026-04-11
+
+### Changed
+
+- Root README package-map links now render PyPI, docs, GHCR, and source as
+  badge links, matching the shared Bijux repository style.
+- Repository, package, and source-checkout fallback versions now align with the
+  synchronized `v0.1.2` pollenomics release line.
+
 ## 0.1.1 - 2026-04-10
 
 ### Changed
