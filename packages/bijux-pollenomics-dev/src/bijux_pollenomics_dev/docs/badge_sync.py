@@ -51,12 +51,14 @@ class BadgeTarget:
 
 
 def _workspace_metadata() -> dict[str, Any]:
+    """Load repository workspace metadata from the root `pyproject.toml`."""
     with (REPO_ROOT / "pyproject.toml").open("rb") as handle:
         data = tomllib.load(handle)
     return cast(dict[str, Any], data["tool"]["bijux_pollenomics"])
 
 
 def _package_project(package_slug: str) -> dict[str, Any]:
+    """Load one package's project table from its `pyproject.toml`."""
     pyproject_path = REPO_ROOT / "packages" / package_slug / "pyproject.toml"
     with pyproject_path.open("rb") as handle:
         data = tomllib.load(handle)
@@ -64,6 +66,7 @@ def _package_project(package_slug: str) -> dict[str, Any]:
 
 
 def _public_package_slugs() -> tuple[str, ...]:
+    """Return publishable package slugs, excluding the maintainer package."""
     workspace = _workspace_metadata()
     docs_package = cast(str, workspace["docs_package"])
     packages = cast(list[str], workspace["packages"])
@@ -73,20 +76,24 @@ def _public_package_slugs() -> tuple[str, ...]:
 
 
 def _shield_text(value: str) -> str:
+    """Escape a label so it renders correctly in Shields badge URLs."""
     return value.replace("-", "--").replace(" ", "%20")
 
 
 def _docs_badge_alt(distribution_name: str) -> str:
+    """Build the docs badge alt text for one distribution."""
     return f"{distribution_name} docs"
 
 
 def _short_family_label(distribution_name: str) -> str:
+    """Shorten the family prefix so badge labels stay compact."""
     if distribution_name.startswith("bijux-pollenomics-"):
         return distribution_name.removeprefix("bijux-pollenomics-")
     return distribution_name
 
 
 def _package_record(package_slug: str) -> PackageBadgeRecord:
+    """Assemble the badge metadata for one public package."""
     project = _package_project(package_slug)
     distribution_name = str(project["name"])
     docs_url = str(project.get("urls", {}).get("Documentation", ""))
@@ -126,6 +133,8 @@ def load_badge_catalog() -> dict[str, str]:
 
 
 def _render_template(template: str, context: dict[str, str]) -> str:
+    """Render one badge template with the provided placeholder values."""
+
     def replace(match: re.Match[str]) -> str:
         key = match.group("name")
         try:
@@ -137,6 +146,7 @@ def _render_template(template: str, context: dict[str, str]) -> str:
 
 
 def _record_context(record: PackageBadgeRecord) -> dict[str, str]:
+    """Convert a badge record into the template context mapping."""
     return {
         "distribution_name": record.distribution_name,
         "docs_badge_alt": record.docs_badge_alt,
@@ -149,6 +159,7 @@ def _record_context(record: PackageBadgeRecord) -> dict[str, str]:
 
 
 def _render_badge_group(template: str, records: tuple[PackageBadgeRecord, ...]) -> str:
+    """Render one badge family line for every record in order."""
     badges = [_render_template(template, _record_context(record)) for record in records]
     if not badges:
         return ""
@@ -158,6 +169,7 @@ def _render_badge_group(template: str, records: tuple[PackageBadgeRecord, ...]) 
 def _prioritize_record(
     records: tuple[PackageBadgeRecord, ...], current: PackageBadgeRecord
 ) -> tuple[PackageBadgeRecord, ...]:
+    """Move the current package to the front of the rendered badge order."""
     return (current,) + tuple(
         record for record in records if record.package_slug != current.package_slug
     )
@@ -166,6 +178,7 @@ def _prioritize_record(
 def _render_badge_groups(
     catalog: dict[str, str], records: tuple[PackageBadgeRecord, ...]
 ) -> list[str]:
+    """Render the configured badge families in their canonical order."""
     return [
         _render_badge_group(catalog[template_name], records)
         for template_name in BADGE_GROUPS
@@ -175,6 +188,7 @@ def _render_badge_groups(
 def _render_repository_badges(
     catalog: dict[str, str], records: tuple[PackageBadgeRecord, ...]
 ) -> str:
+    """Render the repository-level badge block."""
     sections = [
         _render_template(
             catalog["repository-summary"],
@@ -190,6 +204,7 @@ def _render_package_badges(
     record: PackageBadgeRecord,
     records: tuple[PackageBadgeRecord, ...],
 ) -> str:
+    """Render the package-level badge block with the current package first."""
     ordered_records = _prioritize_record(records, record)
     sections = [
         _render_template(catalog["package-summary"], _record_context(record)),
@@ -199,6 +214,7 @@ def _render_package_badges(
 
 
 def _render_maintainer_badges(catalog: dict[str, str]) -> str:
+    """Render the maintainer package badge block."""
     return catalog["maintainer-summary"]
 
 
@@ -238,6 +254,7 @@ def render_badge_block(target: BadgeTarget) -> str:
 
 
 def _managed_block(rendered_badges: str) -> str:
+    """Wrap rendered badges in the managed-section markers."""
     return f"{START_MARKER}\n{rendered_badges.rstrip()}\n{END_MARKER}"
 
 
