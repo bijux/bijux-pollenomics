@@ -168,6 +168,7 @@ nav:
           - Security Gates: bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md
           - Schema Governance: bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md
           - Release Support: bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md
+          - Badge Catalog: badges.md
           - Documentation Integrity: bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md
       - makes:
           - makes: bijux-pollenomics-maintain/makes/index.md

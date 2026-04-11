@@ -22,10 +22,13 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/bijux.mk
 
 .PHONY: \
 	help list list-all install lock lock-check lint quality security test docs docs-check docs-serve api build sbom clean all \
-	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify \
+	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify sync-badges \
 	clean-root-artifacts root-check-env check-shared-bijux-py
 
 check: lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
+
+sync-badges: root-check-env ## Render shared badge blocks into managed README surfaces
+	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync sync
 
 data-prep: root-check-env ## Refresh tracked source data under data/
 	@BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1 "$(CLI)" collect-data all --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')" --output-root "$(CURDIR)/data"
