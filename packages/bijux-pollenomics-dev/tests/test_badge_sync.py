@@ -67,6 +67,19 @@ def test_package_badge_block_prioritizes_the_public_distribution() -> None:
     )
 
 
+def test_alias_package_badge_block_prioritizes_the_alias_distribution() -> None:
+    rendered = render_badge_block(
+        BadgeTarget(
+            path=Path("packages/pollenomics/README.md"),
+            kind="package",
+            package_slug="pollenomics",
+        )
+    )
+    assert "\n[![pollenomics](https://img.shields.io/pypi/v/pollenomics" in rendered
+    assert "\n[![pollenomics](https://img.shields.io/badge/pollenomics-ghcr" in rendered
+    assert "\n[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics" in rendered
+
+
 def test_badge_surfaces_are_synchronized() -> None:
     assert synchronize_badges(check=True) == []
 
@@ -76,6 +89,7 @@ def test_managed_surfaces_only_use_generated_badges() -> None:
         Path("README.md"),
         Path("docs/index.md"),
         Path("packages/bijux-pollenomics/README.md"),
+        Path("packages/pollenomics/README.md"),
         Path("packages/bijux-pollenomics-dev/README.md"),
     ]
     for path in targets:

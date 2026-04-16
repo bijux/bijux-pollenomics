@@ -222,14 +222,18 @@ def iter_badge_targets() -> tuple[BadgeTarget, ...]:
     """Enumerate documentation surfaces that consume managed badge blocks."""
     workspace = _workspace_metadata()
     docs_package = cast(str, workspace["docs_package"])
+    package_targets = tuple(
+        BadgeTarget(
+            path=REPO_ROOT / "packages" / package_slug / "README.md",
+            kind="package",
+            package_slug=package_slug,
+        )
+        for package_slug in _public_package_slugs()
+    )
     return (
         BadgeTarget(path=REPO_ROOT / "README.md", kind="repository"),
         BadgeTarget(path=REPO_ROOT / "docs" / "index.md", kind="repository"),
-        BadgeTarget(
-            path=REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md",
-            kind="package",
-            package_slug="bijux-pollenomics",
-        ),
+        *package_targets,
         BadgeTarget(
             path=REPO_ROOT / "packages" / docs_package / "README.md",
             kind="maintainer",
