@@ -79,8 +79,10 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertIn('requires-python = ">=3.11"', pyproject_text)
         self.assertIn("[tool.hatch.version]", pyproject_text)
         self.assertIn('source = "vcs"', pyproject_text)
-        self.assertIsNotNone(pyproject_fallback)
-        self.assertIsNotNone(module_fallback)
+        if pyproject_fallback is None:
+            self.fail("Missing fallback-version in package pyproject.toml")
+        if module_fallback is None:
+            self.fail("Missing fallback __version__ in package module")
         self.assertEqual(
             pyproject_fallback.group("version"), module_fallback.group("version")
         )
