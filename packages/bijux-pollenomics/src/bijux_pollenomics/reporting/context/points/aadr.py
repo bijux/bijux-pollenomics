@@ -6,7 +6,11 @@ from ....core.bp_time import build_bp_interval_label
 from ...models import SampleRecord
 
 
-def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]:
+def build_aadr_point_layer(
+    samples: Iterable[SampleRecord],
+    *,
+    version: str,
+) -> dict[str, object]:
     """Build the AADR point layer payload used by the shared map."""
     features = []
     for sample in samples:
@@ -45,7 +49,7 @@ def build_aadr_point_layer(samples: Iterable[SampleRecord]) -> dict[str, object]
         )
     return {
         "key": "aadr",
-        "label": "AADR aDNA samples",
+        "label": f"AADR-{version} aDNA samples",
         "count": len(features),
         "description": "Ancient DNA sample locations from AADR.",
         "group": "primary-evidence",

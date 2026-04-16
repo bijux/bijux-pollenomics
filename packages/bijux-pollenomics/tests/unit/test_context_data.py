@@ -26,6 +26,7 @@ from bijux_pollenomics.data_downloader.shared import (
     write_context_points_geojson,
 )
 from bijux_pollenomics.reporting.context import (
+    build_aadr_point_layer,
     build_context_layers,
     build_external_point_layer,
     build_external_polygon_layer,
@@ -425,6 +426,11 @@ class ContextDataTests(unittest.TestCase):
 
         self.assertTrue(layer["applies_time_filter"])
 
+    def test_build_aadr_point_layer_includes_release_version_in_label(self) -> None:
+        layer = build_aadr_point_layer(samples=(), version="v66")
+
+        self.assertEqual(layer["label"], "AADR-v66 aDNA samples")
+
     def test_build_context_layers_adds_fieldwork_point_when_gallery_media_exists(
         self,
     ) -> None:
@@ -439,6 +445,7 @@ class ContextDataTests(unittest.TestCase):
 
             point_layers, polygon_layers, extra_artifacts = build_context_layers(
                 samples=(),
+                version="v66",
                 output_dir=output_dir,
                 context_root=None,
             )

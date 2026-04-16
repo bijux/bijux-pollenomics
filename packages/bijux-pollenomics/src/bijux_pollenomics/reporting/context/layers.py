@@ -25,11 +25,12 @@ __all__ = [
 
 def build_context_layers(
     samples: Iterable[SampleRecord],
+    version: str,
     output_dir: Path,
     context_root: Path | None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
-    point_layers = [build_aadr_point_layer(samples)]
+    point_layers = [build_aadr_point_layer(samples, version=version)]
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
 
