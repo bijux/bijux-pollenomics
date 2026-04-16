@@ -1,0 +1,29 @@
+{
+  "source": "AADR",
+  "persistent_id": "doi:10.7910/DVN/FFIDCW",
+  "requested_version": "v66",
+  "dataverse_version_number": 10,
+  "dataverse_version_minor_number": 0,
+  "release_time": "2026-04-13T04:33:11Z",
+  "last_update_time": "2026-04-13T04:33:11Z",
+  "downloaded_files": [
+    "1240k/v66.1240K.aadr.PUB.anno",
+    "ho/v66.HO.aadr.PUB.anno"
+  ],
+  "anno_files": [
+    {
+      "dataset_name": "1240k",
+      "filename": "v66.1240K.aadr.PUB.anno",
+      "file_id": 13663706,
+      "md5": "4b4a0a8badb0575d448d768090c263bd",
+      "filesize": 13518214
+    },
+    {
+      "dataset_name": "ho",
+      "filename": "v66.HO.aadr.PUB.anno",
+      "file_id": 13664265,
+      "md5": "ac4cce0fc0e1bc88657bc7a77c2afaa9",
+      "filesize": 15540394
+    }
+  ]
+}

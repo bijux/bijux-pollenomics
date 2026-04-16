@@ -1,0 +1,20 @@
+{
+  "country": "Finland",
+  "version": "v66",
+  "generated_on": "2026-04-16",
+  "total_unique_samples": 32,
+  "total_unique_localities": 6,
+  "dataset_row_counts": {
+    "1240k": 23,
+    "ho": 32
+  },
+  "output_dir": "docs/report/finland",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "finland_aadr_v66_samples.csv",
+    "localities_csv": "finland_aadr_v66_localities.csv",
+    "samples_geojson": "finland_aadr_v66_samples.geojson",
+    "samples_markdown": "finland_aadr_v66_samples.md",
+    "summary_json": "finland_aadr_v66_summary.json"
+  }
+}

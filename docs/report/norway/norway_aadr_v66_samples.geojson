@@ -1,0 +1,4414 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.34,
+          61.15
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK422.SG",
+        "master_id": "7476",
+        "group_id": "Norway_Viking",
+        "locality": "Arnestad lille (25/1) (Nor South, Hedmark, \u00c5mot)",
+        "political_entity": "Norway",
+        "latitude": "61.15",
+        "longitude": "11.34",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.34,
+          61.15
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK394.SG",
+        "master_id": "49669",
+        "group_id": "Norway_Viking",
+        "locality": "Arnestad store (24/1) (Nor South, Hedmark, \u00c5mot)",
+        "political_entity": "Norway",
+        "latitude": "61.15",
+        "longitude": "11.34",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.34,
+          61.15
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK394_d.SG",
+        "master_id": "49802",
+        "group_id": "Norway_Viking",
+        "locality": "Arnestad store (24/1) (Nor South, Hedmark, \u00c5mot)",
+        "political_entity": "Norway",
+        "latitude": "61.15",
+        "longitude": "11.34",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.90684,
+          63.12322
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105915.SG",
+        "master_id": "117665",
+        "group_id": "Norway_Aunvollen_Viking",
+        "locality": "Aunvollen (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.12322",
+        "longitude": "16.90684",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "800-1050 calCE (1025\u00b1125 BP)",
+        "date_mean_bp": "943",
+        "date_stddev_bp": "134",
+        "time_start_bp": 675,
+        "time_end_bp": 1211,
+        "time_mean_bp": 943,
+        "time_label": "800-1050 calCE (1025\u00b1125 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.853029,
+          69.540721
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107012.SG",
+        "master_id": "118021",
+        "group_id": "Norway_Balsnes_IA",
+        "locality": "Balsnes (Northern Norway/ Troms)",
+        "political_entity": "Norway",
+        "latitude": "69.540721",
+        "longitude": "18.853029",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "600-800 calCE (1250\u00b1100 BP)",
+        "date_mean_bp": "1155",
+        "date_stddev_bp": "99",
+        "time_start_bp": 957,
+        "time_end_bp": 1353,
+        "time_mean_bp": 1155,
+        "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR119.HO",
+        "master_id": "32113",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR124.HO",
+        "master_id": "32116",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR106.HO",
+        "master_id": "32153",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR101.HO",
+        "master_id": "32161",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR146.HO",
+        "master_id": "32174",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR108.HO",
+        "master_id": "32182",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR126.HO",
+        "master_id": "32187",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR107.HO",
+        "master_id": "32198",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR109.HO",
+        "master_id": "32206",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR148.HO",
+        "master_id": "32236",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.358,
+          60.359
+        ]
+      },
+      "properties": {
+        "genetic_id": "NOR111.HO",
+        "master_id": "32253",
+        "group_id": "Norwegian",
+        "locality": "Bergen",
+        "political_entity": "Norway",
+        "latitude": "60.359",
+        "longitude": "5.358",
+        "publication": "LazaridisKrauseNature2014",
+        "year_first_published": "",
+        "full_date": "present",
+        "date_mean_bp": "0",
+        "date_stddev_bp": "0",
+        "time_start_bp": 0,
+        "time_end_bp": 0,
+        "time_mean_bp": 0,
+        "time_label": "present",
+        "data_type": "HumanOrigins",
+        "molecular_sex": "M",
+        "datasets": [
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2983,
+          63.74603
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105634.SG",
+        "master_id": "117643",
+        "group_id": "Norway_Bergvin_EBA",
+        "locality": "Bergvin (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.74603",
+        "longitude": "11.2983",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1700-500 calBCE (3050\u00b1600 BP)",
+        "date_mean_bp": "3360",
+        "date_stddev_bp": "777",
+        "time_start_bp": 1806,
+        "time_end_bp": 4914,
+        "time_mean_bp": 3360,
+        "time_label": "1700-500 calBCE (3050\u00b1600 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2983,
+          63.74603
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105635.SG",
+        "master_id": "117645",
+        "group_id": "Norway_Bergvin_EBA",
+        "locality": "Bergvin (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.74603",
+        "longitude": "11.2983",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1433-1299 calBCE (3316\u00b167 BP, UCIAMS-272872)",
+        "date_mean_bp": "3549",
+        "date_stddev_bp": "82",
+        "time_start_bp": 3385,
+        "time_end_bp": 3713,
+        "time_mean_bp": 3549,
+        "time_label": "1433-1299 calBCE (3316\u00b167 BP, UCIAMS-272872)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.446387,
+          64.263118
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107020.SG",
+        "master_id": "118035",
+        "group_id": "Norway_BomoSnasaM_Roman",
+        "locality": "Bomo, Sn\u00e5sa M (Central Norway/Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.263118",
+        "longitude": "12.446387",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "300-400 calCE (1600\u00b150 BP)",
+        "date_mean_bp": "1473",
+        "date_stddev_bp": "56",
+        "time_start_bp": 1361,
+        "time_end_bp": 1585,
+        "time_mean_bp": 1473,
+        "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.631408,
+          64.375798
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107036.SG",
+        "master_id": "118067",
+        "group_id": "Norway_BoleFlatangerMT210612A7271_IA_EarlyGermanic",
+        "locality": "B\u00f8le, Flatanger M, T21061:2, A7271 (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.375798",
+        "longitude": "10.631408",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "258-649 calCE (1496\u00b1196 BP, DF-1848, T-7760)",
+        "date_mean_bp": "1415",
+        "date_stddev_bp": "206",
+        "time_start_bp": 1003,
+        "time_end_bp": 1827,
+        "time_mean_bp": 1415,
+        "time_label": "258-649 calCE (1496\u00b1196 BP, DF-1848, T-7760)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.631408,
+          64.375798
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107035.SG",
+        "master_id": "118065",
+        "group_id": "Norway_BoleFlatangerMT210613A7272_Roman",
+        "locality": "B\u00f8le, Flatanger M, T21061:3 A7272 (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.375798",
+        "longitude": "10.631408",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "76-313 calCE (1756\u00b1118 BP, direct)",
+        "date_mean_bp": "1658",
+        "date_stddev_bp": "136",
+        "time_start_bp": 1386,
+        "time_end_bp": 1930,
+        "time_mean_bp": 1658,
+        "time_label": "76-313 calCE (1756\u00b1118 BP, direct)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.89233,
+          64.0331
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105640.SG",
+        "master_id": "117653",
+        "group_id": "Norway_Eid_MLN",
+        "locality": "Eid (Central Norway/ Lines, Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.0331",
+        "longitude": "9.89233",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "date_mean_bp": "4764",
+        "date_stddev_bp": "695",
+        "time_start_bp": 3374,
+        "time_end_bp": 6154,
+        "time_mean_bp": 4764,
+        "time_label": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.89233,
+          64.0331
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105641.SG",
+        "master_id": "117655",
+        "group_id": "Norway_Eid_MLN",
+        "locality": "Eid (Central Norway/ Lines, Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.0331",
+        "longitude": "9.89233",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "date_mean_bp": "4764",
+        "date_stddev_bp": "695",
+        "time_start_bp": 3374,
+        "time_end_bp": 6154,
+        "time_mean_bp": 4764,
+        "time_label": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.12716,
+          65.274799
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107037.SG",
+        "master_id": "118069",
+        "group_id": "Norway_EngeSomnaM_IA_LateGermanic",
+        "locality": "Enge, S\u00f8mna M (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "65.274799",
+        "longitude": "12.12716",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "655-774 calCE (1236\u00b160 BP, UCIAMS-289260)",
+        "date_mean_bp": "1159",
+        "date_stddev_bp": "75",
+        "time_start_bp": 1009,
+        "time_end_bp": 1309,
+        "time_mean_bp": 1159,
+        "time_label": "655-774 calCE (1236\u00b160 BP, UCIAMS-289260)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.017706,
+          70.117388
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107011.SG",
+        "master_id": "118019",
+        "group_id": "Norway_Engholmen_IA_LateGermanic",
+        "locality": "Engholmen (Northern Norway/Troms)",
+        "political_entity": "Norway",
+        "latitude": "70.117388",
+        "longitude": "19.017706",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1200-700 BCE",
+        "date_mean_bp": "2900",
+        "date_stddev_bp": "144",
+        "time_start_bp": 2612,
+        "time_end_bp": 3188,
+        "time_mean_bp": 2900,
+        "time_label": "1200-700 BCE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.017706,
+          70.117388
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107013.SG",
+        "master_id": "118023",
+        "group_id": "Norway_Engholmen2_IA_LateGermanic",
+        "locality": "Engholmen 2 (Northern Norway/Troms)",
+        "political_entity": "Norway",
+        "latitude": "70.117388",
+        "longitude": "19.017706",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "600-700 calCE (1300\u00b150 BP)",
+        "date_mean_bp": "1218",
+        "date_stddev_bp": "54",
+        "time_start_bp": 1110,
+        "time_end_bp": 1326,
+        "time_mean_bp": 1218,
+        "time_label": "600-700 calCE (1300\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.85861,
+          63.60579
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105916.SG",
+        "master_id": "117667",
+        "group_id": "Norway_Fauskland_LN_EBA_BellBeaker",
+        "locality": "Fauskland (Central Norway/ Hitra, Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.60579",
+        "longitude": "14.85861",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "2137-1984 calBCE (4010\u00b176 BP, TRa-17220 & TRa-17221)",
+        "date_mean_bp": "4503",
+        "date_stddev_bp": "134",
+        "time_start_bp": 4235,
+        "time_end_bp": 4771,
+        "time_mean_bp": 4503,
+        "time_label": "2137-1984 calBCE (4010\u00b176 BP, TRa-17220 & TRa-17221)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.38678,
+          63.84097
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105643.SG",
+        "master_id": "117659",
+        "group_id": "Norway_Folstad_EarlyRoman",
+        "locality": "F\u00f8lstad (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.84097",
+        "longitude": "11.38678",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "39 calBCE - 108 calCE (1916\u00b174 BP, UCIAMS-272873)",
+        "date_mean_bp": "1837",
+        "date_stddev_bp": "91",
+        "time_start_bp": 1655,
+        "time_end_bp": 2019,
+        "time_mean_bp": 1837,
+        "time_label": "39 calBCE - 108 calCE (1916\u00b174 BP, UCIAMS-272873)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.468748,
+          68.666659
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107014.SG",
+        "master_id": "118025",
+        "group_id": "Norway_Fore1_Roman",
+        "locality": "F\u00f8re 1 (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "68.666659",
+        "longitude": "14.468748",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "300-400 calCE (1600\u00b150 BP)",
+        "date_mean_bp": "1473",
+        "date_stddev_bp": "56",
+        "time_start_bp": 1361,
+        "time_end_bp": 1585,
+        "time_mean_bp": 1473,
+        "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.468748,
+          68.666659
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107015.SG",
+        "master_id": "118027",
+        "group_id": "Norway_Fore1_Roman",
+        "locality": "F\u00f8re 1 (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "68.666659",
+        "longitude": "14.468748",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "300-400 calCE (1600\u00b150 BP)",
+        "date_mean_bp": "1473",
+        "date_stddev_bp": "56",
+        "time_start_bp": 1361,
+        "time_end_bp": 1585,
+        "time_mean_bp": 1473,
+        "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1,
+          60.8
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK420.SG",
+        "master_id": "7474",
+        "group_id": "Norway_Viking",
+        "locality": "Hamar nor (Nor South, Innlandet, Hedmark)",
+        "political_entity": "Norway",
+        "latitude": "60.8",
+        "longitude": "11.1",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1100 CE",
+        "date_mean_bp": "1050",
+        "date_stddev_bp": "115",
+        "time_start_bp": 820,
+        "time_end_bp": 1280,
+        "time_mean_bp": 1050,
+        "time_label": "700-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.11521,
+          65.171328
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107030.SG",
+        "master_id": "118055",
+        "group_id": "Norway_HolmBindalM_IA_LateGermanic",
+        "locality": "Holm, Bindal M (Northern Norway / Nordland)",
+        "political_entity": "Norway",
+        "latitude": "65.171328",
+        "longitude": "12.11521",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "673-773 calCE (1227\u00b150 BP, UCIAMS-289258)",
+        "date_mean_bp": "1153",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1013,
+        "time_end_bp": 1293,
+        "time_mean_bp": 1153,
+        "time_label": "673-773 calCE (1227\u00b150 BP, UCIAMS-289258)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7,
+          66.0
+        ]
+      },
+      "properties": {
+        "genetic_id": "hvr009.SG",
+        "master_id": "40261",
+        "group_id": "Norway_PreViking",
+        "locality": "Horvnes (Nordland, Alstahaug)",
+        "political_entity": "Norway",
+        "latitude": "66",
+        "longitude": "12.7",
+        "publication": "Rodr\u00edguez-VarelaG\u00f6therstr\u00f6mCell2023",
+        "year_first_published": "",
+        "full_date": "60-215 calCE",
+        "date_mean_bp": "1813",
+        "date_stddev_bp": "45",
+        "time_start_bp": 1723,
+        "time_end_bp": 1903,
+        "time_mean_bp": 1813,
+        "time_label": "60-215 calCE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.72,
+          66.18
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK525.SG",
+        "master_id": "7576",
+        "group_id": "Norway_Viking",
+        "locality": "Hov (19/1, L\u00f8kta) (Nordland, D\u00f8nna)",
+        "political_entity": "Norway",
+        "latitude": "66.18",
+        "longitude": "12.72",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "800-900 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "29",
+        "time_start_bp": 1042,
+        "time_end_bp": 1158,
+        "time_mean_bp": 1100,
+        "time_label": "800-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7437,
+          58.064
+        ]
+      },
+      "properties": {
+        "genetic_id": "NEO17.SG",
+        "master_id": "46803",
+        "group_id": "Norway_Mesolithic",
+        "locality": "Hummervikholmen (Agder, S\u00f8gne nor)",
+        "political_entity": "Norway",
+        "latitude": "58.064",
+        "longitude": "7.7437",
+        "publication": "AllentoftWillerslevNature2024",
+        "year_first_published": "",
+        "full_date": "7589-7368 calBCE (8446\u00b151 BP, Ua-47892)",
+        "date_mean_bp": "9384",
+        "date_stddev_bp": "51",
+        "time_start_bp": 9282,
+        "time_end_bp": 9486,
+        "time_mean_bp": 9384,
+        "time_label": "7589-7368 calBCE (8446\u00b151 BP, Ua-47892)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7437,
+          58.064
+        ]
+      },
+      "properties": {
+        "genetic_id": "Hum1.SG",
+        "master_id": "6128",
+        "group_id": "Norway_Mesolithic",
+        "locality": "Hummervikholmen (Agder, S\u00f8gne nor)",
+        "political_entity": "Norway",
+        "latitude": "58.064",
+        "longitude": "7.7437",
+        "publication": "G\u00fcntherJakobssonPLoSBiol2018",
+        "year_first_published": "",
+        "full_date": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "date_mean_bp": "9364",
+        "date_stddev_bp": "51",
+        "time_start_bp": 9262,
+        "time_end_bp": 9466,
+        "time_mean_bp": 9364,
+        "time_label": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7437,
+          58.064
+        ]
+      },
+      "properties": {
+        "genetic_id": "Hum2.SG",
+        "master_id": "6129",
+        "group_id": "Norway_Mesolithic",
+        "locality": "Hummervikholmen (Agder, S\u00f8gne nor)",
+        "political_entity": "Norway",
+        "latitude": "58.064",
+        "longitude": "7.7437",
+        "publication": "G\u00fcntherJakobssonPLoSBiol2018",
+        "year_first_published": "",
+        "full_date": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "date_mean_bp": "9364",
+        "date_stddev_bp": "51",
+        "time_start_bp": 9262,
+        "time_end_bp": 9466,
+        "time_mean_bp": 9364,
+        "time_label": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.38673557,
+          59.29088516
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107001.SG",
+        "master_id": "117999",
+        "group_id": "Norway_JarlsbergHerregaard_IA_LateGermanic",
+        "locality": "Jarlsberg Herregaard (Southern Norway/ Vestfold)",
+        "political_entity": "Norway",
+        "latitude": "59.29088516",
+        "longitude": "10.38673557",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "500-1050 calCE (1175\u00b1275 BP)",
+        "date_mean_bp": "1107",
+        "date_stddev_bp": "261",
+        "time_start_bp": 585,
+        "time_end_bp": 1629,
+        "time_mean_bp": 1107,
+        "time_label": "500-1050 calCE (1175\u00b1275 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.43,
+          60.31
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK387.SG",
+        "master_id": "7442",
+        "group_id": "Norway_Viking",
+        "locality": "Jevnaker nor (Nor South, Viken, Oppland)",
+        "political_entity": "Norway",
+        "latitude": "60.31",
+        "longitude": "10.43",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1100 CE",
+        "date_mean_bp": "950",
+        "date_stddev_bp": "58",
+        "time_start_bp": 834,
+        "time_end_bp": 1066,
+        "time_mean_bp": 950,
+        "time_label": "900-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.43,
+          60.31
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK421.SG",
+        "master_id": "7475",
+        "group_id": "Norway_Viking",
+        "locality": "Jevnaker nor (Nor South, Viken, Oppland)",
+        "political_entity": "Norway",
+        "latitude": "60.31",
+        "longitude": "10.43",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1100 CE",
+        "date_mean_bp": "950",
+        "date_stddev_bp": "58",
+        "time_start_bp": 834,
+        "time_end_bp": 1066,
+        "time_mean_bp": 950,
+        "time_label": "900-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107026.SG",
+        "master_id": "118047",
+        "group_id": "Norway_Joa_IA_LateGermanic",
+        "locality": "Joa (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "429-549 calCE (1461\u00b160 BP, UCIAMS-282670)",
+        "date_mean_bp": "1360",
+        "date_stddev_bp": "54",
+        "time_start_bp": 1252,
+        "time_end_bp": 1468,
+        "time_mean_bp": 1360,
+        "time_label": "429-549 calCE (1461\u00b160 BP, UCIAMS-282670)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107027.SG",
+        "master_id": "118049",
+        "group_id": "Norway_Joa_IA",
+        "locality": "Joa (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "654-774 calCE (1236\u00b160 BP, UCIAMS-282671)",
+        "date_mean_bp": "1159",
+        "date_stddev_bp": "75",
+        "time_start_bp": 1009,
+        "time_end_bp": 1309,
+        "time_mean_bp": 1159,
+        "time_label": "654-774 calCE (1236\u00b160 BP, UCIAMS-282671)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107028.SG",
+        "master_id": "118051",
+        "group_id": "Norway_Joa_IA_LateGermanic",
+        "locality": "Joa (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "550-700 calCE (1325\u00b175 BP)",
+        "date_mean_bp": "1225",
+        "date_stddev_bp": "75",
+        "time_start_bp": 1075,
+        "time_end_bp": 1375,
+        "time_mean_bp": 1225,
+        "time_label": "550-700 calCE (1325\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107032.SG",
+        "master_id": "118059",
+        "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
+        "locality": "Joa, Namsos M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "652-774 calCE (1237\u00b161 BP, UCIAMS-282672)",
+        "date_mean_bp": "1159",
+        "date_stddev_bp": "76",
+        "time_start_bp": 1007,
+        "time_end_bp": 1311,
+        "time_mean_bp": 1159,
+        "time_label": "652-774 calCE (1237\u00b161 BP, UCIAMS-282672)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107033.SG",
+        "master_id": "118061",
+        "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
+        "locality": "Joa, Namsos M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "645-772 calCE (1242\u00b164 BP, UCIAMS-282673)",
+        "date_mean_bp": "1162",
+        "date_stddev_bp": "77",
+        "time_start_bp": 1008,
+        "time_end_bp": 1316,
+        "time_mean_bp": 1162,
+        "time_label": "645-772 calCE (1242\u00b164 BP, UCIAMS-282673)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.208485,
+          64.65448
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107034.SG",
+        "master_id": "118063",
+        "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
+        "locality": "Joa, Namsos M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.65448",
+        "longitude": "11.208485",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "661-774 calCE (1232\u00b156 BP, UCIAMS-289259)",
+        "date_mean_bp": "1157",
+        "date_stddev_bp": "74",
+        "time_start_bp": 1009,
+        "time_end_bp": 1305,
+        "time_mean_bp": 1157,
+        "time_label": "661-774 calCE (1232\u00b156 BP, UCIAMS-289259)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.919039,
+          59.178756
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105645.SG",
+        "master_id": "117661",
+        "group_id": "Norway_Krakeroy_EBA",
+        "locality": "Kr\u00e5ker\u00f8y (Southern Norway/ Viken)",
+        "political_entity": "Norway",
+        "latitude": "59.178756",
+        "longitude": "10.919039",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1420-1220 calBCE (3266\u00b195 BP, Rijksuniversiteit Groningen)",
+        "date_mean_bp": "3503",
+        "date_stddev_bp": "114",
+        "time_start_bp": 3275,
+        "time_end_bp": 3731,
+        "time_mean_bp": 3503,
+        "time_label": "1420-1220 calBCE (3266\u00b195 BP, Rijksuniversiteit Groningen)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.79,
+          67.64
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK529.SG",
+        "master_id": "7580",
+        "group_id": "Norway_Viking",
+        "locality": "Leines (6/-) (Nordland, Steigen)",
+        "political_entity": "Norway",
+        "latitude": "67.64",
+        "longitude": "14.79",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-900 CE",
+        "date_mean_bp": "1150",
+        "date_stddev_bp": "58",
+        "time_start_bp": 1034,
+        "time_end_bp": 1266,
+        "time_mean_bp": 1150,
+        "time_label": "700-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.05,
+          62.09
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK386.SG",
+        "master_id": "7441",
+        "group_id": "Norway_Viking",
+        "locality": "Lesja nor (Nor South, Innlandet, Oppland)",
+        "political_entity": "Norway",
+        "latitude": "62.09",
+        "longitude": "9.05",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "800-1100 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "87",
+        "time_start_bp": 826,
+        "time_end_bp": 1174,
+        "time_mean_bp": 1000,
+        "time_label": "800-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.181212,
+          67.985361
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107010.SG",
+        "master_id": "118017",
+        "group_id": "Norway_Lund_IA",
+        "locality": "Lund (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "67.985361",
+        "longitude": "15.181212",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "600-800 calCE (1250\u00b1100 BP)",
+        "date_mean_bp": "1155",
+        "date_stddev_bp": "99",
+        "time_start_bp": 957,
+        "time_end_bp": 1353,
+        "time_mean_bp": 1155,
+        "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.596496,
+          64.769002
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107024.SG",
+        "master_id": "118043",
+        "group_id": "Norway_LundNamsosM_IA_LateGermanic",
+        "locality": "Lund, Namsos M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "64.769002",
+        "longitude": "11.596496",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "682-878 calCE (1170\u00b198 BP, UCIAMS-282669)",
+        "date_mean_bp": "1091",
+        "date_stddev_bp": "105",
+        "time_start_bp": 881,
+        "time_end_bp": 1301,
+        "time_mean_bp": 1091,
+        "time_label": "682-878 calCE (1170\u00b198 BP, UCIAMS-282669)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.63,
+          60.29
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK415.SG",
+        "master_id": "7470",
+        "group_id": "Norway_Viking",
+        "locality": "Lunner nor (Nor South, Viken, Oppland)",
+        "political_entity": "Norway",
+        "latitude": "60.29",
+        "longitude": "10.63",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1100 CE",
+        "date_mean_bp": "1050",
+        "date_stddev_bp": "115",
+        "time_start_bp": 820,
+        "time_end_bp": 1280,
+        "time_mean_bp": 1050,
+        "time_label": "700-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.75,
+          63.7
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK523.SG",
+        "master_id": "7574",
+        "group_id": "Norway_IA",
+        "locality": "Melem (Herstaen) (84/-) (S\u00f8r-Tr\u00f8ndelag, Bjugn)",
+        "political_entity": "Norway",
+        "latitude": "63.7",
+        "longitude": "9.75",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1-1000 CE",
+        "date_mean_bp": "1450",
+        "date_stddev_bp": "288",
+        "time_start_bp": 874,
+        "time_end_bp": 2026,
+        "time_mean_bp": 1450,
+        "time_label": "1-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.045914,
+          68.870339
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107017.SG",
+        "master_id": "118031",
+        "group_id": "Norway_NordRollnes_IA",
+        "locality": "Nord-Rollnes (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "68.870339",
+        "longitude": "17.045914",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "550-800 calCE (1275\u00b1125 BP)",
+        "date_mean_bp": "1172",
+        "date_stddev_bp": "121",
+        "time_start_bp": 930,
+        "time_end_bp": 1414,
+        "time_mean_bp": 1172,
+        "time_label": "550-800 calCE (1275\u00b1125 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.045914,
+          68.870339
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107019.SG",
+        "master_id": "118033",
+        "group_id": "Norway_NordRollnes_IA",
+        "locality": "Nord-Rollnes (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "68.870339",
+        "longitude": "17.045914",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1300-1100 calBCE (1275\u00b1125 BP)",
+        "date_mean_bp": "1172",
+        "date_stddev_bp": "121",
+        "time_start_bp": 930,
+        "time_end_bp": 1414,
+        "time_mean_bp": 1172,
+        "time_label": "1300-1100 calBCE (1275\u00b1125 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.22,
+          63.44
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK548.SG",
+        "master_id": "7599",
+        "group_id": "Norway_Viking",
+        "locality": "Nord-Tr\u00f8ndelag (Stj\u00f8rdal, Kil s\u00f8ndre)",
+        "political_entity": "Norway",
+        "latitude": "63.44",
+        "longitude": "11.22",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "800-900 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "29",
+        "time_start_bp": 1042,
+        "time_end_bp": 1158,
+        "time_mean_bp": 1100,
+        "time_label": "800-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7,
+          67.69
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK518.SG",
+        "master_id": "7568",
+        "group_id": "Norway_Viking-1",
+        "locality": "Nordland, (17/- V\u00e5gehamn) (Nordland, V\u00e6r\u00f8y)",
+        "political_entity": "Norway",
+        "latitude": "67.69",
+        "longitude": "12.7",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "800-900 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "29",
+        "time_start_bp": 1042,
+        "time_end_bp": 1158,
+        "time_mean_bp": 1100,
+        "time_label": "800-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK113.SG",
+        "master_id": "7207",
+        "group_id": "Norway_Medieval-o",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK114.SG",
+        "master_id": "7208",
+        "group_id": "Norway_Medieval",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK116.SG",
+        "master_id": "7209",
+        "group_id": "Norway_Medieval",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK117.SG",
+        "master_id": "7210",
+        "group_id": "Norway_Medieval",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK118.SG",
+        "master_id": "7211",
+        "group_id": "Norway_Medieval",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK124.SG",
+        "master_id": "7215",
+        "group_id": "Norway_Medieval",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.39,
+          63.43
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK125.SG",
+        "master_id": "7216",
+        "group_id": "Norway_Medieval-o",
+        "locality": "Public Library Site/Folkebibliotekstomten (Trondheim)",
+        "political_entity": "Norway",
+        "latitude": "63.43",
+        "longitude": "10.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "1100-1300 CE",
+        "date_mean_bp": "750",
+        "date_stddev_bp": "58",
+        "time_start_bp": 634,
+        "time_end_bp": 866,
+        "time_mean_bp": 750,
+        "time_label": "1100-1300 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "U",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0,
+          60.84
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK393.SG",
+        "master_id": "7448",
+        "group_id": "Norway_Viking",
+        "locality": "Ringsaker nor (Nor South, Innlandet, Hedmark)",
+        "political_entity": "Norway",
+        "latitude": "60.84",
+        "longitude": "11",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0,
+          60.84
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK448.SG",
+        "master_id": "7500",
+        "group_id": "Norway_Viking",
+        "locality": "Ringsaker nor (Nor South, Innlandet, Hedmark)",
+        "political_entity": "Norway",
+        "latitude": "60.84",
+        "longitude": "11",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1100 CE",
+        "date_mean_bp": "1050",
+        "date_stddev_bp": "115",
+        "time_start_bp": 820,
+        "time_end_bp": 1280,
+        "time_mean_bp": 1050,
+        "time_label": "700-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.652246,
+          58.900214
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107044.SG",
+        "master_id": "118083",
+        "group_id": "Norway_RjoaSola_LateRoman",
+        "locality": "Rjoa, Sola (Western Norway/ Rogland)",
+        "political_entity": "Norway",
+        "latitude": "58.900214",
+        "longitude": "5.652246",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "325-400 calCE (1588\u00b138 BP)",
+        "date_mean_bp": "1464",
+        "date_stddev_bp": "43",
+        "time_start_bp": 1378,
+        "time_end_bp": 1550,
+        "time_mean_bp": 1464,
+        "time_label": "325-400 calCE (1588\u00b138 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.642296,
+          63.715837
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107029.SG",
+        "master_id": "118053",
+        "group_id": "Norway_RoyneOrlandetM_LateRoman",
+        "locality": "Royne, Orlandet M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.715837",
+        "longitude": "9.642296",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "300-400 calCE (1600\u00b150 BP)",
+        "date_mean_bp": "1473",
+        "date_stddev_bp": "56",
+        "time_start_bp": 1361,
+        "time_end_bp": 1585,
+        "time_mean_bp": 1473,
+        "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.39,
+          67.28
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK515.SG",
+        "master_id": "7565",
+        "group_id": "Norway_Viking",
+        "locality": "R\u00f8nvik nedre (32/100, R\u00f8nvik) (Nordland, Bod\u00f8)",
+        "political_entity": "Norway",
+        "latitude": "67.28",
+        "longitude": "14.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.39,
+          67.28
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK530.SG",
+        "master_id": "7581",
+        "group_id": "Norway_Viking",
+        "locality": "R\u00f8nvik nedre (32/100, R\u00f8nvik) (Nordland, Bod\u00f8)",
+        "political_entity": "Norway",
+        "latitude": "67.28",
+        "longitude": "14.39",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.42,
+          67.29
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK419.SG",
+        "master_id": "7473",
+        "group_id": "Norway_Viking",
+        "locality": "R\u00f8nvik \u00d8vre (31/-) (Nordland, Bod\u00f8)",
+        "political_entity": "Norway",
+        "latitude": "67.29",
+        "longitude": "14.42",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "500-1000 CE",
+        "date_mean_bp": "1200",
+        "date_stddev_bp": "144",
+        "time_start_bp": 912,
+        "time_end_bp": 1488,
+        "time_mean_bp": 1200,
+        "time_label": "500-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.57,
+          60.36
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK417.SG",
+        "master_id": "7471",
+        "group_id": "Norway_Viking",
+        "locality": "Sande\u00f8deg\u00e5rden on Nedre Hov (262/- or 263/-, Lindbak) (Nor South, Oppland, Gran)",
+        "political_entity": "Norway",
+        "latitude": "60.36",
+        "longitude": "10.57",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "600-1100 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "144",
+        "time_start_bp": 812,
+        "time_end_bp": 1388,
+        "time_mean_bp": 1100,
+        "time_label": "600-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.547228,
+          58.693992
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107042.SG",
+        "master_id": "118079",
+        "group_id": "Norway_SkeieKlepp_IA_EarlyGermanic",
+        "locality": "Skeie, Klepp (Western Norway/ Rogaland)",
+        "political_entity": "Norway",
+        "latitude": "58.693992",
+        "longitude": "5.547228",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.547228,
+          58.693992
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107043.SG",
+        "master_id": "118081",
+        "group_id": "Norway_SkeieKlepp_IA_EarlyGermanic",
+        "locality": "Skeie, Klepp (Western Norway/ Rogaland)",
+        "political_entity": "Norway",
+        "latitude": "58.693992",
+        "longitude": "5.547228",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.59,
+          59.22
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK389.SG",
+        "master_id": "7444",
+        "group_id": "Norway_Viking",
+        "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
+        "political_entity": "Norway",
+        "latitude": "59.22",
+        "longitude": "9.59",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.59,
+          59.22
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK390.SG",
+        "master_id": "7445",
+        "group_id": "Norway_IA",
+        "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
+        "political_entity": "Norway",
+        "latitude": "59.22",
+        "longitude": "9.59",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "400-600 CE",
+        "date_mean_bp": "1450",
+        "date_stddev_bp": "58",
+        "time_start_bp": 1334,
+        "time_end_bp": 1566,
+        "time_mean_bp": 1450,
+        "time_label": "400-600 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.59,
+          59.22
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK391.SG",
+        "master_id": "7446",
+        "group_id": "Norway_IA",
+        "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
+        "political_entity": "Norway",
+        "latitude": "59.22",
+        "longitude": "9.59",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "400-600 CE",
+        "date_mean_bp": "1450",
+        "date_stddev_bp": "58",
+        "time_start_bp": 1334,
+        "time_end_bp": 1566,
+        "time_mean_bp": 1450,
+        "time_label": "400-600 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.59,
+          59.22
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK392.SG",
+        "master_id": "7447",
+        "group_id": "Norway_Viking",
+        "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
+        "political_entity": "Norway",
+        "latitude": "59.22",
+        "longitude": "9.59",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1000 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "87",
+        "time_start_bp": 926,
+        "time_end_bp": 1274,
+        "time_mean_bp": 1100,
+        "time_label": "700-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2983,
+          63.74603
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105636.SG",
+        "master_id": "117647",
+        "group_id": "Norway_Skjeggesnes_EBA",
+        "locality": "Skjeggesnes (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "63.74603",
+        "longitude": "11.2983",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1300-1100 calBCE (3150\u00b1100 BP, TUa-2472)",
+        "date_mean_bp": "3349",
+        "date_stddev_bp": "124",
+        "time_start_bp": 3101,
+        "time_end_bp": 3597,
+        "time_mean_bp": 3349,
+        "time_label": "1300-1100 calBCE (3150\u00b1100 BP, TUa-2472)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2983,
+          63.74603
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105638.SG",
+        "master_id": "117649",
+        "group_id": "Norway_Skjeggesnes_EBA",
+        "locality": "Skjeggesnes (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "63.74603",
+        "longitude": "11.2983",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "date_mean_bp": "3349",
+        "date_stddev_bp": "124",
+        "time_start_bp": 3101,
+        "time_end_bp": 3597,
+        "time_mean_bp": 3349,
+        "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2983,
+          63.74603
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105639.SG",
+        "master_id": "117651",
+        "group_id": "Norway_Skjeggesnes_EBA",
+        "locality": "Skjeggesnes (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "63.74603",
+        "longitude": "11.2983",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "date_mean_bp": "3349",
+        "date_stddev_bp": "124",
+        "time_start_bp": 3101,
+        "time_end_bp": 3597,
+        "time_mean_bp": 3349,
+        "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4,
+          61.88
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK414.SG",
+        "master_id": "7469",
+        "group_id": "Norway_Viking",
+        "locality": "Skj\u00e5k nor (Nor South, Innlandet, Oppland)",
+        "political_entity": "Norway",
+        "latitude": "61.88",
+        "longitude": "8.4",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1100 CE",
+        "date_mean_bp": "950",
+        "date_stddev_bp": "58",
+        "time_start_bp": 834,
+        "time_end_bp": 1066,
+        "time_mean_bp": 950,
+        "time_label": "900-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107004.SG",
+        "master_id": "118005",
+        "group_id": "Norway_Skongeneshelleren_Roman",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "9-124 calCE (1884\u00b158 BP, UCIAMS-282667)",
+        "date_mean_bp": "1799",
+        "date_stddev_bp": "72",
+        "time_start_bp": 1655,
+        "time_end_bp": 1943,
+        "time_mean_bp": 1799,
+        "time_label": "9-124 calCE (1884\u00b158 BP, UCIAMS-282667)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107005.SG",
+        "master_id": "118007",
+        "group_id": "Norway_Skongeneshelleren_Roman",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "88-211 calCE (1800\u00b162 BP, UCIAMS-289257)",
+        "date_mean_bp": "1694",
+        "date_stddev_bp": "78",
+        "time_start_bp": 1538,
+        "time_end_bp": 1850,
+        "time_mean_bp": 1694,
+        "time_label": "88-211 calCE (1800\u00b162 BP, UCIAMS-289257)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107006.SG",
+        "master_id": "118009",
+        "group_id": "Norway_Skongeneshelleren_IA",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107007.SG",
+        "master_id": "118011",
+        "group_id": "Norway_Skongeneshelleren_IA",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107008.SG",
+        "master_id": "118013",
+        "group_id": "Norway_Skongeneshelleren_IA",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.126940543,
+          62.02973527
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107009.SG",
+        "master_id": "118015",
+        "group_id": "Norway_Skongeneshelleren_IA",
+        "locality": "Skongeneshelleren (Western Norway/ Sogn and Fjordane)",
+        "political_entity": "Norway",
+        "latitude": "62.02973527",
+        "longitude": "5.126940543",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "400-550 calCE (1475\u00b175 BP)",
+        "date_mean_bp": "1380",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1240,
+        "time_end_bp": 1520,
+        "time_mean_bp": 1380,
+        "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5510834,
+          65.0537443
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105642.SG",
+        "master_id": "117657",
+        "group_id": "Norway_Solsem_LN_EBA",
+        "locality": "Solsem (Central Norway/ Leka, Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "65.0537443",
+        "longitude": "11.5510834",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1871-1686 calBCE (3728\u00b192 BP, TRa-17217 & TRa-17218, disarticulated skeletons)",
+        "date_mean_bp": "4093",
+        "date_stddev_bp": "137",
+        "time_start_bp": 3819,
+        "time_end_bp": 4367,
+        "time_mean_bp": 4093,
+        "time_label": "1871-1686 calBCE (3728\u00b192 BP, TRa-17217 & TRa-17218, disarticulated skeletons)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.681,
+          67.81
+        ]
+      },
+      "properties": {
+        "genetic_id": "Steigen.SG",
+        "master_id": "6134",
+        "group_id": "Norway_N",
+        "locality": "Steigen (Nordland, Steigen nor)",
+        "political_entity": "Norway",
+        "latitude": "67.81",
+        "longitude": "14.681",
+        "publication": "G\u00fcntherJakobssonPLoSBiol2018",
+        "year_first_published": "",
+        "full_date": "4000-3814 calBCE",
+        "date_mean_bp": "5857",
+        "date_stddev_bp": "54",
+        "time_start_bp": 5749,
+        "time_end_bp": 5965,
+        "time_mean_bp": 5857,
+        "time_label": "4000-3814 calBCE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.96,
+          67.93
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK519.SG",
+        "master_id": "7569",
+        "group_id": "Norway_Viking-2",
+        "locality": "Steigen Mellem (78/- Hagbartsholm) (Nordland, Steigen)",
+        "political_entity": "Norway",
+        "latitude": "67.93",
+        "longitude": "14.96",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "500-1000 CE",
+        "date_mean_bp": "1200",
+        "date_stddev_bp": "144",
+        "time_start_bp": 912,
+        "time_end_bp": 1488,
+        "time_mean_bp": 1200,
+        "time_label": "500-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.98,
+          67.94
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK418.SG",
+        "master_id": "7472",
+        "group_id": "Norway_IA",
+        "locality": "Steigen \u00f8vre (77/1) (Nordland, Steigen)",
+        "political_entity": "Norway",
+        "latitude": "67.94",
+        "longitude": "14.98",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "300-400 CE",
+        "date_mean_bp": "1600",
+        "date_stddev_bp": "29",
+        "time_start_bp": 1542,
+        "time_end_bp": 1658,
+        "time_mean_bp": 1600,
+        "time_label": "300-400 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4,
+          68.55
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK547.SG",
+        "master_id": "7598",
+        "group_id": "Norway_Viking",
+        "locality": "Stokke (79/1) (Nordland, Tjelsund)",
+        "political_entity": "Norway",
+        "latitude": "68.55",
+        "longitude": "16.4",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1100 CE",
+        "date_mean_bp": "1050",
+        "date_stddev_bp": "115",
+        "time_start_bp": 820,
+        "time_end_bp": 1280,
+        "time_mean_bp": 1050,
+        "time_label": "700-1100 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.421869,
+          63.658607
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107038.SG",
+        "master_id": "118071",
+        "group_id": "Norway_StorfosenOrlandM_IA_LateGermanic",
+        "locality": "Storfosen, \u00d8rland M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.658607",
+        "longitude": "9.421869",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "550-700 calCE (1325\u00b175 BP)",
+        "date_mean_bp": "1225",
+        "date_stddev_bp": "75",
+        "time_start_bp": 1075,
+        "time_end_bp": 1375,
+        "time_mean_bp": 1225,
+        "time_label": "550-700 calCE (1325\u00b175 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105604.SG",
+        "master_id": "117617",
+        "group_id": "Norway_Sund_LN_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1875-1686 calBCE (3730\u00b194 BP, UCIAMS-282658)",
+        "date_mean_bp": "4096",
+        "date_stddev_bp": "140",
+        "time_start_bp": 3816,
+        "time_end_bp": 4376,
+        "time_mean_bp": 4096,
+        "time_label": "1875-1686 calBCE (3730\u00b194 BP, UCIAMS-282658)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105606.SG",
+        "master_id": "117619",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105608.SG",
+        "master_id": "117621",
+        "group_id": "Norway_Sund_LN",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "2021-1890 calBCE (3906\u00b166 BP, UCIAMS-282659)",
+        "date_mean_bp": "4328",
+        "date_stddev_bp": "98",
+        "time_start_bp": 4132,
+        "time_end_bp": 4524,
+        "time_mean_bp": 4328,
+        "time_label": "2021-1890 calBCE (3906\u00b166 BP, UCIAMS-282659)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105610.SG",
+        "master_id": "117623",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1870-1641 calBCE (3706\u00b1114 BP, TRa-21967)",
+        "date_mean_bp": "4065",
+        "date_stddev_bp": "165",
+        "time_start_bp": 3735,
+        "time_end_bp": 4395,
+        "time_mean_bp": 4065,
+        "time_label": "1870-1641 calBCE (3706\u00b1114 BP, TRa-21967)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105612.SG",
+        "master_id": "117625",
+        "group_id": "Norway_Sund_LN",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1880-1745 calBCE (3762\u00b168 BP, UCIAMS-275208)",
+        "date_mean_bp": "4136",
+        "date_stddev_bp": "111",
+        "time_start_bp": 3914,
+        "time_end_bp": 4358,
+        "time_mean_bp": 4136,
+        "time_label": "1880-1745 calBCE (3762\u00b168 BP, UCIAMS-275208)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105617.SG",
+        "master_id": "117627",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105622.SG",
+        "master_id": "117629",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1877-1692 calBCE (3734\u00b192 BP, TRa-21973)",
+        "date_mean_bp": "4101",
+        "date_stddev_bp": "137",
+        "time_start_bp": 3827,
+        "time_end_bp": 4375,
+        "time_mean_bp": 4101,
+        "time_label": "1877-1692 calBCE (3734\u00b192 BP, TRa-21973)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105623.SG",
+        "master_id": "117631",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "2010-1829 calBCE (3870\u00b190 BP, TRa-21969)",
+        "date_mean_bp": "4282",
+        "date_stddev_bp": "131",
+        "time_start_bp": 4020,
+        "time_end_bp": 4544,
+        "time_mean_bp": 4282,
+        "time_label": "2010-1829 calBCE (3870\u00b190 BP, TRa-21969)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105626.SG",
+        "master_id": "117633",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105628.SG",
+        "master_id": "117635",
+        "group_id": "Norway_Sund_LN",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1888-1750 calBCE (3769\u00b169 BP, UCIAMS-275209)",
+        "date_mean_bp": "4147",
+        "date_stddev_bp": "113",
+        "time_start_bp": 3921,
+        "time_end_bp": 4373,
+        "time_mean_bp": 4147,
+        "time_label": "1888-1750 calBCE (3769\u00b169 BP, UCIAMS-275209)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105629.SG",
+        "master_id": "117637",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105631.SG",
+        "master_id": "117639",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.307,
+          63.8604
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105632.SG",
+        "master_id": "117641",
+        "group_id": "Norway_Sund_EBA",
+        "locality": "Sund (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.8604",
+        "longitude": "11.307",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "date_mean_bp": "3416",
+        "date_stddev_bp": "193",
+        "time_start_bp": 3030,
+        "time_end_bp": 3802,
+        "time_mean_bp": 3416,
+        "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.27,
+          65.97
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK526.SG",
+        "master_id": "7577",
+        "group_id": "Norway_Viking",
+        "locality": "S\u00f8rher\u00f8y (Presteg\u00e5rden, 4/1) (Nordland, Her\u00f8y)",
+        "political_entity": "Norway",
+        "latitude": "65.97",
+        "longitude": "12.27",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "800-900 CE",
+        "date_mean_bp": "1100",
+        "date_stddev_bp": "29",
+        "time_start_bp": 1042,
+        "time_end_bp": 1158,
+        "time_mean_bp": 1100,
+        "time_label": "800-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3946,
+          63.9758
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105600.SG",
+        "master_id": "117611",
+        "group_id": "Norway_Toldnes_EBA",
+        "locality": "Toldnes (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.9758",
+        "longitude": "11.3946",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "date_mean_bp": "3349",
+        "date_stddev_bp": "124",
+        "time_start_bp": 3101,
+        "time_end_bp": 3597,
+        "time_mean_bp": 3349,
+        "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3946,
+          63.9758
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105601.SG",
+        "master_id": "117613",
+        "group_id": "Norway_Toldnes_EBA",
+        "locality": "Toldnes (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.9758",
+        "longitude": "11.3946",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "129-234 calCE (1768\u00b152 BP, UCIAMS-286998)",
+        "date_mean_bp": "1655",
+        "date_stddev_bp": "61",
+        "time_start_bp": 1533,
+        "time_end_bp": 1777,
+        "time_mean_bp": 1655,
+        "time_label": "129-234 calCE (1768\u00b152 BP, UCIAMS-286998)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3946,
+          63.9758
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105602.SG",
+        "master_id": "117615",
+        "group_id": "Norway_Toldnes_EBA",
+        "locality": "Toldnes (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.9758",
+        "longitude": "11.3946",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1441-1007 calBCE (3174\u00b1217 BP, TUa-2471)",
+        "date_mean_bp": "3390",
+        "date_stddev_bp": "276",
+        "time_start_bp": 2838,
+        "time_end_bp": 3942,
+        "time_mean_bp": 3390,
+        "time_label": "1441-1007 calBCE (3174\u00b1217 BP, TUa-2471)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.724308,
+          66.262731
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107021.SG",
+        "master_id": "118037",
+        "group_id": "Norway_TomeideNesnaM_LateRoman",
+        "locality": "Tomeide, Nesna M (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "66.262731",
+        "longitude": "12.724308",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "300-400 calCE (1600\u00b150 BP)",
+        "date_mean_bp": "1473",
+        "date_stddev_bp": "56",
+        "time_start_bp": 1361,
+        "time_end_bp": 1585,
+        "time_mean_bp": 1473,
+        "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.724308,
+          66.262731
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107022.SG",
+        "master_id": "118039",
+        "group_id": "Norway_TomeideNesnaM_Roman",
+        "locality": "Tomeide, Nesna M (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "66.262731",
+        "longitude": "12.724308",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "129-234 calCE (1768\u00b152 BP, UCIAMS-282870)",
+        "date_mean_bp": "1655",
+        "date_stddev_bp": "61",
+        "time_start_bp": 1533,
+        "time_end_bp": 1777,
+        "time_mean_bp": 1655,
+        "time_label": "129-234 calCE (1768\u00b152 BP, UCIAMS-282870)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.724308,
+          66.262731
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107023.SG",
+        "master_id": "118041",
+        "group_id": "Norway_TomeideNesnaM_IA_LateGermanic",
+        "locality": "Tomeide, Nesna M (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "66.262731",
+        "longitude": "12.724308",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "599-652 calCE (1324\u00b126 BP, UCIAMS-282668)",
+        "date_mean_bp": "1240",
+        "date_stddev_bp": "41",
+        "time_start_bp": 1158,
+        "time_end_bp": 1322,
+        "time_mean_bp": 1240,
+        "time_label": "599-652 calCE (1324\u00b126 BP, UCIAMS-282668)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.73,
+          66.26
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK524.SG",
+        "master_id": "7575",
+        "group_id": "Norway_Viking",
+        "locality": "Tommeidet (98/22) (Nordland, Nesna)",
+        "political_entity": "Norway",
+        "latitude": "66.26",
+        "longitude": "12.73",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0,
+          69.47
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK528.SG",
+        "master_id": "7579",
+        "group_id": "Norway_Viking",
+        "locality": "Trygstad i B\u00f8 (188/10) (Troms, Troms\u00f8, Tuss\u00f8y)",
+        "political_entity": "Norway",
+        "latitude": "69.47",
+        "longitude": "18",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-900 CE",
+        "date_mean_bp": "1150",
+        "date_stddev_bp": "58",
+        "time_start_bp": 1034,
+        "time_end_bp": 1266,
+        "time_mean_bp": 1150,
+        "time_label": "700-900 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0,
+          69.47
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK531.SG",
+        "master_id": "7582",
+        "group_id": "Norway_LN_BA",
+        "locality": "Trygstad i B\u00f8 (188/10) (Troms, Troms\u00f8, Tuss\u00f8y)",
+        "political_entity": "Norway",
+        "latitude": "69.47",
+        "longitude": "18",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "2559-2290 calBCE (3918\u00b136 BP, UBA-36964)",
+        "date_mean_bp": "4347",
+        "date_stddev_bp": "61",
+        "time_start_bp": 4225,
+        "time_end_bp": 4469,
+        "time_mean_bp": 4347,
+        "time_label": "2559-2290 calBCE (3918\u00b136 BP, UBA-36964)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0,
+          69.47
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK520.SG",
+        "master_id": "7571",
+        "group_id": "Norway_Viking",
+        "locality": "Tuss\u00f8y, (188/1) (Troms, Troms\u00f8)",
+        "political_entity": "Norway",
+        "latitude": "69.47",
+        "longitude": "18",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.22125778,
+          60.05727068
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107002.SG",
+        "master_id": "118001",
+        "group_id": "Norway_Tyrifjorden_PreImperialRoman",
+        "locality": "Tyrifjorden (Southern Norway/ Buskerud)",
+        "political_entity": "Norway",
+        "latitude": "60.05727068",
+        "longitude": "10.22125778",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "500 calBCE-200 calCE (2100\u00b1350 BP)",
+        "date_mean_bp": "2127",
+        "date_stddev_bp": "414",
+        "time_start_bp": 1299,
+        "time_end_bp": 2955,
+        "time_mean_bp": 2127,
+        "time_label": "500 calBCE-200 calCE (2100\u00b1350 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.22125778,
+          60.05727068
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107003.SG",
+        "master_id": "118003",
+        "group_id": "Norway_Tyrifjorden_Roman",
+        "locality": "Tyrifjorden (Southern Norway/ Buskerud)",
+        "political_entity": "Norway",
+        "latitude": "60.05727068",
+        "longitude": "10.22125778",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "9-124 calCE (1884\u00b158 BP, UCIAMS-282666)",
+        "date_mean_bp": "1799",
+        "date_stddev_bp": "72",
+        "time_start_bp": 1655,
+        "time_end_bp": 1943,
+        "time_mean_bp": 1799,
+        "time_label": "9-124 calCE (1884\u00b158 BP, UCIAMS-282666)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.521827,
+          63.769191
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107031.SG",
+        "master_id": "118057",
+        "group_id": "Norway_ValstadVerdalM_LateRoman",
+        "locality": "Valstad, Verdal M (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.769191",
+        "longitude": "11.521827",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "250-320 calCE (1665\u00b135 BP)",
+        "date_mean_bp": "1556",
+        "date_stddev_bp": "62",
+        "time_start_bp": 1432,
+        "time_end_bp": 1680,
+        "time_mean_bp": 1556,
+        "time_label": "250-320 calCE (1665\u00b135 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.418527,
+          59.613974
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_105650.SG",
+        "master_id": "117663",
+        "group_id": "Norway_Verket_LN",
+        "locality": "Verket (Southern Norway/ Viken)",
+        "political_entity": "Norway",
+        "latitude": "59.613974",
+        "longitude": "10.418527",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "1950-1770 calBCE (3810\u00b190 BP, unknown)",
+        "date_mean_bp": "4206",
+        "date_stddev_bp": "133",
+        "time_start_bp": 3940,
+        "time_end_bp": 4472,
+        "time_mean_bp": 4206,
+        "time_label": "1950-1770 calBCE (3810\u00b190 BP, unknown)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.525827,
+          58.712198
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107039.SG",
+        "master_id": "118073",
+        "group_id": "Norway_VikKlepp_IA_LateGermanic",
+        "locality": "Vik, Klepp (Western Norway/ Rogaland)",
+        "political_entity": "Norway",
+        "latitude": "58.712198",
+        "longitude": "5.525827",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "600-800 calCE (1250\u00b1100 BP)",
+        "date_mean_bp": "1155",
+        "date_stddev_bp": "99",
+        "time_start_bp": 957,
+        "time_end_bp": 1353,
+        "time_mean_bp": 1155,
+        "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.525827,
+          58.712198
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107040.SG",
+        "master_id": "118075",
+        "group_id": "Norway_VikKlepp_IA_LateGermanic",
+        "locality": "Vik, Klepp (Western Norway/ Rogaland)",
+        "political_entity": "Norway",
+        "latitude": "58.712198",
+        "longitude": "5.525827",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "600-800 calCE (1250\u00b1100 BP)",
+        "date_mean_bp": "1155",
+        "date_stddev_bp": "99",
+        "time_start_bp": 957,
+        "time_end_bp": 1353,
+        "time_mean_bp": 1155,
+        "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.525827,
+          58.712198
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107041.SG",
+        "master_id": "118077",
+        "group_id": "Norway_VikKlepp_IA_LateGermanic",
+        "locality": "Vik, Klepp (Western Norway/ Rogaland)",
+        "political_entity": "Norway",
+        "latitude": "58.712198",
+        "longitude": "5.525827",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "675-774 calCE (1226\u00b150 BP, UCIAMS-289261)",
+        "date_mean_bp": "1152",
+        "date_stddev_bp": "70",
+        "time_start_bp": 1012,
+        "time_end_bp": 1292,
+        "time_mean_bp": 1152,
+        "time_label": "675-774 calCE (1226\u00b150 BP, UCIAMS-289261)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.64023,
+          63.699306
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107025.SG",
+        "master_id": "118045",
+        "group_id": "Norway_VikOrlandetMT2812611_IA_EarlyGermanic",
+        "locality": "Vik, Orlandet M, T28126: 11 (Central Norway/ Tr\u00f8ndelag)",
+        "political_entity": "Norway",
+        "latitude": "63.699306",
+        "longitude": "9.64023",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "248-377 calCE (1638\u00b164 BP, direct)",
+        "date_mean_bp": "1518",
+        "date_stddev_bp": "81",
+        "time_start_bp": 1356,
+        "time_end_bp": 1680,
+        "time_mean_bp": 1518,
+        "time_label": "248-377 calCE (1638\u00b164 BP, direct)",
+        "data_type": "Shotgun",
+        "molecular_sex": "F",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.13,
+          67.91
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK514.SG",
+        "master_id": "7564",
+        "group_id": "Norway_Viking",
+        "locality": "Vikran Nordre (71/2) (Nordland, Steigen)",
+        "political_entity": "Norway",
+        "latitude": "67.91",
+        "longitude": "15.13",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "500-1000 CE",
+        "date_mean_bp": "1200",
+        "date_stddev_bp": "144",
+        "time_start_bp": 912,
+        "time_end_bp": 1488,
+        "time_mean_bp": 1200,
+        "time_label": "500-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.934392,
+          66.49002
+        ]
+      },
+      "properties": {
+        "genetic_id": "CGG_2_107016.SG",
+        "master_id": "118029",
+        "group_id": "Norway_YtreKvaroyLuroy_IA_LateGermanic",
+        "locality": "Ytre Kvaroy, Lur\u00f8y (Northern Norway/ Nordland)",
+        "political_entity": "Norway",
+        "latitude": "66.49002",
+        "longitude": "12.934392",
+        "publication": "McCollWillerslevBioRxiv2025",
+        "year_first_published": "",
+        "full_date": "550-750 calCE (1300\u00b1100 BP)",
+        "date_mean_bp": "1196",
+        "date_stddev_bp": "99",
+        "time_start_bp": 998,
+        "time_end_bp": 1394,
+        "time_mean_bp": 1196,
+        "time_label": "550-750 calCE (1300\u00b1100 BP)",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.66,
+          68.34
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK388.SG",
+        "master_id": "7443",
+        "group_id": "Norway_Viking",
+        "locality": "Ytterstad (17/-) (Nordland, L\u00f8dingen)",
+        "political_entity": "Norway",
+        "latitude": "68.34",
+        "longitude": "15.66",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "700-1600 CE",
+        "date_mean_bp": "800",
+        "date_stddev_bp": "260",
+        "time_start_bp": 280,
+        "time_end_bp": 1320,
+        "time_mean_bp": 800,
+        "time_label": "700-1600 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.75,
+          63.7
+        ]
+      },
+      "properties": {
+        "genetic_id": "VK516.SG",
+        "master_id": "7566",
+        "group_id": "Norway_Viking",
+        "locality": "\u00d8str\u00e5t (Austr\u00e5tt) (82/91) (S\u00f8r-Tr\u00f8ndelag, \u00d8rlandet)",
+        "political_entity": "Norway",
+        "latitude": "63.7",
+        "longitude": "9.75",
+        "publication": "MargaryanWillerslevNature2020",
+        "year_first_published": "",
+        "full_date": "900-1000 CE",
+        "date_mean_bp": "1000",
+        "date_stddev_bp": "29",
+        "time_start_bp": 942,
+        "time_end_bp": 1058,
+        "time_mean_bp": 1000,
+        "time_label": "900-1000 CE",
+        "data_type": "Shotgun",
+        "molecular_sex": "M",
+        "datasets": [
+          "1240k",
+          "ho"
+        ]
+      }
+    }
+  ]
+}

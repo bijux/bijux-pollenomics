@@ -1,8 +1,8 @@
 {
   "title": "Nordic Evidence Atlas",
   "slug": "nordic-atlas",
-  "version": "v62.0",
-  "generated_on": "2026-03-31",
+  "version": "v66",
+  "generated_on": "2026-04-16",
   "countries": [
     "Sweden",
     "Norway",
@@ -10,12 +10,12 @@
     "Denmark"
   ],
   "country_sample_counts": {
-    "Sweden": 519,
-    "Norway": 58,
-    "Finland": 22,
-    "Denmark": 300
+    "Sweden": 416,
+    "Norway": 130,
+    "Finland": 32,
+    "Denmark": 653
   },
-  "total_unique_samples": 899,
+  "total_unique_samples": 1231,
   "output_dir": "docs/report/nordic-atlas",
   "artifacts": {
     "readme": "README.md",

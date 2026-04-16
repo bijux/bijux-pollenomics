@@ -1,15 +1,15 @@
-# Norway AADR v62.0 Report
+# Norway AADR v66 Report
 
-This bundle was generated from the AADR `v62.0` `.anno` files on `2026-03-31`.
+This bundle was generated from the AADR `v66` `.anno` files on `2026-04-16`.
 It inventories only AADR sample rows that match the `Norway` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
 
 - Country filter: `Norway`
-- Unique AADR samples: `58`
-- Unique localities: `33`
-- Latitude range: `58.064000` to `69.470000`
-- Longitude range: `5.358000` to `18.000000`
+- Unique AADR samples: `130`
+- Unique localities: `69`
+- Latitude range: `58.064000` to `70.117388`
+- Longitude range: `5.126941` to `19.017706`
 
 This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
 Locality rows now preserve the combined BP coverage of the samples they aggregate.
@@ -18,36 +18,36 @@ Locality rows now preserve the combined BP coverage of the samples they aggregat
 
 | Dataset | Norway rows |
 | --- | ---: |
-| `1240k` | 47 |
-| `ho` | 58 |
+| `1240k` | 119 |
+| `ho` | 130 |
 
-The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `Norway` contains `58` unique samples in AADR `v62.0`.
+The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `Norway` contains `130` unique samples in AADR `v66`.
 
 ## Output Files
 
 - Shared interactive map: <a href="../nordic-atlas/nordic-atlas_map.html">Nordic Evidence Atlas</a>
-- Full sample inventory: [`norway_aadr_v62.0_samples.csv`](./norway_aadr_v62.0_samples.csv)
-- Locality summary: [`norway_aadr_v62.0_localities.csv`](./norway_aadr_v62.0_localities.csv)
-- Map-ready GeoJSON: [`norway_aadr_v62.0_samples.geojson`](./norway_aadr_v62.0_samples.geojson)
-- Machine-readable summary: [`norway_aadr_v62.0_summary.json`](./norway_aadr_v62.0_summary.json)
-- Full markdown sample table: [`norway_aadr_v62.0_samples.md`](./norway_aadr_v62.0_samples.md)
+- Full sample inventory: [`norway_aadr_v66_samples.csv`](./norway_aadr_v66_samples.csv)
+- Locality summary: [`norway_aadr_v66_localities.csv`](./norway_aadr_v66_localities.csv)
+- Map-ready GeoJSON: [`norway_aadr_v66_samples.geojson`](./norway_aadr_v66_samples.geojson)
+- Machine-readable summary: [`norway_aadr_v66_summary.json`](./norway_aadr_v66_summary.json)
+- Full markdown sample table: [`norway_aadr_v66_samples.md`](./norway_aadr_v66_samples.md)
 
 ## Top Localities
 
 | Locality | Samples | Latitude | Longitude | BP coverage | Datasets |
 | --- | ---: | ---: | ---: | --- | --- |
+| Sund (Central Norway/ Trøndelag) | 13 | 63.8604 | 11.307 | 3030-4544 BP | `1240k,ho` |
 | Bergen | 11 | 60.359 | 5.358 | 0 BP | `ho` |
-| Trondheim - Public Library Site/Folkebibliotekstomten (Trondheim) | 7 | 63.43 | 10.39 | 634-866 BP | `1240k,ho` |
-| Nor South, Telemark (Vestfold og Telemark, Skien nor) | 4 | 59.22 | 9.59 | 926-1566 BP | `1240k,ho` |
-| Nor South, Hedmark | 3 | 61.15 | 11.34 | 942-1058 BP | `1240k,ho` |
-| Hummervikholmen | 2 | 58.064 | 7.7437 | 9262-9466 BP | `1240k,ho` |
-| Nor South, Oppland (Viken, Jevnaker nor) | 2 | 60.31 | 10.43 | 834-1066 BP | `1240k,ho` |
-| Nordland (Bodø, Rønvik nedre (32/100, Rønvik)) | 2 | 67.28 | 14.39 | 942-1058 BP | `1240k,ho` |
-| Troms (Tromsø, Tussøy, Trygstad i Bø (188/10)) | 2 | 69.47 | 18 | 1034-4469 BP | `1240k,ho` |
-| Hummervikholmen (Agder, Søgne nor) | 1 | 58.064 | 7.7437 | 9282-9486 BP | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Hamar nor) | 1 | 60.8 | 11.1 | 820-1280 BP | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.84 | 11 | 942-1058 BP | `1240k,ho` |
-| Nor South, Hedmark (Innlandet, Ringsaker nor) | 1 | 60.8 | 10.87 | 820-1280 BP | `1240k,ho` |
-| Nor South, Oppland | 1 | 60.36 | 10.57 | 812-1388 BP | `1240k,ho` |
-| Nor South, Oppland (Innlandet, Lesja nor) | 1 | 62.09 | 9.05 | 826-1174 BP | `1240k,ho` |
-| Nor South, Oppland (Innlandet, Skjåk nor) | 1 | 61.88 | 8.4 | 834-1066 BP | `1240k,ho` |
+| Public Library Site/Folkebibliotekstomten (Trondheim) | 7 | 63.43 | 10.39 | 634-866 BP | `1240k,ho` |
+| Skongeneshelleren (Western Norway/ Sogn and Fjordane) | 6 | 62.02973527 | 5.126940543 | 1240-1943 BP | `1240k,ho` |
+| Skien nor (Nor South, Vestfold og Telemark, Telemark) | 4 | 59.22 | 9.59 | 926-1566 BP | `1240k,ho` |
+| Hummervikholmen (Agder, Søgne nor) | 3 | 58.064 | 7.7437 | 9262-9486 BP | `1240k,ho` |
+| Joa (Central Norway/ Trøndelag) | 3 | 64.65448 | 11.208485 | 1009-1468 BP | `1240k,ho` |
+| Joa, Namsos M (Central Norway/ Trøndelag) | 3 | 64.65448 | 11.208485 | 1007-1316 BP | `1240k,ho` |
+| Skjeggesnes (Northern Norway/ Nordland) | 3 | 63.74603 | 11.2983 | 3101-3597 BP | `1240k,ho` |
+| Toldnes (Central Norway/ Trøndelag) | 3 | 63.9758 | 11.3946 | 1533-3942 BP | `1240k,ho` |
+| Tomeide, Nesna M (Northern Norway/ Nordland) | 3 | 66.262731 | 12.724308 | 1158-1777 BP | `1240k,ho` |
+| Vik, Klepp (Western Norway/ Rogaland) | 3 | 58.712198 | 5.525827 | 957-1353 BP | `1240k,ho` |
+| Arnestad store (24/1) (Nor South, Hedmark, Åmot) | 2 | 61.15 | 11.34 | 942-1058 BP | `1240k,ho` |
+| Bergvin (Central Norway/ Trøndelag) | 2 | 63.74603 | 11.2983 | 1806-4914 BP | `1240k,ho` |
+| Eid (Central Norway/ Lines, Trøndelag) | 2 | 64.0331 | 9.89233 | 3374-6154 BP | `1240k,ho` |

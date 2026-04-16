@@ -1,0 +1,20 @@
+{
+  "country": "Norway",
+  "version": "v66",
+  "generated_on": "2026-04-16",
+  "total_unique_samples": 130,
+  "total_unique_localities": 69,
+  "dataset_row_counts": {
+    "1240k": 119,
+    "ho": 130
+  },
+  "output_dir": "docs/report/norway",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "norway_aadr_v66_samples.csv",
+    "localities_csv": "norway_aadr_v66_localities.csv",
+    "samples_geojson": "norway_aadr_v66_samples.geojson",
+    "samples_markdown": "norway_aadr_v66_samples.md",
+    "summary_json": "norway_aadr_v66_summary.json"
+  }
+}

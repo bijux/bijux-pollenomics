@@ -1,0 +1,70 @@
+locality,latitude,longitude,sample_count,time_start_bp,time_end_bp,time_mean_bp,time_label,datasets,sample_ids
+Sund (Central Norway/ Trøndelag),63.8604,11.307,13,3030,4544,3787,3030-4544 BP,"1240k,ho",CGG_2_105604.SG;CGG_2_105606.SG;CGG_2_105608.SG;CGG_2_105610.SG;CGG_2_105612.SG;CGG_2_105617.SG;CGG_2_105622.SG;CGG_2_105623.SG;CGG_2_105626.SG;CGG_2_105628.SG;CGG_2_105629.SG;CGG_2_105631.SG;CGG_2_105632.SG
+Bergen,60.359,5.358,11,0,0,0,0 BP,ho,NOR101.HO;NOR106.HO;NOR107.HO;NOR108.HO;NOR109.HO;NOR111.HO;NOR119.HO;NOR124.HO;NOR126.HO;NOR146.HO;NOR148.HO
+Public Library Site/Folkebibliotekstomten (Trondheim),63.43,10.39,7,634,866,750,634-866 BP,"1240k,ho",VK113.SG;VK114.SG;VK116.SG;VK117.SG;VK118.SG;VK124.SG;VK125.SG
+Skongeneshelleren (Western Norway/ Sogn and Fjordane),62.02973527,5.126940543,6,1240,1943,1592,1240-1943 BP,"1240k,ho",CGG_2_107004.SG;CGG_2_107005.SG;CGG_2_107006.SG;CGG_2_107007.SG;CGG_2_107008.SG;CGG_2_107009.SG
+"Skien nor (Nor South, Vestfold og Telemark, Telemark)",59.22,9.59,4,926,1566,1246,926-1566 BP,"1240k,ho",VK389.SG;VK390.SG;VK391.SG;VK392.SG
+"Hummervikholmen (Agder, Søgne nor)",58.064,7.7437,3,9262,9486,9374,9262-9486 BP,"1240k,ho",Hum1.SG;Hum2.SG;NEO17.SG
+Joa (Central Norway/ Trøndelag),64.65448,11.208485,3,1009,1468,1238,1009-1468 BP,"1240k,ho",CGG_2_107026.SG;CGG_2_107027.SG;CGG_2_107028.SG
+"Joa, Namsos M (Central Norway/ Trøndelag)",64.65448,11.208485,3,1007,1316,1162,1007-1316 BP,"1240k,ho",CGG_2_107032.SG;CGG_2_107033.SG;CGG_2_107034.SG
+Skjeggesnes (Northern Norway/ Nordland),63.74603,11.2983,3,3101,3597,3349,3101-3597 BP,"1240k,ho",CGG_2_105636.SG;CGG_2_105638.SG;CGG_2_105639.SG
+Toldnes (Central Norway/ Trøndelag),63.9758,11.3946,3,1533,3942,2738,1533-3942 BP,"1240k,ho",CGG_2_105600.SG;CGG_2_105601.SG;CGG_2_105602.SG
+"Tomeide, Nesna M (Northern Norway/ Nordland)",66.262731,12.724308,3,1158,1777,1468,1158-1777 BP,"1240k,ho",CGG_2_107021.SG;CGG_2_107022.SG;CGG_2_107023.SG
+"Vik, Klepp (Western Norway/ Rogaland)",58.712198,5.525827,3,957,1353,1155,957-1353 BP,"1240k,ho",CGG_2_107039.SG;CGG_2_107040.SG;CGG_2_107041.SG
+"Arnestad store (24/1) (Nor South, Hedmark, Åmot)",61.15,11.34,2,942,1058,1000,942-1058 BP,"1240k,ho",VK394.SG;VK394_d.SG
+Bergvin (Central Norway/ Trøndelag),63.74603,11.2983,2,1806,4914,3360,1806-4914 BP,"1240k,ho",CGG_2_105634.SG;CGG_2_105635.SG
+"Eid (Central Norway/ Lines, Trøndelag)",64.0331,9.89233,2,3374,6154,4764,3374-6154 BP,"1240k,ho",CGG_2_105640.SG;CGG_2_105641.SG
+Føre 1 (Northern Norway/ Nordland),68.666659,14.468748,2,1361,1585,1473,1361-1585 BP,"1240k,ho",CGG_2_107014.SG;CGG_2_107015.SG
+"Jevnaker nor (Nor South, Viken, Oppland)",60.31,10.43,2,834,1066,950,834-1066 BP,"1240k,ho",VK387.SG;VK421.SG
+Nord-Rollnes (Central Norway/ Trøndelag),68.870339,17.045914,2,930,1414,1172,930-1414 BP,"1240k,ho",CGG_2_107017.SG;CGG_2_107019.SG
+"Ringsaker nor (Nor South, Innlandet, Hedmark)",60.84,11,2,820,1280,1050,820-1280 BP,"1240k,ho",VK393.SG;VK448.SG
+"Rønvik nedre (32/100, Rønvik) (Nordland, Bodø)",67.28,14.39,2,942,1058,1000,942-1058 BP,"1240k,ho",VK515.SG;VK530.SG
+"Skeie, Klepp (Western Norway/ Rogaland)",58.693992,5.547228,2,1240,1520,1380,1240-1520 BP,"1240k,ho",CGG_2_107042.SG;CGG_2_107043.SG
+"Trygstad i Bø (188/10) (Troms, Tromsø, Tussøy)",69.47,18,2,1034,4469,2752,1034-4469 BP,"1240k,ho",VK528.SG;VK531.SG
+Tyrifjorden (Southern Norway/ Buskerud),60.05727068,10.22125778,2,1299,2955,2127,1299-2955 BP,"1240k,ho",CGG_2_107002.SG;CGG_2_107003.SG
+"Arnestad lille (25/1) (Nor South, Hedmark, Åmot)",61.15,11.34,1,942,1058,1000,942-1058 BP,"1240k,ho",VK422.SG
+Aunvollen (Central Norway/ Trøndelag),63.12322,16.90684,1,675,1211,943,675-1211 BP,"1240k,ho",CGG_2_105915.SG
+Balsnes (Northern Norway/ Troms),69.540721,18.853029,1,957,1353,1155,957-1353 BP,"1240k,ho",CGG_2_107012.SG
+"Bomo, Snåsa M (Central Norway/Trøndelag)",64.263118,12.446387,1,1361,1585,1473,1361-1585 BP,"1240k,ho",CGG_2_107020.SG
+"Bøle, Flatanger M, T21061:2, A7271 (Central Norway/ Trøndelag)",64.375798,10.631408,1,1003,1827,1415,1003-1827 BP,"1240k,ho",CGG_2_107036.SG
+"Bøle, Flatanger M, T21061:3 A7272 (Central Norway/ Trøndelag)",64.375798,10.631408,1,1386,1930,1658,1386-1930 BP,"1240k,ho",CGG_2_107035.SG
+"Enge, Sømna M (Northern Norway/ Nordland)",65.274799,12.12716,1,1009,1309,1159,1009-1309 BP,"1240k,ho",CGG_2_107037.SG
+Engholmen (Northern Norway/Troms),70.117388,19.017706,1,2612,3188,2900,2612-3188 BP,"1240k,ho",CGG_2_107011.SG
+Engholmen 2 (Northern Norway/Troms),70.117388,19.017706,1,1110,1326,1218,1110-1326 BP,"1240k,ho",CGG_2_107013.SG
+"Fauskland (Central Norway/ Hitra, Trøndelag)",63.60579,14.85861,1,4235,4771,4503,4235-4771 BP,"1240k,ho",CGG_2_105916.SG
+Følstad (Central Norway/ Trøndelag),63.84097,11.38678,1,1655,2019,1837,1655-2019 BP,"1240k,ho",CGG_2_105643.SG
+"Hamar nor (Nor South, Innlandet, Hedmark)",60.8,11.1,1,820,1280,1050,820-1280 BP,"1240k,ho",VK420.SG
+"Holm, Bindal M (Northern Norway / Nordland)",65.171328,12.11521,1,1013,1293,1153,1013-1293 BP,"1240k,ho",CGG_2_107030.SG
+"Horvnes (Nordland, Alstahaug)",66,12.7,1,1723,1903,1813,1723-1903 BP,"1240k,ho",hvr009.SG
+"Hov (19/1, Løkta) (Nordland, Dønna)",66.18,12.72,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK525.SG
+Jarlsberg Herregaard (Southern Norway/ Vestfold),59.29088516,10.38673557,1,585,1629,1107,585-1629 BP,"1240k,ho",CGG_2_107001.SG
+Kråkerøy (Southern Norway/ Viken),59.178756,10.919039,1,3275,3731,3503,3275-3731 BP,"1240k,ho",CGG_2_105645.SG
+"Leines (6/-) (Nordland, Steigen)",67.64,14.79,1,1034,1266,1150,1034-1266 BP,"1240k,ho",VK529.SG
+"Lesja nor (Nor South, Innlandet, Oppland)",62.09,9.05,1,826,1174,1000,826-1174 BP,"1240k,ho",VK386.SG
+Lund (Northern Norway/ Nordland),67.985361,15.181212,1,957,1353,1155,957-1353 BP,"1240k,ho",CGG_2_107010.SG
+"Lund, Namsos M (Central Norway/ Trøndelag)",64.769002,11.596496,1,881,1301,1091,881-1301 BP,"1240k,ho",CGG_2_107024.SG
+"Lunner nor (Nor South, Viken, Oppland)",60.29,10.63,1,820,1280,1050,820-1280 BP,"1240k,ho",VK415.SG
+"Melem (Herstaen) (84/-) (Sør-Trøndelag, Bjugn)",63.7,9.75,1,874,2026,1450,874-2026 BP,"1240k,ho",VK523.SG
+"Nord-Trøndelag (Stjørdal, Kil søndre)",63.44,11.22,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK548.SG
+"Nordland, (17/- Vågehamn) (Nordland, Værøy)",67.69,12.7,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK518.SG
+"Rjoa, Sola (Western Norway/ Rogland)",58.900214,5.652246,1,1378,1550,1464,1378-1550 BP,"1240k,ho",CGG_2_107044.SG
+"Royne, Orlandet M (Central Norway/ Trøndelag)",63.715837,9.642296,1,1361,1585,1473,1361-1585 BP,"1240k,ho",CGG_2_107029.SG
+"Rønvik Øvre (31/-) (Nordland, Bodø)",67.29,14.42,1,912,1488,1200,912-1488 BP,"1240k,ho",VK419.SG
+"Sandeødegården on Nedre Hov (262/- or 263/-, Lindbak) (Nor South, Oppland, Gran)",60.36,10.57,1,812,1388,1100,812-1388 BP,"1240k,ho",VK417.SG
+"Skjåk nor (Nor South, Innlandet, Oppland)",61.88,8.4,1,834,1066,950,834-1066 BP,"1240k,ho",VK414.SG
+"Solsem (Central Norway/ Leka, Trøndelag)",65.0537443,11.5510834,1,3819,4367,4093,3819-4367 BP,"1240k,ho",CGG_2_105642.SG
+"Steigen (Nordland, Steigen nor)",67.81,14.681,1,5749,5965,5857,5749-5965 BP,"1240k,ho",Steigen.SG
+"Steigen Mellem (78/- Hagbartsholm) (Nordland, Steigen)",67.93,14.96,1,912,1488,1200,912-1488 BP,"1240k,ho",VK519.SG
+"Steigen øvre (77/1) (Nordland, Steigen)",67.94,14.98,1,1542,1658,1600,1542-1658 BP,"1240k,ho",VK418.SG
+"Stokke (79/1) (Nordland, Tjelsund)",68.55,16.4,1,820,1280,1050,820-1280 BP,"1240k,ho",VK547.SG
+"Storfosen, Ørland M (Central Norway/ Trøndelag)",63.658607,9.421869,1,1075,1375,1225,1075-1375 BP,"1240k,ho",CGG_2_107038.SG
+"Sørherøy (Prestegården, 4/1) (Nordland, Herøy)",65.97,12.27,1,1042,1158,1100,1042-1158 BP,"1240k,ho",VK526.SG
+"Tommeidet (98/22) (Nordland, Nesna)",66.26,12.73,1,942,1058,1000,942-1058 BP,"1240k,ho",VK524.SG
+"Tussøy, (188/1) (Troms, Tromsø)",69.47,18,1,942,1058,1000,942-1058 BP,"1240k,ho",VK520.SG
+"Valstad, Verdal M (Central Norway/ Trøndelag)",63.769191,11.521827,1,1432,1680,1556,1432-1680 BP,"1240k,ho",CGG_2_107031.SG
+Verket (Southern Norway/ Viken),59.613974,10.418527,1,3940,4472,4206,3940-4472 BP,"1240k,ho",CGG_2_105650.SG
+"Vik, Orlandet M, T28126: 11 (Central Norway/ Trøndelag)",63.699306,9.64023,1,1356,1680,1518,1356-1680 BP,"1240k,ho",CGG_2_107025.SG
+"Vikran Nordre (71/2) (Nordland, Steigen)",67.91,15.13,1,912,1488,1200,912-1488 BP,"1240k,ho",VK514.SG
+"Ytre Kvaroy, Lurøy (Northern Norway/ Nordland)",66.49002,12.934392,1,998,1394,1196,998-1394 BP,"1240k,ho",CGG_2_107016.SG
+"Ytterstad (17/-) (Nordland, Lødingen)",68.34,15.66,1,280,1320,800,280-1320 BP,"1240k,ho",VK388.SG
+"Østråt (Austrått) (82/91) (Sør-Trøndelag, Ørlandet)",63.7,9.75,1,942,1058,1000,942-1058 BP,"1240k,ho",VK516.SG

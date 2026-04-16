@@ -1,24 +1,24 @@
 {
-  "generated_on": "2026-03-31",
+  "generated_on": "2026-04-16",
   "output_root": "data",
-  "version": "v62.0",
+  "version": "v66",
   "collected_sources": [
-    "neotoma"
+    "aadr"
   ],
   "source_output_roots": {
     "aadr": "data/aadr",
-    "aadr_version_dir": "data/aadr/v62.0",
+    "aadr_version_dir": "data/aadr/v66",
     "boundaries": "data/boundaries",
     "landclim": "data/landclim",
     "neotoma": "data/neotoma",
     "raa": "data/raa",
     "sead": "data/sead"
   },
-  "boundary_source": "local",
-  "aadr_file_count": 0,
+  "boundary_source": null,
+  "aadr_file_count": 2,
   "landclim_site_count": 0,
   "landclim_grid_cell_count": 0,
-  "neotoma_point_count": 200,
+  "neotoma_point_count": 0,
   "sead_point_count": 0,
   "raa_total_site_count": 0,
   "raa_heritage_site_count": 0,
