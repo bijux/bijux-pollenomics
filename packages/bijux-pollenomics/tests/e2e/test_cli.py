@@ -217,7 +217,9 @@ class CliTests(unittest.TestCase):
             self.assertIn("1 unique samples", stdout.getvalue())
             self.assertTrue((bundle_root / "README.md").exists())
             self.assertTrue(
-                (bundle_root / f"sweden_aadr_{DEFAULT_AADR_VERSION}_summary.json").exists()
+                (
+                    bundle_root / f"sweden_aadr_{DEFAULT_AADR_VERSION}_summary.json"
+                ).exists()
             )
 
     def test_report_multi_country_map_command_writes_atlas_bundle(self) -> None:

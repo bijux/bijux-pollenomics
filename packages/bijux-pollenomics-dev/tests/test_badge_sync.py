@@ -77,7 +77,10 @@ def test_alias_package_badge_block_prioritizes_the_alias_distribution() -> None:
     )
     assert "\n[![pollenomics](https://img.shields.io/pypi/v/pollenomics" in rendered
     assert "\n[![pollenomics](https://img.shields.io/badge/pollenomics-ghcr" in rendered
-    assert "\n[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics" in rendered
+    assert (
+        "\n[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics"
+        in rendered
+    )
 
 
 def test_badge_surfaces_are_synchronized() -> None:
