@@ -9,7 +9,7 @@ ROOT_CHECK_VENV := $(ROOT_ARTIFACTS_DIR)/check-venv
 ROOT_DOCS_DEV_ADDR ?= 127.0.0.1:8000
 UV_SYNC := UV_PROJECT_ENVIRONMENT="$(ROOT_CHECK_VENV)" $(UV) sync --frozen --group dev --python "$(PYTHON)"
 CLI := $(ROOT_CHECK_VENV)/bin/bijux-pollenomics
-DEV_RUN := PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(ROOT_CHECK_PYTHON)"
+DEV_RUN = PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(ROOT_CHECK_PYTHON)"
 DOCS_RENDER_SERVE_CONFIG := 0
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
@@ -22,13 +22,16 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/bijux.mk
 
 .PHONY: \
 	help list list-all install lock lock-check lint quality security test docs docs-check docs-serve api build sbom clean all \
-	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify sync-badges \
+	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify sync-badges sync-license-assets \
 	clean-root-artifacts root-check-env check-shared-bijux-py
 
-check: lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
+check: sync-license-assets lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
 
 sync-badges: root-check-env ## Render shared badge blocks into managed README surfaces
 	@$(DEV_RUN) -m bijux_pollenomics_dev.docs.badge_sync sync
+
+sync-license-assets: root-check-env ## Sync package LICENSE and NOTICE files from root sources
+	@$(DEV_RUN) -m bijux_pollenomics_dev.release.license_assets sync
 
 data-prep: root-check-env ## Refresh tracked source data under data/
 	@BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1 "$(CLI)" collect-data all --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')" --output-root "$(CURDIR)/data"

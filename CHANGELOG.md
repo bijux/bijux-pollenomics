@@ -35,6 +35,9 @@ change contributor and maintainer workflows across the repository.
 - Packaging verification now cleans stale artifacts before each build and runs
   smoke installs against dependency-complete environments using the current
   `artifacts/bijux-pollenomics/build` output path.
+- License metadata now follows a root-source model: package `LICENSE` and
+  `NOTICE` files are synchronized from repository root automation before checks
+  and package builds.
 
 ## 0.1.2 - 2026-04-11
 
