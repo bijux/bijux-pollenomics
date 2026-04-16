@@ -22,7 +22,7 @@ The CLI is the primary public interface for `bijux-pollenomics`.
 
 ## Shared Options
 
-- `--version` selects the AADR version directory and defaults to `v62.0`
+- `--version` selects the AADR version directory and defaults to `v66`
 - `--aadr-root` defaults to `data/aadr`
 - `--output-root` defaults to `data` for collection or `docs/report` for
   report publishing

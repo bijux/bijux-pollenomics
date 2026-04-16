@@ -24,14 +24,14 @@ def resolve_schema(fieldnames: Sequence[str]) -> dict[str, str | None]:
     """Map expected logical fields to raw AADR column names."""
     return {
         "genetic_id": find_column(fieldnames, "Genetic ID"),
-        "master_id": find_column(fieldnames, "Master ID"),
+        "master_id": find_column(fieldnames, "Master ID", "Persistent Genetic ID"),
         "group_id": find_column(fieldnames, "Group ID"),
         "locality": find_column(fieldnames, "Locality"),
         "political_entity": find_column(fieldnames, "Political Entity"),
         "latitude": find_column(fieldnames, "Lat.", "Latitude"),
         "longitude": find_column(fieldnames, "Long.", "Longitude"),
         "publication": find_column(fieldnames, "Publication abbreviation"),
-        "year_first_published": find_column(
+        "year_first_published": find_optional_column(
             fieldnames,
             "Year data from this individual was first published",
             "Year first published",

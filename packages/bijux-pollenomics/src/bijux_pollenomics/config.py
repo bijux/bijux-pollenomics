@@ -26,7 +26,7 @@ class ProjectPaths:
 
 
 DATA_DEFAULTS = DataDefaults(
-    aadr_version="v62.0",
+    aadr_version="v66",
     nordic_bbox=(4.0, 54.0, 35.0, 72.0),
 )
 

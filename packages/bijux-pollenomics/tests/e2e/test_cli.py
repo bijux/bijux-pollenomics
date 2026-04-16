@@ -126,9 +126,9 @@ class CliTests(unittest.TestCase):
 
     def test_report_country_requires_both_shared_map_arguments(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
-            (root / "v62.0_HO_public.anno").write_text(
+            (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
                 AADR_HEADER + "\n",
                 encoding="utf-8",
             )
@@ -153,9 +153,9 @@ class CliTests(unittest.TestCase):
 
     def test_publish_reports_command_runs(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
-            (root / "v62.0_HO_public.anno").write_text(
+            (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
                 "\n".join(
                     [
                         AADR_HEADER,
@@ -186,9 +186,9 @@ class CliTests(unittest.TestCase):
 
     def test_report_country_command_writes_country_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
-            (root / "v62.0_HO_public.anno").write_text(
+            (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
                 "\n".join(
                     [
                         AADR_HEADER,
@@ -216,13 +216,15 @@ class CliTests(unittest.TestCase):
             self.assertEqual(exit_code, 0)
             self.assertIn("1 unique samples", stdout.getvalue())
             self.assertTrue((bundle_root / "README.md").exists())
-            self.assertTrue((bundle_root / "sweden_aadr_v62.0_summary.json").exists())
+            self.assertTrue(
+                (bundle_root / f"sweden_aadr_{DEFAULT_AADR_VERSION}_summary.json").exists()
+            )
 
     def test_report_multi_country_map_command_writes_atlas_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp) / "data" / "aadr" / "v62.0" / "ho"
+            root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
-            (root / "v62.0_HO_public.anno").write_text(
+            (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
                 "\n".join(
                     [
                         AADR_HEADER,
