@@ -20,7 +20,7 @@ from .reporting.api import (
 try:
     __version__ = metadata.version("bijux-pollenomics")
 except metadata.PackageNotFoundError:
-    __version__ = "0.1.2"
+    __version__ = "0.1.3"
 
 __all__ = [
     "ContextDataReport",
