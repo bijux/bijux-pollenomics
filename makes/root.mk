@@ -16,9 +16,14 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/docs.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-docs.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/config-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/make-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/bijux.mk
+
+DOCS_BUILD_PREPARE_TARGETS := bijux-docs-sync docs-prepare-source
+DOCS_CHECK_PREPARE_TARGETS := bijux-docs-sync docs-prepare-source
+DOCS_SERVE_PREPARE_TARGETS := bijux-docs-sync docs-render-serve-config
 
 .PHONY: \
 	help list list-all install lock lock-check lint quality security test docs docs-check docs-serve api build sbom clean all \

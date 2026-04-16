@@ -25,6 +25,8 @@ extra:
   bijux:
     repository: bijux-pollenomics
     docs_package: bijux-pollenomics-dev
+    nav_mode: default
+    theme_key: bijux:theme
     hub_links:
       - key: bijux
         label: Bijux
