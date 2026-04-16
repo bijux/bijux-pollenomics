@@ -13,7 +13,7 @@ Configuration is centered on explicit defaults rather than on hidden discovery.
 
 ## Primary Defaults
 
-- `DEFAULT_AADR_VERSION = "v62.0"`
+- `DEFAULT_AADR_VERSION = "v66"`
 - `DEFAULT_ATLAS_SLUG = "nordic-atlas"`
 - `DEFAULT_ATLAS_TITLE = "Nordic Evidence Atlas"`
 - `DEFAULT_PUBLISHED_COUNTRIES = ("Sweden", "Norway", "Finland", "Denmark")`

@@ -14,8 +14,8 @@ The package supports both shell and import-based entrypoints.
 ## Shell Examples
 
 ```bash
-bijux-pollenomics collect-data all --version v62.0 --output-root data
-bijux-pollenomics publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data
+bijux-pollenomics collect-data all --version v66 --output-root data
+bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
 
 ## Import Examples
@@ -28,7 +28,7 @@ from bijux_pollenomics import collect_context_data, generate_published_reports
 collect_context_data(Path("data"))
 generate_published_reports(
     aadr_root=Path("data/aadr"),
-    version="v62.0",
+    version="v66",
     output_root=Path("docs/report"),
     context_root=Path("data"),
 )

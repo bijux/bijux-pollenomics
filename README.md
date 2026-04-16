@@ -125,8 +125,8 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 
 - `make install` syncs the editable environment from the tracked `uv.lock`
 - `make check` runs the main repository verification pass: lock check, lint, tests, docs, and distribution verification
-- `make data-prep` runs `collect-data all --version v62.0 --output-root data`
-- `make reports` runs `publish-reports --aadr-root data/aadr --version v62.0 --output-root docs/report --context-root data`
+- `make data-prep` runs `collect-data all --version v66 --output-root data`
+- `make reports` runs `publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data`
 - `make app-state` runs the full rebuild path: data, reports, and docs
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
