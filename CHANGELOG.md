@@ -30,6 +30,11 @@ change contributor and maintainer workflows across the repository.
   package-map status links consistent across both published distributions.
 - Release security gates now use `pytest>=9.0.3` where dev-tooling dependencies
   are defined, addressing the pip-audit advisory for `pytest 8.4.2`.
+- Package build metadata now resolves license files from package-local sources
+  so sdist install-smoke checks work from isolated build environments.
+- Packaging verification now cleans stale artifacts before each build and runs
+  smoke installs against dependency-complete environments using the current
+  `artifacts/bijux-pollenomics/build` output path.
 
 ## 0.1.2 - 2026-04-11
 

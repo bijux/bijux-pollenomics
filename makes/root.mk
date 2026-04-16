@@ -39,13 +39,13 @@ reports: root-check-env ## Refresh tracked report outputs under docs/report
 app-state: data-prep reports docs ## Rebuild tracked data, reports, and docs
 
 package-check: build ## Validate built distributions with twine
-	@"$(ROOT_CHECK_PYTHON)" -m twine check "$(CURDIR)/artifacts/build"/*
+	@"$(ROOT_CHECK_PYTHON)" -m twine check "$(CURDIR)/artifacts/bijux-pollenomics/build"/*.whl "$(CURDIR)/artifacts/bijux-pollenomics/build"/*.tar.gz
 .PHONY: package-check
 
 package-smoke: build ## Install the wheel into a temp venv and run the CLI
 	@rm -rf "$(CURDIR)/artifacts/tmp/package-smoke"
 	@"$(UV)" venv --python "$(PYTHON)" "$(CURDIR)/artifacts/tmp/package-smoke"
-	@"$(UV)" pip install --python "$(CURDIR)/artifacts/tmp/package-smoke/bin/python" --no-deps "$(CURDIR)/artifacts/build"/*.whl
+	@"$(UV)" pip install --python "$(CURDIR)/artifacts/tmp/package-smoke/bin/python" "$(CURDIR)/artifacts/bijux-pollenomics/build"/*.whl
 	@"$(CURDIR)/artifacts/tmp/package-smoke/bin/bijux-pollenomics" --version
 	@"$(CURDIR)/artifacts/tmp/package-smoke/bin/bijux-pollenomics" --help >/dev/null
 .PHONY: package-smoke
@@ -53,7 +53,7 @@ package-smoke: build ## Install the wheel into a temp venv and run the CLI
 package-source-smoke: build ## Install the sdist into a temp venv and run the CLI
 	@rm -rf "$(CURDIR)/artifacts/tmp/package-source-smoke"
 	@"$(UV)" venv --python "$(PYTHON)" "$(CURDIR)/artifacts/tmp/package-source-smoke"
-	@"$(UV)" pip install --python "$(CURDIR)/artifacts/tmp/package-source-smoke/bin/python" --no-deps "$(CURDIR)/artifacts/build"/*.tar.gz
+	@"$(UV)" pip install --python "$(CURDIR)/artifacts/tmp/package-source-smoke/bin/python" "$(CURDIR)/artifacts/bijux-pollenomics/build"/*.tar.gz
 	@"$(CURDIR)/artifacts/tmp/package-source-smoke/bin/bijux-pollenomics" --version
 	@"$(CURDIR)/artifacts/tmp/package-source-smoke/bin/bijux-pollenomics" --help >/dev/null
 .PHONY: package-source-smoke

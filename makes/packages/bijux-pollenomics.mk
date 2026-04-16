@@ -32,11 +32,11 @@ build-install-smoke:
 	@tmp_root="$(PROJECT_ARTIFACTS_DIR)/tmp/build-install-smoke"; \
 	rm -rf "$$tmp_root"; \
 	"$(BUILD_PYTHON)" -m venv "$$tmp_root/wheel"; \
-	"$$tmp_root/wheel/bin/python" -m pip install --no-deps "$(BUILD_DIR_ABS)"/*.whl; \
+	"$$tmp_root/wheel/bin/python" -m pip install "$(BUILD_DIR_ABS)"/*.whl; \
 	"$$tmp_root/wheel/bin/bijux-pollenomics" --version; \
 	"$$tmp_root/wheel/bin/bijux-pollenomics" --help >/dev/null; \
 	"$(BUILD_PYTHON)" -m venv "$$tmp_root/sdist"; \
-	"$$tmp_root/sdist/bin/python" -m pip install --no-deps "$(BUILD_DIR_ABS)"/*.tar.gz; \
+	"$$tmp_root/sdist/bin/python" -m pip install "$(BUILD_DIR_ABS)"/*.tar.gz; \
 	"$$tmp_root/sdist/bin/bijux-pollenomics" --version; \
 	"$$tmp_root/sdist/bin/bijux-pollenomics" --help >/dev/null
 .PHONY: build-install-smoke
