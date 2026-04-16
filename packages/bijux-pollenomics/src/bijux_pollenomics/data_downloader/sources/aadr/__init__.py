@@ -22,6 +22,7 @@ from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
 from .resolution import (
     dataset_directory_name,
     extract_anno_files_from_release,
+    is_requested_anno_filename,
     iter_release_versions,
     resolve_aadr_release,
     resolve_anno_files,
@@ -78,6 +79,7 @@ __all__ = [
     "download_aadr_anno_files",
     "extract_anno_files_from_release",
     "fetch_release_history_metadata",
+    "is_requested_anno_filename",
     "iter_release_versions",
     "resolve_aadr_release",
     "resolve_anno_files",
