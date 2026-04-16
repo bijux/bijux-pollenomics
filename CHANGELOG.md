@@ -17,6 +17,8 @@ change contributor and maintainer workflows across the repository.
   under `docs/report/`.
 - Shared atlas output now labels the AADR evidence layer with its active
   release version, for example `AADR-v66 aDNA samples`.
+- Workspace release and publish automation now include both distribution names,
+  `bijux-pollenomics` and the `pollenomics` compatibility alias.
 
 ### Fixed
 
@@ -24,6 +26,8 @@ change contributor and maintainer workflows across the repository.
   `v66` files, preventing missed `.anno` selection during collection.
 - Report generation now accepts the current AADR schema header variants, so
   `publish-reports` succeeds against `v66` source files.
+- Shared README badge sync now covers the compatibility package, keeping
+  package-map status links consistent across both published distributions.
 
 ## 0.1.2 - 2026-04-11
 
