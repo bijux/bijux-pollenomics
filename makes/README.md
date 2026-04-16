@@ -1,8 +1,9 @@
 # Make Architecture
 
 `makes/` is the operational control plane for this repository. It should keep
-the root entrypoints small, keep shared implementation in `bijux-py/`, and
-keep package-specific policy in leaf package profiles.
+the root entrypoints small, keep shared implementation synchronized from
+`shared/bijux-py/` into `makes/bijux-py/`, and keep package-specific policy in
+leaf package profiles.
 
 ## Design Goals
 
@@ -15,7 +16,12 @@ keep package-specific policy in leaf package profiles.
 
 ## Layout
 
+```text
+shared/
+└── bijux-py/
 ```
+
+```text
 makes/
 ├── bijux-py/
 │   ├── ci/
@@ -36,15 +42,19 @@ makes/
 └── root.mk
 ```
 
+`shared/bijux-py/` is the system-level shared make layer that must stay
+byte-identical across sibling repositories. `makes/bijux-py/` is the local
+execution mirror used by root include paths.
+
 Repositories may add another top-level makefile when a repository-specific
 archetype earns a durable home, but that file should extend the same layout
-instead of copying shared logic out of `bijux-py/`.
+instead of copying shared logic out of `shared/bijux-py/`.
 
 ## Neighbor Contract
 
-Shared gates in `bijux-py/` consume the repository `configs/` tree rather than
-hardcoded tool flags. Every repository is expected to expose the same config
-surface:
+Shared gates in `shared/bijux-py/` and its local mirror consume the repository
+`configs/` tree rather than hardcoded tool flags. Every repository is expected
+to expose the same config surface:
 
 ```
 configs/
@@ -60,9 +70,11 @@ configs/
 
 ## Layer Boundaries
 
-- `bijux-py/bijux.mk` is the shared anchor. It verifies that the shared make
-  series stays identical across repositories and provides the shared include
-  root.
+- `shared/bijux-py/` is the system-level shared make source of truth.
+- `makes/bijux-py/` is the local include mirror that should stay identical to
+  `shared/bijux-py/`.
+- `bijux-py/bijux.mk` verifies both local mirror integrity and cross-repository
+  shared integrity.
 - `bijux-py/ci/` owns shared gates such as `lint`, `test`, `quality`,
   `security`, `build`, `docs`, and `sbom`.
 - `bijux-py/api*.mk` owns shared API contract generation, live contract checks,
@@ -86,7 +98,7 @@ configs/
 ## Placement Rules
 
 1. If the behavior must stay identical in every repository, put it in
-   `makes/bijux-py/`.
+   `shared/bijux-py/` and mirror it into `makes/bijux-py/`.
 2. If the behavior is shared inside one repository but depends on that
    repository's package catalog, paths, or publication policy, keep it in a
    clearly named top-level makefile under `makes/`.
@@ -99,7 +111,7 @@ configs/
 ## What Does Not Belong Here
 
 - duplicated gate recipes across package profiles
-- repository identity or path assumptions embedded in `bijux-py/`
+- repository identity or path assumptions embedded in `shared/bijux-py/`
 - long-lived migration wrappers that only preserve old names
 - file names based on temporary planning language instead of durable intent
 
@@ -110,15 +122,15 @@ configs/
 - shared gates should read from `configs/`, not from hand-written per-recipe
   tool flags
 - API freeze behavior stays local, while shared API workflow logic stays in
-  `bijux-py/`
+  `shared/bijux-py/`
 - every new makefile should earn a durable domain name that will still make
   sense years later
 
 ## Verification
 
 - `make help`, `make list`, and `make list-all` expose the root command surface
-- `make check-shared-bijux-py` verifies that the shared make series is still
-  byte-identical across repositories
+- `make check-shared-bijux-py` verifies local mirror integrity and shared
+  byte-identity across repositories
 - `make check-config-layout` verifies that the repository exports the expected
   shared config surface
 - `make check-make-layout` verifies that the repository keeps the expected make
