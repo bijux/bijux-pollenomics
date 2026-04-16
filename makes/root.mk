@@ -17,6 +17,7 @@ include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/docs.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-docs.mk
+include $(ROOT_MAKEFILE_DIR)/bijux-std.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/config-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/make-layout.mk
 include $(ROOT_MAKEFILE_DIR)/bijux-py/bijux.mk
