@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
   package surfaces so release status links stay aligned across distributions.
 - Dev dependency constraints now require `pytest>=9.0.3` to satisfy security
   gating during release checks.
+- Package build metadata now resolves `LICENSE` and `NOTICE` from package-local
+  files so isolated sdist installation works during release smoke checks.
 
 ## 0.1.2 - 2026-04-11
 

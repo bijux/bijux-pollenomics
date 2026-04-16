@@ -22,6 +22,10 @@ All notable changes for `bijux-pollenomics` are recorded here.
   artifacts before considering package builds ready.
 - Installation guidance now explicitly documents the Python `3.11+` runtime
   requirement and common `Requires-Python` install failure symptom.
+- Package build metadata now resolves `LICENSE` and `NOTICE` from package-local
+  files so isolated sdist installation works during release smoke checks.
+- Build smoke verification now installs package dependencies and starts from a
+  clean artifact directory so wheel and sdist checks run against one build set.
 
 ## 0.1.2 - 2026-04-11
 

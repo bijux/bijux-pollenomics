@@ -18,3 +18,8 @@ All notable changes for `pollenomics` are recorded here.
   including source, docs, release, and distribution status links.
 - Development dependency constraints now require `pytest>=9.0.3` so security
   verification passes with current pip-audit advisories.
+
+### Fixed
+
+- Package build metadata now resolves `LICENSE` and `NOTICE` from package-local
+  files so isolated sdist installation works during release smoke checks.
