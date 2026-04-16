@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import re
 import unittest
 from unittest.mock import patch
 
@@ -60,16 +61,26 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(error.exception.code, 2)
 
     def test_package_version_matches_pyproject(self) -> None:
-        pyproject_text = (
-            Path(__file__)
-            .resolve()
-            .parents[2]
-            .joinpath("pyproject.toml")
-            .read_text(encoding="utf-8")
+        package_root = Path(__file__).resolve().parents[2]
+        pyproject_text = package_root.joinpath("pyproject.toml").read_text(
+            encoding="utf-8"
+        )
+        module_text = package_root.joinpath(
+            "src/bijux_pollenomics/__init__.py"
+        ).read_text(encoding="utf-8")
+        pyproject_fallback = re.search(
+            r'fallback-version\s*=\s*"(?P<version>[^"]+)"', pyproject_text
+        )
+        module_fallback = re.search(
+            r'__version__\s*=\s*"(?P<version>[^"]+)"', module_text
         )
 
         self.assertIn('dynamic = ["version"]', pyproject_text)
         self.assertIn('requires-python = ">=3.11"', pyproject_text)
         self.assertIn("[tool.hatch.version]", pyproject_text)
         self.assertIn('source = "vcs"', pyproject_text)
-        self.assertIn('fallback-version = "0.1.2"', pyproject_text)
+        self.assertIsNotNone(pyproject_fallback)
+        self.assertIsNotNone(module_fallback)
+        self.assertEqual(
+            pyproject_fallback.group("version"), module_fallback.group("version")
+        )
