@@ -15,6 +15,9 @@ change contributor and maintainer workflows across the repository.
 - Repository defaults and generated outputs now align on AADR `v66`, including
   tracked source snapshots under `data/aadr/` and regenerated report bundles
   under `docs/report/`.
+- Shared repository directories now comply with `bijux-std v0.1.0`, including
+  synchronized `shared/bijux-docs`, `shared/bijux-makes-py`, and
+  `shared/bijux-checks` standards.
 - Shared atlas output now labels the AADR evidence layer with its active
   release version, for example `AADR-v66 aDNA samples`.
 - Workspace release and publish automation now include both distribution names,
