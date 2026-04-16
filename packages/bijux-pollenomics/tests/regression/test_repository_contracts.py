@@ -261,18 +261,28 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertFalse((REPO_ROOT / "docs" / "outputs" / "gallery").exists())
 
-    def test_navigation_sync_prefers_authored_active_links(self) -> None:
+    def test_navigation_sync_bootstraps_shared_navigation_shell(self) -> None:
         script_text = (
             REPO_ROOT / "docs" / "assets" / "javascripts" / "navigation-sync.js"
         ).read_text(encoding="utf-8")
+        nav_state_text = (
+            REPO_ROOT / "docs" / "assets" / "javascripts" / "shell" / "nav-state.js"
+        ).read_text(encoding="utf-8")
+        detail_tabs_text = (
+            REPO_ROOT / "docs" / "assets" / "javascripts" / "shell" / "detail-tabs.js"
+        ).read_text(encoding="utf-8")
 
         self.assertIn(
-            "[data-bijux-site-path][aria-current='page']",
+            "window.bijuxShell?.bootstrap?.ensureBound",
             script_text,
         )
         self.assertIn(
+            "[data-bijux-site-path][aria-current='page']",
+            nav_state_text,
+        )
+        self.assertIn(
             "[data-bijux-detail-path][aria-current='page']",
-            script_text,
+            detail_tabs_text,
         )
 
     def test_fieldwork_page_embeds_video_from_site_root_gallery(self) -> None:
