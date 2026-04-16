@@ -2,6 +2,20 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
+## 0.1.3 - 2026-04-16
+
+### Changed
+
+- Maintainer release flow now includes synchronized publishing checks for both
+  `bijux-pollenomics` and the `pollenomics` compatibility distribution.
+- Source-checkout version fallback now aligns with `0.1.3` for local maintainer
+  verification and release readiness checks.
+
+### Fixed
+
+- Repository package-map badge synchronization now includes compatibility
+  package surfaces so release status links stay aligned across distributions.
+
 ## 0.1.2 - 2026-04-11
 
 ### Changed

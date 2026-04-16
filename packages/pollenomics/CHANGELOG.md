@@ -11,3 +11,8 @@ All notable changes for `pollenomics` are recorded here.
   `bijux-pollenomics`.
 - Public Python API is now available under the `pollenomics` module as a
   compatibility re-export of `bijux_pollenomics`.
+
+### Changed
+
+- Package README now follows the shared badge map used across Bijux packages,
+  including source, docs, release, and distribution status links.
