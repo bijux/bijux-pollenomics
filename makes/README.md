@@ -2,7 +2,7 @@
 
 `makes/` is the operational control plane for this repository. It should keep
 the root entrypoints small, keep shared implementation synchronized from
-`shared/bijux-py/` into `makes/bijux-py/`, and keep package-specific policy in
+`shared/bijux-makes-py/` into `makes/bijux-py/`, and keep package-specific policy in
 leaf package profiles.
 
 ## Design Goals
@@ -42,17 +42,17 @@ makes/
 └── root.mk
 ```
 
-`shared/bijux-py/` is the system-level shared make layer that must stay
+`shared/bijux-makes-py/` is the system-level shared make layer that must stay
 byte-identical across sibling repositories. `makes/bijux-py/` is the local
 execution mirror used by root include paths.
 
 Repositories may add another top-level makefile when a repository-specific
 archetype earns a durable home, but that file should extend the same layout
-instead of copying shared logic out of `shared/bijux-py/`.
+instead of copying shared logic out of `shared/bijux-makes-py/`.
 
 ## Neighbor Contract
 
-Shared gates in `shared/bijux-py/` and its local mirror consume the repository
+Shared gates in `shared/bijux-makes-py/` and its local mirror consume the repository
 `configs/` tree rather than hardcoded tool flags. Every repository is expected
 to expose the same config surface:
 
@@ -70,9 +70,9 @@ configs/
 
 ## Layer Boundaries
 
-- `shared/bijux-py/` is the system-level shared make source of truth.
+- `shared/bijux-makes-py/` is the system-level shared make source of truth.
 - `makes/bijux-py/` is the local include mirror that should stay identical to
-  `shared/bijux-py/`.
+  `shared/bijux-makes-py/`.
 - `bijux-py/bijux.mk` verifies both local mirror integrity and cross-repository
   shared integrity.
 - `bijux-py/ci/` owns shared gates such as `lint`, `test`, `quality`,
@@ -98,7 +98,7 @@ configs/
 ## Placement Rules
 
 1. If the behavior must stay identical in every repository, put it in
-   `shared/bijux-py/` and mirror it into `makes/bijux-py/`.
+   `shared/bijux-makes-py/` and mirror it into `makes/bijux-py/`.
 2. If the behavior is shared inside one repository but depends on that
    repository's package catalog, paths, or publication policy, keep it in a
    clearly named top-level makefile under `makes/`.
@@ -111,7 +111,7 @@ configs/
 ## What Does Not Belong Here
 
 - duplicated gate recipes across package profiles
-- repository identity or path assumptions embedded in `shared/bijux-py/`
+- repository identity or path assumptions embedded in `shared/bijux-makes-py/`
 - long-lived migration wrappers that only preserve old names
 - file names based on temporary planning language instead of durable intent
 
@@ -122,7 +122,7 @@ configs/
 - shared gates should read from `configs/`, not from hand-written per-recipe
   tool flags
 - API freeze behavior stays local, while shared API workflow logic stays in
-  `shared/bijux-py/`
+  `shared/bijux-makes-py/`
 - every new makefile should earn a durable domain name that will still make
   sense years later
 
