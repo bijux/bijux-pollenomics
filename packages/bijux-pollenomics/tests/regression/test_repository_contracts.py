@@ -83,6 +83,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         test_targets_text = (
             REPO_ROOT / "makes" / "bijux-py" / "ci" / "test.mk"
         ).read_text(encoding="utf-8")
+        package_make_text = (
+            REPO_ROOT / "makes" / "packages" / "bijux-pollenomics.mk"
+        ).read_text(encoding="utf-8")
 
         self.assertIn("include makes/root.mk", makefile_text)
         self.assertIn("lock", root_make_text)
@@ -94,6 +97,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("test-unit:", test_targets_text)
         self.assertIn("test-regression:", test_targets_text)
         self.assertIn("test-e2e:", test_targets_text)
+        self.assertIn("BUILD_POST_TARGETS := build-install-smoke", package_make_text)
+        self.assertIn("build-install-smoke:", package_make_text)
         self.assertIn(
             "ROOT_ARTIFACTS_DIR ?= $(PROJECT_ARTIFACTS_DIR)/root", root_env_text
         )

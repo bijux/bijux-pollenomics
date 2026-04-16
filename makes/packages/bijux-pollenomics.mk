@@ -19,6 +19,7 @@ QUALITY_MYPY_TARGETS = src tests $(MONOREPO_ROOT)/docs/hooks/publish_site_assets
 QUALITY_POST_TARGETS := quality-compileall
 BUILD_PACKAGE_NAME := bijux-pollenomics
 BUILD_TEMP_CLEAN_PATHS := build dist *.egg-info
+BUILD_POST_TARGETS := build-install-smoke
 PACKAGE_NAME := bijux-pollenomics
 API_FREEZE_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.freeze_contracts
 API_OPENAPI_DRIFT_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.openapi_drift
@@ -26,5 +27,18 @@ API_OPENAPI_DRIFT_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.openapi_
 quality-compileall:
 	@"$(VENV_PYTHON)" -m compileall src | tee "$(PROJECT_ARTIFACTS_DIR)/quality/compileall.log"
 .PHONY: quality-compileall
+
+build-install-smoke:
+	@tmp_root="$(PROJECT_ARTIFACTS_DIR)/tmp/build-install-smoke"; \
+	rm -rf "$$tmp_root"; \
+	"$(BUILD_PYTHON)" -m venv "$$tmp_root/wheel"; \
+	"$$tmp_root/wheel/bin/python" -m pip install --no-deps "$(BUILD_DIR_ABS)"/*.whl; \
+	"$$tmp_root/wheel/bin/bijux-pollenomics" --version; \
+	"$$tmp_root/wheel/bin/bijux-pollenomics" --help >/dev/null; \
+	"$(BUILD_PYTHON)" -m venv "$$tmp_root/sdist"; \
+	"$$tmp_root/sdist/bin/python" -m pip install --no-deps "$(BUILD_DIR_ABS)"/*.tar.gz; \
+	"$$tmp_root/sdist/bin/bijux-pollenomics" --version; \
+	"$$tmp_root/sdist/bin/bijux-pollenomics" --help >/dev/null
+.PHONY: build-install-smoke
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
