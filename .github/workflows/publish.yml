@@ -45,7 +45,6 @@ jobs:
       matrix:
         include:
           - package_slug: bijux-pollenomics
-          - package_slug: pollenomics
     environment:
       name: pypi
     permissions:
