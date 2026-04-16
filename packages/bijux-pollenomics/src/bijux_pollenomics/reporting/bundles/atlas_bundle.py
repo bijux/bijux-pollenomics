@@ -45,6 +45,7 @@ def publish_multi_country_map_bundle(
     )
     point_layers, polygon_layers, extra_artifacts = build_context_layers_fn(
         samples=all_samples,
+        version=version,
         output_dir=staging_output_dir,
         context_root=context_root,
     )
