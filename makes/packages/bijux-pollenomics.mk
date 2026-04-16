@@ -18,6 +18,7 @@ QUALITY_MYPY_CONFIG = $(MONOREPO_ROOT)/configs/mypy.ini
 QUALITY_MYPY_TARGETS = src tests $(MONOREPO_ROOT)/docs/hooks/publish_site_assets.py
 QUALITY_POST_TARGETS := quality-compileall
 BUILD_PACKAGE_NAME := bijux-pollenomics
+BUILD_PRE_TARGETS := sync-license-assets-package
 BUILD_TEMP_CLEAN_PATHS := build dist *.egg-info
 BUILD_POST_TARGETS := build-install-smoke
 PACKAGE_NAME := bijux-pollenomics
@@ -27,6 +28,16 @@ API_OPENAPI_DRIFT_COMMAND = $(VENV_PYTHON) -m bijux_pollenomics_dev.api.openapi_
 quality-compileall:
 	@"$(VENV_PYTHON)" -m compileall src | tee "$(PROJECT_ARTIFACTS_DIR)/quality/compileall.log"
 .PHONY: quality-compileall
+
+sync-license-assets-package:
+	@for file_name in LICENSE NOTICE; do \
+	  source_path="$(MONOREPO_ROOT)/$$file_name"; \
+	  target_path="$(PROJECT_DIR)/$$file_name"; \
+	  if [ ! -f "$$target_path" ] || ! cmp -s "$$source_path" "$$target_path"; then \
+	    cp "$$source_path" "$$target_path"; \
+	  fi; \
+	done
+.PHONY: sync-license-assets-package
 
 build-install-smoke:
 	@tmp_root="$(PROJECT_ARTIFACTS_DIR)/tmp/build-install-smoke"; \

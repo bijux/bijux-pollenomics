@@ -19,6 +19,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
   gating during release checks.
 - Package build metadata now resolves `LICENSE` and `NOTICE` from package-local
   files so isolated sdist installation works during release smoke checks.
+- Release tooling now includes a license-asset synchronizer that keeps package
+  `LICENSE` and `NOTICE` files aligned with root repository sources.
 
 ## 0.1.2 - 2026-04-11
 
