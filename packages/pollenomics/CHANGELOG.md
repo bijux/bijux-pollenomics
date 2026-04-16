@@ -16,3 +16,5 @@ All notable changes for `pollenomics` are recorded here.
 
 - Package README now follows the shared badge map used across Bijux packages,
   including source, docs, release, and distribution status links.
+- Development dependency constraints now require `pytest>=9.0.3` so security
+  verification passes with current pip-audit advisories.
