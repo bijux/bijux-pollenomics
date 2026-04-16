@@ -28,9 +28,7 @@ class AadrDataTests(unittest.TestCase):
             )
         )
         self.assertTrue(
-            is_requested_anno_filename(
-                filename="v66.HO.aadr.PUB.anno", version="v66"
-            )
+            is_requested_anno_filename(filename="v66.HO.aadr.PUB.anno", version="v66")
         )
         self.assertFalse(
             is_requested_anno_filename(
@@ -39,9 +37,7 @@ class AadrDataTests(unittest.TestCase):
             )
         )
         self.assertFalse(
-            is_requested_anno_filename(
-                filename="v66.HO.aadr.PUB.geno", version="v66"
-            )
+            is_requested_anno_filename(filename="v66.HO.aadr.PUB.geno", version="v66")
         )
 
     def test_resolve_anno_files_filters_to_requested_version(self) -> None:

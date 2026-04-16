@@ -1,3 +1,5 @@
+"""Compatibility CLI entrypoint for the `pollenomics` distribution."""
+
 from __future__ import annotations
 
 import argparse
