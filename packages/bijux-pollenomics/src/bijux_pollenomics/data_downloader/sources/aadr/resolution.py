@@ -8,7 +8,6 @@ from ....core.geojson import as_mapping
 from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL
 from .models import AadrAnnoFile, AadrReleaseResolution
 
-
 CANONICAL_AADR_DATASETS = frozenset({"1240k", "ho"})
 
 
@@ -93,9 +92,7 @@ def is_requested_anno_filename(*, filename: str, version: str) -> bool:
         return False
     if "compatibility" in lowered:
         return False
-    return lowered.startswith(f"{version_prefix}_") or lowered.startswith(
-        f"{version_prefix}."
-    )
+    return lowered.startswith((f"{version_prefix}_", f"{version_prefix}."))
 
 
 def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
