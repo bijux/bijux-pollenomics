@@ -339,7 +339,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("overwrite_files: false", publish_workflow)
         self.assertIn("oras-project/setup-oras@v1", publish_workflow)
         self.assertIn("packages: write", publish_workflow)
-        self.assertNotIn("PYPI_API_TOKEN", publish_workflow)
+        self.assertIn("PYPI_API_TOKEN", publish_workflow)
+        self.assertIn("Publish to PyPI (token bootstrap)", publish_workflow)
+        self.assertIn("publish_auth: token", publish_workflow)
         build_release_workflow = (
             REPO_ROOT / ".github" / "workflows" / "build-release-artifacts.yml"
         ).read_text(encoding="utf-8")

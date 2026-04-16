@@ -45,6 +45,9 @@ jobs:
       matrix:
         include:
           - package_slug: bijux-pollenomics
+            publish_auth: trusted
+          - package_slug: pollenomics
+            publish_auth: token
     environment:
       name: pypi
     permissions:
@@ -58,11 +61,21 @@ jobs:
           name: ${{ matrix.package_slug }}-pypi-dist
           path: .github/tmp/${{ matrix.package_slug }}-dist
 
-      - name: Publish to PyPI
+      - name: Publish to PyPI (trusted publisher)
+        if: ${{ matrix.publish_auth == 'trusted' }}
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
           skip-existing: true
+
+      - name: Publish to PyPI (token bootstrap)
+        if: ${{ matrix.publish_auth == 'token' }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
+          skip-existing: true
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
   publish_ghcr:
     name: publish-ghcr-${{ matrix.package_slug }}
