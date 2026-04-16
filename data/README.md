@@ -5,7 +5,7 @@ Tracked source data lives directly under `data/`:
 ```text
 data
 ├── aadr
-│   └── v62.0
+│   └── v66
 ├── boundaries
 ├── landclim
 ├── neotoma

@@ -1,16 +1,16 @@
 # Nordic Evidence Atlas
 
-This shared interactive map bundle was generated on `2026-03-31`.
-It combines AADR `v62.0` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory.
+This shared interactive map bundle was generated on `2026-04-16`.
+It combines AADR `v66` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory.
 
 ## Included Countries
 
 | Country | Unique samples |
 | --- | ---: |
-| Sweden | 519 |
-| Norway | 58 |
-| Finland | 22 |
-| Denmark | 300 |
+| Sweden | 416 |
+| Norway | 130 |
+| Finland | 32 |
+| Denmark | 653 |
 
 ## Bundle Notes
 

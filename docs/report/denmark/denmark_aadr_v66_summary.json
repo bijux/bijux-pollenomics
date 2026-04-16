@@ -1,0 +1,20 @@
+{
+  "country": "Denmark",
+  "version": "v66",
+  "generated_on": "2026-04-16",
+  "total_unique_samples": 653,
+  "total_unique_localities": 295,
+  "dataset_row_counts": {
+    "1240k": 653,
+    "ho": 653
+  },
+  "output_dir": "docs/report/denmark",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "denmark_aadr_v66_samples.csv",
+    "localities_csv": "denmark_aadr_v66_localities.csv",
+    "samples_geojson": "denmark_aadr_v66_samples.geojson",
+    "samples_markdown": "denmark_aadr_v66_samples.md",
+    "summary_json": "denmark_aadr_v66_summary.json"
+  }
+}
