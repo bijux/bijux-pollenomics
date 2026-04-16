@@ -24,6 +24,10 @@ jobs:
             package_dir: packages/bijux-pollenomics
             artifacts_dir: artifacts/bijux-pollenomics
             build_targets: "build sbom"
+          - package_slug: pollenomics
+            package_dir: packages/pollenomics
+            artifacts_dir: artifacts/pollenomics
+            build_targets: "build sbom"
     uses: ./.github/workflows/build-release-artifacts.yml
     with:
       package_slug: ${{ matrix.package_slug }}
@@ -41,6 +45,7 @@ jobs:
       matrix:
         include:
           - package_slug: bijux-pollenomics
+          - package_slug: pollenomics
     environment:
       name: pypi
     permissions:
@@ -69,6 +74,7 @@ jobs:
       matrix:
         include:
           - package_slug: bijux-pollenomics
+          - package_slug: pollenomics
     permissions:
       contents: read
       packages: write
