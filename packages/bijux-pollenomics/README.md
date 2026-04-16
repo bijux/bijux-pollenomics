@@ -20,10 +20,15 @@ The repository root keeps the long-form documentation, tracked data snapshots, a
 
 ## Install
 
+`bijux-pollenomics` supports Python 3.11 and newer.
+
 ```bash
-python -m pip install bijux-pollenomics
+python3.11 -m pip install bijux-pollenomics
 bijux-pollenomics --help
 ```
+
+If `pip` prints `No matching distribution found` together with messages like
+`Requires-Python >=3.11`, run the install command with a Python 3.11+ runtime.
 
 ## Read this next
 
