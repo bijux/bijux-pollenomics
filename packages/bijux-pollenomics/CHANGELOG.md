@@ -2,6 +2,27 @@
 
 All notable changes for `bijux-pollenomics` are recorded here.
 
+## 0.1.3 - 2026-04-16
+
+### Changed
+
+- Default AADR release now targets `v66`, and command/documentation examples
+  now use `v66` as the canonical release input.
+- AADR release resolution now supports current Dataverse filename formats
+  (including dotted `v66` naming) while keeping stable `1240k` and `ho`
+  dataset extraction.
+- AADR schema handling now accepts current release header variants so report
+  generation works with the latest `.anno` files.
+- Shared atlas layer naming now includes the active AADR release label, for
+  example `AADR-v66 aDNA samples`.
+
+### Fixed
+
+- Build validation now smoke-tests installation for both wheel and sdist
+  artifacts before considering package builds ready.
+- Installation guidance now explicitly documents the Python `3.11+` runtime
+  requirement and common `Requires-Python` install failure symptom.
+
 ## 0.1.2 - 2026-04-11
 
 ### Changed

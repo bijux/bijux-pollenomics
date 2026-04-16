@@ -8,6 +8,23 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.3 - 2026-04-16
+
+### Changed
+
+- Repository defaults and generated outputs now align on AADR `v66`, including
+  tracked source snapshots under `data/aadr/` and regenerated report bundles
+  under `docs/report/`.
+- Shared atlas output now labels the AADR evidence layer with its active
+  release version, for example `AADR-v66 aDNA samples`.
+
+### Fixed
+
+- AADR release resolution now accepts current Dataverse naming formats used by
+  `v66` files, preventing missed `.anno` selection during collection.
+- Report generation now accepts the current AADR schema header variants, so
+  `publish-reports` succeeds against `v66` source files.
+
 ## 0.1.2 - 2026-04-11
 
 ### Changed
