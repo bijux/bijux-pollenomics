@@ -61,7 +61,7 @@ include = [
     "CHANGELOG.md",
     "src/bijux_pollenomics/**",
 ]
-force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
+force-include = { "LICENSE" = "LICENSE", "NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/bijux_pollenomics"]
