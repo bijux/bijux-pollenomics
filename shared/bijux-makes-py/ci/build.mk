@@ -61,7 +61,6 @@ build-package: build-tools
 	out_dir="$(BUILD_DIR_ABS)"; \
 	if [ "$(BUILD_PER_PACKAGE_DIRS)" = "1" ]; then out_dir="$(BUILD_DIR_ABS)/$$package_slug"; fi; \
 	mkdir -p "$$out_dir"; \
-	rm -f "$$out_dir"/*.whl "$$out_dir"/*.tar.gz "$$out_dir"/twine-check.log; \
 	printf '→ Preparing Python package artifacts for %s\n' "$(PACKAGE_DIR)"; \
 	printf '→ Building wheel + sdist → %s\n' "$$out_dir"; \
 	$(BUILD_PYTHON) -m build --wheel --sdist --outdir "$$out_dir" "$(abspath $(PACKAGE_DIR))"; \
