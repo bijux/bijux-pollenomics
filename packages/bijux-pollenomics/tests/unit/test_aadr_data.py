@@ -9,6 +9,7 @@ from unittest.mock import patch
 from bijux_pollenomics.data_downloader.sources.aadr import (
     dataset_directory_name,
     download_aadr_anno_files,
+    is_requested_anno_filename,
     resolve_anno_files,
 )
 
@@ -17,6 +18,31 @@ class AadrDataTests(unittest.TestCase):
     def test_dataset_directory_name_maps_known_public_datasets(self) -> None:
         self.assertEqual(dataset_directory_name("v62.0_1240k_public.anno"), "1240k")
         self.assertEqual(dataset_directory_name("v62.0_HO_public.anno"), "ho")
+        self.assertEqual(dataset_directory_name("v66.1240K.aadr.PUB.anno"), "1240k")
+        self.assertEqual(dataset_directory_name("v66.HO.aadr.PUB.anno"), "ho")
+
+    def test_is_requested_anno_filename_matches_supported_patterns(self) -> None:
+        self.assertTrue(
+            is_requested_anno_filename(
+                filename="v62.0_1240k_public.anno", version="v62.0"
+            )
+        )
+        self.assertTrue(
+            is_requested_anno_filename(
+                filename="v66.HO.aadr.PUB.anno", version="v66"
+            )
+        )
+        self.assertFalse(
+            is_requested_anno_filename(
+                filename="v66.compatibility_HO.aadr.PUB.anno",
+                version="v66",
+            )
+        )
+        self.assertFalse(
+            is_requested_anno_filename(
+                filename="v66.HO.aadr.PUB.geno", version="v66"
+            )
+        )
 
     def test_resolve_anno_files_filters_to_requested_version(self) -> None:
         metadata = {
@@ -87,6 +113,35 @@ class AadrDataTests(unittest.TestCase):
             [
                 ("1240k", "v54.1_1240k_public.anno", 302),
                 ("ho", "v54.1_HO_public.anno", 301),
+            ],
+        )
+
+    def test_resolve_anno_files_supports_v66_dotted_filenames(self) -> None:
+        metadata = {
+            "data": [
+                {
+                    "files": [
+                        {"dataFile": {"filename": "v66.1240K.aadr.PUB.anno", "id": 11}},
+                        {"dataFile": {"filename": "v66.HO.aadr.PUB.anno", "id": 12}},
+                        {
+                            "dataFile": {
+                                "filename": "v66.compatibility_HO.aadr.PUB.anno",
+                                "id": 13,
+                            }
+                        },
+                        {"dataFile": {"filename": "v66.2M.aadr.PUB.anno", "id": 14}},
+                    ]
+                }
+            ]
+        }
+
+        files = resolve_anno_files(version="v66", metadata=metadata)
+
+        self.assertEqual(
+            [(item.dataset_name, item.filename, item.file_id) for item in files],
+            [
+                ("1240k", "v66.1240K.aadr.PUB.anno", 11),
+                ("ho", "v66.HO.aadr.PUB.anno", 12),
             ],
         )
 
