@@ -15,6 +15,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 - Repository package-map badge synchronization now includes compatibility
   package surfaces so release status links stay aligned across distributions.
+- Dev dependency constraints now require `pytest>=9.0.3` to satisfy security
+  gating during release checks.
 
 ## 0.1.2 - 2026-04-11
 

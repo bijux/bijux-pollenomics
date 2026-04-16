@@ -28,6 +28,8 @@ change contributor and maintainer workflows across the repository.
   `publish-reports` succeeds against `v66` source files.
 - Shared README badge sync now covers the compatibility package, keeping
   package-map status links consistent across both published distributions.
+- Release security gates now use `pytest>=9.0.3` where dev-tooling dependencies
+  are defined, addressing the pip-audit advisory for `pytest 8.4.2`.
 
 ## 0.1.2 - 2026-04-11
 
