@@ -128,7 +128,7 @@ jobs:
           fi
 
       - name: Upload publish artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.package_slug }}-pypi-dist
           path: .github/tmp/${{ inputs.package_slug }}-dist/*
@@ -136,7 +136,7 @@ jobs:
           retention-days: 14
 
       - name: Upload release artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.package_slug }}-release
           path: .github/tmp/${{ inputs.package_slug }}-release/**/*
