@@ -90,7 +90,7 @@ jobs:
           test -f "${DOCS_SITE_DIR}/apple-touch-icon-precomposed.png"
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ${{ env.DOCS_SITE_DIR }}
 
