@@ -109,7 +109,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         if: ${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}
         with:
           node-version: "20"
