@@ -9,5 +9,10 @@
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.31.1",
     "@redocly/cli": "2.28.1"
+  },
+  "overrides": {
+    "basic-ftp": "^5.3.0",
+    "follow-redirects": "^1.16.0",
+    "protobufjs": "^7.5.5"
   }
 }
