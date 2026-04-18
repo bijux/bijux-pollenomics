@@ -31,7 +31,7 @@ Generated badge sections always render in this order:
 Link policy for GHCR badges is fixed here as part of the contract:
 
 - the repository-wide GHCR summary badge links to
-  `https://github.com/bijux?tab=packages`
+  `https://github.com/bijux?tab=packages&repo_name=bijux-pollenomics`
 - per-package GHCR badges link to the package-specific
   `https://github.com/bijux/bijux-pollenomics/pkgs/container/...` page
 
@@ -44,7 +44,7 @@ Link policy for GHCR badges is fixed here as part of the contract:
 [![Publish](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/publish.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 [![Release](https://img.shields.io/github/v/release/bijux/bijux-pollenomics?display_name=tag&label=release)](https://github.com/bijux/bijux-pollenomics/releases)
-[![GHCR packages](https://img.shields.io/badge/ghcr-{{ public_package_count }}%20packages-181717?logo=github)](https://github.com/bijux?tab=packages)
+[![GHCR packages](https://img.shields.io/badge/ghcr-{{ public_package_count }}%20packages-181717?logo=github)](https://github.com/bijux?tab=packages&repo_name=bijux-pollenomics)
 [![Published packages](https://img.shields.io/badge/published%20packages-{{ public_package_count }}-2563EB)](https://github.com/bijux/bijux-pollenomics/tree/main/packages)
 <!-- bijux-pollenomics-badges:repository-summary:end -->
 
