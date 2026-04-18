@@ -1,9 +1,39 @@
-# Automation Identity Baseline
+# Automation and Contributor Identity Baseline
 
-This repository records automation-origin commits from `github-actions[bot]`.
+This repository intentionally records commits from three identities:
 
-Purpose:
-- make automation provenance explicit in repository history
-- keep contributor identity treatment consistent across Bijux repositories
+1. `bijux` (Bijan Mousavi)
+2. `dependabot[bot]`
+3. `github-actions[bot]`
 
-Bot-authored commit provenance is intentionally retained on `main`.
+## Responsibility Boundaries
+
+### `bijux` (Bijan Mousavi)
+
+Primary maintainer and owner for repository direction and release governance:
+
+- defines architecture and repository policy
+- approves and merges pull requests
+- performs direct `main` maintenance when required by repository policy
+- owns security decisions and dependency-risk acceptance
+- owns release intent and final publish decisions
+
+### `dependabot[bot]`
+
+Automated dependency maintenance only:
+
+- opens pull requests for dependency and ecosystem updates
+- does not own product behavior or policy decisions
+- changes are reviewed and merged by the maintainer
+
+### `github-actions[bot]`
+
+Workflow automation identity:
+
+- creates workflow-origin commits and release automation updates
+- updates generated automation outputs when workflows are designed to commit
+- does not define repository policy; executes maintainer-defined workflows
+
+## Governance Rule
+
+Bot-authored commit provenance is intentionally retained on `main` so history keeps clear authorship for human decisions, dependency automation, and workflow automation.
