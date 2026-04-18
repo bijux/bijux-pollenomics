@@ -3,10 +3,25 @@ from __future__ import annotations
 
 import re
 import sys
+import json
 from pathlib import Path
 
 USE_PATTERN = re.compile(r"^\s*-\s*uses:\s*([^\s#]+)")
 PINNED_PATTERN = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+@[0-9a-f]{40}$")
+
+
+def manifest_managed_paths(manifest_path: Path) -> list[str]:
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    entries = manifest.get("workflow_inventory", {}).get("managed_workflows", [])
+    paths: list[str] = []
+    for entry in entries:
+        source = entry.get("source")
+        runtime = entry.get("consumer_runtime")
+        if isinstance(source, str) and source and Path(source).exists():
+            paths.append(source)
+        if isinstance(runtime, str) and runtime and Path(runtime).exists():
+            paths.append(runtime)
+    return paths
 
 
 def gather_workflow_files(raw_paths: list[str]) -> tuple[list[Path], list[str]]:
@@ -38,11 +53,27 @@ def gather_workflow_files(raw_paths: list[str]) -> tuple[list[Path], list[str]]:
 
 
 def main() -> int:
-    if len(sys.argv) < 2:
-        print("usage: check_pinned_actions.py <workflow-path> [<workflow-path> ...]", file=sys.stderr)
+    raw_args = sys.argv[1:]
+    extra_paths: list[str] = []
+    direct_paths: list[str] = []
+    i = 0
+    while i < len(raw_args):
+        arg = raw_args[i]
+        if arg == "--manifest-managed":
+            if i + 1 >= len(raw_args):
+                print("error: --manifest-managed requires <manifest-path>", file=sys.stderr)
+                return 2
+            extra_paths.extend(manifest_managed_paths(Path(raw_args[i + 1])))
+            i += 2
+            continue
+        direct_paths.append(arg)
+        i += 1
+
+    if not direct_paths and not extra_paths:
+        print("usage: check_pinned_actions.py [--manifest-managed <manifest.json>] <workflow-path> [<workflow-path> ...]", file=sys.stderr)
         return 2
 
-    workflow_files, missing_paths = gather_workflow_files(sys.argv[1:])
+    workflow_files, missing_paths = gather_workflow_files(direct_paths + extra_paths)
     violations: list[str] = []
     for missing in missing_paths:
         violations.append(f"missing path: {missing}")

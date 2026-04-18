@@ -602,7 +602,7 @@
                 {
                   "uses": "actions/setup-python@v6",
                   "with": {
-                    "python-version": "3.11"
+                    "python-version": 3.11
                   }
                 },
                 {
@@ -615,7 +615,7 @@
                 {
                   "name": "Verify repository automation contracts",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmake check-shared-bijux-py check-config-layout check-make-layout help\n"
+                  "run": "set -euo pipefail make check-shared-bijux-py check-config-layout check-make-layout help "
                 }
               ]
             },
@@ -632,7 +632,7 @@
                       "artifacts_dir": "artifacts/bijux-canon-runtime",
                       "check_targets": "[\"quality\", \"security\", \"docs\", \"build\", \"sbom\", \"api\", \"openapi-drift\"]",
                       "api_toolchain_targets": "[\"api\", \"openapi-drift\"]",
-                      "post_test_command": "set -euo pipefail && venv_python=\"${ARTIFACTS_DIR}/venv/bin/python\" && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" > /dev/null; then\n  \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" --fail-under=65;\nfi && if [ -f \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" ]; then\n  \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" --fail-under=60;\nfi && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" > /dev/null; then\n  \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" --fail-under=75;\nfi"
+                      "post_test_command": "set -euo pipefail && venv_python=\"${ARTIFACTS_DIR}/venv/bin/python\" && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" > /dev/null; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/providers/*\" --fail-under=65; fi && if [ -f \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" ]; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/interfaces/cli.py\" --fail-under=60; fi && if compgen -G \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" > /dev/null; then \"${venv_python}\" -m coverage report --rcfile configs/coveragerc.ini --data-file \"${ARTIFACTS_DIR}/test/.coverage\" --include \"packages/bijux-canon-runtime/src/bijux_canon_runtime/api/*\" --fail-under=75; fi"
                     },
                     {
                       "package_slug": "bijux-canon-agent",
@@ -758,9 +758,9 @@
             "contents": "read"
           },
           "env": {
-            "PIP_DISABLE_PIP_VERSION_CHECK": "1",
-            "PYTHONUNBUFFERED": "1",
-            "BIJUXCLI_API_GUARD": "1",
+            "PIP_DISABLE_PIP_VERSION_CHECK": 1,
+            "PYTHONUNBUFFERED": 1,
+            "BIJUXCLI_API_GUARD": 1,
             "RUST_TOOLCHAIN_VERSION": "1.85.0"
           },
           "jobs": {
@@ -777,7 +777,7 @@
                   "name": "Set up Python",
                   "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
                   "with": {
-                    "python-version": "3.11",
+                    "python-version": 3.11,
                     "cache": "pip",
                     "cache-dependency-path": "crates/bijux-cli-python/pyproject.toml"
                   }
@@ -813,7 +813,7 @@
                   "name": "Set up Python",
                   "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
                   "with": {
-                    "python-version": "3.11",
+                    "python-version": 3.11,
                     "cache": "pip",
                     "cache-dependency-path": "crates/bijux-cli-python/pyproject.toml"
                   }
@@ -849,7 +849,7 @@
                   "name": "Set up Python",
                   "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
                   "with": {
-                    "python-version": "3.11",
+                    "python-version": 3.11,
                     "cache": "pip",
                     "cache-dependency-path": "crates/bijux-cli-python/pyproject.toml"
                   }
@@ -883,8 +883,8 @@
                 "fail-fast": false,
                 "matrix": {
                   "python-version": [
-                    "3.11",
-                    "3.12"
+                    3.11,
+                    3.12
                   ]
                 }
               },
@@ -1171,7 +1171,7 @@
                 {
                   "uses": "actions/setup-python@v6",
                   "with": {
-                    "python-version": "3.11"
+                    "python-version": 3.11
                   }
                 },
                 {
@@ -1184,12 +1184,12 @@
                 {
                   "name": "Run repository checks",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmake check-shared-bijux-py check-config-layout check-make-layout help\n"
+                  "run": "set -euo pipefail make check-shared-bijux-py check-config-layout check-make-layout help "
                 },
                 {
                   "name": "Confirm clean worktree after checks",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nif [[ -n \"$(git status --short)\" ]]; then\n  git status --short\n  exit 1\nfi\n"
+                  "run": "set -euo pipefail if [[ -n \"$(git status --short)\" ]]; then git status --short exit 1 fi "
                 }
               ]
             },
@@ -1431,7 +1431,7 @@
                 {
                   "uses": "actions/setup-python@v6",
                   "with": {
-                    "python-version": "3.11"
+                    "python-version": 3.11
                   }
                 },
                 {
@@ -1444,7 +1444,7 @@
                 {
                   "name": "Verify repository automation contracts",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmake check-shared-bijux-py check-config-layout check-make-layout help\n"
+                  "run": "set -euo pipefail make check-shared-bijux-py check-config-layout check-make-layout help "
                 }
               ]
             },
