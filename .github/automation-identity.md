@@ -32,6 +32,9 @@ Workflow automation identity:
 
 - creates workflow-origin commits and release automation updates
 - updates generated automation outputs when workflows are designed to commit
+- should use the canonical noreply identity when a workflow configures Git:
+  - `user.name`: `github-actions[bot]`
+  - `user.email`: `41898282+github-actions[bot]@users.noreply.github.com`
 - does not define repository policy; executes maintainer-defined workflows
 
 ## Governance Rule
