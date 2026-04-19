@@ -18,7 +18,7 @@ from bijux_pollenomics import (
 try:
     __version__ = metadata.version("pollenomics")
 except metadata.PackageNotFoundError:
-    __version__ = "0.1.3"
+    __version__ = "0.1.5"
 
 __all__ = [
     "ContextDataReport",
