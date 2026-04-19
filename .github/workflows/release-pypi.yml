@@ -417,7 +417,9 @@ jobs:
           skip-existing: ${{ needs.resolve.outputs.skip_existing == 'true' }}
 
       - name: Validate token bootstrap prerequisites
-        if: ${{ (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && secrets.PYPI_API_TOKEN == '' }}
+        if: ${{ (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && env.PYPI_API_TOKEN_PRESENT != 'true' }}
+        env:
+          PYPI_API_TOKEN_PRESENT: ${{ secrets.PYPI_API_TOKEN != '' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -426,7 +428,9 @@ jobs:
 
       - name: Publish to PyPI (token bootstrap)
         id: token_publish
-        if: ${{ (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && secrets.PYPI_API_TOKEN != '' }}
+        if: ${{ (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && env.PYPI_API_TOKEN_PRESENT == 'true' }}
+        env:
+          PYPI_API_TOKEN_PRESENT: ${{ secrets.PYPI_API_TOKEN != '' }}
         uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b # release/v1
         with:
           packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
