@@ -51,9 +51,6 @@ extra:
         label: Masterclass
         url: https://bijux.io/bijux-masterclass/
 
-hooks:
-  - docs/hooks/publish_site_assets.py
-
 not_in_nav: |
   assets/**
   report/**/*.csv

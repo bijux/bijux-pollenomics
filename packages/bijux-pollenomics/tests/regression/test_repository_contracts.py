@@ -196,8 +196,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev\n",
             mkdocs_text,
         )
-        self.assertIn("hooks:", mkdocs_text)
-        self.assertIn("docs/hooks/publish_site_assets.py", mkdocs_text)
+        self.assertNotIn("docs/hooks/publish_site_assets.py", mkdocs_text)
         self.assertTrue(
             (
                 REPO_ROOT
@@ -239,20 +238,6 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertTrue(
             (REPO_ROOT / "docs" / "overrides" / "partials" / "header.html").exists()
-        )
-        self.assertTrue(
-            (REPO_ROOT / "docs" / "hooks" / "publish_site_assets.py").exists()
-        )
-        self.assertTrue(
-            (
-                REPO_ROOT
-                / "packages"
-                / "bijux-pollenomics-dev"
-                / "src"
-                / "bijux_pollenomics_dev"
-                / "docs"
-                / "site_assets.py"
-            ).exists()
         )
         self.assertFalse((REPO_ROOT / "docs" / "favicon.ico").exists())
         self.assertFalse((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
@@ -401,8 +386,6 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             deploy_workflow,
         )
         self.assertIn("custom_dir: docs/overrides", deploy_workflow)
-        self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)
-        self.assertIn("Validate published site root assets", deploy_workflow)
 
     def test_root_readme_workflow_links_follow_checked_in_workflow_tree(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -453,14 +436,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         automation_workflows = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-maintain"
+            / "03-bijux-pollenomics-maintain"
             / "gh-workflows"
             / "deploy-docs.md"
         ).read_text(encoding="utf-8")
         testing_and_evidence = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-maintain"
+            / "03-bijux-pollenomics-maintain"
             / "bijux-pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
@@ -469,24 +452,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`deploy-docs.yml` builds the strict MkDocs site", automation_workflows
         )
         self.assertIn(
-            "validates the docs output contract before publication",
+            "workflow follows the shared Bijux docs contract",
             automation_workflows,
         )
-        self.assertIn(
-            "root-level browser icons copied",
-            automation_workflows,
-        )
-        self.assertIn("`docs/hooks/publish_site_assets.py`", automation_workflows)
-        self.assertIn("`favicon.ico`", automation_workflows)
         self.assertIn("`mkdocs.shared.yml`", automation_workflows)
         self.assertIn("strict MkDocs builds", testing_and_evidence)
-        self.assertIn("site asset support", testing_and_evidence)
-        self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)
-        self.assertIn(
-            "`bijux_pollenomics_dev.docs.site_assets`",
-            testing_and_evidence,
-        )
-        self.assertIn("Browsers still expect", testing_and_evidence)
+        self.assertIn("`docs/assets/site-icons/`", testing_and_evidence)
+        self.assertIn("shared Bijux docs theme contract", testing_and_evidence)
 
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
