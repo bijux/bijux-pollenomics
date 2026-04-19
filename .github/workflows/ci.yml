@@ -93,7 +93,7 @@ make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
-      - uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         if: "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}"
         with:
           node-version: 20
