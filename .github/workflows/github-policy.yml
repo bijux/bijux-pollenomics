@@ -29,8 +29,12 @@ jobs:
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
             base_ref="${{ github.base_ref }}"
-            git fetch --no-tags --prune --depth=1 origin "${base_ref}"
-            git diff --name-only "origin/${base_ref}...HEAD" > /tmp/changed-files.txt
+            git fetch --no-tags --prune origin "${base_ref}"
+            if git merge-base "origin/${base_ref}" HEAD >/dev/null 2>&1; then
+              git diff --name-only "origin/${base_ref}...HEAD" > /tmp/changed-files.txt
+            else
+              git diff --name-only "origin/${base_ref}..HEAD" > /tmp/changed-files.txt
+            fi
           else
             before_sha="${{ github.event.before }}"
             if [[ -n "${before_sha}" && "${before_sha}" != "0000000000000000000000000000000000000000" ]] && git cat-file -e "${before_sha}^{commit}" 2>/dev/null; then
