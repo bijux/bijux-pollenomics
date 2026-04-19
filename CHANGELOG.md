@@ -8,7 +8,7 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
-## 0.1.5 - 2026-04-19
+## 0.1.4 - 2026-04-19
 
 ### Changed
 
@@ -23,19 +23,6 @@ change contributor and maintainer workflows across the repository.
   `release-ghcr.yml`, `release-github.yml`).
 - Package metadata and generated badge surfaces now use the canonical handbook
   docs routes for runtime and maintainer packages.
-
-### Fixed
-
-- Packaging verification now removes stale wheel/sdist artifacts from package
-  build output directories before creating new distributions, preventing
-  install-smoke failures caused by mixed versions in the same build folder.
-- Root and package README badge sections are synchronized again with managed
-  badge templates after workflow and docs-route updates.
-
-## 0.1.4 - 2026-04-19
-
-### Changed
-
 - GitHub governance alignment now matches the current `bijux-proteomics`
   standards model: synchronized `CODEOWNERS`, branch protection ruleset,
   protected-change policy checks, and managed standards manifests.
@@ -51,6 +38,11 @@ change contributor and maintainer workflows across the repository.
 
 ### Fixed
 
+- Packaging verification now removes stale wheel/sdist artifacts from package
+  build output directories before creating new distributions, preventing
+  install-smoke failures caused by mixed versions in the same build folder.
+- Root and package README badge sections are synchronized again with managed
+  badge templates after workflow and docs-route updates.
 - Removed legacy `publish.yml` to prevent duplicate publication runs after
   enabling split release workflows.
 - Removed legacy `bijux-std-checks.yml` and migrated `verify.yml` package fan-out
