@@ -52,7 +52,7 @@ bijux-pollenomics = "bijux_pollenomics.cli:main"
 [tool.hatch.version]
 source = "vcs"
 tag-pattern = "^v(?P<version>.*)$"
-fallback-version = "0.1.3"
+fallback-version = "0.1.5"
 raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = "../..", search_parent_directories = true }
 
 [tool.hatch.build]
