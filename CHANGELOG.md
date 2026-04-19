@@ -8,6 +8,16 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.5 - 2026-04-19
+
+### Changed
+
+- Shared standards now resolve through `.bijux/shared/*` for docs tooling,
+  make-layer synchronization, and repository docs watch paths.
+- Legacy root `shared/` and `internal/` directories were removed after moving
+  the repository to the current shared-source layout used by sibling Bijux
+  Python repositories.
+
 ## 0.1.4 - 2026-04-19
 
 ### Changed
