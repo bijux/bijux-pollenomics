@@ -5,6 +5,7 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
   pull_request_review:
     types: [submitted]
+
 permissions:
   contents: write
   pull-requests: write
@@ -20,22 +21,6 @@ jobs:
             let pullNumber = null;
             if (context.payload.pull_request && context.payload.pull_request.number) {
               pullNumber = context.payload.pull_request.number;
-            } else if (context.payload.workflow_run) {
-              const workflowRun = context.payload.workflow_run;
-              if (workflowRun.event !== "pull_request") {
-                core.info("Workflow run is not for pull_request; skipping.");
-                return;
-              }
-              if (workflowRun.conclusion !== "success") {
-                core.info("Workflow run did not complete successfully; skipping auto-merge enablement.");
-                return;
-              }
-              const linkedPrs = Array.isArray(workflowRun.pull_requests) ? workflowRun.pull_requests : [];
-              if (linkedPrs.length === 0 || !linkedPrs[0].number) {
-                core.info("No pull requests linked to workflow run; skipping.");
-                return;
-              }
-              pullNumber = linkedPrs[0].number;
             }
 
             if (!pullNumber) {
