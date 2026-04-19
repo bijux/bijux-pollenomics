@@ -6,7 +6,6 @@ src = [
   "packages/bijux-pollenomics/tests",
   "packages/bijux-pollenomics-dev/src",
   "packages/bijux-pollenomics-dev/tests",
-  "docs/hooks",
 ]
 exclude = [
   ".git",

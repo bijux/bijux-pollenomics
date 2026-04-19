@@ -8,6 +8,48 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.4 - 2026-04-19
+
+### Changed
+
+- Shared standards now resolve through `.bijux/shared/*` for docs tooling,
+  make-layer synchronization, and repository docs watch paths.
+- Legacy root `shared/` and `internal/` directories were removed after moving
+  the repository to the current shared-source layout used by sibling Bijux
+  Python repositories.
+- Repository contract coverage now tracks the current handbook namespace
+  (`01-bijux-pollenomics`, `02-bijux-pollenomics-data`) and the split release
+  workflow topology (`release-artifacts.yml`, `release-pypi.yml`,
+  `release-ghcr.yml`, `release-github.yml`).
+- Package metadata and generated badge surfaces now use the canonical handbook
+  docs routes for runtime and maintainer packages.
+- GitHub governance alignment now matches the current `bijux-proteomics`
+  standards model: synchronized `CODEOWNERS`, branch protection ruleset,
+  protected-change policy checks, and managed standards manifests.
+- Release automation now uses split workflows with generated configuration:
+  `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`, and
+  `release-github.yml`, with package matrices controlled through
+  `.github/release.env`.
+- Workflow topology is now pairwise symmetric with `bijux-proteomics`,
+  including the same canonical `.github/workflows/` file set and `ci.yml`
+  naming contract.
+- Maintainer workflow documentation now describes split release publication and
+  reusable workflow boundaries using checked-in workflow names.
+
+### Fixed
+
+- Packaging verification now removes stale wheel/sdist artifacts from package
+  build output directories before creating new distributions, preventing
+  install-smoke failures caused by mixed versions in the same build folder.
+- Root and package README badge sections are synchronized again with managed
+  badge templates after workflow and docs-route updates.
+- Removed legacy `publish.yml` to prevent duplicate publication runs after
+  enabling split release workflows.
+- Removed legacy `bijux-std-checks.yml` and migrated `verify.yml` package fan-out
+  from `ci-package.yml` to `ci.yml`.
+- Badge templates and generated badge sections now point to split release
+  workflows instead of the removed monolithic publish workflow.
+
 ## 0.1.3 - 2026-04-16
 
 ### Changed

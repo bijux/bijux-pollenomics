@@ -5,6 +5,7 @@ include $(ROOT_MAKEFILE_DIR)/env.mk
 include $(ROOT_MAKEFILE_DIR)/packages.mk
 
 ROOT_DEV_PYTHONPATH := $(CURDIR)/packages/bijux-pollenomics-dev/src
+BIJUX_PY_SYSTEM_REL ?= .bijux/shared/bijux-makes-py
 ROOT_CHECK_VENV := $(ROOT_ARTIFACTS_DIR)/check-venv
 ROOT_DOCS_DEV_ADDR ?= 127.0.0.1:8000
 UV_SYNC := UV_PROJECT_ENVIRONMENT="$(ROOT_CHECK_VENV)" $(UV) sync --frozen --group dev --python "$(PYTHON)"
