@@ -286,150 +286,26 @@
             "contents": "read"
           },
           "jobs": {
-            "fmt": {
-              "name": "Formatting",
-              "runs-on": "ubuntu-24.04",
-              "timeout-minutes": 20,
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9",
-                  "with": {
-                    "toolchain": "1.86.0",
-                    "components": "rustfmt"
-                  }
-                },
-                {
-                  "name": "Restore the Rust cache",
-                  "uses": "Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4"
-                },
-                {
-                  "name": "Run formatting checks",
-                  "run": "make gh-fmt"
-                }
-              ]
-            },
-            "lint": {
-              "name": "Lint",
-              "runs-on": "ubuntu-24.04",
-              "timeout-minutes": 30,
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9",
-                  "with": {
-                    "toolchain": "1.86.0",
-                    "components": "clippy"
-                  }
-                },
-                {
-                  "name": "Restore the Rust cache",
-                  "uses": "Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4"
-                },
-                {
-                  "name": "Run lint checks",
-                  "run": "make gh-lint"
-                }
-              ]
-            },
-            "security": {
-              "name": "Security",
-              "runs-on": "ubuntu-24.04",
-              "timeout-minutes": 30,
-              "env": {
-                "CARGO_TARGET_DIR": "${{ github.workspace }}/.cache/cargo/target/security",
-                "CARGO_HOME": "${{ github.workspace }}/.cache/cargo/home/security",
-                "TMPDIR": "artifacts/isolates/security/tmp",
-                "TMP": "artifacts/isolates/security/tmp",
-                "TEMP": "artifacts/isolates/security/tmp"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9",
-                  "with": {
-                    "toolchain": "1.86.0"
-                  }
-                },
-                {
-                  "name": "Normalize temp roots to absolute workspace paths",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\necho \"TMPDIR=${GITHUB_WORKSPACE}/${TMPDIR}\" >> \"${GITHUB_ENV}\"\necho \"TMP=${GITHUB_WORKSPACE}/${TMP}\" >> \"${GITHUB_ENV}\"\necho \"TEMP=${GITHUB_WORKSPACE}/${TEMP}\" >> \"${GITHUB_ENV}\"\n"
-                },
-                {
-                  "name": "Prepare cache and temp roots",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmkdir -p \"${CARGO_TARGET_DIR}\" \"${CARGO_HOME}\" \"${TMPDIR}\"\n"
-                },
-                {
-                  "name": "Run security checks",
-                  "run": "make gh-security"
-                }
-              ]
-            },
-            "test": {
-              "name": "Tests (py${{ matrix.python-version }})",
-              "runs-on": "ubuntu-24.04",
-              "timeout-minutes": 45,
-              "strategy": {
-                "fail-fast": false,
-                "matrix": {
-                  "python-version": [
-                    "3.11"
-                  ]
-                }
-              },
-              "env": {
-                "CARGO_TARGET_DIR": "${{ github.workspace }}/.cache/cargo/target/test",
-                "CARGO_HOME": "${{ github.workspace }}/.cache/cargo/home/test",
-                "TMPDIR": "artifacts/isolates/test/tmp",
-                "TMP": "artifacts/isolates/test/tmp",
-                "TEMP": "artifacts/isolates/test/tmp"
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "name": "Set up Rust",
-                  "uses": "dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9",
-                  "with": {
-                    "toolchain": "1.86.0"
-                  }
-                },
-                {
-                  "name": "Normalize temp roots to absolute workspace paths",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\necho \"TMPDIR=${GITHUB_WORKSPACE}/${TMPDIR}\" >> \"${GITHUB_ENV}\"\necho \"TMP=${GITHUB_WORKSPACE}/${TMP}\" >> \"${GITHUB_ENV}\"\necho \"TEMP=${GITHUB_WORKSPACE}/${TEMP}\" >> \"${GITHUB_ENV}\"\n"
-                },
-                {
-                  "name": "Prepare cache and temp roots",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmkdir -p \"${CARGO_TARGET_DIR}\" \"${CARGO_HOME}\" \"${TMPDIR}\"\n"
-                },
-                {
-                  "name": "Install test tools",
-                  "run": "make gh-test-install-rust-tools"
-                },
-                {
-                  "name": "Expose cargo binaries",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\necho \"${CARGO_HOME}/bin\" >> \"${GITHUB_PATH}\"\n"
-                },
-                {
-                  "name": "Run test suites",
-                  "run": "make gh-test"
-                }
-              ]
+            "run": {
+              "uses": "./.github/workflows/reusable-ci-rust-stack.yml",
+              "with": {
+                "rust_toolchain_version": "1.86.0",
+                "enable_python_toolchain": false,
+                "test_python_versions": "[\"3.11\"]",
+                "use_isolated_temp_roots": true,
+                "security_cargo_target_dir": "${{ github.workspace }}/.cache/cargo/target/security",
+                "security_cargo_home": "${{ github.workspace }}/.cache/cargo/home/security",
+                "security_tmp_relative": "artifacts/isolates/security/tmp",
+                "test_cargo_target_dir": "${{ github.workspace }}/.cache/cargo/target/test",
+                "test_cargo_home": "${{ github.workspace }}/.cache/cargo/home/test",
+                "test_tmp_relative": "artifacts/isolates/test/tmp",
+                "install_test_tools_command": "make gh-test-install-rust-tools",
+                "expose_cargo_bin_path": true,
+                "fmt_command": "make gh-fmt",
+                "lint_command": "make gh-lint",
+                "security_command": "make gh-security",
+                "test_command": "make gh-test"
+              }
             }
           }
         }
@@ -845,167 +721,17 @@
             "cancel-in-progress": true
           },
           "jobs": {
-            "tests": {
-              "name": "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
-              "runs-on": "ubuntu-latest",
-              "strategy": {
-                "fail-fast": false,
-                "matrix": {
-                  "python-version": "${{ fromJson(inputs.test_python_versions) }}"
-                }
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
-                  "with": {
-                    "python-version": "${{ matrix.python-version }}"
-                  }
-                },
-                {
-                  "uses": "astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b",
-                  "with": {
-                    "enable-cache": true,
-                    "cache-dependency-glob": "uv.lock"
-                  }
-                },
-                {
-                  "name": "Install package toolchain",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
-                },
-                {
-                  "name": "Run tests",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test\n"
-                },
-                {
-                  "name": "Run post-test validation",
-                  "if": "${{ inputs.post_test_command != '' }}",
-                  "shell": "bash",
-                  "run": "${{ inputs.post_test_command }}"
-                },
-                {
-                  "name": "Upload test artifacts",
-                  "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-                  "with": {
-                    "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}",
-                    "path": "${{ inputs.artifacts_dir }}/test",
-                    "if-no-files-found": "ignore",
-                    "retention-days": 14
-                  }
-                }
-              ]
-            },
-            "checks": {
-              "name": "checks-${{ inputs.package_slug }}-${{ matrix.target }}",
-              "runs-on": "ubuntu-latest",
-              "strategy": {
-                "fail-fast": false,
-                "matrix": {
-                  "target": "${{ fromJson(inputs.check_targets) }}"
-                }
-              },
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
-                  "with": {
-                    "python-version": "3.11"
-                  }
-                },
-                {
-                  "uses": "astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b",
-                  "with": {
-                    "enable-cache": true,
-                    "cache-dependency-glob": "uv.lock"
-                  }
-                },
-                {
-                  "uses": "actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f",
-                  "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
-                  "with": {
-                    "node-version": "20"
-                  }
-                },
-                {
-                  "uses": "actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654",
-                  "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
-                  "with": {
-                    "distribution": "temurin",
-                    "java-version": "17"
-                  }
-                },
-                {
-                  "name": "Install package toolchain",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
-                },
-                {
-                  "name": "Run ${{ matrix.target }}",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" ${{ matrix.target }}\n"
-                },
-                {
-                  "name": "Upload artifacts",
-                  "if": "${{ always() && hashFiles(format('{0}/{1}/**', inputs.artifacts_dir, matrix.target)) != '' }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-                  "with": {
-                    "name": "${{ inputs.package_slug }}-${{ matrix.target }}",
-                    "path": "${{ inputs.artifacts_dir }}/${{ matrix.target }}",
-                    "if-no-files-found": "ignore",
-                    "retention-days": 14
-                  }
-                }
-              ]
-            },
-            "lint": {
-              "name": "lint-${{ inputs.package_slug }}",
-              "runs-on": "ubuntu-latest",
-              "steps": [
-                {
-                  "uses": "actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8"
-                },
-                {
-                  "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
-                  "with": {
-                    "python-version": "3.11"
-                  }
-                },
-                {
-                  "uses": "astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b",
-                  "with": {
-                    "enable-cache": true,
-                    "cache-dependency-glob": "uv.lock"
-                  }
-                },
-                {
-                  "name": "Install package toolchain",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
-                },
-                {
-                  "name": "Run lint",
-                  "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" lint\n"
-                },
-                {
-                  "name": "Upload lint artifacts",
-                  "if": "${{ always() }}",
-                  "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
-                  "with": {
-                    "name": "${{ inputs.package_slug }}-lint",
-                    "path": "${{ inputs.artifacts_dir }}/lint",
-                    "if-no-files-found": "ignore",
-                    "retention-days": 14
-                  }
-                }
-              ]
+            "package": {
+              "uses": "bijux/bijux-std/.github/workflows/reusable-ci-python-packages.yml@c240e0629f69cabe675d4bb43f75e8a072e69cec",
+              "with": {
+                "package_slug": "${{ inputs.package_slug }}",
+                "package_dir": "${{ inputs.package_dir }}",
+                "artifacts_dir": "${{ inputs.artifacts_dir }}",
+                "test_python_versions": "${{ inputs.test_python_versions }}",
+                "check_targets": "${{ inputs.check_targets }}",
+                "api_toolchain_targets": "${{ inputs.api_toolchain_targets }}",
+                "post_test_command": "${{ inputs.post_test_command }}"
+              }
             }
           }
         },
@@ -1155,7 +881,7 @@
         "release-github",
         "release-pypi"
       ],
-      "pinned_std_sha": "71a4c8189d077e39886b4a018f3812049895d1b0"
+      "pinned_std_sha": "9dbbd3da835d32db3f5084223b72831c4eecfe63"
     },
     {
       "name": "bijux-core",
@@ -1504,7 +1230,71 @@
     },
     {
       "name": "bijux-pollenomics",
-      "release_env": [],
+      "release_env": [
+        {
+          "key": "BIJUX_RELEASE_ENABLED",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "BIJUX_GHCR_RELEASE_ENABLED",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "BIJUX_PYPI_ENABLED",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "key": "BIJUX_RELEASE_BUILD_MATRIX_JSON",
+          "type": "json",
+          "value": [
+            {
+              "package_slug": "bijux-pollenomics",
+              "package_dir": "packages/bijux-pollenomics",
+              "artifacts_dir": "artifacts/bijux-pollenomics",
+              "build_targets": "build sbom"
+            },
+            {
+              "package_slug": "pollenomics",
+              "package_dir": "packages/pollenomics",
+              "artifacts_dir": "artifacts/pollenomics",
+              "build_targets": "build sbom"
+            }
+          ]
+        },
+        {
+          "key": "BIJUX_PYPI_MODE",
+          "type": "string",
+          "value": "artifact"
+        },
+        {
+          "key": "BIJUX_PYPI_PACKAGE_MATRIX_JSON",
+          "type": "json",
+          "value": [
+            {
+              "package_slug": "bijux-pollenomics"
+            },
+            {
+              "package_slug": "pollenomics",
+              "publish_auth": "token"
+            }
+          ]
+        },
+        {
+          "key": "BIJUX_GHCR_RELEASE_PACKAGE_MATRIX_JSON",
+          "type": "json",
+          "value": [
+            {
+              "package_slug": "bijux-pollenomics"
+            },
+            {
+              "package_slug": "pollenomics"
+            }
+          ]
+        }
+      ],
       "dependabot": {
         "version": 2,
         "updates": [
@@ -1711,8 +1501,13 @@
       },
       "workflow_allowlist": [
         "deploy-docs",
-        "github-policy"
-      ]
+        "github-policy",
+        "release-artifacts",
+        "release-ghcr",
+        "release-github",
+        "release-pypi"
+      ],
+      "pinned_std_sha": "ba1e2541d383876553af81eea52cd2f0258e979a"
     },
     {
       "name": "bijux-proteomics",
@@ -2031,12 +1826,12 @@
                 {
                   "name": "Install package toolchain",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
                 },
                 {
                   "name": "Run tests",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test "
                 },
                 {
                   "name": "Run post-test validation",
@@ -2073,7 +1868,7 @@
                 {
                   "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
                   "with": {
-                    "python-version": "3.11"
+                    "python-version": 3.11
                   }
                 },
                 {
@@ -2087,7 +1882,7 @@
                   "uses": "actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f",
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
-                    "node-version": "20"
+                    "node-version": 20
                   }
                 },
                 {
@@ -2095,18 +1890,18 @@
                   "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}",
                   "with": {
                     "distribution": "temurin",
-                    "java-version": "17"
+                    "java-version": 17
                   }
                 },
                 {
                   "name": "Install package toolchain",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
                 },
                 {
                   "name": "Run ${{ matrix.target }}",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" ${{ matrix.target }}\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" ${{ matrix.target }} "
                 },
                 {
                   "name": "Upload artifacts",
@@ -2131,7 +1926,7 @@
                 {
                   "uses": "actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548",
                   "with": {
-                    "python-version": "3.11"
+                    "python-version": 3.11
                   }
                 },
                 {
@@ -2144,12 +1939,12 @@
                 {
                   "name": "Install package toolchain",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
                 },
                 {
                   "name": "Run lint",
                   "shell": "bash",
-                  "run": "set -euo pipefail\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"\nmake -f \"$makefile\" -C \"${{ inputs.package_dir }}\" lint\n"
+                  "run": "set -euo pipefail makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\" make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" lint "
                 },
                 {
                   "name": "Upload lint artifacts",
