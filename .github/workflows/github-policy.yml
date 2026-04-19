@@ -33,7 +33,7 @@ jobs:
             git diff --name-only "origin/${base_ref}...HEAD" > /tmp/changed-files.txt
           else
             before_sha="${{ github.event.before }}"
-            if [[ -n "${before_sha}" && "${before_sha}" != "0000000000000000000000000000000000000000" ]]; then
+            if [[ -n "${before_sha}" && "${before_sha}" != "0000000000000000000000000000000000000000" ]] && git cat-file -e "${before_sha}^{commit}" 2>/dev/null; then
               git diff --name-only "${before_sha}...${GITHUB_SHA}" > /tmp/changed-files.txt
             else
               git diff-tree --no-commit-id --name-only -r "${GITHUB_SHA}" > /tmp/changed-files.txt
