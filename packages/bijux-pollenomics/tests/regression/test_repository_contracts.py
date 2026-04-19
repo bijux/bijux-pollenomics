@@ -117,11 +117,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         docs_text = (
-            REPO_ROOT
-            / "docs"
-            / "01-bijux-pollenomics"
-            / "quality"
-            / "test-strategy.md"
+            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "quality" / "test-strategy.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
