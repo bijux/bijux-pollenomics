@@ -5,12 +5,6 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
   pull_request_review:
     types: [submitted]
-  workflow_run:
-    workflows: [bijux-std]
-    types: [completed]
-    branches-ignore:
-      - main
-
 permissions:
   contents: write
   pull-requests: write
