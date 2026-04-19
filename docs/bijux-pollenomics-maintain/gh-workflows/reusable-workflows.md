@@ -14,7 +14,7 @@ shared and explicit.
 
 ## Current Reusable Workflows
 
-- `ci-package.yml`
+- `ci.yml`
 - `release-artifacts.yml`
 
 These files are workflow building blocks rather than top-level entrypoints, so

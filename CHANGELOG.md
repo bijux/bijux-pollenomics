@@ -19,6 +19,9 @@ change contributor and maintainer workflows across the repository.
   `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`, and
   `release-github.yml`, with package matrices controlled through
   `.github/release.env`.
+- Workflow topology is now pairwise symmetric with `bijux-proteomics`,
+  including the same canonical `.github/workflows/` file set and `ci.yml`
+  naming contract.
 - Maintainer workflow documentation now describes split release publication and
   reusable workflow boundaries using checked-in workflow names.
 
@@ -26,6 +29,8 @@ change contributor and maintainer workflows across the repository.
 
 - Removed legacy `publish.yml` to prevent duplicate publication runs after
   enabling split release workflows.
+- Removed legacy `bijux-std-checks.yml` and migrated `verify.yml` package fan-out
+  from `ci-package.yml` to `ci.yml`.
 - Badge templates and generated badge sections now point to split release
   workflows instead of the removed monolithic publish workflow.
 

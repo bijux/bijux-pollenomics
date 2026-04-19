@@ -1485,7 +1485,7 @@
                   ]
                 }
               },
-              "uses": "./.github/workflows/ci-package.yml",
+              "uses": "./.github/workflows/ci.yml",
               "with": {
                 "package_slug": "${{ matrix.package_slug }}",
                 "package_dir": "${{ matrix.package_dir }}",

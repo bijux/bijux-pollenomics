@@ -15,7 +15,7 @@ It runs repository checks first and then fans out into package-level checks for
 `bijux-pollenomics`, `pollenomics`, and `bijux-pollenomics-dev`.
 
 The job tree is intentionally split. `repository` runs shared automation
-contracts first, `package` fans out by package through `ci-package.yml`, and
+contracts first, `package` fans out by package through `ci.yml`, and
 each reusable package run splits again into package-scoped `tests`, `checks`,
 and `lint` jobs.
 
