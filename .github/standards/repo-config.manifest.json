@@ -1362,7 +1362,7 @@
       },
       "workflow_wrappers": {
         "verify": {
-          "name": "verify.yml",
+          "name": "verify",
           "on": {
             "push": {
               "branches": [
