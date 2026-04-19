@@ -2,6 +2,24 @@
 
 All notable changes for `bijux-pollenomics` are recorded here.
 
+## 0.1.4 - 2026-04-19
+
+### Changed
+
+- Package documentation URL metadata now points to the canonical handbook route
+  under `02-bijux-pollenomics-data`.
+- Runtime package release and docs contract tests now validate the prefixed
+  handbook namespace and split release-workflow topology.
+- README managed badge surfaces now align with the canonical handbook docs
+  routes used by the current site structure.
+
+### Fixed
+
+- Build verification now clears stale wheel and sdist artifacts before package
+  creation, preventing mixed-version smoke-install failures.
+- Package-level reporting asset loading now resolves map assets from bundled
+  package resources instead of obsolete local docs hooks.
+
 ## 0.1.3 - 2026-04-16
 
 ### Changed

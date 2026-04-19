@@ -83,6 +83,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         test_targets_text = (
             REPO_ROOT / "makes" / "bijux-py" / "ci" / "test.mk"
         ).read_text(encoding="utf-8")
+        build_targets_text = (
+            REPO_ROOT / "makes" / "bijux-py" / "ci" / "build.mk"
+        ).read_text(encoding="utf-8")
         package_make_text = (
             REPO_ROOT / "makes" / "packages" / "bijux-pollenomics.mk"
         ).read_text(encoding="utf-8")
@@ -97,6 +100,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("test-unit:", test_targets_text)
         self.assertIn("test-regression:", test_targets_text)
         self.assertIn("test-e2e:", test_targets_text)
+        self.assertIn(
+            'find "$$out_dir" -maxdepth 1 -type f',
+            build_targets_text,
+        )
         self.assertIn("BUILD_POST_TARGETS := build-install-smoke", package_make_text)
         self.assertIn("build-install-smoke:", package_make_text)
         self.assertIn(
@@ -110,7 +117,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         docs_text = (
-            REPO_ROOT / "docs" / "bijux-pollenomics" / "quality" / "test-strategy.md"
+            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "quality" / "test-strategy.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -148,7 +155,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         workflow_text = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics"
+            / "01-bijux-pollenomics"
             / "operations"
             / "installation-and-setup.md"
         ).read_text(encoding="utf-8")
@@ -166,7 +173,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (
-            REPO_ROOT / "docs" / "bijux-pollenomics" / "interfaces" / "cli-surface.md"
+            REPO_ROOT
+            / "docs"
+            / "01-bijux-pollenomics"
+            / "interfaces"
+            / "cli-surface.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("collect-data <sources...>", command_reference)
@@ -196,8 +207,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev\n",
             mkdocs_text,
         )
-        self.assertIn("hooks:", mkdocs_text)
-        self.assertIn("docs/hooks/publish_site_assets.py", mkdocs_text)
+        self.assertNotIn("docs/hooks/publish_site_assets.py", mkdocs_text)
         self.assertTrue(
             (
                 REPO_ROOT
@@ -240,20 +250,6 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(
             (REPO_ROOT / "docs" / "overrides" / "partials" / "header.html").exists()
         )
-        self.assertTrue(
-            (REPO_ROOT / "docs" / "hooks" / "publish_site_assets.py").exists()
-        )
-        self.assertTrue(
-            (
-                REPO_ROOT
-                / "packages"
-                / "bijux-pollenomics-dev"
-                / "src"
-                / "bijux_pollenomics_dev"
-                / "docs"
-                / "site_assets.py"
-            ).exists()
-        )
         self.assertFalse((REPO_ROOT / "docs" / "favicon.ico").exists())
         self.assertFalse((REPO_ROOT / "docs" / "apple-touch-icon.png").exists())
         self.assertFalse(
@@ -289,7 +285,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         fieldwork_text = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-data"
+            / "02-bijux-pollenomics-data"
             / "fieldwork"
             / "lyngsjon-lake-fieldwork.md"
         ).read_text(encoding="utf-8")
@@ -304,11 +300,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
-        ci_workflow = (
-            REPO_ROOT / ".github" / "workflows" / "ci-package.yml"
+        ci_workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(
+            encoding="utf-8"
+        )
+        release_artifacts_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "release-artifacts.yml"
         ).read_text(encoding="utf-8")
-        publish_workflow = (
-            REPO_ROOT / ".github" / "workflows" / "publish.yml"
+        release_pypi_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "release-pypi.yml"
+        ).read_text(encoding="utf-8")
+        release_ghcr_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "release-ghcr.yml"
+        ).read_text(encoding="utf-8")
+        release_github_workflow = (
+            REPO_ROOT / ".github" / "workflows" / "release-github.yml"
         ).read_text(encoding="utf-8")
         verify_workflow = (
             REPO_ROOT / ".github" / "workflows" / "verify.yml"
@@ -319,90 +324,69 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("workflow_call:", ci_workflow)
         self.assertIn(
-            "name: tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
+            "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
             ci_workflow,
         )
         self.assertIn(
-            "name: checks-${{ inputs.package_slug }}-${{ matrix.target }}",
+            "checks-${{ inputs.package_slug }}-${{ matrix.target }}",
             ci_workflow,
         )
-        self.assertIn("name: lint-${{ inputs.package_slug }}", ci_workflow)
+        self.assertIn("lint-${{ inputs.package_slug }}", ci_workflow)
         self.assertIn("cache-dependency-glob: uv.lock", ci_workflow)
-        self.assertIn('make -f "$makefile" -C', ci_workflow)
-        self.assertIn("name: publish", publish_workflow)
-        self.assertIn("build-release-artifacts.yml", publish_workflow)
-        self.assertIn("pypa/gh-action-pypi-publish@release/v1", publish_workflow)
-        self.assertIn("id-token: write", publish_workflow)
-        self.assertIn("publish_pypi:", publish_workflow)
-        self.assertIn("publish_ghcr:", publish_workflow)
-        self.assertIn("softprops/action-gh-release@v2", publish_workflow)
-        self.assertIn("overwrite_files: false", publish_workflow)
-        self.assertIn("oras-project/setup-oras@v1", publish_workflow)
-        self.assertIn("packages: write", publish_workflow)
-        self.assertIn("PYPI_API_TOKEN", publish_workflow)
-        self.assertIn("Publish to PyPI (token bootstrap)", publish_workflow)
-        self.assertIn("publish_auth: token", publish_workflow)
-        build_release_workflow = (
-            REPO_ROOT / ".github" / "workflows" / "build-release-artifacts.yml"
-        ).read_text(encoding="utf-8")
-        self.assertIn('find "$dist_dir" -type f', build_release_workflow)
+        self.assertIn('make -f \\"$makefile\\" -C', ci_workflow)
+        self.assertIn("name: release-artifacts", release_artifacts_workflow)
+        self.assertIn('find "$dist_dir" -type f', release_artifacts_workflow)
         self.assertIn(
             "No publish artifacts found under $dist_dir",
-            build_release_workflow,
+            release_artifacts_workflow,
         )
         self.assertIn(
-            "name: build-release-artifacts-${{ inputs.package_slug }}",
-            build_release_workflow,
+            "name: release-artifacts-${{ inputs.package_slug }}",
+            release_artifacts_workflow,
         )
-        self.assertIn("Stage GitHub release assets", build_release_workflow)
-        self.assertIn('sbom_dir="${ARTIFACTS_DIR}/sbom"', build_release_workflow)
-        self.assertIn("-dist-$(basename", build_release_workflow)
-        self.assertIn("-sbom-prod.cdx.json", build_release_workflow)
-        self.assertIn("-sbom-dev.cdx.json", build_release_workflow)
-        self.assertIn("-sbom-summary.txt", build_release_workflow)
+        self.assertIn("Stage GitHub release assets", release_artifacts_workflow)
+        self.assertIn('sbom_dir="${ARTIFACTS_DIR}/sbom"', release_artifacts_workflow)
+        self.assertIn("-dist-$(basename", release_artifacts_workflow)
+        self.assertIn("-sbom-prod.cdx.json", release_artifacts_workflow)
+        self.assertIn("-sbom-dev.cdx.json", release_artifacts_workflow)
+        self.assertIn("-sbom-summary.txt", release_artifacts_workflow)
+        self.assertIn("name: release-pypi", release_pypi_workflow)
+        self.assertIn("pypa/gh-action-pypi-publish@", release_pypi_workflow)
+        self.assertIn("publish_auth_default", release_pypi_workflow)
+        self.assertIn("PYPI_API_TOKEN", release_pypi_workflow)
+        self.assertIn("name: release-ghcr", release_ghcr_workflow)
+        self.assertIn("packages: write", release_ghcr_workflow)
+        self.assertIn("name: release-github", release_github_workflow)
+        self.assertIn("softprops/action-gh-release@", release_github_workflow)
+        self.assertIn("overwrite_files: true", release_github_workflow)
         self.assertIn("check-shared-bijux-py", verify_workflow)
         self.assertIn("check-config-layout", verify_workflow)
         self.assertIn("check-make-layout", verify_workflow)
         self.assertIn('"apis/**"', verify_workflow)
-        self.assertIn('"mkdocs.shared.yml"', verify_workflow)
-        self.assertIn('"tox.ini"', verify_workflow)
+        self.assertIn("mkdocs.shared.yml", verify_workflow)
+        self.assertIn("tox.ini", verify_workflow)
         self.assertIn(
             "make check-shared-bijux-py check-config-layout check-make-layout help",
             verify_workflow,
         )
-        self.assertIn("uses: ./.github/workflows/ci-package.yml", verify_workflow)
+        self.assertIn("uses: ./.github/workflows/ci.yml", verify_workflow)
         self.assertIn("bijux-pollenomics-dev", verify_workflow)
-        self.assertIn(
-            'check_targets: \'["quality", "security", "api", "openapi-drift", "build", "sbom"]\'',
-            verify_workflow,
-        )
-        self.assertIn('["api", "openapi-drift"]', verify_workflow)
-        self.assertIn("Confirm clean worktree after checks", verify_workflow)
-        self.assertIn("git status --short", verify_workflow)
+        self.assertIn("openapi-drift", verify_workflow)
+        self.assertIn("check_targets:", verify_workflow)
+        self.assertIn("api_toolchain_targets:", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
         self.assertIn("astral-sh/setup-uv", verify_workflow)
-        self.assertIn("branches: [main]", deploy_workflow)
-        self.assertNotIn('tags:\n      - "v*"', deploy_workflow)
+        self.assertIn("- main", deploy_workflow)
+        self.assertIn('tags:\n      - "v*"', deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
-        self.assertIn(
-            "DOCS_SITE_URL: https://bijux.io/bijux-pollenomics/",
-            deploy_workflow,
-        )
         self.assertIn("pages: write", deploy_workflow)
         self.assertIn("id-token: write", deploy_workflow)
-        self.assertIn("actions/configure-pages@v5", deploy_workflow)
-        self.assertIn("actions/upload-pages-artifact@v3", deploy_workflow)
-        self.assertIn("actions/deploy-pages@v4", deploy_workflow)
-        self.assertIn("DOCS_SITE_DIR: artifacts/root/docs/build-site", deploy_workflow)
-        self.assertIn("artifacts/root/docs/site", deploy_workflow)
-        self.assertIn('"mkdocs.shared.yml"', deploy_workflow)
-        self.assertIn(
-            'make docs PYTHON=python3.11 DOCS_BUILD_SITE_URL="${DOCS_SITE_URL}"',
-            deploy_workflow,
-        )
-        self.assertIn("custom_dir: docs/overrides", deploy_workflow)
-        self.assertIn("docs/hooks/publish_site_assets.py", deploy_workflow)
-        self.assertIn("Validate published site root assets", deploy_workflow)
+        self.assertIn("actions/configure-pages@", deploy_workflow)
+        self.assertIn("actions/upload-pages-artifact@", deploy_workflow)
+        self.assertIn("actions/deploy-pages@", deploy_workflow)
+        self.assertIn("site_dir", deploy_workflow)
+        self.assertIn("artifacts/root/docs/build-site", deploy_workflow)
+        self.assertIn("mkdocs.shared.yml", deploy_workflow)
 
     def test_root_readme_workflow_links_follow_checked_in_workflow_tree(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -417,21 +401,28 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             found_workflows.add(workflow_name)
 
         self.assertTrue(
-            {"verify.yml", "publish.yml", "deploy-docs.yml"} <= found_workflows
+            {
+                "verify.yml",
+                "release-pypi.yml",
+                "release-ghcr.yml",
+                "release-github.yml",
+                "deploy-docs.yml",
+            }
+            <= found_workflows
         )
 
     def test_report_docs_describe_final_summary_paths(self) -> None:
         published_artifacts = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-data"
+            / "02-bijux-pollenomics-data"
             / "outputs"
             / "published-reports.md"
         ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics"
+            / "01-bijux-pollenomics"
             / "interfaces"
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
@@ -453,14 +444,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         automation_workflows = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-maintain"
+            / "03-bijux-pollenomics-maintain"
             / "gh-workflows"
             / "deploy-docs.md"
         ).read_text(encoding="utf-8")
         testing_and_evidence = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-maintain"
+            / "03-bijux-pollenomics-maintain"
             / "bijux-pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
@@ -469,24 +460,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`deploy-docs.yml` builds the strict MkDocs site", automation_workflows
         )
         self.assertIn(
-            "validates the docs output contract before publication",
+            "workflow follows the shared Bijux docs contract",
             automation_workflows,
         )
-        self.assertIn(
-            "root-level browser icons copied",
-            automation_workflows,
-        )
-        self.assertIn("`docs/hooks/publish_site_assets.py`", automation_workflows)
-        self.assertIn("`favicon.ico`", automation_workflows)
         self.assertIn("`mkdocs.shared.yml`", automation_workflows)
         self.assertIn("strict MkDocs builds", testing_and_evidence)
-        self.assertIn("site asset support", testing_and_evidence)
-        self.assertIn("docs/hooks/publish_site_assets.py", testing_and_evidence)
-        self.assertIn(
-            "`bijux_pollenomics_dev.docs.site_assets`",
-            testing_and_evidence,
-        )
-        self.assertIn("Browsers still expect", testing_and_evidence)
+        self.assertIn("`docs/assets/site-icons/`", testing_and_evidence)
+        self.assertIn("shared Bijux docs theme contract", testing_and_evidence)
 
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")

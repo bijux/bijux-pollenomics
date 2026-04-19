@@ -17,7 +17,7 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/"
+Documentation = "https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/"
 Repository = "https://github.com/bijux/bijux-pollenomics"
 Issues = "https://github.com/bijux/bijux-pollenomics/issues"
 Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md"

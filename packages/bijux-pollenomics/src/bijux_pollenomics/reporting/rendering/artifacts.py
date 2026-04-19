@@ -14,20 +14,7 @@ from .record_exports import (
     write_samples_geojson,
 )
 
-
-def resolve_repository_root() -> Path:
-    """Locate the repository root from the installed or editable runtime package path."""
-    current = Path(__file__).resolve()
-    for parent in current.parents:
-        candidate = parent / "docs" / "assets" / "vendor" / "map"
-        if candidate.exists():
-            return parent
-    raise FileNotFoundError(
-        "Unable to locate the repository root for vendored map assets"
-    )
-
-
-MAP_ASSET_SOURCE_DIR = resolve_repository_root() / "docs" / "assets" / "vendor" / "map"
+MAP_ASSET_SOURCE_DIR = Path(__file__).resolve().parent.parent / "assets" / "map"
 
 
 def write_summary_json(path: Path, payload: dict[str, object]) -> None:
@@ -36,7 +23,7 @@ def write_summary_json(path: Path, payload: dict[str, object]) -> None:
 
 
 def resolve_map_asset_source_dir() -> Path:
-    """Validate the vendored map asset bundle before copying it."""
+    """Validate the bundled map asset tree before copying it."""
     required_paths = (
         MAP_ASSET_SOURCE_DIR,
         MAP_ASSET_SOURCE_DIR / "leaflet" / "leaflet.css",
@@ -47,9 +34,7 @@ def resolve_map_asset_source_dir() -> Path:
     missing = [path for path in required_paths if not path.exists()]
     if missing:
         missing_text = ", ".join(str(path) for path in missing)
-        raise FileNotFoundError(
-            f"Vendored map asset bundle is incomplete: {missing_text}"
-        )
+        raise FileNotFoundError(f"Bundled map asset tree is incomplete: {missing_text}")
     return MAP_ASSET_SOURCE_DIR
 
 
