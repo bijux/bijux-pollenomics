@@ -1441,7 +1441,7 @@
                 {
                   "name": "Confirm clean worktree after checks",
                   "shell": "bash",
-                  "run": "set -euo pipefail if [[ -n \"$(git status --short)\" ]]; then git status --short exit 1 fi "
+                  "run": "set -euo pipefail; if [[ -n \"$(git status --short)\" ]]; then git status --short; exit 1; fi"
                 }
               ]
             },
@@ -1473,7 +1473,7 @@
                   ]
                 }
               },
-              "uses": "./.github/workflows/ci-package.yml",
+              "uses": "./.github/workflows/ci.yml",
               "with": {
                 "package_slug": "${{ matrix.package_slug }}",
                 "package_dir": "${{ matrix.package_dir }}",
