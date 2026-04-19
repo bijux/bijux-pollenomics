@@ -9,7 +9,7 @@ from bijux_pollenomics.reporting.rendering import artifacts as rendering_artifac
 
 
 class ReportingArtifactsTests(unittest.TestCase):
-    def test_copy_map_assets_copies_vendor_tree(self) -> None:
+    def test_copy_map_assets_copies_bundled_tree(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             destination = rendering.copy_map_assets(Path(tmp))
 
@@ -18,7 +18,7 @@ class ReportingArtifactsTests(unittest.TestCase):
                 (destination / "markercluster" / "leaflet.markercluster.js").exists()
             )
 
-    def test_copy_map_assets_rejects_incomplete_vendor_bundle(self) -> None:
+    def test_copy_map_assets_rejects_incomplete_bundled_tree(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             source_dir = Path(tmp) / "source"
             output_dir = Path(tmp) / "output"
@@ -32,7 +32,7 @@ class ReportingArtifactsTests(unittest.TestCase):
             rendering_artifacts.MAP_ASSET_SOURCE_DIR = source_dir
             try:
                 with self.assertRaisesRegex(
-                    FileNotFoundError, "Vendored map asset bundle is incomplete"
+                    FileNotFoundError, "Bundled map asset tree is incomplete"
                 ):
                     rendering.copy_map_assets(output_dir)
             finally:

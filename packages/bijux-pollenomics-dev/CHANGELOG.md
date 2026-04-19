@@ -2,6 +2,24 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
+## 0.1.4 - 2026-04-19
+
+### Changed
+
+- Documentation and release contract checks now target the prefixed handbook
+  namespace and canonical docs routes used by the current MkDocs navigation.
+- Release workflow contract checks now assert the split publication topology
+  (`release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`,
+  `release-github.yml`) and remove legacy publish-workflow assumptions.
+- Badge synchronization coverage now enforces canonical docs URL expectations
+  across repository and package README managed badge blocks.
+
+### Fixed
+
+- Build pipeline verification now enforces stale dist cleanup before package
+  builds, preventing mixed-version artifact directories during install smoke
+  checks.
+
 ## 0.1.3 - 2026-04-16
 
 ### Changed
