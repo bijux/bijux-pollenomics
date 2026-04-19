@@ -90,13 +90,13 @@ def derive_workflow_allowlist(repo_name: str, release_env: list[dict], wrappers:
         allow.add("release-artifacts")
 
     wrapper_uses_to_workflow_id = {
-        "./.github/workflows/ci.yml": "ci",
+        "./.github/workflows/ci-package.yml": "ci-package",
         "./.github/workflows/reusable-ci-python-packages.yml": "reusable-ci-python-packages",
         "./.github/workflows/reusable-verify-python-packages.yml": "reusable-verify-python-packages",
         "./.github/workflows/reusable-ci-rust-stack.yml": "reusable-ci-rust-stack",
     }
     workflow_dependencies = {
-        "ci": {"reusable-ci-python-packages"},
+        "ci-package": {"reusable-ci-python-packages"},
     }
     for wrapper in wrappers.values():
         jobs = wrapper.get("jobs", {}) if isinstance(wrapper, dict) else {}
