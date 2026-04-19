@@ -2,6 +2,18 @@
 
 All notable changes for `pollenomics` are recorded here.
 
+## 0.1.4 - 2026-04-19
+
+### Changed
+
+- Compatibility package documentation URL metadata now points to the canonical
+  handbook route under `02-bijux-pollenomics-data`.
+- Package README managed badge surfaces now align with canonical handbook docs
+  paths so compatibility package docs links resolve consistently with runtime
+  package links.
+- Compatibility package contract tests now assert prefixed handbook paths and
+  split release-workflow documentation references.
+
 ## 0.1.3 - 2026-04-16
 
 ### Added
