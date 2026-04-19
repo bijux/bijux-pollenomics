@@ -17,6 +17,20 @@ change contributor and maintainer workflows across the repository.
 - Legacy root `shared/` and `internal/` directories were removed after moving
   the repository to the current shared-source layout used by sibling Bijux
   Python repositories.
+- Repository contract coverage now tracks the current handbook namespace
+  (`01-bijux-pollenomics`, `02-bijux-pollenomics-data`) and the split release
+  workflow topology (`release-artifacts.yml`, `release-pypi.yml`,
+  `release-ghcr.yml`, `release-github.yml`).
+- Package metadata and generated badge surfaces now use the canonical handbook
+  docs routes for runtime and maintainer packages.
+
+### Fixed
+
+- Packaging verification now removes stale wheel/sdist artifacts from package
+  build output directories before creating new distributions, preventing
+  install-smoke failures caused by mixed versions in the same build folder.
+- Root and package README badge sections are synchronized again with managed
+  badge templates after workflow and docs-route updates.
 
 ## 0.1.4 - 2026-04-19
 
