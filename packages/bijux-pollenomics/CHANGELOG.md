@@ -7,7 +7,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 ### Changed
 
 - Prepared the `v0.1.5` release line by aligning fallback versions and package dependency floors across the repository.
-- Synchronized release automation and governance with the latest `bijux-std` shared standards baseline.
+- Synchronized release automation and governance with the `bijux-std v0.1.3` shared standards baseline.
 
 ### Fixed
 
