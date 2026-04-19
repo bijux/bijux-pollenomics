@@ -2,6 +2,18 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
+## 0.1.5 - 2026-04-20
+
+### Changed
+
+- Prepared the `v0.1.5` release line by aligning fallback versions and package dependency floors across the repository.
+- Synchronized release automation and governance with the latest `bijux-std` shared standards baseline.
+
+### Fixed
+
+- `release-pypi.yml` now uses parse-safe publication gating for token/bootstrap checks.
+- Protected workflow policy checks now accept shared-manifest-driven standards updates through approved control paths.
+
 ## 0.1.4 - 2026-04-19
 
 ### Changed
