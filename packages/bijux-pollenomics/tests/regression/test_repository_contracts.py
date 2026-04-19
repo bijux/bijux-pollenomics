@@ -110,7 +110,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         docs_text = (
-            REPO_ROOT / "docs" / "bijux-pollenomics" / "quality" / "test-strategy.md"
+            REPO_ROOT
+            / "docs"
+            / "01-bijux-pollenomics"
+            / "quality"
+            / "test-strategy.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -148,7 +152,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         workflow_text = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics"
+            / "01-bijux-pollenomics"
             / "operations"
             / "installation-and-setup.md"
         ).read_text(encoding="utf-8")
@@ -166,7 +170,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (
-            REPO_ROOT / "docs" / "bijux-pollenomics" / "interfaces" / "cli-surface.md"
+            REPO_ROOT
+            / "docs"
+            / "01-bijux-pollenomics"
+            / "interfaces"
+            / "cli-surface.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("collect-data <sources...>", command_reference)
