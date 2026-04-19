@@ -17,7 +17,7 @@ risks if handled casually.
 - old flat docs and the new data reference can disagree if both are edited in
   parallel
 - cross-links can break when pages move from generic directories into
-  `docs/bijux-pollenomics-data/`
+  `docs/02-bijux-pollenomics-data/`
 - reviewers may miss data-contract changes if nav and file moves are separated
 
 ## Mitigation

@@ -60,9 +60,9 @@ tracked data and outputs, and one handbook for repository maintenance.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="bijux-pollenomics/">Open the package handbook</a>
-  <a class="md-button" href="bijux-pollenomics-data/">Open the data reference</a>
-  <a class="md-button" href="bijux-pollenomics-maintain/">Open the maintainer handbook</a>
+  <a class="md-button" href="01-bijux-pollenomics/">Open the package handbook</a>
+  <a class="md-button" href="02-bijux-pollenomics-data/">Open the data reference</a>
+  <a class="md-button" href="03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
 
 <div class="bijux-map-mobile-note">
@@ -81,11 +81,11 @@ tracked data and outputs, and one handbook for repository maintenance.
 Use the path that matches what you need right now:
 
 - understanding the runtime package boundary and public contracts: start with
-  [bijux-pollenomics](bijux-pollenomics/index.md)
+  [bijux-pollenomics](01-bijux-pollenomics/index.md)
 - checking what each tracked dataset contributes and where it lands: use
-  [bijux-pollenomics-data](bijux-pollenomics-data/index.md)
+  [bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - reviewing CI, release, docs, and make-system maintenance rules: use
-  [bijux-pollenomics-maintain](bijux-pollenomics-maintain/index.md)
+  [bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
 - inspecting the current visible artifact first: open the embedded atlas and the
   checked-in `docs/report/` bundles
 
@@ -94,7 +94,7 @@ Use the path that matches what you need right now:
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button md-button--primary" href="02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
   <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 </div>
 
@@ -137,15 +137,15 @@ flowchart TD
 
 ## Documentation Families
 
-- [bijux-pollenomics](bijux-pollenomics/index.md)
-- [bijux-pollenomics-data](bijux-pollenomics-data/index.md)
-- [bijux-pollenomics-maintain](bijux-pollenomics-maintain/index.md)
+- [bijux-pollenomics](01-bijux-pollenomics/index.md)
+- [bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+- [bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
 
 ## Current Issues and Migration Notes
 
-- package limits and active risks: [Known Limitations](bijux-pollenomics/quality/known-limitations.md)
-- data-tree migration issues: [Migration Issues](bijux-pollenomics-data/foundation/migration-issues.md)
-- package risk tracking: [Risk Register](bijux-pollenomics/quality/risk-register.md)
+- package limits and active risks: [Known Limitations](01-bijux-pollenomics/quality/known-limitations.md)
+- data-tree migration issues: [Migration Issues](02-bijux-pollenomics-data/foundation/migration-issues.md)
+- package risk tracking: [Risk Register](01-bijux-pollenomics/quality/risk-register.md)
 
 ## Purpose
 
