@@ -143,11 +143,6 @@ def render_repo(repo_name: str, manifest: dict) -> None:
         verify_path = repo_root / ".github/workflows/verify.yml"
         write_if_needed(verify_path, render_yaml_document(wrappers["verify"]))
 
-    pinned_sha = repo.get("pinned_std_sha")
-    if pinned_sha:
-        pin_path = repo_root / ".github/standards/bijux-std.sha"
-        write_if_needed(pin_path, f"{pinned_sha}\n")
-
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Render release.env, dependabot.yml, and workflow wrappers from manifest")
