@@ -9,6 +9,7 @@ ROOT = Path.cwd()
 MANIFEST_PATH = ROOT / ".github/standards/repo-config.manifest.json"
 
 BASE_PROTECTED_PATHS = {
+    ".github/CODEOWNERS",
     ".github/ISSUE_TEMPLATE/bug-report.yml",
     ".github/ISSUE_TEMPLATE/config.yml",
     ".github/ISSUE_TEMPLATE/feature-request.yml",
@@ -21,6 +22,7 @@ BASE_PROTECTED_PATHS = {
     ".github/scripts/check_protected_github_changes.py",
     ".github/scripts/wait_for_ci.py",
     ".github/workflows/bijux-std.yml",
+    ".github/workflows/automerge-pr.yml",
     ".github/bijux-std-shared.sha256",
     ".github/release.env",
     ".github/dependabot.yml",
@@ -54,6 +56,8 @@ def workflow_paths_from_manifest() -> set[str]:
         runtime = entry.get("consumer_runtime")
         if isinstance(source, str) and source:
             paths.add(source)
+            if source.startswith("shared/"):
+                paths.add(f".bijux/{source}")
         if isinstance(runtime, str) and runtime:
             paths.add(runtime)
     return paths

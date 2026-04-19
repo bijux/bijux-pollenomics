@@ -2,9 +2,9 @@
   "version": 1,
   "managed_workflows": [
     {
-      "id": "build-release-artifacts",
-      "source": "shared/bijux-gh/workflows/build-release-artifacts.yml",
-      "consumer_runtime": ".github/workflows/build-release-artifacts.yml"
+      "id": "release-artifacts",
+      "source": "shared/bijux-gh/workflows/release-artifacts.yml",
+      "consumer_runtime": ".github/workflows/release-artifacts.yml"
     },
     {
       "id": "deploy-docs",
@@ -15,11 +15,6 @@
       "id": "github-policy",
       "source": "shared/bijux-gh/workflows/github-policy.yml",
       "consumer_runtime": ".github/workflows/github-policy.yml"
-    },
-    {
-      "id": "release-artifacts",
-      "source": "shared/bijux-gh/workflows/release-artifacts.yml",
-      "consumer_runtime": ".github/workflows/release-artifacts.yml"
     },
     {
       "id": "release-crates",
@@ -40,21 +35,6 @@
       "id": "release-pypi",
       "source": "shared/bijux-gh/workflows/release-pypi.yml",
       "consumer_runtime": ".github/workflows/release-pypi.yml"
-    },
-    {
-      "id": "reusable-ci-python-packages",
-      "source": "shared/bijux-gh/workflows/reusable-ci-python-packages.yml",
-      "consumer_runtime": ".github/workflows/reusable-ci-python-packages.yml"
-    },
-    {
-      "id": "reusable-ci-rust-stack",
-      "source": "shared/bijux-gh/workflows/reusable-ci-rust-stack.yml",
-      "consumer_runtime": ".github/workflows/reusable-ci-rust-stack.yml"
-    },
-    {
-      "id": "reusable-verify-python-packages",
-      "source": "shared/bijux-gh/workflows/reusable-verify-python-packages.yml",
-      "consumer_runtime": ".github/workflows/reusable-verify-python-packages.yml"
     }
   ]
 }
