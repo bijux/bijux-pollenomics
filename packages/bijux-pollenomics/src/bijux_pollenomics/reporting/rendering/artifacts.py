@@ -13,6 +13,7 @@ from .record_exports import (
     write_samples_csv,
     write_samples_geojson,
 )
+
 MAP_ASSET_SOURCE_DIR = Path(__file__).resolve().parent.parent / "assets" / "map"
 
 
@@ -33,9 +34,7 @@ def resolve_map_asset_source_dir() -> Path:
     missing = [path for path in required_paths if not path.exists()]
     if missing:
         missing_text = ", ".join(str(path) for path in missing)
-        raise FileNotFoundError(
-            f"Bundled map asset tree is incomplete: {missing_text}"
-        )
+        raise FileNotFoundError(f"Bundled map asset tree is incomplete: {missing_text}")
     return MAP_ASSET_SOURCE_DIR
 
 
