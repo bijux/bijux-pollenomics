@@ -4,20 +4,22 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-19
 ---
 
 # Release and Versioning
 
-The package version and the published scientific outputs are related but not the
-same thing.
+The package version and published scientific outputs are related but not the
+same artifact boundary.
 
 ## Version Anchors
 
 - `tool.hatch.version` in `packages/bijux-pollenomics/pyproject.toml`
 - installed package metadata resolved by `importlib.metadata`
 - AADR input version defaults in `config.py`
-- `publish.yml` for build, PyPI, GHCR, and GitHub Release publication
+- split release workflows:
+  `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`,
+  and `release-github.yml`
 
 ## Version Source
 
@@ -34,5 +36,5 @@ the runtime change and the resulting tracked artifact diff.
 
 ## Purpose
 
-This page records the versioning surfaces that affect package releases and
-review.
+This page records the release surfaces that govern package versioning and
+publication.

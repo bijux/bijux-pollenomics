@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-19
 ---
 
 # reusable-workflows
@@ -15,12 +15,13 @@ shared and explicit.
 ## Current Reusable Workflows
 
 - `ci-package.yml`
-- `build-release-artifacts.yml`
+- `release-artifacts.yml`
 
 These files are workflow building blocks rather than top-level entrypoints, so
-they run through `verify.yml` and `publish.yml` instead of appearing as
-standalone manual workflows. Their job names stay package-scoped so the Actions
-UI shows which package and check actually ran.
+they run through `verify.yml` and split release entrypoints
+(`release-pypi.yml`, `release-ghcr.yml`, `release-github.yml`) instead of
+appearing as standalone manual workflows. Their job names stay package-scoped
+so the Actions UI shows which package and check ran.
 
 ## Purpose
 

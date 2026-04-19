@@ -4,27 +4,28 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-19
 ---
 
 # gh-workflows
 
 This section explains the GitHub Actions entrypoints and reusable building
-blocks that verify, publish, and document the repository.
+blocks that verify, release, and document the repository.
 
 Use these pages when you need to know which workflow starts on push, pull
 request, tag, or manual dispatch, and how that entrypoint fans out into
 repository checks, package jobs, or documentation publication.
 
 The top-level entrypoints are `verify.yml` for pushes and pull requests,
-`deploy-docs.yml` for handbook publication from `main`, and `publish.yml` for
-release tags. `ci-package.yml` and `build-release-artifacts.yml` are reusable
-workflows called by those entrypoints rather than standalone manual surfaces.
+`deploy-docs.yml` for handbook publication from `main`, and split release
+workflows for tags: `release-pypi.yml`, `release-ghcr.yml`, and
+`release-github.yml`. `release-artifacts.yml` is the reusable build workflow
+called by the tag workflows.
 
 ## Pages In This Section
 
 - [verify](verify.md)
-- [publish](publish.md)
+- [release-publication](release-publication.md)
 - [deploy-docs](deploy-docs.md)
 - [reusable-workflows](reusable-workflows.md)
 

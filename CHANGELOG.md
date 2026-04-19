@@ -8,6 +8,27 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## 0.1.4 - 2026-04-19
+
+### Changed
+
+- GitHub governance alignment now matches the current `bijux-proteomics`
+  standards model: synchronized `CODEOWNERS`, branch protection ruleset,
+  protected-change policy checks, and managed standards manifests.
+- Release automation now uses split workflows with generated configuration:
+  `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`, and
+  `release-github.yml`, with package matrices controlled through
+  `.github/release.env`.
+- Maintainer workflow documentation now describes split release publication and
+  reusable workflow boundaries using checked-in workflow names.
+
+### Fixed
+
+- Removed legacy `publish.yml` to prevent duplicate publication runs after
+  enabling split release workflows.
+- Badge templates and generated badge sections now point to split release
+  workflows instead of the removed monolithic publish workflow.
+
 ## 0.1.3 - 2026-04-16
 
 ### Changed

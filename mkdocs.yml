@@ -187,6 +187,6 @@ nav:
       - gh-workflows:
           - gh-workflows: bijux-pollenomics-maintain/gh-workflows/index.md
           - verify: bijux-pollenomics-maintain/gh-workflows/verify.md
-          - publish: bijux-pollenomics-maintain/gh-workflows/publish.md
+          - release-publication: bijux-pollenomics-maintain/gh-workflows/release-publication.md
           - deploy-docs: bijux-pollenomics-maintain/gh-workflows/deploy-docs.md
           - reusable-workflows: bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md

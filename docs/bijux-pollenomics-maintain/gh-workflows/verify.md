@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-19
 ---
 
 # verify
@@ -12,7 +12,7 @@ last_reviewed: 2026-04-10
 `verify.yml` is the main repository verification workflow.
 
 It runs repository checks first and then fans out into package-level checks for
-`bijux-pollenomics` and `bijux-pollenomics-dev`.
+`bijux-pollenomics`, `pollenomics`, and `bijux-pollenomics-dev`.
 
 The job tree is intentionally split. `repository` runs shared automation
 contracts first, `package` fans out by package through `ci-package.yml`, and

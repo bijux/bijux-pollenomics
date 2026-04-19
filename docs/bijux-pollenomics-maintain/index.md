@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-19
 ---
 
 # Maintainer Handbook
@@ -41,7 +41,7 @@ through CI logs and shell glue.
 
 - release, schema, and docs integrity rules: [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
 - command routing and repository automation: [makes](makes/index.md)
-- CI, publish, and docs deployment behavior: [gh-workflows](gh-workflows/index.md)
+- CI, release, and docs deployment behavior: [gh-workflows](gh-workflows/index.md)
 
 ## Purpose
 
