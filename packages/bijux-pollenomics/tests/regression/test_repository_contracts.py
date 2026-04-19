@@ -282,7 +282,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         fieldwork_text = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-data"
+            / "02-bijux-pollenomics-data"
             / "fieldwork"
             / "lyngsjon-lake-fieldwork.md"
         ).read_text(encoding="utf-8")
@@ -415,14 +415,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         published_artifacts = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics-data"
+            / "02-bijux-pollenomics-data"
             / "outputs"
             / "published-reports.md"
         ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT
             / "docs"
-            / "bijux-pollenomics"
+            / "01-bijux-pollenomics"
             / "interfaces"
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
