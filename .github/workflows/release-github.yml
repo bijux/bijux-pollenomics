@@ -284,6 +284,12 @@ jobs:
             enabled="false"
           fi
 
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" && "${enabled}" != "true" ]]; then
+            echo "Manual dispatch resolved to a no-op release-github run." >&2
+            echo "Set enabled=true and ensure release matrices resolve to at least one package." >&2
+            exit 1
+          fi
+
           if [[ -n "${release_files_manifest}" ]]; then
             if [[ ! -f "${release_files_manifest}" ]]; then
               echo "release files manifest not found: ${release_files_manifest}" >&2

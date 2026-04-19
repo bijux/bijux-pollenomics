@@ -175,6 +175,14 @@ jobs:
             exit 1
           fi
 
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            if [[ "${GITHUB_REF}" != "refs/heads/main" && "${GITHUB_REF}" != "refs/heads/master" && "${GITHUB_REF}" != refs/tags/v* ]]; then
+              echo "Manual dispatch would only build docs but skip deploy from ${GITHUB_REF}." >&2
+              echo "Dispatch deploy-docs from main/master or a v* tag when deployment is required." >&2
+              exit 1
+            fi
+          fi
+
           {
             echo "site_url=${site_url}"
             echo "site_dir=${site_dir}"
