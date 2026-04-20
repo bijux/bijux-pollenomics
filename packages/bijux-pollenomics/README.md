@@ -38,9 +38,9 @@ If `pip` prints `No matching distribution found` together with messages like
 ## Read this next
 
 - PyPI package: [bijux-pollenomics on PyPI](https://pypi.org/project/bijux-pollenomics/)
-- package guide: [Runtime package docs](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
-- API surface: [API surface reference](https://bijux.io/bijux-pollenomics/bijux-pollenomics/interfaces/api-surface/)
-- common workflows: [Operational workflows](https://bijux.io/bijux-pollenomics/bijux-pollenomics/operations/common-workflows/)
+- package guide: [Runtime package docs](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- API surface: [API surface reference](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/api-surface/)
+- common workflows: [Operational workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/)
 - source directory: [Runtime source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics)
 - changelog: [Runtime package changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/CHANGELOG.md)
 - security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
