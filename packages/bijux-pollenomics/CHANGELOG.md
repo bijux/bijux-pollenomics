@@ -8,20 +8,6 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 - No unreleased changes yet.
 
-## 0.1.6 - 2026-04-20
-
-### Fixed
-
-- Package build smoke checks now select the latest `bijux-pollenomics` wheel
-  and sdist artifacts instead of installing every matching archive in the build
-  directory, preventing mixed-version resolver failures.
-- Build smoke verification now reuses one temporary virtual environment for
-  wheel and sdist installation checks, eliminating intermittent venv bootstrap
-  failures seen in `tox -e build`.
-- Repository contract tests for the shared build makefile now assert the
-  current build output contract so `tox -e test` remains aligned with generated
-  make targets.
-
 ## 0.1.5 - 2026-04-20
 
 ### Changed
@@ -33,6 +19,15 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 - `release-pypi.yml` now uses parse-safe publication gating for token/bootstrap checks.
 - Protected workflow policy checks now accept shared-manifest-driven standards updates through approved control paths.
+- Package build smoke checks now select the latest `bijux-pollenomics` wheel
+  and sdist artifacts instead of installing every matching archive in the build
+  directory, preventing mixed-version resolver failures.
+- Build smoke verification now reuses one temporary virtual environment for
+  wheel and sdist installation checks, eliminating intermittent venv bootstrap
+  failures seen in `tox -e build`.
+- Repository contract tests for the shared build makefile now assert the
+  current build output contract so `tox -e test` remains aligned with generated
+  make targets.
 
 ## 0.1.4 - 2026-04-19
 
