@@ -2,6 +2,14 @@
 
 All notable changes for `pollenomics` are recorded here.
 
+## 0.1.6 - 2026-04-20
+
+### Changed
+
+- Prepared the `v0.1.6` compatibility release line in lockstep with
+  `bijux-pollenomics`, keeping package release metadata synchronized across both
+  published distributions.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
