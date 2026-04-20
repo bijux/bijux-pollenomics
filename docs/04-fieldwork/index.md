@@ -23,7 +23,7 @@ each confirmation cycle.
 
 ## Pages In This Section
 
-- [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork.md)
+- [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md)
 
 ## Purpose
 
