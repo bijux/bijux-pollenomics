@@ -33,16 +33,16 @@ the sampling location and collected data on the lake ice.
 That makes the atlas more legible for readers who want to connect one visible
 map point to a real collection day rather than to a database row alone.
 
-[Open the Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
-[Open the field video](../gallery/2026-02-26-data-collection.mp4){ .md-button }
-[Open the field photo](../gallery/2026-02-26-data-collection.JPG){ .md-button }
+[Open the Nordic Evidence Atlas](../../report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
+[Open the field video](../../gallery/2026-02-26-data-collection.mp4){ .md-button }
+[Open the field photo](../../gallery/2026-02-26-data-collection.JPG){ .md-button }
 
-![Field sampling at Lyngsjön Lake on 2026-02-26.](../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
+![Field sampling at Lyngsjön Lake on 2026-02-26.](../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
 <figure class="bijux-media-card">
   <video controls preload="metadata" muted playsinline>
-    <source src="../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
-    <a href="../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
+    <source src="../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
+    <a href="../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
   </video>
   <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts with sound off by default.</figcaption>
 </figure>
