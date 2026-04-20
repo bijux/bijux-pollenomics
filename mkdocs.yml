@@ -156,6 +156,8 @@ nav:
       - Fieldwork:
           - Fieldwork: 02-bijux-pollenomics-data/fieldwork/index.md
           - Lyngsjön Lake Fieldwork: 02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md
+      - Nordic Evidence Atlas:
+          - Nordic Evidence Atlas: report/nordic-atlas/nordic-atlas_map.html
   - Maintainer:
       - Maintainer: 03-bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev:
