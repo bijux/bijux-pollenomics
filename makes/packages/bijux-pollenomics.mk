@@ -48,14 +48,14 @@ build-install-smoke:
 	  exit 1; \
 	fi; \
 	rm -rf "$$tmp_root"; \
-	"$(BUILD_PYTHON)" -m venv "$$tmp_root/wheel"; \
-	"$$tmp_root/wheel/bin/python" -m pip install "$$wheel_path"; \
-	"$$tmp_root/wheel/bin/bijux-pollenomics" --version; \
-	"$$tmp_root/wheel/bin/bijux-pollenomics" --help >/dev/null; \
-	"$(BUILD_PYTHON)" -m venv "$$tmp_root/sdist"; \
-	"$$tmp_root/sdist/bin/python" -m pip install "$$sdist_path"; \
-	"$$tmp_root/sdist/bin/bijux-pollenomics" --version; \
-	"$$tmp_root/sdist/bin/bijux-pollenomics" --help >/dev/null
+	"$(BUILD_PYTHON)" -m venv "$$tmp_root/smoke"; \
+	"$$tmp_root/smoke/bin/python" -m pip install "$$wheel_path"; \
+	"$$tmp_root/smoke/bin/bijux-pollenomics" --version; \
+	"$$tmp_root/smoke/bin/bijux-pollenomics" --help >/dev/null; \
+	"$$tmp_root/smoke/bin/python" -m pip uninstall -y "$(BUILD_PACKAGE_NAME)" >/dev/null; \
+	"$$tmp_root/smoke/bin/python" -m pip install "$$sdist_path"; \
+	"$$tmp_root/smoke/bin/bijux-pollenomics" --version; \
+	"$$tmp_root/smoke/bin/bijux-pollenomics" --help >/dev/null
 .PHONY: build-install-smoke
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
