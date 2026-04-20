@@ -8,6 +8,23 @@ release notes belong to each distribution under `packages/`.
 Use this changelog for workspace changes that affect multiple packages or
 change contributor and maintainer workflows across the repository.
 
+## Unreleased
+
+### Changed
+
+- GitHub workflow dispatch governance now rejects no-op release/docs manual
+  dispatches so maintainers get explicit operator feedback when no packages or
+  docs targets were selected.
+
+### Fixed
+
+- Package build smoke checks now install only the latest wheel/sdist pair for
+  each package, preventing mixed-version installs when old artifacts are still
+  present in build directories.
+- Build smoke verification now reuses one virtual environment for wheel and
+  sdist install checks, removing intermittent second-venv bootstrap failures in
+  CI and tox build gates.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
