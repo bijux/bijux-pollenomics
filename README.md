@@ -34,10 +34,10 @@ same staged assets to the GitHub Release.
 ## Start Here
 
 - inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
-- read the public docs home: <https://bijux.io/bijux-pollenomics/>
-- review the runtime handbook: <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/>
-- inspect the data reference: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/>
-- inspect repository maintenance rules: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/>
+- read the public docs home: [bijux.io/bijux-pollenomics](https://bijux.io/bijux-pollenomics/)
+- review the runtime handbook: [bijux.io/bijux-pollenomics/01-bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- inspect the data reference: [bijux.io/bijux-pollenomics/02-bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- inspect repository maintenance rules: [bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
 
@@ -137,7 +137,7 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/> and <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/>.
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/).
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 

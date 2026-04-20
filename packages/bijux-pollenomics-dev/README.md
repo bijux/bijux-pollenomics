@@ -18,8 +18,8 @@ working from the monorepo, not as the runtime entry point for end users.
 
 ## Read this next
 
-- maintainer handbook: <https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/>
-- release support: <https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/>
-- source directory: <https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics-dev>
-- changelog: <https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md>
-- security policy: <https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md>
+- maintainer handbook: [bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/)
+- release support: [bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support](https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/)
+- source directory: [github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics-dev](https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics-dev)
+- changelog: [github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md)
+- security policy: [github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
