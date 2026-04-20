@@ -101,7 +101,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("test-regression:", test_targets_text)
         self.assertIn("test-e2e:", test_targets_text)
         self.assertIn(
-            'find "$$out_dir" -maxdepth 1 -type f',
+            'ls -l "$$out_dir" || true',
             build_targets_text,
         )
         self.assertIn("BUILD_POST_TARGETS := build-install-smoke", package_make_text)
