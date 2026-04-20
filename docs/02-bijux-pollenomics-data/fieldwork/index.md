@@ -4,16 +4,22 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-21
 ---
 
 # Fieldwork
 
-This section documents checked-in field evidence that complements the
-source-derived data tree.
+Fieldwork is the checked-in evidence layer for real sampling visits.
 
-Use it when the visible publication output needs to be grounded in one concrete
-collection visit rather than in normalized database exports alone.
+Use this section when a map point or normalized source record must be grounded
+in direct on-site collection context.
+
+Upcoming confirmed sampling visits will be announced here before they are added
+to the tracked fieldwork record.
+
+The [Nordic Evidence Atlas](../../report/nordic-atlas/nordic-atlas_map.html)
+is the decision surface used to guide the next best sampling location after
+each confirmation cycle.
 
 ## Pages In This Section
 
@@ -22,4 +28,4 @@ collection visit rather than in normalized database exports alone.
 ## Purpose
 
 This page gives field documentation a durable home inside the data reference
-tree.
+tree and keeps future sampling planning visibly connected to the atlas.
