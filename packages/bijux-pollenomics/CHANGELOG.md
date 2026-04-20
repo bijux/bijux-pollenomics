@@ -4,6 +4,12 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ## Unreleased
 
+### Changed
+
+- No unreleased changes yet.
+
+## 0.1.6 - 2026-04-20
+
 ### Fixed
 
 - Package build smoke checks now select the latest `bijux-pollenomics` wheel

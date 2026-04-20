@@ -12,6 +12,12 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- No unreleased changes yet.
+
+## 0.1.6 - 2026-04-20
+
+### Changed
+
 - GitHub workflow dispatch governance now rejects no-op release/docs manual
   dispatches so maintainers get explicit operator feedback when no packages or
   docs targets were selected.
