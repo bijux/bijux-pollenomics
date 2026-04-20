@@ -491,6 +491,18 @@
         "version": 2,
         "updates": [
           {
+            "package-ecosystem": "github-actions",
+            "directory": "/",
+            "schedule": {
+              "interval": "weekly"
+            },
+            "open-pull-requests-limit": 10,
+            "labels": [
+              "dependencies",
+              "github_actions"
+            ]
+          },
+          {
             "package-ecosystem": "npm",
             "directory": "/configs",
             "schedule": {
@@ -881,7 +893,7 @@
         "release-github",
         "release-pypi"
       ],
-      "pinned_std_sha": "7768cbd38d5af2cad5e017e919fd5253c124bf13"
+      "pinned_std_sha": "8cff763f14aa5cf2910954ffbb61e702c102145c"
     },
     {
       "name": "bijux-core",
@@ -1719,7 +1731,7 @@
         "release-github",
         "release-pypi"
       ],
-      "pinned_std_sha": "7768cbd38d5af2cad5e017e919fd5253c124bf13"
+      "pinned_std_sha": "8cff763f14aa5cf2910954ffbb61e702c102145c"
     },
     {
       "name": "bijux-proteomics",
@@ -2320,7 +2332,7 @@
         "release-github",
         "release-pypi"
       ],
-      "pinned_std_sha": "7768cbd38d5af2cad5e017e919fd5253c124bf13"
+      "pinned_std_sha": "8cff763f14aa5cf2910954ffbb61e702c102145c"
     },
     {
       "name": "bijux-std",
