@@ -28,7 +28,7 @@ exist when the data layout changes.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="outputs/nordic-atlas/">Open atlas outputs</a>
   <a class="md-button" href="sources/source-comparison/">Compare source families</a>
-  <a class="md-button" href="fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
+  <a class="md-button" href="../04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
 </div>
 
 ## Main Paths
@@ -36,13 +36,13 @@ exist when the data layout changes.
 - [Foundation](foundation/index.md)
 - [Sources](sources/index.md)
 - [Outputs](outputs/index.md)
-- [Fieldwork](fieldwork/index.md)
+- [Fieldwork](../04-fieldwork/index.md)
 
 ## What Readers Usually Need First
 
 - upstream origin and provenance rules: [Sources](sources/index.md)
 - exact file families and publication bundles: [Outputs](outputs/index.md)
-- checked-in field evidence and media: [Fieldwork](fieldwork/index.md)
+- checked-in field evidence and media: [Fieldwork](../04-fieldwork/index.md)
 - layout and migration constraints: [Foundation](foundation/index.md)
 
 ## Purpose

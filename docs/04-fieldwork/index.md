@@ -17,7 +17,7 @@ in direct on-site collection context.
 Upcoming confirmed sampling visits will be announced here before they are added
 to the tracked fieldwork record.
 
-The [Nordic Evidence Atlas](../../report/nordic-atlas/nordic-atlas_map.html)
+The [Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html)
 is the decision surface used to guide the next best sampling location after
 each confirmation cycle.
 
@@ -27,5 +27,5 @@ each confirmation cycle.
 
 ## Purpose
 
-This page gives field documentation a durable home inside the data reference
-tree and keeps future sampling planning visibly connected to the atlas.
+This page gives field documentation a durable root docs row and keeps future
+sampling planning visibly connected to the atlas.

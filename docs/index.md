@@ -59,7 +59,7 @@ tracked data and outputs, and one handbook for repository maintenance.
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
+  <a class="md-button md-button--primary" href="05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="01-bijux-pollenomics/">Open the package handbook</a>
   <a class="md-button" href="02-bijux-pollenomics-data/">Open the data reference</a>
   <a class="md-button" href="03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
@@ -68,7 +68,7 @@ tracked data and outputs, and one handbook for repository maintenance.
 <div class="bijux-map-mobile-note">
   <strong>Phone view:</strong> Open the atlas in its own tab for panning, layer toggles, and map controls. The inline embed stays available on larger screens where the full layer stack fits.
   <div class="bijux-quicklinks">
-    <a class="md-button md-button--primary" href="report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
+    <a class="md-button md-button--primary" href="05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   </div>
 </div>
 
@@ -94,7 +94,7 @@ Use the path that matches what you need right now:
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button md-button--primary" href="04-fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
   <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 </div>
 
