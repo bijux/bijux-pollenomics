@@ -18,8 +18,8 @@ working from the monorepo, not as the runtime entry point for end users.
 
 ## Read this next
 
-- maintainer handbook: [Maintainer handbook](https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/)
-- release support: [Release support guide](https://bijux.io/bijux-pollenomics/bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/)
+- maintainer handbook: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
+- release support: [Release support guide](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/)
 - source directory: [Developer tooling source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics-dev)
 - changelog: [Developer tooling changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md)
 - security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
