@@ -153,11 +153,6 @@ nav:
           - Normalized SEAD Outputs: 02-bijux-pollenomics-data/outputs/normalized-sead.md
           - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
           - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
-      - Fieldwork:
-          - Fieldwork: 02-bijux-pollenomics-data/fieldwork/index.md
-          - Lyngsjön Lake Fieldwork: 02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md
-      - Nordic Evidence Atlas:
-          - Nordic Evidence Atlas: report/nordic-atlas/nordic-atlas_map.html
   - Maintainer:
       - Maintainer: 03-bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev:
@@ -189,5 +184,8 @@ nav:
           - release-publication: 03-bijux-pollenomics-maintain/gh-workflows/release-publication.md
           - deploy-docs: 03-bijux-pollenomics-maintain/gh-workflows/deploy-docs.md
           - reusable-workflows: 03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md
-  - Nordic Evidence Atlas: report/nordic-atlas/nordic-atlas_map.html
-  - Fieldwork: 02-bijux-pollenomics-data/fieldwork/index.md
+  - Fieldwork:
+      - Fieldwork: 04-fieldwork/index.md
+      - Lyngsjön Lake Fieldwork: 04-fieldwork/lyngsjon-lake-fieldwork.md
+  - Nordic Evidence Atlas:
+      - Nordic Evidence Atlas: 05-nordic-evidence-atlas/index.md
