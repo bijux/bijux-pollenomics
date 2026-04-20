@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-20
 ---
 
 # Release and Versioning
@@ -33,6 +33,12 @@ model instead of mixing static file versions with tag-driven publication.
 Do not treat a source refresh as invisible package state. When output-shaping
 changes are intentional, the package docs and review trail should explain both
 the runtime change and the resulting tracked artifact diff.
+
+## Docs Deployment Trigger
+
+`deploy-docs` runs on pushes to `main`/`master` (and `v*` tags), so docs
+publication should be routed through a reviewed pull request that merges a real
+docs or docs-tooling change into `main`.
 
 ## Purpose
 
