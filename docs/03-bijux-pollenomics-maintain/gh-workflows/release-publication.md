@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-20
 ---
 
 # release-publication
@@ -26,6 +26,16 @@ while GitHub release assembly uses the same staged assets.
 - `release-pypi.yml` publishes staged distributions to PyPI
 - `release-ghcr.yml` publishes staged release bundles to GHCR as OCI artifacts
 - `release-github.yml` creates the GitHub release and uploads staged assets
+
+## Manual Dispatch Guardrails
+
+Manual dispatch is intentionally strict:
+
+- dispatches that resolve to no selected packages are rejected
+- dispatches with disabled publication flags are rejected
+- invalid or non-version release tag input is rejected when publication is enabled
+
+These checks prevent no-op release runs and make operator intent explicit.
 
 ## Purpose
 
