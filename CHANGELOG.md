@@ -14,34 +14,26 @@ change contributor and maintainer workflows across the repository.
 
 - No unreleased changes yet.
 
-## 0.1.6 - 2026-04-20
-
-### Changed
-
-- GitHub workflow dispatch governance now rejects no-op release/docs manual
-  dispatches so maintainers get explicit operator feedback when no packages or
-  docs targets were selected.
-
-### Fixed
-
-- Package build smoke checks now install only the latest wheel/sdist pair for
-  each package, preventing mixed-version installs when old artifacts are still
-  present in build directories.
-- Build smoke verification now reuses one virtual environment for wheel and
-  sdist install checks, removing intermittent second-venv bootstrap failures in
-  CI and tox build gates.
-
 ## 0.1.5 - 2026-04-20
 
 ### Changed
 
 - Prepared the `v0.1.5` release line by aligning fallback versions and package dependency floors across the repository.
 - Synchronized release automation and governance with the `bijux-std v0.1.3` shared standards baseline.
+- GitHub workflow dispatch governance now rejects no-op release/docs manual
+  dispatches so maintainers get explicit operator feedback when no packages or
+  docs targets were selected.
 
 ### Fixed
 
 - `release-pypi.yml` now uses parse-safe publication gating for token/bootstrap checks.
 - Protected workflow policy checks now accept shared-manifest-driven standards updates through approved control paths.
+- Package build smoke checks now install only the latest wheel/sdist pair for
+  each package, preventing mixed-version installs when old artifacts are still
+  present in build directories.
+- Build smoke verification now reuses one virtual environment for wheel and
+  sdist install checks, removing intermittent second-venv bootstrap failures in
+  CI and tox build gates.
 
 ## 0.1.4 - 2026-04-19
 
