@@ -34,10 +34,10 @@ same staged assets to the GitHub Release.
 ## Start Here
 
 - inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
-- read the public docs home: [bijux.io/bijux-pollenomics](https://bijux.io/bijux-pollenomics/)
-- review the runtime handbook: [bijux.io/bijux-pollenomics/01-bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- inspect the data reference: [bijux.io/bijux-pollenomics/02-bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- inspect repository maintenance rules: [bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
+- read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
+- review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- inspect the data reference: [Data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
 
