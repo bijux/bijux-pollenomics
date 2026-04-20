@@ -40,7 +40,7 @@ pollenomics --help
 
 ## Read this next
 
-- runtime package docs: [bijux.io/bijux-pollenomics/bijux-pollenomics](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
-- source directory: [github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics](https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics)
-- changelog: [github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md](https://github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md)
-- security policy: [github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
+- runtime package docs: [Runtime package docs](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
+- source directory: [pollenomics source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics)
+- changelog: [pollenomics changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md)
+- security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
