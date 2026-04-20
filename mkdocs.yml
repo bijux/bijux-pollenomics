@@ -186,6 +186,6 @@ nav:
           - reusable-workflows: 03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md
   - Fieldwork:
       - Fieldwork: 04-fieldwork/index.md
-      - Lyngsjön Lake Fieldwork: 04-fieldwork/lyngsjon-lake-fieldwork.md
+      - Lyngsjön Lake Fieldwork: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
   - Nordic Evidence Atlas:
       - Nordic Evidence Atlas: 05-nordic-evidence-atlas/index.md

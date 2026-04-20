@@ -94,9 +94,9 @@ plugins:
         outputs/country-reports.md: 02-bijux-pollenomics-data/outputs/published-reports.md
         outputs/artifact-lifecycle.md: 02-bijux-pollenomics-data/outputs/collection-summary.md
         outputs/published-artifacts.md: 02-bijux-pollenomics-data/outputs/published-reports.md
-        outputs/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork.md
+        outputs/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
         02-bijux-pollenomics-data/fieldwork/index.md: 04-fieldwork/index.md
-        02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork.md
+        02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: 04-fieldwork/lyngsjon-lake-fieldwork/index.md
         reference/index.md: 01-bijux-pollenomics/interfaces/index.md
         reference/command-reference.md: 01-bijux-pollenomics/interfaces/entrypoints-and-examples.md
         reference/configuration-defaults.md: 01-bijux-pollenomics/interfaces/configuration-surface.md
