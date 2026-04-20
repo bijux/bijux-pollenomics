@@ -2,13 +2,6 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
-## 0.1.6 - 2026-04-20
-
-### Changed
-
-- Prepared the `v0.1.6` maintainer-tools release line in lockstep with the
-  runtime packages so release readiness metadata stays synchronized.
-
 ## 0.1.5 - 2026-04-20
 
 ### Changed

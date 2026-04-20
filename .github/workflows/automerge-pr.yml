@@ -5,6 +5,8 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
   pull_request_review:
     types: [submitted]
+  check_suite:
+    types: [completed]
 
 permissions:
   contents: write
@@ -21,6 +23,12 @@ jobs:
             let pullNumber = null;
             if (context.payload.pull_request && context.payload.pull_request.number) {
               pullNumber = context.payload.pull_request.number;
+            }
+            if (!pullNumber && context.payload.check_suite && Array.isArray(context.payload.check_suite.pull_requests)) {
+              const suitePullRequests = context.payload.check_suite.pull_requests;
+              if (suitePullRequests.length > 0 && suitePullRequests[0] && suitePullRequests[0].number) {
+                pullNumber = suitePullRequests[0].number;
+              }
             }
 
             if (!pullNumber) {
