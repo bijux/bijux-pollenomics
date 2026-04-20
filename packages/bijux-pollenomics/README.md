@@ -37,10 +37,10 @@ If `pip` prints `No matching distribution found` together with messages like
 
 ## Read this next
 
-- PyPI package: <https://pypi.org/project/bijux-pollenomics/>
-- package guide: <https://bijux.io/bijux-pollenomics/bijux-pollenomics/>
-- API surface: <https://bijux.io/bijux-pollenomics/bijux-pollenomics/interfaces/api-surface/>
-- common workflows: <https://bijux.io/bijux-pollenomics/bijux-pollenomics/operations/common-workflows/>
-- source directory: <https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics>
-- changelog: <https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/CHANGELOG.md>
-- security policy: <https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md>
+- PyPI package: [pypi.org/project/bijux-pollenomics](https://pypi.org/project/bijux-pollenomics/)
+- package guide: [bijux.io/bijux-pollenomics/bijux-pollenomics](https://bijux.io/bijux-pollenomics/bijux-pollenomics/)
+- API surface: [bijux.io/bijux-pollenomics/bijux-pollenomics/interfaces/api-surface](https://bijux.io/bijux-pollenomics/bijux-pollenomics/interfaces/api-surface/)
+- common workflows: [bijux.io/bijux-pollenomics/bijux-pollenomics/operations/common-workflows](https://bijux.io/bijux-pollenomics/bijux-pollenomics/operations/common-workflows/)
+- source directory: [github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics](https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics)
+- changelog: [github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/CHANGELOG.md](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/CHANGELOG.md)
+- security policy: [github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
