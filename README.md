@@ -4,7 +4,7 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
 [![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
-[![Release PyPI](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
+[![Release PyPI](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml/badge.svg?event=workflow_dispatch)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml?query=event%3Aworkflow_dispatch)
 [![Release GHCR](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
 [![Release GitHub](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
@@ -34,10 +34,10 @@ same staged assets to the GitHub Release.
 ## Start Here
 
 - inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
-- read the public docs home: <https://bijux.io/bijux-pollenomics/>
-- review the runtime handbook: <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/>
-- inspect the data reference: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/>
-- inspect repository maintenance rules: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/>
+- read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
+- review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- inspect the data reference: [Data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
 
@@ -137,7 +137,7 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/> and <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/>.
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/).
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 
