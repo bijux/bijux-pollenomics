@@ -8,6 +8,17 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 - No unreleased changes yet.
 
+## 0.1.6 - 2026-04-21
+
+### Changed
+
+- Refined package README navigation links to use readable markdown labels and corrected handbook references to canonical docs routes.
+- Documentation navigation now promotes `Fieldwork` and `Nordic Evidence Atlas` as dedicated top-level rows, improving discoverability of core evidence outputs for runtime users.
+
+### Fixed
+
+- Release PyPI badge targeting now reflects dispatch-triggered release execution, preventing ambiguous badge state for this package.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
