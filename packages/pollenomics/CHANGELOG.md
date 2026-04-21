@@ -2,6 +2,16 @@
 
 All notable changes for `pollenomics` are recorded here.
 
+## 0.1.6 - 2026-04-21
+
+### Changed
+
+- Updated compatibility-package README links to use readable markdown labels and corrected documentation route references for handbook pages.
+
+### Fixed
+
+- Release badge linkage now aligns with dispatch-triggered publication workflow behavior so status indicators remain accurate.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
