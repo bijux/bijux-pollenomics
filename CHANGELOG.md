@@ -14,6 +14,19 @@ change contributor and maintainer workflows across the repository.
 
 - No unreleased changes yet.
 
+## 0.1.6 - 2026-04-21
+
+### Changed
+
+- Promoted `Fieldwork` and `Nordic Evidence Atlas` into dedicated top-level docs rows (`docs/04-fieldwork/`, `docs/05-nordic-evidence-atlas/`) so critical evidence pages are directly discoverable from row navigation.
+- Reorganized the fieldwork content path to nested section indexing (`docs/04-fieldwork/lyngsjon-lake-fieldwork/index.md`) to preserve stable sidebar rendering and directory-based docs contracts.
+- Updated root and package README link text to readable markdown labels and aligned handbook references with canonical docs routes.
+
+### Fixed
+
+- Release badge wiring now targets the dispatch-based publication workflow behavior, avoiding misleading release status signals in README badge surfaces.
+- Docs navigation and shared MkDocs config now resolve promoted fieldwork/atlas routes without stale path assumptions.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
