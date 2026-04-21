@@ -2,6 +2,17 @@
 
 All notable changes for `bijux-pollenomics-dev` are recorded here.
 
+## 0.1.6 - 2026-04-21
+
+### Changed
+
+- Updated maintainer-package README links to readable markdown labels and aligned handbook references with canonical repository docs routes.
+- Maintainer-facing docs navigation now includes promoted top-level entries for `Fieldwork` and `Nordic Evidence Atlas`, matching the current evidence-review flow.
+
+### Fixed
+
+- Release badge linkage now reflects dispatch-driven publication behavior, reducing maintainer ambiguity when reviewing release readiness from README surfaces.
+
 ## 0.1.5 - 2026-04-20
 
 ### Changed
