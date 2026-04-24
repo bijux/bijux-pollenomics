@@ -283,19 +283,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_fieldwork_page_embeds_video_from_site_root_gallery(self) -> None:
         fieldwork_text = (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "fieldwork"
-            / "lyngsjon-lake-fieldwork.md"
+            REPO_ROOT / "docs" / "04-fieldwork" / "lyngsjon-lake-fieldwork" / "index.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            '<source src="../../../gallery/2026-02-26-data-collection.mp4"',
+            '<source src="../../gallery/2026-02-26-data-collection.mp4"',
             fieldwork_text,
         )
         self.assertIn(
-            '<a href="../../../gallery/2026-02-26-data-collection.mp4">',
+            '<a href="../../gallery/2026-02-26-data-collection.mp4">',
             fieldwork_text,
         )
 
@@ -376,14 +372,17 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("api_toolchain_targets:", verify_workflow)
         self.assertIn("pull_request:", verify_workflow)
         self.assertIn("astral-sh/setup-uv", verify_workflow)
-        self.assertIn("- main", deploy_workflow)
-        self.assertIn('tags:\n      - "v*"', deploy_workflow)
+        self.assertIn("workflow_dispatch:", deploy_workflow)
+        self.assertIn("workflow_call:", deploy_workflow)
         self.assertIn("astral-sh/setup-uv", deploy_workflow)
         self.assertIn("pages: write", deploy_workflow)
         self.assertIn("id-token: write", deploy_workflow)
         self.assertIn("actions/configure-pages@", deploy_workflow)
         self.assertIn("actions/upload-pages-artifact@", deploy_workflow)
         self.assertIn("actions/deploy-pages@", deploy_workflow)
+        self.assertIn("github.ref == 'refs/heads/main'", deploy_workflow)
+        self.assertIn("github.ref == 'refs/heads/master'", deploy_workflow)
+        self.assertIn("startsWith(github.ref, 'refs/tags/v')", deploy_workflow)
         self.assertIn("site_dir", deploy_workflow)
         self.assertIn("artifacts/root/docs/build-site", deploy_workflow)
         self.assertIn("mkdocs.shared.yml", deploy_workflow)
