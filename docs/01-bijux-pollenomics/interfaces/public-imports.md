@@ -4,12 +4,30 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Public Imports
 
 The public import surface is defined by `bijux_pollenomics.__all__`.
+
+```mermaid
+flowchart LR
+    all["bijux_pollenomics.__all__"]
+    reports["report dataclasses"]
+    collection["collection dataclasses"]
+    workflows["workflow functions"]
+    version["__version__"]
+    callers["stable caller-facing imports"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class all,page callers;
+    class reports,collection,workflows,version positive;
+    all --> reports --> callers
+    all --> collection --> callers
+    all --> workflows --> callers
+    all --> version --> callers
+```
 
 ## Supported Imports
 
@@ -24,6 +42,11 @@ The public import surface is defined by `bijux_pollenomics.__all__`.
 
 Prefer importing through `bijux_pollenomics` for stable caller-facing code.
 Reach into internal modules only when changing the package itself.
+
+## Use This Page When
+
+- a consumer needs the top-level import surface only
+- a refactor risks moving or renaming symbols that callers treat as stable
 
 ## Purpose
 
