@@ -24,27 +24,6 @@ diagram. The key reader question is where the repository chooses behavior:
 where commands are interpreted, where source families branch, where tracked
 files are rewritten, and where visible publication assets are assembled.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>where does runtime behavior actually live?"]
-    cli["cli.py and command_line/<br/>parse commands and select work"]
-    collection["data_downloader/<br/>collect, stage, normalize<br/>by source family"]
-    reporting["reporting/<br/>assemble country bundles<br/>and atlas output"]
-    tracked["tracked rewrite surfaces<br/>data/ and docs/report/"]
-    proof["tests and repository contracts<br/>check the structural promises"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class cli,collection,reporting,tracked positive;
-    class proof positive;
-    reader --> cli
-    cli --> collection
-    cli --> reporting
-    collection --> tracked
-    reporting --> tracked
-    tracked --> proof
-```
-
 ## Start Here
 
 - open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) for the shortest code-level tour

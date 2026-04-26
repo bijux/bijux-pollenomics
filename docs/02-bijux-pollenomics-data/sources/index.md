@@ -17,25 +17,6 @@ which upstream family they are looking at, which caveats travel with that
 family, and which shared normalization rules apply before the data appears in
 the published atlas or reports.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what should I trust about this source?"]
-    upstream["upstream source family"]
-    caveats["source-specific caveats and limits"]
-    shared["shared normalization rules"]
-    compare["source comparison and refresh policy"]
-    outputs["normalized outputs and reports"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class upstream,caveats,shared,compare,outputs positive;
-    upstream --> caveats
-    caveats --> shared
-    shared --> outputs
-    compare --> outputs
-    outputs --> reader
-```
-
 ## Start Here
 
 - use one source page when reviewing one upstream family in isolation

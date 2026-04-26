@@ -26,27 +26,6 @@ Governance automation also includes `automerge-pr.yml`, which enables
 auto-merge after trusted CODEOWNERS approval and re-evaluates merge readiness
 when required check suites complete.
 
-```mermaid
-flowchart LR
-    trigger["workflow trigger"]
-    verify["verify<br/>push and pull request"]
-    deploy["deploy-docs<br/>main publication"]
-    release["release workflows<br/>tag publication"]
-    reusable["reusable builds<br/>shared jobs"]
-    governance["governance automation"]
-    reader["reader question<br/>which automation entrypoint owns this event?"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class trigger,page reader;
-    class verify,deploy,release,reusable,governance positive;
-    trigger --> verify
-    trigger --> deploy
-    trigger --> release
-    trigger --> reusable
-    trigger --> governance
-    trigger --> reader
-```
-
 ## Start Here
 
 - open [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/) when the question begins with a push, pull request,

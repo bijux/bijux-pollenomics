@@ -19,25 +19,6 @@ important reader question is not just “what rules exist?” but “which helpe
 module enforces them, and what repository surface does that enforcement
 protect?”
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>which helper surface owns this rule?"]
-    dev["bijux-pollenomics-dev<br/>repository helper package"]
-    quality["quality/ and api/<br/>gate enforcement and drift checks"]
-    release["release/<br/>publication guards and version rules"]
-    docs["docs/<br/>badge and docs integrity support"]
-    trusted["trusted_process.py<br/>shared maintainer process rules"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class dev,quality,release,docs,trusted positive;
-    reader --> dev
-    dev --> quality
-    dev --> release
-    dev --> docs
-    dev --> trusted
-```
-
 ## Start Here
 
 - open [Package Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview/) for the maintainer package

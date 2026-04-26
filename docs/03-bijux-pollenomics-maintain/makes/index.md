@@ -20,25 +20,6 @@ repository-wide consequences. This section shows which target is safe for
 inspection, which one rewrites `data/` or `docs/report/`, and which one is
 only a dispatch layer for package-specific work.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>which command surface owns this action?"]
-    root["root.mk<br/>top-level repository targets"]
-    packages["packages.mk<br/>package catalog and dispatch"]
-    publish["publish.mk<br/>release and publication routing"]
-    env["env.mk and shared modules<br/>environment and shared helpers"]
-    artifacts["tracked consequences<br/>artifacts/, data/, docs/report/"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class root,packages,publish,env,artifacts positive;
-    reader --> root
-    root --> packages
-    root --> publish
-    root --> env
-    root --> artifacts
-```
-
 ## Start Here
 
 - open [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/) for the top-level command surface
