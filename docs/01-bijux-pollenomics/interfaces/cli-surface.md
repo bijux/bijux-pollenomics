@@ -12,6 +12,26 @@ last_reviewed: 2026-04-26
 The CLI is the primary public interface for `bijux-pollenomics`. It matters
 because these commands rewrite tracked repository state.
 
+## CLI Model
+
+```mermaid
+flowchart TB
+    command["named CLI command"]
+    options["shared options and defaults"]
+    handler["runtime handler"]
+    outputs["tracked data or report outputs"]
+    review["reviewable repository change"]
+
+    command --> options
+    options --> handler
+    handler --> outputs
+    outputs --> review
+```
+
+This page should make the command surface feel bounded and reviewable. The user
+is not just invoking helpers; they are choosing one explicit rewrite path
+through the repository with visible output consequences.
+
 ## Supported Commands
 
 - `collect-data <sources...>` collects tracked datasets into `data/`
@@ -42,3 +62,9 @@ bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-r
 - `src/bijux_pollenomics/cli.py`
 - `src/bijux_pollenomics/command_line/parsing/`
 - `tests/e2e/test_cli.py`
+
+## Design Pressure
+
+The common failure is to document commands like generic utilities, which hides
+that each CLI entrypoint is a controlled path for rewriting tracked evidence or
+publication surfaces.
