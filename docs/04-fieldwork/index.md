@@ -15,6 +15,25 @@ It exists so a reader can move from one published atlas point to the direct
 visit record behind it: where the team went, when sampling happened, and which
 repository-owned media support that statement.
 
+## Fieldwork Model
+
+```mermaid
+flowchart TB
+    atlas["visible atlas point"]
+    visit["visit record page"]
+    media["repository-owned photo and video"]
+    reader["direct evidence question"]
+
+    atlas --> visit
+    visit --> media
+    media --> reader
+```
+
+This section should make fieldwork feel like a narrow proof bridge from one
+published point to one documented visit. If the route from map point to direct
+media is not obvious, the page stops earning its place as a distinct evidence
+surface.
+
 ## Start Here
 
 - open [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
@@ -39,6 +58,12 @@ repository-owned media support that statement.
 - inspect `docs/gallery/2026-02-26-data-collection.JPG`
 - inspect `docs/gallery/2026-02-26-data-collection.mp4`
 - compare the visit record with the corresponding atlas point
+
+## Design Pressure
+
+The easy failure is to let one documented visit imply broader field coverage
+than the repository actually proves. This section only works when it stays
+narrow and inspectable.
 
 ## Boundary Test
 
