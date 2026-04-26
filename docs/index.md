@@ -17,10 +17,9 @@ pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
 Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
 boundaries.
 
-If someone opens only this page, they should still understand four things
-clearly: what the repository publishes today, where the visible layers come
-from, which code rebuilds them, and where the documentation stops making
-claims.
+This page gives you four things quickly: what the repository publishes today,
+where the visible layers come from, which code rebuilds them, and where the
+documentation stops making claims.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -79,7 +78,7 @@ claims.
 
 ## Start Here
 
-Use the path that matches what you need right now:
+Open the path that matches what you need right now:
 
 - understanding the runtime package boundary, command loop, and public
   contracts: open
@@ -108,7 +107,7 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What This Site Lets A Reader Do
+## What You Can Check Here
 
 ```mermaid
 flowchart LR
@@ -134,8 +133,8 @@ flowchart LR
     atlas --> fieldwork
 ```
 
-The docs are organized so a reader can start from the visible atlas and then
-drop into the exact supporting explanation they need:
+Start from the visible atlas, then open the exact supporting explanation you
+need:
 
 - what the repository produces today and why
 - how the tracked data categories are collected and normalized
