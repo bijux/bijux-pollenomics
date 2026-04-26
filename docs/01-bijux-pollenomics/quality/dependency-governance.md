@@ -41,7 +41,3 @@ cost.
 Dependency review is not just a build concern. It changes the long-term trust
 and maintenance burden of the runtime surface.
 
-## Purpose
-
-This page shows how dependency growth should be governed for the runtime
-package.

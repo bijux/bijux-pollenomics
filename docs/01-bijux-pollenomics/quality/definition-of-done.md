@@ -46,6 +46,3 @@ flowchart LR
 - a change looks complete technically but may still be incomplete for review
 - a pull request needs a shared closure standard before merge
 
-## Purpose
-
-This page shows the quality bar for finishing runtime work honestly.

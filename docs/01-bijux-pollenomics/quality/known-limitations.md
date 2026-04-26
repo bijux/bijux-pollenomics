@@ -49,6 +49,3 @@ flowchart LR
 These limitations are not hidden defects. They are explicit boundaries readers
 should understand before making broader scientific or product claims.
 
-## Purpose
-
-This page shows the package limits maintainers should keep visible.

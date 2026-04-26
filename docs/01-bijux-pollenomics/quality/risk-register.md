@@ -48,6 +48,3 @@ flowchart TD
   documented explicitly
 - the package needs one place to summarize current structural uncertainty
 
-## Purpose
-
-This page shows the current runtime risks in one place.

@@ -85,6 +85,3 @@ More test layers are not automatically better. The honest goal is the smallest
 proof surface that still matches the real contract risk and leaves reviewers
 with a believable explanation for the change.
 
-## Purpose
-
-This page shows how the package proves correctness across different scopes.

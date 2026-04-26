@@ -45,6 +45,3 @@ both the executable checks and the resulting file diffs make sense together.
 - the right validation depth is unclear
 - a change affects both code and checked-in outputs
 
-## Purpose
-
-This page shows how package changes should be validated before merge.
