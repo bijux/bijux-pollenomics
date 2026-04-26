@@ -68,7 +68,7 @@ instead of treating every layer as equally abstract.
 - [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) for provenance and
   normalization questions that exceed one visit record
 
-## Core Point
+## Bottom Line
 
 Fieldwork pages answer a narrow but important question with integrity:
 what exactly happened at this place on this date, and what direct artifacts

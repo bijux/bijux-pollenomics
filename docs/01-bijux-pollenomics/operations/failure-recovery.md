@@ -41,7 +41,7 @@ flowchart LR
 Do not jump straight to `make app-state` after a failure. That broad command can
 rewrite multiple tracked surfaces and make the original fault harder to isolate.
 
-## Core Point
+## Bottom Line
 
 Recovery is about reducing uncertainty first, not proving endurance by rerunning
 everything at once.

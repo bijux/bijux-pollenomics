@@ -44,7 +44,7 @@ and are reused by parser helpers under `command_line/parsing/options.py`.
 Changing a default is a public contract change because it can alter tracked
 paths, published artifact names, and operator expectations.
 
-## Core Point
+## Bottom Line
 
 Defaults are part of the interface because they shape file locations, atlas
 identity, and the command outcomes readers expect to reproduce.

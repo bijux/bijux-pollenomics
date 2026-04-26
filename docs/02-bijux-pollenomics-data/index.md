@@ -63,7 +63,7 @@ checked-in outputs can I inspect?"
 - checked-in field evidence and media: [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 - layout and migration constraints: [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
 
-## Core Point
+## Bottom Line
 
 This section moves from a visible publication surface back to the tracked
 evidence behind it. It is where data provenance becomes legible, not where

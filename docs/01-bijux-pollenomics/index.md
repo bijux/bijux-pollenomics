@@ -99,7 +99,7 @@ loop from the repository alone.
 - `packages/bijux-pollenomics/tests/` for unit, regression, and end-to-end
   proof that the runtime loop still holds
 
-## Core Point
+## Bottom Line
 
 Open this handbook when the unresolved question is how
 `bijux-pollenomics` turns source material into checked-in evidence outputs.

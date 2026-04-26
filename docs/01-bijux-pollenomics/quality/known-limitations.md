@@ -44,7 +44,7 @@ flowchart LR
 - output-path renames would require coordinated updates across tests, docs, and
   tracked report bundles
 
-## Core Point
+## Bottom Line
 
 These limitations are not hidden defects. They are explicit boundaries readers
 should understand before making broader scientific or product claims.

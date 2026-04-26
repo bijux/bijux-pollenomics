@@ -83,7 +83,7 @@ flowchart LR
 - [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) and [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
   for the bridge between raw normalized outputs and reader-facing publication
 
-## Core Point
+## Bottom Line
 
 This section is where publication-facing files become concrete. It helps
 readers distinguish intermediate normalized evidence from the country bundles

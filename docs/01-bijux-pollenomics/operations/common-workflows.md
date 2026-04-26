@@ -42,7 +42,7 @@ refresh.
 Run `make reports` or `bijux-pollenomics publish-reports ...` when country
 bundles or the atlas need regeneration from current tracked inputs.
 
-## Core Point
+## Bottom Line
 
 The main operational discipline is choosing the narrowest workflow that matches
 the goal. Broad commands are not safer just because they feel more complete.

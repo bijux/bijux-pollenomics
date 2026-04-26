@@ -47,7 +47,7 @@ flowchart LR
 - avoid using `database` for tracked file trees unless a real database exists
 - avoid naming speculative research outcomes as if they are current outputs
 
-## Core Point
+## Bottom Line
 
 Stable language is not cosmetic. It prevents reviewers from confusing upstream
 material with normalized files, or confusing one published output bundle with

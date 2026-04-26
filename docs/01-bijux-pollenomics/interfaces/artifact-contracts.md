@@ -80,7 +80,7 @@ and update docs plus tests together with the code.
 - explain intentional artifact changes in docs before expecting reviewers to
   infer the new publication shape from generated diffs alone
 
-## Core Point
+## Bottom Line
 
 Artifact contracts matter because the website and repository review process both
 consume these files directly. Breaking them is not an internal refactor.

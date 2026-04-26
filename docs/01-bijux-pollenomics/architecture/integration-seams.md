@@ -42,7 +42,7 @@ These are the points where subtle scope creep appears first. If reporting starts
 depending on raw-source quirks or docs start carrying logic that belongs in the
 runtime, the package becomes harder to rebuild and harder to review honestly.
 
-## Core Point
+## Bottom Line
 
 The seams are where architecture debt first becomes visible. Protecting them is
 less about neatness and more about preserving honest rebuild boundaries.
