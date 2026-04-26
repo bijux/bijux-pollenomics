@@ -9,26 +9,7 @@ last_reviewed: 2026-04-26
 
 # Code Navigation
 
-Open the following path when you need to trace behavior quickly.
-
-```mermaid
-flowchart TD
-    question["question type"]
-    cli["CLI and parsing"]
-    dispatch["dispatch and handlers"]
-    source["source collection"]
-    report["report publishing"]
-    tests["tests"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class question,page cli;
-    class dispatch,source,report,tests positive;
-    question --> cli
-    question --> dispatch
-    question --> source
-    question --> report
-    question --> tests
-```
+Open the shortest path that matches the question you already have.
 
 ## Start Points By Question
 
@@ -50,9 +31,7 @@ flowchart TD
 - output regression checks: `tests/regression/`
 - CLI behavior: `tests/e2e/test_cli.py`
 
-## Bottom Line
+## First Proof Check
 
-This page is for fast orientation, not for architectural argument. It helps
-you reach the right directory quickly when you already know the kind of
-behavior you are trying to inspect.
-
+- `src/bijux_pollenomics/`
+- `packages/bijux-pollenomics/tests/`

@@ -9,26 +9,8 @@ last_reviewed: 2026-04-26
 
 # Extensibility Model
 
-The package is designed to add new sources and reporting refinements by
-extending named registries and stable file contracts rather than by inserting
-special cases everywhere.
-
-```mermaid
-flowchart LR
-    source["new source integration"]
-    pipeline["pipeline extension"]
-    report["new report artifact"]
-    contracts["stable tracked paths and contracts"]
-    docs_tests["docs and tests update together"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class source,page pipeline;
-    class report,contracts,docs_tests positive;
-    source --> contracts
-    pipeline --> contracts
-    report --> contracts
-    contracts --> docs_tests
-```
+The package should extend through named registries, pipeline stages, and stable
+path contracts instead of through scattered special cases.
 
 ## Expected Extension Paths
 
@@ -45,9 +27,9 @@ flowchart LR
   cross-package shortcut
 - extension work should update docs and tests at the same time as code
 
-## Bottom Line
+## First Proof Check
 
-Good extension work adds one new path of capability while preserving the same
-review shape. It should not require readers to relearn where files land or how
-commands behave.
-
+- `data_downloader/pipeline/source_registry`
+- `data_downloader/sources/`
+- `reporting/bundles/` and `reporting/rendering/`
+- `tests/unit/` and `tests/regression/`
