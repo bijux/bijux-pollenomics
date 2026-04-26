@@ -17,18 +17,17 @@ rather than the repository as a whole: what code belongs in the runtime, which
 contracts are public, how data and reports move through the package, and which
 quality rules protect that behavior.
 
-If someone opens only this page, they should still understand the package’s
-full job: collect source material, normalize it into governed repository files,
-publish atlas and country bundles, and keep the command and file contracts
-stable enough that reviewers can inspect the whole loop from the repository
-alone.
+This handbook explains the package's full job: collect source material,
+normalize it into governed repository files, publish atlas and country bundles,
+and keep the command and file contracts stable enough that reviewers can
+inspect the whole loop from the repository alone.
 
 <div class="bijux-callout"><strong>Think in one runtime loop.</strong> The package collects and normalizes tracked evidence, turns that material into checked-in report bundles, and keeps the CLI and file contracts stable enough to review from the repository alone.</div>
 
 <div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Foundation</h3><p>Use this branch to understand what the runtime owns, which language stays stable, and where package boundaries stop.</p></div>
-  <div class="bijux-panel"><h3>Interfaces</h3><p>Use this branch for commands, defaults, data layouts, output bundles, and other reader-visible contracts.</p></div>
-  <div class="bijux-panel"><h3>Operations</h3><p>Use this branch for safe rebuilds, review-shaped reruns, publication procedure, and failure recovery.</p></div>
+  <div class="bijux-panel"><h3>Foundation</h3><p>Start here to understand what the runtime owns, which language stays stable, and where package boundaries stop.</p></div>
+  <div class="bijux-panel"><h3>Interfaces</h3><p>Open this branch for commands, defaults, data layouts, output bundles, and other reader-visible contracts.</p></div>
+  <div class="bijux-panel"><h3>Operations</h3><p>Open this branch for safe rebuilds, review-shaped reruns, publication procedure, and failure recovery.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
