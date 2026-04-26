@@ -4,12 +4,31 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Code Navigation
 
 Use the following path when you need to trace behavior quickly.
+
+```mermaid
+flowchart TD
+    question["question type"]
+    cli["CLI and parsing"]
+    dispatch["dispatch and handlers"]
+    source["source collection"]
+    report["report publishing"]
+    tests["tests"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class question,page cli;
+    class dispatch,source,report,tests positive;
+    question --> cli
+    question --> dispatch
+    question --> source
+    question --> report
+    question --> tests
+```
 
 ## Start Points By Question
 
@@ -30,6 +49,12 @@ Use the following path when you need to trace behavior quickly.
 - unit behavior: `tests/unit/`
 - output regression checks: `tests/regression/`
 - CLI behavior: `tests/e2e/test_cli.py`
+
+## Reader Takeaway
+
+This page is for fast orientation, not for architectural argument. It should
+help someone reach the right directory quickly when they already know the kind
+of behavior they are trying to inspect.
 
 ## Purpose
 

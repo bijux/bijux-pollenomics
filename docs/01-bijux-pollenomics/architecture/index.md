@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Architecture
@@ -14,6 +14,27 @@ CLI parsing, data collection, spatial helpers, and report publishing.
 
 Use it when the question is about module seams, dependency direction, and how
 tracked outputs are produced from the package internals.
+
+```mermaid
+flowchart LR
+    module["module map"]
+    direction["dependency direction"]
+    execution["execution model"]
+    seams["integration seams"]
+    state["state and persistence"]
+    risk["architecture risks"]
+    reader["reader question<br/>how is this package shaped?"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class module,page reader;
+    class direction,execution,seams,state,risk positive;
+    module --> reader
+    direction --> reader
+    execution --> reader
+    seams --> reader
+    state --> reader
+    risk --> reader
+```
 
 ## Start Here
 
@@ -34,6 +55,12 @@ tracked outputs are produced from the package internals.
 - [Extensibility Model](extensibility-model.md)
 - [Code Navigation](code-navigation.md)
 - [Architecture Risks](architecture-risks.md)
+
+## What This Section Should Answer
+
+- where command flow starts and where output-writing logic actually lives
+- which dependencies are allowed to point inward or outward
+- which structural risks deserve attention before a change becomes expensive
 
 ## Purpose
 
