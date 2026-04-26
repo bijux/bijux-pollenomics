@@ -53,7 +53,3 @@ The main compatibility promise is that a reader can rebuild and review the same
 kind of repository outputs with the same documented surfaces. That is broader
 than imports, but narrower than guaranteeing every upstream dependency.
 
-## Purpose
-
-This page shows what kinds of compatibility the package is intentionally trying
-to preserve.

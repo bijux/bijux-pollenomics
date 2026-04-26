@@ -85,6 +85,3 @@ and update docs plus tests together with the code.
 Artifact contracts matter because the website and repository review process both
 consume these files directly. Breaking them is not an internal refactor.
 
-## Purpose
-
-This page shows the stable publication artifact surface owned by the package.

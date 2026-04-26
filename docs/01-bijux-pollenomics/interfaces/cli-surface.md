@@ -52,6 +52,3 @@ flowchart LR
 These commands are not merely convenience wrappers. They are the stable
 operator surface for rewriting tracked repository state in a reviewable way.
 
-## Purpose
-
-This page shows the command line that operators are expected to rely on.

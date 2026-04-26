@@ -52,7 +52,3 @@ with `schema.yaml`, `pinned_openapi.json`, and `schema.hash`.
 - someone needs the list of supported importable workflows
 - an API-facing change may require schema and caller updates
 
-## Purpose
-
-This page shows the import and schema surfaces that count as public package
-API.
