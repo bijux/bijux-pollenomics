@@ -19,28 +19,30 @@ structural path from CLI to collector to report bundle without guessing. The
 goal here is not to list modules mechanically, but to make the execution seams
 and rewrite boundaries easy to see.
 
+That structural story is narrower than a generic application architecture
+diagram. The key reader question is where the repository chooses behavior:
+where commands are interpreted, where source families branch, where tracked
+files are rewritten, and where visible publication assets are assembled.
+
 ```mermaid
 flowchart LR
     reader["reader question<br/>where does runtime behavior actually live?"]
-    cli["CLI parsing and command registry"]
-    dispatch["runtime dispatch and handlers"]
-    collection["source collection pipeline<br/>registry, staging, normalization"]
-    reporting["reporting pipeline<br/>country bundles and atlas bundle"]
-    context["map context layers and shared helpers"]
+    cli["cli.py and command_line/<br/>parse commands and select work"]
+    collection["data_downloader/<br/>collect, stage, normalize<br/>by source family"]
+    reporting["reporting/<br/>assemble country bundles<br/>and atlas output"]
     tracked["tracked rewrite surfaces<br/>data/ and docs/report/"]
+    proof["tests and repository contracts<br/>check the structural promises"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     class reader page;
-    class cli,dispatch,collection,reporting,context positive;
-    class tracked positive;
-    cli --> dispatch
-    dispatch --> collection
-    dispatch --> reporting
-    collection --> context
-    reporting --> context
+    class cli,collection,reporting,tracked positive;
+    class proof positive;
+    reader --> cli
+    cli --> collection
+    cli --> reporting
     collection --> tracked
     reporting --> tracked
-    tracked --> reader
+    tracked --> proof
 ```
 
 ## Start Here
@@ -80,6 +82,13 @@ flowchart LR
 - you need proof, risk posture, or validation criteria more than structural
   flow
 
+## What This Section Clarifies
+
+- where command parsing ends and source-specific collection logic begins
+- where data normalization hands off to publication assembly
+- where tracked repository rewrites happen, and therefore where structural
+  mistakes create visible review noise first
+
 ## Concrete Anchors
 
 - `src/bijux_pollenomics/command_line/parsing/` and
@@ -109,9 +118,3 @@ Use `Architecture` to make the runtime flow legible enough that a reviewer can
 say where commands are parsed, where tracked data is rewritten, and where
 publication output is assembled. If that answer only works from private memory,
 the structure is still too implicit to maintain safely.
-
-## Purpose
-
-This page introduces the structural explanations for the runtime package and
-routes readers to the module, execution, seam, state, and risk pages that
-explain how the package is organized.
