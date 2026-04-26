@@ -51,4 +51,4 @@ identity, and the command outcomes readers expect to reproduce.
 
 ## Purpose
 
-This page records the stable default values that shape the runtime surface.
+This page shows the stable default values that shape the runtime surface.

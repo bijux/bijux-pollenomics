@@ -55,5 +55,5 @@ than imports, but narrower than guaranteeing every upstream dependency.
 
 ## Purpose
 
-This page records what kinds of compatibility the package is intentionally
-trying to preserve.
+This page shows what kinds of compatibility the package is intentionally trying
+to preserve.
