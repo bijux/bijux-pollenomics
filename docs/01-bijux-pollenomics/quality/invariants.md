@@ -45,6 +45,3 @@ flowchart LR
 These are the first truths to defend when a change looks productive but starts
 to distort how the package is explained or reviewed.
 
-## Purpose
-
-This page shows the runtime truths that reviewers should defend first.

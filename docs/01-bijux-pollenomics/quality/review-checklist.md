@@ -44,6 +44,3 @@ Treat this checklist as the minimum bar, not as a substitute for judgment. If a
 change affects a broader surface than these prompts capture, expand the review
 instead of forcing the change to fit the checklist.
 
-## Purpose
-
-This page shows the minimum review questions for runtime changes.
