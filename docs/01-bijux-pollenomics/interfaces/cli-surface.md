@@ -54,4 +54,4 @@ operator surface for rewriting tracked repository state in a reviewable way.
 
 ## Purpose
 
-This page records the command line that operators are expected to rely on.
+This page shows the command line that operators are expected to rely on.

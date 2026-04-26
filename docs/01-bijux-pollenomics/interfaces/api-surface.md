@@ -54,4 +54,5 @@ with `schema.yaml`, `pinned_openapi.json`, and `schema.hash`.
 
 ## Purpose
 
-This page names the import and schema surfaces that count as public package API.
+This page shows the import and schema surfaces that count as public package
+API.

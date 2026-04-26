@@ -51,4 +51,4 @@ It ripples into docs, report publishing, tests, and reviewer expectations.
 
 ## Purpose
 
-This page explains the package's stable contracts for tracked data outputs.
+This page shows the package's stable contracts for tracked data outputs.

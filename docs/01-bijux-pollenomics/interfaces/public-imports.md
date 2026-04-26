@@ -50,5 +50,5 @@ Reach into internal modules only when changing the package itself.
 
 ## Purpose
 
-This page identifies the import surface that external callers should treat as
+This page shows the import surface that external callers should treat as
 stable first.
