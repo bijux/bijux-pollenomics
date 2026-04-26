@@ -49,6 +49,3 @@ artifacts in tracked paths.
 - discussing whether a command should tolerate partial success
 - deciding where a validation failure should stop execution
 
-## Purpose
-
-This page shows the package's failure behavior.

@@ -54,6 +54,3 @@ change alters persistent outputs, the docs and review story should say why.
 - reviewers need to separate durable repository state from disposable run state
 - a change proposes a new persistent path or artifact family
 
-## Purpose
-
-This page shows where runtime state lives and how to review it.

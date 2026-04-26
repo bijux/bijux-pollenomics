@@ -51,6 +51,3 @@ Good extension work adds one new path of capability while preserving the same
 review shape. It should not require readers to relearn where files land or how
 commands behave.
 
-## Purpose
-
-This page shows how the package can grow without losing shape.
