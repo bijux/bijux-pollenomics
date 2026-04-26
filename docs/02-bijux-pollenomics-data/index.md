@@ -60,14 +60,14 @@ flowchart LR
 - [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
 - [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to trace one atlas or report layer back to its source family
 - you need to understand what was normalized before publication
 - the question is about tracked data provenance rather than package code or
   repository automation
 
-## Move On When
+## Open Another Section When
 
 - the real question is about runtime commands, tests, or release tooling
 - you already know the source family and only need one package behavior page

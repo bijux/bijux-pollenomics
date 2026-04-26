@@ -63,7 +63,7 @@ Add the narrowest test that proves the contract you are changing, then widen to
 regression or end-to-end coverage only when the package boundary itself is what
 changed.
 
-## Use This Page When
+## Open This Page When
 
 - you need to decide which test suite should move with a runtime change
 - a review asks for stronger proof and you need to justify the next layer

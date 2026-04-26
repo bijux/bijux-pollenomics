@@ -67,14 +67,14 @@ flowchart LR
 - [Code Navigation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/code-navigation/)
 - [Architecture Risks](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/architecture-risks/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to trace structural ownership before refactoring the runtime
 - you are checking where output-writing logic actually lives
 - you need to understand how command dispatch, source collection, and report
   building stay separated
 
-## Move On When
+## Open Another Section When
 
 - the question is mainly about public command syntax, file contracts, or
   defaults
