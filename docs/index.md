@@ -60,16 +60,16 @@ claims.
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="01-bijux-pollenomics/">Open the package handbook</a>
-  <a class="md-button" href="02-bijux-pollenomics-data/">Open the data reference</a>
-  <a class="md-button" href="03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the package handbook</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data reference</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
 
 <div class="bijux-map-mobile-note">
   <strong>Phone view:</strong> Open the atlas in its own tab for panning, layer toggles, and map controls. The inline embed stays available on larger screens where the full layer stack fits.
   <div class="bijux-quicklinks">
-    <a class="md-button md-button--primary" href="05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
+    <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   </div>
 </div>
 
@@ -82,22 +82,22 @@ claims.
 Use the path that matches what you need right now:
 
 - understanding the runtime package boundary, command loop, and public
-  contracts: start with
+  contracts: open
   [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - checking what each tracked dataset contributes, how it is normalized, and
-  where it lands: use
+  where it lands: open
   [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- reviewing CI, release, docs, and make-system maintenance rules: use
+- reviewing CI, release, docs, and make-system maintenance rules: open
   [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 - inspecting the current visible publication first: open the embedded atlas and
-  the checked-in `docs/report/` bundles
+  the published atlas row plus the checked-in `docs/report/` bundles
 
 ## Fieldwork Evidence
 
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="04-fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
   <a class="md-button" href="gallery/2026-02-26-data-collection.mp4">Open the field video</a>
 </div>
 
@@ -174,7 +174,7 @@ flowchart TD
     visible --> visit --> fieldwork
 ```
 
-## Pages In This Site
+## Published Handbooks
 
 - [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
@@ -198,7 +198,7 @@ flowchart TD
 
 ## Reader Takeaway
 
-Use this page to move from the visible atlas to the exact supporting surface
-you need. If a claim about the atlas cannot be backed by source provenance,
-runtime contracts, tracked outputs, or maintainer proof, this repository should
-say so directly rather than implying certainty it does not have.
+Start here when the visible atlas is the shortest path into the repository. If
+a claim about the atlas cannot be backed by source provenance, runtime
+contracts, tracked outputs, or maintainer proof, this repository should say so
+directly rather than implying certainty it does not have.
