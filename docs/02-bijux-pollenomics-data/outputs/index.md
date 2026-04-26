@@ -4,13 +4,31 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Outputs
 
 This section explains the normalized and published file families that the data
 system produces.
+
+This section should help a reader move from one checked-in file family to the
+reason it exists: which normalized outputs are intermediate evidence surfaces,
+which bundles are publication-facing, and how the Nordic atlas relates to both.
+
+```mermaid
+flowchart LR
+    normalize["normalized source outputs"]
+    summaries["collection summaries"]
+    reports["published country bundles"]
+    atlas["Nordic atlas publication"]
+    reader["reader question<br/>what output surface am I actually looking at?"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class normalize,page reader;
+    class summaries,reports,atlas positive;
+    normalize --> summaries --> reports --> atlas --> reader
+```
 
 ## Start Here
 
@@ -32,6 +50,27 @@ system produces.
 - [Normalized SEAD Outputs](normalized-sead.md)
 - [Published Reports](published-reports.md)
 - [Nordic Atlas Outputs](nordic-atlas.md)
+
+## Use This Section When
+
+- you need to inspect one checked-in output family directly
+- you want to know whether a file is a normalized input, a publication bundle,
+  or the atlas surface itself
+- the question starts from repository-owned outputs rather than from upstream
+  sources
+
+## Do Not Start Here When
+
+- the real question is about source caveats before normalization
+- the issue is about the tracked data tree rules rather than one output family
+- the concern belongs to runtime commands or maintainer automation instead of
+  published files
+
+## Reader Takeaway
+
+This section is where publication-facing files become concrete. It should help
+readers distinguish intermediate normalized evidence from the country bundles
+and atlas surfaces that the site exposes publicly.
 
 ## Purpose
 
