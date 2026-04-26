@@ -15,6 +15,25 @@ It shows which root commands are stable entrypoints, which targets rewrite
 tracked state under `data/` or `docs/report/`, and where Make stops and helper
 code or workflow automation takes over.
 
+## Make System Model
+
+```mermaid
+flowchart TB
+    entry["root make entrypoints"]
+    includes["root make includes and package dispatch"]
+    helpers["maintainer helpers"]
+    outputs["checks, tracked rewrites, or release surfaces"]
+
+    entry --> includes
+    includes --> helpers
+    includes --> outputs
+    helpers --> outputs
+```
+
+This section should make the make system feel like command routing with real
+review consequences. Some targets are just verification, while others widen the
+tracked data or publication surface and need to be read that way.
+
 ## Start Here
 
 - open [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/)
@@ -47,6 +66,12 @@ code or workflow automation takes over.
 - inspect `Makefile`
 - inspect `makes/root.mk`, `makes/packages.mk`, and `makes/publish.mk`
 - inspect `makes/packages/*.mk`
+
+## Design Pressure
+
+The common failure is to describe make targets as convenience wrappers only,
+which hides which commands actually rewrite tracked evidence or publication
+surfaces.
 
 ## Boundary Test
 
