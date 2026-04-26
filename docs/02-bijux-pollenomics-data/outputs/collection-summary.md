@@ -19,4 +19,4 @@ last_reviewed: 2026-04-10
 
 ## Purpose
 
-This page records the role of the collection summary artifact.
+This page shows the role of the collection summary artifact.
