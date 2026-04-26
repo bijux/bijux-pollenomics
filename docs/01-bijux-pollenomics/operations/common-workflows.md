@@ -47,6 +47,3 @@ bundles or the atlas need regeneration from current tracked inputs.
 The main operational discipline is choosing the narrowest workflow that matches
 the goal. Broad commands are not safer just because they feel more complete.
 
-## Purpose
-
-This page shows the package workflows operators use most often.

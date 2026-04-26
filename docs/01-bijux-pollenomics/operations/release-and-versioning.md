@@ -62,7 +62,3 @@ docs or docs-tooling change into `main`.
 Package versioning and data-output refreshes move together in review, but they
 are not the same artifact. The docs should keep that distinction explicit.
 
-## Purpose
-
-This page shows the release surfaces that govern package versioning and
-publication.
