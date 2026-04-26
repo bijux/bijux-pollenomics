@@ -9,10 +9,11 @@ last_reviewed: 2026-04-26
 
 # bijux-pollenomics-dev
 
-This section documents the repository-owned maintainer package.
+`bijux-pollenomics-dev` is the repository-owned maintainer package.
 
-Open it when the question is about maintainer-only tooling, schema governance,
-release support, or documentation integrity rather than runtime behavior.
+Open this section when the question is about maintainer-only tooling, schema
+governance, release support, or documentation integrity rather than runtime
+behavior.
 
 This package is where repository policy becomes executable helper code. The
 important reader question is not just “what rules exist?” but “which helper
@@ -56,7 +57,7 @@ protect?”
 - the issue belongs to shared Make routing or GitHub Actions trigger logic
 - you are looking for end-user behavior rather than repository-health helpers
 
-## What This Section Clarifies
+## What This Section Owns
 
 - which maintainer-only rules are encoded as Python helper modules rather than
   as Make routing or workflow YAML
@@ -78,6 +79,6 @@ protect?”
 
 ## Bottom Line
 
-Open `bijux-pollenomics-dev` when repository-health behavior is implemented as
-helper code. If the question is really about shared command routing or workflow
-entrypoints, move sideways to `makes/` or `gh-workflows/` instead.
+Open this section when repository-health behavior is implemented as helper
+code. If the question is really about shared command routing or workflow
+entrypoints, open `makes/` or `gh-workflows/` instead.

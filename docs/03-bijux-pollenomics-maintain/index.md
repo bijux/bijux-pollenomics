@@ -64,7 +64,7 @@ maintainer helper code, by shared Make entrypoints, or by GitHub automation?
 - you already know the issue belongs to one package API, CLI, or contract
 - you are trying to understand product behavior rather than repository health
 
-## What This Handbook Covers
+## What This Handbook Owns
 
 - which repository-health questions belong to helper code, Make routing, or
   workflow automation
