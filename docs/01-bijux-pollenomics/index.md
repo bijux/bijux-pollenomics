@@ -12,10 +12,10 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics` is the repository's runtime package for collecting tracked
 Nordic evidence layers and publishing reviewable report bundles from them.
 
-This handbook is for readers whose question is about the package boundary
-rather than the repository as a whole: what code belongs in the runtime, which
-contracts are public, how data and reports move through the package, and which
-quality rules protect that behavior.
+Open this handbook when the question is about the package boundary rather than
+the repository as a whole: what code belongs in the runtime, which contracts
+are public, how data and reports move through the package, and which quality
+rules protect that behavior.
 
 The package's full job is to collect source material, normalize it into
 governed repository files, publish atlas and country bundles, and keep the
@@ -47,7 +47,7 @@ loop from the repository alone.
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
   change or for a visible atlas diff
 
-## Open This Handbook When
+## Open This Package When
 
 - you need the shortest honest description of what the runtime package owns
 - you are changing CLI, data collection, report publishing, or package
@@ -55,7 +55,7 @@ loop from the repository alone.
 - you need one stable page that routes from visible publication behavior back
   to the code and proof that support it
 
-## Open Another Handbook When
+## Open Another Package When
 
 - the real question is already about source provenance rather than runtime
   behavior
@@ -63,7 +63,7 @@ loop from the repository alone.
 - the real question is one atlas point or field visit rather than the runtime
   loop that published it
 
-## Pages In This Handbook
+## Pages In This Package
 
 - [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/)
 - [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/)
@@ -101,8 +101,8 @@ loop from the repository alone.
 
 ## Bottom Line
 
-Open this handbook when the unresolved question is how
-`bijux-pollenomics` turns source material into checked-in evidence outputs.
+Open this package when the question is how `bijux-pollenomics` turns source
+material into checked-in evidence outputs.
 If the answer depends on provenance detail, repository automation, or
 scientific interpretation rather than that runtime loop, another handbook owns
 the question.
