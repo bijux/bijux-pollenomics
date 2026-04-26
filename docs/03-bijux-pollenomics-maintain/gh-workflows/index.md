@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-20
+last_reviewed: 2026-04-26
 ---
 
 # gh-workflows
@@ -26,12 +26,64 @@ Governance automation also includes `automerge-pr.yml`, which enables
 auto-merge after trusted CODEOWNERS approval and re-evaluates merge readiness
 when required check suites complete.
 
+```mermaid
+flowchart LR
+    trigger["workflow trigger"]
+    verify["verify<br/>push and pull request"]
+    deploy["deploy-docs<br/>main publication"]
+    release["release workflows<br/>tag publication"]
+    reusable["reusable builds<br/>shared jobs"]
+    governance["governance automation"]
+    reader["reader question<br/>which automation entrypoint owns this event?"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class trigger,page reader;
+    class verify,deploy,release,reusable,governance positive;
+    trigger --> verify
+    trigger --> deploy
+    trigger --> release
+    trigger --> reusable
+    trigger --> governance
+    trigger --> reader
+```
+
+## Start Here
+
+- open [verify](verify.md) when the question begins with a push, pull request,
+  or required-check failure
+- open [release-publication](release-publication.md) when a tag or published
+  artifact did not behave as expected
+- open [deploy-docs](deploy-docs.md) when handbook publication from `main`
+  failed or produced stale output
+- open [reusable-workflows](reusable-workflows.md) when the visible entrypoint
+  fans out into shared build jobs
+
 ## Pages In This Section
 
 - [verify](verify.md)
 - [release-publication](release-publication.md)
 - [deploy-docs](deploy-docs.md)
 - [reusable-workflows](reusable-workflows.md)
+
+## Use This Section When
+
+- you need to map a repository event to the workflow file that owns it
+- the failure appears in GitHub Actions rather than in a local Make invocation
+- you need to know whether automation is an entry workflow, a reusable job, or
+  governance-only behavior
+
+## Do Not Use This Section When
+
+- the real question is which local or CI Make target should be run
+- the problem is inside package code, data normalization, or atlas behavior
+- you are looking for end-user product docs rather than repository automation
+
+## Reader Takeaway
+
+Use `gh-workflows/` when the issue starts with a GitHub event, a check suite,
+or a release trigger. The point of this section is to identify the automation
+owner quickly, then hand you off to the exact workflow page instead of making
+you reverse-engineer YAML from the repository root.
 
 ## Purpose
 
