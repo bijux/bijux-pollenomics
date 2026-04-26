@@ -9,31 +9,32 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-These pages explain the architecture of the pollenomics data tree before any
-single source or output family is discussed.
+These pages explain the shared rules of the tracked data tree before any single
+source family or output bundle is discussed.
 
-This section should answer the questions that stay true even when one source
-family or one output bundle changes: how the tracked tree is shaped, how
-provenance is preserved, how naming and coordinates stay stable, and where
-migration risk starts when the layout moves.
+Readers often arrive here after seeing one atlas layer or one checked-in file
+and asking what keeps the overall data system coherent. This section is where
+that answer lives: directory shape, provenance discipline, naming rules,
+coordinate policy, publication linkage, and the migration pressure created when
+the tracked tree moves.
 
 ```mermaid
 flowchart LR
-    shape["data system overview"]
-    layout["directory layout"]
+    reader["reader question<br/>what keeps the tracked data tree coherent?"]
+    shape["shared directory shape"]
     provenance["provenance and publication linkage"]
     policy["naming, coordinates, and source selection rules"]
-    lifecycle["update lifecycle and migration issues"]
-    reader["reader question<br/>what keeps the tracked data tree coherent?"]
+    lifecycle["update lifecycle and migration risk"]
+    outputs["checked-in outputs depend on these rules"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class shape,page reader;
-    class layout,provenance,policy,lifecycle positive;
+    class reader page;
+    class shape,provenance,policy,lifecycle,outputs positive;
     shape --> reader
-    layout --> reader
     provenance --> reader
     policy --> reader
     lifecycle --> reader
+    outputs --> reader
 ```
 
 ## Start Here
@@ -44,6 +45,8 @@ flowchart LR
   placement and ownership
 - open [Provenance Model](provenance-model.md) before changing how upstream
   origin is represented
+- open [Migration Issues](migration-issues.md) before renaming directories,
+  moving files, or changing output expectations across the tree
 
 ## Pages In This Section
 
@@ -71,6 +74,16 @@ flowchart LR
 - you only need one normalized output family rather than the shared tree rules
 - the issue belongs to runtime commands or maintainer automation rather than
   tracked data structure
+
+## Concrete Anchors
+
+- `data/` for the repository-owned tracked source tree
+- `docs/report/` for the publication-facing outputs that depend on the shared
+  data rules staying stable
+- [Directory Layout](directory-layout.md) and [Publication Linkage](publication-linkage.md)
+  for the rule set that ties repository structure to visible publication
+- [Migration Issues](migration-issues.md) for the cost surface when the tree
+  shape changes
 
 ## Reader Takeaway
 
