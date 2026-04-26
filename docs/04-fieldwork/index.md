@@ -11,8 +11,8 @@ last_reviewed: 2026-04-26
 
 Fieldwork is the checked-in evidence layer for real sampling visits.
 
-Use this section when a map point or normalized source record must be grounded
-in direct on-site collection context.
+Open this section when a map point or normalized source record needs direct
+on-site collection context.
 
 This section is intentionally narrow. It does not try to replace the atlas, the
 data reference, or a full field-log system. Its job is to preserve the direct
@@ -45,26 +45,26 @@ flowchart LR
     record --> reader
 ```
 
-The [Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html)
+The [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
 remains the main decision surface for comparing mapped evidence layers. This
 row exists so readers can follow one visible atlas point back to a real visit
 instead of treating every layer as equally abstract.
 
 ## Start Here
 
-- open [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md) for the
+- open [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/) for the
   current documented visit record
-- open the [Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html)
+- open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
   when the question starts from a visible map layer and you need to confirm
   whether fieldwork supports it
-- move to [data reference](../02-bijux-pollenomics-data/) when the question is
+- move to [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) when the question is
   really about source provenance or normalization rather than on-site context
-- move to [Nordic Evidence Atlas](../05-nordic-evidence-atlas/) when the wider
+- move to [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) when the wider
   question is how one visit sits among the full visible evidence stack
 
 ## Pages In This Section
 
-- [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md)
+- [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
 
 ## Use This Section When
 
@@ -87,11 +87,11 @@ instead of treating every layer as equally abstract.
 - `docs/gallery/2026-02-26-data-collection.JPG` and
   `docs/gallery/2026-02-26-data-collection.mp4` for the current checked-in
   field media
-- [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md) for the canonical
+- [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/) for the canonical
   visit record
-- [Nordic Evidence Atlas](../05-nordic-evidence-atlas/) for the wider
+- [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) for the wider
   publication surface that this row supports without replacing
-- [data reference](../02-bijux-pollenomics-data/) for provenance and
+- [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) for provenance and
   normalization questions that exceed one visit record
 
 ## Reader Takeaway
@@ -103,5 +103,5 @@ whole atlas or the full regional evidence base.
 
 ## Purpose
 
-This page gives field documentation a durable root docs row and keeps future
-sampling planning visibly connected to the atlas.
+This page keeps field documentation visible and keeps future sampling planning
+connected to the atlas.

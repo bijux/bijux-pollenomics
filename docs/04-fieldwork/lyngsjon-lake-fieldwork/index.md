@@ -54,9 +54,9 @@ the sampling location and collected data on the lake ice.
 That makes the atlas more legible for readers who want to connect one visible
 map point to a real collection day rather than to a database row alone.
 
-[Open the Nordic Evidence Atlas](../../report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
-[Open the field video](../../gallery/2026-02-26-data-collection.mp4){ .md-button }
-[Open the field photo](../../gallery/2026-02-26-data-collection.JPG){ .md-button }
+[Open the Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
+[Open the field video](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.mp4){ .md-button }
+[Open the field photo](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.JPG){ .md-button }
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
@@ -98,5 +98,5 @@ does not imply that every mapped evidence point has matching field media.
 
 ## Purpose
 
-This page anchors the checked-in field media to the atlas and explains what
+This page shows how the checked-in field media connects to the atlas and what
 that fieldwork evidence does and does not represent.
