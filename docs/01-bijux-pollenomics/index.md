@@ -12,10 +12,10 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics` is the repository's runtime package for collecting tracked
 Nordic evidence layers and publishing reviewable report bundles from them.
 
-Use this handbook when the question is about the package boundary rather than the
-repository as a whole: what code belongs in the runtime, which contracts are
-public, how data and reports move through the package, and which quality rules
-protect that behavior.
+This handbook is for readers whose question is about the package boundary
+rather than the repository as a whole: what code belongs in the runtime, which
+contracts are public, how data and reports move through the package, and which
+quality rules protect that behavior.
 
 If someone opens only this page, they should still understand the package’s
 full job: collect source material, normalize it into governed repository files,
@@ -61,16 +61,16 @@ flowchart LR
 
 ## Start Here
 
-- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) if the main question is what the
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) if the main question is what the
   runtime owns and where that boundary stops
-- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) if you need the public command,
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) if you need the public command,
   configuration, tracked-file, or output-bundle contract
-- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) if the immediate need is a repeatable
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) if the immediate need is a repeatable
   rebuild, diagnostic, or release workflow
-- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
   change or for a visible atlas diff
 
-## Use This Section When
+## Use This Handbook When
 
 - you need the shortest honest description of what the runtime package owns
 - you are changing CLI, data collection, report publishing, or package
@@ -86,7 +86,7 @@ flowchart LR
 - the real question is one atlas point or field visit rather than the runtime
   loop that published it
 
-## Pages In This Handbook
+## Published Handbook Pages
 
 - [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/)
 - [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/)

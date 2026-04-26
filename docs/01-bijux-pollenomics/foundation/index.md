@@ -9,14 +9,14 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-Use this section when the most important question is not how the runtime is
+This section is for readers whose main question is not how the runtime is
 implemented, but why it exists and where its responsibility stops.
 
 `bijux-pollenomics` is the repository's execution surface. It owns the code
 that collects tracked evidence, normalizes it into governed repository files,
 and turns those files into reviewable publication outputs. It does not own the
 meaning of the science, the full provenance handbook, or repository-wide
-maintenance policy. This page should let a reader see that boundary quickly.
+maintenance policy. The boundary needs to stay visible quickly and honestly.
 
 The aim here is not to defend the runtime as "the main thing" in the
 repository. The aim is to show why a distinct runtime package is necessary at
@@ -58,7 +58,7 @@ flowchart LR
 - use [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/) before expanding the
   runtime into a new data, workflow, or interpretation surface
 
-## Pages In Foundation
+## Published Foundation Pages
 
 - [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/)
 - [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/)
@@ -108,13 +108,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the question becomes
+- open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the question becomes
   structural rather than boundary-oriented
-- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the concern is a public
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the concern is a public
   command, config, or artifact contract
-- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable runtime
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable runtime
   workflow
-- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question becomes proof, risk, or
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question becomes proof, risk, or
   validation sufficiency
 
 ## Reader Takeaway

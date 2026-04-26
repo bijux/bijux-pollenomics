@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Quality
 
-Use this section when the question is how the repository proves a runtime
-change is safe: which tests matter, which invariants must still hold, what
-documentation needs to move with the code, and where the package still carries
-known evidence limits.
+This section is for readers whose question is how the repository proves a
+runtime change is safe: which tests matter, which invariants must still hold,
+what documentation needs to move with the code, and where the package still
+carries known evidence limits.
 
 This package does not prove correctness only through unit tests. It also has to
 prove that tracked data layouts, published reports, and map-facing outputs still
@@ -59,7 +59,7 @@ flowchart LR
 - use [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/) when a change touches
   checked-in publication outputs and needs a clear merge bar
 
-## Pages In Quality
+## Published Quality Pages
 
 - [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/)
 - [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/)
@@ -105,13 +105,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when quality debate is really about
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when quality debate is really about
   what the runtime is supposed to own
-- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the right proof depends on
+- open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the right proof depends on
   where behavior sits in dispatch, collection, or reporting
-- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the evidence needs to defend a
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the evidence needs to defend a
   CLI, file layout, or publication artifact contract
-- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when validation requires a specific
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when validation requires a specific
   rebuild, recovery, or release procedure
 
 ## Reader Takeaway
