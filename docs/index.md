@@ -9,17 +9,15 @@ last_reviewed: 2026-04-26
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a static, reviewable evidence workspace. The repository collects tracked Nordic source data, normalizes it into stable files, and publishes those files as country bundles plus one shared interactive atlas.
+`bijux-pollenomics` is a checked-in Nordic evidence workspace. The repository
+collects source-backed records, normalizes them into tracked files, and
+publishes those files as country bundles plus one shared atlas that readers can
+inspect directly.
 
-Start here with the checked-in Nordic Evidence Atlas. It is the fastest way to
-see what this repository actually publishes: AADR sample points, LandClim
-pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
-Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
-boundaries.
-
-This root page traces what the repository publishes today, where the visible
-layers come from, which code rebuilds them, and where the documentation stops
-making claims.
+The atlas is the fastest honest route into the repository. It shows what is
+actually published today: AADR sample points, LandClim pollen sequences and
+REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology
+density from RAÄ, fieldwork media, and Nordic country boundaries.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -44,18 +42,7 @@ making claims.
 <!-- bijux-pollenomics-badges:generated:end -->
 
 <div class="bijux-callout">
-  <strong>Start with the atlas, then branch by question.</strong> Use the rest of the site to verify what the repository publishes, where each visible layer originates, which commands rebuild it, and which limits remain deliberate.
-</div>
-
-<div class="bijux-panel-grid">
-  <div class="bijux-panel">
-    <h3>What the repository shows</h3>
-    <p>Which files are checked in, which source families feed the atlas, which commands rebuild the published outputs, and which repository boundaries are intentionally held.</p>
-  </div>
-  <div class="bijux-panel">
-    <h3>What still needs skepticism</h3>
-    <p>That spatial proximity implies scientific weight, that the current layers are complete, or that mutable upstream services will behave identically forever.</p>
-  </div>
+  <strong>Start with the atlas, then check the supporting surface that owns the next answer.</strong> The runtime handbook explains how the repository rebuilds outputs, the data handbook explains where layers come from, the fieldwork pages tie one mapped point to a real visit, and the maintainer handbook covers repository-health rules.
 </div>
 
 <div class="bijux-quicklinks">
@@ -78,23 +65,22 @@ making claims.
 
 ## Start Here
 
-Open the path that matches what you need right now:
+Open the route that matches the real question:
 
-- understanding the runtime package boundary, command loop, and public
-  contracts: open
-  [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- checking what each tracked dataset contributes, how it is normalized, and
-  where it lands: open
-  [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- reviewing CI, release, docs, and make-system maintenance rules: open
-  [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
-- inspecting the current visible publication first: open the
+- visible map, layer, point, or polygon: open the
   [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/)
-  and the checked-in `docs/report/` bundles
+- runtime commands, rebuild logic, package boundaries, or tests: open
+  [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- source provenance, normalized file families, or publication bundles: open
+  [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- release, docs, CI, or shared command routing: open
+  [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## Fieldwork Record
 
-The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
+The repository also carries checked-in field media from the Lyngsjön Lake
+sampling visit on 2026-02-26. That material anchors one atlas point to a real
+collection day on the lake ice rather than to a database row alone.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
@@ -108,16 +94,21 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What This Site Covers
+## What This Repository Publishes
 
-Start from the visible atlas, then open the exact supporting explanation you
-need:
+- one shared Nordic atlas under `docs/report/nordic-atlas/`
+- one checked-in country report bundle for each published country under
+  `docs/report/`
+- tracked normalized evidence files under `data/`
+- one runtime package that rebuilds those outputs from stable commands
+- one narrow fieldwork record that ties a mapped point to a real visit
 
-- what the repository produces today and why
-- how the tracked data categories are collected and normalized
-- how reports and the shared map are generated
-- how the runtime package is divided by responsibility
-- how maintainers verify and review long-lived changes
+## What This Repository Does Not Claim
+
+- that map proximity alone establishes scientific weight
+- that every visible layer has identical provenance quality
+- that mutable upstream services will always replay identically
+- that one field visit stands in for regional evidence coverage
 
 ## Package Handbooks
 
@@ -125,13 +116,7 @@ need:
 - [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
 - [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
-## Risks and Migration
-
-- package limits and active risks: [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/)
-- data-tree migration issues: [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
-- package risk tracking: [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
-
-## Concrete Anchors
+## First Proof Check
 
 - `docs/report/nordic-atlas/nordic-atlas_map.html` for the visible publication
   surface most readers will inspect first
@@ -141,9 +126,8 @@ need:
 - `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/` and `makes/` for
   the repository-health surfaces that protect release, docs, and verification
 
-## Bottom Line
+## Boundary Test
 
-Open this root page when the visible atlas is the shortest path into the
-repository. If a claim about the atlas cannot be backed by source provenance,
-runtime contracts, tracked outputs, or maintainer proof, the docs should say
-so directly rather than implying certainty they do not have.
+If a claim about the atlas cannot be backed by tracked source provenance,
+runtime contracts, checked-in outputs, or maintainer proof, this site should
+state that limit directly instead of implying certainty it does not have.
