@@ -17,7 +17,7 @@ pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
 Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
 boundaries.
 
-Use this page to trace what the repository publishes today, where the visible
+This root page traces what the repository publishes today, where the visible
 layers come from, which code rebuilds them, and where the documentation stops
 making claims.
 
@@ -108,7 +108,7 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What You Can Verify Here
+## What This Repository Covers
 
 Start from the visible atlas, then open the exact supporting explanation you
 need:
@@ -125,7 +125,7 @@ need:
 - [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
 - [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
-## Current Issues and Migration Notes
+## Risks and Migration
 
 - package limits and active risks: [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/)
 - data-tree migration issues: [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
@@ -143,7 +143,7 @@ need:
 
 ## Bottom Line
 
-Start here when the visible atlas is the shortest path into the repository. If
-a claim about the atlas cannot be backed by source provenance, runtime
-contracts, tracked outputs, or maintainer proof, this repository should say so
-directly rather than implying certainty it does not have.
+Open this root page when the visible atlas is the shortest path into the
+repository. If a claim about the atlas cannot be backed by source provenance,
+runtime contracts, tracked outputs, or maintainer proof, the docs should say
+so directly rather than implying certainty they do not have.
