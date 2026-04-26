@@ -9,23 +9,9 @@ last_reviewed: 2026-04-26
 
 # Capability Map
 
-The package has three durable capability families.
-
-```mermaid
-flowchart LR
-    collection["collection"]
-    reporting["reporting"]
-    coordination["coordination"]
-    outputs["tracked files and publications"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class collection,page reporting;
-    class coordination,outputs positive;
-    collection --> coordination
-    coordination --> reporting
-    collection --> outputs
-    reporting --> outputs
-```
+The package has three durable capability families, but not all three are equal.
+Collection and reporting define the runtime surface. Coordination exists to
+keep those two families stable enough to review.
 
 ## Collection
 
@@ -45,9 +31,14 @@ flowchart LR
 - map CLI commands onto handlers and workflows
 - centralize file, slug, and output-root conventions
 
-## Why This Split Matters
+## First Proof Check
 
-This breakdown helps reviewers see whether a change is adding a new capability,
-changing one existing capability, or leaking one responsibility into the wrong
-part of the package.
+- `src/bijux_pollenomics/data_downloader/`
+- `src/bijux_pollenomics/reporting/`
+- `src/bijux_pollenomics/command_line/` and `config.py`
 
+## Boundary Test
+
+If a proposed capability cannot be placed cleanly into collection, reporting,
+or coordination, it is probably crossing into provenance policy, maintainer
+automation, or interpretation.
