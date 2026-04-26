@@ -48,28 +48,28 @@ flowchart LR
 
 ## Start Here
 
-- open [Test Strategy](test-strategy.md) for the proof structure across unit,
+- use [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) for the proof structure across unit,
   regression, and end-to-end work
-- open [Change Validation](change-validation.md) when deciding what to run for a
+- use [Change Validation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/change-validation/) when deciding what to run for a
   concrete change
-- open [Invariants](invariants.md) when a change could disturb tracked data or
+- use [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/) when a change could disturb tracked data or
   publication truths that must remain stable
-- open [Known Limitations](known-limitations.md) and [Risk Register](risk-register.md)
+- use [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/) and [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
   before promising more than the package currently proves
-- open [Definition of Done](definition-of-done.md) when a change touches
+- use [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/) when a change touches
   checked-in publication outputs and needs a clear merge bar
 
-## Pages In This Section
+## Pages In Quality
 
-- [Test Strategy](test-strategy.md)
-- [Invariants](invariants.md)
-- [Review Checklist](review-checklist.md)
-- [Documentation Standards](documentation-standards.md)
-- [Definition of Done](definition-of-done.md)
-- [Dependency Governance](dependency-governance.md)
-- [Change Validation](change-validation.md)
-- [Known Limitations](known-limitations.md)
-- [Risk Register](risk-register.md)
+- [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/)
+- [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/)
+- [Review Checklist](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/review-checklist/)
+- [Documentation Standards](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/documentation-standards/)
+- [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/)
+- [Dependency Governance](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/dependency-governance/)
+- [Change Validation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/change-validation/)
+- [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/)
+- [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
 
 ## Use This Section When
 
@@ -77,7 +77,7 @@ flowchart LR
 - reviewers need to know what evidence should accompany a data or report diff
 - the package may still work locally, but the repository needs stronger proof
 
-## Do Not Use This Section When
+## Move On When
 
 - the question is mainly how to run the package rather than how to prove it
 - you need package purpose or ownership boundaries before choosing evidence
@@ -105,13 +105,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- open [Foundation](../foundation/index.md) when quality debate is really about
+- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when quality debate is really about
   what the runtime is supposed to own
-- open [Architecture](../architecture/index.md) when the right proof depends on
+- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the right proof depends on
   where behavior sits in dispatch, collection, or reporting
-- open [Interfaces](../interfaces/index.md) when the evidence needs to defend a
+- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the evidence needs to defend a
   CLI, file layout, or publication artifact contract
-- open [Operations](../operations/index.md) when validation requires a specific
+- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when validation requires a specific
   rebuild, recovery, or release procedure
 
 ## Reader Takeaway
