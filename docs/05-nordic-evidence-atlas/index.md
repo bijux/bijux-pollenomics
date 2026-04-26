@@ -16,10 +16,9 @@ before reviewing source-specific tables, normalized outputs, or package
 internals.
 
 The atlas is not just an image or a convenience link. It is the main public
-evidence surface of the repository. This page helps readers move
-from a visible layer, point, or polygon to the exact source, output, fieldwork,
-or runtime explanation that can support or limit what they think they are
-seeing.
+evidence surface of the repository. This page routes from a visible layer,
+point, or polygon to the exact source, output, fieldwork, or runtime
+explanation that can support or limit what it appears to show.
 
 ```mermaid
 flowchart LR
