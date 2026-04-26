@@ -20,23 +20,25 @@ match the contracts readers and reviewers rely on.
 
 ```mermaid
 flowchart LR
+    reader["reader question<br/>what makes this runtime change believable?"]
     tests["pick the narrowest meaningful test layer"]
     validation["run change-shaped validation"]
-    invariants["defend stable truths about outputs"]
+    invariants["defend stable truths about data and reports"]
     docs["update docs when public behavior moves"]
     risks["name limits and remaining uncertainty"]
-    reader["reader question<br/>what evidence makes this runtime change believable?"]
+    atlas["check atlas-facing output consequences"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class validation,page reader;
-    class tests,invariants,docs positive;
+    class reader page;
+    class tests,validation,invariants,docs,atlas positive;
     class risks caution;
     tests --> reader
     validation --> reader
     invariants --> reader
     docs --> reader
     risks --> reader
+    atlas --> reader
 ```
 
 ## Start Here
@@ -49,6 +51,8 @@ flowchart LR
   publication truths that must remain stable
 - open [Known Limitations](known-limitations.md) and [Risk Register](risk-register.md)
   before promising more than the package currently proves
+- open [Definition of Done](definition-of-done.md) when a change touches
+  checked-in publication outputs and needs a clear merge bar
 
 ## Pages In This Section
 
@@ -73,6 +77,18 @@ flowchart LR
 - the question is mainly how to run the package rather than how to prove it
 - you need package purpose or ownership boundaries before choosing evidence
 - the primary issue is interface wording rather than validation or risk
+
+## Concrete Anchors
+
+- `tests/unit/` for narrow behavior checks on layout, source normalization, and
+  configuration
+- `tests/regression/test_data_collector.py`,
+  `tests/regression/test_country_report.py`, and
+  `tests/regression/test_repository_contracts.py` for tracked output and
+  repository-surface proof
+- `tests/e2e/test_cli.py` for the end-to-end command contract
+- `docs/report/nordic-atlas/` for the public publication surface whose
+  consequences quality review must keep visible
 
 ## Read Across The Package
 
