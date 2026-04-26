@@ -47,25 +47,25 @@ flowchart LR
 
 ## Start Here
 
-- open [Module Map](module-map.md) for the shortest code-level tour
-- open [Execution Model](execution-model.md) when you need to trace the full
+- use [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) for the shortest code-level tour
+- use [Execution Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/execution-model/) when you need to trace the full
   command-to-output path
-- open [Integration Seams](integration-seams.md) when the handoff between CLI,
+- use [Integration Seams](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/integration-seams/) when the handoff between CLI,
   collection, and reporting is the real question
-- open [State and Persistence](state-and-persistence.md) when tracked output
+- use [State and Persistence](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/state-and-persistence/) when tracked output
   rewrites and staging boundaries are the hard part
 
-## Pages In This Section
+## Pages In Architecture
 
-- [Module Map](module-map.md)
-- [Dependency Direction](dependency-direction.md)
-- [Execution Model](execution-model.md)
-- [State and Persistence](state-and-persistence.md)
-- [Integration Seams](integration-seams.md)
-- [Error Model](error-model.md)
-- [Extensibility Model](extensibility-model.md)
-- [Code Navigation](code-navigation.md)
-- [Architecture Risks](architecture-risks.md)
+- [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/)
+- [Dependency Direction](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/dependency-direction/)
+- [Execution Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/execution-model/)
+- [State and Persistence](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/state-and-persistence/)
+- [Integration Seams](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/integration-seams/)
+- [Error Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/error-model/)
+- [Extensibility Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/extensibility-model/)
+- [Code Navigation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/code-navigation/)
+- [Architecture Risks](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/architecture-risks/)
 
 ## Use This Section When
 
@@ -74,7 +74,7 @@ flowchart LR
 - you need to understand how command dispatch, source collection, and report
   building stay separated
 
-## Do Not Use This Section When
+## Move On When
 
 - the question is mainly about public command syntax, file contracts, or
   defaults
@@ -103,13 +103,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- open [Foundation](../foundation/index.md) when the structural question is
+- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the structural question is
   really an ownership question
-- open [Interfaces](../interfaces/index.md) when architecture reaches a public
+- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when architecture reaches a public
   command, config, or artifact contract
-- open [Operations](../operations/index.md) when structure affects repeatable
+- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when structure affects repeatable
   rebuild or release workflows
-- open [Quality](../quality/index.md) when you need proof that the documented
+- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when you need proof that the documented
   structure is still protected
 
 ## Reader Takeaway
