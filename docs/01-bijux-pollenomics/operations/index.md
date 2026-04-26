@@ -9,36 +9,21 @@ last_reviewed: 2026-04-26
 
 # Operations
 
-Open this section when the question is procedural: how to set up the runtime,
-which command path to run, how to separate safe inspection from state-changing
-rebuild work, and how to recover when the evidence pipeline produces
-unexpected results.
-
-This package is operationally sensitive because its outputs are checked into the
-repository and published on the docs site. A sloppy rerun can widen the review
-surface across `data/` and `docs/report/`, so the runtime needs clear,
-repeatable procedures rather than vague “just rerun it” habits.
-
-That is why this section matters even for readers who are not writing code.
-When a rebuild changes visible evidence, the procedure is part of the
-credibility story: which command was run, which files were expected to move,
-and which review surface must be inspected before the change is trusted.
+This section defines how to run, verify, release, and recover the runtime
+without widening the tracked review surface by accident. In pollenomics,
+procedure matters because `data/` and `docs/report/` are checked-in outputs,
+not disposable build products.
 
 ## Start Here
 
-- open [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/) for environment and
-  bootstrap expectations
-- open [Common Workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/) for the main rebuild and verify
-  paths
-- open [Failure Recovery](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/failure-recovery/) or
-  [Observability and Diagnostics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/observability-and-diagnostics/) when a run
-  has already diverged from the expected outputs
-- open [Release and Versioning](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/release-and-versioning/) when the question is
-  about tags, package artifacts, or release evidence
-- open [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/) before treating this
-  package like a long-running service or hidden background system
+- open [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/) when you are actively
+  changing runtime behavior
+- open [Common Workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/) when you need the normal verify,
+  collect, or publish path
+- open [Release and Versioning](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/release-and-versioning/) before treating a
+  change as publishable
 
-## Pages In This Section
+## Section Pages
 
 - [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/)
 - [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/)
@@ -50,19 +35,7 @@ and which review surface must be inspected before the change is trusted.
 - [Security and Safety](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/security-and-safety/)
 - [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/)
 
-## Open This Section When
-
-- you need a repeatable procedure for collecting, reporting, or publishing
-- you need to minimize review noise while still regenerating evidence
-- a failure needs diagnosis without guessing which layer owns the repair
-
-## Open Another Section When
-
-- the real question is which package or module owns a behavior
-- you are still deciding whether a command or file layout counts as a contract
-- the issue is primarily about proof, review coverage, or unresolved risk
-
-## What This Section Covers
+## What Operations Means Here
 
 - which operational path is safe for inspection versus state-changing rebuild
   work
@@ -71,7 +44,7 @@ and which review surface must be inspected before the change is trusted.
 - which failure should send a reader into runtime diagnostics rather than into
   provenance or automation docs
 
-## Concrete Anchors
+## First Proof Check
 
 - `src/bijux_pollenomics/command_line/runtime/handlers.py` for the operational
   entrypoints that trigger collection and reporting work
@@ -85,19 +58,8 @@ and which review surface must be inspected before the change is trusted.
   `tests/regression/test_country_report.py` for the narrowest operational
   backstops that defend reruns
 
-## Across This Package
+## Boundary Test
 
-- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when an operational question is
-  really about whether the runtime should own the behavior at all
-- open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when recovery depends on
-  understanding dispatch, collection, or reporting structure
-- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when a procedure may change CLI,
-  config, tracked data, or published artifact contracts
-- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real question is what evidence
-  should be gathered before or after a rerun
-
-## Bottom Line
-
-Open this section to keep runtime work controlled, reviewable, and
-recoverable. If a procedure cannot explain how it protects tracked evidence
-outputs, it is not yet an operational practice this repository should rely on.
+If a procedure cannot explain which tracked surfaces it may rewrite and which
+proof should be inspected afterward, it is not yet an operational practice this
+repository should rely on.
