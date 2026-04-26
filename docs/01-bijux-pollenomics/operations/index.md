@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Operations
 
-Use this section when the question is procedural: how to set up the runtime,
-which command path to run, how to separate safe inspection from state-changing
-rebuild work, and how to recover when the evidence pipeline produces unexpected
-results.
+This section is for readers whose question is procedural: how to set up the
+runtime, which command path to run, how to separate safe inspection from
+state-changing rebuild work, and how to recover when the evidence pipeline
+produces unexpected results.
 
 This package is operationally sensitive because its outputs are checked into the
 repository and published on the docs site. A sloppy rerun can widen the review
@@ -61,7 +61,7 @@ flowchart LR
 - use [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/) before treating this
   package like a long-running service or hidden background system
 
-## Pages In Operations
+## Published Operations Pages
 
 - [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/)
 - [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/)
@@ -110,13 +110,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when an operational question is
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when an operational question is
   really about whether the runtime should own the behavior at all
-- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when recovery depends on
+- open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when recovery depends on
   understanding dispatch, collection, or reporting structure
-- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when a procedure may change CLI,
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when a procedure may change CLI,
   config, tracked data, or published artifact contracts
-- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real question is what evidence
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real question is what evidence
   should be gathered before or after a rerun
 
 ## Reader Takeaway

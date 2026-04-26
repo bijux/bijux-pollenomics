@@ -9,15 +9,15 @@ last_reviewed: 2026-04-26
 
 # Interfaces
 
-Use this section when the question is which runtime surfaces are real
+This section is for readers whose question is which runtime surfaces are real
 contracts: commands, defaults, tracked data layouts, publication artifacts, and
 the import surfaces that operators or other repository layers can safely rely
 on.
 
 This package publishes files directly into the repository and onto the docs
 site. That means a weak interface story becomes a repository-wide maintenance
-problem very quickly. These pages should make it obvious which surfaces are
-deliberate and which ones are only incidental implementation visibility.
+problem very quickly. The deliberate surfaces need to stay distinct from
+incidental implementation visibility.
 
 Readers should be able to leave this section with a practical answer, not an
 abstract one: which commands are stable enough to run, which tracked files are
@@ -57,7 +57,7 @@ flowchart LR
   changing defaults, file names, or output shapes that other readers may have
   automated against
 
-## Pages In Interfaces
+## Published Interface Pages
 
 - [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/)
 - [API Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/api-surface/)
@@ -108,13 +108,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the interface concern is
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the interface concern is
   really an ownership question
-- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the surface depends on
+- open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the surface depends on
   deeper collection, helper, or reporting structure
-- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable workflow
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable workflow
   for exercising or shipping the contract
-- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real issue is whether the
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real issue is whether the
   documented surface is sufficiently defended
 
 ## Reader Takeaway
