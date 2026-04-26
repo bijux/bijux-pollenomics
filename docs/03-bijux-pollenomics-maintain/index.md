@@ -17,9 +17,8 @@ docs integrity checks, release support, and workflow contracts stay readable
 from checked-in docs instead of being rediscovered through CI logs and shell
 glue.
 
-Open this page when one routing question matters most: is this problem
-enforced by maintainer helper code, by shared Make entrypoints, or by GitHub
-automation?
+This handbook covers one routing question first: is the rule enforced by
+maintainer helper code, by shared Make entrypoints, or by GitHub automation?
 
 <div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This section shows the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
 
@@ -65,7 +64,7 @@ automation?
 - you already know the issue belongs to one package API, CLI, or contract
 - you are trying to understand product behavior rather than repository health
 
-## What This Handbook Clarifies
+## What This Handbook Covers
 
 - which repository-health questions belong to helper code, Make routing, or
   workflow automation
@@ -85,6 +84,6 @@ automation?
 
 ## Bottom Line
 
-This handbook makes repository-health work explicit and reviewable. It is
-not a shadow product layer, and it routes readers back to the runtime or data
-docs as soon as the question becomes user-facing behavior.
+Open this handbook when the question is about repository-health behavior above
+one product package. Leave it as soon as the issue becomes runtime, data, or
+atlas behavior.
