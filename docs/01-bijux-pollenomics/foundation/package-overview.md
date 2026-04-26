@@ -15,6 +15,22 @@ evidence surfaces from stable commands instead of from hand-edited `data/` and
 normalize it into tracked layouts, and publish reviewable outputs from those
 files.
 
+## Package Model
+
+```mermaid
+flowchart TB
+    commands["stable commands"]
+    collect["collect source material"]
+    normalize["normalize into tracked layouts"]
+    publish["publish reviewable outputs"]
+
+    commands --> collect
+    collect --> normalize
+    normalize --> publish
+```
+
+This page should give the shortest honest description of the runtime package: one controlled collect-normalize-publish loop with checked-in consequences. If that loop is not visible here, the package role becomes too vague everywhere else.
+
 ## What It Owns
 
 - the CLI and command dispatch for `collect-data`, `report-country`,
@@ -38,6 +54,10 @@ files.
 - `packages/bijux-pollenomics/tests/`
 - `data/`
 - `docs/report/`
+
+## Design Pressure
+
+The easy failure is to describe the package by file locations alone and lose the operational loop that actually justifies its existence.
 
 ## Boundary Test
 
