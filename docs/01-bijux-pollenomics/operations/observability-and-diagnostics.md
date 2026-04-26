@@ -12,6 +12,26 @@ last_reviewed: 2026-04-26
 Observability in this package comes from explicit command output and reviewable
 files rather than from a separate telemetry stack.
 
+## Diagnostic Model
+
+```mermaid
+flowchart TB
+    command["command output and exit status"]
+    summaries["tracked summaries"]
+    reports["report manifests and bundles"]
+    tests["test failures"]
+    diagnosis["diagnostic picture"]
+
+    command --> diagnosis
+    summaries --> diagnosis
+    reports --> diagnosis
+    tests --> diagnosis
+```
+
+This page should make diagnostics feel concrete and local. Readers do not need
+remote telemetry here; they need the small set of command, file, and test
+surfaces that explain what went wrong.
+
 ## Diagnostic Surfaces
 
 - command exit codes
@@ -31,3 +51,9 @@ files rather than from a separate telemetry stack.
 - `data/collection_summary.json`
 - `docs/report/`
 - `tests/unit/`, `tests/regression/`, and `tests/e2e/`
+
+## Design Pressure
+
+The common failure is to hunt for hidden observability that does not exist,
+instead of using the explicit files and test layers the runtime already leaves
+behind.
