@@ -43,7 +43,7 @@ When a change breaks the lifecycle order, reviewers lose the ability to reason
 about whether a diff came from source refresh, report publishing, or unrelated
 maintenance work.
 
-## Use This Page When
+## Open This Page When
 
 - a change appears to blur collection, normalization, and publication steps
 - reviewers need to explain why one command should not also mutate a later
