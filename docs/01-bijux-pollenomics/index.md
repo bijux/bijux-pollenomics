@@ -4,10 +4,10 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
-# bijux-pollenomics
+# bijux-pollenomics Runtime Handbook
 
 `bijux-pollenomics` is the repository's runtime package for collecting tracked
 Nordic evidence layers and publishing reviewable report bundles from them.
@@ -31,6 +31,29 @@ protect that behavior.
   <a class="md-button" href="quality/test-strategy/">Open test strategy</a>
 </div>
 
+```mermaid
+flowchart LR
+    operator["operator or maintainer question"]
+    runtime["bijux-pollenomics<br/>collect, normalize, publish"]
+    foundation["foundation<br/>scope and language"]
+    architecture["architecture<br/>module seams and flow"]
+    interfaces["interfaces<br/>CLI, config, file contracts"]
+    operations["operations<br/>run, rebuild, release"]
+    quality["quality<br/>proof, risk, validation"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
+    class operator,page runtime;
+    class foundation,architecture,interfaces,operations,quality positive;
+    operator --> runtime
+    runtime --> foundation
+    runtime --> architecture
+    runtime --> interfaces
+    runtime --> operations
+    runtime --> quality
+```
+
 ## Read This Section When
 
 - you need the shortest honest description of what the runtime package owns
@@ -53,6 +76,22 @@ protect that behavior.
 - command, configuration, and file contracts: [Interfaces](interfaces/index.md)
 - local rebuild and release steps: [Operations](operations/index.md)
 - review expectations and validation depth: [Quality](quality/index.md)
+
+## What This Package Owns
+
+- the operator-facing commands that collect tracked evidence and rebuild
+  publication outputs
+- the code paths that normalize source material into repository-owned artifacts
+- the report and atlas publication logic that turns tracked files into review
+  surfaces
+
+## What This Package Does Not Own
+
+- the repository-wide documentation, release, and workflow rules explained in
+  the maintainer handbook
+- the source-specific provenance caveats explained in the data reference
+- the scientific interpretation of the mapped evidence beyond what the checked-in
+  artifacts and documented limitations support
 
 ## Purpose
 
