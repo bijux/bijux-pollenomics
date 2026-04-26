@@ -49,26 +49,26 @@ flowchart LR
 
 ## Start Here
 
-- open [Package Overview](package-overview.md) for the shortest durable
+- use [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/) for the shortest durable
   statement of the runtime's job
-- open [Ownership Boundary](ownership-boundary.md) when a proposed change may
+- use [Ownership Boundary](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/ownership-boundary/) when a proposed change may
   belong in the data handbook, maintainer handbook, or checked-in docs instead
-- open [Lifecycle Overview](lifecycle-overview.md) when you need the
+- use [Lifecycle Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/lifecycle-overview/) when you need the
   collect-normalize-publish loop before reading any module detail
-- open [Scope and Non-Goals](scope-and-non-goals.md) before expanding the
+- use [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/) before expanding the
   runtime into a new data, workflow, or interpretation surface
 
-## Pages In This Section
+## Pages In Foundation
 
-- [Package Overview](package-overview.md)
-- [Scope and Non-Goals](scope-and-non-goals.md)
-- [Ownership Boundary](ownership-boundary.md)
-- [Repository Fit](repository-fit.md)
-- [Capability Map](capability-map.md)
-- [Domain Language](domain-language.md)
-- [Lifecycle Overview](lifecycle-overview.md)
-- [Dependencies and Adjacencies](dependencies-and-adjacencies.md)
-- [Change Principles](change-principles.md)
+- [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/)
+- [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/)
+- [Ownership Boundary](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/ownership-boundary/)
+- [Repository Fit](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/repository-fit/)
+- [Capability Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/capability-map/)
+- [Domain Language](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/domain-language/)
+- [Lifecycle Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/lifecycle-overview/)
+- [Dependencies and Adjacencies](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/dependencies-and-adjacencies/)
+- [Change Principles](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/change-principles/)
 
 ## Use This Section When
 
@@ -79,7 +79,7 @@ flowchart LR
 - you need language that distinguishes evidence collection, normalization,
   publication, and interpretation without blending them together
 
-## Do Not Use This Section When
+## Move On When
 
 - the real question is already about command syntax, file layouts, or imports
 - you need code structure, dependency direction, or execution seams
@@ -108,13 +108,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- open [Architecture](../architecture/index.md) when the question becomes
+- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the question becomes
   structural rather than boundary-oriented
-- open [Interfaces](../interfaces/index.md) when the concern is a public
+- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the concern is a public
   command, config, or artifact contract
-- open [Operations](../operations/index.md) when you need a repeatable runtime
+- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable runtime
   workflow
-- open [Quality](../quality/index.md) when the question becomes proof, risk, or
+- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question becomes proof, risk, or
   validation sufficiency
 
 ## Reader Takeaway
