@@ -42,4 +42,4 @@ that are incomplete or inconvenient.
 
 ## Purpose
 
-This page records the writing rules that keep the package handbook trustworthy.
+This page shows the writing rules that keep the package handbook trustworthy.

@@ -47,4 +47,4 @@ to distort how the package is explained or reviewed.
 
 ## Purpose
 
-This page records the runtime truths that reviewers should defend first.
+This page shows the runtime truths that reviewers should defend first.

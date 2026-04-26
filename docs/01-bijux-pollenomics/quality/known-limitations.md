@@ -51,4 +51,4 @@ should understand before making broader scientific or product claims.
 
 ## Purpose
 
-This page records the package limits maintainers should keep visible.
+This page shows the package limits maintainers should keep visible.
