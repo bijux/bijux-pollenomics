@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # Maintainer Handbook
@@ -31,17 +31,56 @@ through CI logs and shell glue.
   <a class="md-button" href="bijux-pollenomics-dev/release-support/">Open release support</a>
 </div>
 
+```mermaid
+flowchart LR
+    handbook["Maintainer handbook"]
+    dev["bijux-pollenomics-dev<br/>helper code and policy checks"]
+    makes["makes<br/>shared command surfaces"]
+    workflows["gh-workflows<br/>GitHub Actions contracts"]
+    package["runtime and data docs<br/>owned product behavior"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    class handbook page;
+    class dev,makes,workflows positive;
+    class package caution;
+    handbook --> dev
+    handbook --> makes
+    handbook --> workflows
+    handbook -.hands product behavior back to.-> package
+```
+
 ## Sections In This Handbook
 
 - [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
 - [makes](makes/index.md)
 - [gh-workflows](gh-workflows/index.md)
 
+## Use This Handbook When
+
+- the question is about repository automation, verification, release support,
+  docs integrity, or workflow fan-out
+- you need to know which shared surface owns a repository-health rule
+- the answer should stay above one product package boundary
+
+## Do Not Start Here When
+
+- the real question is about runtime behavior, data provenance, or atlas
+  publication semantics
+- you already know the issue belongs to one package API, CLI, or contract
+- you are trying to understand product behavior rather than repository health
+
 ## What Readers Usually Need First
 
 - release, schema, and docs integrity rules: [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
 - command routing and repository automation: [makes](makes/index.md)
 - CI, release, and docs deployment behavior: [gh-workflows](gh-workflows/index.md)
+
+## Reader Takeaway
+
+This handbook should make repository-health work explicit and reviewable. It is
+not a shadow product layer, and it should route readers back to the runtime or
+data docs as soon as the question becomes user-facing behavior.
 
 ## Purpose
 
