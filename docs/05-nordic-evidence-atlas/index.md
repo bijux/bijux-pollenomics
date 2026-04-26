@@ -62,17 +62,17 @@ flowchart LR
 
 - open the atlas first when you need to inspect what a reader actually sees on
   the publication surface
-- move to [atlas output reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
+- open [atlas output reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
   when the question is about generated files, checked-in assets, or publication
   packaging
-- move to [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/) when the real
+- open [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/) when the real
   question is where a visible layer or record originates
-- move to [fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/) when a point appears to represent a
+- open [fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/) when a point appears to represent a
   documented visit and you need direct local context
-- move to [runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/) when the question is how
+- open [runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/) when the question is how
   the atlas was rebuilt, validated, or packaged
 
-## Use This Page When
+## Open This Page When
 
 - opening the current atlas quickly without navigating through output reference
   pages first
@@ -80,7 +80,7 @@ flowchart LR
 - branching into data, fieldwork, or package docs once a concrete atlas
   question appears
 
-## Do Not Use This Page When
+## Choose Another Page When
 
 - explaining every upstream data caveat in detail
 - documenting rebuild commands or release automation
@@ -113,5 +113,5 @@ nearest routes into the source, output, fieldwork, or runtime docs behind it.
 
 ## Stability
 
-This page is canonical and should remain a direct wrapper around the checked-in
+This page remains a direct wrapper around the checked-in
 `docs/report/nordic-atlas/` publication output.
