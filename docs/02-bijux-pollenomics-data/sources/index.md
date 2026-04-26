@@ -89,9 +89,3 @@ flowchart LR
 This section is where source-specific uncertainty becomes explicit. It should
 help readers distinguish raw upstream behavior from the normalized, checked-in
 outputs they see later in the data and atlas pages.
-
-## Fastest Route
-
-Open this page when you need the route from one upstream family to the
-normalization, comparison, and refresh pages that explain what readers should
-trust about it.
