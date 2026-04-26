@@ -9,21 +9,10 @@ last_reviewed: 2026-04-26
 
 # Data Contracts
 
-The package's data contracts are filesystem contracts.
-
-```mermaid
-flowchart LR
-    source["source subtree"]
-    raw["raw files"]
-    normalized["normalized files"]
-    summary["collection summaries"]
-    review["reproducible tracked data contract"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class source,page raw;
-    class normalized,summary,review positive;
-    source --> raw --> normalized --> summary --> review
-```
+The package's data contracts are filesystem contracts. The public promise is
+not a database schema. It is the tracked shape of `data/<source>/`, the
+separation between `raw/` and `normalized/`, and the summary files that let a
+reviewer verify what changed.
 
 ## Contracted Shapes
 
@@ -33,7 +22,7 @@ flowchart LR
 - collection summaries and source-specific normalized outputs must remain
   reproducible from one repository state
 
-## Key Contract Modules
+## Contract Modules
 
 - `data_downloader/contracts.py`
 - `data_downloader/data_layout.py`
@@ -44,8 +33,9 @@ flowchart LR
 Renaming source directories or normalized filenames is a high-friction change.
 It ripples into docs, report publishing, tests, and reviewer expectations.
 
-## Open This Page When
+## First Proof Check
 
-- a change touches `data/` layout or normalized filenames
-- reviewers need to decide whether a file move is an interface change
-
+- `data/`
+- `src/bijux_pollenomics/data_downloader/data_layout.py`
+- `tests/unit/test_data_layout.py`
+- `tests/regression/test_repository_contracts.py`
