@@ -46,7 +46,7 @@ flowchart LR
 - open [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/) or another source
   family page when the issue is already narrowed to one checked-in file family
 
-## Pages In Outputs
+## Pages In This Section
 
 - [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/)
 - [Normalized AADR Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-aadr/)

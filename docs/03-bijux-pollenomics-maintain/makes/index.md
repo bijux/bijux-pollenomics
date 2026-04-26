@@ -47,7 +47,7 @@ flowchart LR
 - open [Release Surfaces](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/release-surfaces/) when the question is about
   publication-related make targets
 
-## Pages In makes
+## Pages In This Section
 
 - [Make System Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/make-system-overview/)
 - [Repository Layout](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/repository-layout/)

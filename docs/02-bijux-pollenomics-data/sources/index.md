@@ -46,7 +46,7 @@ flowchart LR
 - open [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) before promising that a source can
   be refreshed cheaply or replayed identically
 
-## Pages In Sources
+## Pages In This Section
 
 - [AADR](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/aadr/)
 - [Boundaries](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/boundaries/)
