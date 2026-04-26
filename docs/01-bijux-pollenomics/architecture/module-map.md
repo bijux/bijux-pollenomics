@@ -90,7 +90,7 @@ flowchart LR
 - you need to explain why a change touches collection code, reporting code, or
   both
 
-## Reader Takeaway
+## Core Point
 
 The package is not split by web framework concerns or service tiers. It is
 split by the work needed to parse commands, collect source-backed data, and

@@ -80,13 +80,13 @@ flowchart LR
 - checked-in field evidence and media: [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 - layout and migration constraints: [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
 
-## Reader Takeaway
+## Core Point
 
 This section moves from a visible publication surface back to the tracked
 evidence behind it. It is where data provenance becomes legible, not where
 package runtime behavior or maintainer automation is explained.
 
-## What You Get
+## Fastest Route
 
 Open this page when you need the shortest route from a visible atlas layer to
 the source, output, fieldwork, or shared-tree page that explains it in detail.

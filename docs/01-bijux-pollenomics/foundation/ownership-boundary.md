@@ -88,7 +88,7 @@ flowchart LR
 - open [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) when the next question is
   which proof surface should move with the change
 
-## Reader Takeaway
+## Core Point
 
 The runtime owns the code that shapes evidence outputs. Maintainer layers own
 how the repository drives, validates, and governs that code. Keeping those

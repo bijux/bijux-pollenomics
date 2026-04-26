@@ -117,7 +117,7 @@ flowchart LR
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real issue is whether the
   documented surface is sufficiently defended
 
-## Reader Takeaway
+## Core Point
 
 Use `Interfaces` to separate stable runtime contracts from whatever merely
 happens to be visible in the implementation today. If a dependency cannot be

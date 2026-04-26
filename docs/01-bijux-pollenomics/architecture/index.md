@@ -112,7 +112,7 @@ flowchart LR
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when you need proof that the documented
   structure is still protected
 
-## Reader Takeaway
+## Core Point
 
 Use `Architecture` to make the runtime flow legible enough that a reviewer can
 say where commands are parsed, where tracked data is rewritten, and where

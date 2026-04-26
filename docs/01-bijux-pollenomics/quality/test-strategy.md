@@ -79,7 +79,7 @@ changed.
 - treating generated evidence diffs as self-validating instead of pairing them
   with explicit tests
 
-## Reader Takeaway
+## Core Point
 
 More test layers are not automatically better. The honest goal is the smallest
 proof surface that still matches the real contract risk and leaves reviewers

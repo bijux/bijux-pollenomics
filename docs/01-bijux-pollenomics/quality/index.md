@@ -114,7 +114,7 @@ flowchart LR
 - open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when validation requires a specific
   rebuild, recovery, or release procedure
 
-## Reader Takeaway
+## Core Point
 
 Use `Quality` to make changes believable, not merely plausible. If a runtime
 claim cannot be backed by named tests, explicit invariants, updated docs, and a

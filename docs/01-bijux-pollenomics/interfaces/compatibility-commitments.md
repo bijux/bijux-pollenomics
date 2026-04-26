@@ -47,7 +47,7 @@ flowchart LR
 - upstream source services are not guaranteed stable by this package
 - unpublished internal module names may change during refactors
 
-## Reader Takeaway
+## Core Point
 
 The main compatibility promise is that a reader can rebuild and review the same
 kind of repository outputs with the same documented surfaces. That is broader

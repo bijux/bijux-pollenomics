@@ -98,7 +98,7 @@ flowchart LR
   [fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/) for the two main routes from a visible map
   element back to supporting evidence
 
-## Reader Takeaway
+## Core Point
 
 The atlas is the fastest way to see the published evidence surface, not the
 only place where meaning lives. A trustworthy read usually starts here and then

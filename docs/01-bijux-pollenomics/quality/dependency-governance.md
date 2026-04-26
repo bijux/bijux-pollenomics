@@ -36,7 +36,7 @@ Dependency checks are reinforced by repository quality and security targets, but
 package docs should still explain why a new dependency is worth its maintenance
 cost.
 
-## Reader Takeaway
+## Core Point
 
 Dependency review is not just a build concern. It changes the long-term trust
 and maintenance burden of the runtime surface.
