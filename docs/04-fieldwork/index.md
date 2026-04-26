@@ -57,16 +57,16 @@ instead of treating every layer as equally abstract.
 - open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
   when the question starts from a visible map layer and you need to confirm
   whether fieldwork supports it
-- move to [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) when the question is
+- open [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) when the question is
   really about source provenance or normalization rather than on-site context
-- move to [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) when the wider
+- open [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) when the wider
   question is how one visit sits among the full visible evidence stack
 
-## Pages In This Section
+## Pages In Fieldwork
 
 - [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
 
-## Use This Section When
+## Open This Section When
 
 - confirming that a mapped fieldwork point refers to a documented visit
 - checking the exact date, location, and media attached to that visit
@@ -74,7 +74,7 @@ instead of treating every layer as equally abstract.
 - preparing repeat visits or local interpretation with the original visit
   context in view
 
-## Do Not Use This Section When
+## Choose Another Section When
 
 - inferring that every atlas point has matching field documentation
 - treating one visit as proof of regional sampling completeness
@@ -96,9 +96,9 @@ instead of treating every layer as equally abstract.
 
 ## Reader Takeaway
 
-Fieldwork pages should answer a narrow but important question with integrity:
+Fieldwork pages answer a narrow but important question with integrity:
 what exactly happened at this place on this date, and what direct artifacts
-support that statement. They should not quietly expand into claims about the
+support that statement. They do not quietly expand into claims about the
 whole atlas or the full regional evidence base.
 
 ## Purpose
