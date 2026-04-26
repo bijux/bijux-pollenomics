@@ -19,13 +19,18 @@ site. That means a weak interface story becomes a repository-wide maintenance
 problem very quickly. These pages should make it obvious which surfaces are
 deliberate and which ones are only incidental implementation visibility.
 
+Readers should be able to leave this section with a practical answer, not an
+abstract one: which commands are stable enough to run, which tracked files are
+safe to automate against, and which atlas-facing outputs are treated as real
+publication contracts rather than accidental byproducts.
+
 ```mermaid
 flowchart LR
     reader["reader question<br/>what can I safely depend on?"]
-    cli["CLI flags, subcommands, and defaults"]
-    config["configuration values and repository paths"]
-    data["tracked data layout contracts"]
-    artifacts["country bundles and atlas artifacts"]
+    cli["CLI flags, subcommands,<br/>and defaults"]
+    config["config.py defaults<br/>and repository paths"]
+    data["tracked data layout contracts<br/>normalized files under data/"]
+    artifacts["country bundles and atlas artifacts<br/>published under docs/report/"]
     imports["public imports and examples"]
     compat["compatibility commitments"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
@@ -77,6 +82,15 @@ flowchart LR
 - the issue is mainly operational, such as which workflow to run or how to
   recover from a failure
 
+## What This Section Clarifies
+
+- which runtime surfaces are safe for operators and maintainers to script
+  against
+- which tracked file layouts and published artifacts are treated as stable
+  contracts instead of convenient current shapes
+- which changes require compatibility review because they would alter a visible
+  repository or docs surface
+
 ## Concrete Anchors
 
 - `src/bijux_pollenomics/cli.py` and
@@ -110,9 +124,3 @@ happens to be visible in the implementation today. If a dependency cannot be
 defended in terms of named commands, defaults, file layouts, artifacts,
 examples, and tests, it is not yet an honest public surface for this
 repository.
-
-## Purpose
-
-This page introduces the public interface material for the runtime package and
-routes readers to the command, config, data, artifact, and compatibility pages
-they are expected to rely on.
