@@ -9,25 +9,8 @@ last_reviewed: 2026-04-26
 
 # CLI Surface
 
-The CLI is the primary public interface for `bijux-pollenomics`.
-
-```mermaid
-flowchart LR
-    cli["bijux-pollenomics CLI"]
-    collect["collect-data"]
-    country["report-country"]
-    atlas["report-multi-country-map"]
-    publish["publish-reports"]
-    outputs["tracked data and docs/report outputs"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class cli,page outputs;
-    class collect,country,atlas,publish positive;
-    cli --> collect --> outputs
-    cli --> country --> outputs
-    cli --> atlas --> outputs
-    cli --> publish --> outputs
-```
+The CLI is the primary public interface for `bijux-pollenomics`. It matters
+because these commands rewrite tracked repository state.
 
 ## Supported Commands
 
@@ -47,8 +30,15 @@ flowchart LR
 - `--context-root` defaults to `data`
 - `--name` and `--title` control the atlas slug and display title
 
-## Bottom Line
+## Example
 
-These commands are not merely convenience wrappers. They are the stable
-operator surface for rewriting tracked repository state in a reviewable way.
+```bash
+bijux-pollenomics collect-data all --version v66 --output-root data
+bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
+```
 
+## First Proof Check
+
+- `src/bijux_pollenomics/cli.py`
+- `src/bijux_pollenomics/command_line/parsing/`
+- `tests/e2e/test_cli.py`

@@ -9,26 +9,11 @@ last_reviewed: 2026-04-26
 
 # API Surface
 
-The importable API is intentionally small and mirrors the package's major
-workflow families.
+This package does not present a standalone long-lived HTTP service. Its public
+API surface is a narrow set of importable workflow functions plus frozen API
+contract artifacts under `apis/bijux-pollenomics/v1/`.
 
-```mermaid
-flowchart LR
-    imports["top-level API imports"]
-    collect["collection functions"]
-    report["report generation functions"]
-    schemas["frozen API schema artifacts"]
-    callers["downstream callers and reviewers"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class imports,page callers;
-    class collect,report,schemas positive;
-    imports --> collect --> callers
-    imports --> report --> callers
-    schemas --> callers
-```
-
-## Runtime Entry Points
+## Importable Entry Points
 
 - `collect_data` and `collect_context_data` from `data_downloader.api`
 - `generate_country_report`, `generate_multi_country_map`, and
@@ -42,13 +27,14 @@ flowchart LR
 - `MultiCountryMapReport`
 - `PublishedReportsReport`
 
-## Frozen API Contract
+## Frozen Contract Artifacts
 
 Repository-level API expectations are pinned under `apis/bijux-pollenomics/v1/`
 with `schema.yaml`, `pinned_openapi.json`, and `schema.hash`.
 
-## Open This Page When
+## First Proof Check
 
-- someone needs the list of supported importable workflows
-- an API-facing change may require schema and caller updates
-
+- `src/bijux_pollenomics/data_downloader/api.py`
+- `src/bijux_pollenomics/reporting/api.py`
+- `apis/bijux-pollenomics/v1/`
+- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/api/openapi_drift.py`
