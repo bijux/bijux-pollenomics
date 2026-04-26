@@ -19,3 +19,8 @@ tightly linked by contract.
 - report bundles under `docs/report/` should remain explainable from the tracked
   data tree present in the same commit
 
+## First Proof Check
+
+- `data/`
+- `docs/report/`
+- output pages in `docs/02-bijux-pollenomics-data/outputs/`

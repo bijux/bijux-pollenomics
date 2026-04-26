@@ -20,9 +20,11 @@ The tracked data layout is intentionally source-first.
 - `data/raa/`
 - `data/sead/`
 
-## Layout Rule
+## First Proof Check
 
-Each source subtree is understandable without reading every neighboring
-source. Raw and normalized outputs belong with the source that produced them,
-while shared publication artifacts belong under `docs/report/`.
-
+- `data/aadr/`
+- `data/boundaries/`
+- `data/landclim/`
+- `data/neotoma/`
+- `data/raa/`
+- `data/sead/`

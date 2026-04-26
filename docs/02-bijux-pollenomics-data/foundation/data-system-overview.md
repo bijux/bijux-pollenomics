@@ -19,9 +19,8 @@ normalized evidence layers, and publication outputs.
 - `apis/` holds frozen API contracts that describe public-facing behavior around
   those outputs
 
-## Why This Shape Exists
+## First Proof Check
 
-The repository needs to prove where evidence layers came from and what the
-current publication state was at one commit. A file-oriented system makes that
-history reviewable in Git instead of requiring hidden external state.
-
+- `data/`
+- `docs/report/`
+- `apis/`
