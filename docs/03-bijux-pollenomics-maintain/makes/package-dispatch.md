@@ -4,16 +4,16 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Package Dispatch
 
-Package dispatch is driven by `makes/packages.mk` and the shared package catalog
-helpers under `makes/bijux-py/`.
+Package dispatch is driven by `makes/packages.mk` and shared catalog helpers.
 
-## Current Records
+## Current Package Records
 
-- `bijux-pollenomics`
-- `bijux-pollenomics-dev`
-
+- `bijux-pollenomics` as the primary package with check, build, SBOM, and API
+  surfaces
+- `pollenomics` as the compatibility package
+- `bijux-pollenomics-dev` as the maintainer package

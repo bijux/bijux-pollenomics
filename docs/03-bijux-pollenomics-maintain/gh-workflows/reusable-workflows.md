@@ -4,22 +4,21 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # reusable-workflows
 
-The repository uses reusable workflows so package release and CI logic stays
-shared and explicit.
+The repository uses reusable workflows so verification and release logic stay
+shared.
 
 ## Current Reusable Workflows
 
-- `ci.yml`
-- `release-artifacts.yml`
+- `ci.yml` as the package-scoped verification worker
+- `release-artifacts.yml` as the shared release-artifact builder and stager
 
-These files are workflow building blocks rather than top-level entrypoints, so
-they run through `verify.yml` and split release entrypoints
-(`release-pypi.yml`, `release-ghcr.yml`, `release-github.yml`) instead of
-appearing as standalone manual workflows. Their job names stay package-scoped
-so the Actions UI shows which package and check ran.
+## Boundary
 
+These workflows are building blocks, not the primary reader entrypoints. Start
+from `verify.yml` or the release workflows when the question begins with a GitHub
+event.

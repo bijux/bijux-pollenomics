@@ -4,26 +4,21 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # deploy-docs
 
-`deploy-docs.yml` builds the strict MkDocs site and publishes the built output
-to the docs repository when credentials are available.
+`deploy-docs.yml` builds and publishes the documentation site.
 
-The workflow follows the shared Bijux docs contract. This repository keeps site
-icons under `docs/assets/site-icons/` and uses the standard MkDocs theme
-configuration surface from `mkdocs.shared.yml`.
+## What It Does
 
-It runs on `main` when docs-related files change and can also be started
-manually. The job tree stays small on purpose: build the strict site, validate
-the deploy artifact, then publish to Pages.
+- resolves docs build configuration from repo vars and `.github/docs-deploy.env`
+- sets up Python, uv, Node, or Rust only when the repo surface requires them
+- discovers install, build, and verify commands from repository targets
+- builds the site and publishes a deployable artifact when the event permits it
 
-## Trigger Surface
+## Boundary
 
-The workflow should run when either authored docs inputs or the shared docs
-shell changes. That includes `docs/**`, `mkdocs.yml`, and
-`mkdocs.shared.yml`, because the shared MkDocs config changes site behavior
-even when no Markdown page changes.
-
+This workflow owns site publication behavior. It does not define handbook
+content quality; the docs pages and local docs targets still own that.

@@ -4,23 +4,22 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Documentation Integrity
 
-Docs integrity in this repository depends on strict MkDocs builds and
-maintenance discipline that keeps docs aligned with the real runtime and
-workflow surfaces.
+Docs integrity depends on strict builds and explicit managed surfaces.
 
 ## Current Documentation Surfaces
 
-- `mkdocs.yml`
-- `mkdocs.shared.yml`
-- `docs/assets/site-icons/`
+- `mkdocs.yml` and `mkdocs.shared.yml`
+- `docs/badges.md` as the badge catalog consumed by the synchronizer
+- `docs/assets/site-icons/` as the repository-owned icon source
+- `bijux_pollenomics_dev.docs.badge_sync` as the managed badge renderer
 
-## Icon Assets
+## Boundary
 
-The repository keeps browser icon sources under `docs/assets/site-icons/` and
-follows the shared Bijux docs theme contract for favicon configuration.
-
+This page describes docs maintenance surfaces, not reader-facing handbook
+content. The runtime, data, fieldwork, and atlas pages own the public product
+story.
