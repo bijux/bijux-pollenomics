@@ -16,6 +16,27 @@ Each page answers three reader questions: what a source contributes, what it
 cannot prove on its own, and which checked-in outputs carry that source into
 the published atlas or reports.
 
+## Sources Model
+
+```mermaid
+flowchart TB
+    upstream["upstream source family"]
+    caveats["source-specific caveats"]
+    normalization["shared normalization rules"]
+    normalized["tracked normalized outputs"]
+    publication["reports and atlas layers"]
+
+    upstream --> caveats
+    upstream --> normalization
+    caveats --> normalized
+    normalization --> normalized
+    normalized --> publication
+```
+
+This section should show that upstream families enter the repository with
+limits attached. If the page reads like a catalog of datasets instead of a map
+of evidence pressure, the atlas will look more certain than the sources allow.
+
 ## Start Here
 
 - open one source page when the question is about one upstream family and its
@@ -56,6 +77,12 @@ the published atlas or reports.
 - inspect the matching `data/*/normalized/` tree and
   [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
   when the question is about repository-owned files rather than upstream role
+
+## Design Pressure
+
+The common failure is to let one visible map layer flatten the difference
+between upstream collection behavior, normalization policy, and the narrower
+claims the repository can safely publish.
 
 ## Boundary Test
 
