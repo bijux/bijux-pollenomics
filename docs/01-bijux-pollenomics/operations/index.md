@@ -49,29 +49,29 @@ flowchart LR
 
 ## Start Here
 
-- open [Installation and Setup](installation-and-setup.md) for environment and
+- use [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/) for environment and
   bootstrap expectations
-- open [Common Workflows](common-workflows.md) for the main rebuild and verify
+- use [Common Workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/) for the main rebuild and verify
   paths
-- open [Failure Recovery](failure-recovery.md) or
-  [Observability and Diagnostics](observability-and-diagnostics.md) when a run
+- use [Failure Recovery](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/failure-recovery/) or
+  [Observability and Diagnostics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/observability-and-diagnostics/) when a run
   has already diverged from the expected outputs
-- open [Release and Versioning](release-and-versioning.md) when the question is
+- use [Release and Versioning](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/release-and-versioning/) when the question is
   about tags, package artifacts, or release evidence
-- open [Deployment Boundaries](deployment-boundaries.md) before treating this
+- use [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/) before treating this
   package like a long-running service or hidden background system
 
-## Pages In This Section
+## Pages In Operations
 
-- [Installation and Setup](installation-and-setup.md)
-- [Local Development](local-development.md)
-- [Common Workflows](common-workflows.md)
-- [Observability and Diagnostics](observability-and-diagnostics.md)
-- [Performance and Scaling](performance-and-scaling.md)
-- [Failure Recovery](failure-recovery.md)
-- [Release and Versioning](release-and-versioning.md)
-- [Security and Safety](security-and-safety.md)
-- [Deployment Boundaries](deployment-boundaries.md)
+- [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/)
+- [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/)
+- [Common Workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/)
+- [Observability and Diagnostics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/observability-and-diagnostics/)
+- [Performance and Scaling](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/performance-and-scaling/)
+- [Failure Recovery](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/failure-recovery/)
+- [Release and Versioning](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/release-and-versioning/)
+- [Security and Safety](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/security-and-safety/)
+- [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/)
 
 ## Use This Section When
 
@@ -79,7 +79,7 @@ flowchart LR
 - you need to minimize review noise while still regenerating evidence
 - a failure needs diagnosis without guessing which layer owns the repair
 
-## Do Not Use This Section When
+## Move On When
 
 - the real question is which package or module owns a behavior
 - you are still deciding whether a command or file layout counts as a contract
@@ -110,13 +110,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- open [Foundation](../foundation/index.md) when an operational question is
+- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when an operational question is
   really about whether the runtime should own the behavior at all
-- open [Architecture](../architecture/index.md) when recovery depends on
+- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when recovery depends on
   understanding dispatch, collection, or reporting structure
-- open [Interfaces](../interfaces/index.md) when a procedure may change CLI,
+- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when a procedure may change CLI,
   config, tracked data, or published artifact contracts
-- open [Quality](../quality/index.md) when the real question is what evidence
+- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real question is what evidence
   should be gathered before or after a rerun
 
 ## Reader Takeaway
