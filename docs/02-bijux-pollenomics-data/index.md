@@ -22,6 +22,39 @@ layout change would ripple through the repository.
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
 </div>
 
+## Evidence Route
+
+```mermaid
+flowchart LR
+    Sources["source families"] --> Rules["selection and normalization rules"]
+    Rules --> Tree["tracked data tree"]
+    Tree --> Outputs["normalized output families"]
+    Outputs --> Reports["country bundles"]
+    Outputs --> Atlas["Nordic atlas"]
+    Fieldwork["direct visit record"] --> Atlas
+    Atlas --> Reader["visible layer question"]
+    Reports --> Reader
+
+    class Sources,Fieldwork anchor;
+    class Rules action;
+    class Tree,Outputs page;
+    class Reports,Atlas positive;
+    class Reader caution;
+
+    classDef page fill:#eef6ff,stroke:#2563eb,color:#153145,stroke-width:2px;
+    classDef positive fill:#eefbf3,stroke:#16a34a,color:#173622,stroke-width:2px;
+    classDef caution fill:#fff1f2,stroke:#dc2626,color:#6b1d1d,stroke-width:2px;
+    classDef anchor fill:#f4f0ff,stroke:#7c3aed,color:#47207f,stroke-width:2px;
+    classDef action fill:#fff4da,stroke:#d97706,color:#6b3410,stroke-width:2px;
+```
+
+This handbook is the evidence map behind the public site. It keeps three
+questions separate: what the repository accepted from upstream sources, how
+that material was narrowed into tracked files, and which checked-in outputs
+carry those files into reader-facing reports or the atlas. That separation is
+the difference between a persuasive documentation surface and a list of file
+paths.
+
 ## Section Pages
 
 - [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
