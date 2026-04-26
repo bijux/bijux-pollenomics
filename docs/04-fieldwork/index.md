@@ -21,20 +21,25 @@ happened, and which media artifacts support that record.
 
 ```mermaid
 flowchart LR
-    visit["field visit"]
-    record["fieldwork page<br/>date, place, purpose, media"]
-    atlas["atlas point<br/>visible publication layer"]
-    data["data reference<br/>source-derived context"]
-    boundary["interpretation boundary<br/>one visit is not a full evidence system"]
+    atlas["atlas point<br/>visible map question"]
+    record["fieldwork page<br/>visit facts, media, local context"]
+    facts["date and place"]
+    media["photos and supporting artifacts"]
+    data["data reference<br/>source-derived interpretation"]
+    boundary["boundary<br/>a visit record is narrow evidence"]
+    planner["future field planning<br/>repeatable local context"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
     classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class visit,page record;
-    class atlas,data positive;
+    class atlas,page record;
+    class facts,media,data,planner positive;
     class boundary caution;
-    visit --> record --> atlas
+    atlas --> record
+    record --> facts
+    record --> media
     record --> data
+    record --> planner
     record --> boundary
 ```
 
@@ -43,22 +48,42 @@ remains the main decision surface for comparing mapped evidence layers. This
 row exists so readers can follow one visible atlas point back to a real visit
 instead of treating every layer as equally abstract.
 
+## Start Here
+
+- open [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md) for the
+  current documented visit record
+- open the [Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html)
+  when the question starts from a visible map layer and you need to confirm
+  whether fieldwork supports it
+- move to [data reference](../02-bijux-pollenomics-data/) when the question is
+  really about source provenance or normalization rather than on-site context
+
 ## Pages In This Section
 
 - [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md)
 
-## Use This Section For
+## Use This Section When
 
 - confirming that a mapped fieldwork point refers to a documented visit
 - checking the exact date, location, and media attached to that visit
 - distinguishing direct field evidence from source-derived atlas layers
+- preparing repeat visits or local interpretation with the original visit
+  context in view
 
-## Do Not Use This Section For
+## Do Not Use This Section When
 
 - inferring that every atlas point has matching field documentation
 - treating one visit as proof of regional sampling completeness
 - replacing the data reference when the real question is provenance or
   normalization
+- expecting maintainers' workflow or publication instructions
+
+## Reader Takeaway
+
+Fieldwork pages should answer a narrow but important question with integrity:
+what exactly happened at this place on this date, and what direct artifacts
+support that statement. They should not quietly expand into claims about the
+whole atlas or the full regional evidence base.
 
 ## Purpose
 
