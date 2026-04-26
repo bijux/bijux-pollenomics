@@ -25,27 +25,24 @@ the shared Nordic atlas.
 ## Runtime Loop
 
 ```mermaid
-flowchart LR
-    CLI["operator commands"] --> Collectors["source collectors"]
-    Collectors --> Normalizers["normalizers"]
-    Normalizers --> DataTree["tracked data files"]
-    DataTree --> Reporting["reporting pipeline"]
-    Reporting --> Country["country bundles"]
-    Reporting --> Atlas["Nordic atlas"]
-    Tests["unit, regression, and e2e tests"] --> CLI
-    Tests --> Reporting
+flowchart TB
+    cli["operator commands"]
+    collectors["source collectors"]
+    normalizers["normalizers"]
+    data["tracked data files"]
+    reporting["reporting pipeline"]
+    country["country bundles"]
+    atlas["nordic atlas"]
+    tests["unit, regression, and e2e tests"]
 
-    class CLI,Reporting action;
-    class Collectors,Normalizers page;
-    class DataTree anchor;
-    class Country,Atlas positive;
-    class Tests caution;
-
-    classDef page fill:#eef6ff,stroke:#2563eb,color:#153145,stroke-width:2px;
-    classDef positive fill:#eefbf3,stroke:#16a34a,color:#173622,stroke-width:2px;
-    classDef caution fill:#fff1f2,stroke:#dc2626,color:#6b1d1d,stroke-width:2px;
-    classDef anchor fill:#f4f0ff,stroke:#7c3aed,color:#47207f,stroke-width:2px;
-    classDef action fill:#fff4da,stroke:#d97706,color:#6b3410,stroke-width:2px;
+    cli --> collectors
+    collectors --> normalizers
+    normalizers --> data
+    data --> reporting
+    reporting --> country
+    reporting --> atlas
+    tests --> cli
+    tests --> reporting
 ```
 
 The package matters because it makes the publication loop repeatable. It does
@@ -54,6 +51,8 @@ source collection and normalization, into the files that the public reports and
 atlas render. Runtime documentation should therefore explain how a reader can
 rebuild the visible evidence surface, not only where the implementation files
 live.
+
+This handbook root should feel like one controlled loop, not a software catalog. If readers cannot see how commands, tracked files, and publication outputs stay tied together, they will misread runtime ownership as a pile of helpers.
 
 ## Start Here
 
