@@ -92,7 +92,7 @@ Open the path that matches what you need right now:
   [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/)
   and the checked-in `docs/report/` bundles
 
-## Fieldwork Evidence
+## Fieldwork Record
 
 The website now also carries checked-in field media from the Lyngsjön Lake sampling visit on 2026-02-26. That material anchors one atlas point to a real collection day on the lake ice rather than to database outputs alone.
 
@@ -108,7 +108,7 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What This Repository Covers
+## What This Site Covers
 
 Start from the visible atlas, then open the exact supporting explanation you
 need:
