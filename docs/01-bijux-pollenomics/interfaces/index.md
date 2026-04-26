@@ -14,24 +14,25 @@ contracts: commands, defaults, tracked data layouts, publication artifacts, and
 the import surfaces that operators or other repository layers can safely rely
 on.
 
-These pages should stop accidental dependencies from hardening around incidental
-implementation details. In this package, that matters because command behavior
-and tracked file outputs are reviewed like code and exposed directly on the
-docs site.
+This package publishes files directly into the repository and onto the docs
+site. That means a weak interface story becomes a repository-wide maintenance
+problem very quickly. These pages should make it obvious which surfaces are
+deliberate and which ones are only incidental implementation visibility.
 
 ```mermaid
 flowchart LR
-    cli["CLI surface"]
-    config["configuration defaults"]
-    data["tracked data contracts"]
-    artifacts["publication artifact contracts"]
+    reader["reader question<br/>what can I safely depend on?"]
+    cli["CLI flags, subcommands, and defaults"]
+    config["configuration values and repository paths"]
+    data["tracked data layout contracts"]
+    artifacts["country bundles and atlas artifacts"]
     imports["public imports and examples"]
     compat["compatibility commitments"]
-    reader["reader question<br/>what can I safely rely on?"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class cli,page reader;
+    class reader page;
     class config,data,artifacts,imports,compat positive;
+    class cli positive;
     cli --> reader
     config --> reader
     data --> reader
@@ -43,12 +44,13 @@ flowchart LR
 ## Start Here
 
 - open [CLI Surface](cli-surface.md) for the operator-facing command contract
-- open [Artifact Contracts](artifact-contracts.md) when the file outputs matter
-  more than the command syntax
-- open [Data Contracts](data-contracts.md) when the tracked `data/` layout is
-  the real dependency
-- open [Entrypoints and Examples](entrypoints-and-examples.md) for concrete
-  command expansions and usage examples
+- open [Artifact Contracts](artifact-contracts.md) when the public output files
+  matter more than command syntax
+- open [Data Contracts](data-contracts.md) when the tracked `data/` tree is the
+  real dependency
+- open [Compatibility Commitments](compatibility-commitments.md) before
+  changing defaults, file names, or output shapes that other readers may have
+  automated against
 
 ## Pages In This Section
 
@@ -75,6 +77,21 @@ flowchart LR
 - the issue is mainly operational, such as which workflow to run or how to
   recover from a failure
 
+## Concrete Anchors
+
+- `src/bijux_pollenomics/cli.py` and
+  `src/bijux_pollenomics/command_line/parsing/subcommands.py` for the command
+  surface
+- `src/bijux_pollenomics/config.py` for defaults and repository-path behavior
+- `src/bijux_pollenomics/data_downloader/data_layout.py` and
+  `src/bijux_pollenomics/data_downloader/contracts.py` for tracked file
+  contracts
+- `src/bijux_pollenomics/reporting/rendering/artifacts.py` and
+  `src/bijux_pollenomics/reporting/bundles/paths.py` for publication artifact
+  shapes
+- `tests/e2e/test_cli.py` and `tests/regression/test_repository_contracts.py`
+  for interface-facing proof
+
 ## Read Across The Package
 
 - open [Foundation](../foundation/index.md) when the interface concern is
@@ -91,7 +108,8 @@ flowchart LR
 Use `Interfaces` to separate stable runtime contracts from whatever merely
 happens to be visible in the implementation today. If a dependency cannot be
 defended in terms of named commands, defaults, file layouts, artifacts,
-examples, and tests, it is not yet an honest public surface.
+examples, and tests, it is not yet an honest public surface for this
+repository.
 
 ## Purpose
 
