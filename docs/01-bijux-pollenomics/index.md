@@ -9,26 +9,12 @@ last_reviewed: 2026-04-26
 
 # bijux-pollenomics Runtime Handbook
 
-`bijux-pollenomics` is the repository's runtime package for collecting tracked
-Nordic evidence layers and publishing reviewable report bundles from them.
-
-Open this handbook when the question is about the package boundary rather than
-the repository as a whole: what code belongs in the runtime, which contracts
-are public, how data and reports move through the package, and which quality
-rules protect that behavior.
-
-The package's full job is to collect source material, normalize it into
-governed repository files, publish atlas and country bundles, and keep the
-command and file contracts stable enough that reviewers can inspect the whole
-loop from the repository alone.
+`bijux-pollenomics` is the runtime package that rebuilds the repository's
+checked-in evidence surfaces. It owns the command loop that collects source
+material, normalizes it into tracked files, and publishes country bundles plus
+the shared Nordic atlas.
 
 <div class="bijux-callout"><strong>Think in one runtime loop.</strong> The package collects and normalizes tracked evidence, turns that material into checked-in report bundles, and keeps the CLI and file contracts stable enough to review from the repository alone.</div>
-
-<div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Foundation</h3><p>Start here to understand what the runtime owns, which language stays stable, and where package boundaries stop.</p></div>
-  <div class="bijux-panel"><h3>Interfaces</h3><p>Open this section for commands, defaults, data layouts, output bundles, and other reader-visible contracts.</p></div>
-  <div class="bijux-panel"><h3>Operations</h3><p>Open this section for safe rebuilds, review-shaped reruns, publication procedure, and failure recovery.</p></div>
-</div>
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/">Open command entrypoints</a>
@@ -38,30 +24,14 @@ loop from the repository alone.
 
 ## Start Here
 
-- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) if the main question is what the
-  runtime owns and where that boundary stops
-- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) if you need the public command,
-  configuration, tracked-file, or output-bundle contract
-- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) if the immediate need is a repeatable
-  rebuild, diagnostic, or release workflow
-- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
-  change or for a visible atlas diff
-
-## Open This Package When
-
-- you need the shortest honest description of what the runtime package owns
-- you are changing CLI, data collection, report publishing, or package
-  contracts
-- you need one stable page that routes from visible publication behavior back
-  to the code and proof that support it
-
-## Open Another Package When
-
-- the real question is already about source provenance rather than runtime
-  behavior
-- the real question is repository-wide automation rather than package behavior
-- the real question is one atlas point or field visit rather than the runtime
-  loop that published it
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the question is why this
+  package exists and where its ownership stops
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the question is a command,
+  default, file layout, or publication contract
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when the question is how to
+  rebuild, release, diagnose, or recover the runtime loop
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question is what proof or risk
+  bar blocks a change
 
 ## Pages In This Package
 
@@ -79,7 +49,7 @@ loop from the repository alone.
 - the report and atlas publication logic that turns tracked files into review
   surfaces
 
-## What This Package Does Not Own
+## What This Package Refuses
 
 - the repository-wide documentation, release, and workflow rules explained in
   the maintainer handbook
@@ -87,7 +57,7 @@ loop from the repository alone.
 - the scientific interpretation of the mapped evidence beyond what the checked-in
   artifacts and documented limitations support
 
-## Concrete Anchors
+## First Proof Check
 
 - `packages/bijux-pollenomics/src/bijux_pollenomics/cli.py` and
   `packages/bijux-pollenomics/src/bijux_pollenomics/command_line/` for the
@@ -99,10 +69,8 @@ loop from the repository alone.
 - `packages/bijux-pollenomics/tests/` for unit, regression, and end-to-end
   proof that the runtime loop still holds
 
-## Bottom Line
+## Boundary Test
 
-Open this package when the question is how `bijux-pollenomics` turns source
-material into checked-in evidence outputs.
-If the answer depends on provenance detail, repository automation, or
-scientific interpretation rather than that runtime loop, another handbook owns
-the question.
+If a proposed change makes the package broader without making the
+collect-normalize-publish loop clearer, the change probably belongs in the
+data handbook, the maintainer handbook, or the field evidence surfaces instead.
