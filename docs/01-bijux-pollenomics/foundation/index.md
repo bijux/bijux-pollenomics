@@ -9,46 +9,48 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-Use this section when the important question is why the runtime package exists
-at all: what `bijux-pollenomics` is supposed to own, where that ownership
-stops, and which nearby repository surfaces it depends on without absorbing.
+Use this section when the most important question is not how the runtime is
+implemented, but why it exists and where its responsibility stops.
 
-These pages should help readers separate runtime behavior from repository
-maintenance, data reference, and interpretation work. When this section is
-clear, a maintainer can explain why a change belongs in the package without
-having to fall back on team memory.
+`bijux-pollenomics` is the repository's execution surface. It owns the code
+that collects tracked evidence, normalizes it into governed repository files,
+and turns those files into reviewable publication outputs. It does not own the
+meaning of the science, the full provenance handbook, or repository-wide
+maintenance policy. This page should let a reader see that boundary quickly.
 
 ```mermaid
 flowchart LR
-    commands["runtime commands"]
-    collect["collection and normalization"]
-    publish["report and atlas publishing"]
-    boundary["boundary<br/>docs, data reference, and maintainer systems stay outside"]
-    language["shared runtime language"]
-    reader["reader question<br/>what should this package own?"]
+    reader["reader question<br/>why does this package exist?"]
+    commands["commands and entrypoints"]
+    collect["collect and normalize<br/>tracked source material"]
+    publish["publish bundles and atlas artifacts"]
+    data["data handbook<br/>provenance and file families"]
+    maintain["maintainer handbook<br/>automation and release policy"]
+    science["scientific interpretation<br/>stays explicit and limited"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class collect,page reader;
-    class commands,publish,language positive;
-    class boundary caution;
-    commands --> collect --> publish
-    collect --> boundary
-    language --> reader
-    publish --> reader
-    boundary --> reader
+    class reader page;
+    class commands,collect,publish positive;
+    class data,maintain,science caution;
+    reader --> commands
+    commands --> collect
+    collect --> publish
+    collect -.provenance explained in.-> data
+    publish -.release and verification owned by.-> maintain
+    publish -.does not imply.-> science
 ```
 
 ## Start Here
 
-- open [Package Overview](package-overview.md) for the shortest statement of the
-  package's job
-- open [Ownership Boundary](ownership-boundary.md) when the question may belong
-  in repository, data, or maintainer docs instead
-- open [Scope and Non-Goals](scope-and-non-goals.md) before adding new runtime
-  responsibilities
-- open [Lifecycle Overview](lifecycle-overview.md) when you need the runtime
-  loop before reading module or contract detail
+- open [Package Overview](package-overview.md) for the shortest durable
+  statement of the runtime's job
+- open [Ownership Boundary](ownership-boundary.md) when a proposed change may
+  belong in the data handbook, maintainer handbook, or checked-in docs instead
+- open [Lifecycle Overview](lifecycle-overview.md) when you need the
+  collect-normalize-publish loop before reading any module detail
+- open [Scope and Non-Goals](scope-and-non-goals.md) before expanding the
+  runtime into a new data, workflow, or interpretation surface
 
 ## Pages In This Section
 
@@ -64,17 +66,30 @@ flowchart LR
 
 ## Use This Section When
 
-- you need the durable ownership story before changing code or contracts
+- you need the durable ownership story before changing code, commands, or file
+  contracts
 - you are deciding whether a change belongs in runtime behavior or in a nearby
   repository surface
-- you need stable language for collection, normalization, publishing, and
-  review-oriented outputs
+- you need language that distinguishes evidence collection, normalization,
+  publication, and interpretation without blending them together
 
 ## Do Not Use This Section When
 
 - the real question is already about command syntax, file layouts, or imports
 - you need code structure, dependency direction, or execution seams
 - the issue is operational, such as rebuild workflow, diagnostics, or release
+
+## Concrete Anchors
+
+- `src/bijux_pollenomics/cli.py` and `src/bijux_pollenomics/command_line/`
+  for the operator-facing runtime boundary
+- `src/bijux_pollenomics/data_downloader/collector.py` and
+  `src/bijux_pollenomics/data_downloader/pipeline/` for the collection and
+  normalization loop
+- `src/bijux_pollenomics/reporting/` and
+  `src/bijux_pollenomics/reporting/bundles/` for publication ownership
+- `tests/regression/test_repository_contracts.py` for the repository-facing
+  proof that package ownership still matches tracked outputs
 
 ## Read Across The Package
 
@@ -90,10 +105,10 @@ flowchart LR
 ## Reader Takeaway
 
 Use `Foundation` to answer the ownership question with integrity:
-`bijux-pollenomics` exists to turn tracked evidence inputs into reviewable
-tracked outputs through explicit runtime commands. If a proposal broadens the
-package without making that runtime loop clearer, it is probably crossing the
-boundary rather than improving it.
+`bijux-pollenomics` exists to execute a controlled evidence loop from tracked
+inputs to tracked publication outputs. If a proposal makes the package broader
+without making that loop clearer, it is probably crossing a boundary rather
+than strengthening the runtime.
 
 ## Purpose
 
