@@ -34,7 +34,7 @@ files are rewritten, and where visible publication assets are assembled.
 - open [State and Persistence](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/state-and-persistence/) when tracked output
   rewrites and staging boundaries are the hard part
 
-## Published Architecture Pages
+## Pages In This Section
 
 - [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/)
 - [Dependency Direction](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/dependency-direction/)
@@ -80,7 +80,7 @@ files are rewritten, and where visible publication assets are assembled.
 - `src/bijux_pollenomics/reporting/context/` for the map-layer integration
   surface that joins normalized records to visible atlas output
 
-## Read Across The Package
+## Across This Package
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the structural question is
   really an ownership question
@@ -93,7 +93,7 @@ files are rewritten, and where visible publication assets are assembled.
 
 ## Bottom Line
 
-Open `Architecture` to make the runtime flow legible enough that a reviewer
+Open this section to make the runtime flow legible enough that a reviewer
 can say where commands are parsed, where tracked data is rewritten, and where
 publication output is assembled. If that answer only works from private
 memory, the structure is still too implicit to maintain safely.
