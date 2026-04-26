@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Architecture
 
-This section is for readers whose main question is how the runtime is put
-together: where command dispatch begins, where evidence collection branches by
-source family, and where report building turns tracked files into visible atlas
-and country outputs.
+Open this section when the main question is how the runtime is put together:
+where command dispatch begins, where evidence collection branches by source
+family, and where report building turns tracked files into visible atlas and
+country outputs.
 
 This package only becomes trustworthy when a reader can follow the actual
 structural path from CLI to collector to report bundle without guessing. The
@@ -61,7 +61,7 @@ files are rewritten, and where visible publication assets are assembled.
 - you need proof, risk posture, or validation criteria more than structural
   flow
 
-## What This Section Clarifies
+## What This Section Covers
 
 - where command parsing ends and source-specific collection logic begins
 - where data normalization hands off to publication assembly
@@ -93,7 +93,7 @@ files are rewritten, and where visible publication assets are assembled.
 
 ## Bottom Line
 
-Use `Architecture` to make the runtime flow legible enough that a reviewer can
-say where commands are parsed, where tracked data is rewritten, and where
-publication output is assembled. If that answer only works from private memory,
-the structure is still too implicit to maintain safely.
+Open `Architecture` to make the runtime flow legible enough that a reviewer
+can say where commands are parsed, where tracked data is rewritten, and where
+publication output is assembled. If that answer only works from private
+memory, the structure is still too implicit to maintain safely.

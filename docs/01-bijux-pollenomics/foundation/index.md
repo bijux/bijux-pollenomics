@@ -9,7 +9,7 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-This section is for readers whose main question is not how the runtime is
+Open this section when the main question is not how the runtime is
 implemented, but why it exists and where its responsibility stops.
 
 `bijux-pollenomics` is the repository's execution surface. It owns the code
@@ -62,7 +62,7 @@ policy, or interpretation blur into the same layer.
 - you need code structure, dependency direction, or execution seams
 - the issue is operational, such as rebuild workflow, diagnostics, or release
 
-## What This Section Clarifies
+## What This Section Covers
 
 - why the runtime owns the controlled transition from source material to
   checked-in outputs
@@ -96,7 +96,7 @@ policy, or interpretation blur into the same layer.
 
 ## Bottom Line
 
-Use `Foundation` to answer the ownership question with integrity:
+Open `Foundation` to answer the ownership question directly:
 `bijux-pollenomics` exists to execute a controlled evidence loop from tracked
 inputs to tracked publication outputs. If a proposal makes the package broader
 without making that loop clearer, it is probably crossing a boundary rather
