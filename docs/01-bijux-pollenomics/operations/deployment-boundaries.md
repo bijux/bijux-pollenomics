@@ -13,6 +13,24 @@ The package does not deploy a long-lived application. Its deployable unit is a
 publishable Python distribution plus the checked-in docs site that exposes the
 generated outputs.
 
+## Deployment Model
+
+```mermaid
+flowchart TB
+    package["python package artifacts"]
+    docs["mkdocs site and docs/report surfaces"]
+    release["published deliverables"]
+    nonserver["no long-lived runtime server"]
+
+    package --> release
+    docs --> release
+    nonserver --> release
+```
+
+This page should make deployment boundaries feel narrow on purpose. The runtime
+produces publishable packages and a docs site, not a continuously running
+service with mutable owned state.
+
 ## What Gets Deployed
 
 - Python package artifacts built from `packages/bijux-pollenomics/`
@@ -28,3 +46,9 @@ generated outputs.
 - `packages/bijux-pollenomics/`
 - `docs/report/`
 - MkDocs deployment workflow
+
+## Design Pressure
+
+The common failure is to read deployment language as if this repository were
+shipping an always-on application, which confuses package publication with the
+actual batch-and-docs model it uses.
