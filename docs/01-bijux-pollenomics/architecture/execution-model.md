@@ -9,22 +9,9 @@ last_reviewed: 2026-04-26
 
 # Execution Model
 
-The package executes as an explicit command-driven batch workflow.
-
-```mermaid
-flowchart LR
-    parse["parse command"]
-    resolve["resolve handler"]
-    defaults["load defaults"]
-    work["perform collection or reporting work"]
-    write["write reviewable files"]
-    exit["exit command"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class parse,page resolve;
-    class defaults,work,write,exit positive;
-    parse --> resolve --> defaults --> work --> write --> exit
-```
+The package executes as an explicit command-driven batch workflow. One command
+becomes one bounded run that either rewrites tracked files clearly or fails
+before leaving ambiguous state behind.
 
 ## Runtime Shape
 
@@ -34,16 +21,10 @@ flowchart LR
 4. collection or reporting code performs deterministic filesystem work
 5. the command exits after writing reviewable files
 
-## Consequences
+## First Proof Check
 
-- there is no long-lived process state between commands
-- correctness is observed through tracked file outputs and command exit status
-- operators can review each step separately: collection, report publishing, and
-  docs build
-
-## Bottom Line
-
-This runtime does not hide behavior behind a long-lived application process.
-Each command is a bounded batch run whose result is legible from the
-files it writes and the exit status it returns.
-
+- `src/bijux_pollenomics/cli.py`
+- `src/bijux_pollenomics/command_line/runtime/`
+- `src/bijux_pollenomics/data_downloader/collector.py`
+- `src/bijux_pollenomics/reporting/service.py`
+- `tests/e2e/test_cli.py`

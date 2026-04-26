@@ -9,24 +9,8 @@ last_reviewed: 2026-04-26
 
 # Integration Seams
 
-The package integrates across a small set of important seams. Those seams should
-stay visible instead of being hidden behind accidental coupling.
-
-```mermaid
-flowchart LR
-    cli["CLI parsing"]
-    handlers["runtime handlers"]
-    collection["collection workflows"]
-    reports["report bundle assembly"]
-    docs["docs/report publication"]
-    api["frozen API contracts"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class cli,page handlers;
-    class collection,reports,docs,api positive;
-    cli --> handlers --> collection --> reports --> docs
-    handlers --> api
-```
+The package integrates across a small set of seams that have to stay explicit
+enough to review.
 
 ## Main Seams
 
@@ -36,14 +20,20 @@ flowchart LR
 - runtime outputs to tracked docs publication under `docs/report/`
 - package code to frozen contracts under `apis/bijux-pollenomics/v1/`
 
-## Why These Seams Matter
+## What Each Side May Assume
 
-These are the points where subtle scope creep appears first. If reporting starts
-depending on raw-source quirks or docs start carrying logic that belongs in the
-runtime, the package becomes harder to rebuild and harder to review honestly.
+- CLI parsing may assume named commands and defaults, not source-specific file
+  quirks
+- collection may assume source contracts and tracked data layouts, not report
+  rendering policy
+- reporting may assume normalized inputs and bundle path contracts, not raw
+  source fetch behavior
+- docs publication may assume checked-in runtime outputs, not hidden runtime
+  logic
 
-## Bottom Line
+## First Proof Check
 
-The seams are where architecture debt first becomes visible. Protecting them is
-less about neatness and more about preserving honest rebuild boundaries.
-
+- `command_line/runtime/`
+- `data_downloader/contracts.py` and `data_downloader/data_layout.py`
+- `reporting/bundles/paths.py` and `reporting/map_document/`
+- `docs/report/`
