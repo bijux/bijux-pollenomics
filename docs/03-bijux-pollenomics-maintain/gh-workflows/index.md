@@ -78,14 +78,14 @@ flowchart LR
 - the problem is inside package code, data normalization, or atlas behavior
 - you are looking for end-user product docs rather than repository automation
 
-## Reader Takeaway
+## Core Point
 
 Open `gh-workflows/` when the issue starts with a GitHub event, a check suite,
 or a release trigger. The point of this section is to identify the automation
 owner quickly, then hand you off to the exact workflow page instead of making
 you reverse-engineer YAML from the repository root.
 
-## What You Get
+## Fastest Route
 
 Open this section when you need the route from a repository event to the workflow
 page that explains the owning trigger and job tree.

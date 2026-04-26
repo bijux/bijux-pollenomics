@@ -42,7 +42,7 @@ artifacts/root/check-venv/bin/bijux-pollenomics --version
 docs, and verification work. Treat that environment as the supported local
 entrypoint before troubleshooting command behavior elsewhere.
 
-## Reader Takeaway
+## Core Point
 
 The repository environment is the reference setup. If a command behaves
 differently elsewhere, debug that environment difference before assuming the

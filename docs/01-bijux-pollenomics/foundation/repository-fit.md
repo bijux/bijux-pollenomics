@@ -50,7 +50,7 @@ source files, report rendering, docs screenshots, and review expectations in one
 move. The package docs stay anchored to repository ownership, not to
 library-only assumptions.
 
-## Reader Takeaway
+## Core Point
 
 Treat `bijux-pollenomics` as a package that lives inside a documentable,
 reviewable repository product. That is a stricter context than a standalone

@@ -49,7 +49,7 @@ If a proposed change increases scientific ambition or product breadth without
 also preserving deterministic file outputs and clear review boundaries, it does
 not belong in this package yet.
 
-## Reader Takeaway
+## Core Point
 
 This package is allowed to make the repository reproducible. It is not allowed
 to quietly become a broader research platform just because nearby data or atlas

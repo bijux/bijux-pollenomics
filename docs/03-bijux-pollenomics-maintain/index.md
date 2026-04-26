@@ -104,7 +104,7 @@ flowchart LR
 - `.github/workflows/` for GitHub-triggered verification and publication
   surfaces
 
-## Reader Takeaway
+## Core Point
 
 This handbook makes repository-health work explicit and reviewable. It is
 not a shadow product layer, and it routes readers back to the runtime or data

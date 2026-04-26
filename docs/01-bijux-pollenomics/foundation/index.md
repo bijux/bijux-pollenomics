@@ -117,7 +117,7 @@ flowchart LR
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question becomes proof, risk, or
   validation sufficiency
 
-## Reader Takeaway
+## Core Point
 
 Use `Foundation` to answer the ownership question with integrity:
 `bijux-pollenomics` exists to execute a controlled evidence loop from tracked

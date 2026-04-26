@@ -50,7 +50,7 @@ flowchart TD
 - output regression checks: `tests/regression/`
 - CLI behavior: `tests/e2e/test_cli.py`
 
-## Reader Takeaway
+## Core Point
 
 This page is for fast orientation, not for architectural argument. It helps
 you reach the right directory quickly when you already know the kind of
