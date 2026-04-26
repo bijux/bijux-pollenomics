@@ -47,7 +47,7 @@ flowchart LR
 
 The [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
 remains the main decision surface for comparing mapped evidence layers. This
-row exists so readers can follow one visible atlas point back to a real visit
+section lets readers follow one visible atlas point back to a real visit
 instead of treating every layer as equally abstract.
 
 ## Start Here
