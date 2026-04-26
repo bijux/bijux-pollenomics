@@ -15,6 +15,24 @@ The main entrypoints are `verify.yml` for repository and package verification,
 `deploy-docs.yml` for site publication, and split release workflows for PyPI,
 GHCR, and GitHub release publication.
 
+## Workflow Model
+
+```mermaid
+flowchart TB
+    events["GitHub events"]
+    entry["entry workflows"]
+    reusable["reusable workflow jobs"]
+    results["checks and publications"]
+
+    events --> entry
+    entry --> reusable
+    reusable --> results
+```
+
+This section should help a reader place a failing GitHub run quickly: which
+event triggered it, which entry workflow owned it, and whether the real logic
+actually lives in a reusable workflow underneath.
+
 ## Start Here
 
 - open [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/)
@@ -44,6 +62,12 @@ GHCR, and GitHub release publication.
 - inspect `.github/workflows/verify.yml`
 - inspect `.github/workflows/deploy-docs.yml`
 - inspect `.github/workflows/release-*.yml`
+
+## Design Pressure
+
+The easy failure is to stop at the workflow filename that appeared in GitHub,
+even though the meaningful ownership may sit one layer deeper in delegated job
+logic.
 
 ## Boundary Test
 
