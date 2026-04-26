@@ -16,9 +16,9 @@ tracked state, or how package-level makefiles are routed from the repository
 entrypoints.
 
 The make system matters because it is the shortest path from intent to
-repository-wide consequences. A reader should be able to tell which target is
-safe for inspection, which one rewrites `data/` or `docs/report/`, and which
-one is only a dispatch layer for package-specific work.
+repository-wide consequences. This section shows which target is safe for
+inspection, which one rewrites `data/` or `docs/report/`, and which one is
+only a dispatch layer for package-specific work.
 
 ```mermaid
 flowchart LR

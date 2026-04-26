@@ -41,8 +41,8 @@ flowchart LR
 
 ## Reader Takeaway
 
-Readers should think in terms of distributions and published files, not in
-terms of an always-running application that owns mutable server state.
+Think in terms of distributions and published files, not in terms of an
+always-running application that owns mutable server state.
 
 ## Purpose
 
