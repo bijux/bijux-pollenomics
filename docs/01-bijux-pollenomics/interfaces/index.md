@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Interfaces
 
-This section is for readers whose question is which runtime surfaces are real
-contracts: commands, defaults, tracked data layouts, publication artifacts, and
-the import surfaces that operators or other repository layers can safely rely
-on.
+Open this section when the question is which runtime surfaces are real
+contracts: commands, defaults, tracked data layouts, publication artifacts,
+and the import surfaces that operators or other repository layers can safely
+rely on.
 
 This package publishes files directly into the repository and onto the docs
 site. That means a weak interface story becomes a repository-wide maintenance
@@ -60,7 +60,7 @@ rather than accidental byproducts.
 - the issue is mainly operational, such as which workflow to run or how to
   recover from a failure
 
-## What This Section Clarifies
+## What This Section Covers
 
 - which runtime surfaces are safe for operators and maintainers to script
   against
@@ -97,7 +97,7 @@ rather than accidental byproducts.
 
 ## Bottom Line
 
-Use `Interfaces` to separate stable runtime contracts from whatever merely
+Open `Interfaces` to separate stable runtime contracts from whatever merely
 happens to be visible in the implementation today. If a dependency cannot be
 defended in terms of named commands, defaults, file layouts, artifacts,
 examples, and tests, it is not yet an honest public surface for this
