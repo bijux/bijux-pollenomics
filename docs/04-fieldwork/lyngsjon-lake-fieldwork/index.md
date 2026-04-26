@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Lyngsjön Lake Fieldwork
@@ -15,6 +15,27 @@ Evidence Atlas as a dedicated point layer entry.
 It is evidence of one documented field visit, not a substitute for the broader
 source-derived layers in the atlas. Its role is to connect the atlas to a real
 checked-in collection event with media that lives in this repository.
+
+```mermaid
+flowchart TD
+    lake["Lyngsjön Lake visit<br/>2026-02-26"]
+    media["checked-in media<br/>photo and video"]
+    atlas["atlas point<br/>Fieldwork documentation"]
+    context["reader context<br/>one visit tied to one map point"]
+    limit["boundary<br/>does not generalize to all evidence layers"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
+    class lake,page media;
+    class atlas,context positive;
+    class limit caution;
+    lake --> media
+    lake --> atlas
+    media --> context
+    atlas --> context
+    context --> limit
+```
 
 ## Site
 
@@ -61,6 +82,19 @@ The atlas publishes this location as `Fieldwork documentation`.
 The point is useful because it ties the atlas to a specific checked-in
 collection event. It does not turn the atlas into a field-log system, and it
 does not imply that every mapped evidence point has matching field media.
+
+## What A Reader Can Safely Conclude
+
+- a documented visit happened at the published location on `2026-02-26`
+- the repository keeps direct media for that visit under `docs/gallery/`
+- the atlas can point to repository-owned field evidence, not only upstream
+  database records
+
+## What A Reader Should Not Infer
+
+- that this visit alone is representative of regional pollen evidence
+- that atlas proximity implies analytical significance by itself
+- that future field pages will always use identical media or structure
 
 ## Purpose
 
