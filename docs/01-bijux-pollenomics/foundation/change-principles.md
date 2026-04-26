@@ -9,25 +9,10 @@ last_reviewed: 2026-04-26
 
 # Change Principles
 
-Changes to `bijux-pollenomics` keep the runtime easier to trust, not just
-easier to modify.
-
-```mermaid
-flowchart LR
-    trust["change makes runtime easier to trust"]
-    explicit["explicit commands and filenames"]
-    separation["collection, normalization, publication stay distinct"]
-    review["tracked rewrites stay review-significant"]
-    boundary["new ownership is documented"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class trust,page explicit;
-    class separation,review,boundary positive;
-    trust --> explicit
-    trust --> separation
-    trust --> review
-    trust --> boundary
-```
+Changes to `bijux-pollenomics` should make the runtime easier to trust, not
+just easier to modify. The hardest tradeoff here is convenience versus review:
+shortcuts that save a little implementation effort often make visible output
+changes harder to defend later.
 
 ## Principles
 
@@ -44,8 +29,13 @@ flowchart LR
 - adding one-off output names that do not fit the existing file contracts
 - expanding package scope because a nearby repository surface looks convenient
 
-## Open This Page When
+## First Proof Check
 
-- a change is technically possible but may still be a bad repository tradeoff
-- a reviewer needs package-level principles rather than one module-level detail
+- `tests/regression/test_repository_contracts.py`
+- `tests/regression/test_data_collector.py`
+- `tests/regression/test_country_report.py`
 
+## Boundary Test
+
+If a change cannot preserve explicit commands, stable file contracts, and
+reviewable output diffs at the same time, the design is not finished yet.
