@@ -4,16 +4,28 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Collection Summary
 
-`data/collection_summary.json` is the cross-source summary of a tracked refresh.
+`data/collection_summary.json` is the shortest checked-in summary of a tracked
+refresh.
 
-## Why It Matters
+## What It Shows
 
-- records one high-level view of the current collection state
-- gives reviewers a quick way to inspect source counts and refresh outcomes
-- links source refresh work to later publication changes
+- one cross-source view of the current collection state
+- source counts and refresh outcomes that reviewers can inspect quickly
+- the bridge between source refresh work and later publication changes
 
+## Boundary
+
+The collection summary is a diagnostic ledger, not a reader-facing report. It
+shows what changed in the tracked tree, but it does not replace the normalized
+output pages or the published atlas and report surfaces.
+
+## First Proof Check
+
+- inspect `data/collection_summary.json`
+- compare it against the matching `data/*/normalized/` trees and
+  `docs/report/` outputs when a refresh widened into visible publication change
