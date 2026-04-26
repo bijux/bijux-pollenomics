@@ -14,6 +14,24 @@ without widening the tracked review surface by accident. In pollenomics,
 procedure matters because `data/` and `docs/report/` are checked-in outputs,
 not disposable build products.
 
+## Operations Model
+
+```mermaid
+flowchart TB
+    change["runtime change or rerun"]
+    local["local development and setup"]
+    workflow["common workflows and release path"]
+    tracked["tracked surfaces may widen"]
+    proof["post-run proof must be inspected"]
+
+    change --> local
+    local --> workflow
+    workflow --> tracked
+    tracked --> proof
+```
+
+This section should make one operational fact unavoidable: reruns here can rewrite checked-in evidence and publication surfaces. If the flow feels casual, maintainers will underestimate the review cost of a command.
+
 ## Start Here
 
 - open [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/) when you are actively
@@ -57,6 +75,10 @@ not disposable build products.
 - `tests/regression/test_data_collector.py` and
   `tests/regression/test_country_report.py` for the narrowest operational
   backstops that defend reruns
+
+## Design Pressure
+
+The common failure is to describe runtime procedures as if they were disposable local build steps instead of tracked repository rewrite paths.
 
 ## Boundary Test
 
