@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Domain Language
 
-Use the package's own language consistently so code, docs, and review comments
-describe the same objects.
+Stable package language keeps code, docs, and review comments pointed at the
+same objects.
 
 ```mermaid
 flowchart LR

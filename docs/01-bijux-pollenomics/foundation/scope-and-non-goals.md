@@ -10,7 +10,7 @@ last_reviewed: 2026-04-26
 # Scope and Non-Goals
 
 `bijux-pollenomics` is scoped to deterministic collection and publication work.
-It should make tracked evidence layers and report bundles reproducible from one
+It keeps tracked evidence layers and report bundles reproducible from one
 repository state.
 
 ```mermaid
@@ -57,5 +57,5 @@ surfaces make that expansion tempting.
 
 ## Purpose
 
-This page records the package boundary in terms of what work it should and
-should not absorb.
+This page shows the package boundary in terms of what work it absorbs and what
+it leaves outside.

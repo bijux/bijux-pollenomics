@@ -47,8 +47,8 @@ flowchart TD
 
 Package changes are repository changes. A collector tweak can alter tracked
 source files, report rendering, docs screenshots, and review expectations in one
-move. The package docs should therefore stay anchored to repository ownership,
-not to library-only assumptions.
+move. The package docs stay anchored to repository ownership, not to
+library-only assumptions.
 
 ## Reader Takeaway
 

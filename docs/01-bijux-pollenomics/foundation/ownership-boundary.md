@@ -10,8 +10,8 @@ last_reviewed: 2026-04-26
 # Ownership Boundary
 
 The runtime package owns the behavior that turns source inputs into tracked data
-and tracked publication artifacts. It should be the place where reviewers look
-for output-shaping logic.
+and tracked publication artifacts. It is where reviewers look for
+output-shaping logic.
 
 The package does not own generic repository health automation. That work lives
 with `bijux-pollenomics-dev`, the make system, and GitHub workflows so runtime
@@ -53,7 +53,7 @@ flowchart LR
 - `makes/` for command orchestration and shared automation contracts
 - `docs/` for the checked-in explanatory surface that points at runtime outputs
 
-## Use This Page When
+## Open This Page When
 
 - a pull request crosses from package code into repository automation
 - the same change seems to belong partly in runtime and partly in docs or CI
