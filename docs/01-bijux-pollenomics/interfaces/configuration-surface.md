@@ -49,6 +49,3 @@ paths, published artifact names, and operator expectations.
 Defaults are part of the interface because they shape file locations, atlas
 identity, and the command outcomes readers expect to reproduce.
 
-## Purpose
-
-This page shows the stable default values that shape the runtime surface.

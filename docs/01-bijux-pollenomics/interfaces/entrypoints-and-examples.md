@@ -55,7 +55,3 @@ generate_published_reports(
 - treat both patterns as public only when they stay aligned with the CLI and
   artifact contract pages
 
-## Purpose
-
-This page shows the supported entrypoint patterns without forcing readers to
-reverse-engineer them from tests.

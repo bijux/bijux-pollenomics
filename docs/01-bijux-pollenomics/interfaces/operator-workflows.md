@@ -46,6 +46,3 @@ running state-changing package commands out of habit.
 The key workflow distinction is between inspection and mutation. This package
 is safe to trust when operators stay explicit about which one they are doing.
 
-## Purpose
-
-This page shows the operator-facing ways the package is expected to be used.
