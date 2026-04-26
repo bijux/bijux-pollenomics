@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Operations
 
-This section is for readers whose question is procedural: how to set up the
-runtime, which command path to run, how to separate safe inspection from
-state-changing rebuild work, and how to recover when the evidence pipeline
-produces unexpected results.
+Open this section when the question is procedural: how to set up the runtime,
+which command path to run, how to separate safe inspection from state-changing
+rebuild work, and how to recover when the evidence pipeline produces
+unexpected results.
 
 This package is operationally sensitive because its outputs are checked into the
 repository and published on the docs site. A sloppy rerun can widen the review
@@ -62,7 +62,7 @@ and which review surface must be inspected before the change is trusted.
 - you are still deciding whether a command or file layout counts as a contract
 - the issue is primarily about proof, review coverage, or unresolved risk
 
-## What This Section Clarifies
+## What This Section Covers
 
 - which operational path is safe for inspection versus state-changing rebuild
   work
@@ -98,6 +98,6 @@ and which review surface must be inspected before the change is trusted.
 
 ## Bottom Line
 
-Use `Operations` to keep runtime work controlled, reviewable, and recoverable.
-If a procedure cannot explain how it protects tracked evidence outputs, it is
-not yet an operational practice this repository should rely on.
+Open `Operations` to keep runtime work controlled, reviewable, and
+recoverable. If a procedure cannot explain how it protects tracked evidence
+outputs, it is not yet an operational practice this repository should rely on.

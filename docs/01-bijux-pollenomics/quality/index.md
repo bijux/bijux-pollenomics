@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Quality
 
-This section is for readers whose question is how the repository proves a
-runtime change is safe: which tests matter, which invariants must still hold,
-what documentation needs to move with the code, and where the package still
-carries known evidence limits.
+Open this section when the question is how the repository proves a runtime
+change is safe: which tests matter, which invariants must still hold, what
+documentation needs to move with the code, and where the package still carries
+known evidence limits.
 
 This package does not prove correctness only through unit tests. It also has to
 prove that tracked data layouts, published reports, and map-facing outputs still
@@ -60,7 +60,7 @@ reviewers do not have to guess what changed or why it is acceptable.
 - you need package purpose or ownership boundaries before choosing evidence
 - the primary issue is interface wording rather than validation or risk
 
-## What This Section Clarifies
+## What This Section Covers
 
 - which test layers defend code behavior versus tracked repository outputs
 - which visible atlas or report consequences should be reviewed even after the
@@ -93,6 +93,7 @@ reviewers do not have to guess what changed or why it is acceptable.
 
 ## Bottom Line
 
-Use `Quality` to make changes believable, not merely plausible. If a runtime
-claim cannot be backed by named tests, explicit invariants, updated docs, and a
-clear statement of remaining limits, it is not yet ready for repository review.
+Open `Quality` to make changes believable, not merely plausible. If a runtime
+claim cannot be backed by named tests, explicit invariants, updated docs, and
+a clear statement of remaining limits, it is not yet ready for repository
+review.
