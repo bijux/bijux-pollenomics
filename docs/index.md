@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Bijux Pollenomics
@@ -109,14 +109,28 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
 
 ```mermaid
 flowchart LR
-    Data[Tracked data tree] --> Prep[collect-data workflow]
-    Prep --> Reports[Country reports]
-    Prep --> Map[Nordic Evidence Atlas]
-    Reports --> Decisions[Sampling interpretation]
-    Map --> Decisions
+    atlas["Nordic Evidence Atlas<br/>visible publication surface"]
+    data["Data reference<br/>sources, normalization, outputs"]
+    runtime["Package handbook<br/>runtime code and public contracts"]
+    maintain["Maintainer handbook<br/>verification and release rules"]
+    fieldwork["Fieldwork record<br/>one documented collection visit"]
+    decisions["reader question<br/>what exists, where it came from, how to rebuild it"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
+    class atlas,page decisions;
+    class data,runtime,maintain positive;
+    class fieldwork anchor;
+    atlas --> decisions
+    data --> decisions
+    runtime --> decisions
+    maintain --> decisions
+    fieldwork --> atlas
 ```
 
-The docs are organized so a reader can move from the visible output into the supporting explanation they need:
+The docs are organized so a reader can start from the visible atlas and then
+drop into the exact supporting explanation they need:
 
 - what the repository produces today and why
 - how the tracked data categories are collected and normalized
@@ -128,11 +142,29 @@ The docs are organized so a reader can move from the visible output into the sup
 
 ```mermaid
 flowchart TD
-    Home[Home and map] --> Package[bijux-pollenomics]
-    Home --> Data[bijux-pollenomics-data]
-    Home --> Maintain[bijux-pollenomics-maintain]
-    Data --> Package
-    Package --> Maintain
+    home["Home"]
+    atlas["Open the atlas first"]
+    source["Need provenance?"]
+    contracts["Need commands or package contracts?"]
+    rebuild["Need rebuild or release steps?"]
+    field["Need one concrete collection record?"]
+    data["Data reference"]
+    package["Package handbook"]
+    maintain["Maintainer handbook"]
+    fieldwork["Fieldwork page"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
+    class home,page atlas;
+    class data,package,maintain positive;
+    class source,contracts,rebuild,field caution;
+    class fieldwork anchor;
+    home --> atlas
+    atlas --> source --> data
+    atlas --> contracts --> package
+    atlas --> rebuild --> maintain
+    atlas --> field --> fieldwork
 ```
 
 ## Documentation Families
