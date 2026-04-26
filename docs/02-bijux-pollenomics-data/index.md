@@ -26,8 +26,8 @@ can I inspect?"
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel"><h3>Sources</h3><p>Start here when the question is about upstream origin, refresh policy, coordinate handling, or source-specific caveats.</p></div>
-  <div class="bijux-panel"><h3>Outputs</h3><p>Open this branch to inspect normalized file families, report bundles, and the Nordic atlas publication surfaces.</p></div>
-  <div class="bijux-panel"><h3>Fieldwork</h3><p>Open this branch when a visible point or media artifact needs to be tied back to one concrete collection visit.</p></div>
+  <div class="bijux-panel"><h3>Outputs</h3><p>Open this section to inspect normalized file families, report bundles, and the Nordic atlas publication surfaces.</p></div>
+  <div class="bijux-panel"><h3>Fieldwork</h3><p>Open this section when a visible point or media artifact needs to be tied back to one concrete collection visit.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
