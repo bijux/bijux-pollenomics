@@ -11,66 +11,36 @@ last_reviewed: 2026-04-26
 
 Fieldwork is the checked-in evidence layer for real sampling visits.
 
-Open this section when a map point or normalized source record needs direct
-on-site collection context.
-
-Fieldwork stays intentionally narrow here. It does not try to replace the
-atlas, the data reference, or a full field-log system. Its job is to preserve
-the direct human record behind a documented visit: where the team went, when
-sampling happened, and which media artifacts support that record.
-
-The [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
-remains the main decision surface for comparing mapped evidence layers. This
-section lets readers follow one visible atlas point back to a real visit
-instead of treating every layer as equally abstract.
+It exists so a reader can move from one published atlas point to the direct
+visit record behind it: where the team went, when sampling happened, and which
+repository-owned media support that statement.
 
 ## Start Here
 
-- open [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/) for the
-  current documented visit record
+- open [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
+  for the current visit record
 - open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
-  when the question starts from a visible map layer and you need to confirm
-  whether fieldwork supports it
-- open [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) when the question is
-  really about source provenance or normalization rather than on-site context
-- open [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) when the wider
-  question is how one visit sits among the full visible evidence stack
+  when the question starts from a visible map point
+- open the [data handbook](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+  when the question is really about source provenance or normalization
 
-## Pages In This Section
+## Section Pages
 
 - [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
 
-## Open This Section When
+## What This Section Settles
 
-- confirming that a mapped fieldwork point refers to a documented visit
-- checking the exact date, location, and media attached to that visit
-- distinguishing direct field evidence from source-derived atlas layers
-- preparing repeat visits or local interpretation with the original visit
-  context in view
+- whether a published fieldwork point refers to a documented visit
+- which date, location, and media support that visit record
+- where fieldwork evidence ends and atlas or source-derived evidence begins
 
-## Open Another Section When
+## First Proof Check
 
-- inferring that every atlas point has matching field documentation
-- treating one visit as proof of regional sampling completeness
-- replacing the data reference when the real question is provenance or
-  normalization
-- expecting maintainers' workflow or publication instructions
+- inspect `docs/gallery/2026-02-26-data-collection.JPG`
+- inspect `docs/gallery/2026-02-26-data-collection.mp4`
+- compare the visit record with the corresponding atlas point
 
-## Concrete Anchors
+## Boundary Test
 
-- `docs/gallery/2026-02-26-data-collection.JPG` and
-  `docs/gallery/2026-02-26-data-collection.mp4` for the current checked-in
-  field media
-- [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/) for the canonical
-  visit record
-- [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) for the wider
-  publication surface that this row supports without replacing
-- [data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/) for provenance and
-  normalization questions that exceed one visit record
-
-## Bottom Line
-
-Open these pages when the question is what exactly happened at this place on
-this date, and which direct artifacts support that statement. They should not
-quietly expand into claims about the whole atlas or the full regional evidence
-base.
+This section does not imply that every atlas point has matching field media and
+it does not replace the data handbook. It is a narrow direct-evidence surface.
