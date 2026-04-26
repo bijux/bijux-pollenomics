@@ -11,7 +11,7 @@ last_reviewed: 2026-04-26
 
 This section documents the repository-owned maintainer package.
 
-Use it when the question is about maintainer-only tooling, schema governance,
+Open it when the question is about maintainer-only tooling, schema governance,
 release support, or documentation integrity rather than runtime behavior.
 
 This package is where repository policy becomes executable helper code. The
@@ -40,26 +40,26 @@ flowchart LR
 
 ## Start Here
 
-- open [Package Overview](package-overview.md) for the maintainer package
+- open [Package Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview/) for the maintainer package
   boundary
-- open [Quality Gates](quality-gates.md) and [Security Gates](security-gates.md)
+- open [Quality Gates](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/quality-gates/) and [Security Gates](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates/)
   for the enforced review surface
-- open [Release Support](release-support.md) when changes touch publication or
+- open [Release Support](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/) when changes touch publication or
   repository release evidence
 
 ## Pages In This Section
 
-- [Package Overview](package-overview.md)
-- [Scope and Non-Goals](scope-and-non-goals.md)
-- [Module Map](module-map.md)
-- [Operating Guidelines](operating-guidelines.md)
-- [Quality Gates](quality-gates.md)
-- [Security Gates](security-gates.md)
-- [Schema Governance](schema-governance.md)
-- [Release Support](release-support.md)
-- [Documentation Integrity](documentation-integrity.md)
+- [Package Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview/)
+- [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals/)
+- [Module Map](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map/)
+- [Operating Guidelines](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/operating-guidelines/)
+- [Quality Gates](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/quality-gates/)
+- [Security Gates](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates/)
+- [Schema Governance](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance/)
+- [Release Support](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/)
+- [Documentation Integrity](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity/)
 
-## Use This Section When
+## Open This Section When
 
 - the issue is implemented as helper code under
   `packages/bijux-pollenomics-dev/`
@@ -68,7 +68,7 @@ flowchart LR
 - the concern is about schema drift, docs integrity, release support, security,
   or quality gates
 
-## Do Not Use This Section When
+## Choose Another Section When
 
 - the real question is about runtime commands, data contracts, or atlas
   publication behavior
@@ -97,6 +97,6 @@ flowchart LR
 
 ## Reader Takeaway
 
-Use `bijux-pollenomics-dev` when repository-health behavior is implemented as
+Open `bijux-pollenomics-dev` when repository-health behavior is implemented as
 helper code. If the question is really about shared command routing or workflow
 entrypoints, move sideways to `makes/` or `gh-workflows/` instead.

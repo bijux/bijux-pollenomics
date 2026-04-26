@@ -18,4 +18,4 @@ last_reviewed: 2026-04-10
 
 ## Purpose
 
-This page records the current module map of the maintainer package.
+This page shows the current module map of the maintainer package.

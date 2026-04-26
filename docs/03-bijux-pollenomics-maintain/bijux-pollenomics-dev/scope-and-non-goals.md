@@ -27,4 +27,4 @@ scientific behavior.
 
 ## Purpose
 
-This page records the boundary of `bijux-pollenomics-dev`.
+This page shows the boundary of `bijux-pollenomics-dev`.
