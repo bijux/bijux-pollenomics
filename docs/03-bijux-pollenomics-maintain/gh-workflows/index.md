@@ -49,13 +49,13 @@ flowchart LR
 
 ## Start Here
 
-- use [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/) when the question begins with a push, pull request,
+- open [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/) when the question begins with a push, pull request,
   or required-check failure
-- use [release-publication](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/release-publication/) when a tag or published
+- open [release-publication](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/release-publication/) when a tag or published
   artifact did not behave as expected
-- use [deploy-docs](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/deploy-docs/) when handbook publication from `main`
+- open [deploy-docs](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/deploy-docs/) when handbook publication from `main`
   failed or produced stale output
-- use [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/) when the visible entrypoint
+- open [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/) when the visible entrypoint
   fans out into shared build jobs
 
 ## Pages In gh-workflows
@@ -65,14 +65,14 @@ flowchart LR
 - [deploy-docs](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/deploy-docs/)
 - [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to map a repository event to the workflow file that owns it
 - the failure appears in GitHub Actions rather than in a local Make invocation
 - you need to know whether automation is an entry workflow, a reusable job, or
   governance-only behavior
 
-## Move On When
+## Choose Another Section When
 
 - the real question is which local or CI Make target should be run
 - the problem is inside package code, data normalization, or atlas behavior
@@ -87,5 +87,5 @@ you reverse-engineer YAML from the repository root.
 
 ## What You Get
 
-Open this page when you need the route from a repository event to the workflow
+Open this section when you need the route from a repository event to the workflow
 page that explains the owning trigger and job tree.
