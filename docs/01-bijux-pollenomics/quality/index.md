@@ -36,7 +36,7 @@ reviewers do not have to guess what changed or why it is acceptable.
 - open [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/) when a change touches
   checked-in publication outputs and needs a clear merge bar
 
-## Published Quality Pages
+## Pages In This Section
 
 - [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/)
 - [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/)
@@ -80,7 +80,7 @@ reviewers do not have to guess what changed or why it is acceptable.
 - `docs/report/nordic-atlas/` for the public publication surface whose
   consequences quality review must keep visible
 
-## Read Across The Package
+## Across This Package
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when quality debate is really about
   what the runtime is supposed to own
@@ -93,7 +93,7 @@ reviewers do not have to guess what changed or why it is acceptable.
 
 ## Bottom Line
 
-Open `Quality` to make changes believable, not merely plausible. If a runtime
+Open this section to make changes believable, not merely plausible. If a runtime
 claim cannot be backed by named tests, explicit invariants, updated docs, and
 a clear statement of remaining limits, it is not yet ready for repository
 review.
