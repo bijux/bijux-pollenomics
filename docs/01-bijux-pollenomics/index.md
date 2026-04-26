@@ -22,6 +22,39 @@ the shared Nordic atlas.
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/">Open test strategy</a>
 </div>
 
+## Runtime Loop
+
+```mermaid
+flowchart LR
+    CLI["operator commands"] --> Collectors["source collectors"]
+    Collectors --> Normalizers["normalizers"]
+    Normalizers --> DataTree["tracked data files"]
+    DataTree --> Reporting["reporting pipeline"]
+    Reporting --> Country["country bundles"]
+    Reporting --> Atlas["Nordic atlas"]
+    Tests["unit, regression, and e2e tests"] --> CLI
+    Tests --> Reporting
+
+    class CLI,Reporting action;
+    class Collectors,Normalizers page;
+    class DataTree anchor;
+    class Country,Atlas positive;
+    class Tests caution;
+
+    classDef page fill:#eef6ff,stroke:#2563eb,color:#153145,stroke-width:2px;
+    classDef positive fill:#eefbf3,stroke:#16a34a,color:#173622,stroke-width:2px;
+    classDef caution fill:#fff1f2,stroke:#dc2626,color:#6b1d1d,stroke-width:2px;
+    classDef anchor fill:#f4f0ff,stroke:#7c3aed,color:#47207f,stroke-width:2px;
+    classDef action fill:#fff4da,stroke:#d97706,color:#6b3410,stroke-width:2px;
+```
+
+The package matters because it makes the publication loop repeatable. It does
+not just expose commands; it protects the chain from operator intent, through
+source collection and normalization, into the files that the public reports and
+atlas render. Runtime documentation should therefore explain how a reader can
+rebuild the visible evidence surface, not only where the implementation files
+live.
+
 ## Start Here
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the question is why this
