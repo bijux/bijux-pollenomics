@@ -4,13 +4,12 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # CI Targets
 
-CI reuses the same package and repository targets exposed through the make
-system.
+CI reuses the same repository and package targets exposed through Make.
 
 ## Common Targets
 
@@ -23,4 +22,3 @@ system.
 - `api`
 - `build`
 - `sbom`
-
