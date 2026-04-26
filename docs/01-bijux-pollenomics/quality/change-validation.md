@@ -47,4 +47,4 @@ both the executable checks and the resulting file diffs make sense together.
 
 ## Purpose
 
-This page records how package changes should be validated before merge.
+This page shows how package changes should be validated before merge.

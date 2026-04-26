@@ -87,4 +87,4 @@ with a believable explanation for the change.
 
 ## Purpose
 
-This page records how the package proves correctness across different scopes.
+This page shows how the package proves correctness across different scopes.

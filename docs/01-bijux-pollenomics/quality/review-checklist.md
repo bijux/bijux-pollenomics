@@ -46,4 +46,4 @@ instead of forcing the change to fit the checklist.
 
 ## Purpose
 
-This page records the minimum review questions for runtime changes.
+This page shows the minimum review questions for runtime changes.
