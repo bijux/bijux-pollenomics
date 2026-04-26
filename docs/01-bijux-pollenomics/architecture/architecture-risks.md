@@ -14,6 +14,27 @@ equal. The worst failures are the ones that damage trust in tracked outputs or
 blur the line between collection, publication, and adjacent repository
 surfaces.
 
+## Risk Model
+
+```mermaid
+flowchart TB
+    code["small code change"]
+    outputs["wide tracked output change"]
+    seams["collection or reporting seam drift"]
+    docs["stale contract docs"]
+    trust["reader trust loss"]
+
+    code --> outputs
+    code --> seams
+    seams --> trust
+    outputs --> trust
+    docs --> trust
+```
+
+This page should show risk as a trust problem, not just a maintenance problem.
+The dangerous failures are the ones that make visible repository surfaces stop
+matching the runtime boundaries readers think they are inspecting.
+
 ## Current Risks
 
 - tracked file outputs can make small code changes look large in review
@@ -36,3 +57,9 @@ surfaces.
 - `tests/regression/test_repository_contracts.py`
 - `tests/regression/test_data_collector.py`
 - `tests/regression/test_country_report.py`
+
+## Design Pressure
+
+The easy failure is to talk about architecture risk in code-only terms, while
+the real damage usually appears later in review noise, boundary drift, and
+publication surfaces that no longer feel trustworthy.
