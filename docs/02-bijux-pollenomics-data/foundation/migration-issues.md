@@ -28,4 +28,4 @@ risks if handled casually.
 
 ## Purpose
 
-This page records the migration risks that matter during the docs restructure.
+This page shows the migration risks that matter during the docs restructure.

@@ -21,4 +21,4 @@ The data tree moves through a repeatable refresh lifecycle.
 
 ## Purpose
 
-This page records the expected order of a tracked data refresh.
+This page shows the expected order of a tracked data refresh.

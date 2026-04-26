@@ -39,13 +39,13 @@ flowchart LR
 
 ## Start Here
 
-- use [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/) for the shortest
+- open [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/) for the shortest
   description of the tracked data model
-- use [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/) when the real question is file
+- open [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/) when the real question is file
   placement and ownership
-- use [Provenance Model](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/provenance-model/) before changing how upstream
+- open [Provenance Model](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/provenance-model/) before changing how upstream
   origin is represented
-- use [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) before renaming directories,
+- open [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) before renaming directories,
   moving files, or changing output expectations across the tree
 
 ## Pages In Foundation
@@ -60,15 +60,15 @@ flowchart LR
 - [Publication Linkage](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/publication-linkage/)
 - [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
 
-## Use This Section When
+## Open This Section When
 
 - the question is about the shared rules of the tracked data tree rather than
   one source family in isolation
-- you need to know how provenance, layout, naming, or publication linkage are
-  supposed to stay stable
+- you need to know how provenance, layout, naming, or publication linkage stay
+  stable
 - you are evaluating whether a data-layout change will create wide review cost
 
-## Move On When
+## Choose Another Section When
 
 - the real question is about one concrete upstream source and its caveats
 - you only need one normalized output family rather than the shared tree rules
@@ -87,12 +87,12 @@ flowchart LR
 
 ## Reader Takeaway
 
-This section is the stable rulebook for the tracked data tree. It should make
-the shape, provenance, and migration constraints visible before a reader drops
-into one source page or one published output family.
+This section is the stable rulebook for the tracked data tree. It makes the
+shape, provenance, and migration constraints visible before you drop into one
+source page or one published output family.
 
 ## What You Get
 
-Open this page when you need the shared layout, provenance, naming,
+Open this section when you need the shared layout, provenance, naming,
 coordinate, and migration route through the tracked data tree before you
 inspect one source family or one output bundle.

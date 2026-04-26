@@ -22,4 +22,4 @@ reviewable and more relevant to Nordic context.
 
 ## Purpose
 
-This page records the rules for adding or rejecting data sources.
+This page shows the rules for adding or rejecting data sources.
