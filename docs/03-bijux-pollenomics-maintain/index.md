@@ -24,9 +24,9 @@ GitHub automation?
 <div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This section shows the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
 
 <div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Open this branch for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
-  <div class="bijux-panel"><h3>Make System</h3><p>Open this branch to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
-  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Open this branch for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
+  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Open this section for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
+  <div class="bijux-panel"><h3>Make System</h3><p>Open this section to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
+  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Open this section for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
 </div>
 
 <div class="bijux-quicklinks">

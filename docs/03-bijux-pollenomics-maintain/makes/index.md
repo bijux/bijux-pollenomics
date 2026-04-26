@@ -100,5 +100,5 @@ flowchart LR
 
 Open `makes/` to understand the repository command contract: what a maintainer
 runs, which shared target fans out into package work, and where command
-behavior is intentionally centralized. Move to `gh-workflows/` when the real
+behavior is intentionally centralized. Open `gh-workflows/` when the real
 question is automation triggers rather than Make routing.
