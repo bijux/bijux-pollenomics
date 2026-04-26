@@ -48,26 +48,26 @@ flowchart LR
 
 ## Start Here
 
-- open [CLI Surface](cli-surface.md) for the operator-facing command contract
-- open [Artifact Contracts](artifact-contracts.md) when the public output files
+- use [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/) for the operator-facing command contract
+- use [Artifact Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/artifact-contracts/) when the public output files
   matter more than command syntax
-- open [Data Contracts](data-contracts.md) when the tracked `data/` tree is the
+- use [Data Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/data-contracts/) when the tracked `data/` tree is the
   real dependency
-- open [Compatibility Commitments](compatibility-commitments.md) before
+- use [Compatibility Commitments](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/compatibility-commitments/) before
   changing defaults, file names, or output shapes that other readers may have
   automated against
 
-## Pages In This Section
+## Pages In Interfaces
 
-- [CLI Surface](cli-surface.md)
-- [API Surface](api-surface.md)
-- [Configuration Surface](configuration-surface.md)
-- [Data Contracts](data-contracts.md)
-- [Artifact Contracts](artifact-contracts.md)
-- [Entrypoints and Examples](entrypoints-and-examples.md)
-- [Operator Workflows](operator-workflows.md)
-- [Public Imports](public-imports.md)
-- [Compatibility Commitments](compatibility-commitments.md)
+- [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/)
+- [API Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/api-surface/)
+- [Configuration Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/configuration-surface/)
+- [Data Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/data-contracts/)
+- [Artifact Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/artifact-contracts/)
+- [Entrypoints and Examples](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/)
+- [Operator Workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/operator-workflows/)
+- [Public Imports](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/public-imports/)
+- [Compatibility Commitments](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/compatibility-commitments/)
 
 ## Use This Section When
 
@@ -75,7 +75,7 @@ flowchart LR
 - a change may affect command behavior, tracked files, or docs-facing outputs
 - reviewers need a crisp answer about what counts as an interface change
 
-## Do Not Use This Section When
+## Move On When
 
 - the real question is why the package owns a behavior at all
 - you need structural layout or execution flow before you can judge a surface
@@ -108,13 +108,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- open [Foundation](../foundation/index.md) when the interface concern is
+- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the interface concern is
   really an ownership question
-- open [Architecture](../architecture/index.md) when the surface depends on
+- use [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the surface depends on
   deeper collection, helper, or reporting structure
-- open [Operations](../operations/index.md) when you need a repeatable workflow
+- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when you need a repeatable workflow
   for exercising or shipping the contract
-- open [Quality](../quality/index.md) when the real issue is whether the
+- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real issue is whether the
   documented surface is sufficiently defended
 
 ## Reader Takeaway
