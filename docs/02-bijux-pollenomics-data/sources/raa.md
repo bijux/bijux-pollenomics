@@ -20,4 +20,4 @@ interpretation.
 
 ## Purpose
 
-This page records the repository's current use of RAÄ data.
+This page shows the repository's current use of RAÄ data.
