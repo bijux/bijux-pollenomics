@@ -48,6 +48,3 @@ The repository environment is the reference setup. If a command behaves
 differently elsewhere, debug that environment difference before assuming the
 package contract changed.
 
-## Purpose
-
-This page shows the supported installation path for package work.
