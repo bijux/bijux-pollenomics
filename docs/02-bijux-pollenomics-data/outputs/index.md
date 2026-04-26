@@ -17,6 +17,29 @@ normalized repository-owned evidence files under `data/*/normalized/`,
 publication bundles under `docs/report/<country-slug>/`, and the shared Nordic
 atlas publication under `docs/report/nordic-atlas/`.
 
+## Outputs Model
+
+```mermaid
+flowchart TB
+    normalized["normalized evidence under data/*/normalized/"]
+    summary["collection summary and source summaries"]
+    reports["country report bundles"]
+    atlas["Nordic atlas bundle"]
+    reader["reader-facing outputs"]
+
+    normalized --> summary
+    normalized --> reports
+    normalized --> atlas
+    summary --> reports
+    summary --> atlas
+    reports --> reader
+    atlas --> reader
+```
+
+This section should help a reader distinguish repository-owned evidence layers
+from publication bundles immediately. If those surfaces blur together, every
+later question about review cost or output trust becomes harder to answer.
+
 ## Start Here
 
 - open [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/)
@@ -53,6 +76,12 @@ atlas publication under `docs/report/nordic-atlas/`.
   bundles
 - inspect `docs/report/nordic-atlas/` for the shared map bundle and supporting
   files
+
+## Design Pressure
+
+The easy failure is to describe every checked-in file as if it had the same
+review role, even though normalized evidence, country publications, and atlas
+assets carry different promises to the reader.
 
 ## Boundary Test
 
