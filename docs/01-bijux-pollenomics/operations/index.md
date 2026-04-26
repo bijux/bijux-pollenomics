@@ -19,27 +19,32 @@ repository and published on the docs site. A sloppy rerun can widen the review
 surface across `data/` and `docs/report/`, so the runtime needs clear,
 repeatable procedures rather than vague “just rerun it” habits.
 
+That is why this section matters even for readers who are not writing code.
+When a rebuild changes visible evidence, the procedure is part of the
+credibility story: which command was run, which files were expected to move,
+and which review surface must be inspected before the change is trusted.
+
 ```mermaid
 flowchart LR
     reader["reader question<br/>which procedure protects tracked outputs?"]
-    setup["bootstrap environment and dependencies"]
-    inspect["inspect sources and planned writes safely"]
-    rebuild["run controlled rebuild workflows"]
-    diagnose["diagnose collection and report failures"]
-    review["review data/ and docs/report/ diffs"]
-    release["prepare reviewed publication changes"]
+    setup["bootstrap environment<br/>and command entrypoints"]
+    inspect["inspect sources and<br/>planned writes safely"]
+    rebuild["run controlled rebuilds<br/>for data and reports"]
+    review["review data/ and<br/>docs/report/ diffs"]
+    publish["prepare reviewed<br/>publication changes"]
+    diagnose["diagnose collection,<br/>normalization, and report failures"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
     class reader page;
-    class setup,inspect,rebuild,review,release positive;
+    class setup,inspect,rebuild,review,publish positive;
     class diagnose caution;
     setup --> reader
     inspect --> reader
     rebuild --> reader
-    diagnose --> reader
     review --> reader
-    release --> reader
+    publish --> reader
+    diagnose --> reader
 ```
 
 ## Start Here
@@ -80,6 +85,15 @@ flowchart LR
 - you are still deciding whether a command or file layout counts as a contract
 - the issue is primarily about proof, review coverage, or unresolved risk
 
+## What This Section Clarifies
+
+- which operational path is safe for inspection versus state-changing rebuild
+  work
+- which commands widen the tracked review surface across `data/` and
+  `docs/report/`
+- which failure should send a reader into runtime diagnostics rather than into
+  provenance or automation docs
+
 ## Concrete Anchors
 
 - `src/bijux_pollenomics/command_line/runtime/handlers.py` for the operational
@@ -110,9 +124,3 @@ flowchart LR
 Use `Operations` to keep runtime work controlled, reviewable, and recoverable.
 If a procedure cannot explain how it protects tracked evidence outputs, it is
 not yet an operational practice this repository should rely on.
-
-## Purpose
-
-This page introduces the operational handbook for `bijux-pollenomics` and
-routes readers to the procedures that govern setup, rebuilds, diagnostics, and
-publication work.
