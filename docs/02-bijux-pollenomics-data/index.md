@@ -17,10 +17,10 @@ This section is for readers tracing where a layer comes from, what file family
 it lands in, how its provenance is preserved, or which migration hazards exist
 when the data layout changes.
 
-This section routes visible atlas layers back to the tracked files and source
-families that support them. It takes the question from "what am I looking at?"
-to "where did this come from, what was normalized, and which checked-in outputs
-can I inspect?"
+Use this handbook to trace visible atlas layers back to the tracked files and
+source families that support them. It takes the question from "what am I
+looking at?" to "where did this come from, what was normalized, and which
+checked-in outputs can I inspect?"
 
 <div class="bijux-callout"><strong>Follow the data from source to publication.</strong> This branch is where to verify source selection, normalization rules, output families, and the field evidence that anchors visible atlas points back to real collection work.</div>
 
