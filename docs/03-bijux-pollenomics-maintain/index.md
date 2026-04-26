@@ -16,6 +16,27 @@ It separates three enforcement layers that are easy to confuse: maintainer
 helper code under `packages/bijux-pollenomics-dev/`, shared command routing
 under `makes/`, and GitHub-triggered automation under `.github/workflows/`.
 
+## Maintainer Model
+
+```mermaid
+flowchart TB
+    policy["repository policy and release rules"]
+    helpers["bijux-pollenomics-dev helpers"]
+    make["make entrypoints and dispatch"]
+    workflows["GitHub workflows"]
+    review["repository health review"]
+
+    policy --> helpers
+    helpers --> make
+    helpers --> workflows
+    make --> review
+    workflows --> review
+```
+
+This handbook should make one thing legible immediately: repository-health
+rules do not live in prose alone. They become helper code, command routing, and
+workflow automation that together decide whether a change is safe to publish.
+
 ## Start Here
 
 - open [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
@@ -45,6 +66,12 @@ under `makes/`, and GitHub-triggered automation under `.github/workflows/`.
 - inspect `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/`
 - inspect `makes/root.mk`, `makes/packages.mk`, and `makes/publish.mk`
 - inspect `.github/workflows/`
+
+## Design Pressure
+
+The easy failure is to describe maintainer surfaces as three unrelated
+mechanisms, which hides how policy, local commands, and GitHub automation
+reinforce the same repository-health boundary.
 
 ## Boundary Test
 
