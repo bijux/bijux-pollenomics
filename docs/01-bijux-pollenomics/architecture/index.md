@@ -14,6 +14,24 @@ lives, how work moves through the package, and which seams must stay visible so
 collection, normalization, and publication do not collapse into one vague
 implementation blob.
 
+## Architecture Model
+
+```mermaid
+flowchart TB
+    command["command parsing and dispatch"]
+    collection["source collection modules"]
+    normalization["normalization pipeline"]
+    publication["report and atlas assembly"]
+    seams["integration seams stay visible"]
+
+    command --> collection
+    collection --> normalization
+    normalization --> publication
+    publication --> seams
+```
+
+This section should make the runtime shape visible before a reader opens code. If command flow, normalization, and publication still blur together here, the package structure is too implicit to defend in review.
+
 ## Start Here
 
 - open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) when the question starts from
@@ -53,6 +71,10 @@ implementation blob.
   `src/bijux_pollenomics/reporting/map_document/` for publication assembly
 - `src/bijux_pollenomics/reporting/context/` for the map-layer integration
   surface that joins normalized records to visible atlas output
+
+## Design Pressure
+
+The common drift is to explain modules one by one while never making the collect-normalize-publish chain structurally legible as one bounded system.
 
 ## Boundary Test
 
