@@ -9,32 +9,21 @@ last_reviewed: 2026-04-26
 
 # Architecture
 
-Open this section when the main question is how the runtime is put together:
-where command dispatch begins, where evidence collection branches by source
-family, and where report building turns tracked files into visible atlas and
-country outputs.
-
-This package only becomes trustworthy when a reader can follow the actual
-structural path from CLI to collector to report bundle without guessing. The
-goal here is not to list modules mechanically, but to make the execution seams
-and rewrite boundaries easy to see.
-
-That structural story is narrower than a generic application architecture
-diagram. The key reader question is where the repository chooses behavior:
-where commands are interpreted, where source families branch, where tracked
-files are rewritten, and where visible publication assets are assembled.
+This section answers the structural question quickly: where runtime behavior
+lives, how work moves through the package, and which seams must stay visible so
+collection, normalization, and publication do not collapse into one vague
+implementation blob.
 
 ## Start Here
 
-- open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) for the shortest code-level tour
-- open [Execution Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/execution-model/) when you need to trace the full
-  command-to-output path
-- open [Integration Seams](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/integration-seams/) when the handoff between CLI,
-  collection, and reporting is the real question
-- open [State and Persistence](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/state-and-persistence/) when tracked output
-  rewrites and staging boundaries are the hard part
+- open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) when the question starts from
+  filenames and module families
+- open [Execution Model](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/execution-model/) when the question is how a
+  command becomes tracked outputs
+- open [Integration Seams](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/integration-seams/) when the change may cross
+  into data, atlas, or maintainer ownership
 
-## Pages In This Section
+## Section Pages
 
 - [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/)
 - [Dependency Direction](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/dependency-direction/)
@@ -46,29 +35,14 @@ files are rewritten, and where visible publication assets are assembled.
 - [Code Navigation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/code-navigation/)
 - [Architecture Risks](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/architecture-risks/)
 
-## Open This Section When
-
-- you need to trace structural ownership before refactoring the runtime
-- you are checking where output-writing logic actually lives
-- you need to understand how command dispatch, source collection, and report
-  building stay separated
-
-## Open Another Section When
-
-- the question is mainly about public command syntax, file contracts, or
-  defaults
-- the issue is operational, such as rebuild workflow or release handling
-- you need proof, risk posture, or validation criteria more than structural
-  flow
-
-## What This Section Covers
+## What This Section Settles
 
 - where command parsing ends and source-specific collection logic begins
 - where data normalization hands off to publication assembly
 - where tracked repository rewrites happen, and therefore where structural
   mistakes create visible review noise first
 
-## Concrete Anchors
+## First Proof Check
 
 - `src/bijux_pollenomics/command_line/parsing/` and
   `src/bijux_pollenomics/command_line/runtime/` for CLI parsing and dispatch
@@ -80,20 +54,7 @@ files are rewritten, and where visible publication assets are assembled.
 - `src/bijux_pollenomics/reporting/context/` for the map-layer integration
   surface that joins normalized records to visible atlas output
 
-## Across This Package
+## Boundary Test
 
-- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the structural question is
-  really an ownership question
-- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when architecture reaches a public
-  command, config, or artifact contract
-- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when structure affects repeatable
-  rebuild or release workflows
-- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when you need proof that the documented
-  structure is still protected
-
-## Bottom Line
-
-Open this section to make the runtime flow legible enough that a reviewer
-can say where commands are parsed, where tracked data is rewritten, and where
-publication output is assembled. If that answer only works from private
-memory, the structure is still too implicit to maintain safely.
+If a structural explanation cannot identify the owning module family before a
+reader opens code, the runtime shape is already too implicit.
