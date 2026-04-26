@@ -20,5 +20,5 @@ Each supported source contributes a different kind of evidence.
 
 ## Purpose
 
-This page gives readers a quick way to compare why multiple source families are
+This page shows readers why multiple source families are
 tracked together.

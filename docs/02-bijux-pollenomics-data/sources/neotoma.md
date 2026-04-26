@@ -20,4 +20,4 @@ workspace.
 
 ## Purpose
 
-This page records the Neotoma contribution to the tracked context set.
+This page shows the Neotoma contribution to the tracked context set.
