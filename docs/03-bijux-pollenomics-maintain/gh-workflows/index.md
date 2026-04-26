@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # gh-workflows
 
-This section explains the GitHub Actions entrypoints and reusable building
-blocks that verify, release, and document the repository.
+Use this section to understand the GitHub Actions entrypoints and reusable
+building blocks that verify, release, and document the repository.
 
 Use these pages when you need to know which workflow starts on push, pull
 request, tag, or manual dispatch, and how that entrypoint fans out into
@@ -49,21 +49,21 @@ flowchart LR
 
 ## Start Here
 
-- open [verify](verify.md) when the question begins with a push, pull request,
+- use [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/) when the question begins with a push, pull request,
   or required-check failure
-- open [release-publication](release-publication.md) when a tag or published
+- use [release-publication](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/release-publication/) when a tag or published
   artifact did not behave as expected
-- open [deploy-docs](deploy-docs.md) when handbook publication from `main`
+- use [deploy-docs](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/deploy-docs/) when handbook publication from `main`
   failed or produced stale output
-- open [reusable-workflows](reusable-workflows.md) when the visible entrypoint
+- use [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/) when the visible entrypoint
   fans out into shared build jobs
 
-## Pages In This Section
+## Pages In gh-workflows
 
-- [verify](verify.md)
-- [release-publication](release-publication.md)
-- [deploy-docs](deploy-docs.md)
-- [reusable-workflows](reusable-workflows.md)
+- [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/)
+- [release-publication](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/release-publication/)
+- [deploy-docs](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/deploy-docs/)
+- [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/)
 
 ## Use This Section When
 
@@ -72,7 +72,7 @@ flowchart LR
 - you need to know whether automation is an entry workflow, a reusable job, or
   governance-only behavior
 
-## Do Not Use This Section When
+## Move On When
 
 - the real question is which local or CI Make target should be run
 - the problem is inside package code, data normalization, or atlas behavior
@@ -85,7 +85,7 @@ or a release trigger. The point of this section is to identify the automation
 owner quickly, then hand you off to the exact workflow page instead of making
 you reverse-engineer YAML from the repository root.
 
-## Purpose
+## What You Get
 
-Use this section to find the workflow file, trigger, and job tree behind a
-repository automation concern.
+This page gives you the route from a repository event to the workflow page
+that explains the owning trigger and job tree.

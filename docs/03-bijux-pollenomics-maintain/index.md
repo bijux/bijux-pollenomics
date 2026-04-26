@@ -30,9 +30,9 @@ Make entrypoints, or by GitHub automation?
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="gh-workflows/index/">Open workflow docs</a>
-  <a class="md-button" href="makes/root-entrypoints/">Open make entrypoints</a>
-  <a class="md-button" href="bijux-pollenomics-dev/release-support/">Open release support</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/">Open workflow docs</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/">Open make entrypoints</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/">Open release support</a>
 </div>
 
 ```mermaid
@@ -58,19 +58,19 @@ flowchart LR
 
 ## Start Here
 
-- open [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md) when repository
+- use [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/) when repository
   health is enforced by helper code, release guards, docs integrity, or schema
   checks
-- open [makes](makes/index.md) when the issue starts from a repository command
+- use [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/) when the issue starts from a repository command
   or from CI target routing
-- open [gh-workflows](gh-workflows/index.md) when the issue starts from a
+- use [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/) when the issue starts from a
   GitHub event, failed check suite, or publication trigger
 
-## Sections In This Handbook
+## Pages In This Handbook
 
-- [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
-- [makes](makes/index.md)
-- [gh-workflows](gh-workflows/index.md)
+- [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
+- [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/)
+- [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/)
 
 ## Use This Handbook When
 
@@ -79,7 +79,7 @@ flowchart LR
 - you need to know which shared surface owns a repository-health rule
 - the answer should stay above one product package boundary
 
-## Do Not Start Here When
+## Move On When
 
 - the real question is about runtime behavior, data provenance, or atlas
   publication semantics
