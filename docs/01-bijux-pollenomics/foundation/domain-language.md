@@ -4,13 +4,32 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Domain Language
 
 Use the package's own language consistently so code, docs, and review comments
 describe the same objects.
+
+```mermaid
+flowchart LR
+    source["source"]
+    raw["raw"]
+    normalized["normalized"]
+    report["report bundle"]
+    atlas["atlas"]
+    reader["shared review language"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class source,page raw;
+    class normalized,report,atlas,reader positive;
+    source --> raw --> normalized --> report
+    report --> atlas
+    normalized --> reader
+    report --> reader
+    atlas --> reader
+```
 
 ## Preferred Terms
 
@@ -27,6 +46,12 @@ describe the same objects.
 - avoid calling the package a service when it is a file-producing runtime
 - avoid using `database` for tracked file trees unless a real database exists
 - avoid naming speculative research outcomes as if they are current outputs
+
+## Reader Takeaway
+
+Stable language is not cosmetic. It prevents reviewers from confusing upstream
+material with normalized files, or confusing one published output bundle with
+the shared atlas.
 
 ## Purpose
 

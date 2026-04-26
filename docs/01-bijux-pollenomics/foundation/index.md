@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Foundation
@@ -15,6 +15,28 @@ absorbing.
 
 Use this section before changing module boundaries or public contracts. It is
 the place to confirm that a change still matches the package's intended role.
+
+```mermaid
+flowchart LR
+    overview["package overview"]
+    scope["scope and non-goals"]
+    ownership["ownership boundary"]
+    lifecycle["lifecycle overview"]
+    language["domain language"]
+    change["change principles"]
+    reader["reader question<br/>what should this package own?"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
+    class overview,page reader;
+    class scope,ownership,lifecycle,language,change positive;
+    overview --> reader
+    scope --> reader
+    ownership --> reader
+    lifecycle --> reader
+    language --> reader
+    change --> reader
+```
 
 ## Start Here
 
@@ -36,6 +58,13 @@ the place to confirm that a change still matches the package's intended role.
 - [Lifecycle Overview](lifecycle-overview.md)
 - [Dependencies and Adjacencies](dependencies-and-adjacencies.md)
 - [Change Principles](change-principles.md)
+
+## What This Section Should Answer
+
+- why the runtime package exists at all
+- which responsibilities belong inside the package and which belong elsewhere
+- which words, lifecycle steps, and review principles should stay stable across
+  future changes
 
 ## Purpose
 
