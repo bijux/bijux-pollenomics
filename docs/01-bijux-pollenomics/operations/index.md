@@ -21,22 +21,24 @@ repeatable procedures rather than vague “just rerun it” habits.
 
 ```mermaid
 flowchart LR
-    setup["bootstrap the runtime environment"]
-    inspect["inspect commands and inputs safely"]
+    reader["reader question<br/>which procedure protects tracked outputs?"]
+    setup["bootstrap environment and dependencies"]
+    inspect["inspect sources and planned writes safely"]
     rebuild["run controlled rebuild workflows"]
-    diagnose["diagnose output or source failures"]
+    diagnose["diagnose collection and report failures"]
+    review["review data/ and docs/report/ diffs"]
     release["prepare reviewed publication changes"]
-    reader["reader question<br/>which procedure protects the tracked outputs?"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class rebuild,page reader;
-    class setup,inspect,release positive;
+    class reader page;
+    class setup,inspect,rebuild,review,release positive;
     class diagnose caution;
     setup --> reader
     inspect --> reader
     rebuild --> reader
     diagnose --> reader
+    review --> reader
     release --> reader
 ```
 
@@ -51,6 +53,8 @@ flowchart LR
   has already diverged from the expected outputs
 - open [Release and Versioning](release-and-versioning.md) when the question is
   about tags, package artifacts, or release evidence
+- open [Deployment Boundaries](deployment-boundaries.md) before treating this
+  package like a long-running service or hidden background system
 
 ## Pages In This Section
 
@@ -75,6 +79,20 @@ flowchart LR
 - the real question is which package or module owns a behavior
 - you are still deciding whether a command or file layout counts as a contract
 - the issue is primarily about proof, review coverage, or unresolved risk
+
+## Concrete Anchors
+
+- `src/bijux_pollenomics/command_line/runtime/handlers.py` for the operational
+  entrypoints that trigger collection and reporting work
+- `src/bijux_pollenomics/data_downloader/pipeline/staging.py` and
+  `src/bijux_pollenomics/data_downloader/pipeline/summary_writer.py` for
+  controlled rewrite behavior
+- `src/bijux_pollenomics/reporting/bundles/staging.py` and
+  `src/bijux_pollenomics/reporting/bundles/published_reports.py` for
+  publication-facing output generation
+- `tests/regression/test_data_collector.py` and
+  `tests/regression/test_country_report.py` for the narrowest operational
+  backstops that defend reruns
 
 ## Read Across The Package
 
