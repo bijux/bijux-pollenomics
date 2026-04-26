@@ -68,7 +68,7 @@ flowchart LR
 - the question is about command contracts, shared variables, or how maintainers
   are expected to add new targets safely
 
-## Choose Another Section When
+## Open Another Section When
 
 - the real issue is inside package implementation, data semantics, or atlas
   publication behavior

@@ -77,7 +77,7 @@ flowchart LR
 - you need one stable page that routes from visible publication behavior back
   to the code and proof that support it
 
-## Choose Another Handbook When
+## Open Another Handbook When
 
 - the real question is already about source provenance rather than runtime
   behavior
@@ -85,7 +85,7 @@ flowchart LR
 - the real question is one atlas point or field visit rather than the runtime
   loop that published it
 
-## Published Handbook Pages
+## Pages In This Handbook
 
 - [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/)
 - [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/)

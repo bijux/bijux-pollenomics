@@ -73,7 +73,7 @@ flowchart LR
 - you already know the source family and only need one package behavior page
 - the question is about one field visit rather than the wider tracked data tree
 
-## What Readers Usually Need First
+## Start Here
 
 - upstream origin and provenance rules: [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
 - exact file families and publication bundles: [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)

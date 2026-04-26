@@ -68,7 +68,7 @@ flowchart LR
 - the concern is about schema drift, docs integrity, release support, security,
   or quality gates
 
-## Choose Another Section When
+## Open Another Section When
 
 - the real question is about runtime commands, data contracts, or atlas
   publication behavior

@@ -62,7 +62,7 @@ flowchart LR
   publication
 - you need the shortest honest explanation before reading deeper pages
 
-## Choose Another Page When
+## Open Another Page When
 
 - you already know the package purpose and need a precise ownership answer
 - the real question is structural, such as where a handler or renderer lives

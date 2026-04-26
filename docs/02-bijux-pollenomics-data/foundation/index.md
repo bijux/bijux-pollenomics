@@ -68,7 +68,7 @@ flowchart LR
   stable
 - you are evaluating whether a data-layout change will create wide review cost
 
-## Choose Another Section When
+## Open Another Section When
 
 - the real question is about one concrete upstream source and its caveats
 - you only need one normalized output family rather than the shared tree rules
