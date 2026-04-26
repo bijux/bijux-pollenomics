@@ -12,6 +12,28 @@ last_reviewed: 2026-04-26
 The package integrates across a small set of seams that have to stay explicit
 enough to review.
 
+## Seam Model
+
+```mermaid
+flowchart TB
+    cli["cli parsing"]
+    runtime["runtime handlers"]
+    collect["collection workflows"]
+    report["report bundle assembly"]
+    docs["tracked docs/report publication"]
+    apis["frozen api contracts"]
+
+    cli --> runtime
+    runtime --> collect
+    collect --> report
+    report --> docs
+    runtime --> apis
+```
+
+This page should help a reader see where assumptions are allowed to cross and
+where they must stop. The seams matter because they keep collection, reporting,
+docs publication, and frozen contracts reviewable as distinct surfaces.
+
 ## Main Seams
 
 - CLI parsing to runtime handlers
@@ -37,3 +59,8 @@ enough to review.
 - `data_downloader/contracts.py` and `data_downloader/data_layout.py`
 - `reporting/bundles/paths.py` and `reporting/map_document/`
 - `docs/report/`
+
+## Design Pressure
+
+The easy failure is to let seams disappear behind convenience imports, which
+usually makes later output drift much harder to explain.
