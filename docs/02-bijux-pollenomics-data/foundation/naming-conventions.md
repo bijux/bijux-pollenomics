@@ -9,7 +9,7 @@ last_reviewed: 2026-04-10
 
 # Naming Conventions
 
-Names in the data tree should stay descriptive, stable, and source-oriented.
+Names in the data tree stay descriptive, stable, and source-oriented.
 
 ## Rules
 
@@ -21,5 +21,5 @@ Names in the data tree should stay descriptive, stable, and source-oriented.
 
 ## Purpose
 
-This page records the naming rules that keep data paths understandable years
+This page shows the naming rules that keep data paths understandable years
 later.
