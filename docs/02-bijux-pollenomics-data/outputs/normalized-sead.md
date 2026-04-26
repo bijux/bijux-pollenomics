@@ -19,4 +19,4 @@ SEAD normalized outputs live under `data/sead/normalized/`.
 
 ## Purpose
 
-This page records the normalized SEAD output family.
+This page shows the normalized SEAD output family.

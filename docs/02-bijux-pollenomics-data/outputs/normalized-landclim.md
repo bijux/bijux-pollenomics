@@ -19,4 +19,4 @@ LandClim normalized outputs live under `data/landclim/normalized/`.
 
 ## Purpose
 
-This page records the normalized LandClim output family.
+This page shows the normalized LandClim output family.

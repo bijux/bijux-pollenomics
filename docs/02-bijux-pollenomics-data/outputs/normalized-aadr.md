@@ -20,4 +20,4 @@ runtime basis for country bundle and atlas publication.
 
 ## Purpose
 
-This page records the normalized and versioned AADR output family.
+This page shows the normalized and versioned AADR output family.

@@ -19,4 +19,4 @@ Neotoma normalized outputs live under `data/neotoma/normalized/`.
 
 ## Purpose
 
-This page records the normalized Neotoma output family.
+This page shows the normalized Neotoma output family.

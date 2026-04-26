@@ -20,4 +20,4 @@ and shared spatial framing.
 
 ## Purpose
 
-This page records the normalized boundary output family.
+This page shows the normalized boundary output family.
