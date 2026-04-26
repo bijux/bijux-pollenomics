@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Sources
 
-This section catalogs the supported upstream source families that feed the
-tracked data tree.
+Use this section to understand the supported upstream source families that feed
+the tracked data tree.
 
 This section should help a reader answer three practical questions quickly:
 which upstream family they are looking at, which caveats travel with that
@@ -38,25 +38,25 @@ flowchart LR
 
 ## Start Here
 
-- open one source page when reviewing one upstream family in isolation
-- open [Shared Normalization](shared-normalization.md) for rules that apply
+- use one source page when reviewing one upstream family in isolation
+- use [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for rules that apply
   across source families
-- open [Source Comparison](source-comparison.md) when deciding which source is
+- use [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) when deciding which source is
   relevant for one kind of atlas or report question
-- open [Refresh Policy](refresh-policy.md) before promising that a source can
+- use [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) before promising that a source can
   be refreshed cheaply or replayed identically
 
-## Pages In This Section
+## Pages In Sources
 
-- [AADR](aadr.md)
-- [Boundaries](boundaries.md)
-- [LandClim](landclim.md)
-- [Neotoma](neotoma.md)
-- [RAÄ](raa.md)
-- [SEAD](sead.md)
-- [Shared Normalization](shared-normalization.md)
-- [Source Comparison](source-comparison.md)
-- [Refresh Policy](refresh-policy.md)
+- [AADR](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/aadr/)
+- [Boundaries](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/boundaries/)
+- [LandClim](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/landclim/)
+- [Neotoma](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/neotoma/)
+- [RAÄ](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/raa/)
+- [SEAD](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/sead/)
+- [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/)
+- [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
+- [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
 
 ## Use This Section When
 
@@ -66,7 +66,7 @@ flowchart LR
 - you need to understand what normalization and refresh rules apply before
   downstream publication
 
-## Do Not Start Here When
+## Move On When
 
 - the real question is about one checked-in output family rather than its
   upstream origin
@@ -77,11 +77,11 @@ flowchart LR
 
 - `data/aadr/`, `data/landclim/`, `data/neotoma/`, `data/raa/`, and
   `data/sead/` for the tracked source families currently represented
-- [Shared Normalization](shared-normalization.md) for the common logic applied
+- [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for the common logic applied
   before source records become repository-owned outputs
-- [Source Comparison](source-comparison.md) for cross-family interpretation
+- [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) for cross-family interpretation
   rather than one-source detail
-- [Refresh Policy](refresh-policy.md) for the operational and trust limits of
+- [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) for the operational and trust limits of
   mutable upstream systems
 
 ## Reader Takeaway
@@ -90,7 +90,7 @@ This section is where source-specific uncertainty becomes explicit. It should
 help readers distinguish raw upstream behavior from the normalized, checked-in
 outputs they see later in the data and atlas pages.
 
-## Purpose
+## What You Get
 
-This page organizes the upstream source material that feeds the tracked data
-tree.
+This page gives you the route from one upstream family to the normalization,
+comparison, and refresh pages that explain what readers should trust about it.
