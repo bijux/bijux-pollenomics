@@ -13,14 +13,14 @@ last_reviewed: 2026-04-26
 normalized datasets, field documentation, and publication-facing output
 references.
 
-This section is for readers tracing where a layer comes from, what file family
-it lands in, how its provenance is preserved, or which migration hazards exist
-when the data layout changes.
+This handbook is for readers tracing where a layer comes from, what file
+family it lands in, how its provenance is preserved, or which migration
+hazards exist when the data layout changes.
 
-Use this handbook to trace visible atlas layers back to the tracked files and
-source families that support them. It takes the question from "what am I
-looking at?" to "where did this come from, what was normalized, and which
-checked-in outputs can I inspect?"
+This handbook traces visible atlas layers back to the tracked files and source
+families that support them. It takes the question from "what am I looking at?"
+to "where did this come from, what was normalized, and which checked-in
+outputs can I inspect?"
 
 <div class="bijux-callout"><strong>Follow the data from source to publication.</strong> This branch is where to verify source selection, normalization rules, output families, and the field evidence that anchors visible atlas points back to real collection work.</div>
 
@@ -65,6 +65,6 @@ checked-in outputs can I inspect?"
 
 ## Bottom Line
 
-This section moves from a visible publication surface back to the tracked
-evidence behind it. It is where data provenance becomes legible, not where
-package runtime behavior or maintainer automation is explained.
+Open this handbook when you need to move from a visible publication surface
+back to the tracked evidence behind it. It makes data provenance legible
+without trying to explain package runtime behavior or maintainer automation.
