@@ -9,25 +9,27 @@ last_reviewed: 2026-04-26
 
 # Sources
 
-Open this section when you need the supported upstream source families that
-feed the tracked data tree.
+This section defines the upstream source families that feed the tracked data
+tree.
 
-This section answers three practical questions quickly: which upstream family a
-reader is looking at, which caveats travel with that family, and which shared
-normalization rules apply before the data appears in the published atlas or
-reports.
+Each page answers three reader questions: what a source contributes, what it
+cannot prove on its own, and which checked-in outputs carry that source into
+the published atlas or reports.
 
 ## Start Here
 
-- open one source page when reviewing one upstream family in isolation
-- open [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for rules that apply
-  across source families
-- open [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) when deciding which source is
-  relevant for one kind of atlas or report question
-- open [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) before promising that a source can
-  be refreshed cheaply or replayed identically
+- open one source page when the question is about one upstream family and its
+  specific caveats
+- open [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/)
+  when the question is how different sources are narrowed into reviewable
+  repository-owned outputs
+- open [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
+  when the question starts from an atlas layer or report claim and you need to
+  know which source family can support it
+- open [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
+  before promising that an upstream refresh is cheap, replayable, or isolated
 
-## Pages In This Section
+## Section Pages
 
 - [AADR](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/aadr/)
 - [Boundaries](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/boundaries/)
@@ -39,34 +41,24 @@ reports.
 - [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
 - [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
 
-## Open This Section When
+## What This Section Settles
 
-- the question is about one upstream family and its caveats
-- you need to compare what different source families contribute to the atlas or
-  reports
-- you need to understand what normalization and refresh rules apply before
-  downstream publication
+- which upstream family supplies ancient DNA metadata, political boundaries,
+  pollen context, or archaeology context
+- which caveats stay attached to a source even after normalization
+- which source questions belong here instead of under output, atlas, runtime,
+  or fieldwork pages
 
-## Open Another Section When
+## First Proof Check
 
-- the real question is about one checked-in output family rather than its
-  upstream origin
-- the issue is about tracked data layout rather than source behavior
-- the concern belongs to package runtime commands or maintainer automation
+- inspect `data/aadr/`, `data/boundaries/`, `data/landclim/`, `data/neotoma/`,
+  `data/raa/`, and `data/sead/` to see which families are actually checked in
+- inspect the matching `data/*/normalized/` tree and
+  [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
+  when the question is about repository-owned files rather than upstream role
 
-## Concrete Anchors
+## Boundary Test
 
-- `data/aadr/`, `data/landclim/`, `data/neotoma/`, `data/raa/`, and
-  `data/sead/` for the tracked source families currently represented
-- [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for the common logic applied
-  before source records become repository-owned outputs
-- [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) for cross-family interpretation
-  rather than one-source detail
-- [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) for the operational and trust limits of
-  mutable upstream systems
-
-## Bottom Line
-
-Open this section when source-specific uncertainty needs to become explicit. It
-should help readers distinguish raw upstream behavior from the normalized,
-checked-in outputs they see later in the data and atlas pages.
+This section does not treat every visible atlas layer as equivalent evidence.
+It keeps upstream source behavior, normalization policy, and publication
+surfaces separate so the reader can see where a claim starts to widen.
