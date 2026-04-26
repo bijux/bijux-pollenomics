@@ -12,7 +12,7 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics` is the repository's runtime package for collecting tracked
 Nordic evidence layers and publishing reviewable report bundles from them.
 
-Start here when the question is about the package boundary rather than the
+Use this handbook when the question is about the package boundary rather than the
 repository as a whole: what code belongs in the runtime, which contracts are
 public, how data and reports move through the package, and which quality rules
 protect that behavior.
@@ -32,9 +32,9 @@ alone.
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="interfaces/entrypoints-and-examples/">Open command entrypoints</a>
-  <a class="md-button" href="operations/common-workflows/">Open common workflows</a>
-  <a class="md-button" href="quality/test-strategy/">Open test strategy</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/">Open command entrypoints</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/">Open common workflows</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/">Open test strategy</a>
 </div>
 
 ```mermaid
@@ -61,13 +61,13 @@ flowchart LR
 
 ## Start Here
 
-- open [Foundation](foundation/index.md) if the main question is what the
+- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) if the main question is what the
   runtime owns and where that boundary stops
-- open [Interfaces](interfaces/index.md) if you need the public command,
+- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) if you need the public command,
   configuration, tracked-file, or output-bundle contract
-- open [Operations](operations/index.md) if the immediate need is a repeatable
+- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) if the immediate need is a repeatable
   rebuild, diagnostic, or release workflow
-- open [Quality](quality/index.md) if you need the proof bar for a runtime
+- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
   change or for a visible atlas diff
 
 ## Use This Section When
@@ -78,7 +78,7 @@ flowchart LR
 - you need one stable page that routes from visible publication behavior back
   to the code and proof that support it
 
-## Do Not Use This Section When
+## Move On When
 
 - the real question is already about source provenance rather than runtime
   behavior
@@ -86,13 +86,13 @@ flowchart LR
 - the real question is one atlas point or field visit rather than the runtime
   loop that published it
 
-## Main Paths
+## Pages In This Handbook
 
-- [Foundation](foundation/index.md)
-- [Architecture](architecture/index.md)
-- [Interfaces](interfaces/index.md)
-- [Operations](operations/index.md)
-- [Quality](quality/index.md)
+- [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/)
+- [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/)
+- [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/)
+- [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/)
+- [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/)
 
 ## What This Package Owns
 
