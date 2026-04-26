@@ -15,6 +15,27 @@ Nordic Evidence Atlas.
 It ties one visible atlas point to one checked-in collection event with photo
 and video evidence stored in this repository.
 
+## Visit Evidence Model
+
+```mermaid
+flowchart TB
+    point["atlas point"]
+    record["visit metadata"]
+    photo["field photo"]
+    video["field video"]
+    claim["inspectable direct visit claim"]
+
+    point --> record
+    record --> photo
+    record --> video
+    photo --> claim
+    video --> claim
+```
+
+This page should let a reader verify one direct-evidence claim quickly: the
+published point corresponds to a real visit, on a real date, with repository
+media that can be inspected without leaving the docs surface.
+
 ## Visit Record
 
 - lake: Lyngsjön Lake
@@ -50,6 +71,12 @@ and video evidence stored in this repository.
 - the repository keeps direct media for that visit
 - the atlas can link to repository-owned field evidence instead of only to
   upstream database layers
+
+## Design Pressure
+
+The common failure is to read a documented visit as representative field
+coverage rather than what it really is: one inspectable anchor for one atlas
+point.
 
 ## Boundary
 
