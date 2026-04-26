@@ -35,7 +35,7 @@ rather than accidental byproducts.
   changing defaults, file names, or output shapes that other readers may have
   automated against
 
-## Published Interface Pages
+## Pages In This Section
 
 - [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/)
 - [API Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/api-surface/)
@@ -84,7 +84,7 @@ rather than accidental byproducts.
 - `tests/e2e/test_cli.py` and `tests/regression/test_repository_contracts.py`
   for interface-facing proof
 
-## Read Across The Package
+## Across This Package
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the interface concern is
   really an ownership question
@@ -97,7 +97,7 @@ rather than accidental byproducts.
 
 ## Bottom Line
 
-Open `Interfaces` to separate stable runtime contracts from whatever merely
+Open this section to separate stable runtime contracts from whatever merely
 happens to be visible in the implementation today. If a dependency cannot be
 defended in terms of named commands, defaults, file layouts, artifacts,
 examples, and tests, it is not yet an honest public surface for this
