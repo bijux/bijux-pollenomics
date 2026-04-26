@@ -14,6 +14,22 @@ data and tracked publication artifacts. It does not own source provenance
 policy, repository-health automation, or the interpretation limits of one
 published map layer.
 
+## Boundary Model
+
+```mermaid
+flowchart TB
+    runtime["runtime owns collect normalize publish behavior"]
+    data["data handbook owns provenance policy"]
+    maintain["maintainer handbook owns repository-health automation"]
+    evidence["atlas and fieldwork pages own interpretation limits"]
+
+    runtime --> data
+    runtime --> maintain
+    runtime --> evidence
+```
+
+This page should make the ownership line visible enough that a reader can stop a change before it leaks into neighboring handbooks. If the runtime has to explain provenance policy or interpretation to justify itself, the boundary has already moved.
+
 ## Runtime-Owned Questions
 
 - how commands collect, normalize, and publish tracked evidence
@@ -41,6 +57,10 @@ One atlas point can force three different questions at once:
 - `src/bijux_pollenomics/reporting/`
 - `docs/02-bijux-pollenomics-data/`
 - `docs/03-bijux-pollenomics-maintain/`
+
+## Design Pressure
+
+The common failure is to treat one visible atlas point as one ownership problem, even though provenance, rebuild logic, and interpretation belong to different surfaces on purpose.
 
 ## Boundary Test
 
