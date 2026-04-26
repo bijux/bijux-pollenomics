@@ -10,24 +10,7 @@ last_reviewed: 2026-04-26
 # Test Strategy
 
 `bijux-pollenomics` uses layered tests so command behavior, file contracts, and
-source-specific transformations can fail close to the defect. The goal is not
-to accumulate test volume. The goal is to prove the exact runtime surface that a
-change risks disturbing.
-
-```mermaid
-flowchart LR
-    unit["unit tests for helpers, parsers, and focused transforms"]
-    regression["regression tests for repository and output contracts"]
-    e2e["end-to-end tests for CLI flows"]
-    change["reader question<br/>which proof layer matches this change?"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class unit,page change;
-    class regression,e2e positive;
-    unit --> change
-    regression --> change
-    e2e --> change
-```
+source-specific transformations can fail close to the defect.
 
 ## Current Layers
 
@@ -57,31 +40,8 @@ flowchart LR
 - `tests/regression/test_repository_contracts.py` protects repository and docs
   assumptions that should not drift unnoticed
 
-## Strategy Rule
+## First Proof Check
 
-Add the narrowest test that proves the contract you are changing, then widen to
-regression or end-to-end coverage only when the package boundary itself is what
-changed.
-
-## Open This Page When
-
-- you need to decide which test suite should move with a runtime change
-- a review asks for stronger proof and you need to justify the next layer
-- a diff touches `data/`, `docs/report/`, or command behavior and the right
-  validation is not obvious
-
-## Common Mistakes
-
-- jumping straight to end-to-end tests when a precise unit or regression check
-  would prove the same contract more cleanly
-- adding unit tests for behavior that is only meaningful as a tracked output or
-  repository-level contract
-- treating generated evidence diffs as self-validating instead of pairing them
-  with explicit tests
-
-## Bottom Line
-
-More test layers are not automatically better. The honest goal is the smallest
-proof surface that still matches the real contract risk and leaves reviewers
-with a believable explanation for the change.
-
+- `tests/unit/`
+- `tests/regression/`
+- `tests/e2e/test_cli.py`
