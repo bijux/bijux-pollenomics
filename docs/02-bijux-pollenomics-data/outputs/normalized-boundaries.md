@@ -11,6 +11,24 @@ last_reviewed: 2026-04-26
 
 Boundary outputs live under `data/boundaries/normalized/`.
 
+## Boundary Output Model
+
+```mermaid
+flowchart TB
+    upstream["boundary source geometry"]
+    normalized["normalized Nordic boundaries"]
+    framing["country filtering and framing"]
+    publication["reports and atlas views"]
+
+    upstream --> normalized
+    normalized --> framing
+    framing --> publication
+```
+
+This page should show why boundary files matter even though they are not the
+main scientific evidence. They define the spatial frame that keeps report and
+atlas publication readable and reviewable.
+
 ## What This Output Family Carries
 
 - stable country geometry used by reports and the atlas
@@ -28,3 +46,9 @@ ancient DNA, pollen, or archaeology layers.
 - inspect `data/boundaries/normalized/nordic_country_boundaries.geojson`
 - compare with [Boundaries](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/boundaries/)
   when the question is about upstream framing logic
+
+## Design Pressure
+
+The easy failure is to treat boundaries as neutral backdrop only, even though a
+changed framing layer can silently alter how readers interpret every other
+mapped surface.
