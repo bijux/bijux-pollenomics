@@ -13,6 +13,24 @@ Published artifacts are part of the package contract because they are checked
 in and reviewed like code. Readers encounter them as the country bundles and
 the atlas itself, not as disposable build leftovers.
 
+## Artifact Contract Model
+
+```mermaid
+flowchart TB
+    runtime["reporting runtime"]
+    bundles["country and atlas bundles"]
+    assets["summaries, geojson, and map assets"]
+    reader["reader-facing publication surface"]
+
+    runtime --> bundles
+    bundles --> assets
+    assets --> reader
+```
+
+This page should make artifact contracts feel like reviewed publication
+surfaces. The key point is that broken bundle shape or missing assets are
+contract failures, not cosmetic output glitches.
+
 ## Main Artifact Families
 
 - country bundles under `docs/report/<country-slug>/`
@@ -37,3 +55,9 @@ the atlas itself, not as disposable build leftovers.
 - `src/bijux_pollenomics/reporting/rendering/`
 - `tests/unit/test_reporting_artifacts.py`
 - `tests/regression/test_country_report.py`
+
+## Design Pressure
+
+The easy failure is to treat published artifacts like disposable build output,
+which makes path, file-shape, and asset regressions harder to catch before they
+land in the reader experience.
