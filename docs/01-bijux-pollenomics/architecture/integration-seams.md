@@ -47,6 +47,3 @@ runtime, the package becomes harder to rebuild and harder to review honestly.
 The seams are where architecture debt first becomes visible. Protecting them is
 less about neatness and more about preserving honest rebuild boundaries.
 
-## Purpose
-
-This page identifies the high-value seams maintainers should protect.

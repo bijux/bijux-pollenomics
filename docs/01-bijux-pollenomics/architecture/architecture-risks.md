@@ -54,6 +54,3 @@ flowchart TD
 - a proposed refactor looks structurally tidy but may widen review cost
 - an output rename or boundary shift would affect many tracked surfaces at once
 
-## Purpose
-
-This page shows the structural risks that stay in view during package changes.
