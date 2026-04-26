@@ -37,13 +37,13 @@ flowchart LR
 
 ## Start Here
 
-- use [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/) for the shortest overview of
+- open [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/) for the shortest overview of
   what is currently checked in
-- use [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) when the question is about the
+- open [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) when the question is about the
   country bundles rather than intermediate normalized files
-- use [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/) when the question starts from the
+- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/) when the question starts from the
   map rather than from a source family
-- use [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/) or another source
+- open [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/) or another source
   family page when the issue is already narrowed to one checked-in file family
 
 ## Pages In Outputs
@@ -58,7 +58,7 @@ flowchart LR
 - [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/)
 - [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to inspect one checked-in output family directly
 - you want to know whether a file is a normalized input, a publication bundle,
@@ -66,7 +66,7 @@ flowchart LR
 - the question starts from repository-owned outputs rather than from upstream
   sources
 
-## Move On When
+## Choose Another Section When
 
 - the real question is about source caveats before normalization
 - the issue is about the tracked data tree rules rather than one output family
@@ -85,12 +85,12 @@ flowchart LR
 
 ## Reader Takeaway
 
-This section is where publication-facing files become concrete. It should help
+This section is where publication-facing files become concrete. It helps
 readers distinguish intermediate normalized evidence from the country bundles
 and atlas surfaces that the site exposes publicly.
 
 ## What You Get
 
-Open this page when you need the route from one checked-in output family to
+Open this section when you need the route from one checked-in output family to
 the page that explains whether it is intermediate evidence, a published
 bundle, or the atlas surface itself.

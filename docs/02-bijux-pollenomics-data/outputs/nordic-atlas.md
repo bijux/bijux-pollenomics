@@ -20,4 +20,4 @@ The shared atlas bundle lives under `docs/report/nordic-atlas/`.
 
 ## Purpose
 
-This page records the output family for the shared Nordic atlas.
+This page shows the output family for the shared Nordic atlas.

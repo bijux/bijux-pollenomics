@@ -26,4 +26,4 @@ into human-readable report artifacts.
 
 ## Purpose
 
-This page records the role of the current published country bundles.
+This page shows the role of the current published country bundles.
