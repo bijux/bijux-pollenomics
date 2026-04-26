@@ -31,9 +31,9 @@ which checked-in outputs can I inspect?"
 </div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="outputs/nordic-atlas/">Open atlas outputs</a>
-  <a class="md-button" href="sources/source-comparison/">Compare source families</a>
-  <a class="md-button" href="../04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/">Open atlas outputs</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/">Compare source families</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
 </div>
 
 ```mermaid
@@ -53,12 +53,12 @@ flowchart LR
     field --> atlas
 ```
 
-## Main Paths
+## Pages In This Handbook
 
-- [Foundation](foundation/index.md)
-- [Sources](sources/index.md)
-- [Outputs](outputs/index.md)
-- [Fieldwork](../04-fieldwork/index.md)
+- [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
+- [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
+- [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
+- [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 
 ## Use This Section When
 
@@ -67,7 +67,7 @@ flowchart LR
 - the question is about tracked data provenance rather than package code or
   repository automation
 
-## Do Not Start Here When
+## Move On When
 
 - the real question is about runtime commands, tests, or release tooling
 - you already know the source family and only need one package behavior page
@@ -75,10 +75,10 @@ flowchart LR
 
 ## What Readers Usually Need First
 
-- upstream origin and provenance rules: [Sources](sources/index.md)
-- exact file families and publication bundles: [Outputs](outputs/index.md)
-- checked-in field evidence and media: [Fieldwork](../04-fieldwork/index.md)
-- layout and migration constraints: [Foundation](foundation/index.md)
+- upstream origin and provenance rules: [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
+- exact file families and publication bundles: [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
+- checked-in field evidence and media: [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
+- layout and migration constraints: [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
 
 ## Reader Takeaway
 
@@ -86,7 +86,7 @@ This section should help a reader move from a visible publication surface back
 to the tracked evidence behind it. It is where data provenance becomes legible,
 not where package runtime behavior or maintainer automation is explained.
 
-## Purpose
+## What You Get
 
-Use this page to choose the right data-reference branch before reviewing one
-source family or one output contract in detail.
+This page gives you the route from a visible atlas layer to the source,
+output, fieldwork, or shared-tree page that explains it in detail.
