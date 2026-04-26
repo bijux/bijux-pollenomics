@@ -24,29 +24,6 @@ When a rebuild changes visible evidence, the procedure is part of the
 credibility story: which command was run, which files were expected to move,
 and which review surface must be inspected before the change is trusted.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>which procedure protects tracked outputs?"]
-    setup["bootstrap environment<br/>and command entrypoints"]
-    inspect["inspect sources and<br/>planned writes safely"]
-    rebuild["run controlled rebuilds<br/>for data and reports"]
-    review["review data/ and<br/>docs/report/ diffs"]
-    publish["prepare reviewed<br/>publication changes"]
-    diagnose["diagnose collection,<br/>normalization, and report failures"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class reader page;
-    class setup,inspect,rebuild,review,publish positive;
-    class diagnose caution;
-    setup --> reader
-    inspect --> reader
-    rebuild --> reader
-    review --> reader
-    publish --> reader
-    diagnose --> reader
-```
-
 ## Start Here
 
 - open [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/) for environment and

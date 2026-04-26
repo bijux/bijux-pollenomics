@@ -23,29 +23,6 @@ works. It is also about whether a visible atlas change, a country-report diff,
 or a shifted data layout can still be explained with enough named evidence that
 reviewers do not have to guess what changed or why it is acceptable.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what makes this runtime change believable?"]
-    tests["pick the narrowest<br/>meaningful test layer"]
-    invariants["defend stable truths<br/>about data and reports"]
-    outputs["check data/ and atlas-facing<br/>output consequences"]
-    docs["update docs when public<br/>behavior moves"]
-    risks["name limits and remaining<br/>uncertainty"]
-    validation["run change-shaped validation"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class reader page;
-    class tests,validation,invariants,docs,outputs positive;
-    class risks caution;
-    tests --> reader
-    invariants --> reader
-    outputs --> reader
-    docs --> reader
-    risks --> reader
-    validation --> reader
-```
-
 ## Start Here
 
 - open [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) for the proof structure across unit,

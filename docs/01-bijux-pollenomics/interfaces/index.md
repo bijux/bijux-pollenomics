@@ -24,28 +24,6 @@ are stable enough to run, which tracked files are safe to automate against,
 and which atlas-facing outputs are treated as real publication contracts
 rather than accidental byproducts.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what can I safely depend on?"]
-    cli["CLI flags, subcommands,<br/>and defaults"]
-    config["config.py defaults<br/>and repository paths"]
-    data["tracked data layout contracts<br/>normalized files under data/"]
-    artifacts["country bundles and atlas artifacts<br/>published under docs/report/"]
-    imports["public imports and examples"]
-    compat["compatibility commitments"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class config,data,artifacts,imports,compat positive;
-    class cli positive;
-    cli --> reader
-    config --> reader
-    data --> reader
-    artifacts --> reader
-    imports --> reader
-    compat --> reader
-```
-
 ## Start Here
 
 - open [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/) for the operator-facing command contract
