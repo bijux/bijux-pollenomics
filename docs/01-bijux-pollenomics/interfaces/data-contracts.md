@@ -44,7 +44,7 @@ flowchart LR
 Renaming source directories or normalized filenames is a high-friction change.
 It ripples into docs, report publishing, tests, and reviewer expectations.
 
-## Use This Page When
+## Open This Page When
 
 - a change touches `data/` layout or normalized filenames
 - reviewers need to decide whether a file move is an interface change

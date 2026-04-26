@@ -58,7 +58,7 @@ flowchart LR
 - [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
 - [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
 
-## Use This Section When
+## Open This Section When
 
 - the question is about one upstream family and its caveats
 - you need to compare what different source families contribute to the atlas or
@@ -66,7 +66,7 @@ flowchart LR
 - you need to understand what normalization and refresh rules apply before
   downstream publication
 
-## Move On When
+## Open Another Section When
 
 - the real question is about one checked-in output family rather than its
   upstream origin

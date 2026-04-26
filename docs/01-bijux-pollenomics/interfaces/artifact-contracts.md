@@ -54,13 +54,13 @@ flowchart LR
 - `reporting/rendering/`
 - `reporting/map_document/`
 
-## Use This Page When
+## Open This Page When
 
 - a change alters output paths, slugs, file names, or report bundle contents
 - reviewers need to know whether a docs/report diff is a contract change
 - a renderer or publisher change may affect the files the website consumes
 
-## Do Not Use This Page When
+## Open Another Page When
 
 - the real concern is command syntax rather than published file outputs
 - you need package ownership or module layout before judging the contract

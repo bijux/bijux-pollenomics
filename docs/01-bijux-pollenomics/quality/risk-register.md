@@ -42,7 +42,7 @@ flowchart TD
 - preserve output naming rules in one place
 - require docs and tests to move with public contract changes
 
-## Use This Page When
+## Open This Page When
 
 - a proposal is valid but raises operational or review risk that should be
   documented explicitly

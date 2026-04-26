@@ -47,7 +47,7 @@ flowchart LR
 Repository-level API expectations are pinned under `apis/bijux-pollenomics/v1/`
 with `schema.yaml`, `pinned_openapi.json`, and `schema.hash`.
 
-## Use This Page When
+## Open This Page When
 
 - someone needs the list of supported importable workflows
 - an API-facing change may require schema and caller updates

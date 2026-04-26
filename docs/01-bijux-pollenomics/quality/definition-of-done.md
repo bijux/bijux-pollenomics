@@ -41,7 +41,7 @@ flowchart LR
 - a source or report contract moved without matching test coverage
 - a convenience shortcut blurred package and maintenance ownership
 
-## Use This Page When
+## Open This Page When
 
 - a change looks complete technically but may still be incomplete for review
 - a pull request needs a shared closure standard before merge

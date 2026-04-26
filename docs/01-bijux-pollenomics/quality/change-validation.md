@@ -40,7 +40,7 @@ flowchart LR
 When a change spans code and tracked artifacts, validation is not complete until
 both the executable checks and the resulting file diffs make sense together.
 
-## Use This Page When
+## Open This Page When
 
 - the right validation depth is unclear
 - a change affects both code and checked-in outputs

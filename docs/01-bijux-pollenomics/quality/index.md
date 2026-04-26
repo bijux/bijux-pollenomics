@@ -71,13 +71,13 @@ flowchart LR
 - [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/)
 - [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to choose validation that matches a concrete runtime change
 - reviewers need to know what evidence should accompany a data or report diff
 - the package may still work locally, but the repository needs stronger proof
 
-## Move On When
+## Open Another Section When
 
 - the question is mainly how to run the package rather than how to prove it
 - you need package purpose or ownership boundaries before choosing evidence

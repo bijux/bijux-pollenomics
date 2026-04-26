@@ -73,13 +73,13 @@ flowchart LR
 - [Security and Safety](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/security-and-safety/)
 - [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/)
 
-## Use This Section When
+## Open This Section When
 
 - you need a repeatable procedure for collecting, reporting, or publishing
 - you need to minimize review noise while still regenerating evidence
 - a failure needs diagnosis without guessing which layer owns the repair
 
-## Move On When
+## Open Another Section When
 
 - the real question is which package or module owns a behavior
 - you are still deciding whether a command or file layout counts as a contract
