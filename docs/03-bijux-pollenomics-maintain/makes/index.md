@@ -96,7 +96,7 @@ flowchart LR
   `makes/packages/bijux-pollenomics-dev.mk` for package-specific command
   profiles
 
-## Core Point
+## Bottom Line
 
 Open `makes/` to understand the repository command contract: what a maintainer
 runs, which shared target fans out into package work, and where command

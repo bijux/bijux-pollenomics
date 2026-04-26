@@ -119,7 +119,7 @@ flowchart LR
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the real question is what evidence
   should be gathered before or after a rerun
 
-## Core Point
+## Bottom Line
 
 Use `Operations` to keep runtime work controlled, reviewable, and recoverable.
 If a procedure cannot explain how it protects tracked evidence outputs, it is

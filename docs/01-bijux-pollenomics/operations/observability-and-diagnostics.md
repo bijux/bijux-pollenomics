@@ -40,7 +40,7 @@ flowchart LR
 - inspect whether `data/` or `docs/report/` changed unexpectedly
 - compare the affected output family with the corresponding tests
 
-## Core Point
+## Bottom Line
 
 Diagnosis starts with the observable repository surfaces the package already
 produces. You should not need hidden runtime telemetry to explain most failures.

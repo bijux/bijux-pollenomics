@@ -78,7 +78,7 @@ flowchart LR
 - the problem is inside package code, data normalization, or atlas behavior
 - you are looking for end-user product docs rather than repository automation
 
-## Core Point
+## Bottom Line
 
 Open `gh-workflows/` when the issue starts with a GitHub event, a check suite,
 or a release trigger. The point of this section is to identify the automation

@@ -84,7 +84,7 @@ flowchart LR
 - [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) for the operational and trust limits of
   mutable upstream systems
 
-## Core Point
+## Bottom Line
 
 This section is where source-specific uncertainty becomes explicit. It should
 help readers distinguish raw upstream behavior from the normalized, checked-in
