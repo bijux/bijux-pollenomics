@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # gh-workflows
 
-Use this section to understand the GitHub Actions entrypoints and reusable
-building blocks that verify, release, and document the repository.
+This section is for readers who need the GitHub Actions entrypoints and
+reusable building blocks that verify, release, and document the repository.
 
-Use these pages when you need to know which workflow starts on push, pull
+Open these pages when you need to know which workflow starts on push, pull
 request, tag, or manual dispatch, and how that entrypoint fans out into
 repository checks, package jobs, or documentation publication.
 
@@ -80,12 +80,12 @@ flowchart LR
 
 ## Reader Takeaway
 
-Use `gh-workflows/` when the issue starts with a GitHub event, a check suite,
+Open `gh-workflows/` when the issue starts with a GitHub event, a check suite,
 or a release trigger. The point of this section is to identify the automation
 owner quickly, then hand you off to the exact workflow page instead of making
 you reverse-engineer YAML from the repository root.
 
 ## What You Get
 
-This page gives you the route from a repository event to the workflow page
-that explains the owning trigger and job tree.
+Open this page when you need the route from a repository event to the workflow
+page that explains the owning trigger and job tree.

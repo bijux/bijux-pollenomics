@@ -25,5 +25,5 @@ so the Actions UI shows which package and check ran.
 
 ## Purpose
 
-Use this page to see which workflows are building blocks and which top-level
+This page shows which workflows are building blocks and which top-level
 workflows call them.

@@ -21,5 +21,5 @@ and `lint` jobs.
 
 ## Purpose
 
-Use this page to understand when verification runs and how it branches from
-repository checks into package-level jobs.
+This page shows when verification runs and how it branches from repository
+checks into package-level jobs.
