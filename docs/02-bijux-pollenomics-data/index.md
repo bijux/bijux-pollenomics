@@ -9,26 +9,12 @@ last_reviewed: 2026-04-26
 
 # bijux-pollenomics-data
 
-`bijux-pollenomics-data` is the handbook root for tracked source inputs,
-normalized datasets, field documentation, and publication-facing output
-references.
+`bijux-pollenomics-data` is the provenance and output handbook for the tracked
+evidence tree. Open it when the real question is where a visible layer came
+from, what was normalized, which file family became authoritative, or how a
+layout change would ripple through the repository.
 
-This handbook is for readers tracing where a layer comes from, what file
-family it lands in, how its provenance is preserved, or which migration
-hazards exist when the data layout changes.
-
-This handbook traces visible atlas layers back to the tracked files and source
-families that support them. It takes the question from "what am I looking at?"
-to "where did this come from, what was normalized, and which checked-in
-outputs can I inspect?"
-
-<div class="bijux-callout"><strong>Follow the data from source to publication.</strong> This branch is where to verify source selection, normalization rules, output families, and the field evidence that anchors visible atlas points back to real collection work.</div>
-
-<div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Sources</h3><p>Start here when the question is about upstream origin, refresh policy, coordinate handling, or source-specific caveats.</p></div>
-  <div class="bijux-panel"><h3>Outputs</h3><p>Open this section to inspect normalized file families, report bundles, and the Nordic atlas publication surfaces.</p></div>
-  <div class="bijux-panel"><h3>Fieldwork</h3><p>Open this section when a visible point or media artifact needs to be tied back to one concrete collection visit.</p></div>
-</div>
+<div class="bijux-callout"><strong>Follow the evidence from source to tracked file to published surface.</strong> This branch explains source selection, normalization rules, output families, and the narrow fieldwork record that anchors one visible map point to a real visit.</div>
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/">Open atlas outputs</a>
@@ -36,35 +22,35 @@ outputs can I inspect?"
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
 </div>
 
-## Pages In This Handbook
+## Section Pages
 
 - [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
 - [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
 - [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
 - [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 
-## Open This Section When
-
-- you need to trace one atlas or report layer back to its source family
-- you need to understand what was normalized before publication
-- the question is about tracked data provenance rather than package code or
-  repository automation
-
-## Open Another Section When
-
-- the real question is about runtime commands, tests, or release tooling
-- you already know the source family and only need one package behavior page
-- the question is about one field visit rather than the wider tracked data tree
-
 ## Start Here
 
-- upstream origin and provenance rules: [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
+- upstream origin, caveats, and refresh limits: [Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
 - exact file families and publication bundles: [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
-- checked-in field evidence and media: [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
-- layout and migration constraints: [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
+- tracked tree rules and migration cost: [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
+- one direct visit record behind a mapped point: [Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/)
 
-## Bottom Line
+## What This Handbook Settles
 
-Open this handbook when you need to move from a visible publication surface
-back to the tracked evidence behind it. It makes data provenance legible
-without trying to explain package runtime behavior or maintainer automation.
+- where a visible layer came from
+- what normalization happened before publication
+- which tracked files support the atlas or country bundles
+- which layout changes would create wide migration cost
+
+## First Proof Check
+
+- `data/`
+- `docs/report/`
+- `docs/04-fieldwork/`
+
+## Boundary Test
+
+If a question is really about runtime commands, repository automation, or the
+meaning of one published atlas point, this handbook should route the reader out
+instead of answering too broadly.
