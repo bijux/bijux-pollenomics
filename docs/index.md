@@ -17,9 +17,9 @@ pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
 Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
 boundaries.
 
-This page gives you four things quickly: what the repository publishes today,
-where the visible layers come from, which code rebuilds them, and where the
-documentation stops making claims.
+This page shows what the repository publishes today, where the visible layers
+come from, which code rebuilds them, and where the documentation stops making
+claims.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -44,7 +44,7 @@ documentation stops making claims.
 <!-- bijux-pollenomics-badges:generated:end -->
 
 <div class="bijux-callout">
-  <strong>Start with the atlas, then branch by question.</strong> The rest of the site exists to answer what the repository publishes, where each visible layer originates, which commands rebuild it, and which limits remain deliberate.
+  <strong>Start with the atlas, then branch by question.</strong> Use the rest of the site to verify what the repository publishes, where each visible layer originates, which commands rebuild it, and which limits remain deliberate.
 </div>
 
 <div class="bijux-panel-grid">
@@ -88,8 +88,9 @@ Open the path that matches what you need right now:
   [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
 - reviewing CI, release, docs, and make-system maintenance rules: open
   [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
-- inspecting the current visible publication first: open the embedded atlas and
-  the published atlas row plus the checked-in `docs/report/` bundles
+- inspecting the current visible publication first: open the
+  [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/)
+  and the checked-in `docs/report/` bundles
 
 ## Fieldwork Evidence
 
