@@ -11,6 +11,26 @@ last_reviewed: 2026-04-26
 
 Upstream refreshes are deliberate repository events, not background churn.
 
+## Refresh Model
+
+```mermaid
+flowchart TB
+    reason["clear repository reason"]
+    source["source refresh"]
+    normalized["normalized tree changes"]
+    publication["report and atlas changes"]
+    review["visible review surface"]
+
+    reason --> source
+    source --> normalized
+    normalized --> publication
+    publication --> review
+```
+
+This page should frame refreshes as evidence events with publication impact,
+not as invisible maintenance. A source refresh only stays safe when the reader
+can still follow the change from upstream movement to checked-in outputs.
+
 ## Policy
 
 - refresh a source only when there is a clear repository reason
@@ -32,3 +52,9 @@ Upstream refreshes are deliberate repository events, not background churn.
 - inspect the matching `data/*/normalized/` trees and `docs/report/` outputs
 - open [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
   when the question becomes which checked-in publication surfaces changed
+
+## Design Pressure
+
+The common failure is to treat refreshes as background upkeep, which hides the
+fact that mutable upstream systems can widen directly into visible atlas and
+report changes inside one repository revision.
