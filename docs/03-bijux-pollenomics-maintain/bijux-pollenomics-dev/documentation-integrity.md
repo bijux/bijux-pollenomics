@@ -24,6 +24,3 @@ workflow surfaces.
 The repository keeps browser icon sources under `docs/assets/site-icons/` and
 follows the shared Bijux docs theme contract for favicon configuration.
 
-## Purpose
-
-This page explains where repository documentation integrity support lives.

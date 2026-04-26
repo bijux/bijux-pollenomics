@@ -17,6 +17,3 @@ LandClim contributes Nordic pollen sequence and REVEALS-related context.
 - provides grid-cell style spatial context for atlas interpretation
 - enriches the publication surface beyond aDNA-only views
 
-## Purpose
-
-This page shows the LandClim role in the tracked context tree.

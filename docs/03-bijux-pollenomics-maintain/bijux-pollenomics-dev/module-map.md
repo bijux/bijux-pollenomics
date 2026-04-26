@@ -16,6 +16,3 @@ last_reviewed: 2026-04-10
 - `quality/deptry_scan.py` for dependency review support
 - `trusted_process.py` for repository-safe command helpers
 
-## Purpose
-
-This page shows the current module map of the maintainer package.

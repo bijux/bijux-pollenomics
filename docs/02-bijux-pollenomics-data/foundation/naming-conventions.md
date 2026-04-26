@@ -19,7 +19,3 @@ Names in the data tree stay descriptive, stable, and source-oriented.
 - avoid abbreviations unless they are already the accepted source identity, such
   as AADR or RAÄ
 
-## Purpose
-
-This page shows the naming rules that keep data paths understandable years
-later.

@@ -17,6 +17,3 @@ last_reviewed: 2026-04-10
 - gives reviewers a quick way to inspect source counts and refresh outcomes
 - links source refresh work to later publication changes
 
-## Purpose
-
-This page shows the role of the collection summary artifact.

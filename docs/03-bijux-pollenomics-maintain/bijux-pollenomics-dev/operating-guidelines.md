@@ -18,6 +18,3 @@ them.
 - prefer checks that fail early and clearly
 - document new repository policy when maintainer tooling changes
 
-## Purpose
-
-This page shows how `bijux-pollenomics-dev` evolves.

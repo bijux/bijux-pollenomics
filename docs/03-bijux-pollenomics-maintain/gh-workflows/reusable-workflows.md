@@ -23,7 +23,3 @@ they run through `verify.yml` and split release entrypoints
 appearing as standalone manual workflows. Their job names stay package-scoped
 so the Actions UI shows which package and check ran.
 
-## Purpose
-
-This page shows which workflows are building blocks and which top-level
-workflows call them.

@@ -19,6 +19,3 @@ tightly linked by contract.
 - report bundles under `docs/report/` should remain explainable from the tracked
   data tree present in the same commit
 
-## Purpose
-
-This page explains how the data reference tree connects to published artifacts.

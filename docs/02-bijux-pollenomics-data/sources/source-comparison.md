@@ -18,7 +18,3 @@ Each supported source contributes a different kind of evidence.
 - LandClim and Neotoma broaden paleoenvironmental context
 - SEAD and RAÄ contribute archaeological context from different national scopes
 
-## Purpose
-
-This page shows readers why multiple source families are
-tracked together.

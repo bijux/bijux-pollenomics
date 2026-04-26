@@ -96,7 +96,3 @@ does not imply that every mapped evidence point has matching field media.
 - that atlas proximity implies analytical significance by itself
 - that future field pages will always use identical media or structure
 
-## Purpose
-
-This page shows how the checked-in field media connects to the atlas and what
-that fieldwork evidence does and does not represent.

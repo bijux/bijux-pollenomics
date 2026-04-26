@@ -18,6 +18,3 @@ interpretation.
 - remains explicitly Sweden-scoped instead of pretending to be pan-Nordic
 - helps the atlas show contextual density around sample regions
 
-## Purpose
-
-This page shows the repository's current use of RAÄ data.

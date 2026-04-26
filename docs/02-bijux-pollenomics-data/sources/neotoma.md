@@ -18,6 +18,3 @@ workspace.
 - broadens the atlas beyond one pollen source family
 - remains traceable through its own raw and normalized source directories
 
-## Purpose
-
-This page shows the Neotoma contribution to the tracked context set.

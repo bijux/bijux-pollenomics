@@ -17,6 +17,3 @@ Neotoma normalized outputs live under `data/neotoma/normalized/`.
 - contribute atlas layers that complement LandClim and AADR
 - keep source provenance visible while supporting one publication workflow
 
-## Purpose
-
-This page shows the normalized Neotoma output family.

@@ -105,12 +105,3 @@ only place where meaning lives. A trustworthy read usually starts here and then
 branches outward into source, output, fieldwork, or runtime docs depending on
 what the visible map element is actually claiming.
 
-## Purpose
-
-Open this page when you need direct access to the map publication and the
-nearest routes into the source, output, fieldwork, or runtime docs behind it.
-
-## Stability
-
-This page remains a direct wrapper around the checked-in
-`docs/report/nordic-atlas/` publication output.

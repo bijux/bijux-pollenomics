@@ -15,7 +15,3 @@ It starts at `Makefile`, delegates to `makes/root.mk`, and then pulls in
 repository fragments, reusable `bijux-py` contracts, package dispatch, and
 per-package bindings.
 
-## Purpose
-
-This page gives the shortest honest explanation of how the make system is
-organized.

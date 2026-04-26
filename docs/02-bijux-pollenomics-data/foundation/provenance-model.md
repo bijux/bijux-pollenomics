@@ -19,7 +19,3 @@ collection summaries written into the tracked tree.
 - `data/collection_summary.json` as a repository-wide refresh summary
 - report manifests under `docs/report/` for publication outputs
 
-## Purpose
-
-This page explains how readers can trace a published layer back to its source
-family.
