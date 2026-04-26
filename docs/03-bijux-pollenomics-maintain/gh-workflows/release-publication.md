@@ -29,5 +29,5 @@ while GitHub release assembly uses the same staged assets.
 
 ## Purpose
 
-Use this page to understand the split release workflow topology and where each
-publication target is owned.
+This page shows the split release workflow topology and where each publication
+target is owned.
