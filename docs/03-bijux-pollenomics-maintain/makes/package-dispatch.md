@@ -19,4 +19,4 @@ helpers under `makes/bijux-py/`.
 
 ## Purpose
 
-This page records how package-specific make behavior is routed.
+This page shows how package-specific make behavior is routed.
