@@ -11,7 +11,7 @@ last_reviewed: 2026-04-26
 
 Fieldwork is the checked-in evidence layer for real sampling visits.
 
-Use this section when a map point or normalized source record needs direct
+Open this section when a map point or normalized source record needs direct
 on-site collection context.
 
 Fieldwork stays intentionally narrow here. It does not try to replace the
@@ -70,7 +70,7 @@ instead of treating every layer as equally abstract.
 
 ## Bottom Line
 
-Fieldwork pages answer a narrow but important question with integrity:
-what exactly happened at this place on this date, and what direct artifacts
-support that statement. They do not quietly expand into claims about the
-whole atlas or the full regional evidence base.
+Open these pages when the question is what exactly happened at this place on
+this date, and which direct artifacts support that statement. They should not
+quietly expand into claims about the whole atlas or the full regional evidence
+base.
