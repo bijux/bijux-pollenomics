@@ -49,11 +49,11 @@ Because the runtime persists through files rather than a service database,
 state-changing commands must be evaluated through their filesystem diffs. If a
 change alters persistent outputs, the docs and review story should say why.
 
-## Use This Page When
+## Open This Page When
 
 - reviewers need to separate durable repository state from disposable run state
 - a change proposes a new persistent path or artifact family
 
 ## Purpose
 
-This page shows where runtime state lives and how it should be reviewed.
+This page shows where runtime state lives and how to review it.

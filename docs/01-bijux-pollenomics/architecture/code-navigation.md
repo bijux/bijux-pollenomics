@@ -9,7 +9,7 @@ last_reviewed: 2026-04-26
 
 # Code Navigation
 
-Use the following path when you need to trace behavior quickly.
+Open the following path when you need to trace behavior quickly.
 
 ```mermaid
 flowchart TD
@@ -52,10 +52,10 @@ flowchart TD
 
 ## Reader Takeaway
 
-This page is for fast orientation, not for architectural argument. It should
-help someone reach the right directory quickly when they already know the kind
-of behavior they are trying to inspect.
+This page is for fast orientation, not for architectural argument. It helps
+you reach the right directory quickly when you already know the kind of
+behavior you are trying to inspect.
 
 ## Purpose
 
-This page gives maintainers a fast route into the runtime codebase.
+This page gives a fast route into the runtime codebase.
