@@ -9,7 +9,7 @@ last_reviewed: 2026-04-10
 
 # Operating Guidelines
 
-Maintainer-package changes should clarify repository contracts, not obscure
+Maintainer-package changes clarify repository contracts instead of obscuring
 them.
 
 ## Guidelines
@@ -20,4 +20,4 @@ them.
 
 ## Purpose
 
-This page records how `bijux-pollenomics-dev` should be evolved.
+This page shows how `bijux-pollenomics-dev` evolves.
