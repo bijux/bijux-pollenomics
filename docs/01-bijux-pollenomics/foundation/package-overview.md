@@ -55,14 +55,14 @@ flowchart LR
   present
 - hosted serving infrastructure outside the generated documentation site
 
-## Use This Page When
+## Open This Page When
 
 - someone asks what the package is fundamentally for
 - a change proposal sounds broader than deterministic collection and
   publication
 - you need the shortest honest explanation before reading deeper pages
 
-## Do Not Use This Page When
+## Choose Another Page When
 
 - you already know the package purpose and need a precise ownership answer
 - the real question is structural, such as where a handler or renderer lives

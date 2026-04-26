@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Change Principles
 
-Changes to `bijux-pollenomics` should make the runtime easier to trust, not
-just easier to modify.
+Changes to `bijux-pollenomics` keep the runtime easier to trust, not just
+easier to modify.
 
 ```mermaid
 flowchart LR
@@ -44,11 +44,11 @@ flowchart LR
 - adding one-off output names that do not fit the existing file contracts
 - expanding package scope because a nearby repository surface looks convenient
 
-## Use This Page When
+## Open This Page When
 
 - a change is technically possible but may still be a bad repository tradeoff
 - a reviewer needs package-level principles rather than one module-level detail
 
 ## Purpose
 
-This page records the package-level rules that should shape future changes.
+This page shows the package-level rules that shape future changes.
