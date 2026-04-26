@@ -55,7 +55,3 @@ Not every nearby repository surface is a dependency in the same sense. This
 page separates what the runtime truly imports from what it merely coordinates
 with or rewrites.
 
-## Purpose
-
-This page shows what the package relies on directly and what it merely sits
-next to.

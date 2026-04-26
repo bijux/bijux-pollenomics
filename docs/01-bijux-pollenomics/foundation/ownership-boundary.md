@@ -94,7 +94,3 @@ The runtime owns the code that shapes evidence outputs. Maintainer layers own
 how the repository drives, validates, and governs that code. Keeping those
 boundaries honest keeps review scope honest too.
 
-## Purpose
-
-This page shows whether a change belongs in the runtime package or in an
-adjacent maintenance surface.
