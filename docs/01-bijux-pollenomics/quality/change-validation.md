@@ -4,12 +4,29 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Change Validation
 
 Validate changes at the narrowest level that still proves the contract.
+
+```mermaid
+flowchart LR
+    logic["pure logic change"]
+    output["output-shape or contract change"]
+    workflow["command workflow change"]
+    docs["docs structure change"]
+    proof["matching validation path"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class logic,page proof;
+    class output,workflow,docs positive;
+    logic --> proof
+    output --> proof
+    workflow --> proof
+    docs --> proof
+```
 
 ## Common Validation Paths
 
@@ -22,6 +39,11 @@ Validate changes at the narrowest level that still proves the contract.
 
 When a change spans code and tracked artifacts, validation is not complete until
 both the executable checks and the resulting file diffs make sense together.
+
+## Use This Page When
+
+- the right validation depth is unclear
+- a change affects both code and checked-in outputs
 
 ## Purpose
 
