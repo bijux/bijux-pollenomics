@@ -110,30 +110,6 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
 
 ## What You Can Check Here
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what am I seeing, where did it come from, and how is it rebuilt?"]
-    atlas["Nordic Evidence Atlas<br/>visible publication surface"]
-    sources["source families<br/>AADR, LandClim, Neotoma,<br/>SEAD, RAÄ, boundaries"]
-    runtime["runtime package<br/>collect, normalize, publish"]
-    outputs["checked-in outputs<br/>data/ and docs/report/"]
-    fieldwork["fieldwork record<br/>one direct collection visit"]
-    maintain["maintainer handbook<br/>verification, release, docs integrity"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class reader page;
-    class atlas,runtime,outputs positive;
-    class sources,fieldwork,maintain anchor;
-    reader --> atlas
-    atlas --> sources
-    sources --> runtime
-    runtime --> outputs
-    outputs --> maintain
-    atlas --> fieldwork
-```
-
 Start from the visible atlas, then open the exact supporting explanation you
 need:
 
@@ -144,35 +120,6 @@ need:
 - how maintainers verify and review long-lived changes
 
 ## Reading Map
-
-```mermaid
-flowchart TD
-    home["Home"]
-    atlas["Open the atlas first"]
-    visible["Looking at a visible layer or point?"]
-    provenance["Need source provenance and normalization?"]
-    rebuild["Need commands, code, or rebuild rules?"]
-    automation["Need repository automation or release rules?"]
-    visit["Need one concrete collection record?"]
-    data["Data reference"]
-    package["Runtime handbook"]
-    maintain["Maintainer handbook"]
-    fieldwork["Fieldwork page"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class home,page atlas;
-    class data,package,maintain positive;
-    class visible,provenance,rebuild,automation,visit caution;
-    class fieldwork anchor;
-    home --> atlas
-    atlas --> visible
-    visible --> provenance --> data
-    visible --> rebuild --> package
-    visible --> automation --> maintain
-    visible --> visit --> fieldwork
-```
 
 ## Published Handbooks
 
