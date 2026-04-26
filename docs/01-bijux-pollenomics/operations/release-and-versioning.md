@@ -64,5 +64,5 @@ are not the same artifact. The docs should keep that distinction explicit.
 
 ## Purpose
 
-This page records the release surfaces that govern package versioning and
+This page shows the release surfaces that govern package versioning and
 publication.

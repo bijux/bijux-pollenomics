@@ -46,5 +46,5 @@ terms of an always-running application that owns mutable server state.
 
 ## Purpose
 
-This page clarifies the package's deployment boundary so operators do not infer
+This page shows the package's deployment boundary so operators do not infer
 service semantics that the repository does not provide.
