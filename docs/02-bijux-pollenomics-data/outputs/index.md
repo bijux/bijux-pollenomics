@@ -18,16 +18,21 @@ which bundles are publication-facing, and how the Nordic atlas relates to both.
 
 ```mermaid
 flowchart LR
+    reader["reader question<br/>what output surface am I actually looking at?"]
     normalize["normalized source outputs"]
     summaries["collection summaries"]
     reports["published country bundles"]
     atlas["Nordic atlas publication"]
-    reader["reader question<br/>what output surface am I actually looking at?"]
+    field["fieldwork media can anchor one visible point"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class normalize,page reader;
-    class summaries,reports,atlas positive;
-    normalize --> summaries --> reports --> atlas --> reader
+    class reader page;
+    class normalize,summaries,reports,atlas,field positive;
+    normalize --> summaries
+    summaries --> reports
+    reports --> atlas
+    field --> atlas
+    atlas --> reader
 ```
 
 ## Start Here
@@ -38,6 +43,8 @@ flowchart LR
   country bundles rather than intermediate normalized files
 - open [Nordic Atlas Outputs](nordic-atlas.md) when the question starts from the
   map rather than from a source family
+- open [Normalized Neotoma Outputs](normalized-neotoma.md) or another source
+  family page when the issue is already narrowed to one checked-in file family
 
 ## Pages In This Section
 
@@ -65,6 +72,16 @@ flowchart LR
 - the issue is about the tracked data tree rules rather than one output family
 - the concern belongs to runtime commands or maintainer automation instead of
   published files
+
+## Concrete Anchors
+
+- `docs/report/denmark/`, `docs/report/finland/`, `docs/report/norway/`, and
+  `docs/report/sweden/` for the public country bundles
+- `docs/report/nordic-atlas/` for the atlas publication surface
+- `data/*/normalized/` for the intermediate repository-owned outputs that feed
+  later bundles
+- [Published Reports](published-reports.md) and [Nordic Atlas Outputs](nordic-atlas.md)
+  for the bridge between raw normalized outputs and reader-facing publication
 
 ## Reader Takeaway
 
