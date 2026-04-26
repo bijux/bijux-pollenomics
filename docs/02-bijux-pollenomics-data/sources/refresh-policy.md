@@ -20,4 +20,4 @@ Source refreshes should be deliberate and reviewable.
 
 ## Purpose
 
-This page records how source updates should be handled operationally.
+This page shows how source updates should be handled operationally.

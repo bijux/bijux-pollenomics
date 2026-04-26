@@ -24,4 +24,4 @@ payloads. That keeps the workflow file-oriented and reviewable.
 
 ## Purpose
 
-This page records how AADR participates in the tracked evidence workspace.
+This page shows how AADR participates in the tracked evidence workspace.

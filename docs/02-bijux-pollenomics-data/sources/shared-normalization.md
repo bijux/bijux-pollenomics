@@ -20,4 +20,4 @@ toward one reviewable shape.
 
 ## Purpose
 
-This page records the normalization philosophy shared across supported sources.
+This page shows the normalization philosophy shared across supported sources.

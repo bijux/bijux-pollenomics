@@ -20,4 +20,4 @@ workspace.
 
 ## Purpose
 
-This page records why normalized boundaries are a first-class tracked source.
+This page shows why normalized boundaries are a first-class tracked source.

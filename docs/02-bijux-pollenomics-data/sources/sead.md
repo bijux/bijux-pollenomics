@@ -19,4 +19,4 @@ SEAD contributes environmental archaeology context to the tracked data tree.
 
 ## Purpose
 
-This page records the SEAD role in the current context stack.
+This page shows the SEAD role in the current context stack.

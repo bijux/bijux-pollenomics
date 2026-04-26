@@ -19,4 +19,4 @@ LandClim contributes Nordic pollen sequence and REVEALS-related context.
 
 ## Purpose
 
-This page records the LandClim role in the tracked context tree.
+This page shows the LandClim role in the tracked context tree.
