@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Sources
 
-Use this section to understand the supported upstream source families that feed
-the tracked data tree.
+This section is for readers who need the supported upstream source families
+that feed the tracked data tree.
 
-This section should help a reader answer three practical questions quickly:
+This section helps readers answer three practical questions quickly:
 which upstream family they are looking at, which caveats travel with that
 family, and which shared normalization rules apply before the data appears in
 the published atlas or reports.
@@ -92,5 +92,6 @@ outputs they see later in the data and atlas pages.
 
 ## What You Get
 
-This page gives you the route from one upstream family to the normalization,
-comparison, and refresh pages that explain what readers should trust about it.
+Open this page when you need the route from one upstream family to the
+normalization, comparison, and refresh pages that explain what readers should
+trust about it.

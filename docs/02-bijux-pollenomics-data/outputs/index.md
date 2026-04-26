@@ -9,10 +9,10 @@ last_reviewed: 2026-04-26
 
 # Outputs
 
-Use this section to understand the normalized and published file families that
-the data system produces.
+This section is for readers who need the normalized and published file
+families that the data system produces.
 
-This section should help a reader move from one checked-in file family to the
+This section helps readers move from one checked-in file family to the
 reason it exists: which normalized outputs are intermediate evidence surfaces,
 which bundles are publication-facing, and how the Nordic atlas relates to both.
 
@@ -91,6 +91,6 @@ and atlas surfaces that the site exposes publicly.
 
 ## What You Get
 
-This page gives you the route from one checked-in output family to the page
-that explains whether it is intermediate evidence, a published bundle, or the
-atlas surface itself.
+Open this page when you need the route from one checked-in output family to
+the page that explains whether it is intermediate evidence, a published
+bundle, or the atlas surface itself.

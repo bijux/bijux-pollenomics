@@ -13,9 +13,9 @@ last_reviewed: 2026-04-26
 normalized datasets, field documentation, and publication-facing output
 references.
 
-Use this section when the question is about where a layer comes from, what file
-family it lands in, how its provenance is preserved, or which migration hazards
-exist when the data layout changes.
+This section is for readers tracing where a layer comes from, what file family
+it lands in, how its provenance is preserved, or which migration hazards exist
+when the data layout changes.
 
 This section is the reader route from visible atlas layers back to the tracked
 files and source families that support them. It should help a reader move from
@@ -82,11 +82,11 @@ flowchart LR
 
 ## Reader Takeaway
 
-This section should help a reader move from a visible publication surface back
+This section helps readers move from a visible publication surface back
 to the tracked evidence behind it. It is where data provenance becomes legible,
 not where package runtime behavior or maintainer automation is explained.
 
 ## What You Get
 
-This page gives you the route from a visible atlas layer to the source,
-output, fieldwork, or shared-tree page that explains it in detail.
+Open this page when you need the shortest route from a visible atlas layer to
+the source, output, fieldwork, or shared-tree page that explains it in detail.
