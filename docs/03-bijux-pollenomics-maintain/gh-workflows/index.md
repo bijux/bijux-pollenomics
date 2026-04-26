@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # gh-workflows
 
-This section is for readers who need the GitHub Actions entrypoints and
-reusable building blocks that verify, release, and document the repository.
+Open this section when you need the GitHub Actions entrypoints and reusable
+building blocks that verify, release, and document the repository.
 
 Open these pages when you need to know which workflow starts on push, pull
 request, tag, or manual dispatch, and how that entrypoint fans out into
