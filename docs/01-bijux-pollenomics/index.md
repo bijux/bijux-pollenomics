@@ -121,7 +121,7 @@ flowchart LR
 - `packages/bijux-pollenomics/tests/` for unit, regression, and end-to-end
   proof that the runtime loop still holds
 
-## Reader Takeaway
+## Core Point
 
 Open this handbook when the unresolved question is how
 `bijux-pollenomics` turns source material into checked-in evidence outputs.

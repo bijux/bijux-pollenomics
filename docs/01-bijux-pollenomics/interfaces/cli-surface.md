@@ -47,7 +47,7 @@ flowchart LR
 - `--context-root` defaults to `data`
 - `--name` and `--title` control the atlas slug and display title
 
-## Reader Takeaway
+## Core Point
 
 These commands are not merely convenience wrappers. They are the stable
 operator surface for rewriting tracked repository state in a reviewable way.

@@ -49,7 +49,7 @@ Keep new dependencies honest. If a new library or repo surface enters the
 package, the reason should be visible in both code and docs, and the package
 boundary should become clearer rather than blurrier.
 
-## Reader Takeaway
+## Core Point
 
 Not every nearby repository surface is a dependency in the same sense. This
 page separates what the runtime truly imports from what it merely coordinates

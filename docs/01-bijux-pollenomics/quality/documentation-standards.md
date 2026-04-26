@@ -35,7 +35,7 @@ flowchart LR
 - update docs in the same change that alters a public command, output path, or
   package boundary
 
-## Reader Takeaway
+## Core Point
 
 Integrity in docs means being exact about what exists now, including the parts
 that are incomplete or inconvenient.

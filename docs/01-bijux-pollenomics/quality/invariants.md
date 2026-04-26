@@ -40,7 +40,7 @@ flowchart LR
 - public imports from `bijux_pollenomics` continue to describe real workflow
   entrypoints
 
-## Reader Takeaway
+## Core Point
 
 These are the first truths to defend when a change looks productive but starts
 to distort how the package is explained or reviewed.

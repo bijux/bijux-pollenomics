@@ -45,7 +45,7 @@ flowchart LR
   cross-package shortcut
 - extension work should update docs and tests at the same time as code
 
-## Reader Takeaway
+## Core Point
 
 Good extension work adds one new path of capability while preserving the same
 review shape. It should not require readers to relearn where files land or how
