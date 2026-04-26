@@ -38,7 +38,7 @@ and which review surface must be inspected before the change is trusted.
 - open [Deployment Boundaries](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/deployment-boundaries/) before treating this
   package like a long-running service or hidden background system
 
-## Published Operations Pages
+## Pages In This Section
 
 - [Installation and Setup](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/installation-and-setup/)
 - [Local Development](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/local-development/)
@@ -85,7 +85,7 @@ and which review surface must be inspected before the change is trusted.
   `tests/regression/test_country_report.py` for the narrowest operational
   backstops that defend reruns
 
-## Read Across The Package
+## Across This Package
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when an operational question is
   really about whether the runtime should own the behavior at all
@@ -98,6 +98,6 @@ and which review surface must be inspected before the change is trusted.
 
 ## Bottom Line
 
-Open `Operations` to keep runtime work controlled, reviewable, and
+Open this section to keep runtime work controlled, reviewable, and
 recoverable. If a procedure cannot explain how it protects tracked evidence
 outputs, it is not yet an operational practice this repository should rely on.
