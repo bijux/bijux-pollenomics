@@ -14,25 +14,28 @@ This section documents the repository-owned maintainer package.
 Use it when the question is about maintainer-only tooling, schema governance,
 release support, or documentation integrity rather than runtime behavior.
 
+This package is where repository policy becomes executable helper code. The
+important reader question is not just “what rules exist?” but “which helper
+module enforces them, and what repository surface does that enforcement
+protect?”
+
 ```mermaid
 flowchart LR
-    dev["bijux-pollenomics-dev"]
-    quality["quality gates"]
-    security["security gates"]
-    schema["schema governance"]
-    release["release support"]
-    docs["documentation integrity"]
     reader["reader question<br/>which helper surface owns this rule?"]
+    dev["bijux-pollenomics-dev<br/>repository helper package"]
+    quality["quality/ and api/<br/>gate enforcement and drift checks"]
+    release["release/<br/>publication guards and version rules"]
+    docs["docs/<br/>badge and docs integrity support"]
+    trusted["trusted_process.py<br/>shared maintainer process rules"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class dev,page reader;
-    class quality,security,schema,release,docs positive;
+    class reader page;
+    class dev,quality,release,docs,trusted positive;
+    reader --> dev
     dev --> quality
-    dev --> security
-    dev --> schema
     dev --> release
     dev --> docs
-    dev --> reader
+    dev --> trusted
 ```
 
 ## Start Here
@@ -72,13 +75,28 @@ flowchart LR
 - the issue belongs to shared Make routing or GitHub Actions trigger logic
 - you are looking for end-user behavior rather than repository-health helpers
 
+## What This Section Clarifies
+
+- which maintainer-only rules are encoded as Python helper modules rather than
+  as Make routing or workflow YAML
+- where API freeze, OpenAPI drift, release guards, license assets, and badge
+  synchronization are actually enforced
+- which repository-health behavior belongs in helper code because it needs
+  executable policy rather than prose alone
+
+## Concrete Anchors
+
+- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/api/` for API
+  freeze and drift enforcement
+- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/badge_sync.py`
+  for managed docs badge synchronization
+- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/release/` for
+  release guards, version resolution, and license assets
+- `packages/bijux-pollenomics-dev/tests/` for the proof that these maintainer
+  helpers still enforce the intended rules
+
 ## Reader Takeaway
 
 Use `bijux-pollenomics-dev` when repository-health behavior is implemented as
 helper code. If the question is really about shared command routing or workflow
 entrypoints, move sideways to `makes/` or `gh-workflows/` instead.
-
-## Purpose
-
-This page organizes the maintainer-package material that protects repository
-health.
