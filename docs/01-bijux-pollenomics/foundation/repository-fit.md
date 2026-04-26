@@ -56,6 +56,3 @@ Treat `bijux-pollenomics` as a package that lives inside a documentable,
 reviewable repository product. That is a stricter context than a standalone
 library, and the docs should keep that reality visible.
 
-## Purpose
-
-This page shows how the runtime package fits into the wider repository.

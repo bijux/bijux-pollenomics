@@ -49,6 +49,3 @@ flowchart LR
 - a change is technically possible but may still be a bad repository tradeoff
 - a reviewer needs package-level principles rather than one module-level detail
 
-## Purpose
-
-This page shows the package-level rules that shape future changes.

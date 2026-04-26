@@ -55,7 +55,3 @@ This package is allowed to make the repository reproducible. It is not allowed
 to quietly become a broader research platform just because nearby data or atlas
 surfaces make that expansion tempting.
 
-## Purpose
-
-This page shows the package boundary in terms of what work it absorbs and what
-it leaves outside.
