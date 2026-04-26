@@ -57,7 +57,7 @@ the runtime change and the resulting tracked artifact diff.
 publication should be routed through a reviewed pull request that merges a real
 docs or docs-tooling change into `main`.
 
-## Core Point
+## Bottom Line
 
 Package versioning and data-output refreshes move together in review, but they
 are not the same artifact. The docs should keep that distinction explicit.

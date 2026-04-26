@@ -85,7 +85,7 @@ flowchart LR
 - [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) for the cost surface when the tree
   shape changes
 
-## Core Point
+## Bottom Line
 
 This section is the stable rulebook for the tracked data tree. It makes the
 shape, provenance, and migration constraints visible before you drop into one

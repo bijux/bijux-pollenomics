@@ -39,7 +39,7 @@ flowchart LR
 - a runtime server for interactive data collection
 - mutable remote state owned by this package
 
-## Core Point
+## Bottom Line
 
 Think in terms of distributions and published files, not in terms of an
 always-running application that owns mutable server state.

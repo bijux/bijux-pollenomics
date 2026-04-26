@@ -95,7 +95,7 @@ flowchart LR
 - `packages/bijux-pollenomics-dev/tests/` for the proof that these maintainer
   helpers still enforce the intended rules
 
-## Core Point
+## Bottom Line
 
 Open `bijux-pollenomics-dev` when repository-health behavior is implemented as
 helper code. If the question is really about shared command routing or workflow

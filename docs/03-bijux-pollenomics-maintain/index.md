@@ -83,7 +83,7 @@ automation?
 - `.github/workflows/` for GitHub-triggered verification and publication
   surfaces
 
-## Core Point
+## Bottom Line
 
 This handbook makes repository-health work explicit and reviewable. It is
 not a shadow product layer, and it routes readers back to the runtime or data

@@ -141,7 +141,7 @@ need:
 - `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/` and `makes/` for
   the repository-health surfaces that protect release, docs, and verification
 
-## Core Point
+## Bottom Line
 
 Start here when the visible atlas is the shortest path into the repository. If
 a claim about the atlas cannot be backed by source provenance, runtime

@@ -41,7 +41,7 @@ Treat collection and report publication as explicit rewrite operations. If the
 intent is only verification, use the repository validation targets instead of
 running state-changing package commands out of habit.
 
-## Core Point
+## Bottom Line
 
 The key workflow distinction is between inspection and mutation. This package
 is safe to trust when operators stay explicit about which one they are doing.

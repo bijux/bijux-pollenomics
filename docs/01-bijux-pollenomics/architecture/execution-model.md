@@ -41,7 +41,7 @@ flowchart LR
 - operators can review each step separately: collection, report publishing, and
   docs build
 
-## Core Point
+## Bottom Line
 
 This runtime does not hide behavior behind a long-lived application process.
 Each command is a bounded batch run whose result is legible from the
