@@ -26,4 +26,4 @@ system.
 
 ## Purpose
 
-This page records the make targets most relevant to CI workflows.
+This page shows the make targets most relevant to CI workflows.

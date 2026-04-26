@@ -14,4 +14,4 @@ mode, and local policy while delegating shared implementation to `bijux-py`.
 
 ## Purpose
 
-This page records what package make profiles are supposed to own.
+This page shows what package make profiles own.

@@ -21,4 +21,4 @@ stay in visibly different places.
 
 ## Purpose
 
-This page records the intended layout of the make tree.
+This page shows the intended layout of the make tree.
