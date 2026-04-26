@@ -15,6 +15,3 @@ package verification, docs publication preparation, and API freeze support.
 publication guard modules that keep tag-derived versions aligned with staged
 artifacts.
 
-## Purpose
-
-This page shows where release-oriented make behavior lives.

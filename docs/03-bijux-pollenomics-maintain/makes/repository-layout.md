@@ -19,6 +19,3 @@ stay in visibly different places.
 - repository-owned top-level files such as `env.mk`, `packages.mk`,
   `publish.mk`, and `root.mk`
 
-## Purpose
-
-This page shows the intended layout of the make tree.

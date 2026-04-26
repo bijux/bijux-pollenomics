@@ -18,6 +18,3 @@ workspace.
 - defines the political filtering context used by reports and the atlas
 - provides a spatial reference layer shared by multiple outputs
 
-## Purpose
-
-This page shows why normalized boundaries are a first-class tracked source.

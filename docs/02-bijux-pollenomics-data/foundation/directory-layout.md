@@ -26,7 +26,3 @@ Each source subtree is understandable without reading every neighboring
 source. Raw and normalized outputs belong with the source that produced them,
 while shared publication artifacts belong under `docs/report/`.
 
-## Purpose
-
-This page shows the directory shape readers should expect in the tracked data
-tree.

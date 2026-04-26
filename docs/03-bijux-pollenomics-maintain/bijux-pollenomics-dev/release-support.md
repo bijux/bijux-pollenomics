@@ -19,6 +19,3 @@ and repository-health checks stable before package artifacts are published.
 - API freeze and OpenAPI drift helpers
 - site asset publication helpers
 
-## Purpose
-
-This page explains the maintainer package role in release readiness.

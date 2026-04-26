@@ -18,6 +18,3 @@ toward one reviewable shape.
 - normalized files are suitable for atlas and report consumption
 - country filtering and spatial interpretation stay consistent across layers
 
-## Purpose
-
-This page shows the normalization philosophy shared across supported sources.

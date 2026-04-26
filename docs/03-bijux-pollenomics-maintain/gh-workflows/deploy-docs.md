@@ -27,7 +27,3 @@ shell changes. That includes `docs/**`, `mkdocs.yml`, and
 `mkdocs.shared.yml`, because the shared MkDocs config changes site behavior
 even when no Markdown page changes.
 
-## Purpose
-
-This page shows when documentation publication runs and which site inputs it
-validates before deploy.

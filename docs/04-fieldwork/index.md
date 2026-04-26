@@ -101,7 +101,3 @@ what exactly happened at this place on this date, and what direct artifacts
 support that statement. They do not quietly expand into claims about the
 whole atlas or the full regional evidence base.
 
-## Purpose
-
-This page keeps field documentation visible and keeps future sampling planning
-connected to the atlas.

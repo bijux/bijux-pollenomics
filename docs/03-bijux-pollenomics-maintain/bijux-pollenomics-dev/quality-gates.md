@@ -13,6 +13,3 @@ last_reviewed: 2026-04-10
 dependency scanning, and documentation-support tooling that is exercised from
 the shared make targets.
 
-## Purpose
-
-This page explains where maintainer quality support lives.

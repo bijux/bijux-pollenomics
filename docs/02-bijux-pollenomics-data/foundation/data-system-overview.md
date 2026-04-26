@@ -25,6 +25,3 @@ The repository needs to prove where evidence layers came from and what the
 current publication state was at one commit. A file-oriented system makes that
 history reviewable in Git instead of requiring hidden external state.
 
-## Purpose
-
-This page gives the shortest explanation of the repository's data architecture.

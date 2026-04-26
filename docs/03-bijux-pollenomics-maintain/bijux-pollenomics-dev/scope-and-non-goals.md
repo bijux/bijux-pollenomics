@@ -25,6 +25,3 @@ scientific behavior.
 - report publishing logic
 - scientific interpretation
 
-## Purpose
-
-This page shows the boundary of `bijux-pollenomics-dev`.

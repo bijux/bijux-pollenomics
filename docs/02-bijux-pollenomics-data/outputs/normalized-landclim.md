@@ -17,6 +17,3 @@ LandClim normalized outputs live under `data/landclim/normalized/`.
 - provide grid-cell scale context used by publication surfaces
 - keep atlas-facing spatial layers separate from raw source intake
 
-## Purpose
-
-This page shows the normalized LandClim output family.

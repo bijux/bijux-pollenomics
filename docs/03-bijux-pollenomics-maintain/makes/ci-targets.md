@@ -24,6 +24,3 @@ system.
 - `build`
 - `sbom`
 
-## Purpose
-
-This page shows the make targets most relevant to CI workflows.

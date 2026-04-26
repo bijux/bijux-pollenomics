@@ -18,6 +18,3 @@ runtime basis for country bundle and atlas publication.
 - feed report summaries and shared atlas layers
 - preserve version visibility in the tracked tree
 
-## Purpose
-
-This page shows the normalized and versioned AADR output family.

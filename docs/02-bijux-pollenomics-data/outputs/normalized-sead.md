@@ -17,6 +17,3 @@ SEAD normalized outputs live under `data/sead/normalized/`.
 - support atlas interpretation with contextual archaeological evidence
 - stay source-owned even when rendered beside other context layers
 
-## Purpose
-
-This page shows the normalized SEAD output family.

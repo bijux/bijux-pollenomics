@@ -18,6 +18,3 @@ Source refreshes should be deliberate and reviewable.
 - regenerate dependent publication outputs when a source refresh changes the
   visible evidence surface
 
-## Purpose
-
-This page shows how source updates should be handled operationally.

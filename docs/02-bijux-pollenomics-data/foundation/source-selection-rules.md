@@ -20,6 +20,3 @@ reviewable and more relevant to Nordic context.
 - the source improves the atlas or country bundles without forcing a service
   architecture
 
-## Purpose
-
-This page shows the rules for adding or rejecting data sources.

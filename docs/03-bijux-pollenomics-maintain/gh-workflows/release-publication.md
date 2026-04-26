@@ -27,7 +27,3 @@ while GitHub release assembly uses the same staged assets.
 - `release-ghcr.yml` publishes staged release bundles to GHCR as OCI artifacts
 - `release-github.yml` creates the GitHub release and uploads staged assets
 
-## Purpose
-
-This page shows the split release workflow topology and where each publication
-target is owned.
