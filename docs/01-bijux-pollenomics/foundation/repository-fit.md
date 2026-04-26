@@ -14,6 +14,22 @@ evidence outputs and needs one accountable runtime that can regenerate them.
 Without that runtime, collection rules, normalization rules, and publication
 logic would drift into ad hoc scripts and hand-edited trees.
 
+## Fit Model
+
+```mermaid
+flowchart TB
+    repository["checked-in data and report surfaces"]
+    runtime["one accountable runtime"]
+    trace["visible output changes stay traceable"]
+    review["repository review stays possible"]
+
+    repository --> runtime
+    runtime --> trace
+    trace --> review
+```
+
+This page should justify the package seam in repository terms, not only in software terms. The runtime earns its place only while it keeps visible evidence changes easier to trace than the ad hoc alternative.
+
 ## Why The Split Exists
 
 - command entrypoints stay explicit instead of living in shell-only flow
@@ -26,6 +42,10 @@ logic would drift into ad hoc scripts and hand-edited trees.
 - `packages/bijux-pollenomics/tests/`
 - `data/`
 - `docs/report/`
+
+## Design Pressure
+
+The common drift is to keep the package because it exists, rather than because it still makes checked-in evidence changes more reviewable than scattered scripts would.
 
 ## Boundary Test
 
