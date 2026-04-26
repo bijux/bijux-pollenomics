@@ -83,7 +83,7 @@ flowchart LR
 - `tests/unit`, `tests/regression`, and `tests/e2e` mirror the runtime from
   fine-grained checks up to command behavior
 
-## Use This Page When
+## Open This Page When
 
 - you know the behavior but not the module family that owns it
 - a review comment names a path and you need the surrounding structure

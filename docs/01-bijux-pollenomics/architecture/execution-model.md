@@ -44,7 +44,7 @@ flowchart LR
 ## Reader Takeaway
 
 This runtime does not hide behavior behind a long-lived application process.
-Each command is a bounded batch run whose result should be legible from the
+Each command is a bounded batch run whose result is legible from the
 files it writes and the exit status it returns.
 
 ## Purpose
