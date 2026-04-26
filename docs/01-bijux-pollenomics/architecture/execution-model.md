@@ -13,6 +13,26 @@ The package executes as an explicit command-driven batch workflow. One command
 becomes one bounded run that either rewrites tracked files clearly or fails
 before leaving ambiguous state behind.
 
+## Execution Model Diagram
+
+```mermaid
+flowchart TB
+    cli["cli command"]
+    dispatch["runtime dispatch"]
+    defaults["config and parsing defaults"]
+    work["collection or reporting work"]
+    outputs["reviewable tracked files"]
+
+    cli --> dispatch
+    dispatch --> defaults
+    defaults --> work
+    work --> outputs
+```
+
+This page should make the runtime feel like one bounded batch path. A command
+is successful only when its filesystem work and its visible tracked outputs are
+still easy to read in review after the process exits.
+
 ## Runtime Shape
 
 1. the root CLI parses arguments into one named subcommand
@@ -28,3 +48,9 @@ before leaving ambiguous state behind.
 - `src/bijux_pollenomics/data_downloader/collector.py`
 - `src/bijux_pollenomics/reporting/service.py`
 - `tests/e2e/test_cli.py`
+
+## Design Pressure
+
+The easy failure is to describe execution as generic task running, which hides
+that each command is really a controlled rewrite path through durable
+repository surfaces.
