@@ -11,6 +11,24 @@ last_reviewed: 2026-04-26
 
 SEAD normalized outputs live under `data/sead/normalized/`.
 
+## SEAD Output Model
+
+```mermaid
+flowchart TB
+    upstream["SEAD archaeology source"]
+    normalized["normalized SEAD outputs"]
+    atlas["atlas archaeology context layers"]
+    reader["broader archaeology context question"]
+
+    upstream --> normalized
+    normalized --> atlas
+    atlas --> reader
+```
+
+This page should show why SEAD belongs beside RAÄ without becoming identical to
+it. SEAD gives broader archaeology context, but it still carries its own source
+story and interpretation limits.
+
 ## What This Output Family Carries
 
 - environmental archaeology site records in CSV and GeoJSON form
@@ -28,3 +46,9 @@ replace source-specific interpretation.
 - inspect `data/sead/normalized/`
 - compare with [SEAD](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/sead/)
   when the question is about the upstream family rather than the output shape
+
+## Design Pressure
+
+The easy failure is to flatten archaeology context into one interchangeable
+layer family, which makes broader SEAD context and Sweden-scoped RAÄ context
+look more comparable than they really are.
