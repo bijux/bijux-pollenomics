@@ -50,4 +50,4 @@ package contract changed.
 
 ## Purpose
 
-This page records the supported installation path for package work.
+This page shows the supported installation path for package work.
