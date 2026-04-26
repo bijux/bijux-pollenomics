@@ -53,4 +53,4 @@ commands behave.
 
 ## Purpose
 
-This page explains how the package is expected to grow without losing shape.
+This page shows how the package can grow without losing shape.
