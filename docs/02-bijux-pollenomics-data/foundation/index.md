@@ -90,9 +90,3 @@ flowchart LR
 This section is the stable rulebook for the tracked data tree. It makes the
 shape, provenance, and migration constraints visible before you drop into one
 source page or one published output family.
-
-## Fastest Route
-
-Open this section when you need the shared layout, provenance, naming,
-coordinate, and migration route through the tracked data tree before you
-inspect one source family or one output bundle.

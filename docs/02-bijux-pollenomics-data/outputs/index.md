@@ -88,9 +88,3 @@ flowchart LR
 This section is where publication-facing files become concrete. It helps
 readers distinguish intermediate normalized evidence from the country bundles
 and atlas surfaces that the site exposes publicly.
-
-## Fastest Route
-
-Open this section when you need the route from one checked-in output family to
-the page that explains whether it is intermediate evidence, a published
-bundle, or the atlas surface itself.
