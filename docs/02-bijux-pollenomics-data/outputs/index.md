@@ -9,12 +9,12 @@ last_reviewed: 2026-04-26
 
 # Outputs
 
-This section is for readers who need the normalized and published file
-families that the data system produces.
+Open this section when you need the normalized and published file families
+that the data system produces.
 
-This section helps readers move from one checked-in file family to the
-reason it exists: which normalized outputs are intermediate evidence surfaces,
-which bundles are publication-facing, and how the Nordic atlas relates to both.
+This section moves from one checked-in file family to the reason it exists:
+which normalized outputs are intermediate evidence surfaces, which bundles are
+publication-facing, and how the Nordic atlas relates to both.
 
 ## Start Here
 
@@ -66,6 +66,6 @@ which bundles are publication-facing, and how the Nordic atlas relates to both.
 
 ## Bottom Line
 
-This section is where publication-facing files become concrete. It helps
-readers distinguish intermediate normalized evidence from the country bundles
-and atlas surfaces that the site exposes publicly.
+Open this section when publication-facing files need to become concrete. It
+helps readers distinguish intermediate normalized evidence from the country
+bundles and atlas surfaces that the site exposes publicly.
