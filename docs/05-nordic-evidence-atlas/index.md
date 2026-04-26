@@ -79,7 +79,7 @@ flowchart LR
 - branching into data, fieldwork, or package docs once a concrete atlas
   question appears
 
-## Choose Another Page When
+## Open Another Page When
 
 - explaining every upstream data caveat in detail
 - documenting rebuild commands or release automation

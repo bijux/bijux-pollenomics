@@ -66,7 +66,7 @@ flowchart LR
 - the question starts from repository-owned outputs rather than from upstream
   sources
 
-## Choose Another Section When
+## Open Another Section When
 
 - the real question is about source caveats before normalization
 - the issue is about the tracked data tree rules rather than one output family

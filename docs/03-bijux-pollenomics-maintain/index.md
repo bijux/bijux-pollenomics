@@ -79,7 +79,7 @@ flowchart LR
 - you need to know which shared surface owns a repository-health rule
 - the answer should stay above one product package boundary
 
-## Choose Another Handbook When
+## Open Another Handbook When
 
 - the real question is about runtime behavior, data provenance, or atlas
   publication semantics
