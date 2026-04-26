@@ -17,6 +17,3 @@ helpers under `makes/bijux-py/`.
 - `bijux-pollenomics`
 - `bijux-pollenomics-dev`
 
-## Purpose
-
-This page shows how package-specific make behavior is routed.

@@ -12,6 +12,3 @@ last_reviewed: 2026-04-10
 Security support is mostly indirect: dependency review, trusted process
 execution discipline, and CI-driven repository checks.
 
-## Purpose
-
-This page shows where maintainer security support is anchored.

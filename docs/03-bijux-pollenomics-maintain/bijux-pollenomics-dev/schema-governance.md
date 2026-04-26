@@ -18,6 +18,3 @@ the maintainer commands that detect drift.
 - `bijux_pollenomics_dev.api.openapi_drift`
 - `apis/bijux-pollenomics/v1/`
 
-## Purpose
-
-This page shows where schema and API drift governance lives.

@@ -18,6 +18,3 @@ The shared atlas bundle lives under `docs/report/nordic-atlas/`.
 - provides the fastest visible proof of current repository outputs
 - links tracked data state to a concrete interactive artifact
 
-## Purpose
-
-This page shows the output family for the shared Nordic atlas.

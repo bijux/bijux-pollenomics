@@ -18,6 +18,3 @@ and shared spatial framing.
 - support consistent filtering across other layers
 - keep spatial framing separate from any one scientific source
 
-## Purpose
-
-This page shows the normalized boundary output family.

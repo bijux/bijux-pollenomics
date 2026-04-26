@@ -17,6 +17,3 @@ RAÄ normalized outputs live under `data/raa/normalized/`.
 - enrich Sweden-facing atlas interpretation
 - keep the Swedish scope explicit in the tracked output family
 
-## Purpose
-
-This page shows the normalized RAÄ output family.

@@ -19,7 +19,3 @@ contracts first, `package` fans out by package through `ci.yml`, and
 each reusable package run splits again into package-scoped `tests`, `checks`,
 and `lint` jobs.
 
-## Purpose
-
-This page shows when verification runs and how it branches from repository
-checks into package-level jobs.

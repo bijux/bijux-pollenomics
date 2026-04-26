@@ -26,6 +26,3 @@ risks if handled casually.
 - keep source and output names stable while the docs shape changes
 - verify the site strictly after each batch
 
-## Purpose
-
-This page shows the migration risks that matter during the docs restructure.

@@ -19,6 +19,3 @@ The data tree moves through a repeatable refresh lifecycle.
 4. write collection summaries
 5. regenerate affected publication bundles if required
 
-## Purpose
-
-This page shows the expected order of a tracked data refresh.

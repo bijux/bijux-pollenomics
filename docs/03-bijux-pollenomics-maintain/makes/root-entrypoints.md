@@ -14,6 +14,3 @@ The root entrypoint is intentionally small: `Makefile` includes `makes/root.mk`.
 `makes/root.mk` then defines the stable repository command surface, including
 `check`, `data-prep`, `reports`, `app-state`, and package verification flows.
 
-## Purpose
-
-This page shows the durable root make entrypoints.

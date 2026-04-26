@@ -13,7 +13,3 @@ last_reviewed: 2026-04-10
 code-bearing home. It owns API freeze tooling, OpenAPI drift checks, dependency
 quality scanning, trusted process helpers, and docs asset support for the site.
 
-## Purpose
-
-This page gives the shortest honest description of why the maintainer package
-exists.

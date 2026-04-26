@@ -22,6 +22,3 @@ AADR is the core ancient DNA source family in the repository.
 The repository currently uses public metadata files rather than genotype
 payloads. That keeps the workflow file-oriented and reviewable.
 
-## Purpose
-
-This page shows how AADR participates in the tracked evidence workspace.

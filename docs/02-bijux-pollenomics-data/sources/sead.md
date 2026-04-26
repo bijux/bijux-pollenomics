@@ -17,6 +17,3 @@ SEAD contributes environmental archaeology context to the tracked data tree.
 - complements AADR and pollen layers with archaeological perspective
 - feeds atlas interpretation through normalized point outputs
 
-## Purpose
-
-This page shows the SEAD role in the current context stack.

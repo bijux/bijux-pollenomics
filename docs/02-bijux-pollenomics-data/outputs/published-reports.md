@@ -24,6 +24,3 @@ country-facing evidence slices.
 These bundles are the publication-facing output family that turns tracked data
 into human-readable report artifacts.
 
-## Purpose
-
-This page shows the role of the current published country bundles.

@@ -19,7 +19,3 @@ can rely on one consistent interpretation of location.
 - use normalized context layers for publication-facing rendering
 - keep boundary-compatible country filtering central to the data workflow
 
-## Purpose
-
-This page shows the repository stance on coordinate normalization and spatial
-consistency.
