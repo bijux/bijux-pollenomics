@@ -26,8 +26,8 @@ inspect the whole loop from the repository alone.
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel"><h3>Foundation</h3><p>Start here to understand what the runtime owns, which language stays stable, and where package boundaries stop.</p></div>
-  <div class="bijux-panel"><h3>Interfaces</h3><p>Open this branch for commands, defaults, data layouts, output bundles, and other reader-visible contracts.</p></div>
-  <div class="bijux-panel"><h3>Operations</h3><p>Open this branch for safe rebuilds, review-shaped reruns, publication procedure, and failure recovery.</p></div>
+  <div class="bijux-panel"><h3>Interfaces</h3><p>Open this section for commands, defaults, data layouts, output bundles, and other reader-visible contracts.</p></div>
+  <div class="bijux-panel"><h3>Operations</h3><p>Open this section for safe rebuilds, review-shaped reruns, publication procedure, and failure recovery.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
