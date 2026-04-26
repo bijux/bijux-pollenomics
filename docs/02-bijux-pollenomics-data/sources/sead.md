@@ -11,6 +11,24 @@ last_reviewed: 2026-04-26
 
 SEAD supplies environmental archaeology context to the tracked data tree.
 
+## SEAD Source Model
+
+```mermaid
+flowchart TB
+    source["SEAD source data"]
+    context["environmental archaeology context"]
+    normalized["normalized SEAD outputs"]
+    atlas["atlas archaeology layers"]
+
+    source --> context
+    context --> normalized
+    normalized --> atlas
+```
+
+This page should show why SEAD belongs beside RAÄ without becoming identical to
+it. SEAD gives broader archaeology context, but it still keeps its own source
+story and evidence limits.
+
 ## What This Source Adds
 
 - archaeological site context that complements pollen and ancient DNA layers
@@ -35,3 +53,9 @@ meaning depends on being read beside the other normalized layers.
 - inspect `data/sead/raw/` and `data/sead/normalized/`
 - open [Normalized SEAD Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-sead/)
   when the question is about the checked-in repository output family
+
+## Design Pressure
+
+The common failure is to flatten archaeology context into one layer family,
+which makes broader SEAD context and Sweden-scoped RAÄ context look more
+equivalent than they actually are.
