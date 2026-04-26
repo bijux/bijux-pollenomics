@@ -16,6 +16,28 @@ dependency review support, release guards, license synchronization, badge
 synchronization, and trusted subprocess rules live here instead of being spread
 across shell fragments.
 
+## Package Model
+
+```mermaid
+flowchart TB
+    policy["repository health policy"]
+    api["api and schema helpers"]
+    quality["quality and docs helpers"]
+    release["release and asset helpers"]
+    enforcement["local and CI enforcement"]
+
+    policy --> api
+    policy --> quality
+    policy --> release
+    api --> enforcement
+    quality --> enforcement
+    release --> enforcement
+```
+
+This section should show the package as the place where repository policy
+becomes executable. If the page reads like a helper catalog only, readers will
+miss why these checks live in Python instead of ad hoc shell fragments.
+
 ## Start Here
 
 - open [Package Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview/)
@@ -49,6 +71,12 @@ across shell fragments.
 - inspect `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/api/`
 - inspect `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/release/`
 - inspect `packages/bijux-pollenomics-dev/tests/`
+
+## Design Pressure
+
+The common failure is to treat maintainer helper code as optional convenience,
+when its real job is to keep repository-health policy reviewable, testable, and
+reusable across local and CI paths.
 
 ## Boundary Test
 
