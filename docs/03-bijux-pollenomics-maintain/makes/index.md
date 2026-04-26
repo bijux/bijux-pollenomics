@@ -41,23 +41,23 @@ flowchart LR
 
 ## Start Here
 
-- open [Root Entrypoints](root-entrypoints.md) for the top-level command surface
-- open [CI Targets](ci-targets.md) when the question is about verification and
+- use [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/) for the top-level command surface
+- use [CI Targets](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/ci-targets/) when the question is about verification and
   automation contracts
-- open [Release Surfaces](release-surfaces.md) when the question is about
+- use [Release Surfaces](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/release-surfaces/) when the question is about
   publication-related make targets
 
-## Pages In This Section
+## Pages In makes
 
-- [Make System Overview](make-system-overview.md)
-- [Repository Layout](repository-layout.md)
-- [Root Entrypoints](root-entrypoints.md)
-- [Package Dispatch](package-dispatch.md)
-- [Package Contracts](package-contracts.md)
-- [Release Surfaces](release-surfaces.md)
-- [CI Targets](ci-targets.md)
-- [Environment Model](environment-model.md)
-- [Authoring Rules](authoring-rules.md)
+- [Make System Overview](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/make-system-overview/)
+- [Repository Layout](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/repository-layout/)
+- [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/)
+- [Package Dispatch](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/package-dispatch/)
+- [Package Contracts](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/package-contracts/)
+- [Release Surfaces](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/release-surfaces/)
+- [CI Targets](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/ci-targets/)
+- [Environment Model](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/environment-model/)
+- [Authoring Rules](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/authoring-rules/)
 
 ## Use This Section When
 
@@ -68,7 +68,7 @@ flowchart LR
 - the question is about command contracts, shared variables, or how maintainers
   are expected to add new targets safely
 
-## Do Not Use This Section When
+## Move On When
 
 - the real issue is inside package implementation, data semantics, or atlas
   publication behavior
