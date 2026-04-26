@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-These pages explain the shared rules of the tracked data tree before any single
-source family or output bundle is discussed.
+Use this section to understand the shared rules of the tracked data tree before
+any single source family or output bundle is discussed.
 
 Readers often arrive here after seeing one atlas layer or one checked-in file
 and asking what keeps the overall data system coherent. This section is where
@@ -39,26 +39,26 @@ flowchart LR
 
 ## Start Here
 
-- open [Data System Overview](data-system-overview.md) for the shortest
+- use [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/) for the shortest
   description of the tracked data model
-- open [Directory Layout](directory-layout.md) when the real question is file
+- use [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/) when the real question is file
   placement and ownership
-- open [Provenance Model](provenance-model.md) before changing how upstream
+- use [Provenance Model](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/provenance-model/) before changing how upstream
   origin is represented
-- open [Migration Issues](migration-issues.md) before renaming directories,
+- use [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) before renaming directories,
   moving files, or changing output expectations across the tree
 
-## Pages In This Section
+## Pages In Foundation
 
-- [Data System Overview](data-system-overview.md)
-- [Directory Layout](directory-layout.md)
-- [Source Selection Rules](source-selection-rules.md)
-- [Update Lifecycle](update-lifecycle.md)
-- [Provenance Model](provenance-model.md)
-- [Naming Conventions](naming-conventions.md)
-- [Coordinate Policy](coordinate-policy.md)
-- [Publication Linkage](publication-linkage.md)
-- [Migration Issues](migration-issues.md)
+- [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/)
+- [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/)
+- [Source Selection Rules](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/source-selection-rules/)
+- [Update Lifecycle](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/update-lifecycle/)
+- [Provenance Model](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/provenance-model/)
+- [Naming Conventions](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/naming-conventions/)
+- [Coordinate Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/coordinate-policy/)
+- [Publication Linkage](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/publication-linkage/)
+- [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
 
 ## Use This Section When
 
@@ -68,7 +68,7 @@ flowchart LR
   supposed to stay stable
 - you are evaluating whether a data-layout change will create wide review cost
 
-## Do Not Start Here When
+## Move On When
 
 - the real question is about one concrete upstream source and its caveats
 - you only need one normalized output family rather than the shared tree rules
@@ -80,9 +80,9 @@ flowchart LR
 - `data/` for the repository-owned tracked source tree
 - `docs/report/` for the publication-facing outputs that depend on the shared
   data rules staying stable
-- [Directory Layout](directory-layout.md) and [Publication Linkage](publication-linkage.md)
+- [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/) and [Publication Linkage](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/publication-linkage/)
   for the rule set that ties repository structure to visible publication
-- [Migration Issues](migration-issues.md) for the cost surface when the tree
+- [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) for the cost surface when the tree
   shape changes
 
 ## Reader Takeaway
@@ -91,6 +91,8 @@ This section is the stable rulebook for the tracked data tree. It should make
 the shape, provenance, and migration constraints visible before a reader drops
 into one source page or one published output family.
 
-## Purpose
+## What You Get
 
-This page organizes the shared rules that shape the tracked data tree.
+This page gives you the shared layout, provenance, naming, coordinate, and
+migration route through the tracked data tree before you inspect one source
+family or one output bundle.
