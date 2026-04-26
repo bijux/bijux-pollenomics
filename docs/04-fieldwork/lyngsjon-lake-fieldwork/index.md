@@ -16,27 +16,6 @@ It is evidence of one documented field visit, not a substitute for the broader
 source-derived layers in the atlas. Its role is to connect the atlas to a real
 checked-in collection event with media that lives in this repository.
 
-```mermaid
-flowchart TD
-    lake["Lyngsjön Lake visit<br/>2026-02-26"]
-    media["checked-in media<br/>photo and video"]
-    atlas["atlas point<br/>Fieldwork documentation"]
-    context["reader context<br/>one visit tied to one map point"]
-    limit["boundary<br/>does not generalize to all evidence layers"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class lake,page media;
-    class atlas,context positive;
-    class limit caution;
-    lake --> media
-    lake --> atlas
-    media --> context
-    atlas --> context
-    context --> limit
-```
-
 ## Site
 
 - lake: Lyngsjön Lake

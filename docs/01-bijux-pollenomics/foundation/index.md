@@ -24,29 +24,6 @@ all: there has to be one accountable place where collection, normalization, and
 publication behavior are held together without letting provenance, release
 policy, or interpretation blur into the same layer.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>why does this package exist?"]
-    boundary["runtime boundary<br/>collect, normalize, publish"]
-    inputs["tracked source inputs<br/>AADR, pollen, archaeology,<br/>boundaries, field context"]
-    outputs["tracked publication outputs<br/>data/ and docs/report/"]
-    data["data handbook<br/>provenance and file families"]
-    maintain["maintainer handbook<br/>automation and release policy"]
-    science["scientific interpretation<br/>stays explicit and limited"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class reader page;
-    class boundary,inputs,outputs positive;
-    class data,maintain,science caution;
-    reader --> boundary
-    inputs --> boundary
-    boundary --> outputs
-    boundary -.provenance explained in.-> data
-    outputs -.release and verification owned by.-> maintain
-    outputs -.do not settle.-> science
-```
-
 ## Start Here
 
 - open [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/) for the shortest durable

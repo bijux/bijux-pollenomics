@@ -18,25 +18,6 @@ that answer lives: directory shape, provenance discipline, naming rules,
 coordinate policy, publication linkage, and the migration pressure created when
 the tracked tree moves.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what keeps the tracked data tree coherent?"]
-    shape["shared directory shape"]
-    provenance["provenance and publication linkage"]
-    policy["naming, coordinates, and source selection rules"]
-    lifecycle["update lifecycle and migration risk"]
-    outputs["checked-in outputs depend on these rules"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class shape,provenance,policy,lifecycle,outputs positive;
-    shape --> reader
-    provenance --> reader
-    policy --> reader
-    lifecycle --> reader
-    outputs --> reader
-```
-
 ## Start Here
 
 - open [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/) for the shortest

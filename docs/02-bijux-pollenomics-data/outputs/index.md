@@ -16,25 +16,6 @@ This section helps readers move from one checked-in file family to the
 reason it exists: which normalized outputs are intermediate evidence surfaces,
 which bundles are publication-facing, and how the Nordic atlas relates to both.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what output surface am I actually looking at?"]
-    normalize["normalized source outputs"]
-    summaries["collection summaries"]
-    reports["published country bundles"]
-    atlas["Nordic atlas publication"]
-    field["fieldwork media can anchor one visible point"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class reader page;
-    class normalize,summaries,reports,atlas,field positive;
-    normalize --> summaries
-    summaries --> reports
-    reports --> atlas
-    field --> atlas
-    atlas --> reader
-```
-
 ## Start Here
 
 - open [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/) for the shortest overview of
