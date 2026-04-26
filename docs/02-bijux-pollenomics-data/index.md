@@ -25,27 +25,24 @@ layout change would ripple through the repository.
 ## Evidence Route
 
 ```mermaid
-flowchart LR
-    Sources["source families"] --> Rules["selection and normalization rules"]
-    Rules --> Tree["tracked data tree"]
-    Tree --> Outputs["normalized output families"]
-    Outputs --> Reports["country bundles"]
-    Outputs --> Atlas["Nordic atlas"]
-    Fieldwork["direct visit record"] --> Atlas
-    Atlas --> Reader["visible layer question"]
-    Reports --> Reader
+flowchart TB
+    sources["source families"]
+    rules["selection and normalization rules"]
+    tree["tracked data tree"]
+    outputs["normalized output families"]
+    reports["country bundles"]
+    atlas["Nordic atlas"]
+    fieldwork["direct visit record"]
+    reader["visible layer question"]
 
-    class Sources,Fieldwork anchor;
-    class Rules action;
-    class Tree,Outputs page;
-    class Reports,Atlas positive;
-    class Reader caution;
-
-    classDef page fill:#eef6ff,stroke:#2563eb,color:#153145,stroke-width:2px;
-    classDef positive fill:#eefbf3,stroke:#16a34a,color:#173622,stroke-width:2px;
-    classDef caution fill:#fff1f2,stroke:#dc2626,color:#6b1d1d,stroke-width:2px;
-    classDef anchor fill:#f4f0ff,stroke:#7c3aed,color:#47207f,stroke-width:2px;
-    classDef action fill:#fff4da,stroke:#d97706,color:#6b3410,stroke-width:2px;
+    sources --> rules
+    rules --> tree
+    tree --> outputs
+    outputs --> reports
+    outputs --> atlas
+    fieldwork --> atlas
+    atlas --> reader
+    reports --> reader
 ```
 
 This handbook is the evidence map behind the public site. It keeps three
@@ -54,6 +51,11 @@ that material was narrowed into tracked files, and which checked-in outputs
 carry those files into reader-facing reports or the atlas. That separation is
 the difference between a persuasive documentation surface and a list of file
 paths.
+
+The data handbook should make one thing obvious immediately: visible atlas
+layers and country reports are downstream proof surfaces, not primary evidence.
+If readers cannot see that chain on this page, they will assume the site is
+telling them stories rather than showing its tracked basis.
 
 ## Section Pages
 
@@ -81,6 +83,12 @@ paths.
 - `data/`
 - `docs/report/`
 - `docs/04-fieldwork/`
+
+## Design Pressure
+
+The easy failure is to document source pages, normalized trees, and published
+surfaces as separate inventories without keeping the evidence chain legible
+from one reader question to the next.
 
 ## Boundary Test
 
