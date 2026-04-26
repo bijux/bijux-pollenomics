@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Outputs
 
-This section explains the normalized and published file families that the data
-system produces.
+Use this section to understand the normalized and published file families that
+the data system produces.
 
 This section should help a reader move from one checked-in file family to the
 reason it exists: which normalized outputs are intermediate evidence surfaces,
@@ -37,26 +37,26 @@ flowchart LR
 
 ## Start Here
 
-- open [Collection Summary](collection-summary.md) for the shortest overview of
+- use [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/) for the shortest overview of
   what is currently checked in
-- open [Published Reports](published-reports.md) when the question is about the
+- use [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) when the question is about the
   country bundles rather than intermediate normalized files
-- open [Nordic Atlas Outputs](nordic-atlas.md) when the question starts from the
+- use [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/) when the question starts from the
   map rather than from a source family
-- open [Normalized Neotoma Outputs](normalized-neotoma.md) or another source
+- use [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/) or another source
   family page when the issue is already narrowed to one checked-in file family
 
-## Pages In This Section
+## Pages In Outputs
 
-- [Collection Summary](collection-summary.md)
-- [Normalized AADR Outputs](normalized-aadr.md)
-- [Normalized Boundary Outputs](normalized-boundaries.md)
-- [Normalized LandClim Outputs](normalized-landclim.md)
-- [Normalized Neotoma Outputs](normalized-neotoma.md)
-- [Normalized RAÄ Outputs](normalized-raa.md)
-- [Normalized SEAD Outputs](normalized-sead.md)
-- [Published Reports](published-reports.md)
-- [Nordic Atlas Outputs](nordic-atlas.md)
+- [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/)
+- [Normalized AADR Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-aadr/)
+- [Normalized Boundary Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-boundaries/)
+- [Normalized LandClim Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-landclim/)
+- [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/)
+- [Normalized RAÄ Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-raa/)
+- [Normalized SEAD Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-sead/)
+- [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/)
+- [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
 
 ## Use This Section When
 
@@ -66,7 +66,7 @@ flowchart LR
 - the question starts from repository-owned outputs rather than from upstream
   sources
 
-## Do Not Start Here When
+## Move On When
 
 - the real question is about source caveats before normalization
 - the issue is about the tracked data tree rules rather than one output family
@@ -80,7 +80,7 @@ flowchart LR
 - `docs/report/nordic-atlas/` for the atlas publication surface
 - `data/*/normalized/` for the intermediate repository-owned outputs that feed
   later bundles
-- [Published Reports](published-reports.md) and [Nordic Atlas Outputs](nordic-atlas.md)
+- [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) and [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
   for the bridge between raw normalized outputs and reader-facing publication
 
 ## Reader Takeaway
@@ -89,7 +89,8 @@ This section is where publication-facing files become concrete. It should help
 readers distinguish intermediate normalized evidence from the country bundles
 and atlas surfaces that the site exposes publicly.
 
-## Purpose
+## What You Get
 
-This page organizes the normalized and publication-facing output families of the
-data system.
+This page gives you the route from one checked-in output family to the page
+that explains whether it is intermediate evidence, a published bundle, or the
+atlas surface itself.
