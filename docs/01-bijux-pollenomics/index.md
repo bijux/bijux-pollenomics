@@ -70,7 +70,7 @@ flowchart LR
 - open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) if you need the proof bar for a runtime
   change or for a visible atlas diff
 
-## Use This Handbook When
+## Open This Handbook When
 
 - you need the shortest honest description of what the runtime package owns
 - you are changing CLI, data collection, report publishing, or package
@@ -78,7 +78,7 @@ flowchart LR
 - you need one stable page that routes from visible publication behavior back
   to the code and proof that support it
 
-## Move On When
+## Choose Another Handbook When
 
 - the real question is already about source provenance rather than runtime
   behavior
@@ -124,7 +124,8 @@ flowchart LR
 
 ## Reader Takeaway
 
-Use this page when the unresolved question is how `bijux-pollenomics` turns
-source material into checked-in evidence outputs. If the answer depends on
-provenance detail, repository automation, or scientific interpretation rather
-than that runtime loop, another handbook owns the question.
+Open this handbook when the unresolved question is how
+`bijux-pollenomics` turns source material into checked-in evidence outputs.
+If the answer depends on provenance detail, repository automation, or
+scientific interpretation rather than that runtime loop, another handbook owns
+the question.
