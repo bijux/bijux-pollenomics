@@ -45,7 +45,3 @@ flowchart LR
 Diagnosis starts with the observable repository surfaces the package already
 produces. You should not need hidden runtime telemetry to explain most failures.
 
-## Purpose
-
-This page shows the main signals maintainers should use to diagnose package
-behavior.

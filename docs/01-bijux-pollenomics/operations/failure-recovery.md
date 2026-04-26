@@ -46,6 +46,3 @@ rewrite multiple tracked surfaces and make the original fault harder to isolate.
 Recovery is about reducing uncertainty first, not proving endurance by rerunning
 everything at once.
 
-## Purpose
-
-This page shows the package-level recovery discipline for failed workflows.

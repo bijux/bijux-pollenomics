@@ -44,7 +44,3 @@ flowchart LR
 Think in terms of distributions and published files, not in terms of an
 always-running application that owns mutable server state.
 
-## Purpose
-
-This page shows the package's deployment boundary so operators do not infer
-service semantics that the repository does not provide.

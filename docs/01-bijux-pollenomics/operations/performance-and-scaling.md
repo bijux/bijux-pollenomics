@@ -49,6 +49,3 @@ whether the cost came from collection, reporting, or docs publication.
 - performance tradeoffs need to be explained without pretending throughput is
   the primary optimization goal
 
-## Purpose
-
-This page shows the package's performance stance and operational trade-offs.

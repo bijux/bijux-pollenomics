@@ -46,6 +46,3 @@ before assuming a refresh is safe to publish.
 - a workflow touches fetched content from outside the repository
 - a reviewer needs the practical safety stance, not a generic security slogan
 
-## Purpose
-
-This page shows the practical security stance of the runtime package.

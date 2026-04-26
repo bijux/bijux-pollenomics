@@ -49,6 +49,3 @@ Use explicit rewrite targets only when the intent is to refresh tracked outputs:
   repository state
 - teaching a new maintainer the default local working rhythm
 
-## Purpose
-
-This page shows the local package workflow that keeps review intent clear.
