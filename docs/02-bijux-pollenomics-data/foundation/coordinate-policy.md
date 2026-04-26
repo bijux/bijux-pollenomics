@@ -9,7 +9,7 @@ last_reviewed: 2026-04-10
 
 # Coordinate Policy
 
-Spatial outputs should be normalized so atlas rendering and country filtering
+Spatial outputs are normalized so atlas rendering and country filtering
 can rely on one consistent interpretation of location.
 
 ## Current Policy
@@ -21,5 +21,5 @@ can rely on one consistent interpretation of location.
 
 ## Purpose
 
-This page records the repository stance on coordinate normalization and spatial
+This page shows the repository stance on coordinate normalization and spatial
 consistency.
