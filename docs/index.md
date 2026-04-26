@@ -66,27 +66,24 @@ density from RAÄ, fieldwork media, and Nordic country boundaries.
 ## Evidence Flow
 
 ```mermaid
-flowchart LR
-    Sources["Upstream evidence families"] --> Runtime["collect and normalize runtime"]
-    Runtime --> Tree["tracked data tree"]
-    Tree --> Reports["country report bundles"]
-    Tree --> Atlas["Nordic Evidence Atlas"]
-    Fieldwork["Lyngsjon visit media"] --> Atlas
-    Maintainers["repository health checks"] --> Runtime
-    Reports --> Reader["reader asks what is supportable"]
-    Atlas --> Reader
+flowchart TB
+    sources["upstream evidence families"]
+    runtime["runtime collect and normalize loop"]
+    tree["tracked data tree"]
+    reports["country report bundles"]
+    atlas["nordic evidence atlas"]
+    fieldwork["lyngsjon visit media"]
+    maintainers["repository health checks"]
+    reader["reader asks what is supportable"]
 
-    class Sources,Fieldwork anchor;
-    class Runtime action;
-    class Tree page;
-    class Reports,Atlas positive;
-    class Maintainers,Reader caution;
-
-    classDef page fill:#eef6ff,stroke:#2563eb,color:#153145,stroke-width:2px;
-    classDef positive fill:#eefbf3,stroke:#16a34a,color:#173622,stroke-width:2px;
-    classDef caution fill:#fff1f2,stroke:#dc2626,color:#6b1d1d,stroke-width:2px;
-    classDef anchor fill:#f4f0ff,stroke:#7c3aed,color:#47207f,stroke-width:2px;
-    classDef action fill:#fff4da,stroke:#d97706,color:#6b3410,stroke-width:2px;
+    sources --> runtime
+    runtime --> tree
+    tree --> reports
+    tree --> atlas
+    fieldwork --> atlas
+    maintainers --> runtime
+    reports --> reader
+    atlas --> reader
 ```
 
 Read the site as a chain of evidence, not as a table of contents. A visible
@@ -94,6 +91,8 @@ map layer starts in an upstream family, becomes reviewable only after it lands
 in the tracked data tree, and becomes public through a report or atlas bundle.
 The fieldwork media is intentionally narrow: it gives one mapped point a direct
 visit record without pretending to cover the whole Nordic evidence landscape.
+
+The landing page should make one thing immediately clear: visible atlas layers, country reports, and tracked files are different proof surfaces in one chain. If that chain feels decorative instead of operational, readers will assume the site is presentation first and evidence second.
 
 ## Start Here
 
