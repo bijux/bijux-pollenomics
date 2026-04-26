@@ -9,47 +9,49 @@ last_reviewed: 2026-04-26
 
 # Architecture
 
-Use this section when the important question is how the runtime package is
-shaped: where command flow starts, how collection and normalization modules
-connect, and where report publishing turns tracked data into visible outputs.
+Use this section when the important question is how the runtime is put
+together: where command dispatch begins, where evidence collection branches by
+source family, and where report building turns tracked files into visible atlas
+and country outputs.
 
-These pages should make the runtime legible enough that readers can trace real
-execution and structural seams without reverse-engineering the codebase from
-imports alone.
+This package only becomes trustworthy when a reader can follow the actual
+structural path from CLI to collector to report bundle without guessing. The
+goal here is not to list modules mechanically, but to make the execution seams
+and rewrite boundaries easy to see.
 
 ```mermaid
 flowchart LR
-    cli["CLI and parser entrypoints"]
+    reader["reader question<br/>where does runtime behavior actually live?"]
+    cli["CLI parsing and command registry"]
     dispatch["runtime dispatch and handlers"]
-    collect["data collection and normalization"]
-    report["report bundle and atlas publishing"]
-    helpers["shared core and spatial helpers"]
-    seams["integration seams<br/>tracked data and docs/report outputs"]
-    reader["reader question<br/>how is this package shaped?"]
+    collection["source collection pipeline<br/>registry, staging, normalization"]
+    reporting["reporting pipeline<br/>country bundles and atlas bundle"]
+    context["map context layers and shared helpers"]
+    tracked["tracked rewrite surfaces<br/>data/ and docs/report/"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class dispatch,page reader;
-    class cli,collect,report,helpers positive;
-    class seams positive;
+    class reader page;
+    class cli,dispatch,collection,reporting,context positive;
+    class tracked positive;
     cli --> dispatch
-    dispatch --> collect
-    dispatch --> report
-    collect --> helpers
-    report --> helpers
-    collect --> seams
-    report --> seams
-    seams --> reader
+    dispatch --> collection
+    dispatch --> reporting
+    collection --> context
+    reporting --> context
+    collection --> tracked
+    reporting --> tracked
+    tracked --> reader
 ```
 
 ## Start Here
 
 - open [Module Map](module-map.md) for the shortest code-level tour
-- open [Execution Model](execution-model.md) when you need to trace collection
-  and publication flow
-- open [Integration Seams](integration-seams.md) when the boundary between
-  collectors, helpers, and report builders is the real question
-- open [State and Persistence](state-and-persistence.md) when tracked outputs
-  and rewrite boundaries are the hard part
+- open [Execution Model](execution-model.md) when you need to trace the full
+  command-to-output path
+- open [Integration Seams](integration-seams.md) when the handoff between CLI,
+  collection, and reporting is the real question
+- open [State and Persistence](state-and-persistence.md) when tracked output
+  rewrites and staging boundaries are the hard part
 
 ## Pages In This Section
 
@@ -67,8 +69,8 @@ flowchart LR
 
 - you need to trace structural ownership before refactoring the runtime
 - you are checking where output-writing logic actually lives
-- you need to understand how command dispatch, collection, and report building
-  stay separated
+- you need to understand how command dispatch, source collection, and report
+  building stay separated
 
 ## Do Not Use This Section When
 
@@ -77,6 +79,18 @@ flowchart LR
 - the issue is operational, such as rebuild workflow or release handling
 - you need proof, risk posture, or validation criteria more than structural
   flow
+
+## Concrete Anchors
+
+- `src/bijux_pollenomics/command_line/parsing/` and
+  `src/bijux_pollenomics/command_line/runtime/` for CLI parsing and dispatch
+- `src/bijux_pollenomics/data_downloader/pipeline/` and
+  `src/bijux_pollenomics/data_downloader/sources/` for source-specific
+  collection structure
+- `src/bijux_pollenomics/reporting/bundles/` and
+  `src/bijux_pollenomics/reporting/map_document/` for publication assembly
+- `src/bijux_pollenomics/reporting/context/` for the map-layer integration
+  surface that joins normalized records to visible atlas output
 
 ## Read Across The Package
 
@@ -94,7 +108,7 @@ flowchart LR
 Use `Architecture` to make the runtime flow legible enough that a reviewer can
 say where commands are parsed, where tracked data is rewritten, and where
 publication output is assembled. If that answer only works from private memory,
-the structure is still too implicit.
+the structure is still too implicit to maintain safely.
 
 ## Purpose
 
