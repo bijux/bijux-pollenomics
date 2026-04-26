@@ -48,7 +48,7 @@ flowchart LR
 - open [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) before renaming directories,
   moving files, or changing output expectations across the tree
 
-## Pages In Foundation
+## Pages In This Section
 
 - [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/)
 - [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/)

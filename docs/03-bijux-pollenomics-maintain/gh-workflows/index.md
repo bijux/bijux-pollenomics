@@ -58,7 +58,7 @@ flowchart LR
 - open [reusable-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows/) when the visible entrypoint
   fans out into shared build jobs
 
-## Pages In gh-workflows
+## Pages In This Section
 
 - [verify](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/verify/)
 - [release-publication](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/release-publication/)
