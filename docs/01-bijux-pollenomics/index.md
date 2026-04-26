@@ -36,28 +36,6 @@ inspect the whole loop from the repository alone.
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/">Open test strategy</a>
 </div>
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>how does this repository turn source records into atlas output?"]
-    commands["CLI and command handlers<br/>choose collection or publication work"]
-    collection["collection and normalization<br/>stage source material into tracked files"]
-    publication["report publishing<br/>country bundles and atlas output"]
-    contracts["contracts and proof<br/>commands, files, validation"]
-    sections["section homes<br/>foundation, architecture,<br/>interfaces, operations, quality"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class reader page;
-    class commands,collection,publication,contracts positive;
-    class sections anchor;
-    reader --> commands
-    commands --> collection
-    collection --> publication
-    publication --> contracts
-    contracts --> sections
-```
-
 ## Start Here
 
 - open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) if the main question is what the

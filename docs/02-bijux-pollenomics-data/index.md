@@ -36,23 +36,6 @@ can I inspect?"
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open fieldwork record</a>
 </div>
 
-```mermaid
-flowchart LR
-    source["upstream source families"]
-    normalize["tracked normalization rules"]
-    outputs["checked-in outputs and reports"]
-    field["fieldwork evidence"]
-    atlas["visible atlas layers"]
-    reader["reader question<br/>where did this layer come from?"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class source,page reader;
-    class normalize,outputs,field,atlas positive;
-    source --> normalize --> outputs --> atlas --> reader
-    field --> atlas
-```
-
 ## Pages In This Handbook
 
 - [Foundation](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/)
