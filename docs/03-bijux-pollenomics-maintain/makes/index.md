@@ -15,25 +15,28 @@ Use it when the question is which root command to run, which target rewrites
 tracked state, or how package-level makefiles are routed from the repository
 entrypoints.
 
+The make system matters because it is the shortest path from intent to
+repository-wide consequences. A reader should be able to tell which target is
+safe for inspection, which one rewrites `data/` or `docs/report/`, and which
+one is only a dispatch layer for package-specific work.
+
 ```mermaid
 flowchart LR
-    root["root make target"]
-    dispatch["package dispatch"]
-    ci["CI targets"]
-    release["release targets"]
-    env["environment model"]
-    authoring["authoring rules"]
     reader["reader question<br/>which command surface owns this action?"]
+    root["root.mk<br/>top-level repository targets"]
+    packages["packages.mk<br/>package catalog and dispatch"]
+    publish["publish.mk<br/>release and publication routing"]
+    env["env.mk and shared modules<br/>environment and shared helpers"]
+    artifacts["tracked consequences<br/>artifacts/, data/, docs/report/"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    class root,page reader;
-    class dispatch,ci,release,env,authoring positive;
-    root --> dispatch
-    root --> ci
-    root --> release
+    class reader page;
+    class root,packages,publish,env,artifacts positive;
+    reader --> root
+    root --> packages
+    root --> publish
     root --> env
-    root --> authoring
-    root --> reader
+    root --> artifacts
 ```
 
 ## Start Here
@@ -74,14 +77,28 @@ flowchart LR
 - you are looking for reader-facing product behavior instead of maintainer
   command surfaces
 
+## What This Section Clarifies
+
+- which repository targets are top-level commands versus package dispatch
+  surfaces
+- which command paths widen the tracked review surface by rewriting runtime
+  outputs
+- where release and publication routing stop being local Make concerns and turn
+  into broader workflow automation concerns
+
+## Concrete Anchors
+
+- `makes/root.mk` for the top-level `check`, `data-prep`, `reports`, and
+  `app-state` command surfaces
+- `makes/packages.mk` for package catalog and dispatch ownership
+- `makes/publish.mk` for shared publication-routing rules
+- `makes/packages/bijux-pollenomics.mk` and
+  `makes/packages/bijux-pollenomics-dev.mk` for package-specific command
+  profiles
+
 ## Reader Takeaway
 
 Use `makes/` to understand the repository command contract: what a maintainer
 runs, which shared target fans out into package work, and where command
 behavior is intentionally centralized. Move to `gh-workflows/` when the real
 question is automation triggers rather than Make routing.
-
-## Purpose
-
-This page organizes the repository Make-system documentation so maintainers can
-trace a command from the root surface to the package or CI behavior it invokes.
