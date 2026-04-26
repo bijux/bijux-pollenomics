@@ -23,7 +23,7 @@ show.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/">Open atlas output reference</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/">Open fieldwork row</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/04-fieldwork/">Open fieldwork record</a>
 </div>
 
 <div class="bijux-map-mobile-note">

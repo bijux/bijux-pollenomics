@@ -9,17 +9,17 @@ last_reviewed: 2026-04-26
 
 # Sources
 
-This section is for readers who need the supported upstream source families
-that feed the tracked data tree.
+Open this section when you need the supported upstream source families that
+feed the tracked data tree.
 
-This section helps readers answer three practical questions quickly:
-which upstream family they are looking at, which caveats travel with that
-family, and which shared normalization rules apply before the data appears in
-the published atlas or reports.
+This section answers three practical questions quickly: which upstream family a
+reader is looking at, which caveats travel with that family, and which shared
+normalization rules apply before the data appears in the published atlas or
+reports.
 
 ## Start Here
 
-- use one source page when reviewing one upstream family in isolation
+- open one source page when reviewing one upstream family in isolation
 - open [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for rules that apply
   across source families
 - open [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) when deciding which source is
@@ -67,6 +67,6 @@ the published atlas or reports.
 
 ## Bottom Line
 
-This section is where source-specific uncertainty becomes explicit. It should
-help readers distinguish raw upstream behavior from the normalized, checked-in
-outputs they see later in the data and atlas pages.
+Open this section when source-specific uncertainty needs to become explicit. It
+should help readers distinguish raw upstream behavior from the normalized,
+checked-in outputs they see later in the data and atlas pages.
