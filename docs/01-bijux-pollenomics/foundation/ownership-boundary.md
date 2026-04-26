@@ -79,13 +79,13 @@ flowchart LR
 
 ## Read Next
 
-- open [Package Overview](package-overview.md) when the disagreement is still
+- open [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/) when the disagreement is still
   about the runtime’s basic purpose
-- open [Module Map](../architecture/module-map.md) when ownership depends on
+- open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) when ownership depends on
   where a behavior sits in the codebase
-- open [Artifact Contracts](../interfaces/artifact-contracts.md) when the
+- open [Artifact Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/artifact-contracts/) when the
   argument is really about checked-in output surfaces
-- open [Test Strategy](../quality/test-strategy.md) when the next question is
+- open [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) when the next question is
   which proof surface should move with the change
 
 ## Reader Takeaway
@@ -96,5 +96,5 @@ boundaries honest keeps review scope honest too.
 
 ## Purpose
 
-This page helps reviewers decide whether a change belongs in the runtime
-package or in an adjacent maintenance surface.
+This page shows whether a change belongs in the runtime package or in an
+adjacent maintenance surface.

@@ -49,4 +49,4 @@ files it writes and the exit status it returns.
 
 ## Purpose
 
-This page explains the runtime model that underpins every public command.
+This page shows the runtime model that underpins every public command.

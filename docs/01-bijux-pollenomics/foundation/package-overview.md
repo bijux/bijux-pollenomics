@@ -70,13 +70,13 @@ flowchart LR
 
 ## Read Next
 
-- open [Ownership Boundary](ownership-boundary.md) when you need to separate
+- open [Ownership Boundary](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/ownership-boundary/) when you need to separate
   runtime responsibilities from maintainer or docs responsibilities
-- open [Module Map](../architecture/module-map.md) when you need the structural
+- open [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/) when you need the structural
   layout behind the package summary
-- open [Artifact Contracts](../interfaces/artifact-contracts.md) when the
+- open [Artifact Contracts](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/artifact-contracts/) when the
   published output surface is the real concern
-- open [Test Strategy](../quality/test-strategy.md) when the next question is
+- open [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) when the next question is
   how the package proves its behavior
 
 ## Concrete Anchors
@@ -88,7 +88,7 @@ flowchart LR
 
 ## Purpose
 
-This page gives the shortest honest description of why the runtime package
+This page shows the shortest honest description of why the runtime package
 exists.
 
 ## Stability
