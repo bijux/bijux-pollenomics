@@ -17,9 +17,9 @@ pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
 Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
 boundaries.
 
-This page shows what the repository publishes today, where the visible layers
-come from, which code rebuilds them, and where the documentation stops making
-claims.
+Use this page to trace what the repository publishes today, where the visible
+layers come from, which code rebuilds them, and where the documentation stops
+making claims.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -49,11 +49,11 @@ claims.
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel">
-    <h3>What this site proves</h3>
+    <h3>What the repository shows</h3>
     <p>Which files are checked in, which source families feed the atlas, which commands rebuild the published outputs, and which repository boundaries are intentionally held.</p>
   </div>
   <div class="bijux-panel">
-    <h3>What this site does not prove</h3>
+    <h3>What still needs skepticism</h3>
     <p>That spatial proximity implies scientific weight, that the current layers are complete, or that mutable upstream services will behave identically forever.</p>
   </div>
 </div>
@@ -108,7 +108,7 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What You Can Check Here
+## What You Can Verify Here
 
 Start from the visible atlas, then open the exact supporting explanation you
 need:
@@ -118,8 +118,6 @@ need:
 - how reports and the shared map are generated
 - how the runtime package is divided by responsibility
 - how maintainers verify and review long-lived changes
-
-## Reading Map
 
 ## Published Handbooks
 
