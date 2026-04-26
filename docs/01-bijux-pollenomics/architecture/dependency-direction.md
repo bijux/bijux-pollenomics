@@ -50,6 +50,3 @@ collection works.
 - one module starts importing across too many layers
 - a source-specific shortcut risks becoming a package-wide architectural leak
 
-## Purpose
-
-This page shows the dependency flow inside the package.

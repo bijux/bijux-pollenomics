@@ -56,6 +56,3 @@ This page is for fast orientation, not for architectural argument. It helps
 you reach the right directory quickly when you already know the kind of
 behavior you are trying to inspect.
 
-## Purpose
-
-This page gives a fast route into the runtime codebase.

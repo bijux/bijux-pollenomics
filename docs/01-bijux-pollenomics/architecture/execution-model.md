@@ -47,6 +47,3 @@ This runtime does not hide behavior behind a long-lived application process.
 Each command is a bounded batch run whose result is legible from the
 files it writes and the exit status it returns.
 
-## Purpose
-
-This page shows the runtime model that underpins every public command.

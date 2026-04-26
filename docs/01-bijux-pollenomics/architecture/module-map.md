@@ -97,6 +97,3 @@ split by the work needed to parse commands, collect source-backed data, and
 publish checked-in artifacts. That workflow split is the shortest reliable way
 to navigate the codebase.
 
-## Purpose
-
-This page gives the shortest structural map of the runtime package.
