@@ -17,6 +17,27 @@ reader actually sees: the map, the layers, the point popups, and the visible
 relationship between ancient DNA, pollen, archaeology, boundaries, and
 fieldwork.
 
+## Atlas Reading Model
+
+```mermaid
+flowchart TB
+    map["visible atlas map"]
+    layers["layer or popup question"]
+    source["source or output page"]
+    fieldwork["fieldwork record"]
+    runtime["runtime rebuild path"]
+
+    map --> layers
+    layers --> source
+    layers --> fieldwork
+    layers --> runtime
+```
+
+This page should make the atlas feel like a routing surface rather than a
+self-sufficient claim. Readers start from what they can see, then branch into
+source, output, fieldwork, or runtime proof depending on what the layer is
+actually saying.
+
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/">Open atlas output reference</a>
@@ -59,6 +80,11 @@ fieldwork.
   files
 - compare one visible layer with its source, output, or fieldwork page before
   making a broad claim
+
+## Design Pressure
+
+The easy failure is to trust the map presentation more than the routed evidence
+behind it. This page works only when it keeps that branch-out path explicit.
 
 ## Boundary Test
 
