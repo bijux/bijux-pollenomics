@@ -11,13 +11,19 @@ last_reviewed: 2026-04-26
 
 This page is the dedicated root row for the shared Nordic map publication.
 
-Use it when the fastest path is to inspect the live publication surface before
+Use it when the fastest path is to inspect what readers actually see before
 reviewing source-specific tables, normalized outputs, or package internals.
+
+The atlas is not just an image or a convenience link. It is the main public
+evidence surface of the repository. This landing page should help readers move
+from a visible layer, point, or polygon to the exact source, output, fieldwork,
+or runtime explanation that can support or limit what they think they are
+seeing.
 
 ```mermaid
 flowchart LR
+    reader["reader question<br/>what does this visible layer actually mean?"]
     atlas["Nordic Evidence Atlas<br/>interactive publication"]
-    question["reader question<br/>what does this point or layer mean?"]
     layers["visible layers<br/>AADR, pollen, archaeology, fieldwork, boundaries"]
     outputs["output reference<br/>checked-in atlas assets"]
     sources["source reference<br/>where each layer originates"]
@@ -26,14 +32,14 @@ flowchart LR
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class atlas,page question;
+    class reader page;
     class layers,outputs,sources,fieldwork,package positive;
-    atlas --> question
     atlas --> layers
-    question --> outputs
-    question --> sources
-    question --> fieldwork
-    question --> package
+    layers --> reader
+    reader --> outputs
+    reader --> sources
+    reader --> fieldwork
+    reader --> package
 ```
 
 <div class="bijux-quicklinks">
@@ -62,6 +68,8 @@ flowchart LR
   question is where a visible layer or record originates
 - move to [fieldwork](../04-fieldwork/) when a point appears to represent a
   documented visit and you need direct local context
+- move to [runtime handbook](../01-bijux-pollenomics/) when the question is how
+  the atlas was rebuilt, validated, or packaged
 
 ## Use This Page When
 
@@ -78,6 +86,17 @@ flowchart LR
 - replacing the output-reference pages that describe the checked-in atlas files
 - assuming the map alone is sufficient evidence without checking source or
   fieldwork context
+
+## Concrete Anchors
+
+- `docs/report/nordic-atlas/nordic-atlas_map.html` for the checked-in map
+  publication itself
+- `docs/report/nordic-atlas/_map_assets/` for the shipped atlas asset bundle
+- [atlas output reference](../02-bijux-pollenomics-data/outputs/nordic-atlas/)
+  for publication files and generated atlas components
+- [data reference](../02-bijux-pollenomics-data/sources/) and
+  [fieldwork](../04-fieldwork/) for the two main routes from a visible map
+  element back to supporting evidence
 
 ## Reader Takeaway
 
