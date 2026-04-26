@@ -15,10 +15,10 @@ Open this page first when the fastest path is to inspect what readers actually
 see before reviewing source-specific tables, normalized outputs, or package
 internals.
 
-The atlas is not just an image or a convenience link. It is the main public
-evidence surface of the repository. This page routes from a visible layer,
-point, or polygon to the exact source, output, fieldwork, or runtime
-explanation that can support or limit what it appears to show.
+The atlas is the main public evidence surface of the repository. This page
+routes from a visible layer, point, or polygon to the exact source, output,
+fieldwork, or runtime explanation that can support or limit what it appears to
+show.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
@@ -78,7 +78,7 @@ explanation that can support or limit what it appears to show.
 
 ## Bottom Line
 
-The atlas is the fastest way to see the published evidence surface, not the
-only place where meaning lives. A trustworthy read usually starts here and then
-branches outward into source, output, fieldwork, or runtime docs depending on
-what the visible map element is actually claiming.
+Open this page when the visible map is the fastest path into the evidence
+surface. A trustworthy read usually starts here and then branches into source,
+output, fieldwork, or runtime docs depending on what the visible map element
+is actually claiming.
