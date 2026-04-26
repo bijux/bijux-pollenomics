@@ -19,3 +19,7 @@ Names in the data tree stay descriptive, stable, and source-oriented.
 - avoid abbreviations unless they are already the accepted source identity, such
   as AADR or RAÄ
 
+## First Proof Check
+
+- `data/`
+- `docs/report/`

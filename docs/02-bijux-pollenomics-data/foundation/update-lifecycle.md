@@ -19,3 +19,9 @@ The data tree moves through a repeatable refresh lifecycle.
 4. write collection summaries
 5. regenerate affected publication bundles if required
 
+## First Proof Check
+
+- `data/<source>/raw/`
+- `data/<source>/normalized/`
+- `data/collection_summary.json`
+- `docs/report/`

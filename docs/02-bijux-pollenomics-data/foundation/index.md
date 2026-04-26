@@ -9,14 +9,8 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-Open this section when you need the shared rules of the tracked data tree
-before any single source family or output bundle is discussed.
-
-Readers often arrive here after seeing one atlas layer or one checked-in file
-and asking what keeps the overall data system coherent. This section is where
-that answer lives: directory shape, provenance discipline, naming rules,
-coordinate policy, publication linkage, and the migration pressure created when
-the tracked tree moves.
+This section defines the shared rules of the tracked data tree before any one
+source family or output bundle is discussed.
 
 ## Start Here
 
@@ -29,7 +23,7 @@ the tracked tree moves.
 - open [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) before renaming directories,
   moving files, or changing output expectations across the tree
 
-## Pages In This Section
+## Section Pages
 
 - [Data System Overview](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/data-system-overview/)
 - [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/)
@@ -41,33 +35,16 @@ the tracked tree moves.
 - [Publication Linkage](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/publication-linkage/)
 - [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
 
-## Open This Section When
-
-- the question is about the shared rules of the tracked data tree rather than
-  one source family in isolation
-- you need to know how provenance, layout, naming, or publication linkage stay
-  stable
-- you are evaluating whether a data-layout change will create wide review cost
-
-## Open Another Section When
-
-- the real question is about one concrete upstream source and its caveats
-- you only need one normalized output family rather than the shared tree rules
-- the issue belongs to runtime commands or maintainer automation rather than
-  tracked data structure
-
-## Concrete Anchors
+## What This Section Settles
 
 - `data/` for the repository-owned tracked source tree
 - `docs/report/` for the publication-facing outputs that depend on the shared
   data rules staying stable
-- [Directory Layout](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/directory-layout/) and [Publication Linkage](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/publication-linkage/)
-  for the rule set that ties repository structure to visible publication
-- [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/) for the cost surface when the tree
-  shape changes
+- directory shape, provenance discipline, naming rules, coordinate handling,
+  publication linkage, and migration cost
 
-## Bottom Line
+## First Proof Check
 
-Open this section when the tracked data tree rules matter more than one source
-page or one published output family. It makes shape, provenance, and migration
-constraints visible before you drop into narrower detail.
+- `data/`
+- `docs/report/`
+- `data/collection_summary.json`

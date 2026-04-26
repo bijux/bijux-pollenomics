@@ -9,8 +9,8 @@ last_reviewed: 2026-04-10
 
 # Coordinate Policy
 
-Spatial outputs are normalized so atlas rendering and country filtering
-can rely on one consistent interpretation of location.
+Spatial outputs are normalized so atlas rendering and country filtering can rely
+on one consistent interpretation of location.
 
 ## Current Policy
 
@@ -19,3 +19,7 @@ can rely on one consistent interpretation of location.
 - use normalized context layers for publication-facing rendering
 - keep boundary-compatible country filtering central to the data workflow
 
+## First Proof Check
+
+- normalized GeoJSON outputs under `data/`
+- the atlas bundle under `docs/report/nordic-atlas/`
