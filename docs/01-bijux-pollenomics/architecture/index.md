@@ -9,7 +9,7 @@ last_reviewed: 2026-04-26
 
 # Architecture
 
-Use this section when the important question is how the runtime is put
+This section is for readers whose main question is how the runtime is put
 together: where command dispatch begins, where evidence collection branches by
 source family, and where report building turns tracked files into visible atlas
 and country outputs.
@@ -55,7 +55,7 @@ flowchart LR
 - use [State and Persistence](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/state-and-persistence/) when tracked output
   rewrites and staging boundaries are the hard part
 
-## Pages In Architecture
+## Published Architecture Pages
 
 - [Module Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/module-map/)
 - [Dependency Direction](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/dependency-direction/)
@@ -103,13 +103,13 @@ flowchart LR
 
 ## Read Across The Package
 
-- use [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the structural question is
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the structural question is
   really an ownership question
-- use [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when architecture reaches a public
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when architecture reaches a public
   command, config, or artifact contract
-- use [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when structure affects repeatable
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when structure affects repeatable
   rebuild or release workflows
-- use [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when you need proof that the documented
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when you need proof that the documented
   structure is still protected
 
 ## Reader Takeaway
