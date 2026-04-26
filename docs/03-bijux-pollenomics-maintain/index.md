@@ -21,12 +21,12 @@ Open this page when you need to answer one routing question quickly: is this
 problem enforced by maintainer helper code, by shared Make entrypoints, or by
 GitHub automation?
 
-<div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This branch is where to check the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
+<div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This section shows the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
 
 <div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Open this branch for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
-  <div class="bijux-panel"><h3>Make System</h3><p>Open this branch to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
-  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Open this branch for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
+  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Open this section for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
+  <div class="bijux-panel"><h3>Make System</h3><p>Open this section to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
+  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Open this section for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
@@ -58,12 +58,12 @@ flowchart LR
 
 ## Start Here
 
-- use [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/) when repository
+- open [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/) when repository
   health is enforced by helper code, release guards, docs integrity, or schema
   checks
-- use [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/) when the issue starts from a repository command
+- open [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/) when the issue starts from a repository command
   or from CI target routing
-- use [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/) when the issue starts from a
+- open [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/) when the issue starts from a
   GitHub event, failed check suite, or publication trigger
 
 ## Pages In This Handbook
@@ -72,14 +72,14 @@ flowchart LR
 - [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/)
 - [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/)
 
-## Use This Handbook When
+## Open This Handbook When
 
 - the question is about repository automation, verification, release support,
   docs integrity, or workflow fan-out
 - you need to know which shared surface owns a repository-health rule
 - the answer should stay above one product package boundary
 
-## Move On When
+## Choose Another Handbook When
 
 - the real question is about runtime behavior, data provenance, or atlas
   publication semantics
@@ -107,5 +107,5 @@ flowchart LR
 ## Reader Takeaway
 
 This handbook makes repository-health work explicit and reviewable. It is
-not a shadow product layer, and it should route readers back to the runtime or
-data docs as soon as the question becomes user-facing behavior.
+not a shadow product layer, and it routes readers back to the runtime or data
+docs as soon as the question becomes user-facing behavior.
