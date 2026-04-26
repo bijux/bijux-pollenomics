@@ -48,4 +48,4 @@ flowchart LR
 
 ## Purpose
 
-This page records the quality bar for finishing runtime work honestly.
+This page shows the quality bar for finishing runtime work honestly.

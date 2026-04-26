@@ -50,4 +50,4 @@ flowchart TD
 
 ## Purpose
 
-This page gives maintainers one place to record the current runtime risks.
+This page shows the current runtime risks in one place.

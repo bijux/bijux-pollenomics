@@ -43,5 +43,5 @@ and maintenance burden of the runtime surface.
 
 ## Purpose
 
-This page records how dependency growth should be governed for the runtime
+This page shows how dependency growth should be governed for the runtime
 package.
