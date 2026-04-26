@@ -48,4 +48,4 @@ is safe to trust when operators stay explicit about which one they are doing.
 
 ## Purpose
 
-This page records the operator-facing ways the package is expected to be used.
+This page shows the operator-facing ways the package is expected to be used.
