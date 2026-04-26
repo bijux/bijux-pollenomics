@@ -19,10 +19,10 @@ site. That means a weak interface story becomes a repository-wide maintenance
 problem very quickly. The deliberate surfaces need to stay distinct from
 incidental implementation visibility.
 
-Readers should be able to leave this section with a practical answer, not an
-abstract one: which commands are stable enough to run, which tracked files are
-safe to automate against, and which atlas-facing outputs are treated as real
-publication contracts rather than accidental byproducts.
+This section leaves a practical answer, not an abstract one: which commands
+are stable enough to run, which tracked files are safe to automate against,
+and which atlas-facing outputs are treated as real publication contracts
+rather than accidental byproducts.
 
 ```mermaid
 flowchart LR
