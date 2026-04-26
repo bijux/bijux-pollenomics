@@ -69,13 +69,13 @@ flowchart LR
 - [Public Imports](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/public-imports/)
 - [Compatibility Commitments](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/compatibility-commitments/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to know which runtime surface is deliberate and supportable
 - a change may affect command behavior, tracked files, or docs-facing outputs
 - reviewers need a crisp answer about what counts as an interface change
 
-## Move On When
+## Open Another Section When
 
 - the real question is why the package owns a behavior at all
 - you need structural layout or execution flow before you can judge a surface

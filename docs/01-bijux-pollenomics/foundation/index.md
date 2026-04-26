@@ -70,7 +70,7 @@ flowchart LR
 - [Dependencies and Adjacencies](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/dependencies-and-adjacencies/)
 - [Change Principles](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/change-principles/)
 
-## Use This Section When
+## Open This Section When
 
 - you need the durable ownership story before changing code, commands, or file
   contracts
@@ -79,7 +79,7 @@ flowchart LR
 - you need language that distinguishes evidence collection, normalization,
   publication, and interpretation without blending them together
 
-## Move On When
+## Open Another Section When
 
 - the real question is already about command syntax, file layouts, or imports
 - you need code structure, dependency direction, or execution seams

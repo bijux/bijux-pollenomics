@@ -41,7 +41,7 @@ Some collection paths interact with mutable external services. Treat upstream
 inputs as untrusted and prefer explicit local review of resulting tracked diffs
 before assuming a refresh is safe to publish.
 
-## Use This Page When
+## Open This Page When
 
 - a workflow touches fetched content from outside the repository
 - a reviewer needs the practical safety stance, not a generic security slogan

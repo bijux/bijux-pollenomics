@@ -42,7 +42,7 @@ Do not hide performance pressure by collapsing workflow boundaries. If a step is
 slow, keep the slow step identifiable so reviewers and operators still know
 whether the cost came from collection, reporting, or docs publication.
 
-## Use This Page When
+## Open This Page When
 
 - a slow workflow invites bundling steps together in a way that would blur
   causality

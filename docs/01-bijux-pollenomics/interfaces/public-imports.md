@@ -43,7 +43,7 @@ flowchart LR
 Prefer importing through `bijux_pollenomics` for stable caller-facing code.
 Reach into internal modules only when changing the package itself.
 
-## Use This Page When
+## Open This Page When
 
 - a consumer needs the top-level import surface only
 - a refactor risks moving or renaming symbols that callers treat as stable

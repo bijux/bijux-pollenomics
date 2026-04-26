@@ -43,7 +43,7 @@ Use explicit rewrite targets only when the intent is to refresh tracked outputs:
 - `make reports`
 - `make app-state`
 
-## Use This Page When
+## Open This Page When
 
 - deciding whether the task is verification-only or intended to rewrite tracked
   repository state
