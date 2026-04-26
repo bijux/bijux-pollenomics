@@ -19,3 +19,7 @@ collection summaries written into the tracked tree.
 - `data/collection_summary.json` as a repository-wide refresh summary
 - report manifests under `docs/report/` for publication outputs
 
+## Boundary Test
+
+If a visible layer cannot be traced back through one source subtree, one
+normalized family, or one checked-in summary, provenance is already too loose.

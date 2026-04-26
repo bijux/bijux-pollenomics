@@ -20,3 +20,7 @@ reviewable and more relevant to Nordic context.
 - the source improves the atlas or country bundles without forcing a service
   architecture
 
+## Boundary Test
+
+If a source only makes sense as a live service dependency or as an analysis
+engine, it does not fit this data tree.
