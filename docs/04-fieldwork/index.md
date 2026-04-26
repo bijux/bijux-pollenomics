@@ -21,19 +21,20 @@ happened, and which media artifacts support that record.
 
 ```mermaid
 flowchart LR
-    atlas["atlas point<br/>visible map question"]
+    reader["reader question<br/>what really happened at this place?"]
+    atlas["atlas point or visible field marker"]
     record["fieldwork page<br/>visit facts, media, local context"]
-    facts["date and place"]
-    media["photos and supporting artifacts"]
+    facts["date, place, and collection context"]
+    media["photos, video, and supporting artifacts"]
     data["data reference<br/>source-derived interpretation"]
     boundary["boundary<br/>a visit record is narrow evidence"]
-    planner["future field planning<br/>repeatable local context"]
+    planner["future return visits<br/>repeatable local context"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
     classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class atlas,page record;
-    class facts,media,data,planner positive;
+    class reader page;
+    class atlas,record,facts,media,data,planner positive;
     class boundary caution;
     atlas --> record
     record --> facts
@@ -41,6 +42,7 @@ flowchart LR
     record --> data
     record --> planner
     record --> boundary
+    record --> reader
 ```
 
 The [Nordic Evidence Atlas](../report/nordic-atlas/nordic-atlas_map.html)
@@ -57,6 +59,8 @@ instead of treating every layer as equally abstract.
   whether fieldwork supports it
 - move to [data reference](../02-bijux-pollenomics-data/) when the question is
   really about source provenance or normalization rather than on-site context
+- move to [Nordic Evidence Atlas](../05-nordic-evidence-atlas/) when the wider
+  question is how one visit sits among the full visible evidence stack
 
 ## Pages In This Section
 
@@ -77,6 +81,18 @@ instead of treating every layer as equally abstract.
 - replacing the data reference when the real question is provenance or
   normalization
 - expecting maintainers' workflow or publication instructions
+
+## Concrete Anchors
+
+- `docs/gallery/2026-02-26-data-collection.JPG` and
+  `docs/gallery/2026-02-26-data-collection.mp4` for the current checked-in
+  field media
+- [Lyngsjön Lake Fieldwork](lyngsjon-lake-fieldwork/index.md) for the canonical
+  visit record
+- [Nordic Evidence Atlas](../05-nordic-evidence-atlas/) for the wider
+  publication surface that this row supports without replacing
+- [data reference](../02-bijux-pollenomics-data/) for provenance and
+  normalization questions that exceed one visit record
 
 ## Reader Takeaway
 
