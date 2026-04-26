@@ -58,4 +58,4 @@ library, and the docs should keep that reality visible.
 
 ## Purpose
 
-This page explains how the runtime package fits into the wider repository.
+This page shows how the runtime package fits into the wider repository.

@@ -57,5 +57,5 @@ with or rewrites.
 
 ## Purpose
 
-This page explains what the package relies on directly and what it merely sits
+This page shows what the package relies on directly and what it merely sits
 next to.

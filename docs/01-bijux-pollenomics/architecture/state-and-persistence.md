@@ -56,4 +56,4 @@ change alters persistent outputs, the docs and review story should say why.
 
 ## Purpose
 
-This page explains where runtime state lives and how it should be reviewed.
+This page shows where runtime state lives and how it should be reviewed.
