@@ -48,15 +48,15 @@ flowchart LR
 
 ## Start Here
 
-- use [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) for the proof structure across unit,
+- open [Test Strategy](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/) for the proof structure across unit,
   regression, and end-to-end work
-- use [Change Validation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/change-validation/) when deciding what to run for a
+- open [Change Validation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/change-validation/) when deciding what to run for a
   concrete change
-- use [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/) when a change could disturb tracked data or
+- open [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/) when a change could disturb tracked data or
   publication truths that must remain stable
-- use [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/) and [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
+- open [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/) and [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
   before promising more than the package currently proves
-- use [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/) when a change touches
+- open [Definition of Done](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/definition-of-done/) when a change touches
   checked-in publication outputs and needs a clear merge bar
 
 ## Published Quality Pages

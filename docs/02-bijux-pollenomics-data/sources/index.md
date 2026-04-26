@@ -39,11 +39,11 @@ flowchart LR
 ## Start Here
 
 - use one source page when reviewing one upstream family in isolation
-- use [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for rules that apply
+- open [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/) for rules that apply
   across source families
-- use [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) when deciding which source is
+- open [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/) when deciding which source is
   relevant for one kind of atlas or report question
-- use [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) before promising that a source can
+- open [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/) before promising that a source can
   be refreshed cheaply or replayed identically
 
 ## Pages In Sources
