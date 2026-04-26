@@ -9,26 +9,8 @@ last_reviewed: 2026-04-26
 
 # Error Model
 
-The package uses command failure and incomplete output prevention as its main
-error model.
-
-```mermaid
-flowchart LR
-    parse["invalid command"]
-    source["unsupported source or bad transformation"]
-    report["report generation failure"]
-    stop["stop early and loudly"]
-    stale["avoid stale or half-written outputs"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    class parse,page source;
-    class stop,stale positive;
-    class report caution;
-    parse --> stop
-    source --> stop
-    report --> stop --> stale
-```
+The package should fail early enough that readers can tell whether a problem is
+command shape, source handling, or publication assembly.
 
 ## Failure Expectations
 
@@ -38,14 +20,16 @@ flowchart LR
 - report generation failures should not be hidden behind partially successful
   publication claims
 
-## Review Rule
+## Failure Classes
 
-Prefer failures that are loud, local, and early. A fast explicit command error
-is easier to trust than a successful exit that leaves stale or half-written
-artifacts in tracked paths.
+- invalid command shape: fail during argument parsing
+- unsupported source or bad transformation: fail before tracked writes become
+  authoritative
+- report-generation failure: fail before publication claims are left half true
 
-## Open This Page When
+## First Proof Check
 
-- discussing whether a command should tolerate partial success
-- deciding where a validation failure should stop execution
-
+- `tests/unit/test_command_line.py`
+- `tests/unit/test_source_registry.py`
+- `tests/unit/test_reporting_artifacts.py`
+- `tests/regression/test_country_report.py`
