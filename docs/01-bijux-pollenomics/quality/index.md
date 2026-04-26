@@ -14,6 +14,24 @@ risks are serious enough to block a runtime change. In pollenomics, quality is
 not only about Python behavior. It is also about whether visible atlas,
 country-report, and tracked-data diffs are still explainable.
 
+## Quality Model
+
+```mermaid
+flowchart TB
+    invariants["invariants"]
+    tests["test strategy"]
+    validation["change validation"]
+    risks["risk register and limitations"]
+    verdict["runtime change is trustworthy or blocked"]
+
+    invariants --> tests
+    tests --> validation
+    validation --> risks
+    risks --> verdict
+```
+
+This section should show quality as a proof path across code and checked-in outputs. If it reads like generic reassurance, maintainers will miss that visible atlas and report diffs are part of the quality bar too.
+
 ## Start Here
 
 - open [Invariants](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/invariants/) before changing package meaning
@@ -53,6 +71,10 @@ country-report, and tracked-data diffs are still explainable.
 - `tests/e2e/test_cli.py` for the end-to-end command contract
 - `docs/report/nordic-atlas/` for the public publication surface whose
   consequences quality review must keep visible
+
+## Design Pressure
+
+The easy failure is to stop at Python test results and never ask whether the resulting tracked outputs are still honest enough to publish.
 
 ## Boundary Test
 
