@@ -17,10 +17,10 @@ rather than the repository as a whole: what code belongs in the runtime, which
 contracts are public, how data and reports move through the package, and which
 quality rules protect that behavior.
 
-This handbook explains the package's full job: collect source material,
-normalize it into governed repository files, publish atlas and country bundles,
-and keep the command and file contracts stable enough that reviewers can
-inspect the whole loop from the repository alone.
+The package's full job is to collect source material, normalize it into
+governed repository files, publish atlas and country bundles, and keep the
+command and file contracts stable enough that reviewers can inspect the whole
+loop from the repository alone.
 
 <div class="bijux-callout"><strong>Think in one runtime loop.</strong> The package collects and normalizes tracked evidence, turns that material into checked-in report bundles, and keeps the CLI and file contracts stable enough to review from the repository alone.</div>
 

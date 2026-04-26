@@ -11,13 +11,13 @@ last_reviewed: 2026-04-26
 
 Fieldwork is the checked-in evidence layer for real sampling visits.
 
-Open this section when a map point or normalized source record needs direct
+Use this section when a map point or normalized source record needs direct
 on-site collection context.
 
-This section is intentionally narrow. It does not try to replace the atlas, the
-data reference, or a full field-log system. Its job is to preserve the direct
-human record behind a documented visit: where the team went, when sampling
-happened, and which media artifacts support that record.
+Fieldwork stays intentionally narrow here. It does not try to replace the
+atlas, the data reference, or a full field-log system. Its job is to preserve
+the direct human record behind a documented visit: where the team went, when
+sampling happened, and which media artifacts support that record.
 
 The [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
 remains the main decision surface for comparing mapped evidence layers. This
@@ -74,4 +74,3 @@ Fieldwork pages answer a narrow but important question with integrity:
 what exactly happened at this place on this date, and what direct artifacts
 support that statement. They do not quietly expand into claims about the
 whole atlas or the full regional evidence base.
-

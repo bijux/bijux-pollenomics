@@ -12,14 +12,14 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics-maintain` is the handbook root for repository-owned
 maintenance work.
 
-This section keeps repository health inspectable. Quality gates, schema drift
-checks, docs integrity checks, release support, and workflow contracts stay
-readable from checked-in docs instead of being rediscovered through CI logs
-and shell glue.
+Repository health stays inspectable here. Quality gates, schema drift checks,
+docs integrity checks, release support, and workflow contracts stay readable
+from checked-in docs instead of being rediscovered through CI logs and shell
+glue.
 
-Open this page when you need to answer one routing question quickly: is this
-problem enforced by maintainer helper code, by shared Make entrypoints, or by
-GitHub automation?
+Open this page when one routing question matters most: is this problem
+enforced by maintainer helper code, by shared Make entrypoints, or by GitHub
+automation?
 
 <div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This section shows the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
 

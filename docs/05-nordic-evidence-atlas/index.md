@@ -11,8 +11,8 @@ last_reviewed: 2026-04-26
 
 The Nordic Evidence Atlas is the shared Nordic map publication.
 
-Open this page when the fastest path is to inspect what readers actually see
-before reviewing source-specific tables, normalized outputs, or package
+Open this page first when the fastest path is to inspect what readers actually
+see before reviewing source-specific tables, normalized outputs, or package
 internals.
 
 The atlas is not just an image or a convenience link. It is the main public
@@ -82,4 +82,3 @@ The atlas is the fastest way to see the published evidence surface, not the
 only place where meaning lives. A trustworthy read usually starts here and then
 branches outward into source, output, fieldwork, or runtime docs depending on
 what the visible map element is actually claiming.
-
