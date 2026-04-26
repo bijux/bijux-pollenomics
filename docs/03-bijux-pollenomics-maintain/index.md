@@ -17,16 +17,16 @@ schema drift checks, docs integrity checks, release support, and workflow
 contracts should be readable from checked-in docs instead of being rediscovered
 through CI logs and shell glue.
 
-If someone opens only this page, they should be able to answer one routing
-question quickly: is this problem enforced by maintainer helper code, by shared
-Make entrypoints, or by GitHub automation?
+Open this page when you need to answer one routing question quickly: is this
+problem enforced by maintainer helper code, by shared Make entrypoints, or by
+GitHub automation?
 
 <div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This branch is where to check the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
 
 <div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Use this branch for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
-  <div class="bijux-panel"><h3>Make System</h3><p>Use this branch to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
-  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Use this branch for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
+  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Open this branch for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
+  <div class="bijux-panel"><h3>Make System</h3><p>Open this branch to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
+  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Open this branch for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
@@ -106,6 +106,6 @@ flowchart LR
 
 ## Reader Takeaway
 
-This handbook should make repository-health work explicit and reviewable. It is
+This handbook makes repository-health work explicit and reviewable. It is
 not a shadow product layer, and it should route readers back to the runtime or
 data docs as soon as the question becomes user-facing behavior.

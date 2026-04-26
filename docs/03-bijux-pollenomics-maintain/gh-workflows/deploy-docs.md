@@ -29,5 +29,5 @@ even when no Markdown page changes.
 
 ## Purpose
 
-Use this page to understand when documentation publication runs and which site
-inputs it validates before deploy.
+This page shows when documentation publication runs and which site inputs it
+validates before deploy.
