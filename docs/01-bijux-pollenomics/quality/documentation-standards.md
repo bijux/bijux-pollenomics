@@ -40,6 +40,3 @@ flowchart LR
 Integrity in docs means being exact about what exists now, including the parts
 that are incomplete or inconvenient.
 
-## Purpose
-
-This page shows the writing rules that keep the package handbook trustworthy.
