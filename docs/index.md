@@ -119,7 +119,7 @@ need:
 - how the runtime package is divided by responsibility
 - how maintainers verify and review long-lived changes
 
-## Published Handbooks
+## Package Handbooks
 
 - [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
