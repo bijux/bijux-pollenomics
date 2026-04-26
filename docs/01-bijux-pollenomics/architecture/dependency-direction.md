@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Dependency Direction
 
-Dependency flow should move inward from command surfaces toward stable helpers
-and file contracts.
+Dependency flow moves inward from command surfaces toward stable helpers and
+file contracts.
 
 ```mermaid
 flowchart LR
@@ -35,21 +35,21 @@ flowchart LR
 - dispatch depends on collector and reporting services
 - collector and reporting code depend on `core/`, `config.py`, and their own
   local contracts
-- low-level helpers should not depend back on command registration or docs
+- low-level helpers do not depend back on command registration or docs
   concerns
 
 ## Boundary Rule
 
-Source-specific modules may know how to write their own files, but they should
-not reach upward into report rendering policy. Reporting modules may consume
-normalized source outputs, but they should not quietly redefine how raw source
+Source-specific modules may know how to write their own files, but they do not
+reach upward into report rendering policy. Reporting modules may consume
+normalized source outputs, but they do not quietly redefine how raw source
 collection works.
 
-## Use This Page When
+## Open This Page When
 
 - one module starts importing across too many layers
 - a source-specific shortcut risks becoming a package-wide architectural leak
 
 ## Purpose
 
-This page records the preferred dependency flow inside the package.
+This page shows the dependency flow inside the package.

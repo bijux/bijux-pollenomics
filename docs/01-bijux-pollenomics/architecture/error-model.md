@@ -44,11 +44,11 @@ Prefer failures that are loud, local, and early. A fast explicit command error
 is easier to trust than a successful exit that leaves stale or half-written
 artifacts in tracked paths.
 
-## Use This Page When
+## Open This Page When
 
 - discussing whether a command should tolerate partial success
 - deciding where a validation failure should stop execution
 
 ## Purpose
 
-This page records the package's preferred failure behavior.
+This page shows the package's failure behavior.

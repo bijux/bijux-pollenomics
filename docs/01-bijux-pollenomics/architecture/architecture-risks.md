@@ -49,12 +49,11 @@ flowchart TD
 - renaming output paths or slugs would force wide downstream changes across
   tracked artifacts, tests, and published docs
 
-## Use This Page When
+## Open This Page When
 
 - a proposed refactor looks structurally tidy but may widen review cost
 - an output rename or boundary shift would affect many tracked surfaces at once
 
 ## Purpose
 
-This page records the structural risks maintainers should keep in view during
-package changes.
+This page shows the structural risks that stay in view during package changes.
