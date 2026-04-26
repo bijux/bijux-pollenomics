@@ -12,14 +12,15 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics` is a static, reviewable evidence workspace. The repository collects tracked Nordic source data, normalizes it into stable files, and publishes those files as country bundles plus one shared interactive atlas.
 
 Start here with the checked-in Nordic Evidence Atlas. It is the fastest way to
-inspect what the repository currently produces: AADR sample points, LandClim
+see what this repository actually publishes: AADR sample points, LandClim
 pollen sequences and REVEALS grid cells, Neotoma pollen sites, SEAD sites,
 Swedish archaeology density from RAÄ, fieldwork media, and Nordic country
 boundaries.
 
-The page layout now follows the package-handbook pattern used across Bijux
-documentation: one handbook for the runtime package, one reference tree for
-tracked data and outputs, and one handbook for repository maintenance.
+If someone opens only this page, they should still understand four things
+clearly: what the repository publishes today, where the visible layers come
+from, which code rebuilds them, and where the documentation stops making
+claims.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -44,17 +45,17 @@ tracked data and outputs, and one handbook for repository maintenance.
 <!-- bijux-pollenomics-badges:generated:end -->
 
 <div class="bijux-callout">
-  <strong>Start with the atlas.</strong> The rest of the site exists to answer four questions: what the repository is for, which commands rebuild it, where the files come from, and which limitations are still intentional.
+  <strong>Start with the atlas, then branch by question.</strong> The rest of the site exists to answer what the repository publishes, where each visible layer originates, which commands rebuild it, and which limits remain deliberate.
 </div>
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel">
     <h3>What this site proves</h3>
-    <p>Which files are checked in, which commands rebuild them, which source categories feed the atlas, and which boundaries the repository is deliberately holding.</p>
+    <p>Which files are checked in, which source families feed the atlas, which commands rebuild the published outputs, and which repository boundaries are intentionally held.</p>
   </div>
   <div class="bijux-panel">
     <h3>What this site does not prove</h3>
-    <p>That proximity implies sampling value, that the present layers are scientifically complete, or that mutable upstream services will always return identical data in the future.</p>
+    <p>That spatial proximity implies scientific weight, that the current layers are complete, or that mutable upstream services will behave identically forever.</p>
   </div>
 </div>
 
@@ -80,14 +81,16 @@ tracked data and outputs, and one handbook for repository maintenance.
 
 Use the path that matches what you need right now:
 
-- understanding the runtime package boundary and public contracts: start with
+- understanding the runtime package boundary, command loop, and public
+  contracts: start with
   [bijux-pollenomics](01-bijux-pollenomics/index.md)
-- checking what each tracked dataset contributes and where it lands: use
+- checking what each tracked dataset contributes, how it is normalized, and
+  where it lands: use
   [bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - reviewing CI, release, docs, and make-system maintenance rules: use
   [bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
-- inspecting the current visible artifact first: open the embedded atlas and the
-  checked-in `docs/report/` bundles
+- inspecting the current visible publication first: open the embedded atlas and
+  the checked-in `docs/report/` bundles
 
 ## Fieldwork Evidence
 
@@ -105,28 +108,30 @@ The website now also carries checked-in field media from the Lyngsjön Lake samp
   </figure>
 </div>
 
-## What This Documentation Set Explains
+## What This Site Lets A Reader Do
 
 ```mermaid
 flowchart LR
+    reader["reader question<br/>what am I seeing, where did it come from, and how is it rebuilt?"]
     atlas["Nordic Evidence Atlas<br/>visible publication surface"]
-    data["Data reference<br/>sources, normalization, outputs"]
-    runtime["Package handbook<br/>runtime code and public contracts"]
-    maintain["Maintainer handbook<br/>verification and release rules"]
-    fieldwork["Fieldwork record<br/>one documented collection visit"]
-    decisions["reader question<br/>what exists, where it came from, how to rebuild it"]
+    sources["source families<br/>AADR, LandClim, Neotoma,<br/>SEAD, RAÄ, boundaries"]
+    runtime["runtime package<br/>collect, normalize, publish"]
+    outputs["checked-in outputs<br/>data/ and docs/report/"]
+    fieldwork["fieldwork record<br/>one direct collection visit"]
+    maintain["maintainer handbook<br/>verification, release, docs integrity"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
     classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class atlas,page decisions;
-    class data,runtime,maintain positive;
-    class fieldwork anchor;
-    atlas --> decisions
-    data --> decisions
-    runtime --> decisions
-    maintain --> decisions
-    fieldwork --> atlas
+    class reader page;
+    class atlas,runtime,outputs positive;
+    class sources,fieldwork,maintain anchor;
+    reader --> atlas
+    atlas --> sources
+    sources --> runtime
+    runtime --> outputs
+    outputs --> maintain
+    atlas --> fieldwork
 ```
 
 The docs are organized so a reader can start from the visible atlas and then
@@ -144,12 +149,13 @@ drop into the exact supporting explanation they need:
 flowchart TD
     home["Home"]
     atlas["Open the atlas first"]
-    source["Need provenance?"]
-    contracts["Need commands or package contracts?"]
-    rebuild["Need rebuild or release steps?"]
-    field["Need one concrete collection record?"]
+    visible["Looking at a visible layer or point?"]
+    provenance["Need source provenance and normalization?"]
+    rebuild["Need commands, code, or rebuild rules?"]
+    automation["Need repository automation or release rules?"]
+    visit["Need one concrete collection record?"]
     data["Data reference"]
-    package["Package handbook"]
+    package["Runtime handbook"]
     maintain["Maintainer handbook"]
     fieldwork["Fieldwork page"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
@@ -158,13 +164,14 @@ flowchart TD
     classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
     class home,page atlas;
     class data,package,maintain positive;
-    class source,contracts,rebuild,field caution;
+    class visible,provenance,rebuild,automation,visit caution;
     class fieldwork anchor;
     home --> atlas
-    atlas --> source --> data
-    atlas --> contracts --> package
-    atlas --> rebuild --> maintain
-    atlas --> field --> fieldwork
+    atlas --> visible
+    visible --> provenance --> data
+    visible --> rebuild --> package
+    visible --> automation --> maintain
+    visible --> visit --> fieldwork
 ```
 
 ## Documentation Families
@@ -179,12 +186,19 @@ flowchart TD
 - data-tree migration issues: [Migration Issues](02-bijux-pollenomics-data/foundation/migration-issues.md)
 - package risk tracking: [Risk Register](01-bijux-pollenomics/quality/risk-register.md)
 
-## Purpose
+## Concrete Anchors
 
-Use this page to move from the checked-in atlas into the runtime, data, and
-maintainer handbooks that explain repository scope, rebuild workflows, data
-provenance, architecture seams, and exact file contracts.
+- `docs/report/nordic-atlas/nordic-atlas_map.html` for the visible publication
+  surface most readers will inspect first
+- `data/` for the tracked normalized evidence tree that feeds the atlas
+- `packages/bijux-pollenomics/src/bijux_pollenomics/` for the runtime code that
+  collects, normalizes, and publishes
+- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/` and `makes/` for
+  the repository-health surfaces that protect release, docs, and verification
 
-## Stability
+## Reader Takeaway
 
-This page is part of the canonical docs spine. Keep it aligned with the checked-in outputs and the current repository workflow.
+Use this page to move from the visible atlas to the exact supporting surface
+you need. If a claim about the atlas cannot be backed by source provenance,
+runtime contracts, tracked outputs, or maintainer proof, this repository should
+say so directly rather than implying certainty it does not have.
