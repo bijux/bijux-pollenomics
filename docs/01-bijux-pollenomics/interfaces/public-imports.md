@@ -48,7 +48,3 @@ Reach into internal modules only when changing the package itself.
 - a consumer needs the top-level import surface only
 - a refactor risks moving or renaming symbols that callers treat as stable
 
-## Purpose
-
-This page shows the import surface that external callers should treat as
-stable first.

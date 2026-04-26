@@ -49,6 +49,3 @@ It ripples into docs, report publishing, tests, and reviewer expectations.
 - a change touches `data/` layout or normalized filenames
 - reviewers need to decide whether a file move is an interface change
 
-## Purpose
-
-This page shows the package's stable contracts for tracked data outputs.
