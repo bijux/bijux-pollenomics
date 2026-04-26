@@ -86,13 +86,3 @@ flowchart LR
 - `data/`
 - `docs/report/`
 
-## Purpose
-
-This page shows the shortest honest description of why the runtime package
-exists.
-
-## Stability
-
-Keep it aligned with the package code, tracked outputs, and public command
-surface that actually ship in this repository. If the page promises a role the
-runtime does not implement, the page is wrong.

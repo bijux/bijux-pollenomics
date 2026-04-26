@@ -53,6 +53,3 @@ Stable language is not cosmetic. It prevents reviewers from confusing upstream
 material with normalized files, or confusing one published output bundle with
 the shared atlas.
 
-## Purpose
-
-This page keeps boundary discussions precise by using stable package language.

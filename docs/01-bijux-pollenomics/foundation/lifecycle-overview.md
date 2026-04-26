@@ -49,7 +49,3 @@ maintenance work.
 - reviewers need to explain why one command should not also mutate a later
   output surface
 
-## Purpose
-
-This page gives the package's high-level operational sequence before later
-sections dive into module and contract detail.

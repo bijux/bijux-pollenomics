@@ -51,7 +51,3 @@ This breakdown helps reviewers see whether a change is adding a new capability,
 changing one existing capability, or leaking one responsibility into the wrong
 part of the package.
 
-## Purpose
-
-This page names the core capabilities the package is expected to defend over
-time.
