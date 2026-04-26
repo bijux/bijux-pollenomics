@@ -13,6 +13,24 @@ This section defines which runtime surfaces are real contracts: command names,
 defaults, tracked file layouts, published artifacts, and the narrow import
 surface that other repository layers can safely rely on.
 
+## Interface Model
+
+```mermaid
+flowchart TB
+    commands["commands and flags"]
+    config["defaults and configuration"]
+    data["tracked data contracts"]
+    artifacts["published artifact contracts"]
+    compatibility["compatibility review threshold"]
+
+    commands --> config
+    config --> data
+    data --> artifacts
+    artifacts --> compatibility
+```
+
+This section should help a reader tell which surfaces are merely current behavior and which ones are stable enough to script against. If that distinction is vague, every output diff becomes harder to judge.
+
 ## Start Here
 
 - open [CLI Surface](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/cli-surface/) when the question starts from a
@@ -60,6 +78,10 @@ surface that other repository layers can safely rely on.
   shapes
 - `tests/e2e/test_cli.py` and `tests/regression/test_repository_contracts.py`
   for interface-facing proof
+
+## Design Pressure
+
+The easy failure is to document visible runtime behavior without stating clearly which commands, file layouts, and artifact shapes are actually treated as contracts.
 
 ## Boundary Test
 
