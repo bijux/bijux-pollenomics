@@ -17,17 +17,17 @@ This section is for readers tracing where a layer comes from, what file family
 it lands in, how its provenance is preserved, or which migration hazards exist
 when the data layout changes.
 
-This section is the reader route from visible atlas layers back to the tracked
-files and source families that support them. It should help a reader move from
-"what am I looking at?" to "where did this come from, what was normalized, and
-which checked-in outputs can I inspect?"
+This section routes visible atlas layers back to the tracked files and source
+families that support them. It takes the question from "what am I looking at?"
+to "where did this come from, what was normalized, and which checked-in outputs
+can I inspect?"
 
 <div class="bijux-callout"><strong>Follow the data from source to publication.</strong> This branch is where to verify source selection, normalization rules, output families, and the field evidence that anchors visible atlas points back to real collection work.</div>
 
 <div class="bijux-panel-grid">
   <div class="bijux-panel"><h3>Sources</h3><p>Start here when the question is about upstream origin, refresh policy, coordinate handling, or source-specific caveats.</p></div>
-  <div class="bijux-panel"><h3>Outputs</h3><p>Use this branch to inspect normalized file families, report bundles, and the Nordic atlas publication surfaces.</p></div>
-  <div class="bijux-panel"><h3>Fieldwork</h3><p>Use this branch when a visible point or media artifact needs to be tied back to one concrete collection visit.</p></div>
+  <div class="bijux-panel"><h3>Outputs</h3><p>Open this branch to inspect normalized file families, report bundles, and the Nordic atlas publication surfaces.</p></div>
+  <div class="bijux-panel"><h3>Fieldwork</h3><p>Open this branch when a visible point or media artifact needs to be tied back to one concrete collection visit.</p></div>
 </div>
 
 <div class="bijux-quicklinks">
@@ -82,9 +82,9 @@ flowchart LR
 
 ## Reader Takeaway
 
-This section helps readers move from a visible publication surface back
-to the tracked evidence behind it. It is where data provenance becomes legible,
-not where package runtime behavior or maintainer automation is explained.
+This section moves from a visible publication surface back to the tracked
+evidence behind it. It is where data provenance becomes legible, not where
+package runtime behavior or maintainer automation is explained.
 
 ## What You Get
 
