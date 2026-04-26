@@ -14,4 +14,4 @@ execution discipline, and CI-driven repository checks.
 
 ## Purpose
 
-This page records where maintainer security support is anchored.
+This page shows where maintainer security support is anchored.

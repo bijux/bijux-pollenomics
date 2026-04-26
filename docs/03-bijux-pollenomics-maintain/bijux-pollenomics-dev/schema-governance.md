@@ -20,4 +20,4 @@ the maintainer commands that detect drift.
 
 ## Purpose
 
-This page records where schema and API drift governance lives.
+This page shows where schema and API drift governance lives.
