@@ -4,7 +4,7 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Interfaces
@@ -14,6 +14,27 @@ operators rely on: commands, configs, artifacts, and frozen API contracts.
 
 Use it when the question is how callers and reviewers are supposed to interact
 with the package without reading every implementation module first.
+
+```mermaid
+flowchart LR
+    cli["CLI surface"]
+    examples["entrypoints and examples"]
+    config["configuration surface"]
+    data["data contracts"]
+    artifacts["artifact contracts"]
+    compat["compatibility commitments"]
+    reader["reader question<br/>what can I safely rely on?"]
+    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
+    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
+    class cli,page reader;
+    class examples,config,data,artifacts,compat positive;
+    cli --> reader
+    examples --> reader
+    config --> reader
+    data --> reader
+    artifacts --> reader
+    compat --> reader
+```
 
 ## Start Here
 
@@ -34,6 +55,12 @@ with the package without reading every implementation module first.
 - [Operator Workflows](operator-workflows.md)
 - [Public Imports](public-imports.md)
 - [Compatibility Commitments](compatibility-commitments.md)
+
+## What This Section Should Answer
+
+- which commands and imports are public
+- which defaults and file layouts are part of the package contract
+- what compatibility means in a file-oriented runtime
 
 ## Purpose
 
