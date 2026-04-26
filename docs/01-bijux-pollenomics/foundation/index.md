@@ -35,7 +35,7 @@ policy, or interpretation blur into the same layer.
 - open [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/) before expanding the
   runtime into a new data, workflow, or interpretation surface
 
-## Published Foundation Pages
+## Pages In This Section
 
 - [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/)
 - [Scope and Non-Goals](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/scope-and-non-goals/)
@@ -83,7 +83,7 @@ policy, or interpretation blur into the same layer.
 - `tests/regression/test_repository_contracts.py` for the repository-facing
   proof that package ownership still matches tracked outputs
 
-## Read Across The Package
+## Across This Package
 
 - open [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/) when the question becomes
   structural rather than boundary-oriented
@@ -96,7 +96,7 @@ policy, or interpretation blur into the same layer.
 
 ## Bottom Line
 
-Open `Foundation` to answer the ownership question directly:
+Open this section to answer the ownership question directly:
 `bijux-pollenomics` exists to execute a controlled evidence loop from tracked
 inputs to tracked publication outputs. If a proposal makes the package broader
 without making that loop clearer, it is probably crossing a boundary rather

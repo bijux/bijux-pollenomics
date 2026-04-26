@@ -9,7 +9,7 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-This section is for readers who need the shared rules of the tracked data tree
+Open this section when you need the shared rules of the tracked data tree
 before any single source family or output bundle is discussed.
 
 Readers often arrive here after seeing one atlas layer or one checked-in file
@@ -68,6 +68,6 @@ the tracked tree moves.
 
 ## Bottom Line
 
-This section is the stable rulebook for the tracked data tree. It makes the
-shape, provenance, and migration constraints visible before you drop into one
-source page or one published output family.
+Open this section when the tracked data tree rules matter more than one source
+page or one published output family. It makes shape, provenance, and migration
+constraints visible before you drop into narrower detail.
