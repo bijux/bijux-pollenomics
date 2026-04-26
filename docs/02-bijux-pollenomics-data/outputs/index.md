@@ -9,25 +9,26 @@ last_reviewed: 2026-04-26
 
 # Outputs
 
-Open this section when you need the normalized and published file families
-that the data system produces.
+This section defines the checked-in output families that the data system
+produces.
 
-This section moves from one checked-in file family to the reason it exists:
-which normalized outputs are intermediate evidence surfaces, which bundles are
-publication-facing, and how the Nordic atlas relates to both.
+These pages separate three different surfaces that are easy to blur together:
+normalized repository-owned evidence files under `data/*/normalized/`,
+publication bundles under `docs/report/<country-slug>/`, and the shared Nordic
+atlas publication under `docs/report/nordic-atlas/`.
 
 ## Start Here
 
-- open [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/) for the shortest overview of
-  what is currently checked in
-- open [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) when the question is about the
-  country bundles rather than intermediate normalized files
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/) when the question starts from the
-  map rather than from a source family
-- open [Normalized Neotoma Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-neotoma/) or another source
-  family page when the issue is already narrowed to one checked-in file family
+- open [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/)
+  for the shortest checked-in view of the current cross-source state
+- open one normalized output page when the question is about one repository
+  file family rather than the upstream source that feeds it
+- open [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/)
+  when the question is about country bundles that readers consume directly
+- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
+  when the question is about the shared map publication and its shipped assets
 
-## Pages In This Section
+## Section Pages
 
 - [Collection Summary](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/collection-summary/)
 - [Normalized AADR Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-aadr/)
@@ -39,33 +40,25 @@ publication-facing, and how the Nordic atlas relates to both.
 - [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/)
 - [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
 
-## Open This Section When
+## What This Section Settles
 
-- you need to inspect one checked-in output family directly
-- you want to know whether a file is a normalized input, a publication bundle,
-  or the atlas surface itself
-- the question starts from repository-owned outputs rather than from upstream
-  sources
+- which files are intermediate normalized evidence surfaces
+- which files are public publication bundles
+- where the atlas sits in relation to both
 
-## Open Another Section When
+## First Proof Check
 
-- the real question is about source caveats before normalization
-- the issue is about the tracked data tree rules rather than one output family
-- the concern belongs to runtime commands or maintainer automation instead of
-  published files
+- inspect `data/*/normalized/` for the repository-owned evidence layers
+- inspect `docs/report/<country-slug>/` for the country-facing publication
+  bundles
+- inspect `docs/report/nordic-atlas/` for the shared map bundle and supporting
+  files
 
-## Concrete Anchors
+## Boundary Test
 
-- `docs/report/denmark/`, `docs/report/finland/`, `docs/report/norway/`, and
-  `docs/report/sweden/` for the public country bundles
-- `docs/report/nordic-atlas/` for the atlas publication surface
-- `data/*/normalized/` for the intermediate repository-owned outputs that feed
-  later bundles
-- [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/) and [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  for the bridge between raw normalized outputs and reader-facing publication
-
-## Bottom Line
-
-Open this section when publication-facing files need to become concrete. It
-helps readers distinguish intermediate normalized evidence from the country
-bundles and atlas surfaces that the site exposes publicly.
+This section starts from checked-in outputs, not from upstream source caveats
+and not from runtime rebuild commands. Open
+[Sources](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/)
+for upstream limits and open the
+[runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+when the question becomes how these files were regenerated.
