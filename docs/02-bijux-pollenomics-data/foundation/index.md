@@ -9,8 +9,8 @@ last_reviewed: 2026-04-26
 
 # Foundation
 
-Use this section to understand the shared rules of the tracked data tree before
-any single source family or output bundle is discussed.
+This section is for readers who need the shared rules of the tracked data tree
+before any single source family or output bundle is discussed.
 
 Readers often arrive here after seeing one atlas layer or one checked-in file
 and asking what keeps the overall data system coherent. This section is where
@@ -93,6 +93,6 @@ into one source page or one published output family.
 
 ## What You Get
 
-This page gives you the shared layout, provenance, naming, coordinate, and
-migration route through the tracked data tree before you inspect one source
-family or one output bundle.
+Open this page when you need the shared layout, provenance, naming,
+coordinate, and migration route through the tracked data tree before you
+inspect one source family or one output bundle.
