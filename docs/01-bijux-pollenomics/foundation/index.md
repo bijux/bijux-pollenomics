@@ -13,6 +13,26 @@ This section defines why the runtime package exists at all. It keeps one
 foundational mistake visible: treating collection, provenance, publication, and
 scientific interpretation as if they all belong to the same owner.
 
+## Foundation Model
+
+```mermaid
+flowchart TB
+    question["what should the runtime own?"]
+    overview["package overview"]
+    boundary["ownership boundary"]
+    lifecycle["lifecycle overview"]
+    scope["scope and non-goals"]
+    handoff["handoff to data, maintain, or evidence pages"]
+
+    question --> overview
+    overview --> boundary
+    boundary --> lifecycle
+    lifecycle --> scope
+    scope --> handoff
+```
+
+This section should move a reader from broad runtime claims to the exact point where package ownership stops. If the foundation pages cannot do that, every later architectural or operational explanation inherits blurred responsibility.
+
 ## Start Here
 
 - open [Package Overview](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/package-overview/) for the shortest durable
@@ -56,6 +76,10 @@ scientific interpretation as if they all belong to the same owner.
   `src/bijux_pollenomics/reporting/bundles/` for publication ownership
 - `tests/regression/test_repository_contracts.py` for the repository-facing
   proof that package ownership still matches tracked outputs
+
+## Design Pressure
+
+The easy failure is to let runtime ownership sound comprehensive enough that provenance policy, maintainer enforcement, and atlas interpretation start slipping inward by habit.
 
 ## Boundary Test
 
