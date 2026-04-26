@@ -68,8 +68,3 @@ checked-in outputs can I inspect?"
 This section moves from a visible publication surface back to the tracked
 evidence behind it. It is where data provenance becomes legible, not where
 package runtime behavior or maintainer automation is explained.
-
-## Fastest Route
-
-Open this page when you need the shortest route from a visible atlas layer to
-the source, output, fieldwork, or shared-tree page that explains it in detail.
