@@ -51,4 +51,4 @@ whether the cost came from collection, reporting, or docs publication.
 
 ## Purpose
 
-This page records the package's performance stance and operational trade-offs.
+This page shows the package's performance stance and operational trade-offs.

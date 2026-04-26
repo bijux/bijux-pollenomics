@@ -48,4 +48,4 @@ before assuming a refresh is safe to publish.
 
 ## Purpose
 
-This page records the practical security stance of the runtime package.
+This page shows the practical security stance of the runtime package.

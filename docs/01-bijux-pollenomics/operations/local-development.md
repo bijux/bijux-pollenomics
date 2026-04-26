@@ -51,4 +51,4 @@ Use explicit rewrite targets only when the intent is to refresh tracked outputs:
 
 ## Purpose
 
-This page explains the local package workflow that keeps review intent clear.
+This page shows the local package workflow that keeps review intent clear.

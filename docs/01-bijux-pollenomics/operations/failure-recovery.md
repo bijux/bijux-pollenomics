@@ -48,4 +48,4 @@ everything at once.
 
 ## Purpose
 
-This page explains the package-level recovery discipline for failed workflows.
+This page shows the package-level recovery discipline for failed workflows.

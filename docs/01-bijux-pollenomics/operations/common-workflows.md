@@ -49,4 +49,4 @@ the goal. Broad commands are not safer just because they feel more complete.
 
 ## Purpose
 
-This page records the package workflows operators use most often.
+This page shows the package workflows operators use most often.
