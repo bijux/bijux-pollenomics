@@ -4,18 +4,23 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # verify
 
 `verify.yml` is the main repository verification workflow.
 
-It runs repository checks first and then fans out into package-level checks for
-`bijux-pollenomics`, `pollenomics`, and `bijux-pollenomics-dev`.
+## What It Runs
 
-The job tree is intentionally split. `repository` runs shared automation
-contracts first, `package` fans out by package through `ci.yml`, and
-each reusable package run splits again into package-scoped `tests`, `checks`,
-and `lint` jobs.
+- a `repository` job that checks shared make and config contracts
+- a package matrix for `bijux-pollenomics`, `pollenomics`, and
+  `bijux-pollenomics-dev`
+- reusable `ci.yml` jobs for package-scoped test, lint, build, SBOM, API, and
+  security surfaces
 
+## Trigger Surface
+
+It runs on pushes, pull requests, manual dispatch, and merge groups for changes
+that touch workflows, APIs, configs, docs, makes, packages, or core root files
+such as `Makefile`, `mkdocs.yml`, `pyproject.toml`, and `uv.lock`.
