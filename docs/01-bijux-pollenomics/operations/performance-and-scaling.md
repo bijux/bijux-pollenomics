@@ -12,6 +12,24 @@ last_reviewed: 2026-04-26
 `bijux-pollenomics` is optimized for reproducibility and inspectability before
 throughput.
 
+## Performance Model
+
+```mermaid
+flowchart TB
+    verify["verification targets"]
+    collect["data refresh work"]
+    reports["report publishing work"]
+    review["identifiable cost surface"]
+
+    verify --> review
+    collect --> review
+    reports --> review
+```
+
+This page should show performance as workflow-shaped cost. The important thing
+is not raw speed; it is keeping the expensive step identifiable so readers can
+tell whether cost came from verification, collection, or publication.
+
 ## Current Performance Truths
 
 - verification targets are much cheaper than full data refreshes
@@ -30,3 +48,8 @@ whether the cost came from collection, reporting, or docs publication.
 - `make check`
 - `make data-prep`
 - `make reports`
+
+## Design Pressure
+
+The easy failure is to hide slow work behind one broad command, which makes
+performance pressure much harder to diagnose and much easier to misattribute.
