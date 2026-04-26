@@ -62,7 +62,7 @@ instead of treating every layer as equally abstract.
 - open [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/) when the wider
   question is how one visit sits among the full visible evidence stack
 
-## Pages In Fieldwork
+## Pages In This Section
 
 - [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
 
@@ -74,7 +74,7 @@ instead of treating every layer as equally abstract.
 - preparing repeat visits or local interpretation with the original visit
   context in view
 
-## Choose Another Section When
+## Open Another Section When
 
 - inferring that every atlas point has matching field documentation
 - treating one visit as proof of regional sampling completeness

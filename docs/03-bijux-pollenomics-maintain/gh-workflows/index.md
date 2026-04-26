@@ -72,7 +72,7 @@ flowchart LR
 - you need to know whether automation is an entry workflow, a reusable job, or
   governance-only behavior
 
-## Choose Another Section When
+## Open Another Section When
 
 - the real question is which local or CI Make target should be run
 - the problem is inside package code, data normalization, or atlas behavior
