@@ -18,27 +18,32 @@ This package does not prove correctness only through unit tests. It also has to
 prove that tracked data layouts, published reports, and map-facing outputs still
 match the contracts readers and reviewers rely on.
 
+For this repository, quality is not only about whether the Python code still
+works. It is also about whether a visible atlas change, a country-report diff,
+or a shifted data layout can still be explained with enough named evidence that
+reviewers do not have to guess what changed or why it is acceptable.
+
 ```mermaid
 flowchart LR
     reader["reader question<br/>what makes this runtime change believable?"]
-    tests["pick the narrowest meaningful test layer"]
+    tests["pick the narrowest<br/>meaningful test layer"]
+    invariants["defend stable truths<br/>about data and reports"]
+    outputs["check data/ and atlas-facing<br/>output consequences"]
+    docs["update docs when public<br/>behavior moves"]
+    risks["name limits and remaining<br/>uncertainty"]
     validation["run change-shaped validation"]
-    invariants["defend stable truths about data and reports"]
-    docs["update docs when public behavior moves"]
-    risks["name limits and remaining uncertainty"]
-    atlas["check atlas-facing output consequences"]
     classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
     classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
     classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
     class reader page;
-    class tests,validation,invariants,docs,atlas positive;
+    class tests,validation,invariants,docs,outputs positive;
     class risks caution;
     tests --> reader
-    validation --> reader
     invariants --> reader
+    outputs --> reader
     docs --> reader
     risks --> reader
-    atlas --> reader
+    validation --> reader
 ```
 
 ## Start Here
@@ -78,6 +83,14 @@ flowchart LR
 - you need package purpose or ownership boundaries before choosing evidence
 - the primary issue is interface wording rather than validation or risk
 
+## What This Section Clarifies
+
+- which test layers defend code behavior versus tracked repository outputs
+- which visible atlas or report consequences should be reviewed even after the
+  tests pass
+- which remaining limits must still be stated honestly so a green run is not
+  mistaken for scientific completeness
+
 ## Concrete Anchors
 
 - `tests/unit/` for narrow behavior checks on layout, source normalization, and
@@ -106,8 +119,3 @@ flowchart LR
 Use `Quality` to make changes believable, not merely plausible. If a runtime
 claim cannot be backed by named tests, explicit invariants, updated docs, and a
 clear statement of remaining limits, it is not yet ready for repository review.
-
-## Purpose
-
-This page introduces the proof, review, and risk handbook for
-`bijux-pollenomics`.
