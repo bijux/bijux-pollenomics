@@ -83,12 +83,12 @@ Use the path that matches what you need right now:
 
 - understanding the runtime package boundary, command loop, and public
   contracts: start with
-  [bijux-pollenomics](01-bijux-pollenomics/index.md)
+  [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - checking what each tracked dataset contributes, how it is normalized, and
   where it lands: use
-  [bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+  [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
 - reviewing CI, release, docs, and make-system maintenance rules: use
-  [bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
+  [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 - inspecting the current visible publication first: open the embedded atlas and
   the checked-in `docs/report/` bundles
 
@@ -174,17 +174,17 @@ flowchart TD
     visible --> visit --> fieldwork
 ```
 
-## Documentation Families
+## Pages In This Site
 
-- [bijux-pollenomics](01-bijux-pollenomics/index.md)
-- [bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
-- [bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
+- [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## Current Issues and Migration Notes
 
-- package limits and active risks: [Known Limitations](01-bijux-pollenomics/quality/known-limitations.md)
-- data-tree migration issues: [Migration Issues](02-bijux-pollenomics-data/foundation/migration-issues.md)
-- package risk tracking: [Risk Register](01-bijux-pollenomics/quality/risk-register.md)
+- package limits and active risks: [Known Limitations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/known-limitations/)
+- data-tree migration issues: [Migration Issues](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/migration-issues/)
+- package risk tracking: [Risk Register](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/risk-register/)
 
 ## Concrete Anchors
 
