@@ -20,28 +20,6 @@ evidence surface of the repository. This page routes from a visible layer,
 point, or polygon to the exact source, output, fieldwork, or runtime
 explanation that can support or limit what it appears to show.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what does this visible layer actually mean?"]
-    atlas["Nordic Evidence Atlas<br/>interactive publication"]
-    layers["visible layers<br/>AADR, pollen, archaeology, fieldwork, boundaries"]
-    outputs["output reference<br/>checked-in atlas assets"]
-    sources["source reference<br/>where each layer originates"]
-    fieldwork["fieldwork row<br/>direct visit context"]
-    package["runtime handbook<br/>commands that rebuild publication"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class reader page;
-    class layers,outputs,sources,fieldwork,package positive;
-    atlas --> layers
-    layers --> reader
-    reader --> outputs
-    reader --> sources
-    reader --> fieldwork
-    reader --> package
-```
-
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/">Open atlas output reference</a>

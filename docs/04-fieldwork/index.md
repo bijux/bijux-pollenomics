@@ -19,32 +19,6 @@ data reference, or a full field-log system. Its job is to preserve the direct
 human record behind a documented visit: where the team went, when sampling
 happened, and which media artifacts support that record.
 
-```mermaid
-flowchart LR
-    reader["reader question<br/>what really happened at this place?"]
-    atlas["atlas point or visible field marker"]
-    record["fieldwork page<br/>visit facts, media, local context"]
-    facts["date, place, and collection context"]
-    media["photos, video, and supporting artifacts"]
-    data["data reference<br/>source-derived interpretation"]
-    boundary["boundary<br/>a visit record is narrow evidence"]
-    planner["future return visits<br/>repeatable local context"]
-    classDef page fill:var(--bijux-mermaid-page-fill),stroke:var(--bijux-mermaid-page-stroke),color:var(--bijux-mermaid-page-text),stroke-width:2px;
-    classDef positive fill:var(--bijux-mermaid-positive-fill),stroke:var(--bijux-mermaid-positive-stroke),color:var(--bijux-mermaid-positive-text);
-    classDef caution fill:var(--bijux-mermaid-caution-fill),stroke:var(--bijux-mermaid-caution-stroke),color:var(--bijux-mermaid-caution-text);
-    classDef anchor fill:var(--bijux-mermaid-anchor-fill),stroke:var(--bijux-mermaid-anchor-stroke),color:var(--bijux-mermaid-anchor-text);
-    class reader page;
-    class atlas,record,facts,media,data,planner positive;
-    class boundary caution;
-    atlas --> record
-    record --> facts
-    record --> media
-    record --> data
-    record --> planner
-    record --> boundary
-    record --> reader
-```
-
 The [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html)
 remains the main decision surface for comparing mapped evidence layers. This
 section lets readers follow one visible atlas point back to a real visit
