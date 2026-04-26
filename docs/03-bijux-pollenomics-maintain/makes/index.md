@@ -11,7 +11,7 @@ last_reviewed: 2026-04-26
 
 This section documents the repository make system.
 
-Use it when the question is which root command to run, which target rewrites
+Open it when the question is which root command to run, which target rewrites
 tracked state, or how package-level makefiles are routed from the repository
 entrypoints.
 
@@ -41,10 +41,10 @@ flowchart LR
 
 ## Start Here
 
-- use [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/) for the top-level command surface
-- use [CI Targets](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/ci-targets/) when the question is about verification and
+- open [Root Entrypoints](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/root-entrypoints/) for the top-level command surface
+- open [CI Targets](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/ci-targets/) when the question is about verification and
   automation contracts
-- use [Release Surfaces](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/release-surfaces/) when the question is about
+- open [Release Surfaces](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/release-surfaces/) when the question is about
   publication-related make targets
 
 ## Pages In makes
@@ -59,7 +59,7 @@ flowchart LR
 - [Environment Model](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/environment-model/)
 - [Authoring Rules](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/authoring-rules/)
 
-## Use This Section When
+## Open This Section When
 
 - you need to know which repository command starts a verification, build,
   release, or docs task
@@ -68,7 +68,7 @@ flowchart LR
 - the question is about command contracts, shared variables, or how maintainers
   are expected to add new targets safely
 
-## Move On When
+## Choose Another Section When
 
 - the real issue is inside package implementation, data semantics, or atlas
   publication behavior
@@ -98,7 +98,7 @@ flowchart LR
 
 ## Reader Takeaway
 
-Use `makes/` to understand the repository command contract: what a maintainer
+Open `makes/` to understand the repository command contract: what a maintainer
 runs, which shared target fans out into package work, and where command
 behavior is intentionally centralized. Move to `gh-workflows/` when the real
 question is automation triggers rather than Make routing.

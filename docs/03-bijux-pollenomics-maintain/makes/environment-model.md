@@ -15,4 +15,4 @@ files.
 
 ## Purpose
 
-This page records how the make system models tool execution environments.
+This page shows how the make system models tool execution environments.

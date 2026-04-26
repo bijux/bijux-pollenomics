@@ -16,4 +16,4 @@ The root entrypoint is intentionally small: `Makefile` includes `makes/root.mk`.
 
 ## Purpose
 
-This page records the durable root make entrypoints.
+This page shows the durable root make entrypoints.

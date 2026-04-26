@@ -17,4 +17,4 @@ artifacts.
 
 ## Purpose
 
-This page records where release-oriented make behavior lives.
+This page shows where release-oriented make behavior lives.
