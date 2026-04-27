@@ -1,5 +1,6 @@
 """Shared infrastructure used across package domains."""
 
+from .geo_distance import EARTH_RADIUS_KM, haversine_km
 from .geojson import (
     CountryBoundaryCollection,
     GeoJsonFeature,
@@ -18,6 +19,7 @@ from .geojson import (
 )
 
 __all__ = [
+    "EARTH_RADIUS_KM",
     "CountryBoundaryCollection",
     "GeoJsonFeature",
     "GeoJsonFeatureCollection",
@@ -28,6 +30,7 @@ __all__ = [
     "Position",
     "as_mapping",
     "feature_list",
+    "haversine_km",
     "parse_linear_ring",
     "parse_multipolygon",
     "parse_polygon",
