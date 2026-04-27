@@ -78,6 +78,21 @@ telling them stories rather than showing its tracked basis.
 - which tracked files support the atlas or country bundles
 - which layout changes would create wide migration cost
 
+## Current Coverage Matrix
+
+| Evidence family | Current repository use | What is still missing |
+| --- | --- | --- |
+| AADR | public `.anno` metadata routed into tracked sample outputs and atlas layers | genotype-level `.geno`, `.ind`, and `.snp` processing |
+| LandClim | normalized pollen and REVEALS context layers | broader workflow use beyond atlas context publication |
+| Neotoma | normalized pollen-site context layers | deeper cross-site comparison workflows |
+| SEAD | archaeological and environmental site context layers | broader regional scoring beyond locality proximity |
+| RAÄ | Swedish archaeology density and locality context | non-Swedish archaeology sources with comparable coverage |
+| fieldwork | one direct Lyngsjön visit record | a larger set of checked-in sampling campaigns |
+
+The point of this matrix is to keep the evidence tree honest. The repository is
+already multi-source, but it is not yet a balanced multi-evidence analysis
+engine.
+
 ## First Proof Check
 
 - `data/`
@@ -95,3 +110,10 @@ from one reader question to the next.
 If a question is really about runtime commands, repository automation, or the
 meaning of one published atlas point, this handbook should route the reader out
 instead of answering too broadly.
+
+## Non-Goals For The Current Data Tree
+
+- pretending that all sources carry equivalent temporal resolution
+- treating map adjacency as if it were already scientific weighting
+- collapsing provenance differences between pollen, archaeology, and sample
+  metadata just because they render in one atlas
