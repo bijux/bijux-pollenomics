@@ -14,6 +14,12 @@ collects source-backed records, normalizes them into tracked files, and
 publishes those files as country bundles plus one shared atlas that readers can
 inspect directly.
 
+Right now the honest description is atlas-builder first. This repository
+publishes a reproducible evidence surface and can now emit heuristic candidate
+site outputs from that surface, but it is not yet the broader pollenomics
+analysis engine that combines aDNA, eDNA, pollen, and archaeological context
+in one scientific workflow.
+
 The atlas is the fastest honest route into the repository. It shows what is
 actually published today: AADR sample points, LandClim pollen sequences and
 REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology
@@ -133,6 +139,14 @@ collection day on the lake ice rather than to a database row alone.
 - tracked normalized evidence files under `data/`
 - one runtime package that rebuilds those outputs from stable commands
 - one narrow fieldwork record that ties a mapped point to a real visit
+
+## What Comes Next
+
+The next repository step is not to make the atlas prettier. It is to make the
+evidence loop stronger: candidate ranking must stay traceable to tracked
+layers, multi-evidence workflows must remain explicit about provenance, and the
+future pollenomics engine must grow from this checked-in evidence base rather
+than bypass it.
 
 ## What This Repository Does Not Claim
 
