@@ -9,15 +9,17 @@ last_reviewed: 2026-04-10
 
 # Documentation Integrity
 
-Docs integrity in this repository depends on strict MkDocs builds and
-maintenance discipline that keeps docs aligned with the real runtime and
-workflow surfaces.
+Docs integrity depends on strict MkDocs builds and maintenance discipline that
+keeps docs aligned with the real runtime, managed surfaces, and workflow
+contracts.
 
 ## Current Documentation Surfaces
 
 - `mkdocs.yml`
 - `mkdocs.shared.yml`
 - `docs/assets/site-icons/`
+- the shared Bijux docs theme contract that keeps navigation, assets, and
+  strict MkDocs builds aligned
 
 ## Icon Assets
 
