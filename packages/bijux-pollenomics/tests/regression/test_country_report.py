@@ -62,6 +62,9 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_candidate_sites.md",
         )
         self.assertEqual(
+            atlas_paths.bundle_manifest_path.name, "nordic-atlas_bundle.json"
+        )
+        self.assertEqual(
             atlas_paths.summary_json_path.name, "nordic-atlas_summary.json"
         )
 
@@ -432,6 +435,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "nordic-atlas_samples.geojson").exists())
             self.assertTrue((output / "nordic-atlas_candidate_sites.csv").exists())
             self.assertTrue((output / "nordic-atlas_candidate_sites.md").exists())
+            self.assertTrue((output / "nordic-atlas_bundle.json").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
                 (output / "_map_assets" / "leaflet" / "leaflet.js").exists()

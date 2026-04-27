@@ -14,6 +14,7 @@ from ...data_downloader.models import ContextPointRecord
 from ..models import MultiCountryMapReport, SampleRecord
 from ..aadr import summarize_localities
 from .paths import AtlasBundlePaths
+from .summary_builders.atlas import build_multi_country_bundle_manifest
 
 __all__ = ["publish_multi_country_map_bundle"]
 
@@ -73,6 +74,10 @@ def publish_multi_country_map_bundle(
                 bundle_paths.candidate_sites_markdown_path.name,
             ),
         ]
+    )
+    write_summary_json_fn(
+        bundle_paths.bundle_manifest_path,
+        build_multi_country_bundle_manifest(report, bundle_paths, extra_artifacts),
     )
     copy_map_assets_fn(staging_output_dir)
     write_summary_json_fn(
