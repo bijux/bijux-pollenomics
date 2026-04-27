@@ -43,6 +43,7 @@ same staged assets to the GitHub Release.
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
 - review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - inspect the data reference: [Data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- inspect the engine roadmap: [Engine roadmap](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/)
 - inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
