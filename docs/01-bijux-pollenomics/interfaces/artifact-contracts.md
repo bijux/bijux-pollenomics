@@ -36,6 +36,8 @@ contract failures, not cosmetic output glitches.
 - country bundles under `docs/report/<country-slug>/`
 - the shared atlas under `docs/report/nordic-atlas/`
 - report summaries and map payloads produced by the reporting package
+- atlas candidate ranking sidecars that summarize locality proximity against
+  tracked context layers
 
 ## Stable Path Anchors
 
@@ -45,6 +47,8 @@ contract failures, not cosmetic output glitches.
   GeoJSON, sample Markdown, and summary JSON outputs
 - atlas bundles include `README.md`, the map HTML document, sample GeoJSON, and
   summary JSON outputs
+- atlas candidate ranking sidecars include one CSV file for machine-readable
+  sorting and one Markdown file for reader review
 - bundled map assets copied by the rendering layer are part of the publication
   surface because broken assets break the published reader experience
 
@@ -61,3 +65,7 @@ contract failures, not cosmetic output glitches.
 The easy failure is to treat published artifacts like disposable build output,
 which makes path, file-shape, and asset regressions harder to catch before they
 land in the reader experience.
+
+The next easy failure is to let heuristic ranking files appear without stating
+what they are. If candidate sidecars exist, their bundle shape and limit must
+be treated as contract, not as hidden implementation detail.

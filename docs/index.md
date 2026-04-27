@@ -14,6 +14,12 @@ collects source-backed records, normalizes them into tracked files, and
 publishes those files as country bundles plus one shared atlas that readers can
 inspect directly.
 
+Right now the honest description is atlas-builder first. This repository
+publishes a reproducible evidence surface and can now emit heuristic candidate
+site outputs from that surface, but it is not yet the broader pollenomics
+analysis engine that combines aDNA, eDNA, pollen, and archaeological context
+in one scientific workflow.
+
 The atlas is the fastest honest route into the repository. It shows what is
 actually published today: AADR sample points, LandClim pollen sequences and
 REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology
@@ -22,10 +28,10 @@ density from RAÄ, fieldwork media, and Nordic country boundaries.
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
-[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
-[![Release PyPI](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml/badge.svg?event=workflow_dispatch)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml?query=event%3Aworkflow_dispatch)
-[![Release GHCR](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
-[![Release GitHub](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
+[![Verify](https://github.com/bijux/bijux-pollenomics/workflows/repo%20/%20verify/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml?query=branch%3Amain)
+[![Release PyPI](https://github.com/bijux/bijux-pollenomics/workflows/release-pypi/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
+[![Release GHCR](https://github.com/bijux/bijux-pollenomics/workflows/release-ghcr/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
+[![Release GitHub](https://github.com/bijux/bijux-pollenomics/workflows/release-github/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 [![Release](https://img.shields.io/github/v/release/bijux/bijux-pollenomics?display_name=tag&label=release)](https://github.com/bijux/bijux-pollenomics/releases)
 [![GHCR packages](https://img.shields.io/badge/ghcr-2%20packages-181717?logo=github)](https://github.com/bijux?tab=packages&repo_name=bijux-pollenomics)
@@ -48,6 +54,7 @@ density from RAÄ, fieldwork media, and Nordic country boundaries.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the package handbook</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/">Open the engine roadmap</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data reference</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
@@ -133,6 +140,14 @@ collection day on the lake ice rather than to a database row alone.
 - tracked normalized evidence files under `data/`
 - one runtime package that rebuilds those outputs from stable commands
 - one narrow fieldwork record that ties a mapped point to a real visit
+
+## What Comes Next
+
+The next repository step is not to make the atlas prettier. It is to make the
+evidence loop stronger: candidate ranking must stay traceable to tracked
+layers, multi-evidence workflows must remain explicit about provenance, and the
+future pollenomics engine must grow from this checked-in evidence base rather
+than bypass it.
 
 ## What This Repository Does Not Claim
 

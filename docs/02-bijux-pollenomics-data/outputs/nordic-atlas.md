@@ -36,6 +36,8 @@ the reader loses sight of the layers and links that justify what the map shows.
 - `nordic-atlas_map.html` as the checked-in map publication
 - source-derived GeoJSON and JSON files that the atlas renders together
 - `_map_assets/` as the shipped asset bundle for the interactive surface
+- candidate ranking sidecars:
+  `nordic-atlas_candidate_sites.csv` and `nordic-atlas_candidate_sites.md`
 
 ## Boundary
 
@@ -43,6 +45,10 @@ The atlas bundle is the main public evidence surface of the repository, but it
 is still a publication package. It renders normalized data and fieldwork links.
 It does not replace the source pages, the normalized output pages, or the
 runtime docs that explain rebuild behavior.
+
+The candidate ranking sidecars inherit that same boundary. They summarize
+nearby context against tracked layers. They do not convert atlas publication
+outputs into a validated site-selection model.
 
 ## First Proof Check
 
