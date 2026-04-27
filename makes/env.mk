@@ -7,5 +7,6 @@ DEPTRY_SCAN_SCRIPT ?= PYTHONPATH="$(MONOREPO_ROOT)/packages/bijux-pollenomics-de
 DEPTRY_CONFIG ?= $(MONOREPO_ROOT)/configs/deptry.toml
 QUALITY_DEPTRY_COMMAND ?= $(DEPTRY_SCAN_SCRIPT) --config "$(DEPTRY_CONFIG)" --project-dir . $(QUALITY_PATHS)
 QUALITY_DEPTRY_VERSION_COMMAND ?=
+CODESPELL ?= $(VENV_PYTHON) -m codespell_lib
 
 include $(ROOT_MAKE_DIR)/bijux-py/repository/env.mk
