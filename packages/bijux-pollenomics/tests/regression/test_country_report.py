@@ -422,6 +422,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "README.md").exists())
             self.assertTrue((output / "nordic-atlas_map.html").exists())
             self.assertTrue((output / "nordic-atlas_samples.geojson").exists())
+            self.assertTrue((output / "nordic-atlas_candidate_sites.csv").exists())
+            self.assertTrue((output / "nordic-atlas_candidate_sites.md").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
                 (output / "_map_assets" / "leaflet" / "leaflet.js").exists()
