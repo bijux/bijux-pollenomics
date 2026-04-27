@@ -6,6 +6,24 @@
   --md-primary-fg-color: #0f766e;
   --md-accent-fg-color: #155e75;
   --md-typeset-a-color: #0f5f73;
+  --bijux-mermaid-page-fill: #f5f8f7;
+  --bijux-mermaid-page-stroke: #27586b;
+  --bijux-mermaid-page-text: #102a35;
+  --bijux-mermaid-positive-fill: #e7f6f1;
+  --bijux-mermaid-positive-stroke: #0f766e;
+  --bijux-mermaid-positive-text: #113529;
+  --bijux-mermaid-caution-fill: #fff3dd;
+  --bijux-mermaid-caution-stroke: #b7791f;
+  --bijux-mermaid-caution-text: #4a3410;
+  --bijux-mermaid-anchor-fill: #e8f1fb;
+  --bijux-mermaid-anchor-stroke: #155e75;
+  --bijux-mermaid-anchor-text: #0f2940;
+  --bijux-mermaid-action-fill: #f3ecfb;
+  --bijux-mermaid-action-stroke: #7c3aed;
+  --bijux-mermaid-action-text: #341a5c;
+  --bijux-mermaid-edge: #5b7281;
+  --bijux-mermaid-label-fill: #eef4f7;
+  --bijux-mermaid-label-text: #183240;
   --bijux-hub-bg: rgba(11, 20, 34, 0.97);
   --bijux-hub-border: rgba(255, 255, 255, 0.12);
   --bijux-hub-link: rgba(255, 255, 255, 0.76);
@@ -35,6 +53,24 @@
   --md-primary-fg-color--light: #14b8a6;
   --md-accent-fg-color: #67e8f9;
   --md-typeset-a-color: #7dd3fc;
+  --bijux-mermaid-page-fill: #102334;
+  --bijux-mermaid-page-stroke: #7ec8c0;
+  --bijux-mermaid-page-text: #eaf2fa;
+  --bijux-mermaid-positive-fill: #17352f;
+  --bijux-mermaid-positive-stroke: #54c3b2;
+  --bijux-mermaid-positive-text: #e7fbf4;
+  --bijux-mermaid-caution-fill: #45331a;
+  --bijux-mermaid-caution-stroke: #f2bf62;
+  --bijux-mermaid-caution-text: #fff3d7;
+  --bijux-mermaid-anchor-fill: #183247;
+  --bijux-mermaid-anchor-stroke: #7dd3fc;
+  --bijux-mermaid-anchor-text: #ecf7ff;
+  --bijux-mermaid-action-fill: #31234a;
+  --bijux-mermaid-action-stroke: #ba9cff;
+  --bijux-mermaid-action-text: #f5efff;
+  --bijux-mermaid-edge: #b4cfe0;
+  --bijux-mermaid-label-fill: #11283a;
+  --bijux-mermaid-label-text: #edf6fd;
   --bijux-hub-bg: rgba(8, 11, 29, 0.98);
   --bijux-hub-border: rgba(45, 212, 191, 0.16);
   --bijux-hub-link: rgba(229, 231, 255, 0.82);
@@ -130,58 +166,28 @@
   border-color: rgba(45, 212, 191, 0.16);
 }
 
-/* Force high-contrast Mermaid rendering in dark mode, regardless of per-diagram classDef/style declarations. */
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node rect,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node circle,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node ellipse,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node polygon,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .node path,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .classBox,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .stateGroup rect,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .stateGroup path,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg rect.basic,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg rect.label-container {
-  fill: #122b3c !important;
-  stroke: #6fc7c2 !important;
+[data-md-color-scheme] .md-typeset .mermaid svg .flowchart-link,
+[data-md-color-scheme] .md-typeset .mermaid svg .edgePath .path,
+[data-md-color-scheme] .md-typeset .mermaid svg .path,
+[data-md-color-scheme] .md-typeset .mermaid svg .marker,
+[data-md-color-scheme] .md-typeset .mermaid svg .marker path,
+[data-md-color-scheme] .md-typeset .mermaid svg line,
+[data-md-color-scheme] .md-typeset .mermaid svg polyline {
+  stroke: var(--bijux-mermaid-edge) !important;
 }
 
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster rect {
-  fill: #0f2536 !important;
-  stroke: #4ba8a2 !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .flowchart-link,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgePath .path,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .path,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .marker,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .marker path,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg line,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg polyline {
-  stroke: #a9c8d4 !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg text,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg tspan,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .label,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .label text,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .nodeLabel,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg span.nodeLabel,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel p,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .cluster-label text,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .classTitle,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .state-title,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg foreignObject div,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg foreignObject span {
-  color: #eaf2fa !important;
-  fill: #eaf2fa !important;
-}
-
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .edgeLabel rect,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .labelBkg,
-[data-md-color-scheme="slate"] .md-typeset .mermaid svg .relationshipLabelBox {
-  fill: #102334 !important;
+[data-md-color-scheme] .md-typeset .mermaid svg .edgeLabel rect,
+[data-md-color-scheme] .md-typeset .mermaid svg .labelBkg,
+[data-md-color-scheme] .md-typeset .mermaid svg .relationshipLabelBox {
+  fill: var(--bijux-mermaid-label-fill) !important;
   opacity: 1 !important;
+}
+
+[data-md-color-scheme] .md-typeset .mermaid svg .edgeLabel text,
+[data-md-color-scheme] .md-typeset .mermaid svg .edgeLabel p,
+[data-md-color-scheme] .md-typeset .mermaid svg .edgeLabel span {
+  color: var(--bijux-mermaid-label-text) !important;
+  fill: var(--bijux-mermaid-label-text) !important;
 }
 
 [data-md-color-scheme="slate"] .md-typeset .md-button {

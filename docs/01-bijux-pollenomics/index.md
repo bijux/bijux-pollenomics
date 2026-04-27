@@ -4,62 +4,105 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
-# bijux-pollenomics
+# bijux-pollenomics Runtime Handbook
 
-`bijux-pollenomics` is the repository's runtime package for collecting tracked
-Nordic evidence layers and publishing reviewable report bundles from them.
-
-Start here when the question is about the package boundary rather than the
-repository as a whole: what code belongs in the runtime, which contracts are
-public, how data and reports move through the package, and which quality rules
-protect that behavior.
+`bijux-pollenomics` is the runtime package that rebuilds the repository's
+checked-in evidence surfaces. It owns the command loop that collects source
+material, normalizes it into tracked files, and publishes country bundles plus
+the shared Nordic atlas.
 
 <div class="bijux-callout"><strong>Think in one runtime loop.</strong> The package collects and normalizes tracked evidence, turns that material into checked-in report bundles, and keeps the CLI and file contracts stable enough to review from the repository alone.</div>
 
-<div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Foundation</h3><p>Use this branch to understand what the runtime owns, which language stays stable, and where package boundaries stop.</p></div>
-  <div class="bijux-panel"><h3>Interfaces</h3><p>Use this branch for CLI, configuration, API, and file contracts when you need exact public surfaces.</p></div>
-  <div class="bijux-panel"><h3>Operations</h3><p>Use this branch for installation, rebuild workflows, release rules, and failure recovery during package work.</p></div>
-</div>
-
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="interfaces/entrypoints-and-examples/">Open command entrypoints</a>
-  <a class="md-button" href="operations/common-workflows/">Open common workflows</a>
-  <a class="md-button" href="quality/test-strategy/">Open test strategy</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/">Open command entrypoints</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/">Open common workflows</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/">Open test strategy</a>
 </div>
 
-## Read This Section When
+## Runtime Loop
 
-- you need the shortest honest description of what the runtime package owns
-- you are changing CLI, data collection, report publishing, or package
-  contracts
-- you want package-level docs that mirror the structure used in sister Bijux
-  repositories
+```mermaid
+flowchart TB
+    cli["operator commands"]
+    collectors["source collectors"]
+    normalizers["normalizers"]
+    data["tracked data files"]
+    reporting["reporting pipeline"]
+    country["country bundles"]
+    atlas["nordic atlas"]
+    tests["unit, regression, and e2e tests"]
 
-## Main Paths
+    cli --> collectors
+    collectors --> normalizers
+    normalizers --> data
+    data --> reporting
+    reporting --> country
+    reporting --> atlas
+    tests --> cli
+    tests --> reporting
+```
 
-- [Foundation](foundation/index.md)
-- [Architecture](architecture/index.md)
-- [Interfaces](interfaces/index.md)
-- [Operations](operations/index.md)
-- [Quality](quality/index.md)
+The package matters because it makes the publication loop repeatable. It does
+not just expose commands; it protects the chain from operator intent, through
+source collection and normalization, into the files that the public reports and
+atlas render. Runtime documentation should therefore explain how a reader can
+rebuild the visible evidence surface, not only where the implementation files
+live.
 
-## What Readers Usually Need First
+This handbook root should feel like one controlled loop, not a software catalog. If readers cannot see how commands, tracked files, and publication outputs stay tied together, they will misread runtime ownership as a pile of helpers.
 
-- package ownership and scope: [Foundation](foundation/index.md)
-- command, configuration, and file contracts: [Interfaces](interfaces/index.md)
-- local rebuild and release steps: [Operations](operations/index.md)
-- review expectations and validation depth: [Quality](quality/index.md)
+## Start Here
 
-## Purpose
+- open [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/) when the question is why this
+  package exists and where its ownership stops
+- open [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/) when the question is a command,
+  default, file layout, or publication contract
+- open [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/) when the question is how to
+  rebuild, release, diagnose, or recover the runtime loop
+- open [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/) when the question is what proof or risk
+  bar blocks a change
 
-Use this page to choose the right package branch before dropping into
-module-level implementation details.
+## Pages In This Package
 
-## Stability
+- [Foundation](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/)
+- [Architecture](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/architecture/)
+- [Interfaces](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/)
+- [Operations](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/)
+- [Quality](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/)
 
-Keep it aligned with `packages/bijux-pollenomics/`, its public CLI, its tracked
-artifacts, and the review rules that protect them.
+## What This Package Owns
+
+- the operator-facing commands that collect tracked evidence and rebuild
+  publication outputs
+- the code paths that normalize source material into repository-owned artifacts
+- the report and atlas publication logic that turns tracked files into review
+  surfaces
+
+## What This Package Refuses
+
+- the repository-wide documentation, release, and workflow rules explained in
+  the maintainer handbook
+- the source-specific provenance caveats explained in the data reference
+- the scientific interpretation of the mapped evidence beyond what the checked-in
+  artifacts and documented limitations support
+
+## First Proof Check
+
+- `packages/bijux-pollenomics/src/bijux_pollenomics/cli.py` and
+  `packages/bijux-pollenomics/src/bijux_pollenomics/command_line/` for the
+  command entry surface
+- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/` for
+  collection, normalization, and tracked data layout behavior
+- `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/` for country
+  bundles, atlas output, and publication logic
+- `packages/bijux-pollenomics/tests/` for unit, regression, and end-to-end
+  proof that the runtime loop still holds
+
+## Boundary Test
+
+If a proposed change makes the package broader without making the
+collect-normalize-publish loop clearer, the change probably belongs in the
+data handbook, the maintainer handbook, or the field evidence surfaces instead.

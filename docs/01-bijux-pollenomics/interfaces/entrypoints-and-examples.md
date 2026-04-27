@@ -4,12 +4,32 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Entrypoints and Examples
 
-The package supports both shell and import-based entrypoints.
+The package supports both shell and import-based entrypoints. The point of the
+examples is to show the real public path into the same runtime behavior, not to
+offer a second undocumented contract.
+
+## Entrypoint Model
+
+```mermaid
+flowchart TB
+    shell["shell command"]
+    imports["import-based workflow call"]
+    runtime["shared runtime behavior"]
+    outputs["tracked outputs"]
+
+    shell --> runtime
+    imports --> runtime
+    runtime --> outputs
+```
+
+This page should show the examples as two doors into one runtime, not as two
+different behavior contracts. The examples matter because they reveal the same
+bounded workflow through both shell and import surfaces.
 
 ## Shell Examples
 
@@ -34,7 +54,15 @@ generate_published_reports(
 )
 ```
 
-## Purpose
+## First Proof Check
 
-This page shows the supported entrypoint patterns without forcing readers to
-reverse-engineer them from tests.
+- `src/bijux_pollenomics/cli.py`
+- `src/bijux_pollenomics/data_downloader/api.py`
+- `src/bijux_pollenomics/reporting/api.py`
+- `tests/e2e/test_cli.py`
+
+## Design Pressure
+
+The easy failure is to let examples drift into shadow contracts, which makes
+shell behavior and import behavior look similar while quietly diverging in real
+usage.

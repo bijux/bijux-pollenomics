@@ -4,32 +4,35 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Lifecycle Overview
 
-The runtime package moves work through one explicit lifecycle:
+This package owns one tracked lifecycle from command entry to published output.
+Each stage matters because it changes which file or surface becomes
+authoritative for the next review question.
 
-1. parse a command and resolve defaults
-2. collect or load source inputs
-3. normalize and stage tracked files
-4. publish report artifacts from the tracked inputs
-5. hand the resulting outputs to docs and review workflows
+## Runtime Lifecycle
 
-## Important Boundaries
+- commands enter through `cli.py` and `command_line/`
+- collection and normalization run through `data_downloader/collector.py` and
+  `data_downloader/pipeline/`
+- repository-owned evidence state is written under `data/`
+- reporting code turns that tracked state into bundles and atlas outputs under
+  `docs/report/`
 
-- collection can rewrite tracked `data/` outputs
-- reporting can rewrite tracked `docs/report/` outputs
-- docs publishing is downstream of runtime outputs, not a substitute for them
+## Review Handoffs
 
-## Why The Lifecycle Matters
+- the data handbook explains why a source family looks the way it does
+- the atlas pages explain what one visible publication layer can and cannot
+  support
+- the fieldwork pages explain the direct visit record behind one mapped point
 
-When a change breaks the lifecycle order, reviewers lose the ability to reason
-about whether a diff came from source refresh, report publishing, or unrelated
-maintenance work.
+## First Proof Check
 
-## Purpose
-
-This page gives the package's high-level operational sequence before later
-sections dive into module and contract detail.
+- `src/bijux_pollenomics/command_line/`
+- `src/bijux_pollenomics/data_downloader/pipeline/`
+- `src/bijux_pollenomics/reporting/`
+- `tests/regression/test_data_collector.py`
+- `tests/regression/test_country_report.py`

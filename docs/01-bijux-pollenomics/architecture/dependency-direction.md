@@ -4,13 +4,34 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Dependency Direction
 
-Dependency flow should move inward from command surfaces toward stable helpers
-and file contracts.
+Dependency direction should make ownership easier to see as the runtime grows,
+not harder.
+
+## Dependency Model
+
+```mermaid
+flowchart TB
+    cli["cli and parsing"]
+    dispatch["runtime dispatch"]
+    collect["collection services"]
+    report["reporting services"]
+    core["core helpers and config"]
+
+    cli --> dispatch
+    dispatch --> collect
+    dispatch --> report
+    collect --> core
+    report --> core
+```
+
+This page should make dependency direction legible as an ownership aid. The
+real question is whether imports keep command entry, collection, and reporting
+separate enough that reviewers can still see where a change belongs.
 
 ## Intended Direction
 
@@ -18,16 +39,23 @@ and file contracts.
 - dispatch depends on collector and reporting services
 - collector and reporting code depend on `core/`, `config.py`, and their own
   local contracts
-- low-level helpers should not depend back on command registration or docs
+- low-level helpers do not depend back on command registration or docs
   concerns
 
-## Boundary Rule
+## Dependency Regressions
 
-Source-specific modules may know how to write their own files, but they should
-not reach upward into report rendering policy. Reporting modules may consume
-normalized source outputs, but they should not quietly redefine how raw source
-collection works.
+- report-rendering modules should not start redefining raw collection behavior
+- low-level helpers should not pull CLI parsing or docs policy back inward
+- source-specific shortcuts should not become cross-package rules by import
 
-## Purpose
+## First Proof Check
 
-This page records the preferred dependency flow inside the package.
+- imports under `command_line/runtime/`
+- imports under `data_downloader/pipeline/` and `data_downloader/sources/`
+- imports under `reporting/`
+
+## Design Pressure
+
+The easy failure is to accept convenient reverse dependencies that save local
+effort but quietly erase the boundaries the rest of the handbook is trying to
+explain.

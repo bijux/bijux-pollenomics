@@ -4,12 +4,31 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Operator Workflows
 
-Most operators encounter the package through a short set of repository workflows.
+Most operators meet the package through a short set of repository workflows.
+The crucial distinction is between verification and mutation.
+
+## Operator Workflow Model
+
+```mermaid
+flowchart TB
+    verify["verification flow"]
+    data["data refresh flow"]
+    reports["report refresh flow"]
+    inspect["inspect published outputs"]
+
+    verify --> inspect
+    data --> inspect
+    reports --> inspect
+```
+
+This page should make operator flows legible by mutation level. The useful
+split is not “simple versus advanced”; it is “checks only” versus “rewrites
+tracked data or publication surfaces”.
 
 ## Common Operator Flows
 
@@ -18,12 +37,14 @@ Most operators encounter the package through a short set of repository workflows
 - regenerate published report bundles into `docs/report/`
 - inspect the resulting atlas and country outputs in the docs site
 
-## Expected Operator Stance
+## First Proof Check
 
-Treat collection and report publication as explicit rewrite operations. If the
-intent is only verification, use the repository validation targets instead of
-running state-changing package commands out of habit.
+- `makes/`
+- `tests/e2e/test_cli.py`
+- `tests/regression/test_repository_contracts.py`
 
-## Purpose
+## Design Pressure
 
-This page records the operator-facing ways the package is expected to be used.
+The common failure is to describe all operator workflows as routine tasks,
+which hides which ones widen the review surface and which ones simply prove
+current state.

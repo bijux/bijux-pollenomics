@@ -4,13 +4,31 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Error Model
 
-The package uses command failure and incomplete output prevention as its main
-error model.
+The package should fail early enough that readers can tell whether a problem is
+command shape, source handling, or publication assembly.
+
+## Error Model Diagram
+
+```mermaid
+flowchart TB
+    parse["argument parsing"]
+    source["source validation and transformation"]
+    report["report generation"]
+    stop["early explicit stop"]
+
+    parse --> stop
+    source --> stop
+    report --> stop
+```
+
+This page should show failures by the stage that owns them. Readers need to
+know whether a command died before writes started, during source handling, or
+while assembling publication outputs.
 
 ## Failure Expectations
 
@@ -20,12 +38,21 @@ error model.
 - report generation failures should not be hidden behind partially successful
   publication claims
 
-## Review Rule
+## Failure Classes
 
-Prefer failures that are loud, local, and early. A fast explicit command error
-is easier to trust than a successful exit that leaves stale or half-written
-artifacts in tracked paths.
+- invalid command shape: fail during argument parsing
+- unsupported source or bad transformation: fail before tracked writes become
+  authoritative
+- report-generation failure: fail before publication claims are left half true
 
-## Purpose
+## First Proof Check
 
-This page records the package's preferred failure behavior.
+- `tests/unit/test_command_line.py`
+- `tests/unit/test_source_registry.py`
+- `tests/unit/test_reporting_artifacts.py`
+- `tests/regression/test_country_report.py`
+
+## Design Pressure
+
+The common failure is to collapse every failure into one generic runtime error,
+which hides the exact boundary where the command stopped being trustworthy.

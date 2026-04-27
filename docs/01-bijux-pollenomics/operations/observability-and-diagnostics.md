@@ -4,13 +4,33 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Observability and Diagnostics
 
 Observability in this package comes from explicit command output and reviewable
 files rather than from a separate telemetry stack.
+
+## Diagnostic Model
+
+```mermaid
+flowchart TB
+    command["command output and exit status"]
+    summaries["tracked summaries"]
+    reports["report manifests and bundles"]
+    tests["test failures"]
+    diagnosis["diagnostic picture"]
+
+    command --> diagnosis
+    summaries --> diagnosis
+    reports --> diagnosis
+    tests --> diagnosis
+```
+
+This page should make diagnostics feel concrete and local. Readers do not need
+remote telemetry here; they need the small set of command, file, and test
+surfaces that explain what went wrong.
 
 ## Diagnostic Surfaces
 
@@ -25,7 +45,15 @@ files rather than from a separate telemetry stack.
 - inspect whether `data/` or `docs/report/` changed unexpectedly
 - compare the affected output family with the corresponding tests
 
-## Purpose
+## First Proof Check
 
-This page names the main signals maintainers should use to diagnose package
-behavior.
+- command exit codes and stderr
+- `data/collection_summary.json`
+- `docs/report/`
+- `tests/unit/`, `tests/regression/`, and `tests/e2e/`
+
+## Design Pressure
+
+The common failure is to hunt for hidden observability that does not exist,
+instead of using the explicit files and test layers the runtime already leaves
+behind.

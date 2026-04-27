@@ -4,12 +4,35 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Data Contracts
 
-The package's data contracts are filesystem contracts.
+The package's data contracts are filesystem contracts. The public promise is
+not a database schema. It is the tracked shape of `data/<source>/`, the
+separation between `raw/` and `normalized/`, and the summary files that let a
+reviewer verify what changed.
+
+## Data Contract Model
+
+```mermaid
+flowchart TB
+    source["data/<source>/ subtree"]
+    raw["raw/"]
+    normalized["normalized/"]
+    summaries["summary files"]
+    review["reviewable data contract"]
+
+    source --> raw
+    source --> normalized
+    normalized --> summaries
+    summaries --> review
+```
+
+This page should make filesystem shape feel contractual, not incidental. The
+data contract exists so reviewers can tell what changed, where it lives, and
+which source subtree still owns it.
 
 ## Contracted Shapes
 
@@ -19,7 +42,7 @@ The package's data contracts are filesystem contracts.
 - collection summaries and source-specific normalized outputs must remain
   reproducible from one repository state
 
-## Key Contract Modules
+## Contract Modules
 
 - `data_downloader/contracts.py`
 - `data_downloader/data_layout.py`
@@ -30,6 +53,15 @@ The package's data contracts are filesystem contracts.
 Renaming source directories or normalized filenames is a high-friction change.
 It ripples into docs, report publishing, tests, and reviewer expectations.
 
-## Purpose
+## First Proof Check
 
-This page explains the package's stable contracts for tracked data outputs.
+- `data/`
+- `src/bijux_pollenomics/data_downloader/data_layout.py`
+- `tests/unit/test_data_layout.py`
+- `tests/regression/test_repository_contracts.py`
+
+## Design Pressure
+
+The common failure is to talk about data contracts as if they were abstract
+schemas, which hides the much more important promise around stable tracked file
+shape and review clarity.

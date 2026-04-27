@@ -4,12 +4,14 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Capability Map
 
-The package has three durable capability families.
+The package has three durable capability families, but not all three are equal.
+Collection and reporting define the runtime surface. Coordination exists to
+keep those two families stable enough to review.
 
 ## Collection
 
@@ -29,7 +31,14 @@ The package has three durable capability families.
 - map CLI commands onto handlers and workflows
 - centralize file, slug, and output-root conventions
 
-## Purpose
+## First Proof Check
 
-This page names the core capabilities the package is expected to defend over
-time.
+- `src/bijux_pollenomics/data_downloader/`
+- `src/bijux_pollenomics/reporting/`
+- `src/bijux_pollenomics/command_line/` and `config.py`
+
+## Boundary Test
+
+If a proposed capability cannot be placed cleanly into collection, reporting,
+or coordination, it is probably crossing into provenance policy, maintainer
+automation, or interpretation.

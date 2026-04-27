@@ -4,32 +4,51 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # deploy-docs
+`deploy-docs.yml` builds the strict MkDocs site and publishes the documentation
+artifact. The workflow follows the shared Bijux docs contract through
+`mkdocs.shared.yml` and the repository-specific deployment configuration.
 
-`deploy-docs.yml` builds the strict MkDocs site and publishes the built output
-to the docs repository when credentials are available. The workflow follows the
-shared Bijux docs contract through `mkdocs.shared.yml` and the
-repository-specific deployment configuration.
+When deployment credentials are available, that artifact becomes the published
+site output.
 
-The workflow follows the shared Bijux docs contract. This repository keeps site
-icons under `docs/assets/site-icons/` and uses the standard MkDocs theme
-configuration surface from `mkdocs.shared.yml`.
+## Docs Deploy Model
 
-It runs on `main` when docs-related files change and can also be started
-manually. The job tree stays small on purpose: build the strict site, validate
-the deploy artifact, then publish to Pages.
+```mermaid
+flowchart TB
+    event["deploy event"]
+    config["repo vars and docs-deploy.env"]
+    commands["discovered build and verify commands"]
+    artifact["site build artifact"]
+    publish["site publication"]
 
-## Trigger Surface
+    event --> config
+    config --> commands
+    commands --> artifact
+    artifact --> publish
+```
 
-The workflow should run when either authored docs inputs or the shared docs
-shell changes. That includes `docs/**`, `mkdocs.yml`, and
-`mkdocs.shared.yml`, because the shared MkDocs config changes site behavior
-even when no Markdown page changes.
+This page should make docs deployment look like a controlled publication path.
+The workflow resolves repository-specific build behavior, verifies the site,
+and only then turns that result into a publishable artifact.
 
-## Purpose
+## What It Does
 
-Use this page to understand when documentation publication runs and which site
-inputs it validates before deploy.
+- resolves docs build configuration from repo vars and `.github/docs-deploy.env`
+- sets up Python, uv, Node, or Rust only when the repo surface requires them
+- discovers install, build, and verify commands from repository targets
+- builds the site and publishes a deployable artifact when the event permits it
+
+## Boundary
+
+This workflow owns site publication behavior. It does not define handbook
+content quality; the docs pages and local docs targets still own that.
+
+## Design Pressure
+
+The easy failure is to treat docs deployment as a generic hosting step, which
+hides how much repository-specific command discovery and verification happens
+before publication is allowed.

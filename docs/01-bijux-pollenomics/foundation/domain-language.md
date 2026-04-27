@@ -4,13 +4,13 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Domain Language
 
-Use the package's own language consistently so code, docs, and review comments
-describe the same objects.
+Stable vocabulary matters here because one wrong noun can blur runtime
+behavior, tracked data state, and scientific meaning into the same sentence.
 
 ## Preferred Terms
 
@@ -22,12 +22,19 @@ describe the same objects.
 - `atlas` means the shared multi-country map bundle under
   `docs/report/nordic-atlas/`
 
-## Terms To Avoid
+## Terms To Avoid Or Qualify
 
 - avoid calling the package a service when it is a file-producing runtime
 - avoid using `database` for tracked file trees unless a real database exists
 - avoid naming speculative research outcomes as if they are current outputs
 
-## Purpose
+## First Proof Check
 
-This page keeps boundary discussions precise by using stable package language.
+- `docs/01-bijux-pollenomics/`
+- `docs/02-bijux-pollenomics-data/`
+- `docs/05-nordic-evidence-atlas/`
+
+## Language Test
+
+If a sentence makes it hard to tell whether the claim belongs to runtime,
+provenance, or interpretation, the wording is too loose.

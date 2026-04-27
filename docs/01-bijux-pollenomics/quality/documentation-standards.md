@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Documentation Standards
@@ -20,6 +20,8 @@ Package docs should describe the real runtime, not a hoped-for future runtime.
 - update docs in the same change that alters a public command, output path, or
   package boundary
 
-## Purpose
+## First Proof Check
 
-This page records the writing rules that keep the package handbook trustworthy.
+- real commands, paths, and artifacts
+- stated limits
+- docs moving with public changes

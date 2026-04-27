@@ -30,7 +30,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 - Locality summary: [`denmark_aadr_v66_localities.csv`](./denmark_aadr_v66_localities.csv)
 - Map-ready GeoJSON: [`denmark_aadr_v66_samples.geojson`](./denmark_aadr_v66_samples.geojson)
 - Machine-readable summary: [`denmark_aadr_v66_summary.json`](./denmark_aadr_v66_summary.json)
-- Full markdown sample table: [`denmark_aadr_v66_samples.md`](./denmark_aadr_v66_samples.md)
+- Full markdown sample table: <a href="https://bijux.io/bijux-pollenomics/report/denmark/denmark_aadr_v66_samples.md">denmark_aadr_v66_samples.md</a>
 
 ## Top Localities
 
