@@ -14,11 +14,18 @@ checked-in evidence surfaces. It owns the command loop that collects source
 material, normalizes it into tracked files, and publishes country bundles plus
 the shared Nordic atlas.
 
+It now also owns the first candidate-site ranking surface built from those
+tracked atlas layers. That ranking stays subordinate to the publication loop:
+the package can emit heuristic candidate outputs, but it is not yet the full
+pollenomics engine that would compare aDNA, eDNA, pollen, and archaeology in
+one scientific workflow.
+
 <div class="bijux-callout"><strong>Think in one runtime loop.</strong> The package collects and normalizes tracked evidence, turns that material into checked-in report bundles, and keeps the CLI and file contracts stable enough to review from the repository alone.</div>
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/">Open command entrypoints</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/">Open common workflows</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/">Open engine roadmap</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/quality/test-strategy/">Open test strategy</a>
 </div>
 
@@ -80,6 +87,8 @@ This handbook root should feel like one controlled loop, not a software catalog.
 - the code paths that normalize source material into repository-owned artifacts
 - the report and atlas publication logic that turns tracked files into review
   surfaces
+- the candidate ranking logic that summarizes locality proximity against the
+  checked-in atlas context layers
 
 ## What This Package Refuses
 
@@ -88,6 +97,8 @@ This handbook root should feel like one controlled loop, not a software catalog.
 - the source-specific provenance caveats explained in the data reference
 - the scientific interpretation of the mapped evidence beyond what the checked-in
   artifacts and documented limitations support
+- claims that heuristic candidate ranking already constitutes paper-grade
+  pollenomics analysis
 
 ## First Proof Check
 

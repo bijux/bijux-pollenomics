@@ -18,9 +18,16 @@ def build_published_reports_summary(
         "shared_bundle": {
             "slug": map_report.slug,
             "directory": str(report.shared_map_dir),
+            "bundle_manifest": f"{map_report.slug}_bundle.json",
+            "summary_json": f"{map_report.slug}_summary.json",
         },
         "country_bundles": {
-            path.name: str(path) for path in report.country_output_dirs
+            path.name: {
+                "directory": str(path),
+                "bundle_manifest": f"{path.name}_aadr_{report.version}_bundle.json",
+                "summary_json": f"{path.name}_aadr_{report.version}_summary.json",
+            }
+            for path in report.country_output_dirs
         },
     }
     return payload

@@ -3,10 +3,10 @@
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
-[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
-[![Release PyPI](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml/badge.svg?event=workflow_dispatch)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml?query=event%3Aworkflow_dispatch)
-[![Release GHCR](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
-[![Release GitHub](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
+[![Verify](https://github.com/bijux/bijux-pollenomics/workflows/repo%20/%20verify/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml?query=branch%3Amain)
+[![Release PyPI](https://github.com/bijux/bijux-pollenomics/workflows/release-pypi/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
+[![Release GHCR](https://github.com/bijux/bijux-pollenomics/workflows/release-ghcr/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
+[![Release GitHub](https://github.com/bijux/bijux-pollenomics/workflows/release-github/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 [![Release](https://img.shields.io/github/v/release/bijux/bijux-pollenomics?display_name=tag&label=release)](https://github.com/bijux/bijux-pollenomics/releases)
 [![GHCR packages](https://img.shields.io/badge/ghcr-2%20packages-181717?logo=github)](https://github.com/bijux?tab=packages&repo_name=bijux-pollenomics)
@@ -24,6 +24,12 @@
 
 `bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
 
+Today that means an atlas-builder with reproducible evidence routing. The
+repository can collect, normalize, and publish Nordic pollen and archaeology
+context into reviewed map and report bundles. It does not yet act as the full
+pollenomics runtime that scores sites or combines ancient DNA, environmental
+DNA, pollen sequences, and archaeological context into one decision engine.
+
 The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
 
 This repository publishes `2` packages. Each release tag builds one staged
@@ -37,6 +43,7 @@ same staged assets to the GitHub Release.
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
 - review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 - inspect the data reference: [Data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
+- inspect the engine roadmap: [Engine roadmap](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/)
 - inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
@@ -59,7 +66,8 @@ The `2` publishable packages in this repository are:
 
 ## Current Scope
 
-The current repository scope is deliberately narrower than later site-selection research.
+The current repository scope is deliberately narrower than the pollenomics
+engine we want next.
 
 What exists today:
 
@@ -67,13 +75,34 @@ What exists today:
 - boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
 - report bundles and the shared atlas are rebuilt from local commands and checked in
 - the shared map is a publication artifact for inspection, not an analysis engine
+- candidate-site ranking artifacts can be emitted from the checked-in atlas
+  context layers, but they remain heuristic atlas outputs rather than a
+  scientific scoring engine
 
 What does not exist today:
 
 - AADR genotype processing from `.geno`, `.ind`, or `.snp`
 - lake-intersection analysis
-- archaeological-site scoring or ranking
+- full archaeological-site scoring across the complete evidence tree
 - automated sampling recommendations
+- integrated eDNA, aDNA, pollen, and archaeological co-analysis runtime
+- paper-grade statistical workflows for the planned POLLENOMIC's series
+
+## Engine Direction
+
+The next durable step is to turn this atlas-builder into a real pollenomics
+runtime. That means keeping the current checked-in publication surfaces while
+adding evidence-aware ranking, reproducible workflow stages, and explicit
+contracts for multi-evidence analysis.
+
+The repository is therefore moving in this order:
+
+- first, make atlas evidence layers and candidate outputs reproducible and easy
+  to audit
+- next, add workflow stages that can compare pollen, archaeological, and
+  ancient-DNA context without collapsing their provenance differences
+- then, grow that workflow into the broader pollenomics engine needed for the
+  planned POLLENOMIC's paper series
 
 ## Working With Commands
 
