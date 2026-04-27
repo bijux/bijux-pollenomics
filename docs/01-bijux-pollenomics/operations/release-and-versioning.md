@@ -4,13 +4,32 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-20
+last_reviewed: 2026-04-26
 ---
 
 # Release and Versioning
 
 The package version and published scientific outputs are related but not the
 same artifact boundary.
+
+## Versioning Model
+
+```mermaid
+flowchart TB
+    package["package version metadata"]
+    defaults["aadr defaults and publication identity"]
+    workflows["split release workflows"]
+    release["public package release"]
+    outputs["checked-in scientific outputs"]
+
+    package --> workflows
+    defaults --> outputs
+    workflows --> release
+```
+
+This page should make release and runtime output identity separate but
+connected. Package versioning governs the published distribution, while tracked
+scientific outputs follow their own evidence and default-version logic.
 
 ## Version Anchors
 
@@ -21,26 +40,15 @@ same artifact boundary.
   `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`,
   and `release-github.yml`
 
-## Version Source
+## First Proof Check
 
-Package versions are derived from repository tags through `hatch-vcs`, with a
-checked-in fallback for source trees that are not inside a Git tag context.
-That keeps local builds, CI builds, and published releases on one versioning
-model instead of mixing static file versions with tag-driven publication.
+- `packages/bijux-pollenomics/pyproject.toml`
+- `config.py`
+- `.github/workflows/release-*.yml`
+- `.github/workflows/deploy-docs.yml`
 
-## Release Rule
+## Design Pressure
 
-Do not treat a source refresh as invisible package state. When output-shaping
-changes are intentional, the package docs and review trail should explain both
-the runtime change and the resulting tracked artifact diff.
-
-## Docs Deployment Trigger
-
-`deploy-docs` runs on pushes to `main`/`master` (and `v*` tags), so docs
-publication should be routed through a reviewed pull request that merges a real
-docs or docs-tooling change into `main`.
-
-## Purpose
-
-This page records the release surfaces that govern package versioning and
-publication.
+The common failure is to blur package release state and scientific output
+versioning together, which makes both publication review and evidence review
+less honest.

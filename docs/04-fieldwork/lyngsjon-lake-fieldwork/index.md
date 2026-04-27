@@ -4,38 +4,56 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Lyngsjön Lake Fieldwork
 
-This page documents the field sampling visit that appears in the Nordic
-Evidence Atlas as a dedicated point layer entry.
+This page is the direct visit record for the fieldwork point published in the
+Nordic Evidence Atlas.
 
-It is evidence of one documented field visit, not a substitute for the broader
-source-derived layers in the atlas. Its role is to connect the atlas to a real
-checked-in collection event with media that lives in this repository.
+It ties one visible atlas point to one checked-in collection event with photo
+and video evidence stored in this repository.
 
-## Site
+## Visit Evidence Model
+
+```mermaid
+flowchart TB
+    point["atlas point"]
+    record["visit metadata"]
+    photo["field photo"]
+    video["field video"]
+    claim["inspectable direct visit claim"]
+
+    point --> record
+    record --> photo
+    record --> video
+    photo --> claim
+    video --> claim
+```
+
+This page should let a reader verify one direct-evidence claim quickly: the
+published point corresponds to a real visit, on a real date, with repository
+media that can be inspected without leaving the docs surface.
+
+## Visit Record
 
 - lake: Lyngsjön Lake
 - country: Sweden
 - regional description: southwest of Kristianstad
-- sampling date: 2026-02-26
-- map coordinates used in the atlas: `55.9319529, 14.0659044`
+- sampling date: `2026-02-26`
+- atlas coordinates: `55.9319529, 14.0659044`
 
-## Why It Is Published
+## Repository Evidence
 
-The repository already publishes database-derived evidence layers. This
-fieldwork material adds direct checked-in documentation that the team went to
-the sampling location and collected data on the lake ice.
+- photo: `docs/gallery/2026-02-26-data-collection.JPG`
+- video: `docs/gallery/2026-02-26-data-collection.mp4`
+- atlas layer label: `Fieldwork documentation`
+- atlas point title: `Lyngsjön Lake field sampling`
 
-That makes the atlas more legible for readers who want to connect one visible
-map point to a real collection day rather than to a database row alone.
-
-[Open the Nordic Evidence Atlas](../../report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
-[Open the field video](../../gallery/2026-02-26-data-collection.mp4){ .md-button }
-[Open the field photo](../../gallery/2026-02-26-data-collection.JPG){ .md-button }
+[Open the Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
+[Open the field video](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.mp4){ .md-button }
+[Open the field photo](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.JPG){ .md-button }
 
 ![Field sampling at Lyngsjön Lake on 2026-02-26.](../../gallery/2026-02-26-data-collection.JPG){ loading=lazy }
 
@@ -44,25 +62,24 @@ map point to a real collection day rather than to a database row alone.
     <source src="../../gallery/2026-02-26-data-collection.mp4" type="video/mp4">
     <a href="../../gallery/2026-02-26-data-collection.mp4">Open the field video.</a>
   </video>
-  <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts with sound off by default.</figcaption>
+  <figcaption>Field documentation from Lyngsjön Lake during winter sampling on 2026-02-26. Playback starts muted.</figcaption>
 </figure>
 
-## Atlas Integration
+## Safe Reading
 
-The atlas publishes this location as `Fieldwork documentation`.
+- a documented visit happened at the published location on `2026-02-26`
+- the repository keeps direct media for that visit
+- the atlas can link to repository-owned field evidence instead of only to
+  upstream database layers
 
-- point title: `Lyngsjön Lake field sampling`
-- popup media actions: direct photo and video links
-- country filter: Sweden
-- layer group: environmental context
+## Design Pressure
 
-## Interpretation Boundary
+The common failure is to read a documented visit as representative field
+coverage rather than what it really is: one inspectable anchor for one atlas
+point.
 
-The point is useful because it ties the atlas to a specific checked-in
-collection event. It does not turn the atlas into a field-log system, and it
-does not imply that every mapped evidence point has matching field media.
+## Boundary
 
-## Purpose
-
-This page anchors the checked-in field media to the atlas and explains what
-that fieldwork evidence does and does not represent.
+This page does not turn the atlas into a field-log system and it does not imply
+that one visit is representative of regional pollen evidence. Its job is to
+make one real visit inspectable.

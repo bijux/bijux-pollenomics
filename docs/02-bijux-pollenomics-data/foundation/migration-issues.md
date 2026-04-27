@@ -9,16 +9,16 @@ last_reviewed: 2026-04-10
 
 # Migration Issues
 
-The data handbook migration is meant to reduce ambiguity, but it carries real
-risks if handled casually.
+The tracked data tree carries real migration cost when names, directories, or
+publication expectations move.
 
 ## Current Migration Issues
 
-- old flat docs and the new data reference can disagree if both are edited in
-  parallel
-- cross-links can break when pages move from generic directories into
-  `docs/02-bijux-pollenomics-data/`
-- reviewers may miss data-contract changes if nav and file moves are separated
+- source-directory or normalized-filename renames can trigger wide downstream
+  review cost
+- output-path changes can break links between `data/`, `docs/report/`, and the
+  handbook
+- readers can miss contract movement if navigation and file moves are separated
 
 ## Mitigation
 
@@ -26,6 +26,7 @@ risks if handled casually.
 - keep source and output names stable while the docs shape changes
 - verify the site strictly after each batch
 
-## Purpose
+## First Proof Check
 
-This page records the migration risks that matter during the docs restructure.
+- cross-links between `data/`, `docs/report/`, and handbook pages
+- strict docs validation

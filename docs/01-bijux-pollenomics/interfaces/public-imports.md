@@ -4,12 +4,36 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Public Imports
 
-The public import surface is defined by `bijux_pollenomics.__all__`.
+The public import surface is the top-level `bijux_pollenomics` package. Use it
+when a caller needs stable workflow functions, report dataclasses, collection
+dataclasses, or `__version__`.
+
+## Public Import Model
+
+```mermaid
+flowchart TB
+    top["bijux_pollenomics top-level package"]
+    workflows["workflow functions"]
+    reports["report dataclasses"]
+    collections["collection dataclasses"]
+    callers["stable caller surface"]
+
+    top --> workflows
+    top --> reports
+    top --> collections
+    workflows --> callers
+    reports --> callers
+    collections --> callers
+```
+
+This page should make the top-level import surface feel curated. The point is
+to give callers one stable place for workflow functions and dataclasses without
+forcing them to depend on internal module layout.
 
 ## Supported Imports
 
@@ -25,7 +49,13 @@ The public import surface is defined by `bijux_pollenomics.__all__`.
 Prefer importing through `bijux_pollenomics` for stable caller-facing code.
 Reach into internal modules only when changing the package itself.
 
-## Purpose
+## First Proof Check
 
-This page identifies the import surface that external callers should treat as
-stable first.
+- `packages/bijux-pollenomics/src/bijux_pollenomics/__init__.py`
+- `tests/unit/test_command_line.py`
+
+## Design Pressure
+
+The easy failure is to let stable callers reach inward by habit, which makes
+refactors harder and weakens the point of having a deliberate top-level import
+surface.

@@ -4,26 +4,46 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # reusable-workflows
 
-The repository uses reusable workflows so package release and CI logic stays
-shared and explicit.
+The repository uses reusable workflows so verification and release logic stay
+shared.
+
+## Reusable Workflow Model
+
+```mermaid
+flowchart TB
+    entry["entry workflows"]
+    ci["ci.yml"]
+    artifacts["release-artifacts.yml"]
+    jobs["shared verification or staging jobs"]
+
+    entry --> ci
+    entry --> artifacts
+    ci --> jobs
+    artifacts --> jobs
+```
+
+This page should explain reusable workflows as delegation surfaces, not as
+primary entrypoints. They exist so multiple visible workflows can share one job
+shape without duplicating fragile logic.
 
 ## Current Reusable Workflows
 
-- `ci.yml`
-- `release-artifacts.yml`
+- `ci.yml` as the package-scoped verification worker
+- `release-artifacts.yml` as the shared release-artifact builder and stager
 
-These files are workflow building blocks rather than top-level entrypoints, so
-they run through `verify.yml` and split release entrypoints
-(`release-pypi.yml`, `release-ghcr.yml`, `release-github.yml`) instead of
-appearing as standalone manual workflows. Their job names stay package-scoped
-so the Actions UI shows which package and check ran.
+## Boundary
 
-## Purpose
+These workflows are building blocks, not the primary reader entrypoints. Start
+from `verify.yml` or the release workflows when the question begins with a GitHub
+event.
 
-Use this page to see which workflows are building blocks and which top-level
-workflows call them.
+## Design Pressure
+
+The easy failure is to start debugging from the reusable workflow alone, which
+skips the trigger and entry workflow that actually decided why that reusable
+job ran.
