@@ -23,6 +23,25 @@ Runtime package for the bijux-pollenomics repository.
 
 The repository root keeps the long-form documentation, tracked data snapshots, and published report artifacts. This package contains the Python runtime, CLI, and tests that power those repository workflows.
 
+## What This Package Takes And Produces
+
+This package takes tracked source payloads, command inputs, and output-root
+destinations. It produces normalized data families under `data/`, checked-in
+country bundles under `docs/report/<country>/`, the shared atlas bundle under
+`docs/report/nordic-atlas/`, and candidate-site ranking artifacts derived from
+the atlas context layers.
+
+Today those candidate outputs are heuristic publication artifacts. They help
+review which localities have nearby pollen and archaeological context, but they
+do not yet stand in for a full pollenomics analysis runtime.
+
+## What This Package Does Not Yet Do
+
+- genotype-level AADR processing from `.geno`, `.ind`, or `.snp`
+- combined eDNA, aDNA, pollen, and archaeological workflow orchestration
+- paper-grade statistical scoring for site selection
+- automated recommendation engines beyond reviewed atlas-derived artifacts
+
 ## Install
 
 `bijux-pollenomics` supports Python 3.11 and newer.
