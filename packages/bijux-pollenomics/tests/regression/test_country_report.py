@@ -1109,7 +1109,17 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 published_summary["artifacts"]["shared_bundle"]["slug"], "nordic-atlas"
             )
+            self.assertEqual(
+                published_summary["artifacts"]["shared_bundle"]["bundle_manifest"],
+                "nordic-atlas_bundle.json",
+            )
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
+            self.assertEqual(
+                published_summary["artifacts"]["country_bundles"]["sweden"][
+                    "bundle_manifest"
+                ],
+                "sweden_aadr_v62.0_bundle.json",
+            )
             self.assertEqual(atlas_summary["output_dir"], str(output / "nordic-atlas"))
             self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
             self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
