@@ -17,6 +17,7 @@ def build_country_report_summary(
         "dataset_row_counts": report.dataset_row_counts,
         "output_dir": str(report.output_dir),
         "artifacts": {
+            "bundle_manifest": bundle_paths.bundle_manifest_path.name,
             "readme": bundle_paths.readme_path.name,
             "samples_csv": bundle_paths.samples_csv_path.name,
             "localities_csv": bundle_paths.localities_csv_path.name,
@@ -27,4 +28,28 @@ def build_country_report_summary(
     }
 
 
-__all__ = ["build_country_report_summary"]
+def build_country_bundle_manifest(
+    report: CountryReport, bundle_paths: CountryBundlePaths
+) -> dict[str, object]:
+    """Build a machine-readable manifest for one country report bundle."""
+    return {
+        "bundle_type": "country_aadr_report",
+        "country": report.country,
+        "version": report.version,
+        "generated_on": report.generated_on,
+        "dataset_row_counts": report.dataset_row_counts,
+        "total_unique_samples": report.total_unique_samples,
+        "total_unique_localities": report.total_unique_localities,
+        "output_dir": str(report.output_dir),
+        "artifacts": {
+            "readme": bundle_paths.readme_path.name,
+            "samples_csv": bundle_paths.samples_csv_path.name,
+            "localities_csv": bundle_paths.localities_csv_path.name,
+            "samples_geojson": bundle_paths.samples_geojson_path.name,
+            "samples_markdown": bundle_paths.samples_markdown_path.name,
+            "summary_json": bundle_paths.summary_json_path.name,
+        },
+    }
+
+
+__all__ = ["build_country_bundle_manifest", "build_country_report_summary"]
