@@ -51,6 +51,14 @@ class CountryReportTests(unittest.TestCase):
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
         )
         self.assertEqual(
+            atlas_paths.candidate_sites_csv_path.name,
+            "nordic-atlas_candidate_sites.csv",
+        )
+        self.assertEqual(
+            atlas_paths.candidate_sites_markdown_path.name,
+            "nordic-atlas_candidate_sites.md",
+        )
+        self.assertEqual(
             atlas_paths.summary_json_path.name, "nordic-atlas_summary.json"
         )
 
