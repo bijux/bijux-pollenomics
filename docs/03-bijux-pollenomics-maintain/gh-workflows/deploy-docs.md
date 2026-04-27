@@ -10,7 +10,9 @@ last_reviewed: 2026-04-10
 # deploy-docs
 
 `deploy-docs.yml` builds the strict MkDocs site and publishes the built output
-to the docs repository when credentials are available.
+to the docs repository when credentials are available. The workflow follows the
+shared Bijux docs contract through `mkdocs.shared.yml` and the
+repository-specific deployment configuration.
 
 The workflow follows the shared Bijux docs contract. This repository keeps site
 icons under `docs/assets/site-icons/` and uses the standard MkDocs theme
