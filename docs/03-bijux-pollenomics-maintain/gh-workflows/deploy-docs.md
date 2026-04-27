@@ -8,10 +8,12 @@ last_reviewed: 2026-04-26
 ---
 
 # deploy-docs
-
 `deploy-docs.yml` builds the strict MkDocs site and publishes the documentation
 artifact. The workflow follows the shared Bijux docs contract through
 `mkdocs.shared.yml` and the repository-specific deployment configuration.
+
+When deployment credentials are available, that artifact becomes the published
+site output.
 
 ## Docs Deploy Model
 

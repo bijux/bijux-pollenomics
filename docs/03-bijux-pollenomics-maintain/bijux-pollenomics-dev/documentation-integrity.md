@@ -8,8 +8,9 @@ last_reviewed: 2026-04-26
 ---
 
 # Documentation Integrity
-
-Docs integrity depends on strict MkDocs builds and explicit managed surfaces.
+Docs integrity depends on strict MkDocs builds and maintenance discipline that
+keeps docs aligned with the real runtime, managed surfaces, and workflow
+contracts.
 
 ## Documentation Integrity Model
 
