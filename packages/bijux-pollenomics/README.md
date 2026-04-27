@@ -3,10 +3,10 @@
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
-[![Verify](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml)
-[![Release PyPI](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml/badge.svg?event=workflow_dispatch)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml?query=event%3Aworkflow_dispatch)
-[![Release GHCR](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
-[![Release GitHub](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
+[![Verify](https://github.com/bijux/bijux-pollenomics/workflows/repo%20/%20verify/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml?query=branch%3Amain)
+[![Release PyPI](https://github.com/bijux/bijux-pollenomics/workflows/release-pypi/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-pypi.yml)
+[![Release GHCR](https://github.com/bijux/bijux-pollenomics/workflows/release-ghcr/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-ghcr.yml)
+[![Release GitHub](https://github.com/bijux/bijux-pollenomics/workflows/release-github/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/release-github.yml)
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 
 [![bijux-pollenomics](https://img.shields.io/pypi/v/bijux-pollenomics?label=bijux--pollenomics&logo=pypi)](https://pypi.org/project/bijux-pollenomics/)
@@ -22,6 +22,25 @@
 Runtime package for the bijux-pollenomics repository.
 
 The repository root keeps the long-form documentation, tracked data snapshots, and published report artifacts. This package contains the Python runtime, CLI, and tests that power those repository workflows.
+
+## What This Package Takes And Produces
+
+This package takes tracked source payloads, command inputs, and output-root
+destinations. It produces normalized data families under `data/`, checked-in
+country bundles under `docs/report/<country>/`, the shared atlas bundle under
+`docs/report/nordic-atlas/`, and candidate-site ranking artifacts derived from
+the atlas context layers.
+
+Today those candidate outputs are heuristic publication artifacts. They help
+review which localities have nearby pollen and archaeological context, but they
+do not yet stand in for a full pollenomics analysis runtime.
+
+## What This Package Does Not Yet Do
+
+- genotype-level AADR processing from `.geno`, `.ind`, or `.snp`
+- combined eDNA, aDNA, pollen, and archaeological workflow orchestration
+- paper-grade statistical scoring for site selection
+- automated recommendation engines beyond reviewed atlas-derived artifacts
 
 ## Install
 

@@ -19,6 +19,7 @@ class CountryBundlePaths:
     slug: str
     version: str
     readme_path: Path
+    bundle_manifest_path: Path
     samples_csv_path: Path
     localities_csv_path: Path
     samples_geojson_path: Path
@@ -32,8 +33,11 @@ class AtlasBundlePaths:
     slug: str
     version: str
     readme_path: Path
+    bundle_manifest_path: Path
     map_html_path: Path
     samples_geojson_path: Path
+    candidate_sites_csv_path: Path
+    candidate_sites_markdown_path: Path
     summary_json_path: Path
 
 
@@ -48,6 +52,7 @@ def build_country_bundle_paths(
         slug=country_slug,
         version=version,
         readme_path=output_dir / "README.md",
+        bundle_manifest_path=output_dir / f"{country_slug}_aadr_{version}_bundle.json",
         samples_csv_path=output_dir / f"{country_slug}_aadr_{version}_samples.csv",
         localities_csv_path=output_dir
         / f"{country_slug}_aadr_{version}_localities.csv",
@@ -69,7 +74,11 @@ def build_atlas_bundle_paths(
         slug=atlas_slug,
         version=version,
         readme_path=output_dir / "README.md",
+        bundle_manifest_path=output_dir / f"{atlas_slug}_bundle.json",
         map_html_path=output_dir / f"{atlas_slug}_map.html",
         samples_geojson_path=output_dir / f"{atlas_slug}_samples.geojson",
+        candidate_sites_csv_path=output_dir / f"{atlas_slug}_candidate_sites.csv",
+        candidate_sites_markdown_path=output_dir
+        / f"{atlas_slug}_candidate_sites.md",
         summary_json_path=output_dir / f"{atlas_slug}_summary.json",
     )

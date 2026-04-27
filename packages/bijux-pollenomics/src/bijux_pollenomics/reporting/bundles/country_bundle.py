@@ -5,6 +5,7 @@ from pathlib import Path
 
 from ..models import CountryReport, LocalitySummary, SampleRecord
 from .paths import CountryBundlePaths, build_country_bundle_paths
+from .summary_builders.country import build_country_bundle_manifest
 
 __all__ = ["publish_country_report_bundle"]
 
@@ -35,6 +36,10 @@ def publish_country_report_bundle(
     write_samples_csv_fn(bundle_paths.samples_csv_path, report.samples)
     write_localities_csv_fn(bundle_paths.localities_csv_path, report.localities)
     write_samples_geojson_fn(bundle_paths.samples_geojson_path, report.samples)
+    write_summary_json_fn(
+        bundle_paths.bundle_manifest_path,
+        build_country_bundle_manifest(report, bundle_paths),
+    )
     write_summary_json_fn(
         bundle_paths.summary_json_path,
         build_country_report_summary_fn(report, bundle_paths),

@@ -5,12 +5,15 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from pathlib import Path
-import shutil
 import tomllib
 from typing import Any, cast
 
 REPO_ROOT = Path(__file__).resolve().parents[5]
 MANAGED_FILENAMES: tuple[str, str] = ("LICENSE", "NOTICE")
+ROOT_LEGAL_ARTIFACTS = {
+    "LICENSE": Path("..") / ".." / "LICENSE",
+    "NOTICE": Path("..") / ".." / "NOTICE",
+}
 
 
 @dataclass(frozen=True)
@@ -44,23 +47,39 @@ def managed_assets(root: Path = REPO_ROOT) -> tuple[ManagedAsset, ...]:
     return tuple(assets)
 
 
-def _files_equal(source: Path, target: Path) -> bool:
-    """Return whether source and target currently have identical bytes."""
-    if not target.exists():
+def _expected_target(asset: ManagedAsset, root: Path = REPO_ROOT) -> Path:
+    """Return the expected symlink target relative to the package root."""
+    del root
+    return ROOT_LEGAL_ARTIFACTS[asset.target.name]
+
+
+def _link_matches(asset: ManagedAsset) -> bool:
+    """Return whether the package asset already links to the root source."""
+    if not asset.target.is_symlink():
         return False
-    return source.read_bytes() == target.read_bytes()
+    return asset.target.readlink() == _expected_target(asset)
+
+
+def _remove_existing_target(target: Path) -> None:
+    """Remove a stale managed target before relinking it."""
+    if target.is_symlink() or target.is_file():
+        target.unlink()
+        return
+    if target.exists():
+        raise IsADirectoryError(f"managed legal asset is unexpectedly a directory: {target}")
 
 
 def synchronize_license_assets(*, check: bool = False) -> list[Path]:
     """Sync root license assets into package directories or report drift."""
     changed: list[Path] = []
     for asset in managed_assets():
-        if _files_equal(asset.source, asset.target):
+        if _link_matches(asset):
             continue
         changed.append(asset.target)
         if not check:
             asset.target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(asset.source, asset.target)
+            _remove_existing_target(asset.target)
+            asset.target.symlink_to(_expected_target(asset))
     return changed
 
 

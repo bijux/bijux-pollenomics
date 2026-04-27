@@ -46,9 +46,23 @@ class CountryReportTests(unittest.TestCase):
         self.assertEqual(
             country_paths.samples_markdown_path.name, "sweden_aadr_v62.0_samples.md"
         )
+        self.assertEqual(
+            country_paths.bundle_manifest_path.name, "sweden_aadr_v62.0_bundle.json"
+        )
         self.assertEqual(atlas_paths.map_html_path.name, "nordic-atlas_map.html")
         self.assertEqual(
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
+        )
+        self.assertEqual(
+            atlas_paths.candidate_sites_csv_path.name,
+            "nordic-atlas_candidate_sites.csv",
+        )
+        self.assertEqual(
+            atlas_paths.candidate_sites_markdown_path.name,
+            "nordic-atlas_candidate_sites.md",
+        )
+        self.assertEqual(
+            atlas_paths.bundle_manifest_path.name, "nordic-atlas_bundle.json"
         )
         self.assertEqual(
             atlas_paths.summary_json_path.name, "nordic-atlas_summary.json"
@@ -204,6 +218,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "sweden_aadr_v62.0_localities.csv").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.geojson").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_samples.md").exists())
+            self.assertTrue((output / "sweden_aadr_v62.0_bundle.json").exists())
             self.assertTrue((output / "sweden_aadr_v62.0_summary.json").exists())
             self.assertFalse((output / "sweden_aadr_v62.0_map.html").exists())
 
@@ -231,6 +246,10 @@ class CountryReportTests(unittest.TestCase):
             )
             self.assertEqual(geojson["type"], "FeatureCollection")
             self.assertEqual(len(geojson["features"]), 2)
+            self.assertEqual(
+                summary["artifacts"]["bundle_manifest"],
+                "sweden_aadr_v62.0_bundle.json",
+            )
             self.assertEqual(
                 summary["artifacts"]["samples_csv"], "sweden_aadr_v62.0_samples.csv"
             )
@@ -414,6 +433,9 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "README.md").exists())
             self.assertTrue((output / "nordic-atlas_map.html").exists())
             self.assertTrue((output / "nordic-atlas_samples.geojson").exists())
+            self.assertTrue((output / "nordic-atlas_candidate_sites.csv").exists())
+            self.assertTrue((output / "nordic-atlas_candidate_sites.md").exists())
+            self.assertTrue((output / "nordic-atlas_bundle.json").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
                 (output / "_map_assets" / "leaflet" / "leaflet.js").exists()
@@ -1087,7 +1109,17 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 published_summary["artifacts"]["shared_bundle"]["slug"], "nordic-atlas"
             )
+            self.assertEqual(
+                published_summary["artifacts"]["shared_bundle"]["bundle_manifest"],
+                "nordic-atlas_bundle.json",
+            )
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
+            self.assertEqual(
+                published_summary["artifacts"]["country_bundles"]["sweden"][
+                    "bundle_manifest"
+                ],
+                "sweden_aadr_v62.0_bundle.json",
+            )
             self.assertEqual(atlas_summary["output_dir"], str(output / "nordic-atlas"))
             self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
             self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
