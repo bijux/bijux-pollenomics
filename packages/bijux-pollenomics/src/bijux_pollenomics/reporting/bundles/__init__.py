@@ -15,6 +15,7 @@ from .staging import (
     reset_output_dir,
 )
 from .summary_builders import (
+    build_country_bundle_manifest,
     build_country_report_summary,
     build_multi_country_map_summary,
     build_published_reports_summary,
@@ -25,6 +26,7 @@ __all__ = [
     "CountryBundlePaths",
     "MultiCountryMapInputs",
     "build_atlas_bundle_paths",
+    "build_country_bundle_manifest",
     "build_country_bundle_paths",
     "build_country_report_summary",
     "build_multi_country_map_summary",
