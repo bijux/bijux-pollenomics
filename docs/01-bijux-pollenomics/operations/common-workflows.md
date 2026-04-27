@@ -4,12 +4,35 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Common Workflows
 
-Most package work falls into a short list of repeatable workflows.
+Most runtime work falls into a short list of repeatable workflows. The main
+discipline is choosing the narrowest workflow that matches the goal.
+
+## Workflow Choice Model
+
+```mermaid
+flowchart TB
+    goal["operator goal"]
+    verify["make check"]
+    data["make data-prep"]
+    reports["make reports"]
+    review["review resulting state"]
+
+    goal --> verify
+    goal --> data
+    goal --> reports
+    verify --> review
+    data --> review
+    reports --> review
+```
+
+This page should help a reader choose the smallest command path that fits the
+job. The important distinction is not convenience; it is how much tracked state
+the chosen workflow is allowed to rewrite.
 
 ## Verify The Current State
 
@@ -27,6 +50,15 @@ refresh.
 Run `make reports` or `bijux-pollenomics publish-reports ...` when country
 bundles or the atlas need regeneration from current tracked inputs.
 
-## Purpose
+## First Proof Check
 
-This page records the package workflows operators use most often.
+- `make check`
+- `make data-prep`
+- `make reports`
+- `bijux-pollenomics collect-data ...`
+- `bijux-pollenomics publish-reports ...`
+
+## Design Pressure
+
+The easy failure is to jump straight to broad rebuild commands, which makes
+routine diagnosis noisier and widens the tracked review surface without need.

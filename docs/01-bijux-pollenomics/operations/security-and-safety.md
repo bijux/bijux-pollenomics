@@ -4,13 +4,33 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Security and Safety
 
 Security in `bijux-pollenomics` is mostly about trusted execution and safe
 handling of fetched content.
+
+## Safety Model
+
+```mermaid
+flowchart TB
+    sources["explicit supported-source paths"]
+    parsing["safe content handling"]
+    checks["security and dependency checks"]
+    diffs["tracked output diffs"]
+    trust["safer runtime path"]
+
+    sources --> parsing
+    parsing --> checks
+    checks --> diffs
+    diffs --> trust
+```
+
+This page should make security look practical and review-centered. The runtime
+stays safer by constraining fetch paths, parsing risky formats carefully, and
+leaving suspicious changes visible in tracked diffs.
 
 ## Current Safety Anchors
 
@@ -19,12 +39,15 @@ handling of fetched content.
 - repository checks include security and dependency review targets
 - tracked outputs make suspicious changes easier to inspect in review
 
-## Operational Caution
+## First Proof Check
 
-Some collection paths interact with mutable external services. Treat upstream
-inputs as untrusted and prefer explicit local review of resulting tracked diffs
-before assuming a refresh is safe to publish.
+- `defusedxml` usage
+- collection paths that fetch external content
+- tracked output diffs after a refresh
+- repository security targets
 
-## Purpose
+## Design Pressure
 
-This page records the practical security stance of the runtime package.
+The easy failure is to overstate security as a broad platform guarantee, when
+the real protection here is tighter execution, safer parsing, and reviewable
+output change.

@@ -4,46 +4,77 @@ audience: mixed
 type: index
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # Maintainer Handbook
 
-`bijux-pollenomics-maintain` is the handbook root for repository-owned
-maintenance work.
+This handbook defines the repository-health surfaces that sit above one product
+package.
 
-This section exists so repository health stays inspectable. Quality gates,
-schema drift checks, docs integrity checks, release support, and workflow
-contracts should be readable from checked-in docs instead of being rediscovered
-through CI logs and shell glue.
+It separates three enforcement layers that are easy to confuse: maintainer
+helper code under `packages/bijux-pollenomics-dev/`, shared command routing
+under `makes/`, and GitHub-triggered automation under `.github/workflows/`.
 
-<div class="bijux-callout"><strong>Use maintenance docs for repository truth, not folklore.</strong> This branch is where to check the exact make entrypoints, workflow fan-out, release support, and maintainer package rules that keep the repository stable over time.</div>
+## Maintainer Model
 
-<div class="bijux-panel-grid">
-  <div class="bijux-panel"><h3>Maintainer Package</h3><p>Use this branch for maintainer-only tooling, schema governance, release support, and documentation integrity rules.</p></div>
-  <div class="bijux-panel"><h3>Make System</h3><p>Use this branch to understand repository entrypoints, package dispatch, CI targets, and which commands rewrite tracked state.</p></div>
-  <div class="bijux-panel"><h3>GitHub Workflows</h3><p>Use this branch for verify, publish, docs deployment, and reusable workflow job trees.</p></div>
-</div>
+```mermaid
+flowchart TB
+    policy["repository policy and release rules"]
+    helpers["bijux-pollenomics-dev helpers"]
+    make["make entrypoints and dispatch"]
+    workflows["GitHub workflows"]
+    review["repository health review"]
 
-<div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="gh-workflows/index/">Open workflow docs</a>
-  <a class="md-button" href="makes/root-entrypoints/">Open make entrypoints</a>
-  <a class="md-button" href="bijux-pollenomics-dev/release-support/">Open release support</a>
-</div>
+    policy --> helpers
+    helpers --> make
+    helpers --> workflows
+    make --> review
+    workflows --> review
+```
 
-## Sections In This Handbook
+This handbook should make one thing legible immediately: repository-health
+rules do not live in prose alone. They become helper code, command routing, and
+workflow automation that together decide whether a change is safe to publish.
 
-- [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
-- [makes](makes/index.md)
-- [gh-workflows](gh-workflows/index.md)
+## Start Here
 
-## What Readers Usually Need First
+- open [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
+  when the rule is enforced by repository-owned Python helper code
+- open [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/)
+  when the question starts from a repository command or CI target
+- open [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/)
+  when the issue starts from a GitHub event, check suite, or publication run
 
-- release, schema, and docs integrity rules: [bijux-pollenomics-dev](bijux-pollenomics-dev/index.md)
-- command routing and repository automation: [makes](makes/index.md)
-- CI, release, and docs deployment behavior: [gh-workflows](gh-workflows/index.md)
+## Handbook Pages
 
-## Purpose
+- [bijux-pollenomics-dev](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
+- [makes](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/makes/)
+- [gh-workflows](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/gh-workflows/)
 
-Use this page to choose the maintenance branch that owns the current repository
-health question.
+## What This Handbook Settles
+
+- which repository-health rules live in helper code, Make routing, or workflow
+  automation
+- where release, docs, package, and schema checks are enforced before a public
+  package changes
+- when a maintainer question should hand back to runtime, data, fieldwork, or
+  atlas documentation
+
+## First Proof Check
+
+- inspect `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/`
+- inspect `makes/root.mk`, `makes/packages.mk`, and `makes/publish.mk`
+- inspect `.github/workflows/`
+
+## Design Pressure
+
+The easy failure is to describe maintainer surfaces as three unrelated
+mechanisms, which hides how policy, local commands, and GitHub automation
+reinforce the same repository-health boundary.
+
+## Boundary Test
+
+This handbook does not explain product behavior. Leave it as soon as the
+question becomes runtime commands, data provenance, atlas interpretation, or
+fieldwork evidence.

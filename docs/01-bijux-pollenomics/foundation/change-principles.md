@@ -4,13 +4,15 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-10
+last_reviewed: 2026-04-26
 ---
 
 # Change Principles
 
 Changes to `bijux-pollenomics` should make the runtime easier to trust, not
-just easier to modify.
+just easier to modify. The hardest tradeoff here is convenience versus review:
+shortcuts that save a little implementation effort often make visible output
+changes harder to defend later.
 
 ## Principles
 
@@ -27,6 +29,13 @@ just easier to modify.
 - adding one-off output names that do not fit the existing file contracts
 - expanding package scope because a nearby repository surface looks convenient
 
-## Purpose
+## First Proof Check
 
-This page records the package-level rules that should shape future changes.
+- `tests/regression/test_repository_contracts.py`
+- `tests/regression/test_data_collector.py`
+- `tests/regression/test_country_report.py`
+
+## Boundary Test
+
+If a change cannot preserve explicit commands, stable file contracts, and
+reviewable output diffs at the same time, the design is not finished yet.

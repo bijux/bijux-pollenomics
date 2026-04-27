@@ -4,30 +4,48 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-04-19
+last_reviewed: 2026-04-26
 ---
 
 # release-publication
 
-Tagged publication is split across dedicated workflows:
-`release-pypi.yml`, `release-ghcr.yml`, and `release-github.yml`.
+Tagged publication is split across dedicated workflows.
 
-Each release workflow reads `.github/release.env` and calls
-`release-artifacts.yml` to build staged package artifacts for
-`bijux-pollenomics` and `pollenomics`.
+## Release Workflow Model
 
-Release workflows run for version tags and manual dispatch. Publication stays
-package-scoped so PyPI uploads and GHCR bundle publication can run in parallel,
-while GitHub release assembly uses the same staged assets.
+```mermaid
+flowchart TB
+    tag["tag or manual release event"]
+    artifacts["release-artifacts workflow"]
+    pypi["release-pypi workflow"]
+    ghcr["release-ghcr workflow"]
+    github["release-github workflow"]
+
+    tag --> artifacts
+    artifacts --> pypi
+    artifacts --> ghcr
+    artifacts --> github
+```
+
+This page should show why release publication is split: each destination gets
+its own inspectable path while sharing one staged artifact build instead of
+hiding everything inside one opaque release job.
 
 ## Current Job Tree
 
-- `release-artifacts.yml` builds staged package release assets
-- `release-pypi.yml` publishes staged distributions to PyPI
-- `release-ghcr.yml` publishes staged release bundles to GHCR as OCI artifacts
-- `release-github.yml` creates the GitHub release and uploads staged assets
+- `release-artifacts.yml` builds staged package artifacts
+- `release-pypi.yml` publishes Python distributions
+- `release-ghcr.yml` publishes release bundles to GHCR
+- `release-github.yml` assembles the GitHub release and uploads staged assets
 
-## Purpose
+## Boundary
 
-Use this page to understand the split release workflow topology and where each
-publication target is owned.
+Release publication is intentionally split by destination. That keeps package
+artifacts, OCI bundles, and GitHub release assembly inspectable instead of
+hiding all publication logic in one job.
+
+## Design Pressure
+
+The common failure is to prefer one giant release workflow for convenience,
+which makes artifact provenance and destination-specific failures much harder to
+untangle.

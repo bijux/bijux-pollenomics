@@ -12,6 +12,27 @@ last_reviewed: 2026-04-10
 The pollenomics data system is a tracked file tree that separates source intake,
 normalized evidence layers, and publication outputs.
 
+## Data System Model
+
+```mermaid
+flowchart TB
+    sources["source-owned subtrees"]
+    normalized["normalized evidence layers"]
+    summaries["tracked summaries and manifests"]
+    publications["country bundles and atlas outputs"]
+    contracts["published contracts and docs pages"]
+
+    sources --> normalized
+    normalized --> summaries
+    normalized --> publications
+    summaries --> publications
+    publications --> contracts
+```
+
+This page should give the shortest honest description of the evidence system:
+tracked source material is narrowed into normalized files, summarized in-tree,
+and then carried into visible publication surfaces in the same repository.
+
 ## Core Shape
 
 - `data/` holds source-owned raw and normalized material
@@ -19,12 +40,14 @@ normalized evidence layers, and publication outputs.
 - `apis/` holds frozen API contracts that describe public-facing behavior around
   those outputs
 
-## Why This Shape Exists
+## First Proof Check
 
-The repository needs to prove where evidence layers came from and what the
-current publication state was at one commit. A file-oriented system makes that
-history reviewable in Git instead of requiring hidden external state.
+- `data/`
+- `docs/report/`
+- `apis/`
 
-## Purpose
+## Design Pressure
 
-This page gives the shortest explanation of the repository's data architecture.
+The easy failure is to describe the data tree as storage first, when its real
+job is to keep evidence, summaries, and publication outputs reviewable in one
+commit history.
