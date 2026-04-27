@@ -9,7 +9,7 @@ last_reviewed: 2026-04-26
 
 # Documentation Integrity
 
-Docs integrity depends on strict builds and explicit managed surfaces.
+Docs integrity depends on strict MkDocs builds and explicit managed surfaces.
 
 ## Documentation Integrity Model
 
@@ -36,6 +36,8 @@ the published site can be trusted as a repository surface.
 - `mkdocs.yml` and `mkdocs.shared.yml`
 - `docs/badges.md` as the badge catalog consumed by the synchronizer
 - `docs/assets/site-icons/` as the repository-owned icon source
+- the shared Bijux docs theme contract that keeps navigation, assets, and
+  strict MkDocs builds aligned
 - `bijux_pollenomics_dev.docs.badge_sync` as the managed badge renderer
 
 ## Boundary
