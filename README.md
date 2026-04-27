@@ -24,6 +24,12 @@
 
 `bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
 
+Today that means an atlas-builder with reproducible evidence routing. The
+repository can collect, normalize, and publish Nordic pollen and archaeology
+context into reviewed map and report bundles. It does not yet act as the full
+pollenomics runtime that scores sites or combines ancient DNA, environmental
+DNA, pollen sequences, and archaeological context into one decision engine.
+
 The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
 
 This repository publishes `2` packages. Each release tag builds one staged
@@ -59,7 +65,8 @@ The `2` publishable packages in this repository are:
 
 ## Current Scope
 
-The current repository scope is deliberately narrower than later site-selection research.
+The current repository scope is deliberately narrower than the pollenomics
+engine we want next.
 
 What exists today:
 
@@ -67,13 +74,34 @@ What exists today:
 - boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
 - report bundles and the shared atlas are rebuilt from local commands and checked in
 - the shared map is a publication artifact for inspection, not an analysis engine
+- candidate-site ranking artifacts can be emitted from the checked-in atlas
+  context layers, but they remain heuristic atlas outputs rather than a
+  scientific scoring engine
 
 What does not exist today:
 
 - AADR genotype processing from `.geno`, `.ind`, or `.snp`
 - lake-intersection analysis
-- archaeological-site scoring or ranking
+- full archaeological-site scoring across the complete evidence tree
 - automated sampling recommendations
+- integrated eDNA, aDNA, pollen, and archaeological co-analysis runtime
+- paper-grade statistical workflows for the planned POLLENOMIC's series
+
+## Engine Direction
+
+The next durable step is to turn this atlas-builder into a real pollenomics
+runtime. That means keeping the current checked-in publication surfaces while
+adding evidence-aware ranking, reproducible workflow stages, and explicit
+contracts for multi-evidence analysis.
+
+The repository is therefore moving in this order:
+
+- first, make atlas evidence layers and candidate outputs reproducible and easy
+  to audit
+- next, add workflow stages that can compare pollen, archaeological, and
+  ancient-DNA context without collapsing their provenance differences
+- then, grow that workflow into the broader pollenomics engine needed for the
+  planned POLLENOMIC's paper series
 
 ## Working With Commands
 
