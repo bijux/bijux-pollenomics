@@ -38,6 +38,16 @@ hiding everything inside one opaque release job.
 - `release-ghcr.yml` publishes release bundles to GHCR
 - `release-github.yml` assembles the GitHub release and uploads staged assets
 
+## Manual Dispatch Guardrails
+
+Manual dispatch is intentionally strict:
+
+- dispatches that resolve to no selected packages are rejected
+- dispatches with disabled publication flags are rejected
+- invalid or non-version release tag input is rejected when publication is enabled
+
+These checks prevent no-op release runs and make operator intent explicit.
+
 ## Boundary
 
 Release publication is intentionally split by destination. That keeps package
