@@ -62,6 +62,8 @@ jobs:
       - name: "Run post-test validation"
         if: "${{ inputs.post_test_command != '' }}"
         shell: bash
+        env:
+          ARTIFACTS_DIR: "${{ inputs.artifacts_dir }}"
         run: "${{ inputs.post_test_command }}"
       - name: "Upload test artifacts"
         if: "${{ always() }}"
