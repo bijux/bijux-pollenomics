@@ -43,6 +43,7 @@ ALLOWED_CONTROL_PATHS = {
     ".github/scripts/sync_github_standards.py",
     ".github/bijux-std-shared.sha256",
     ".bijux/shared/shared-dir-sha256.txt",
+    "shared/shared-dir-sha256.txt",
 }
 
 
