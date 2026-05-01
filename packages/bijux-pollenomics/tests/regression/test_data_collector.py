@@ -85,6 +85,19 @@ class DataCollectorTests(unittest.TestCase):
             self.assertTrue((output_root / "README.md").exists())
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
+            self.assertIn("aadr", report.source_provenance)
+            self.assertIn("raa", report.source_provenance)
+            self.assertEqual(report.source_provenance["aadr"].version, "v62.0")
+            self.assertTrue(report.source_replacement_rules["aadr"].destructive_refresh)
+            self.assertTrue(
+                report.source_replacement_rules["raa"].preserves_previous_on_failure
+            )
+            self.assertEqual(report.source_traceability["aadr"].source_version, "v62.0")
+            self.assertTrue(
+                report.source_traceability["aadr"].dispute_token.startswith(
+                    "aadr@v62.0:"
+                )
+            )
 
     def test_collect_data_all_collects_everything(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -276,8 +289,45 @@ class DataCollectorTests(unittest.TestCase):
                 str(output_root / "aadr" / "v62.0"),
             )
             self.assertIsNone(summary["boundary_source"])
+            self.assertIn("source_metadata", summary)
+            self.assertEqual(
+                summary["source_metadata"]["aadr"]["acquisition_method"],
+                "collector_pipeline",
+            )
+            self.assertEqual(summary["source_metadata"]["aadr"]["version"], "v62.0")
+            self.assertIn("source_hashes", summary)
+            self.assertIn("aadr", summary["source_hashes"])
+            self.assertEqual(
+                len(summary["source_hashes"]["aadr"]["snapshot_sha256"]), 64
+            )
+            self.assertIn("source_provenance", summary)
+            self.assertIn("aadr", summary["source_provenance"])
+            self.assertEqual(summary["source_provenance"]["aadr"]["version"], "v62.0")
+            self.assertEqual(
+                summary["source_provenance"]["aadr"]["acquisition_method"],
+                "collector_pipeline",
+            )
+            self.assertIn("source_replacement_rules", summary)
+            self.assertTrue(
+                summary["source_replacement_rules"]["aadr"]["destructive_refresh"]
+            )
+            self.assertEqual(
+                summary["source_replacement_rules"]["aadr"]["refresh_mode"],
+                "staging_swap",
+            )
+            self.assertIn("source_traceability", summary)
+            self.assertEqual(
+                summary["source_traceability"]["aadr"]["source_version"], "v62.0"
+            )
+            self.assertTrue(
+                summary["source_traceability"]["aadr"]["dispute_token"].startswith(
+                    "aadr@v62.0:"
+                )
+            )
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
+            for source_dir in AVAILABLE_SOURCES:
+                self.assertTrue((output_root / source_dir).exists())
 
     def test_collect_data_uses_local_boundaries_when_available(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

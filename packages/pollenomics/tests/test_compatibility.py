@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 import sys
 import unittest
@@ -10,6 +11,7 @@ sys.path.insert(
     str(Path(__file__).resolve().parents[2] / "bijux-pollenomics" / "src"),
 )
 
+from bijux_pollenomics.cli import build_parser as build_runtime_parser
 from pollenomics import __version__, collect_data
 from pollenomics.cli import build_parser
 
@@ -26,6 +28,22 @@ class PollenomicsCompatibilityTests(unittest.TestCase):
         collect_args = parser.parse_args(["collect-data", "aadr"])
 
         self.assertEqual(collect_args.command, "collect-data")
+
+    def test_cli_parser_command_set_matches_runtime_parser(self) -> None:
+        alias_parser = build_parser()
+        runtime_parser = build_runtime_parser()
+
+        alias_commands = _extract_command_choices(alias_parser)
+        runtime_commands = _extract_command_choices(runtime_parser)
+
+        self.assertEqual(alias_commands, runtime_commands)
+
+
+def _extract_command_choices(parser: argparse.ArgumentParser) -> set[str]:
+    for action in parser._actions:
+        if isinstance(action, argparse._SubParsersAction):  # noqa: SLF001
+            return {str(name) for name in action.choices}
+    return set()
 
 
 if __name__ == "__main__":

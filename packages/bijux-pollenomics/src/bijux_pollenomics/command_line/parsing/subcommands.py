@@ -21,7 +21,12 @@ __all__ = [
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
+    "build_ownership_map_parser",
     "build_report_country_parser",
+    "build_product_scope_parser",
+    "build_validate_collection_summary_parser",
+    "build_source_support_parser",
+    "build_surface_map_parser",
     "register_subcommands",
 ]
 
@@ -34,6 +39,11 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_surface_map_parser(subparsers)
+    build_product_scope_parser(subparsers)
+    build_ownership_map_parser(subparsers)
+    build_source_support_parser(subparsers)
+    build_validate_collection_summary_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -142,5 +152,101 @@ def build_collect_data_parser(
         type=Path,
         default=DEFAULT_CONTEXT_ROOT,
         help="Directory where tracked data should be written. Default: data",
+    )
+    return parser
+
+
+def build_surface_map_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the foundation surface-map subcommand parser."""
+    parser = subparsers.add_parser(
+        "surface-map",
+        help=(
+            "Print current runtime surfaces and planned engine surfaces "
+            "for repository orientation."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_product_scope_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the product-scope subcommand parser."""
+    parser = subparsers.add_parser(
+        "product-scope",
+        help=(
+            "Print an explicit scope statement showing current atlas-builder "
+            "capabilities versus planned engine claims."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_ownership_map_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ownership-map subcommand parser."""
+    parser = subparsers.add_parser(
+        "ownership-map",
+        help=(
+            "Print where source data, ranking, and publication logic live "
+            "inside the runtime package."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_source_support_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the source-support subcommand parser."""
+    parser = subparsers.add_parser(
+        "source-support",
+        help=(
+            "Print support-status and country-coverage rows for tracked source "
+            "families."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_validate_collection_summary_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the collection-summary schema validation parser."""
+    parser = subparsers.add_parser(
+        "validate-collection-summary",
+        help=(
+            "Validate one collection_summary.json payload without rerunning the "
+            "full source collection build."
+        ),
+    )
+    parser.add_argument(
+        "--summary-path",
+        type=Path,
+        default=DEFAULT_CONTEXT_ROOT / "collection_summary.json",
+        help="Path to collection_summary.json. Default: data/collection_summary.json",
     )
     return parser

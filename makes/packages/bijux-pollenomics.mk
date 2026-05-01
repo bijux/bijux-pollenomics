@@ -32,11 +32,15 @@ quality-compileall:
 
 sync-license-assets-package:
 	@for file_name in LICENSE NOTICE; do \
-	  source_path="$(MONOREPO_ROOT)/$$file_name"; \
 	  target_path="$(PROJECT_DIR)/$$file_name"; \
-	  if [ ! -f "$$target_path" ] || ! cmp -s "$$source_path" "$$target_path"; then \
-	    cp "$$source_path" "$$target_path"; \
+	  expected_target="../../$$file_name"; \
+	  if [ -L "$$target_path" ] && [ "$$(readlink "$$target_path")" = "$$expected_target" ]; then \
+	    continue; \
 	  fi; \
+	  if [ -L "$$target_path" ] || [ -e "$$target_path" ]; then \
+	    rm -f "$$target_path"; \
+	  fi; \
+	  ln -s "$$expected_target" "$$target_path"; \
 	done
 .PHONY: sync-license-assets-package
 
@@ -45,6 +49,7 @@ build-install-smoke:
 	dist_name="$$(printf '%s' "$(BUILD_PACKAGE_NAME)" | tr '-' '_')"; \
 	wheel_path="$$(ls -1t "$(BUILD_DIR_ABS)/$${dist_name}"-*.whl | head -n 1)"; \
 	sdist_path="$$(ls -1t "$(BUILD_DIR_ABS)/$${dist_name}"-*.tar.gz | head -n 1)"; \
+	export PIP_DISABLE_PIP_VERSION_CHECK=1; \
 	if [ -z "$$wheel_path" ] || [ -z "$$sdist_path" ]; then \
 	  echo "✘ Missing build artifacts for $(BUILD_PACKAGE_NAME) in $(BUILD_DIR_ABS)"; \
 	  exit 1; \

@@ -5,6 +5,50 @@ from pathlib import Path
 
 
 @dataclass(frozen=True)
+class SourceAcquisitionMetadata:
+    source: str
+    version: str
+    license: str
+    retrieved_on: str
+    acquisition_method: str
+
+
+@dataclass(frozen=True)
+class SourceProvenanceRecord:
+    source: str
+    display_name: str
+    evidence_family: str
+    version: str
+    license: str
+    retrieved_on: str
+    acquisition_method: str
+    snapshot_root: str
+    normalized_root: str
+    snapshot_sha256: str
+    normalized_sha256: str
+
+
+@dataclass(frozen=True)
+class SourceReplacementRule:
+    source: str
+    refresh_mode: str
+    final_output_root: str
+    staging_output_root: str
+    destructive_refresh: bool
+    preserves_previous_on_failure: bool
+
+
+@dataclass(frozen=True)
+class SourceTraceabilityRecord:
+    source: str
+    source_identity: str
+    source_version: str
+    snapshot_sha256: str
+    normalized_sha256: str
+    dispute_token: str
+
+
+@dataclass(frozen=True)
 class ContextPointRecord:
     source: str
     layer_key: str
@@ -46,6 +90,11 @@ class DataCollectionSummary:
     version: str
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
+    source_metadata: dict[str, SourceAcquisitionMetadata]
+    source_hashes: dict[str, dict[str, str]]
+    source_provenance: dict[str, SourceProvenanceRecord]
+    source_replacement_rules: dict[str, SourceReplacementRule]
+    source_traceability: dict[str, SourceTraceabilityRecord]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -64,6 +113,11 @@ class DataCollectionReport:
     version: str
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
+    source_metadata: dict[str, SourceAcquisitionMetadata]
+    source_hashes: dict[str, dict[str, str]]
+    source_provenance: dict[str, SourceProvenanceRecord]
+    source_replacement_rules: dict[str, SourceReplacementRule]
+    source_traceability: dict[str, SourceTraceabilityRecord]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
