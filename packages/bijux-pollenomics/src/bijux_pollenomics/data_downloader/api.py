@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
-from .models import ContextDataReport, DataCollectionSummary
+from .models import ContextDataReport, DataCollectionSummary, SourceAcquisitionMetadata
 from .source_identity import SOURCE_IDENTITIES, SourceIdentity
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
@@ -13,6 +13,7 @@ __all__ = [
     "ContextDataReport",
     "DataCollectionReport",
     "DataCollectionSummary",
+    "SourceAcquisitionMetadata",
     "collect_context_data",
     "collect_data",
     "download_aadr_anno_files",

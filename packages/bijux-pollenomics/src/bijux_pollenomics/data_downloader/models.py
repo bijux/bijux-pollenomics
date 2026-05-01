@@ -5,6 +5,15 @@ from pathlib import Path
 
 
 @dataclass(frozen=True)
+class SourceAcquisitionMetadata:
+    source: str
+    version: str
+    license: str
+    retrieved_on: str
+    acquisition_method: str
+
+
+@dataclass(frozen=True)
 class ContextPointRecord:
     source: str
     layer_key: str
@@ -46,6 +55,7 @@ class DataCollectionSummary:
     version: str
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
+    source_metadata: dict[str, SourceAcquisitionMetadata]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -64,6 +74,7 @@ class DataCollectionReport:
     version: str
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
+    source_metadata: dict[str, SourceAcquisitionMetadata]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
