@@ -22,6 +22,7 @@ __all__ = [
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
     "build_report_country_parser",
+    "build_product_scope_parser",
     "build_surface_map_parser",
     "register_subcommands",
 ]
@@ -36,6 +37,7 @@ def register_subcommands(
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
     build_surface_map_parser(subparsers)
+    build_product_scope_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -157,6 +159,25 @@ def build_surface_map_parser(
         help=(
             "Print current runtime surfaces and planned engine surfaces "
             "for repository orientation."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_product_scope_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the product-scope subcommand parser."""
+    parser = subparsers.add_parser(
+        "product-scope",
+        help=(
+            "Print an explicit scope statement showing current atlas-builder "
+            "capabilities versus planned engine claims."
         ),
     )
     parser.add_argument(

@@ -4,8 +4,10 @@ from importlib import metadata
 
 from .foundation import (
     CompatibilityAliasContract,
+    ProductScope,
     RuntimeSurfaceContract,
     SurfaceMap,
+    build_product_scope,
     build_surface_map,
     compatibility_alias_contract,
     runtime_surface_contract,
@@ -33,6 +35,7 @@ except metadata.PackageNotFoundError:
 
 __all__ = [
     "CompatibilityAliasContract",
+    "ProductScope",
     "RuntimeSurfaceContract",
     "SurfaceMap",
     "ContextDataReport",
@@ -43,6 +46,7 @@ __all__ = [
     "__version__",
     "collect_data",
     "collect_context_data",
+    "build_product_scope",
     "build_surface_map",
     "generate_country_report",
     "generate_multi_country_map",

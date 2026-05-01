@@ -5,6 +5,7 @@ import argparse
 from .handlers import (
     run_collect_data,
     run_publish_reports,
+    run_product_scope,
     run_report_country,
     run_report_multi_country_map,
     run_surface_map,
@@ -14,6 +15,7 @@ from .registry import build_command_handlers, resolve_handler
 __all__ = [
     "run_collect_data",
     "run_publish_reports",
+    "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
     "run_surface_map",
@@ -28,6 +30,7 @@ def run_command(args: argparse.Namespace, *, parser: argparse.ArgumentParser) ->
     handlers = build_command_handlers(
         run_collect_data=run_collect_data,
         run_publish_reports=run_publish_reports,
+        run_product_scope=run_product_scope,
         run_report_multi_country_map=run_report_multi_country_map,
         run_surface_map=run_surface_map,
     )
