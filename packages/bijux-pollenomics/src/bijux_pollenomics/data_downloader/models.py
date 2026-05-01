@@ -39,6 +39,16 @@ class SourceReplacementRule:
 
 
 @dataclass(frozen=True)
+class SourceTraceabilityRecord:
+    source: str
+    source_identity: str
+    source_version: str
+    snapshot_sha256: str
+    normalized_sha256: str
+    dispute_token: str
+
+
+@dataclass(frozen=True)
 class ContextPointRecord:
     source: str
     layer_key: str
@@ -84,6 +94,7 @@ class DataCollectionSummary:
     source_hashes: dict[str, dict[str, str]]
     source_provenance: dict[str, SourceProvenanceRecord]
     source_replacement_rules: dict[str, SourceReplacementRule]
+    source_traceability: dict[str, SourceTraceabilityRecord]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -106,6 +117,7 @@ class DataCollectionReport:
     source_hashes: dict[str, dict[str, str]]
     source_provenance: dict[str, SourceProvenanceRecord]
     source_replacement_rules: dict[str, SourceReplacementRule]
+    source_traceability: dict[str, SourceTraceabilityRecord]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int

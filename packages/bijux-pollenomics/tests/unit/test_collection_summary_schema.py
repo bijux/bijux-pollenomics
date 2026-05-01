@@ -23,6 +23,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_hashes": {"aadr": {"snapshot_sha256": "a" * 64}},
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
+            "source_traceability": {"aadr": {"source_version": "v62.0"}},
             "summary_path": "data/collection_summary.json",
         }
 
@@ -39,6 +40,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_hashes": {},
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
+            "source_traceability": {"aadr": {"source_version": "v62.0"}},
             "summary_path": "data/collection_summary.json",
         }
 
@@ -58,6 +60,7 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "source_hashes": {"aadr": {"snapshot_sha256": "a" * 64}},
             "source_provenance": {"aadr": {"version": "v62.0"}},
             "source_replacement_rules": {"aadr": {"refresh_mode": "staging_swap"}},
+            "source_traceability": {"aadr": {"source_version": "v62.0"}},
             "summary_path": "data/collection_summary.json",
         }
 
