@@ -88,6 +88,10 @@ class DataCollectorTests(unittest.TestCase):
             self.assertIn("aadr", report.source_provenance)
             self.assertIn("raa", report.source_provenance)
             self.assertEqual(report.source_provenance["aadr"].version, "v62.0")
+            self.assertTrue(report.source_replacement_rules["aadr"].destructive_refresh)
+            self.assertTrue(
+                report.source_replacement_rules["raa"].preserves_previous_on_failure
+            )
 
     def test_collect_data_all_collects_everything(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -296,6 +300,14 @@ class DataCollectorTests(unittest.TestCase):
             self.assertEqual(
                 summary["source_provenance"]["aadr"]["acquisition_method"],
                 "collector_pipeline",
+            )
+            self.assertIn("source_replacement_rules", summary)
+            self.assertTrue(
+                summary["source_replacement_rules"]["aadr"]["destructive_refresh"]
+            )
+            self.assertEqual(
+                summary["source_replacement_rules"]["aadr"]["refresh_mode"],
+                "staging_swap",
             )
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
