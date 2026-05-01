@@ -276,6 +276,12 @@ class DataCollectorTests(unittest.TestCase):
                 str(output_root / "aadr" / "v62.0"),
             )
             self.assertIsNone(summary["boundary_source"])
+            self.assertIn("source_metadata", summary)
+            self.assertEqual(
+                summary["source_metadata"]["aadr"]["acquisition_method"],
+                "collector_pipeline",
+            )
+            self.assertEqual(summary["source_metadata"]["aadr"]["version"], "v62.0")
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
 

@@ -29,6 +29,7 @@ from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
+from .source_metadata import build_source_metadata
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
 
@@ -51,6 +52,9 @@ def collect_data(
     output_root = Path(output_root)
     source_output_roots = build_source_output_roots(
         output_root=output_root, version=version
+    )
+    source_metadata = build_source_metadata(
+        selected_sources=selected_sources, version=version
     )
 
     counts = initialize_source_counts()
@@ -93,6 +97,7 @@ def collect_data(
         version=version,
         collected_sources=selected_sources,
         source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
         boundary_source=boundary_source,
         counts=counts,
     )
