@@ -11,6 +11,7 @@ __all__ = ["CommandHandler", "build_command_handlers", "resolve_handler"]
 def build_command_handlers(
     *,
     run_collect_data: CommandHandler,
+    run_ownership_map: CommandHandler,
     run_publish_reports: CommandHandler,
     run_report_multi_country_map: CommandHandler,
     run_product_scope: CommandHandler,
@@ -20,6 +21,7 @@ def build_command_handlers(
     return {
         "report-multi-country-map": run_report_multi_country_map,
         "collect-data": run_collect_data,
+        "ownership-map": run_ownership_map,
         "publish-reports": run_publish_reports,
         "product-scope": run_product_scope,
         "surface-map": run_surface_map,

@@ -21,6 +21,7 @@ __all__ = [
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
+    "build_ownership_map_parser",
     "build_report_country_parser",
     "build_product_scope_parser",
     "build_surface_map_parser",
@@ -38,6 +39,7 @@ def register_subcommands(
     build_collect_data_parser(subparsers)
     build_surface_map_parser(subparsers)
     build_product_scope_parser(subparsers)
+    build_ownership_map_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -178,6 +180,25 @@ def build_product_scope_parser(
         help=(
             "Print an explicit scope statement showing current atlas-builder "
             "capabilities versus planned engine claims."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_ownership_map_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ownership-map subcommand parser."""
+    parser = subparsers.add_parser(
+        "ownership-map",
+        help=(
+            "Print where source data, ranking, and publication logic live "
+            "inside the runtime package."
         ),
     )
     parser.add_argument(
