@@ -9,6 +9,7 @@ from .handlers import (
     run_product_scope,
     run_report_country,
     run_report_multi_country_map,
+    run_source_support,
     run_surface_map,
 )
 from .registry import build_command_handlers, resolve_handler
@@ -20,6 +21,7 @@ __all__ = [
     "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
+    "run_source_support",
     "run_surface_map",
     "run_command",
 ]
@@ -35,6 +37,7 @@ def run_command(args: argparse.Namespace, *, parser: argparse.ArgumentParser) ->
         run_publish_reports=run_publish_reports,
         run_product_scope=run_product_scope,
         run_report_multi_country_map=run_report_multi_country_map,
+        run_source_support=run_source_support,
         run_surface_map=run_surface_map,
     )
     try:

@@ -43,6 +43,7 @@ through the repository with visible output consequences.
 - `surface-map` prints a short runtime-versus-roadmap package surface map
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live
+- `source-support` prints source-family support status and country coverage
 
 ## Shared Options
 

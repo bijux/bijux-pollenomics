@@ -6,6 +6,7 @@ from .handlers import (
     run_product_scope,
     run_report_country,
     run_report_multi_country_map,
+    run_source_support,
     run_surface_map,
 )
 from .registry import CommandHandler, build_command_handlers, resolve_handler
@@ -21,5 +22,6 @@ __all__ = [
     "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
+    "run_source_support",
     "run_surface_map",
 ]

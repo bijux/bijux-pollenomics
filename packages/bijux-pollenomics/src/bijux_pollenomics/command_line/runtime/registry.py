@@ -15,6 +15,7 @@ def build_command_handlers(
     run_publish_reports: CommandHandler,
     run_report_multi_country_map: CommandHandler,
     run_product_scope: CommandHandler,
+    run_source_support: CommandHandler,
     run_surface_map: CommandHandler,
 ) -> dict[str, CommandHandler]:
     """Build the direct-command handler registry."""
@@ -24,6 +25,7 @@ def build_command_handlers(
         "ownership-map": run_ownership_map,
         "publish-reports": run_publish_reports,
         "product-scope": run_product_scope,
+        "source-support": run_source_support,
         "surface-map": run_surface_map,
     }
 
