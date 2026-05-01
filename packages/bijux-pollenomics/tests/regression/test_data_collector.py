@@ -284,6 +284,8 @@ class DataCollectorTests(unittest.TestCase):
             self.assertEqual(summary["source_metadata"]["aadr"]["version"], "v62.0")
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
+            for source_dir in AVAILABLE_SOURCES:
+                self.assertTrue((output_root / source_dir).exists())
 
     def test_collect_data_uses_local_boundaries_when_available(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
