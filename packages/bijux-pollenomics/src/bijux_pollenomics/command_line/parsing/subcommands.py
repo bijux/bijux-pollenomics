@@ -22,6 +22,7 @@ __all__ = [
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
     "build_report_country_parser",
+    "build_surface_map_parser",
     "register_subcommands",
 ]
 
@@ -34,6 +35,7 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_surface_map_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -142,5 +144,24 @@ def build_collect_data_parser(
         type=Path,
         default=DEFAULT_CONTEXT_ROOT,
         help="Directory where tracked data should be written. Default: data",
+    )
+    return parser
+
+
+def build_surface_map_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the foundation surface-map subcommand parser."""
+    parser = subparsers.add_parser(
+        "surface-map",
+        help=(
+            "Print current runtime surfaces and planned engine surfaces "
+            "for repository orientation."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
     )
     return parser

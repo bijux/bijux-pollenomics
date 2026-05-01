@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 
 from ...data_downloader import collect_data
+from ...foundation import build_surface_map
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -15,6 +17,7 @@ __all__ = [
     "run_publish_reports",
     "run_report_country",
     "run_report_multi_country_map",
+    "run_surface_map",
 ]
 
 
@@ -95,4 +98,19 @@ def run_publish_reports(args: argparse.Namespace) -> int:
         f"Wrote published report bundles for {', '.join(report.countries)} to {args.output_root} "
         f"with shared map under {report.shared_map_dir.name}"
     )
+    return 0
+
+
+def run_surface_map(args: argparse.Namespace) -> int:
+    """Print the runtime-versus-roadmap surface map."""
+    surface_map = build_surface_map()
+    if args.json:
+        print(json.dumps(surface_map.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print("runtime surfaces")
+    for item in surface_map.runtime_surfaces:
+        print(f"- {item}")
+    print("planned engine surfaces")
+    for item in surface_map.planned_engine_surfaces:
+        print(f"- {item}")
     return 0
