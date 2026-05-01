@@ -18,13 +18,19 @@ def validate_source_snapshot(
     """Validate source snapshot completeness and consistency before publish."""
     for source in selected_sources:
         if source not in source_output_roots:
-            raise ValueError(f"incomplete source snapshot: missing output root for {source}")
+            raise ValueError(
+                f"incomplete source snapshot: missing output root for {source}"
+            )
         if source not in source_metadata:
-            raise ValueError(f"incomplete source snapshot: missing metadata for {source}")
+            raise ValueError(
+                f"incomplete source snapshot: missing metadata for {source}"
+            )
 
         source_root = Path(source_output_roots[source])
         if not source_root.exists() or not source_root.is_dir():
-            raise ValueError(f"malformed source snapshot: missing directory {source_root}")
+            raise ValueError(
+                f"malformed source snapshot: missing directory {source_root}"
+            )
 
         metadata = source_metadata[source]
         if not metadata.version or not metadata.retrieved_on:
@@ -33,7 +39,8 @@ def validate_source_snapshot(
             raise ValueError(f"incomplete source snapshot metadata for {source}")
 
     requires_boundaries = any(
-        source in selected_sources for source in ("boundaries", "landclim", "neotoma", "sead", "raa")
+        source in selected_sources
+        for source in ("boundaries", "landclim", "neotoma", "sead", "raa")
     )
     if requires_boundaries and boundary_source is None:
         raise ValueError(

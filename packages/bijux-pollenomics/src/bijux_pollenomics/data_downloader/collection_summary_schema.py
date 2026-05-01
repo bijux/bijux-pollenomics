@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 import json
 from pathlib import Path
+from typing import cast
 
 __all__ = [
     "validate_collection_summary_file",
@@ -44,24 +45,24 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
     _validate_mapping(payload, "source_replacement_rules")
     _validate_mapping(payload, "source_traceability")
 
-    source_output_roots = payload["source_output_roots"]
-    source_metadata = payload["source_metadata"]
-    source_hashes = payload["source_hashes"]
-    source_provenance = payload["source_provenance"]
-    source_replacement_rules = payload["source_replacement_rules"]
-    source_traceability = payload["source_traceability"]
-    assert isinstance(source_output_roots, Mapping)
-    assert isinstance(source_metadata, Mapping)
-    assert isinstance(source_hashes, Mapping)
-    assert isinstance(source_provenance, Mapping)
-    assert isinstance(source_replacement_rules, Mapping)
-    assert isinstance(source_traceability, Mapping)
+    source_output_roots = cast(Mapping[str, object], payload["source_output_roots"])
+    source_metadata = cast(Mapping[str, object], payload["source_metadata"])
+    source_hashes = cast(Mapping[str, object], payload["source_hashes"])
+    source_provenance = cast(Mapping[str, object], payload["source_provenance"])
+    source_replacement_rules = cast(
+        Mapping[str, object], payload["source_replacement_rules"]
+    )
+    source_traceability = cast(Mapping[str, object], payload["source_traceability"])
 
     for source in collected_sources:
         if source not in source_output_roots:
-            raise ValueError(f"collection summary missing output root for source: {source}")
+            raise ValueError(
+                f"collection summary missing output root for source: {source}"
+            )
         if source not in source_metadata:
-            raise ValueError(f"collection summary missing metadata for source: {source}")
+            raise ValueError(
+                f"collection summary missing metadata for source: {source}"
+            )
         if source not in source_hashes:
             raise ValueError(f"collection summary missing hashes for source: {source}")
         if source not in source_provenance:

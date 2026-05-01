@@ -5,7 +5,11 @@ from collections.abc import Iterable
 from ..core import haversine_km
 from ..data_downloader.models import ContextPointRecord
 from ..reporting.models import LocalitySummary
-from .site_candidates import CandidateSiteContext, CandidateSiteScore, score_candidate_site
+from .site_candidates import (
+    CandidateSiteContext,
+    CandidateSiteScore,
+    score_candidate_site,
+)
 
 __all__ = [
     "build_candidate_context",
@@ -45,7 +49,10 @@ def build_candidate_context(
             latitude_b=point.latitude,
             longitude_b=point.longitude,
         )
-        if nearest_context_distance_km is None or distance_km < nearest_context_distance_km:
+        if (
+            nearest_context_distance_km is None
+            or distance_km < nearest_context_distance_km
+        ):
             nearest_context_distance_km = distance_km
         if distance_km <= radius_km:
             nearby_context_points += 1

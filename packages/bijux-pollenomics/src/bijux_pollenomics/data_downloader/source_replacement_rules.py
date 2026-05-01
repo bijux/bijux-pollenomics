@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from .models import SourceReplacementRule
 from .pipeline.staging import build_staging_output_dir
 
@@ -19,7 +21,7 @@ def build_source_replacement_rules(
             source=source,
             refresh_mode="staging_swap",
             final_output_root=final_output_root,
-            staging_output_root=str(build_staging_output_dir(final_output_root)),
+            staging_output_root=str(build_staging_output_dir(Path(final_output_root))),
             destructive_refresh=True,
             preserves_previous_on_failure=True,
         )

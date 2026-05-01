@@ -29,15 +29,15 @@ from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
-from .source_metadata import build_source_metadata
-from .source_provenance import build_source_provenance
-from .source_replacement_rules import build_source_replacement_rules
-from .source_traceability import build_source_traceability_records
+from .source_hashes import build_source_hashes
 from .source_layout_contract import (
     build_source_layout_contract,
     validate_source_layout_contract,
 )
-from .source_hashes import build_source_hashes
+from .source_metadata import build_source_metadata
+from .source_provenance import build_source_provenance
+from .source_replacement_rules import build_source_replacement_rules
+from .source_traceability import build_source_traceability_records
 from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries

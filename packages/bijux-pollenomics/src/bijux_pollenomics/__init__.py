@@ -2,6 +2,12 @@
 
 from importlib import metadata
 
+from .data_downloader.api import (
+    ContextDataReport,
+    DataCollectionReport,
+    collect_context_data,
+    collect_data,
+)
 from .foundation import (
     CompatibilityAliasContract,
     OwnershipMapEntry,
@@ -13,13 +19,6 @@ from .foundation import (
     build_surface_map,
     compatibility_alias_contract,
     runtime_surface_contract,
-)
-
-from .data_downloader.api import (
-    ContextDataReport,
-    DataCollectionReport,
-    collect_context_data,
-    collect_data,
 )
 from .reporting.api import (
     CountryReport,

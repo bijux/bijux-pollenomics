@@ -14,9 +14,7 @@ class SourceHashesUnitTests(unittest.TestCase):
             (source_root / "raw").mkdir(parents=True, exist_ok=True)
             (source_root / "normalized").mkdir(parents=True, exist_ok=True)
             (source_root / "raw" / "one.txt").write_text("one", encoding="utf-8")
-            (source_root / "normalized" / "two.txt").write_text(
-                "two", encoding="utf-8"
-            )
+            (source_root / "normalized" / "two.txt").write_text("two", encoding="utf-8")
             hashes = build_source_hashes(
                 source_output_roots={"landclim": str(source_root)},
                 selected_sources=("landclim",),

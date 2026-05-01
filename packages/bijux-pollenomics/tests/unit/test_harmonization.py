@@ -6,7 +6,9 @@ from bijux_pollenomics.analysis import HarmonizationRule, default_harmonization_
 
 
 class HarmonizationUnitTests(unittest.TestCase):
-    def test_default_harmonization_rules_are_ordered_and_provenance_required(self) -> None:
+    def test_default_harmonization_rules_are_ordered_and_provenance_required(
+        self,
+    ) -> None:
         rules = default_harmonization_rules()
 
         self.assertIsInstance(rules, tuple)
