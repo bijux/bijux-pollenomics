@@ -45,13 +45,15 @@ def test_harmonization_logic_stays_out_of_map_rendering_layers() -> None:
         REPORTING_SRC / "rendering",
     ]
     failures: list[str] = []
-    forbidden_pattern = r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.harmonization(\.|\s|$)"
+    forbidden_pattern = (
+        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.harmonization(\.|\s|$)"
+    )
 
     for root in map_rendering_roots:
         failures.extend(_find_forbidden_imports(_python_files(root), forbidden_pattern))
 
-    assert not failures, "map rendering imports harmonization logic directly:\n" + "\n".join(
-        failures
+    assert not failures, (
+        "map rendering imports harmonization logic directly:\n" + "\n".join(failures)
     )
 
 
@@ -61,8 +63,8 @@ def test_ranking_logic_stays_out_of_publication_modules() -> None:
         r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.(ranking|site_candidates|reporting)(\.|\s|$)",
     )
 
-    assert not failures, "publication modules import ranking logic directly:\n" + "\n".join(
-        failures
+    assert not failures, (
+        "publication modules import ranking logic directly:\n" + "\n".join(failures)
     )
 
 

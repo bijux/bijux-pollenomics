@@ -9,7 +9,9 @@ class OwnershipMapUnitTests(unittest.TestCase):
     def test_ownership_map_covers_data_ranking_and_publication(self) -> None:
         ownership = build_ownership_map()
 
-        self.assertTrue(all(isinstance(entry, OwnershipMapEntry) for entry in ownership))
+        self.assertTrue(
+            all(isinstance(entry, OwnershipMapEntry) for entry in ownership)
+        )
         concerns = {entry.concern for entry in ownership}
         self.assertEqual(
             concerns,

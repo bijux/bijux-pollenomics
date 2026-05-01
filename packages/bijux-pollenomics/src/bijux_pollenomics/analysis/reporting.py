@@ -13,9 +13,7 @@ __all__ = [
 ]
 
 
-def write_candidate_sites_csv(
-    path: Path, scores: list[CandidateSiteScore]
-) -> None:
+def write_candidate_sites_csv(path: Path, scores: list[CandidateSiteScore]) -> None:
     """Write candidate-site rankings as CSV."""
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(
@@ -45,9 +43,7 @@ def write_candidate_sites_csv(
             )
 
 
-def write_candidate_sites_json(
-    path: Path, scores: list[CandidateSiteScore]
-) -> None:
+def write_candidate_sites_json(path: Path, scores: list[CandidateSiteScore]) -> None:
     """Write candidate-site rankings as JSON."""
     payload = [
         {

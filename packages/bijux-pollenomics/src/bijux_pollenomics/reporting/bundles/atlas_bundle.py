@@ -4,15 +4,15 @@ from collections.abc import Callable, Iterable
 import json
 from pathlib import Path
 
-from ...core.geojson import JsonObject
 from ...analysis import (
     rank_localities,
     render_candidate_site_markdown,
     write_candidate_sites_csv,
 )
+from ...core.geojson import JsonObject
 from ...data_downloader.models import ContextPointRecord
-from ..models import MultiCountryMapReport, SampleRecord
 from ..aadr import summarize_localities
+from ..models import MultiCountryMapReport, SampleRecord
 from .paths import AtlasBundlePaths
 from .summary_builders.atlas import build_multi_country_bundle_manifest
 
@@ -144,7 +144,7 @@ def _extract_context_points(
                     subtitle=str(raw_point.get("subtitle", "")),
                     description=str(layer.get("description", "")),
                     source_url=str(raw_point.get("source_url", "")),
-                    record_count=int(layer.get("count", 1)),
+                    record_count=_as_optional_int(layer.get("count")) or 1,
                     popup_rows=(),
                     time_start_bp=_as_optional_int(raw_point.get("time_start_bp")),
                     time_end_bp=_as_optional_int(raw_point.get("time_end_bp")),

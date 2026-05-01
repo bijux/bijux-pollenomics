@@ -42,9 +42,12 @@ class CandidateSiteScore:
 def score_candidate_site(
     candidate: CandidateSiteContext,
     *,
-    weights: ScoringWeights = ScoringWeights(),
+    weights: ScoringWeights | None = None,
 ) -> CandidateSiteScore:
     """Score one candidate locality for future site-selection workflows."""
+    if weights is None:
+        weights = ScoringWeights()
+
     sample_signal = min(1.0, candidate.locality.sample_count / 5.0)
     context_signal = min(1.0, candidate.nearby_context_points / 12.0)
     temporal_signal = min(1.0, candidate.temporal_overlap_points / 6.0)
