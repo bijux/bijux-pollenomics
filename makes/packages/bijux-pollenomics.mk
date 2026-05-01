@@ -32,15 +32,16 @@ quality-compileall:
 
 sync-license-assets-package:
 	@for file_name in LICENSE NOTICE; do \
+	  source_path="$(MONOREPO_ROOT)/$$file_name"; \
 	  target_path="$(PROJECT_DIR)/$$file_name"; \
-	  expected_target="../../$$file_name"; \
-	  if [ -L "$$target_path" ] && [ "$$(readlink "$$target_path")" = "$$expected_target" ]; then \
-	    continue; \
+	  if [ ! -f "$$source_path" ]; then \
+	    echo "✘ Missing required license asset: $$source_path"; \
+	    exit 1; \
 	  fi; \
 	  if [ -L "$$target_path" ] || [ -e "$$target_path" ]; then \
 	    rm -f "$$target_path"; \
 	  fi; \
-	  ln -s "$$expected_target" "$$target_path"; \
+	  cp "$$source_path" "$$target_path"; \
 	done
 .PHONY: sync-license-assets-package
 
