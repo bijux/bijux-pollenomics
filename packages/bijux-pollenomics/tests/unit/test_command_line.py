@@ -60,6 +60,26 @@ class CommandLineUnitTests(unittest.TestCase):
 
         self.assertEqual(error.exception.code, 2)
 
+    def test_build_parser_supports_surface_map_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["surface-map"])
+
+        self.assertEqual(args.command, "surface-map")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_surface_map_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["surface-map"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_surface_map",
+            return_value=3,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 3)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(
