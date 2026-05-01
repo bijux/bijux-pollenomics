@@ -19,6 +19,7 @@ _REQUIRED_TOP_LEVEL_KEYS = (
     "source_hashes",
     "source_provenance",
     "source_replacement_rules",
+    "source_traceability",
     "summary_path",
 )
 
@@ -41,17 +42,20 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
     _validate_mapping(payload, "source_hashes")
     _validate_mapping(payload, "source_provenance")
     _validate_mapping(payload, "source_replacement_rules")
+    _validate_mapping(payload, "source_traceability")
 
     source_output_roots = payload["source_output_roots"]
     source_metadata = payload["source_metadata"]
     source_hashes = payload["source_hashes"]
     source_provenance = payload["source_provenance"]
     source_replacement_rules = payload["source_replacement_rules"]
+    source_traceability = payload["source_traceability"]
     assert isinstance(source_output_roots, Mapping)
     assert isinstance(source_metadata, Mapping)
     assert isinstance(source_hashes, Mapping)
     assert isinstance(source_provenance, Mapping)
     assert isinstance(source_replacement_rules, Mapping)
+    assert isinstance(source_traceability, Mapping)
 
     for source in collected_sources:
         if source not in source_output_roots:
@@ -67,6 +71,10 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
         if source not in source_replacement_rules:
             raise ValueError(
                 f"collection summary missing replacement rules for source: {source}"
+            )
+        if source not in source_traceability:
+            raise ValueError(
+                f"collection summary missing traceability record for source: {source}"
             )
 
 

@@ -11,12 +11,14 @@ from .models import (
     SourceAcquisitionMetadata,
     SourceProvenanceRecord,
     SourceReplacementRule,
+    SourceTraceabilityRecord,
 )
 from .source_hashes import SourceHashes, build_source_hashes
 from .source_identity import SOURCE_IDENTITIES, SourceIdentity
 from .source_provenance import build_source_provenance
 from .source_replacement_rules import build_source_replacement_rules
 from .source_support import SourceSupportStatus, build_source_support_matrix
+from .source_traceability import build_source_traceability_records
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
 __all__ = [
@@ -30,6 +32,7 @@ __all__ = [
     "SourceAcquisitionMetadata",
     "SourceProvenanceRecord",
     "SourceReplacementRule",
+    "SourceTraceabilityRecord",
     "SourceHashes",
     "SourceSupportStatus",
     "validate_collection_summary_file",
@@ -40,6 +43,7 @@ __all__ = [
     "build_source_hashes",
     "build_source_provenance",
     "build_source_replacement_rules",
+    "build_source_traceability_records",
     "download_aadr_anno_files",
 ]
 
