@@ -1,3 +1,4 @@
+from .harmonization import HarmonizationRule, default_harmonization_rules
 from .site_candidates import (
     CandidateSiteContext,
     CandidateSiteScore,
@@ -12,7 +13,9 @@ from .reporting import (
 )
 
 __all__ = [
+    "HarmonizationRule",
     "build_candidate_context",
+    "default_harmonization_rules",
     "CandidateSiteContext",
     "CandidateSiteScore",
     "rank_localities",
