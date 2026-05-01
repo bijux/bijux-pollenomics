@@ -56,6 +56,7 @@ class DataCollectionSummary:
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
     source_metadata: dict[str, SourceAcquisitionMetadata]
+    source_hashes: dict[str, dict[str, str]]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -75,6 +76,7 @@ class DataCollectionReport:
     collected_sources: tuple[str, ...]
     source_output_roots: dict[str, str]
     source_metadata: dict[str, SourceAcquisitionMetadata]
+    source_hashes: dict[str, dict[str, str]]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int
