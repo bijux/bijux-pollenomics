@@ -118,3 +118,7 @@ __all__ = [
     "synchronize_license_assets",
     "main",
 ]
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
