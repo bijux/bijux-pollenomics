@@ -4,6 +4,7 @@ import argparse
 import json
 
 from ...data_downloader import collect_data
+from ...data_downloader import build_source_support_matrix
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
@@ -19,6 +20,7 @@ __all__ = [
     "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
+    "run_source_support",
     "run_surface_map",
 ]
 
@@ -142,4 +144,16 @@ def run_ownership_map(args: argparse.Namespace) -> int:
     for entry in ownership_map:
         print(f"{entry.concern}: {entry.owner_module}")
         print(f"  reason: {entry.reason}")
+    return 0
+
+
+def run_source_support(args: argparse.Namespace) -> int:
+    """Print support-status and country-coverage rows for tracked sources."""
+    support_rows = build_source_support_matrix()
+    if args.json:
+        print(json.dumps([row.as_dict() for row in support_rows], indent=2))
+        return 0
+    for row in support_rows:
+        countries = ", ".join(row.country_coverage)
+        print(f"{row.source}: status={row.support_status}; countries={countries}")
     return 0
