@@ -282,6 +282,11 @@ class DataCollectorTests(unittest.TestCase):
                 "collector_pipeline",
             )
             self.assertEqual(summary["source_metadata"]["aadr"]["version"], "v62.0")
+            self.assertIn("source_hashes", summary)
+            self.assertIn("aadr", summary["source_hashes"])
+            self.assertEqual(
+                len(summary["source_hashes"]["aadr"]["snapshot_sha256"]), 64
+            )
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
             for source_dir in AVAILABLE_SOURCES:

@@ -34,6 +34,7 @@ from .source_layout_contract import (
     build_source_layout_contract,
     validate_source_layout_contract,
 )
+from .source_hashes import build_source_hashes
 from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
@@ -97,12 +98,24 @@ def collect_data(
                 )
             )
 
+    source_hashes = {
+        source: {
+            "snapshot_sha256": hashes.snapshot_sha256,
+            "normalized_sha256": hashes.normalized_sha256,
+        }
+        for source, hashes in build_source_hashes(
+            source_output_roots=source_output_roots,
+            selected_sources=selected_sources,
+        ).items()
+    }
+
     summary = build_data_collection_summary(
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
         source_output_roots=source_output_roots,
         source_metadata=source_metadata,
+        source_hashes=source_hashes,
         boundary_source=boundary_source,
         counts=counts,
     )
