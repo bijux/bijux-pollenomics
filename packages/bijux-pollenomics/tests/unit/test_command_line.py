@@ -140,6 +140,28 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 9)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_validate_collection_summary_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["validate-collection-summary"])
+
+        self.assertEqual(args.command, "validate-collection-summary")
+        self.assertEqual(args.summary_path, Path("data/collection_summary.json"))
+
+    def test_run_command_routes_validate_collection_summary_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["validate-collection-summary"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_validate_collection_summary",
+            return_value=11,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 11)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(

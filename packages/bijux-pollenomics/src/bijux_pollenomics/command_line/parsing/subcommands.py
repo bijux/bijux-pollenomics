@@ -24,6 +24,7 @@ __all__ = [
     "build_ownership_map_parser",
     "build_report_country_parser",
     "build_product_scope_parser",
+    "build_validate_collection_summary_parser",
     "build_source_support_parser",
     "build_surface_map_parser",
     "register_subcommands",
@@ -42,6 +43,7 @@ def register_subcommands(
     build_product_scope_parser(subparsers)
     build_ownership_map_parser(subparsers)
     build_source_support_parser(subparsers)
+    build_validate_collection_summary_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -226,5 +228,25 @@ def build_source_support_parser(
         "--json",
         action="store_true",
         help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_validate_collection_summary_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the collection-summary schema validation parser."""
+    parser = subparsers.add_parser(
+        "validate-collection-summary",
+        help=(
+            "Validate one collection_summary.json payload without rerunning the "
+            "full source collection build."
+        ),
+    )
+    parser.add_argument(
+        "--summary-path",
+        type=Path,
+        default=DEFAULT_CONTEXT_ROOT / "collection_summary.json",
+        help="Path to collection_summary.json. Default: data/collection_summary.json",
     )
     return parser

@@ -5,6 +5,7 @@ import json
 
 from ...data_downloader import collect_data
 from ...data_downloader import build_source_support_matrix
+from ...data_downloader import validate_collection_summary_file
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
@@ -22,6 +23,7 @@ __all__ = [
     "run_report_multi_country_map",
     "run_source_support",
     "run_surface_map",
+    "run_validate_collection_summary",
 ]
 
 
@@ -156,4 +158,15 @@ def run_source_support(args: argparse.Namespace) -> int:
     for row in support_rows:
         countries = ", ".join(row.country_coverage)
         print(f"{row.source}: status={row.support_status}; countries={countries}")
+    return 0
+
+
+def run_validate_collection_summary(args: argparse.Namespace) -> int:
+    """Validate a collection summary payload independent of full data recollection."""
+    payload = validate_collection_summary_file(args.summary_path)
+    sources = payload.get("collected_sources", [])
+    source_count = len(sources) if isinstance(sources, list) else 0
+    print(
+        f"Validated collection summary at {args.summary_path} with {source_count} collected sources"
+    )
     return 0

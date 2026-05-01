@@ -44,6 +44,7 @@ through the repository with visible output consequences.
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live
 - `source-support` prints source-family support status and country coverage
+- `validate-collection-summary` validates one collected summary payload without rerunning source collection
 
 ## Shared Options
 
