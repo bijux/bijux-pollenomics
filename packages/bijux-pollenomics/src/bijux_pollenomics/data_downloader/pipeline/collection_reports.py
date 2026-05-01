@@ -8,6 +8,7 @@ from ..models import (
     DataCollectionSummary,
     SourceAcquisitionMetadata,
     SourceProvenanceRecord,
+    SourceReplacementRule,
 )
 
 __all__ = [
@@ -39,6 +40,7 @@ def build_data_collection_summary(
     source_metadata: dict[str, SourceAcquisitionMetadata],
     source_hashes: dict[str, dict[str, str]],
     source_provenance: dict[str, SourceProvenanceRecord],
+    source_replacement_rules: dict[str, SourceReplacementRule],
     boundary_source: str | None,
     counts: dict[str, int],
 ) -> DataCollectionSummary:
@@ -53,6 +55,7 @@ def build_data_collection_summary(
         source_metadata=source_metadata,
         source_hashes=source_hashes,
         source_provenance=source_provenance,
+        source_replacement_rules=source_replacement_rules,
         boundary_source=boundary_source,
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
@@ -78,6 +81,7 @@ def build_data_collection_report(
         source_metadata=summary.source_metadata,
         source_hashes=summary.source_hashes,
         source_provenance=summary.source_provenance,
+        source_replacement_rules=summary.source_replacement_rules,
         aadr_file_count=summary.aadr_file_count,
         landclim_site_count=summary.landclim_site_count,
         landclim_grid_cell_count=summary.landclim_grid_cell_count,
