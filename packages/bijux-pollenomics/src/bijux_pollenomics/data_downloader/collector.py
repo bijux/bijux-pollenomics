@@ -30,6 +30,10 @@ from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
 from .source_metadata import build_source_metadata
+from .source_layout_contract import (
+    build_source_layout_contract,
+    validate_source_layout_contract,
+)
 from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
@@ -103,7 +107,10 @@ def collect_data(
         counts=counts,
     )
     output_root.mkdir(parents=True, exist_ok=True)
+    for source_dir in AVAILABLE_SOURCES:
+        (output_root / source_dir).mkdir(parents=True, exist_ok=True)
     write_data_directory_readme(output_root, version=version)
+    validate_source_layout_contract(build_source_layout_contract(output_root))
     validate_source_snapshot(
         output_root=output_root,
         selected_sources=selected_sources,
