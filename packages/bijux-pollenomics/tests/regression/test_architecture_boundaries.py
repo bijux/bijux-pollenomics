@@ -53,3 +53,14 @@ def test_harmonization_logic_stays_out_of_map_rendering_layers() -> None:
     assert not failures, "map rendering imports harmonization logic directly:\n" + "\n".join(
         failures
     )
+
+
+def test_ranking_logic_stays_out_of_publication_modules() -> None:
+    failures = _find_forbidden_imports(
+        _python_files(REPORTING_SRC),
+        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.(ranking|site_candidates|reporting)(\.|\s|$)",
+    )
+
+    assert not failures, "publication modules import ranking logic directly:\n" + "\n".join(
+        failures
+    )
