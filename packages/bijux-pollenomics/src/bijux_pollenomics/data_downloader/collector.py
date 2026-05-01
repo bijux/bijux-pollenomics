@@ -30,6 +30,7 @@ from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
 from .source_metadata import build_source_metadata
+from .source_provenance import build_source_provenance
 from .source_layout_contract import (
     build_source_layout_contract,
     validate_source_layout_contract,
@@ -108,6 +109,12 @@ def collect_data(
             selected_sources=selected_sources,
         ).items()
     }
+    source_provenance = build_source_provenance(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+    )
 
     summary = build_data_collection_summary(
         output_root=output_root,
@@ -116,6 +123,7 @@ def collect_data(
         source_output_roots=source_output_roots,
         source_metadata=source_metadata,
         source_hashes=source_hashes,
+        source_provenance=source_provenance,
         boundary_source=boundary_source,
         counts=counts,
     )

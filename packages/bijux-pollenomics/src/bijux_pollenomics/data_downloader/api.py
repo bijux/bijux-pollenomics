@@ -1,9 +1,15 @@
 from pathlib import Path
 
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
-from .models import ContextDataReport, DataCollectionSummary, SourceAcquisitionMetadata
+from .models import (
+    ContextDataReport,
+    DataCollectionSummary,
+    SourceAcquisitionMetadata,
+    SourceProvenanceRecord,
+)
 from .source_hashes import SourceHashes, build_source_hashes
 from .source_identity import SOURCE_IDENTITIES, SourceIdentity
+from .source_provenance import build_source_provenance
 from .source_support import SourceSupportStatus, build_source_support_matrix
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
@@ -16,12 +22,14 @@ __all__ = [
     "DataCollectionReport",
     "DataCollectionSummary",
     "SourceAcquisitionMetadata",
+    "SourceProvenanceRecord",
     "SourceHashes",
     "SourceSupportStatus",
     "collect_context_data",
     "collect_data",
     "build_source_support_matrix",
     "build_source_hashes",
+    "build_source_provenance",
     "download_aadr_anno_files",
 ]
 
