@@ -14,6 +14,21 @@ class SourceAcquisitionMetadata:
 
 
 @dataclass(frozen=True)
+class SourceProvenanceRecord:
+    source: str
+    display_name: str
+    evidence_family: str
+    version: str
+    license: str
+    retrieved_on: str
+    acquisition_method: str
+    snapshot_root: str
+    normalized_root: str
+    snapshot_sha256: str
+    normalized_sha256: str
+
+
+@dataclass(frozen=True)
 class ContextPointRecord:
     source: str
     layer_key: str
@@ -57,6 +72,7 @@ class DataCollectionSummary:
     source_output_roots: dict[str, str]
     source_metadata: dict[str, SourceAcquisitionMetadata]
     source_hashes: dict[str, dict[str, str]]
+    source_provenance: dict[str, SourceProvenanceRecord]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -77,6 +93,7 @@ class DataCollectionReport:
     source_output_roots: dict[str, str]
     source_metadata: dict[str, SourceAcquisitionMetadata]
     source_hashes: dict[str, dict[str, str]]
+    source_provenance: dict[str, SourceProvenanceRecord]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int

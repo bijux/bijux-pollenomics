@@ -85,6 +85,9 @@ class DataCollectorTests(unittest.TestCase):
             self.assertTrue((output_root / "README.md").exists())
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
+            self.assertIn("aadr", report.source_provenance)
+            self.assertIn("raa", report.source_provenance)
+            self.assertEqual(report.source_provenance["aadr"].version, "v62.0")
 
     def test_collect_data_all_collects_everything(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -286,6 +289,13 @@ class DataCollectorTests(unittest.TestCase):
             self.assertIn("aadr", summary["source_hashes"])
             self.assertEqual(
                 len(summary["source_hashes"]["aadr"]["snapshot_sha256"]), 64
+            )
+            self.assertIn("source_provenance", summary)
+            self.assertIn("aadr", summary["source_provenance"])
+            self.assertEqual(summary["source_provenance"]["aadr"]["version"], "v62.0")
+            self.assertEqual(
+                summary["source_provenance"]["aadr"]["acquisition_method"],
+                "collector_pipeline",
             )
             self.assertEqual(summary["landclim_site_count"], 0)
             self.assertEqual(summary["landclim_grid_cell_count"], 0)
