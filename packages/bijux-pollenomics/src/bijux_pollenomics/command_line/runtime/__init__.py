@@ -8,6 +8,7 @@ from .handlers import (
     run_report_multi_country_map,
     run_source_support,
     run_surface_map,
+    run_validate_collection_summary,
 )
 from .registry import CommandHandler, build_command_handlers, resolve_handler
 
@@ -24,4 +25,5 @@ __all__ = [
     "run_report_multi_country_map",
     "run_source_support",
     "run_surface_map",
+    "run_validate_collection_summary",
 ]

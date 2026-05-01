@@ -1,5 +1,9 @@
 from pathlib import Path
 
+from .collection_summary_schema import (
+    validate_collection_summary_file,
+    validate_collection_summary_payload,
+)
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
 from .models import (
     ContextDataReport,
@@ -28,6 +32,8 @@ __all__ = [
     "SourceReplacementRule",
     "SourceHashes",
     "SourceSupportStatus",
+    "validate_collection_summary_file",
+    "validate_collection_summary_payload",
     "collect_context_data",
     "collect_data",
     "build_source_support_matrix",

@@ -17,6 +17,7 @@ def build_command_handlers(
     run_product_scope: CommandHandler,
     run_source_support: CommandHandler,
     run_surface_map: CommandHandler,
+    run_validate_collection_summary: CommandHandler,
 ) -> dict[str, CommandHandler]:
     """Build the direct-command handler registry."""
     return {
@@ -27,6 +28,7 @@ def build_command_handlers(
         "product-scope": run_product_scope,
         "source-support": run_source_support,
         "surface-map": run_surface_map,
+        "validate-collection-summary": run_validate_collection_summary,
     }
 
 
