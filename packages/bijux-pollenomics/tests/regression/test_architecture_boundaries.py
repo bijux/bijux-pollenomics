@@ -64,3 +64,14 @@ def test_ranking_logic_stays_out_of_publication_modules() -> None:
     assert not failures, "publication modules import ranking logic directly:\n" + "\n".join(
         failures
     )
+
+
+def test_runtime_package_does_not_import_dev_tooling_modules() -> None:
+    failures = _find_forbidden_imports(
+        _python_files(RUNTIME_SRC),
+        r"(^|\n)\s*(from|import)\s+bijux_pollenomics_dev(\.|\s|$)",
+    )
+
+    assert not failures, "runtime package imports dev tooling modules:\n" + "\n".join(
+        failures
+    )
