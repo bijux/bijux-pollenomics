@@ -56,6 +56,7 @@ This section should move a reader from broad runtime claims to the exact point w
 - [Dependencies and Adjacencies](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/dependencies-and-adjacencies/)
 - [Change Principles](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/change-principles/)
 - [Surface Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/surface-map/)
+- [Ownership Map](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/ownership-map/)
 
 ## What This Section Settles
 

@@ -4,7 +4,7 @@ import argparse
 import json
 
 from ...data_downloader import collect_data
-from ...foundation import build_product_scope, build_surface_map
+from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -15,6 +15,7 @@ from ...reporting import (
 __all__ = [
     "run_collect_data",
     "run_publish_reports",
+    "run_ownership_map",
     "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
@@ -129,4 +130,16 @@ def run_product_scope(args: argparse.Namespace) -> int:
     print(f"roadmap mode: {scope.roadmap_mode}")
     for claim in scope.not_yet_supported_claims:
         print(f"- not-yet-supported: {claim}")
+    return 0
+
+
+def run_ownership_map(args: argparse.Namespace) -> int:
+    """Print a short ownership map for core runtime concerns."""
+    ownership_map = build_ownership_map()
+    if args.json:
+        print(json.dumps([entry.as_dict() for entry in ownership_map], indent=2))
+        return 0
+    for entry in ownership_map:
+        print(f"{entry.concern}: {entry.owner_module}")
+        print(f"  reason: {entry.reason}")
     return 0
