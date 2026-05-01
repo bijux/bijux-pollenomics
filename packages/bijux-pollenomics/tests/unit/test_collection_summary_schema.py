@@ -18,7 +18,10 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
             "output_root": "data",
             "version": "v62.0",
             "collected_sources": ["aadr"],
-            "source_output_roots": {"aadr": "data/aadr", "aadr_version_dir": "data/aadr/v62.0"},
+            "source_output_roots": {
+                "aadr": "data/aadr",
+                "aadr_version_dir": "data/aadr/v62.0",
+            },
             "source_metadata": {"aadr": {"version": "v62.0"}},
             "source_hashes": {"aadr": {"snapshot_sha256": "a" * 64}},
             "source_provenance": {"aadr": {"version": "v62.0"}},
@@ -29,7 +32,9 @@ class CollectionSummarySchemaUnitTests(unittest.TestCase):
 
         validate_collection_summary_payload(payload)
 
-    def test_validate_collection_summary_payload_rejects_missing_source_hashes(self) -> None:
+    def test_validate_collection_summary_payload_rejects_missing_source_hashes(
+        self,
+    ) -> None:
         payload: dict[str, object] = {
             "generated_on": "2026-05-01",
             "output_root": "data",

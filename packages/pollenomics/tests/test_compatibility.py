@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 import sys
 import unittest
@@ -32,10 +33,17 @@ class PollenomicsCompatibilityTests(unittest.TestCase):
         alias_parser = build_parser()
         runtime_parser = build_runtime_parser()
 
-        alias_commands = set(alias_parser._subparsers._group_actions[0].choices)
-        runtime_commands = set(runtime_parser._subparsers._group_actions[0].choices)
+        alias_commands = _extract_command_choices(alias_parser)
+        runtime_commands = _extract_command_choices(runtime_parser)
 
         self.assertEqual(alias_commands, runtime_commands)
+
+
+def _extract_command_choices(parser: argparse.ArgumentParser) -> set[str]:
+    for action in parser._actions:
+        if isinstance(action, argparse._SubParsersAction):  # noqa: SLF001
+            return {str(name) for name in action.choices}
+    return set()
 
 
 if __name__ == "__main__":

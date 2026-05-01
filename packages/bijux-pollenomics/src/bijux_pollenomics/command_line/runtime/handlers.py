@@ -3,9 +3,11 @@ from __future__ import annotations
 import argparse
 import json
 
-from ...data_downloader import collect_data
-from ...data_downloader import build_source_support_matrix
-from ...data_downloader import validate_collection_summary_file
+from ...data_downloader import (
+    build_source_support_matrix,
+    collect_data,
+    validate_collection_summary_file,
+)
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
