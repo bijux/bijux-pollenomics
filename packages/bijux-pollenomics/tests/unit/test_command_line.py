@@ -80,6 +80,26 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 3)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_product_scope_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["product-scope"])
+
+        self.assertEqual(args.command, "product-scope")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_product_scope_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["product-scope"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_product_scope",
+            return_value=4,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 4)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(

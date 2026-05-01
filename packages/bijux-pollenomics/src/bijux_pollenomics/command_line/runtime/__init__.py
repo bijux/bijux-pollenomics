@@ -2,6 +2,7 @@ from .dispatch import run_command
 from .handlers import (
     run_collect_data,
     run_publish_reports,
+    run_product_scope,
     run_report_country,
     run_report_multi_country_map,
     run_surface_map,
@@ -15,6 +16,7 @@ __all__ = [
     "run_collect_data",
     "run_command",
     "run_publish_reports",
+    "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
     "run_surface_map",
