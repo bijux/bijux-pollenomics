@@ -2,7 +2,12 @@
 
 from importlib import metadata
 
-from .foundation import RuntimeSurfaceContract, runtime_surface_contract
+from .foundation import (
+    CompatibilityAliasContract,
+    RuntimeSurfaceContract,
+    compatibility_alias_contract,
+    runtime_surface_contract,
+)
 
 from .data_downloader.api import (
     ContextDataReport,
@@ -25,6 +30,7 @@ except metadata.PackageNotFoundError:
     __version__ = "0.1.5"
 
 __all__ = [
+    "CompatibilityAliasContract",
     "RuntimeSurfaceContract",
     "ContextDataReport",
     "CountryReport",
@@ -38,4 +44,5 @@ __all__ = [
     "generate_multi_country_map",
     "generate_published_reports",
     "runtime_surface_contract",
+    "compatibility_alias_contract",
 ]
