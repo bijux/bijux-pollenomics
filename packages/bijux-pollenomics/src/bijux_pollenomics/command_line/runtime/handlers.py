@@ -4,7 +4,7 @@ import argparse
 import json
 
 from ...data_downloader import collect_data
-from ...foundation import build_surface_map
+from ...foundation import build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -15,6 +15,7 @@ from ...reporting import (
 __all__ = [
     "run_collect_data",
     "run_publish_reports",
+    "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
     "run_surface_map",
@@ -113,4 +114,19 @@ def run_surface_map(args: argparse.Namespace) -> int:
     print("planned engine surfaces")
     for item in surface_map.planned_engine_surfaces:
         print(f"- {item}")
+    return 0
+
+
+def run_product_scope(args: argparse.Namespace) -> int:
+    """Print an explicit current-scope versus roadmap-scope statement."""
+    scope = build_product_scope()
+    if args.json:
+        print(json.dumps(scope.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"current product mode: {scope.current_product_mode}")
+    for capability in scope.current_capabilities:
+        print(f"- capability: {capability}")
+    print(f"roadmap mode: {scope.roadmap_mode}")
+    for claim in scope.not_yet_supported_claims:
+        print(f"- not-yet-supported: {claim}")
     return 0

@@ -40,6 +40,8 @@ through the repository with visible output consequences.
   chosen country set
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
+- `surface-map` prints a short runtime-versus-roadmap package surface map
+- `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 
 ## Shared Options
 
