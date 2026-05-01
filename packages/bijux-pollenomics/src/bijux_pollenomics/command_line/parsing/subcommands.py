@@ -24,6 +24,7 @@ __all__ = [
     "build_ownership_map_parser",
     "build_report_country_parser",
     "build_product_scope_parser",
+    "build_source_support_parser",
     "build_surface_map_parser",
     "register_subcommands",
 ]
@@ -40,6 +41,7 @@ def register_subcommands(
     build_surface_map_parser(subparsers)
     build_product_scope_parser(subparsers)
     build_ownership_map_parser(subparsers)
+    build_source_support_parser(subparsers)
 
 
 def build_report_country_parser(
@@ -199,6 +201,25 @@ def build_ownership_map_parser(
         help=(
             "Print where source data, ranking, and publication logic live "
             "inside the runtime package."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_source_support_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the source-support subcommand parser."""
+    parser = subparsers.add_parser(
+        "source-support",
+        help=(
+            "Print support-status and country-coverage rows for tracked source "
+            "families."
         ),
     )
     parser.add_argument(
