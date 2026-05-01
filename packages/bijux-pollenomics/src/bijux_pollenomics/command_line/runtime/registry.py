@@ -13,12 +13,14 @@ def build_command_handlers(
     run_collect_data: CommandHandler,
     run_publish_reports: CommandHandler,
     run_report_multi_country_map: CommandHandler,
+    run_surface_map: CommandHandler,
 ) -> dict[str, CommandHandler]:
     """Build the direct-command handler registry."""
     return {
         "report-multi-country-map": run_report_multi_country_map,
         "collect-data": run_collect_data,
         "publish-reports": run_publish_reports,
+        "surface-map": run_surface_map,
     }
 
 
