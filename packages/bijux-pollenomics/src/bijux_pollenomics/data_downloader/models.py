@@ -29,6 +29,16 @@ class SourceProvenanceRecord:
 
 
 @dataclass(frozen=True)
+class SourceReplacementRule:
+    source: str
+    refresh_mode: str
+    final_output_root: str
+    staging_output_root: str
+    destructive_refresh: bool
+    preserves_previous_on_failure: bool
+
+
+@dataclass(frozen=True)
 class ContextPointRecord:
     source: str
     layer_key: str
@@ -73,6 +83,7 @@ class DataCollectionSummary:
     source_metadata: dict[str, SourceAcquisitionMetadata]
     source_hashes: dict[str, dict[str, str]]
     source_provenance: dict[str, SourceProvenanceRecord]
+    source_replacement_rules: dict[str, SourceReplacementRule]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -94,6 +105,7 @@ class DataCollectionReport:
     source_metadata: dict[str, SourceAcquisitionMetadata]
     source_hashes: dict[str, dict[str, str]]
     source_provenance: dict[str, SourceProvenanceRecord]
+    source_replacement_rules: dict[str, SourceReplacementRule]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int

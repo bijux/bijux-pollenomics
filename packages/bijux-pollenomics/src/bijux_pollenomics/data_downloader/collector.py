@@ -31,6 +31,7 @@ from .raa import collect_raa_data
 from .sead import collect_sead_data
 from .source_metadata import build_source_metadata
 from .source_provenance import build_source_provenance
+from .source_replacement_rules import build_source_replacement_rules
 from .source_layout_contract import (
     build_source_layout_contract,
     validate_source_layout_contract,
@@ -115,6 +116,10 @@ def collect_data(
         source_metadata=source_metadata,
         source_hashes=source_hashes,
     )
+    source_replacement_rules = build_source_replacement_rules(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+    )
 
     summary = build_data_collection_summary(
         output_root=output_root,
@@ -124,6 +129,7 @@ def collect_data(
         source_metadata=source_metadata,
         source_hashes=source_hashes,
         source_provenance=source_provenance,
+        source_replacement_rules=source_replacement_rules,
         boundary_source=boundary_source,
         counts=counts,
     )

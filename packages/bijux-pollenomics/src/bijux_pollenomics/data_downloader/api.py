@@ -6,10 +6,12 @@ from .models import (
     DataCollectionSummary,
     SourceAcquisitionMetadata,
     SourceProvenanceRecord,
+    SourceReplacementRule,
 )
 from .source_hashes import SourceHashes, build_source_hashes
 from .source_identity import SOURCE_IDENTITIES, SourceIdentity
 from .source_provenance import build_source_provenance
+from .source_replacement_rules import build_source_replacement_rules
 from .source_support import SourceSupportStatus, build_source_support_matrix
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
@@ -23,6 +25,7 @@ __all__ = [
     "DataCollectionSummary",
     "SourceAcquisitionMetadata",
     "SourceProvenanceRecord",
+    "SourceReplacementRule",
     "SourceHashes",
     "SourceSupportStatus",
     "collect_context_data",
@@ -30,6 +33,7 @@ __all__ = [
     "build_source_support_matrix",
     "build_source_hashes",
     "build_source_provenance",
+    "build_source_replacement_rules",
     "download_aadr_anno_files",
 ]
 
