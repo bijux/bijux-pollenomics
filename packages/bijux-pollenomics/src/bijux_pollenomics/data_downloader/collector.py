@@ -29,6 +29,16 @@ from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir
 from .pipeline.summary_writer import write_collection_summary
 from .raa import collect_raa_data
 from .sead import collect_sead_data
+from .source_hashes import build_source_hashes
+from .source_layout_contract import (
+    build_source_layout_contract,
+    validate_source_layout_contract,
+)
+from .source_metadata import build_source_metadata
+from .source_provenance import build_source_provenance
+from .source_replacement_rules import build_source_replacement_rules
+from .source_traceability import build_source_traceability_records
+from .source_validation import validate_source_snapshot
 from .sources.aadr import download_aadr_anno_files
 from .sources.boundaries import resolve_country_boundaries
 
@@ -51,6 +61,9 @@ def collect_data(
     output_root = Path(output_root)
     source_output_roots = build_source_output_roots(
         output_root=output_root, version=version
+    )
+    source_metadata = build_source_metadata(
+        selected_sources=selected_sources, version=version
     )
 
     counts = initialize_source_counts()
@@ -88,16 +101,57 @@ def collect_data(
                 )
             )
 
+    source_hashes = {
+        source: {
+            "snapshot_sha256": hashes.snapshot_sha256,
+            "normalized_sha256": hashes.normalized_sha256,
+        }
+        for source, hashes in build_source_hashes(
+            source_output_roots=source_output_roots,
+            selected_sources=selected_sources,
+        ).items()
+    }
+    source_provenance = build_source_provenance(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+    )
+    source_replacement_rules = build_source_replacement_rules(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+    )
+    source_traceability = build_source_traceability_records(
+        selected_sources=selected_sources,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+    )
+
     summary = build_data_collection_summary(
         output_root=output_root,
         version=version,
         collected_sources=selected_sources,
         source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+        source_provenance=source_provenance,
+        source_replacement_rules=source_replacement_rules,
+        source_traceability=source_traceability,
         boundary_source=boundary_source,
         counts=counts,
     )
     output_root.mkdir(parents=True, exist_ok=True)
+    for source_dir in AVAILABLE_SOURCES:
+        (output_root / source_dir).mkdir(parents=True, exist_ok=True)
     write_data_directory_readme(output_root, version=version)
+    validate_source_layout_contract(build_source_layout_contract(output_root))
+    validate_source_snapshot(
+        output_root=output_root,
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        boundary_source=boundary_source,
+    )
     write_collection_summary(summary)
 
     return build_data_collection_report(summary)

@@ -4,12 +4,15 @@ from bijux_pollenomics.core.geo_distance import haversine_km
 
 
 def test_haversine_km_is_zero_for_identical_points() -> None:
-    assert haversine_km(
-        latitude_a=59.3293,
-        longitude_a=18.0686,
-        latitude_b=59.3293,
-        longitude_b=18.0686,
-    ) == 0.0
+    assert (
+        haversine_km(
+            latitude_a=59.3293,
+            longitude_a=18.0686,
+            latitude_b=59.3293,
+            longitude_b=18.0686,
+        )
+        == 0.0
+    )
 
 
 def test_haversine_km_is_symmetric() -> None:

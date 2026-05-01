@@ -3,7 +3,14 @@ from __future__ import annotations
 from datetime import date
 from pathlib import Path
 
-from ..models import DataCollectionReport, DataCollectionSummary
+from ..models import (
+    DataCollectionReport,
+    DataCollectionSummary,
+    SourceAcquisitionMetadata,
+    SourceProvenanceRecord,
+    SourceReplacementRule,
+    SourceTraceabilityRecord,
+)
 
 __all__ = [
     "build_data_collection_report",
@@ -31,6 +38,11 @@ def build_data_collection_summary(
     version: str,
     collected_sources: tuple[str, ...],
     source_output_roots: dict[str, str],
+    source_metadata: dict[str, SourceAcquisitionMetadata],
+    source_hashes: dict[str, dict[str, str]],
+    source_provenance: dict[str, SourceProvenanceRecord],
+    source_replacement_rules: dict[str, SourceReplacementRule],
+    source_traceability: dict[str, SourceTraceabilityRecord],
     boundary_source: str | None,
     counts: dict[str, int],
 ) -> DataCollectionSummary:
@@ -42,6 +54,11 @@ def build_data_collection_summary(
         version=version,
         collected_sources=collected_sources,
         source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+        source_provenance=source_provenance,
+        source_replacement_rules=source_replacement_rules,
+        source_traceability=source_traceability,
         boundary_source=boundary_source,
         aadr_file_count=counts["aadr_file_count"],
         landclim_site_count=counts["landclim_site_count"],
@@ -64,6 +81,11 @@ def build_data_collection_report(
         version=summary.version,
         collected_sources=summary.collected_sources,
         source_output_roots=summary.source_output_roots,
+        source_metadata=summary.source_metadata,
+        source_hashes=summary.source_hashes,
+        source_provenance=summary.source_provenance,
+        source_replacement_rules=summary.source_replacement_rules,
+        source_traceability=summary.source_traceability,
         aadr_file_count=summary.aadr_file_count,
         landclim_site_count=summary.landclim_site_count,
         landclim_grid_cell_count=summary.landclim_grid_cell_count,

@@ -1,8 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import json
 
-from ...data_downloader import collect_data
+from ...data_downloader import (
+    build_source_support_matrix,
+    collect_data,
+    validate_collection_summary_file,
+)
+from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -13,8 +19,13 @@ from ...reporting import (
 __all__ = [
     "run_collect_data",
     "run_publish_reports",
+    "run_ownership_map",
+    "run_product_scope",
     "run_report_country",
     "run_report_multi_country_map",
+    "run_source_support",
+    "run_surface_map",
+    "run_validate_collection_summary",
 ]
 
 
@@ -94,5 +105,70 @@ def run_publish_reports(args: argparse.Namespace) -> int:
     print(
         f"Wrote published report bundles for {', '.join(report.countries)} to {args.output_root} "
         f"with shared map under {report.shared_map_dir.name}"
+    )
+    return 0
+
+
+def run_surface_map(args: argparse.Namespace) -> int:
+    """Print the runtime-versus-roadmap surface map."""
+    surface_map = build_surface_map()
+    if args.json:
+        print(json.dumps(surface_map.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print("runtime surfaces")
+    for item in surface_map.runtime_surfaces:
+        print(f"- {item}")
+    print("planned engine surfaces")
+    for item in surface_map.planned_engine_surfaces:
+        print(f"- {item}")
+    return 0
+
+
+def run_product_scope(args: argparse.Namespace) -> int:
+    """Print an explicit current-scope versus roadmap-scope statement."""
+    scope = build_product_scope()
+    if args.json:
+        print(json.dumps(scope.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"current product mode: {scope.current_product_mode}")
+    for capability in scope.current_capabilities:
+        print(f"- capability: {capability}")
+    print(f"roadmap mode: {scope.roadmap_mode}")
+    for claim in scope.not_yet_supported_claims:
+        print(f"- not-yet-supported: {claim}")
+    return 0
+
+
+def run_ownership_map(args: argparse.Namespace) -> int:
+    """Print a short ownership map for core runtime concerns."""
+    ownership_map = build_ownership_map()
+    if args.json:
+        print(json.dumps([entry.as_dict() for entry in ownership_map], indent=2))
+        return 0
+    for entry in ownership_map:
+        print(f"{entry.concern}: {entry.owner_module}")
+        print(f"  reason: {entry.reason}")
+    return 0
+
+
+def run_source_support(args: argparse.Namespace) -> int:
+    """Print support-status and country-coverage rows for tracked sources."""
+    support_rows = build_source_support_matrix()
+    if args.json:
+        print(json.dumps([row.as_dict() for row in support_rows], indent=2))
+        return 0
+    for row in support_rows:
+        countries = ", ".join(row.country_coverage)
+        print(f"{row.source}: status={row.support_status}; countries={countries}")
+    return 0
+
+
+def run_validate_collection_summary(args: argparse.Namespace) -> int:
+    """Validate a collection summary payload independent of full data recollection."""
+    payload = validate_collection_summary_file(args.summary_path)
+    sources = payload.get("collected_sources", [])
+    source_count = len(sources) if isinstance(sources, list) else 0
+    print(
+        f"Validated collection summary at {args.summary_path} with {source_count} collected sources"
     )
     return 0

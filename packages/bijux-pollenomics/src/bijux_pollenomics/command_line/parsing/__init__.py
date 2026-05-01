@@ -1,3 +1,5 @@
+"""Parser-building exports for the bijux-pollenomics CLI."""
+
 from .options import (
     add_aadr_root_argument,
     add_atlas_identity_arguments,
