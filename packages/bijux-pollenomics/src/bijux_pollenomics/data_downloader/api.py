@@ -2,9 +2,12 @@ from pathlib import Path
 
 from .collector import AVAILABLE_SOURCES, DataCollectionReport, collect_data
 from .models import ContextDataReport, DataCollectionSummary
+from .source_identity import SOURCE_IDENTITIES, SourceIdentity
 from .sources.aadr import AadrAnnoDownloadReport, download_aadr_anno_files
 
 __all__ = [
+    "SOURCE_IDENTITIES",
+    "SourceIdentity",
     "AadrAnnoDownloadReport",
     "AVAILABLE_SOURCES",
     "ContextDataReport",
