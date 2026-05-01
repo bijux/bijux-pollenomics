@@ -37,3 +37,19 @@ def test_collection_and_publication_import_boundaries_are_separate() -> None:
     assert not failures, "collection/publication boundary violations:\n" + "\n".join(
         failures
     )
+
+
+def test_harmonization_logic_stays_out_of_map_rendering_layers() -> None:
+    map_rendering_roots = [
+        REPORTING_SRC / "map_document",
+        REPORTING_SRC / "rendering",
+    ]
+    failures: list[str] = []
+    forbidden_pattern = r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.harmonization(\.|\s|$)"
+
+    for root in map_rendering_roots:
+        failures.extend(_find_forbidden_imports(_python_files(root), forbidden_pattern))
+
+    assert not failures, "map rendering imports harmonization logic directly:\n" + "\n".join(
+        failures
+    )
