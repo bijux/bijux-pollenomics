@@ -65,6 +65,18 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_candidate_sites.md",
         )
         self.assertEqual(
+            atlas_paths.candidate_site_sensitivity_json_path.name,
+            "nordic-atlas_candidate_site_sensitivity.json",
+        )
+        self.assertEqual(
+            atlas_paths.candidate_site_sensitivity_markdown_path.name,
+            "nordic-atlas_candidate_site_sensitivity.md",
+        )
+        self.assertEqual(
+            atlas_paths.candidate_ranking_engine_manifest_path.name,
+            "nordic-atlas_candidate_ranking_engine_manifest.json",
+        )
+        self.assertEqual(
             atlas_paths.bundle_manifest_path.name, "nordic-atlas_bundle.json"
         )
         self.assertEqual(
@@ -439,6 +451,15 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "nordic-atlas_candidate_sites.csv").exists())
             self.assertTrue((output / "nordic-atlas_candidate_sites.json").exists())
             self.assertTrue((output / "nordic-atlas_candidate_sites.md").exists())
+            self.assertTrue(
+                (output / "nordic-atlas_candidate_site_sensitivity.json").exists()
+            )
+            self.assertTrue(
+                (output / "nordic-atlas_candidate_site_sensitivity.md").exists()
+            )
+            self.assertTrue(
+                (output / "nordic-atlas_candidate_ranking_engine_manifest.json").exists()
+            )
             self.assertTrue((output / "nordic-atlas_bundle.json").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
@@ -548,6 +569,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(summary["artifacts"]["map_html"], "nordic-atlas_map.html")
             self.assertEqual(
                 summary["artifacts"]["samples_geojson"], "nordic-atlas_samples.geojson"
+            )
+            self.assertEqual(
+                summary["artifacts"]["extra_files"][-1]["filename"],
+                "nordic-atlas_candidate_ranking_engine_manifest.json",
             )
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
@@ -758,7 +783,7 @@ class CountryReportTests(unittest.TestCase):
                 readme_text,
             )
             self.assertIn(
-                "The map does not rank, score, or reconcile disagreement between sources",
+                "Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.",
                 readme_text,
             )
             self.assertIn("nordic_pollen_site_sequences.geojson", readme_text)

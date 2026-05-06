@@ -177,7 +177,7 @@ def render_multi_country_map_markdown(
 - This bundle is a generated publication artifact, not a source dataset.
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
-- The map does not rank, score, or reconcile disagreement between sources; it only presents the records and overlays that were generated into this bundle.
+- The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
 - {policy["count_note"]}
 
 ## Output Files
