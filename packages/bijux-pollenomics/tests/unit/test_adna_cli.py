@@ -40,8 +40,10 @@ class AdnaCliUnitTests(unittest.TestCase):
         )
         self.assertEqual(project["species_latin_name"], "Equus caballus")
         self.assertEqual(project["result_kind"], "read_run")
+        self.assertEqual(project["evidence_strength"], "primary_paper_pinned")
+        self.assertEqual(project["sequencing_target"], "shotgun_genome")
 
-    def test_adna_species_review_json_output_exposes_archive_bucket(self) -> None:
+    def test_adna_species_review_json_output_exposes_review_packet(self) -> None:
         stdout = io.StringIO()
         with patch("sys.stdout", stdout):
             exit_code = run_adna_species_review(
@@ -53,6 +55,16 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertEqual(
             payload["review"]["dataset_bucket"],
             "archive_verified_needs_paper_pinning",
+        )
+        self.assertIn("project_manifest", payload)
+        self.assertIn("project_reviews", payload)
+        self.assertIn("release_blockers", payload)
+        self.assertTrue(
+            any(
+                item["project_accession"] == "PRJEB56293"
+                and item["admissible_for_curated_support"] is False
+                for item in payload["project_reviews"]
+            )
         )
         self.assertIn("integrity", payload)
 

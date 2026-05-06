@@ -7,8 +7,8 @@ from ...adna import (
     build_archive_integrity_report,
     build_archive_project_catalog,
     build_species_archive_projects,
-    build_species_dataset_review,
     build_species_layout,
+    build_species_review_packet,
     build_species_runtime_manifest,
     build_species_support_matrix,
 )
@@ -56,7 +56,8 @@ def run_adna_archive_projects(args: argparse.Namespace) -> int:
     for row in rows:
         print(
             f"{row.species_latin_name}: project={row.project_accession}; "
-            f"result={row.result_kind}; status={row.archive_status}"
+            f"result={row.result_kind}; status={row.archive_status}; "
+            f"evidence={row.as_dict()['evidence_strength']}"
         )
     return 0
 
@@ -115,10 +116,14 @@ def run_adna_runtime_manifest(args: argparse.Namespace) -> int:
 
 def run_adna_species_review(args: argparse.Namespace) -> int:
     """Print the governed review for one species dataset."""
-    review = build_species_dataset_review(args.species)
+    packet = build_species_review_packet(args.species)
+    review = packet.dataset_review
     integrity = build_archive_integrity_report(species_name=args.species)
     payload = {
         "review": review.as_dict(),
+        "project_manifest": packet.project_manifest.as_dict(),
+        "project_reviews": [item.as_dict() for item in packet.project_reviews],
+        "release_blockers": list(packet.release_blockers),
         "integrity": integrity.as_dict(),
     }
     if args.json:
@@ -130,8 +135,16 @@ def run_adna_species_review(args: argparse.Namespace) -> int:
     )
     if review.blocking_reasons:
         print("blocking_reasons=" + ", ".join(review.blocking_reasons))
+    print(f"core_projects={review.core_project_count}")
+    print(f"curated_projects={review.curated_support_project_count}")
     print(f"duplicate_accessions={len(integrity.duplicates)}")
     print(f"species_mismatches={len(integrity.species_mismatches)}")
+    for item in packet.project_reviews:
+        print(
+            f"project={item.project_accession}; "
+            f"evidence={item.evidence_strength}; "
+            f"admissible={str(item.admissible_for_curated_support).lower()}"
+        )
     return 0
 
 
