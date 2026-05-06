@@ -55,7 +55,8 @@ assembles publication, and where shared helpers stop.
   accession-family resolution, species admission rules, species curation
   manifests, project-level paper linkage and scientific metadata,
   scientist-facing species review packets, manifest diff outputs,
-  cross-species domestication coverage reporting, and archive-integrity checks
+  cross-species domestication coverage reporting, non-human normalization
+  bundles, deterministic artifact plans, and archive-integrity checks
 - `reporting/` owns AADR reporting, context layers, bundle assembly, and map
   rendering
 

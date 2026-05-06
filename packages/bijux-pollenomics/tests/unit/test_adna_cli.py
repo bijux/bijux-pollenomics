@@ -7,9 +7,11 @@ from unittest.mock import patch
 
 from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_archive_projects,
+    run_adna_artifact_plan,
     run_adna_curation_manifest,
     run_adna_domestication_coverage,
     run_adna_layout,
+    run_adna_normalization_bundle,
     run_adna_runtime_manifest,
     run_adna_species,
     run_adna_species_review,
@@ -85,6 +87,48 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertEqual(project["result_kind"], "read_run")
         self.assertEqual(project["evidence_strength"], "primary_paper_pinned")
         self.assertEqual(project["sequencing_target"], "shotgun_genome")
+
+    def test_adna_artifact_plan_json_output_exposes_governed_paths(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_artifact_plan(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["schema_version"], "adna-species-artifact-plan.v1")
+        target_paths = {item["target_path"] for item in payload["entries"]}
+        self.assertIn(
+            "data/adna/equus_caballus/manifests/normalization_bundle.json",
+            target_paths,
+        )
+        self.assertIn(
+            "data/adna/equus_caballus/review/species_review.json",
+            target_paths,
+        )
+
+    def test_adna_normalization_bundle_json_output_exposes_lineage_and_refusals(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_normalization_bundle(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(
+            payload["schema_version"],
+            "adna-nonhuman-normalization-bundle.v1",
+        )
+        self.assertTrue(payload["lineage_records"])
+        self.assertTrue(payload["refusals"])
+        self.assertEqual(
+            payload["project_summaries"][0]["schema_version"],
+            "adna-project-summary.v1",
+        )
 
     def test_adna_species_review_json_output_exposes_review_packet(self) -> None:
         stdout = io.StringIO()

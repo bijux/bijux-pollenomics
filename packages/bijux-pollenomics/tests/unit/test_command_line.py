@@ -203,6 +203,27 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 15)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_adna_artifact_plan_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-artifact-plan", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-artifact-plan")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_artifact_plan_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-artifact-plan", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_artifact_plan",
+            return_value=17,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 17)
+        handler.assert_called_once_with(args)
+
     def test_build_parser_supports_adna_curation_manifest_command(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-curation-manifest", "--species", "horse"])
@@ -222,6 +243,27 @@ class CommandLineUnitTests(unittest.TestCase):
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 16)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_normalization_bundle_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-normalization-bundle")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_normalization_bundle_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_normalization_bundle",
+            return_value=18,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 18)
         handler.assert_called_once_with(args)
 
     def test_build_parser_supports_adna_domestication_coverage_command(self) -> None:
