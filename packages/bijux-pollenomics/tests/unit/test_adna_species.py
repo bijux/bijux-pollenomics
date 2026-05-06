@@ -4,7 +4,9 @@ import unittest
 
 from bijux_pollenomics.adna import (
     ADNA_MODALITIES,
+    ADNA_SPECIES_LAYOUT_SEGMENTS,
     ADNA_SUPPORT_STATUSES,
+    build_species_manifest,
     build_species_support_matrix,
     resolve_species_definition,
 )
@@ -42,6 +44,21 @@ class AdnaSpeciesSupportUnitTests(unittest.TestCase):
     def test_species_resolution_rejects_unknown_species(self) -> None:
         with self.assertRaisesRegex(ValueError, "Unsupported aDNA species"):
             resolve_species_definition("woolly mammoth")
+
+    def test_species_manifest_uses_latin_slug_and_normalized_namespace(self) -> None:
+        manifest = build_species_manifest("Homo sapiens")
+
+        self.assertEqual(manifest.schema_version, "adna-species-manifest.v1")
+        self.assertEqual(manifest.root_slug, "homo_sapiens")
+        self.assertEqual(manifest.data_root, "data/adna/homo_sapiens")
+        self.assertEqual(
+            manifest.normalized_sample_namespace,
+            "homo_sapiens:normalized_sample",
+        )
+        self.assertEqual(manifest.tracked_layout, ADNA_SPECIES_LAYOUT_SEGMENTS)
+        payload = manifest.as_dict()
+        self.assertEqual(payload["scientific_scope"], manifest.scientific_scope)
+        self.assertEqual(payload["runtime_scope"], manifest.runtime_scope)
 
 
 if __name__ == "__main__":

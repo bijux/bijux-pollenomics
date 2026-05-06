@@ -7,6 +7,7 @@ REPO_ROOT = Path(__file__).resolve().parents[4]
 RUNTIME_SRC = REPO_ROOT / "packages" / "bijux-pollenomics" / "src" / "bijux_pollenomics"
 DATA_DOWNLOADER_SRC = RUNTIME_SRC / "data_downloader"
 REPORTING_SRC = RUNTIME_SRC / "reporting"
+ADNA_SRC = RUNTIME_SRC / "adna"
 
 
 def _python_files(root: Path) -> list[Path]:
@@ -75,5 +76,25 @@ def test_runtime_package_does_not_import_dev_tooling_modules() -> None:
     )
 
     assert not failures, "runtime package imports dev tooling modules:\n" + "\n".join(
+        failures
+    )
+
+
+def test_adna_domain_stays_out_of_reporting_and_command_line_layers() -> None:
+    failures: list[str] = []
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.reporting(\.|\s|$)",
+        )
+    )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.command_line(\.|\s|$)",
+        )
+    )
+
+    assert not failures, "adna domain imports higher-level runtime layers:\n" + "\n".join(
         failures
     )
