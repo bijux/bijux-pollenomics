@@ -18,6 +18,7 @@ from .options import (
 )
 
 __all__ = [
+    "build_adna_species_parser",
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
@@ -35,6 +36,7 @@ def register_subcommands(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> None:
     """Register every supported subcommand on the root parser."""
+    build_adna_species_parser(subparsers)
     build_report_country_parser(subparsers)
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
@@ -44,6 +46,25 @@ def register_subcommands(
     build_ownership_map_parser(subparsers)
     build_source_support_parser(subparsers)
     build_validate_collection_summary_parser(subparsers)
+
+
+def build_adna_species_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ancient-DNA species support parser."""
+    parser = subparsers.add_parser(
+        "adna-species",
+        help=(
+            "Print the canonical ancient-DNA species support matrix, including "
+            "Latin-name identities, support statuses, and modality classes."
+        ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
 
 
 def build_report_country_parser(

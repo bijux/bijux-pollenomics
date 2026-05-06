@@ -10,6 +10,7 @@ __all__ = ["CommandHandler", "build_command_handlers", "resolve_handler"]
 
 def build_command_handlers(
     *,
+    run_adna_species: CommandHandler,
     run_collect_data: CommandHandler,
     run_ownership_map: CommandHandler,
     run_publish_reports: CommandHandler,
@@ -21,6 +22,7 @@ def build_command_handlers(
 ) -> dict[str, CommandHandler]:
     """Build the direct-command handler registry."""
     return {
+        "adna-species": run_adna_species,
         "report-multi-country-map": run_report_multi_country_map,
         "collect-data": run_collect_data,
         "ownership-map": run_ownership_map,

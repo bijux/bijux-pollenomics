@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 
 from .handlers import (
+    run_adna_species,
     run_collect_data,
     run_ownership_map,
     run_product_scope,
@@ -16,6 +17,7 @@ from .handlers import (
 from .registry import build_command_handlers, resolve_handler
 
 __all__ = [
+    "run_adna_species",
     "run_collect_data",
     "run_ownership_map",
     "run_publish_reports",
@@ -34,6 +36,7 @@ def run_command(args: argparse.Namespace, *, parser: argparse.ArgumentParser) ->
     if args.command == "report-country":
         return run_report_country(args, parser=parser)
     handlers = build_command_handlers(
+        run_adna_species=run_adna_species,
         run_collect_data=run_collect_data,
         run_ownership_map=run_ownership_map,
         run_publish_reports=run_publish_reports,
