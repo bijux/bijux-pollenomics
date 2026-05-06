@@ -7,11 +7,24 @@ from unittest.mock import patch
 
 from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_archive_projects,
+    run_adna_layout,
     run_adna_species,
+    run_adna_species_review,
 )
 
 
 class AdnaCliUnitTests(unittest.TestCase):
+    def test_adna_layout_json_output_exposes_species_root(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_layout(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["root_dir"], "data/adna/equus_caballus")
+
     def test_adna_archive_projects_json_output_exposes_horse_project(self) -> None:
         stdout = io.StringIO()
         with patch("sys.stdout", stdout):
@@ -26,6 +39,21 @@ class AdnaCliUnitTests(unittest.TestCase):
         )
         self.assertEqual(project["species_latin_name"], "Equus caballus")
         self.assertEqual(project["result_kind"], "read_run")
+
+    def test_adna_species_review_json_output_exposes_archive_bucket(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_species_review(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(
+            payload["review"]["dataset_bucket"],
+            "archive_verified_needs_paper_pinning",
+        )
+        self.assertIn("integrity", payload)
 
     def test_adna_species_json_output_exposes_human_support_row(self) -> None:
         stdout = io.StringIO()

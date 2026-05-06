@@ -19,6 +19,8 @@ from .options import (
 
 __all__ = [
     "build_adna_archive_projects_parser",
+    "build_adna_layout_parser",
+    "build_adna_species_review_parser",
     "build_adna_species_parser",
     "build_collect_data_parser",
     "build_multi_country_map_parser",
@@ -38,7 +40,9 @@ def register_subcommands(
 ) -> None:
     """Register every supported subcommand on the root parser."""
     build_adna_archive_projects_parser(subparsers)
+    build_adna_layout_parser(subparsers)
     build_adna_species_parser(subparsers)
+    build_adna_species_review_parser(subparsers)
     build_report_country_parser(subparsers)
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
@@ -74,6 +78,27 @@ def build_adna_archive_projects_parser(
     return parser
 
 
+def build_adna_layout_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the canonical ancient-DNA layout parser."""
+    parser = subparsers.add_parser(
+        "adna-layout",
+        help="Print the canonical `data/adna/<latin_name>/...` layout for one species.",
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
 def build_adna_species_parser(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> argparse.ArgumentParser:
@@ -84,6 +109,30 @@ def build_adna_species_parser(
             "Print the canonical ancient-DNA species support matrix, including "
             "Latin-name identities, support statuses, and modality classes."
         ),
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_species_review_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ancient-DNA species review parser."""
+    parser = subparsers.add_parser(
+        "adna-species-review",
+        help=(
+            "Print the governed review for one species, including product role, "
+            "assignment rule, dataset bucket, and archive integrity findings."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
     )
     parser.add_argument(
         "--json",
