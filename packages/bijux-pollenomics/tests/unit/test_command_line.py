@@ -211,6 +211,17 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(args.species, "horse")
         self.assertFalse(args.json)
 
+    def test_build_parser_supports_adna_runtime_manifest_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(
+            ["adna-runtime-manifest", "--species", "Homo sapiens"]
+        )
+
+        self.assertEqual(args.command, "adna-runtime-manifest")
+        self.assertEqual(args.species, "Homo sapiens")
+        self.assertEqual(args.version, "v66")
+        self.assertFalse(args.json)
+
     def test_run_command_routes_adna_layout_through_registry(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-layout", "--species", "horse"])
@@ -222,6 +233,19 @@ class CommandLineUnitTests(unittest.TestCase):
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 17)
+        handler.assert_called_once_with(args)
+
+    def test_run_command_routes_adna_runtime_manifest_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-runtime-manifest", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_runtime_manifest",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
         handler.assert_called_once_with(args)
 
     def test_build_parser_supports_adna_species_review_command(self) -> None:

@@ -20,6 +20,7 @@ from .options import (
 __all__ = [
     "build_adna_archive_projects_parser",
     "build_adna_layout_parser",
+    "build_adna_runtime_manifest_parser",
     "build_adna_species_review_parser",
     "build_adna_species_parser",
     "build_collect_data_parser",
@@ -41,6 +42,7 @@ def register_subcommands(
     """Register every supported subcommand on the root parser."""
     build_adna_archive_projects_parser(subparsers)
     build_adna_layout_parser(subparsers)
+    build_adna_runtime_manifest_parser(subparsers)
     build_adna_species_parser(subparsers)
     build_adna_species_review_parser(subparsers)
     build_report_country_parser(subparsers)
@@ -110,6 +112,31 @@ def build_adna_species_parser(
             "Latin-name identities, support statuses, and modality classes."
         ),
     )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_runtime_manifest_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ancient-DNA runtime manifest parser."""
+    parser = subparsers.add_parser(
+        "adna-runtime-manifest",
+        help=(
+            "Print the species-owned runtime manifest, including source bundles "
+            "and analysis boundaries."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
+    )
+    add_version_argument(parser)
     parser.add_argument(
         "--json",
         action="store_true",

@@ -8,6 +8,7 @@ from unittest.mock import patch
 from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_archive_projects,
     run_adna_layout,
+    run_adna_runtime_manifest,
     run_adna_species,
     run_adna_species_review,
 )
@@ -54,6 +55,26 @@ class AdnaCliUnitTests(unittest.TestCase):
             "archive_verified_needs_paper_pinning",
         )
         self.assertIn("integrity", payload)
+
+    def test_adna_runtime_manifest_json_output_exposes_human_boundary(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_runtime_manifest(
+                type(
+                    "Args",
+                    (),
+                    {"json": True, "species": "Homo sapiens", "version": "v66"},
+                )()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertTrue(payload["runtime_ready"])
+        self.assertEqual(
+            payload["species_manifest"]["data_root"],
+            "data/adna/homo_sapiens",
+        )
+        self.assertIn("metadata normalization only", payload["analysis_boundary"])
 
     def test_adna_species_json_output_exposes_human_support_row(self) -> None:
         stdout = io.StringIO()

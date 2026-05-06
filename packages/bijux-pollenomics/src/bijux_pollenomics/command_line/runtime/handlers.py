@@ -9,6 +9,7 @@ from ...adna import (
     build_species_archive_projects,
     build_species_dataset_review,
     build_species_layout,
+    build_species_runtime_manifest,
     build_species_support_matrix,
 )
 from ...data_downloader import (
@@ -27,6 +28,7 @@ from ...reporting import (
 __all__ = [
     "run_adna_archive_projects",
     "run_adna_layout",
+    "run_adna_runtime_manifest",
     "run_adna_species",
     "run_adna_species_review",
     "run_collect_data",
@@ -86,6 +88,27 @@ def run_adna_species(args: argparse.Namespace) -> int:
         print(
             f"{row.latin_name}: status={row.support_status}; "
             f"modalities={modalities}; aliases={aliases}"
+        )
+    return 0
+
+
+def run_adna_runtime_manifest(args: argparse.Namespace) -> int:
+    """Print the species-owned runtime manifest."""
+    manifest = build_species_runtime_manifest(args.species, version=args.version)
+    if args.json:
+        print(json.dumps(manifest.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"species={manifest.species.latin_name}")
+    print(f"runtime_ready={str(manifest.runtime_ready).lower()}")
+    print(f"analysis_boundary={manifest.analysis_boundary}")
+    for bundle in manifest.source_bundles:
+        print(
+            "bundle="
+            f"{bundle.source_family}:{bundle.source_release}; "
+            f"kind={bundle.bundle_kind}; "
+            f"tracked_root={bundle.tracked_root}; "
+            f"modality={bundle.record_modality}; "
+            f"review={bundle.review_strength}"
         )
     return 0
 
