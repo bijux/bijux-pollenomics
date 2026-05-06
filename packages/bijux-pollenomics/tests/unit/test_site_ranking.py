@@ -1,15 +1,34 @@
 from __future__ import annotations
 
-from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalitySummary
+from bijux_pollenomics.adna import (
+    AdnaChronology,
+    AdnaCoordinate,
+    AdnaLocalityIdentity,
+    AdnaLocalitySummary,
+)
 from bijux_pollenomics.analysis import build_candidate_context, rank_localities
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 
 
 def _locality(name: str, latitude: float, longitude: float) -> AdnaLocalitySummary:
     return AdnaLocalitySummary(
+        identity=AdnaLocalityIdentity(
+            namespace="homo_sapiens:locality",
+            stable_token=(
+                f"homo_sapiens:aadr:sweden:{name.casefold().replace(' ', '-')}:"
+                f"{str(latitude).replace('.', '-')}-{str(longitude).replace('.', '-')}"
+            ),
+            locality_text=name,
+            political_entity="Sweden",
+            source_anchor_tokens=("AADR", str(latitude), str(longitude)),
+        ),
         species_latin_name="Homo sapiens",
         species_common_name="human",
         source_family="AADR",
+        source_releases=("v66",),
+        record_modalities=("metadata_only",),
+        review_strengths=("curated_release_metadata",),
+        provenance_qualities=("release_manifest_pinned",),
         locality=name,
         coordinates=AdnaCoordinate(
             latitude=latitude,

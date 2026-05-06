@@ -35,6 +35,10 @@ class AdnaRecordUnitTests(unittest.TestCase):
             species_latin_name="Homo sapiens",
             species_common_name="human",
             source_family="AADR",
+            source_release="v66",
+            record_modality="metadata_only",
+            review_strength="curated_release_metadata",
+            provenance_quality="release_manifest_pinned",
             master_id="SE1",
             group_id="Sweden_Group",
             locality="Uppsala",
@@ -67,6 +71,9 @@ class AdnaRecordUnitTests(unittest.TestCase):
         self.assertEqual(sample.latitude_text, "59.8586")
         self.assertEqual(sample.time_mean_bp, 2450)
         self.assertEqual(sample.dating_basis, "bp_mean_and_stddev")
+        self.assertEqual(sample.record_modality, "metadata_only")
+        self.assertEqual(sample.review_strength, "curated_release_metadata")
+        self.assertEqual(sample.provenance_quality, "release_manifest_pinned")
 
     def test_locality_summary_exposes_species_and_time_properties(self) -> None:
         locality = AdnaLocalitySummary(
@@ -80,6 +87,10 @@ class AdnaRecordUnitTests(unittest.TestCase):
             species_latin_name="Homo sapiens",
             species_common_name="human",
             source_family="AADR",
+            source_releases=("v66",),
+            record_modalities=("metadata_only",),
+            review_strengths=("curated_release_metadata",),
+            provenance_qualities=("release_manifest_pinned",),
             locality="Uppsala",
             coordinates=AdnaCoordinate(
                 latitude=59.8586,
@@ -105,6 +116,7 @@ class AdnaRecordUnitTests(unittest.TestCase):
         self.assertEqual(locality.locality_namespace, "homo_sapiens:locality")
         self.assertEqual(locality.time_label, "2200-2700 BP")
         self.assertEqual(locality.coordinate_confidence, "unknown")
+        self.assertEqual(locality.source_releases, ("v66",))
 
 
 if __name__ == "__main__":
