@@ -361,11 +361,11 @@ class CountryReportTests(unittest.TestCase):
                 readme_text,
             )
             self.assertIn(
-                "It inventories only AADR sample rows that match the `Finland` country filter.",
+                "It inventories only Homo sapiens aDNA sample rows that match the `Finland` country filter.",
                 readme_text,
             )
             self.assertIn(
-                "combined inventory for `Finland` contains `1` unique samples",
+                "combined inventory for `Finland` contains `1` unique Homo sapiens aDNA samples",
                 readme_text,
             )
             self.assertIn("Unspecified locality", readme_text)
@@ -390,15 +390,15 @@ class CountryReportTests(unittest.TestCase):
             samples_markdown = (output / "iceland_aadr_v62.0_samples.md").read_text(
                 encoding="utf-8"
             )
-            self.assertIn("Unique AADR samples: `0`", readme_text)
+            self.assertIn("Unique Homo sapiens aDNA samples: `0`", readme_text)
             self.assertIn("No latitude values available", readme_text)
             self.assertIn("No matching localities", readme_text)
             self.assertIn("Machine-readable summary", readme_text)
             self.assertIn(
-                "This country bundle is valid even when the filter returns zero AADR samples.",
+                "This country bundle is valid even when the filter returns zero Homo sapiens aDNA samples.",
                 readme_text,
             )
-            self.assertIn("Total samples: `0`.", samples_markdown)
+            self.assertIn("Total Homo sapiens aDNA samples: `0`.", samples_markdown)
 
     def test_generate_multi_country_map_writes_shared_map_with_country_toggles(
         self,

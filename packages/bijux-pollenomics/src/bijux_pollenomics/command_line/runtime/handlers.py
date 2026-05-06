@@ -52,7 +52,7 @@ __all__ = [
 
 
 def run_adna_archive_projects(args: argparse.Namespace) -> int:
-    """Print the curated ENA archive project inventory for ancient-DNA support."""
+    """Print the curated archive project inventory for ancient-DNA support."""
     rows = (
         build_species_archive_projects(args.species)
         if args.species
@@ -233,7 +233,7 @@ def run_report_country(
         map_reference=map_reference,
     )
     print(
-        f"Wrote {report.country} AADR {report.version} report with "
+        f"Wrote {report.country} Homo sapiens aDNA {report.version} report with "
         f"{report.total_unique_samples} unique samples to {output_dir}"
     )
     return 0

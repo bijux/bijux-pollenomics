@@ -4,6 +4,7 @@ import csv
 import json
 from pathlib import Path
 
+from ..reporting.policy import build_site_ranking_policy
 from .site_candidates import CandidateSiteScore
 
 __all__ = [
@@ -64,17 +65,16 @@ def render_candidate_site_markdown(
     scores: list[CandidateSiteScore], *, title: str
 ) -> str:
     """Render candidate-site rankings as markdown."""
+    policy = build_site_ranking_policy(title=title)
     rows = "\n".join(
         f"| {score.locality} | {score.total_score:.4f} | {score.sample_signal:.4f} | {score.context_signal:.4f} | {score.temporal_signal:.4f} | {score.distance_signal:.4f} | {'; '.join(score.rationale)} |"
         for score in scores
     )
     if not rows:
         rows = "| No ranked localities | 0.0000 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | No localities were available for ranking |"
-    return f"""# {title} Candidate Site Ranking
+    return f"""# {policy["title"]}
 
-This ranking is an atlas-adjacent heuristic for comparing current AADR
-localities against nearby contextual layers. It is not yet a lake-selection or
-sampling recommendation engine.
+{policy["intro"]} {policy["boundary"]}
 
 | Locality | Total score | Sample signal | Context signal | Temporal signal | Distance signal | Rationale |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
