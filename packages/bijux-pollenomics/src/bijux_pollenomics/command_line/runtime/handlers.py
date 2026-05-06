@@ -8,6 +8,7 @@ from ...data_downloader import (
     collect_data,
     validate_collection_summary_file,
 )
+from ...adna import build_species_support_matrix
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
@@ -17,6 +18,7 @@ from ...reporting import (
 )
 
 __all__ = [
+    "run_adna_species",
     "run_collect_data",
     "run_publish_reports",
     "run_ownership_map",
@@ -27,6 +29,22 @@ __all__ = [
     "run_surface_map",
     "run_validate_collection_summary",
 ]
+
+
+def run_adna_species(args: argparse.Namespace) -> int:
+    """Print the canonical species support matrix for ancient-DNA support."""
+    rows = build_species_support_matrix()
+    if args.json:
+        print(json.dumps([row.as_dict() for row in rows], indent=2, sort_keys=True))
+        return 0
+    for row in rows:
+        modalities = ", ".join(row.modalities)
+        aliases = ", ".join(row.aliases)
+        print(
+            f"{row.latin_name}: status={row.support_status}; "
+            f"modalities={modalities}; aliases={aliases}"
+        )
+    return 0
 
 
 def run_report_country(
