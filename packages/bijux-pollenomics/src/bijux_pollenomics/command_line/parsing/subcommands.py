@@ -18,6 +18,7 @@ from .options import (
 )
 
 __all__ = [
+    "build_adna_archive_projects_parser",
     "build_adna_species_parser",
     "build_collect_data_parser",
     "build_multi_country_map_parser",
@@ -36,6 +37,7 @@ def register_subcommands(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> None:
     """Register every supported subcommand on the root parser."""
+    build_adna_archive_projects_parser(subparsers)
     build_adna_species_parser(subparsers)
     build_report_country_parser(subparsers)
     build_multi_country_map_parser(subparsers)
@@ -46,6 +48,30 @@ def register_subcommands(
     build_ownership_map_parser(subparsers)
     build_source_support_parser(subparsers)
     build_validate_collection_summary_parser(subparsers)
+
+
+def build_adna_archive_projects_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the ancient-DNA archive project inventory parser."""
+    parser = subparsers.add_parser(
+        "adna-archive-projects",
+        help=(
+            "Print the curated ENA project inventory for domesticated-animal "
+            "ancient-DNA support."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        default=None,
+        help="Optional Latin name or registered alias to filter one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
 
 
 def build_adna_species_parser(
