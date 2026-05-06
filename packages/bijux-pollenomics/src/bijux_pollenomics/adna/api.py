@@ -1,3 +1,8 @@
+from .accessions import (
+    AdnaAccessionReference,
+    resolve_accession_lineage,
+    resolve_accession_reference,
+)
 from .ena import (
     ADNA_ENA_RESULT_KINDS,
     AdnaArchiveProject,
@@ -39,6 +44,7 @@ __all__ = [
     "ADNA_MODALITIES",
     "ADNA_LAYOUT_SEGMENTS",
     "ADNA_SUPPORT_STATUSES",
+    "AdnaAccessionReference",
     "AdnaArchiveProject",
     "AdnaChronology",
     "AdnaCoordinate",
@@ -59,5 +65,7 @@ __all__ = [
     "build_species_archive_projects",
     "build_species_support_matrix",
     "parse_ena_filereport_tsv",
+    "resolve_accession_lineage",
+    "resolve_accession_reference",
     "resolve_species_definition",
 ]

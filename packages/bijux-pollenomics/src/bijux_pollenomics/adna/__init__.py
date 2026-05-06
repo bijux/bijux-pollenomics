@@ -5,6 +5,7 @@ from .api import (
     ADNA_LAYOUT_SEGMENTS,
     ADNA_MODALITIES,
     ADNA_SUPPORT_STATUSES,
+    AdnaAccessionReference,
     AdnaArchiveProject,
     AdnaChronology,
     AdnaCoordinate,
@@ -25,6 +26,8 @@ from .api import (
     build_species_manifest,
     build_species_support_matrix,
     parse_ena_filereport_tsv,
+    resolve_accession_lineage,
+    resolve_accession_reference,
     resolve_species_definition,
 )
 
@@ -35,6 +38,7 @@ __all__ = [
     "ADNA_LAYOUT_SEGMENTS",
     "ADNA_MODALITIES",
     "ADNA_SUPPORT_STATUSES",
+    "AdnaAccessionReference",
     "AdnaArchiveProject",
     "AdnaChronology",
     "AdnaCoordinate",
@@ -55,5 +59,7 @@ __all__ = [
     "build_species_archive_projects",
     "build_species_support_matrix",
     "parse_ena_filereport_tsv",
+    "resolve_accession_lineage",
+    "resolve_accession_reference",
     "resolve_species_definition",
 ]
