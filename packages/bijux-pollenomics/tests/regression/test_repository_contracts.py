@@ -193,8 +193,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("collect-data <sources...>", command_reference)
+        self.assertIn("adna-layout --species <name>", command_reference)
         self.assertIn("adna-archive-projects", command_reference)
         self.assertIn("adna-species", command_reference)
+        self.assertIn("adna-species-review --species <name>", command_reference)
         self.assertIn("report-country <country>", command_reference)
         self.assertIn("report-multi-country-map <countries...>", command_reference)
         self.assertIn("publish-reports", command_reference)
@@ -217,6 +219,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`adna/` owns species-aware ancient-DNA contracts",
             module_map,
         )
+        self.assertIn("accession-family resolution", module_map)
+        self.assertIn("archive-integrity", module_map)
         self.assertIn("curated ENA archive intake metadata", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
