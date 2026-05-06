@@ -5,12 +5,15 @@ from .accessions import (
 )
 from .ena import (
     ADNA_ENA_RESULT_KINDS,
+    ADNA_PROJECT_EVIDENCE_STRENGTHS,
     AdnaArchiveProject,
     AdnaEnaQuery,
     AdnaEnaRecord,
+    AdnaPaperLinkage,
     build_archive_project_catalog,
     build_ena_filereport_url,
     build_species_archive_projects,
+    classify_archive_project_evidence,
     parse_ena_filereport_tsv,
 )
 from .governance import (
@@ -75,6 +78,7 @@ from .species import (
 
 __all__ = [
     "ADNA_ENA_RESULT_KINDS",
+    "ADNA_PROJECT_EVIDENCE_STRENGTHS",
     "ADNA_ASSIGNMENT_RULES",
     "ADNA_COORDINATE_CONFIDENCE",
     "ADNA_DATASET_BUCKETS",
@@ -93,6 +97,7 @@ __all__ = [
     "AdnaCoordinate",
     "AdnaEnaQuery",
     "AdnaEnaRecord",
+    "AdnaPaperLinkage",
     "AdnaLocalityIdentity",
     "AdnaLocalitySummary",
     "AdnaSampleIdentity",
@@ -119,6 +124,7 @@ __all__ = [
     "build_species_support_matrix",
     "classify_species_assignment_rule",
     "classify_species_product_role",
+    "classify_archive_project_evidence",
     "discover_homo_sapiens_anno_files",
     "iter_homo_sapiens_samples_from_anno",
     "load_homo_sapiens_country_samples",

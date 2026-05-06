@@ -7,6 +7,7 @@ from bijux_pollenomics.adna import (
     build_archive_project_catalog,
     build_ena_filereport_url,
     build_species_archive_projects,
+    classify_archive_project_evidence,
     parse_ena_filereport_tsv,
 )
 
@@ -55,15 +56,23 @@ class AdnaEnaUnitTests(unittest.TestCase):
                 query=query,
             )
 
-    def test_archive_project_catalog_includes_domesticated_species_projects(self) -> None:
+    def test_archive_project_catalog_includes_paper_pinned_and_rejected_projects(self) -> None:
         catalog = build_archive_project_catalog()
 
         horse = [row for row in catalog if row.species_latin_name == "Equus caballus"]
+        goat = [row for row in catalog if row.species_latin_name == "Capra hircus"]
         donkey = [row for row in catalog if row.species_latin_name == "Equus asinus"]
         pig = [row for row in catalog if row.species_latin_name == "Sus scrofa domesticus"]
 
         self.assertGreaterEqual(len(horse), 8)
-        self.assertTrue(any(row.project_accession == "PRJEB55549" for row in donkey))
+        self.assertTrue(any(row.project_accession == "PRJEB90141" for row in goat))
+        self.assertTrue(
+            any(
+                row.project_accession == "PRJEB55549"
+                and row.archive_status == "reject_or_out_of_scope"
+                for row in donkey
+            )
+        )
         self.assertTrue(any(row.project_accession == "PRJNA421430" for row in pig))
 
     def test_species_archive_projects_resolve_via_registered_alias(self) -> None:
@@ -74,6 +83,35 @@ class AdnaEnaUnitTests(unittest.TestCase):
             all(project.metadata_url.startswith("https://www.ebi.ac.uk/ena/portal/api/filereport?")
                 for project in projects)
         )
+
+    def test_archive_project_catalog_records_primary_paper_linkage_and_scientific_metadata(
+        self,
+    ) -> None:
+        projects = build_species_archive_projects("horse")
+
+        botai = next(row for row in projects if row.project_accession == "PRJEB22390")
+
+        self.assertEqual(classify_archive_project_evidence(botai), "primary_paper_pinned")
+        self.assertEqual(botai.archive_status, "paper_pinned_core")
+        self.assertEqual(botai.ancient_status, "ancient_confirmed")
+        self.assertEqual(botai.sequencing_target, "shotgun_genome")
+        self.assertEqual(botai.material_basis, "individual_bone_or_tooth")
+        self.assertEqual(botai.dating_basis, "mixed_radiocarbon_and_archaeological_context")
+        self.assertEqual(botai.geographic_basis, "site_level_localities")
+        self.assertEqual(botai.paper_linkage.doi, "10.1126/science.aao3297")
+        self.assertIn("PRJEB22390", botai.paper_linkage.pinning_evidence)
+
+    def test_archive_project_catalog_preserves_archive_only_status_when_paper_pin_is_missing(
+        self,
+    ) -> None:
+        projects = build_species_archive_projects("pig")
+
+        chinese = next(row for row in projects if row.project_accession == "PRJNA788987")
+
+        self.assertEqual(classify_archive_project_evidence(chinese), "archive_only")
+        self.assertEqual(chinese.archive_status, "archive_verified_needs_paper_pinning")
+        self.assertEqual(chinese.ancient_status, "ancient_confirmed")
+        self.assertIsNone(chinese.paper_linkage)
 
 
 if __name__ == "__main__":
