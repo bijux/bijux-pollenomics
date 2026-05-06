@@ -144,6 +144,18 @@ def _atlas_bundle_contract_ok() -> bool:
         ("Candidate site ranking CSV", paths.candidate_sites_csv_path.name),
         ("Candidate site ranking JSON", paths.candidate_sites_json_path.name),
         ("Candidate site ranking markdown", paths.candidate_sites_markdown_path.name),
+        (
+            "Candidate site sensitivity JSON",
+            paths.candidate_site_sensitivity_json_path.name,
+        ),
+        (
+            "Candidate site sensitivity markdown",
+            paths.candidate_site_sensitivity_markdown_path.name,
+        ),
+        (
+            "Candidate ranking engine manifest",
+            paths.candidate_ranking_engine_manifest_path.name,
+        ),
     ]
     summary = build_multi_country_map_summary(report, paths, extra_artifacts)
     manifest = build_multi_country_bundle_manifest(report, paths, extra_artifacts)
@@ -162,16 +174,42 @@ def _atlas_bundle_contract_ok() -> bool:
         summary.get("schema_version") == "atlas-bundle-summary.v1"
         and manifest.get("schema_version") == "atlas-bundle-manifest.v1"
         and manifest["artifacts"]["candidate_sites_json"] == paths.candidate_sites_json_path.name
+        and manifest["artifacts"]["candidate_site_sensitivity_json"]
+        == paths.candidate_site_sensitivity_json_path.name
+        and manifest["artifacts"]["candidate_ranking_engine_manifest"]
+        == paths.candidate_ranking_engine_manifest_path.name
         and published.get("schema_version") == "published-reports-summary.v1"
     )
 
 
 def _ranking_provenance_ok() -> bool:
-    from ..analysis.reporting import build_candidate_sites_json_payload
+    from ..analysis import build_ranking_engine_manifest
+    from ..analysis.reporting import (
+        build_candidate_site_sensitivity_payload,
+        build_candidate_sites_json_payload,
+    )
 
     payload = build_candidate_sites_json_payload([])
+    sensitivity_payload = build_candidate_site_sensitivity_payload(
+        _build_candidate_sensitivity_stub()
+    )
+    engine_manifest = build_ranking_engine_manifest()
     return (
-        payload.get("schema_version") == "candidate-site-ranking.v1"
-        and "Homo sapiens aDNA localities derived from AADR metadata" in str(payload.get("evidence_boundary"))
+        payload.get("schema_version") == "candidate-site-ranking.v2"
+        and "explicit evidence and missingness signals" in str(payload.get("evidence_boundary"))
+        and payload.get("profile", {}).get("profile_name") == "atlas_exploration"
+        and sensitivity_payload.get("schema_version") == "candidate-site-sensitivity.v1"
+        and engine_manifest.schema_version == "candidate-ranking-engine-manifest.v1"
         and isinstance(payload.get("rows"), list)
+    )
+
+
+def _build_candidate_sensitivity_stub():
+    from ..analysis.ranking import CandidateSensitivityReport
+
+    return CandidateSensitivityReport(
+        schema_version="candidate-site-sensitivity.v1",
+        baseline_profile="atlas_exploration",
+        compared_profiles=("atlas_exploration",),
+        rows=(),
     )
