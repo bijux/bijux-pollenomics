@@ -6,6 +6,8 @@ import unittest
 
 from bijux_pollenomics.data_downloader.data_layout import (
     AVAILABLE_SOURCES,
+    DATA_LAYOUT_INDEX,
+    DATA_SOURCE_INDEX,
     build_source_output_roots,
     render_data_root_readme_for,
     write_data_directory_readme,
@@ -30,10 +32,13 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
         self.assertIn(
-            "[`docs/data-sources/index.md`](../docs/data-sources/index.md)", readme
+            "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
+            f"({DATA_SOURCE_INDEX})",
+            readme,
         )
         self.assertIn(
-            "[`docs/reference/data-layout.md`](../docs/reference/data-layout.md)",
+            "[`docs/02-bijux-pollenomics-data/foundation/directory-layout.md`]"
+            f"({DATA_LAYOUT_INDEX})",
             readme,
         )
 
