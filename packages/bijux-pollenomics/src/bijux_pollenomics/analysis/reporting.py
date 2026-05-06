@@ -111,6 +111,29 @@ def build_candidate_sites_json_payload(
         "schema_version": "candidate-site-ranking.v2",
         "profile": profile.as_dict(),
         "evidence_boundary": f'{policy["intro"]} {policy["boundary"]}',
+        "species_evidence_boundary": {
+            "human_adna": (
+                "Mapped Homo sapiens ancient-DNA localities are direct atlas evidence, "
+                "but they remain metadata-only until genotype-aware runtime support exists."
+            ),
+            "animal_adna": (
+                "Non-human ancient-DNA support is contextual review evidence until the "
+                "runtime owns species-specific sample or locality rows."
+            ),
+            "cross_species_interpretation": (
+                "Cross-species locality anchors can strengthen heuristic ranking signals, "
+                "but they do not erase source asymmetry between mapped human records and "
+                "unmapped animal project curation."
+            ),
+            "proximity_refusal": (
+                "Animal aDNA plus atlas proximity is not enough to claim shared locality "
+                "support or fieldwork readiness."
+            ),
+            "country_profile_caution": (
+                "Country-facing atlas outputs must distinguish mapped human direct evidence "
+                "from unmapped animal context."
+            ),
+        },
         "recommendation_gate": policy["recommendation_gate"],
         "rows": [
             {
@@ -178,6 +201,8 @@ def render_candidate_site_markdown(
 Profile warning: {policy["profile_warning"]}
 
 Recommendation gate: {policy["recommendation_gate"]}
+
+Species-aware evidence boundary: mapped Homo sapiens localities are direct atlas evidence; non-human aDNA remains contextual review support until species-owned locality rows exist. Animal aDNA plus atlas proximity is not enough for locality claims.
 
 | Locality | Status | Total score | Evidence density | Chronology alignment | Species diversity | Contextual support | Missingness penalty | Recommendation posture | Rationale |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
