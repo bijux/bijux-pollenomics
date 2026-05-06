@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 from ..models import CountryReport
+from ..policy import (
+    build_country_report_policy,
+    build_multi_country_map_policy,
+    build_sample_inventory_policy,
+)
 from ..shared.text import escape_pipes
 
 __all__ = [
@@ -20,6 +25,7 @@ def render_summary_markdown(
     map_reference: tuple[str, str] | None,
 ) -> str:
     """Render the country summary README."""
+    policy = build_country_report_policy(report)
     latitude_values = [sample.latitude for sample in report.samples]
     longitude_values = [sample.longitude for sample in report.samples]
     latitude_range = (
@@ -53,20 +59,20 @@ def render_summary_markdown(
         label, href = map_reference
         map_line = f'- Shared interactive map: <a href="{href}">{label}</a>\n'
 
-    return f"""# {report.country} AADR {report.version} Report
+    return f"""# {policy["title"]}
 
-This bundle was generated from the AADR `{report.version}` `.anno` files on `{report.generated_on}`.
-It inventories only AADR sample rows that match the `{report.country}` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
+{policy["intro"]}
+{policy["scope"]}
 
 ## Summary
 
 - Country filter: `{report.country}`
-- Unique AADR samples: `{report.total_unique_samples}`
+- {policy["summary_label"]}: `{report.total_unique_samples}`
 - Unique localities: `{report.total_unique_localities}`
 - Latitude range: {latitude_range}
 - Longitude range: {longitude_range}
 
-This country bundle is valid even when the filter returns zero AADR samples. In that case the CSV, GeoJSON, and markdown exports remain present so downstream checks can distinguish an empty result from a missing artifact.
+{policy["empty_result_note"]}
 Locality rows now preserve the combined BP coverage of the samples they aggregate.
 
 ## Dataset Coverage
@@ -75,7 +81,7 @@ Locality rows now preserve the combined BP coverage of the samples they aggregat
 | --- | ---: |
 {dataset_lines}
 
-The report deduplicates samples by `genetic_id` across datasets. Dataset row counts can differ by coverage, but the combined inventory for `{report.country}` contains `{report.total_unique_samples}` unique samples in AADR `{report.version}`.
+{policy["dedup_note"]}
 
 ## Output Files
 
@@ -95,10 +101,11 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 def render_sample_markdown(report: CountryReport) -> str:
     """Render the complete sample-level markdown table."""
+    policy = build_sample_inventory_policy(report)
     lines = [
-        f"# {report.country} AADR {report.version} Sample Inventory",
+        f"# {policy['title']}",
         "",
-        f"Generated on `{report.generated_on}`. Total samples: `{report.total_unique_samples}`.",
+        policy["summary"],
         "",
         "| Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |",
         "| --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |",
@@ -138,6 +145,11 @@ def render_multi_country_map_markdown(
     extra_artifacts: list[tuple[str, str]],
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
+    policy = build_multi_country_map_policy(
+        title=title,
+        version=version,
+        generated_on=generated_on,
+    )
     rows = (
         "\n".join(
             f"| {country} | {country_sample_counts[country]} |" for country in countries
@@ -149,10 +161,10 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
-    return f"""# {title}
+    return f"""# {policy["title"]}
 
-This shared interactive map bundle was generated on `{generated_on}`.
-It combines AADR `{version}` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory.
+{policy["intro"]}
+{policy["scope"]}
 
 ## Included Countries
 
@@ -166,7 +178,7 @@ It combines AADR `{version}` with whichever contextual datasets are present in t
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The map does not rank, score, or reconcile disagreement between sources; it only presents the records and overlays that were generated into this bundle.
-- Country sample counts in this README refer to AADR records. Context layers can have different geographic scope and record counts inside the map.
+- {policy["count_note"]}
 
 ## Output Files
 
