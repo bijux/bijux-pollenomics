@@ -28,9 +28,16 @@ class DataLayoutUnitTests(unittest.TestCase):
     def test_render_data_root_readme_for_uses_requested_root_name(self) -> None:
         readme = render_data_root_readme_for(Path("/tmp/custom-data"), "v99.1")
 
-        self.assertIn("Tracked source data lives directly under `custom-data/`", readme)
+        self.assertIn(
+            "Tracked source data and governed species-owned ancient-DNA views live directly",
+            readme,
+        )
+        self.assertIn("`custom-data/`", readme)
+        self.assertIn("│   └── homo_sapiens", readme)
+        self.assertIn("│       │   └── aadr -> ../../../aadr", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
+        self.assertIn("`Homo sapiens` ancient DNA is governed under", readme)
         self.assertIn(
             "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
             f"({DATA_SOURCE_INDEX})",

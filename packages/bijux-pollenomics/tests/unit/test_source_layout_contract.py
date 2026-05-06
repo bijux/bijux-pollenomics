@@ -18,6 +18,10 @@ class SourceLayoutContractUnitTests(unittest.TestCase):
             root.mkdir(parents=True, exist_ok=True)
             for source_dir in contract.source_directories:
                 (root / source_dir).mkdir(parents=True, exist_ok=True)
+            for species_dir in contract.species_directories:
+                (root / species_dir).mkdir(parents=True, exist_ok=True)
+            for relative_path, expected_target in contract.species_symlinks:
+                (root / relative_path).symlink_to(Path(expected_target))
 
             validate_source_layout_contract(contract)
 
@@ -27,6 +31,7 @@ class SourceLayoutContractUnitTests(unittest.TestCase):
             contract = build_source_layout_contract(root)
             root.mkdir(parents=True, exist_ok=True)
             (root / "aadr").mkdir(parents=True, exist_ok=True)
+            (root / "adna").mkdir(parents=True, exist_ok=True)
 
             with self.assertRaisesRegex(ValueError, "source layout contract violation"):
                 validate_source_layout_contract(contract)
