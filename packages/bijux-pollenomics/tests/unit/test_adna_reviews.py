@@ -36,10 +36,13 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
 
     def test_species_manifest_diff_reports_added_removed_and_changed_projects(self) -> None:
         previous = AdnaSpeciesProjectManifest(
+            schema_version="adna-species-project-manifest.v1",
             species_latin_name="Equus caballus",
             projects=(
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB22390",
+                    source_family="ENA",
+                    accession_scope="project",
                     archive_status="archive_verified_needs_paper_pinning",
                     evidence_strength="archive_only",
                     ancient_status="ancient_confirmed",
@@ -49,9 +52,14 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     material_basis="not_yet_curated",
                     dating_basis="not_yet_curated",
                     geographic_basis="not_yet_curated",
+                    access_policy="public_downloadable",
+                    public_release_date=None,
+                    domestication_scope="domesticated_core",
                 ),
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB56293",
+                    source_family="ENA",
+                    accession_scope="project",
                     archive_status="archive_verified_needs_paper_pinning",
                     evidence_strength="archive_only",
                     ancient_status="ancient_confirmed",
@@ -61,14 +69,20 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     material_basis="individual_bone_or_tooth",
                     dating_basis="mixed_radiocarbon_and_archaeological_context",
                     geographic_basis="site_level_localities",
+                    access_policy="public_downloadable",
+                    public_release_date=None,
+                    domestication_scope="domesticated_core",
                 ),
             ),
         )
         current = AdnaSpeciesProjectManifest(
+            schema_version="adna-species-project-manifest.v1",
             species_latin_name="Equus caballus",
             projects=(
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB22390",
+                    source_family="ENA",
+                    accession_scope="project",
                     archive_status="paper_pinned_core",
                     evidence_strength="primary_paper_pinned",
                     ancient_status="ancient_confirmed",
@@ -78,9 +92,14 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     material_basis="individual_bone_or_tooth",
                     dating_basis="mixed_radiocarbon_and_archaeological_context",
                     geographic_basis="site_level_localities",
+                    access_policy="public_downloadable",
+                    public_release_date=None,
+                    domestication_scope="domesticated_core",
                 ),
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB44430",
+                    source_family="ENA",
+                    accession_scope="project",
                     archive_status="paper_pinned_core",
                     evidence_strength="primary_paper_pinned",
                     ancient_status="ancient_confirmed",
@@ -90,6 +109,9 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     material_basis="individual_bone_or_tooth",
                     dating_basis="mixed_radiocarbon_and_archaeological_context",
                     geographic_basis="site_level_localities",
+                    access_policy="public_downloadable",
+                    public_release_date=None,
+                    domestication_scope="domesticated_core",
                 ),
             ),
         )

@@ -202,8 +202,4 @@ def _review_strength_for(
 
 
 def _source_family_for(project: AdnaSpeciesProjectRow) -> str:
-    if project.project_accession.startswith("PRJ"):
-        return "ENA"
-    if project.project_accession.startswith(("SRS", "ERS", "SAM")):
-        return "SRA"
-    return "manual_curation"
+    return project.source_family

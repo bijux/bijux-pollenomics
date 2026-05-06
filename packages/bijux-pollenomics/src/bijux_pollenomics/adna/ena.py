@@ -6,6 +6,9 @@ from typing import Final
 from .species import resolve_species_definition
 
 __all__ = [
+    "ADNA_ACCESSION_SCOPES",
+    "ADNA_ACCESS_POLICIES",
+    "ADNA_DOMESTICATION_SCOPES",
     "ADNA_ENA_RESULT_KINDS",
     "ADNA_PROJECT_EVIDENCE_STRENGTHS",
     "AdnaArchiveProject",
@@ -19,6 +22,23 @@ __all__ = [
     "parse_ena_filereport_tsv",
 ]
 
+ADNA_ACCESSION_SCOPES: Final[tuple[str, ...]] = (
+    "project",
+    "sample",
+    "accession_range",
+)
+ADNA_ACCESS_POLICIES: Final[tuple[str, ...]] = (
+    "public_downloadable",
+    "embargoed_until_release_date",
+    "restricted_access",
+    "delayed_release_unverified",
+)
+ADNA_DOMESTICATION_SCOPES: Final[tuple[str, ...]] = (
+    "domesticated_core",
+    "wild_or_progenitor_context",
+    "ancient_comparator",
+    "modern_or_irrelevant",
+)
 ADNA_ENA_RESULT_KINDS: Final[tuple[str, ...]] = ("read_run", "analysis")
 ADNA_PROJECT_EVIDENCE_STRENGTHS: Final[tuple[str, ...]] = (
     "primary_paper_pinned",
@@ -147,6 +167,7 @@ class AdnaArchiveProject:
     result_kind: str
     metadata_url: str
     source_family: str
+    accession_scope: str
     archive_status: str
     notes: str
     paper_linkage: AdnaPaperLinkage | None = None
@@ -155,6 +176,9 @@ class AdnaArchiveProject:
     material_basis: str | None = None
     dating_basis: str | None = None
     geographic_basis: str | None = None
+    access_policy: str = "public_downloadable"
+    public_release_date: str | None = None
+    domestication_scope: str = "domesticated_core"
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -163,6 +187,7 @@ class AdnaArchiveProject:
             "result_kind": self.result_kind,
             "metadata_url": self.metadata_url,
             "source_family": self.source_family,
+            "accession_scope": self.accession_scope,
             "archive_status": self.archive_status,
             "notes": self.notes,
             "paper_linkage": None if self.paper_linkage is None else self.paper_linkage.as_dict(),
@@ -171,6 +196,9 @@ class AdnaArchiveProject:
             "material_basis": self.material_basis,
             "dating_basis": self.dating_basis,
             "geographic_basis": self.geographic_basis,
+            "access_policy": self.access_policy,
+            "public_release_date": self.public_release_date,
+            "domestication_scope": self.domestication_scope,
             "evidence_strength": classify_archive_project_evidence(self),
         }
 
@@ -550,6 +578,7 @@ def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
             material_basis="individual_bone_or_tooth",
             dating_basis="mixed_radiocarbon_and_archaeological_context",
             geographic_basis="site_level_localities",
+            domestication_scope="wild_or_progenitor_context",
         ),
         _project(
             "Bos taurus",
@@ -580,6 +609,7 @@ def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
             material_basis="individual_bone_or_tooth",
             dating_basis="mixed_radiocarbon_and_archaeological_context",
             geographic_basis="site_level_localities",
+            public_release_date="2025-12-31",
         ),
         _project(
             "Capra hircus",
@@ -641,6 +671,7 @@ def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
         _project(
             "Felis catus",
             "PRJNA1178732",
+            source_family="BioProject",
             archive_status="paper_pinned_core",
             notes="Late-arrival domestic cat dataset for China via Silk Road context.",
             paper_linkage=_paper(
@@ -653,6 +684,110 @@ def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
             ),
             ancient_status="ancient_confirmed",
             sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Canis lupus familiaris",
+            "SRS1407451",
+            source_family="SRA",
+            accession_scope="sample",
+            archive_status="paper_pinned_core",
+            notes="Ancient dog CTC sample explicitly named on the primary paper page.",
+            paper_linkage=_paper(
+                paper_title="Ancient European dog genomes reveal continuity since the Early Neolithic",
+                doi="10.1038/ncomms16082",
+                pmc_id="PMC5520058",
+                journal_title="Nature Communications",
+                publication_year=2017,
+                pinning_evidence="Primary paper data-availability section explicitly names sample-level SRA accession SRS1407451 for ancient dog CTC.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Canis lupus familiaris",
+            "SRS1407453",
+            source_family="SRA",
+            accession_scope="sample",
+            archive_status="paper_pinned_core",
+            notes="Ancient dog HXH sample explicitly named on the primary paper page.",
+            paper_linkage=_paper(
+                paper_title="Ancient European dog genomes reveal continuity since the Early Neolithic",
+                doi="10.1038/ncomms16082",
+                pmc_id="PMC5520058",
+                journal_title="Nature Communications",
+                publication_year=2017,
+                pinning_evidence="Primary paper data-availability section explicitly names sample-level SRA accession SRS1407453 for ancient dog HXH.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Canis lupus familiaris",
+            "KX379528-KX379529",
+            source_family="GenBank",
+            accession_scope="accession_range",
+            archive_status="paper_pinned_core",
+            notes="Ancient dog mitochondrial genomes named on the primary paper page.",
+            paper_linkage=_paper(
+                paper_title="Ancient European dog genomes reveal continuity since the Early Neolithic",
+                doi="10.1038/ncomms16082",
+                pmc_id="PMC5520058",
+                journal_title="Nature Communications",
+                publication_year=2017,
+                pinning_evidence="Primary paper data-availability section explicitly names mitochondrial genome accessions KX379528-KX379529.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="mitogenome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Camelus dromedarius",
+            "SRP073444",
+            source_family="SRA",
+            archive_status="paper_pinned_core",
+            notes="Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+            paper_linkage=_paper(
+                paper_title="Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+                doi="10.1111/1755-0998.12551",
+                pmc_id="PMC5324683",
+                journal_title="Molecular Ecology Resources",
+                publication_year=2017,
+                pinning_evidence="Primary paper explicitly names SRA project SRP073444 for the dromedary study and distinguishes domestic-dromedary material from wider camelid context.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="capture_and_shotgun",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Camelus dromedarius",
+            "KU605068-KU605080",
+            source_family="GenBank",
+            accession_scope="accession_range",
+            archive_status="paper_pinned_core",
+            notes="Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+            paper_linkage=_paper(
+                paper_title="Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+                doi="10.1111/1755-0998.12551",
+                pmc_id="PMC5324683",
+                journal_title="Molecular Ecology Resources",
+                publication_year=2017,
+                pinning_evidence="Primary paper explicitly names mitochondrial genome accession range KU605068-KU605080 for the dromedary study.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="mitogenome",
             material_basis="individual_bone_or_tooth",
             dating_basis="historical_and_archaeological_context",
             geographic_basis="site_level_localities",
@@ -713,6 +848,63 @@ def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
             dating_basis="not_yet_curated",
             geographic_basis="not_yet_curated",
         ),
+        _project(
+            "Rangifer tarandus",
+            "PRJEB60484",
+            archive_status="comparator_only",
+            notes="Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference.",
+            paper_linkage=_paper(
+                paper_title="Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+                doi="10.1038/s41598-024-54296-2",
+                pmc_id="PMC10876933",
+                journal_title="Scientific Reports",
+                publication_year=2024,
+                pinning_evidence="Primary paper and PMC page connect PRJEB60484 to ancient Svalbard reindeer comparator data.",
+            ),
+            ancient_status="ancient_comparator",
+            sequencing_target="mitogenome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+            domestication_scope="ancient_comparator",
+        ),
+        _project(
+            "Rangifer tarandus",
+            "PRJEB57293",
+            archive_status="reject_or_out_of_scope",
+            notes="Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+            ancient_status="modern_or_irrelevant",
+            sequencing_target="mitogenome",
+            material_basis="modern_tissue",
+            dating_basis="modern_sampling",
+            geographic_basis="site_level_localities",
+            domestication_scope="modern_or_irrelevant",
+        ),
+        _project(
+            "Rangifer tarandus",
+            "PRJEB61721",
+            archive_status="reject_or_out_of_scope",
+            notes="Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+            ancient_status="modern_or_irrelevant",
+            sequencing_target="mitogenome",
+            material_basis="modern_tissue",
+            dating_basis="modern_sampling",
+            geographic_basis="site_level_localities",
+            domestication_scope="modern_or_irrelevant",
+        ),
+        _project(
+            "Rangifer tarandus",
+            "PRJNA634908",
+            source_family="BioProject",
+            archive_status="reject_or_out_of_scope",
+            notes="Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support.",
+            ancient_status="modern_or_irrelevant",
+            sequencing_target="mitogenome",
+            material_basis="modern_tissue",
+            dating_basis="modern_sampling",
+            geographic_basis="country_or_breed_panel",
+            domestication_scope="modern_or_irrelevant",
+        ),
     )
 
 
@@ -751,6 +943,8 @@ def _project(
     species_latin_name: str,
     accession: str,
     *,
+    source_family: str = "ENA",
+    accession_scope: str = "project",
     archive_status: str,
     notes: str,
     paper_linkage: AdnaPaperLinkage | None = None,
@@ -760,13 +954,22 @@ def _project(
     dating_basis: str,
     geographic_basis: str,
     result_kind: str = "read_run",
+    access_policy: str = "public_downloadable",
+    public_release_date: str | None = None,
+    domestication_scope: str = "domesticated_core",
 ) -> AdnaArchiveProject:
     return AdnaArchiveProject(
         species_latin_name=species_latin_name,
         project_accession=accession,
         result_kind=result_kind,
-        metadata_url=build_ena_filereport_url(accession, result_kind),
-        source_family="ENA",
+        metadata_url=_metadata_url_for(
+            accession=accession,
+            source_family=source_family,
+            accession_scope=accession_scope,
+            result_kind=result_kind,
+        ),
+        source_family=source_family,
+        accession_scope=accession_scope,
         archive_status=archive_status,
         notes=notes,
         paper_linkage=paper_linkage,
@@ -775,11 +978,33 @@ def _project(
         material_basis=material_basis,
         dating_basis=dating_basis,
         geographic_basis=geographic_basis,
+        access_policy=access_policy,
+        public_release_date=public_release_date,
+        domestication_scope=domestication_scope,
     )
 
 
 def _normalize_values(values: tuple[str, ...]) -> tuple[str, ...]:
     return tuple(value.strip() for value in values if value.strip())
+
+
+def _metadata_url_for(
+    *,
+    accession: str,
+    source_family: str,
+    accession_scope: str,
+    result_kind: str,
+) -> str:
+    if source_family == "ENA":
+        return build_ena_filereport_url(accession, result_kind)
+    if source_family == "SRA":
+        return f"https://www.ncbi.nlm.nih.gov/sra?term={accession}"
+    if source_family == "BioProject":
+        return f"https://www.ncbi.nlm.nih.gov/bioproject/{accession}"
+    if source_family == "GenBank":
+        anchor = accession.split("-", 1)[0] if accession_scope == "accession_range" else accession
+        return f"https://www.ncbi.nlm.nih.gov/nuccore/{anchor}"
+    raise ValueError(f"Unsupported archive source family: {source_family}")
 
 
 def _valid_selector(value: str) -> bool:

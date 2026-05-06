@@ -61,11 +61,17 @@ class AdnaEnaUnitTests(unittest.TestCase):
 
         horse = [row for row in catalog if row.species_latin_name == "Equus caballus"]
         goat = [row for row in catalog if row.species_latin_name == "Capra hircus"]
+        dog = [row for row in catalog if row.species_latin_name == "Canis lupus familiaris"]
+        camel = [row for row in catalog if row.species_latin_name == "Camelus dromedarius"]
+        reindeer = [row for row in catalog if row.species_latin_name == "Rangifer tarandus"]
         donkey = [row for row in catalog if row.species_latin_name == "Equus asinus"]
         pig = [row for row in catalog if row.species_latin_name == "Sus scrofa domesticus"]
 
         self.assertGreaterEqual(len(horse), 8)
         self.assertTrue(any(row.project_accession == "PRJEB90141" for row in goat))
+        self.assertTrue(any(row.project_accession == "SRS1407451" for row in dog))
+        self.assertTrue(any(row.project_accession == "SRP073444" for row in camel))
+        self.assertTrue(any(row.project_accession == "PRJEB60484" for row in reindeer))
         self.assertTrue(
             any(
                 row.project_accession == "PRJEB55549"
@@ -83,6 +89,11 @@ class AdnaEnaUnitTests(unittest.TestCase):
             all(project.metadata_url.startswith("https://www.ebi.ac.uk/ena/portal/api/filereport?")
                 for project in projects)
         )
+
+        dog_projects = build_species_archive_projects("dog")
+        self.assertEqual(dog_projects[0].source_family, "SRA")
+        self.assertEqual(dog_projects[0].accession_scope, "sample")
+        self.assertTrue(dog_projects[0].metadata_url.startswith("https://www.ncbi.nlm.nih.gov/sra?term="))
 
     def test_archive_project_catalog_records_primary_paper_linkage_and_scientific_metadata(
         self,
@@ -112,6 +123,24 @@ class AdnaEnaUnitTests(unittest.TestCase):
         self.assertEqual(chinese.archive_status, "archive_verified_needs_paper_pinning")
         self.assertEqual(chinese.ancient_status, "ancient_confirmed")
         self.assertIsNone(chinese.paper_linkage)
+
+    def test_archive_project_catalog_keeps_comparator_and_genbank_scope_explicit(self) -> None:
+        reindeer = next(
+            row
+            for row in build_species_archive_projects("reindeer")
+            if row.project_accession == "PRJEB60484"
+        )
+        camel = next(
+            row
+            for row in build_species_archive_projects("camel")
+            if row.project_accession == "KU605068-KU605080"
+        )
+
+        self.assertEqual(reindeer.archive_status, "comparator_only")
+        self.assertEqual(reindeer.domestication_scope, "ancient_comparator")
+        self.assertEqual(camel.source_family, "GenBank")
+        self.assertEqual(camel.accession_scope, "accession_range")
+        self.assertEqual(camel.paper_linkage.doi, "10.1111/1755-0998.12551")
 
 
 if __name__ == "__main__":

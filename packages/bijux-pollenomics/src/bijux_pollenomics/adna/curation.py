@@ -33,10 +33,14 @@ _PAPER_PINNED_CORE_SPECIES: Final[frozenset[str]] = frozenset(
         "Sus scrofa domesticus",
         "Ovis aries",
         "Capra hircus",
+        "Canis lupus familiaris",
         "Felis catus",
+        "Camelus dromedarius",
     }
 )
-_COMPARATOR_SPECIES: Final[frozenset[str]] = frozenset({"Equus asinus"})
+_COMPARATOR_SPECIES: Final[frozenset[str]] = frozenset(
+    {"Equus asinus", "Rangifer tarandus"}
+)
 _GENBANK_ONLY_SPECIES: Final[frozenset[str]] = frozenset(
     {"Gallus gallus domesticus", "Meleagris gallopavo"}
 )
