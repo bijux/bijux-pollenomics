@@ -23,6 +23,7 @@ __all__ = [
     "build_adna_curation_manifest_parser",
     "build_adna_domestication_coverage_parser",
     "build_adna_layout_parser",
+    "build_adna_release_readiness_parser",
     "build_adna_normalization_bundle_parser",
     "build_adna_runtime_manifest_parser",
     "build_adna_species_review_parser",
@@ -49,6 +50,7 @@ def register_subcommands(
     build_adna_curation_manifest_parser(subparsers)
     build_adna_domestication_coverage_parser(subparsers)
     build_adna_layout_parser(subparsers)
+    build_adna_release_readiness_parser(subparsers)
     build_adna_normalization_bundle_parser(subparsers)
     build_adna_runtime_manifest_parser(subparsers)
     build_adna_species_parser(subparsers)
@@ -142,6 +144,31 @@ def build_adna_curation_manifest_parser(
         help=(
             "Print the species-owned domesticated-animal curation manifest, "
             "including core, pending, and rejected projects."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_release_readiness_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the cross-surface release readiness parser."""
+    parser = subparsers.add_parser(
+        "adna-release-readiness",
+        help=(
+            "Print the medium-weight species release gate across source identity, "
+            "curation integrity, normalized-record contracts, atlas summaries, "
+            "and ranking provenance."
         ),
     )
     parser.add_argument(

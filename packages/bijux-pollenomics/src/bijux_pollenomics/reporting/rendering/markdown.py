@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from ..models import CountryReport
-from ..policy import (
+from ...publication_policy import (
     build_country_report_policy,
     build_multi_country_map_policy,
     build_sample_inventory_policy,
 )
+from ..models import CountryReport
 from ..shared.text import escape_pipes
 
 __all__ = [

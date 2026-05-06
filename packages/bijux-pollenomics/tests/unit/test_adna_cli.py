@@ -11,6 +11,7 @@ from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_curation_manifest,
     run_adna_domestication_coverage,
     run_adna_layout,
+    run_adna_release_readiness,
     run_adna_normalization_bundle,
     run_adna_runtime_manifest,
     run_adna_species,
@@ -174,6 +175,21 @@ class AdnaCliUnitTests(unittest.TestCase):
             "data/adna/homo_sapiens",
         )
         self.assertIn("metadata normalization only", payload["analysis_boundary"])
+
+    def test_adna_release_readiness_json_output_exposes_cross_surface_gate(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_release_readiness(
+                type("Args", (), {"json": True, "species": "dog"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["schema_version"], "release-readiness-report.v1")
+        self.assertEqual(payload["species_latin_name"], "Canis lupus familiaris")
+        self.assertTrue(payload["source_identity_ok"])
+        self.assertTrue(payload["atlas_bundle_contract_ok"])
+        self.assertTrue(payload["ranking_provenance_ok"])
 
     def test_adna_species_json_output_exposes_human_support_row(self) -> None:
         stdout = io.StringIO()

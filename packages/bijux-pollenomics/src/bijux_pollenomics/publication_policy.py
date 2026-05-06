@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .models import CountryReport
+from .reporting.models import CountryReport
 
 __all__ = [
     "build_country_report_policy",

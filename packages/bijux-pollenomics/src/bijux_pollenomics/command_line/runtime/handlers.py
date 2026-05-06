@@ -22,6 +22,7 @@ from ...data_downloader import (
     validate_collection_summary_file,
 )
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
+from ...foundation import build_release_readiness_report
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -37,6 +38,7 @@ __all__ = [
     "run_adna_layout",
     "run_adna_normalization_bundle",
     "run_adna_runtime_manifest",
+    "run_adna_release_readiness",
     "run_adna_species",
     "run_adna_species_review",
     "run_collect_data",
@@ -176,6 +178,26 @@ def run_adna_runtime_manifest(args: argparse.Namespace) -> int:
             f"modality={bundle.record_modality}; "
             f"review={bundle.review_strength}"
         )
+    return 0
+
+
+def run_adna_release_readiness(args: argparse.Namespace) -> int:
+    """Print the medium-weight release readiness gate for one species."""
+    report = build_release_readiness_report(args.species)
+    if args.json:
+        print(json.dumps(report.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"species={report.species_latin_name}")
+    print(f"source_identity_ok={str(report.source_identity_ok).lower()}")
+    print(f"curation_integrity_ok={str(report.curation_integrity_ok).lower()}")
+    print(
+        f"normalized_record_contract_ok={str(report.normalized_record_contract_ok).lower()}"
+    )
+    print(f"atlas_bundle_contract_ok={str(report.atlas_bundle_contract_ok).lower()}")
+    print(f"ranking_provenance_ok={str(report.ranking_provenance_ok).lower()}")
+    print(f"overall_ok={str(report.overall_ok).lower()}")
+    if report.findings:
+        print("findings=" + ", ".join(report.findings))
     return 0
 
 

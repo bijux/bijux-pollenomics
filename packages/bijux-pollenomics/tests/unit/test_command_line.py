@@ -245,6 +245,27 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 16)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_adna_release_readiness_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-readiness", "--species", "dog"])
+
+        self.assertEqual(args.command, "adna-release-readiness")
+        self.assertEqual(args.species, "dog")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_release_readiness_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-release-readiness", "--species", "dog"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_release_readiness",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
+        handler.assert_called_once_with(args)
+
     def test_build_parser_supports_adna_normalization_bundle_command(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
