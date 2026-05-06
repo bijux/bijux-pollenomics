@@ -7,6 +7,8 @@ from unittest.mock import patch
 
 from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_archive_projects,
+    run_adna_curation_manifest,
+    run_adna_domestication_coverage,
     run_adna_layout,
     run_adna_runtime_manifest,
     run_adna_species,
@@ -25,6 +27,47 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         payload = json.loads(stdout.getvalue())
         self.assertEqual(payload["root_dir"], "data/adna/equus_caballus")
+
+    def test_adna_curation_manifest_json_output_exposes_core_and_reject_projects(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_curation_manifest(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["curation_class"], "paper_pinned_core")
+        self.assertTrue(
+            any(
+                row["project_accession"] == "PRJEB22390"
+                for row in payload["curated_projects"]
+            )
+        )
+        self.assertTrue(
+            any(
+                row["project_accession"] == "PRJEB9799"
+                for row in payload["rejected_projects"]
+            )
+        )
+
+    def test_adna_domestication_coverage_json_output_marks_pretending_species(
+        self,
+    ) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_domestication_coverage(
+                type("Args", (), {"json": True})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        cattle = next(
+            row for row in payload["rows"] if row["species_latin_name"] == "Bos taurus"
+        )
+        self.assertEqual(cattle["coverage_posture"], "pretending")
 
     def test_adna_archive_projects_json_output_exposes_horse_project(self) -> None:
         stdout = io.StringIO()

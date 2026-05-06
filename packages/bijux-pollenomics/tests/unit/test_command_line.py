@@ -203,6 +203,49 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 15)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_adna_curation_manifest_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-curation-manifest", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-curation-manifest")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_curation_manifest_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-curation-manifest", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_curation_manifest",
+            return_value=16,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 16)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_domestication_coverage_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-domestication-coverage"])
+
+        self.assertEqual(args.command, "adna-domestication-coverage")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_domestication_coverage_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-domestication-coverage"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_domestication_coverage",
+            return_value=18,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 18)
+        handler.assert_called_once_with(args)
+
     def test_build_parser_supports_adna_layout_command(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-layout", "--species", "horse"])
