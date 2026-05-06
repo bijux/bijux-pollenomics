@@ -94,6 +94,12 @@ def test_adna_domain_stays_out_of_reporting_and_command_line_layers() -> None:
             r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.command_line(\.|\s|$)",
         )
     )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.foundation(\.|\s|$)",
+        )
+    )
 
     assert not failures, "adna domain imports higher-level runtime layers:\n" + "\n".join(
         failures
@@ -105,3 +111,41 @@ def test_reporting_api_routes_through_reporting_adna_not_reporting_aadr() -> Non
 
     assert "from .adna import" in reporting_api
     assert "from .aadr import" not in reporting_api
+
+
+def test_adna_domain_does_not_import_publication_or_rendering_policy_modules() -> None:
+    failures: list[str] = []
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.publication_policy(\.|\s|$)",
+        )
+    )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.reporting\.rendering(\.|\s|$)",
+        )
+    )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(ADNA_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.reporting\.bundles(\.|\s|$)",
+        )
+    )
+
+    assert not failures, "adna domain imports publication-facing policy or rendering modules:\n" + "\n".join(
+        failures
+    )
+
+
+def test_release_readiness_gate_stays_outside_adna_domain() -> None:
+    release_gate = (
+        RUNTIME_SRC / "foundation" / "release_readiness.py"
+    ).read_text(encoding="utf-8")
+    adna_modules = "\n".join(
+        path.read_text(encoding="utf-8") for path in _python_files(ADNA_SRC)
+    )
+
+    assert "build_release_readiness_report" in release_gate
+    assert "build_release_readiness_report" not in adna_modules
