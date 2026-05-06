@@ -6,7 +6,9 @@ import json
 from ...adna import (
     build_archive_integrity_report,
     build_archive_project_catalog,
+    build_domestication_coverage_report,
     build_species_archive_projects,
+    build_species_curation_manifest,
     build_species_layout,
     build_species_review_packet,
     build_species_runtime_manifest,
@@ -27,6 +29,8 @@ from ...reporting import (
 
 __all__ = [
     "run_adna_archive_projects",
+    "run_adna_curation_manifest",
+    "run_adna_domestication_coverage",
     "run_adna_layout",
     "run_adna_runtime_manifest",
     "run_adna_species",
@@ -74,6 +78,37 @@ def run_adna_layout(args: argparse.Namespace) -> int:
     print(f"manifests={layout.manifests_dir}")
     print(f"reports={layout.reports_dir}")
     print(f"review={layout.review_dir}")
+    return 0
+
+
+def run_adna_curation_manifest(args: argparse.Namespace) -> int:
+    """Print the species-owned curation manifest for one non-human aDNA program."""
+    manifest = build_species_curation_manifest(args.species)
+    if args.json:
+        print(json.dumps(manifest.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"species={manifest.species.latin_name}")
+    print(f"curation_class={manifest.curation_class}")
+    print(f"curated_projects={len(manifest.curated_projects)}")
+    print(f"pending_projects={len(manifest.pending_projects)}")
+    print(f"rejected_projects={len(manifest.rejected_projects)}")
+    return 0
+
+
+def run_adna_domestication_coverage(args: argparse.Namespace) -> int:
+    """Print the cross-species domestication coverage report."""
+    report = build_domestication_coverage_report()
+    if args.json:
+        print(json.dumps(report.as_dict(), indent=2, sort_keys=True))
+        return 0
+    for row in report.rows:
+        print(
+            f"{row.species_latin_name}: class={row.curation_class}; "
+            f"posture={row.coverage_posture}; "
+            f"curated={row.curated_project_count}; "
+            f"pending={row.pending_project_count}; "
+            f"rejected={row.rejected_project_count}"
+        )
     return 0
 
 

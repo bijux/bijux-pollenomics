@@ -11,6 +11,8 @@ __all__ = ["CommandHandler", "build_command_handlers", "resolve_handler"]
 def build_command_handlers(
     *,
     run_adna_archive_projects: CommandHandler,
+    run_adna_curation_manifest: CommandHandler,
+    run_adna_domestication_coverage: CommandHandler,
     run_adna_layout: CommandHandler,
     run_adna_runtime_manifest: CommandHandler,
     run_adna_species: CommandHandler,
@@ -27,6 +29,8 @@ def build_command_handlers(
     """Build the direct-command handler registry."""
     return {
         "adna-archive-projects": run_adna_archive_projects,
+        "adna-curation-manifest": run_adna_curation_manifest,
+        "adna-domestication-coverage": run_adna_domestication_coverage,
         "adna-layout": run_adna_layout,
         "adna-runtime-manifest": run_adna_runtime_manifest,
         "adna-species": run_adna_species,

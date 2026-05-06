@@ -19,6 +19,8 @@ from .options import (
 
 __all__ = [
     "build_adna_archive_projects_parser",
+    "build_adna_curation_manifest_parser",
+    "build_adna_domestication_coverage_parser",
     "build_adna_layout_parser",
     "build_adna_runtime_manifest_parser",
     "build_adna_species_review_parser",
@@ -41,6 +43,8 @@ def register_subcommands(
 ) -> None:
     """Register every supported subcommand on the root parser."""
     build_adna_archive_projects_parser(subparsers)
+    build_adna_curation_manifest_parser(subparsers)
+    build_adna_domestication_coverage_parser(subparsers)
     build_adna_layout_parser(subparsers)
     build_adna_runtime_manifest_parser(subparsers)
     build_adna_species_parser(subparsers)
@@ -92,6 +96,49 @@ def build_adna_layout_parser(
         "--species",
         required=True,
         help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_curation_manifest_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the species curation manifest parser."""
+    parser = subparsers.add_parser(
+        "adna-curation-manifest",
+        help=(
+            "Print the species-owned domesticated-animal curation manifest, "
+            "including core, pending, and rejected projects."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_domestication_coverage_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the cross-species domestication coverage parser."""
+    parser = subparsers.add_parser(
+        "adna-domestication-coverage",
+        help=(
+            "Print the cross-species domestication coverage report so strong, thin, "
+            "and pretending support are visible."
+        ),
     )
     parser.add_argument(
         "--json",
