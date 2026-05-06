@@ -78,6 +78,8 @@ def build_ranking_engine_manifest() -> RankingEngineManifest:
             "candidate_site_sensitivity_json",
             "candidate_site_sensitivity_markdown",
             "candidate_ranking_engine_manifest_json",
+            "atlas_evidence_surface_json",
+            "atlas_evidence_surface_markdown",
         ),
         recommendation_gate_statement=(
             "No output counts as a sampling recommendation unless the "
