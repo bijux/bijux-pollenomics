@@ -40,6 +40,8 @@ through the repository with visible output consequences.
   chosen country set
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
+- `adna-archive-projects` prints the curated ENA project inventory for
+  domesticated-animal ancient-DNA intake review
 - `adna-species` prints the canonical ancient-DNA species support matrix and
   current runtime scope
 - `surface-map` prints a short runtime-versus-roadmap package surface map
@@ -61,6 +63,7 @@ through the repository with visible output consequences.
 
 ```bash
 bijux-pollenomics collect-data all --version v66 --output-root data
+bijux-pollenomics adna-archive-projects --species horse
 bijux-pollenomics adna-species
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
