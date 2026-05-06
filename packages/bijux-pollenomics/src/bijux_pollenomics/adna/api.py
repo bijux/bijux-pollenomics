@@ -86,6 +86,11 @@ from .normalization import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
+from .rebuild import (
+    AdnaArtifactPlanEntry,
+    AdnaSpeciesArtifactPlan,
+    build_species_artifact_plan,
+)
 from .reviews import (
     AdnaProjectManifestChange,
     AdnaSpeciesManifestDiff,
@@ -130,6 +135,7 @@ __all__ = [
     "ADNA_REVIEW_STRENGTHS",
     "ADNA_SUPPORT_STATUSES",
     "AdnaAccessionReference",
+    "AdnaArtifactPlanEntry",
     "AdnaArchiveDuplicate",
     "AdnaArchiveIntegrityReport",
     "AdnaArchiveProject",
@@ -161,6 +167,7 @@ __all__ = [
     "AdnaSpeciesLayout",
     "AdnaSpeciesManifest",
     "AdnaSpeciesMismatch",
+    "AdnaSpeciesArtifactPlan",
     "AdnaSpeciesProjectManifest",
     "AdnaSpeciesProjectRow",
     "AdnaSpeciesReviewPacket",
@@ -174,6 +181,7 @@ __all__ = [
     "build_homo_sapiens_runtime_manifest_for_version_dir",
     "build_locality_identity",
     "build_project_admission_review",
+    "build_species_artifact_plan",
     "build_species_normalization_bundle",
     "build_species_curation_manifest",
     "build_species_manifest_diff",

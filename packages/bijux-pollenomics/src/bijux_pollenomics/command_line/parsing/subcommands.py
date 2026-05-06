@@ -19,9 +19,11 @@ from .options import (
 
 __all__ = [
     "build_adna_archive_projects_parser",
+    "build_adna_artifact_plan_parser",
     "build_adna_curation_manifest_parser",
     "build_adna_domestication_coverage_parser",
     "build_adna_layout_parser",
+    "build_adna_normalization_bundle_parser",
     "build_adna_runtime_manifest_parser",
     "build_adna_species_review_parser",
     "build_adna_species_parser",
@@ -43,9 +45,11 @@ def register_subcommands(
 ) -> None:
     """Register every supported subcommand on the root parser."""
     build_adna_archive_projects_parser(subparsers)
+    build_adna_artifact_plan_parser(subparsers)
     build_adna_curation_manifest_parser(subparsers)
     build_adna_domestication_coverage_parser(subparsers)
     build_adna_layout_parser(subparsers)
+    build_adna_normalization_bundle_parser(subparsers)
     build_adna_runtime_manifest_parser(subparsers)
     build_adna_species_parser(subparsers)
     build_adna_species_review_parser(subparsers)
@@ -75,6 +79,30 @@ def build_adna_archive_projects_parser(
         "--species",
         default=None,
         help="Optional Latin name or registered alias to filter one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_artifact_plan_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the species artifact plan parser."""
+    parser = subparsers.add_parser(
+        "adna-artifact-plan",
+        help=(
+            "Print the deterministic species rebuild artifact plan, including "
+            "governed manifest and review payload paths."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
     )
     parser.add_argument(
         "--json",
@@ -114,6 +142,30 @@ def build_adna_curation_manifest_parser(
         help=(
             "Print the species-owned domesticated-animal curation manifest, "
             "including core, pending, and rejected projects."
+        ),
+    )
+    parser.add_argument(
+        "--species",
+        required=True,
+        help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_normalization_bundle_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the non-human normalization bundle parser."""
+    parser = subparsers.add_parser(
+        "adna-normalization-bundle",
+        help=(
+            "Print the governed non-human normalization bundle, including project "
+            "summaries, study summaries, lineage, and refusals."
         ),
     )
     parser.add_argument(

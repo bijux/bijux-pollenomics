@@ -8,8 +8,10 @@ from ...adna import (
     build_archive_project_catalog,
     build_domestication_coverage_report,
     build_species_archive_projects,
+    build_species_artifact_plan,
     build_species_curation_manifest,
     build_species_layout,
+    build_species_normalization_bundle,
     build_species_review_packet,
     build_species_runtime_manifest,
     build_species_support_matrix,
@@ -29,9 +31,11 @@ from ...reporting import (
 
 __all__ = [
     "run_adna_archive_projects",
+    "run_adna_artifact_plan",
     "run_adna_curation_manifest",
     "run_adna_domestication_coverage",
     "run_adna_layout",
+    "run_adna_normalization_bundle",
     "run_adna_runtime_manifest",
     "run_adna_species",
     "run_adna_species_review",
@@ -66,6 +70,18 @@ def run_adna_archive_projects(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_adna_artifact_plan(args: argparse.Namespace) -> int:
+    """Print the deterministic species rebuild artifact plan."""
+    plan = build_species_artifact_plan(args.species)
+    if args.json:
+        print(json.dumps(plan.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"species={plan.species_latin_name}")
+    for entry in plan.entries:
+        print(f"artifact={entry.artifact_kind}; path={entry.target_path}")
+    return 0
+
+
 def run_adna_layout(args: argparse.Namespace) -> int:
     """Print the canonical on-disk species layout for ancient-DNA support."""
     layout = build_species_layout(args.species)
@@ -92,6 +108,20 @@ def run_adna_curation_manifest(args: argparse.Namespace) -> int:
     print(f"curated_projects={len(manifest.curated_projects)}")
     print(f"pending_projects={len(manifest.pending_projects)}")
     print(f"rejected_projects={len(manifest.rejected_projects)}")
+    return 0
+
+
+def run_adna_normalization_bundle(args: argparse.Namespace) -> int:
+    """Print the governed non-human normalization bundle."""
+    bundle = build_species_normalization_bundle(args.species)
+    if args.json:
+        print(json.dumps(bundle.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"species={bundle.species.latin_name}")
+    print(f"project_summaries={len(bundle.project_summaries)}")
+    print(f"study_summaries={len(bundle.study_summaries)}")
+    print(f"lineage_records={len(bundle.lineage_records)}")
+    print(f"refusals={len(bundle.refusals)}")
     return 0
 
 

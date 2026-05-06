@@ -4,9 +4,11 @@ import argparse
 
 from .handlers import (
     run_adna_archive_projects,
+    run_adna_artifact_plan,
     run_adna_curation_manifest,
     run_adna_domestication_coverage,
     run_adna_layout,
+    run_adna_normalization_bundle,
     run_adna_runtime_manifest,
     run_adna_species,
     run_adna_species_review,
@@ -24,9 +26,11 @@ from .registry import build_command_handlers, resolve_handler
 
 __all__ = [
     "run_adna_archive_projects",
+    "run_adna_artifact_plan",
     "run_adna_curation_manifest",
     "run_adna_domestication_coverage",
     "run_adna_layout",
+    "run_adna_normalization_bundle",
     "run_adna_runtime_manifest",
     "run_adna_species",
     "run_adna_species_review",
@@ -49,9 +53,11 @@ def run_command(args: argparse.Namespace, *, parser: argparse.ArgumentParser) ->
         return run_report_country(args, parser=parser)
     handlers = build_command_handlers(
         run_adna_archive_projects=run_adna_archive_projects,
+        run_adna_artifact_plan=run_adna_artifact_plan,
         run_adna_curation_manifest=run_adna_curation_manifest,
         run_adna_domestication_coverage=run_adna_domestication_coverage,
         run_adna_layout=run_adna_layout,
+        run_adna_normalization_bundle=run_adna_normalization_bundle,
         run_adna_runtime_manifest=run_adna_runtime_manifest,
         run_adna_species=run_adna_species,
         run_adna_species_review=run_adna_species_review,
