@@ -21,14 +21,18 @@ flowchart TB
     entry["cli and command_line/"]
     core["core/ and config.py"]
     collect["data_downloader/"]
+    adna["adna/"]
     report["reporting/"]
     outputs["tracked data and report outputs"]
 
     entry --> collect
+    entry --> adna
     entry --> report
     core --> collect
+    core --> adna
     core --> report
     collect --> outputs
+    adna --> report
     report --> outputs
 ```
 
@@ -45,6 +49,8 @@ assembles publication, and where shared helpers stop.
   GeoJSON handling
 - `data_downloader/` owns source collection, staging, contracts, and spatial
   helpers
+- `adna/` owns species-aware ancient-DNA contracts, typed sample records, and
+  manifest-level support boundaries
 - `reporting/` owns AADR reporting, context layers, bundle assembly, and map
   rendering
 
@@ -54,6 +60,7 @@ assembles publication, and where shared helpers stop.
   `src/bijux_pollenomics/command_line/runtime/`
 - `src/bijux_pollenomics/data_downloader/pipeline/`,
   `data_downloader/sources/`, and `data_downloader/spatial/`
+- `src/bijux_pollenomics/adna/`
 - `src/bijux_pollenomics/reporting/bundles/`,
   `reporting/rendering/`, `reporting/context/`, and
   `reporting/map_document/`
