@@ -53,6 +53,8 @@ scope does not stay implicit inside source folders.
   staging area
 - `Homo sapiens` ancient DNA stays visibly species-owned instead of being
   treated as the whole aDNA layer
+- domesticated-animal curation roots stay visible as species-owned review
+  surfaces instead of being buried inside source-specific archive folders
 - normalized outputs stay adjacent to the source family that justifies them
 - publication bundles can still be traced back to source-owned subtrees in the
   same commit
@@ -60,6 +62,8 @@ scope does not stay implicit inside source folders.
 ## First Proof Check
 
 - `data/adna/homo_sapiens/raw/aadr/`
+- `data/adna/equus_caballus/`
+- `data/adna/felis_catus/`
 - `data/aadr/`
 - `data/boundaries/`
 - `data/landclim/`

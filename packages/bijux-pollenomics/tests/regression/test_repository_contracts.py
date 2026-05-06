@@ -30,6 +30,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         targets = re.findall(r"\]\((\.\./docs/[^\)]+)\)", readme_text)
 
         self.assertIn("adna/homo_sapiens", readme_text)
+        self.assertIn("adna/equus_caballus", readme_text)
+        self.assertIn("domesticated-animal curation program", readme_text)
         self.assertIn("aadr -> ../../../aadr", readme_text)
         self.assertGreaterEqual(len(targets), 2)
         for target in targets:
@@ -197,9 +199,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("collect-data <sources...>", command_reference)
         self.assertIn("adna-layout --species <name>", command_reference)
         self.assertIn("adna-runtime-manifest --species <name>", command_reference)
+        self.assertIn("adna-curation-manifest --species <name>", command_reference)
         self.assertIn("adna-archive-projects", command_reference)
+        self.assertIn("adna-domestication-coverage", command_reference)
         self.assertIn("adna-species", command_reference)
         self.assertIn("adna-species-review --species <name>", command_reference)
+        self.assertIn("curated, pending, and rejected projects", command_reference)
+        self.assertIn("cross-species curation coverage", command_reference)
         self.assertIn("project-level scientific metadata", command_reference)
         self.assertIn("project-level admission reviews", command_reference)
         self.assertIn("report-country <country>", command_reference)
@@ -229,11 +235,27 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("accession-family resolution", module_map)
         self.assertIn("archive-integrity", module_map)
         self.assertIn("curated ENA archive intake metadata", module_map)
+        self.assertIn("species curation", module_map)
         self.assertIn("project-level paper", module_map)
         self.assertIn("linkage and scientific metadata", module_map)
         self.assertIn("scientist-facing species review packets", module_map)
         self.assertIn("manifest diff outputs", module_map)
+        self.assertIn("cross-species domestication coverage reporting", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
+
+    def test_directory_layout_docs_mentions_curated_species_roots(self) -> None:
+        directory_layout = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "foundation"
+            / "directory-layout.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("species-owned ancient-DNA surface", directory_layout)
+        self.assertIn("domesticated-animal curation roots", directory_layout)
+        self.assertIn("`data/adna/equus_caballus/`", directory_layout)
+        self.assertIn("`data/adna/felis_catus/`", directory_layout)
 
     def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
         species_root = REPO_ROOT / "data" / "adna" / "homo_sapiens"
