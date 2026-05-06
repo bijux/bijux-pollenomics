@@ -166,6 +166,13 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - `make docs-serve` serves the docs locally at `http://127.0.0.1:8000/`
 - `make clean` removes transient virtualenv, packaging, and cache artifacts
 
+## Local Artifact Contract
+
+- transient local outputs belong under `artifacts/`, not as ad hoc root-level
+  cache or build directories
+- the shared root environment lives at `artifacts/root/check-venv/`
+- the MkDocs site builds to `artifacts/root/docs/site/`
+
 For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/).
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
