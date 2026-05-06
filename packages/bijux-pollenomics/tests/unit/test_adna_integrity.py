@@ -19,6 +19,7 @@ class AdnaIntegrityUnitTests(unittest.TestCase):
                     result_kind="read_run",
                     metadata_url="https://example.org/1",
                     source_family="ENA",
+                    accession_scope="project",
                     archive_status="curated_candidate",
                     notes="horse",
                 ),
@@ -28,6 +29,7 @@ class AdnaIntegrityUnitTests(unittest.TestCase):
                     result_kind="read_run",
                     metadata_url="https://example.org/2",
                     source_family="ENA",
+                    accession_scope="project",
                     archive_status="curated_candidate",
                     notes="donkey",
                 ),
@@ -49,6 +51,7 @@ class AdnaIntegrityUnitTests(unittest.TestCase):
                     result_kind="read_run",
                     metadata_url="https://example.org/1",
                     source_family="ENA",
+                    accession_scope="project",
                     archive_status="curated_candidate",
                     notes="horse",
                 ),
@@ -83,6 +86,34 @@ class AdnaIntegrityUnitTests(unittest.TestCase):
         self.assertEqual(
             report.species_mismatches[0].mismatch_fields,
             ("archive_scientific_name",),
+        )
+
+    def test_archive_integrity_report_surfaces_access_and_domestication_findings(
+        self,
+    ) -> None:
+        report = build_archive_integrity_report(
+            projects=(
+                AdnaArchiveProject(
+                    species_latin_name="Bos taurus",
+                    project_accession="PRJEB75467",
+                    result_kind="read_run",
+                    metadata_url="https://example.org/cattle",
+                    source_family="ENA",
+                    accession_scope="project",
+                    archive_status="paper_pinned_core",
+                    notes="aurochs context",
+                    ancient_status="ancient_confirmed",
+                    access_policy="restricted_access",
+                    domestication_scope="wild_or_progenitor_context",
+                ),
+            )
+        )
+
+        self.assertEqual(report.schema_version, "adna-archive-integrity-report.v1")
+        self.assertEqual(report.access_findings[0].blocking_reason, "archive_not_publicly_usable")
+        self.assertEqual(
+            report.domestication_scope_mismatches[0].domestication_scope,
+            "wild_or_progenitor_context",
         )
 
 

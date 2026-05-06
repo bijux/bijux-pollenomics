@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from bijux_pollenomics.adna import (
+    AdnaArchiveProject,
     build_project_admission_review,
     build_species_archive_projects,
     build_species_dataset_review,
@@ -74,6 +75,40 @@ class AdnaGovernanceUnitTests(unittest.TestCase):
         self.assertTrue(review.core_project)
         self.assertTrue(review.admissible_for_curated_support)
         self.assertEqual(review.blocking_reasons, ())
+
+    def test_project_admission_review_blocks_restricted_archive_even_with_paper_pin(
+        self,
+    ) -> None:
+        review = build_project_admission_review(
+            AdnaArchiveProject(
+                species_latin_name="Canis lupus familiaris",
+                project_accession="SRP000001",
+                result_kind="read_run",
+                metadata_url="https://www.ncbi.nlm.nih.gov/sra?term=SRP000001",
+                source_family="SRA",
+                accession_scope="project",
+                archive_status="paper_pinned_core",
+                notes="restricted dog archive",
+                ancient_status="ancient_confirmed",
+                sequencing_target="shotgun_genome",
+                material_basis="individual_bone_or_tooth",
+                dating_basis="archaeological_period_assignment",
+                geographic_basis="site_level_localities",
+                access_policy="restricted_access",
+            ),
+            product_role="domesticated_core",
+        )
+
+        self.assertFalse(review.admissible_for_curated_support)
+        self.assertIn("archive_not_publicly_usable", review.blocking_reasons)
+
+    def test_species_dataset_review_flags_ancient_but_not_domesticated_core_projects(
+        self,
+    ) -> None:
+        review = build_species_dataset_review("Bos taurus")
+
+        self.assertEqual(review.dataset_bucket, "archive_verified_needs_paper_pinning")
+        self.assertIn("ancient_but_not_domesticated_core_projects", review.blocking_reasons)
 
 
 if __name__ == "__main__":

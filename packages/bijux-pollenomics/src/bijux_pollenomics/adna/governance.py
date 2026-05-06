@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 from typing import Final
 
 from .ena import (
@@ -50,9 +51,14 @@ class AdnaProjectAdmissionReview:
 
     species_latin_name: str
     project_accession: str
+    source_family: str
+    accession_scope: str
     archive_status: str
     evidence_strength: str
     ancient_status: str
+    access_policy: str
+    public_release_date: str | None
+    domestication_scope: str
     core_project: bool
     admissible_for_curated_support: bool
     blocking_reasons: tuple[str, ...]
@@ -61,9 +67,14 @@ class AdnaProjectAdmissionReview:
         return {
             "species_latin_name": self.species_latin_name,
             "project_accession": self.project_accession,
+            "source_family": self.source_family,
+            "accession_scope": self.accession_scope,
             "archive_status": self.archive_status,
             "evidence_strength": self.evidence_strength,
             "ancient_status": self.ancient_status,
+            "access_policy": self.access_policy,
+            "public_release_date": self.public_release_date,
+            "domestication_scope": self.domestication_scope,
             "core_project": self.core_project,
             "admissible_for_curated_support": self.admissible_for_curated_support,
             "blocking_reasons": list(self.blocking_reasons),
@@ -155,13 +166,23 @@ def build_project_admission_review(
         project.paper_linkage is None or not project.paper_linkage.pinning_evidence.strip()
     ):
         blocking_reasons.append("missing_archive_paper_pinning_rationale")
+    access_policy_blocker = _access_policy_blocker(project)
+    if core_project and access_policy_blocker is not None:
+        blocking_reasons.append(access_policy_blocker)
+    if core_project and project.domestication_scope != "domesticated_core":
+        blocking_reasons.append("ancient_but_not_domesticated_core")
     admissible = core_project and not blocking_reasons
     return AdnaProjectAdmissionReview(
         species_latin_name=project.species_latin_name,
         project_accession=project.project_accession,
+        source_family=project.source_family,
+        accession_scope=project.accession_scope,
         archive_status=project.archive_status,
         evidence_strength=evidence_strength,
         ancient_status=project.ancient_status,
+        access_policy=project.access_policy,
+        public_release_date=project.public_release_date,
+        domestication_scope=project.domestication_scope,
         core_project=core_project,
         admissible_for_curated_support=admissible,
         blocking_reasons=tuple(blocking_reasons),
@@ -212,6 +233,19 @@ def build_species_dataset_review(species_name: str) -> AdnaSpeciesDatasetReview:
             if review.core_project
         ):
             blocking_reasons.append("non_ancient_or_unconfirmed_core_projects")
+        if any(
+            "archive_not_publicly_usable" in review.blocking_reasons
+            or "archive_release_still_embargoed" in review.blocking_reasons
+            for review in project_reviews
+            if review.core_project
+        ):
+            blocking_reasons.append("restricted_or_delayed_archive_projects")
+        if any(
+            "ancient_but_not_domesticated_core" in review.blocking_reasons
+            for review in project_reviews
+            if review.core_project
+        ):
+            blocking_reasons.append("ancient_but_not_domesticated_core_projects")
     if not manifest_schema_required:
         blocking_reasons.append("missing_manifest_schema")
     if assignment_rule == "mixed_species_review_required":
@@ -271,3 +305,24 @@ def _dataset_bucket_for(
     if curated_support_project_count == core_project_count:
         return "paper_pinned_core"
     return "archive_verified_needs_paper_pinning"
+
+
+def _access_policy_blocker(project: AdnaArchiveProject) -> str | None:
+    if project.access_policy == "public_downloadable":
+        return None
+    if project.access_policy == "restricted_access":
+        return "archive_not_publicly_usable"
+    if project.access_policy == "delayed_release_unverified":
+        return "archive_not_publicly_usable"
+    if (
+        project.access_policy == "embargoed_until_release_date"
+        and project.public_release_date is not None
+    ):
+        try:
+            release_date = date.fromisoformat(project.public_release_date)
+        except ValueError:
+            return "archive_not_publicly_usable"
+        if release_date > date.today():
+            return "archive_release_still_embargoed"
+        return None
+    return "archive_not_publicly_usable"

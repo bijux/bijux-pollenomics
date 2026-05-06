@@ -7,8 +7,10 @@ from .ena import AdnaArchiveProject, AdnaEnaRecord, build_archive_project_catalo
 from .species import resolve_species_definition
 
 __all__ = [
+    "AdnaArchiveAccessFinding",
     "AdnaArchiveDuplicate",
     "AdnaArchiveIntegrityReport",
+    "AdnaDomesticationScopeMismatch",
     "AdnaSpeciesMismatch",
     "build_archive_integrity_report",
 ]
@@ -27,6 +29,26 @@ class AdnaArchiveDuplicate:
             "accession": self.accession,
             "species_latin_names": list(self.species_latin_names),
             "project_accessions": list(self.project_accessions),
+        }
+
+
+@dataclass(frozen=True)
+class AdnaArchiveAccessFinding:
+    """Restricted, delayed, or embargoed archive access finding."""
+
+    curated_species_latin_name: str
+    project_accession: str
+    access_policy: str
+    public_release_date: str | None
+    blocking_reason: str
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "curated_species_latin_name": self.curated_species_latin_name,
+            "project_accession": self.project_accession,
+            "access_policy": self.access_policy,
+            "public_release_date": self.public_release_date,
+            "blocking_reason": self.blocking_reason,
         }
 
 
@@ -51,16 +73,44 @@ class AdnaSpeciesMismatch:
 
 
 @dataclass(frozen=True)
-class AdnaArchiveIntegrityReport:
-    """Duplicate and species-integrity findings for curated archive support."""
+class AdnaDomesticationScopeMismatch:
+    """Ancient project finding that is relevant but not domesticated-core for the species."""
 
-    duplicates: tuple[AdnaArchiveDuplicate, ...]
-    species_mismatches: tuple[AdnaSpeciesMismatch, ...]
+    curated_species_latin_name: str
+    project_accession: str
+    domestication_scope: str
+    archive_status: str
+    notes: str
 
     def as_dict(self) -> dict[str, object]:
         return {
+            "curated_species_latin_name": self.curated_species_latin_name,
+            "project_accession": self.project_accession,
+            "domestication_scope": self.domestication_scope,
+            "archive_status": self.archive_status,
+            "notes": self.notes,
+        }
+
+
+@dataclass(frozen=True)
+class AdnaArchiveIntegrityReport:
+    """Duplicate and species-integrity findings for curated archive support."""
+
+    schema_version: str
+    duplicates: tuple[AdnaArchiveDuplicate, ...]
+    access_findings: tuple[AdnaArchiveAccessFinding, ...]
+    species_mismatches: tuple[AdnaSpeciesMismatch, ...]
+    domestication_scope_mismatches: tuple[AdnaDomesticationScopeMismatch, ...]
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "schema_version": self.schema_version,
             "duplicates": [item.as_dict() for item in self.duplicates],
+            "access_findings": [item.as_dict() for item in self.access_findings],
             "species_mismatches": [item.as_dict() for item in self.species_mismatches],
+            "domestication_scope_mismatches": [
+                item.as_dict() for item in self.domestication_scope_mismatches
+            ],
         }
 
 
@@ -79,14 +129,19 @@ def build_archive_integrity_report(
             item for item in catalog if item.species_latin_name == curated_species.latin_name
         )
     duplicates = _find_duplicate_projects(catalog)
+    access_findings = _find_access_policy_findings(catalog)
     mismatches = _find_species_mismatches(
         catalog=catalog,
         records=records,
         paper_species_name=paper_species_name,
     )
+    domestication_scope_mismatches = _find_domestication_scope_mismatches(catalog)
     return AdnaArchiveIntegrityReport(
+        schema_version="adna-archive-integrity-report.v1",
         duplicates=duplicates,
+        access_findings=access_findings,
         species_mismatches=mismatches,
+        domestication_scope_mismatches=domestication_scope_mismatches,
     )
 
 
@@ -112,6 +167,25 @@ def _find_duplicate_projects(
             )
         )
     return tuple(sorted(duplicates, key=lambda item: item.accession))
+
+
+def _find_access_policy_findings(
+    catalog: tuple[AdnaArchiveProject, ...],
+) -> tuple[AdnaArchiveAccessFinding, ...]:
+    findings = []
+    for project in catalog:
+        if project.access_policy == "public_downloadable":
+            continue
+        findings.append(
+            AdnaArchiveAccessFinding(
+                curated_species_latin_name=project.species_latin_name,
+                project_accession=project.project_accession,
+                access_policy=project.access_policy,
+                public_release_date=project.public_release_date,
+                blocking_reason="archive_not_publicly_usable",
+            )
+        )
+    return tuple(findings)
 
 
 def _find_species_mismatches(
@@ -153,4 +227,25 @@ def _find_species_mismatches(
                     mismatch_fields=tuple(mismatch_fields),
                 )
             )
+    return tuple(findings)
+
+
+def _find_domestication_scope_mismatches(
+    catalog: tuple[AdnaArchiveProject, ...],
+) -> tuple[AdnaDomesticationScopeMismatch, ...]:
+    findings = []
+    for project in catalog:
+        if project.archive_status == "reject_or_out_of_scope":
+            continue
+        if project.domestication_scope == "domesticated_core":
+            continue
+        findings.append(
+            AdnaDomesticationScopeMismatch(
+                curated_species_latin_name=project.species_latin_name,
+                project_accession=project.project_accession,
+                domestication_scope=project.domestication_scope,
+                archive_status=project.archive_status,
+                notes=project.notes,
+            )
+        )
     return tuple(findings)
