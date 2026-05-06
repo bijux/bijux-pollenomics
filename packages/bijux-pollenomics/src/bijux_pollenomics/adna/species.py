@@ -109,10 +109,23 @@ def build_species_support_matrix() -> tuple[AdnaSpeciesDefinition, ...]:
             support_status="provisional",
             modalities=("archive_reads", "paper_only"),
             source_families=("ENA", "SRA", "BioProject"),
-            aliases=("cattle", "cow", "domestic cattle", "bos indicus"),
+            aliases=("cattle", "cow", "domestic cattle"),
             notes=(
                 "Cattle support remains provisional until species-split and ancestry "
                 "rules are made explicit in code."
+            ),
+        ),
+        AdnaSpeciesDefinition(
+            latin_name="Bos indicus",
+            slug="bos_indicus",
+            common_name="zebu",
+            support_status="provisional",
+            modalities=("archive_reads", "paper_only"),
+            source_families=("ENA", "SRA", "BioProject"),
+            aliases=("zebu", "domestic zebu", "indicine cattle"),
+            notes=(
+                "Bos indicus stays separate from Bos taurus until species-split "
+                "rules and project-level indicine support are explicit in code."
             ),
         ),
         AdnaSpeciesDefinition(

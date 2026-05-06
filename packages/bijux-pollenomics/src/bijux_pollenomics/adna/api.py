@@ -3,6 +3,12 @@ from .accessions import (
     resolve_accession_lineage,
     resolve_accession_reference,
 )
+from .bovines import (
+    BovineCombinedClaimRule,
+    BovineSpeciesSupportRow,
+    BovineSupportProgram,
+    build_bovine_support_program,
+)
 from .curation import (
     ADNA_COVERAGE_POSTURES,
     ADNA_CURATION_CLASSES,
@@ -44,6 +50,11 @@ from .homo_sapiens import (
     iter_homo_sapiens_samples_from_anno,
     load_homo_sapiens_country_samples,
     load_homo_sapiens_samples,
+)
+from .homo_sapiens_genotypes import (
+    HomoSapiensGenotypeArtifact,
+    HomoSapiensGenotypeContract,
+    build_homo_sapiens_genotype_contract,
 )
 from .homo_sapiens_schema import (
     resolve_homo_sapiens_schema,
@@ -173,10 +184,17 @@ __all__ = [
     "AdnaSpeciesReviewPacket",
     "AdnaSpeciesRuntimeManifest",
     "AdnaStudySummary",
+    "BovineCombinedClaimRule",
+    "BovineSpeciesSupportRow",
+    "BovineSupportProgram",
+    "HomoSapiensGenotypeArtifact",
+    "HomoSapiensGenotypeContract",
     "build_archive_integrity_report",
     "build_archive_project_catalog",
+    "build_bovine_support_program",
     "build_domestication_coverage_report",
     "build_ena_filereport_url",
+    "build_homo_sapiens_genotype_contract",
     "build_homo_sapiens_runtime_manifest",
     "build_homo_sapiens_runtime_manifest_for_version_dir",
     "build_locality_identity",
