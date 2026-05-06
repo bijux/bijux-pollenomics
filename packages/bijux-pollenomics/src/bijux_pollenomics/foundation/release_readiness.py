@@ -100,9 +100,10 @@ def _curation_integrity_ok(dataset_review, integrity) -> bool:
         return False
     if integrity.species_mismatches:
         return False
-    if dataset_review.product_role == "domesticated_core" and integrity.domestication_scope_mismatches:
-        return False
-    return True
+    return not (
+        dataset_review.product_role == "domesticated_core"
+        and integrity.domestication_scope_mismatches
+    )
 
 
 def _normalized_record_contract_ok(species_name: str) -> bool:

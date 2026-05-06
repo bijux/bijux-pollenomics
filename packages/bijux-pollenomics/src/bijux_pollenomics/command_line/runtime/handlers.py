@@ -21,8 +21,12 @@ from ...data_downloader import (
     collect_data,
     validate_collection_summary_file,
 )
-from ...foundation import build_ownership_map, build_product_scope, build_surface_map
-from ...foundation import build_release_readiness_report
+from ...foundation import (
+    build_ownership_map,
+    build_product_scope,
+    build_release_readiness_report,
+    build_surface_map,
+)
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
