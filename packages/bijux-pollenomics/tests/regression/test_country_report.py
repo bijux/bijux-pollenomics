@@ -24,7 +24,6 @@ from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,
 )
-
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 
@@ -1242,6 +1241,7 @@ class CountryReportTests(unittest.TestCase):
         from bijux_pollenomics.adna import (
             AdnaChronology,
             AdnaCoordinate,
+            AdnaLocalityIdentity,
             AdnaSampleIdentity,
         )
         from bijux_pollenomics.reporting.models import SampleRecord
@@ -1256,6 +1256,16 @@ class CountryReportTests(unittest.TestCase):
                     f"dataset:{datasets[0]}",
                     f"genetic_id:{genetic_id}",
                 ),
+            ),
+            locality_identity=AdnaLocalityIdentity(
+                namespace="homo_sapiens:locality",
+                stable_token=(
+                    f"homo_sapiens:aadr:{political_entity.casefold()}:{locality.casefold()}:"
+                    "59-8586-17-6389"
+                ),
+                locality_text=locality,
+                political_entity=political_entity,
+                source_anchor_tokens=("AADR", "59.8586", "17.6389"),
             ),
             species_latin_name="Homo sapiens",
             species_common_name="human",

@@ -3,8 +3,8 @@ from __future__ import annotations
 import unittest
 
 from bijux_pollenomics.adna import (
+    ADNA_LAYOUT_SEGMENTS,
     ADNA_MODALITIES,
-    ADNA_SPECIES_LAYOUT_SEGMENTS,
     ADNA_SUPPORT_STATUSES,
     build_species_manifest,
     build_species_support_matrix,
@@ -55,7 +55,7 @@ class AdnaSpeciesSupportUnitTests(unittest.TestCase):
             manifest.normalized_sample_namespace,
             "homo_sapiens:normalized_sample",
         )
-        self.assertEqual(manifest.tracked_layout, ADNA_SPECIES_LAYOUT_SEGMENTS)
+        self.assertEqual(manifest.tracked_layout, ADNA_LAYOUT_SEGMENTS)
         payload = manifest.as_dict()
         self.assertEqual(payload["scientific_scope"], manifest.scientific_scope)
         self.assertEqual(payload["runtime_scope"], manifest.runtime_scope)

@@ -5,6 +5,7 @@ import unittest
 from bijux_pollenomics.adna import (
     AdnaChronology,
     AdnaCoordinate,
+    AdnaLocalityIdentity,
     AdnaLocalitySummary,
     AdnaSampleIdentity,
     AdnaSampleRecord,
@@ -23,6 +24,13 @@ class AdnaRecordUnitTests(unittest.TestCase):
                     "dataset:ho",
                     "genetic_id:SE1",
                 ),
+            ),
+            locality_identity=AdnaLocalityIdentity(
+                namespace="homo_sapiens:locality",
+                stable_token="homo_sapiens:aadr:sweden:uppsala:59-8586-17-6389",
+                locality_text="Uppsala",
+                political_entity="Sweden",
+                source_anchor_tokens=("AADR", "59.8586", "17.6389"),
             ),
             species_latin_name="Homo sapiens",
             species_common_name="human",
@@ -55,12 +63,20 @@ class AdnaRecordUnitTests(unittest.TestCase):
 
         self.assertEqual(sample.genetic_id, "SE1")
         self.assertEqual(sample.sample_namespace, "homo_sapiens:aadr_genetic_id")
+        self.assertEqual(sample.locality_namespace, "homo_sapiens:locality")
         self.assertEqual(sample.latitude_text, "59.8586")
         self.assertEqual(sample.time_mean_bp, 2450)
         self.assertEqual(sample.dating_basis, "bp_mean_and_stddev")
 
     def test_locality_summary_exposes_species_and_time_properties(self) -> None:
         locality = AdnaLocalitySummary(
+            identity=AdnaLocalityIdentity(
+                namespace="homo_sapiens:locality",
+                stable_token="homo_sapiens:aadr:sweden:uppsala:59-8586-17-6389",
+                locality_text="Uppsala",
+                political_entity="Sweden",
+                source_anchor_tokens=("AADR", "59.8586", "17.6389"),
+            ),
             species_latin_name="Homo sapiens",
             species_common_name="human",
             source_family="AADR",
@@ -86,6 +102,7 @@ class AdnaRecordUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(locality.species_latin_name, "Homo sapiens")
+        self.assertEqual(locality.locality_namespace, "homo_sapiens:locality")
         self.assertEqual(locality.time_label, "2200-2700 BP")
         self.assertEqual(locality.coordinate_confidence, "unknown")
 

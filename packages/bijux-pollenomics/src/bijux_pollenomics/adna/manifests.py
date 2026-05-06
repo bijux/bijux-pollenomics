@@ -2,15 +2,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .layout import ADNA_LAYOUT_SEGMENTS, build_species_layout
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
-    "ADNA_SPECIES_LAYOUT_SEGMENTS",
     "AdnaSpeciesManifest",
     "build_species_manifest",
 ]
-
-ADNA_SPECIES_LAYOUT_SEGMENTS = ("raw", "normalized", "manifests", "reports", "review")
 
 
 @dataclass(frozen=True)
@@ -42,13 +40,14 @@ class AdnaSpeciesManifest:
 def build_species_manifest(name: str) -> AdnaSpeciesManifest:
     """Build the canonical species manifest for one supported or planned species."""
     species = resolve_species_definition(name)
+    layout = build_species_layout(name)
     return AdnaSpeciesManifest(
         schema_version="adna-species-manifest.v1",
         species=species,
         root_slug=species.slug,
-        data_root=f"data/adna/{species.slug}",
+        data_root=layout.root_dir,
         normalized_sample_namespace=f"{species.slug}:normalized_sample",
-        tracked_layout=ADNA_SPECIES_LAYOUT_SEGMENTS,
+        tracked_layout=ADNA_LAYOUT_SEGMENTS,
         scientific_scope=(
             "Species-aware ancient-DNA intake and review boundary. Support status "
             "describes evidence readiness, not broad scientific sufficiency."

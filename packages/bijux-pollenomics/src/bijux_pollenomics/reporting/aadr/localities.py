@@ -3,7 +3,12 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Iterable
 
-from ...adna import AdnaChronology, AdnaCoordinate, AdnaLocalitySummary, AdnaSampleRecord
+from ...adna import (
+    AdnaChronology,
+    AdnaCoordinate,
+    AdnaLocalitySummary,
+    AdnaSampleRecord,
+)
 from ...core.bp_time import (
     build_bp_interval_label,
     merge_bp_intervals,
@@ -41,6 +46,7 @@ def summarize_localities(
         )
         summaries.append(
             AdnaLocalitySummary(
+                identity=records[0].locality_identity,
                 species_latin_name=records[0].species_latin_name,
                 species_common_name=records[0].species_common_name,
                 source_family=records[0].source_family,

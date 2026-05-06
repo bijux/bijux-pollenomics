@@ -7,6 +7,7 @@ __all__ = [
     "ADNA_DATING_BASES",
     "AdnaChronology",
     "AdnaCoordinate",
+    "AdnaLocalityIdentity",
     "AdnaLocalitySummary",
     "AdnaSampleIdentity",
     "AdnaSampleRecord",
@@ -61,10 +62,22 @@ class AdnaSampleIdentity:
 
 
 @dataclass(frozen=True)
+class AdnaLocalityIdentity:
+    """Canonical shared locality anchor for species-aware ancient-DNA records."""
+
+    namespace: str
+    stable_token: str
+    locality_text: str
+    political_entity: str
+    source_anchor_tokens: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class AdnaSampleRecord:
     """Species-aware normalized ancient-DNA sample record."""
 
     identity: AdnaSampleIdentity
+    locality_identity: AdnaLocalityIdentity
     species_latin_name: str
     species_common_name: str
     source_family: str
@@ -92,6 +105,14 @@ class AdnaSampleRecord:
     @property
     def accession_lineage(self) -> tuple[str, ...]:
         return self.identity.accession_lineage
+
+    @property
+    def locality_namespace(self) -> str:
+        return self.locality_identity.namespace
+
+    @property
+    def locality_token(self) -> str:
+        return self.locality_identity.stable_token
 
     @property
     def latitude(self) -> float:
@@ -146,6 +167,7 @@ class AdnaSampleRecord:
 class AdnaLocalitySummary:
     """Species-aware locality summary derived from normalized ancient-DNA samples."""
 
+    identity: AdnaLocalityIdentity
     species_latin_name: str
     species_common_name: str
     source_family: str
@@ -176,6 +198,14 @@ class AdnaLocalitySummary:
     @property
     def coordinate_confidence(self) -> str:
         return self.coordinates.confidence
+
+    @property
+    def locality_namespace(self) -> str:
+        return self.identity.namespace
+
+    @property
+    def locality_token(self) -> str:
+        return self.identity.stable_token
 
     @property
     def time_start_bp(self) -> int | None:
