@@ -46,18 +46,23 @@ def write_candidate_sites_csv(path: Path, scores: list[CandidateSiteScore]) -> N
 
 def write_candidate_sites_json(path: Path, scores: list[CandidateSiteScore]) -> None:
     """Write candidate-site rankings as JSON."""
-    payload = [
-        {
-            "locality": score.locality,
-            "total_score": score.total_score,
-            "sample_signal": score.sample_signal,
-            "context_signal": score.context_signal,
-            "temporal_signal": score.temporal_signal,
-            "distance_signal": score.distance_signal,
-            "rationale": list(score.rationale),
-        }
-        for score in scores
-    ]
+    policy = build_site_ranking_policy(title="Atlas")
+    payload = {
+        "schema_version": "candidate-site-ranking.v1",
+        "evidence_boundary": f'{policy["intro"]} {policy["boundary"]}',
+        "rows": [
+            {
+                "locality": score.locality,
+                "total_score": score.total_score,
+                "sample_signal": score.sample_signal,
+                "context_signal": score.context_signal,
+                "temporal_signal": score.temporal_signal,
+                "distance_signal": score.distance_signal,
+                "rationale": list(score.rationale),
+            }
+            for score in scores
+        ],
+    }
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 

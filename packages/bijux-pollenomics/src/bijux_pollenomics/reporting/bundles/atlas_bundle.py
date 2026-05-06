@@ -8,6 +8,7 @@ from ...analysis import (
     rank_localities,
     render_candidate_site_markdown,
     write_candidate_sites_csv,
+    write_candidate_sites_json,
 )
 from ...core.geojson import JsonObject
 from ...data_downloader.models import ContextPointRecord
@@ -62,6 +63,7 @@ def publish_multi_country_map_bundle(
         _extract_context_points(point_layers),
     )
     write_candidate_sites_csv(bundle_paths.candidate_sites_csv_path, ranked_sites)
+    write_candidate_sites_json(bundle_paths.candidate_sites_json_path, ranked_sites)
     bundle_paths.candidate_sites_markdown_path.write_text(
         render_candidate_site_markdown(ranked_sites, title=title),
         encoding="utf-8",
@@ -69,6 +71,7 @@ def publish_multi_country_map_bundle(
     extra_artifacts.extend(
         [
             ("Candidate site ranking CSV", bundle_paths.candidate_sites_csv_path.name),
+            ("Candidate site ranking JSON", bundle_paths.candidate_sites_json_path.name),
             (
                 "Candidate site ranking markdown",
                 bundle_paths.candidate_sites_markdown_path.name,

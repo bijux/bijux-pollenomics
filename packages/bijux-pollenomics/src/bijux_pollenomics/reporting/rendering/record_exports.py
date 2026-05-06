@@ -19,6 +19,7 @@ __all__ = [
 
 
 SAMPLE_EXPORT_FIELDS = (
+    "schema_version",
     "species_latin_name",
     "species_common_name",
     "source_family",
@@ -47,6 +48,7 @@ SAMPLE_EXPORT_FIELDS = (
     "accession_lineage",
 )
 LOCALITY_EXPORT_FIELDS = (
+    "schema_version",
     "species_latin_name",
     "species_common_name",
     "source_family",
@@ -69,6 +71,7 @@ LOCALITY_EXPORT_FIELDS = (
 def serialize_sample_record(sample: SampleRecord) -> dict[str, object]:
     """Serialize one sample record into the shared export contract."""
     return {
+        "schema_version": "adna-sample-record-export.v1",
         "species_latin_name": sample.species_latin_name,
         "species_common_name": sample.species_common_name,
         "source_family": sample.source_family,
@@ -101,6 +104,7 @@ def serialize_sample_record(sample: SampleRecord) -> dict[str, object]:
 def serialize_locality_summary(locality: LocalitySummary) -> dict[str, object]:
     """Serialize one locality summary into the shared export contract."""
     return {
+        "schema_version": "adna-locality-summary-export.v1",
         "species_latin_name": locality.species_latin_name,
         "species_common_name": locality.species_common_name,
         "source_family": locality.source_family,
@@ -125,6 +129,7 @@ def build_sample_geojson_feature(sample: SampleRecord) -> dict[str, object]:
     properties = serialize_sample_record(sample)
     properties["datasets"] = list(sample.datasets)
     return {
+        "schema_version": "adna-sample-geojson.v1",
         "type": "Feature",
         "geometry": {
             "type": "Point",
@@ -139,7 +144,11 @@ def build_samples_geojson(samples: Iterable[SampleRecord]) -> dict[str, object]:
     features = []
     for sample in samples:
         features.append(build_sample_geojson_feature(sample))
-    return {"type": "FeatureCollection", "features": features}
+    return {
+        "schema_version": "adna-sample-geojson-collection.v1",
+        "type": "FeatureCollection",
+        "features": features,
+    }
 
 
 def write_samples_csv(path: Path, samples: Iterable[SampleRecord]) -> None:
