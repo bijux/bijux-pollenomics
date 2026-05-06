@@ -247,6 +247,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("cross-species domestication coverage reporting", module_map)
         self.assertIn("non-human normalization", module_map)
         self.assertIn("deterministic artifact plans", module_map)
+        self.assertIn("`reporting/adna/`", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
     def test_directory_layout_docs_mentions_curated_species_roots(self) -> None:

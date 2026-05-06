@@ -1,5 +1,5 @@
 from ..adna import AdnaLocalitySummary, AdnaSampleRecord
-from .aadr import SchemaError, load_country_samples, summarize_localities
+from .adna import SchemaError, load_country_samples, summarize_localities
 from .models import (
     CountryReport,
     MultiCountryMapReport,
