@@ -477,6 +477,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
             self.assertIn("country-checkbox", map_html)
             self.assertIn("Sweden", map_html)
@@ -567,6 +568,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertNotIn("<title>Nordic Countries AADR v62.0 Map</title>", map_html)
             self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
             self.assertNotIn("unpkg.com/leaflet", map_html)
+            self.assertIn("Non-human animal aDNA remains a governed species-review surface", readme_text)
 
             geojson = json.loads(
                 (output / "nordic-atlas_samples.geojson").read_text(encoding="utf-8")

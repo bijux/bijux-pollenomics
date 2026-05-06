@@ -63,14 +63,16 @@ def build_multi_country_map_policy(
             f"This shared interactive map bundle was generated on `{generated_on}`."
         ),
         "scope": (
-            f"It combines Homo sapiens aDNA records from AADR `{version}` with whichever "
-            "contextual datasets are present in the repository at generation time and "
-            "copies those derived artifacts into this directory."
+            f"It combines mapped Homo sapiens aDNA records from AADR `{version}` with "
+            "whichever contextual datasets are present in the repository at generation "
+            "time and copies those derived artifacts into this directory. Non-human "
+            "animal aDNA remains a governed species-review surface unless the runtime "
+            "owns mapped animal sample or locality records."
         ),
         "count_note": (
             "Country sample counts in this README refer to Homo sapiens aDNA records "
-            "derived from AADR. Context layers can have different geographic scope and "
-            "record counts inside the map."
+            "derived from AADR. Context layers and animal aDNA review surfaces can "
+            "have different geographic scope and record counts inside the map."
         ),
     }
 

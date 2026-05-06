@@ -22,6 +22,12 @@ class ReleaseReadinessUnitTests(unittest.TestCase):
         self.assertTrue(report.atlas_bundle_contract_ok)
         self.assertTrue(report.ranking_provenance_ok)
 
+    def test_release_readiness_includes_atlas_evidence_surface_contract(self) -> None:
+        report = build_release_readiness_report("Homo sapiens")
+
+        self.assertTrue(report.atlas_bundle_contract_ok)
+        self.assertNotIn("atlas_bundle_contract_failed", report.findings)
+
 
 if __name__ == "__main__":
     unittest.main()
