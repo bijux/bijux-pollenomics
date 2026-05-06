@@ -12,6 +12,7 @@ from .boundaries import (
 from .data_layout import (
     AVAILABLE_SOURCES,
     build_source_output_roots,
+    ensure_homo_sapiens_adna_layout,
     write_data_directory_readme,
 )
 from .landclim import collect_landclim_data
@@ -143,6 +144,7 @@ def collect_data(
     output_root.mkdir(parents=True, exist_ok=True)
     for source_dir in AVAILABLE_SOURCES:
         (output_root / source_dir).mkdir(parents=True, exist_ok=True)
+    ensure_homo_sapiens_adna_layout(output_root)
     write_data_directory_readme(output_root, version=version)
     validate_source_layout_contract(build_source_layout_contract(output_root))
     validate_source_snapshot(

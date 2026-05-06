@@ -9,6 +9,7 @@ from bijux_pollenomics.data_downloader.data_layout import (
     DATA_LAYOUT_INDEX,
     DATA_SOURCE_INDEX,
     build_source_output_roots,
+    ensure_homo_sapiens_adna_layout,
     render_data_root_readme_for,
     write_data_directory_readme,
 )
@@ -57,3 +58,19 @@ class DataLayoutUnitTests(unittest.TestCase):
             write_data_directory_readme(output_root, "v62.0")
 
             self.assertTrue((output_root / "README.md").exists())
+
+    def test_ensure_homo_sapiens_adna_layout_creates_species_view(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            output_root.mkdir(parents=True, exist_ok=True)
+
+            ensure_homo_sapiens_adna_layout(output_root)
+
+            species_root = output_root / "adna" / "homo_sapiens"
+            self.assertTrue((species_root / "normalized").is_dir())
+            self.assertTrue((species_root / "manifests").is_dir())
+            self.assertTrue((species_root / "reports").is_dir())
+            self.assertTrue((species_root / "review").is_dir())
+            raw_aadr = species_root / "raw" / "aadr"
+            self.assertTrue(raw_aadr.is_symlink())
+            self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")

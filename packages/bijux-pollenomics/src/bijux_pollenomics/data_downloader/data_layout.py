@@ -8,6 +8,7 @@ from ..core.files import write_text
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
 DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/foundation/directory-layout.md"
+HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../aadr"
 
 
 def render_data_root_readme() -> str:
@@ -78,3 +79,29 @@ def write_data_directory_readme(output_root: Path, version: str) -> None:
         Path(output_root) / "README.md",
         render_data_root_readme_for(Path(output_root), version),
     )
+
+
+def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
+    """Materialize the governed Homo sapiens aDNA layout under one data root."""
+    output_root = Path(output_root)
+    species_root = output_root / "adna" / "homo_sapiens"
+    raw_root = species_root / "raw"
+    for directory in (
+        raw_root,
+        species_root / "normalized",
+        species_root / "manifests",
+        species_root / "reports",
+        species_root / "review",
+    ):
+        directory.mkdir(parents=True, exist_ok=True)
+    raw_aadr = raw_root / "aadr"
+    if raw_aadr.exists() or raw_aadr.is_symlink():
+        if not raw_aadr.is_symlink():
+            raise ValueError(f"expected Homo sapiens raw AADR path to be a symlink: {raw_aadr}")
+        if raw_aadr.readlink().as_posix() != HOMO_SAPIENS_ADNA_SYMLINK_TARGET:
+            raise ValueError(
+                f"unexpected Homo sapiens raw AADR symlink target for {raw_aadr}: "
+                f"{raw_aadr.readlink()}"
+            )
+        return
+    raw_aadr.symlink_to(Path(HOMO_SAPIENS_ADNA_SYMLINK_TARGET))
