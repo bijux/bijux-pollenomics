@@ -8,6 +8,7 @@ RUNTIME_SRC = REPO_ROOT / "packages" / "bijux-pollenomics" / "src" / "bijux_poll
 DATA_DOWNLOADER_SRC = RUNTIME_SRC / "data_downloader"
 REPORTING_SRC = RUNTIME_SRC / "reporting"
 ADNA_SRC = RUNTIME_SRC / "adna"
+EVIDENCE_SRC = RUNTIME_SRC / "evidence"
 
 
 def _python_files(root: Path) -> list[Path]:
@@ -149,3 +150,29 @@ def test_release_readiness_gate_stays_outside_adna_domain() -> None:
 
     assert "build_release_readiness_report" in release_gate
     assert "build_release_readiness_report" not in adna_modules
+
+
+def test_evidence_domain_does_not_import_rendering_cli_or_foundation_layers() -> None:
+    failures: list[str] = []
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(EVIDENCE_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.reporting(\.rendering|\.map_document|\.bundles|\s|$)",
+        )
+    )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(EVIDENCE_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.command_line(\.|\s|$)",
+        )
+    )
+    failures.extend(
+        _find_forbidden_imports(
+            _python_files(EVIDENCE_SRC),
+            r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.foundation(\.|\s|$)",
+        )
+    )
+
+    assert not failures, "evidence domain imports higher-level runtime layers:\n" + "\n".join(
+        failures
+    )
