@@ -133,7 +133,11 @@ def build_species_support_matrix() -> tuple[AdnaSpeciesDefinition, ...]:
             modalities=("archive_reads", "mitogenome_only", "paper_only"),
             source_families=("SRA", "GenBank"),
             aliases=("dog", "domestic dog"),
-            notes="Dog support needs a species-aware archive and GenBank bridge before promotion.",
+            notes=(
+                "Dog support is now paper-pinned through sample-level SRA and GenBank "
+                "anchors, but runtime normalization beyond governed curation review is "
+                "still not implemented."
+            ),
         ),
         AdnaSpeciesDefinition(
             latin_name="Felis catus",
@@ -153,7 +157,11 @@ def build_species_support_matrix() -> tuple[AdnaSpeciesDefinition, ...]:
             modalities=("archive_reads", "mitogenome_only", "paper_only"),
             source_families=("SRA", "GenBank"),
             aliases=("camel", "dromedary", "dromedary camel"),
-            notes="Camel support is provisional and still needs species-specific runtime ingestion rules.",
+            notes=(
+                "Dromedary support is pinned to domestic-dromedary archive evidence. "
+                "Comparator material from other camelids does not promote dromedary "
+                "support automatically."
+            ),
         ),
         AdnaSpeciesDefinition(
             latin_name="Rangifer tarandus",
@@ -163,7 +171,10 @@ def build_species_support_matrix() -> tuple[AdnaSpeciesDefinition, ...]:
             modalities=("archive_reads", "paper_only"),
             source_families=("ENA", "SRA", "BioProject"),
             aliases=("reindeer",),
-            notes="Comparator support only. Reindeer is not part of the domesticated-core intake.",
+            notes=(
+                "Comparator support only. Reindeer remains visible for ancient cervid "
+                "context, not for domesticated-core inference."
+            ),
         ),
         AdnaSpeciesDefinition(
             latin_name="Equus asinus",

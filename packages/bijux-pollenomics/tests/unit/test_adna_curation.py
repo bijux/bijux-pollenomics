@@ -48,6 +48,24 @@ class AdnaCurationUnitTests(unittest.TestCase):
             )
         )
 
+    def test_species_curation_manifest_builds_core_and_comparator_manifests_for_new_species(
+        self,
+    ) -> None:
+        dog = build_species_curation_manifest("dog")
+        camel = build_species_curation_manifest("camel")
+        reindeer = build_species_curation_manifest("reindeer")
+
+        self.assertEqual(dog.curation_class, "paper_pinned_core")
+        self.assertTrue(any(row.project_accession == "SRS1407451" for row in dog.curated_projects))
+        self.assertEqual(camel.curation_class, "paper_pinned_core")
+        self.assertTrue(
+            any(row.project_accession == "SRP073444" for row in camel.curated_projects)
+        )
+        self.assertEqual(reindeer.curation_class, "comparator_only")
+        self.assertTrue(
+            any(row.project_accession == "PRJEB60484" for row in reindeer.pending_projects)
+        )
+
     def test_species_curation_manifest_classifies_genbank_and_precuration_species(
         self,
     ) -> None:

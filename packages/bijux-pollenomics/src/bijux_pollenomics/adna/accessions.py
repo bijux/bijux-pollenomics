@@ -13,6 +13,7 @@ _GENBANK_RANGE_RE = re.compile(
     r"^(?P<start>[A-Z]{1,4}\d{5,8}(?:\.\d+)?)\s*-\s*(?P<end>[A-Z]{1,4}\d{5,8}(?:\.\d+)?)$"
 )
 _ENA_PROJECT_RE = re.compile(r"^PRJ[EDN][A-Z]?\d+$")
+_SRA_PROJECT_RE = re.compile(r"^[EDS]RP\d+$")
 _SRA_SAMPLE_RE = re.compile(r"^(SAMEA|SAMN|SAMD|ERS|SRS)\d+$")
 _GENBANK_ACCESSION_RE = re.compile(r"^[A-Z]{1,4}\d{5,8}(?:\.\d+)?$")
 
@@ -52,6 +53,12 @@ def resolve_accession_reference(value: str) -> AdnaAccessionReference:
     if _ENA_PROJECT_RE.fullmatch(token):
         family = "ena_project" if token.startswith(("PRJEB", "PRJED")) else "bioproject"
         return AdnaAccessionReference(family=family, accession=token, relation=relation)
+    if _SRA_PROJECT_RE.fullmatch(token):
+        return AdnaAccessionReference(
+            family="sra_project",
+            accession=token,
+            relation=relation,
+        )
     if _SRA_SAMPLE_RE.fullmatch(token):
         return AdnaAccessionReference(
             family="sra_sample",

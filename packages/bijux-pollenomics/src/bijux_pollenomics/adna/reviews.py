@@ -29,6 +29,8 @@ class AdnaSpeciesProjectRow:
     """Reviewable scientific summary row for one curated ancient-DNA project."""
 
     project_accession: str
+    source_family: str
+    accession_scope: str
     archive_status: str
     evidence_strength: str
     ancient_status: str
@@ -38,10 +40,15 @@ class AdnaSpeciesProjectRow:
     material_basis: str | None
     dating_basis: str | None
     geographic_basis: str | None
+    access_policy: str
+    public_release_date: str | None
+    domestication_scope: str
 
     def as_dict(self) -> dict[str, object]:
         return {
             "project_accession": self.project_accession,
+            "source_family": self.source_family,
+            "accession_scope": self.accession_scope,
             "archive_status": self.archive_status,
             "evidence_strength": self.evidence_strength,
             "ancient_status": self.ancient_status,
@@ -51,6 +58,9 @@ class AdnaSpeciesProjectRow:
             "material_basis": self.material_basis,
             "dating_basis": self.dating_basis,
             "geographic_basis": self.geographic_basis,
+            "access_policy": self.access_policy,
+            "public_release_date": self.public_release_date,
+            "domestication_scope": self.domestication_scope,
         }
 
 
@@ -58,11 +68,13 @@ class AdnaSpeciesProjectRow:
 class AdnaSpeciesProjectManifest:
     """Species-owned project manifest snapshot for curated archive support."""
 
+    schema_version: str
     species_latin_name: str
     projects: tuple[AdnaSpeciesProjectRow, ...]
 
     def as_dict(self) -> dict[str, object]:
         return {
+            "schema_version": self.schema_version,
             "species_latin_name": self.species_latin_name,
             "projects": [project.as_dict() for project in self.projects],
         }
@@ -90,6 +102,7 @@ class AdnaProjectManifestChange:
 class AdnaSpeciesManifestDiff:
     """Diff between two project manifests for one species."""
 
+    schema_version: str
     species_latin_name: str
     added_projects: tuple[AdnaSpeciesProjectRow, ...]
     removed_projects: tuple[AdnaSpeciesProjectRow, ...]
@@ -97,6 +110,7 @@ class AdnaSpeciesManifestDiff:
 
     def as_dict(self) -> dict[str, object]:
         return {
+            "schema_version": self.schema_version,
             "species_latin_name": self.species_latin_name,
             "added_projects": [row.as_dict() for row in self.added_projects],
             "removed_projects": [row.as_dict() for row in self.removed_projects],
@@ -108,6 +122,7 @@ class AdnaSpeciesManifestDiff:
 class AdnaSpeciesReviewPacket:
     """Scientist-facing species review packet for promotion from provisional support."""
 
+    schema_version: str
     species_manifest: AdnaSpeciesManifest
     dataset_review: AdnaSpeciesDatasetReview
     project_manifest: AdnaSpeciesProjectManifest
@@ -116,6 +131,7 @@ class AdnaSpeciesReviewPacket:
 
     def as_dict(self) -> dict[str, object]:
         return {
+            "schema_version": self.schema_version,
             "species_manifest": self.species_manifest.as_dict(),
             "dataset_review": self.dataset_review.as_dict(),
             "project_manifest": self.project_manifest.as_dict(),
@@ -132,6 +148,8 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
             (
                 AdnaSpeciesProjectRow(
                     project_accession=project.project_accession,
+                    source_family=project.source_family,
+                    accession_scope=project.accession_scope,
                     archive_status=project.archive_status,
                     evidence_strength=classify_archive_project_evidence(project),
                     ancient_status=project.ancient_status,
@@ -141,6 +159,9 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
                     material_basis=project.material_basis,
                     dating_basis=project.dating_basis,
                     geographic_basis=project.geographic_basis,
+                    access_policy=project.access_policy,
+                    public_release_date=project.public_release_date,
+                    domestication_scope=project.domestication_scope,
                 )
                 for project in build_species_archive_projects(species_name)
             ),
@@ -148,6 +169,7 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
         )
     )
     return AdnaSpeciesProjectManifest(
+        schema_version="adna-species-project-manifest.v1",
         species_latin_name=species_manifest.species.latin_name,
         projects=rows,
     )
@@ -190,6 +212,7 @@ def build_species_manifest_diff(
                 )
             )
     return AdnaSpeciesManifestDiff(
+        schema_version="adna-species-project-manifest-diff.v1",
         species_latin_name=current.species_latin_name,
         added_projects=added,
         removed_projects=removed,
@@ -208,6 +231,7 @@ def build_species_review_packet(species_name: str) -> AdnaSpeciesReviewPacket:
     )
     project_manifest = build_species_project_manifest(species_name)
     return AdnaSpeciesReviewPacket(
+        schema_version="adna-species-review-packet.v1",
         species_manifest=species_manifest,
         dataset_review=dataset_review,
         project_manifest=project_manifest,
