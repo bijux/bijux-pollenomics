@@ -58,6 +58,9 @@ def build_multi_country_bundle_manifest(
             "candidate_sites_csv": bundle_paths.candidate_sites_csv_path.name,
             "candidate_sites_json": bundle_paths.candidate_sites_json_path.name,
             "candidate_sites_markdown": bundle_paths.candidate_sites_markdown_path.name,
+            "candidate_site_sensitivity_json": bundle_paths.candidate_site_sensitivity_json_path.name,
+            "candidate_site_sensitivity_markdown": bundle_paths.candidate_site_sensitivity_markdown_path.name,
+            "candidate_ranking_engine_manifest": bundle_paths.candidate_ranking_engine_manifest_path.name,
             "summary_json": bundle_paths.summary_json_path.name,
             "extra_files": [
                 {"label": label, "filename": filename}
