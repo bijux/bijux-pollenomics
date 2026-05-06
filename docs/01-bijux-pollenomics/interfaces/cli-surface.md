@@ -44,9 +44,14 @@ through the repository with visible output consequences.
   under `data/adna/<latin_name>/...`
 - `adna-runtime-manifest --species <name>` prints the species-owned runtime
   manifest, including source bundles and analysis boundaries
+- `adna-curation-manifest --species <name>` prints the governed curation
+  manifest for one species, including curated, pending, and rejected projects
 - `adna-archive-projects` prints the curated ENA project inventory for
   domesticated-animal ancient-DNA intake review, including evidence strength and
   project-level scientific metadata
+- `adna-domestication-coverage` prints the cross-species curation coverage
+  report, including support class and honesty posture for each domestication
+  program species
 - `adna-species` prints the canonical ancient-DNA species support matrix and
   current runtime scope
 - `adna-species-review --species <name>` prints the governed review for one
@@ -73,7 +78,9 @@ through the repository with visible output consequences.
 bijux-pollenomics collect-data all --version v66 --output-root data
 bijux-pollenomics adna-layout --species horse
 bijux-pollenomics adna-runtime-manifest --species "Homo sapiens" --version v66
+bijux-pollenomics adna-curation-manifest --species horse
 bijux-pollenomics adna-archive-projects --species horse
+bijux-pollenomics adna-domestication-coverage --json
 bijux-pollenomics adna-species
 bijux-pollenomics adna-species-review --species horse --json
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
