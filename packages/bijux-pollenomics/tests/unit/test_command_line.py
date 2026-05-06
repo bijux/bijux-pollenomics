@@ -203,6 +203,48 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 15)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_adna_layout_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-layout", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-layout")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_layout_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-layout", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_layout",
+            return_value=17,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 17)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_adna_species_review_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species-review", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-species-review")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_species_review_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-species-review", "--species", "horse"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_species_review",
+            return_value=19,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 19)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(

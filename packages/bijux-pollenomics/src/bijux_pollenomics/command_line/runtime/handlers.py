@@ -4,8 +4,11 @@ import argparse
 import json
 
 from ...adna import (
+    build_archive_integrity_report,
     build_archive_project_catalog,
     build_species_archive_projects,
+    build_species_dataset_review,
+    build_species_layout,
     build_species_support_matrix,
 )
 from ...data_downloader import (
@@ -23,7 +26,9 @@ from ...reporting import (
 
 __all__ = [
     "run_adna_archive_projects",
+    "run_adna_layout",
     "run_adna_species",
+    "run_adna_species_review",
     "run_collect_data",
     "run_publish_reports",
     "run_ownership_map",
@@ -54,6 +59,21 @@ def run_adna_archive_projects(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_adna_layout(args: argparse.Namespace) -> int:
+    """Print the canonical on-disk species layout for ancient-DNA support."""
+    layout = build_species_layout(args.species)
+    if args.json:
+        print(json.dumps(layout.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"root={layout.root_dir}")
+    print(f"raw={layout.raw_dir}")
+    print(f"normalized={layout.normalized_dir}")
+    print(f"manifests={layout.manifests_dir}")
+    print(f"reports={layout.reports_dir}")
+    print(f"review={layout.review_dir}")
+    return 0
+
+
 def run_adna_species(args: argparse.Namespace) -> int:
     """Print the canonical species support matrix for ancient-DNA support."""
     rows = build_species_support_matrix()
@@ -67,6 +87,28 @@ def run_adna_species(args: argparse.Namespace) -> int:
             f"{row.latin_name}: status={row.support_status}; "
             f"modalities={modalities}; aliases={aliases}"
         )
+    return 0
+
+
+def run_adna_species_review(args: argparse.Namespace) -> int:
+    """Print the governed review for one species dataset."""
+    review = build_species_dataset_review(args.species)
+    integrity = build_archive_integrity_report(species_name=args.species)
+    payload = {
+        "review": review.as_dict(),
+        "integrity": integrity.as_dict(),
+    }
+    if args.json:
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        return 0
+    print(
+        f"{review.species.latin_name}: role={review.product_role}; "
+        f"assignment={review.assignment_rule}; bucket={review.dataset_bucket}"
+    )
+    if review.blocking_reasons:
+        print("blocking_reasons=" + ", ".join(review.blocking_reasons))
+    print(f"duplicate_accessions={len(integrity.duplicates)}")
+    print(f"species_mismatches={len(integrity.species_mismatches)}")
     return 0
 
 
