@@ -26,6 +26,7 @@ from .runtime import AdnaSampleQuery, AdnaSourceBundle, AdnaSpeciesRuntimeManife
 
 __all__ = [
     "build_homo_sapiens_runtime_manifest",
+    "build_homo_sapiens_runtime_manifest_for_version_dir",
     "discover_homo_sapiens_anno_files",
     "iter_homo_sapiens_samples_from_anno",
     "load_homo_sapiens_country_samples",
@@ -47,7 +48,7 @@ def build_homo_sapiens_runtime_manifest(
     source_root = Path(data_root) / "adna" / species_manifest.root_slug / "raw" / "aadr"
     release_dir = source_root / version
     release_manifest = Path(data_root) / "aadr" / version / "release_manifest.json"
-    dataset_names = _release_dataset_names(release_manifest)
+    dataset_names = _release_dataset_names(release_manifest, release_dir)
     return AdnaSpeciesRuntimeManifest(
         schema_version="adna-runtime-manifest.v1",
         species_manifest=species_manifest,
@@ -59,6 +60,39 @@ def build_homo_sapiens_runtime_manifest(
                 tracked_root=str(release_dir),
                 release_manifest_path=str(release_manifest),
                 dataset_names=dataset_names,
+                record_modality=HOMO_SAPIENS_RECORD_MODALITY,
+                review_strength=HOMO_SAPIENS_REVIEW_STRENGTH,
+                provenance_quality=HOMO_SAPIENS_PROVENANCE_QUALITY,
+            ),
+        ),
+        analysis_boundary=(
+            "Homo sapiens runtime support is AADR metadata normalization only. "
+            "This surface does not imply genotype-aware analysis."
+        ),
+        runtime_ready=True,
+    )
+
+
+def build_homo_sapiens_runtime_manifest_for_version_dir(
+    version_dir: Path,
+) -> AdnaSpeciesRuntimeManifest:
+    """Build a Homo sapiens runtime manifest from one concrete version directory."""
+    version_dir = Path(version_dir)
+    if not version_dir.name:
+        raise ValueError("A version directory is required for Homo sapiens runtime loading")
+    species_manifest = build_species_manifest("Homo sapiens")
+    release_manifest = version_dir / "release_manifest.json"
+    return AdnaSpeciesRuntimeManifest(
+        schema_version="adna-runtime-manifest.v1",
+        species_manifest=species_manifest,
+        source_bundles=(
+            AdnaSourceBundle(
+                source_family="AADR",
+                source_release=version_dir.name,
+                bundle_kind="source_release",
+                tracked_root=str(version_dir),
+                release_manifest_path=str(release_manifest),
+                dataset_names=_release_dataset_names(release_manifest, version_dir),
                 record_modality=HOMO_SAPIENS_RECORD_MODALITY,
                 review_strength=HOMO_SAPIENS_REVIEW_STRENGTH,
                 provenance_quality=HOMO_SAPIENS_PROVENANCE_QUALITY,
@@ -305,7 +339,17 @@ def merge_sample_time_interval(
     return (min(start for start, _ in intervals), max(end for _, end in intervals))
 
 
-def _release_dataset_names(release_manifest_path: Path) -> tuple[str, ...]:
+def _release_dataset_names(
+    release_manifest_path: Path, release_dir: Path
+) -> tuple[str, ...]:
+    if not release_manifest_path.exists():
+        return tuple(
+            sorted(
+                path.name
+                for path in release_dir.iterdir()
+                if path.is_dir() and any(path.glob("*.anno"))
+            )
+        )
     payload = json.loads(release_manifest_path.read_text(encoding="utf-8"))
     anno_files = payload.get("anno_files", [])
     if not isinstance(anno_files, list):
