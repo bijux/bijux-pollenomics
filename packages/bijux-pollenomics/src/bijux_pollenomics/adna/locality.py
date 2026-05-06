@@ -52,7 +52,7 @@ def summarize_sample_localities(
     samples: Iterable[AdnaSampleRecord],
 ) -> list[AdnaLocalitySummary]:
     """Aggregate species-aware samples into locality summaries."""
-    grouped: dict[tuple[str, str, str], list[AdnaSampleRecord]] = defaultdict(list)
+    grouped: dict[tuple[str | None, str, str], list[AdnaSampleRecord]] = defaultdict(list)
     for sample in samples:
         grouped[(sample.locality, sample.latitude_text, sample.longitude_text)].append(
             sample
@@ -118,7 +118,9 @@ def summarize_sample_localities(
             )
         )
 
-    summaries.sort(key=lambda item: (-item.sample_count, item.locality.casefold()))
+    summaries.sort(
+        key=lambda item: (-item.sample_count, (item.locality or "").casefold())
+    )
     return summaries
 
 
