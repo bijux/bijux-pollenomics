@@ -66,7 +66,7 @@ def score_candidate_site(
     rationale: list[str] = []
     if candidate.locality.sample_count:
         rationale.append(
-            f"{candidate.locality.sample_count} AADR samples anchor the locality"
+            f"{candidate.locality.sample_count} ancient-DNA samples anchor the locality"
         )
     if candidate.nearby_context_points:
         rationale.append(

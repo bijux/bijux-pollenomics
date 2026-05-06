@@ -47,6 +47,7 @@ class AdnaChronology:
     time_start_bp: int | None
     time_end_bp: int | None
     time_mean_bp: int | None
+    date_stddev_bp: str = ""
     dating_basis: str = "unknown"
 
 
@@ -118,13 +119,7 @@ class AdnaSampleRecord:
 
     @property
     def date_stddev_bp(self) -> str:
-        if (
-            self.chronology.time_start_bp is None
-            or self.chronology.time_end_bp is None
-            or self.chronology.time_mean_bp is None
-        ):
-            return ""
-        return str(max(self.chronology.time_mean_bp - self.chronology.time_start_bp, 0))
+        return self.chronology.date_stddev_bp
 
     @property
     def time_start_bp(self) -> int | None:

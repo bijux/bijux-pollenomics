@@ -1,19 +1,33 @@
 from __future__ import annotations
 
+from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalitySummary
 from bijux_pollenomics.analysis import CandidateSiteContext, score_candidate_site
-from bijux_pollenomics.reporting.models import LocalitySummary
 
 
-def _locality(sample_count: int) -> LocalitySummary:
-    return LocalitySummary(
+def _locality(sample_count: int) -> AdnaLocalitySummary:
+    return AdnaLocalitySummary(
+        species_latin_name="Homo sapiens",
+        species_common_name="human",
+        source_family="AADR",
         locality="Lake Example",
-        latitude=59.0,
-        longitude=18.0,
-        latitude_text="59.0",
-        longitude_text="18.0",
+        coordinates=AdnaCoordinate(
+            latitude=59.0,
+            longitude=18.0,
+            latitude_text="59.0",
+            longitude_text="18.0",
+            confidence="unknown",
+        ),
         sample_count=sample_count,
         sample_ids=("I1",) * sample_count,
         datasets=("dataset",),
+        chronology=AdnaChronology(
+            original_text="3000 BP",
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+            dating_basis="unknown",
+        ),
+        sample_namespace="homo_sapiens:aadr_genetic_id",
     )
 
 
@@ -28,7 +42,7 @@ def test_score_candidate_site_rewards_combined_signals() -> None:
     score = score_candidate_site(candidate)
 
     assert score.total_score > 0.6
-    assert "AADR samples anchor the locality" in score.rationale[0]
+    assert "ancient-DNA samples anchor the locality" in score.rationale[0]
 
 
 def test_score_candidate_site_handles_missing_distance() -> None:
