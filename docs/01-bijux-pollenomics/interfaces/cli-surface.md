@@ -40,10 +40,14 @@ through the repository with visible output consequences.
   chosen country set
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
+- `adna-layout --species <name>` prints the canonical species-owned aDNA layout
+  under `data/adna/<latin_name>/...`
 - `adna-archive-projects` prints the curated ENA project inventory for
   domesticated-animal ancient-DNA intake review
 - `adna-species` prints the canonical ancient-DNA species support matrix and
   current runtime scope
+- `adna-species-review --species <name>` prints the governed review for one
+  species, including assignment rules, dataset bucket, and archive integrity
 - `surface-map` prints a short runtime-versus-roadmap package surface map
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live
@@ -63,8 +67,10 @@ through the repository with visible output consequences.
 
 ```bash
 bijux-pollenomics collect-data all --version v66 --output-root data
+bijux-pollenomics adna-layout --species horse
 bijux-pollenomics adna-archive-projects --species horse
 bijux-pollenomics adna-species
+bijux-pollenomics adna-species-review --species horse
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
 
