@@ -81,6 +81,10 @@ class AdnaSampleRecord:
     species_latin_name: str
     species_common_name: str
     source_family: str
+    source_release: str
+    record_modality: str
+    review_strength: str
+    provenance_quality: str
     master_id: str
     group_id: str
     locality: str
@@ -171,6 +175,10 @@ class AdnaLocalitySummary:
     species_latin_name: str
     species_common_name: str
     source_family: str
+    source_releases: tuple[str, ...]
+    record_modalities: tuple[str, ...]
+    review_strengths: tuple[str, ...]
+    provenance_qualities: tuple[str, ...]
     locality: str
     coordinates: AdnaCoordinate
     sample_count: int

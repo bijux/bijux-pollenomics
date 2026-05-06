@@ -1,14 +1,30 @@
 from __future__ import annotations
 
-from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalitySummary
+from bijux_pollenomics.adna import (
+    AdnaChronology,
+    AdnaCoordinate,
+    AdnaLocalityIdentity,
+    AdnaLocalitySummary,
+)
 from bijux_pollenomics.analysis import CandidateSiteContext, score_candidate_site
 
 
 def _locality(sample_count: int) -> AdnaLocalitySummary:
     return AdnaLocalitySummary(
+        identity=AdnaLocalityIdentity(
+            namespace="homo_sapiens:locality",
+            stable_token="homo_sapiens:aadr:sweden:lake-example:59-0-18-0",
+            locality_text="Lake Example",
+            political_entity="Sweden",
+            source_anchor_tokens=("AADR", "59.0", "18.0"),
+        ),
         species_latin_name="Homo sapiens",
         species_common_name="human",
         source_family="AADR",
+        source_releases=("v66",),
+        record_modalities=("metadata_only",),
+        review_strengths=("curated_release_metadata",),
+        provenance_qualities=("release_manifest_pinned",),
         locality="Lake Example",
         coordinates=AdnaCoordinate(
             latitude=59.0,
