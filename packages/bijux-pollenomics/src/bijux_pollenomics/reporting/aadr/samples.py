@@ -10,6 +10,7 @@ from ...adna import (
     AdnaCoordinate,
     AdnaSampleIdentity,
     AdnaSampleRecord,
+    build_locality_identity,
     resolve_species_definition,
 )
 from ...core.bp_time import build_bp_interval_label, midpoint_bp_year
@@ -98,6 +99,17 @@ def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[AdnaSample
                         f"genetic_id:{genetic_id}",
                     ),
                 ),
+                locality_identity=build_locality_identity(
+                    species_name=HOMO_SAPIENS_SPECIES.latin_name,
+                    source_family="AADR",
+                    locality_text=clean_text(schema_value(row, schema, "locality"))
+                    or "Unspecified locality",
+                    political_entity=clean_text(
+                        schema_value(row, schema, "political_entity")
+                    ),
+                    latitude_text=latitude_text,
+                    longitude_text=longitude_text,
+                ),
                 species_latin_name=HOMO_SAPIENS_SPECIES.latin_name,
                 species_common_name=HOMO_SAPIENS_SPECIES.common_name,
                 source_family="AADR",
@@ -150,6 +162,7 @@ def merge_duplicate_samples(
                 dict.fromkeys(existing.accession_lineage + sample.accession_lineage)
             ),
         ),
+        locality_identity=existing.locality_identity,
         species_latin_name=existing.species_latin_name,
         species_common_name=existing.species_common_name,
         source_family=existing.source_family,
