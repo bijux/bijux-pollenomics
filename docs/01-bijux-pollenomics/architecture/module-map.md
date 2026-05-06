@@ -57,8 +57,9 @@ assembles publication, and where shared helpers stop.
   scientist-facing species review packets, manifest diff outputs,
   cross-species domestication coverage reporting, non-human normalization
   bundles, deterministic artifact plans, and archive-integrity checks
-- `reporting/` owns AADR reporting, context layers, bundle assembly, and map
-  rendering
+- `reporting/` owns the report publication surface, including
+  `reporting/adna/` for species-facing report loaders, plus context layers,
+  bundle assembly, and map rendering
 
 ## First Proof Check
 

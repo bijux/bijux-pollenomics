@@ -98,3 +98,10 @@ def test_adna_domain_stays_out_of_reporting_and_command_line_layers() -> None:
     assert not failures, "adna domain imports higher-level runtime layers:\n" + "\n".join(
         failures
     )
+
+
+def test_reporting_api_routes_through_reporting_adna_not_reporting_aadr() -> None:
+    reporting_api = (REPORTING_SRC / "api.py").read_text(encoding="utf-8")
+
+    assert "from .adna import" in reporting_api
+    assert "from .aadr import" not in reporting_api
