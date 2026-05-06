@@ -4,8 +4,13 @@ from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
 
+from ..adna import (
+    AdnaSampleQuery,
+    build_homo_sapiens_runtime_manifest_for_version_dir,
+    load_species_samples,
+    summarize_sample_localities,
+)
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
-from .aadr import load_country_samples, summarize_localities
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
 from .bundles.country_bundle import publish_country_report_bundle
 from .bundles.country_selection import normalize_requested_countries
@@ -52,10 +57,12 @@ def generate_country_report(
     if not normalized_country:
         raise ValueError("Country is required to build a country report")
 
-    samples, dataset_counts = load_country_samples(
-        version_dir=version_dir, country=normalized_country
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
+    samples, dataset_counts = load_species_samples(
+        manifest,
+        query=AdnaSampleQuery(political_entity=normalized_country),
     )
-    localities = summarize_localities(samples)
+    localities = summarize_sample_localities(samples)
     version = version_dir.name
     report = CountryReport(
         country=normalized_country,
@@ -114,7 +121,10 @@ def generate_multi_country_map(
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,
         countries=normalized_countries,
-        load_country_samples_fn=load_country_samples,
+        load_country_samples_fn=lambda **kwargs: load_species_samples(
+            build_homo_sapiens_runtime_manifest_for_version_dir(kwargs["version_dir"]),
+            query=AdnaSampleQuery(political_entity=kwargs["country"]),
+        ),
     )
     version = version_dir.name
     generated_on = str(date.today())

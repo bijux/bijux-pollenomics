@@ -24,6 +24,7 @@ from .governance import (
 )
 from .homo_sapiens import (
     build_homo_sapiens_runtime_manifest,
+    build_homo_sapiens_runtime_manifest_for_version_dir,
     discover_homo_sapiens_anno_files,
     iter_homo_sapiens_samples_from_anno,
     load_homo_sapiens_country_samples,
@@ -108,6 +109,7 @@ __all__ = [
     "build_archive_project_catalog",
     "build_ena_filereport_url",
     "build_homo_sapiens_runtime_manifest",
+    "build_homo_sapiens_runtime_manifest_for_version_dir",
     "build_locality_identity",
     "build_species_archive_projects",
     "build_species_dataset_review",
