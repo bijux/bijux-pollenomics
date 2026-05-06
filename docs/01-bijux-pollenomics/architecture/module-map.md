@@ -49,8 +49,8 @@ assembles publication, and where shared helpers stop.
   GeoJSON handling
 - `data_downloader/` owns source collection, staging, contracts, and spatial
   helpers
-- `adna/` owns species-aware ancient-DNA contracts, typed sample records, and
-  manifest-level support boundaries
+- `adna/` owns species-aware ancient-DNA contracts, typed sample records,
+  manifest-level support boundaries, and curated ENA archive intake metadata
 - `reporting/` owns AADR reporting, context layers, bundle assembly, and map
   rendering
 
