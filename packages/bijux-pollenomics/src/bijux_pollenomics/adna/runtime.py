@@ -4,8 +4,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
-from .ena import build_species_archive_projects
+from .curation import build_species_curation_manifest
 from .manifests import AdnaSpeciesManifest, build_species_manifest
+from .reviews import AdnaSpeciesProjectRow
 from .species import AdnaSpeciesDefinition
 
 __all__ = [
@@ -124,31 +125,27 @@ def build_species_runtime_manifest(
 
         return build_homo_sapiens_runtime_manifest(data_root=data_root, version=version)
 
-    archive_projects = build_species_archive_projects(species_name)
+    curation_manifest = build_species_curation_manifest(species_name)
     source_bundles = tuple(
         AdnaSourceBundle(
-            source_family=project.source_family,
+            source_family=_source_family_for(project),
             source_release=project.project_accession,
-            bundle_kind="curated_archive_project",
-            tracked_root=f"{species_manifest.data_root}/raw/{project.source_family.casefold()}",
-            release_manifest_path=f"{species_manifest.data_root}/review/{project.project_accession.casefold()}.json",
+            bundle_kind=_bundle_kind_for(project),
+            tracked_root=f"{species_manifest.data_root}/raw/{_source_family_for(project).casefold()}",
+            release_manifest_path=f"{species_manifest.data_root}/manifests/curation_manifest.json",
             dataset_names=(project.project_accession,),
             record_modality="archive_reads",
-            review_strength=(
-                "comparator_only"
-                if species.support_status == "comparator_only"
-                else "archive_verified_needs_paper_pinning"
-            ),
+            review_strength=_review_strength_for(project, curation_manifest.curation_class),
             provenance_quality="archive_project_catalog",
         )
-        for project in archive_projects
+        for project in (*curation_manifest.curated_projects, *curation_manifest.pending_projects)
     )
     return AdnaSpeciesRuntimeManifest(
         schema_version="adna-runtime-manifest.v1",
         species_manifest=species_manifest,
         source_bundles=source_bundles,
         analysis_boundary=(
-            "Curated source bundles are known, but normalized runtime ingestion is "
+            f"{curation_manifest.support_statement} Normalized runtime ingestion is "
             "not yet implemented for this species."
         ),
         runtime_ready=False,
@@ -183,3 +180,30 @@ def _clean_optional(value: str | None) -> str | None:
 
 def _normalize_values(values: tuple[str, ...]) -> tuple[str, ...]:
     return tuple(sorted({value.strip() for value in values if value.strip()}))
+
+
+def _bundle_kind_for(project: AdnaSpeciesProjectRow) -> str:
+    if project.archive_status == "paper_pinned_core":
+        return "paper_pinned_core_project"
+    if project.archive_status == "comparator_only":
+        return "comparator_archive_project"
+    return "pending_archive_project"
+
+
+def _review_strength_for(
+    project: AdnaSpeciesProjectRow,
+    curation_class: str,
+) -> str:
+    if curation_class == "comparator_only" or project.archive_status == "comparator_only":
+        return "comparator_only"
+    if project.evidence_strength == "primary_paper_pinned":
+        return "primary_paper_pinned"
+    return "archive_verified_needs_paper_pinning"
+
+
+def _source_family_for(project: AdnaSpeciesProjectRow) -> str:
+    if project.project_accession.startswith("PRJ"):
+        return "ENA"
+    if project.project_accession.startswith(("SRS", "ERS", "SAM")):
+        return "SRA"
+    return "manual_curation"
