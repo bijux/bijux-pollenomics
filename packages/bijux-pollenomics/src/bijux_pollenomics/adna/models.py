@@ -33,8 +33,8 @@ ADNA_DATING_BASES = (
 class AdnaCoordinate:
     """Typed coordinate contract for ancient-DNA records."""
 
-    latitude: float
-    longitude: float
+    latitude: float | None
+    longitude: float | None
     latitude_text: str
     longitude_text: str
     confidence: str = "unknown"
@@ -68,7 +68,7 @@ class AdnaLocalityIdentity:
     namespace: str
     stable_token: str
     locality_text: str
-    political_entity: str
+    political_entity: str | None
     source_anchor_tokens: tuple[str, ...]
 
 
@@ -87,8 +87,8 @@ class AdnaSampleRecord:
     provenance_quality: str
     master_id: str
     group_id: str
-    locality: str
-    political_entity: str
+    locality: str | None
+    political_entity: str | None
     coordinates: AdnaCoordinate
     publication: str
     year_first_published: str
@@ -119,11 +119,11 @@ class AdnaSampleRecord:
         return self.locality_identity.stable_token
 
     @property
-    def latitude(self) -> float:
+    def latitude(self) -> float | None:
         return self.coordinates.latitude
 
     @property
-    def longitude(self) -> float:
+    def longitude(self) -> float | None:
         return self.coordinates.longitude
 
     @property
@@ -179,7 +179,7 @@ class AdnaLocalitySummary:
     record_modalities: tuple[str, ...]
     review_strengths: tuple[str, ...]
     provenance_qualities: tuple[str, ...]
-    locality: str
+    locality: str | None
     coordinates: AdnaCoordinate
     sample_count: int
     sample_ids: tuple[str, ...]
@@ -188,11 +188,11 @@ class AdnaLocalitySummary:
     sample_namespace: str
 
     @property
-    def latitude(self) -> float:
+    def latitude(self) -> float | None:
         return self.coordinates.latitude
 
     @property
-    def longitude(self) -> float:
+    def longitude(self) -> float | None:
         return self.coordinates.longitude
 
     @property

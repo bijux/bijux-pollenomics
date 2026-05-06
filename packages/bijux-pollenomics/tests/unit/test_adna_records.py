@@ -118,6 +118,62 @@ class AdnaRecordUnitTests(unittest.TestCase):
         self.assertEqual(locality.coordinate_confidence, "unknown")
         self.assertEqual(locality.source_releases, ("v66",))
 
+    def test_nonhuman_records_can_keep_coordinates_and_political_entity_withheld(self) -> None:
+        sample = AdnaSampleRecord(
+            identity=AdnaSampleIdentity(
+                namespace="equus_caballus:normalized_sample",
+                stable_token="equus_caballus:project:PRJEB22390",
+                accession_lineage=(
+                    "species:Equus caballus",
+                    "ENA:PRJEB22390",
+                ),
+            ),
+            locality_identity=AdnaLocalityIdentity(
+                namespace="equus_caballus:locality",
+                stable_token="equus_caballus:withheld:PRJEB22390",
+                locality_text="withheld at project-summary level",
+                political_entity=None,
+                source_anchor_tokens=("PRJEB22390",),
+            ),
+            species_latin_name="Equus caballus",
+            species_common_name="horse",
+            source_family="ENA",
+            source_release="PRJEB22390",
+            record_modality="archive_reads",
+            review_strength="primary_paper_pinned",
+            provenance_quality="archive_project_catalog",
+            master_id="PRJEB22390",
+            group_id="PRJEB22390",
+            locality=None,
+            political_entity=None,
+            coordinates=AdnaCoordinate(
+                latitude=None,
+                longitude=None,
+                latitude_text="",
+                longitude_text="",
+                confidence="withheld",
+            ),
+            publication="Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+            year_first_published="2018",
+            full_date="",
+            chronology=AdnaChronology(
+                original_text="",
+                time_start_bp=None,
+                time_end_bp=None,
+                time_mean_bp=None,
+                dating_basis="unknown",
+            ),
+            data_type="archive_project_summary",
+            molecular_sex="",
+            datasets=("PRJEB22390",),
+        )
+
+        self.assertIsNone(sample.latitude)
+        self.assertIsNone(sample.longitude)
+        self.assertIsNone(sample.political_entity)
+        self.assertIsNone(sample.locality)
+        self.assertEqual(sample.coordinate_confidence, "withheld")
+
 
 if __name__ == "__main__":
     unittest.main()
