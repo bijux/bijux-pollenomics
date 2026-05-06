@@ -75,16 +75,78 @@ def build_multi_country_map_policy(
     }
 
 
-def build_site_ranking_policy(*, title: str) -> dict[str, str]:
+def build_site_ranking_policy(
+    *, title: str, profile_name: str = "atlas_exploration"
+) -> dict[str, str]:
     """Return the governed wording for candidate-site ranking outputs."""
+    profile_policies = {
+        "atlas_exploration": {
+            "intro": (
+                "This ranking is an atlas-adjacent heuristic for comparing current "
+                "ancient-DNA locality anchors against nearby contextual layers with "
+                "explicit evidence and missingness signals."
+            ),
+            "profile_warning": (
+                "Atlas exploration favors interpretable descriptive ordering, not "
+                "fieldwork commitment."
+            ),
+            "recommendation_gate": (
+                "Sampling recommendation disabled: use fieldwork triage plus stronger "
+                "cross-species and non-metadata evidence before promoting any locality."
+            ),
+        },
+        "chronology_first": {
+            "intro": (
+                "This ranking stresses chronology agreement to expose how much of the "
+                "atlas remains coherent when date overlap matters most."
+            ),
+            "profile_warning": (
+                "Chronology-first ordering can still overrate thin evidence if source "
+                "metadata are sparse or inconsistent."
+            ),
+            "recommendation_gate": (
+                "Sampling recommendation disabled: chronology-heavy ordering is still "
+                "a comparison aid, not a lake-selection decision."
+            ),
+        },
+        "context_first": {
+            "intro": (
+                "This ranking stresses contextual support so the atlas shows how much "
+                "candidate order depends on nearby non-aDNA evidence."
+            ),
+            "profile_warning": (
+                "Context-first ordering can flatter busy neighborhoods even when "
+                "direct ancient-DNA evidence remains weak."
+            ),
+            "recommendation_gate": (
+                "Sampling recommendation disabled: context-heavy ordering is not a "
+                "substitute for stronger direct evidence."
+            ),
+        },
+        "fieldwork_triage": {
+            "intro": (
+                "This ranking uses a stricter pre-recommendation profile that treats "
+                "missing chronology, single-species direct evidence, and metadata-only "
+                "inputs as blockers for serious fieldwork posture."
+            ),
+            "profile_warning": (
+                "Fieldwork triage is still a governed readiness screen, not a final "
+                "sampling plan."
+            ),
+            "recommendation_gate": (
+                "Sampling recommendation remains off unless chronology, context overlap, "
+                "cross-species direct evidence, and non-metadata direct evidence all clear."
+            ),
+        },
+    }
+    profile_policy = profile_policies[profile_name]
     return {
         "title": f"{title} Candidate Site Ranking",
-        "intro": (
-            "This ranking is an atlas-adjacent heuristic for comparing current Homo "
-            "sapiens aDNA localities derived from AADR metadata against nearby "
-            "contextual layers."
-        ),
+        "intro": profile_policy["intro"],
         "boundary": (
-            "It is not yet a lake-selection or sampling recommendation engine."
+            "It does not collapse atlas convenience into scientific certainty, and it "
+            "must not be read as a recommendation unless the explicit gate says so."
         ),
+        "profile_warning": profile_policy["profile_warning"],
+        "recommendation_gate": profile_policy["recommendation_gate"],
     }
