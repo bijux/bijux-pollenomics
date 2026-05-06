@@ -4,10 +4,11 @@ import csv
 import json
 from pathlib import Path
 
-from ..reporting.policy import build_site_ranking_policy
+from ..publication_policy import build_site_ranking_policy
 from .site_candidates import CandidateSiteScore
 
 __all__ = [
+    "build_candidate_sites_json_payload",
     "render_candidate_site_markdown",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
@@ -46,8 +47,18 @@ def write_candidate_sites_csv(path: Path, scores: list[CandidateSiteScore]) -> N
 
 def write_candidate_sites_json(path: Path, scores: list[CandidateSiteScore]) -> None:
     """Write candidate-site rankings as JSON."""
-    policy = build_site_ranking_policy(title="Atlas")
-    payload = {
+    path.write_text(
+        json.dumps(build_candidate_sites_json_payload(scores), indent=2),
+        encoding="utf-8",
+    )
+
+
+def build_candidate_sites_json_payload(
+    scores: list[CandidateSiteScore], *, title: str = "Atlas"
+) -> dict[str, object]:
+    """Build the machine-readable ranking payload with provenance boundaries."""
+    policy = build_site_ranking_policy(title=title)
+    return {
         "schema_version": "candidate-site-ranking.v1",
         "evidence_boundary": f'{policy["intro"]} {policy["boundary"]}',
         "rows": [
@@ -63,7 +74,6 @@ def write_candidate_sites_json(path: Path, scores: list[CandidateSiteScore]) -> 
             for score in scores
         ],
     }
-    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def render_candidate_site_markdown(
