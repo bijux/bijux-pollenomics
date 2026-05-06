@@ -6,6 +6,8 @@ from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
+DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
+DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/foundation/directory-layout.md"
 
 
 def render_data_root_readme() -> str:
@@ -34,8 +36,8 @@ Tracked source data lives directly under `{root_name}/`:
 
 Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
 
-- [`docs/data-sources/index.md`](../docs/data-sources/index.md)
-- [`docs/reference/data-layout.md`](../docs/reference/data-layout.md)
+- [`docs/02-bijux-pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})
+- [`docs/02-bijux-pollenomics-data/foundation/directory-layout.md`]({DATA_LAYOUT_INDEX})
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 """

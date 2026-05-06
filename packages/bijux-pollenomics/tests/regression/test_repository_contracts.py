@@ -25,6 +25,18 @@ MERMAID_RESERVED_IDS = {
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
+    def test_generated_data_readme_targets_existing_docs_pages(self) -> None:
+        readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
+        targets = re.findall(r"\]\((\.\./docs/[^\)]+)\)", readme_text)
+
+        self.assertGreaterEqual(len(targets), 2)
+        for target in targets:
+            resolved = (REPO_ROOT / "data" / target).resolve()
+            self.assertTrue(
+                resolved.exists(),
+                f"data/README.md points at a missing docs page: {target}",
+            )
+
     @staticmethod
     def _declared_mermaid_node_ids(block: str) -> set[str]:
         ids: set[str] = set()
