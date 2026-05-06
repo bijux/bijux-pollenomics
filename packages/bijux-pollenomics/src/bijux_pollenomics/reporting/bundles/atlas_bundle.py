@@ -5,8 +5,12 @@ import json
 from pathlib import Path
 
 from ...analysis import (
+    build_ranking_engine_manifest,
+    build_ranking_sensitivity_report,
     rank_localities,
     render_candidate_site_markdown,
+    render_candidate_site_sensitivity_markdown,
+    write_candidate_site_sensitivity_json,
     write_candidate_sites_csv,
     write_candidate_sites_json,
 )
@@ -61,11 +65,29 @@ def publish_multi_country_map_bundle(
     ranked_sites = rank_localities(
         summarize_localities(all_samples),
         _extract_context_points(point_layers),
+        profile_name="atlas_exploration",
     )
+    sensitivity_report = build_ranking_sensitivity_report(
+        summarize_localities(all_samples),
+        _extract_context_points(point_layers),
+    )
+    ranking_engine_manifest = build_ranking_engine_manifest()
     write_candidate_sites_csv(bundle_paths.candidate_sites_csv_path, ranked_sites)
     write_candidate_sites_json(bundle_paths.candidate_sites_json_path, ranked_sites)
     bundle_paths.candidate_sites_markdown_path.write_text(
         render_candidate_site_markdown(ranked_sites, title=title),
+        encoding="utf-8",
+    )
+    write_candidate_site_sensitivity_json(
+        bundle_paths.candidate_site_sensitivity_json_path,
+        sensitivity_report,
+    )
+    bundle_paths.candidate_site_sensitivity_markdown_path.write_text(
+        render_candidate_site_sensitivity_markdown(sensitivity_report, title=title),
+        encoding="utf-8",
+    )
+    bundle_paths.candidate_ranking_engine_manifest_path.write_text(
+        json.dumps(ranking_engine_manifest.as_dict(), indent=2),
         encoding="utf-8",
     )
     extra_artifacts.extend(
@@ -75,6 +97,18 @@ def publish_multi_country_map_bundle(
             (
                 "Candidate site ranking markdown",
                 bundle_paths.candidate_sites_markdown_path.name,
+            ),
+            (
+                "Candidate site sensitivity JSON",
+                bundle_paths.candidate_site_sensitivity_json_path.name,
+            ),
+            (
+                "Candidate site sensitivity markdown",
+                bundle_paths.candidate_site_sensitivity_markdown_path.name,
+            ),
+            (
+                "Candidate ranking engine manifest",
+                bundle_paths.candidate_ranking_engine_manifest_path.name,
             ),
         ]
     )
@@ -120,6 +154,8 @@ def _extract_context_points(
 ) -> tuple[ContextPointRecord, ...]:
     records: list[ContextPointRecord] = []
     for layer in point_layers:
+        if str(layer.get("group", "")).strip() == "primary-evidence":
+            continue
         raw_points = layer.get("features")
         if not isinstance(raw_points, list):
             continue
