@@ -38,7 +38,9 @@ the same commit still explains them from tracked data and summaries.
 ## Linkage Rules
 
 - normalized context data under `data/` feeds report publishing
-- AADR versioned data under `data/aadr/` feeds country and atlas outputs
+- `Homo sapiens` ancient DNA is governed through `data/adna/homo_sapiens/`
+- AADR versioned data under `data/aadr/` remains the upstream release surface
+  behind that species-owned human path
 - report bundles under `docs/report/` should remain explainable from the tracked
   data tree present in the same commit
 

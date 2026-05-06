@@ -50,6 +50,7 @@ assembles publication, and where shared helpers stop.
 - `data_downloader/` owns source collection, staging, contracts, and spatial
   helpers
 - `adna/` owns species-aware ancient-DNA contracts, typed sample records,
+  Homo sapiens runtime manifests, metadata-only analysis boundaries,
   manifest-level support boundaries, curated ENA archive intake metadata,
   accession-family resolution, species admission rules, and archive-integrity
   checks
