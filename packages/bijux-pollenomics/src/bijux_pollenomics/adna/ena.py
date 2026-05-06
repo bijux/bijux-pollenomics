@@ -7,16 +7,26 @@ from .species import resolve_species_definition
 
 __all__ = [
     "ADNA_ENA_RESULT_KINDS",
+    "ADNA_PROJECT_EVIDENCE_STRENGTHS",
     "AdnaArchiveProject",
     "AdnaEnaQuery",
     "AdnaEnaRecord",
+    "AdnaPaperLinkage",
     "build_archive_project_catalog",
     "build_ena_filereport_url",
     "build_species_archive_projects",
+    "classify_archive_project_evidence",
     "parse_ena_filereport_tsv",
 ]
 
 ADNA_ENA_RESULT_KINDS: Final[tuple[str, ...]] = ("read_run", "analysis")
+ADNA_PROJECT_EVIDENCE_STRENGTHS: Final[tuple[str, ...]] = (
+    "primary_paper_pinned",
+    "archive_only",
+    "paper_only",
+    "secondary_reference_only",
+    "manual_note_only",
+)
 _ENA_API_BASE = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 
 
@@ -103,6 +113,32 @@ class AdnaEnaRecord:
 
 
 @dataclass(frozen=True)
+class AdnaPaperLinkage:
+    """Primary or secondary literature anchor for one curated ancient-DNA archive row."""
+
+    paper_title: str
+    doi: str | None = None
+    pubmed_id: str | None = None
+    pmc_id: str | None = None
+    journal_title: str | None = None
+    publication_year: int | None = None
+    reference_kind: str = "primary_paper"
+    pinning_evidence: str = ""
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "paper_title": self.paper_title,
+            "doi": self.doi,
+            "pubmed_id": self.pubmed_id,
+            "pmc_id": self.pmc_id,
+            "journal_title": self.journal_title,
+            "publication_year": self.publication_year,
+            "reference_kind": self.reference_kind,
+            "pinning_evidence": self.pinning_evidence,
+        }
+
+
+@dataclass(frozen=True)
 class AdnaArchiveProject:
     """Species-aware archive project catalog entry for domesticated-animal aDNA."""
 
@@ -113,6 +149,12 @@ class AdnaArchiveProject:
     source_family: str
     archive_status: str
     notes: str
+    paper_linkage: AdnaPaperLinkage | None = None
+    ancient_status: str = "archive_unreviewed"
+    sequencing_target: str | None = None
+    material_basis: str | None = None
+    dating_basis: str | None = None
+    geographic_basis: str | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -123,7 +165,29 @@ class AdnaArchiveProject:
             "source_family": self.source_family,
             "archive_status": self.archive_status,
             "notes": self.notes,
+            "paper_linkage": None if self.paper_linkage is None else self.paper_linkage.as_dict(),
+            "ancient_status": self.ancient_status,
+            "sequencing_target": self.sequencing_target,
+            "material_basis": self.material_basis,
+            "dating_basis": self.dating_basis,
+            "geographic_basis": self.geographic_basis,
+            "evidence_strength": classify_archive_project_evidence(self),
         }
+
+
+def classify_archive_project_evidence(project: AdnaArchiveProject) -> str:
+    """Classify how strongly one archive row is pinned to real scientific evidence."""
+    has_archive = bool(project.metadata_url)
+    linkage = project.paper_linkage
+    if linkage is None:
+        if has_archive:
+            return "archive_only"
+        return "manual_note_only"
+    if linkage.reference_kind == "secondary_reference":
+        return "secondary_reference_only"
+    if has_archive:
+        return "primary_paper_pinned"
+    return "paper_only"
 
 
 def build_ena_filereport_url(accession: str, result_kind: str = "read_run") -> str:
@@ -189,83 +253,467 @@ def parse_ena_filereport_tsv(
 
 
 def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:
-    """Return the curated ENA project inventory for domesticated-animal aDNA intake."""
-    catalog: list[AdnaArchiveProject] = []
-
-    catalog.extend(
-        _build_species_projects(
+    """Return the curated archive project inventory for domesticated-animal aDNA intake."""
+    return (
+        _project(
             "Equus caballus",
-            (
-                "PRJEB22390",
-                "PRJEB44430",
-                "PRJEB7537",
-                "PRJEB10854",
-                "PRJEB31613",
-                "PRJEB19970",
-                "PRJEB9799",
-                "PRJEB56293",
+            "PRJEB22390",
+            archive_status="paper_pinned_core",
+            notes="Botai and Przewalski/domestic ancestry anchor.",
+            paper_linkage=_paper(
+                paper_title="Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+                doi="10.1126/science.aao3297",
+                pubmed_id="29472442",
+                journal_title="Science",
+                publication_year=2018,
+                pinning_evidence="Primary paper and PubMed record explicitly anchor PRJEB22390 to the horse ancestry study.",
             ),
-            notes="Horse archive-backed aDNA studies identified for metadata-first intake review.",
-        )
-    )
-    catalog.extend(
-        _build_species_projects(
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB44430",
+            archive_status="paper_pinned_core",
+            notes="Major horse domestication-and-dispersal anchor.",
+            paper_linkage=_paper(
+                paper_title="The origins and spread of domestic horses from the Western Eurasian steppes",
+                doi="10.1038/s41586-021-04018-9",
+                journal_title="Nature",
+                publication_year=2021,
+                pinning_evidence="Primary paper data-availability material anchors the ENA project to the domestication study.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB31613",
+            archive_status="paper_pinned_core",
+            notes="Extensive horse management time series.",
+            paper_linkage=_paper(
+                paper_title="Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+                doi="10.1016/j.cell.2019.03.049",
+                pmc_id="PMC6547883",
+                journal_title="Cell",
+                publication_year=2019,
+                pinning_evidence="Primary paper and PMC record explicitly connect the project to ancient horse management genomes.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB19970",
+            archive_status="paper_pinned_core",
+            notes="Early domestic horses and domestication-associated genomic change.",
+            paper_linkage=_paper(
+                paper_title="Ancient genomic changes associated with domestication of the horse",
+                doi="10.1126/science.aam5298",
+                pubmed_id="28450643",
+                journal_title="Science",
+                publication_year=2017,
+                pinning_evidence="Primary paper and PubMed record explicitly anchor PRJEB19970 to early domestic horse genomes.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB56293",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Ancient horse project, but currently phenotype-method oriented and not yet core-pinned.",
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB7537",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+            ancient_status="ancient_unverified",
+            sequencing_target="unknown_or_mixed",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB10854",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+            ancient_status="ancient_unverified",
+            sequencing_target="unknown_or_mixed",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
+        _project(
+            "Equus caballus",
+            "PRJEB9799",
+            archive_status="reject_or_out_of_scope",
+            notes="Modern horse breed genomics from the source note set; not ancient domestication support.",
+            ancient_status="modern_or_irrelevant",
+            sequencing_target="shotgun_genome",
+            material_basis="modern_tissue",
+            dating_basis="modern_sampling",
+            geographic_basis="country_or_breed_panel",
+        ),
+        _project(
             "Ovis aries",
-            (
-                "PRJEB61808",
-                "PRJEB69690",
-                "PRJEB81145",
-                "PRJEB59481",
-                "PRJEB5933",
-                "PRJEB43881",
-                "PRJEB41594",
+            "PRJEB36540",
+            archive_status="paper_pinned_core",
+            notes="Early Anatolian sheep domestication-demography anchor.",
+            paper_linkage=_paper(
+                paper_title="Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+                doi="10.1038/s42003-021-02794-8",
+                journal_title="Communications Biology",
+                publication_year=2021,
+                pinning_evidence="Primary paper anchors PRJEB36540 to the Neolithic sheep dataset.",
             ),
-            notes="Sheep archive-backed aDNA studies identified for metadata-first intake review.",
-        )
-    )
-    catalog.extend(
-        _build_species_projects(
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Ovis aries",
+            "PRJEB41594",
+            archive_status="paper_pinned_core",
+            notes="Central Asian sheep dispersal anchor.",
+            paper_linkage=_paper(
+                paper_title="Evidence for early dispersal of domestic sheep into Central Asia",
+                doi="10.1038/s41562-021-01083-y",
+                journal_title="Nature Human Behaviour",
+                publication_year=2021,
+                pinning_evidence="Primary paper anchors PRJEB41594 to the early domestic sheep dispersal study.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Ovis aries",
+            "PRJEB59481",
+            archive_status="paper_pinned_core",
+            notes="Baltic ancient sheep genomes across four millennia.",
+            paper_linkage=_paper(
+                paper_title="Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+                doi="10.1093/gbe/evae114",
+                pmc_id="PMC11162877",
+                journal_title="Genome Biology and Evolution",
+                publication_year=2024,
+                pinning_evidence="Primary paper explicitly names PRJEB59481 in the data availability statement.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Ovis aries",
+            "PRJEB61808",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+            ancient_status="ancient_unverified",
+            sequencing_target="unknown_or_mixed",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
+        _project(
+            "Ovis aries",
+            "PRJEB69690",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+            ancient_status="ancient_unverified",
+            sequencing_target="unknown_or_mixed",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
+        _project(
+            "Ovis aries",
+            "PRJEB81145",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+            ancient_status="ancient_unverified",
+            sequencing_target="unknown_or_mixed",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
+        _project(
             "Sus scrofa domesticus",
-            (
-                "PRJEB30282",
-                "PRJNA788987",
-                "PRJNA878488",
-                "PRJNA322309",
-                "PRJNA1147173",
-                "PRJNA994173",
-                "PRJNA255085",
-                "PRJEB79254",
-                "PRJNA421430",
+            "PRJEB30282",
+            archive_status="paper_pinned_core",
+            notes="Ancient pig genomic turnover anchor after introduction to Europe.",
+            paper_linkage=_paper(
+                paper_title="Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+                doi="10.1073/pnas.1901169116",
+                pmc_id="PMC6717267",
+                journal_title="Proceedings of the National Academy of Sciences",
+                publication_year=2019,
+                pinning_evidence="Primary paper and PMC record explicitly anchor PRJEB30282 to the ancient pig turnover dataset.",
             ),
-            notes="Pig archive-backed aDNA studies identified for metadata-first intake review.",
-        )
-    )
-    catalog.extend(
-        _build_species_projects(
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Sus scrofa domesticus",
+            "PRJNA788987",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Ancient Chinese pig genomes remain archive-verified until paper linkage is recorded in code.",
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Sus scrofa domesticus",
+            "PRJNA878488",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Ancient Polynesian pig genomes remain archive-verified until paper linkage is recorded in code.",
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Sus scrofa domesticus",
+            "PRJNA421430",
+            archive_status="reject_or_out_of_scope",
+            notes="Method and modern tissue context from the source note set; not curated ancient pig support.",
+            ancient_status="modern_or_irrelevant",
+            sequencing_target="capture_or_method_panel",
+            material_basis="modern_tissue",
+            dating_basis="modern_sampling",
+            geographic_basis="country_or_breed_panel",
+        ),
+        _project(
+            "Bos taurus",
+            "PRJEB31621",
+            archive_status="paper_pinned_core",
+            notes="Near East cattle origins and turnover anchor.",
+            paper_linkage=_paper(
+                paper_title="Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+                doi="10.1126/science.aav1002",
+                pubmed_id="31296769",
+                journal_title="Science",
+                publication_year=2019,
+                pinning_evidence="Primary paper and PubMed record explicitly anchor PRJEB31621 to ancient cattle genomes.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Bos taurus",
+            "PRJEB75467",
+            archive_status="paper_pinned_core",
+            notes="Aurochs genomic natural-history context for cattle domestication.",
+            paper_linkage=_paper(
+                paper_title="The genomic natural history of the aurochs",
+                doi="10.1038/s41586-024-08112-6",
+                journal_title="Nature",
+                publication_year=2024,
+                pinning_evidence="Primary paper anchors PRJEB75467 to the aurochs reference framework.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Bos taurus",
+            "PRJNA705960",
+            archive_status="archive_verified_needs_paper_pinning",
+            notes="Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded.",
+            ancient_status="ancient_confirmed",
+            sequencing_target="mitogenome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Capra hircus",
+            "PRJEB90141",
+            archive_status="paper_pinned_core",
+            notes="Ancient goat demographic-history anchor from genome imputation study.",
+            paper_linkage=_paper(
+                paper_title="Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+                doi="10.1093/gbe/evaf181",
+                pmc_id="PMC12598287",
+                journal_title="Genome Biology and Evolution",
+                publication_year=2025,
+                pinning_evidence="Primary paper and PMC record explicitly anchor PRJEB90141 to the ancient goat study.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Capra hircus",
+            "PRJEB90261",
+            archive_status="paper_pinned_core",
+            notes="Canary Islands goat temporal continuity anchor.",
+            paper_linkage=_paper(
+                paper_title="Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+                doi="10.1016/j.isci.2025.113771",
+                pmc_id="PMC12629918",
+                journal_title="iScience",
+                publication_year=2025,
+                pinning_evidence="Primary paper and PMC record explicitly anchor PRJEB90261 to the Canary Islands goat dataset.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Capra hircus",
+            "PRJNA1328209",
+            archive_status="paper_pinned_core",
+            notes="Qinghai-Xizang Plateau goat population-history anchor.",
+            paper_linkage=_paper(
+                paper_title="Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+                doi="10.24272/j.issn.2095-8137.2025.080",
+                pubmed_id="41983443",
+                journal_title="Zoological Research",
+                publication_year=2025,
+                pinning_evidence="Primary paper and PubMed record explicitly anchor PRJNA1328209 to the goat dataset.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Felis catus",
+            "PRJEB81815",
+            archive_status="paper_pinned_core",
+            notes="Domestic cat dispersal from North Africa to Europe.",
+            paper_linkage=_paper(
+                paper_title="The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+                doi="10.1126/science.adt2642",
+                pmc_id="PMC7618505",
+                journal_title="Science",
+                publication_year=2024,
+                pinning_evidence="Primary paper explicitly names PRJEB81815 in data availability.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Felis catus",
+            "PRJNA1178732",
+            archive_status="paper_pinned_core",
+            notes="Late-arrival domestic cat dataset for China via Silk Road context.",
+            paper_linkage=_paper(
+                paper_title="The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+                doi="10.1016/j.xgen.2025.101099",
+                pmc_id="PMC12926185",
+                journal_title="Cell Genomics",
+                publication_year=2025,
+                pinning_evidence="Primary paper explicitly names PRJNA1178732 for newly generated FASTQ data.",
+            ),
+            ancient_status="ancient_confirmed",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="historical_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
             "Equus asinus",
-            (
-                "PRJEB50952",
-                "PRJEB52849",
-                "PRJNA143771",
-                "PRJEB52590",
-                "PRJEB43564",
-            ),
-            notes="Donkey comparator projects kept separate from horse support.",
-        )
-    )
-    catalog.append(
-        AdnaArchiveProject(
-            species_latin_name="Equus asinus",
-            project_accession="PRJEB55549",
+            "PRJEB50952",
+            archive_status="comparator_only",
+            notes="Ancient donkey comparator project kept separate from horse support.",
+            ancient_status="ancient_comparator",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus asinus",
+            "PRJEB52849",
+            archive_status="comparator_only",
+            notes="Ancient donkey comparator project kept separate from horse support.",
+            ancient_status="ancient_comparator",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus asinus",
+            "PRJEB52590",
+            archive_status="comparator_only",
+            notes="Ancient donkey comparator project kept separate from horse support.",
+            ancient_status="ancient_comparator",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus asinus",
+            "PRJEB43564",
+            archive_status="comparator_only",
+            notes="Ancient donkey comparator project kept separate from horse support.",
+            ancient_status="ancient_comparator",
+            sequencing_target="shotgun_genome",
+            material_basis="individual_bone_or_tooth",
+            dating_basis="archaeological_period_assignment",
+            geographic_basis="site_level_localities",
+        ),
+        _project(
+            "Equus asinus",
+            "PRJEB55549",
+            archive_status="reject_or_out_of_scope",
             result_kind="analysis",
-            metadata_url=build_ena_filereport_url("PRJEB55549", "analysis"),
-            source_family="ENA",
-            archive_status="curated_candidate",
-            notes="Analysis-level donkey archive entry; requires explicit review before download-oriented use.",
-        )
+            notes="Analysis-level donkey entry; not promoted into direct curated support.",
+            ancient_status="archive_unreviewed",
+            sequencing_target="analysis_only",
+            material_basis="not_yet_curated",
+            dating_basis="not_yet_curated",
+            geographic_basis="not_yet_curated",
+        ),
     )
-
-    return tuple(catalog)
 
 
 def build_species_archive_projects(species_name: str) -> tuple[AdnaArchiveProject, ...]:
@@ -276,23 +724,57 @@ def build_species_archive_projects(species_name: str) -> tuple[AdnaArchiveProjec
     )
 
 
-def _build_species_projects(
-    species_latin_name: str,
-    accessions: tuple[str, ...],
+def _paper(
     *,
+    paper_title: str,
+    pinning_evidence: str,
+    doi: str | None = None,
+    pubmed_id: str | None = None,
+    pmc_id: str | None = None,
+    journal_title: str | None = None,
+    publication_year: int | None = None,
+    reference_kind: str = "primary_paper",
+) -> AdnaPaperLinkage:
+    return AdnaPaperLinkage(
+        paper_title=paper_title,
+        doi=doi,
+        pubmed_id=pubmed_id,
+        pmc_id=pmc_id,
+        journal_title=journal_title,
+        publication_year=publication_year,
+        reference_kind=reference_kind,
+        pinning_evidence=pinning_evidence,
+    )
+
+
+def _project(
+    species_latin_name: str,
+    accession: str,
+    *,
+    archive_status: str,
     notes: str,
-) -> tuple[AdnaArchiveProject, ...]:
-    return tuple(
-        AdnaArchiveProject(
-            species_latin_name=species_latin_name,
-            project_accession=accession,
-            result_kind="read_run",
-            metadata_url=build_ena_filereport_url(accession, "read_run"),
-            source_family="ENA",
-            archive_status="curated_candidate",
-            notes=notes,
-        )
-        for accession in accessions
+    paper_linkage: AdnaPaperLinkage | None = None,
+    ancient_status: str,
+    sequencing_target: str,
+    material_basis: str,
+    dating_basis: str,
+    geographic_basis: str,
+    result_kind: str = "read_run",
+) -> AdnaArchiveProject:
+    return AdnaArchiveProject(
+        species_latin_name=species_latin_name,
+        project_accession=accession,
+        result_kind=result_kind,
+        metadata_url=build_ena_filereport_url(accession, result_kind),
+        source_family="ENA",
+        archive_status=archive_status,
+        notes=notes,
+        paper_linkage=paper_linkage,
+        ancient_status=ancient_status,
+        sequencing_target=sequencing_target,
+        material_basis=material_basis,
+        dating_basis=dating_basis,
+        geographic_basis=geographic_basis,
     )
 
 
