@@ -1,24 +1,34 @@
 from __future__ import annotations
 
+from bijux_pollenomics.adna import AdnaChronology, AdnaCoordinate, AdnaLocalitySummary
 from bijux_pollenomics.analysis import build_candidate_context, rank_localities
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
-from bijux_pollenomics.reporting.models import LocalitySummary
 
 
-def _locality(name: str, latitude: float, longitude: float) -> LocalitySummary:
-    return LocalitySummary(
+def _locality(name: str, latitude: float, longitude: float) -> AdnaLocalitySummary:
+    return AdnaLocalitySummary(
+        species_latin_name="Homo sapiens",
+        species_common_name="human",
+        source_family="AADR",
         locality=name,
-        latitude=latitude,
-        longitude=longitude,
-        latitude_text=str(latitude),
-        longitude_text=str(longitude),
+        coordinates=AdnaCoordinate(
+            latitude=latitude,
+            longitude=longitude,
+            latitude_text=str(latitude),
+            longitude_text=str(longitude),
+            confidence="unknown",
+        ),
         sample_count=2,
         sample_ids=("S1", "S2"),
         datasets=("dataset",),
-        time_start_bp=3500,
-        time_end_bp=2500,
-        time_mean_bp=3000,
-        time_label="3000 BP",
+        chronology=AdnaChronology(
+            original_text="3000 BP",
+            time_start_bp=3500,
+            time_end_bp=2500,
+            time_mean_bp=3000,
+            dating_basis="bp_window",
+        ),
+        sample_namespace="homo_sapiens:aadr_genetic_id",
     )
 
 

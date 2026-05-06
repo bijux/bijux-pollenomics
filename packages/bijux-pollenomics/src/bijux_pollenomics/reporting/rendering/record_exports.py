@@ -19,6 +19,10 @@ __all__ = [
 
 
 SAMPLE_EXPORT_FIELDS = (
+    "species_latin_name",
+    "species_common_name",
+    "source_family",
+    "sample_namespace",
     "genetic_id",
     "master_id",
     "group_id",
@@ -35,11 +39,18 @@ SAMPLE_EXPORT_FIELDS = (
     "time_end_bp",
     "time_mean_bp",
     "time_label",
+    "dating_basis",
+    "coordinate_confidence",
     "data_type",
     "molecular_sex",
     "datasets",
+    "accession_lineage",
 )
 LOCALITY_EXPORT_FIELDS = (
+    "species_latin_name",
+    "species_common_name",
+    "source_family",
+    "sample_namespace",
     "locality",
     "latitude",
     "longitude",
@@ -48,6 +59,8 @@ LOCALITY_EXPORT_FIELDS = (
     "time_end_bp",
     "time_mean_bp",
     "time_label",
+    "dating_basis",
+    "coordinate_confidence",
     "datasets",
     "sample_ids",
 )
@@ -56,6 +69,10 @@ LOCALITY_EXPORT_FIELDS = (
 def serialize_sample_record(sample: SampleRecord) -> dict[str, object]:
     """Serialize one sample record into the shared export contract."""
     return {
+        "species_latin_name": sample.species_latin_name,
+        "species_common_name": sample.species_common_name,
+        "source_family": sample.source_family,
+        "sample_namespace": sample.sample_namespace,
         "genetic_id": sample.genetic_id,
         "master_id": sample.master_id,
         "group_id": sample.group_id,
@@ -72,15 +89,22 @@ def serialize_sample_record(sample: SampleRecord) -> dict[str, object]:
         "time_end_bp": sample.time_end_bp,
         "time_mean_bp": sample.time_mean_bp,
         "time_label": sample.time_label,
+        "dating_basis": sample.dating_basis,
+        "coordinate_confidence": sample.coordinate_confidence,
         "data_type": sample.data_type,
         "molecular_sex": sample.molecular_sex,
         "datasets": list(sample.datasets),
+        "accession_lineage": list(sample.accession_lineage),
     }
 
 
 def serialize_locality_summary(locality: LocalitySummary) -> dict[str, object]:
     """Serialize one locality summary into the shared export contract."""
     return {
+        "species_latin_name": locality.species_latin_name,
+        "species_common_name": locality.species_common_name,
+        "source_family": locality.source_family,
+        "sample_namespace": locality.sample_namespace,
         "locality": locality.locality,
         "latitude": locality.latitude_text,
         "longitude": locality.longitude_text,
@@ -89,6 +113,8 @@ def serialize_locality_summary(locality: LocalitySummary) -> dict[str, object]:
         "time_end_bp": locality.time_end_bp,
         "time_mean_bp": locality.time_mean_bp,
         "time_label": locality.time_label,
+        "dating_basis": locality.dating_basis,
+        "coordinate_confidence": locality.coordinate_confidence,
         "datasets": list(locality.datasets),
         "sample_ids": list(locality.sample_ids),
     }
@@ -124,6 +150,7 @@ def write_samples_csv(path: Path, samples: Iterable[SampleRecord]) -> None:
         for sample in samples:
             payload = serialize_sample_record(sample)
             payload["datasets"] = ",".join(sample.datasets)
+            payload["accession_lineage"] = ";".join(sample.accession_lineage)
             writer.writerow(payload)
 
 

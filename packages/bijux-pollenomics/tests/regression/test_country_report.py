@@ -1239,30 +1239,51 @@ class CountryReportTests(unittest.TestCase):
         political_entity: str,
         datasets: tuple[str, ...],
     ) -> SampleRecord:
+        from bijux_pollenomics.adna import (
+            AdnaChronology,
+            AdnaCoordinate,
+            AdnaSampleIdentity,
+        )
         from bijux_pollenomics.reporting.models import SampleRecord
 
         return SampleRecord(
-            genetic_id=genetic_id,
+            identity=AdnaSampleIdentity(
+                namespace="homo_sapiens:aadr_genetic_id",
+                stable_token=genetic_id,
+                accession_lineage=(
+                    "species:Homo sapiens",
+                    "source:AADR",
+                    f"dataset:{datasets[0]}",
+                    f"genetic_id:{genetic_id}",
+                ),
+            ),
+            species_latin_name="Homo sapiens",
+            species_common_name="human",
+            source_family="AADR",
             master_id=genetic_id,
             group_id=f"{political_entity}_Group",
             locality=locality,
             political_entity=political_entity,
-            latitude=59.8586,
-            longitude=17.6389,
-            latitude_text="59.8586",
-            longitude_text="17.6389",
+            coordinates=AdnaCoordinate(
+                latitude=59.8586,
+                longitude=17.6389,
+                latitude_text="59.8586",
+                longitude_text="17.6389",
+                confidence="unknown",
+            ),
             publication="PaperA",
             year_first_published="2022",
             full_date="500 BCE",
-            date_mean_bp="2450",
-            date_stddev_bp="125",
+            chronology=AdnaChronology(
+                original_text="2200-2700 BP",
+                time_start_bp=2200,
+                time_end_bp=2700,
+                time_mean_bp=2450,
+                dating_basis="bp_mean_and_stddev",
+            ),
             data_type="AG",
             molecular_sex="F",
             datasets=datasets,
-            time_start_bp=2200,
-            time_end_bp=2700,
-            time_mean_bp=2450,
-            time_label="2200-2700 BP",
         )
 
 

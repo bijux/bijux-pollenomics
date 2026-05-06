@@ -38,7 +38,7 @@ def build_candidate_context(
     *,
     radius_km: float = 25.0,
 ) -> CandidateSiteContext:
-    """Aggregate cross-layer context for one AADR locality."""
+    """Aggregate cross-layer context for one ancient-DNA locality."""
     nearby_context_points = 0
     temporal_overlap_points = 0
     nearest_context_distance_km: float | None = None
