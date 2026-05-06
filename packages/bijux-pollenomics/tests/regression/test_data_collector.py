@@ -83,6 +83,15 @@ class DataCollectorTests(unittest.TestCase):
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
+            self.assertTrue((output_root / "adna" / "equus_caballus" / "review").is_dir())
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "gallus_gallus_domesticus"
+                    / "manifests"
+                ).is_dir()
+            )
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
             self.assertIn("aadr", report.source_provenance)
@@ -149,6 +158,7 @@ class DataCollectorTests(unittest.TestCase):
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
             self.assertEqual(report.boundary_source, "collected")
+            self.assertTrue((output_root / "adna" / "equus_asinus" / "raw").is_dir())
 
     def test_collect_data_replaces_selected_source_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -273,8 +283,10 @@ class DataCollectorTests(unittest.TestCase):
 
             readme_text = (output_root / "README.md").read_text(encoding="utf-8")
             self.assertIn(
-                "Tracked source data lives directly under `custom-data/`", readme_text
+                "Tracked source data and governed species-owned ancient-DNA views live directly",
+                readme_text,
             )
+            self.assertIn("under `custom-data/`", readme_text)
             self.assertIn("\ncustom-data\n", readme_text)
             self.assertIn("│   └── v62.0", readme_text)
             summary = json.loads(

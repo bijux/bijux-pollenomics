@@ -9,6 +9,7 @@ from bijux_pollenomics.data_downloader.data_layout import (
     DATA_LAYOUT_INDEX,
     DATA_SOURCE_INDEX,
     build_source_output_roots,
+    ensure_curated_species_adna_layout,
     ensure_homo_sapiens_adna_layout,
     render_data_root_readme_for,
     write_data_directory_readme,
@@ -34,11 +35,14 @@ class DataLayoutUnitTests(unittest.TestCase):
             readme,
         )
         self.assertIn("`custom-data/`", readme)
+        self.assertIn("│   ├── equus_caballus", readme)
+        self.assertIn("│   ├── felis_catus", readme)
         self.assertIn("│   └── homo_sapiens", readme)
         self.assertIn("│       │   └── aadr -> ../../../aadr", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
         self.assertIn("`Homo sapiens` ancient DNA is governed under", readme)
+        self.assertIn("`adna/equus_caballus/`", readme)
         self.assertIn(
             "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
             f"({DATA_SOURCE_INDEX})",
@@ -74,3 +78,21 @@ class DataLayoutUnitTests(unittest.TestCase):
             raw_aadr = species_root / "raw" / "aadr"
             self.assertTrue(raw_aadr.is_symlink())
             self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")
+
+    def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            output_root.mkdir(parents=True, exist_ok=True)
+
+            ensure_curated_species_adna_layout(output_root)
+
+            horse_root = output_root / "adna" / "equus_caballus"
+            chicken_root = output_root / "adna" / "gallus_gallus_domesticus"
+            rabbit_root = output_root / "adna" / "oryctolagus_cuniculus"
+
+            for root in (horse_root, chicken_root, rabbit_root):
+                self.assertTrue((root / "raw").is_dir())
+                self.assertTrue((root / "normalized").is_dir())
+                self.assertTrue((root / "manifests").is_dir())
+                self.assertTrue((root / "reports").is_dir())
+                self.assertTrue((root / "review").is_dir())

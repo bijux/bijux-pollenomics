@@ -6,6 +6,16 @@ under `data/`:
 ```text
 data
 ├── adna
+│   ├── equus_caballus
+│   ├── sus_scrofa_domesticus
+│   ├── ovis_aries
+│   ├── capra_hircus
+│   ├── felis_catus
+│   ├── equus_asinus
+│   ├── gallus_gallus_domesticus
+│   ├── meleagris_gallopavo
+│   ├── oryctolagus_cuniculus
+│   ├── anas_platyrhynchos_domesticus
 │   └── homo_sapiens
 │       ├── raw
 │       │   └── aadr -> ../../../aadr
@@ -29,6 +39,9 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
-`Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, where the
-species-owned raw AADR view points back to the versioned source intake while
-keeping normalized, manifest, review, and report ownership visible.
+`Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, while the
+domesticated-animal curation program owns species roots such as
+`adna/equus_caballus/`, `adna/sus_scrofa_domesticus/`, `adna/ovis_aries/`,
+`adna/capra_hircus/`, `adna/felis_catus/`, `adna/equus_asinus/`,
+`adna/gallus_gallus_domesticus/`, `adna/meleagris_gallopavo/`,
+`adna/oryctolagus_cuniculus/`, and `adna/anas_platyrhynchos_domesticus/`.
