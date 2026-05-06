@@ -11,6 +11,7 @@ def build_multi_country_map_summary(
 ) -> dict[str, object]:
     """Build a machine-readable summary for one shared map bundle."""
     return {
+        "schema_version": "atlas-bundle-summary.v1",
         "title": report.title,
         "slug": report.slug,
         "version": report.version,
@@ -40,6 +41,7 @@ def build_multi_country_bundle_manifest(
 ) -> dict[str, object]:
     """Build a machine-readable manifest for one atlas bundle."""
     return {
+        "schema_version": "atlas-bundle-manifest.v1",
         "bundle_type": "nordic_evidence_atlas",
         "title": report.title,
         "slug": report.slug,
@@ -54,6 +56,7 @@ def build_multi_country_bundle_manifest(
             "map_html": bundle_paths.map_html_path.name,
             "samples_geojson": bundle_paths.samples_geojson_path.name,
             "candidate_sites_csv": bundle_paths.candidate_sites_csv_path.name,
+            "candidate_sites_json": bundle_paths.candidate_sites_json_path.name,
             "candidate_sites_markdown": bundle_paths.candidate_sites_markdown_path.name,
             "summary_json": bundle_paths.summary_json_path.name,
             "extra_files": [

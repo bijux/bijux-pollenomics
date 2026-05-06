@@ -9,6 +9,7 @@ def build_country_report_summary(
 ) -> dict[str, object]:
     """Build a machine-readable summary for one country report."""
     return {
+        "schema_version": "country-report-summary.v1",
         "country": report.country,
         "version": report.version,
         "generated_on": report.generated_on,
@@ -33,6 +34,7 @@ def build_country_bundle_manifest(
 ) -> dict[str, object]:
     """Build a machine-readable manifest for one country report bundle."""
     return {
+        "schema_version": "country-report-bundle-manifest.v1",
         "bundle_type": "country_aadr_report",
         "country": report.country,
         "version": report.version,

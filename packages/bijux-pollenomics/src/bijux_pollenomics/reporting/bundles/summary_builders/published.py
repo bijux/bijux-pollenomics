@@ -11,6 +11,7 @@ def build_published_reports_summary(
 ) -> dict[str, object]:
     """Build a machine-readable summary for the current published report set."""
     payload = asdict(report)
+    payload["schema_version"] = "published-reports-summary.v1"
     payload["shared_map_dir"] = str(report.shared_map_dir)
     payload["country_output_dirs"] = [str(path) for path in report.country_output_dirs]
     payload["summary_path"] = str(report.summary_path)
