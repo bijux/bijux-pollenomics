@@ -4,18 +4,35 @@ from collections import defaultdict
 from dataclasses import dataclass
 import re
 
+from ..core.bp_time import (
+    build_bp_interval_label,
+    midpoint_bp_year,
+    normalize_bp_interval,
+    parse_bp_window_label,
+)
 from .curation import build_species_curation_manifest
 from .ena import build_species_archive_projects, classify_archive_project_evidence
 from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .models import AdnaLocalitySummary, AdnaSampleRecord
+from .models import (
+    AdnaChronology,
+    AdnaCoordinate,
+    AdnaLocalitySummary,
+    AdnaSampleRecord,
+)
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "ADNA_DOMESTICATION_STATUSES",
+    "AdnaCoordinateResolution",
+    "AdnaNormalizationLineage",
+    "AdnaNormalizationRefusal",
     "AdnaProjectSummary",
     "AdnaSpeciesNormalizationBundle",
     "AdnaStudySummary",
     "build_species_normalization_bundle",
+    "normalize_chronology_text",
+    "normalize_coordinate_resolution",
+    "normalize_explicit_bp_window",
     "normalize_breed_label",
     "normalize_species_anchor",
 ]
@@ -26,6 +43,82 @@ ADNA_DOMESTICATION_STATUSES = (
     "thin_evidence",
     "unsupported",
 )
+_BP_MEAN_STDDEV_RE = re.compile(
+    r"(?P<mean>\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",
+    re.IGNORECASE,
+)
+_BCE_RANGE_RE = re.compile(
+    r"(?P<start>\d{1,5})\s*-\s*(?P<end>\d{1,5})\s*(?:cal\s*)?BCE",
+    re.IGNORECASE,
+)
+_BCE_SINGLE_RE = re.compile(r"(?P<year>\d{1,5})\s*(?:cal\s*)?BCE", re.IGNORECASE)
+_CE_RANGE_RE = re.compile(
+    r"(?P<start>\d{1,4})\s*-\s*(?P<end>\d{1,4})\s*CE",
+    re.IGNORECASE,
+)
+_CE_SINGLE_RE = re.compile(r"(?P<year>\d{1,4})\s*CE", re.IGNORECASE)
+
+
+@dataclass(frozen=True)
+class AdnaCoordinateResolution:
+    """Coordinate normalization result that can keep locations honestly withheld."""
+
+    coordinate: AdnaCoordinate | None
+    confidence: str
+    source_basis: str
+    reason: str
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "coordinate": None if self.coordinate is None else self.coordinate.__dict__,
+            "confidence": self.confidence,
+            "source_basis": self.source_basis,
+            "reason": self.reason,
+        }
+
+
+@dataclass(frozen=True)
+class AdnaNormalizationLineage:
+    """Trace one normalized output back to one governed raw-source expectation."""
+
+    schema_version: str
+    output_record_kind: str
+    output_record_token: str
+    source_artifact_path: str
+    source_accessions: tuple[str, ...]
+    lineage_tokens: tuple[str, ...]
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "schema_version": self.schema_version,
+            "output_record_kind": self.output_record_kind,
+            "output_record_token": self.output_record_token,
+            "source_artifact_path": self.source_artifact_path,
+            "source_accessions": list(self.source_accessions),
+            "lineage_tokens": list(self.lineage_tokens),
+        }
+
+
+@dataclass(frozen=True)
+class AdnaNormalizationRefusal:
+    """Explicit refusal row for non-human normalization that would overclaim support."""
+
+    schema_version: str
+    species_latin_name: str
+    source_token: str
+    record_kind: str
+    reason: str
+    detail: str
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "schema_version": self.schema_version,
+            "species_latin_name": self.species_latin_name,
+            "source_token": self.source_token,
+            "record_kind": self.record_kind,
+            "reason": self.reason,
+            "detail": self.detail,
+        }
 
 
 @dataclass(frozen=True)
@@ -138,6 +231,8 @@ class AdnaSpeciesNormalizationBundle:
     locality_records: tuple[AdnaLocalitySummary, ...]
     project_summaries: tuple[AdnaProjectSummary, ...]
     study_summaries: tuple[AdnaStudySummary, ...]
+    lineage_records: tuple[AdnaNormalizationLineage, ...]
+    refusals: tuple[AdnaNormalizationRefusal, ...]
     normalization_scope: str
 
     @property
@@ -152,6 +247,8 @@ class AdnaSpeciesNormalizationBundle:
             "locality_records": [record.__dict__ for record in self.locality_records],
             "project_summaries": [summary.as_dict() for summary in self.project_summaries],
             "study_summaries": [summary.as_dict() for summary in self.study_summaries],
+            "lineage_records": [row.as_dict() for row in self.lineage_records],
+            "refusals": [row.as_dict() for row in self.refusals],
             "normalization_scope": self.normalization_scope,
         }
 
@@ -164,18 +261,16 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
             "Homo sapiens normalization is owned by the governed AADR metadata runtime"
         )
     curation_manifest = build_species_curation_manifest(species_name)
-    project_summaries = _deduplicate_project_summaries(
-        tuple(
-            sorted(
-                (
-                    _build_project_summary(project, curation_manifest.curation_class)
-                    for project in build_species_archive_projects(species_name)
-                ),
-                key=lambda item: item.summary_token,
-            )
-        )
+    project_summaries, project_refusals = _normalize_project_summaries(
+        species_name,
+        curation_manifest.curation_class,
     )
     study_summaries = _build_study_summaries(project_summaries)
+    lineage_records = _build_lineage_records(
+        species_manifest.species,
+        project_summaries,
+        study_summaries,
+    )
     return AdnaSpeciesNormalizationBundle(
         schema_version="adna-nonhuman-normalization-bundle.v1",
         species_manifest=species_manifest,
@@ -183,6 +278,32 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         locality_records=(),
         project_summaries=project_summaries,
         study_summaries=study_summaries,
+        lineage_records=lineage_records,
+        refusals=project_refusals
+        + (
+            AdnaNormalizationRefusal(
+                schema_version="adna-normalization-refusal.v1",
+                species_latin_name=species_manifest.species.latin_name,
+                source_token=species_manifest.root_slug,
+                record_kind="sample_records",
+                reason="sample_level_raw_metadata_unavailable",
+                detail=(
+                    "The current non-human program has project-level archive curation, "
+                    "but not enough sample-level raw metadata to emit sample rows honestly."
+                ),
+            ),
+            AdnaNormalizationRefusal(
+                schema_version="adna-normalization-refusal.v1",
+                species_latin_name=species_manifest.species.latin_name,
+                source_token=species_manifest.root_slug,
+                record_kind="locality_records",
+                reason="locality_level_raw_metadata_unavailable",
+                detail=(
+                    "The current non-human program has project-level geographic review, "
+                    "but not enough locality-level raw metadata to emit locality rows honestly."
+                ),
+            ),
+        ),
         normalization_scope=(
             "Non-human normalization currently governs project and study summaries. "
             "Sample and locality rows stay empty until archive-backed sample metadata "
@@ -220,6 +341,153 @@ def normalize_breed_label(value: str | None) -> str | None:
     return cleaned.casefold().replace("_", " ")
 
 
+def normalize_coordinate_resolution(
+    *,
+    latitude_text: str,
+    longitude_text: str,
+    geographic_basis: str | None,
+) -> AdnaCoordinateResolution:
+    """Normalize a latitude/longitude pair while allowing honest withholding."""
+    basis = geographic_basis or ""
+    lat_clean = latitude_text.strip()
+    lon_clean = longitude_text.strip()
+    confidence = _coordinate_confidence_for(basis)
+    if not lat_clean and not lon_clean:
+        return AdnaCoordinateResolution(
+            coordinate=None,
+            confidence=confidence,
+            source_basis=basis,
+            reason="coordinates_withheld_by_source_policy",
+        )
+    if not lat_clean or not lon_clean:
+        raise ValueError("Coordinate normalization requires both latitude and longitude")
+    latitude = float(lat_clean)
+    longitude = float(lon_clean)
+    if not -90.0 <= latitude <= 90.0:
+        raise ValueError(f"Latitude out of range: {latitude_text}")
+    if not -180.0 <= longitude <= 180.0:
+        raise ValueError(f"Longitude out of range: {longitude_text}")
+    return AdnaCoordinateResolution(
+        coordinate=AdnaCoordinate(
+            latitude=latitude,
+            longitude=longitude,
+            latitude_text=lat_clean,
+            longitude_text=lon_clean,
+            confidence=confidence,
+        ),
+        confidence=confidence,
+        source_basis=basis,
+        reason="parsed_coordinate_pair",
+    )
+
+
+def normalize_chronology_text(
+    value: str,
+    *,
+    dating_basis: str = "unknown",
+) -> AdnaChronology:
+    """Normalize common non-human chronology expressions without overclaiming precision."""
+    text = value.strip()
+    basis = dating_basis or "unknown"
+    if not text:
+        return AdnaChronology(
+            original_text="",
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+            dating_basis=basis,
+        )
+    if bp_window := parse_bp_window_label(text):
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=bp_window[0],
+            time_end_bp=bp_window[1],
+            time_mean_bp=midpoint_bp_year(bp_window[0], bp_window[1]),
+            dating_basis=basis,
+        )
+    if bce_range := _BCE_RANGE_RE.search(text):
+        older_bp = _bce_to_bp(int(bce_range.group("start")))
+        younger_bp = _bce_to_bp(int(bce_range.group("end")))
+        interval = normalize_bp_interval(older_bp, younger_bp)
+        assert interval is not None
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=interval[0],
+            time_end_bp=interval[1],
+            time_mean_bp=midpoint_bp_year(interval[0], interval[1]),
+            dating_basis=basis,
+        )
+    if ce_range := _CE_RANGE_RE.search(text):
+        first_bp = _ce_to_bp(int(ce_range.group("start")))
+        second_bp = _ce_to_bp(int(ce_range.group("end")))
+        interval = normalize_bp_interval(first_bp, second_bp)
+        assert interval is not None
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=interval[0],
+            time_end_bp=interval[1],
+            time_mean_bp=midpoint_bp_year(interval[0], interval[1]),
+            dating_basis=basis,
+        )
+    if bce_single := _BCE_SINGLE_RE.search(text):
+        year_bp = _bce_to_bp(int(bce_single.group("year")))
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=year_bp,
+            time_end_bp=year_bp,
+            time_mean_bp=year_bp,
+            dating_basis=basis,
+        )
+    if ce_single := _CE_SINGLE_RE.search(text):
+        year_bp = _ce_to_bp(int(ce_single.group("year")))
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=year_bp,
+            time_end_bp=year_bp,
+            time_mean_bp=year_bp,
+            dating_basis=basis,
+        )
+    if mean_match := _BP_MEAN_STDDEV_RE.search(text):
+        mean_bp = int(mean_match.group("mean"))
+        stddev_bp = mean_match.group("stddev")
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=mean_bp,
+            time_end_bp=mean_bp,
+            time_mean_bp=mean_bp,
+            date_stddev_bp=stddev_bp,
+            dating_basis=basis,
+        )
+    return AdnaChronology(
+        original_text=text,
+        time_start_bp=None,
+        time_end_bp=None,
+        time_mean_bp=None,
+        dating_basis=basis,
+    )
+
+
+def normalize_explicit_bp_window(
+    start_bp: int | None,
+    end_bp: int | None,
+    *,
+    original_text: str = "",
+    dating_basis: str = "bp_window",
+) -> AdnaChronology:
+    """Normalize an explicit structured BP interval while refusing inverted input."""
+    if start_bp is None or end_bp is None:
+        raise ValueError("Structured BP windows require both start and end values")
+    if start_bp > end_bp:
+        raise ValueError("Structured BP windows must be ordered younger-to-older")
+    return AdnaChronology(
+        original_text=original_text or build_bp_interval_label(start_bp, end_bp),
+        time_start_bp=start_bp,
+        time_end_bp=end_bp,
+        time_mean_bp=midpoint_bp_year(start_bp, end_bp),
+        dating_basis=dating_basis,
+    )
+
+
 def _build_project_summary(
     project,
     curation_class: str,
@@ -255,6 +523,32 @@ def _build_project_summary(
         paper_doi=paper_doi,
         notes=project.notes,
     )
+
+
+def _normalize_project_summaries(
+    species_name: str,
+    curation_class: str,
+) -> tuple[tuple[AdnaProjectSummary, ...], tuple[AdnaNormalizationRefusal, ...]]:
+    project_summaries: list[AdnaProjectSummary] = []
+    refusals: list[AdnaNormalizationRefusal] = []
+    for project in build_species_archive_projects(species_name):
+        try:
+            project_summaries.append(_build_project_summary(project, curation_class))
+        except ValueError as exc:
+            refusals.append(
+                AdnaNormalizationRefusal(
+                    schema_version="adna-normalization-refusal.v1",
+                    species_latin_name=resolve_species_definition(species_name).latin_name,
+                    source_token=project.project_accession,
+                    record_kind="project_summary",
+                    reason="defensible_species_anchor_missing",
+                    detail=str(exc),
+                )
+            )
+    normalized = _deduplicate_project_summaries(
+        tuple(sorted(project_summaries, key=lambda item: item.summary_token))
+    )
+    return normalized, tuple(refusals)
 
 
 def _deduplicate_project_summaries(
@@ -340,6 +634,51 @@ def _build_study_summaries(
     return tuple(sorted(study_summaries, key=lambda item: item.summary_token))
 
 
+def _build_lineage_records(
+    species: AdnaSpeciesDefinition,
+    project_summaries: tuple[AdnaProjectSummary, ...],
+    study_summaries: tuple[AdnaStudySummary, ...],
+) -> tuple[AdnaNormalizationLineage, ...]:
+    lineages: list[AdnaNormalizationLineage] = []
+    project_by_token = {project.summary_token: project for project in project_summaries}
+    for project in project_summaries:
+        lineages.append(
+            AdnaNormalizationLineage(
+                schema_version="adna-normalization-lineage.v1",
+                output_record_kind="project_summary",
+                output_record_token=project.summary_token,
+                source_artifact_path=_source_artifact_path(species, project),
+                source_accessions=(project.project_accession,),
+                lineage_tokens=(
+                    f"species:{species.latin_name}",
+                    f"source_family:{project.source_family}",
+                    f"project_accession:{project.project_accession}",
+                    f"archive_status:{project.archive_status}",
+                ),
+            )
+        )
+    for study in study_summaries:
+        first_project = project_by_token.get(
+            f"{species.slug}:project:{study.project_accessions[0]}"
+        )
+        assert first_project is not None
+        lineages.append(
+            AdnaNormalizationLineage(
+                schema_version="adna-normalization-lineage.v1",
+                output_record_kind="study_summary",
+                output_record_token=study.summary_token,
+                source_artifact_path=_source_artifact_path(species, first_project),
+                source_accessions=study.project_accessions,
+                lineage_tokens=(
+                    f"species:{species.latin_name}",
+                    f"study_token:{study.summary_token}",
+                    *(f"project_accession:{accession}" for accession in study.project_accessions),
+                ),
+            )
+        )
+    return tuple(sorted(lineages, key=lambda item: (item.output_record_kind, item.output_record_token)))
+
+
 def _study_token_for(project_accession: str, paper_doi: str | None) -> str:
     if paper_doi:
         return "study:" + re.sub(r"[^a-z0-9]+", "-", paper_doi.casefold()).strip("-")
@@ -391,6 +730,19 @@ def _coordinate_policy_for(geographic_basis: str | None) -> str:
     return "manual_coordinate_review_required"
 
 
+def _coordinate_confidence_for(geographic_basis: str) -> str:
+    basis = geographic_basis.casefold()
+    if "exact" in basis:
+        return "exact"
+    if "approximate" in basis or "site_level" in basis:
+        return "approximate"
+    if "inferred" in basis:
+        return "inferred"
+    if any(token in basis for token in ("country_only", "locality_text", "withheld")):
+        return "withheld"
+    return "unknown"
+
+
 def _chronology_policy_for(dating_basis: str | None) -> str:
     basis = (dating_basis or "").casefold()
     if "radiocarbon" in basis:
@@ -411,3 +763,25 @@ def _breed_label_from_notes(notes: str) -> str | None:
     if "dromedary" in lowered:
         return "dromedary-associated"
     return None
+
+
+def _source_artifact_path(
+    species: AdnaSpeciesDefinition,
+    project: AdnaProjectSummary,
+) -> str:
+    root = f"data/adna/{species.slug}/raw"
+    family = project.source_family.casefold()
+    suffix = "filereport.tsv"
+    if family == "genbank":
+        suffix = "summary.tsv"
+    if family == "manual_curation":
+        suffix = "review.md"
+    return f"{root}/{family}/{project.project_accession}.{suffix}"
+
+
+def _bce_to_bp(year_bce: int) -> int:
+    return year_bce + 1949
+
+
+def _ce_to_bp(year_ce: int) -> int:
+    return max(0, 1950 - year_ce)
