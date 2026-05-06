@@ -68,6 +68,11 @@ def build_species_manifest(name: str) -> AdnaSpeciesManifest:
             "Cattle support remains split-sensitive. Wild or progenitor context must "
             "not be flattened into domesticated-core cattle support."
         )
+    elif species.latin_name == "Bos indicus":
+        scientific_scope = (
+            "Indicine support remains separate from taurine cattle. Bos indicus must "
+            "not inherit Bos taurus evidence without explicit species-specific curation."
+        )
     return AdnaSpeciesManifest(
         schema_version="adna-species-manifest.v1",
         species=species,

@@ -137,7 +137,7 @@ def classify_species_assignment_rule(species_name: str) -> str:
     """Classify how project records must be assigned for one species."""
     species = resolve_species_definition(species_name)
     role = classify_species_product_role(species_name)
-    if species.latin_name == "Bos taurus":
+    if species.latin_name in {"Bos taurus", "Bos indicus"}:
         return "mixed_species_review_required"
     if role == "comparator" and species.latin_name.startswith("Equus "):
         return "equid_comparator"
