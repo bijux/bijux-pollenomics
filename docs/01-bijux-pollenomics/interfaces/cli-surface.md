@@ -19,7 +19,7 @@ flowchart TB
     command["named CLI command"]
     options["shared options and defaults"]
     handler["runtime handler"]
-    outputs["tracked data or report outputs"]
+    outputs["tracked data, report outputs, or typed runtime review"]
     review["reviewable repository change"]
 
     command --> options
@@ -40,6 +40,8 @@ through the repository with visible output consequences.
   chosen country set
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
+- `adna-species` prints the canonical ancient-DNA species support matrix and
+  current runtime scope
 - `surface-map` prints a short runtime-versus-roadmap package surface map
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live
@@ -59,6 +61,7 @@ through the repository with visible output consequences.
 
 ```bash
 bijux-pollenomics collect-data all --version v66 --output-root data
+bijux-pollenomics adna-species
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
 

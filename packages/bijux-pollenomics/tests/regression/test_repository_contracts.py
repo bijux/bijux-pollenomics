@@ -193,6 +193,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("collect-data <sources...>", command_reference)
+        self.assertIn("adna-species", command_reference)
         self.assertIn("report-country <country>", command_reference)
         self.assertIn("report-multi-country-map <countries...>", command_reference)
         self.assertIn("publish-reports", command_reference)
@@ -201,6 +202,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("for collection or `docs/report` for", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
+
+    def test_module_map_mentions_adna_runtime_boundary(self) -> None:
+        module_map = (
+            REPO_ROOT
+            / "docs"
+            / "01-bijux-pollenomics"
+            / "architecture"
+            / "module-map.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("`adna/` owns species-aware ancient-DNA contracts", module_map)
+        self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
