@@ -119,6 +119,7 @@ def _normalized_record_contract_ok(species_name: str) -> bool:
 
 
 def _atlas_bundle_contract_ok() -> bool:
+    from ..evidence import build_atlas_evidence_surface
     from ..reporting.bundles.paths import build_atlas_bundle_paths
     from ..reporting.bundles.summary_builders.atlas import (
         build_multi_country_bundle_manifest,
@@ -159,6 +160,11 @@ def _atlas_bundle_contract_ok() -> bool:
     ]
     summary = build_multi_country_map_summary(report, paths, extra_artifacts)
     manifest = build_multi_country_bundle_manifest(report, paths, extra_artifacts)
+    evidence_surface = build_atlas_evidence_surface(
+        countries=("Sweden",),
+        human_localities=(),
+        context_points=(),
+    )
     published = build_published_reports_summary(
         PublishedReportsReport(
             version="v0",
@@ -178,6 +184,16 @@ def _atlas_bundle_contract_ok() -> bool:
         == paths.candidate_site_sensitivity_json_path.name
         and manifest["artifacts"]["candidate_ranking_engine_manifest"]
         == paths.candidate_ranking_engine_manifest_path.name
+        and summary["artifacts"]["evidence_surface_json"]
+        == paths.evidence_surface_json_path.name
+        and summary["artifacts"]["evidence_surface_markdown"]
+        == paths.evidence_surface_markdown_path.name
+        and manifest["artifacts"]["evidence_surface_json"]
+        == paths.evidence_surface_json_path.name
+        and manifest["artifacts"]["evidence_surface_markdown"]
+        == paths.evidence_surface_markdown_path.name
+        and evidence_surface.schema_version == "atlas-evidence-surface.v1"
+        and evidence_surface.layers[0].layer_key == "homo_sapiens_direct"
         and published.get("schema_version") == "published-reports-summary.v1"
     )
 
