@@ -39,6 +39,9 @@ class AtlasBundlePaths:
     candidate_sites_csv_path: Path
     candidate_sites_json_path: Path
     candidate_sites_markdown_path: Path
+    candidate_site_sensitivity_json_path: Path
+    candidate_site_sensitivity_markdown_path: Path
+    candidate_ranking_engine_manifest_path: Path
     summary_json_path: Path
 
 
@@ -81,5 +84,11 @@ def build_atlas_bundle_paths(
         candidate_sites_csv_path=output_dir / f"{atlas_slug}_candidate_sites.csv",
         candidate_sites_json_path=output_dir / f"{atlas_slug}_candidate_sites.json",
         candidate_sites_markdown_path=output_dir / f"{atlas_slug}_candidate_sites.md",
+        candidate_site_sensitivity_json_path=output_dir
+        / f"{atlas_slug}_candidate_site_sensitivity.json",
+        candidate_site_sensitivity_markdown_path=output_dir
+        / f"{atlas_slug}_candidate_site_sensitivity.md",
+        candidate_ranking_engine_manifest_path=output_dir
+        / f"{atlas_slug}_candidate_ranking_engine_manifest.json",
         summary_json_path=output_dir / f"{atlas_slug}_summary.json",
     )
