@@ -16,6 +16,8 @@ __all__ = [
 class SourceLayoutContract:
     output_root: Path
     source_directories: tuple[str, ...]
+    species_directories: tuple[str, ...]
+    species_symlinks: tuple[tuple[str, str], ...]
     collection_manifest_name: str
 
     @property
@@ -28,6 +30,18 @@ def build_source_layout_contract(output_root: Path) -> SourceLayoutContract:
     return SourceLayoutContract(
         output_root=Path(output_root),
         source_directories=AVAILABLE_SOURCES,
+        species_directories=(
+            "adna",
+            "adna/homo_sapiens",
+            "adna/homo_sapiens/raw",
+            "adna/homo_sapiens/normalized",
+            "adna/homo_sapiens/manifests",
+            "adna/homo_sapiens/reports",
+            "adna/homo_sapiens/review",
+        ),
+        species_symlinks=(
+            ("adna/homo_sapiens/raw/aadr", "../../../aadr"),
+        ),
         collection_manifest_name="collection_summary.json",
     )
 
@@ -41,3 +55,18 @@ def validate_source_layout_contract(contract: SourceLayoutContract) -> None:
         path = contract.output_root / source_dir
         if not path.exists() or not path.is_dir():
             raise ValueError(f"source layout contract violation: missing {path}")
+
+    for species_dir in contract.species_directories:
+        path = contract.output_root / species_dir
+        if not path.exists() or not path.is_dir():
+            raise ValueError(f"source layout contract violation: missing {path}")
+
+    for relative_path, expected_target in contract.species_symlinks:
+        path = contract.output_root / relative_path
+        if not path.exists() or not path.is_symlink():
+            raise ValueError(f"source layout contract violation: missing {path}")
+        if path.readlink().as_posix() != expected_target:
+            raise ValueError(
+                "source layout contract violation: "
+                f"expected {path} -> {expected_target}, got {path.readlink()}"
+            )

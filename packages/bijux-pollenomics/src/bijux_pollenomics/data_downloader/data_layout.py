@@ -20,6 +20,14 @@ def render_data_root_readme_for(output_root: Path, version: str) -> str:
     root_name = output_root.name or str(output_root)
     tree_lines = [
         root_name,
+        "├── adna",
+        "│   └── homo_sapiens",
+        "│       ├── raw",
+        "│       │   └── aadr -> ../../../aadr",
+        "│       ├── normalized",
+        "│       ├── manifests",
+        "│       ├── reports",
+        "│       └── review",
         "├── aadr",
         f"│   └── {version}",
         *(f"├── {source}" for source in AVAILABLE_SOURCES[1:-1]),
@@ -28,7 +36,8 @@ def render_data_root_readme_for(output_root: Path, version: str) -> str:
     tree_text = "\n".join(tree_lines)
     return f"""# Data Layout
 
-Tracked source data lives directly under `{root_name}/`:
+Tracked source data and governed species-owned ancient-DNA views live directly
+under `{root_name}/`:
 
 ```text
 {tree_text}
@@ -40,6 +49,10 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 - [`docs/02-bijux-pollenomics-data/foundation/directory-layout.md`]({DATA_LAYOUT_INDEX})
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
+
+`Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, where the
+species-owned raw AADR view points back to the versioned source intake while
+keeping normalized, manifest, review, and report ownership visible.
 """
 
 
