@@ -9,18 +9,22 @@ last_reviewed: 2026-04-26
 
 # AADR
 
-AADR is the ancient DNA source family that anchors the repository.
+AADR is the upstream ancient-DNA source family that currently feeds the
+`Homo sapiens` species surface.
 
 ## AADR Source Model
 
 ```mermaid
 flowchart TB
     release["AADR release"]
+    species["Homo sapiens species surface"]
     metadata["versioned metadata files"]
     normalized["normalized sample and locality outputs"]
     publication["country reports and atlas layers"]
 
     release --> metadata
+    metadata --> species
+    species --> normalized
     metadata --> normalized
     normalized --> publication
 ```
@@ -33,6 +37,7 @@ is.
 ## What This Source Adds
 
 - versioned metadata under `data/aadr/<version>/`
+- species-owned raw intake under `data/adna/homo_sapiens/raw/aadr/<version>/`
 - the sample-locality layer that drives country reports and the shared atlas
 - the clearest bridge between tracked data refreshes and visible publication
   changes
@@ -52,6 +57,7 @@ does not claim to run population-genetic analysis inside this repository.
 
 ## First Proof Check
 
+- inspect `data/adna/homo_sapiens/raw/aadr/`
 - inspect `data/aadr/`
 - inspect `data/aadr/v66/release_manifest.json`
 - open [Normalized AADR Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/normalized-aadr/)
@@ -59,6 +65,6 @@ does not claim to run population-genetic analysis inside this repository.
 
 ## Design Pressure
 
-The easy failure is to talk about AADR as generic ancient DNA context, which
-hides the versioned metadata path that makes visible publication changes
-traceable and reviewable.
+The easy failure is to talk about AADR as if it were the whole ancient-DNA
+layer, which hides the `Homo sapiens` species boundary and weakens review of
+how one upstream release becomes one governed species-owned runtime surface.

@@ -29,6 +29,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
         targets = re.findall(r"\]\((\.\./docs/[^\)]+)\)", readme_text)
 
+        self.assertIn("adna/homo_sapiens", readme_text)
+        self.assertIn("aadr -> ../../../aadr", readme_text)
         self.assertGreaterEqual(len(targets), 2)
         for target in targets:
             resolved = (REPO_ROOT / "data" / target).resolve()
@@ -194,6 +196,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("collect-data <sources...>", command_reference)
         self.assertIn("adna-layout --species <name>", command_reference)
+        self.assertIn("adna-runtime-manifest --species <name>", command_reference)
         self.assertIn("adna-archive-projects", command_reference)
         self.assertIn("adna-species", command_reference)
         self.assertIn("adna-species-review --species <name>", command_reference)
@@ -219,10 +222,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`adna/` owns species-aware ancient-DNA contracts",
             module_map,
         )
+        self.assertIn("Homo sapiens runtime manifests", module_map)
+        self.assertIn("metadata-only analysis boundaries", module_map)
         self.assertIn("accession-family resolution", module_map)
         self.assertIn("archive-integrity", module_map)
         self.assertIn("curated ENA archive intake metadata", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
+
+    def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
+        species_root = REPO_ROOT / "data" / "adna" / "homo_sapiens"
+
+        self.assertTrue((species_root / "README.md").exists())
+        self.assertTrue((species_root / "normalized").is_dir())
+        self.assertTrue((species_root / "manifests").is_dir())
+        self.assertTrue((species_root / "reports").is_dir())
+        self.assertTrue((species_root / "review").is_dir())
+        raw_aadr = species_root / "raw" / "aadr"
+        self.assertTrue(raw_aadr.is_symlink())
+        self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")

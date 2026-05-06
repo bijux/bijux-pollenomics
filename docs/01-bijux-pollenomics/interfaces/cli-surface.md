@@ -42,6 +42,8 @@ through the repository with visible output consequences.
   repository defaults
 - `adna-layout --species <name>` prints the canonical species-owned aDNA layout
   under `data/adna/<latin_name>/...`
+- `adna-runtime-manifest --species <name>` prints the species-owned runtime
+  manifest, including source bundles and analysis boundaries
 - `adna-archive-projects` prints the curated ENA project inventory for
   domesticated-animal ancient-DNA intake review
 - `adna-species` prints the canonical ancient-DNA species support matrix and
@@ -68,6 +70,7 @@ through the repository with visible output consequences.
 ```bash
 bijux-pollenomics collect-data all --version v66 --output-root data
 bijux-pollenomics adna-layout --species horse
+bijux-pollenomics adna-runtime-manifest --species "Homo sapiens" --version v66
 bijux-pollenomics adna-archive-projects --species horse
 bijux-pollenomics adna-species
 bijux-pollenomics adna-species-review --species horse
