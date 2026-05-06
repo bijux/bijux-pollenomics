@@ -16,6 +16,11 @@ from ...analysis import (
 )
 from ...core.geojson import JsonObject
 from ...data_downloader.models import ContextPointRecord
+from ...evidence import (
+    build_atlas_evidence_surface,
+    render_atlas_evidence_surface_markdown,
+    write_atlas_evidence_surface_json,
+)
 from ..aadr import summarize_localities
 from ..models import MultiCountryMapReport, SampleRecord
 from .paths import AtlasBundlePaths
@@ -62,14 +67,29 @@ def publish_multi_country_map_bundle(
         output_dir=staging_output_dir,
         context_root=context_root,
     )
+    summarized_localities = tuple(summarize_localities(all_samples))
+    context_points = _extract_context_points(point_layers)
+    evidence_surface = build_atlas_evidence_surface(
+        countries=countries,
+        human_localities=summarized_localities,
+        context_points=context_points,
+    )
+    write_atlas_evidence_surface_json(
+        bundle_paths.evidence_surface_json_path,
+        evidence_surface,
+    )
+    bundle_paths.evidence_surface_markdown_path.write_text(
+        render_atlas_evidence_surface_markdown(evidence_surface),
+        encoding="utf-8",
+    )
     ranked_sites = rank_localities(
-        summarize_localities(all_samples),
-        _extract_context_points(point_layers),
+        summarized_localities,
+        context_points,
         profile_name="atlas_exploration",
     )
     sensitivity_report = build_ranking_sensitivity_report(
-        summarize_localities(all_samples),
-        _extract_context_points(point_layers),
+        summarized_localities,
+        context_points,
     )
     ranking_engine_manifest = build_ranking_engine_manifest()
     write_candidate_sites_csv(bundle_paths.candidate_sites_csv_path, ranked_sites)
@@ -109,6 +129,14 @@ def publish_multi_country_map_bundle(
             (
                 "Candidate ranking engine manifest",
                 bundle_paths.candidate_ranking_engine_manifest_path.name,
+            ),
+            (
+                "Atlas evidence surface JSON",
+                bundle_paths.evidence_surface_json_path.name,
+            ),
+            (
+                "Atlas evidence surface markdown",
+                bundle_paths.evidence_surface_markdown_path.name,
             ),
         ]
     )

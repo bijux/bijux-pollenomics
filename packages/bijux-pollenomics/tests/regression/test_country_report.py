@@ -77,6 +77,14 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_candidate_ranking_engine_manifest.json",
         )
         self.assertEqual(
+            atlas_paths.evidence_surface_json_path.name,
+            "nordic-atlas_evidence_surface.json",
+        )
+        self.assertEqual(
+            atlas_paths.evidence_surface_markdown_path.name,
+            "nordic-atlas_evidence_surface.md",
+        )
+        self.assertEqual(
             atlas_paths.bundle_manifest_path.name, "nordic-atlas_bundle.json"
         )
         self.assertEqual(
@@ -460,6 +468,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue(
                 (output / "nordic-atlas_candidate_ranking_engine_manifest.json").exists()
             )
+            self.assertTrue((output / "nordic-atlas_evidence_surface.json").exists())
+            self.assertTrue((output / "nordic-atlas_evidence_surface.md").exists())
             self.assertTrue((output / "nordic-atlas_bundle.json").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
@@ -571,8 +581,16 @@ class CountryReportTests(unittest.TestCase):
                 summary["artifacts"]["samples_geojson"], "nordic-atlas_samples.geojson"
             )
             self.assertEqual(
+                summary["artifacts"]["evidence_surface_json"],
+                "nordic-atlas_evidence_surface.json",
+            )
+            self.assertEqual(
+                summary["artifacts"]["evidence_surface_markdown"],
+                "nordic-atlas_evidence_surface.md",
+            )
+            self.assertEqual(
                 summary["artifacts"]["extra_files"][-1]["filename"],
-                "nordic-atlas_candidate_ranking_engine_manifest.json",
+                "nordic-atlas_evidence_surface.md",
             )
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:

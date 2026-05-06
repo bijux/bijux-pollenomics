@@ -42,6 +42,8 @@ class AtlasBundlePaths:
     candidate_site_sensitivity_json_path: Path
     candidate_site_sensitivity_markdown_path: Path
     candidate_ranking_engine_manifest_path: Path
+    evidence_surface_json_path: Path
+    evidence_surface_markdown_path: Path
     summary_json_path: Path
 
 
@@ -90,5 +92,8 @@ def build_atlas_bundle_paths(
         / f"{atlas_slug}_candidate_site_sensitivity.md",
         candidate_ranking_engine_manifest_path=output_dir
         / f"{atlas_slug}_candidate_ranking_engine_manifest.json",
+        evidence_surface_json_path=output_dir / f"{atlas_slug}_evidence_surface.json",
+        evidence_surface_markdown_path=output_dir
+        / f"{atlas_slug}_evidence_surface.md",
         summary_json_path=output_dir / f"{atlas_slug}_summary.json",
     )
