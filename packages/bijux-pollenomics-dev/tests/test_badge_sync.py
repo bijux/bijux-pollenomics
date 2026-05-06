@@ -38,6 +38,14 @@ def test_repository_badge_block_renders_public_badge_groups() -> None:
     assert rendered.count("https://img.shields.io/pypi/v/") == 2
     assert rendered.count("/pkgs/container/") == 2
     assert (
+        "https://github.com/bijux/bijux-pollenomics/actions/workflows/verify.yml/badge.svg?branch=main"
+        in rendered
+    )
+    assert (
+        "https://img.shields.io/badge/release-pypi%20workflow-2563EB?logo=githubactions&logoColor=white"
+        in rendered
+    )
+    assert (
         rendered.count("https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/") == 2
     )
     assert "https://github.com/bijux?tab=packages" in rendered
@@ -45,6 +53,7 @@ def test_repository_badge_block_renders_public_badge_groups() -> None:
         "https://github.com/orgs/bijux/packages?repo_name=bijux-pollenomics"
         not in rendered
     )
+    assert "workflows/release-pypi/badge.svg" not in rendered
 
 
 def test_package_badge_block_prioritizes_the_public_distribution() -> None:
