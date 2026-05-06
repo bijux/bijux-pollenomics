@@ -32,10 +32,25 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
         self.assertGreaterEqual(len(manifest.source_bundles), 1)
         self.assertEqual(
             manifest.source_bundles[0].review_strength,
-            "archive_verified_needs_paper_pinning",
+            "primary_paper_pinned",
         )
+        self.assertEqual(
+            manifest.source_bundles[0].release_manifest_path,
+            "data/adna/equus_caballus/manifests/curation_manifest.json",
+        )
+        self.assertIn("Paper-pinned core domestication support exists", manifest.analysis_boundary)
         with self.assertRaisesRegex(NotImplementedError, "not implemented for Equus caballus"):
             load_species_samples(manifest)
+
+    def test_comparator_runtime_manifest_preserves_comparator_review_strength(self) -> None:
+        manifest = build_species_runtime_manifest("donkey")
+
+        self.assertFalse(manifest.runtime_ready)
+        self.assertGreaterEqual(len(manifest.source_bundles), 1)
+        self.assertTrue(
+            all(bundle.review_strength == "comparator_only" for bundle in manifest.source_bundles)
+        )
+        self.assertIn("comparator support", manifest.analysis_boundary)
 
     def test_species_loader_filters_homo_sapiens_samples_by_country_and_dataset(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
