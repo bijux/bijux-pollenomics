@@ -3,12 +3,16 @@ from __future__ import annotations
 import argparse
 import json
 
+from ...adna import (
+    build_archive_project_catalog,
+    build_species_archive_projects,
+    build_species_support_matrix,
+)
 from ...data_downloader import (
     build_source_support_matrix,
     collect_data,
     validate_collection_summary_file,
 )
-from ...adna import build_species_support_matrix
 from ...foundation import build_ownership_map, build_product_scope, build_surface_map
 from ...reporting import (
     generate_country_report,
@@ -18,6 +22,7 @@ from ...reporting import (
 )
 
 __all__ = [
+    "run_adna_archive_projects",
     "run_adna_species",
     "run_collect_data",
     "run_publish_reports",
@@ -29,6 +34,24 @@ __all__ = [
     "run_surface_map",
     "run_validate_collection_summary",
 ]
+
+
+def run_adna_archive_projects(args: argparse.Namespace) -> int:
+    """Print the curated ENA archive project inventory for ancient-DNA support."""
+    rows = (
+        build_species_archive_projects(args.species)
+        if args.species
+        else build_archive_project_catalog()
+    )
+    if args.json:
+        print(json.dumps([row.as_dict() for row in rows], indent=2, sort_keys=True))
+        return 0
+    for row in rows:
+        print(
+            f"{row.species_latin_name}: project={row.project_accession}; "
+            f"result={row.result_kind}; status={row.archive_status}"
+        )
+    return 0
 
 
 def run_adna_species(args: argparse.Namespace) -> int:

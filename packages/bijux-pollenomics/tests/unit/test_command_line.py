@@ -182,6 +182,27 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 13)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_adna_archive_projects_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-archive-projects", "--species", "horse"])
+
+        self.assertEqual(args.command, "adna-archive-projects")
+        self.assertEqual(args.species, "horse")
+        self.assertFalse(args.json)
+
+    def test_run_command_routes_adna_archive_projects_through_registry(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["adna-archive-projects"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_adna_archive_projects",
+            return_value=15,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 15)
+        handler.assert_called_once_with(args)
+
     def test_package_version_matches_pyproject(self) -> None:
         package_root = Path(__file__).resolve().parents[2]
         pyproject_text = package_root.joinpath("pyproject.toml").read_text(

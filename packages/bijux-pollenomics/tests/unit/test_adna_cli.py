@@ -5,10 +5,28 @@ import json
 import unittest
 from unittest.mock import patch
 
-from bijux_pollenomics.command_line.runtime.handlers import run_adna_species
+from bijux_pollenomics.command_line.runtime.handlers import (
+    run_adna_archive_projects,
+    run_adna_species,
+)
 
 
 class AdnaCliUnitTests(unittest.TestCase):
+    def test_adna_archive_projects_json_output_exposes_horse_project(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_archive_projects(
+                type("Args", (), {"json": True, "species": "horse"})()
+            )
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        project = next(
+            row for row in payload if row["project_accession"] == "PRJEB22390"
+        )
+        self.assertEqual(project["species_latin_name"], "Equus caballus")
+        self.assertEqual(project["result_kind"], "read_run")
+
     def test_adna_species_json_output_exposes_human_support_row(self) -> None:
         stdout = io.StringIO()
         with patch("sys.stdout", stdout):
