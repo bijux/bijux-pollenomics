@@ -6,6 +6,9 @@ from bijux_pollenomics.adna import (
     ADNA_DOMESTICATION_STATUSES,
     build_species_normalization_bundle,
     normalize_breed_label,
+    normalize_chronology_text,
+    normalize_coordinate_resolution,
+    normalize_explicit_bp_window,
     normalize_species_anchor,
 )
 
@@ -25,6 +28,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(bundle.locality_records, ())
         self.assertTrue(bundle.project_summaries)
         self.assertTrue(bundle.study_summaries)
+        self.assertTrue(bundle.lineage_records)
+        self.assertTrue(bundle.refusals)
         project = next(
             item
             for item in bundle.project_summaries
@@ -34,6 +39,10 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(project.coordinate_policy, "site_level_coordinates_expected")
         self.assertEqual(project.chronology_policy, "bp_interval_expected")
         self.assertEqual(project.review_strength, "primary_paper_pinned")
+        self.assertEqual(
+            bundle.lineage_records[0].schema_version,
+            "adna-normalization-lineage.v1",
+        )
 
     def test_species_normalization_bundle_marks_donkey_as_comparator_only(self) -> None:
         bundle = build_species_normalization_bundle("donkey")
@@ -60,6 +69,13 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
         self.assertEqual(first.as_dict(), second.as_dict())
 
+    def test_species_normalization_bundle_records_sample_and_locality_refusals(self) -> None:
+        bundle = build_species_normalization_bundle("horse")
+
+        refusal_kinds = {item.record_kind for item in bundle.refusals}
+        self.assertIn("sample_records", refusal_kinds)
+        self.assertIn("locality_records", refusal_kinds)
+
     def test_normalize_species_anchor_accepts_alias_and_rejects_mismatch(self) -> None:
         species = normalize_species_anchor("pig", expected_species_name="Sus scrofa domesticus")
 
@@ -71,6 +87,67 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(normalize_breed_label(" Przewalski_Associated "), "przewalski associated")
         self.assertIsNone(normalize_breed_label("unknown"))
         self.assertIsNone(normalize_breed_label("   "))
+
+    def test_normalize_coordinate_resolution_parses_pairs_and_allows_withheld(self) -> None:
+        exact = normalize_coordinate_resolution(
+            latitude_text="59.1",
+            longitude_text="17.3",
+            geographic_basis="exact_coordinates",
+        )
+        withheld = normalize_coordinate_resolution(
+            latitude_text="",
+            longitude_text="",
+            geographic_basis="country_only",
+        )
+
+        self.assertEqual(exact.confidence, "exact")
+        self.assertIsNotNone(exact.coordinate)
+        assert exact.coordinate is not None
+        self.assertEqual(exact.coordinate.latitude, 59.1)
+        self.assertIsNone(withheld.coordinate)
+        self.assertEqual(withheld.confidence, "withheld")
+
+    def test_normalize_coordinate_resolution_refuses_invalid_pairs(self) -> None:
+        with self.assertRaisesRegex(ValueError, "both latitude and longitude"):
+            normalize_coordinate_resolution(
+                latitude_text="59.1",
+                longitude_text="",
+                geographic_basis="site_level_localities",
+            )
+        with self.assertRaisesRegex(ValueError, "Latitude out of range"):
+            normalize_coordinate_resolution(
+                latitude_text="120",
+                longitude_text="17.3",
+                geographic_basis="site_level_localities",
+            )
+
+    def test_normalize_chronology_text_parses_bp_and_calendar_ranges(self) -> None:
+        bp_window = normalize_chronology_text("1200-1500 BP", dating_basis="radiocarbon")
+        cal_bce = normalize_chronology_text(
+            "803-425 calBCE (2562±47 BP)",
+            dating_basis="mixed_radiocarbon_and_archaeological_context",
+        )
+        vague = normalize_chronology_text(
+            "Late Bronze Age",
+            dating_basis="archaeological_period",
+        )
+
+        self.assertEqual((bp_window.time_start_bp, bp_window.time_end_bp), (1200, 1500))
+        self.assertEqual(cal_bce.time_start_bp, 2374)
+        self.assertEqual(cal_bce.time_end_bp, 2752)
+        self.assertIsNone(vague.time_start_bp)
+        self.assertEqual(vague.dating_basis, "archaeological_period")
+
+    def test_normalize_explicit_bp_window_refuses_inverted_ranges(self) -> None:
+        chronology = normalize_explicit_bp_window(
+            1200,
+            1500,
+            original_text="1200-1500 BP",
+        )
+
+        self.assertEqual(chronology.time_mean_bp, 1350)
+        with self.assertRaisesRegex(ValueError, "younger-to-older"):
+            normalize_explicit_bp_window(1500, 1200, original_text="1500-1200 BP")
 
     def test_homo_sapiens_normalization_bundle_is_refused(self) -> None:
         with self.assertRaisesRegex(ValueError, "Homo sapiens normalization"):
