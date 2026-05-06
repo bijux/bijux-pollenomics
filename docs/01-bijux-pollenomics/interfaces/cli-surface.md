@@ -45,11 +45,13 @@ through the repository with visible output consequences.
 - `adna-runtime-manifest --species <name>` prints the species-owned runtime
   manifest, including source bundles and analysis boundaries
 - `adna-archive-projects` prints the curated ENA project inventory for
-  domesticated-animal ancient-DNA intake review
+  domesticated-animal ancient-DNA intake review, including evidence strength and
+  project-level scientific metadata
 - `adna-species` prints the canonical ancient-DNA species support matrix and
   current runtime scope
 - `adna-species-review --species <name>` prints the governed review for one
-  species, including assignment rules, dataset bucket, and archive integrity
+  species, including assignment rules, dataset bucket, release blockers,
+  project-level admission reviews, and archive integrity
 - `surface-map` prints a short runtime-versus-roadmap package surface map
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live
@@ -73,7 +75,7 @@ bijux-pollenomics adna-layout --species horse
 bijux-pollenomics adna-runtime-manifest --species "Homo sapiens" --version v66
 bijux-pollenomics adna-archive-projects --species horse
 bijux-pollenomics adna-species
-bijux-pollenomics adna-species-review --species horse
+bijux-pollenomics adna-species-review --species horse --json
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
 

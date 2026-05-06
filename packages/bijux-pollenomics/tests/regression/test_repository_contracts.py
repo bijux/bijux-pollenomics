@@ -200,6 +200,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("adna-archive-projects", command_reference)
         self.assertIn("adna-species", command_reference)
         self.assertIn("adna-species-review --species <name>", command_reference)
+        self.assertIn("project-level scientific metadata", command_reference)
+        self.assertIn("project-level admission reviews", command_reference)
         self.assertIn("report-country <country>", command_reference)
         self.assertIn("report-multi-country-map <countries...>", command_reference)
         self.assertIn("publish-reports", command_reference)
@@ -227,6 +229,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("accession-family resolution", module_map)
         self.assertIn("archive-integrity", module_map)
         self.assertIn("curated ENA archive intake metadata", module_map)
+        self.assertIn("project-level paper", module_map)
+        self.assertIn("linkage and scientific metadata", module_map)
+        self.assertIn("scientist-facing species review packets", module_map)
+        self.assertIn("manifest diff outputs", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
     def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
