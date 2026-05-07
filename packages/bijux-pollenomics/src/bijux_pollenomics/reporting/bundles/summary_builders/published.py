@@ -22,6 +22,8 @@ def build_published_reports_summary(
             "bundle_manifest": f"{map_report.slug}_bundle.json",
             "summary_json": f"{map_report.slug}_summary.json",
         },
+        "animal_output_audit_json": "animal_output_audit.json",
+        "animal_output_audit_markdown": "animal_output_audit.md",
         "country_bundles": {
             path.name: {
                 "directory": str(path),

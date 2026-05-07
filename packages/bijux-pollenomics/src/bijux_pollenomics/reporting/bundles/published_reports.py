@@ -3,6 +3,10 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
+from ...adna.catalogs import (
+    build_public_animal_output_audit,
+    render_public_animal_output_audit_markdown,
+)
 from ..models import MultiCountryMapReport, PublishedReportsReport
 from .paths import AtlasBundlePaths
 
@@ -70,5 +74,15 @@ def publish_published_reports_tree(
     )
     write_summary_json_fn(
         summary_path, build_published_reports_summary_fn(generated_report, map_report)
+    )
+    data_root = context_root if context_root is not None else output_root.parents[1] / "data"
+    animal_output_audit = build_public_animal_output_audit(data_root, output_root)
+    write_summary_json_fn(
+        staging_output_root / "animal_output_audit.json",
+        animal_output_audit,
+    )
+    (staging_output_root / "animal_output_audit.md").write_text(
+        render_public_animal_output_audit_markdown(animal_output_audit),
+        encoding="utf-8",
     )
     return generated_report

@@ -1149,6 +1149,8 @@ class CountryReportTests(unittest.TestCase):
 
             self.assertEqual(report.countries, ("Sweden", "Norway"))
             self.assertTrue((output / "published_reports_summary.json").exists())
+            self.assertTrue((output / "animal_output_audit.json").exists())
+            self.assertTrue((output / "animal_output_audit.md").exists())
             self.assertTrue(
                 (output / "nordic-atlas" / "nordic-atlas_map.html").exists()
             )
@@ -1180,6 +1182,14 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 published_summary["artifacts"]["shared_bundle"]["bundle_manifest"],
                 "nordic-atlas_bundle.json",
+            )
+            self.assertEqual(
+                published_summary["artifacts"]["animal_output_audit_json"],
+                "animal_output_audit.json",
+            )
+            self.assertEqual(
+                published_summary["artifacts"]["animal_output_audit_markdown"],
+                "animal_output_audit.md",
             )
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertEqual(
