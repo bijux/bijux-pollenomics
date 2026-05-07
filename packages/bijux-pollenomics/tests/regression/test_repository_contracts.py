@@ -31,6 +31,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("adna/homo_sapiens", readme_text)
         self.assertIn("adna/equus_caballus", readme_text)
+        self.assertIn("adna/bos_taurus", readme_text)
+        self.assertIn("adna/canis_lupus_familiaris", readme_text)
+        self.assertIn("adna/camelus_dromedarius", readme_text)
+        self.assertIn("adna/rangifer_tarandus", readme_text)
+        self.assertIn("adna/equus_asinus", readme_text)
         self.assertIn("domesticated-animal curation program", readme_text)
         self.assertIn("aadr -> ../../../aadr", readme_text)
         self.assertGreaterEqual(len(targets), 2)
@@ -262,6 +267,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("species-owned ancient-DNA surface", directory_layout)
         self.assertIn("domesticated-animal curation roots", directory_layout)
         self.assertIn("`data/adna/equus_caballus/`", directory_layout)
+        self.assertIn("`data/adna/bos_taurus/`", directory_layout)
+        self.assertIn("`data/adna/canis_lupus_familiaris/`", directory_layout)
+        self.assertIn("`data/adna/camelus_dromedarius/`", directory_layout)
+        self.assertIn("`data/adna/rangifer_tarandus/`", directory_layout)
+        self.assertIn("`data/adna/equus_asinus/`", directory_layout)
         self.assertIn("`data/adna/felis_catus/`", directory_layout)
 
     def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
@@ -275,6 +285,70 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         raw_aadr = species_root / "raw" / "aadr"
         self.assertTrue(raw_aadr.is_symlink())
         self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")
+
+    def test_tracked_nonhuman_adna_roots_ship_real_reviewable_files(self) -> None:
+        tracked_roots = (
+            "equus_caballus",
+            "sus_scrofa_domesticus",
+            "ovis_aries",
+            "bos_taurus",
+            "capra_hircus",
+            "canis_lupus_familiaris",
+            "felis_catus",
+            "camelus_dromedarius",
+            "rangifer_tarandus",
+            "equus_asinus",
+        )
+
+        for slug in tracked_roots:
+            species_root = REPO_ROOT / "data" / "adna" / slug
+            self.assertTrue((species_root / "README.md").is_file(), slug)
+            self.assertTrue((species_root / "raw" / "archive_inventory.json").is_file(), slug)
+            self.assertTrue((species_root / "raw" / "archive_inventory.csv").is_file(), slug)
+            self.assertTrue(
+                (species_root / "normalized" / "project_summaries.csv").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "species_manifest.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "curation_manifest.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "project_manifest.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "runtime_manifest.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "normalization_bundle.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "manifests" / "citation_manifest.csv").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "reports" / "support_summary.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "reports" / "support_summary.md").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "review" / "species_review.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "review" / "archive_integrity.json").is_file(),
+                slug,
+            )
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
