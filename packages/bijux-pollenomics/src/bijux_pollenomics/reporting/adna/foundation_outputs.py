@@ -25,6 +25,7 @@ from ...adna.source_library import (
     build_paper_registry,
     build_project_registry,
     build_project_source_bundles,
+    build_supplement_registry,
 )
 from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 
@@ -69,12 +70,19 @@ def publish_animal_foundation_outputs(
         absence_payload=absence_payload,
     )
     chronology_viewer_payload = build_animal_sample_chronology_viewer(data_root=data_root)
+    sample_database_review_payload = build_animal_sample_database_review(
+        data_root=data_root,
+        report_root=output_root,
+        point_payload=point_payload,
+        review_payload=review_payload,
+    )
     release_gate_payload = build_animal_publication_release_gate(
         data_root=data_root,
         report_root=output_root,
         docs_root=docs_root,
         point_payload=point_payload,
         review_payload=review_payload,
+        sample_database_review_payload=sample_database_review_payload,
     )
 
     payloads = {
@@ -105,6 +113,10 @@ def publish_animal_foundation_outputs(
         "animal_sample_chronology_viewer": (
             chronology_viewer_payload,
             render_animal_sample_chronology_viewer_markdown(chronology_viewer_payload),
+        ),
+        "animal_sample_database_review": (
+            sample_database_review_payload,
+            render_animal_sample_database_review_markdown(sample_database_review_payload),
         ),
         "animal_publication_release_gate": (
             release_gate_payload,
@@ -611,6 +623,94 @@ def build_animal_sample_chronology_viewer(
     }
 
 
+def build_animal_sample_database_review(
+    *,
+    data_root: Path,
+    report_root: Path,
+    point_payload: dict[str, object],
+    review_payload: dict[str, object],
+) -> dict[str, object]:
+    """Prove the current repository posture as a checked-in sample database."""
+    project_rows = build_project_registry(data_root)
+    paper_rows = build_paper_registry(data_root)
+    supplement_rows = build_supplement_registry(data_root)
+    sample_rows = _load_all_sample_rows(data_root)
+    site_rows = _load_all_site_evidence_rows(data_root)
+    chronology_rows = _load_all_project_sample_chronology_rows(data_root)
+    coordinate_rows = _load_all_coordinate_rows(data_root)
+    sample_site_rows = _load_all_project_sample_site_rows(data_root)
+    country_payloads = _load_country_payloads(report_root)
+
+    locality_status_counts = {status: 0 for status in ADNA_LOCALITY_RESOLUTION_STATUSES}
+    for row in sample_site_rows:
+        status = str(row.get("locality_resolution_status", "")).strip()
+        if status in locality_status_counts:
+            locality_status_counts[status] += 1
+
+    chronology_status_counts = {
+        status: 0 for status in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES
+    }
+    for row in chronology_rows:
+        status = str(row.get("chronology_normalization_status", "")).strip()
+        if status in chronology_status_counts:
+            chronology_status_counts[status] += 1
+
+    direct_links = {
+        "project_registry": "data/adna/governance/source_library/project_registry.json",
+        "paper_registry": "data/adna/governance/source_library/paper_registry.json",
+        "supplement_registry": "data/adna/governance/source_library/supplement_registry.json",
+        "sample_foundation_truth": "data/adna/governance/animal_sample_foundation_truth.json",
+        "sample_database_contract": "data/adna/governance/animal_sample_product_contract.json",
+        "sample_query_example": "docs/report/sweden/sweden_animal_adna_v66_samples.md",
+        "site_review": "data/adna/governance/source_library/project_sample_site_review.json",
+        "chronology_review": "data/adna/governance/source_library/project_sample_chronology_review.json",
+        "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
+        "point_support_packets": "docs/report/animal_point_support_packets.md",
+        "atlas_evidence_rows": "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
+        "atlas_map": "docs/report/nordic-atlas/nordic-atlas_map.html",
+        "country_output_summary": "docs/report/published_reports_summary.json",
+    }
+    sample_database_claim_supported = all(
+        (
+            len(project_rows) > 0,
+            len(paper_rows) > 0,
+            len(supplement_rows) > 0,
+            len(sample_rows) > 0,
+            len(site_rows) > 0,
+            len(chronology_rows) > 0,
+            len(coordinate_rows) > 0,
+        )
+    )
+    nordic_view_supported_now = bool(point_payload["row_count"]) and bool(country_payloads)
+    region_agnostic_contract_ready = sample_database_claim_supported
+    return {
+        "schema_version": "animal-sample-database-review.v1",
+        "public_posture": "sample_level_ancient_animal_metadata_database",
+        "sample_database_claim_supported": sample_database_claim_supported,
+        "nordic_view_supported_now": nordic_view_supported_now,
+        "region_agnostic_contract_ready": region_agnostic_contract_ready,
+        "world_map_expansion_posture": (
+            "coverage_can_expand_by_adding_new_output_regions_to_the_same_sample_contract"
+        ),
+        "counts": {
+            "tracked_project_count": len(project_rows),
+            "tracked_paper_count": len(paper_rows),
+            "tracked_supplement_count": len(supplement_rows),
+            "sample_row_count": len(sample_rows),
+            "site_evidence_row_count": len(site_rows),
+            "sample_site_row_count": len(sample_site_rows),
+            "chronology_row_count": len(chronology_rows),
+            "coordinate_row_count": len(coordinate_rows),
+            "published_atlas_point_count": point_payload["row_count"],
+            "published_country_bundle_count": len(country_payloads),
+        },
+        "locality_status_counts": locality_status_counts,
+        "chronology_status_counts": chronology_status_counts,
+        "blockers": list(review_payload["blockers"]),
+        "direct_links": direct_links,
+    }
+
+
 def build_animal_publication_release_gate(
     *,
     data_root: Path,
@@ -618,18 +718,13 @@ def build_animal_publication_release_gate(
     docs_root: Path,
     point_payload: dict[str, object],
     review_payload: dict[str, object],
+    sample_database_review_payload: dict[str, object],
 ) -> dict[str, object]:
     """Fail publication when animal outputs overclaim or lose required traceability."""
-    docs_to_scan = (
-        docs_root / "index.md",
-        docs_root / "05-nordic-evidence-atlas" / "index.md",
-        docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md",
-    )
-    docs_text = "\n".join(
-        path.read_text(encoding="utf-8") for path in docs_to_scan if path.is_file()
-    ).lower()
+    docs_paths = sorted(path for path in docs_root.rglob("*.md") if path.is_file())
+    docs_text = "\n".join(path.read_text(encoding="utf-8") for path in docs_paths).lower()
     all_species_claim = "all-species animal map readiness" in docs_text or "all species animal map readiness" in docs_text
-    reference_grade_claim = "reference-grade nordic animal adna metadata-and-atlas foundation" in docs_text
+    reference_grade_claim = "reference-grade" in docs_text
     country_payloads = _load_country_payloads(report_root)
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
@@ -695,6 +790,20 @@ def build_animal_publication_release_gate(
             in chronology_blocked_master_ids
         }
     )
+    point_row_count = int(point_payload.get("row_count", len(point_payload.get("rows", []))))
+    reference_grade_support_requirements = {
+        "sample_database_artifacts_present": bool(
+            sample_database_review_payload["sample_database_claim_supported"]
+        ),
+        "sample_evidence_packets_present": bool(point_row_count),
+        "map_outputs_present": bool(
+            sample_database_review_payload["nordic_view_supported_now"]
+        ),
+    }
+    reference_grade_support_ready = bool(
+        review_payload["reference_grade_claim_allowed"]
+        and all(reference_grade_support_requirements.values())
+    )
     checks = [
         _check_row(
             "published_points_keep_required_traceability",
@@ -746,8 +855,8 @@ def build_animal_publication_release_gate(
         ),
         _check_row(
             "docs_do_not_claim_reference_grade_without_support",
-            not (reference_grade_claim and not review_payload["reference_grade_claim_allowed"]),
-            "Public docs do not claim reference-grade posture before the shipped evidence earns it.",
+            not (reference_grade_claim and not reference_grade_support_ready),
+            "Public docs do not claim reference-grade posture before the sample database, evidence packets, and map outputs all support it.",
             ["docs_claim_reference_grade"] if reference_grade_claim else [],
         ),
     ]
@@ -757,6 +866,8 @@ def build_animal_publication_release_gate(
         "overall_ok": overall_ok,
         "checks": checks,
         "reference_grade_claim_allowed": review_payload["reference_grade_claim_allowed"],
+        "reference_grade_support_ready": reference_grade_support_ready,
+        "reference_grade_support_requirements": reference_grade_support_requirements,
     }
 
 
@@ -860,7 +971,7 @@ def render_animal_foundation_review_markdown(payload: dict[str, object]) -> str:
         "# Animal foundation review",
         "",
         f"- Public posture: `{payload['public_posture']}`",
-        f"- Reference-grade claim allowed: `{str(payload['reference_grade_claim_allowed']).lower()}`",
+        f"- Strongest claim allowed: `{str(payload['reference_grade_claim_allowed']).lower()}`",
         f"- Published point count: `{payload['counts']['published_point_count']}`",
         f"- Direct-coordinate point count: `{payload['counts']['direct_coordinate_point_count']}`",
         f"- Geocoded point count: `{payload['counts']['geocoded_point_count']}`",
@@ -905,12 +1016,60 @@ def render_animal_sample_chronology_viewer_markdown(payload: dict[str, object]) 
     return "\n".join(lines) + "\n"
 
 
+def render_animal_sample_database_review_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Animal sample database review",
+        "",
+        f"- Public posture: `{payload['public_posture']}`",
+        f"- Sample database claim supported: `{str(payload['sample_database_claim_supported']).lower()}`",
+        f"- Nordic view supported now: `{str(payload['nordic_view_supported_now']).lower()}`",
+        f"- Region-agnostic contract ready: `{str(payload['region_agnostic_contract_ready']).lower()}`",
+        f"- World-map expansion posture: `{payload['world_map_expansion_posture']}`",
+        "",
+        "## Counts",
+        "",
+        f"- Tracked projects: `{payload['counts']['tracked_project_count']}`",
+        f"- Tracked papers: `{payload['counts']['tracked_paper_count']}`",
+        f"- Tracked supplements: `{payload['counts']['tracked_supplement_count']}`",
+        f"- Sample rows: `{payload['counts']['sample_row_count']}`",
+        f"- Site evidence rows: `{payload['counts']['site_evidence_row_count']}`",
+        f"- Sample site rows: `{payload['counts']['sample_site_row_count']}`",
+        f"- Chronology rows: `{payload['counts']['chronology_row_count']}`",
+        f"- Coordinate rows: `{payload['counts']['coordinate_row_count']}`",
+        f"- Published atlas points: `{payload['counts']['published_atlas_point_count']}`",
+        f"- Published country bundles: `{payload['counts']['published_country_bundle_count']}`",
+        "",
+        "## Direct Links",
+        "",
+    ]
+    for label, target in payload["direct_links"].items():
+        lines.append(f"- {label}: `{target}`")
+    if payload["blockers"]:
+        lines.extend(
+            [
+                "",
+                "## Current Blockers",
+                "",
+            ]
+        )
+        for blocker in payload["blockers"]:
+            lines.append(f"- {blocker}")
+    return "\n".join(lines) + "\n"
+
+
 def render_animal_publication_release_gate_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Animal publication release gate",
         "",
         f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
-        f"- Reference-grade claim allowed: `{str(payload['reference_grade_claim_allowed']).lower()}`",
+        f"- Strongest claim allowed: `{str(payload['reference_grade_claim_allowed']).lower()}`",
+        f"- Strongest claim support ready: `{str(payload['reference_grade_support_ready']).lower()}`",
+        "",
+        "## Strongest-Claim Support Requirements",
+        "",
+        f"- Sample database artifacts present: `{str(payload['reference_grade_support_requirements']['sample_database_artifacts_present']).lower()}`",
+        f"- Sample evidence packets present: `{str(payload['reference_grade_support_requirements']['sample_evidence_packets_present']).lower()}`",
+        f"- Map outputs present: `{str(payload['reference_grade_support_requirements']['map_outputs_present']).lower()}`",
         "",
         "| Check | Passed | Finding count |",
         "| --- | --- | ---: |",
