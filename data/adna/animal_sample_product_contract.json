@@ -1,0 +1,71 @@
+{
+  "schema_version": "animal-sample-product-contract.v1",
+  "primary_durable_unit": "sample_record",
+  "required_fields": [
+    {
+      "field": "identity.stable_token",
+      "meaning": "stable sample identifier inside the repository"
+    },
+    {
+      "field": "species_latin_name",
+      "meaning": "species assignment carried by the sample row"
+    },
+    {
+      "field": "project_accession",
+      "meaning": "archive project or accession family anchor for the sample"
+    },
+    {
+      "field": "paper_doi_or_paper_url",
+      "meaning": "primary publication anchor for the sample claim"
+    },
+    {
+      "field": "supplementary_source_or_supporting_source_url",
+      "meaning": "supporting file or source artifact behind location or sample detail"
+    },
+    {
+      "field": "locality_identity.locality_text",
+      "meaning": "site or locality label attached to the sample"
+    },
+    {
+      "field": "chronology.original_text",
+      "meaning": "raw chronology claim kept before normalization"
+    },
+    {
+      "field": "chronology.time_start_bp",
+      "meaning": "older bound of the normalized BP interval when defensible"
+    },
+    {
+      "field": "chronology.time_end_bp",
+      "meaning": "younger bound of the normalized BP interval when defensible"
+    },
+    {
+      "field": "coordinates.latitude_text",
+      "meaning": "latitude text retained from direct coordinates or later resolution"
+    },
+    {
+      "field": "coordinates.longitude_text",
+      "meaning": "longitude text retained from direct coordinates or later resolution"
+    },
+    {
+      "field": "coordinate_basis",
+      "meaning": "how the repository derived or withheld coordinates for the sample"
+    },
+    {
+      "field": "coordinates.confidence",
+      "meaning": "confidence class carried by the coordinate claim"
+    },
+    {
+      "field": "inclusion_status",
+      "meaning": "current publication posture or blocking state for the sample row"
+    }
+  ],
+  "reader_questions_answered": [
+    "which sample exists",
+    "which species it belongs to",
+    "which project and paper describe it",
+    "which supporting source anchors its site claim",
+    "what chronology claim the repository keeps",
+    "what coordinate basis and confidence the repository keeps",
+    "whether the row is publishable, blocked, or still weak"
+  ]
+}
