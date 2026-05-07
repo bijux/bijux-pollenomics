@@ -322,8 +322,8 @@
         "locality_identity": {
           "namespace": "camelus_dromedarius:sample_locality",
           "stable_token": "camelus_dromedarius:sample-site:srp073444",
-          "locality_text": "Arabian Peninsula and Levant dromedary context",
-          "political_entity": "Arabian Peninsula and Levant",
+          "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+          "political_entity": "Sudan",
           "source_anchor_tokens": [
             "SRP073444",
             "project_accession_anchor"
@@ -338,14 +338,14 @@
         "provenance_quality": "manual_curation_only",
         "master_id": "SRP073444",
         "group_id": "SRP073444",
-        "locality": "Arabian Peninsula and Levant dromedary context",
-        "political_entity": "Arabian Peninsula and Levant",
+        "locality": "Site 1040 near Wadi Halfa dromedary context",
+        "political_entity": "Sudan",
         "coordinates": {
-          "latitude": 25.0,
-          "longitude": 45.0,
-          "latitude_text": "25.00",
-          "longitude_text": "45.00",
-          "confidence": "inferred"
+          "latitude": 21.799142,
+          "longitude": 31.371316,
+          "latitude_text": "21.799142",
+          "longitude_text": "31.371316",
+          "confidence": "approximate"
         },
         "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
         "year_first_published": "2017",
@@ -368,8 +368,40 @@
         "paper_url": "https://doi.org/10.1111/1755-0998.12551",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point.",
+        "inclusion_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
         "sample_basis": "project_accession_anchor"
+      }
+    ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "SRP073444",
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "camel",
+        "site_label": "Site 1040 near Wadi Halfa dromedary context",
+        "original_place_text": "Site 1040 near Wadi Halfa",
+        "resolved_place_text": "Wadi Halfa",
+        "political_entity": "Sudan",
+        "source_artifact_path": "adna/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "source_locator": "introduction",
+        "coordinate_basis": "named_site_geocoding",
+        "mapping_posture": "mappable_point",
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "geocoding_method": "manual_named_place_resolution",
+        "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
+        "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
+        "coordinate_confidence": "approximate",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "chronology_text": "Historical and archaeological dromedary range context",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "dating_basis": "historical_attribution",
+        "comparator_context": false,
+        "domestication_context": "non_nordic_domestication_context",
+        "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+        "support_gap_note": ""
       }
     ],
     "site_evidence_records": [
@@ -405,12 +437,12 @@
         "identity": {
           "namespace": "camelus_dromedarius:project_locality",
           "stable_token": "camelus_dromedarius:project-locality:srp073444",
-          "locality_text": "Arabian Peninsula and Levant dromedary context",
-          "political_entity": "Arabian Peninsula and Levant",
+          "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+          "political_entity": "Sudan",
           "source_anchor_tokens": [
             "SRP073444",
-            "25.00",
-            "45.00"
+            "21.799142",
+            "31.371316"
           ]
         },
         "species_latin_name": "Camelus dromedarius",
@@ -428,13 +460,13 @@
         "provenance_qualities": [
           "primary_paper_pinned"
         ],
-        "locality": "Arabian Peninsula and Levant dromedary context",
+        "locality": "Site 1040 near Wadi Halfa dromedary context",
         "coordinates": {
-          "latitude": 25.0,
-          "longitude": 45.0,
-          "latitude_text": "25.00",
-          "longitude_text": "45.00",
-          "confidence": "inferred"
+          "latitude": 21.799142,
+          "longitude": 31.371316,
+          "latitude_text": "21.799142",
+          "longitude_text": "31.371316",
+          "confidence": "approximate"
         },
         "sample_count": 1,
         "sample_ids": [
@@ -455,10 +487,10 @@
         "project_accessions": [
           "SRP073444"
         ],
-        "original_location_text": "Arabian Peninsula and Levant dromedary context",
+        "original_location_text": "Site 1040 near Wadi Halfa dromedary context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point."
+        "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
       }
     ],
     "project_summaries": [

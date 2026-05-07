@@ -98,11 +98,11 @@
       "locality": "Ancient European dog CTC sample context",
       "political_entity": "Central Europe",
       "coordinates": {
-        "latitude": 50.0,
-        "longitude": 10.0,
-        "latitude_text": "50.00",
-        "longitude_text": "10.00",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
       "year_first_published": "2017",
@@ -125,7 +125,7 @@
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
+      "inclusion_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows.",
       "sample_basis": "sample_accession_anchor"
     },
     {
