@@ -30,6 +30,13 @@
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc2.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc4.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc5.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc6.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc7.xlsx`
 - `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/article.html`
 - `adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/crossref.json`
 - `adna/governance/source_library/projects/PRJEB31613/archive_metadata.html`

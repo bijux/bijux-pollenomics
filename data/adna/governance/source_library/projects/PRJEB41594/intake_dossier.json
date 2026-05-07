@@ -8,7 +8,7 @@
   "paper_doi": "10.1038/s41562-021-01083-y",
   "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -27,6 +27,10 @@
   ],
   "expected_supplementary_artifacts": [],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx",
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html",
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/crossref.json",
     "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html"

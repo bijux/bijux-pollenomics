@@ -10,13 +10,17 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.1038-ncomms16082:41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "10.1038-ncomms16082:41467_2017_BFncomms16082_MOESM110_ESM.pdf",
     "10.1038-ncomms16082:article.html",
     "10.1038-ncomms16082:crossref.json",
     "SRS1407451:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
     "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
     "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"

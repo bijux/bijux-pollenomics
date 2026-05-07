@@ -30,6 +30,8 @@
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-ncomms16082/article.html`
 - `adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json`
 - `adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html`

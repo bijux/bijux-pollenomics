@@ -30,6 +30,10 @@
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx`
 - `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html`
 - `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/crossref.json`
 - `adna/governance/source_library/projects/PRJEB41594/archive_metadata.html`
