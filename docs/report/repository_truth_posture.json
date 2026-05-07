@@ -1,0 +1,80 @@
+{
+  "schema_version": "repository-truth-posture.v1",
+  "repository": "bijux-pollenomics",
+  "primary_domains": [
+    "pollen_context",
+    "environmental_context"
+  ],
+  "contextual_domains": [
+    "archaeology_context",
+    "boundary_framing",
+    "fieldwork_record",
+    "ancient_dna_context",
+    "publication_outputs"
+  ],
+  "incomplete_programs": [
+    "animal_sample_site_extraction",
+    "animal_sample_chronology_extraction",
+    "animal_coordinate_resolution",
+    "supplement_capture_recovery",
+    "atlas_depth_recovery"
+  ],
+  "counts": {
+    "tracked_paper_count": 18,
+    "papers_with_archived_supplements": 1,
+    "published_atlas_point_count": 2,
+    "published_country_bundle_count": 4,
+    "animal_sample_row_count": 242,
+    "animal_map_supported_rows": 2,
+    "animal_map_unresolved_rows": 232,
+    "animal_map_refused_rows": 8,
+    "pollen_normalized_file_count": 6,
+    "archaeology_normalized_file_count": 4,
+    "boundary_raw_file_count": 4,
+    "boundary_normalized_file_count": 1,
+    "fieldwork_page_count": 2,
+    "source_explainer_count": 7,
+    "landing_page_count": 6,
+    "zero_collection_summary_surfaces": [
+      "landclim_site_count",
+      "landclim_grid_cell_count",
+      "neotoma_point_count",
+      "sead_point_count",
+      "raa_total_site_count",
+      "raa_heritage_site_count"
+    ]
+  },
+  "recovery_priorities": [
+    "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
+    "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
+    "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
+    "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
+  ],
+  "claim_freeze_reasons": [
+    "supplement recovery is still far below paper coverage",
+    "the shipped animal atlas point surface is still effectively empty",
+    "unresolved animal geography still overwhelms mapped support",
+    "collection summary still under-reports several non-aDNA source counts"
+  ],
+  "do_not_repeat": [
+    "do not treat checked-in JSON file count as scientific progress",
+    "do not let public atlas presence stand in for sample-owned locality and chronology evidence",
+    "do not narrow the repository mission to one thin recovery slice",
+    "do not present internal publication accounting as if it were evidence depth",
+    "do not call weak or partial animal aDNA coverage region-agnostic or broadly ready"
+  ],
+  "scorecard_overview": {
+    "overall_recovery_posture": "recovery_required",
+    "average_dimension_scores": {
+      "data_completeness": 2.14,
+      "provenance_clarity": 2.71,
+      "documentation_clarity": 3.57,
+      "output_honesty": 3.43
+    }
+  },
+  "governance_review_summary": {
+    "keep": 5,
+    "reframe": 3,
+    "retire": 1
+  }
+}

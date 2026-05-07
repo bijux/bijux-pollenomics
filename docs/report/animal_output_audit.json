@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-output-audit.v1",
-  "report_root": "/Users/bijan/bijux/bijux-pollenomics/docs/report",
+  "report_root": "docs/report",
   "countries": [
     "denmark",
     "finland",

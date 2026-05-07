@@ -10,7 +10,7 @@
   },
   "total_unique_samples": 653,
   "total_unique_localities": 295,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
+  "output_dir": "docs/report/denmark",
   "artifacts": {
     "readme": "README.md",
     "samples_csv": "denmark_aadr_v66_samples.csv",

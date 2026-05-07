@@ -1,0 +1,23 @@
+# Repository scientific progress audit
+
+- Overall progress posture: `data_recovery_required`
+
+## Use These Measures
+
+- paper-by-paper supplement coverage
+- sample-owned locality and chronology support depth
+- mappable animal rows with traceable site and coordinate evidence
+- non-aDNA source-family explanation breadth
+
+## Do Not Use These As Progress
+
+- checked-in JSON file count
+- country bundle count without sample-depth context
+- atlas bundle existence without mapped evidence depth
+
+## Current Findings
+
+- only 1 of 18 tracked papers currently ship archived supplementary material
+- the shipped animal atlas still exposes only 2 published animal point rows
+- 232 animal rows remain unresolved for mapping and 8 are refused from mapping
+- collection_summary still reports zero counts for landclim_site_count, landclim_grid_cell_count, neotoma_point_count, sead_point_count, raa_total_site_count, raa_heritage_site_count

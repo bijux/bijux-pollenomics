@@ -9,7 +9,7 @@
     "1240k": 416,
     "ho": 416
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
+  "output_dir": "docs/report/sweden",
   "artifacts": {
     "bundle_manifest": "sweden_aadr_v66_bundle.json",
     "readme": "README.md",

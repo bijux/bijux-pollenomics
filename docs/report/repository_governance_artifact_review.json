@@ -1,0 +1,64 @@
+{
+  "schema_version": "repository-governance-artifact-review.v1",
+  "summary": {
+    "keep": 5,
+    "reframe": 3,
+    "retire": 1
+  },
+  "rows": [
+    {
+      "artifact_path": "docs/report/animal_publication_release_gate.json",
+      "action": "keep",
+      "surface_kind": "claim_gate",
+      "reason": "This file blocks strong public claims when traceability or chronology support is missing."
+    },
+    {
+      "artifact_path": "docs/report/animal_foundation_validation.json",
+      "action": "keep",
+      "surface_kind": "validation",
+      "reason": "This file checks sample, site, coordinate, and source structure instead of just formatting."
+    },
+    {
+      "artifact_path": "data/adna/governance/source_library/project_sample_site_review.json",
+      "action": "keep",
+      "surface_kind": "evidence_review",
+      "reason": "This file surfaces site-assignment weakness project by project."
+    },
+    {
+      "artifact_path": "data/adna/governance/source_library/project_sample_chronology_review.json",
+      "action": "keep",
+      "surface_kind": "evidence_review",
+      "reason": "This file surfaces chronology extraction weakness project by project."
+    },
+    {
+      "artifact_path": "docs/report/animal_point_support_packets.json",
+      "action": "keep",
+      "surface_kind": "traceability",
+      "reason": "This file keeps published points anchored to sample, site, and coordinate support."
+    },
+    {
+      "artifact_path": "docs/report/animal_atlas_readiness.json",
+      "action": "reframe",
+      "surface_kind": "coverage_summary",
+      "reason": "The current name reads stronger than the underlying point depth and must always sit beside unresolved and blocked counts."
+    },
+    {
+      "artifact_path": "docs/report/animal_sample_database_review.json",
+      "action": "reframe",
+      "surface_kind": "public_posture",
+      "reason": "This file should describe partial recovery posture, not broad readiness or region-agnostic support."
+    },
+    {
+      "artifact_path": "data/adna/governance/cross_species_map_readiness.json",
+      "action": "reframe",
+      "surface_kind": "coverage_summary",
+      "reason": "This file is useful only when readers can also see how many rows remain unresolved or refused."
+    },
+    {
+      "artifact_path": "docs/report/animal_output_audit.json",
+      "action": "retire",
+      "surface_kind": "publication_accounting",
+      "reason": "This file counts shipped public surfaces but says little about evidence depth and should not lead the scientific story."
+    }
+  ]
+}
