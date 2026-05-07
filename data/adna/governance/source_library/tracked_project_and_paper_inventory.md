@@ -3,6 +3,13 @@
 - Tracked projects: `40`
 - Tracked papers: `18`
 
+## Materialized source-library artifacts
+
+- Cross-project sample-master completeness: `project_sample_master_completeness.json`
+- Per-project sample masters: `projects/<project_accession>/sample_master.json`
+- Cross-project sample-site review: `project_sample_site_review.json`
+- Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`
+
 ## Projects
 
 | Species | Project accession | Archive status | Inventory disposition | Expected sample count | Sample count status | Primary paper DOI |
