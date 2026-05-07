@@ -1,0 +1,65 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "rows": [
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:article.html",
+      "artifact_kind": "article_html",
+      "label": "article source",
+      "source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "fetch_status": "archived",
+      "content_type": "text/html;charset=UTF-8",
+      "byte_size": 342896,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Publisher article page is archived for the goat paper."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:crossref.json",
+      "artifact_kind": "paper_metadata_json",
+      "label": "crossref metadata",
+      "source_url": "https://api.crossref.org/works/10.24272/j.issn.2095-8137.2025.080",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/crossref.json",
+      "fetch_status": "archived",
+      "content_type": "application/json",
+      "byte_size": 6608,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Crossref metadata snapshot preserves DOI and title even when publisher downloads are blocked."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "artifact_id": "10.24272-j.issn.2095-8137.2025.080:pubmed.xml",
+      "artifact_kind": "paper_metadata_json",
+      "label": "pubmed abstract",
+      "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41983443&retmode=xml",
+      "local_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/pubmed.xml",
+      "fetch_status": "archived",
+      "content_type": "text/xml; charset=UTF-8",
+      "byte_size": 27879,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "PubMed XML snapshot provides publisher-independent citation and abstract metadata."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "artifact_id": "PRJNA1328209:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "label": "archive metadata page",
+      "source_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1328209&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "local_path": "adna/governance/source_library/projects/PRJNA1328209/archive_metadata.html",
+      "fetch_status": "archived",
+      "content_type": "text/plain",
+      "byte_size": 221,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Archive-facing metadata page captured for the tracked accession."
+    }
+  ]
+}
