@@ -1,0 +1,17 @@
+{
+  "schema_version": "animal-project-sample-master.v1",
+  "project_accession": "PRJEB44430",
+  "species_latin_name": "Equus caballus",
+  "species_common_name": "horse",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+  "expected_sample_count_artifact_path": "",
+  "recovered_sample_count": 0,
+  "unresolved_sample_count": null,
+  "final_sample_count": 0,
+  "ambiguity_row_count": 0,
+  "sample_identifier_status": "paper_or_supplement_targets_curated",
+  "extraction_plan": "Extract the project sample master from the curated article or supplementary targets and then reconcile sample identifiers against any archive-native labels.",
+  "rows": []
+}

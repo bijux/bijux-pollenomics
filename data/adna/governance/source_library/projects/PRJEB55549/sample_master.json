@@ -1,0 +1,17 @@
+{
+  "schema_version": "animal-project-sample-master.v1",
+  "project_accession": "PRJEB55549",
+  "species_latin_name": "Equus asinus",
+  "species_common_name": "donkey",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB55549/archive_metadata.html",
+  "recovered_sample_count": 0,
+  "unresolved_sample_count": null,
+  "final_sample_count": 0,
+  "ambiguity_row_count": 0,
+  "sample_identifier_status": "not_yet_curated",
+  "extraction_plan": "Retain the project in the tracked inventory with an explicit rejection reason so future readers can see why it does not feed the animal sample database.",
+  "rows": []
+}
