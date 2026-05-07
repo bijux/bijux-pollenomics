@@ -7,11 +7,15 @@ __all__ = [
     "build_repository_claim_audit",
     "build_repository_governance_artifact_review",
     "build_repository_recovery_scorecard",
+    "build_repository_source_acquisition_queue",
+    "build_repository_source_family_matrix",
     "build_repository_scientific_progress_audit",
     "build_repository_truth_posture",
     "render_repository_claim_audit_markdown",
     "render_repository_governance_artifact_review_markdown",
     "render_repository_recovery_scorecard_markdown",
+    "render_repository_source_acquisition_queue_markdown",
+    "render_repository_source_family_matrix_markdown",
     "render_repository_scientific_progress_audit_markdown",
     "render_repository_truth_posture_markdown",
 ]
@@ -505,6 +509,186 @@ def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_repository_source_family_matrix(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Describe the main tracked source families with one cross-domain matrix."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    rows = [
+        _source_family_row(
+            "animal_adna",
+            "Animal aDNA papers and supplements",
+            "contextual_domain",
+            [
+                "data/adna/governance/source_library/project_registry.json",
+                "data/adna/governance/source_library/project_source_evidence_matrix.json",
+            ],
+            ["docs/02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md"],
+            counts["tracked_paper_count"],
+            "local_reference_staging_ahead_of_repo_capture"
+            if counts["papers_with_local_reference_supplements"]
+            > counts["papers_with_archived_supplements"]
+            else "repo_capture_matches_visible_staging",
+            "tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative",
+        ),
+        _source_family_row(
+            "aadr",
+            "AADR human ancient DNA",
+            "contextual_domain",
+            ["data/aadr/v66/"],
+            ["docs/02-bijux-pollenomics-data/sources/aadr.md"],
+            _count_files(data_root / "aadr" / "v66"),
+            "tracked_query_surface",
+            "AADR is queryable and documented, but it remains one context layer rather than the whole repository mission",
+        ),
+        _source_family_row(
+            "landclim",
+            "LandClim pollen context",
+            "primary_domain",
+            ["data/landclim/normalized/"],
+            ["docs/02-bijux-pollenomics-data/sources/landclim.md"],
+            _count_files(data_root / "landclim" / "normalized"),
+            "tracked_context_layer",
+            "LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture",
+        ),
+        _source_family_row(
+            "neotoma",
+            "Neotoma pollen context",
+            "primary_domain",
+            ["data/neotoma/normalized/"],
+            ["docs/02-bijux-pollenomics-data/sources/neotoma.md"],
+            _count_files(data_root / "neotoma" / "normalized"),
+            "tracked_context_layer",
+            "Neotoma remains a core pollen-site context family and should stay visible beside aDNA and archaeology surfaces",
+        ),
+        _source_family_row(
+            "sead",
+            "SEAD archaeology context",
+            "contextual_domain",
+            ["data/sead/normalized/"],
+            ["docs/02-bijux-pollenomics-data/sources/sead.md"],
+            _count_files(data_root / "sead" / "normalized"),
+            "tracked_context_layer",
+            "SEAD provides environmental archaeology context and should not disappear behind animal intake work",
+        ),
+        _source_family_row(
+            "raa",
+            "RAÄ archaeology context",
+            "contextual_domain",
+            ["data/raa/normalized/"],
+            ["docs/02-bijux-pollenomics-data/sources/raa.md"],
+            _count_files(data_root / "raa" / "normalized"),
+            "tracked_context_layer",
+            "RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope",
+        ),
+        _source_family_row(
+            "boundaries",
+            "Boundary geometry",
+            "framing_domain",
+            ["data/boundaries/normalized/"],
+            ["docs/02-bijux-pollenomics-data/sources/boundaries.md"],
+            _count_files(data_root / "boundaries" / "normalized"),
+            "tracked_boundary_frame",
+            "Boundary layers are one of the clearest repository surfaces and keep region framing honest",
+        ),
+        _source_family_row(
+            "fieldwork",
+            "Fieldwork evidence",
+            "contextual_domain",
+            ["docs/04-fieldwork/"],
+            ["docs/04-fieldwork/index.md"],
+            counts["fieldwork_page_count"],
+            "narrow_documented_surface",
+            "Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps",
+        ),
+    ]
+    return {
+        "schema_version": "repository-source-family-matrix.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_source_family_matrix_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository source family matrix",
+        "",
+        f"- Source-family rows: `{payload['row_count']}`",
+        "",
+        "| Source family | Role | Visible count | Acquisition posture | Main gap |",
+        "| --- | --- | ---: | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['role']}` | {row['visible_count']} | "
+            f"`{row['acquisition_posture']}` | {row['main_gap']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_source_acquisition_queue(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Publish the next real acquisition or reader-truth work across source families."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    rows = [
+        {
+            "queue_key": "animal_adna_repo_ingestion",
+            "source_family": "animal_adna",
+            "priority": "high",
+            "current_gap": "local reference supplements exceed repository supplement capture",
+            "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
+            "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json",
+        }
+    ]
+    surface_to_source = {
+        "landclim_site_count": "landclim",
+        "landclim_grid_cell_count": "landclim",
+        "neotoma_point_count": "neotoma",
+        "sead_point_count": "sead",
+        "raa_total_site_count": "raa",
+        "raa_heritage_site_count": "raa",
+    }
+    for surface in counts["zero_collection_summary_surfaces"]:
+        rows.append(
+            {
+                "queue_key": f"{surface}_collection_summary_repair",
+                "source_family": surface_to_source.get(surface, "source_collection"),
+                "priority": "medium",
+                "current_gap": f"collection summary still reports `{surface}` as zero",
+                "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+                "evidence_anchor": "data/collection_summary.json",
+            }
+        )
+    return {
+        "schema_version": "repository-source-acquisition-queue.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_source_acquisition_queue_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository source acquisition queue",
+        "",
+        f"- Queue rows: `{payload['row_count']}`",
+        "",
+        "| Source family | Priority | Current gap | Required outcome |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['source_family']}` | `{row['priority']}` | {row['current_gap']} | {row['required_outcome']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
 def build_repository_scientific_progress_audit(
     *,
     data_root: Path,
@@ -585,6 +769,14 @@ def _build_core_counts(
         data_root / "adna" / "governance" / "source_library" / "paper_registry.json",
         {"rows": []},
     )
+    reference_stash_reconciliation = _load_json_or_default(
+        data_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json",
+        {"rows": []},
+    )
+    reference_stash_doi_integrity = _load_json_or_default(
+        data_root / "adna" / "governance" / "source_library" / "reference_stash_doi_integrity_audit.json",
+        {"reference_stash_doi_count": 0},
+    )
     map_readiness = _load_json_or_default(
         data_root / "adna" / "governance" / "cross_species_map_readiness.json",
         {
@@ -626,6 +818,15 @@ def _build_core_counts(
         ),
         "published_country_bundle_count": int(
             sample_database_review.get("counts", {}).get("published_country_bundle_count", 0)
+        ),
+        "reference_stash_doi_count": int(
+            reference_stash_doi_integrity.get("reference_stash_doi_count", 0)
+        ),
+        "papers_with_local_reference_supplements": sum(
+            1
+            for row in reference_stash_reconciliation.get("rows", [])
+            if bool(row.get("paper_registry_present"))
+            and row.get("local_reference_supplement_status") == "local_reference_staged"
         ),
         "animal_sample_row_count": int(
             sample_database_review.get("counts", {}).get("sample_row_count", 0)
@@ -722,6 +923,28 @@ def _artifact_review_row(
         "action": action,
         "surface_kind": surface_kind,
         "reason": reason,
+    }
+
+
+def _source_family_row(
+    key: str,
+    display_name: str,
+    role: str,
+    artifact_paths: list[str],
+    docs_paths: list[str],
+    visible_count: int,
+    acquisition_posture: str,
+    main_gap: str,
+) -> dict[str, object]:
+    return {
+        "source_key": key,
+        "display_name": display_name,
+        "role": role,
+        "artifact_paths": artifact_paths,
+        "docs_paths": docs_paths,
+        "visible_count": visible_count,
+        "acquisition_posture": acquisition_posture,
+        "main_gap": main_gap,
     }
 
 
