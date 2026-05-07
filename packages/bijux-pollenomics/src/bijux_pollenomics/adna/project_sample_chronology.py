@@ -6,7 +6,6 @@ from pathlib import Path
 from ..core.files import write_json, write_text
 from .catalogs import render_csv_rows
 from .ena import build_archive_project_catalog
-from .normalization import normalize_chronology_text, normalize_explicit_bp_window
 from .sample_master import build_project_sample_master_rows
 from .site_evidence import resolve_project_site_evidence
 
@@ -434,6 +433,8 @@ def _resolve_chronology_source(
     site_row: object | None,
     dating_basis: str,
 ) -> _ResolvedChronologySource:
+    from .normalization import normalize_chronology_text
+
     sample_text = str(getattr(master_row, "chronology_text", "")).strip()
     site_text = "" if site_row is None else str(getattr(site_row, "chronology_text", "")).strip()
     if sample_text:
@@ -507,6 +508,8 @@ def _resolve_chronology_source(
 
 
 def _site_chronology(site_row: object | None, *, dating_basis: str) -> object:
+    from .normalization import normalize_chronology_text, normalize_explicit_bp_window
+
     if site_row is None:
         return normalize_chronology_text("", dating_basis=dating_basis)
     start_bp = getattr(site_row, "time_start_bp", None)

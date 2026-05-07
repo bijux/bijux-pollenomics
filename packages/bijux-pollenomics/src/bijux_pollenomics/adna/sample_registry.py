@@ -273,6 +273,12 @@ def _resolve_row_context(
             site_label = master_row.locality_text
         if getattr(master_row, "chronology_text", ""):
             chronology_text = master_row.chronology_text
+            if lead is None:
+                inclusion_note = (
+                    "This sample row keeps chronology recovered from the sample-owned source row, "
+                    "but site extraction is still blocked until a project-owned site evidence row "
+                    "is curated from paper or supplementary support."
+                )
         if getattr(master_row, "sample_identity_resolution", "") == "ambiguous":
             inclusion_note = (
                 f"{inclusion_note} Sample identity remains ambiguous across source surfaces."

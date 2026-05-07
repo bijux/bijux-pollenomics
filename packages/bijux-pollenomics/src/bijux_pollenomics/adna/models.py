@@ -148,6 +148,13 @@ class AdnaSampleRecord:
     supplementary_source: str = ""
     inclusion_status: str = "included"
     inclusion_note: str = ""
+    chronology_strength: str = ""
+    chronology_normalization_status: str = ""
+    chronology_provenance_path: str = ""
+    chronology_provenance_kind: str = ""
+    chronology_provenance_locator: str = ""
+    chronology_provenance_text: str = ""
+    chronology_conflict_note: str = ""
     sample_basis: str = ""
     archive_native_sample_id: str = ""
     paper_native_sample_label: str = ""
@@ -256,6 +263,13 @@ class AdnaSampleRecord:
             "supplementary_source": self.supplementary_source,
             "inclusion_status": self.inclusion_status,
             "inclusion_note": self.inclusion_note,
+            "chronology_strength": self.chronology_strength,
+            "chronology_normalization_status": self.chronology_normalization_status,
+            "chronology_provenance_path": self.chronology_provenance_path,
+            "chronology_provenance_kind": self.chronology_provenance_kind,
+            "chronology_provenance_locator": self.chronology_provenance_locator,
+            "chronology_provenance_text": self.chronology_provenance_text,
+            "chronology_conflict_note": self.chronology_conflict_note,
             "sample_basis": self.sample_basis,
             "archive_native_sample_id": self.archive_native_sample_id,
             "paper_native_sample_label": self.paper_native_sample_label,
