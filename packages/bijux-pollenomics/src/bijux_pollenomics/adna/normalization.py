@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
+from pathlib import Path
 import re
 
 from ..core.bp_time import (
@@ -25,6 +26,7 @@ from .models import (
     AdnaSiteEvidenceRecord,
 )
 from .paths import ADNA_SPECIES_DIR
+from .project_sample_chronology import build_project_sample_chronology_rows
 from .project_context import resolve_project_context
 from .project_localities import build_species_project_locality_leads
 from .sample_registry import build_species_curated_sample_rows
@@ -525,10 +527,23 @@ def _build_sample_records(
 ) -> tuple[AdnaSampleRecord, ...]:
     species = resolve_species_definition(species_name)
     project_index = {project.project_accession: project for project in project_summaries}
+    chronology_index = {
+        project_accession: {
+            chronology_row.repo_stable_sample_id: chronology_row
+            for chronology_row in build_project_sample_chronology_rows(
+                _default_data_root(),
+                project_accession,
+            )
+        }
+        for project_accession in project_index
+    }
     sample_records: list[AdnaSampleRecord] = []
 
     for row in build_species_curated_sample_rows(species_name):
         project = project_index[row.project_accession]
+        chronology_row = chronology_index.get(row.project_accession, {}).get(
+            row.stable_sample_id
+        )
         coordinate_resolution = normalize_coordinate_resolution(
             latitude_text=row.latitude_text,
             longitude_text=row.longitude_text,
@@ -536,15 +551,22 @@ def _build_sample_records(
         )
         chronology = (
             normalize_explicit_bp_window(
-                row.time_start_bp,
-                row.time_end_bp,
-                original_text=row.chronology_text,
-                dating_basis=row.dating_basis,
+                chronology_row.time_start_bp if chronology_row is not None else row.time_start_bp,
+                chronology_row.time_end_bp if chronology_row is not None else row.time_end_bp,
+                original_text=(
+                    chronology_row.chronology_text if chronology_row is not None else row.chronology_text
+                ),
+                dating_basis=chronology_row.dating_basis if chronology_row is not None else row.dating_basis,
             )
-            if row.time_start_bp is not None and row.time_end_bp is not None
+            if (
+                chronology_row is not None
+                and chronology_row.time_start_bp is not None
+                and chronology_row.time_end_bp is not None
+            )
+            or (chronology_row is None and row.time_start_bp is not None and row.time_end_bp is not None)
             else normalize_chronology_text(
-                row.chronology_text,
-                dating_basis=row.dating_basis,
+                chronology_row.chronology_text if chronology_row is not None else row.chronology_text,
+                dating_basis=chronology_row.dating_basis if chronology_row is not None else row.dating_basis,
             )
         )
         locality_text = row.site_label
@@ -611,6 +633,43 @@ def _build_sample_records(
                 supplementary_source=row.supplementary_source,
                 inclusion_status=row.inclusion_status,
                 inclusion_note=row.inclusion_note,
+                chronology_strength=(
+                    chronology_row.chronology_strength
+                    if chronology_row is not None
+                    else "project_context_interval"
+                    if chronology.time_start_bp is not None and chronology.time_end_bp is not None
+                    else "project_context_text_only"
+                    if chronology.original_text
+                    else "unresolved"
+                ),
+                chronology_normalization_status=(
+                    chronology_row.chronology_normalization_status
+                    if chronology_row is not None
+                    else "normalized_point"
+                    if chronology.time_start_bp is not None
+                    and chronology.time_end_bp is not None
+                    and chronology.time_start_bp == chronology.time_end_bp
+                    else "normalized_interval"
+                    if chronology.time_start_bp is not None and chronology.time_end_bp is not None
+                    else "text_only_unparsed"
+                    if chronology.original_text
+                    else "unresolved"
+                ),
+                chronology_provenance_path=(
+                    chronology_row.chronology_provenance_path if chronology_row is not None else ""
+                ),
+                chronology_provenance_kind=(
+                    chronology_row.chronology_provenance_kind if chronology_row is not None else ""
+                ),
+                chronology_provenance_locator=(
+                    chronology_row.chronology_provenance_locator if chronology_row is not None else ""
+                ),
+                chronology_provenance_text=(
+                    chronology_row.chronology_provenance_text if chronology_row is not None else ""
+                ),
+                chronology_conflict_note=(
+                    chronology_row.chronology_conflict_note if chronology_row is not None else ""
+                ),
                 sample_basis=row.sample_basis,
                 archive_native_sample_id=row.archive_native_sample_id,
                 paper_native_sample_label=row.paper_native_sample_label,
@@ -626,6 +685,10 @@ def _build_sample_records(
 
     sample_records.sort(key=lambda item: (item.project_accession, item.genetic_id))
     return tuple(sample_records)
+
+
+def _default_data_root() -> Path:
+    return Path(__file__).resolve().parents[5] / "data"
 
 
 def build_species_project_locality_records(

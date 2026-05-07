@@ -49,6 +49,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.paper_doi, "10.1126/science.aao3297")
         self.assertEqual(sample.inclusion_status, "site_curated")
         self.assertEqual(sample.sample_basis, "project_accession_anchor")
+        self.assertEqual(sample.chronology_strength, "project_context_interval")
+        self.assertEqual(sample.chronology_normalization_status, "normalized_interval")
         self.assertEqual(
             sample.locality_identity.locality_text,
             "Botai archaeological site horse context",
@@ -128,6 +130,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.inclusion_status, "sample_context_blocked")
         self.assertEqual(sample.coordinate_confidence, "withheld")
         self.assertEqual(sample.paper_doi, "10.1038/s41586-021-04018-9")
+        self.assertEqual(sample.chronology_strength, "project_context_text_only")
+        self.assertEqual(sample.chronology_normalization_status, "text_only_unparsed")
         self.assertIn("blocked", sample.inclusion_note)
 
     def test_species_normalization_bundle_carries_nordic_context_and_caveats(self) -> None:
