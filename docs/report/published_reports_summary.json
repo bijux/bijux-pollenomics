@@ -37,7 +37,21 @@
       "animal_atlas_readiness_json": "animal_atlas_readiness.json",
       "animal_atlas_readiness_markdown": "animal_atlas_readiness.md",
       "nordic_farming_history_scenario_json": "nordic_farming_history_scenario.json",
-      "nordic_farming_history_scenario_markdown": "nordic_farming_history_scenario.md"
+      "nordic_farming_history_scenario_markdown": "nordic_farming_history_scenario.md",
+      "animal_foundation_validation_json": "animal_foundation_validation.json",
+      "animal_cross_surface_drift_json": "animal_cross_surface_drift.json",
+      "animal_scientific_caveat_ledger_json": "animal_scientific_caveat_ledger.json",
+      "animal_point_support_packets_json": "animal_point_support_packets.json",
+      "animal_project_absence_packets_json": "animal_project_absence_packets.json",
+      "animal_foundation_review_json": "animal_foundation_review.json",
+      "animal_publication_release_gate_json": "animal_publication_release_gate.json",
+      "animal_foundation_validation_markdown": "animal_foundation_validation.md",
+      "animal_cross_surface_drift_markdown": "animal_cross_surface_drift.md",
+      "animal_scientific_caveat_ledger_markdown": "animal_scientific_caveat_ledger.md",
+      "animal_point_support_packets_markdown": "animal_point_support_packets.md",
+      "animal_project_absence_packets_markdown": "animal_project_absence_packets.md",
+      "animal_foundation_review_markdown": "animal_foundation_review.md",
+      "animal_publication_release_gate_markdown": "animal_publication_release_gate.md"
     },
     "country_bundles": {
       "sweden": {
