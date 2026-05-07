@@ -315,7 +315,67 @@
       "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
     },
     "sample_records": [],
-    "locality_records": [],
+    "locality_records": [
+      {
+        "identity": {
+          "namespace": "sus_scrofa_domesticus:project_locality",
+          "stable_token": "sus_scrofa_domesticus:project-locality:prjeb30282",
+          "locality_text": "Near East and Europe pig domestication transect",
+          "political_entity": "Turkey and Europe",
+          "source_anchor_tokens": [
+            "PRJEB30282",
+            "39.00",
+            "35.00"
+          ]
+        },
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "source_family": "ENA",
+        "source_releases": [
+          "PRJEB30282"
+        ],
+        "record_modalities": [
+          "archive_reads"
+        ],
+        "review_strengths": [
+          "primary_paper_pinned"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "Near East and Europe pig domestication transect",
+        "coordinates": {
+          "latitude": 39.0,
+          "longitude": 35.0,
+          "latitude_text": "39.00",
+          "longitude_text": "35.00",
+          "confidence": "inferred"
+        },
+        "sample_count": 1,
+        "sample_ids": [
+          "PRJEB30282"
+        ],
+        "datasets": [
+          "sus_scrofa_domesticus:project:PRJEB30282"
+        ],
+        "chronology": {
+          "original_text": "~10500-6000 BP pig turnover transect",
+          "time_start_bp": 6000,
+          "time_end_bp": 10500,
+          "time_mean_bp": 8250,
+          "date_stddev_bp": "",
+          "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        },
+        "sample_namespace": "sus_scrofa_domesticus:project_locality",
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "original_location_text": "Near East and Europe pig domestication transect",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_note": "This is a broad inferred centroid for a multi-site domestication and turnover study, not a single excavated pig locality."
+      }
+    ],
     "project_summaries": [
       {
         "schema_version": "adna-project-summary.v1",
@@ -718,12 +778,28 @@
       {
         "schema_version": "adna-normalization-refusal.v1",
         "species_latin_name": "Sus scrofa domesticus",
-        "source_token": "sus_scrofa_domesticus",
+        "source_token": "PRJNA421430",
         "record_kind": "locality_records",
-        "reason": "locality_level_raw_metadata_unavailable",
-        "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Sus scrofa domesticus",
+        "source_token": "PRJNA788987",
+        "record_kind": "locality_records",
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Sus scrofa domesticus",
+        "source_token": "PRJNA878488",
+        "record_kind": "locality_records",
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
       }
     ],
-    "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+    "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
   }
 }

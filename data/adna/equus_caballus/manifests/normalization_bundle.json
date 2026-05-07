@@ -36,7 +36,67 @@
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
   "sample_records": [],
-  "locality_records": [],
+  "locality_records": [
+    {
+      "identity": {
+        "namespace": "equus_caballus:project_locality",
+        "stable_token": "equus_caballus:project-locality:prjeb22390",
+        "locality_text": "Botai culture steppe context",
+        "political_entity": "Kazakhstan",
+        "source_anchor_tokens": [
+          "PRJEB22390",
+          "52.99",
+          "69.15"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB22390"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Botai culture steppe context",
+      "coordinates": {
+        "latitude": 52.99,
+        "longitude": 69.15,
+        "latitude_text": "52.99",
+        "longitude_text": "69.15",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB22390"
+      ],
+      "datasets": [
+        "equus_caballus:project:PRJEB22390"
+      ],
+      "chronology": {
+        "original_text": "~5500 BP Botai horse context",
+        "time_start_bp": 5400,
+        "time_end_bp": 5600,
+        "time_mean_bp": 5500,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "equus_caballus:project_locality",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "original_location_text": "Botai culture steppe context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface."
+    }
+  ],
   "project_summaries": [
     {
       "schema_version": "adna-project-summary.v1",
@@ -823,11 +883,59 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Equus caballus",
-      "source_token": "equus_caballus",
+      "source_token": "PRJEB10854",
       "record_kind": "locality_records",
-      "reason": "locality_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB19970",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB31613",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB44430",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB56293",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB7537",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus caballus",
+      "source_token": "PRJEB9799",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
 }
