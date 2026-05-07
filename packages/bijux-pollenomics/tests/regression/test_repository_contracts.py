@@ -187,6 +187,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         gate_markdown = report_root / "animal_publication_release_gate.md"
         sample_database_review_json = report_root / "animal_sample_database_review.json"
         sample_database_review_markdown = report_root / "animal_sample_database_review.md"
+        repository_truth_json = report_root / "repository_truth_posture.json"
+        repository_truth_markdown = report_root / "repository_truth_posture.md"
+        repository_scorecard_json = report_root / "repository_recovery_scorecard.json"
+        repository_scorecard_markdown = report_root / "repository_recovery_scorecard.md"
+        repository_governance_json = report_root / "repository_governance_artifact_review.json"
+        repository_governance_markdown = report_root / "repository_governance_artifact_review.md"
+        repository_claim_json = report_root / "repository_claim_audit.json"
+        repository_claim_markdown = report_root / "repository_claim_audit.md"
+        repository_progress_json = report_root / "repository_scientific_progress_audit.json"
+        repository_progress_markdown = report_root / "repository_scientific_progress_audit.md"
 
         self.assertTrue(audit_json.is_file())
         self.assertTrue(audit_markdown.is_file())
@@ -210,6 +220,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(gate_markdown.is_file())
         self.assertTrue(sample_database_review_json.is_file())
         self.assertTrue(sample_database_review_markdown.is_file())
+        self.assertTrue(repository_truth_json.is_file())
+        self.assertTrue(repository_truth_markdown.is_file())
+        self.assertTrue(repository_scorecard_json.is_file())
+        self.assertTrue(repository_scorecard_markdown.is_file())
+        self.assertTrue(repository_governance_json.is_file())
+        self.assertTrue(repository_governance_markdown.is_file())
+        self.assertTrue(repository_claim_json.is_file())
+        self.assertTrue(repository_claim_markdown.is_file())
+        self.assertTrue(repository_progress_json.is_file())
+        self.assertTrue(repository_progress_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
         self.assertIn(
             "Animal atlas readiness",
@@ -250,6 +270,26 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Animal sample database review",
             sample_database_review_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository truth posture",
+            repository_truth_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository recovery scorecard",
+            repository_scorecard_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository governance artifact review",
+            repository_governance_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository claim audit",
+            repository_claim_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository scientific progress audit",
+            repository_progress_markdown.read_text(encoding="utf-8"),
         )
 
     def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:

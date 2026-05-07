@@ -9,7 +9,7 @@
     "1240k": 119,
     "ho": 130
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
+  "output_dir": "docs/report/norway",
   "artifacts": {
     "bundle_manifest": "norway_aadr_v66_bundle.json",
     "readme": "README.md",

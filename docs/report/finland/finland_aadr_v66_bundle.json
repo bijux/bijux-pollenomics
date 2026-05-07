@@ -10,7 +10,7 @@
   },
   "total_unique_samples": 32,
   "total_unique_localities": 6,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+  "output_dir": "docs/report/finland",
   "artifacts": {
     "readme": "README.md",
     "samples_csv": "finland_aadr_v66_samples.csv",

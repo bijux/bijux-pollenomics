@@ -7,19 +7,19 @@
     "Finland",
     "Denmark"
   ],
-  "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
+  "shared_map_dir": "docs/report/nordic-atlas",
   "country_output_dirs": [
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark"
+    "docs/report/sweden",
+    "docs/report/norway",
+    "docs/report/finland",
+    "docs/report/denmark"
   ],
-  "summary_path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/published_reports_summary.json",
+  "summary_path": "docs/report/published_reports_summary.json",
   "schema_version": "published-reports-summary.v1",
   "artifacts": {
     "shared_bundle": {
       "slug": "nordic-atlas",
-      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
+      "directory": "docs/report/nordic-atlas",
       "bundle_manifest": "nordic-atlas_bundle.json",
       "summary_json": "nordic-atlas_summary.json"
     },
@@ -44,6 +44,8 @@
       "animal_point_support_packets_json": "animal_point_support_packets.json",
       "animal_project_absence_packets_json": "animal_project_absence_packets.json",
       "animal_foundation_review_json": "animal_foundation_review.json",
+      "animal_sample_chronology_viewer_json": "animal_sample_chronology_viewer.json",
+      "animal_sample_database_review_json": "animal_sample_database_review.json",
       "animal_publication_release_gate_json": "animal_publication_release_gate.json",
       "animal_foundation_validation_markdown": "animal_foundation_validation.md",
       "animal_cross_surface_drift_markdown": "animal_cross_surface_drift.md",
@@ -51,26 +53,40 @@
       "animal_point_support_packets_markdown": "animal_point_support_packets.md",
       "animal_project_absence_packets_markdown": "animal_project_absence_packets.md",
       "animal_foundation_review_markdown": "animal_foundation_review.md",
+      "animal_sample_chronology_viewer_markdown": "animal_sample_chronology_viewer.md",
+      "animal_sample_database_review_markdown": "animal_sample_database_review.md",
       "animal_publication_release_gate_markdown": "animal_publication_release_gate.md"
+    },
+    "repository_truth": {
+      "repository_truth_posture_json": "repository_truth_posture.json",
+      "repository_recovery_scorecard_json": "repository_recovery_scorecard.json",
+      "repository_governance_artifact_review_json": "repository_governance_artifact_review.json",
+      "repository_claim_audit_json": "repository_claim_audit.json",
+      "repository_scientific_progress_audit_json": "repository_scientific_progress_audit.json",
+      "repository_truth_posture_markdown": "repository_truth_posture.md",
+      "repository_recovery_scorecard_markdown": "repository_recovery_scorecard.md",
+      "repository_governance_artifact_review_markdown": "repository_governance_artifact_review.md",
+      "repository_claim_audit_markdown": "repository_claim_audit.md",
+      "repository_scientific_progress_audit_markdown": "repository_scientific_progress_audit.md"
     },
     "country_bundles": {
       "sweden": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
+        "directory": "docs/report/sweden",
         "bundle_manifest": "sweden_aadr_v66_bundle.json",
         "summary_json": "sweden_aadr_v66_summary.json"
       },
       "norway": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
+        "directory": "docs/report/norway",
         "bundle_manifest": "norway_aadr_v66_bundle.json",
         "summary_json": "norway_aadr_v66_summary.json"
       },
       "finland": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+        "directory": "docs/report/finland",
         "bundle_manifest": "finland_aadr_v66_bundle.json",
         "summary_json": "finland_aadr_v66_summary.json"
       },
       "denmark": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
+        "directory": "docs/report/denmark",
         "bundle_manifest": "denmark_aadr_v66_bundle.json",
         "summary_json": "denmark_aadr_v66_summary.json"
       }

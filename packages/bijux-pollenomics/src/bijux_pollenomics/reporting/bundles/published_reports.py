@@ -10,6 +10,7 @@ from ...adna.catalogs import (
 )
 from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
+from ..foundation import publish_repository_truth_outputs
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .paths import AtlasBundlePaths
 
@@ -81,6 +82,11 @@ def publish_published_reports_tree(
         data_root=context_root if context_root is not None else output_root.parents[1] / "data",
         docs_root=output_root.parent,
     )
+    repository_truth_artifacts = publish_repository_truth_outputs(
+        staging_output_root,
+        data_root=context_root if context_root is not None else output_root.parents[1] / "data",
+        docs_root=output_root.parent,
+    )
     scientific_artifacts = {**scientific_artifacts, **foundation_artifacts}
     release_gate_payload = json.loads(
         (staging_output_root / "animal_publication_release_gate.json").read_text(
@@ -105,6 +111,7 @@ def publish_published_reports_tree(
             generated_report,
             map_report,
             scientific_artifacts=scientific_artifacts,
+            repository_truth_artifacts=repository_truth_artifacts,
         ),
     )
     data_root = context_root if context_root is not None else output_root.parents[1] / "data"

@@ -9,7 +9,7 @@
     "1240k": 23,
     "ho": 32
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+  "output_dir": "docs/report/finland",
   "artifacts": {
     "bundle_manifest": "finland_aadr_v66_bundle.json",
     "readme": "README.md",

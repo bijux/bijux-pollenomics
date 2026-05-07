@@ -1,0 +1,68 @@
+{
+  "schema_version": "repository-claim-audit.v1",
+  "overall_ok": false,
+  "counts": {
+    "tracked_paper_count": 18,
+    "papers_with_archived_supplements": 1,
+    "published_atlas_point_count": 2,
+    "published_country_bundle_count": 4,
+    "animal_sample_row_count": 242,
+    "animal_map_supported_rows": 2,
+    "animal_map_unresolved_rows": 232,
+    "animal_map_refused_rows": 8,
+    "pollen_normalized_file_count": 6,
+    "archaeology_normalized_file_count": 4,
+    "boundary_raw_file_count": 4,
+    "boundary_normalized_file_count": 1,
+    "fieldwork_page_count": 2,
+    "source_explainer_count": 7,
+    "landing_page_count": 6,
+    "zero_collection_summary_surfaces": [
+      "landclim_site_count",
+      "landclim_grid_cell_count",
+      "neotoma_point_count",
+      "sead_point_count",
+      "raa_total_site_count",
+      "raa_heritage_site_count"
+    ]
+  },
+  "checks": [
+    {
+      "check_id": "repository_landings_name_pollenomics_first",
+      "passed": true,
+      "description": "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "source_family_pages_restore_non_adna_breadth",
+      "passed": true,
+      "description": "The docs tree keeps non-aDNA source families visible and directly linkable.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "animal_sample_review_freezes_broad_readiness",
+      "passed": false,
+      "description": "The public animal sample review does not claim broad readiness while mapped depth remains thin.",
+      "finding_count": 1,
+      "findings": [
+        "animal_sample_database_review_overclaims_current_depth"
+      ]
+    },
+    {
+      "check_id": "animal_release_gate_blocks_strongest_claim",
+      "passed": true,
+      "description": "The current release gate still freezes the strongest public claim.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "thin_animal_surface_stays_visible",
+      "passed": true,
+      "description": "The public docs keep the thin current atlas depth visible instead of hiding it.",
+      "finding_count": 0,
+      "findings": []
+    }
+  ]
+}

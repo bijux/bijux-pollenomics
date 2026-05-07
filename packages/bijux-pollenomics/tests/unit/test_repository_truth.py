@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import tempfile
 import unittest
 
 from bijux_pollenomics.foundation import (
@@ -15,6 +16,7 @@ from bijux_pollenomics.foundation import (
     render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
+from bijux_pollenomics.reporting.foundation import publish_repository_truth_outputs
 
 
 class RepositoryTruthUnitTests(unittest.TestCase):
@@ -136,3 +138,31 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             any("only 1 of 18 tracked papers" in row for row in payload["findings"])
         )
         self.assertIn("Do Not Use These As Progress", markdown)
+
+    def test_publish_repository_truth_outputs_writes_all_truth_packets(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "report"
+            output_root.mkdir(parents=True, exist_ok=True)
+            for name in (
+                "animal_sample_database_review.json",
+                "animal_publication_release_gate.json",
+            ):
+                (output_root / name).write_text(
+                    (self.report_root / name).read_text(encoding="utf-8"),
+                    encoding="utf-8",
+                )
+
+            artifacts = publish_repository_truth_outputs(
+                output_root,
+                data_root=self.data_root,
+                docs_root=self.docs_root,
+            )
+
+            self.assertIn("repository_truth_posture_json", artifacts)
+            self.assertIn("repository_claim_audit_markdown", artifacts)
+            self.assertTrue((output_root / "repository_truth_posture.json").is_file())
+            self.assertTrue((output_root / "repository_recovery_scorecard.md").is_file())
+            claim_audit = (output_root / "repository_claim_audit.json").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn('"overall_ok": false', claim_audit)
