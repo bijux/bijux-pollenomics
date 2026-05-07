@@ -22,8 +22,11 @@
   "animal_adna": {
     "total_species": 0,
     "total_localities": 0,
+    "total_sample_rows": 0,
     "artifacts": {
       "summary_json": "norway_animal_adna_v66_summary.json",
+      "samples_csv": "norway_animal_adna_v66_samples.csv",
+      "samples_markdown": "norway_animal_adna_v66_samples.md",
       "species_csv": "norway_animal_adna_v66_species.csv",
       "localities_geojson": "norway_animal_adna_v66_localities.geojson",
       "citations_markdown": "norway_animal_adna_v66_citations.md",
