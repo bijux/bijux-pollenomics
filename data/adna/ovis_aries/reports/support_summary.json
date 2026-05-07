@@ -600,7 +600,7 @@
         "paper_url": "https://doi.org/10.1093/gbe/evae114",
         "supplementary_source": "",
         "inclusion_status": "nordic_lead_site_curated",
-        "inclusion_note": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation.",
+        "inclusion_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row.",
         "sample_basis": "project_accession_anchor"
       },
       {
@@ -793,6 +793,34 @@
         "sample_basis": "project_accession_anchor"
       }
     ],
+    "site_evidence_records": [
+      {
+        "project_accession": "PRJEB59481",
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "site_label": "Baltic Sea Region short-tailed sheep context",
+        "political_entity": "Baltic Sea Region",
+        "source_artifact_path": "adna/source_library/papers/10.1093-gbe-evae114/crossref.json",
+        "source_artifact_kind": "crossref_title",
+        "source_locator": "title",
+        "exact_source_text": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+        "source_support_status": "title_only_support",
+        "paper_doi": "10.1093/gbe/evae114",
+        "paper_url": "https://doi.org/10.1093/gbe/evae114",
+        "supplementary_source": "",
+        "coordinate_basis": "inferred_region_centroid",
+        "latitude_text": "58.50",
+        "longitude_text": "22.50",
+        "chronology_text": "Four millennia of Baltic sheep history",
+        "time_start_bp": 0,
+        "time_end_bp": 4000,
+        "dating_basis": "archaeological_period",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row.",
+        "support_gap_note": "The project is paper-pinned, but the local archive currently only ships title metadata for this DOI rather than a readable article or parsed supplementary table."
+      }
+    ],
     "locality_records": [
       {
         "identity": {
@@ -851,7 +879,7 @@
         "original_location_text": "Baltic Sea Region short-tailed sheep context",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
-        "interpretation_note": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation."
+        "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row."
       }
     ],
     "project_summaries": [

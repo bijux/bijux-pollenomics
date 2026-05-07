@@ -96,7 +96,7 @@
       "paper_url": "https://doi.org/10.1073/pnas.1901169116",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This is a broad inferred centroid for a multi-site domestication and turnover study, not a single excavated pig locality.",
+      "inclusion_note": "This is a broad domestication transect, not one excavation site, so the atlas point remains an inferred regional centroid.",
       "sample_basis": "project_accession_anchor"
     },
     {
@@ -289,6 +289,34 @@
       "sample_basis": "project_accession_anchor"
     }
   ],
+  "site_evidence_records": [
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "site_label": "Near East and Europe pig domestication transect",
+      "political_entity": "Turkey and Europe",
+      "source_artifact_path": "adna/source_library/papers/10.1073-pnas.1901169116/article.html",
+      "source_artifact_kind": "article_html_abstract",
+      "source_locator": "abstract",
+      "exact_source_text": "Pig domestication had begun by ~10,500 y before the present (BP) in the Near East, and mitochondrial DNA suggests that pigs arrived in Europe alongside farmers ~8,500 y BP.",
+      "source_support_status": "article_exact_quote",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "paper_url": "https://doi.org/10.1073/pnas.1901169116",
+      "supplementary_source": "",
+      "coordinate_basis": "inferred_region_centroid",
+      "latitude_text": "39.00",
+      "longitude_text": "35.00",
+      "chronology_text": "~10500-6000 BP pig turnover transect",
+      "time_start_bp": 6000,
+      "time_end_bp": 10500,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "This is a broad domestication transect, not one excavation site, so the atlas point remains an inferred regional centroid.",
+      "support_gap_note": ""
+    }
+  ],
   "locality_records": [
     {
       "identity": {
@@ -347,7 +375,7 @@
       "original_location_text": "Near East and Europe pig domestication transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This is a broad inferred centroid for a multi-site domestication and turnover study, not a single excavated pig locality."
+      "interpretation_note": "This is a broad domestication transect, not one excavation site, so the atlas point remains an inferred regional centroid."
     }
   ],
   "project_summaries": [

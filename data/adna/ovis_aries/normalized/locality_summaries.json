@@ -59,7 +59,7 @@
       "original_location_text": "Baltic Sea Region short-tailed sheep context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
-      "interpretation_note": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation."
+      "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row."
     }
   ]
 }

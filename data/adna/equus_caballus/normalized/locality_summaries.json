@@ -59,7 +59,7 @@
       "original_location_text": "Botai culture steppe context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface."
+      "interpretation_note": "Botai is the current horse anchor because the paper explicitly states the husbandry context and the repo already maps it at site-level resolution."
     }
   ]
 }
