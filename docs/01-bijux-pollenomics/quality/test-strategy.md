@@ -1,16 +1,16 @@
 ---
 title: Test Strategy
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
 # Test Strategy
 
 `bijux-pollenomics` uses layered tests so command behavior, file contracts, and
-source-specific transformations can fail close to the defect.
+source-specific transformations fail close to the defect.
 
 ## Current Layers
 

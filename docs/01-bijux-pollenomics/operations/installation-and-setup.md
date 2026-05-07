@@ -1,17 +1,15 @@
 ---
 title: Installation and Setup
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
 # Installation and Setup
 
-The supported setup path is repository-first. Local setup should get a reader
-to the runtime proof surface quickly instead of recreating the whole repository
-in an ad hoc way.
+The supported setup path is repository-first.
 
 ## Setup Model
 
@@ -29,9 +27,7 @@ flowchart TB
     cli --> proof
 ```
 
-This page should make setup feel like a short path into the supported runtime
-surface. The point is not to maximize setup options; it is to get a reader to a
-proven local command path without inventing a second environment story.
+The point is to reach a known-good local command path quickly.
 
 ## Expected Prerequisites
 
@@ -50,14 +46,15 @@ artifacts/root/check-venv/bin/bijux-pollenomics --version
 docs, and verification work. Treat that environment as the supported local
 entrypoint before troubleshooting command behavior elsewhere.
 
+## Typical Rebuild Path
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --output-root data
+artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data/aadr --context-root data --output-root docs/report --countries Sweden Norway Finland Denmark
+```
+
 ## First Proof Check
 
 - `make install`
 - `artifacts/root/check-venv/bin/bijux-pollenomics --version`
 - `packages/bijux-pollenomics/tests/`
-
-## Design Pressure
-
-The easy failure is to describe setup as generic Python package installation,
-which hides the repository-local environment and proof path the rest of the
-handbook assumes.
