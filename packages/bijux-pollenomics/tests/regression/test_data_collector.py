@@ -149,6 +149,19 @@ class DataCollectorTests(unittest.TestCase):
             self.assertTrue(
                 (output_root / "adna" / "shipped_product_audit.json").is_file()
             )
+            self.assertTrue(
+                (output_root / "adna" / "source_library" / "project_registry.json").is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB22390"
+                    / "bundle_manifest.json"
+                ).is_file()
+            )
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
             self.assertIn("aadr", report.source_provenance)
