@@ -181,7 +181,7 @@
         "inclusion_statuses": [
           "site_curated"
         ],
-        "source_artifact_path": "adna/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
         "source_artifact_kind": "article_html_body_quote",
         "source_locator": "abstract and introduction",
         "source_support_status": "article_exact_quote",
@@ -369,7 +369,7 @@
         "inclusion_statuses": [
           "site_curated"
         ],
-        "source_artifact_path": "adna/source_library/papers/10.1126-science.aao3297/article.html",
+        "source_artifact_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
         "source_artifact_kind": "article_html_meta_description",
         "source_locator": "meta description",
         "source_support_status": "article_exact_quote",

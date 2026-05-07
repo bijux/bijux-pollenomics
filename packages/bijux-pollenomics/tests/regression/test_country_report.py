@@ -381,7 +381,7 @@ class CountryReportTests(unittest.TestCase):
                 ],
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "ovis_aries",
+                context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
                 common_name="sheep",
                 locality="Uppland sheep lead",
@@ -479,7 +479,7 @@ class CountryReportTests(unittest.TestCase):
                 ],
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "ovis_aries",
+                context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
                 common_name="sheep",
                 locality="Baltic sheep lead",
@@ -824,7 +824,7 @@ class CountryReportTests(unittest.TestCase):
                 ],
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "ovis_aries",
+                context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
                 common_name="sheep",
                 locality="Baltic sheep lead",
@@ -838,7 +838,7 @@ class CountryReportTests(unittest.TestCase):
                 paper_doi="10.1000/sheep",
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "rangifer_tarandus",
+                context_root / "adna" / "species" / "rangifer_tarandus",
                 latin_name="Rangifer tarandus",
                 common_name="reindeer",
                 locality="Svalbard reindeer lead",
@@ -1019,7 +1019,7 @@ class CountryReportTests(unittest.TestCase):
                 category="Pollen",
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "ovis_aries",
+                context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
                 common_name="sheep",
                 locality="Sweden sheep lead",
@@ -1033,7 +1033,7 @@ class CountryReportTests(unittest.TestCase):
                 paper_doi="10.1000/sheep",
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "rangifer_tarandus",
+                context_root / "adna" / "species" / "rangifer_tarandus",
                 latin_name="Rangifer tarandus",
                 common_name="reindeer",
                 locality="Svalbard reindeer lead",
@@ -1540,7 +1540,7 @@ class CountryReportTests(unittest.TestCase):
                 category="Pollen",
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "ovis_aries",
+                context_root / "adna" / "species" / "ovis_aries",
                 latin_name="Ovis aries",
                 common_name="sheep",
                 locality="Sweden sheep lead",
@@ -1554,7 +1554,7 @@ class CountryReportTests(unittest.TestCase):
                 paper_doi="10.1000/sheep",
             )
             self.write_tracked_animal_species(
-                context_root / "adna" / "rangifer_tarandus",
+                context_root / "adna" / "species" / "rangifer_tarandus",
                 latin_name="Rangifer tarandus",
                 common_name="reindeer",
                 locality="Svalbard reindeer lead",
@@ -2035,7 +2035,7 @@ class CountryReportTests(unittest.TestCase):
                         "original_place_text": locality,
                         "resolved_place_text": locality,
                         "political_entity": political_entity,
-                        "source_artifact_path": f"adna/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
+                        "source_artifact_path": f"adna/governance/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
                         "source_locator": "supplementary table",
                         "coordinate_basis": "named_site_geocoding",
                         "mapping_posture": "mappable_point",
@@ -2072,7 +2072,7 @@ class CountryReportTests(unittest.TestCase):
                         "species_common_name": common_name,
                         "site_label": locality,
                         "political_entity": political_entity,
-                        "source_artifact_path": f"adna/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
+                        "source_artifact_path": f"adna/governance/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
                         "source_artifact_kind": "article_html_body_quote",
                         "source_locator": "supplementary table",
                         "exact_source_text": f"{locality} named in supplementary support.",

@@ -16,7 +16,7 @@
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",
       "coordinate_confidence": "approximate",
-      "source_artifact_path": "adna/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
       "source_locator": "abstract and introduction",
       "paper_doi": "10.1111/1755-0998.12551",
       "supplementary_sources": []
@@ -36,7 +36,7 @@
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",
       "coordinate_confidence": "approximate",
-      "source_artifact_path": "adna/source_library/papers/10.1126-science.aao3297/article.html",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
       "source_locator": "meta description",
       "paper_doi": "10.1126/science.aao3297",
       "supplementary_sources": []

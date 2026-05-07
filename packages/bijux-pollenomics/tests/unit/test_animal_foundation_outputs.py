@@ -202,7 +202,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             root = Path(tmp)
             data_root = root / "data"
             docs_root = root / "docs"
-            species_root = data_root / "adna" / "ovis_aries"
+            species_root = data_root / "adna" / "species" / "ovis_aries"
             normalized_root = species_root / "normalized"
             normalized_root.mkdir(parents=True, exist_ok=True)
             (species_root / "README.md").write_text(

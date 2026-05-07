@@ -1,0 +1,132 @@
+{
+  "schema_version": "animal-atlas-point-candidates.v1",
+  "row_count": 2,
+  "rows": [
+    {
+      "feature_id": "animal-atlas-feature:camelus-dromedarius-project-locality-srp073444",
+      "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-project-locality-srp073444",
+      "site_record_id": "camelus_dromedarius:project-locality:srp073444",
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "animal_scope": "domesticated_core",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Site 1040 near Wadi Halfa dromedary context",
+      "political_entity": "Sudan",
+      "latitude": 21.799142,
+      "longitude": 31.371316,
+      "latitude_text": "21.799142",
+      "longitude_text": "31.371316",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "geocoding_method": "manual_named_place_resolution",
+      "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
+      "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
+      "original_place_text": "Site 1040 near Wadi Halfa",
+      "resolved_place_text": "Wadi Halfa",
+      "chronology": {
+        "original_text": "Historical and archaeological dromedary range context",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "time_mean_bp": 2200,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context"
+      },
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "primary_project_accession": "SRP073444",
+      "sample_record_ids": [
+        "camelus_dromedarius:sample:srp073444"
+      ],
+      "sample_group_ids": [
+        "SRP073444"
+      ],
+      "sample_count": 1,
+      "sample_namespace": "camelus_dromedarius:project_locality",
+      "inclusion_statuses": [
+        "site_curated"
+      ],
+      "inclusion_notes": [
+        "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+      ],
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "publication_year": "2017",
+      "journal_title": "Molecular Ecology Resources",
+      "paper_url": "https://doi.org/10.1111/1755-0998.12551",
+      "supplementary_sources": [],
+      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_artifact_kind": "article_html_body_quote",
+      "source_locator": "abstract and introduction",
+      "source_support_status": "article_exact_quote",
+      "exact_source_text": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier.",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+    },
+    {
+      "feature_id": "animal-atlas-feature:equus-caballus-project-locality-prjeb22390",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb22390-equus-caballus-project-locality-prjeb22390",
+      "site_record_id": "equus_caballus:project-locality:prjeb22390",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Botai archaeological site horse context",
+      "political_entity": "Kazakhstan",
+      "latitude": 52.99,
+      "longitude": 69.15,
+      "latitude_text": "52.99",
+      "longitude_text": "69.15",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "geocoding_method": "manual_named_place_resolution",
+      "geocoder_or_gazetteer": "repository-curated archaeological site anchor",
+      "confidence_rationale": "The archived paper names Botai explicitly, but does not ship a direct coordinate pair in the local source archive, so the current coordinate is an approximate named-site geocode.",
+      "original_place_text": "Botai culture of the Central Asian steppes",
+      "resolved_place_text": "Botai archaeological site",
+      "chronology": {
+        "original_text": "~5500 BP Botai horse context",
+        "time_start_bp": 5400,
+        "time_end_bp": 5600,
+        "time_mean_bp": 5500,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "primary_project_accession": "PRJEB22390",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb22390"
+      ],
+      "sample_group_ids": [
+        "PRJEB22390"
+      ],
+      "sample_count": 1,
+      "sample_namespace": "equus_caballus:project_locality",
+      "inclusion_statuses": [
+        "site_curated"
+      ],
+      "inclusion_notes": [
+        "Botai remains the only clearly named domesticated-core horse site that currently earns point-level publication."
+      ],
+      "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "paper_doi": "10.1126/science.aao3297",
+      "publication_year": "2018",
+      "journal_title": "Science",
+      "paper_url": "https://doi.org/10.1126/science.aao3297",
+      "supplementary_sources": [],
+      "source_artifact_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
+      "source_artifact_kind": "article_html_meta_description",
+      "source_locator": "meta description",
+      "source_support_status": "article_exact_quote",
+      "exact_source_text": "The Eneolithic Botai culture of the Central Asian steppes provides the earliest archaeological evidence for horse husbandry, ~5500 years ago, but the exact nature of early horse domestication remains controversial.",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Botai remains the only clearly named domesticated-core horse site that currently earns point-level publication."
+    }
+  ]
+}

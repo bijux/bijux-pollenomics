@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
+from ...adna.paths import adna_species_dir
 from ..shared.text import escape_pipes
 from .atlas_evidence_rows import (
     AnimalAtlasEvidenceRow,
@@ -835,8 +836,8 @@ def _assignment_sort_key(confidence: str) -> int:
 
 def _load_country_sample_lookup(data_root: Path) -> dict[str, dict[str, object]]:
     lookup: dict[str, dict[str, object]] = {}
-    adna_root = Path(data_root) / "adna"
-    for sample_path in adna_root.glob("*/normalized/sample_records.json"):
+    species_root = adna_species_dir(Path(data_root))
+    for sample_path in species_root.glob("*/normalized/sample_records.json"):
         payload = json.loads(sample_path.read_text(encoding="utf-8"))
         rows = payload.get("samples", [])
         if not isinstance(rows, list):

@@ -14,7 +14,7 @@ from bijux_pollenomics.reporting.adna import (
 def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         data_root = Path(tmp)
-        species_root = data_root / "adna" / "ovis_aries"
+        species_root = data_root / "adna" / "species" / "ovis_aries"
         species_root.mkdir(parents=True, exist_ok=True)
         _write_json(
             species_root / "normalized" / "locality_summaries.json",
@@ -105,7 +105,7 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                         "original_place_text": "Baltic sheep lead",
                         "resolved_place_text": "Baltic sheep lead",
                         "political_entity": "Sweden",
-                        "source_artifact_path": "adna/source_library/papers/10.1000-sheep/article.html",
+                        "source_artifact_path": "adna/governance/source_library/papers/10.1000-sheep/article.html",
                         "source_locator": "supplementary table",
                         "coordinate_basis": "named_site_geocoding",
                         "mapping_posture": "mappable_point",
@@ -142,7 +142,7 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                         "species_common_name": "sheep",
                         "site_label": "Baltic sheep lead",
                         "political_entity": "Sweden",
-                        "source_artifact_path": "adna/source_library/papers/10.1000-sheep/article.html",
+                        "source_artifact_path": "adna/governance/source_library/papers/10.1000-sheep/article.html",
                         "source_artifact_kind": "article_html_body_quote",
                         "source_locator": "supplementary table",
                         "exact_source_text": "Baltic sheep lead named in the source support.",
@@ -222,7 +222,7 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
 def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_site_samples() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         data_root = Path(tmp)
-        species_root = data_root / "adna" / "ovis_aries"
+        species_root = data_root / "adna" / "species" / "ovis_aries"
         species_root.mkdir(parents=True, exist_ok=True)
         _write_json(
             species_root / "normalized" / "locality_summaries.json",
@@ -332,7 +332,7 @@ def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_sit
                         "original_place_text": "Flattened locality",
                         "resolved_place_text": "Flattened locality",
                         "political_entity": "Sweden",
-                        "source_artifact_path": "adna/source_library/papers/test/article.html",
+                        "source_artifact_path": "adna/governance/source_library/papers/test/article.html",
                         "source_locator": "supplementary table",
                         "coordinate_basis": "named_site_geocoding",
                         "mapping_posture": "mappable_point",
@@ -369,7 +369,7 @@ def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_sit
                         "species_common_name": "sheep",
                         "site_label": "Flattened locality",
                         "political_entity": "Sweden",
-                        "source_artifact_path": "adna/source_library/papers/test/article.html",
+                        "source_artifact_path": "adna/governance/source_library/papers/test/article.html",
                         "source_artifact_kind": "article_html_body_quote",
                         "source_locator": "supplementary table",
                         "exact_source_text": "Two distinct sample sites exist.",

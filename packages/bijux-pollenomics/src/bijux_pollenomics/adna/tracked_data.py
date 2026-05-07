@@ -26,6 +26,7 @@ from .integrity import build_archive_integrity_report
 from .layout import build_species_layout
 from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
+from .paths import adna_final_root, adna_governance_root
 from .reviews import build_species_project_manifest, build_species_review_packet
 from .runtime import build_species_runtime_manifest
 from .sample_truth import (
@@ -68,7 +69,7 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     """Write all tracked data files for one non-human species root."""
     output_root = Path(output_root)
     layout = build_species_layout(species_name)
-    species_root = output_root / "adna" / layout.species.slug
+    species_root = output_root / layout.root_dir.removeprefix("data/")
     raw_root = species_root / "raw"
     normalized_root = species_root / "normalized"
     manifests_root = species_root / "manifests"
@@ -905,8 +906,10 @@ def _render_grouped_review_table(title: str, rows: tuple[object, ...]) -> list[s
 
 
 def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
-    adna_root = output_root / "adna"
-    adna_root.mkdir(parents=True, exist_ok=True)
+    governance_root = adna_governance_root(output_root)
+    governance_root.mkdir(parents=True, exist_ok=True)
+    final_root = adna_final_root(output_root)
+    final_root.mkdir(parents=True, exist_ok=True)
     report_root = output_root.parent / "docs" / "report"
     bibliography_rows = build_cross_species_bibliography()
     archive_rows = build_cross_species_archive_inventory()
@@ -924,87 +927,146 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     overbroad_site_ledger = build_overbroad_site_ledger(output_root)
     coordinate_caveat_surface = build_coordinate_caveat_surface(output_root)
     write_json(
-        adna_root / "cross_species_bibliography.json",
+        governance_root / "cross_species_bibliography.json",
         {"schema_version": "adna-cross-species-bibliography.v1", "rows": bibliography_rows},
     )
     write_text(
-        adna_root / "cross_species_bibliography.csv",
+        governance_root / "cross_species_bibliography.csv",
         render_csv_rows(bibliography_rows),
     )
     write_json(
-        adna_root / "cross_species_archive_inventory.json",
+        governance_root / "cross_species_archive_inventory.json",
         {"schema_version": "adna-cross-species-archive-inventory.v1", "rows": archive_rows},
     )
     write_text(
-        adna_root / "cross_species_archive_inventory.csv",
+        governance_root / "cross_species_archive_inventory.csv",
         render_csv_rows(archive_rows),
     )
-    write_json(adna_root / "cross_species_freshness.json", {"rows": freshness_rows})
+    write_json(governance_root / "cross_species_freshness.json", {"rows": freshness_rows})
     write_text(
-        adna_root / "cross_species_freshness.csv",
+        governance_root / "cross_species_freshness.csv",
         render_csv_rows(freshness_rows),
     )
-    write_json(adna_root / "cross_species_coverage_dashboard.json", coverage_dashboard)
+    write_json(governance_root / "cross_species_coverage_dashboard.json", coverage_dashboard)
     write_text(
-        adna_root / "cross_species_coverage_dashboard.csv",
+        governance_root / "cross_species_coverage_dashboard.csv",
         render_csv_rows(tuple(coverage_dashboard["rows"])),
     )
-    write_json(adna_root / "animal_sample_product_contract.json", sample_product_contract)
+    write_json(governance_root / "animal_sample_product_contract.json", sample_product_contract)
     write_text(
-        adna_root / "animal_sample_product_contract.md",
+        governance_root / "animal_sample_product_contract.md",
         render_animal_sample_product_contract_markdown(sample_product_contract),
     )
-    write_json(adna_root / "animal_sample_foundation_truth.json", sample_foundation_truth)
+    write_json(governance_root / "animal_sample_foundation_truth.json", sample_foundation_truth)
     write_text(
-        adna_root / "animal_sample_foundation_truth.md",
+        governance_root / "animal_sample_foundation_truth.md",
         render_animal_sample_foundation_truth_markdown(sample_foundation_truth),
     )
     write_text(
-        adna_root / "animal_sample_foundation_truth_species.csv",
+        governance_root / "animal_sample_foundation_truth_species.csv",
         render_csv_rows(tuple(sample_foundation_truth["species_rows"])),
     )
     write_text(
-        adna_root / "animal_sample_foundation_truth_projects.csv",
+        governance_root / "animal_sample_foundation_truth_projects.csv",
         render_csv_rows(tuple(sample_foundation_truth["project_rows"])),
     )
     write_json(
-        adna_root / "animal_sample_aggregation_warnings.json",
+        governance_root / "animal_sample_aggregation_warnings.json",
         sample_aggregation_warnings,
     )
     write_text(
-        adna_root / "animal_sample_aggregation_warnings.md",
+        governance_root / "animal_sample_aggregation_warnings.md",
         render_animal_sample_aggregation_warnings_markdown(
             sample_aggregation_warnings
         ),
     )
-    write_json(adna_root / "shipped_product_audit.json", product_audit)
-    write_json(adna_root / "cross_species_map_readiness.json", map_readiness)
+    write_json(governance_root / "shipped_product_audit.json", product_audit)
+    write_json(governance_root / "cross_species_map_readiness.json", map_readiness)
     write_text(
-        adna_root / "cross_species_map_readiness.csv",
+        governance_root / "cross_species_map_readiness.csv",
         render_csv_rows(tuple(map_readiness["rows"])),
     )
     write_json(
-        adna_root / "unresolved_site_ledger.json",
+        governance_root / "unresolved_site_ledger.json",
         {"schema_version": "adna-unresolved-site-ledger.v1", "rows": unresolved_site_ledger},
     )
     write_text(
-        adna_root / "unresolved_site_ledger.csv",
+        governance_root / "unresolved_site_ledger.csv",
         render_csv_rows(unresolved_site_ledger),
     )
     write_json(
-        adna_root / "overbroad_site_ledger.json",
+        governance_root / "overbroad_site_ledger.json",
         {"schema_version": "adna-overbroad-site-ledger.v1", "rows": overbroad_site_ledger},
     )
     write_text(
-        adna_root / "overbroad_site_ledger.csv",
+        governance_root / "overbroad_site_ledger.csv",
         render_csv_rows(overbroad_site_ledger),
     )
-    write_json(adna_root / "coordinate_caveat_surface.json", coordinate_caveat_surface)
+    write_json(governance_root / "coordinate_caveat_surface.json", coordinate_caveat_surface)
     write_text(
-        adna_root / "coordinate_caveat_surface.md",
+        governance_root / "coordinate_caveat_surface.md",
         render_coordinate_caveat_surface_markdown(coordinate_caveat_surface),
     )
     write_text(
-        adna_root / "coordinate_confidence_scale.md",
+        governance_root / "coordinate_confidence_scale.md",
         render_coordinate_confidence_scale_markdown(),
+    )
+    _materialize_final_adna_artifacts(output_root, final_root)
+
+
+def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> None:
+    from ..reporting.adna.atlas_evidence_rows import (
+        build_tracked_animal_atlas_evidence_rows,
+    )
+    from ..reporting.adna.country_outputs import build_country_animal_output_bundle
+
+    atlas_root = final_root / "atlas"
+    countries_root = final_root / "countries"
+    atlas_root.mkdir(parents=True, exist_ok=True)
+    countries_root.mkdir(parents=True, exist_ok=True)
+
+    atlas_rows = tuple(
+        row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(output_root)
+    )
+    write_json(
+        atlas_root / "animal_atlas_point_candidates.json",
+        {
+            "schema_version": "animal-atlas-point-candidates.v1",
+            "row_count": len(atlas_rows),
+            "rows": list(atlas_rows),
+        },
+    )
+    write_text(
+        atlas_root / "animal_atlas_point_candidates.csv",
+        render_csv_rows(atlas_rows),
+    )
+
+    country_rows = []
+    for country in ("Sweden", "Norway", "Finland", "Denmark"):
+        bundle = build_country_animal_output_bundle(
+            data_root=output_root,
+            country=country,
+            version="v66",
+            generated_on="checked_data_root",
+        )
+        country_rows.append(
+            {
+                "country": country,
+                "sample_row_count": len(bundle.sample_rows),
+                "species_count": len(bundle.species_rows),
+                "locality_count": len(bundle.localities),
+                "citation_count": len(bundle.citations),
+                "warning_count": len(bundle.warnings),
+            }
+        )
+    write_json(
+        countries_root / "country_publication_index.json",
+        {
+            "schema_version": "animal-country-publication-index.v1",
+            "rows": country_rows,
+        },
+    )
+    write_text(
+        countries_root / "country_publication_index.csv",
+        render_csv_rows(tuple(country_rows)),
     )

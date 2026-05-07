@@ -12,6 +12,7 @@ from ...adna import (
     AdnaLocalitySummary,
     build_species_support_matrix,
 )
+from ...adna.paths import adna_species_dir
 from ..shared.text import slugify
 
 __all__ = [
@@ -148,11 +149,11 @@ def build_tracked_animal_atlas_evidence_rows(
 ) -> tuple[AnimalAtlasEvidenceRow, ...]:
     """Build the exact set of animal rows eligible for atlas point publication."""
     rows: list[AnimalAtlasEvidenceRow] = []
-    adna_root = Path(data_root) / "adna"
+    species_dir = adna_species_dir(Path(data_root))
     for species in build_species_support_matrix():
         if species.latin_name == "Homo sapiens":
             continue
-        species_root = adna_root / species.slug
+        species_root = species_dir / species.slug
         if not species_root.is_dir():
             continue
         locality_rows = _load_locality_rows(species_root)
@@ -289,11 +290,11 @@ def load_tracked_animal_mappable_localities(
         row.site_record_id for row in build_tracked_animal_atlas_evidence_rows(data_root)
     }
     localities: list[AdnaLocalitySummary] = []
-    adna_root = Path(data_root) / "adna"
+    species_dir = adna_species_dir(Path(data_root))
     for species in build_species_support_matrix():
         if species.latin_name == "Homo sapiens":
             continue
-        locality_path = adna_root / species.slug / "normalized" / "locality_summaries.json"
+        locality_path = species_dir / species.slug / "normalized" / "locality_summaries.json"
         if not locality_path.is_file():
             continue
         payload = json.loads(locality_path.read_text(encoding="utf-8"))

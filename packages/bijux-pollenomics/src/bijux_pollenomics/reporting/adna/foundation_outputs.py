@@ -8,6 +8,7 @@ from ...adna.catalogs import (
     build_overbroad_site_ledger,
     build_unresolved_site_ledger,
 )
+from ...adna.paths import adna_species_dir
 from ...adna.sample_truth import build_project_locality_count_drift
 from ...adna.source_library import (
     build_cross_project_source_audit,
@@ -802,13 +803,13 @@ def _load_json_rows(path: Path, key: str) -> list[dict[str, object]]:
 
 
 def _species_roots(data_root: Path) -> list[Path]:
-    adna_root = Path(data_root) / "adna"
-    if not adna_root.is_dir():
+    species_dir = adna_species_dir(Path(data_root))
+    if not species_dir.is_dir():
         return []
     return [
         path
-        for path in sorted(adna_root.iterdir())
-        if path.is_dir() and path.name != "source_library"
+        for path in sorted(species_dir.iterdir())
+        if path.is_dir()
     ]
 
 

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from ...adna import AdnaLocalitySummary, build_species_support_matrix
+from ...adna.paths import adna_species_dir
 from ..shared.text import slugify
 from .atlas_evidence_rows import (
     AnimalAtlasCoordinateReview,
@@ -63,7 +64,7 @@ def build_tracked_animal_atlas_bundle(
     atlas_slug: str,
 ) -> AnimalAtlasBundle:
     """Build staged atlas point layers from traceable animal atlas evidence rows."""
-    adna_root = Path(data_root) / "adna"
+    species_dir = adna_species_dir(Path(data_root))
     evidence_rows = build_tracked_animal_atlas_evidence_rows(data_root)
     coordinate_review = build_tracked_animal_atlas_coordinate_review(evidence_rows)
     visible_localities = load_tracked_animal_mappable_localities(data_root)
@@ -84,7 +85,7 @@ def build_tracked_animal_atlas_bundle(
         species_slug = species_slug_lookup.get(species_name)
         if species_slug is None:
             continue
-        species_root = adna_root / species_slug
+        species_root = species_dir / species_slug
         dataset_review = _load_dataset_review(species_root)
         review_lookup = _load_review_lookup(species_root)
         layer_key = f"animal-{slugify(species_slug)}"
