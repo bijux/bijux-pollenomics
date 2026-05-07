@@ -8,9 +8,14 @@ from ..adna import (
     AdnaSampleQuery,
     build_homo_sapiens_runtime_manifest_for_version_dir,
     load_species_samples,
+    resolve_species_definition,
     summarize_sample_localities,
 )
+from ..adna.source_library import build_project_registry, refresh_source_library
+from ..adna.tracked_data import materialize_tracked_species_adna
+from ..adna.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
+from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
 from .bundles.country_bundle import publish_country_report_bundle
 from .bundles.country_selection import normalize_requested_countries
@@ -24,7 +29,12 @@ from .bundles.summary_builders import (
     build_published_reports_summary,
 )
 from .context import build_context_layers
-from .models import CountryReport, MultiCountryMapReport, PublishedReportsReport
+from .models import (
+    AnimalFoundationRefreshReport,
+    CountryReport,
+    MultiCountryMapReport,
+    PublishedReportsReport,
+)
 from .rendering import (
     build_samples_geojson,
     copy_map_assets,
@@ -201,4 +211,56 @@ def generate_published_reports(
             slugify_fn=slugify,
             write_summary_json_fn=write_summary_json,
         ),
+    )
+
+
+def refresh_animal_adna_foundation(
+    *,
+    data_root: Path,
+    aadr_root: Path,
+    report_root: Path,
+    countries: Iterable[str],
+    version: str,
+    context_root: Path | None = None,
+    species_names: Iterable[str] = TRACKED_ADNA_SPECIES,
+    source_downloader=None,
+) -> AnimalFoundationRefreshReport:
+    """Refresh tracked animal source capture, normalized data roots, and published report outputs."""
+    data_root = Path(data_root)
+    aadr_root = Path(aadr_root)
+    report_root = Path(report_root)
+    normalized_species = tuple(species_names)
+    refresh_kwargs = {}
+    if source_downloader is not None:
+        refresh_kwargs["downloader"] = source_downloader
+    refresh_source_library(data_root, **refresh_kwargs)
+    materialize_tracked_species_adna(data_root, species_names=normalized_species)
+    generate_published_reports(
+        version_dir=aadr_root / version,
+        countries=countries,
+        output_root=report_root,
+        title=DEFAULT_ATLAS_TITLE,
+        slug=DEFAULT_ATLAS_SLUG,
+        context_root=context_root if context_root is not None else data_root,
+    )
+    atlas_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+    refreshed_species_latin_names = tuple(
+        resolve_species_definition(name).latin_name for name in normalized_species
+    )
+    refreshed_projects = tuple(
+        sorted(
+            row.project_accession
+            for row in build_project_registry(data_root)
+            if row.species_latin_name in refreshed_species_latin_names
+        )
+    )
+    return AnimalFoundationRefreshReport(
+        schema_version="animal-foundation-refresh.v1",
+        refreshed_species_latin_names=refreshed_species_latin_names,
+        refreshed_project_accessions=refreshed_projects,
+        source_library_project_count=len(build_project_registry(data_root)),
+        atlas_evidence_row_count=len(atlas_rows),
+        version=version,
+        data_root=data_root,
+        report_root=report_root,
     )
