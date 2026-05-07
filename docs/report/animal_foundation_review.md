@@ -5,7 +5,7 @@
 - Published point count: `2`
 - Direct-coordinate point count: `0`
 - Geocoded point count: `2`
-- Unresolved sample count: `30`
+- Unresolved sample count: `232`
 - Region-only refusal count: `8`
 
 ## Strengths

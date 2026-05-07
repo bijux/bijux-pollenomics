@@ -17,7 +17,7 @@
     "published_point_count": 2,
     "direct_coordinate_point_count": 0,
     "geocoded_point_count": 2,
-    "unresolved_sample_count": 30,
+    "unresolved_sample_count": 232,
     "region_only_refusal_count": 8,
     "blocked_project_count": 38
   },
@@ -26,7 +26,7 @@
   "caveat_summary": {
     "missing_supplement_count": 0,
     "unreadable_table_count": 3,
-    "uncertain_site_assignment_count": 30,
+    "uncertain_site_assignment_count": 17,
     "region_only_geography_count": 8,
     "comparator_only_evidence_count": 0
   }

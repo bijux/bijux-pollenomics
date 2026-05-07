@@ -17,6 +17,13 @@
       "findings": []
     },
     {
+      "check_id": "blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points",
+      "passed": true,
+      "description": "Sample rows without defensible sample-owned site assignment do not leak into exact site rows or atlas points.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",
       "passed": true,
       "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",

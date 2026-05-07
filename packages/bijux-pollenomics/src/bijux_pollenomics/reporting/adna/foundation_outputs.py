@@ -8,7 +8,12 @@ from ...adna.catalogs import (
     build_overbroad_site_ledger,
     build_unresolved_site_ledger,
 )
+from ...adna.ena import build_archive_project_catalog
 from ...adna.paths import adna_species_dir
+from ...adna.project_sample_sites import (
+    ADNA_LOCALITY_RESOLUTION_STATUSES,
+    build_project_sample_site_rows,
+)
 from ...adna.sample_truth import build_project_locality_count_drift
 from ...adna.source_library import (
     build_cross_project_source_audit,
@@ -349,9 +354,20 @@ def build_animal_scientific_caveat_ledger(data_root: Path) -> dict[str, object]:
     """Group the current scientific weak points in the animal evidence foundation."""
     source_bundles = build_project_source_bundles(data_root)
     paper_registry = build_paper_registry(data_root)
+    sample_site_rows = _load_all_project_sample_site_rows(data_root)
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
     comparator_rows = _build_comparator_only_rows(data_root)
+    ambiguous_sample_site_rows = [
+        row
+        for row in sample_site_rows
+        if str(row.get("locality_resolution_status", "")) in {
+            "sample_group_site",
+            "project_level_site_only",
+            "region_only",
+            "unresolved",
+        }
+    ]
     unreadable_rows = [
         {
             "paper_doi": row.paper_doi,
@@ -378,14 +394,15 @@ def build_animal_scientific_caveat_ledger(data_root: Path) -> dict[str, object]:
         "summary": {
             "missing_supplement_count": len(missing_supplements),
             "unreadable_table_count": len(unreadable_rows),
-            "uncertain_site_assignment_count": len(unresolved_rows),
+            "uncertain_site_assignment_count": len(ambiguous_sample_site_rows),
             "region_only_geography_count": len(overbroad_rows),
             "comparator_only_evidence_count": len(comparator_rows),
         },
         "categories": {
             "missing_supplements": missing_supplements,
             "unreadable_tables": unreadable_rows,
-            "uncertain_site_assignment": list(unresolved_rows),
+            "uncertain_site_assignment": ambiguous_sample_site_rows,
+            "unresolved_sample_rows": list(unresolved_rows),
             "region_only_geography": list(overbroad_rows),
             "comparator_only_evidence": comparator_rows,
         },
@@ -586,6 +603,34 @@ def build_animal_publication_release_gate(
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
     project_locality_drift_rows = build_project_locality_count_drift(data_root)
+    sample_site_rows = _load_all_project_sample_site_rows(data_root)
+    blocked_sample_site_rows = {
+        str(row.get("repo_stable_sample_id", "")).strip(): row
+        for row in sample_site_rows
+        if str(row.get("locality_resolution_status", "")) in {
+            "project_level_site_only",
+            "region_only",
+            "unresolved",
+        }
+        and str(row.get("repo_stable_sample_id", "")).strip()
+    }
+    blocked_exact_site_rows = [
+        str(row.get("identity", {}).get("stable_token", "")).strip()
+        for row in _load_all_sample_rows(data_root)
+        if str(row.get("identity", {}).get("stable_token", "")).strip() in blocked_sample_site_rows
+        and ":sample-site:" in str(
+            row.get("locality_identity", {}).get("stable_token", "")
+        )
+    ]
+    blocked_atlas_rows = sorted(
+        {
+            str(point.get("feature_id", "")).strip()
+            for point in point_payload["rows"]
+            for sample_row in point.get("sample_rows", [])
+            if str(sample_row.get("identity", {}).get("stable_token", "")).strip()
+            in blocked_sample_site_rows
+        }
+    )
     checks = [
         _check_row(
             "published_points_keep_required_traceability",
@@ -616,6 +661,12 @@ def build_animal_publication_release_gate(
                 str(row.get("project_accession", ""))
                 for row in project_locality_drift_rows
             ],
+        ),
+        _check_row(
+            "blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points",
+            not (blocked_exact_site_rows or blocked_atlas_rows),
+            "Sample rows without defensible sample-owned site assignment do not leak into exact site rows or atlas points.",
+            blocked_exact_site_rows + blocked_atlas_rows,
         ),
         _check_row(
             "docs_do_not_overclaim_all_species_map_readiness",
@@ -832,6 +883,34 @@ def _load_all_coordinate_rows(data_root: Path) -> list[dict[str, object]]:
     for root in _species_roots(data_root):
         rows.extend(
             _load_json_rows(root / "normalized" / "coordinate_provenance.json", "coordinate_provenance")
+        )
+    return rows
+
+
+def _load_all_project_sample_site_rows(data_root: Path) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    project_root = (
+        Path(data_root) / "adna" / "governance" / "source_library" / "projects"
+    )
+    paths = sorted(project_root.glob("*/sample_sites.json")) if project_root.is_dir() else []
+    if paths:
+        for path in paths:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            project_rows = payload.get("rows", [])
+            if not isinstance(project_rows, list):
+                continue
+            for row in project_rows:
+                if not isinstance(row, dict):
+                    continue
+                status = str(row.get("locality_resolution_status", ""))
+                if status and status not in ADNA_LOCALITY_RESOLUTION_STATUSES:
+                    continue
+                rows.append(row)
+        return rows
+    for project in build_archive_project_catalog():
+        rows.extend(
+            row.as_dict()
+            for row in build_project_sample_site_rows(data_root, project.project_accession)
         )
     return rows
 

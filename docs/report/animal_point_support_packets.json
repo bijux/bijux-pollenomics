@@ -80,7 +80,16 @@
           "supplementary_source": "",
           "inclusion_status": "site_curated",
           "inclusion_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
-          "sample_basis": "project_accession_anchor"
+          "sample_basis": "project_accession_anchor",
+          "archive_native_sample_id": "",
+          "paper_native_sample_label": "",
+          "supplementary_table_sample_label": "",
+          "sample_evidence_status": "not_yet_recoverable",
+          "sample_lineage_path": "",
+          "sample_lineage_locator": "",
+          "sample_lineage_excerpt": "",
+          "sample_identity_resolution": "provisional",
+          "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
         }
       ],
       "site_evidence": {
@@ -152,7 +161,14 @@
         "source_bundle_path": "data/adna/governance/source_library/projects/SRP073444/bundle_manifest.json",
         "paper_download_status": "archived",
         "supplement_download_status": "missing",
-        "ingestion_status": "paper_source_archived"
+        "ingestion_status": "paper_source_archived",
+        "expected_sample_count": null,
+        "expected_sample_count_status": "not_yet_curated",
+        "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+        "expected_sample_count_artifact_path": "",
+        "sample_identifier_status": "paper_or_supplement_targets_curated",
+        "inventory_disposition": "tracked_intake_candidate",
+        "rejection_reason": ""
       }
     },
     {
@@ -233,7 +249,16 @@
           "supplementary_source": "",
           "inclusion_status": "site_curated",
           "inclusion_note": "Botai remains the only clearly named domesticated-core horse site that currently earns point-level publication.",
-          "sample_basis": "project_accession_anchor"
+          "sample_basis": "project_accession_anchor",
+          "archive_native_sample_id": "",
+          "paper_native_sample_label": "",
+          "supplementary_table_sample_label": "",
+          "sample_evidence_status": "not_yet_recoverable",
+          "sample_lineage_path": "",
+          "sample_lineage_locator": "",
+          "sample_lineage_excerpt": "",
+          "sample_identity_resolution": "provisional",
+          "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
         }
       ],
       "site_evidence": {
@@ -305,7 +330,14 @@
         "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB22390/bundle_manifest.json",
         "paper_download_status": "archived",
         "supplement_download_status": "missing",
-        "ingestion_status": "paper_source_archived"
+        "ingestion_status": "paper_source_archived",
+        "expected_sample_count": null,
+        "expected_sample_count_status": "not_yet_curated",
+        "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+        "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB22390/archive_metadata.html",
+        "sample_identifier_status": "manual_curation_required",
+        "inventory_disposition": "tracked_intake_candidate",
+        "rejection_reason": ""
       }
     }
   ]

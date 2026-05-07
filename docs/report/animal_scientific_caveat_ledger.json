@@ -3,7 +3,7 @@
   "summary": {
     "missing_supplement_count": 0,
     "unreadable_table_count": 3,
-    "uncertain_site_assignment_count": 30,
+    "uncertain_site_assignment_count": 17,
     "region_only_geography_count": 8,
     "comparator_only_evidence_count": 0
   },
@@ -37,6 +37,467 @@
     ],
     "uncertain_site_assignment": [
       {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605068",
+        "preferred_sample_label": "KU605068",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605069",
+        "preferred_sample_label": "KU605069",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605070",
+        "preferred_sample_label": "KU605070",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605071",
+        "preferred_sample_label": "KU605071",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605072",
+        "preferred_sample_label": "KU605072",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605073",
+        "preferred_sample_label": "KU605073",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605074",
+        "preferred_sample_label": "KU605074",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605075",
+        "preferred_sample_label": "KU605075",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605076",
+        "preferred_sample_label": "KU605076",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605077",
+        "preferred_sample_label": "KU605077",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605078",
+        "preferred_sample_label": "KU605078",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605079",
+        "preferred_sample_label": "KU605079",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "repo_stable_sample_id": "ku605068-ku605080:ku605080",
+        "preferred_sample_label": "KU605080",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "project_accession": "KX379528-KX379529",
+        "repo_stable_sample_id": "kx379528-kx379529:kx379528",
+        "preferred_sample_label": "KX379528",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "project_accession": "KX379528-KX379529",
+        "repo_stable_sample_id": "kx379528-kx379529:kx379529",
+        "preferred_sample_label": "KX379529",
+        "sample_basis": "accession_range_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      },
+      {
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "project_accession": "SRS1407451",
+        "repo_stable_sample_id": "srs1407451:srs1407451",
+        "preferred_sample_label": "SRS1407451",
+        "sample_basis": "sample_accession_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "Ancient European dog CTC sample context",
+        "locality_resolution_status": "region_only",
+        "location_evidence_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "location_evidence_artifact_kind": "article_html_body_quote",
+        "location_evidence_locator": "results text",
+        "location_evidence_text": "The older specimen, which we refer to hereafter as HXH, was found at the Early Neolithic site of Herxheim and is dated to 5,223-5,040 cal. BCE. The younger specimen, CTC, was found in Cherry Tree Cave and corresponds to the End Neolithic period in Central Europe.",
+        "site_name": "Ancient European dog CTC sample context",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "Central Europe",
+        "broader_geography": "",
+        "coordinate_basis": "region_centroid_fallback",
+        "coordinate_mapping_posture": "refused_region_only",
+        "coordinate_confidence": "withheld",
+        "chronology_text": "Ancient European dog genomic context",
+        "review_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+      },
+      {
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "project_accession": "SRS1407453",
+        "repo_stable_sample_id": "srs1407453:srs1407453",
+        "preferred_sample_label": "SRS1407453",
+        "sample_basis": "sample_accession_anchor",
+        "sample_evidence_status": "archive_native",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": "",
+        "locality_text": "",
+        "locality_resolution_status": "unresolved",
+        "location_evidence_artifact_path": "",
+        "location_evidence_artifact_kind": "",
+        "location_evidence_locator": "",
+        "location_evidence_text": "",
+        "site_name": "",
+        "municipality_name": "",
+        "region_name": "",
+        "country_name": "",
+        "broader_geography": "",
+        "coordinate_basis": "",
+        "coordinate_mapping_posture": "",
+        "coordinate_confidence": "",
+        "chronology_text": "",
+        "review_note": "No location evidence has been extracted yet for this recovered sample row."
+      }
+    ],
+    "unresolved_sample_rows": [
+      {
         "species_latin_name": "Bos taurus",
         "species_common_name": "cattle",
         "project_accession": "PRJEB31621",
@@ -44,7 +505,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1126/science.aav1002",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Bos taurus",
@@ -54,37 +515,167 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/s41586-024-08112-6",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Camelus dromedarius",
         "species_common_name": "dromedary camel",
         "project_accession": "KU605068-KU605080",
-        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605068",
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1111/1755-0998.12551",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605069",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605070",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605071",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605072",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605073",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605074",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605075",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605076",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605077",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605078",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605079",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "project_accession": "KU605068-KU605080",
+        "stable_sample_id": "camelus_dromedarius:sample:ku605068-ku605080:ku605080",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Canis lupus familiaris",
         "species_common_name": "dog",
         "project_accession": "KX379528-KX379529",
-        "stable_sample_id": "canis_lupus_familiaris:sample:kx379528-kx379529",
+        "stable_sample_id": "canis_lupus_familiaris:sample:kx379528-kx379529:kx379528",
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/ncomms16082",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "project_accession": "KX379528-KX379529",
+        "stable_sample_id": "canis_lupus_familiaris:sample:kx379528-kx379529:kx379529",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "10.1038/ncomms16082",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Canis lupus familiaris",
         "species_common_name": "dog",
         "project_accession": "SRS1407453",
-        "stable_sample_id": "canis_lupus_familiaris:sample:srs1407453",
+        "stable_sample_id": "canis_lupus_familiaris:sample:srs1407453:srs1407453",
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/ncomms16082",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Capra hircus",
@@ -94,7 +685,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1093/gbe/evaf181",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Capra hircus",
@@ -104,7 +695,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1016/j.isci.2025.113771",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus asinus",
@@ -114,7 +705,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus asinus",
@@ -124,7 +715,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus asinus",
@@ -134,7 +725,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus asinus",
@@ -144,7 +735,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -154,7 +745,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -164,7 +755,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1126/science.aam5298",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -174,7 +765,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1016/j.cell.2019.03.049",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -184,7 +775,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/s41586-021-04018-9",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -194,7 +785,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -204,7 +795,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Equus caballus",
@@ -214,7 +805,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Felis catus",
@@ -224,17 +815,1907 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1016/j.xgen.2025.101099",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Ovis aries",
         "species_common_name": "sheep",
         "project_accession": "PRJEB36540",
-        "stable_sample_id": "ovis_aries:sample:prjeb36540",
-        "site_label": "site detail not yet extracted from tracked source support",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 28",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
         "paper_doi": "10.1038/s42003-021-02794-8",
         "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 29",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 33",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 38",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 4",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 44",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 45",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 47",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 50",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 51",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 54",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 55",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 56",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 57",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 58",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 59",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 60",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 61",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 62",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 66",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 68",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 69",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 70",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 71",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh 9",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh11",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh12",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh14",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh15",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh16",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh17",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh19",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh2",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh20",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh24",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh26",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh27",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh3",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh32",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh35",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh41",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh6",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh7",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bh8",
+        "site_label": "Barc\u0131n H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bk1",
+        "site_label": "Boncuklu H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bk2",
+        "site_label": "Boncuklu H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bk3",
+        "site_label": "Boncuklu H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bk4",
+        "site_label": "Boncuklu H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:bk5",
+        "site_label": "Boncuklu H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ch1",
+        "site_label": "Canhasan III H\u00f6y\u00fc\u011f\u00fc",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ch2",
+        "site_label": "Canhasan III H\u00f6y\u00fc\u011f\u00fc",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ch3",
+        "site_label": "Canhasan III H\u00f6y\u00fc\u011f\u00fc",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ch4",
+        "site_label": "Canhasan III H\u00f6y\u00fc\u011f\u00fc",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ch5",
+        "site_label": "Canhasan III H\u00f6y\u00fc\u011f\u00fc",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb10",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb12",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb13",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb14",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb15",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb2",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb24",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb25",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb26",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb28",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb29",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb31",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb32",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb33",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb6",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb8",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:pb9",
+        "site_label": "P\u0131narba\u015f\u0131 H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep02",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep03",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep03_depo*",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep05",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep09",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep10",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep10_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep11_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep12_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep13_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep14_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep15_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1637",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1638",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1639",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1640",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1641",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1642",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1653",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1654",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1659",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1661",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep16_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep17",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep17_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep18_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep19_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep1_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep20",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep20_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep2_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep4",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep41",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep43",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep45",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep46",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep48",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep48_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep49",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep4_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep5",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep50",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep52",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep53",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep54",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep55",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep56",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep57",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep57_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep58",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep59",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep5_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep60",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep60_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep61",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep62*",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep63",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep68_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep6_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep7",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep72_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep78_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep7_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep8",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep82_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep83",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep83_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep87_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep8_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep9",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep93_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep94_2014",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:tep9_depo",
+        "site_label": "Tepecik-\u00c7iftlik H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh1",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh10",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh11",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh13",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh14",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh15",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh16",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh17",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh18",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh19",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh2",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh20",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh21",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh22",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh24",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh25",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh28",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh29",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh3",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh30",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh33",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh35",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh38",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh39",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh40",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh5",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh7",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:uh8",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu04",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu06",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu09",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu12",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu16",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu23",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu26",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu27",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu30",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu31*",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu32",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu34",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu36",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu37",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu4",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu6",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "project_accession": "PRJEB36540",
+        "stable_sample_id": "ovis_aries:sample:prjeb36540:ulu9",
+        "site_label": "Ulucak H\u00f6y\u00fck",
+        "paper_doi": "10.1038/s42003-021-02794-8",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Ovis aries",
@@ -244,7 +2725,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/s41562-021-01083-y",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Ovis aries",
@@ -254,7 +2735,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Ovis aries",
@@ -264,7 +2745,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Ovis aries",
@@ -274,7 +2755,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Rangifer tarandus",
@@ -284,7 +2765,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Rangifer tarandus",
@@ -294,7 +2775,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Rangifer tarandus",
@@ -304,7 +2785,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Sus scrofa domesticus",
@@ -314,7 +2795,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Sus scrofa domesticus",
@@ -324,7 +2805,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {
         "species_latin_name": "Sus scrofa domesticus",
@@ -334,7 +2815,7 @@
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "",
         "supplementary_source": "",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       }
     ],
     "region_only_geography": [

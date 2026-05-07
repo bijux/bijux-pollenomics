@@ -565,7 +565,7 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 13,
       "region_only_site_count": 0,
       "blockers": [
         "sample_context_blocked"
@@ -582,7 +582,7 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 2,
       "region_only_site_count": 0,
       "blockers": [
         "sample_context_blocked"
@@ -938,7 +938,7 @@
       "ingestion_status": "paper_and_supplement_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 190,
       "region_only_site_count": 0,
       "blockers": [
         "sample_context_blocked"

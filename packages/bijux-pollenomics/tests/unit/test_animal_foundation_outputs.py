@@ -272,6 +272,86 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
+    def test_release_gate_fails_when_blocked_sample_site_rows_publish_as_exact_rows(self) -> None:
+        point_payload = {"rows": []}
+        review_payload = {"reference_grade_claim_allowed": False}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data_root = root / "data"
+            docs_root = root / "docs"
+            species_root = data_root / "adna" / "species" / "ovis_aries"
+            normalized_root = species_root / "normalized"
+            project_root = (
+                data_root
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "projects"
+                / "PRJTEST"
+            )
+            normalized_root.mkdir(parents=True, exist_ok=True)
+            project_root.mkdir(parents=True, exist_ok=True)
+            (species_root / "README.md").write_text(
+                "# sheep\n\n- Curated sample rows: `1`\n",
+                encoding="utf-8",
+            )
+            _write_json(
+                normalized_root / "sample_records.json",
+                {
+                    "samples": [
+                        _sample_row(
+                            stable_token="ovis_aries:sample:blocked",
+                            locality_token="ovis_aries:sample-site:blocked",
+                            locality_text="Blocked Site",
+                            project_accession="PRJTEST",
+                        ),
+                    ]
+                },
+            )
+            _write_json(normalized_root / "locality_summaries.json", {"localities": []})
+            _write_json(
+                project_root / "sample_sites.json",
+                {
+                    "rows": [
+                        {
+                            "repo_stable_sample_id": "ovis_aries:sample:blocked",
+                            "locality_resolution_status": "project_level_site_only",
+                        }
+                    ]
+                },
+            )
+            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+                parents=True, exist_ok=True
+            )
+            (docs_root / "index.md").write_text("", encoding="utf-8")
+            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+                "",
+                encoding="utf-8",
+            )
+            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+                "",
+                encoding="utf-8",
+            )
+
+            gate_payload = build_animal_publication_release_gate(
+                data_root=data_root,
+                report_root=root / "report",
+                docs_root=docs_root,
+                point_payload=point_payload,
+                review_payload=review_payload,
+            )
+
+        self.assertFalse(gate_payload["overall_ok"])
+        self.assertTrue(
+            any(
+                row["check_id"]
+                == "blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points"
+                and not row["passed"]
+                for row in gate_payload["checks"]
+            )
+        )
+
     def test_publish_animal_foundation_outputs_writes_expected_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp)
