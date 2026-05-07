@@ -25,6 +25,8 @@
       "norway": "docs/report/norway",
       "finland": "docs/report/finland",
       "denmark": "docs/report/denmark"
-    }
+    },
+    "animal_output_audit_json": "animal_output_audit.json",
+    "animal_output_audit_markdown": "animal_output_audit.md"
   }
 }
