@@ -1,12 +1,12 @@
 # bijux-pollenomics
 
-Runtime package for rebuilding the tracked `bijux-pollenomics` sample-level
-evidence tree.
+Runtime package for rebuilding the checked-in `bijux-pollenomics` sample
+database and its downstream map/report products.
 
-Use this package if you want the canonical CLI and Python entrypoints that
-collect project metadata, papers, supplementary artifacts, sample rows, site
-evidence, coordinate provenance, and the Nordic atlas plus country bundles that
-sit downstream of those sample records.
+Use this package if you want the canonical CLI and Python entrypoints that own
+project intake, paper capture, supplement capture, sample extraction, site
+extraction, chronology normalization, coordinate provenance, and the Nordic
+atlas plus country bundles that query those sample records.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -31,6 +31,7 @@ sit downstream of those sample records.
 
 - readers who want the canonical `bijux-pollenomics` command
 - maintainers who rebuild `data/` and `docs/report/`
+- contributors who need the scientific-logic ownership boundaries inside the runtime package
 
 ## Install
 
@@ -44,3 +45,4 @@ bijux-pollenomics --help
 - runtime handbook: <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/>
 - animal aDNA data model: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/animal-adna-data-model/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/>
+- package boundaries: [`src/bijux_pollenomics/package_boundaries.md`](src/bijux_pollenomics/package_boundaries.md)
