@@ -36,7 +36,67 @@
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
   "sample_records": [],
-  "locality_records": [],
+  "locality_records": [
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:project-locality:prjeb81815",
+        "locality_text": "North Africa to Europe domestic cat dispersal transect",
+        "political_entity": "North Africa and Europe",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "37.00",
+          "15.00"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "North Africa to Europe domestic cat dispersal transect",
+      "coordinates": {
+        "latitude": 37.0,
+        "longitude": 15.0,
+        "latitude_text": "37.00",
+        "longitude_text": "15.00",
+        "confidence": "inferred"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB81815"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Holocene cat dispersal across North Africa and Europe",
+        "time_start_bp": 1200,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2600,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context"
+      },
+      "sample_namespace": "felis_catus:project_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "North Africa to Europe domestic cat dispersal transect",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
+      "interpretation_note": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site."
+    }
+  ],
   "project_summaries": [
     {
       "schema_version": "adna-project-summary.v1",
@@ -247,11 +307,11 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Felis catus",
-      "source_token": "felis_catus",
+      "source_token": "PRJNA1178732",
       "record_kind": "locality_records",
-      "reason": "locality_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
 }

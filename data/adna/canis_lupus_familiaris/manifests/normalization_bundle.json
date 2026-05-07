@@ -36,7 +36,67 @@
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
   "sample_records": [],
-  "locality_records": [],
+  "locality_records": [
+    {
+      "identity": {
+        "namespace": "canis_lupus_familiaris:project_locality",
+        "stable_token": "canis_lupus_familiaris:project-locality:srs1407451",
+        "locality_text": "Ancient European dog CTC sample context",
+        "political_entity": "Central Europe",
+        "source_anchor_tokens": [
+          "SRS1407451",
+          "50.00",
+          "10.00"
+        ]
+      },
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRS1407451"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Ancient European dog CTC sample context",
+      "coordinates": {
+        "latitude": 50.0,
+        "longitude": 10.0,
+        "latitude_text": "50.00",
+        "longitude_text": "10.00",
+        "confidence": "inferred"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "SRS1407451"
+      ],
+      "datasets": [
+        "canis_lupus_familiaris:project:SRS1407451"
+      ],
+      "chronology": {
+        "original_text": "Ancient European dog genomic context",
+        "time_start_bp": 4500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 5750,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "canis_lupus_familiaris:project_locality",
+      "project_accessions": [
+        "SRS1407451"
+      ],
+      "original_location_text": "Ancient European dog CTC sample context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
+      "interpretation_note": "This dog row is kept at central-European resolution because the shipped curation still lacks a stronger project-owned site register."
+    }
+  ],
   "project_summaries": [
     {
       "schema_version": "adna-project-summary.v1",
@@ -257,11 +317,19 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Canis lupus familiaris",
-      "source_token": "canis_lupus_familiaris",
+      "source_token": "KX379528-KX379529",
       "record_kind": "locality_records",
-      "reason": "locality_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_token": "SRS1407453",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
 }
