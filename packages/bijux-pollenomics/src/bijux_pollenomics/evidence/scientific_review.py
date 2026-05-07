@@ -10,6 +10,7 @@ from .models import AtlasEvidenceSpeciesRow
 from .surfaces import build_atlas_evidence_surface
 
 __all__ = [
+    "AnimalCoordinateVisibilityReview",
     "ChronologyOverlapRow",
     "EvidenceUncertaintyRow",
     "NordicScenarioAssessment",
@@ -25,6 +26,22 @@ _PERIOD_BINS = (
     ("3001-6000 BP", 3001, 6000),
     ("6001+ BP", 6001, None),
 )
+
+
+@dataclass(frozen=True)
+class AnimalCoordinateVisibilityReview:
+    """Visible animal-feature counts by coordinate-basis strength."""
+
+    direct_coordinate_feature_count: int
+    named_site_geocoded_feature_count: int
+    weaker_geography_feature_count: int
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "direct_coordinate_feature_count": self.direct_coordinate_feature_count,
+            "named_site_geocoded_feature_count": self.named_site_geocoded_feature_count,
+            "weaker_geography_feature_count": self.weaker_geography_feature_count,
+        }
 
 
 @dataclass(frozen=True)
@@ -152,6 +169,7 @@ class ScientificReviewSurface:
     country_coverage: tuple[SpeciesCountryCoverageRow, ...]
     period_coverage: tuple[SpeciesPeriodCoverageRow, ...]
     chronology_overlaps: tuple[ChronologyOverlapRow, ...]
+    animal_coordinate_review: AnimalCoordinateVisibilityReview
     uncertainties: tuple[EvidenceUncertaintyRow, ...]
     scenarios: tuple[NordicScenarioAssessment, ...]
 
@@ -164,6 +182,7 @@ class ScientificReviewSurface:
             "country_coverage": [row.as_dict() for row in self.country_coverage],
             "period_coverage": [row.as_dict() for row in self.period_coverage],
             "chronology_overlaps": [row.as_dict() for row in self.chronology_overlaps],
+            "animal_coordinate_review": self.animal_coordinate_review.as_dict(),
             "uncertainties": [row.as_dict() for row in self.uncertainties],
             "scenarios": [row.as_dict() for row in self.scenarios],
         }
@@ -175,6 +194,7 @@ def build_scientific_review_surface(
     human_localities: Iterable[AdnaLocalitySummary],
     animal_localities: Iterable[AdnaLocalitySummary] = (),
     context_points: Iterable[ContextPointRecord],
+    animal_coordinate_review: AnimalCoordinateVisibilityReview | None = None,
 ) -> ScientificReviewSurface:
     """Build the scientific-review surface for one atlas run."""
     direct_localities = tuple(human_localities)
@@ -216,7 +236,7 @@ def build_scientific_review_surface(
         chronology_overlaps=chronology_overlaps,
     )
     return ScientificReviewSurface(
-        schema_version="scientific-review-surface.v2",
+        schema_version="scientific-review-surface.v3",
         descriptive_scope=(
             "mapped Homo sapiens locality inventory",
             "mapped species-owned animal locality leads with explicit caveats",
@@ -234,6 +254,12 @@ def build_scientific_review_surface(
         country_coverage=country_coverage,
         period_coverage=period_coverage,
         chronology_overlaps=chronology_overlaps,
+        animal_coordinate_review=animal_coordinate_review
+        or AnimalCoordinateVisibilityReview(
+            direct_coordinate_feature_count=0,
+            named_site_geocoded_feature_count=0,
+            weaker_geography_feature_count=0,
+        ),
         uncertainties=uncertainties,
         scenarios=scenarios,
     )

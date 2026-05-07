@@ -141,6 +141,7 @@ def render_scientific_review_surface_markdown(surface: ScientificReviewSurface) 
         )
         for row in surface.chronology_overlaps
     )
+    coordinate_review = surface.animal_coordinate_review
     uncertainty_rows = "\n".join(
         (
             f"| {row.subject} | {row.uncertainty_kind} | {row.severity} | "
@@ -186,6 +187,12 @@ def render_scientific_review_surface_markdown(surface: ScientificReviewSurface) 
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
 {overlap_rows}
+
+## Animal Coordinate Review
+
+| Direct coordinates | Named-site geocoded | Weaker geography visible |
+| ---: | ---: | ---: |
+| {coordinate_review.direct_coordinate_feature_count} | {coordinate_review.named_site_geocoded_feature_count} | {coordinate_review.weaker_geography_feature_count} |
 
 ## Uncertainty Register
 

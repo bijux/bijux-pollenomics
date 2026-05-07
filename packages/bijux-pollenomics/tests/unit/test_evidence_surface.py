@@ -51,7 +51,7 @@ def test_atlas_evidence_surface_markdown_makes_refusals_explicit() -> None:
     markdown = render_atlas_evidence_surface_markdown(surface)
 
     assert "# Atlas Evidence Surface" in markdown
-    assert "atlas_proximity_is_not_locality_evidence" in markdown
+    assert "mapped_animal_geography_requires_caution" in markdown
     assert "Country Evidence Profiles" in markdown
 
 
