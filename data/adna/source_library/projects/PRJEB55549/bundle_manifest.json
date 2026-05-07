@@ -1,0 +1,19 @@
+{
+  "project_accession": "PRJEB55549",
+  "species_latin_name": "Equus asinus",
+  "archive_status": "reject_or_out_of_scope",
+  "evidence_strength": "archive_only",
+  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB55549&result=analysis&fields=study_accession,sample_accession,experiment_accession,analysis_accession,analysis_type,tax_id,scientific_name,submitted_ftp,bam_ftp&format=tsv&download=true&limit=0",
+  "paper_doi": null,
+  "paper_title": null,
+  "archive_metadata_sufficient": true,
+  "paper_required": false,
+  "supplement_required": false,
+  "paper_download_status": "missing",
+  "supplement_download_status": "missing",
+  "local_artifact_ids": [],
+  "local_artifact_paths": [],
+  "blockers": [
+    "paper_linkage_not_curated"
+  ]
+}
