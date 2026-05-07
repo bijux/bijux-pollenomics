@@ -1480,6 +1480,9 @@ class CountryReportTests(unittest.TestCase):
             published_summary = json.loads(
                 (output / "published_reports_summary.json").read_text(encoding="utf-8")
             )
+            animal_output_audit = json.loads(
+                (output / "animal_output_audit.json").read_text(encoding="utf-8")
+            )
             atlas_summary = json.loads(
                 (output / "nordic-atlas" / "nordic-atlas_summary.json").read_text(
                     encoding="utf-8"
@@ -1515,6 +1518,13 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "animal_country_species_coverage.json",
             )
+            self.assertEqual(animal_output_audit["report_root"], str(output))
+            sheep_audit_row = next(
+                row
+                for row in animal_output_audit["species_rows"]
+                if row["species_latin_name"] == "Ovis aries"
+            )
+            self.assertEqual(sheep_audit_row["country_output_count"], 1)
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertEqual(
                 published_summary["artifacts"]["country_bundles"]["sweden"][

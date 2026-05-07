@@ -92,7 +92,8 @@ def publish_published_reports_tree(
         ),
     )
     data_root = context_root if context_root is not None else output_root.parents[1] / "data"
-    animal_output_audit = build_public_animal_output_audit(data_root, output_root)
+    animal_output_audit = build_public_animal_output_audit(data_root, staging_output_root)
+    animal_output_audit["report_root"] = str(output_root)
     write_summary_json_fn(
         staging_output_root / "animal_output_audit.json",
         animal_output_audit,
