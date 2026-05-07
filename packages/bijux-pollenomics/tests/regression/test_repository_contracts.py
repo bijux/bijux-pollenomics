@@ -88,15 +88,71 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         audit_markdown = report_root / "animal_output_audit.md"
         readiness_json = report_root / "animal_atlas_readiness.json"
         readiness_markdown = report_root / "animal_atlas_readiness.md"
+        validation_json = report_root / "animal_foundation_validation.json"
+        validation_markdown = report_root / "animal_foundation_validation.md"
+        drift_json = report_root / "animal_cross_surface_drift.json"
+        drift_markdown = report_root / "animal_cross_surface_drift.md"
+        caveat_json = report_root / "animal_scientific_caveat_ledger.json"
+        caveat_markdown = report_root / "animal_scientific_caveat_ledger.md"
+        point_json = report_root / "animal_point_support_packets.json"
+        point_markdown = report_root / "animal_point_support_packets.md"
+        absence_json = report_root / "animal_project_absence_packets.json"
+        absence_markdown = report_root / "animal_project_absence_packets.md"
+        review_json = report_root / "animal_foundation_review.json"
+        review_markdown = report_root / "animal_foundation_review.md"
+        gate_json = report_root / "animal_publication_release_gate.json"
+        gate_markdown = report_root / "animal_publication_release_gate.md"
 
         self.assertTrue(audit_json.is_file())
         self.assertTrue(audit_markdown.is_file())
         self.assertTrue(readiness_json.is_file())
         self.assertTrue(readiness_markdown.is_file())
+        self.assertTrue(validation_json.is_file())
+        self.assertTrue(validation_markdown.is_file())
+        self.assertTrue(drift_json.is_file())
+        self.assertTrue(drift_markdown.is_file())
+        self.assertTrue(caveat_json.is_file())
+        self.assertTrue(caveat_markdown.is_file())
+        self.assertTrue(point_json.is_file())
+        self.assertTrue(point_markdown.is_file())
+        self.assertTrue(absence_json.is_file())
+        self.assertTrue(absence_markdown.is_file())
+        self.assertTrue(review_json.is_file())
+        self.assertTrue(review_markdown.is_file())
+        self.assertTrue(gate_json.is_file())
+        self.assertTrue(gate_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
         self.assertIn(
             "Animal atlas readiness",
             readiness_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal foundation validation",
+            validation_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal cross-surface drift",
+            drift_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal scientific caveat ledger",
+            caveat_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal point support packets",
+            point_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal project absence packets",
+            absence_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal foundation review",
+            review_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal publication release gate",
+            gate_markdown.read_text(encoding="utf-8"),
         )
 
     def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:
