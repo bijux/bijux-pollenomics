@@ -571,11 +571,11 @@
         "locality": "North African donkey domestication and spread transect",
         "political_entity": "North Africa and Levant",
         "coordinates": {
-          "latitude": 26.0,
-          "longitude": 30.0,
-          "latitude_text": "26.00",
-          "longitude_text": "30.00",
-          "confidence": "inferred"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "publication": "",
         "year_first_published": "",
@@ -598,7 +598,7 @@
         "paper_url": "",
         "supplementary_source": "",
         "inclusion_status": "comparator_site_curated",
-        "inclusion_note": "This is a broad comparator domestication transect rather than one point-sized excavation context.",
+        "inclusion_note": "Donkey remains broad comparator domestication context rather than point-ready evidence.",
         "sample_basis": "project_accession_anchor"
       },
       {
@@ -665,6 +665,38 @@
         "sample_basis": "project_accession_anchor"
       }
     ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "PRJEB52849",
+        "species_latin_name": "Equus asinus",
+        "species_common_name": "donkey",
+        "site_label": "North African donkey domestication and spread transect",
+        "original_place_text": "Africa to Europe and Asia donkey spread context",
+        "resolved_place_text": "North Africa and Levant dispersal extent",
+        "political_entity": "North Africa and Levant",
+        "source_artifact_path": "adna/source_library/projects/PRJEB52849/archive_metadata.html",
+        "source_locator": "source description snapshot",
+        "coordinate_basis": "region_centroid_fallback",
+        "mapping_posture": "refused_region_only",
+        "latitude_text": "",
+        "longitude_text": "",
+        "geocoding_method": "manual_dispersal_extent_retention",
+        "geocoder_or_gazetteer": "not applied because the current lead is a broad spread transect",
+        "confidence_rationale": "The local archive description supports Africa-to-Eurasia spread, not one donkey site with defensible point geometry.",
+        "coordinate_confidence": "withheld",
+        "paper_doi": "",
+        "paper_url": "",
+        "supplementary_source": "",
+        "chronology_text": "~5000-2500 BCE donkey domestication and spread context",
+        "time_start_bp": 4450,
+        "time_end_bp": 6950,
+        "dating_basis": "archaeological_period",
+        "comparator_context": true,
+        "domestication_context": "comparator_context",
+        "interpretation_note": "Donkey remains broad comparator domestication context rather than point-ready evidence.",
+        "support_gap_note": "No local paper is pinned yet for this project, so the current coordinate posture cannot go beyond refused regional context."
+      }
+    ],
     "site_evidence_records": [
       {
         "project_accession": "PRJEB52849",
@@ -702,8 +734,8 @@
           "political_entity": "North Africa and Levant",
           "source_anchor_tokens": [
             "PRJEB52849",
-            "26.00",
-            "30.00"
+            "",
+            ""
           ]
         },
         "species_latin_name": "Equus asinus",
@@ -723,11 +755,11 @@
         ],
         "locality": "North African donkey domestication and spread transect",
         "coordinates": {
-          "latitude": 26.0,
-          "longitude": 30.0,
-          "latitude_text": "26.00",
-          "longitude_text": "30.00",
-          "confidence": "inferred"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "sample_count": 1,
         "sample_ids": [
@@ -751,7 +783,7 @@
         "original_location_text": "North African donkey domestication and spread transect",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "This is a broad comparator domestication transect rather than one point-sized excavation context."
+        "interpretation_note": "Donkey remains broad comparator domestication context rather than point-ready evidence."
       }
     ],
     "project_summaries": [

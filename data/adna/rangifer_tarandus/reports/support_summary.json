@@ -373,11 +373,11 @@
         "locality": "Svalbard ancient reindeer context",
         "political_entity": "Svalbard",
         "coordinates": {
-          "latitude": 78.22,
-          "longitude": 15.65,
-          "latitude_text": "78.22",
-          "longitude_text": "15.65",
-          "confidence": "approximate"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "publication": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
         "year_first_published": "2024",
@@ -400,7 +400,7 @@
         "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
         "supplementary_source": "",
         "inclusion_status": "comparator_site_curated",
-        "inclusion_note": "This is Nordic-relevant comparator evidence, not domesticated-core support.",
+        "inclusion_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead.",
         "sample_basis": "project_accession_anchor"
       },
       {
@@ -530,6 +530,38 @@
         "sample_basis": "project_accession_anchor"
       }
     ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "PRJEB60484",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "site_label": "Svalbard ancient reindeer context",
+        "original_place_text": "Svalbard archipelago reindeer context",
+        "resolved_place_text": "Svalbard archipelago",
+        "political_entity": "Svalbard",
+        "source_artifact_path": "adna/source_library/projects/PRJEB60484/archive_metadata.html",
+        "source_locator": "source description snapshot",
+        "coordinate_basis": "region_centroid_fallback",
+        "mapping_posture": "refused_region_only",
+        "latitude_text": "",
+        "longitude_text": "",
+        "geocoding_method": "archipelago_scale_retention",
+        "geocoder_or_gazetteer": "not applied because the current lead is archipelago-wide",
+        "confidence_rationale": "The local archive supports Svalbard archipelago context rather than one named reindeer site, so the row stays refused from point mapping.",
+        "coordinate_confidence": "withheld",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "supplementary_source": "",
+        "chronology_text": "Ancient Arctic archipelago reindeer context",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "dating_basis": "archaeological_period",
+        "comparator_context": true,
+        "domestication_context": "comparator_context",
+        "interpretation_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead.",
+        "support_gap_note": ""
+      }
+    ],
     "site_evidence_records": [
       {
         "project_accession": "PRJEB60484",
@@ -567,8 +599,8 @@
           "political_entity": "Svalbard",
           "source_anchor_tokens": [
             "PRJEB60484",
-            "78.22",
-            "15.65"
+            "",
+            ""
           ]
         },
         "species_latin_name": "Rangifer tarandus",
@@ -588,11 +620,11 @@
         ],
         "locality": "Svalbard ancient reindeer context",
         "coordinates": {
-          "latitude": 78.22,
-          "longitude": 15.65,
-          "latitude_text": "78.22",
-          "longitude_text": "15.65",
-          "confidence": "approximate"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "sample_count": 1,
         "sample_ids": [
@@ -616,7 +648,7 @@
         "original_location_text": "Svalbard ancient reindeer context",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
-        "interpretation_note": "This is Nordic-relevant comparator evidence, not domesticated-core support."
+        "interpretation_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead."
       }
     ],
     "project_summaries": [
