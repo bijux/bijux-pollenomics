@@ -1,0 +1,29 @@
+{
+  "schema_version": "country-report-bundle-manifest.v1",
+  "bundle_type": "country_aadr_report",
+  "country": "Sweden",
+  "version": "v66",
+  "generated_on": "2026-05-07",
+  "dataset_row_counts": {
+    "1240k": 416,
+    "ho": 416
+  },
+  "total_unique_samples": 416,
+  "total_unique_localities": 77,
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
+  "artifacts": {
+    "readme": "README.md",
+    "samples_csv": "sweden_aadr_v66_samples.csv",
+    "localities_csv": "sweden_aadr_v66_localities.csv",
+    "samples_geojson": "sweden_aadr_v66_samples.geojson",
+    "samples_markdown": "sweden_aadr_v66_samples.md",
+    "summary_json": "sweden_aadr_v66_summary.json"
+  },
+  "animal_adna": {
+    "summary_json": "sweden_animal_adna_v66_summary.json",
+    "species_csv": "sweden_animal_adna_v66_species.csv",
+    "localities_geojson": "sweden_animal_adna_v66_localities.geojson",
+    "citations_markdown": "sweden_animal_adna_v66_citations.md",
+    "warnings_markdown": "sweden_animal_adna_v66_warnings.md"
+  }
+}

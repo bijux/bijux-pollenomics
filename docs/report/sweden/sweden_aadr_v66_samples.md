@@ -1,6 +1,6 @@
-# Sweden AADR v66 Sample Inventory
+# Sweden Homo sapiens aDNA v66 Sample Inventory
 
-Generated on `2026-04-16`. Total samples: `416`.
+Generated on `2026-05-07`. Total Homo sapiens aDNA samples: `416`.
 
 | Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |
@@ -332,18 +332,18 @@ Generated on `2026-04-16`. Total samples: `416`.
 | vik_bns023.SG | 6769 | Sweden_Viking | Sigtuna, cemetery 4 (Bensinst ) | 59.617313 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
 | vik_gtm021.SG | 6772 | Sweden_Viking | Sigtuna, cemetery 4 (Bensinst ) | 59.617313 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
 | vik_gtm127.SG | 6773 | Sweden_Viking | Sigtuna, cemetery 4 (Bensinst ) | 59.617313 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
-| vik_grt035.SG | 6770 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 886-1029 calCE (1080±40 BP, Ua-22732) | Shotgun | M | 1240k,ho |
-| vik_grt036.SG | 6771 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 994-1158 calCE (985±35 BP, Ua-22734) | Shotgun | M | 1240k,ho |
-| vik_stg020.SG | 6778 | Sweden_Viking-1 | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
-| vik_stg021.SG | 6779 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 901-1154 calCE (1020±35 BP, Ua-22728) | Shotgun | F | 1240k,ho |
-| vik_stg026.SG | 6780 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 774-1018 calCE (1115±35 BP, Ua-22722) | Shotgun | F | 1240k,ho |
-| vik_urm035.SG | 6781 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 995-1160 calCE (975±35 BP, Ua-22733) | Shotgun | M | 1240k,ho |
-| vik_urm045.SG | 6782 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
-| vik_urm160.SG | 6783 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 1040-1226 calCE (885±35 BP, Ua-22740) | Shotgun | M | 1240k,ho |
-| vik_urm161.SG | 6784 | Sweden_Viking | Sigtuna, church 1 (St  Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 998-1164 calCE (965±35 BP, Ua-22741) | Shotgun | M | 1240k,ho |
-| vik_97002.SG | 6766 | Sweden_Viking | Sigtuna, mass grave (St  Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
-| vik_97026.SG | 6767 | Sweden_Viking | Sigtuna, mass grave (St  Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
-| vik_97029.SG | 6768 | Sweden_Viking | Sigtuna, mass grave (St  Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_grt035.SG | 6770 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 886-1029 calCE (1080±40 BP, Ua-22732) | Shotgun | M | 1240k,ho |
+| vik_grt036.SG | 6771 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 994-1158 calCE (985±35 BP, Ua-22734) | Shotgun | M | 1240k,ho |
+| vik_stg020.SG | 6778 | Sweden_Viking-1 | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | F | 1240k,ho |
+| vik_stg021.SG | 6779 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 901-1154 calCE (1020±35 BP, Ua-22728) | Shotgun | F | 1240k,ho |
+| vik_stg026.SG | 6780 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 774-1018 calCE (1115±35 BP, Ua-22722) | Shotgun | F | 1240k,ho |
+| vik_urm035.SG | 6781 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 995-1160 calCE (975±35 BP, Ua-22733) | Shotgun | M | 1240k,ho |
+| vik_urm045.SG | 6782 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_urm160.SG | 6783 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 1040-1226 calCE (885±35 BP, Ua-22740) | Shotgun | M | 1240k,ho |
+| vik_urm161.SG | 6784 | Sweden_Viking | Sigtuna, church 1 (St Gertrud) | 59.617314 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 998-1164 calCE (965±35 BP, Ua-22741) | Shotgun | M | 1240k,ho |
+| vik_97002.SG | 6766 | Sweden_Viking | Sigtuna, mass grave (St Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_97026.SG | 6767 | Sweden_Viking | Sigtuna, mass grave (St Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
+| vik_97029.SG | 6768 | Sweden_Viking | Sigtuna, mass grave (St Lars) | 59.617315 | 17.72361 | KrzewińskaGötherströmCurrBiol2018 | 900-1200 CE | Shotgun | M | 1240k,ho |
 | NEO261.SG | 46856 | Sweden_LN | Sillvik (Västra Götalands län, Gothenburg) | 57.736 | 11.744 | AllentoftWillerslevNature2024 | 2191-1931 calBCE (3659±37 BP, AAR-11205) | Shotgun | M | 1240k,ho |
 | NEO679.SG | 46676 | Sweden_LateMesolithic_Ertebolle | Skateholm-1 (Skåne län, Trelleborg) | 55.386 | 13.481 | AllentoftWillerslevNature2024 | 5198-4715 calBCE (5990±70 BP, Lu-2116) | Shotgun | F | 1240k,ho |
 | VK517.SG | 7567 | Sweden_Viking | Skomsta (Uppsala län, Uppsala) | 59.86 | 17.65 | MargaryanWillerslevNature2020 | 1000-1100 CE | Shotgun | M | 1240k,ho |

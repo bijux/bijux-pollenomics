@@ -1,6 +1,6 @@
-# Denmark AADR v66 Sample Inventory
+# Denmark Homo sapiens aDNA v66 Sample Inventory
 
-Generated on `2026-04-16`. Total samples: `653`.
+Generated on `2026-05-07`. Total Homo sapiens aDNA samples: `653`.
 
 | Genetic ID | Master ID | Group ID | Locality | Latitude | Longitude | Publication | Full Date | Data Type | Sex | Datasets |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Generated on `2026-04-16`. Total samples: `653`.
 | CGG_2_019212.SG | 117091 | Denmark_Alken_Enge_EarlyRomanBogWar | Alken_Enge (Jutland) | 56.049 | 9.852 | McCollWillerslevBioRxiv2025 | 39 calBCE - 119 calCE (1910±79 BP, AAR-18052) | Shotgun | M | 1240k,ho |
 | CGG_2_019214.SG | 117095 | Denmark_Alken_Enge_EarlyRomanBogWar | Alken_Enge (Jutland) | 56.049 | 9.852 | McCollWillerslevBioRxiv2025 | 37 calBCE - 120 calCE (1908±78 BP, AAR-18055) | Shotgun | M | 1240k,ho |
 | CGG_2_019215.SG | 117097 | Denmark_Alken_Enge_EarlyRomanBogWar | Alken_Enge (Jutland) | 56.049 | 9.852 | McCollWillerslevBioRxiv2025 | 27-206 calCE (1834±90 BP, AAR-18059) | Shotgun | M | 1240k,ho |
-| CGG_2_019216.SG | 117099 | Denmark_Alken_Enge_EarlyRomanBogWar | Alken_Enge (Jutland) | 56.049 | 9.852 | McCollWillerslevBioRxiv2025 | 87 calBCE-  115 calCE (1936±101 BP, AAR-24488) | Shotgun | M | 1240k,ho |
+| CGG_2_019216.SG | 117099 | Denmark_Alken_Enge_EarlyRomanBogWar | Alken_Enge (Jutland) | 56.049 | 9.852 | McCollWillerslevBioRxiv2025 | 87 calBCE- 115 calCE (1936±101 BP, AAR-24488) | Shotgun | M | 1240k,ho |
 | CGG_2_107387.SG | 118093 | Denmark_Allerslev_IA_EarlyGermanic | Allerslev (Zealand) | 55.60442 | 11.97966 | McCollWillerslevBioRxiv2025 | 400-550 calCE (1475±75 BP) | Shotgun | M | 1240k,ho |
 | CGG_2_107467.SG | 118241 | Denmark_Almager_EarlyRoman | Almager (Zealand) | 55.7901637 | 12.2904351 | McCollWillerslevBioRxiv2025 | 25-123 calCE (1876±49 BP, UCIAMS-289275) | Shotgun | M | 1240k,ho |
 | CGG_2_106548.SG | 117787 | Denmark_Alpegard_LateRoman | Alpegard (Zealand) | 55.7497176 | 12.2894256 | McCollWillerslevBioRxiv2025 | 200-400 calCE (1550±0 BP) | Shotgun | F | 1240k,ho |
@@ -187,8 +187,8 @@ Generated on `2026-04-16`. Total samples: `653`.
 | CGG_2_107535.SG | 118353 | Denmark_GevningeOverdrev_PreImperialRoman | Gevninge Overdrev (Zealand) | 55.6261737 | 11.939884 | McCollWillerslevBioRxiv2025 | 93 calBCE - 58 calCE (1968±76 BP, UCIAMS-282677) | Shotgun | M | 1240k,ho |
 | RISE1280.SG | 49338 | Denmark_SingleGraveCulture | Gjerrild Cist (Eastern Jutland, Djursland) | 56.5 | 10.82 | EgfjordAllentoftPLoSOne2021 | 2567-1984 calBCE [union of two dates: 2567-2301 calBCE (4007±36 BP, UBA-36752), 2271-1984 calBCE (3790±34 BP, UBA-36753)] | Shotgun | M | 1240k,ho |
 | RISE1283.SG | 5685 | Denmark_Djursland_SingleGraveCulture | Gjerrild Cist (Eastern Jutland, Djursland) | 56.5 | 10.82 | EgfjordAllentoftPLoSOne2021 | 2567-2304 calBCE (3950±31 BP, UBA-36754) | Shotgun | F | 1240k,ho |
-| VK445.SG | 7498 | Denmark_Viking | Gl  Lejre (Zealand Region) | 55.62 | 11.97 | MargaryanWillerslevNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
-| VK94.SG | 7630 | Denmark_Viking | Gl  Lejre (Zealand Region) | 55.62 | 11.97 | MargaryanWillerslevNature2020 | 800-1100 CE | Shotgun | F | 1240k,ho |
+| VK445.SG | 7498 | Denmark_Viking | Gl Lejre (Zealand Region) | 55.62 | 11.97 | MargaryanWillerslevNature2020 | 800-1100 CE | Shotgun | M | 1240k,ho |
+| VK94.SG | 7630 | Denmark_Viking | Gl Lejre (Zealand Region) | 55.62 | 11.97 | MargaryanWillerslevNature2020 | 800-1100 CE | Shotgun | F | 1240k,ho |
 | CGG_2_107479.SG | 118261 | Denmark_Glerup_Modern | Glerup (Jutland) | 56.23145 | 10.19041 | McCollWillerslevBioRxiv2025 | 1680-1940 calCE (140±130 BP, UCIAMS-289276) | Shotgun | M | 1240k,ho |
 | CGG_2_107480.SG | 118263 | Denmark_Glerup_EarlyRoman | Glerup (Jutland) | 56.23145 | 10.19041 | McCollWillerslevBioRxiv2025 | 1-200 calCE (1850±100 BP) | Shotgun | M (XYY) | 1240k,ho |
 | CGG_2_106800.SG | 117939 | Denmark_Graesbjerg_Roman | Græsbjerg (Zealand/ Bårse) | 55.0124163 | 11.955867 | McCollWillerslevBioRxiv2025 | 1-400 calCE (1750±200 BP) | Shotgun | F | 1240k,ho |
