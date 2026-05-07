@@ -16,10 +16,10 @@ can later become curated rows.
 
 ## What To Inspect
 
-- [`data/adna/source_library/project_registry.json`](../../../data/adna/source_library/project_registry.json)
-- [`data/adna/source_library/paper_registry.json`](../../../data/adna/source_library/paper_registry.json)
-- [`data/adna/source_library/supplement_registry.json`](../../../data/adna/source_library/supplement_registry.json)
-- [`data/adna/source_library/source_blockers.json`](../../../data/adna/source_library/source_blockers.json)
+- [`data/adna/governance/source_library/project_registry.json`](../../../data/adna/governance/source_library/project_registry.json)
+- [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
+- [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
+- [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
 
 ## Current Rule
 

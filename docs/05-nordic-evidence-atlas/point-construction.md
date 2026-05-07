@@ -18,9 +18,9 @@ An animal point reaches the atlas only after four checks hold:
 
 ## Direct Proof Files
 
-- [`sample_records.json`](../../data/adna/ovis_aries/normalized/sample_records.json)
-- [`site_evidence.json`](../../data/adna/ovis_aries/normalized/site_evidence.json)
-- [`coordinate_provenance.json`](../../data/adna/ovis_aries/normalized/coordinate_provenance.json)
+- [`sample_records.json`](../../data/adna/species/ovis_aries/normalized/sample_records.json)
+- [`site_evidence.json`](../../data/adna/species/ovis_aries/normalized/site_evidence.json)
+- [`coordinate_provenance.json`](../../data/adna/species/ovis_aries/normalized/coordinate_provenance.json)
 - [`nordic-atlas_animal_atlas_evidence.json`](../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
 
 ## Construction Rules

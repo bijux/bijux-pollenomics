@@ -29,7 +29,7 @@ in and reviewed like code.
 - [Sweden country bundle](../../report/sweden/README.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
-- [sample-backed species evidence](../../../data/adna/ovis_aries/normalized/sample_records.json)
+- [sample-backed species evidence](../../../data/adna/species/ovis_aries/normalized/sample_records.json)
 
 ## Stable Path Anchors
 
