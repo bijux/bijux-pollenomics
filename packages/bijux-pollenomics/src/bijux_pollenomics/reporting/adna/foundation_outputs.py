@@ -630,10 +630,12 @@ def build_animal_publication_release_gate(
     ).lower()
     all_species_claim = "all-species animal map readiness" in docs_text or "all species animal map readiness" in docs_text
     reference_grade_claim = "reference-grade nordic animal adna metadata-and-atlas foundation" in docs_text
+    country_payloads = _load_country_payloads(report_root)
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
     project_locality_drift_rows = build_project_locality_count_drift(data_root)
     sample_site_rows = _load_all_project_sample_site_rows(data_root)
+    chronology_rows = _load_all_project_sample_chronology_rows(data_root)
     blocked_sample_site_rows = {
         str(row.get("repo_stable_sample_id", "")).strip(): row
         for row in sample_site_rows
@@ -659,6 +661,38 @@ def build_animal_publication_release_gate(
             for sample_row in point.get("sample_rows", [])
             if str(sample_row.get("identity", {}).get("stable_token", "")).strip()
             in blocked_sample_site_rows
+        }
+    )
+    chronology_blocked_master_ids = {
+        str(row.get("repo_stable_sample_id", "")).strip(): row
+        for row in chronology_rows
+        if str(row.get("chronology_normalization_status", "")) in {"text_only_unparsed", "unresolved"}
+        or bool(str(row.get("chronology_conflict_note", "")).strip())
+    }
+    sample_master_ids = {
+        str(row.get("identity", {}).get("stable_token", "")).strip(): str(row.get("master_id", "")).strip()
+        for row in _load_all_sample_rows(data_root)
+        if str(row.get("identity", {}).get("stable_token", "")).strip()
+    }
+    blocked_country_chronology_rows = sorted(
+        {
+            str(sample_row.get("sample_record_id", "")).strip()
+            for payload in country_payloads
+            for sample_row in payload.get("sample_rows", [])
+            if sample_master_ids.get(str(sample_row.get("sample_record_id", "")).strip(), "")
+            in chronology_blocked_master_ids
+        }
+    )
+    blocked_atlas_chronology_rows = sorted(
+        {
+            str(point.get("feature_id", "")).strip()
+            for point in point_payload["rows"]
+            for sample_row in point.get("sample_rows", [])
+            if sample_master_ids.get(
+                str(sample_row.get("identity", {}).get("stable_token", "")).strip(),
+                "",
+            )
+            in chronology_blocked_master_ids
         }
     )
     checks = [
@@ -697,6 +731,12 @@ def build_animal_publication_release_gate(
             not (blocked_exact_site_rows or blocked_atlas_rows),
             "Sample rows without defensible sample-owned site assignment do not leak into exact site rows or atlas points.",
             blocked_exact_site_rows + blocked_atlas_rows,
+        ),
+        _check_row(
+            "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
+            not (blocked_country_chronology_rows or blocked_atlas_chronology_rows),
+            "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+            blocked_country_chronology_rows + blocked_atlas_chronology_rows,
         ),
         _check_row(
             "docs_do_not_overclaim_all_species_map_readiness",
@@ -964,6 +1004,34 @@ def _load_all_project_sample_site_rows(data_root: Path) -> list[dict[str, object
             row.as_dict()
             for row in build_project_sample_site_rows(data_root, project.project_accession)
         )
+    return rows
+
+
+def _load_all_project_sample_chronology_rows(data_root: Path) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    project_root = (
+        Path(data_root) / "adna" / "governance" / "source_library" / "projects"
+    )
+    paths = (
+        sorted(project_root.glob("*/sample_chronology.json"))
+        if project_root.is_dir()
+        else []
+    )
+    if paths:
+        for path in paths:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            project_rows = payload.get("rows", [])
+            if not isinstance(project_rows, list):
+                continue
+            for row in project_rows:
+                if not isinstance(row, dict):
+                    continue
+                status = str(row.get("chronology_normalization_status", ""))
+                if status and status not in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES:
+                    continue
+                rows.append(row)
+        return rows
+    rows.extend(dict(row) for row in build_sample_chronology_viewer_rows(data_root))
     return rows
 
 
