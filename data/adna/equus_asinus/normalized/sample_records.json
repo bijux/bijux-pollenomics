@@ -1,0 +1,321 @@
+{
+  "schema_version": "adna-sample-record-export.v1",
+  "species_latin_name": "Equus asinus",
+  "samples": [
+    {
+      "identity": {
+        "namespace": "equus_asinus:curated_sample",
+        "stable_token": "equus_asinus:sample:prjeb43564",
+        "accession_lineage": [
+          "species:Equus asinus",
+          "source:ENA",
+          "project:PRJEB43564",
+          "sample:PRJEB43564"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_asinus:sample_locality",
+        "stable_token": "equus_asinus:sample-site:prjeb43564",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB43564",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "source_family": "ENA",
+      "source_release": "PRJEB43564",
+      "record_modality": "archive_reads",
+      "review_strength": "comparator_only",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB43564",
+      "group_id": "PRJEB43564",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_asinus:project:PRJEB43564"
+      ],
+      "project_accession": "PRJEB43564",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_asinus:curated_sample",
+        "stable_token": "equus_asinus:sample:prjeb50952",
+        "accession_lineage": [
+          "species:Equus asinus",
+          "source:ENA",
+          "project:PRJEB50952",
+          "sample:PRJEB50952"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_asinus:sample_locality",
+        "stable_token": "equus_asinus:sample-site:prjeb50952",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB50952",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "source_family": "ENA",
+      "source_release": "PRJEB50952",
+      "record_modality": "archive_reads",
+      "review_strength": "comparator_only",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB50952",
+      "group_id": "PRJEB50952",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_asinus:project:PRJEB50952"
+      ],
+      "project_accession": "PRJEB50952",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_asinus:curated_sample",
+        "stable_token": "equus_asinus:sample:prjeb52590",
+        "accession_lineage": [
+          "species:Equus asinus",
+          "source:ENA",
+          "project:PRJEB52590",
+          "sample:PRJEB52590"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_asinus:sample_locality",
+        "stable_token": "equus_asinus:sample-site:prjeb52590",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB52590",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "source_family": "ENA",
+      "source_release": "PRJEB52590",
+      "record_modality": "archive_reads",
+      "review_strength": "comparator_only",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB52590",
+      "group_id": "PRJEB52590",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_asinus:project:PRJEB52590"
+      ],
+      "project_accession": "PRJEB52590",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_asinus:curated_sample",
+        "stable_token": "equus_asinus:sample:prjeb52849",
+        "accession_lineage": [
+          "species:Equus asinus",
+          "source:ENA",
+          "project:PRJEB52849",
+          "sample:PRJEB52849"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_asinus:sample_locality",
+        "stable_token": "equus_asinus:sample-site:prjeb52849",
+        "locality_text": "North African donkey domestication and spread transect",
+        "political_entity": "North Africa and Levant",
+        "source_anchor_tokens": [
+          "PRJEB52849",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "source_family": "ENA",
+      "source_release": "PRJEB52849",
+      "record_modality": "archive_reads",
+      "review_strength": "comparator_only",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB52849",
+      "group_id": "PRJEB52849",
+      "locality": "North African donkey domestication and spread transect",
+      "political_entity": "North Africa and Levant",
+      "coordinates": {
+        "latitude": 26.0,
+        "longitude": 30.0,
+        "latitude_text": "26.00",
+        "longitude_text": "30.00",
+        "confidence": "inferred"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "~5000-2500 BCE donkey domestication and spread context",
+      "chronology": {
+        "original_text": "~5000-2500 BCE donkey domestication and spread context",
+        "time_start_bp": 4450,
+        "time_end_bp": 6950,
+        "time_mean_bp": 5700,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_asinus:project:PRJEB52849"
+      ],
+      "project_accession": "PRJEB52849",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "comparator_site_curated",
+      "inclusion_note": "This donkey row is a broad domestication transect and remains comparator context relative to the canonical horse surface.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_asinus:curated_sample",
+        "stable_token": "equus_asinus:sample:prjeb55549",
+        "accession_lineage": [
+          "species:Equus asinus",
+          "source:ENA",
+          "project:PRJEB55549",
+          "sample:PRJEB55549"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_asinus:sample_locality",
+        "stable_token": "equus_asinus:sample-site:prjeb55549",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB55549",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "source_family": "ENA",
+      "source_release": "PRJEB55549",
+      "record_modality": "archive_reads",
+      "review_strength": "comparator_only",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB55549",
+      "group_id": "PRJEB55549",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_asinus:project:PRJEB55549"
+      ],
+      "project_accession": "PRJEB55549",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    }
+  ]
+}
