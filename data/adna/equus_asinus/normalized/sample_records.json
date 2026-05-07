@@ -224,11 +224,11 @@
       "locality": "North African donkey domestication and spread transect",
       "political_entity": "North Africa and Levant",
       "coordinates": {
-        "latitude": 26.0,
-        "longitude": 30.0,
-        "latitude_text": "26.00",
-        "longitude_text": "30.00",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "publication": "",
       "year_first_published": "",
@@ -251,7 +251,7 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "comparator_site_curated",
-      "inclusion_note": "This is a broad comparator domestication transect rather than one point-sized excavation context.",
+      "inclusion_note": "Donkey remains broad comparator domestication context rather than point-ready evidence.",
       "sample_basis": "project_accession_anchor"
     },
     {

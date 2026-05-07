@@ -10,8 +10,8 @@
         "political_entity": "Svalbard",
         "source_anchor_tokens": [
           "PRJEB60484",
-          "78.22",
-          "15.65"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Rangifer tarandus",
@@ -31,11 +31,11 @@
       ],
       "locality": "Svalbard ancient reindeer context",
       "coordinates": {
-        "latitude": 78.22,
-        "longitude": 15.65,
-        "latitude_text": "78.22",
-        "longitude_text": "15.65",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Svalbard ancient reindeer context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
-      "interpretation_note": "This is Nordic-relevant comparator evidence, not domesticated-core support."
+      "interpretation_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead."
     }
   ]
 }
