@@ -714,13 +714,66 @@ def _render_species_root_readme(species_name: str) -> str:
     species = resolve_species_definition(species_name)
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
+    normalization_bundle = build_species_normalization_bundle(species_name).as_dict()
+    sample_rows = [
+        row
+        for row in normalization_bundle.get("sample_rows", [])
+        if isinstance(row, dict)
+    ]
+    site_rows = [
+        row
+        for row in normalization_bundle.get("site_evidence_rows", [])
+        if isinstance(row, dict)
+    ]
+    coordinate_rows = [
+        row
+        for row in normalization_bundle.get("coordinate_provenance_rows", [])
+        if isinstance(row, dict)
+    ]
+    direct_coordinate_count = sum(
+        1
+        for row in coordinate_rows
+        if str(row.get("mapping_posture", "")) == "mappable_point"
+        and str(row.get("coordinate_basis", "")) in {
+            "direct_published_coordinates",
+            "supplementary_table_coordinates",
+            "archive_coordinates",
+        }
+    )
+    geocoded_count = sum(
+        1
+        for row in coordinate_rows
+        if str(row.get("mapping_posture", "")) == "mappable_point"
+        and str(row.get("coordinate_basis", "")) in {
+            "named_site_geocoding",
+            "named_site_geocoded",
+        }
+    )
+    unresolved_count = sum(
+        1
+        for row in sample_rows
+        if str(row.get("inclusion_status", "")) == "sample_context_blocked"
+    )
+    mapped_nordic_count = sum(
+        1
+        for row in normalization_bundle.get("locality_rows", [])
+        if isinstance(row, dict)
+        and bool(row.get("nordic_inclusion"))
+        and str(row.get("coordinate_confidence", "")) != "withheld"
+    )
     return (
         f"# {species.common_name}\n\n"
         f"- Latin name: `{species.latin_name}`\n"
         f"- Product role: `{review.product_role}`\n"
         f"- Dataset bucket: `{review.dataset_bucket}`\n"
         f"- Curation class: `{curation.curation_class}`\n"
+        f"- Curated sample rows: `{len(sample_rows)}`\n"
         f"- Curated projects: `{len(curation.curated_projects)}`\n"
+        f"- Curated site rows: `{len(site_rows)}`\n"
+        f"- Direct-coordinate rows: `{direct_coordinate_count}`\n"
+        f"- Geocoded rows: `{geocoded_count}`\n"
+        f"- Unresolved sample rows: `{unresolved_count}`\n"
+        f"- Mapped Nordic rows: `{mapped_nordic_count}`\n"
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
