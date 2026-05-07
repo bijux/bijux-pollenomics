@@ -1,0 +1,62 @@
+{
+  "projects": [
+    {
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJEB81815",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81815&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Domestic cat dispersal from North Africa to Europe.",
+      "paper_linkage": {
+        "paper_title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+        "doi": "10.1126/science.adt2642",
+        "pubmed_id": null,
+        "pmc_id": "PMC7618505",
+        "journal_title": "Science",
+        "publication_year": 2024,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper explicitly names PRJEB81815 in data availability."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "historical_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned"
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "project_accession": "PRJNA1178732",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1178732",
+      "source_family": "BioProject",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Late-arrival domestic cat dataset for China via Silk Road context.",
+      "paper_linkage": {
+        "paper_title": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+        "doi": "10.1016/j.xgen.2025.101099",
+        "pubmed_id": null,
+        "pmc_id": "PMC12926185",
+        "journal_title": "Cell Genomics",
+        "publication_year": 2025,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper explicitly names PRJNA1178732 for newly generated FASTQ data."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "historical_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned"
+    }
+  ]
+}

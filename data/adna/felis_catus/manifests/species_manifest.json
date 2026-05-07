@@ -1,0 +1,35 @@
+{
+  "schema_version": "adna-species-manifest.v1",
+  "species": {
+    "latin_name": "Felis catus",
+    "slug": "felis_catus",
+    "common_name": "cat",
+    "support_status": "provisional",
+    "modalities": [
+      "archive_reads",
+      "paper_only"
+    ],
+    "source_families": [
+      "ENA",
+      "SRA",
+      "BioProject"
+    ],
+    "aliases": [
+      "cat",
+      "domestic cat"
+    ],
+    "notes": "Cat support is identified in source curation but not yet runtime-normalized."
+  },
+  "root_slug": "felis_catus",
+  "data_root": "data/adna/felis_catus",
+  "normalized_sample_namespace": "felis_catus:normalized_sample",
+  "tracked_layout": [
+    "raw",
+    "normalized",
+    "manifests",
+    "reports",
+    "review"
+  ],
+  "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+  "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+}
