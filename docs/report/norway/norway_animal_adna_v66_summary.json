@@ -3,91 +3,17 @@
   "country": "Norway",
   "version": "v66",
   "generated_on": "2026-05-07",
-  "total_species": 1,
-  "total_localities": 1,
-  "total_projects": 1,
-  "species_rows": [
-    {
-      "country": "Norway",
-      "species_latin_name": "Rangifer tarandus",
-      "species_common_name": "reindeer",
-      "animal_scope": "comparator",
-      "curated_project_count": 1,
-      "mapped_locality_count": 1,
-      "assignment_confidence": "territory_projection",
-      "coordinate_posture": "approximate",
-      "oldest_signal_bp": 500,
-      "youngest_signal_bp": 2500,
-      "project_accessions": [
-        "PRJEB60484"
-      ],
-      "caution_note": "territorial projection rather than mainland-only assignment; comparator evidence only; coordinates remain approximate or inferred"
-    }
-  ],
-  "localities": [
-    {
-      "country": "Norway",
-      "species_latin_name": "Rangifer tarandus",
-      "species_common_name": "reindeer",
-      "animal_scope": "comparator",
-      "project_accession": "PRJEB60484",
-      "support_class": "comparator_only",
-      "locality": "Svalbard ancient reindeer context",
-      "political_entity": "Svalbard",
-      "country_assignment_confidence": "territory_projection",
-      "country_assignment_reason": "The tracked locality lead is labeled `Svalbard` and is published under `Norway` as an explicit territorial projection.",
-      "latitude": 78.22,
-      "longitude": 15.65,
-      "coordinate_confidence": "approximate",
-      "time_start_bp": 500,
-      "time_end_bp": 2500,
-      "time_mean_bp": 1500,
-      "time_label": "Ancient Arctic archipelago reindeer context",
-      "dating_basis": "historical_and_archaeological_context",
-      "nordic_inclusion": true,
-      "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
-      "interpretation_note": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support.",
-      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "publication_year": "2024",
-      "journal_title": "Scientific Reports",
-      "source_url": "https://doi.org/10.1038/s41598-024-54296-2"
-    }
-  ],
-  "citations": [
-    {
-      "country": "Norway",
-      "species_latin_name": "Rangifer tarandus",
-      "species_common_name": "reindeer",
-      "animal_scope": "comparator",
-      "project_accession": "PRJEB60484",
-      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "publication_year": "2024",
-      "journal_title": "Scientific Reports",
-      "country_assignment_confidence": "territory_projection"
-    }
-  ],
+  "total_species": 0,
+  "total_localities": 0,
+  "total_projects": 0,
+  "species_rows": [],
+  "localities": [],
+  "citations": [],
   "warnings": [
     {
-      "severity": "warning",
-      "warning_code": "territory_projection",
-      "message": "`Rangifer tarandus` reaches `Norway` through an explicit territorial projection rather than a mainland-only locality."
-    },
-    {
-      "severity": "warning",
-      "warning_code": "comparator_scope",
-      "message": "`Rangifer tarandus` stays comparator-only in `Norway` and must not be promoted into domesticated-core farming support."
-    },
-    {
-      "severity": "warning",
-      "warning_code": "approximate_coordinates",
-      "message": "`Rangifer tarandus` still carries approximate or inferred coordinates in the country bundle."
-    },
-    {
       "severity": "caution",
-      "warning_code": "thin_species_surface",
-      "message": "`Norway` currently ships a thin animal surface with only `1` represented tracked species."
+      "warning_code": "no_country_resolved_animal_rows",
+      "message": "No tracked non-human animal locality lead is currently assignable to `Norway` under the shipped pollenomics rules."
     }
   ]
 }

@@ -1,2 +1,1 @@
-country,species_latin_name,species_common_name,animal_scope,curated_project_count,mapped_locality_count,assignment_confidence,coordinate_posture,oldest_signal_bp,youngest_signal_bp,project_accessions,caution_note
-Denmark,Ovis aries,sheep,domesticated_core,1,1,regional_projection,inferred,0,4000,PRJEB59481,"regional Baltic projection, not country-exact; coordinates remain approximate or inferred"
+country,species_latin_name,species_common_name,animal_scope,curated_project_count,mapped_locality_count,mapped_sample_count,assignment_confidence,coordinate_posture,oldest_signal_bp,youngest_signal_bp,project_accessions,caution_note

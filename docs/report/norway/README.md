@@ -55,21 +55,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Animal aDNA Country Outputs
 
-- Tracked animal species represented: `1`
-- Country-resolved animal locality rows: `1`
-- Supporting tracked projects: `1`
-
-### Animal Output Files
-
-- Machine-readable animal summary: [`norway_animal_adna_v66_summary.json`](./norway_animal_adna_v66_summary.json)
-- Animal species summary CSV: [`norway_animal_adna_v66_species.csv`](./norway_animal_adna_v66_species.csv)
-- Animal localities GeoJSON: [`norway_animal_adna_v66_localities.geojson`](./norway_animal_adna_v66_localities.geojson)
-- Animal citation appendix: [`norway_animal_adna_v66_citations.md`](./norway_animal_adna_v66_citations.md)
-- Animal warning appendix: [`norway_animal_adna_v66_warnings.md`](./norway_animal_adna_v66_warnings.md)
-
-### Country-Resolved Animal Species
-
-| Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
-| --- | --- | --- | ---: | --- | --- |
-| reindeer | Rangifer tarandus | comparator | 1 | territory_projection | territorial projection rather than mainland-only assignment; comparator evidence only; coordinates remain approximate or inferred |
+No tracked non-human animal locality lead is currently assignable to `Norway`
+with the current repository rules, so this country bundle ships only the human AADR
+surface for now.
 

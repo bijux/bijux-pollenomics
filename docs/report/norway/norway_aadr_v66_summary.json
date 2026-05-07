@@ -20,8 +20,8 @@
     "summary_json": "norway_aadr_v66_summary.json"
   },
   "animal_adna": {
-    "total_species": 1,
-    "total_localities": 1,
+    "total_species": 0,
+    "total_localities": 0,
     "artifacts": {
       "summary_json": "norway_animal_adna_v66_summary.json",
       "species_csv": "norway_animal_adna_v66_species.csv",
