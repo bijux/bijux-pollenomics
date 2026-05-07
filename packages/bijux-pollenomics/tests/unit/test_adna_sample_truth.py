@@ -61,7 +61,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
     def test_project_locality_drift_detects_sample_site_disagreement(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
-            species_root = data_root / "adna" / "ovis_aries"
+            species_root = data_root / "adna" / "species" / "ovis_aries"
             normalized_root = species_root / "normalized"
             normalized_root.mkdir(parents=True, exist_ok=True)
             (species_root / "README.md").write_text(

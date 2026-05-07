@@ -22,6 +22,7 @@ from .models import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
+from .paths import ADNA_SPECIES_DIR
 from .runtime import AdnaSampleQuery, AdnaSourceBundle, AdnaSpeciesRuntimeManifest
 
 __all__ = [
@@ -45,7 +46,13 @@ def build_homo_sapiens_runtime_manifest(
 ) -> AdnaSpeciesRuntimeManifest:
     """Build the canonical Homo sapiens runtime manifest for AADR metadata support."""
     species_manifest = build_species_manifest("Homo sapiens")
-    source_root = Path(data_root) / "adna" / species_manifest.root_slug / "raw" / "aadr"
+    source_root = (
+        Path(data_root)
+        / ADNA_SPECIES_DIR.removeprefix("data/")
+        / species_manifest.root_slug
+        / "raw"
+        / "aadr"
+    )
     release_dir = source_root / version
     release_manifest = Path(data_root) / "aadr" / version / "release_manifest.json"
     dataset_names = _release_dataset_names(release_manifest, release_dir)

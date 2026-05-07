@@ -9,10 +9,10 @@ class AdnaLayoutUnitTests(unittest.TestCase):
     def test_species_layout_uses_data_adna_latin_slug_root(self) -> None:
         layout = build_species_layout("Homo sapiens")
 
-        self.assertEqual(layout.root_dir, "data/adna/homo_sapiens")
-        self.assertEqual(layout.raw_dir, "data/adna/homo_sapiens/raw")
-        self.assertEqual(layout.manifests_dir, "data/adna/homo_sapiens/manifests")
-        self.assertEqual(layout.review_dir, "data/adna/homo_sapiens/review")
+        self.assertEqual(layout.root_dir, "data/adna/species/homo_sapiens")
+        self.assertEqual(layout.raw_dir, "data/adna/species/homo_sapiens/raw")
+        self.assertEqual(layout.manifests_dir, "data/adna/species/homo_sapiens/manifests")
+        self.assertEqual(layout.review_dir, "data/adna/species/homo_sapiens/review")
 
     def test_locality_identity_is_shared_species_aware_anchor(self) -> None:
         identity = build_locality_identity(

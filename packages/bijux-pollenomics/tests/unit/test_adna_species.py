@@ -50,7 +50,7 @@ class AdnaSpeciesSupportUnitTests(unittest.TestCase):
 
         self.assertEqual(manifest.schema_version, "adna-species-manifest.v1")
         self.assertEqual(manifest.root_slug, "homo_sapiens")
-        self.assertEqual(manifest.data_root, "data/adna/homo_sapiens")
+        self.assertEqual(manifest.data_root, "data/adna/species/homo_sapiens")
         self.assertEqual(
             manifest.normalized_sample_namespace,
             "homo_sapiens:normalized_sample",

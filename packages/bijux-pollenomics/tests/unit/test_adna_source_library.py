@@ -53,9 +53,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             paper_registry = build_paper_registry(output_root)
             supplement_registry = build_supplement_registry(output_root)
 
-            self.assertTrue((output_root / "adna" / "source_library" / "project_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "source_library" / "paper_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "source_library" / "supplement_registry.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_registry.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "paper_registry.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_registry.json").is_file())
 
             sheep_project = next(
                 item for item in project_registry if item.project_accession == "PRJEB36540"
@@ -82,6 +82,7 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             bundle_path = (
                 output_root
                 / "adna"
+                / "governance"
                 / "source_library"
                 / "projects"
                 / "PRJEB36540"

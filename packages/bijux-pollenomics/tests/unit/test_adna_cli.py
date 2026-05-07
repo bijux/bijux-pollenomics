@@ -30,7 +30,7 @@ class AdnaCliUnitTests(unittest.TestCase):
 
         self.assertEqual(exit_code, 0)
         payload = json.loads(stdout.getvalue())
-        self.assertEqual(payload["root_dir"], "data/adna/equus_caballus")
+        self.assertEqual(payload["root_dir"], "data/adna/species/equus_caballus")
 
     def test_adna_curation_manifest_json_output_exposes_core_and_reject_projects(
         self,
@@ -102,11 +102,11 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertEqual(payload["schema_version"], "adna-species-artifact-plan.v1")
         target_paths = {item["target_path"] for item in payload["entries"]}
         self.assertIn(
-            "data/adna/equus_caballus/manifests/normalization_bundle.json",
+            "data/adna/species/equus_caballus/manifests/normalization_bundle.json",
             target_paths,
         )
         self.assertIn(
-            "data/adna/equus_caballus/review/species_review.json",
+            "data/adna/species/equus_caballus/review/species_review.json",
             target_paths,
         )
 
@@ -173,7 +173,7 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertTrue(payload["runtime_ready"])
         self.assertEqual(
             payload["species_manifest"]["data_root"],
-            "data/adna/homo_sapiens",
+            "data/adna/species/homo_sapiens",
         )
         self.assertIn("metadata normalization only", payload["analysis_boundary"])
 

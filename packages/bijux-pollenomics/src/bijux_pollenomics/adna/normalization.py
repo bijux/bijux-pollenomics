@@ -24,6 +24,7 @@ from .models import (
     AdnaSampleRecord,
     AdnaSiteEvidenceRecord,
 )
+from .paths import ADNA_SPECIES_DIR
 from .project_context import resolve_project_context
 from .project_localities import build_species_project_locality_leads
 from .sample_registry import build_species_curated_sample_rows
@@ -1111,7 +1112,7 @@ def _source_artifact_path(
     species: AdnaSpeciesDefinition,
     project: AdnaProjectSummary,
 ) -> str:
-    root = f"data/adna/{species.slug}/raw"
+    root = f"{ADNA_SPECIES_DIR}/{species.slug}/raw"
     family = project.source_family.casefold()
     suffix = "filereport.tsv"
     if family == "genbank":
