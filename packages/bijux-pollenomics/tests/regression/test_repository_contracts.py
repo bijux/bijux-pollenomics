@@ -535,6 +535,27 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "coordinates"
             / "index.md"
         ).read_text(encoding="utf-8")
+        source_index = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+        source_family_matrix_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "source-family-matrix.md"
+        ).read_text(encoding="utf-8")
+        inventory_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "animal-project-and-paper-inventory.md"
+        ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
         ).read_text(encoding="utf-8")
@@ -563,9 +584,34 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../report/animal_point_support_packets.md",
             atlas_index,
         )
+        self.assertIn(
+            "data/adna/governance/source_library/project_source_evidence_matrix.json",
+            source_index,
+        )
+        self.assertIn(
+            "source-family-matrix.md",
+            source_index,
+        )
+        self.assertIn(
+            "../../report/repository_source_family_matrix.json",
+            source_family_matrix_page,
+        )
+        self.assertIn(
+            "../../report/repository_source_acquisition_queue.json",
+            source_family_matrix_page,
+        )
+        self.assertIn(
+            "data/adna/governance/source_library/reference_stash_reconciliation.json",
+            inventory_page,
+        )
+        self.assertIn(
+            "data/adna/governance/source_library/source_blocker_review.json",
+            inventory_page,
+        )
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
         self.assertIn("../../report/animal_point_support_packets.md", published_reports)
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
+        self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
         self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
 

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Project, Paper, and Supplement Capture
@@ -26,6 +26,9 @@ Use this legacy overview if you want one short bridge across those surfaces.
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
 - [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
 - [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
+- [`data/adna/governance/source_library/project_source_evidence_matrix.json`](../../../data/adna/governance/source_library/project_source_evidence_matrix.json)
+- [`data/adna/governance/source_library/reference_stash_reconciliation.json`](../../../data/adna/governance/source_library/reference_stash_reconciliation.json)
+- [Source family matrix](source-family-matrix.md)
 - [Source comparison](source-comparison.md)
 - [AADR](aadr.md)
 - [Neotoma](neotoma.md)
@@ -42,4 +45,6 @@ Use this legacy overview if you want one short bridge across those surfaces.
 
 If the repository cannot point to readable project metadata, paper context, or
 supplementary support for a sample or site claim, that weakness should stay
-visible in the tracked files and downstream audits.
+visible in the tracked files and downstream audits. If the local paper stash is
+ahead of the repo-owned source library, that mismatch should also stay explicit
+instead of being treated as silent progress.

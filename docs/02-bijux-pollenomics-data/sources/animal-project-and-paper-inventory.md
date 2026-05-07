@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Animal Project and Paper Inventory
@@ -20,8 +20,14 @@ archived, and which projects are still blocked from sample extraction.
 - [`data/adna/governance/source_library/tracked_project_and_paper_inventory.md`](../../../data/adna/governance/source_library/tracked_project_and_paper_inventory.md)
 - [`data/adna/governance/source_library/project_registry.json`](../../../data/adna/governance/source_library/project_registry.json)
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
+- [`data/adna/governance/source_library/tracked_project_scope_audit.json`](../../../data/adna/governance/source_library/tracked_project_scope_audit.json)
+- [`data/adna/governance/source_library/project_source_evidence_matrix.json`](../../../data/adna/governance/source_library/project_source_evidence_matrix.json)
+- [`data/adna/governance/source_library/reference_stash_reconciliation.json`](../../../data/adna/governance/source_library/reference_stash_reconciliation.json)
+- [`data/adna/governance/source_library/reference_stash_doi_integrity_audit.json`](../../../data/adna/governance/source_library/reference_stash_doi_integrity_audit.json)
 - [`data/adna/governance/source_library/source_intake_audit.json`](../../../data/adna/governance/source_library/source_intake_audit.json)
 - [`data/adna/governance/source_library/source_intake_release_guard.json`](../../../data/adna/governance/source_library/source_intake_release_guard.json)
+- [`data/adna/governance/source_library/source_blocker_review.json`](../../../data/adna/governance/source_library/source_blocker_review.json)
+- [`data/adna/governance/source_library/cross_project_source_intake_dossier.json`](../../../data/adna/governance/source_library/cross_project_source_intake_dossier.json)
 - [`data/adna/governance/source_library/project_sample_master_completeness.json`](../../../data/adna/governance/source_library/project_sample_master_completeness.json)
 - [`data/adna/governance/source_library/project_sample_site_review.json`](../../../data/adna/governance/source_library/project_sample_site_review.json)
 - [`data/adna/governance/source_library/project_sample_chronology_review.json`](../../../data/adna/governance/source_library/project_sample_chronology_review.json)
@@ -38,6 +44,7 @@ archived, and which projects are still blocked from sample extraction.
 
 - Which tracked projects still need paper capture.
 - Which papers have archived supplementary material.
+- Which papers already have local supplementary material staged outside the repo even though governed repo ingestion is still missing.
 - Which projects already carry archive-native sample identifiers.
 - Which projects already ship a checked project sample master with row-level lineage.
 - Which recovered sample rows already have direct site evidence and which still sit at project-level or region-level locality posture.
@@ -46,6 +53,7 @@ archived, and which projects are still blocked from sample extraction.
 - Which projects still have unresolved sample counts or unrecovered sample identities.
 - Which projects are intentionally retained as rejected reference rows instead of
   silently disappearing.
+- Which tracked papers and projects are blocked at paper capture, supplement ingestion, sample identity extraction, site extraction, or chronology extraction.
 
 The point of this inventory is breadth before map filtering. The Nordic atlas is
 downstream. The tracked project and paper inventory is the durable intake view
