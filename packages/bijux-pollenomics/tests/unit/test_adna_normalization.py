@@ -24,7 +24,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             "adna-nonhuman-normalization-bundle.v1",
         )
         self.assertEqual(bundle.species.latin_name, "Equus caballus")
-        self.assertEqual(bundle.sample_records, ())
+        self.assertTrue(bundle.sample_records)
         self.assertTrue(bundle.locality_records)
         self.assertTrue(bundle.project_summaries)
         self.assertTrue(bundle.study_summaries)
@@ -41,6 +41,15 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(project.chronology_policy, "bp_interval_expected")
         self.assertEqual(project.paper_url, "https://doi.org/10.1126/science.aao3297")
         self.assertEqual(project.review_strength, "primary_paper_pinned")
+        sample = next(
+            item
+            for item in bundle.sample_records
+            if item.project_accession == "PRJEB22390"
+        )
+        self.assertEqual(sample.paper_doi, "10.1126/science.aao3297")
+        self.assertEqual(sample.inclusion_status, "site_curated")
+        self.assertEqual(sample.sample_basis, "project_accession_anchor")
+        self.assertEqual(sample.locality_identity.locality_text, "Botai culture steppe context")
         self.assertEqual(
             bundle.lineage_records[0].schema_version,
             "adna-normalization-lineage.v1",
@@ -89,8 +98,20 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         bundle = build_species_normalization_bundle("horse")
 
         refusal_kinds = {item.record_kind for item in bundle.refusals}
-        self.assertIn("sample_records", refusal_kinds)
         self.assertIn("locality_records", refusal_kinds)
+
+    def test_species_normalization_bundle_marks_unresolved_sample_context_explicitly(self) -> None:
+        bundle = build_species_normalization_bundle("horse")
+        sample = next(
+            item
+            for item in bundle.sample_records
+            if item.project_accession == "PRJEB44430"
+        )
+
+        self.assertEqual(sample.inclusion_status, "sample_context_blocked")
+        self.assertEqual(sample.coordinate_confidence, "withheld")
+        self.assertEqual(sample.paper_doi, "10.1038/s41586-021-04018-9")
+        self.assertIn("blocked", sample.inclusion_note)
 
     def test_species_normalization_bundle_carries_nordic_context_and_caveats(self) -> None:
         sheep_bundle = build_species_normalization_bundle("sheep")

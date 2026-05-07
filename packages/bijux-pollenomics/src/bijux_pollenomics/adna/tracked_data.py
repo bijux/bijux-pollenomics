@@ -86,6 +86,14 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     write_json(raw_root / "source_snapshot.json", _source_snapshot_payload(species_name))
     write_text(raw_root / "source_snapshot.csv", _render_source_snapshot_csv(species_name))
     write_text(
+        normalized_root / "sample_records.csv",
+        _render_sample_records_csv(normalization_bundle),
+    )
+    write_json(
+        normalized_root / "sample_records.json",
+        _sample_records_payload(normalization_bundle),
+    )
+    write_text(
         normalized_root / "project_summaries.csv",
         _render_project_summaries_csv(normalization_bundle),
     )
@@ -361,6 +369,83 @@ def _render_project_summaries_csv(bundle: object) -> str:
     return _render_csv(fieldnames, rows)
 
 
+def _render_sample_records_csv(bundle: object) -> str:
+    fieldnames = (
+        "stable_sample_id",
+        "project_accession",
+        "sample_basis",
+        "inclusion_status",
+        "species_latin_name",
+        "species_common_name",
+        "source_family",
+        "source_release",
+        "record_modality",
+        "review_strength",
+        "provenance_quality",
+        "publication",
+        "paper_doi",
+        "paper_url",
+        "supplementary_source",
+        "site_label",
+        "political_entity",
+        "latitude",
+        "longitude",
+        "latitude_text",
+        "longitude_text",
+        "coordinate_confidence",
+        "chronology_text",
+        "time_start_bp",
+        "time_end_bp",
+        "time_mean_bp",
+        "dating_basis",
+        "inclusion_note",
+    )
+    rows = []
+    for sample in bundle.sample_records:
+        site_label = sample.locality_identity.locality_text
+        rows.append(
+            {
+                "stable_sample_id": sample.genetic_id,
+                "project_accession": sample.project_accession,
+                "sample_basis": sample.sample_basis,
+                "inclusion_status": sample.inclusion_status,
+                "species_latin_name": sample.species_latin_name,
+                "species_common_name": sample.species_common_name,
+                "source_family": sample.source_family,
+                "source_release": sample.source_release,
+                "record_modality": sample.record_modality,
+                "review_strength": sample.review_strength,
+                "provenance_quality": sample.provenance_quality,
+                "publication": sample.publication,
+                "paper_doi": sample.paper_doi,
+                "paper_url": sample.paper_url,
+                "supplementary_source": sample.supplementary_source,
+                "site_label": site_label,
+                "political_entity": "" if sample.political_entity is None else sample.political_entity,
+                "latitude": "" if sample.latitude is None else sample.latitude,
+                "longitude": "" if sample.longitude is None else sample.longitude,
+                "latitude_text": sample.latitude_text,
+                "longitude_text": sample.longitude_text,
+                "coordinate_confidence": sample.coordinate_confidence,
+                "chronology_text": sample.time_label,
+                "time_start_bp": "" if sample.time_start_bp is None else sample.time_start_bp,
+                "time_end_bp": "" if sample.time_end_bp is None else sample.time_end_bp,
+                "time_mean_bp": "" if sample.time_mean_bp is None else sample.time_mean_bp,
+                "dating_basis": sample.dating_basis,
+                "inclusion_note": sample.inclusion_note,
+            }
+        )
+    return _render_csv(fieldnames, rows)
+
+
+def _sample_records_payload(bundle: object) -> dict[str, object]:
+    return {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": bundle.species.latin_name,
+        "samples": [record.as_dict() for record in bundle.sample_records],
+    }
+
+
 def _project_summaries_payload(bundle: object) -> dict[str, object]:
     return {
         "schema_version": "adna-project-summary-export.v1",
@@ -459,7 +544,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts and source wording snapshots, `normalized/` keeps project-level and locality-level normalized outputs, "
+        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, project-level, and locality-level normalized outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
         "summaries, and `review/` keeps reader-facing review packets.\n"
     )
