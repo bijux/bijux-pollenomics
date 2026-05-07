@@ -26,6 +26,13 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                 for review in packet.project_reviews
             )
         )
+        self.assertTrue(
+            any(
+                row.project_accession == "PRJEB56293"
+                and row.support_class == "ancient_but_too_weak"
+                for row in packet.too_weak_projects
+            )
+        )
         botai = next(
             row
             for row in packet.project_manifest.projects
@@ -33,6 +40,7 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
         )
         self.assertEqual(botai.paper_doi, "10.1126/science.aao3297")
         self.assertEqual(botai.sequencing_target, "shotgun_genome")
+        self.assertEqual(botai.nordic_relevance, "non_nordic")
 
     def test_species_manifest_diff_reports_added_removed_and_changed_projects(self) -> None:
         previous = AdnaSpeciesProjectManifest(
@@ -55,6 +63,10 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     access_policy="public_downloadable",
                     public_release_date=None,
                     domestication_scope="domesticated_core",
+                    notes="pending paper pin",
+                    nordic_relevance="non_nordic",
+                    nordic_relevance_reason="not yet tagged as Nordic-relevant in tracked archive context.",
+                    last_checked_on="2026-05-07",
                 ),
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB56293",
@@ -72,6 +84,10 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     access_policy="public_downloadable",
                     public_release_date=None,
                     domestication_scope="domesticated_core",
+                    notes="pending paper pin",
+                    nordic_relevance="non_nordic",
+                    nordic_relevance_reason="not yet tagged as Nordic-relevant in tracked archive context.",
+                    last_checked_on="2026-05-07",
                 ),
             ),
         )
@@ -95,6 +111,10 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     access_policy="public_downloadable",
                     public_release_date=None,
                     domestication_scope="domesticated_core",
+                    notes="Botai and Przewalski/domestic ancestry anchor.",
+                    nordic_relevance="non_nordic",
+                    nordic_relevance_reason="not yet tagged as Nordic-relevant in tracked archive context.",
+                    last_checked_on="2026-05-07",
                 ),
                 AdnaSpeciesProjectRow(
                     project_accession="PRJEB44430",
@@ -112,6 +132,10 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
                     access_policy="public_downloadable",
                     public_release_date=None,
                     domestication_scope="domesticated_core",
+                    notes="Major horse domestication-and-dispersal anchor.",
+                    nordic_relevance="non_nordic",
+                    nordic_relevance_reason="not yet tagged as Nordic-relevant in tracked archive context.",
+                    last_checked_on="2026-05-07",
                 ),
             ),
         )
@@ -125,6 +149,24 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
         self.assertEqual(diff.changed_projects[0].project_accession, "PRJEB22390")
         self.assertIn("archive_status", diff.changed_projects[0].changed_fields)
         self.assertIn("paper_doi", diff.changed_projects[0].changed_fields)
+
+    def test_species_review_packet_surfaces_rejected_and_nordic_lead_tables(self) -> None:
+        packet = build_species_review_packet("reindeer")
+
+        self.assertTrue(
+            any(
+                row.project_accession == "PRJEB57293"
+                and row.support_class == "rejected"
+                for row in packet.rejected_projects
+            )
+        )
+        self.assertTrue(
+            any(
+                row.project_accession == "PRJEB60484"
+                and row.nordic_relevance == "nordic_relevant_unmapped"
+                for row in packet.nordic_unmapped_leads
+            )
+        )
 
 
 if __name__ == "__main__":

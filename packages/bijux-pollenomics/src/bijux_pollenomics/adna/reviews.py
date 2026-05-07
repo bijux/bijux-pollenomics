@@ -11,11 +11,13 @@ from .governance import (
     classify_species_product_role,
 )
 from .manifests import AdnaSpeciesManifest, build_species_manifest
+from .project_context import resolve_project_context
 
 __all__ = [
     "AdnaProjectManifestChange",
     "AdnaSpeciesProjectManifest",
     "AdnaSpeciesProjectRow",
+    "AdnaSpeciesReviewTableRow",
     "AdnaSpeciesManifestDiff",
     "AdnaSpeciesReviewPacket",
     "build_species_manifest_diff",
@@ -43,6 +45,10 @@ class AdnaSpeciesProjectRow:
     access_policy: str
     public_release_date: str | None
     domestication_scope: str
+    notes: str
+    nordic_relevance: str
+    nordic_relevance_reason: str
+    last_checked_on: str
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -61,6 +67,10 @@ class AdnaSpeciesProjectRow:
             "access_policy": self.access_policy,
             "public_release_date": self.public_release_date,
             "domestication_scope": self.domestication_scope,
+            "notes": self.notes,
+            "nordic_relevance": self.nordic_relevance,
+            "nordic_relevance_reason": self.nordic_relevance_reason,
+            "last_checked_on": self.last_checked_on,
         }
 
 
@@ -77,6 +87,32 @@ class AdnaSpeciesProjectManifest:
             "schema_version": self.schema_version,
             "species_latin_name": self.species_latin_name,
             "projects": [project.as_dict() for project in self.projects],
+        }
+
+
+@dataclass(frozen=True)
+class AdnaSpeciesReviewTableRow:
+    """One reader-facing grouped review row for tracked animal evidence."""
+
+    project_accession: str
+    paper_title: str | None
+    paper_doi: str | None
+    archive_status: str
+    support_class: str
+    reason: str
+    nordic_relevance: str
+    nordic_relevance_reason: str
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "project_accession": self.project_accession,
+            "paper_title": self.paper_title,
+            "paper_doi": self.paper_doi,
+            "archive_status": self.archive_status,
+            "support_class": self.support_class,
+            "reason": self.reason,
+            "nordic_relevance": self.nordic_relevance,
+            "nordic_relevance_reason": self.nordic_relevance_reason,
         }
 
 
@@ -127,6 +163,11 @@ class AdnaSpeciesReviewPacket:
     dataset_review: AdnaSpeciesDatasetReview
     project_manifest: AdnaSpeciesProjectManifest
     project_reviews: tuple[AdnaProjectAdmissionReview, ...]
+    accepted_projects: tuple[AdnaSpeciesReviewTableRow, ...]
+    rejected_projects: tuple[AdnaSpeciesReviewTableRow, ...]
+    too_weak_projects: tuple[AdnaSpeciesReviewTableRow, ...]
+    comparator_projects: tuple[AdnaSpeciesReviewTableRow, ...]
+    nordic_unmapped_leads: tuple[AdnaSpeciesReviewTableRow, ...]
     release_blockers: tuple[str, ...]
 
     def as_dict(self) -> dict[str, object]:
@@ -136,6 +177,11 @@ class AdnaSpeciesReviewPacket:
             "dataset_review": self.dataset_review.as_dict(),
             "project_manifest": self.project_manifest.as_dict(),
             "project_reviews": [review.as_dict() for review in self.project_reviews],
+            "accepted_projects": [row.as_dict() for row in self.accepted_projects],
+            "rejected_projects": [row.as_dict() for row in self.rejected_projects],
+            "too_weak_projects": [row.as_dict() for row in self.too_weak_projects],
+            "comparator_projects": [row.as_dict() for row in self.comparator_projects],
+            "nordic_unmapped_leads": [row.as_dict() for row in self.nordic_unmapped_leads],
             "release_blockers": list(self.release_blockers),
         }
 
@@ -162,6 +208,10 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
                     access_policy=project.access_policy,
                     public_release_date=project.public_release_date,
                     domestication_scope=project.domestication_scope,
+                    notes=project.notes,
+                    nordic_relevance=resolve_project_context(project).nordic_relevance,
+                    nordic_relevance_reason=resolve_project_context(project).nordic_relevance_reason,
+                    last_checked_on=resolve_project_context(project).last_checked_on,
                 )
                 for project in build_species_archive_projects(species_name)
             ),
@@ -230,11 +280,97 @@ def build_species_review_packet(species_name: str) -> AdnaSpeciesReviewPacket:
         for project in build_species_archive_projects(species_name)
     )
     project_manifest = build_species_project_manifest(species_name)
+    accepted_projects, rejected_projects, too_weak_projects, comparator_projects = (
+        _build_grouped_review_rows(project_manifest, project_reviews)
+    )
+    nordic_unmapped_leads = tuple(
+        row
+        for row in (*accepted_projects, *too_weak_projects, *comparator_projects)
+        if row.nordic_relevance == "nordic_relevant_unmapped"
+    )
     return AdnaSpeciesReviewPacket(
         schema_version="adna-species-review-packet.v1",
         species_manifest=species_manifest,
         dataset_review=dataset_review,
         project_manifest=project_manifest,
         project_reviews=project_reviews,
+        accepted_projects=accepted_projects,
+        rejected_projects=rejected_projects,
+        too_weak_projects=too_weak_projects,
+        comparator_projects=comparator_projects,
+        nordic_unmapped_leads=nordic_unmapped_leads,
         release_blockers=dataset_review.blocking_reasons,
+    )
+
+
+def _build_grouped_review_rows(
+    project_manifest: AdnaSpeciesProjectManifest,
+    project_reviews: tuple[AdnaProjectAdmissionReview, ...],
+) -> tuple[
+    tuple[AdnaSpeciesReviewTableRow, ...],
+    tuple[AdnaSpeciesReviewTableRow, ...],
+    tuple[AdnaSpeciesReviewTableRow, ...],
+    tuple[AdnaSpeciesReviewTableRow, ...],
+]:
+    review_lookup = {
+        review.project_accession: review
+        for review in project_reviews
+    }
+    accepted: list[AdnaSpeciesReviewTableRow] = []
+    rejected: list[AdnaSpeciesReviewTableRow] = []
+    too_weak: list[AdnaSpeciesReviewTableRow] = []
+    comparator: list[AdnaSpeciesReviewTableRow] = []
+    for row in project_manifest.projects:
+        review = review_lookup.get(row.project_accession)
+        if review is not None and review.admissible_for_curated_support:
+            accepted.append(_review_table_row(row, "accepted", "admissible_for_curated_support"))
+            continue
+        if row.archive_status == "reject_or_out_of_scope":
+            rejected.append(
+                _review_table_row(
+                    row,
+                    "rejected",
+                    row.notes,
+                )
+            )
+            continue
+        if row.archive_status == "comparator_only" or row.domestication_scope == "ancient_comparator":
+            comparator.append(
+                _review_table_row(
+                    row,
+                    "comparator_only",
+                    "scientifically useful comparator evidence that must not count as domesticated-core support",
+                )
+            )
+            continue
+        if review is not None and review.core_project and not review.admissible_for_curated_support:
+            too_weak.append(
+                _review_table_row(
+                    row,
+                    "ancient_but_too_weak",
+                    ", ".join(review.blocking_reasons) if review.blocking_reasons else row.notes,
+                )
+            )
+    return (
+        tuple(accepted),
+        tuple(rejected),
+        tuple(too_weak),
+        tuple(comparator),
+    )
+
+
+def _review_table_row(
+    row: AdnaSpeciesProjectRow,
+    support_class: str,
+    reason: str,
+) -> AdnaSpeciesReviewTableRow:
+    return AdnaSpeciesReviewTableRow(
+        project_accession=row.project_accession,
+        paper_title=row.paper_title,
+        paper_doi=row.paper_doi,
+        archive_status=row.archive_status,
+        support_class=support_class,
+        reason=reason,
+        nordic_relevance=row.nordic_relevance,
+        nordic_relevance_reason=row.nordic_relevance_reason,
     )

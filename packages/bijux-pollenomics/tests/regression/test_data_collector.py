@@ -110,6 +110,18 @@ class DataCollectorTests(unittest.TestCase):
                     / "species_review.json"
                 ).is_file()
             )
+            self.assertTrue(
+                (output_root / "adna" / "cross_species_bibliography.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "cross_species_archive_inventory.csv").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "cross_species_coverage_dashboard.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "shipped_product_audit.json").is_file()
+            )
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
             self.assertIn("aadr", report.source_provenance)

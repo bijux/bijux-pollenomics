@@ -5,6 +5,14 @@ import io
 from pathlib import Path
 
 from ..core.files import write_json, write_text
+from .catalogs import (
+    build_cross_species_archive_inventory,
+    build_cross_species_bibliography,
+    build_cross_species_coverage_dashboard,
+    build_shipped_adna_product_audit,
+    build_species_freshness_table,
+    render_csv_rows,
+)
 from .curation import build_species_curation_manifest
 from .ena import build_species_archive_projects, classify_archive_project_evidence
 from .governance import build_species_dataset_review
@@ -15,6 +23,7 @@ from .normalization import build_species_normalization_bundle
 from .reviews import build_species_project_manifest, build_species_review_packet
 from .runtime import build_species_runtime_manifest
 from .species import resolve_species_definition
+from .tracked_species import TRACKED_ADNA_SPECIES, tracked_species_slugs
 
 __all__ = [
     "TRACKED_ADNA_SPECIES",
@@ -22,24 +31,6 @@ __all__ = [
     "materialize_tracked_species_root",
     "tracked_species_slugs",
 ]
-
-TRACKED_ADNA_SPECIES = (
-    "Equus caballus",
-    "Sus scrofa domesticus",
-    "Ovis aries",
-    "Bos taurus",
-    "Capra hircus",
-    "Canis lupus familiaris",
-    "Felis catus",
-    "Camelus dromedarius",
-    "Rangifer tarandus",
-    "Equus asinus",
-)
-
-
-def tracked_species_slugs() -> tuple[str, ...]:
-    """Return the tracked non-human species roots shipped in the repository."""
-    return tuple(resolve_species_definition(name).slug for name in TRACKED_ADNA_SPECIES)
 
 
 def materialize_tracked_species_adna(
@@ -50,6 +41,7 @@ def materialize_tracked_species_adna(
     """Write the tracked species-owned animal aDNA files under one data root."""
     for species_name in species_names:
         materialize_tracked_species_root(output_root, species_name)
+    _materialize_cross_species_adna_artifacts(Path(output_root))
 
 
 def materialize_tracked_species_root(output_root: Path, species_name: str) -> None:
@@ -378,6 +370,30 @@ def _render_review_packet_markdown(species_name: str) -> str:
             f"| {row.project_accession} | {row.archive_status} | {row.ancient_status} | "
             f"{row.evidence_strength} | {paper_doi} | {row.domestication_scope} |"
         )
+    lines.extend(
+        _render_grouped_review_table(
+            "Rejected projects",
+            packet.rejected_projects,
+        )
+    )
+    lines.extend(
+        _render_grouped_review_table(
+            "Ancient but still too weak",
+            packet.too_weak_projects,
+        )
+    )
+    lines.extend(
+        _render_grouped_review_table(
+            "Comparator-only projects",
+            packet.comparator_projects,
+        )
+    )
+    lines.extend(
+        _render_grouped_review_table(
+            "Nordic-relevant leads not yet mapped confidently",
+            packet.nordic_unmapped_leads,
+        )
+    )
     lines.append("")
     return "\n".join(lines)
 
@@ -388,3 +404,60 @@ def _render_csv(fieldnames: tuple[str, ...], rows: list[dict[str, object]]) -> s
     writer.writeheader()
     writer.writerows(rows)
     return buffer.getvalue()
+
+
+def _render_grouped_review_table(title: str, rows: tuple[object, ...]) -> list[str]:
+    lines = ["", f"## {title}", ""]
+    if not rows:
+        lines.append("- none")
+        return lines
+    lines.extend(
+        [
+            "| accession | archive status | support class | nordic relevance | reason |",
+            "| --- | --- | --- | --- | --- |",
+        ]
+    )
+    for row in rows:
+        lines.append(
+            f"| {row.project_accession} | {row.archive_status} | {row.support_class} | "
+            f"{row.nordic_relevance} | {row.reason} |"
+        )
+    return lines
+
+
+def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
+    adna_root = output_root / "adna"
+    adna_root.mkdir(parents=True, exist_ok=True)
+    report_root = output_root.parent / "docs" / "report"
+    bibliography_rows = build_cross_species_bibliography()
+    archive_rows = build_cross_species_archive_inventory()
+    freshness_rows = build_species_freshness_table()
+    coverage_dashboard = build_cross_species_coverage_dashboard(output_root, report_root)
+    product_audit = build_shipped_adna_product_audit(output_root, report_root)
+    write_json(
+        adna_root / "cross_species_bibliography.json",
+        {"schema_version": "adna-cross-species-bibliography.v1", "rows": bibliography_rows},
+    )
+    write_text(
+        adna_root / "cross_species_bibliography.csv",
+        render_csv_rows(bibliography_rows),
+    )
+    write_json(
+        adna_root / "cross_species_archive_inventory.json",
+        {"schema_version": "adna-cross-species-archive-inventory.v1", "rows": archive_rows},
+    )
+    write_text(
+        adna_root / "cross_species_archive_inventory.csv",
+        render_csv_rows(archive_rows),
+    )
+    write_json(adna_root / "cross_species_freshness.json", {"rows": freshness_rows})
+    write_text(
+        adna_root / "cross_species_freshness.csv",
+        render_csv_rows(freshness_rows),
+    )
+    write_json(adna_root / "cross_species_coverage_dashboard.json", coverage_dashboard)
+    write_text(
+        adna_root / "cross_species_coverage_dashboard.csv",
+        render_csv_rows(tuple(coverage_dashboard["rows"])),
+    )
+    write_json(adna_root / "shipped_product_audit.json", product_audit)
