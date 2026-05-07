@@ -334,6 +334,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 slug,
             )
             self.assertTrue(
+                (species_root / "normalized" / "project_summaries.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
                 (species_root / "manifests" / "species_manifest.json").is_file(),
                 slug,
             )
