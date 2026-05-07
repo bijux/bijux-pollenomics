@@ -43,6 +43,7 @@ dev = [
     "ruff>=0.13.0",
     "twine>=6.1.0",
     "bandit>=1.7.10",
+    "hypothesis>=6.135.0,<7",
     "pip-audit>=2.7.3",
 ]
 
