@@ -1,0 +1,886 @@
+{
+  "schema_version": "atlas-evidence-surface.v2",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "layers": [
+    {
+      "layer_key": "homo_sapiens_direct",
+      "label": "Homo sapiens direct evidence",
+      "species_scope": [
+        "Homo sapiens"
+      ],
+      "layer_role": "mapped_direct",
+      "mapped": true,
+      "feature_count": 447,
+      "evidence_posture": "mapped_locality_direct_evidence",
+      "provenance_posture": "aadr_metadata_only",
+      "popup_contract": [
+        "Species",
+        "Evidence role",
+        "Source family",
+        "Source release",
+        "Record modality",
+        "Review strength",
+        "Provenance quality",
+        "Coordinate confidence",
+        "Dating basis"
+      ],
+      "rationale": [
+        "This is the mapped Homo sapiens direct ancient-DNA layer."
+      ]
+    },
+    {
+      "layer_key": "animal_domesticated_direct",
+      "label": "Domesticated-core animal direct evidence",
+      "species_scope": [
+        "Bos taurus",
+        "Camelus dromedarius",
+        "Canis lupus familiaris",
+        "Capra hircus",
+        "Equus caballus",
+        "Felis catus",
+        "Ovis aries",
+        "Sus scrofa domesticus"
+      ],
+      "layer_role": "mapped_direct",
+      "mapped": true,
+      "feature_count": 8,
+      "evidence_posture": "mapped_species_owned_locality_evidence",
+      "provenance_posture": "tracked_species_locality_summaries",
+      "popup_contract": [
+        "Species",
+        "Support class",
+        "Project accession",
+        "Paper title",
+        "Publication year",
+        "Chronology",
+        "Coordinate confidence",
+        "Nordic relevance",
+        "Interpretation",
+        "Warning"
+      ],
+      "rationale": [
+        "Domesticated-core animal species now ship mapped locality leads in the atlas bundle."
+      ]
+    },
+    {
+      "layer_key": "animal_comparator_direct",
+      "label": "Comparator animal direct evidence",
+      "species_scope": [
+        "Equus asinus",
+        "Rangifer tarandus"
+      ],
+      "layer_role": "mapped_direct_comparator",
+      "mapped": true,
+      "feature_count": 2,
+      "evidence_posture": "mapped_comparator_locality_evidence",
+      "provenance_posture": "tracked_species_locality_summaries",
+      "popup_contract": [
+        "Species",
+        "Support class",
+        "Project accession",
+        "Paper title",
+        "Publication year",
+        "Chronology",
+        "Coordinate confidence",
+        "Nordic relevance",
+        "Interpretation",
+        "Warning"
+      ],
+      "rationale": [
+        "Comparator species remain distinct from domesticated-core support even when mapped as localities."
+      ]
+    },
+    {
+      "layer_key": "animal_adna_species_context",
+      "label": "Animal aDNA species context",
+      "species_scope": [],
+      "layer_role": "unmapped_contextual_review",
+      "mapped": false,
+      "feature_count": 0,
+      "evidence_posture": "species_review_context_only",
+      "provenance_posture": "project_and_study_manifests",
+      "popup_contract": [],
+      "rationale": [
+        "Some animal species still remain project and study review surfaces without mapped locality rows."
+      ]
+    },
+    {
+      "layer_key": "animal_adna_refused_or_thin",
+      "label": "Animal aDNA refused or thin evidence",
+      "species_scope": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "layer_role": "refusal_guard",
+      "mapped": false,
+      "feature_count": 0,
+      "evidence_posture": "not_publishable_as_atlas_support",
+      "provenance_posture": "governance_and_integrity_review",
+      "popup_contract": [],
+      "rationale": [
+        "This layer exists only to make weak or blocked species explicit."
+      ]
+    },
+    {
+      "layer_key": "environmental_context",
+      "label": "Environmental and archaeology context",
+      "species_scope": [],
+      "layer_role": "mapped_context",
+      "mapped": true,
+      "feature_count": 2772,
+      "evidence_posture": "non_adna_context",
+      "provenance_posture": "normalized_context_layers",
+      "popup_contract": [
+        "Source-specific context rows"
+      ],
+      "rationale": [
+        "Environmental and archaeology layers help contextualize atlas localities but do not become direct ancient-DNA evidence."
+      ]
+    }
+  ],
+  "species_rows": [
+    {
+      "species_latin_name": "Homo sapiens",
+      "species_common_name": "human",
+      "support_status": "supported",
+      "product_role": "human_reference",
+      "dataset_bucket": "paper_pinned_core",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 447,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "mapped_sample_chronology_available",
+      "geography_posture": "mapped_locality_points",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "Homo sapiens atlas evidence is direct because the runtime owns mapped sample and locality metadata.",
+        "The current human layer remains metadata-only and does not imply genotype-aware interpretation."
+      ]
+    },
+    {
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "species_common_name": "duck",
+      "support_status": "out_of_scope",
+      "product_role": "reject_or_out_of_scope",
+      "dataset_bucket": "reject_or_out_of_scope",
+      "contribution_role": "too_weak",
+      "interaction_posture": "refused",
+      "mapped_direct_record_count": 0,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "no_curated_nonhuman_chronology",
+      "geography_posture": "no_curated_nonhuman_geography",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species remains too weak for atlas contribution because curation or archive proof is still incomplete."
+      ]
+    },
+    {
+      "species_latin_name": "Bos indicus",
+      "species_common_name": "zebu",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "reject_or_out_of_scope",
+      "contribution_role": "too_weak",
+      "interaction_posture": "refused",
+      "mapped_direct_record_count": 0,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "no_curated_nonhuman_chronology",
+      "geography_posture": "no_curated_nonhuman_geography",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [
+        "missing_archive_projects",
+        "mixed_species_rule_unresolved",
+        "missing_archive_paper_pinning_rationale"
+      ],
+      "rationale": [
+        "This species remains too weak for atlas contribution because curation or archive proof is still incomplete."
+      ]
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "archive_verified_needs_paper_pinning",
+      "contribution_role": "direct",
+      "interaction_posture": "decreases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 1,
+      "study_summary_count": 3,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [
+        "missing_primary_paper_pins",
+        "missing_archive_paper_pinning_rationale",
+        "ancient_but_not_domesticated_core_projects",
+        "mixed_species_rule_unresolved"
+      ],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims.",
+        "Current blocking reasons reduce confidence rather than strengthening the atlas narrative.",
+        "Cattle remains under a mixed-species rule, so wild or progenitor context cannot be flattened into domesticated-core support."
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "paper_pinned_core",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 2,
+      "study_summary_count": 1,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "paper_pinned_core",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 3,
+      "study_summary_count": 1,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "paper_pinned_core",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 3,
+      "study_summary_count": 3,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "support_status": "comparator_only",
+      "product_role": "comparator",
+      "dataset_bucket": "comparator_only",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 0,
+      "study_summary_count": 5,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "archive_verified_needs_paper_pinning",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 4,
+      "study_summary_count": 8,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [
+        "missing_primary_paper_pins",
+        "missing_archive_paper_pinning_rationale",
+        "non_ancient_or_unconfirmed_core_projects"
+      ],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "paper_pinned_core",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 2,
+      "study_summary_count": 2,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    },
+    {
+      "species_latin_name": "Gallus gallus domesticus",
+      "species_common_name": "chicken",
+      "support_status": "genbank_only",
+      "product_role": "genbank_only",
+      "dataset_bucket": "reject_or_out_of_scope",
+      "contribution_role": "too_weak",
+      "interaction_posture": "refused",
+      "mapped_direct_record_count": 0,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "no_curated_nonhuman_chronology",
+      "geography_posture": "no_curated_nonhuman_geography",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species remains too weak for atlas contribution because curation or archive proof is still incomplete."
+      ]
+    },
+    {
+      "species_latin_name": "Meleagris gallopavo",
+      "species_common_name": "turkey",
+      "support_status": "genbank_only",
+      "product_role": "genbank_only",
+      "dataset_bucket": "reject_or_out_of_scope",
+      "contribution_role": "too_weak",
+      "interaction_posture": "refused",
+      "mapped_direct_record_count": 0,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "no_curated_nonhuman_chronology",
+      "geography_posture": "no_curated_nonhuman_geography",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species remains too weak for atlas contribution because curation or archive proof is still incomplete."
+      ]
+    },
+    {
+      "species_latin_name": "Oryctolagus cuniculus",
+      "species_common_name": "rabbit",
+      "support_status": "out_of_scope",
+      "product_role": "reject_or_out_of_scope",
+      "dataset_bucket": "reject_or_out_of_scope",
+      "contribution_role": "too_weak",
+      "interaction_posture": "refused",
+      "mapped_direct_record_count": 0,
+      "curated_project_count": 0,
+      "study_summary_count": 0,
+      "chronology_posture": "no_curated_nonhuman_chronology",
+      "geography_posture": "no_curated_nonhuman_geography",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species remains too weak for atlas contribution because curation or archive proof is still incomplete."
+      ]
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "archive_verified_needs_paper_pinning",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 3,
+      "study_summary_count": 6,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [
+        "missing_primary_paper_pins",
+        "missing_archive_paper_pinning_rationale",
+        "non_ancient_or_unconfirmed_core_projects"
+      ],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+      ]
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "support_status": "comparator_only",
+      "product_role": "comparator",
+      "dataset_bucket": "comparator_only",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 0,
+      "study_summary_count": 4,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "support_status": "provisional",
+      "product_role": "domesticated_core",
+      "dataset_bucket": "archive_verified_needs_paper_pinning",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
+      "mapped_direct_record_count": 1,
+      "curated_project_count": 1,
+      "study_summary_count": 4,
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "contextual_layer_dependencies": [
+        "animal-bos-taurus",
+        "animal-camelus-dromedarius",
+        "animal-canis-lupus-familiaris",
+        "animal-capra-hircus",
+        "animal-equus-asinus",
+        "animal-equus-caballus",
+        "animal-felis-catus",
+        "animal-ovis-aries",
+        "animal-rangifer-tarandus",
+        "animal-sus-scrofa-domesticus",
+        "fieldwork-documentation",
+        "landclim-sites",
+        "neotoma-pollen",
+        "sead-sites"
+      ],
+      "blocking_reasons": [
+        "missing_primary_paper_pins",
+        "missing_archive_paper_pinning_rationale"
+      ],
+      "rationale": [
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+      ]
+    }
+  ],
+  "country_profiles": [
+    {
+      "country": "Sweden",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 77,
+      "human_sample_count": 416,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    },
+    {
+      "country": "Norway",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 69,
+      "human_sample_count": 130,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    },
+    {
+      "country": "Finland",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 6,
+      "human_sample_count": 32,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    },
+    {
+      "country": "Denmark",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 295,
+      "human_sample_count": 653,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    }
+  ],
+  "refusals": [
+    {
+      "subject": "Anas platyrhynchos domesticus",
+      "reason": "species_support_too_thin_for_atlas_promotion",
+      "detail": "Current curation and archive evidence are not strong enough to count as atlas support."
+    },
+    {
+      "subject": "Bos indicus",
+      "reason": "species_support_too_thin_for_atlas_promotion",
+      "detail": "Current curation and archive evidence are not strong enough to count as atlas support."
+    },
+    {
+      "subject": "Bos taurus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Camelus dromedarius",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Canis lupus familiaris",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Capra hircus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Equus asinus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Equus caballus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Felis catus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Gallus gallus domesticus",
+      "reason": "species_support_too_thin_for_atlas_promotion",
+      "detail": "Current curation and archive evidence are not strong enough to count as atlas support."
+    },
+    {
+      "subject": "Meleagris gallopavo",
+      "reason": "species_support_too_thin_for_atlas_promotion",
+      "detail": "Current curation and archive evidence are not strong enough to count as atlas support."
+    },
+    {
+      "subject": "Oryctolagus cuniculus",
+      "reason": "species_support_too_thin_for_atlas_promotion",
+      "detail": "Current curation and archive evidence are not strong enough to count as atlas support."
+    },
+    {
+      "subject": "Ovis aries",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Rangifer tarandus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Sus scrofa domesticus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    }
+  ],
+  "north_star_boundary": "Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA support becomes direct atlas evidence only where tracked species-owned locality rows exist. Approximate coordinates, regional leads, comparator species, and mixed-species claims still require explicit caution."
+}
