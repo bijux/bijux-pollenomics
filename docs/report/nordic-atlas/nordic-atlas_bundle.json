@@ -7,15 +7,15 @@
   "generated_on": "2026-05-07",
   "countries": [
     "Sweden",
-    "Denmark",
     "Norway",
-    "Finland"
+    "Finland",
+    "Denmark"
   ],
   "country_sample_counts": {
     "Sweden": 416,
-    "Denmark": 653,
     "Norway": 130,
-    "Finland": 32
+    "Finland": 32,
+    "Denmark": 653
   },
   "total_unique_samples": 1231,
   "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
@@ -76,6 +76,18 @@
         "filename": "nordic-atlas_comparator_animal_localities.geojson"
       },
       {
+        "label": "Animal atlas evidence CSV",
+        "filename": "nordic-atlas_animal_atlas_evidence.csv"
+      },
+      {
+        "label": "Animal atlas evidence JSON",
+        "filename": "nordic-atlas_animal_atlas_evidence.json"
+      },
+      {
+        "label": "Animal point traceability JSON",
+        "filename": "nordic-atlas_animal_point_traceability.json"
+      },
+      {
         "label": "Candidate site ranking CSV",
         "filename": "nordic-atlas_candidate_sites.csv"
       },
@@ -118,13 +130,19 @@
     ],
     "animal_localities_geojson": "nordic-atlas_animal_localities.geojson",
     "domesticated_animal_localities_geojson": "nordic-atlas_domesticated_animal_localities.geojson",
-    "comparator_animal_localities_geojson": "nordic-atlas_comparator_animal_localities.geojson"
+    "comparator_animal_localities_geojson": "nordic-atlas_comparator_animal_localities.geojson",
+    "animal_atlas_evidence_csv": "nordic-atlas_animal_atlas_evidence.csv",
+    "animal_atlas_evidence_json": "nordic-atlas_animal_atlas_evidence.json",
+    "animal_point_traceability_json": "nordic-atlas_animal_point_traceability.json"
   },
   "animal_atlas": {
-    "total_locality_points": 10,
-    "total_species": 10,
-    "domesticated_species_count": 8,
-    "comparator_species_count": 2,
+    "total_locality_points": 2,
+    "direct_coordinate_feature_count": 0,
+    "named_site_geocoded_feature_count": 2,
+    "weaker_geography_feature_count": 0,
+    "total_species": 2,
+    "domesticated_species_count": 2,
+    "comparator_species_count": 0,
     "layer_groups": [
       "Domesticated-core animal evidence",
       "Comparator animal evidence"
@@ -137,8 +155,7 @@
     ],
     "chronology_buckets": [
       "1001-3000 BP",
-      "3001-6000 BP",
-      "6001+ BP"
+      "3001-6000 BP"
     ],
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
@@ -148,63 +165,15 @@
     ],
     "species_layers": [
       {
-        "latin_name": "Equus caballus",
-        "common_name": "horse",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Sus scrofa domesticus",
-        "common_name": "pig",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Ovis aries",
-        "common_name": "sheep",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Bos taurus",
-        "common_name": "cattle",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Capra hircus",
-        "common_name": "goat",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Canis lupus familiaris",
-        "common_name": "dog",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Felis catus",
-        "common_name": "cat",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
         "latin_name": "Camelus dromedarius",
         "common_name": "dromedary camel",
         "animal_scope": "domesticated_core",
         "locality_count": 1
       },
       {
-        "latin_name": "Rangifer tarandus",
-        "common_name": "reindeer",
-        "animal_scope": "comparator",
-        "locality_count": 1
-      },
-      {
-        "latin_name": "Equus asinus",
-        "common_name": "donkey",
-        "animal_scope": "comparator",
+        "latin_name": "Equus caballus",
+        "common_name": "horse",
+        "animal_scope": "domesticated_core",
         "locality_count": 1
       }
     ]

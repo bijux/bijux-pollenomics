@@ -4,14 +4,10 @@ What does the currently shipped Nordic animal aDNA surface actually support abou
 
 ## Support
 
-- The current Nordic publication surface can now name one first animal signal: `Ovis aries` in `Denmark` with a tracked window of `Four millennia of Baltic sheep history` from `PRJEB59481`.
+- The repo now has a real country-resolved animal publication surface, but it still supports only a narrow set of Nordic-facing claims.
 
 ## Weak support
 
-- `Ovis aries` contributes `Denmark` evidence only through a regional projection, not a country-exact excavation label.
-- `Ovis aries` contributes `Finland` evidence only through a regional projection, not a country-exact excavation label.
-- `Rangifer tarandus` remains comparator-only in `Norway` and cannot be promoted into domesticated-core farming support.
-- `Ovis aries` contributes `Sweden` evidence only through a regional projection, not a country-exact excavation label.
 
 ## Non-support
 

@@ -1,0 +1,45 @@
+{
+  "schema_version": "animal-atlas-point-traceability.v1",
+  "rows": [
+    {
+      "feature_id": "animal-atlas-feature:camelus-dromedarius-project-locality-srp073444",
+      "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-project-locality-srp073444",
+      "site_record_id": "camelus_dromedarius:project-locality:srp073444",
+      "species_latin_name": "Camelus dromedarius",
+      "primary_project_accession": "SRP073444",
+      "sample_record_ids": [
+        "camelus_dromedarius:sample:srp073444"
+      ],
+      "sample_group_ids": [
+        "SRP073444"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "adna/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_locator": "abstract and introduction",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:equus-caballus-project-locality-prjeb22390",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb22390-equus-caballus-project-locality-prjeb22390",
+      "site_record_id": "equus_caballus:project-locality:prjeb22390",
+      "species_latin_name": "Equus caballus",
+      "primary_project_accession": "PRJEB22390",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb22390"
+      ],
+      "sample_group_ids": [
+        "PRJEB22390"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "adna/source_library/papers/10.1126-science.aao3297/article.html",
+      "source_locator": "meta description",
+      "paper_doi": "10.1126/science.aao3297",
+      "supplementary_sources": []
+    }
+  ]
+}
