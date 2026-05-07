@@ -22,6 +22,10 @@ from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
 from .reviews import build_species_project_manifest, build_species_review_packet
 from .runtime import build_species_runtime_manifest
+from .source_snapshots import (
+    build_species_source_snapshots,
+    resolve_archive_source_snapshot,
+)
 from .species import resolve_species_definition
 from .tracked_species import TRACKED_ADNA_SPECIES, tracked_species_slugs
 
@@ -77,6 +81,8 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     write_text(species_root / "README.md", _render_species_root_readme(species_name))
     write_json(raw_root / "archive_inventory.json", _archive_inventory_payload(archive_projects))
     write_text(raw_root / "archive_inventory.csv", _render_archive_inventory_csv(archive_projects))
+    write_json(raw_root / "source_snapshot.json", _source_snapshot_payload(species_name))
+    write_text(raw_root / "source_snapshot.csv", _render_source_snapshot_csv(species_name))
     write_text(
         normalized_root / "project_summaries.csv",
         _render_project_summaries_csv(normalization_bundle),
@@ -111,8 +117,18 @@ def _archive_inventory_payload(archive_projects: tuple[object, ...]) -> dict[str
     for project in archive_projects:
         payload = project.as_dict()
         payload["evidence_strength"] = classify_archive_project_evidence(project)
+        payload["source_snapshot"] = resolve_archive_source_snapshot(project).as_dict()
         projects.append(payload)
     return {"projects": projects}
+
+
+def _source_snapshot_payload(species_name: str) -> dict[str, object]:
+    snapshots = build_species_source_snapshots(species_name)
+    return {
+        "schema_version": "adna-species-source-snapshot.v1",
+        "species_latin_name": resolve_species_definition(species_name).latin_name,
+        "projects": [snapshot.as_dict() for snapshot in snapshots],
+    }
 
 
 def _support_summary_payload(
@@ -139,6 +155,10 @@ def _render_archive_inventory_csv(archive_projects: tuple[object, ...]) -> str:
         "source_family",
         "accession_scope",
         "result_kind",
+        "source_title",
+        "source_description",
+        "source_title_basis",
+        "source_description_basis",
         "archive_status",
         "evidence_strength",
         "ancient_status",
@@ -159,6 +179,7 @@ def _render_archive_inventory_csv(archive_projects: tuple[object, ...]) -> str:
     rows = []
     for project in archive_projects:
         linkage = project.paper_linkage
+        source_snapshot = resolve_archive_source_snapshot(project)
         rows.append(
             {
                 "species_latin_name": project.species_latin_name,
@@ -166,6 +187,10 @@ def _render_archive_inventory_csv(archive_projects: tuple[object, ...]) -> str:
                 "source_family": project.source_family,
                 "accession_scope": project.accession_scope,
                 "result_kind": project.result_kind,
+                "source_title": source_snapshot.source_title,
+                "source_description": source_snapshot.source_description,
+                "source_title_basis": source_snapshot.title_basis,
+                "source_description_basis": source_snapshot.description_basis,
                 "archive_status": project.archive_status,
                 "evidence_strength": classify_archive_project_evidence(project),
                 "ancient_status": project.ancient_status,
@@ -188,6 +213,22 @@ def _render_archive_inventory_csv(archive_projects: tuple[object, ...]) -> str:
                 "notes": project.notes,
             }
         )
+    return _render_csv(fieldnames, rows)
+
+
+def _render_source_snapshot_csv(species_name: str) -> str:
+    fieldnames = (
+        "project_accession",
+        "source_family",
+        "result_kind",
+        "metadata_url",
+        "source_title",
+        "source_description",
+        "title_basis",
+        "description_basis",
+        "captured_on",
+    )
+    rows = [snapshot.as_dict() for snapshot in build_species_source_snapshots(species_name)]
     return _render_csv(fieldnames, rows)
 
 
@@ -306,7 +347,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts, `normalized/` keeps project-level normalized outputs, "
+        "inventory artifacts and source wording snapshots, `normalized/` keeps project-level normalized outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
         "summaries, and `review/` keeps reader-facing review packets.\n"
     )
