@@ -142,7 +142,7 @@
       "locality_identity": {
         "namespace": "equus_caballus:sample_locality",
         "stable_token": "equus_caballus:sample-site:prjeb22390",
-        "locality_text": "Botai culture steppe context",
+        "locality_text": "Botai archaeological site horse context",
         "political_entity": "Kazakhstan",
         "source_anchor_tokens": [
           "PRJEB22390",
@@ -158,7 +158,7 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "PRJEB22390",
       "group_id": "PRJEB22390",
-      "locality": "Botai culture steppe context",
+      "locality": "Botai archaeological site horse context",
       "political_entity": "Kazakhstan",
       "coordinates": {
         "latitude": 52.99,
@@ -188,7 +188,7 @@
       "paper_url": "https://doi.org/10.1126/science.aao3297",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "Botai is the current horse anchor because the paper explicitly states the husbandry context and the repo already maps it at site-level resolution.",
+      "inclusion_note": "Botai remains the only clearly named domesticated-core horse site that currently earns point-level publication.",
       "sample_basis": "project_accession_anchor"
     },
     {

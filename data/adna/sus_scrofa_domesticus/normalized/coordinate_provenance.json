@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Sus scrofa domesticus",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "site_label": "Near East and Europe pig domestication transect",
+      "original_place_text": "Near East and Europe pig domestication transect",
+      "resolved_place_text": "Near East to Europe regional study extent",
+      "political_entity": "Turkey and Europe",
+      "source_artifact_path": "adna/source_library/papers/10.1073-pnas.1901169116/article.html",
+      "source_locator": "abstract",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_regional_extent_retention",
+      "geocoder_or_gazetteer": "not applied because the current lead is transregional",
+      "confidence_rationale": "The archived source supports a domestication transect across the Near East and Europe rather than one site, so point-level mapping would bluff precision.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "paper_url": "https://doi.org/10.1073/pnas.1901169116",
+      "supplementary_source": "",
+      "chronology_text": "~10500-6000 BP pig turnover transect",
+      "time_start_bp": 6000,
+      "time_end_bp": 10500,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "Region-level pig turnover evidence is kept as non-mappable context until site rows exist.",
+      "support_gap_note": "The current pig lead is explicitly regional and therefore refused from point publication."
+    }
+  ]
+}

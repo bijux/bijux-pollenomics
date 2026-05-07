@@ -161,11 +161,11 @@
       "locality": "Lake Qinghai Basin ancient goat context",
       "political_entity": "Qinghai, China",
       "coordinates": {
-        "latitude": 36.9,
-        "longitude": 100.1,
-        "latitude_text": "36.90",
-        "longitude_text": "100.10",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "publication": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
       "year_first_published": "2025",
@@ -188,7 +188,7 @@
       "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
+      "inclusion_note": "The goat lead is paper-backed but still basin-level geography.",
       "sample_basis": "project_accession_anchor"
     }
   ]

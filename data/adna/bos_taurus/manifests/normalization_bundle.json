@@ -196,11 +196,11 @@
       "locality": "Galician mountain cave cattle context",
       "political_entity": "Galicia, Spain",
       "coordinates": {
-        "latitude": 42.75,
-        "longitude": -8.75,
-        "latitude_text": "42.75",
-        "longitude_text": "-8.75",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "publication": "",
       "year_first_published": "",
@@ -223,8 +223,40 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
+      "inclusion_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
       "sample_basis": "project_accession_anchor"
+    }
+  ],
+  "coordinate_provenance_records": [
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "site_label": "Galician mountain cave cattle context",
+      "original_place_text": "different mountain caves in Galicia",
+      "resolved_place_text": "Galicia, Spain",
+      "political_entity": "Galicia, Spain",
+      "source_artifact_path": "adna/source_library/projects/PRJNA705960/archive_metadata.html",
+      "source_locator": "source description snapshot",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_region_resolution_from_archive_description",
+      "geocoder_or_gazetteer": "not applied because the archive describes multiple caves",
+      "confidence_rationale": "The current local evidence names a multi-cave Galician context rather than one site, so the row stays refused from point mapping.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "chronology_text": "Neolithic to later Galician cattle sequence",
+      "time_start_bp": 1500,
+      "time_end_bp": 7000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core_with_progenitor_boundary",
+      "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
+      "support_gap_note": "Primary paper linkage is still missing locally, and the archive description only supports regional Galicia context."
     }
   ],
   "site_evidence_records": [
@@ -264,8 +296,8 @@
         "political_entity": "Galicia, Spain",
         "source_anchor_tokens": [
           "PRJNA705960",
-          "42.75",
-          "-8.75"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Bos taurus",
@@ -285,11 +317,11 @@
       ],
       "locality": "Galician mountain cave cattle context",
       "coordinates": {
-        "latitude": 42.75,
-        "longitude": -8.75,
-        "latitude_text": "42.75",
-        "longitude_text": "-8.75",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -313,7 +345,7 @@
       "original_location_text": "Galician mountain cave cattle context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally."
+      "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision."
     }
   ],
   "project_summaries": [

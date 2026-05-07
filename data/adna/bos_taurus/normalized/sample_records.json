@@ -161,11 +161,11 @@
       "locality": "Galician mountain cave cattle context",
       "political_entity": "Galicia, Spain",
       "coordinates": {
-        "latitude": 42.75,
-        "longitude": -8.75,
-        "latitude_text": "42.75",
-        "longitude_text": "-8.75",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "publication": "",
       "year_first_published": "",
@@ -188,7 +188,7 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
+      "inclusion_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
       "sample_basis": "project_accession_anchor"
     }
   ]

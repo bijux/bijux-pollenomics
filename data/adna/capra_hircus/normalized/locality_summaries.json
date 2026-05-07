@@ -10,8 +10,8 @@
         "political_entity": "Qinghai, China",
         "source_anchor_tokens": [
           "PRJNA1328209",
-          "36.90",
-          "100.10"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Capra hircus",
@@ -31,11 +31,11 @@
       ],
       "locality": "Lake Qinghai Basin ancient goat context",
       "coordinates": {
-        "latitude": 36.9,
-        "longitude": 100.1,
-        "latitude_text": "36.90",
-        "longitude_text": "100.10",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Lake Qinghai Basin ancient goat context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context."
+      "interpretation_note": "The goat lead is paper-backed but still basin-level geography."
     }
   ]
 }

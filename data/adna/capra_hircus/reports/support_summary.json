@@ -442,11 +442,11 @@
         "locality": "Lake Qinghai Basin ancient goat context",
         "political_entity": "Qinghai, China",
         "coordinates": {
-          "latitude": 36.9,
-          "longitude": 100.1,
-          "latitude_text": "36.90",
-          "longitude_text": "100.10",
-          "confidence": "approximate"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "publication": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
         "year_first_published": "2025",
@@ -469,8 +469,40 @@
         "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
+        "inclusion_note": "The goat lead is paper-backed but still basin-level geography.",
         "sample_basis": "project_accession_anchor"
+      }
+    ],
+    "coordinate_provenance_records": [
+      {
+        "project_accession": "PRJNA1328209",
+        "species_latin_name": "Capra hircus",
+        "species_common_name": "goat",
+        "site_label": "Lake Qinghai Basin ancient goat context",
+        "original_place_text": "Lake Qinghai Basin",
+        "resolved_place_text": "Lake Qinghai Basin, Qinghai-Xizang Plateau",
+        "political_entity": "Qinghai, China",
+        "source_artifact_path": "adna/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+        "source_locator": "title and keywords",
+        "coordinate_basis": "region_centroid_fallback",
+        "mapping_posture": "refused_region_only",
+        "latitude_text": "",
+        "longitude_text": "",
+        "geocoding_method": "manual_regional_basin_retention",
+        "geocoder_or_gazetteer": "not applied because the current lead is basin-level",
+        "confidence_rationale": "The current local source names the Lake Qinghai Basin rather than one excavation site, so point mapping would overstate precision.",
+        "coordinate_confidence": "withheld",
+        "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+        "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+        "supplementary_source": "",
+        "chronology_text": "Approximately 3600 BP ancient goats",
+        "time_start_bp": 3500,
+        "time_end_bp": 3700,
+        "dating_basis": "bp_window",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "The goat lead is paper-backed but still basin-level geography.",
+        "support_gap_note": "The local paper capture supports region-level place naming rather than an excavation-grade site point."
       }
     ],
     "site_evidence_records": [
@@ -510,8 +542,8 @@
           "political_entity": "Qinghai, China",
           "source_anchor_tokens": [
             "PRJNA1328209",
-            "36.90",
-            "100.10"
+            "",
+            ""
           ]
         },
         "species_latin_name": "Capra hircus",
@@ -531,11 +563,11 @@
         ],
         "locality": "Lake Qinghai Basin ancient goat context",
         "coordinates": {
-          "latitude": 36.9,
-          "longitude": 100.1,
-          "latitude_text": "36.90",
-          "longitude_text": "100.10",
-          "confidence": "approximate"
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
         },
         "sample_count": 1,
         "sample_ids": [
@@ -559,7 +591,7 @@
         "original_location_text": "Lake Qinghai Basin ancient goat context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context."
+        "interpretation_note": "The goat lead is paper-backed but still basin-level geography."
       }
     ],
     "project_summaries": [

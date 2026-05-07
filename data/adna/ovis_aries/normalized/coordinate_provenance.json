@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Ovis aries",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "site_label": "Baltic Sea Region short-tailed sheep context",
+      "original_place_text": "Baltic Sea Region short-tailed sheep context",
+      "resolved_place_text": "Baltic Sea Region",
+      "political_entity": "Baltic Sea Region",
+      "source_artifact_path": "adna/source_library/papers/10.1093-gbe-evae114/crossref.json",
+      "source_locator": "title",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_regional_extent_retention",
+      "geocoder_or_gazetteer": "not applied because the current lead is regional",
+      "confidence_rationale": "The local source archive currently supports Baltic-region posture, not one named sheep excavation site with defensible coordinates.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "10.1093/gbe/evae114",
+      "paper_url": "https://doi.org/10.1093/gbe/evae114",
+      "supplementary_source": "",
+      "chronology_text": "Four millennia of Baltic sheep history",
+      "time_start_bp": 0,
+      "time_end_bp": 4000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready.",
+      "support_gap_note": "A readable local article or parsed supplement table is still missing for exact site extraction."
+    }
+  ]
+}
