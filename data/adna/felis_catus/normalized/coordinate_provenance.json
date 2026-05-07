@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Felis catus",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "site_label": "North Africa to Europe domestic cat dispersal transect",
+      "original_place_text": "North Africa to Europe domestic cat dispersal transect",
+      "resolved_place_text": "North Africa to Europe dispersal extent",
+      "political_entity": "North Africa and Europe",
+      "source_artifact_path": "adna/source_library/papers/10.1126-science.adt2642/article.html",
+      "source_locator": "discussion text",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_regional_extent_retention",
+      "geocoder_or_gazetteer": "not applied because the current lead is a dispersal transect",
+      "confidence_rationale": "The source supports a North Africa to Europe dispersal process, not one cat excavation point.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "10.1126/science.adt2642",
+      "paper_url": "https://doi.org/10.1126/science.adt2642",
+      "supplementary_source": "",
+      "chronology_text": "Holocene cat dispersal across North Africa and Europe",
+      "time_start_bp": 1200,
+      "time_end_bp": 4000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead.",
+      "support_gap_note": "The current cat row is explicitly transregional and therefore refused from point publication."
+    }
+  ]
+}

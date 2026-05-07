@@ -10,8 +10,8 @@
         "political_entity": "Central Europe",
         "source_anchor_tokens": [
           "SRS1407451",
-          "50.00",
-          "10.00"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Canis lupus familiaris",
@@ -31,11 +31,11 @@
       ],
       "locality": "Ancient European dog CTC sample context",
       "coordinates": {
-        "latitude": 50.0,
-        "longitude": 10.0,
-        "latitude_text": "50.00",
-        "longitude_text": "10.00",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Ancient European dog CTC sample context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-      "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added."
+      "interpretation_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows."
     }
   ]
 }

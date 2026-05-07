@@ -10,8 +10,8 @@
         "political_entity": "North Africa and Europe",
         "source_anchor_tokens": [
           "PRJEB81815",
-          "37.00",
-          "15.00"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Felis catus",
@@ -31,11 +31,11 @@
       ],
       "locality": "North Africa to Europe domestic cat dispersal transect",
       "coordinates": {
-        "latitude": 37.0,
-        "longitude": 15.0,
-        "latitude_text": "37.00",
-        "longitude_text": "15.00",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "North Africa to Europe domestic cat dispersal transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level."
+      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead."
     }
   ]
 }

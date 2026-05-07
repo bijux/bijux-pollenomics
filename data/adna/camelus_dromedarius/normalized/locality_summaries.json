@@ -6,12 +6,12 @@
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
         "stable_token": "camelus_dromedarius:project-locality:srp073444",
-        "locality_text": "Arabian Peninsula and Levant dromedary context",
-        "political_entity": "Arabian Peninsula and Levant",
+        "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+        "political_entity": "Sudan",
         "source_anchor_tokens": [
           "SRP073444",
-          "25.00",
-          "45.00"
+          "21.799142",
+          "31.371316"
         ]
       },
       "species_latin_name": "Camelus dromedarius",
@@ -29,13 +29,13 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Arabian Peninsula and Levant dromedary context",
+      "locality": "Site 1040 near Wadi Halfa dromedary context",
       "coordinates": {
-        "latitude": 25.0,
-        "longitude": 45.0,
-        "latitude_text": "25.00",
-        "longitude_text": "45.00",
-        "confidence": "inferred"
+        "latitude": 21.799142,
+        "longitude": 31.371316,
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "confidence": "approximate"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -56,10 +56,10 @@
       "project_accessions": [
         "SRP073444"
       ],
-      "original_location_text": "Arabian Peninsula and Levant dromedary context",
+      "original_location_text": "Site 1040 near Wadi Halfa dromedary context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point."
+      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
     }
   ]
 }
