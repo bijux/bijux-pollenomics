@@ -6,11 +6,17 @@ from pathlib import Path
 
 from ..core.files import write_json, write_text
 from .catalogs import (
+    build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
     build_cross_species_bibliography,
     build_cross_species_coverage_dashboard,
+    build_cross_species_map_readiness,
+    build_overbroad_site_ledger,
     build_shipped_adna_product_audit,
     build_species_freshness_table,
+    build_unresolved_site_ledger,
+    render_coordinate_caveat_surface_markdown,
+    render_coordinate_confidence_scale_markdown,
     render_csv_rows,
 )
 from .curation import build_species_curation_manifest
@@ -92,6 +98,14 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     write_json(
         normalized_root / "sample_records.json",
         _sample_records_payload(normalization_bundle),
+    )
+    write_text(
+        normalized_root / "coordinate_provenance.csv",
+        _render_coordinate_provenance_csv(normalization_bundle),
+    )
+    write_json(
+        normalized_root / "coordinate_provenance.json",
+        _coordinate_provenance_payload(normalization_bundle),
     )
     write_text(
         normalized_root / "site_evidence.csv",
@@ -536,6 +550,90 @@ def _site_evidence_payload(bundle: object) -> dict[str, object]:
     }
 
 
+def _render_coordinate_provenance_csv(bundle: object) -> str:
+    fieldnames = (
+        "project_accession",
+        "species_latin_name",
+        "species_common_name",
+        "site_label",
+        "original_place_text",
+        "resolved_place_text",
+        "political_entity",
+        "source_artifact_path",
+        "source_locator",
+        "coordinate_basis",
+        "mapping_posture",
+        "latitude_text",
+        "longitude_text",
+        "geocoding_method",
+        "geocoder_or_gazetteer",
+        "confidence_rationale",
+        "coordinate_confidence",
+        "paper_doi",
+        "paper_url",
+        "supplementary_source",
+        "chronology_text",
+        "time_start_bp",
+        "time_end_bp",
+        "dating_basis",
+        "comparator_context",
+        "domestication_context",
+        "interpretation_note",
+        "support_gap_note",
+    )
+    rows = []
+    for record in bundle.coordinate_provenance_records:
+        rows.append(
+            {
+                "project_accession": record.project_accession,
+                "species_latin_name": record.species_latin_name,
+                "species_common_name": record.species_common_name,
+                "site_label": record.site_label,
+                "original_place_text": record.original_place_text,
+                "resolved_place_text": record.resolved_place_text,
+                "political_entity": ""
+                if record.political_entity is None
+                else record.political_entity,
+                "source_artifact_path": record.source_artifact_path,
+                "source_locator": record.source_locator,
+                "coordinate_basis": record.coordinate_basis,
+                "mapping_posture": record.mapping_posture,
+                "latitude_text": record.latitude_text,
+                "longitude_text": record.longitude_text,
+                "geocoding_method": record.geocoding_method,
+                "geocoder_or_gazetteer": record.geocoder_or_gazetteer,
+                "confidence_rationale": record.confidence_rationale,
+                "coordinate_confidence": record.coordinate_confidence,
+                "paper_doi": record.paper_doi,
+                "paper_url": record.paper_url,
+                "supplementary_source": record.supplementary_source,
+                "chronology_text": record.chronology_text,
+                "time_start_bp": ""
+                if record.time_start_bp is None
+                else record.time_start_bp,
+                "time_end_bp": ""
+                if record.time_end_bp is None
+                else record.time_end_bp,
+                "dating_basis": record.dating_basis,
+                "comparator_context": str(record.comparator_context).lower(),
+                "domestication_context": record.domestication_context,
+                "interpretation_note": record.interpretation_note,
+                "support_gap_note": record.support_gap_note,
+            }
+        )
+    return _render_csv(fieldnames, rows)
+
+
+def _coordinate_provenance_payload(bundle: object) -> dict[str, object]:
+    return {
+        "schema_version": "adna-coordinate-provenance-export.v1",
+        "species_latin_name": bundle.species.latin_name,
+        "coordinate_provenance": [
+            record.as_dict() for record in bundle.coordinate_provenance_records
+        ],
+    }
+
+
 def _render_locality_summaries_csv(bundle: object) -> str:
     fieldnames = (
         "locality_token",
@@ -626,7 +724,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, project-level, and locality-level normalized outputs, "
+        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, coordinate-provenance, site-evidence, project-level, and locality-level normalized outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
         "summaries, and `review/` keeps reader-facing review packets.\n"
     )
@@ -754,6 +852,10 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     freshness_rows = build_species_freshness_table()
     coverage_dashboard = build_cross_species_coverage_dashboard(output_root, report_root)
     product_audit = build_shipped_adna_product_audit(output_root, report_root)
+    map_readiness = build_cross_species_map_readiness(output_root)
+    unresolved_site_ledger = build_unresolved_site_ledger(output_root)
+    overbroad_site_ledger = build_overbroad_site_ledger(output_root)
+    coordinate_caveat_surface = build_coordinate_caveat_surface(output_root)
     write_json(
         adna_root / "cross_species_bibliography.json",
         {"schema_version": "adna-cross-species-bibliography.v1", "rows": bibliography_rows},
@@ -781,3 +883,33 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
         render_csv_rows(tuple(coverage_dashboard["rows"])),
     )
     write_json(adna_root / "shipped_product_audit.json", product_audit)
+    write_json(adna_root / "cross_species_map_readiness.json", map_readiness)
+    write_text(
+        adna_root / "cross_species_map_readiness.csv",
+        render_csv_rows(tuple(map_readiness["rows"])),
+    )
+    write_json(
+        adna_root / "unresolved_site_ledger.json",
+        {"schema_version": "adna-unresolved-site-ledger.v1", "rows": unresolved_site_ledger},
+    )
+    write_text(
+        adna_root / "unresolved_site_ledger.csv",
+        render_csv_rows(unresolved_site_ledger),
+    )
+    write_json(
+        adna_root / "overbroad_site_ledger.json",
+        {"schema_version": "adna-overbroad-site-ledger.v1", "rows": overbroad_site_ledger},
+    )
+    write_text(
+        adna_root / "overbroad_site_ledger.csv",
+        render_csv_rows(overbroad_site_ledger),
+    )
+    write_json(adna_root / "coordinate_caveat_surface.json", coordinate_caveat_surface)
+    write_text(
+        adna_root / "coordinate_caveat_surface.md",
+        render_coordinate_caveat_surface_markdown(coordinate_caveat_surface),
+    )
+    write_text(
+        adna_root / "coordinate_confidence_scale.md",
+        render_coordinate_confidence_scale_markdown(),
+    )
