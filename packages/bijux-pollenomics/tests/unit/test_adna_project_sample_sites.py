@@ -1,0 +1,62 @@
+from __future__ import annotations
+
+from pathlib import Path
+import unittest
+
+from bijux_pollenomics.adna.project_sample_sites import (
+    build_project_sample_site_review_rows,
+    build_project_sample_site_rows,
+    build_sample_site_ambiguity_ledger,
+    build_sample_site_manual_curation_queue,
+)
+
+
+class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.data_root = Path(__file__).resolve().parents[4] / "data"
+
+    def test_sheep_project_sample_sites_keep_direct_rows_and_hierarchy(self) -> None:
+        rows = build_project_sample_site_rows(self.data_root, "PRJEB36540")
+
+        self.assertGreater(len(rows), 10)
+        first = next(row for row in rows if row.locality_text == "Barcın Höyük")
+        self.assertEqual(first.locality_resolution_status, "direct_sample_site")
+        self.assertEqual(first.location_evidence_artifact_kind, "supplementary_spreadsheet_row")
+        self.assertEqual(first.country_name, "Turkey")
+        self.assertEqual(first.region_name, "Bursa Province")
+
+    def test_region_scale_projects_stay_visible_as_weak_sample_site_rows(self) -> None:
+        rows = build_project_sample_site_rows(self.data_root, "SRS1407451")
+
+        self.assertTrue(rows)
+        self.assertTrue(all(row.locality_resolution_status == "region_only" for row in rows))
+        self.assertTrue(all("broad contextual centroid" in row.review_note.lower() or "region" in row.review_note.lower() for row in rows))
+
+    def test_review_rows_ambiguity_ledger_and_manual_queue_stay_reader_visible(self) -> None:
+        review_rows = build_project_sample_site_review_rows(self.data_root)
+        ambiguity_rows = build_sample_site_ambiguity_ledger(self.data_root)
+        queue_rows = build_sample_site_manual_curation_queue(self.data_root)
+
+        self.assertEqual(len(review_rows), 40)
+        sheep_review = next(row for row in review_rows if row["project_accession"] == "PRJEB36540")
+        self.assertGreater(sheep_review["direct_sample_site_count"], 10)
+        self.assertEqual(sheep_review["lacking_defensible_site_assignment_count"], 0)
+
+        self.assertTrue(
+            any(
+                row["project_accession"] == "SRS1407451"
+                and row["locality_resolution_status"] == "region_only"
+                for row in ambiguity_rows
+            )
+        )
+        self.assertTrue(
+            any(
+                row["project_accession"] == "SRS1407451"
+                and row["queued_sample_count"] > 0
+                for row in queue_rows
+            )
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -1087,9 +1087,11 @@ def materialize_source_library(output_root: Path) -> None:
         )
         write_text(paper_dir / "supplementary_manifest.csv", _render_csv(manifest_rows))
 
+    from .project_sample_sites import materialize_project_sample_site_library
     from .sample_master import materialize_sample_master_library
 
     materialize_sample_master_library(output_root)
+    materialize_project_sample_site_library(output_root)
 
 
 def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
@@ -1258,6 +1260,11 @@ def _render_tracked_project_and_paper_inventory(
         "# Tracked animal aDNA project and paper inventory\n\n"
         f"- Tracked projects: `{len(project_registry)}`\n"
         f"- Tracked papers: `{len(paper_registry)}`\n\n"
+        "## Materialized source-library artifacts\n\n"
+        "- Cross-project sample-master completeness: `project_sample_master_completeness.json`\n"
+        "- Per-project sample masters: `projects/<project_accession>/sample_master.json`\n"
+        "- Cross-project sample-site review: `project_sample_site_review.json`\n"
+        "- Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`\n\n"
         "## Projects\n\n"
         "| Species | Project accession | Archive status | Inventory disposition | Expected sample count | Sample count status | Primary paper DOI |\n"
         "| --- | --- | --- | --- | ---: | --- | --- |\n"
