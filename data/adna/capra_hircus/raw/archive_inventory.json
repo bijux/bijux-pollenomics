@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": "2025-12-31",
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB90141",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90141&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "VarGoats – Detection of domestic and wild goat variants",
+        "source_description": "Identification of Variations in Goat genomes related to domestication and adaptation",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Capra hircus",
@@ -56,7 +67,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB90261",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90261&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Paleogenomic analysis of complete mitochondrial DNA sequences from ancient goats from the Canary Islands",
+        "source_description": "Archaeological and human paleogenomic evidence gathered on the indigenous people of the Canary Islands have showed that their geographical origin was North Africa. Radiocarbon data also indicate that, excluding the temporal occupation of the islet of Lobos by Romans (1st century BCE – 1st century CE), the archipelago was permanently colonized from 2nd – 3rd century CE by Amazigh communities. The Canary Islands were seemingly forgotten in the following centuries by Western societies, until the beginning of the European Age of Exploration in the 14th century. An alternative approach to study the people of the Canary Island is analyzing the domesticates that they introduced in the archipelago. In this study, we present 52 complete mitogenomes of ancient Canarian goats, encompassing samples from the Roman site of Lobos, the indigenous occupation phase and the colonial period of the archipelago. We observe that the mitogenomes present in indigenous goats are classified in two haplogroup A clades associated to Middle Eastern and North African goats, consistent with a North African origin for the indigenous population of the Canaries. The median-joining network has a star shape, with two basal haplogroups present in all islands and a subsequent radiation of isolated haplotypes, suggesting a founder effect in the Canary Islands. The indigenous goats show low matrilineal diversity and mostly non-shared derived lineages between islands, both pointing to a lack of gene flow. Interestingly, the goats from Lobos share the same haplotypes as the indigenous population indicating that the Roman and Amazigh settlements briefly overlapped and the goats in Lobos were most probably taken from the neighboring islands. We also detect temporal continuity in the mitochondrial DNA composition from the indigenous period to the colonial society and present-day goats, suggesting European settlers exploited this well-adapted species and the indigenous management knowledge.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Capra hircus",
@@ -85,7 +107,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJNA1328209",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1328209&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Approximately 3,600-year-old genomic data from ancient goat populations in the Lake Qinghai Basin.",
+        "source_description": "we generated ancient genomic data from five goat individuals dating back approximately 3,600 years before present (BP) in the Lake Qinghai Basin.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }
