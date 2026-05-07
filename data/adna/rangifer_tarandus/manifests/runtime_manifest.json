@@ -49,6 +49,6 @@
       "provenance_quality": "archive_project_catalog"
     }
   ],
-  "analysis_boundary": "Ancient material is curated only as comparator support and must not be flattened into domesticated-core inference. Normalized runtime ingestion is not yet implemented for this species.",
+  "analysis_boundary": "Ancient material is curated only as comparator support and must not be flattened into domesticated-core inference. Normalized runtime ingestion is not yet fully implemented for this species; curated accession-backed sample loading is available, while site extraction and richer runtime ingestion remain incomplete.",
   "runtime_ready": false
 }
