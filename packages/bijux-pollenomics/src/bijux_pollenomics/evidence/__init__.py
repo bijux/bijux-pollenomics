@@ -11,8 +11,20 @@ from .models import (
 )
 from .reporting import (
     build_atlas_evidence_surface_payload,
+    build_scientific_review_surface_payload,
     render_atlas_evidence_surface_markdown,
+    render_scientific_review_surface_markdown,
     write_atlas_evidence_surface_json,
+    write_scientific_review_surface_json,
+)
+from .scientific_review import (
+    ChronologyOverlapRow,
+    EvidenceUncertaintyRow,
+    NordicScenarioAssessment,
+    ScientificReviewSurface,
+    SpeciesCountryCoverageRow,
+    SpeciesPeriodCoverageRow,
+    build_scientific_review_surface,
 )
 from .surfaces import build_atlas_evidence_surface
 
@@ -24,8 +36,18 @@ __all__ = [
     "AtlasEvidenceRefusal",
     "AtlasEvidenceSpeciesRow",
     "AtlasEvidenceSurface",
+    "ChronologyOverlapRow",
+    "EvidenceUncertaintyRow",
+    "NordicScenarioAssessment",
+    "ScientificReviewSurface",
+    "SpeciesCountryCoverageRow",
+    "SpeciesPeriodCoverageRow",
     "build_atlas_evidence_surface",
     "build_atlas_evidence_surface_payload",
+    "build_scientific_review_surface_payload",
+    "build_scientific_review_surface",
     "render_atlas_evidence_surface_markdown",
+    "render_scientific_review_surface_markdown",
+    "write_scientific_review_surface_json",
     "write_atlas_evidence_surface_json",
 ]
