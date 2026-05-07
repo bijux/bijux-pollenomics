@@ -36,6 +36,11 @@ def build_multi_country_map_summary(
                 "comparator_animal_localities_geojson": (
                     bundle_paths.comparator_animal_localities_geojson_path.name
                 ),
+                "animal_atlas_evidence_csv": bundle_paths.animal_atlas_evidence_csv_path.name,
+                "animal_atlas_evidence_json": bundle_paths.animal_atlas_evidence_json_path.name,
+                "animal_point_traceability_json": (
+                    bundle_paths.animal_point_traceability_json_path.name
+                ),
             }
         )
     return {
@@ -89,6 +94,11 @@ def build_multi_country_bundle_manifest(
                 ),
                 "comparator_animal_localities_geojson": (
                     bundle_paths.comparator_animal_localities_geojson_path.name
+                ),
+                "animal_atlas_evidence_csv": bundle_paths.animal_atlas_evidence_csv_path.name,
+                "animal_atlas_evidence_json": bundle_paths.animal_atlas_evidence_json_path.name,
+                "animal_point_traceability_json": (
+                    bundle_paths.animal_point_traceability_json_path.name
                 ),
             }
         )
