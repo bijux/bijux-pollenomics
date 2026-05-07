@@ -11,6 +11,7 @@
 - Geocoded rows: `1`
 - Unresolved sample rows: `7`
 - Mapped Nordic rows: `0`
+- Tracked intake projects: `8`
 - Pending projects: `3`
 - Rejected projects: `1`
 
