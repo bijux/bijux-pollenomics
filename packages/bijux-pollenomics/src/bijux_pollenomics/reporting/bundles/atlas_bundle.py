@@ -18,8 +18,11 @@ from ...core.geojson import JsonObject
 from ...data_downloader.models import ContextPointRecord
 from ...evidence import (
     build_atlas_evidence_surface,
+    build_scientific_review_surface,
     render_atlas_evidence_surface_markdown,
+    render_scientific_review_surface_markdown,
     write_atlas_evidence_surface_json,
+    write_scientific_review_surface_json,
 )
 from ..aadr import summarize_localities
 from ..models import MultiCountryMapReport, SampleRecord
@@ -82,6 +85,19 @@ def publish_multi_country_map_bundle(
         render_atlas_evidence_surface_markdown(evidence_surface),
         encoding="utf-8",
     )
+    scientific_review = build_scientific_review_surface(
+        countries=countries,
+        human_localities=summarized_localities,
+        context_points=context_points,
+    )
+    write_scientific_review_surface_json(
+        bundle_paths.scientific_review_json_path,
+        scientific_review,
+    )
+    bundle_paths.scientific_review_markdown_path.write_text(
+        render_scientific_review_surface_markdown(scientific_review),
+        encoding="utf-8",
+    )
     ranked_sites = rank_localities(
         summarized_localities,
         context_points,
@@ -137,6 +153,14 @@ def publish_multi_country_map_bundle(
             (
                 "Atlas evidence surface markdown",
                 bundle_paths.evidence_surface_markdown_path.name,
+            ),
+            (
+                "Atlas scientific review JSON",
+                bundle_paths.scientific_review_json_path.name,
+            ),
+            (
+                "Atlas scientific review markdown",
+                bundle_paths.scientific_review_markdown_path.name,
             ),
         ]
     )

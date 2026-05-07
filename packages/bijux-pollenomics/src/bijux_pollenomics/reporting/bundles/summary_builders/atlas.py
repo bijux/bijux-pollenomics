@@ -27,6 +27,8 @@ def build_multi_country_map_summary(
             "samples_geojson": bundle_paths.samples_geojson_path.name,
             "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
             "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
+            "scientific_review_json": bundle_paths.scientific_review_json_path.name,
+            "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
             "summary_json": bundle_paths.summary_json_path.name,
             "extra_files": [
                 {"label": label, "filename": filename}
@@ -65,6 +67,8 @@ def build_multi_country_bundle_manifest(
             "candidate_ranking_engine_manifest": bundle_paths.candidate_ranking_engine_manifest_path.name,
             "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
             "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
+            "scientific_review_json": bundle_paths.scientific_review_json_path.name,
+            "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
             "summary_json": bundle_paths.summary_json_path.name,
             "extra_files": [
                 {"label": label, "filename": filename}

@@ -44,6 +44,8 @@ class AtlasBundlePaths:
     candidate_ranking_engine_manifest_path: Path
     evidence_surface_json_path: Path
     evidence_surface_markdown_path: Path
+    scientific_review_json_path: Path
+    scientific_review_markdown_path: Path
     summary_json_path: Path
 
 
@@ -95,5 +97,8 @@ def build_atlas_bundle_paths(
         evidence_surface_json_path=output_dir / f"{atlas_slug}_evidence_surface.json",
         evidence_surface_markdown_path=output_dir
         / f"{atlas_slug}_evidence_surface.md",
+        scientific_review_json_path=output_dir / f"{atlas_slug}_scientific_review.json",
+        scientific_review_markdown_path=output_dir
+        / f"{atlas_slug}_scientific_review.md",
         summary_json_path=output_dir / f"{atlas_slug}_summary.json",
     )

@@ -85,6 +85,14 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_evidence_surface.md",
         )
         self.assertEqual(
+            atlas_paths.scientific_review_json_path.name,
+            "nordic-atlas_scientific_review.json",
+        )
+        self.assertEqual(
+            atlas_paths.scientific_review_markdown_path.name,
+            "nordic-atlas_scientific_review.md",
+        )
+        self.assertEqual(
             atlas_paths.bundle_manifest_path.name, "nordic-atlas_bundle.json"
         )
         self.assertEqual(
@@ -470,6 +478,8 @@ class CountryReportTests(unittest.TestCase):
             )
             self.assertTrue((output / "nordic-atlas_evidence_surface.json").exists())
             self.assertTrue((output / "nordic-atlas_evidence_surface.md").exists())
+            self.assertTrue((output / "nordic-atlas_scientific_review.json").exists())
+            self.assertTrue((output / "nordic-atlas_scientific_review.md").exists())
             self.assertTrue((output / "nordic-atlas_bundle.json").exists())
             self.assertTrue((output / "nordic-atlas_summary.json").exists())
             self.assertTrue(
@@ -591,8 +601,16 @@ class CountryReportTests(unittest.TestCase):
                 "nordic-atlas_evidence_surface.md",
             )
             self.assertEqual(
+                summary["artifacts"]["scientific_review_json"],
+                "nordic-atlas_scientific_review.json",
+            )
+            self.assertEqual(
+                summary["artifacts"]["scientific_review_markdown"],
+                "nordic-atlas_scientific_review.md",
+            )
+            self.assertEqual(
                 summary["artifacts"]["extra_files"][-1]["filename"],
-                "nordic-atlas_evidence_surface.md",
+                "nordic-atlas_scientific_review.md",
             )
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:

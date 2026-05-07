@@ -80,6 +80,8 @@ def build_ranking_engine_manifest() -> RankingEngineManifest:
             "candidate_ranking_engine_manifest_json",
             "atlas_evidence_surface_json",
             "atlas_evidence_surface_markdown",
+            "atlas_scientific_review_json",
+            "atlas_scientific_review_markdown",
         ),
         recommendation_gate_statement=(
             "No output counts as a sampling recommendation unless the "

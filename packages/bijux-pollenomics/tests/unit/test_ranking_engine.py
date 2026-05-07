@@ -21,6 +21,7 @@ def test_ranking_engine_manifest_states_future_lake_selection_requirements() -> 
         for requirement in manifest.future_lake_selection_requirements
     )
     assert "atlas_evidence_surface_json" in manifest.current_artifacts
+    assert "atlas_scientific_review_json" in manifest.current_artifacts
 
 
 def test_candidate_site_sensitivity_markdown_renders_table() -> None:
