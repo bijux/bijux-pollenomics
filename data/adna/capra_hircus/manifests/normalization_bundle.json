@@ -222,8 +222,36 @@
       "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence.",
+      "inclusion_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
       "sample_basis": "project_accession_anchor"
+    }
+  ],
+  "site_evidence_records": [
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "site_label": "Lake Qinghai Basin ancient goat context",
+      "political_entity": "Qinghai, China",
+      "source_artifact_path": "adna/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "source_artifact_kind": "article_html_title_and_keywords",
+      "source_locator": "title and keywords",
+      "exact_source_text": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago.",
+      "source_support_status": "title_support",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+      "supplementary_source": "",
+      "coordinate_basis": "site_level_localities",
+      "latitude_text": "36.90",
+      "longitude_text": "100.10",
+      "chronology_text": "Approximately 3600 BP ancient goats",
+      "time_start_bp": 3500,
+      "time_end_bp": 3700,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
+      "support_gap_note": ""
     }
   ],
   "locality_records": [
@@ -284,7 +312,7 @@
       "original_location_text": "Lake Qinghai Basin ancient goat context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence."
+      "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context."
     }
   ],
   "project_summaries": [
