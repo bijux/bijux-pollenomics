@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Source Comparison
@@ -42,6 +42,14 @@ Similar shapes on the map do not mean similar evidence claims underneath.
 - Neotoma supports paleoecological pollen-site context questions
 - RAÄ supports Sweden-scoped archaeology density questions
 - SEAD supports broader environmental archaeology context questions
+
+## Evidence Audit
+
+- open [Source family matrix](source-family-matrix.md) when the question is
+  which family is primary, contextual, or currently under-acquired
+- open [Animal Project and Paper Inventory](animal-project-and-paper-inventory.md)
+  when the question is specifically paper capture, supplements, and sample
+  extraction
 
 ## Boundary
 

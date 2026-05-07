@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Published Reports
@@ -26,6 +26,8 @@ site, chronology, and coordinate rules are applied?
 - [animal country coverage](../../report/animal_country_species_coverage.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
+- [repository source family matrix](../../report/repository_source_family_matrix.md)
+- [repository source acquisition queue](../../report/repository_source_acquisition_queue.md)
 - [published reports summary](../../report/published_reports_summary.json)
 
 ## Expected Animal Bundle Files
