@@ -466,8 +466,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("sample-level ancient-animal metadata", docs_index)
-        self.assertIn("map views as downstream products", docs_index)
+        self.assertIn("pollenomics and environmental evidence", docs_index)
+        self.assertIn("animal aDNA extraction already equals the whole pollenomics engine", docs_index)
 
     def test_public_docs_keep_direct_sample_database_packet_and_query_links(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
@@ -506,7 +506,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "published-reports.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("02-bijux-pollenomics-data/samples/", docs_index)
+        self.assertIn("02-bijux-pollenomics-data/", docs_index)
         self.assertIn("report/nordic-atlas/nordic-atlas_map.html", docs_index)
         self.assertIn("data/adna/governance/animal_sample_foundation_truth.json", sample_page)
         self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", sample_page)
@@ -525,6 +525,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
         self.assertIn("../../report/animal_point_support_packets.md", published_reports)
+        self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
 
@@ -542,11 +543,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             + "\n".join(failures),
         )
 
-    def test_top_level_product_descriptions_stay_sample_first(self) -> None:
-        root_readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-        runtime_readme = (
-            REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
-        ).read_text(encoding="utf-8")
+    def test_top_level_product_descriptions_stay_pollenomics_first(self) -> None:
+        root_readme = " ".join(
+            (REPO_ROOT / "README.md").read_text(encoding="utf-8").split()
+        )
+        runtime_readme = " ".join(
+            (
+                REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
+            ).read_text(encoding="utf-8").split()
+        )
         alias_readme = (
             REPO_ROOT / "packages" / "pollenomics" / "README.md"
         ).read_text(encoding="utf-8")
@@ -560,15 +565,43 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("sample-level animal and human aDNA", root_readme)
-        self.assertIn("sample\ndatabase and its downstream map/report products", runtime_readme)
-        self.assertIn("same sample-first runtime behavior", alias_readme)
-        self.assertIn("sample-first evidence surfaces", runtime_index)
+        self.assertIn("pollenomics and environmental evidence repository", root_readme)
         self.assertIn(
-            "real durable unit: the sample record",
-            " ".join(data_index.split()),
+            "animal aDNA sample extraction and atlas publication path is still under recovery",
+            root_readme,
         )
-        self.assertIn("downstream view of the sample database", atlas_index)
+        self.assertIn(
+            "pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA",
+            runtime_readme,
+        )
+        self.assertIn("same pollenomics-first runtime behavior", alias_readme)
+        self.assertIn("checked-in evidence surfaces across pollen context", runtime_index)
+        self.assertIn("pollen context, environmental archaeology", data_index)
+        self.assertIn("downstream view of the repository evidence tree", atlas_index)
+
+    def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
+        readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
+        docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
+        data_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+        ).read_text(encoding="utf-8")
+        source_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+        ).read_text(encoding="utf-8").lower()
+
+        for expected in (
+            "landclim",
+            "neotoma",
+            "sead",
+            "raä",
+            "boundaries",
+            "aadr",
+        ):
+            self.assertIn(expected, readme_text)
+            self.assertIn(expected, source_index)
+        self.assertIn("Open the repository truth packet", docs_index)
+        self.assertIn("pollen-context layers, environmental archaeology context", docs_index)
+        self.assertIn("source-family comparison", data_index)
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
@@ -1122,6 +1155,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn(
             "the shared atlas under `docs/report/nordic-atlas/`", report_layout
+        )
+        self.assertIn(
+            "repository truth packets",
+            report_layout,
         )
 
     def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(

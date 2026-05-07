@@ -10,18 +10,24 @@ last_reviewed: 2026-05-07
 # Runtime Purpose and Boundary
 
 `bijux-pollenomics` exists to make the repository's evidence publication loop
-rebuildable. It is the package that turns upstream metadata and tracked curation
-rules into files that readers can review under `data/` and `docs/report/`.
+rebuildable. It is the package that turns tracked pollen, environmental,
+archaeological, boundary, fieldwork, and aDNA source material into files that
+readers can review under `data/` and `docs/report/`.
 
 ## What The Runtime Must Keep Legible
 
 - command entrypoints that rewrite tracked state
-- tracked sample, site, and coordinate files
+- tracked source-family and normalized evidence files
 - country bundles and shared atlas outputs
 - tests that fail when those publication contracts drift
 
 If those four surfaces are not tied together, the repository turns into map
 presentation without accountable evidence publication.
+
+## Next Pages
+
+- [repository fit](repository-fit.md)
+- [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
 
 ## Ownership Boundary
 

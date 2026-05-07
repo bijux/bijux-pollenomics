@@ -9,10 +9,12 @@ last_reviewed: 2026-05-07
 
 # Project, Paper, and Supplement Capture
 
-At this stage of `bijux-pollenomics`, the real data task is not sequencing
-analysis. It is evidence capture: archive metadata, paper linkage,
-supplementary-material retrieval, and extraction of sample and site hints that
-can later become curated rows.
+At this stage of `bijux-pollenomics`, the source story is broader than one
+pipeline. The repository tracks pollen context, environmental archaeology,
+boundary framing, fieldwork evidence, and ancient DNA source capture. The aDNA
+task still includes archive metadata, paper linkage, supplementary-material
+retrieval, and extraction of sample and site hints that can later become
+curated rows.
 
 The primary navigation now breaks that evidence chain into dedicated project,
 paper, supplement, sample, site, chronology, coordinate, and output pages.
@@ -24,6 +26,13 @@ Use this legacy overview if you want one short bridge across those surfaces.
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
 - [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
 - [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
+- [Source comparison](source-comparison.md)
+- [AADR](aadr.md)
+- [Neotoma](neotoma.md)
+- [LandClim](landclim.md)
+- [SEAD](sead.md)
+- [RAÄ](raa.md)
+- [Boundaries](boundaries.md)
 - [Projects](../projects/index.md)
 - [Papers](../papers/index.md)
 - [Supplements](../supplements/index.md)

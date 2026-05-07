@@ -9,15 +9,16 @@ last_reviewed: 2026-05-07
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a checked-in sample-level ancient-animal metadata
-foundation with map views as downstream products. It gathers project metadata,
-papers, supplementary material, sample rows, site evidence, chronology,
-coordinate provenance, and public map/report outputs into one repository that a
-reader can inspect directly.
+`bijux-pollenomics` is a checked-in pollenomics and environmental evidence
+repository with ancient DNA, archaeology, and map products as contextual
+surfaces. It gathers pollen-context layers, environmental archaeology context,
+boundary geometry, fieldwork material, paper-backed sample evidence, and public
+report outputs into one repository that a reader can inspect directly.
 
-The central public question is simple: which animal and human ancient-DNA
-points can this repository place on a Nordic map, and exactly which files,
-papers, and coordinate decisions support those points?
+The central public question is broader than one atlas layer: which tracked data
+families does this repository really own, how strong is each one today, and
+which files support the current Nordic outputs without pretending that thin
+animal aDNA extraction already equals the whole pollenomics engine?
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -44,11 +45,12 @@ papers, and coordinate decisions support those points?
 ## Start Here
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the sample database guide</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data system guide</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/">Open the source comparison</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/samples/">Open the sample database files</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth packet</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
@@ -57,31 +59,29 @@ Read the site in this order:
 
 ```mermaid
 flowchart TB
-    archive["archive metadata, papers, and supplements"]
-    samples["tracked sample rows"]
-    sites["site evidence and coordinate provenance"]
+    pollen["pollen and environmental source families"]
+    context["archaeology, boundary, and fieldwork context"]
+    samples["sample-backed ancient DNA context"]
     reports["country bundles and atlas evidence tables"]
     atlas["visible atlas point or country surface"]
-    review["reader checks traceability"]
+    review["reader checks traceability and limits"]
 
-    archive --> samples
-    samples --> sites
-    sites --> reports
+    pollen --> reports
+    context --> reports
+    samples --> reports
     reports --> atlas
     atlas --> review
 ```
 
 ## What The Repository Publishes
 
+- tracked source trees for pollen, environmental archaeology, boundaries, and
+  ancient DNA under [`data/`](../data/README.md)
 - one shared atlas view under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
 - checked country bundles under [`docs/report/`](report/published_reports_summary.json)
-- tracked animal aDNA sample, site, and coordinate files under [`data/adna/`](../data/README.md)
-- sample-owned database artifacts such as
-  [`animal_sample_foundation_truth.json`](../data/adna/governance/animal_sample_foundation_truth.json)
-- one public database review packet under
-  [`docs/report/animal_sample_database_review.md`](report/animal_sample_database_review.md)
-- one reader-facing animal aDNA contract page under
-  [animal aDNA data model](02-bijux-pollenomics-data/foundation/animal-adna-data-model.md)
+- reader-facing data-system pages that explain the source families rather than
+  only the current aDNA slice
+- public truth and progress packets under [`docs/report/`](report/published_reports_summary.json)
 
 ## Fieldwork Record
 
@@ -107,11 +107,12 @@ or supplement evidence.
 - that every visible layer has identical provenance quality
 - that a project list alone is enough to justify a mapped point
 - that unresolved or region-only geography should be published like exact site evidence
+- that the current thin animal aDNA atlas candidate set means the repository is already scientifically broad
 - that the repository is already the full cross-evidence pollenomics engine
 
 ## Read By Question
 
 - what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
-- what the tracked sample database and site contract is: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+- what the tracked data system and source families are: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - how the map points are built and filtered: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
 - how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)

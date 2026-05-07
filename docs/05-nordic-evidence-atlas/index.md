@@ -9,11 +9,12 @@ last_reviewed: 2026-05-07
 
 # Nordic Evidence Atlas
 
-The Nordic Evidence Atlas is a downstream view of the sample database, not the
-primary evidence artifact. The checked-in sample, site, chronology, and
-coordinate files remain the governing evidence surfaces, and the atlas should
-only summarize what those files already justify. It should help a reader answer
-four questions quickly:
+The Nordic Evidence Atlas is a downstream view of the repository evidence tree,
+not the primary evidence artifact. The checked-in pollen context,
+environmental archaeology context, boundary framing, fieldwork material,
+sample, site, chronology, and coordinate files remain the governing evidence
+surfaces, and the atlas should only summarize what those files already
+justify. It should help a reader answer four questions quickly:
 
 - why a point is on the map
 - which filter settings can hide or reveal it
@@ -46,3 +47,4 @@ four questions quickly:
 - [animal point support packets](../report/animal_point_support_packets.md)
 - [atlas readiness audit](../report/animal_atlas_readiness.md)
 - [country output coverage](../report/animal_country_species_coverage.md)
+- [repository truth posture](../report/repository_truth_posture.md)

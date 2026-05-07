@@ -22,18 +22,21 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` rebuilds a checked-in sample-level animal and human aDNA
-metadata foundation from tracked source data and then publishes atlas, country,
-and documentation views from that same repository state.
+`bijux-pollenomics` rebuilds a checked-in pollenomics and environmental
+evidence repository with ancient DNA, archaeology, and atlas outputs as
+contextual layers. It collects tracked source data, normalizes it into
+reviewable files under `data/`, and publishes map, country, and documentation
+views from that same repository state.
 
-Today that means a repository whose durable unit of value is the sample record:
-sample identifier, project, paper, supplement, site, chronology, coordinate
-basis, and confidence. The atlas is downstream of that evidence base. It does
-not yet act as the full pollenomics runtime that scores sites or combines
-ancient DNA, environmental DNA, pollen sequences, and archaeological context
-into one decision engine.
+Today that means a repository with several real source families and one weak
+recovery area. Boundaries, LandClim, Neotoma, SEAD, RAÄ, fieldwork, and AADR
+all belong in the repository story. The animal aDNA sample extraction and atlas
+publication path is still under recovery and must not be mistaken for the whole
+pollenomics mission.
 
-The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
+The fastest honest way to understand the current product is to read the data
+reference first, then inspect the atlas and country outputs as downstream
+surfaces.
 
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
