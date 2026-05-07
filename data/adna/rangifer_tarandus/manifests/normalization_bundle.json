@@ -158,7 +158,7 @@
       "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
       "supplementary_source": "",
       "inclusion_status": "comparator_site_curated",
-      "inclusion_note": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support.",
+      "inclusion_note": "This is Nordic-relevant comparator evidence, not domesticated-core support.",
       "sample_basis": "project_accession_anchor"
     },
     {
@@ -288,6 +288,34 @@
       "sample_basis": "project_accession_anchor"
     }
   ],
+  "site_evidence_records": [
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "site_label": "Svalbard ancient reindeer context",
+      "political_entity": "Svalbard",
+      "source_artifact_path": "adna/source_library/projects/PRJEB60484/archive_metadata.html",
+      "source_artifact_kind": "archive_metadata_description",
+      "source_locator": "source description snapshot",
+      "exact_source_text": "The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries.",
+      "source_support_status": "archive_description_quote",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "paper_url": "https://doi.org/10.1038/s41598-024-54296-2",
+      "supplementary_source": "",
+      "coordinate_basis": "site_level_localities",
+      "latitude_text": "78.22",
+      "longitude_text": "15.65",
+      "chronology_text": "Ancient Arctic archipelago reindeer context",
+      "time_start_bp": 500,
+      "time_end_bp": 2500,
+      "dating_basis": "archaeological_period",
+      "comparator_context": true,
+      "domestication_context": "comparator_context",
+      "interpretation_note": "This is Nordic-relevant comparator evidence, not domesticated-core support.",
+      "support_gap_note": ""
+    }
+  ],
   "locality_records": [
     {
       "identity": {
@@ -346,7 +374,7 @@
       "original_location_text": "Svalbard ancient reindeer context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
-      "interpretation_note": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support."
+      "interpretation_note": "This is Nordic-relevant comparator evidence, not domesticated-core support."
     }
   ],
   "project_summaries": [
