@@ -10,6 +10,11 @@ from ...adna.catalogs import (
 )
 from ...adna.ena import build_archive_project_catalog
 from ...adna.paths import adna_species_dir
+from ...adna.project_sample_chronology import (
+    ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
+    ADNA_CHRONOLOGY_STRENGTHS,
+    build_sample_chronology_viewer_rows,
+)
 from ...adna.project_sample_sites import (
     ADNA_LOCALITY_RESOLUTION_STATUSES,
     build_project_sample_site_rows,
@@ -63,6 +68,7 @@ def publish_animal_foundation_outputs(
         point_payload=point_payload,
         absence_payload=absence_payload,
     )
+    chronology_viewer_payload = build_animal_sample_chronology_viewer(data_root=data_root)
     release_gate_payload = build_animal_publication_release_gate(
         data_root=data_root,
         report_root=output_root,
@@ -95,6 +101,10 @@ def publish_animal_foundation_outputs(
         "animal_foundation_review": (
             review_payload,
             render_animal_foundation_review_markdown(review_payload),
+        ),
+        "animal_sample_chronology_viewer": (
+            chronology_viewer_payload,
+            render_animal_sample_chronology_viewer_markdown(chronology_viewer_payload),
         ),
         "animal_publication_release_gate": (
             release_gate_payload,
@@ -581,6 +591,26 @@ def build_animal_foundation_review_packet(
     }
 
 
+def build_animal_sample_chronology_viewer(
+    *,
+    data_root: Path,
+) -> dict[str, object]:
+    """Publish one reader-facing chronology view across all governed animal sample rows."""
+    rows = list(build_sample_chronology_viewer_rows(data_root))
+    strength_counts = {key: 0 for key in ADNA_CHRONOLOGY_STRENGTHS}
+    normalization_counts = {key: 0 for key in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES}
+    for row in rows:
+        strength_counts[str(row.get("chronology_strength", ""))] += 1
+        normalization_counts[str(row.get("chronology_normalization_status", ""))] += 1
+    return {
+        "schema_version": "animal-sample-chronology-viewer.v1",
+        "row_count": len(rows),
+        "strength_counts": strength_counts,
+        "normalization_counts": normalization_counts,
+        "rows": rows,
+    }
+
+
 def build_animal_publication_release_gate(
     *,
     data_root: Path,
@@ -810,6 +840,28 @@ def render_animal_foundation_review_markdown(payload: dict[str, object]) -> str:
         for item in payload["blockers"]:
             lines.append(f"- {item}")
         lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+def render_animal_sample_chronology_viewer_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Animal sample chronology viewer",
+        "",
+        f"- Sample chronology rows: `{payload['row_count']}`",
+        f"- Normalized intervals: `{payload['normalization_counts']['normalized_interval']}`",
+        f"- Normalized points: `{payload['normalization_counts']['normalized_point']}`",
+        f"- Text-only rows: `{payload['normalization_counts']['text_only_unparsed']}`",
+        f"- Unresolved rows: `{payload['normalization_counts']['unresolved']}`",
+        "",
+        "| Species | Project accession | Sample id | Strength | Normalization | Chronology |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['species_latin_name']} | {row['project_accession']} | "
+            f"{row['repo_stable_sample_id']} | {row['chronology_strength']} | "
+            f"{row['chronology_normalization_status']} | {row['chronology_text']} |"
+        )
     return "\n".join(lines) + "\n"
 
 
