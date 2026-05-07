@@ -1,10 +1,10 @@
 # Animal sample database review
 
-- Public posture: `sample_level_ancient_animal_metadata_database`
+- Public posture: `partial_sample_owned_animal_evidence_surface`
 - Sample database claim supported: `true`
-- Nordic view supported now: `true`
-- Region-agnostic contract ready: `true`
-- World-map expansion posture: `coverage_can_expand_by_adding_new_output_regions_to_the_same_sample_contract`
+- Nordic view supported now: `false`
+- Region-agnostic contract ready: `false`
+- World-map expansion posture: `not_supported_until_source_capture_site_resolution_and_chronology_depth_are_materially_stronger`
 
 ## Counts
 
@@ -18,6 +18,23 @@
 - Coordinate rows: `10`
 - Published atlas points: `2`
 - Published country bundles: `4`
+- Papers with archived supplements: `1`
+- Mapped sample share: `0.0083`
+
+## Thresholds
+
+- Minimum published atlas points: `10`
+- Minimum supplement-backed papers: `5`
+- Minimum mapped sample share: `0.05`
+- Minimum normalized chronology rows: `100`
+- Minimum region-agnostic point floor: `25`
+- Minimum region-agnostic mapped share: `0.2`
+
+## Posture Findings
+
+- published_atlas_point_count_below_minimum_reading_depth
+- supplement_backed_paper_coverage_still_too_low
+- mapped_sample_share_still_too_low
 
 ## Direct Links
 

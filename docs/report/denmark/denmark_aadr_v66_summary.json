@@ -2,7 +2,7 @@
   "schema_version": "country-report-summary.v1",
   "country": "Denmark",
   "version": "v66",
-  "generated_on": "2026-05-07",
+  "generated_on": "2026-05-08",
   "total_unique_samples": 653,
   "total_unique_localities": 295,
   "dataset_row_counts": {

@@ -2,7 +2,7 @@
   "schema_version": "country-report-summary.v1",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-05-07",
+  "generated_on": "2026-05-08",
   "total_unique_samples": 416,
   "total_unique_localities": 77,
   "dataset_row_counts": {

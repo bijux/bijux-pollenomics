@@ -1599,6 +1599,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "animal_foundation_review.md").exists())
             self.assertTrue((output / "animal_publication_release_gate.json").exists())
             self.assertTrue((output / "animal_publication_release_gate.md").exists())
+            self.assertTrue((output / "repository_truth_posture.json").exists())
+            self.assertTrue((output / "repository_truth_posture.md").exists())
+            self.assertTrue((output / "repository_claim_audit.json").exists())
+            self.assertTrue((output / "repository_claim_audit.md").exists())
             self.assertTrue((output / "animal_human_chronology_overlap.json").exists())
             self.assertTrue((output / "animal_pollen_chronology_overlap.json").exists())
             self.assertTrue(
@@ -1632,6 +1636,11 @@ class CountryReportTests(unittest.TestCase):
             )
             foundation_review = json.loads(
                 (output / "animal_foundation_review.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            repository_claim_audit = json.loads(
+                (output / "repository_claim_audit.json").read_text(
                     encoding="utf-8"
                 )
             )
@@ -1714,11 +1723,18 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "animal_publication_release_gate.json",
             )
+            self.assertEqual(
+                published_summary["artifacts"]["repository_truth"][
+                    "repository_truth_posture_json"
+                ],
+                "repository_truth_posture.json",
+            )
             self.assertEqual(animal_output_audit["report_root"], str(output))
             self.assertEqual(
                 foundation_review["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
+            self.assertTrue(repository_claim_audit["overall_ok"])
             self.assertTrue(release_gate["overall_ok"])
             sheep_audit_row = next(
                 row
