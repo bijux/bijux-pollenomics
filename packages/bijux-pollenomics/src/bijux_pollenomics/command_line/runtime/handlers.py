@@ -16,6 +16,7 @@ from ...adna import (
     build_species_runtime_manifest,
     build_species_support_matrix,
 )
+from ...adna.tracked_species import TRACKED_ADNA_SPECIES
 from ...data_downloader import (
     build_source_support_matrix,
     collect_data,
@@ -32,6 +33,7 @@ from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
     generate_published_reports,
+    refresh_animal_adna_foundation,
     slugify,
 )
 
@@ -48,6 +50,7 @@ __all__ = [
     "run_adna_species",
     "run_adna_species_review",
     "run_collect_data",
+    "run_refresh_animal_adna_foundation",
     "run_publish_reports",
     "run_ownership_map",
     "run_product_scope",
@@ -347,6 +350,25 @@ def run_publish_reports(args: argparse.Namespace) -> int:
     print(
         f"Wrote published report bundles for {', '.join(report.countries)} to {args.output_root} "
         f"with shared map under {report.shared_map_dir.name}"
+    )
+    return 0
+
+
+def run_refresh_animal_adna_foundation(args: argparse.Namespace) -> int:
+    """Refresh tracked animal source capture, normalized roots, and published outputs."""
+    report = refresh_animal_adna_foundation(
+        data_root=args.data_root,
+        aadr_root=args.aadr_root,
+        report_root=args.output_root,
+        countries=args.countries,
+        version=args.version,
+        context_root=args.context_root,
+        species_names=tuple(args.species) if args.species else TRACKED_ADNA_SPECIES,
+    )
+    print(
+        f"Refreshed animal foundation for {', '.join(report.refreshed_species_latin_names)} "
+        f"with {report.source_library_project_count} source-library projects and "
+        f"{report.atlas_evidence_row_count} atlas evidence rows"
     )
     return 0
 

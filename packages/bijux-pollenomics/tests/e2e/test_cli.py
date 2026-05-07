@@ -18,7 +18,6 @@ from bijux_pollenomics.config import (
     DEFAULT_ATLAS_TITLE,
     DEFAULT_PUBLISHED_COUNTRIES,
 )
-
 from tests.support.aadr import AADR_HEADER
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -61,6 +60,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0)
         self.assertIn("usage: bijux-pollenomics", result.stdout)
         self.assertIn("publish-reports", result.stdout)
+        self.assertIn("refresh-animal-adna-foundation", result.stdout)
 
     def test_installed_console_script_displays_help(self) -> None:
         console_script = self._require_console_script()
@@ -114,6 +114,7 @@ class CliTests(unittest.TestCase):
         publish_args = parser.parse_args(["publish-reports"])
         map_args = parser.parse_args(["report-multi-country-map", "Sweden"])
         collect_args = parser.parse_args(["collect-data", "aadr"])
+        refresh_args = parser.parse_args(["refresh-animal-adna-foundation"])
 
         self.assertEqual(publish_args.countries, DEFAULT_PUBLISHED_COUNTRIES)
         self.assertEqual(publish_args.name, DEFAULT_ATLAS_SLUG)
@@ -123,6 +124,7 @@ class CliTests(unittest.TestCase):
         self.assertEqual(map_args.title, DEFAULT_ATLAS_TITLE)
         self.assertEqual(map_args.version, DEFAULT_AADR_VERSION)
         self.assertEqual(collect_args.version, DEFAULT_AADR_VERSION)
+        self.assertEqual(refresh_args.version, DEFAULT_AADR_VERSION)
 
     def test_report_country_requires_both_shared_map_arguments(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -6,6 +6,7 @@ from pathlib import Path
 from ...config import (
     DEFAULT_AADR_VERSION,
     DEFAULT_CONTEXT_ROOT,
+    DEFAULT_DATA_ROOT,
     DEFAULT_PUBLISHED_COUNTRIES,
 )
 from ...data_downloader import AVAILABLE_SOURCES
@@ -29,6 +30,7 @@ __all__ = [
     "build_adna_runtime_manifest_parser",
     "build_adna_species_review_parser",
     "build_adna_species_parser",
+    "build_refresh_animal_adna_foundation_parser",
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
@@ -57,6 +59,7 @@ def register_subcommands(
     build_adna_runtime_manifest_parser(subparsers)
     build_adna_species_parser(subparsers)
     build_adna_species_review_parser(subparsers)
+    build_refresh_animal_adna_foundation_parser(subparsers)
     build_report_country_parser(subparsers)
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
@@ -392,6 +395,53 @@ def build_publish_reports_parser(
         help_text="Directory where published report bundles should be written. Default: docs/report",
     )
     add_context_root_argument(parser)
+    return parser
+
+
+def build_refresh_animal_adna_foundation_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the end-to-end animal foundation refresh parser."""
+    parser = subparsers.add_parser(
+        "refresh-animal-adna-foundation",
+        help=(
+            "Refresh tracked animal source capture, normalized data roots, and "
+            "published Nordic animal report outputs in one run."
+        ),
+    )
+    parser.add_argument(
+        "--data-root",
+        type=Path,
+        default=DEFAULT_DATA_ROOT,
+        help=f"Directory containing tracked animal data roots. Default: {DEFAULT_DATA_ROOT}",
+    )
+    add_aadr_root_argument(parser)
+    add_output_root_argument(
+        parser,
+        help_text="Directory where published report bundles are written. Default: docs/report",
+    )
+    parser.add_argument(
+        "--context-root",
+        type=Path,
+        default=DEFAULT_CONTEXT_ROOT,
+        help=f"Directory containing normalized context datasets. Default: {DEFAULT_CONTEXT_ROOT}",
+    )
+    add_version_argument(
+        parser,
+        help_text=f"AADR version directory under the AADR root. Default: {DEFAULT_AADR_VERSION}",
+    )
+    parser.add_argument(
+        "--countries",
+        nargs="+",
+        default=list(DEFAULT_PUBLISHED_COUNTRIES),
+        help="Countries to include in the published Nordic report refresh.",
+    )
+    parser.add_argument(
+        "--species",
+        nargs="+",
+        default=[],
+        help="Optional species names or aliases to refresh. Default: all tracked animal species.",
+    )
     return parser
 
 
