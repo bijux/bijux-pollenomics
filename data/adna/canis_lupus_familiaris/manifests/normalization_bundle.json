@@ -1,0 +1,246 @@
+{
+  "schema_version": "adna-nonhuman-normalization-bundle.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Canis lupus familiaris",
+      "slug": "canis_lupus_familiaris",
+      "common_name": "dog",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "mitogenome_only",
+        "paper_only"
+      ],
+      "source_families": [
+        "SRA",
+        "GenBank"
+      ],
+      "aliases": [
+        "dog",
+        "domestic dog"
+      ],
+      "notes": "Dog support is now paper-pinned through sample-level SRA and GenBank anchors, but runtime normalization beyond governed curation review is still not implemented."
+    },
+    "root_slug": "canis_lupus_familiaris",
+    "data_root": "data/adna/canis_lupus_familiaris",
+    "normalized_sample_namespace": "canis_lupus_familiaris:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Dog support is paper-pinned through sample-level SRA and GenBank anchors. Those archive tokens count only when the primary paper names them explicitly.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "sample_records": [],
+  "locality_records": [],
+  "project_summaries": [
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "canis_lupus_familiaris:project:KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "KX379528-KX379529",
+      "study_token": "study:10-1038-ncomms16082",
+      "source_family": "GenBank",
+      "source_release": "KX379528-KX379529",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "mitogenome_only",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "mitogenome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "paper_doi": "10.1038/ncomms16082",
+      "notes": "Ancient dog mitochondrial genomes named on the primary paper page."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "canis_lupus_familiaris:project:SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407451",
+      "study_token": "study:10-1038-ncomms16082",
+      "source_family": "SRA",
+      "source_release": "SRS1407451",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "paper_doi": "10.1038/ncomms16082",
+      "notes": "Ancient dog CTC sample explicitly named on the primary paper page."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "canis_lupus_familiaris:project:SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407453",
+      "study_token": "study:10-1038-ncomms16082",
+      "source_family": "SRA",
+      "source_release": "SRS1407453",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "paper_doi": "10.1038/ncomms16082",
+      "notes": "Ancient dog HXH sample explicitly named on the primary paper page."
+    }
+  ],
+  "study_summaries": [
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:10-1038-ncomms16082",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "source_families": [
+        "GenBank",
+        "SRA"
+      ],
+      "archive_statuses": [
+        "paper_pinned_core"
+      ],
+      "evidence_strengths": [
+        "primary_paper_pinned"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "paper_doi": "10.1038/ncomms16082",
+      "sequencing_targets": [
+        "mitogenome",
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "mixed_radiocarbon_and_archaeological_context"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    }
+  ],
+  "lineage_records": [
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "canis_lupus_familiaris:project:KX379528-KX379529",
+      "source_artifact_path": "data/adna/canis_lupus_familiaris/raw/genbank/KX379528-KX379529.summary.tsv",
+      "source_accessions": [
+        "KX379528-KX379529"
+      ],
+      "lineage_tokens": [
+        "species:Canis lupus familiaris",
+        "source_family:GenBank",
+        "project_accession:KX379528-KX379529",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "canis_lupus_familiaris:project:SRS1407451",
+      "source_artifact_path": "data/adna/canis_lupus_familiaris/raw/sra/SRS1407451.filereport.tsv",
+      "source_accessions": [
+        "SRS1407451"
+      ],
+      "lineage_tokens": [
+        "species:Canis lupus familiaris",
+        "source_family:SRA",
+        "project_accession:SRS1407451",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "canis_lupus_familiaris:project:SRS1407453",
+      "source_artifact_path": "data/adna/canis_lupus_familiaris/raw/sra/SRS1407453.filereport.tsv",
+      "source_accessions": [
+        "SRS1407453"
+      ],
+      "lineage_tokens": [
+        "species:Canis lupus familiaris",
+        "source_family:SRA",
+        "project_accession:SRS1407453",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:10-1038-ncomms16082",
+      "source_artifact_path": "data/adna/canis_lupus_familiaris/raw/genbank/KX379528-KX379529.summary.tsv",
+      "source_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "lineage_tokens": [
+        "species:Canis lupus familiaris",
+        "study_token:study:10-1038-ncomms16082",
+        "project_accession:KX379528-KX379529",
+        "project_accession:SRS1407451",
+        "project_accession:SRS1407453"
+      ]
+    }
+  ],
+  "refusals": [
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_token": "canis_lupus_familiaris",
+      "record_kind": "sample_records",
+      "reason": "sample_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level archive curation, but not enough sample-level raw metadata to emit sample rows honestly."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Canis lupus familiaris",
+      "source_token": "canis_lupus_familiaris",
+      "record_kind": "locality_records",
+      "reason": "locality_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+    }
+  ],
+  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+}
