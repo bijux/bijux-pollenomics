@@ -1,0 +1,125 @@
+{
+  "schema_version": "animal-atlas-readiness.v1",
+  "rows": [
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 1,
+      "unresolved": 7,
+      "refused_from_mapping": 0,
+      "map_ready_count": 1,
+      "total_curated_rows": 8,
+      "map_ready_share": 0.125,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 3,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 4,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 5,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 6,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 2,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 3,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 2,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 3,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 2,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 3,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 1,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 2,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 1,
+      "unresolved": 1,
+      "refused_from_mapping": 0,
+      "map_ready_count": 1,
+      "total_curated_rows": 2,
+      "map_ready_share": 0.5,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 3,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 4,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "direct_coordinate_backed": 0,
+      "indirectly_geocoded": 0,
+      "unresolved": 4,
+      "refused_from_mapping": 1,
+      "map_ready_count": 0,
+      "total_curated_rows": 5,
+      "map_ready_share": 0.0,
+      "country_mapped_locality_counts": {}
+    }
+  ]
+}
