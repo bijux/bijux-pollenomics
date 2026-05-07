@@ -1,0 +1,31 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "project_accession": "PRJEB57293",
+  "species_latin_name": "Rangifer tarandus",
+  "archive_status": "reject_or_out_of_scope",
+  "evidence_strength": "archive_only",
+  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB57293&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+  "paper_doi": null,
+  "paper_title": null,
+  "paper_download_status": "missing",
+  "supplement_download_status": "missing",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB57293/archive_metadata.html",
+  "sample_identifier_status": "not_yet_curated",
+  "inventory_disposition": "retained_rejected_reference",
+  "rejection_reason": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+  "sample_identifier_targets": [],
+  "sample_site_targets": [],
+  "chronology_targets": [],
+  "expected_supplementary_artifacts": [],
+  "local_artifact_paths": [
+    "adna/governance/source_library/projects/PRJEB57293/archive_metadata.html"
+  ],
+  "blockers": [
+    "paper_linkage_not_curated"
+  ],
+  "blocker_categories": [],
+  "extraction_plan": "Retain the project in the tracked inventory with an explicit rejection reason so future readers can see why it does not feed the animal sample database."
+}

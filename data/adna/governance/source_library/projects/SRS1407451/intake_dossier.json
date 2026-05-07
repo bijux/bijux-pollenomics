@@ -1,0 +1,37 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "project_accession": "SRS1407451",
+  "species_latin_name": "Canis lupus familiaris",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "project_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407451",
+  "paper_doi": "10.1038/ncomms16082",
+  "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+  "paper_download_status": "archived",
+  "supplement_download_status": "missing",
+  "expected_sample_count": 1,
+  "expected_sample_count_status": "known_from_archive_accession_scope",
+  "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+  "sample_identifier_status": "archive_native_identifiers_known",
+  "inventory_disposition": "tracked_intake_candidate",
+  "rejection_reason": "",
+  "sample_identifier_targets": [
+    "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+  ],
+  "sample_site_targets": [
+    "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+  ],
+  "chronology_targets": [
+    "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+  ],
+  "expected_supplementary_artifacts": [],
+  "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+    "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
+  ],
+  "blockers": [],
+  "blocker_categories": [],
+  "extraction_plan": "Use the archive-native sample accession as the anchor row, then recover site and chronology support from the linked paper or supplementary material."
+}

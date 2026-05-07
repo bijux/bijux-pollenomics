@@ -1,0 +1,39 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "project_accession": "PRJNA1178732",
+  "species_latin_name": "Felis catus",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "project_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1178732",
+  "paper_doi": "10.1016/j.xgen.2025.101099",
+  "paper_title": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+  "paper_download_status": "archived",
+  "supplement_download_status": "missing",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+  "expected_sample_count_artifact_path": "",
+  "sample_identifier_status": "paper_or_supplement_targets_curated",
+  "inventory_disposition": "tracked_intake_candidate",
+  "rejection_reason": "",
+  "sample_identifier_targets": [
+    "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html"
+  ],
+  "sample_site_targets": [
+    "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html"
+  ],
+  "chronology_targets": [
+    "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html"
+  ],
+  "expected_supplementary_artifacts": [],
+  "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html",
+    "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/crossref.json",
+    "adna/governance/source_library/projects/PRJNA1178732/archive_metadata.html"
+  ],
+  "blockers": [],
+  "blocker_categories": [
+    "missing_sample_identifiers"
+  ],
+  "extraction_plan": "Extract the project sample master from the curated article or supplementary targets and then reconcile sample identifiers against any archive-native labels."
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "project_accession": "PRJEB19970",
+  "species_latin_name": "Equus caballus",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB19970&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+  "paper_doi": "10.1126/science.aam5298",
+  "paper_title": "Ancient genomic changes associated with domestication of the horse",
+  "paper_download_status": "archived",
+  "supplement_download_status": "missing",
+  "expected_sample_count": null,
+  "expected_sample_count_status": "not_yet_curated",
+  "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+  "sample_identifier_status": "manual_curation_required",
+  "inventory_disposition": "tracked_intake_candidate",
+  "rejection_reason": "",
+  "sample_identifier_targets": [
+    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+  ],
+  "sample_site_targets": [
+    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+  ],
+  "chronology_targets": [
+    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+  ],
+  "expected_supplementary_artifacts": [],
+  "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1126-science.aam5298/article.html",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/crossref.json",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/pubmed.xml",
+    "adna/governance/source_library/projects/PRJEB19970/archive_metadata.html"
+  ],
+  "blockers": [],
+  "blocker_categories": [
+    "missing_sample_identifiers"
+  ],
+  "extraction_plan": "Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface."
+}
