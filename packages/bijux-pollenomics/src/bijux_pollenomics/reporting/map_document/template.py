@@ -743,6 +743,143 @@ MAP_DOCUMENT_TEMPLATE = """
         font-size: 12px;
         line-height: 1.5;
       }
+      .legend-item--compact {
+        gap: 8px;
+        font-size: 11px;
+      }
+      .legend-item-copy {
+        display: grid;
+        gap: 2px;
+      }
+      .legend-item-title {
+        color: var(--ink-soft);
+        font-weight: 700;
+      }
+      .legend-item-meta {
+        color: var(--muted);
+        font-size: 11px;
+      }
+      .legend-pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .legend-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .legend-pill-note {
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .animal-insight-panel {
+        display: grid;
+        gap: 14px;
+        padding: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(255, 255, 255, 0.90)),
+          rgba(255, 255, 255, 0.92);
+      }
+      .animal-insight-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .animal-insight-kicker {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .animal-insight-title {
+        margin: 4px 0 0;
+        color: var(--ink-soft);
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .animal-insight-state {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.06);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .animal-insight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .animal-insight-stat {
+        display: grid;
+        gap: 4px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        background: rgba(255, 255, 255, 0.88);
+      }
+      .animal-insight-stat-value {
+        color: var(--ink-soft);
+        font-size: 16px;
+        font-weight: 800;
+      }
+      .animal-insight-stat-label {
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .animal-insight-subsection {
+        display: grid;
+        gap: 8px;
+      }
+      .animal-insight-subtitle {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .animal-insight-mix {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .animal-insight-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.90);
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .animal-insight-chip strong {
+        font-size: 12px;
+      }
+      .animal-insight-copy {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
       .density-ramp { display: grid; gap: 8px; }
       .density-bar {
         display: grid;
@@ -927,6 +1064,97 @@ MAP_DOCUMENT_TEMPLATE = """
       .leaflet-popup-content-wrapper { border-radius: 18px; }
       .popup-grid { display: grid; gap: 6px; font-size: 13px; }
       .popup-grid strong { display: inline-block; min-width: 96px; }
+      .popup-card {
+        display: grid;
+        gap: 12px;
+        min-width: 260px;
+      }
+      .popup-kicker {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .popup-headline {
+        display: grid;
+        gap: 4px;
+      }
+      .popup-title {
+        color: var(--ink-soft);
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.3;
+      }
+      .popup-subtitle {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .popup-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .popup-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: rgba(20, 33, 61, 0.06);
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .popup-badge--warning {
+        background: rgba(180, 83, 9, 0.12);
+        color: #9a3412;
+      }
+      .popup-section {
+        display: grid;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(20, 33, 61, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+      }
+      .popup-section-title {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .popup-row {
+        display: grid;
+        gap: 2px;
+      }
+      .popup-row-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .popup-row-value {
+        color: var(--ink-soft);
+        font-size: 12px;
+        line-height: 1.5;
+        word-break: break-word;
+      }
+      .popup-warning-list {
+        display: grid;
+        gap: 8px;
+      }
+      .popup-warning {
+        padding: 9px 10px;
+        border-radius: 12px;
+        background: rgba(180, 83, 9, 0.10);
+        color: #9a3412;
+        font-size: 12px;
+        line-height: 1.5;
+      }
       .popup-media-list {
         display: inline-flex;
         flex-wrap: wrap;
@@ -1036,10 +1264,16 @@ MAP_DOCUMENT_TEMPLATE = """
         .floating-legend {
           right: 10px;
           bottom: 76px;
-          width: min(248px, calc(100vw - 20px));
-          max-height: min(34vh, 260px);
+          width: min(264px, calc(100vw - 20px));
+          max-height: min(38vh, 300px);
           padding: 12px;
           border-radius: 18px;
+        }
+        .animal-insight-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .popup-card {
+          min-width: 0;
         }
         .focus-card {
           left: 10px;
@@ -1080,7 +1314,7 @@ MAP_DOCUMENT_TEMPLATE = """
         .floating-legend {
           right: 8px;
           bottom: 72px;
-          width: min(220px, calc(100vw - 16px));
+          width: min(236px, calc(100vw - 16px));
           padding: 10px;
         }
         .control-panel {
@@ -1103,6 +1337,24 @@ MAP_DOCUMENT_TEMPLATE = """
         }
         .legend-item {
           gap: 8px;
+          font-size: 11px;
+        }
+        .animal-insight-grid {
+          grid-template-columns: 1fr;
+        }
+        .animal-insight-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .animal-insight-state {
+          width: fit-content;
+        }
+        .popup-title {
+          font-size: 15px;
+        }
+        .popup-subtitle,
+        .popup-row-value,
+        .popup-warning {
           font-size: 11px;
         }
         .map-status {
@@ -1249,6 +1501,10 @@ MAP_DOCUMENT_TEMPLATE = """
                     <div id="animal-species-filters" class="dock-layer-grid"></div>
                   </div>
                   <div>
+                    <div class="field-label"><span>Coordinate Confidence</span><span>Keep point trust visible while filtering</span></div>
+                    <div id="animal-confidence-filters" class="dock-presets"></div>
+                  </div>
+                  <div>
                     <div class="field-label"><span>Chronology Buckets</span><span>Inspect temporal structure</span></div>
                     <div id="animal-chronology-filters" class="dock-presets"></div>
                   </div>
@@ -1257,6 +1513,20 @@ MAP_DOCUMENT_TEMPLATE = """
                     <span class="chip-swatch" style="background: rgba(8, 145, 178, 0.18); border-color: rgba(14, 116, 144, 0.78);"></span>
                     <span>Nordic animal leads only</span>
                   </label>
+                  <section class="animal-insight-panel" aria-live="polite" aria-label="Animal evidence summary">
+                    <div class="animal-insight-head">
+                      <div>
+                        <span class="animal-insight-kicker">Atlas-side summary</span>
+                        <h4 class="animal-insight-title">Visible animal evidence</h4>
+                      </div>
+                      <span id="animal-evidence-state" class="animal-insight-state">Loading evidence posture</span>
+                    </div>
+                    <div id="animal-evidence-metrics" class="animal-insight-grid"></div>
+                    <div class="animal-insight-subsection">
+                      <span class="animal-insight-subtitle">Coordinate trust mix</span>
+                      <div id="animal-evidence-confidence" class="animal-insight-mix"></div>
+                    </div>
+                  </section>
                 </div>
               </details>
               <details class="control-group" open>
@@ -1437,9 +1707,19 @@ MAP_DOCUMENT_TEMPLATE = """
               {
                 latinName: layer.species_latin_name,
                 commonName: layer.species_common_name || layer.label || layer.species_latin_name,
+                fill: layer.style && layer.style.fill ? layer.style.fill : '#475569',
+                stroke: layer.style && layer.style.stroke ? layer.style.stroke : '#1e293b',
+                animalScope: layer.animal_scope || '',
               },
             ])
         ).values()
+      );
+      const ANIMAL_COORDINATE_CONFIDENCES = Array.from(
+        new Set(
+          POINT_LAYERS
+            .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group))
+            .flatMap((layer) => (layer.features || []).map((feature) => String(feature.coordinate_confidence || '').trim()).filter(Boolean))
+        )
       );
       const ANIMAL_CHRONOLOGY_BUCKETS = Array.from(
         new Set(
@@ -1487,8 +1767,12 @@ MAP_DOCUMENT_TEMPLATE = """
       const animalFilterSummary = document.getElementById('animal-filter-summary');
       const animalScopeFilters = document.getElementById('animal-scope-filters');
       const animalSpeciesFilters = document.getElementById('animal-species-filters');
+      const animalConfidenceFilters = document.getElementById('animal-confidence-filters');
       const animalChronologyFilters = document.getElementById('animal-chronology-filters');
       const animalNordicOnlyCheckbox = document.getElementById('animal-nordic-only');
+      const animalEvidenceMetrics = document.getElementById('animal-evidence-metrics');
+      const animalEvidenceConfidence = document.getElementById('animal-evidence-confidence');
+      const animalEvidenceState = document.getElementById('animal-evidence-state');
       const legendItems = document.getElementById('legend-items');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
@@ -1532,6 +1816,7 @@ MAP_DOCUMENT_TEMPLATE = """
           layers: params.get('layers'),
           animalSpecies: params.get('animal_species'),
           animalScope: params.get('animal_scope'),
+          animalConfidence: params.get('animal_confidence'),
           animalChronology: params.get('animal_chronology'),
           animalNordic: params.get('animal_nordic'),
           diameter: params.get('diameter'),
@@ -1611,6 +1896,11 @@ MAP_DOCUMENT_TEMPLATE = """
         ['all', 'domesticated_core', 'comparator'],
         'all'
       );
+      let activeAnimalConfidence = normalizedSingleValue(
+        initialState.animalConfidence,
+        ['all', ...ANIMAL_COORDINATE_CONFIDENCES],
+        'all'
+      );
       let activeAnimalChronology = normalizedSingleValue(
         initialState.animalChronology,
         ['all', ...ANIMAL_CHRONOLOGY_BUCKETS],
@@ -1650,6 +1940,96 @@ MAP_DOCUMENT_TEMPLATE = """
           .join('');
         return `<div><strong>Media</strong> <span class="popup-media-list">${items}</span></div>`;
       }
+      function titleCaseWords(value) {
+        return String(value || '')
+          .split(/[_-]+/)
+          .filter(Boolean)
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+      }
+      function formatAnimalScope(scope) {
+        if (scope === 'domesticated_core') return 'Domesticated-core';
+        if (scope === 'comparator') return 'Comparator';
+        return titleCaseWords(scope) || 'Unspecified';
+      }
+      function formatCoordinateConfidence(confidence) {
+        if (confidence === 'exact') return 'Exact';
+        if (confidence === 'approximate') return 'Approximate';
+        if (confidence === 'inferred') return 'Inferred';
+        return titleCaseWords(confidence) || 'Unspecified';
+      }
+      function formatCoordinateBasis(basis) {
+        if (basis === 'named_site_geocoded') return 'Named-site geocoded';
+        if (basis === 'named_site_geocoding') return 'Named-site geocoded';
+        if (basis === 'direct_coordinates') return 'Direct coordinates';
+        if (basis === 'supplementary_coordinates') return 'Supplementary coordinates';
+        if (basis === 'archive_coordinates') return 'Archive coordinates';
+        if (basis === 'region_only_refusal') return 'Region-only refusal';
+        if (basis === 'unresolved_location') return 'Unresolved location';
+        return titleCaseWords(basis) || 'Unspecified';
+      }
+      function animalFilterState(overrides = {}) {
+        return {
+          species: Object.prototype.hasOwnProperty.call(overrides, 'species') ? overrides.species : activeAnimalSpecies,
+          scope: Object.prototype.hasOwnProperty.call(overrides, 'scope') ? overrides.scope : activeAnimalScope,
+          confidence: Object.prototype.hasOwnProperty.call(overrides, 'confidence') ? overrides.confidence : activeAnimalConfidence,
+          chronology: Object.prototype.hasOwnProperty.call(overrides, 'chronology') ? overrides.chronology : activeAnimalChronology,
+          nordicOnly: Object.prototype.hasOwnProperty.call(overrides, 'nordicOnly') ? overrides.nordicOnly : animalNordicOnly,
+        };
+      }
+      function animalCandidateEntries() {
+        const entries = [];
+        POINT_LAYERS.forEach((layer) => {
+          if (!isAnimalLayer(layer) || !activeLayerKeys.has(layer.key)) return;
+          (layer.features || []).forEach((feature) => {
+            if (layer.applies_country_filter && feature.country && !activeCountries.has(feature.country)) return;
+            if (!pointFeatureInTimeWindow(layer, feature)) return;
+            entries.push({ layer, feature });
+          });
+        });
+        return entries;
+      }
+      function animalEntryMatchesFilters(entry, overrides = {}) {
+        const state = animalFilterState(overrides);
+        const feature = entry.feature;
+        if (state.species !== 'all' && String(feature.species_latin_name || '') !== state.species) return false;
+        if (state.scope !== 'all' && String(feature.animal_scope || '') !== state.scope) return false;
+        if (state.confidence !== 'all' && String(feature.coordinate_confidence || '') !== state.confidence) return false;
+        if (state.chronology !== 'all' && String(feature.chronology_bucket || '') !== state.chronology) return false;
+        if (state.nordicOnly && !feature.nordic_inclusion) return false;
+        return true;
+      }
+      function animalVisibleEntries() {
+        return animalCandidateEntries().filter((entry) => animalEntryMatchesFilters(entry));
+      }
+      function summarizeAnimalMetrics() {
+        const candidateEntries = animalCandidateEntries();
+        const visibleEntries = candidateEntries.filter((entry) => animalEntryMatchesFilters(entry));
+        const visibleSpecies = new Set(
+          visibleEntries
+            .map(({ feature }) => String(feature.species_latin_name || '').trim())
+            .filter(Boolean)
+        );
+        const confidenceCounts = {};
+        visibleEntries.forEach(({ feature }) => {
+          const key = String(feature.coordinate_confidence || '').trim() || 'unspecified';
+          confidenceCounts[key] = (confidenceCounts[key] || 0) + 1;
+        });
+        const activeFilters = [
+          activeAnimalSpecies !== 'all' ? ANIMAL_SPECIES.find((species) => species.latinName === activeAnimalSpecies)?.commonName || activeAnimalSpecies : '',
+          activeAnimalScope !== 'all' ? formatAnimalScope(activeAnimalScope) : '',
+          activeAnimalConfidence !== 'all' ? formatCoordinateConfidence(activeAnimalConfidence) : '',
+          activeAnimalChronology !== 'all' ? activeAnimalChronology : '',
+          animalNordicOnly ? 'Nordic leads only' : '',
+        ].filter(Boolean);
+        return {
+          candidateEntries,
+          visibleEntries,
+          visibleSpecies,
+          confidenceCounts,
+          activeFilters,
+        };
+      }
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
       function isAnimalLayer(layer) {
@@ -1657,11 +2037,7 @@ MAP_DOCUMENT_TEMPLATE = """
       }
       function featureMatchesAnimalFilters(layer, feature) {
         if (!isAnimalLayer(layer)) return true;
-        if (activeAnimalSpecies !== 'all' && String(feature.species_latin_name || '') !== activeAnimalSpecies) return false;
-        if (activeAnimalScope !== 'all' && String(feature.animal_scope || '') !== activeAnimalScope) return false;
-        if (activeAnimalChronology !== 'all' && String(feature.chronology_bucket || '') !== activeAnimalChronology) return false;
-        if (animalNordicOnly && !feature.nordic_inclusion) return false;
-        return true;
+        return animalEntryMatchesFilters({ layer, feature });
       }
       function syncPresetButtons() {
         document.querySelectorAll('[data-km]').forEach((button) => {
@@ -1718,6 +2094,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
         if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
+        if (activeAnimalConfidence !== 'all') params.set('animal_confidence', activeAnimalConfidence);
         if (activeAnimalChronology !== 'all') params.set('animal_chronology', activeAnimalChronology);
         if (animalNordicOnly) params.set('animal_nordic', 'only');
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
@@ -1826,6 +2203,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
         if (activeAnimalSpecies !== 'all') count += 1;
         if (activeAnimalScope !== 'all') count += 1;
+        if (activeAnimalConfidence !== 'all') count += 1;
         if (activeAnimalChronology !== 'all') count += 1;
         if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
@@ -1882,16 +2260,40 @@ MAP_DOCUMENT_TEMPLATE = """
           });
         });
       }
+      function renderAnimalEvidencePanel(metrics) {
+        if (!animalEvidenceMetrics || !animalEvidenceConfidence || !animalEvidenceState) return;
+        const confidenceEntries = Object.entries(metrics.confidenceCounts).sort((left, right) => right[1] - left[1]);
+        animalEvidenceMetrics.innerHTML = [
+          { value: metrics.visibleEntries.length, label: 'Visible atlas points' },
+          { value: metrics.visibleSpecies.size, label: 'Visible species' },
+          { value: metrics.candidateEntries.length - metrics.visibleEntries.length, label: 'Filtered out by current posture' },
+        ]
+          .map((item) => `<div class="animal-insight-stat"><span class="animal-insight-stat-value">${escapeHtml(String(item.value))}</span><span class="animal-insight-stat-label">${escapeHtml(item.label)}</span></div>`)
+          .join('');
+        animalEvidenceConfidence.innerHTML = confidenceEntries.length
+          ? confidenceEntries
+              .map(([confidence, count]) => `<span class="animal-insight-chip"><span>${escapeHtml(formatCoordinateConfidence(confidence))}</span><strong>${escapeHtml(String(count))}</strong></span>`)
+              .join('')
+          : '<span class="animal-insight-copy">No animal points remain visible under the current filter state.</span>';
+        animalEvidenceState.textContent = metrics.activeFilters.length
+          ? metrics.activeFilters.join(' · ')
+          : 'Default animal posture';
+      }
       function renderAnimalControls() {
         if (!ANIMAL_SPECIES.length) {
           animalFilterSummary.textContent = 'No mapped animal evidence shipped';
           animalScopeFilters.innerHTML = '<span class="search-meta">No mapped animal layers available.</span>';
           animalSpeciesFilters.innerHTML = '';
+          animalConfidenceFilters.innerHTML = '';
           animalChronologyFilters.innerHTML = '';
+          animalEvidenceMetrics.innerHTML = '';
+          animalEvidenceConfidence.innerHTML = '<span class="animal-insight-copy">No mapped animal points are available in this bundle.</span>';
+          animalEvidenceState.textContent = 'No animal evidence';
           animalNordicOnlyCheckbox.checked = false;
           animalNordicOnlyCheckbox.disabled = true;
           return;
         }
+        const metrics = summarizeAnimalMetrics();
         animalNordicOnlyCheckbox.disabled = false;
         const scopeOptions = [
           { value: 'all', label: 'All animal evidence' },
@@ -1899,26 +2301,35 @@ MAP_DOCUMENT_TEMPLATE = """
           { value: 'comparator', label: 'Comparator only' },
         ];
         animalScopeFilters.innerHTML = scopeOptions
-          .map((option) => `<button class="preset-button ${activeAnimalScope === option.value ? 'is-active' : ''}" type="button" data-animal-scope="${escapeHtml(option.value)}">${escapeHtml(option.label)}</button>`)
+          .map((option) => {
+            const count = metrics.candidateEntries.filter((entry) => animalEntryMatchesFilters(entry, { scope: option.value })).length;
+            return `<button class="preset-button ${activeAnimalScope === option.value ? 'is-active' : ''}" type="button" data-animal-scope="${escapeHtml(option.value)}">${escapeHtml(option.label)} <span class="chip-count">${escapeHtml(String(count))}</span></button>`;
+          })
           .join('');
         const speciesButtons = [
-          `<button class="preset-button ${activeAnimalSpecies === 'all' ? 'is-active' : ''}" type="button" data-animal-species="all">All species</button>`,
-          ...ANIMAL_SPECIES.map((species) => `<button class="preset-button ${activeAnimalSpecies === species.latinName ? 'is-active' : ''}" type="button" data-animal-species="${escapeHtml(species.latinName)}">${escapeHtml(String(species.commonName))}</button>`),
+          `<button class="preset-button ${activeAnimalSpecies === 'all' ? 'is-active' : ''}" type="button" data-animal-species="all">All species <span class="chip-count">${escapeHtml(String(metrics.candidateEntries.filter((entry) => animalEntryMatchesFilters(entry, { species: 'all' })).length))}</span></button>`,
+          ...ANIMAL_SPECIES.map((species) => {
+            const count = metrics.candidateEntries.filter((entry) => animalEntryMatchesFilters(entry, { species: species.latinName })).length;
+            return `<button class="preset-button ${activeAnimalSpecies === species.latinName ? 'is-active' : ''}" type="button" data-animal-species="${escapeHtml(species.latinName)}"><span class="chip-swatch" style="background:${escapeHtml(species.fill)};border-color:${escapeHtml(species.stroke)};"></span>${escapeHtml(String(species.commonName))} <span class="chip-count">${escapeHtml(String(count))}</span></button>`;
+          }),
         ];
         animalSpeciesFilters.innerHTML = speciesButtons.join('');
+        const confidenceButtons = [
+          `<button class="preset-button ${activeAnimalConfidence === 'all' ? 'is-active' : ''}" type="button" data-animal-confidence="all">All confidence <span class="chip-count">${escapeHtml(String(metrics.candidateEntries.filter((entry) => animalEntryMatchesFilters(entry, { confidence: 'all' })).length))}</span></button>`,
+          ...ANIMAL_COORDINATE_CONFIDENCES.map((confidence) => {
+            const count = metrics.candidateEntries.filter((entry) => animalEntryMatchesFilters(entry, { confidence })).length;
+            return `<button class="preset-button ${activeAnimalConfidence === confidence ? 'is-active' : ''}" type="button" data-animal-confidence="${escapeHtml(confidence)}">${escapeHtml(formatCoordinateConfidence(confidence))} <span class="chip-count">${escapeHtml(String(count))}</span></button>`;
+          }),
+        ];
+        animalConfidenceFilters.innerHTML = confidenceButtons.join('');
         const chronologyButtons = [
           `<button class="preset-button ${activeAnimalChronology === 'all' ? 'is-active' : ''}" type="button" data-animal-chronology="all">All chronology</button>`,
           ...ANIMAL_CHRONOLOGY_BUCKETS.map((bucket) => `<button class="preset-button ${activeAnimalChronology === bucket ? 'is-active' : ''}" type="button" data-animal-chronology="${escapeHtml(bucket)}">${escapeHtml(bucket)}</button>`),
         ];
         animalChronologyFilters.innerHTML = chronologyButtons.join('');
         animalNordicOnlyCheckbox.checked = animalNordicOnly;
-        const visibleAnimalEntries = visiblePointEntries.filter(({ layer }) => isAnimalLayer(layer));
-        const visibleSpecies = new Set(
-          visibleAnimalEntries
-            .map(({ feature }) => String(feature.species_latin_name || '').trim())
-            .filter(Boolean)
-        );
-        animalFilterSummary.textContent = `${visibleAnimalEntries.length} animal points · ${visibleSpecies.size} species visible`;
+        animalFilterSummary.textContent = `${metrics.visibleEntries.length} animal points · ${metrics.visibleSpecies.size} species visible`;
+        renderAnimalEvidencePanel(metrics);
         document.querySelectorAll('[data-animal-scope]').forEach((button) => {
           button.addEventListener('click', () => {
             activeAnimalScope = button.dataset.animalScope;
@@ -1928,6 +2339,12 @@ MAP_DOCUMENT_TEMPLATE = """
         document.querySelectorAll('[data-animal-species]').forEach((button) => {
           button.addEventListener('click', () => {
             activeAnimalSpecies = button.dataset.animalSpecies;
+            renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-animal-confidence]').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeAnimalConfidence = button.dataset.animalConfidence;
             renderMapState();
           });
         });
@@ -1968,16 +2385,48 @@ MAP_DOCUMENT_TEMPLATE = """
       }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
+        const activeAnimalLayers = activeLegendLayers.filter((layer) => isAnimalLayer(layer));
+        const animalMetrics = summarizeAnimalMetrics();
         const renderGroup = (label, layers) => layers.length
           ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
           : '';
-        legendItems.innerHTML = LAYER_GROUP_DEFINITIONS
+        const animalLegendSections = activeAnimalLayers.length
+          ? [
+              `<div class="legend-group"><div class="legend-group-label">Animal scope</div><div class="legend-pill-list"><span class="legend-pill"><span class="legend-swatch" style="background: rgba(176, 133, 42, 0.18); border-color: #8a5b11;"></span><span>Domesticated-core</span><span class="legend-pill-note">tracked support surface</span></span><span class="legend-pill"><span class="legend-swatch" style="background: rgba(20, 184, 166, 0.18); border-color: #0f766e;"></span><span>Comparator</span><span class="legend-pill-note">comparison only</span></span></div></div>`,
+              `<div class="legend-group"><div class="legend-group-label">Coordinate trust</div><div class="legend-list">${Object.entries(animalMetrics.confidenceCounts).sort((left, right) => right[1] - left[1]).map(([confidence, count]) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background: rgba(20, 33, 61, 0.08); border-color: rgba(20, 33, 61, 0.22);"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(formatCoordinateConfidence(confidence))}</span><span class="legend-item-meta">${escapeHtml(String(count))} visible points</span></span></div>`).join('') || '<div class="legend-item"><span>No visible animal points for the current filter state.</span></div>'}</div></div>`,
+              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(String(layer.count || 0))} mapped point${Number(layer.count || 0) === 1 ? '' : 's'}</span></span></div>`).join('')}</div></div>`,
+            ].join('')
+          : '';
+        legendItems.innerHTML = `${animalLegendSections}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
-          .join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
+          .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function popupHtml(feature) {
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
+        if (feature.species_latin_name) {
+          const warningRows = rows.filter((row) => row && row.label === 'Warning' && row.value);
+          const detailRows = rows.filter((row) => row && row.value && row.label !== 'Warning');
+          const primaryRows = [
+            { label: 'Paper', value: feature.paper_title || '' },
+            { label: 'DOI', value: feature.paper_doi || '' },
+            { label: 'Project accession', value: Array.isArray(feature.project_accessions) ? feature.project_accessions.join(', ') : '' },
+            { label: 'Coordinate basis', value: formatCoordinateBasis(feature.coordinate_basis || '') },
+            { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
+            { label: 'Source locator', value: feature.source_locator || '' },
+          ].filter((row) => row.value);
+          const secondaryRows = [
+            { label: 'Chronology', value: feature.time_label || '' },
+            { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
+            { label: 'Original place text', value: feature.original_place_text || '' },
+            { label: 'Resolved place text', value: feature.resolved_place_text || '' },
+            { label: 'Source support', value: feature.source_support_status || '' },
+            { label: 'Interpretation', value: detailRows.find((row) => row.label === 'Interpretation')?.value || '' },
+            { label: 'Source evidence text', value: feature.exact_source_text || '' },
+          ].filter((row) => row.value);
+          const renderRows = (items) => items.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label)}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
+          return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal atlas evidence</span><div class="popup-title">${escapeHtml(feature.title || '')}</div><div class="popup-subtitle">${escapeHtml(feature.subtitle || '')}</div></div><div class="popup-badges"><span class="popup-badge">${escapeHtml(feature.species_common_name || feature.species_latin_name || 'Animal evidence')}</span><span class="popup-badge">${escapeHtml(formatAnimalScope(feature.animal_scope || ''))}</span><span class="popup-badge">${escapeHtml(formatCoordinateConfidence(feature.coordinate_confidence || ''))}</span>${feature.nordic_inclusion ? '<span class="popup-badge">Nordic lead</span>' : '<span class="popup-badge popup-badge--warning">Non-Nordic context</span>'}</div><div class="popup-section"><span class="popup-section-title">Citation and provenance</span>${renderRows(primaryRows)}</div><div class="popup-section"><span class="popup-section-title">Sample and locality detail</span>${renderRows(secondaryRows)}<div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</span></div>${mediaLinksHtml(feature.media_links)}</div>${warningRows.length ? `<div class="popup-section"><span class="popup-section-title">Warnings and caveats</span><div class="popup-warning-list">${warningRows.map((row) => `<div class="popup-warning">${escapeHtml(row.value || '')}</div>`).join('')}</div></div>` : ''}${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open article or source record</a></span></div></div>` : ''}</div>`;
+        }
         const rowHtml = rows.filter((row) => row && row.value).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value || '')}</div>`).join('');
         return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}<div><strong>Coords</strong> ${Number(feature.latitude).toFixed(6)}, ${Number(feature.longitude).toFixed(6)}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
@@ -2194,6 +2643,7 @@ MAP_DOCUMENT_TEMPLATE = """
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
+        const visibleAnimalCount = visiblePointEntries.filter(({ layer }) => isAnimalLayer(layer)).length;
         const timedVisiblePoints = visiblePointEntries.filter(({ layer, feature }) => layer.applies_time_filter && featureTimeWindow(feature)).length;
         const timedVisiblePolygons = POLYGON_LAYERS.reduce((count, layer) => {
           if (!activeLayerKeys.has(layer.key) || !layer.applies_time_filter) return count;
@@ -2208,7 +2658,7 @@ MAP_DOCUMENT_TEMPLATE = """
           ? `${timedVisibleCount} time-aware records are visible in the active BP window.`
           : 'No time-aware records are available for BP filtering.';
         const visiblePolygonLayers = renderedPolygonLayers.length;
-        selectionReadout.textContent = `${visiblePointEntries.length} points · ${visiblePolygonLayers} overlays`;
+        selectionReadout.textContent = `${visiblePointEntries.length} points · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`;
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
       }
@@ -2274,6 +2724,7 @@ MAP_DOCUMENT_TEMPLATE = """
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeAnimalSpecies = 'all';
         activeAnimalScope = 'all';
+        activeAnimalConfidence = 'all';
         activeAnimalChronology = 'all';
         animalNordicOnly = false;
         animalNordicOnlyCheckbox.checked = false;
