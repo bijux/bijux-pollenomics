@@ -195,6 +195,83 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             any(not row["passed"] for row in gate_payload["checks"])
         )
 
+    def test_release_gate_fails_when_project_locality_output_flattens_sample_sites(self) -> None:
+        point_payload = {"rows": []}
+        review_payload = {"reference_grade_claim_allowed": False}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            data_root = root / "data"
+            docs_root = root / "docs"
+            species_root = data_root / "adna" / "ovis_aries"
+            normalized_root = species_root / "normalized"
+            normalized_root.mkdir(parents=True, exist_ok=True)
+            (species_root / "README.md").write_text(
+                "# sheep\n\n- Curated sample rows: `2`\n",
+                encoding="utf-8",
+            )
+            _write_json(
+                normalized_root / "sample_records.json",
+                {
+                    "samples": [
+                        _sample_row(
+                            stable_token="ovis_aries:sample:one",
+                            locality_token="ovis_aries:sample-site:one",
+                            locality_text="Site One",
+                            project_accession="PRJTEST",
+                        ),
+                        _sample_row(
+                            stable_token="ovis_aries:sample:two",
+                            locality_token="ovis_aries:sample-site:two",
+                            locality_text="Site Two",
+                            project_accession="PRJTEST",
+                        ),
+                    ]
+                },
+            )
+            _write_json(
+                normalized_root / "locality_summaries.json",
+                {
+                    "localities": [
+                        {
+                            "identity": {"stable_token": "ovis_aries:project-locality:prjtest"},
+                            "project_accessions": ["PRJTEST"],
+                            "sample_namespace": "ovis_aries:project_locality",
+                        }
+                    ]
+                },
+            )
+            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+                parents=True, exist_ok=True
+            )
+            (docs_root / "index.md").write_text("", encoding="utf-8")
+            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+                "",
+                encoding="utf-8",
+            )
+            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+                "",
+                encoding="utf-8",
+            )
+
+            gate_payload = build_animal_publication_release_gate(
+                data_root=data_root,
+                report_root=root / "report",
+                docs_root=docs_root,
+                point_payload=point_payload,
+                review_payload=review_payload,
+            )
+
+        self.assertFalse(gate_payload["overall_ok"])
+        self.assertTrue(
+            any(
+                row["check_id"]
+                == "project_locality_outputs_do_not_flatten_sample_site_disagreement"
+                and not row["passed"]
+                for row in gate_payload["checks"]
+            )
+        )
+
     def test_publish_animal_foundation_outputs_writes_expected_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp)
@@ -219,6 +296,42 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertTrue(gate_payload["overall_ok"])
+
+def _sample_row(
+    *,
+    stable_token: str,
+    locality_token: str,
+    locality_text: str,
+    project_accession: str,
+) -> dict[str, object]:
+    return {
+        "identity": {"stable_token": stable_token},
+        "locality_identity": {
+            "stable_token": locality_token,
+            "locality_text": locality_text,
+        },
+        "project_accession": project_accession,
+        "paper_doi": "10.1000/test",
+        "paper_url": "https://doi.org/10.1000/test",
+        "supplementary_source": "supplementary/test.csv",
+        "sample_basis": "project_accession_anchor",
+        "inclusion_status": "site_curated",
+        "chronology": {
+            "original_text": "1000-1200 BP",
+            "time_start_bp": 1000,
+            "time_end_bp": 1200,
+        },
+        "coordinates": {
+            "latitude_text": "59.0",
+            "longitude_text": "18.0",
+            "confidence": "approximate",
+        },
+    }
+
+
+def _write_json(path: Path, payload: dict[str, object]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload), encoding="utf-8")
 
 
 if __name__ == "__main__":
