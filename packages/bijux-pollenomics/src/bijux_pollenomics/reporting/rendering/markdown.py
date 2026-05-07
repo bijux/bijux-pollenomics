@@ -143,6 +143,7 @@ def render_multi_country_map_markdown(
     geojson_name: str,
     summary_json_name: str,
     extra_artifacts: list[tuple[str, str]],
+    animal_atlas_summary: dict[str, object] | None = None,
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
     policy = build_multi_country_map_policy(
@@ -161,6 +162,51 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
+    animal_section = ""
+    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
+        layer_group_lines = "\n".join(
+            f"- {label}"
+            for label in animal_atlas_summary.get("layer_groups", [])
+        ) or "- No animal layer groups shipped"
+        filter_lines = "\n".join(
+            f"- {label}"
+            for label in animal_atlas_summary.get("filter_surfaces", [])
+        ) or "- No animal-specific filters shipped"
+        caution_lines = "\n".join(
+            f"- {label}"
+            for label in animal_atlas_summary.get("visible_caveats", [])
+        ) or "- No animal-specific caveats shipped"
+        species_lines = "\n".join(
+            f"| {escape_pipes(str(row.get('common_name', '')))} | {escape_pipes(str(row.get('latin_name', '')))} | {escape_pipes(str(row.get('animal_scope', '')))} | {row.get('locality_count', 0)} |"
+            for row in animal_atlas_summary.get("species_layers", [])
+        ) or "| No animal species layers shipped | - | - | 0 |"
+        animal_section = f"""
+
+## Animal aDNA Layers
+
+- Total animal locality points: `{animal_atlas_summary["total_locality_points"]}`
+- Shipped animal species: `{animal_atlas_summary["total_species"]}`
+- Domesticated-core species layers: `{animal_atlas_summary["domesticated_species_count"]}`
+- Comparator species layers: `{animal_atlas_summary["comparator_species_count"]}`
+
+### Layer Groups
+
+{layer_group_lines}
+
+### Public Animal Filters
+
+{filter_lines}
+
+### Visible Animal Caveats
+
+{caution_lines}
+
+### Shipped Animal Species Layers
+
+| Common name | Latin name | Animal scope | Mapped locality points |
+| --- | --- | --- | ---: |
+{species_lines}
+"""
     return f"""# {policy["title"]}
 
 {policy["intro"]}
@@ -186,4 +232,5 @@ def render_multi_country_map_markdown(
 - Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
 - Machine-readable summary: [`{summary_json_name}`](./{summary_json_name})
 {artifact_block}
+{animal_section}
 """

@@ -65,9 +65,11 @@ def build_multi_country_map_policy(
         "scope": (
             f"It combines mapped Homo sapiens aDNA records from AADR `{version}` with "
             "whichever contextual datasets are present in the repository at generation "
-            "time and copies those derived artifacts into this directory. Non-human "
-            "animal aDNA remains a governed species-review surface unless the runtime "
-            "owns mapped animal sample or locality records."
+            "time and copies those derived artifacts into this directory. When the "
+            "tracked data root contains mapped animal aDNA locality records, the atlas "
+            "publishes them as separate domesticated-core and comparator layers with "
+            "explicit filter and caveat surfaces instead of flattening them into "
+            "generic context."
         ),
         "count_note": (
             "Country sample counts in this README refer to Homo sapiens aDNA records "

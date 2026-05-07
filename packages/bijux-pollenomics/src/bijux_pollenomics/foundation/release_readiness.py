@@ -205,9 +205,9 @@ def _atlas_bundle_contract_ok() -> bool:
         == paths.scientific_review_json_path.name
         and manifest["artifacts"]["scientific_review_markdown"]
         == paths.scientific_review_markdown_path.name
-        and evidence_surface.schema_version == "atlas-evidence-surface.v1"
+        and evidence_surface.schema_version == "atlas-evidence-surface.v2"
         and evidence_surface.layers[0].layer_key == "homo_sapiens_direct"
-        and scientific_review.schema_version == "scientific-review-surface.v1"
+        and scientific_review.schema_version == "scientific-review-surface.v2"
         and "mapped Homo sapiens locality inventory" in scientific_review.descriptive_scope
         and published.get("schema_version") == "published-reports-summary.v1"
     )

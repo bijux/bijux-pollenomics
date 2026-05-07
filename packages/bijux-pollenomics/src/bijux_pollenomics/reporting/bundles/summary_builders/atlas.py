@@ -8,8 +8,36 @@ def build_multi_country_map_summary(
     report: MultiCountryMapReport,
     bundle_paths: AtlasBundlePaths,
     extra_artifacts: list[tuple[str, str]],
+    animal_atlas_summary: dict[str, object] | None = None,
 ) -> dict[str, object]:
     """Build a machine-readable summary for one shared map bundle."""
+    artifacts: dict[str, object] = {
+        "bundle_manifest": bundle_paths.bundle_manifest_path.name,
+        "readme": bundle_paths.readme_path.name,
+        "map_html": bundle_paths.map_html_path.name,
+        "samples_geojson": bundle_paths.samples_geojson_path.name,
+        "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
+        "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
+        "scientific_review_json": bundle_paths.scientific_review_json_path.name,
+        "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
+        "summary_json": bundle_paths.summary_json_path.name,
+        "extra_files": [
+            {"label": label, "filename": filename}
+            for label, filename in extra_artifacts
+        ],
+    }
+    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
+        artifacts.update(
+            {
+                "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
+                "domesticated_animal_localities_geojson": (
+                    bundle_paths.domesticated_animal_localities_geojson_path.name
+                ),
+                "comparator_animal_localities_geojson": (
+                    bundle_paths.comparator_animal_localities_geojson_path.name
+                ),
+            }
+        )
     return {
         "schema_version": "atlas-bundle-summary.v1",
         "title": report.title,
@@ -20,21 +48,8 @@ def build_multi_country_map_summary(
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
         "output_dir": str(report.output_dir),
-        "artifacts": {
-            "bundle_manifest": bundle_paths.bundle_manifest_path.name,
-            "readme": bundle_paths.readme_path.name,
-            "map_html": bundle_paths.map_html_path.name,
-            "samples_geojson": bundle_paths.samples_geojson_path.name,
-            "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
-            "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
-            "scientific_review_json": bundle_paths.scientific_review_json_path.name,
-            "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
-            "summary_json": bundle_paths.summary_json_path.name,
-            "extra_files": [
-                {"label": label, "filename": filename}
-                for label, filename in extra_artifacts
-            ],
-        },
+        "artifacts": artifacts,
+        "animal_atlas": animal_atlas_summary or {},
     }
 
 
@@ -42,8 +57,41 @@ def build_multi_country_bundle_manifest(
     report: MultiCountryMapReport,
     bundle_paths: AtlasBundlePaths,
     extra_artifacts: list[tuple[str, str]],
+    animal_atlas_summary: dict[str, object] | None = None,
 ) -> dict[str, object]:
     """Build a machine-readable manifest for one atlas bundle."""
+    artifacts: dict[str, object] = {
+        "readme": bundle_paths.readme_path.name,
+        "map_html": bundle_paths.map_html_path.name,
+        "samples_geojson": bundle_paths.samples_geojson_path.name,
+        "candidate_sites_csv": bundle_paths.candidate_sites_csv_path.name,
+        "candidate_sites_json": bundle_paths.candidate_sites_json_path.name,
+        "candidate_sites_markdown": bundle_paths.candidate_sites_markdown_path.name,
+        "candidate_site_sensitivity_json": bundle_paths.candidate_site_sensitivity_json_path.name,
+        "candidate_site_sensitivity_markdown": bundle_paths.candidate_site_sensitivity_markdown_path.name,
+        "candidate_ranking_engine_manifest": bundle_paths.candidate_ranking_engine_manifest_path.name,
+        "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
+        "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
+        "scientific_review_json": bundle_paths.scientific_review_json_path.name,
+        "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
+        "summary_json": bundle_paths.summary_json_path.name,
+        "extra_files": [
+            {"label": label, "filename": filename}
+            for label, filename in extra_artifacts
+        ],
+    }
+    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
+        artifacts.update(
+            {
+                "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
+                "domesticated_animal_localities_geojson": (
+                    bundle_paths.domesticated_animal_localities_geojson_path.name
+                ),
+                "comparator_animal_localities_geojson": (
+                    bundle_paths.comparator_animal_localities_geojson_path.name
+                ),
+            }
+        )
     return {
         "schema_version": "atlas-bundle-manifest.v1",
         "bundle_type": "nordic_evidence_atlas",
@@ -55,26 +103,8 @@ def build_multi_country_bundle_manifest(
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
         "output_dir": str(report.output_dir),
-        "artifacts": {
-            "readme": bundle_paths.readme_path.name,
-            "map_html": bundle_paths.map_html_path.name,
-            "samples_geojson": bundle_paths.samples_geojson_path.name,
-            "candidate_sites_csv": bundle_paths.candidate_sites_csv_path.name,
-            "candidate_sites_json": bundle_paths.candidate_sites_json_path.name,
-            "candidate_sites_markdown": bundle_paths.candidate_sites_markdown_path.name,
-            "candidate_site_sensitivity_json": bundle_paths.candidate_site_sensitivity_json_path.name,
-            "candidate_site_sensitivity_markdown": bundle_paths.candidate_site_sensitivity_markdown_path.name,
-            "candidate_ranking_engine_manifest": bundle_paths.candidate_ranking_engine_manifest_path.name,
-            "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
-            "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
-            "scientific_review_json": bundle_paths.scientific_review_json_path.name,
-            "scientific_review_markdown": bundle_paths.scientific_review_markdown_path.name,
-            "summary_json": bundle_paths.summary_json_path.name,
-            "extra_files": [
-                {"label": label, "filename": filename}
-                for label, filename in extra_artifacts
-            ],
-        },
+        "artifacts": artifacts,
+        "animal_atlas": animal_atlas_summary or {},
     }
 
 

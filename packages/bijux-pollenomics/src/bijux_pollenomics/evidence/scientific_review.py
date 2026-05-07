@@ -173,46 +173,54 @@ def build_scientific_review_surface(
     *,
     countries: tuple[str, ...],
     human_localities: Iterable[AdnaLocalitySummary],
+    animal_localities: Iterable[AdnaLocalitySummary] = (),
     context_points: Iterable[ContextPointRecord],
 ) -> ScientificReviewSurface:
     """Build the scientific-review surface for one atlas run."""
     direct_localities = tuple(human_localities)
+    mapped_animal_localities = tuple(animal_localities)
     context_records = tuple(context_points)
     evidence_surface = build_atlas_evidence_surface(
         countries=countries,
         human_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         context_points=context_records,
     )
     species_rows = evidence_surface.species_rows
     country_coverage = _build_country_coverage(
         countries=countries,
         direct_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         species_rows=species_rows,
     )
     period_coverage = _build_period_coverage(
         direct_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         species_rows=species_rows,
     )
     chronology_overlaps = _build_chronology_overlaps(
         direct_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         context_points=context_records,
         species_rows=species_rows,
     )
     uncertainties = _build_uncertainties(
         direct_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         species_rows=species_rows,
     )
     scenarios = _build_scenarios(
         direct_localities=direct_localities,
+        animal_localities=mapped_animal_localities,
         species_rows=species_rows,
         chronology_overlaps=chronology_overlaps,
     )
     return ScientificReviewSurface(
-        schema_version="scientific-review-surface.v1",
+        schema_version="scientific-review-surface.v2",
         descriptive_scope=(
             "mapped Homo sapiens locality inventory",
-            "species-owned domesticated-animal project and study review",
-            "country and period coverage with explicit unmapped-animal caution",
+            "mapped species-owned animal locality leads with explicit caveats",
+            "country and period coverage with explicit animal precision caution",
         ),
         comparative_scope=(
             "cross-species heuristic ranking",
@@ -235,6 +243,7 @@ def _build_country_coverage(
     *,
     countries: tuple[str, ...],
     direct_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     species_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[SpeciesCountryCoverageRow, ...]:
     rows: list[SpeciesCountryCoverageRow] = []
@@ -242,6 +251,11 @@ def _build_country_coverage(
         country_direct = tuple(
             locality
             for locality in direct_localities
+            if (locality.identity.political_entity or "").strip() == country
+        )
+        country_animal_localities = tuple(
+            locality
+            for locality in animal_localities
             if (locality.identity.political_entity or "").strip() == country
         )
         rows.append(
@@ -258,16 +272,31 @@ def _build_country_coverage(
         for row in species_rows:
             if row.species_latin_name == "Homo sapiens":
                 continue
+            species_country_localities = tuple(
+                locality
+                for locality in country_animal_localities
+                if locality.species_latin_name == row.species_latin_name
+            )
             rows.append(
                 SpeciesCountryCoverageRow(
                     country=country,
                     species_latin_name=row.species_latin_name,
-                    evidence_scope=row.contribution_role,
-                    mapped_locality_count=0,
+                    evidence_scope=(
+                        "mapped_direct"
+                        if species_country_localities
+                        else row.contribution_role
+                    ),
+                    mapped_locality_count=len(species_country_localities),
                     contextual_project_count=row.curated_project_count,
-                    assignment_confidence="not_country_assignable_from_current_runtime",
+                    assignment_confidence=(
+                        "country_resolved_from_mapped_locality_rows"
+                        if species_country_localities
+                        else "not_country_assignable_from_current_runtime"
+                    ),
                     caution_note=(
-                        "Current non-human support is species-level review context, not country-resolved locality evidence."
+                        "Mapped animal locality rows remain cautionary leads and can still be approximate, regional, or comparator-only."
+                        if species_country_localities
+                        else "Current non-human support is species-level review context, not country-resolved locality evidence."
                     ),
                 )
             )
@@ -277,6 +306,7 @@ def _build_country_coverage(
 def _build_period_coverage(
     *,
     direct_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     species_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[SpeciesPeriodCoverageRow, ...]:
     rows: list[SpeciesPeriodCoverageRow] = []
@@ -298,6 +328,28 @@ def _build_period_coverage(
     for row in species_rows:
         if row.species_latin_name == "Homo sapiens":
             continue
+        species_animal_localities = tuple(
+            locality
+            for locality in animal_localities
+            if locality.species_latin_name == row.species_latin_name
+        )
+        if species_animal_localities:
+            grouped_animal: dict[str, list[AdnaLocalitySummary]] = defaultdict(list)
+            for locality in species_animal_localities:
+                grouped_animal[_period_label_for(locality)].append(locality)
+            for period_label in sorted(grouped_animal):
+                rows.append(
+                    SpeciesPeriodCoverageRow(
+                        species_latin_name=row.species_latin_name,
+                        period_label=period_label,
+                        evidence_scope="mapped_direct",
+                        mapped_locality_count=len(grouped_animal[period_label]),
+                        contextual_project_count=row.curated_project_count,
+                        chronology_confidence=row.chronology_posture,
+                        caution_note="Mapped animal chronology remains bounded by locality-lead precision and support-class caveats.",
+                    )
+                )
+            continue
         rows.append(
             SpeciesPeriodCoverageRow(
                 species_latin_name=row.species_latin_name,
@@ -315,6 +367,7 @@ def _build_period_coverage(
 def _build_chronology_overlaps(
     *,
     direct_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     context_points: tuple[ContextPointRecord, ...],
     species_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[ChronologyOverlapRow, ...]:
@@ -348,7 +401,37 @@ def _build_chronology_overlaps(
     for row in species_rows:
         if row.species_latin_name == "Homo sapiens":
             continue
+        species_animal_localities = tuple(
+            locality
+            for locality in animal_localities
+            if locality.species_latin_name == row.species_latin_name
+        )
         for layer_key in sorted(grouped_context) or ("no_context_layers",):
+            if species_animal_localities and layer_key != "no_context_layers":
+                overlapping = 0
+                non_overlapping = 0
+                noncomparable = 0
+                layer_points = grouped_context.get(layer_key, [])
+                for locality in species_animal_localities:
+                    if locality.time_start_bp is None or locality.time_end_bp is None:
+                        noncomparable += 1
+                        continue
+                    if any(_locality_overlaps_point(locality, point) for point in layer_points):
+                        overlapping += 1
+                    else:
+                        non_overlapping += 1
+                rows.append(
+                    ChronologyOverlapRow(
+                        species_latin_name=row.species_latin_name,
+                        context_layer_key=layer_key,
+                        overlap_status="mapped_locality_overlap_with_caution",
+                        overlapping_direct_localities=overlapping,
+                        non_overlapping_direct_localities=non_overlapping,
+                        noncomparable_records=noncomparable,
+                        rationale="Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats.",
+                    )
+                )
+                continue
             rows.append(
                 ChronologyOverlapRow(
                     species_latin_name=row.species_latin_name,
@@ -366,11 +449,17 @@ def _build_chronology_overlaps(
 def _build_uncertainties(
     *,
     direct_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     species_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[EvidenceUncertaintyRow, ...]:
     rows: list[EvidenceUncertaintyRow] = []
     for row in species_rows:
         if row.species_latin_name != "Homo sapiens":
+            species_animal_localities = tuple(
+                locality
+                for locality in animal_localities
+                if locality.species_latin_name == row.species_latin_name
+            )
             rows.append(
                 EvidenceUncertaintyRow(
                     subject=row.species_latin_name,
@@ -384,9 +473,17 @@ def _build_uncertainties(
                 EvidenceUncertaintyRow(
                     subject=row.species_latin_name,
                     uncertainty_kind="locality_precision",
-                    severity="high",
+                    severity=(
+                        "medium"
+                        if species_animal_localities
+                        else "high"
+                    ),
                     reason=row.geography_posture,
-                    impact="country or atlas placement for animal evidence would overstate runtime geography support",
+                    impact=(
+                        "mapped animal atlas points remain useful but must keep their coordinate and regional caveats visible"
+                        if species_animal_localities
+                        else "country or atlas placement for animal evidence would overstate runtime geography support"
+                    ),
                 )
             )
             rows.append(
@@ -395,7 +492,11 @@ def _build_uncertainties(
                     uncertainty_kind="date_precision",
                     severity="medium",
                     reason=row.chronology_posture,
-                    impact="animal evidence cannot yet support locality-aligned chronology claims",
+                    impact=(
+                        "mapped animal localities support chronology comparison only within the explicit BP and caveat bounds"
+                        if species_animal_localities
+                        else "animal evidence cannot yet support locality-aligned chronology claims"
+                    ),
                 )
             )
     if any(locality.coordinate_confidence != "exact" for locality in direct_localities):
@@ -414,6 +515,7 @@ def _build_uncertainties(
 def _build_scenarios(
     *,
     direct_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     species_rows: tuple[AtlasEvidenceSpeciesRow, ...],
     chronology_overlaps: tuple[ChronologyOverlapRow, ...],
 ) -> tuple[NordicScenarioAssessment, ...]:
@@ -421,6 +523,9 @@ def _build_scenarios(
         row.species_latin_name
         for row in species_rows
         if row.species_latin_name != "Homo sapiens" and row.contribution_role == "contextual"
+    )
+    mapped_animal_species = tuple(
+        sorted({locality.species_latin_name for locality in animal_localities})
     )
     has_human_direct = bool(direct_localities)
     has_human_overlap = any(
@@ -436,11 +541,11 @@ def _build_scenarios(
             claim_scope="exploratory",
             usable_evidence=(
                 "mapped_homo_sapiens_localities" if has_human_direct else "no_human_direct_localities",
-                *(animal_context_species or ("no_contextual_animal_species",)),
+                *(mapped_animal_species or animal_context_species or ("no_contextual_animal_species",)),
             ),
             blockers=(
-                "animal_evidence_unmapped",
-                "nonhuman_chronology_not_locality_bound",
+                "animal_evidence_mapped_with_precision_caveats",
+                "nonhuman_chronology_not_uniformly_country_resolved",
             ),
             current_posture="exploratory_only",
         ),
@@ -448,9 +553,9 @@ def _build_scenarios(
             scenario_key="pastoral_species_turnover",
             question="Can the platform compare animal-management turnover signals across species without flattening their support classes?",
             claim_scope="comparative",
-            usable_evidence=animal_context_species or ("no_contextual_animal_species",),
-            blockers=("species_support_asymmetry",),
-            current_posture="comparative_but_not_locality_specific",
+            usable_evidence=mapped_animal_species or animal_context_species or ("no_contextual_animal_species",),
+            blockers=("species_support_asymmetry", "mapped_animal_precision_caveats"),
+            current_posture="comparative_with_locality_caveats",
         ),
         NordicScenarioAssessment(
             scenario_key="cattle_management_split",
@@ -469,7 +574,7 @@ def _build_scenarios(
             ),
             blockers=(
                 "field_sampling_gate_not_cleared",
-                "animal_evidence_not_mapped_to_localities",
+                "animal_evidence_not_yet_dense_enough_for_fieldwork_recommendation",
             ),
             current_posture="exploratory_only",
         ),

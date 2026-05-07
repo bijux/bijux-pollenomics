@@ -53,6 +53,18 @@ class CountryReportTests(unittest.TestCase):
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
         )
         self.assertEqual(
+            atlas_paths.animal_localities_geojson_path.name,
+            "nordic-atlas_animal_localities.geojson",
+        )
+        self.assertEqual(
+            atlas_paths.domesticated_animal_localities_geojson_path.name,
+            "nordic-atlas_domesticated_animal_localities.geojson",
+        )
+        self.assertEqual(
+            atlas_paths.comparator_animal_localities_geojson_path.name,
+            "nordic-atlas_comparator_animal_localities.geojson",
+        )
+        self.assertEqual(
             atlas_paths.candidate_sites_csv_path.name,
             "nordic-atlas_candidate_sites.csv",
         )
@@ -578,7 +590,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertNotIn("<title>Nordic Countries AADR v62.0 Map</title>", map_html)
             self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
             self.assertNotIn("unpkg.com/leaflet", map_html)
-            self.assertIn("Non-human animal aDNA remains a governed species-review surface", readme_text)
+            self.assertIn(
+                "When the tracked data root contains mapped animal aDNA locality records",
+                readme_text,
+            )
 
             geojson = json.loads(
                 (output / "nordic-atlas_samples.geojson").read_text(encoding="utf-8")
@@ -612,6 +627,114 @@ class CountryReportTests(unittest.TestCase):
                 summary["artifacts"]["extra_files"][-1]["filename"],
                 "nordic-atlas_scientific_review.md",
             )
+
+    def test_generate_multi_country_map_ships_public_animal_layers_and_filters(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                ],
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "ovis_aries",
+                latin_name="Ovis aries",
+                common_name="sheep",
+                locality="Baltic sheep lead",
+                political_entity="Sweden",
+                project_accession="PRJEB59481",
+                support_class="accepted",
+                product_role="domesticated_core",
+                nordic_inclusion=True,
+                chronology_bucket="1001-3000 BP",
+                paper_title="Baltic short-tailed sheep aDNA",
+                paper_doi="10.1000/sheep",
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "rangifer_tarandus",
+                latin_name="Rangifer tarandus",
+                common_name="reindeer",
+                locality="Svalbard reindeer lead",
+                political_entity="Norway",
+                project_accession="PRJEB60484",
+                support_class="comparator_only",
+                product_role="comparator",
+                nordic_inclusion=True,
+                chronology_bucket="0-1000 BP",
+                paper_title="Ancient reindeer context",
+                paper_doi="10.1000/reindeer",
+            )
+
+            generate_multi_country_map(
+                version_dir=root,
+                countries=["Sweden", "Norway"],
+                output_dir=output,
+                title="Nordic Evidence Atlas",
+                slug="nordic-atlas",
+                context_root=context_root,
+            )
+
+            self.assertTrue((output / "nordic-atlas_animal_localities.geojson").exists())
+            self.assertTrue(
+                (output / "nordic-atlas_domesticated_animal_localities.geojson").exists()
+            )
+            self.assertTrue(
+                (output / "nordic-atlas_comparator_animal_localities.geojson").exists()
+            )
+
+            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+            summary = json.loads(
+                (output / "nordic-atlas_summary.json").read_text(encoding="utf-8")
+            )
+            animal_geojson = json.loads(
+                (output / "nordic-atlas_animal_localities.geojson").read_text(
+                    encoding="utf-8"
+                )
+            )
+
+            self.assertIn("Animal Evidence", map_html)
+            self.assertIn("Species Focus", map_html)
+            self.assertIn("Animal Scope", map_html)
+            self.assertIn("Chronology Buckets", map_html)
+            self.assertIn("Nordic animal leads only", map_html)
+            self.assertIn("Domesticated animal aDNA", map_html)
+            self.assertIn("Comparator animal aDNA", map_html)
+            self.assertIn("data-animal-species", map_html)
+            self.assertIn("data-animal-scope", map_html)
+            self.assertIn("data-animal-chronology", map_html)
+            self.assertIn("featureMatchesAnimalFilters", map_html)
+            self.assertIn("Ovis aries", map_html)
+            self.assertIn("Rangifer tarandus", map_html)
+            self.assertIn("Baltic sheep lead", map_html)
+            self.assertIn("Svalbard reindeer lead", map_html)
+
+            self.assertIn("## Animal aDNA Layers", readme_text)
+            self.assertIn("Public Animal Filters", readme_text)
+            self.assertIn("Domesticated-core animal evidence", readme_text)
+            self.assertIn("Comparator animal evidence", readme_text)
+            self.assertIn("Nordic animal leads only", readme_text)
+            self.assertIn("Approximate or inferred coordinates remain visible", readme_text)
+
+            self.assertEqual(summary["animal_atlas"]["total_species"], 2)
+            self.assertEqual(summary["animal_atlas"]["domesticated_species_count"], 1)
+            self.assertEqual(summary["animal_atlas"]["comparator_species_count"], 1)
+            self.assertEqual(
+                summary["artifacts"]["animal_localities_geojson"],
+                "nordic-atlas_animal_localities.geojson",
+            )
+            self.assertIn("Species focus", summary["animal_atlas"]["filter_surfaces"])
+            self.assertIn(
+                "Nordic animal leads only",
+                summary["animal_atlas"]["filter_surfaces"],
+            )
+
+            self.assertEqual(len(animal_geojson["features"]), 2)
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -1309,6 +1432,124 @@ class CountryReportTests(unittest.TestCase):
     ) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(payload), encoding="utf-8")
+
+    def write_tracked_animal_species(
+        self,
+        species_root: Path,
+        *,
+        latin_name: str,
+        common_name: str,
+        locality: str,
+        political_entity: str,
+        project_accession: str,
+        support_class: str,
+        product_role: str,
+        nordic_inclusion: bool,
+        chronology_bucket: str,
+        paper_title: str,
+        paper_doi: str,
+    ) -> None:
+        species_root.mkdir(parents=True, exist_ok=True)
+        self.write_json(
+            species_root / "normalized" / "locality_summaries.json",
+            {
+                "localities": [
+                    {
+                        "identity": {
+                            "namespace": "animal-locality",
+                            "stable_token": f"{latin_name}:{project_accession}",
+                            "locality_text": locality,
+                            "political_entity": political_entity,
+                            "source_anchor_tokens": [project_accession],
+                        },
+                        "species_latin_name": latin_name,
+                        "species_common_name": common_name,
+                        "source_family": "ENA",
+                        "source_releases": ["tracked"],
+                        "record_modalities": ["metadata_only"],
+                        "review_strengths": ["paper_pinned"],
+                        "provenance_qualities": ["tracked_curated"],
+                        "locality": locality,
+                        "coordinates": {
+                            "latitude": 59.4,
+                            "longitude": 18.1,
+                            "latitude_text": "59.4",
+                            "longitude_text": "18.1",
+                            "confidence": "approximate",
+                        },
+                        "sample_count": 1,
+                        "sample_ids": [f"{project_accession}:lead"],
+                        "datasets": ["animal-adna"],
+                        "chronology": {
+                            "original_text": chronology_bucket,
+                            "time_start_bp": 1200,
+                            "time_end_bp": 1600,
+                            "time_mean_bp": 1400,
+                            "dating_basis": "bp_window",
+                        },
+                        "sample_namespace": "animal-locality",
+                        "project_accessions": [project_accession],
+                        "original_location_text": locality,
+                        "nordic_inclusion": nordic_inclusion,
+                        "nordic_inclusion_reason": "Curated Nordic lead",
+                        "interpretation_note": "Tracked atlas locality lead",
+                    }
+                ]
+            },
+        )
+        self.write_json(
+            species_root / "reports" / "support_summary.json",
+            {
+                "dataset_review": {
+                    "product_role": product_role,
+                    "chronology_bucket": chronology_bucket,
+                }
+            },
+        )
+        review_bucket = (
+            "comparator_projects" if support_class == "comparator_only" else "accepted_projects"
+        )
+        self.write_json(
+            species_root / "review" / "species_review.json",
+            {
+                "accepted_projects": []
+                if review_bucket != "accepted_projects"
+                else [
+                    {
+                        "project_accession": project_accession,
+                        "support_class": support_class,
+                        "reason": "Mapped locality retained in atlas.",
+                        "paper_title": paper_title,
+                        "paper_doi": paper_doi,
+                        "nordic_relevance": "nordic_lead" if nordic_inclusion else "non_nordic",
+                        "nordic_relevance_reason": "Curated Nordic lead",
+                    }
+                ],
+                "rejected_projects": [],
+                "too_weak_projects": [],
+                "comparator_projects": []
+                if review_bucket != "comparator_projects"
+                else [
+                    {
+                        "project_accession": project_accession,
+                        "support_class": support_class,
+                        "reason": "Comparator evidence remains visible with caveats.",
+                        "paper_title": paper_title,
+                        "paper_doi": paper_doi,
+                        "nordic_relevance": "nordic_lead" if nordic_inclusion else "non_nordic",
+                        "nordic_relevance_reason": "Curated Nordic lead",
+                    }
+                ],
+                "nordic_unmapped_leads": [],
+            },
+        )
+        citation_manifest = (
+            "project_accession,paper_title,paper_doi,publication_year,journal_title\n"
+            f"{project_accession},{paper_title},{paper_doi},2024,Tracked Animal Journal\n"
+        )
+        citation_path = species_root / "manifests" / "citation_manifest.csv"
+        citation_path.parent.mkdir(parents=True, exist_ok=True)
+        citation_path.write_text(citation_manifest, encoding="utf-8")
 
     def sample_record(
         self,
