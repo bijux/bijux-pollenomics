@@ -125,6 +125,13 @@ class AdnaSampleRecord:
     data_type: str
     molecular_sex: str
     datasets: tuple[str, ...]
+    project_accession: str = ""
+    paper_doi: str = ""
+    paper_url: str = ""
+    supplementary_source: str = ""
+    inclusion_status: str = "included"
+    inclusion_note: str = ""
+    sample_basis: str = ""
 
     @property
     def genetic_id(self) -> str:
@@ -217,6 +224,13 @@ class AdnaSampleRecord:
             "data_type": self.data_type,
             "molecular_sex": self.molecular_sex,
             "datasets": list(self.datasets),
+            "project_accession": self.project_accession,
+            "paper_doi": self.paper_doi,
+            "paper_url": self.paper_url,
+            "supplementary_source": self.supplementary_source,
+            "inclusion_status": self.inclusion_status,
+            "inclusion_note": self.inclusion_note,
+            "sample_basis": self.sample_basis,
         }
 
 

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from .curation import build_species_curation_manifest
 from .manifests import AdnaSpeciesManifest, build_species_manifest
+from .normalization import build_species_normalization_bundle
 from .reviews import AdnaSpeciesProjectRow
 from .species import AdnaSpeciesDefinition
 
@@ -146,7 +148,9 @@ def build_species_runtime_manifest(
         source_bundles=source_bundles,
         analysis_boundary=(
             f"{curation_manifest.support_statement} Normalized runtime ingestion is "
-            "not yet implemented for this species."
+            "not yet fully implemented for this species; curated accession-backed "
+            "sample loading is available, while site extraction and richer runtime "
+            "ingestion remain incomplete."
         ),
         runtime_ready=False,
     )
@@ -165,10 +169,18 @@ def load_species_samples(
             manifest=manifest,
             query=query.normalized() if query is not None else None,
         )
-    raise NotImplementedError(
-        "Normalized runtime loading is not implemented for "
-        f"{manifest.species.latin_name}; use species review and archive manifests instead."
-    )
+    bundle = build_species_normalization_bundle(manifest.species.latin_name)
+    normalized_query = query.normalized() if query is not None else None
+    records = [
+        sample
+        for sample in bundle.sample_records
+        if normalized_query is None or _sample_matches_query(sample, normalized_query)
+    ]
+    dataset_counts: Counter[str] = Counter()
+    for sample in records:
+        for dataset in sample.datasets:
+            dataset_counts[dataset] += 1
+    return records, dataset_counts
 
 
 def _clean_optional(value: str | None) -> str | None:
@@ -203,3 +215,29 @@ def _review_strength_for(
 
 def _source_family_for(project: AdnaSpeciesProjectRow) -> str:
     return project.source_family
+
+
+def _sample_matches_query(sample, query: AdnaSampleQuery) -> bool:
+    if query.political_entity:
+        if sample.political_entity is None:
+            return False
+        if sample.political_entity.casefold() != query.political_entity.casefold():
+            return False
+    if query.locality_token and sample.locality_token != query.locality_token:
+        return False
+    if query.dataset_names and not set(sample.datasets).intersection(query.dataset_names):
+        return False
+    if query.modalities and sample.record_modality not in query.modalities:
+        return False
+    if query.provenance_qualities and sample.provenance_quality not in query.provenance_qualities:
+        return False
+    if query.review_strengths and sample.review_strength not in query.review_strengths:
+        return False
+    if query.time_start_bp is not None or query.time_end_bp is not None:
+        if sample.time_start_bp is None or sample.time_end_bp is None:
+            return False
+        if query.time_start_bp is not None and sample.time_end_bp < query.time_start_bp:
+            return False
+        if query.time_end_bp is not None and sample.time_start_bp > query.time_end_bp:
+            return False
+    return True

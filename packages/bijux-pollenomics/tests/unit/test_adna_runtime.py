@@ -25,7 +25,7 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
         )
         self.assertIn("metadata normalization only", manifest.analysis_boundary)
 
-    def test_nonhuman_runtime_manifest_stays_review_only_until_loader_exists(self) -> None:
+    def test_nonhuman_runtime_manifest_exposes_curated_sample_master_rows(self) -> None:
         manifest = build_species_runtime_manifest("horse")
 
         self.assertFalse(manifest.runtime_ready)
@@ -39,8 +39,16 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
             "data/adna/equus_caballus/manifests/curation_manifest.json",
         )
         self.assertIn("Paper-pinned core domestication support exists", manifest.analysis_boundary)
-        with self.assertRaisesRegex(NotImplementedError, "not implemented for Equus caballus"):
-            load_species_samples(manifest)
+        self.assertIn("curated accession-backed sample loading is available", manifest.analysis_boundary)
+        samples, dataset_counts = load_species_samples(
+            manifest,
+            query=AdnaSampleQuery(review_strengths=("primary_paper_pinned",)),
+        )
+
+        self.assertTrue(samples)
+        self.assertEqual(samples[0].species_latin_name, "Equus caballus")
+        self.assertTrue(all(sample.paper_doi for sample in samples))
+        self.assertTrue(dataset_counts)
 
     def test_comparator_runtime_manifest_preserves_comparator_review_strength(self) -> None:
         manifest = build_species_runtime_manifest("donkey")

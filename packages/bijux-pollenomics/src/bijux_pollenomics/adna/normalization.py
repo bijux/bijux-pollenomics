@@ -18,10 +18,12 @@ from .models import (
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
+    AdnaSampleIdentity,
     AdnaSampleRecord,
 )
 from .project_context import resolve_project_context
 from .project_localities import build_species_project_locality_leads
+from .sample_registry import build_species_curated_sample_rows
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
@@ -290,6 +292,7 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         species_name,
         curation_manifest.curation_class,
     )
+    sample_records = _build_sample_records(species_name, project_summaries)
     locality_records, locality_refusals = build_species_project_locality_records(
         species_name,
         project_summaries,
@@ -303,29 +306,18 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
     return AdnaSpeciesNormalizationBundle(
         schema_version="adna-nonhuman-normalization-bundle.v1",
         species_manifest=species_manifest,
-        sample_records=(),
+        sample_records=sample_records,
         locality_records=locality_records,
         project_summaries=project_summaries,
         study_summaries=study_summaries,
         lineage_records=lineage_records,
         refusals=project_refusals
-        + (
-            AdnaNormalizationRefusal(
-                schema_version="adna-normalization-refusal.v1",
-                species_latin_name=species_manifest.species.latin_name,
-                source_token=species_manifest.root_slug,
-                record_kind="sample_records",
-                reason="sample_level_raw_metadata_unavailable",
-                detail=(
-                    "The current non-human program has project-level archive curation, "
-                    "but not enough sample-level raw metadata to emit sample rows honestly."
-                ),
-            ),
-        )
         + locality_refusals,
         normalization_scope=(
-            "Non-human normalization currently governs project, study, and curated locality summaries. "
-            "Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+            "Non-human normalization currently governs accession-backed sample master rows, "
+            "project summaries, study summaries, and curated locality summaries. "
+            "Site and chronology extraction still vary by accession and remain explicit in "
+            "sample inclusion status rather than being silently flattened."
         ),
     )
 
@@ -504,6 +496,106 @@ def normalize_explicit_bp_window(
         time_mean_bp=midpoint_bp_year(start_bp, end_bp),
         dating_basis=dating_basis,
     )
+
+
+def _build_sample_records(
+    species_name: str,
+    project_summaries: tuple[AdnaProjectSummary, ...],
+) -> tuple[AdnaSampleRecord, ...]:
+    species = resolve_species_definition(species_name)
+    project_index = {project.project_accession: project for project in project_summaries}
+    sample_records: list[AdnaSampleRecord] = []
+
+    for row in build_species_curated_sample_rows(species_name):
+        project = project_index[row.project_accession]
+        coordinate_resolution = normalize_coordinate_resolution(
+            latitude_text=row.latitude_text,
+            longitude_text=row.longitude_text,
+            geographic_basis=row.coordinate_basis,
+        )
+        chronology = (
+            normalize_explicit_bp_window(
+                row.time_start_bp,
+                row.time_end_bp,
+                original_text=row.chronology_text,
+                dating_basis=row.dating_basis,
+            )
+            if row.time_start_bp is not None and row.time_end_bp is not None
+            else normalize_chronology_text(
+                row.chronology_text,
+                dating_basis=row.dating_basis,
+            )
+        )
+        locality_text = row.site_label
+        sample_records.append(
+            AdnaSampleRecord(
+                identity=AdnaSampleIdentity(
+                    namespace=f"{species.slug}:curated_sample",
+                    stable_token=(
+                        f"{species.slug}:sample:{row.stable_sample_id.casefold()}"
+                    ),
+                    accession_lineage=(
+                        f"species:{species.latin_name}",
+                        f"source:{row.source_family}",
+                        f"project:{row.project_accession}",
+                        f"sample:{row.stable_sample_id}",
+                    ),
+                ),
+                locality_identity=AdnaLocalityIdentity(
+                    namespace=f"{species.slug}:sample_locality",
+                    stable_token=(
+                        f"{species.slug}:sample-site:{row.project_accession.casefold()}"
+                    ),
+                    locality_text=locality_text,
+                    political_entity=row.political_entity,
+                    source_anchor_tokens=(row.project_accession, row.sample_basis),
+                ),
+                species_latin_name=row.species_latin_name,
+                species_common_name=row.species_common_name,
+                source_family=row.source_family,
+                source_release=row.source_release,
+                record_modality=row.record_modality,
+                review_strength=project.review_strength,
+                provenance_quality=row.provenance_quality,
+                master_id=row.stable_sample_id,
+                group_id=row.project_accession,
+                locality=(
+                    None
+                    if row.political_entity is None
+                    and "not yet extracted" in locality_text
+                    else locality_text
+                ),
+                political_entity=row.political_entity,
+                coordinates=AdnaCoordinate(
+                    latitude=coordinate_resolution.coordinate.latitude
+                    if coordinate_resolution.coordinate is not None
+                    else None,
+                    longitude=coordinate_resolution.coordinate.longitude
+                    if coordinate_resolution.coordinate is not None
+                    else None,
+                    latitude_text=row.latitude_text,
+                    longitude_text=row.longitude_text,
+                    confidence=coordinate_resolution.confidence,
+                ),
+                publication=row.publication,
+                year_first_published=row.publication_year,
+                full_date=row.chronology_text,
+                chronology=chronology,
+                data_type=row.data_type,
+                molecular_sex="",
+                datasets=(project.summary_token,),
+                project_accession=row.project_accession,
+                paper_doi=row.paper_doi,
+                paper_url=row.paper_url,
+                supplementary_source=row.supplementary_source,
+                inclusion_status=row.inclusion_status,
+                inclusion_note=row.inclusion_note,
+                sample_basis=row.sample_basis,
+            )
+        )
+
+    sample_records.sort(key=lambda item: (item.project_accession, item.genetic_id))
+    return tuple(sample_records)
 
 
 def build_species_project_locality_records(

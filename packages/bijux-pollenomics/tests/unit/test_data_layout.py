@@ -121,6 +121,8 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.json").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.csv").is_file())
+            self.assertTrue((horse_root / "normalized" / "sample_records.csv").is_file())
+            self.assertTrue((horse_root / "normalized" / "sample_records.json").is_file())
             self.assertTrue((horse_root / "normalized" / "project_summaries.csv").is_file())
             self.assertTrue((horse_root / "normalized" / "project_summaries.json").is_file())
             self.assertTrue((horse_root / "normalized" / "locality_summaries.csv").is_file())
