@@ -1,0 +1,265 @@
+{
+  "schema_version": "adna-source-inventory.v1",
+  "row_count": 18,
+  "rows": [
+    {
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/ncomms16082",
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "pdf_appendix"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "expected_supplementary_file_families": [
+        "image_appendix",
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_supplement_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "tree_payload",
+        "xlsx_table",
+        "zip_bundle"
+      ],
+      "expected_supplementary_artifacts": [
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf"
+      ]
+    },
+    {
+      "paper_doi": "10.1073/pnas.1901169116",
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1093/gbe/evae114",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1093/gbe/evaf181",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1111/1755-0998.12551",
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_supplement_staged",
+      "expected_supplementary_file_families": [
+        "docx_appendix"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1126/science.aam5298",
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1126/science.aao3297",
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1126/science.aav1002",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_supplement_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.1126/science.adt2642",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_supplement_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "zip_bundle"
+      ],
+      "expected_supplementary_artifacts": []
+    },
+    {
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "local_structured_tables_staged",
+      "expected_supplementary_file_families": [
+        "pdf_appendix",
+        "xlsx_table"
+      ],
+      "expected_supplementary_artifacts": []
+    }
+  ]
+}
