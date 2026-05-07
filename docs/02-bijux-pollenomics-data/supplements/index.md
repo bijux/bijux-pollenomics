@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Supplements
@@ -17,12 +17,17 @@ summarizes only loosely.
 
 - [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
 - [`data/adna/governance/source_library/supplement_zip_member_registry.json`](../../../data/adna/governance/source_library/supplement_zip_member_registry.json)
+- [`data/adna/governance/source_library/supplement_file_family_audit.json`](../../../data/adna/governance/source_library/supplement_file_family_audit.json)
+- [`data/adna/governance/source_library/supplement_acquisition_checklist.json`](../../../data/adna/governance/source_library/supplement_acquisition_checklist.json)
 - [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
 - [`data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary_manifest.json`](../../../data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary_manifest.json)
 
 ## What This Layer Answers
 
 - whether the repository archived the required supplement
+- whether the repository only knows the supplement from the local DOI-keyed stash and still needs governed ingestion
+- which exact file families are expected for each paper: PDF appendix, XLSX table, ZIP bundle, image appendix, or other payload
+- which publisher, DOI, Crossref, and PMC or PubMed anchors were checked during supplement verification
 - which files inside a zip or PDF bundle were inspected
 - which unreadable or missing members still block extraction
 
