@@ -24,6 +24,8 @@
     "papers_with_archived_supplements": 1,
     "published_atlas_point_count": 2,
     "published_country_bundle_count": 4,
+    "reference_stash_doi_count": 18,
+    "papers_with_local_reference_supplements": 18,
     "animal_sample_row_count": 242,
     "animal_map_supported_rows": 2,
     "animal_map_unresolved_rows": 232,

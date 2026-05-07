@@ -1,0 +1,62 @@
+{
+  "schema_version": "repository-source-acquisition-queue.v1",
+  "row_count": 7,
+  "rows": [
+    {
+      "queue_key": "animal_adna_repo_ingestion",
+      "source_family": "animal_adna",
+      "priority": "high",
+      "current_gap": "local reference supplements exceed repository supplement capture",
+      "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
+      "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json"
+    },
+    {
+      "queue_key": "landclim_site_count_collection_summary_repair",
+      "source_family": "landclim",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `landclim_site_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    },
+    {
+      "queue_key": "landclim_grid_cell_count_collection_summary_repair",
+      "source_family": "landclim",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `landclim_grid_cell_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    },
+    {
+      "queue_key": "neotoma_point_count_collection_summary_repair",
+      "source_family": "neotoma",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `neotoma_point_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    },
+    {
+      "queue_key": "sead_point_count_collection_summary_repair",
+      "source_family": "sead",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `sead_point_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    },
+    {
+      "queue_key": "raa_total_site_count_collection_summary_repair",
+      "source_family": "raa",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `raa_total_site_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    },
+    {
+      "queue_key": "raa_heritage_site_count_collection_summary_repair",
+      "source_family": "raa",
+      "priority": "medium",
+      "current_gap": "collection summary still reports `raa_heritage_site_count` as zero",
+      "required_outcome": "rebuild the collection summary so public cross-domain counts stop understating the tracked source family",
+      "evidence_anchor": "data/collection_summary.json"
+    }
+  ]
+}
