@@ -8,6 +8,7 @@ import unittest
 from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_cross_surface_drift_report,
     build_animal_foundation_review_packet,
+    build_animal_sample_chronology_viewer,
     build_animal_foundation_validation_report,
     build_animal_point_support_packets,
     build_animal_project_absence_packets,
@@ -101,6 +102,22 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                     "coordinate_resolution",
                     "comparator_context_only",
                 }
+                for row in payload["rows"]
+            )
+        )
+
+    def test_sample_chronology_viewer_keeps_current_governed_rows_reader_visible(self) -> None:
+        payload = build_animal_sample_chronology_viewer(data_root=self.data_root)
+
+        self.assertEqual(payload["schema_version"], "animal-sample-chronology-viewer.v1")
+        self.assertEqual(payload["row_count"], 207)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 156)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 12)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 26)
+        self.assertTrue(
+            any(
+                row["project_accession"] == "PRJEB36540"
+                and row["chronology_strength"] == "sample_owned_interval"
                 for row in payload["rows"]
             )
         )
@@ -365,16 +382,24 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "animal_foundation_review_json",
                 artifacts,
             )
+            self.assertIn(
+                "animal_sample_chronology_viewer_json",
+                artifacts,
+            )
             review_path = output_root / artifacts["animal_foundation_review_json"]
+            chronology_path = output_root / artifacts["animal_sample_chronology_viewer_json"]
             gate_path = output_root / artifacts["animal_publication_release_gate_json"]
             self.assertTrue(review_path.is_file())
+            self.assertTrue(chronology_path.is_file())
             self.assertTrue(gate_path.is_file())
             review_payload = json.loads(review_path.read_text(encoding="utf-8"))
+            chronology_payload = json.loads(chronology_path.read_text(encoding="utf-8"))
             gate_payload = json.loads(gate_path.read_text(encoding="utf-8"))
             self.assertEqual(
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
+            self.assertEqual(chronology_payload["row_count"], 207)
             self.assertTrue(gate_payload["overall_ok"])
 
 def _sample_row(
