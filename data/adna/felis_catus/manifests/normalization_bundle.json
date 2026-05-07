@@ -96,7 +96,7 @@
       "paper_url": "https://doi.org/10.1126/science.adt2642",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site.",
+      "inclusion_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level.",
       "sample_basis": "project_accession_anchor"
     },
     {
@@ -163,6 +163,34 @@
       "sample_basis": "project_accession_anchor"
     }
   ],
+  "site_evidence_records": [
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "site_label": "North Africa to Europe domestic cat dispersal transect",
+      "political_entity": "North Africa and Europe",
+      "source_artifact_path": "adna/source_library/papers/10.1126-science.adt2642/article.html",
+      "source_artifact_kind": "article_html_body_quote",
+      "source_locator": "discussion text",
+      "exact_source_text": "Subsequently, since the Roman Imperial era, cats more genetically similar to present-day domestic cats were spread across Europe from a distinct North African population.",
+      "source_support_status": "article_exact_quote",
+      "paper_doi": "10.1126/science.adt2642",
+      "paper_url": "https://doi.org/10.1126/science.adt2642",
+      "supplementary_source": "",
+      "coordinate_basis": "inferred_region_centroid",
+      "latitude_text": "37.00",
+      "longitude_text": "15.00",
+      "chronology_text": "Holocene cat dispersal across North Africa and Europe",
+      "time_start_bp": 1200,
+      "time_end_bp": 4000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level.",
+      "support_gap_note": ""
+    }
+  ],
   "locality_records": [
     {
       "identity": {
@@ -221,7 +249,7 @@
       "original_location_text": "North Africa to Europe domestic cat dispersal transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site."
+      "interpretation_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level."
     }
   ],
   "project_summaries": [
