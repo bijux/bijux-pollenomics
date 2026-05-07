@@ -77,6 +77,41 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertIn("Equus caballus", product_audit["missing_public_outputs"])
         self.assertIn("ships no mapped non-human animal atlas layers", markdown)
 
+    def test_public_animal_output_audit_counts_species_layers_from_shipped_atlas_summary(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            report_root = Path(tmp) / "docs" / "report"
+            materialize_tracked_species_adna(data_root)
+            atlas_root = report_root / "nordic-atlas"
+            atlas_root.mkdir(parents=True, exist_ok=True)
+            (atlas_root / "README.md").write_text("# Nordic Evidence Atlas\n", encoding="utf-8")
+            (atlas_root / "nordic-atlas_summary.json").write_text(
+                """
+{
+  "animal_atlas": {
+    "species_layers": [
+      {"latin_name": "Ovis aries", "common_name": "sheep", "animal_scope": "domesticated_core", "locality_count": 1},
+      {"latin_name": "Rangifer tarandus", "common_name": "reindeer", "animal_scope": "comparator", "locality_count": 1}
+    ]
+  }
+}
+""".strip(),
+                encoding="utf-8",
+            )
+
+            public_audit = build_public_animal_output_audit(data_root, report_root)
+            markdown = render_public_animal_output_audit_markdown(public_audit)
+
+        sheep_row = next(
+            row
+            for row in public_audit["species_rows"]
+            if row["species_latin_name"] == "Ovis aries"
+        )
+        self.assertEqual(sheep_row["atlas_layer_count"], 1)
+        self.assertIn("now ships `2` mapped non-human animal atlas layer rows", markdown)
+
 
 if __name__ == "__main__":
     unittest.main()
