@@ -11,6 +11,8 @@ import zipfile
 from bijux_pollenomics.adna.source_inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
+    build_supplement_acquisition_checklist,
+    build_supplement_file_family_audit,
 )
 from bijux_pollenomics.adna.source_library import (
     build_cross_project_source_audit,
@@ -90,6 +92,8 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_source_evidence_matrix.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_doi_integrity_audit.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_file_family_audit.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_acquisition_checklist.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_blocker_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "cross_project_source_intake_dossier.json").is_file())
 
@@ -214,15 +218,27 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             ):
                 reconciliation = build_reference_stash_reconciliation(output_root)
                 integrity = build_reference_stash_doi_integrity_audit(output_root)
+                file_family_audit = build_supplement_file_family_audit(output_root)
+                checklist = build_supplement_acquisition_checklist(output_root)
 
         cell_row = next(
             row
             for row in reconciliation["rows"]
             if row["stash_slug"] == "10.1016-j.cell.2019.03.049"
         )
+        checklist_row = next(
+            row for row in checklist["rows"] if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
+        )
+        family_row = next(
+            row
+            for row in file_family_audit["rows"]
+            if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
+        )
         self.assertEqual(cell_row["alignment_status"], "local_reference_ahead_of_repo")
         self.assertTrue(integrity["all_stash_dois_tracked"])
         self.assertEqual(integrity["reference_stash_doi_count"], 1)
+        self.assertEqual(checklist_row["acquisition_check_status"], "local_reference_ready_for_ingestion")
+        self.assertIn("xlsx_table", family_row["expected_supplementary_file_families"])
 
     def test_cross_project_source_audit_and_blockers_stay_reader_visible(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

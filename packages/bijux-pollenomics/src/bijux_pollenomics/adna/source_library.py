@@ -145,6 +145,7 @@ class AdnaPaperRegistryRow:
     article_local_path: str
     supplementary_download_status: str
     supplement_parse_status: str
+    supplementary_verification_status: str
     local_reference_article_status: str
     local_reference_supplement_status: str
     supplementary_count: int
@@ -152,11 +153,13 @@ class AdnaPaperRegistryRow:
     sample_extractability: str
     sample_table_extraction_status: str
     evidence_acquisition_state: str
+    expected_supplementary_file_families: tuple[str, ...]
     expected_supplementary_artifacts: tuple[str, ...]
     sample_identifier_targets: tuple[str, ...]
     sample_site_targets: tuple[str, ...]
     chronology_targets: tuple[str, ...]
     supplementary_manifest_path: str
+    supplementary_acquisition_checklist_path: str
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -173,6 +176,7 @@ class AdnaPaperRegistryRow:
             "article_local_path": self.article_local_path,
             "supplementary_download_status": self.supplementary_download_status,
             "supplement_parse_status": self.supplement_parse_status,
+            "supplementary_verification_status": self.supplementary_verification_status,
             "local_reference_article_status": self.local_reference_article_status,
             "local_reference_supplement_status": self.local_reference_supplement_status,
             "supplementary_count": self.supplementary_count,
@@ -180,11 +184,13 @@ class AdnaPaperRegistryRow:
             "sample_extractability": self.sample_extractability,
             "sample_table_extraction_status": self.sample_table_extraction_status,
             "evidence_acquisition_state": self.evidence_acquisition_state,
+            "expected_supplementary_file_families": list(self.expected_supplementary_file_families),
             "expected_supplementary_artifacts": list(self.expected_supplementary_artifacts),
             "sample_identifier_targets": list(self.sample_identifier_targets),
             "sample_site_targets": list(self.sample_site_targets),
             "chronology_targets": list(self.chronology_targets),
             "supplementary_manifest_path": self.supplementary_manifest_path,
+            "supplementary_acquisition_checklist_path": self.supplementary_acquisition_checklist_path,
         }
 
 
@@ -443,7 +449,11 @@ def _project_intake_expectation(project: object) -> _ProjectIntakeExpectation:
             ),
         )
 
-    if paper_spec is not None and _paper_sample_extractability(paper_spec) in {
+    if paper_spec is not None and _paper_sample_extractability(
+        paper_spec,
+        supplement_parse_status="missing",
+        stash_record={},
+    ) in {
         "article_extractable",
         "supplement_extractable",
     }:
@@ -597,6 +607,12 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
         )
         article_download_status = _fold_fetch_status(article_artifacts)
         supplementary_download_status = _fold_fetch_status(supplement_artifacts)
+        supplement_parse_status = _supplement_parse_status(
+            output_root,
+            doi,
+            supplementary_download_status=supplementary_download_status,
+            stash_record=stash_record,
+        )
         sample_table_extraction_status = _paper_sample_table_extraction_status(
             output_root,
             tuple(sorted(project.project_accession for project in projects)),
@@ -620,9 +636,8 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                 ),
                 article_local_path=spec.article_local_path,
                 supplementary_download_status=supplementary_download_status,
-                supplement_parse_status=_supplement_parse_status(
-                    output_root,
-                    doi,
+                supplement_parse_status=supplement_parse_status,
+                supplementary_verification_status=_supplementary_verification_status(
                     supplementary_download_status=supplementary_download_status,
                     stash_record=stash_record,
                 ),
@@ -630,22 +645,25 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                 local_reference_supplement_status=_local_reference_supplement_status(stash_record),
                 supplementary_count=len(supplement_artifacts),
                 parsing_status=spec.parsing_status,
-                sample_extractability=_paper_sample_extractability(spec),
+                sample_extractability=_paper_sample_extractability(
+                    spec,
+                    supplement_parse_status=supplement_parse_status,
+                    stash_record=stash_record,
+                ),
                 sample_table_extraction_status=sample_table_extraction_status,
                 evidence_acquisition_state=_paper_evidence_acquisition_state(
                     article_download_status=article_download_status,
                     supplementary_download_status=supplementary_download_status,
-                    supplement_parse_status=_supplement_parse_status(
-                        output_root,
-                        doi,
-                        supplementary_download_status=supplementary_download_status,
-                        stash_record=stash_record,
-                    ),
+                    supplement_parse_status=supplement_parse_status,
                     local_reference_supplement_status=_local_reference_supplement_status(
                         stash_record
                     ),
                     sample_table_extraction_status=sample_table_extraction_status,
                     parsing_status=spec.parsing_status,
+                ),
+                expected_supplementary_file_families=_expected_supplementary_file_families(
+                    spec,
+                    stash_record,
                 ),
                 expected_supplementary_artifacts=_paper_expected_supplementary_artifacts(
                     spec
@@ -658,16 +676,34 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                 supplementary_manifest_path=(
                     f"{ADNA_SOURCE_LIBRARY_DIR}/papers/{_doi_slug(doi)}/supplementary_manifest.json"
                 ),
+                supplementary_acquisition_checklist_path=(
+                    f"{ADNA_SOURCE_LIBRARY_DIR}/supplement_acquisition_checklist.json"
+                ),
             )
         )
     return tuple(rows)
 
 
-def _paper_sample_extractability(spec: _PaperSourceSpec) -> str:
+def _paper_sample_extractability(
+    spec: _PaperSourceSpec,
+    *,
+    supplement_parse_status: str,
+    stash_record: dict[str, object],
+) -> str:
     if spec.sample_extractability != "manual_curation_required":
         return spec.sample_extractability
     if spec.supplementary_assets:
         return "supplement_extractable"
+    if supplement_parse_status in {
+        "repository_supplement_archived",
+        "zip_member_inventory_published",
+    }:
+        return "supplement_archived_needs_extraction"
+    if supplement_parse_status in {
+        "local_structured_tables_staged",
+        "local_supplement_staged",
+    } or stash_record.get("supplementary_assets"):
+        return "supplement_known_needs_repo_ingestion"
     if spec.parsing_status == "full_paper_download_blocked":
         return "full_paper_capture_blocked"
     if spec.article_kind == "article_html":
@@ -680,6 +716,18 @@ def _paper_expected_supplementary_artifacts(spec: _PaperSourceSpec) -> tuple[str
         f"{ADNA_SOURCE_LIBRARY_DIR}/{item.relative_path}"
         for item in spec.supplementary_assets
     )
+
+
+def _expected_supplementary_file_families(
+    spec: _PaperSourceSpec,
+    stash_record: dict[str, object],
+) -> tuple[str, ...]:
+    families: set[str] = set()
+    for asset in spec.supplementary_assets:
+        families.add(_supplementary_file_family_from_name(asset.relative_path))
+    for asset_name in stash_record.get("supplementary_assets", ()):
+        families.add(_supplementary_file_family_from_name(str(asset_name)))
+    return tuple(sorted(family for family in families if family))
 
 
 def _paper_sample_identifier_targets(spec: _PaperSourceSpec) -> tuple[str, ...]:
@@ -1113,6 +1161,7 @@ def materialize_source_library(output_root: Path) -> None:
     output_root = Path(output_root)
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
+    _materialize_curated_local_supplements(output_root)
 
     project_registry = build_project_registry(output_root)
     paper_registry = build_paper_registry(output_root)
@@ -1377,9 +1426,101 @@ def _render_tracked_project_and_paper_inventory(
     )
 
 
+def _materialize_curated_local_supplements(output_root: Path) -> None:
+    source_root = adna_source_library_root(Path(output_root))
+    stash_root = _resolve_reference_stash_root(output_root)
+    if stash_root is None:
+        return
+    catalog = build_archive_project_catalog()
+    for doi in _curated_local_supplement_ingestion_dois():
+        stash_dir = stash_root / _doi_slug(doi)
+        if not stash_dir.is_dir():
+            continue
+        project_accessions = tuple(
+            sorted(
+                project.project_accession
+                for project in catalog
+                if project.paper_linkage is not None and project.paper_linkage.doi == doi
+            )
+        )
+        paper_dir = source_root / "papers" / _doi_slug(doi) / "supplementary"
+        paper_dir.mkdir(parents=True, exist_ok=True)
+        for source_path in sorted(path for path in stash_dir.iterdir() if path.is_file()):
+            if source_path.name.startswith(".") or source_path.name == ".DS_Store":
+                continue
+            if source_path.suffix.lower() == ".md":
+                continue
+            target_path = paper_dir / source_path.name
+            target_path.write_bytes(source_path.read_bytes())
+            write_json(
+                target_path.with_suffix(target_path.suffix + ".metadata.json"),
+                {
+                    "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+                    "source_url": _paper_source_spec(doi).article_source_url,
+                    "artifact_kind": _artifact_kind_from_filename(source_path.name),
+                    "content_type": _content_type_from_filename(source_path.name),
+                    "byte_size": source_path.stat().st_size,
+                    "paper_doi": doi,
+                    "project_accessions": list(project_accessions),
+                    "artifact_label": f"curated supplementary asset {source_path.name}",
+                    "source_note": (
+                        "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+                    ),
+                },
+            )
+
+
+def _curated_local_supplement_ingestion_dois() -> tuple[str, ...]:
+    return (
+        "10.1016/j.cell.2019.03.049",
+        "10.1016/j.isci.2025.113771",
+        "10.1016/j.xgen.2025.101099",
+        "10.1038/ncomms16082",
+        "10.1038/s41562-021-01083-y",
+        "10.1038/s41586-021-04018-9",
+    )
+
+
+def _artifact_kind_from_filename(filename: str) -> str:
+    lowered = filename.lower()
+    if lowered.endswith(".zip"):
+        return "supplementary_zip"
+    if lowered.endswith((".pdf", ".docx")):
+        return "supplementary_pdf"
+    if lowered.endswith((".xlsx", ".xls", ".csv", ".tsv")):
+        return "supplementary_table"
+    if lowered.endswith((".jpg", ".jpeg", ".png")):
+        return "supplementary_image"
+    return "supplementary_other"
+
+
+def _content_type_from_filename(filename: str) -> str:
+    lowered = filename.lower()
+    if lowered.endswith(".pdf"):
+        return "application/pdf"
+    if lowered.endswith(".docx"):
+        return "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    if lowered.endswith(".xlsx"):
+        return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    if lowered.endswith(".xls"):
+        return "application/vnd.ms-excel"
+    if lowered.endswith(".csv"):
+        return "text/csv"
+    if lowered.endswith(".tsv"):
+        return "text/tab-separated-values"
+    if lowered.endswith(".zip"):
+        return "application/zip"
+    if lowered.endswith(".jpg") or lowered.endswith(".jpeg"):
+        return "image/jpeg"
+    if lowered.endswith(".png"):
+        return "image/png"
+    return "application/octet-stream"
+
+
 def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact, ...]:
     source_root = adna_source_library_root(Path(output_root))
     rows: list[AdnaSourceArtifact] = []
+    seen_artifact_ids: set[str] = set()
     catalog = build_archive_project_catalog()
     for project in catalog:
         local_path = source_root / "projects" / project.project_accession / "archive_metadata.html"
@@ -1410,6 +1551,7 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 byte_size=byte_size,
             )
         )
+        seen_artifact_ids.add(f"{project.project_accession}:archive_metadata.html")
     for doi, spec in _paper_source_specs().items():
         projects = tuple(
             sorted(
@@ -1447,6 +1589,30 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                     byte_size=byte_size,
                 )
             )
+            seen_artifact_ids.add(_artifact_id(doi, local_path.name))
+    for metadata_path in sorted(source_root.glob("papers/*/supplementary/*.*.metadata.json")):
+        payload = json.loads(metadata_path.read_text(encoding="utf-8"))
+        paper_doi = str(payload.get("paper_doi", "")).strip()
+        artifact_path = Path(str(metadata_path)[: -len(".metadata.json")])
+        artifact_id = _artifact_id(paper_doi, artifact_path.name)
+        if not paper_doi or artifact_id in seen_artifact_ids:
+            continue
+        rows.append(
+            AdnaSourceArtifact(
+                artifact_id=artifact_id,
+                artifact_kind=str(payload.get("artifact_kind", "supplementary_other")),
+                label=str(payload.get("artifact_label", artifact_path.name)),
+                source_url=str(payload.get("source_url", "")),
+                local_path=str(artifact_path.relative_to(output_root)),
+                fetch_status="archived" if artifact_path.is_file() else "missing",
+                remote_note=str(payload.get("source_note", "")),
+                project_accessions=tuple(str(item) for item in payload.get("project_accessions", [])),
+                paper_doi=paper_doi,
+                content_type=payload.get("content_type"),
+                byte_size=payload.get("byte_size"),
+            )
+        )
+        seen_artifact_ids.add(artifact_id)
     return tuple(rows)
 
 
@@ -1810,6 +1976,18 @@ def _supplement_parse_status(
     return "missing"
 
 
+def _supplementary_verification_status(
+    *,
+    supplementary_download_status: str,
+    stash_record: dict[str, object],
+) -> str:
+    if supplementary_download_status == "archived":
+        return "supplement_archived_in_repo"
+    if stash_record.get("supplementary_assets"):
+        return "supplement_verified_in_local_reference_stash"
+    return "supplement_not_verified_yet"
+
+
 def _project_sample_table_extraction_status(output_root: Path, project_accession: str) -> str:
     path = (
         Path(output_root)
@@ -1867,6 +2045,29 @@ def _paper_evidence_acquisition_state(
     if supplement_parse_status == "missing":
         return "missing_capture"
     return "manual_curation_required"
+
+
+def _supplementary_file_family_from_name(name: str) -> str:
+    lowered = name.lower()
+    if lowered.endswith(".zip"):
+        return "zip_bundle"
+    if lowered.endswith((".xlsx", ".xls")):
+        return "xlsx_table"
+    if lowered.endswith(".csv"):
+        return "csv_table"
+    if lowered.endswith(".tsv"):
+        return "tsv_table"
+    if lowered.endswith(".pdf"):
+        return "pdf_appendix"
+    if lowered.endswith(".docx"):
+        return "docx_appendix"
+    if lowered.endswith((".jpg", ".jpeg", ".png")):
+        return "image_appendix"
+    if lowered.endswith(".xml"):
+        return "xml_payload"
+    if lowered.endswith(".nwk"):
+        return "tree_payload"
+    return "other_payload"
 
 
 def _project_evidence_acquisition_state(
