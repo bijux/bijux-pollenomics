@@ -240,7 +240,134 @@
       "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
       "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
     },
-    "sample_records": [],
+    "sample_records": [
+      {
+        "identity": {
+          "namespace": "felis_catus:curated_sample",
+          "stable_token": "felis_catus:sample:prjeb81815",
+          "accession_lineage": [
+            "species:Felis catus",
+            "source:ENA",
+            "project:PRJEB81815",
+            "sample:PRJEB81815"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "felis_catus:sample_locality",
+          "stable_token": "felis_catus:sample-site:prjeb81815",
+          "locality_text": "North Africa to Europe domestic cat dispersal transect",
+          "political_entity": "North Africa and Europe",
+          "source_anchor_tokens": [
+            "PRJEB81815",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Felis catus",
+        "species_common_name": "cat",
+        "source_family": "ENA",
+        "source_release": "PRJEB81815",
+        "record_modality": "archive_reads",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "PRJEB81815",
+        "group_id": "PRJEB81815",
+        "locality": "North Africa to Europe domestic cat dispersal transect",
+        "political_entity": "North Africa and Europe",
+        "coordinates": {
+          "latitude": 37.0,
+          "longitude": 15.0,
+          "latitude_text": "37.00",
+          "longitude_text": "15.00",
+          "confidence": "inferred"
+        },
+        "publication": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+        "year_first_published": "2024",
+        "full_date": "Holocene cat dispersal across North Africa and Europe",
+        "chronology": {
+          "original_text": "Holocene cat dispersal across North Africa and Europe",
+          "time_start_bp": 1200,
+          "time_end_bp": 4000,
+          "time_mean_bp": 2600,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "felis_catus:project:PRJEB81815"
+        ],
+        "project_accession": "PRJEB81815",
+        "paper_doi": "10.1126/science.adt2642",
+        "paper_url": "https://doi.org/10.1126/science.adt2642",
+        "supplementary_source": "",
+        "inclusion_status": "site_curated",
+        "inclusion_note": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site.",
+        "sample_basis": "project_accession_anchor"
+      },
+      {
+        "identity": {
+          "namespace": "felis_catus:curated_sample",
+          "stable_token": "felis_catus:sample:prjna1178732",
+          "accession_lineage": [
+            "species:Felis catus",
+            "source:BioProject",
+            "project:PRJNA1178732",
+            "sample:PRJNA1178732"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "felis_catus:sample_locality",
+          "stable_token": "felis_catus:sample-site:prjna1178732",
+          "locality_text": "site detail not yet extracted from tracked source support",
+          "political_entity": null,
+          "source_anchor_tokens": [
+            "PRJNA1178732",
+            "project_accession_anchor"
+          ]
+        },
+        "species_latin_name": "Felis catus",
+        "species_common_name": "cat",
+        "source_family": "BioProject",
+        "source_release": "PRJNA1178732",
+        "record_modality": "archive_reads",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "PRJNA1178732",
+        "group_id": "PRJNA1178732",
+        "locality": null,
+        "political_entity": null,
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+        "year_first_published": "2025",
+        "full_date": "chronology not yet extracted from tracked source support",
+        "chronology": {
+          "original_text": "chronology not yet extracted from tracked source support",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context"
+        },
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "felis_catus:project:PRJNA1178732"
+        ],
+        "project_accession": "PRJNA1178732",
+        "paper_doi": "10.1016/j.xgen.2025.101099",
+        "paper_url": "https://doi.org/10.1016/j.xgen.2025.101099",
+        "supplementary_source": "",
+        "inclusion_status": "sample_context_blocked",
+        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "project_accession_anchor"
+      }
+    ],
     "locality_records": [
       {
         "identity": {
@@ -504,20 +631,12 @@
       {
         "schema_version": "adna-normalization-refusal.v1",
         "species_latin_name": "Felis catus",
-        "source_token": "felis_catus",
-        "record_kind": "sample_records",
-        "reason": "sample_level_raw_metadata_unavailable",
-        "detail": "The current non-human program has project-level archive curation, but not enough sample-level raw metadata to emit sample rows honestly."
-      },
-      {
-        "schema_version": "adna-normalization-refusal.v1",
-        "species_latin_name": "Felis catus",
         "source_token": "PRJNA1178732",
         "record_kind": "locality_records",
         "reason": "locality_lead_not_yet_curated",
         "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
       }
     ],
-    "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+    "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
   }
 }
