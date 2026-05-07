@@ -91,6 +91,14 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         normalized_root / "project_summaries.json",
         _project_summaries_payload(normalization_bundle),
     )
+    write_text(
+        normalized_root / "locality_summaries.csv",
+        _render_locality_summaries_csv(normalization_bundle),
+    )
+    write_json(
+        normalized_root / "locality_summaries.json",
+        _locality_summaries_payload(normalization_bundle),
+    )
     write_json(manifests_root / "species_manifest.json", species_manifest.as_dict())
     write_json(manifests_root / "curation_manifest.json", curation_manifest.as_dict())
     write_json(manifests_root / "project_manifest.json", project_manifest.as_dict())
@@ -359,6 +367,82 @@ def _project_summaries_payload(bundle: object) -> dict[str, object]:
     }
 
 
+def _render_locality_summaries_csv(bundle: object) -> str:
+    fieldnames = (
+        "locality_token",
+        "species_latin_name",
+        "species_common_name",
+        "project_accessions",
+        "source_family",
+        "source_releases",
+        "record_modalities",
+        "review_strengths",
+        "provenance_qualities",
+        "original_location_text",
+        "locality",
+        "political_entity",
+        "latitude",
+        "longitude",
+        "latitude_text",
+        "longitude_text",
+        "coordinate_confidence",
+        "chronology_text",
+        "time_start_bp",
+        "time_end_bp",
+        "time_mean_bp",
+        "dating_basis",
+        "nordic_inclusion",
+        "nordic_inclusion_reason",
+        "interpretation_note",
+    )
+    rows = []
+    for summary in bundle.locality_records:
+        rows.append(
+            {
+                "locality_token": summary.locality_token,
+                "species_latin_name": summary.species_latin_name,
+                "species_common_name": summary.species_common_name,
+                "project_accessions": ";".join(summary.project_accessions),
+                "source_family": summary.source_family,
+                "source_releases": ";".join(summary.source_releases),
+                "record_modalities": ";".join(summary.record_modalities),
+                "review_strengths": ";".join(summary.review_strengths),
+                "provenance_qualities": ";".join(summary.provenance_qualities),
+                "original_location_text": summary.original_location_text,
+                "locality": "" if summary.locality is None else summary.locality,
+                "political_entity": ""
+                if summary.identity.political_entity is None
+                else summary.identity.political_entity,
+                "latitude": "" if summary.latitude is None else summary.latitude,
+                "longitude": "" if summary.longitude is None else summary.longitude,
+                "latitude_text": summary.latitude_text,
+                "longitude_text": summary.longitude_text,
+                "coordinate_confidence": summary.coordinate_confidence,
+                "chronology_text": summary.time_label,
+                "time_start_bp": ""
+                if summary.time_start_bp is None
+                else summary.time_start_bp,
+                "time_end_bp": "" if summary.time_end_bp is None else summary.time_end_bp,
+                "time_mean_bp": ""
+                if summary.time_mean_bp is None
+                else summary.time_mean_bp,
+                "dating_basis": summary.dating_basis,
+                "nordic_inclusion": str(summary.nordic_inclusion).lower(),
+                "nordic_inclusion_reason": summary.nordic_inclusion_reason,
+                "interpretation_note": summary.interpretation_note,
+            }
+        )
+    return _render_csv(fieldnames, rows)
+
+
+def _locality_summaries_payload(bundle: object) -> dict[str, object]:
+    return {
+        "schema_version": "adna-locality-summary-export.v1",
+        "species_latin_name": bundle.species.latin_name,
+        "localities": [summary.as_dict() for summary in bundle.locality_records],
+    }
+
+
 def _render_species_root_readme(species_name: str) -> str:
     species = resolve_species_definition(species_name)
     review = build_species_dataset_review(species_name)
@@ -373,7 +457,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts and source wording snapshots, `normalized/` keeps project-level normalized outputs, "
+        "inventory artifacts and source wording snapshots, `normalized/` keeps project-level and locality-level normalized outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
         "summaries, and `review/` keeps reader-facing review packets.\n"
     )

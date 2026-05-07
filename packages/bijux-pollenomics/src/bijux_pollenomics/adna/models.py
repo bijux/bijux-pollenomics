@@ -39,6 +39,15 @@ class AdnaCoordinate:
     longitude_text: str
     confidence: str = "unknown"
 
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "latitude_text": self.latitude_text,
+            "longitude_text": self.longitude_text,
+            "confidence": self.confidence,
+        }
+
 
 @dataclass(frozen=True)
 class AdnaChronology:
@@ -50,6 +59,16 @@ class AdnaChronology:
     time_mean_bp: int | None
     date_stddev_bp: str = ""
     dating_basis: str = "unknown"
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "original_text": self.original_text,
+            "time_start_bp": self.time_start_bp,
+            "time_end_bp": self.time_end_bp,
+            "time_mean_bp": self.time_mean_bp,
+            "date_stddev_bp": self.date_stddev_bp,
+            "dating_basis": self.dating_basis,
+        }
 
 
 @dataclass(frozen=True)
@@ -70,6 +89,15 @@ class AdnaLocalityIdentity:
     locality_text: str
     political_entity: str | None
     source_anchor_tokens: tuple[str, ...]
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "namespace": self.namespace,
+            "stable_token": self.stable_token,
+            "locality_text": self.locality_text,
+            "political_entity": self.political_entity,
+            "source_anchor_tokens": list(self.source_anchor_tokens),
+        }
 
 
 @dataclass(frozen=True)
@@ -166,6 +194,31 @@ class AdnaSampleRecord:
     def dating_basis(self) -> str:
         return self.chronology.dating_basis
 
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "identity": self.identity.__dict__,
+            "locality_identity": self.locality_identity.as_dict(),
+            "species_latin_name": self.species_latin_name,
+            "species_common_name": self.species_common_name,
+            "source_family": self.source_family,
+            "source_release": self.source_release,
+            "record_modality": self.record_modality,
+            "review_strength": self.review_strength,
+            "provenance_quality": self.provenance_quality,
+            "master_id": self.master_id,
+            "group_id": self.group_id,
+            "locality": self.locality,
+            "political_entity": self.political_entity,
+            "coordinates": self.coordinates.as_dict(),
+            "publication": self.publication,
+            "year_first_published": self.year_first_published,
+            "full_date": self.full_date,
+            "chronology": self.chronology.as_dict(),
+            "data_type": self.data_type,
+            "molecular_sex": self.molecular_sex,
+            "datasets": list(self.datasets),
+        }
+
 
 @dataclass(frozen=True)
 class AdnaLocalitySummary:
@@ -186,6 +239,11 @@ class AdnaLocalitySummary:
     datasets: tuple[str, ...]
     chronology: AdnaChronology
     sample_namespace: str
+    project_accessions: tuple[str, ...] = ()
+    original_location_text: str = ""
+    nordic_inclusion: bool = False
+    nordic_inclusion_reason: str = ""
+    interpretation_note: str = ""
 
     @property
     def latitude(self) -> float | None:
@@ -234,3 +292,27 @@ class AdnaLocalitySummary:
     @property
     def dating_basis(self) -> str:
         return self.chronology.dating_basis
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "identity": self.identity.as_dict(),
+            "species_latin_name": self.species_latin_name,
+            "species_common_name": self.species_common_name,
+            "source_family": self.source_family,
+            "source_releases": list(self.source_releases),
+            "record_modalities": list(self.record_modalities),
+            "review_strengths": list(self.review_strengths),
+            "provenance_qualities": list(self.provenance_qualities),
+            "locality": self.locality,
+            "coordinates": self.coordinates.as_dict(),
+            "sample_count": self.sample_count,
+            "sample_ids": list(self.sample_ids),
+            "datasets": list(self.datasets),
+            "chronology": self.chronology.as_dict(),
+            "sample_namespace": self.sample_namespace,
+            "project_accessions": list(self.project_accessions),
+            "original_location_text": self.original_location_text,
+            "nordic_inclusion": self.nordic_inclusion,
+            "nordic_inclusion_reason": self.nordic_inclusion_reason,
+            "interpretation_note": self.interpretation_note,
+        }
