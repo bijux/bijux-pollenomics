@@ -1,0 +1,357 @@
+{
+  "schema_version": "adna-species-review-packet.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Equus caballus",
+      "slug": "equus_caballus",
+      "common_name": "horse",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "horse",
+        "domestic horse"
+      ],
+      "notes": "Archive-backed domestication projects are known, but species-level runtime ingestion is not yet implemented."
+    },
+    "root_slug": "equus_caballus",
+    "data_root": "data/adna/equus_caballus",
+    "normalized_sample_namespace": "equus_caballus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Equus caballus",
+      "slug": "equus_caballus",
+      "common_name": "horse",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "horse",
+        "domestic horse"
+      ],
+      "notes": "Archive-backed domestication projects are known, but species-level runtime ingestion is not yet implemented."
+    },
+    "product_role": "domesticated_core",
+    "assignment_rule": "single_species_core",
+    "dataset_bucket": "archive_verified_needs_paper_pinning",
+    "archive_project_count": 8,
+    "core_project_count": 7,
+    "primary_paper_pin_count": 4,
+    "curated_support_project_count": 4,
+    "archive_required": true,
+    "primary_paper_required": true,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": false,
+    "eligible_for_supported_status": false,
+    "blocking_reasons": [
+      "missing_primary_paper_pins",
+      "missing_archive_paper_pinning_rationale",
+      "non_ancient_or_unconfirmed_core_projects"
+    ]
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Equus caballus",
+    "projects": [
+      {
+        "project_accession": "PRJEB10854",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "evidence_strength": "archive_only",
+        "ancient_status": "ancient_unverified",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "unknown_or_mixed",
+        "material_basis": "not_yet_curated",
+        "dating_basis": "not_yet_curated",
+        "geographic_basis": "not_yet_curated",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB19970",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Ancient genomic changes associated with domestication of the horse",
+        "paper_doi": "10.1126/science.aam5298",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB22390",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+        "paper_doi": "10.1126/science.aao3297",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB31613",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+        "paper_doi": "10.1016/j.cell.2019.03.049",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB44430",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+        "paper_doi": "10.1038/s41586-021-04018-9",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB56293",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "evidence_strength": "archive_only",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB7537",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "evidence_strength": "archive_only",
+        "ancient_status": "ancient_unverified",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "unknown_or_mixed",
+        "material_basis": "not_yet_curated",
+        "dating_basis": "not_yet_curated",
+        "geographic_basis": "not_yet_curated",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      },
+      {
+        "project_accession": "PRJEB9799",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "ancient_status": "modern_or_irrelevant",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "modern_tissue",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "country_or_breed_panel",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core"
+      }
+    ]
+  },
+  "project_reviews": [
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB22390",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB44430",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB31613",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB19970",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB56293",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": [
+        "missing_primary_paper_anchor",
+        "missing_archive_paper_pinning_rationale"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB7537",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ancient_status": "ancient_unverified",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": [
+        "not_confirmed_ancient",
+        "missing_primary_paper_anchor",
+        "missing_archive_paper_pinning_rationale"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB10854",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ancient_status": "ancient_unverified",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": [
+        "not_confirmed_ancient",
+        "missing_primary_paper_anchor",
+        "missing_archive_paper_pinning_rationale"
+      ]
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB9799",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ancient_status": "modern_or_irrelevant",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": false,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": []
+    }
+  ],
+  "release_blockers": [
+    "missing_primary_paper_pins",
+    "missing_archive_paper_pinning_rationale",
+    "non_ancient_or_unconfirmed_core_projects"
+  ]
+}
