@@ -1,0 +1,88 @@
+{
+  "schema_version": "country-animal-adna-summary.v1",
+  "country": "Finland",
+  "version": "v66",
+  "generated_on": "2026-05-07",
+  "total_species": 1,
+  "total_localities": 1,
+  "total_projects": 1,
+  "species_rows": [
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "assignment_confidence": "regional_projection",
+      "coordinate_posture": "inferred",
+      "oldest_signal_bp": 0,
+      "youngest_signal_bp": 4000,
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "caution_note": "regional Baltic projection, not country-exact; coordinates remain approximate or inferred"
+    }
+  ],
+  "localities": [
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "project_accession": "PRJEB59481",
+      "support_class": "accepted",
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "political_entity": "Baltic Sea Region",
+      "country_assignment_confidence": "regional_projection",
+      "country_assignment_reason": "The tracked locality lead is labeled `Baltic Sea Region` and is published under `Finland` as a regional Baltic projection, not a country-exact excavation.",
+      "latitude": 58.5,
+      "longitude": 22.5,
+      "coordinate_confidence": "inferred",
+      "time_start_bp": 0,
+      "time_end_bp": 4000,
+      "time_mean_bp": 2000,
+      "time_label": "Four millennia of Baltic sheep history",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+      "interpretation_note": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation.",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "source_url": "https://doi.org/10.1093/gbe/evae114"
+    }
+  ],
+  "citations": [
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "country_assignment_confidence": "regional_projection"
+    }
+  ],
+  "warnings": [
+    {
+      "severity": "warning",
+      "warning_code": "regional_projection",
+      "message": "`Ovis aries` reaches `Finland` through a regional projection, not one country-exact excavation label."
+    },
+    {
+      "severity": "warning",
+      "warning_code": "approximate_coordinates",
+      "message": "`Ovis aries` still carries approximate or inferred coordinates in the country bundle."
+    },
+    {
+      "severity": "caution",
+      "warning_code": "thin_species_surface",
+      "message": "`Finland` currently ships a thin animal surface with only `1` represented tracked species."
+    }
+  ]
+}

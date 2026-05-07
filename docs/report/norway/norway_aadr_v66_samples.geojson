@@ -1,7 +1,9 @@
 {
+  "schema_version": "adna-sample-geojson-collection.v1",
   "type": "FeatureCollection",
   "features": [
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -11,6 +13,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK422.SG",
         "master_id": "7476",
         "group_id": "Norway_Viking",
@@ -27,15 +34,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK422.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -45,6 +63,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK394.SG",
         "master_id": "49669",
         "group_id": "Norway_Viking",
@@ -61,15 +84,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK394.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -79,6 +113,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK394_d.SG",
         "master_id": "49802",
         "group_id": "Norway_Viking",
@@ -95,15 +134,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK394_d.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -113,6 +163,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105915.SG",
         "master_id": "117665",
         "group_id": "Norway_Aunvollen_Viking",
@@ -129,15 +184,26 @@
         "time_end_bp": 1211,
         "time_mean_bp": 943,
         "time_label": "800-1050 calCE (1025\u00b1125 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105915.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -147,6 +213,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107012.SG",
         "master_id": "118021",
         "group_id": "Norway_Balsnes_IA",
@@ -163,15 +234,26 @@
         "time_end_bp": 1353,
         "time_mean_bp": 1155,
         "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107012.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -181,6 +263,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR119.HO",
         "master_id": "32113",
         "group_id": "Norwegian",
@@ -197,14 +284,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR119.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -214,6 +311,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR124.HO",
         "master_id": "32116",
         "group_id": "Norwegian",
@@ -230,14 +332,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR124.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -247,6 +359,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR106.HO",
         "master_id": "32153",
         "group_id": "Norwegian",
@@ -263,14 +380,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR106.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -280,6 +407,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR101.HO",
         "master_id": "32161",
         "group_id": "Norwegian",
@@ -296,14 +428,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR101.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -313,6 +455,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR146.HO",
         "master_id": "32174",
         "group_id": "Norwegian",
@@ -329,14 +476,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR146.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -346,6 +503,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR108.HO",
         "master_id": "32182",
         "group_id": "Norwegian",
@@ -362,14 +524,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR108.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -379,6 +551,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR126.HO",
         "master_id": "32187",
         "group_id": "Norwegian",
@@ -395,14 +572,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR126.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -412,6 +599,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR107.HO",
         "master_id": "32198",
         "group_id": "Norwegian",
@@ -428,14 +620,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR107.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -445,6 +647,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR109.HO",
         "master_id": "32206",
         "group_id": "Norwegian",
@@ -461,14 +668,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR109.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -478,6 +695,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR148.HO",
         "master_id": "32236",
         "group_id": "Norwegian",
@@ -494,14 +716,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR148.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -511,6 +743,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NOR111.HO",
         "master_id": "32253",
         "group_id": "Norwegian",
@@ -527,14 +764,24 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "time_label": "present",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "HumanOrigins",
         "molecular_sex": "M",
         "datasets": [
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:ho",
+          "genetic_id:NOR111.HO"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -544,6 +791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105634.SG",
         "master_id": "117643",
         "group_id": "Norway_Bergvin_EBA",
@@ -560,15 +812,26 @@
         "time_end_bp": 4914,
         "time_mean_bp": 3360,
         "time_label": "1700-500 calBCE (3050\u00b1600 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105634.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -578,6 +841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105635.SG",
         "master_id": "117645",
         "group_id": "Norway_Bergvin_EBA",
@@ -594,15 +862,26 @@
         "time_end_bp": 3713,
         "time_mean_bp": 3549,
         "time_label": "1433-1299 calBCE (3316\u00b167 BP, UCIAMS-272872)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105635.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -612,6 +891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107020.SG",
         "master_id": "118035",
         "group_id": "Norway_BomoSnasaM_Roman",
@@ -628,15 +912,26 @@
         "time_end_bp": 1585,
         "time_mean_bp": 1473,
         "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107020.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -646,6 +941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107036.SG",
         "master_id": "118067",
         "group_id": "Norway_BoleFlatangerMT210612A7271_IA_EarlyGermanic",
@@ -662,15 +962,26 @@
         "time_end_bp": 1827,
         "time_mean_bp": 1415,
         "time_label": "258-649 calCE (1496\u00b1196 BP, DF-1848, T-7760)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107036.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -680,6 +991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107035.SG",
         "master_id": "118065",
         "group_id": "Norway_BoleFlatangerMT210613A7272_Roman",
@@ -696,15 +1012,26 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1658,
         "time_label": "76-313 calCE (1756\u00b1118 BP, direct)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107035.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -714,6 +1041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105640.SG",
         "master_id": "117653",
         "group_id": "Norway_Eid_MLN",
@@ -730,15 +1062,26 @@
         "time_end_bp": 6154,
         "time_mean_bp": 4764,
         "time_label": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105640.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -748,6 +1091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105641.SG",
         "master_id": "117655",
         "group_id": "Norway_Eid_MLN",
@@ -764,15 +1112,26 @@
         "time_end_bp": 6154,
         "time_mean_bp": 4764,
         "time_label": "2800-1700 calBCE (4200\u00b1550 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105641.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -782,6 +1141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107037.SG",
         "master_id": "118069",
         "group_id": "Norway_EngeSomnaM_IA_LateGermanic",
@@ -798,15 +1162,26 @@
         "time_end_bp": 1309,
         "time_mean_bp": 1159,
         "time_label": "655-774 calCE (1236\u00b160 BP, UCIAMS-289260)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107037.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -816,6 +1191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107011.SG",
         "master_id": "118019",
         "group_id": "Norway_Engholmen_IA_LateGermanic",
@@ -832,15 +1212,26 @@
         "time_end_bp": 3188,
         "time_mean_bp": 2900,
         "time_label": "1200-700 BCE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107011.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -850,6 +1241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107013.SG",
         "master_id": "118023",
         "group_id": "Norway_Engholmen2_IA_LateGermanic",
@@ -866,15 +1262,26 @@
         "time_end_bp": 1326,
         "time_mean_bp": 1218,
         "time_label": "600-700 calCE (1300\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107013.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -884,6 +1291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105916.SG",
         "master_id": "117667",
         "group_id": "Norway_Fauskland_LN_EBA_BellBeaker",
@@ -900,15 +1312,26 @@
         "time_end_bp": 4771,
         "time_mean_bp": 4503,
         "time_label": "2137-1984 calBCE (4010\u00b176 BP, TRa-17220 & TRa-17221)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105916.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -918,6 +1341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105643.SG",
         "master_id": "117659",
         "group_id": "Norway_Folstad_EarlyRoman",
@@ -934,15 +1362,26 @@
         "time_end_bp": 2019,
         "time_mean_bp": 1837,
         "time_label": "39 calBCE - 108 calCE (1916\u00b174 BP, UCIAMS-272873)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105643.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -952,6 +1391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107014.SG",
         "master_id": "118025",
         "group_id": "Norway_Fore1_Roman",
@@ -968,15 +1412,26 @@
         "time_end_bp": 1585,
         "time_mean_bp": 1473,
         "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107014.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -986,6 +1441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107015.SG",
         "master_id": "118027",
         "group_id": "Norway_Fore1_Roman",
@@ -1002,15 +1462,26 @@
         "time_end_bp": 1585,
         "time_mean_bp": 1473,
         "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107015.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1020,6 +1491,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK420.SG",
         "master_id": "7474",
         "group_id": "Norway_Viking",
@@ -1036,15 +1512,26 @@
         "time_end_bp": 1280,
         "time_mean_bp": 1050,
         "time_label": "700-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK420.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1054,6 +1541,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107030.SG",
         "master_id": "118055",
         "group_id": "Norway_HolmBindalM_IA_LateGermanic",
@@ -1070,15 +1562,26 @@
         "time_end_bp": 1293,
         "time_mean_bp": 1153,
         "time_label": "673-773 calCE (1227\u00b150 BP, UCIAMS-289258)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107030.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1088,6 +1591,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "hvr009.SG",
         "master_id": "40261",
         "group_id": "Norway_PreViking",
@@ -1104,15 +1612,26 @@
         "time_end_bp": 1903,
         "time_mean_bp": 1813,
         "time_label": "60-215 calCE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:hvr009.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1122,6 +1641,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK525.SG",
         "master_id": "7576",
         "group_id": "Norway_Viking",
@@ -1138,15 +1662,26 @@
         "time_end_bp": 1158,
         "time_mean_bp": 1100,
         "time_label": "800-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK525.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1156,6 +1691,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "NEO17.SG",
         "master_id": "46803",
         "group_id": "Norway_Mesolithic",
@@ -1172,15 +1712,26 @@
         "time_end_bp": 9486,
         "time_mean_bp": 9384,
         "time_label": "7589-7368 calBCE (8446\u00b151 BP, Ua-47892)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:NEO17.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1190,6 +1741,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "Hum1.SG",
         "master_id": "6128",
         "group_id": "Norway_Mesolithic",
@@ -1206,15 +1762,26 @@
         "time_end_bp": 9466,
         "time_mean_bp": 9364,
         "time_label": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:Hum1.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1224,6 +1791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "Hum2.SG",
         "master_id": "6129",
         "group_id": "Norway_Mesolithic",
@@ -1240,15 +1812,26 @@
         "time_end_bp": 9466,
         "time_mean_bp": 9364,
         "time_label": "7502-7325 calBCE (8703\u00b127 BP) [R_Combine: TRa-954, TUa-1257, TRa-952, TUa-2106, TRa-951, TRa-953, TUa-2107)]",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:Hum2.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1258,6 +1841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107001.SG",
         "master_id": "117999",
         "group_id": "Norway_JarlsbergHerregaard_IA_LateGermanic",
@@ -1274,15 +1862,26 @@
         "time_end_bp": 1629,
         "time_mean_bp": 1107,
         "time_label": "500-1050 calCE (1175\u00b1275 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107001.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1292,6 +1891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK387.SG",
         "master_id": "7442",
         "group_id": "Norway_Viking",
@@ -1308,15 +1912,26 @@
         "time_end_bp": 1066,
         "time_mean_bp": 950,
         "time_label": "900-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK387.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1326,6 +1941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK421.SG",
         "master_id": "7475",
         "group_id": "Norway_Viking",
@@ -1342,15 +1962,26 @@
         "time_end_bp": 1066,
         "time_mean_bp": 950,
         "time_label": "900-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK421.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1360,6 +1991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107026.SG",
         "master_id": "118047",
         "group_id": "Norway_Joa_IA_LateGermanic",
@@ -1376,15 +2012,26 @@
         "time_end_bp": 1468,
         "time_mean_bp": 1360,
         "time_label": "429-549 calCE (1461\u00b160 BP, UCIAMS-282670)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107026.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1394,6 +2041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107027.SG",
         "master_id": "118049",
         "group_id": "Norway_Joa_IA",
@@ -1410,15 +2062,26 @@
         "time_end_bp": 1309,
         "time_mean_bp": 1159,
         "time_label": "654-774 calCE (1236\u00b160 BP, UCIAMS-282671)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107027.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1428,6 +2091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107028.SG",
         "master_id": "118051",
         "group_id": "Norway_Joa_IA_LateGermanic",
@@ -1444,15 +2112,26 @@
         "time_end_bp": 1375,
         "time_mean_bp": 1225,
         "time_label": "550-700 calCE (1325\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107028.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1462,6 +2141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107032.SG",
         "master_id": "118059",
         "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
@@ -1478,15 +2162,26 @@
         "time_end_bp": 1311,
         "time_mean_bp": 1159,
         "time_label": "652-774 calCE (1237\u00b161 BP, UCIAMS-282672)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107032.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1496,6 +2191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107033.SG",
         "master_id": "118061",
         "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
@@ -1512,15 +2212,26 @@
         "time_end_bp": 1316,
         "time_mean_bp": 1162,
         "time_label": "645-772 calCE (1242\u00b164 BP, UCIAMS-282673)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107033.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1530,6 +2241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107034.SG",
         "master_id": "118063",
         "group_id": "Norway_JoaNamsosM_IA_LateGermanic",
@@ -1546,15 +2262,26 @@
         "time_end_bp": 1305,
         "time_mean_bp": 1157,
         "time_label": "661-774 calCE (1232\u00b156 BP, UCIAMS-289259)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107034.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1564,6 +2291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105645.SG",
         "master_id": "117661",
         "group_id": "Norway_Krakeroy_EBA",
@@ -1580,15 +2312,26 @@
         "time_end_bp": 3731,
         "time_mean_bp": 3503,
         "time_label": "1420-1220 calBCE (3266\u00b195 BP, Rijksuniversiteit Groningen)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105645.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1598,6 +2341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK529.SG",
         "master_id": "7580",
         "group_id": "Norway_Viking",
@@ -1614,15 +2362,26 @@
         "time_end_bp": 1266,
         "time_mean_bp": 1150,
         "time_label": "700-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK529.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1632,6 +2391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK386.SG",
         "master_id": "7441",
         "group_id": "Norway_Viking",
@@ -1648,15 +2412,26 @@
         "time_end_bp": 1174,
         "time_mean_bp": 1000,
         "time_label": "800-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK386.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1666,6 +2441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107010.SG",
         "master_id": "118017",
         "group_id": "Norway_Lund_IA",
@@ -1682,15 +2462,26 @@
         "time_end_bp": 1353,
         "time_mean_bp": 1155,
         "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107010.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1700,6 +2491,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107024.SG",
         "master_id": "118043",
         "group_id": "Norway_LundNamsosM_IA_LateGermanic",
@@ -1716,15 +2512,26 @@
         "time_end_bp": 1301,
         "time_mean_bp": 1091,
         "time_label": "682-878 calCE (1170\u00b198 BP, UCIAMS-282669)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107024.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1734,6 +2541,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK415.SG",
         "master_id": "7470",
         "group_id": "Norway_Viking",
@@ -1750,15 +2562,26 @@
         "time_end_bp": 1280,
         "time_mean_bp": 1050,
         "time_label": "700-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK415.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1768,6 +2591,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK523.SG",
         "master_id": "7574",
         "group_id": "Norway_IA",
@@ -1784,15 +2612,26 @@
         "time_end_bp": 2026,
         "time_mean_bp": 1450,
         "time_label": "1-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK523.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1802,6 +2641,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107017.SG",
         "master_id": "118031",
         "group_id": "Norway_NordRollnes_IA",
@@ -1818,15 +2662,26 @@
         "time_end_bp": 1414,
         "time_mean_bp": 1172,
         "time_label": "550-800 calCE (1275\u00b1125 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107017.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1836,6 +2691,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107019.SG",
         "master_id": "118033",
         "group_id": "Norway_NordRollnes_IA",
@@ -1852,15 +2712,26 @@
         "time_end_bp": 1414,
         "time_mean_bp": 1172,
         "time_label": "1300-1100 calBCE (1275\u00b1125 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107019.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1870,6 +2741,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK548.SG",
         "master_id": "7599",
         "group_id": "Norway_Viking",
@@ -1886,15 +2762,26 @@
         "time_end_bp": 1158,
         "time_mean_bp": 1100,
         "time_label": "800-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK548.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1904,6 +2791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK518.SG",
         "master_id": "7568",
         "group_id": "Norway_Viking-1",
@@ -1920,15 +2812,26 @@
         "time_end_bp": 1158,
         "time_mean_bp": 1100,
         "time_label": "800-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK518.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1938,6 +2841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK113.SG",
         "master_id": "7207",
         "group_id": "Norway_Medieval-o",
@@ -1954,15 +2862,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK113.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -1972,6 +2891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK114.SG",
         "master_id": "7208",
         "group_id": "Norway_Medieval",
@@ -1988,15 +2912,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK114.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2006,6 +2941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK116.SG",
         "master_id": "7209",
         "group_id": "Norway_Medieval",
@@ -2022,15 +2962,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK116.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2040,6 +2991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK117.SG",
         "master_id": "7210",
         "group_id": "Norway_Medieval",
@@ -2056,15 +3012,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK117.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2074,6 +3041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK118.SG",
         "master_id": "7211",
         "group_id": "Norway_Medieval",
@@ -2090,15 +3062,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK118.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2108,6 +3091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK124.SG",
         "master_id": "7215",
         "group_id": "Norway_Medieval",
@@ -2124,15 +3112,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK124.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2142,6 +3141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK125.SG",
         "master_id": "7216",
         "group_id": "Norway_Medieval-o",
@@ -2158,15 +3162,26 @@
         "time_end_bp": 866,
         "time_mean_bp": 750,
         "time_label": "1100-1300 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "U",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK125.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2176,6 +3191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK393.SG",
         "master_id": "7448",
         "group_id": "Norway_Viking",
@@ -2192,15 +3212,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK393.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2210,6 +3241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK448.SG",
         "master_id": "7500",
         "group_id": "Norway_Viking",
@@ -2226,15 +3262,26 @@
         "time_end_bp": 1280,
         "time_mean_bp": 1050,
         "time_label": "700-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK448.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2244,6 +3291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107044.SG",
         "master_id": "118083",
         "group_id": "Norway_RjoaSola_LateRoman",
@@ -2260,15 +3312,26 @@
         "time_end_bp": 1550,
         "time_mean_bp": 1464,
         "time_label": "325-400 calCE (1588\u00b138 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107044.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2278,6 +3341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107029.SG",
         "master_id": "118053",
         "group_id": "Norway_RoyneOrlandetM_LateRoman",
@@ -2294,15 +3362,26 @@
         "time_end_bp": 1585,
         "time_mean_bp": 1473,
         "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107029.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2312,6 +3391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK515.SG",
         "master_id": "7565",
         "group_id": "Norway_Viking",
@@ -2328,15 +3412,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK515.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2346,6 +3441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK530.SG",
         "master_id": "7581",
         "group_id": "Norway_Viking",
@@ -2362,15 +3462,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK530.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2380,6 +3491,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK419.SG",
         "master_id": "7473",
         "group_id": "Norway_Viking",
@@ -2396,15 +3512,26 @@
         "time_end_bp": 1488,
         "time_mean_bp": 1200,
         "time_label": "500-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK419.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2414,6 +3541,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK417.SG",
         "master_id": "7471",
         "group_id": "Norway_Viking",
@@ -2430,15 +3562,26 @@
         "time_end_bp": 1388,
         "time_mean_bp": 1100,
         "time_label": "600-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK417.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2448,6 +3591,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107042.SG",
         "master_id": "118079",
         "group_id": "Norway_SkeieKlepp_IA_EarlyGermanic",
@@ -2464,15 +3612,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107042.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2482,6 +3641,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107043.SG",
         "master_id": "118081",
         "group_id": "Norway_SkeieKlepp_IA_EarlyGermanic",
@@ -2498,15 +3662,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107043.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2516,6 +3691,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK389.SG",
         "master_id": "7444",
         "group_id": "Norway_Viking",
@@ -2532,15 +3712,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK389.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2550,6 +3741,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK390.SG",
         "master_id": "7445",
         "group_id": "Norway_IA",
@@ -2566,15 +3762,26 @@
         "time_end_bp": 1566,
         "time_mean_bp": 1450,
         "time_label": "400-600 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK390.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2584,6 +3791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK391.SG",
         "master_id": "7446",
         "group_id": "Norway_IA",
@@ -2600,15 +3812,26 @@
         "time_end_bp": 1566,
         "time_mean_bp": 1450,
         "time_label": "400-600 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK391.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2618,6 +3841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK392.SG",
         "master_id": "7447",
         "group_id": "Norway_Viking",
@@ -2634,15 +3862,26 @@
         "time_end_bp": 1274,
         "time_mean_bp": 1100,
         "time_label": "700-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK392.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2652,6 +3891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105636.SG",
         "master_id": "117647",
         "group_id": "Norway_Skjeggesnes_EBA",
@@ -2668,15 +3912,26 @@
         "time_end_bp": 3597,
         "time_mean_bp": 3349,
         "time_label": "1300-1100 calBCE (3150\u00b1100 BP, TUa-2472)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105636.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2686,6 +3941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105638.SG",
         "master_id": "117649",
         "group_id": "Norway_Skjeggesnes_EBA",
@@ -2702,15 +3962,26 @@
         "time_end_bp": 3597,
         "time_mean_bp": 3349,
         "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105638.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2720,6 +3991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105639.SG",
         "master_id": "117651",
         "group_id": "Norway_Skjeggesnes_EBA",
@@ -2736,15 +4012,26 @@
         "time_end_bp": 3597,
         "time_mean_bp": 3349,
         "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105639.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2754,6 +4041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK414.SG",
         "master_id": "7469",
         "group_id": "Norway_Viking",
@@ -2770,15 +4062,26 @@
         "time_end_bp": 1066,
         "time_mean_bp": 950,
         "time_label": "900-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK414.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2788,6 +4091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107004.SG",
         "master_id": "118005",
         "group_id": "Norway_Skongeneshelleren_Roman",
@@ -2804,15 +4112,26 @@
         "time_end_bp": 1943,
         "time_mean_bp": 1799,
         "time_label": "9-124 calCE (1884\u00b158 BP, UCIAMS-282667)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107004.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2822,6 +4141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107005.SG",
         "master_id": "118007",
         "group_id": "Norway_Skongeneshelleren_Roman",
@@ -2838,15 +4162,26 @@
         "time_end_bp": 1850,
         "time_mean_bp": 1694,
         "time_label": "88-211 calCE (1800\u00b162 BP, UCIAMS-289257)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107005.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2856,6 +4191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107006.SG",
         "master_id": "118009",
         "group_id": "Norway_Skongeneshelleren_IA",
@@ -2872,15 +4212,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107006.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2890,6 +4241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107007.SG",
         "master_id": "118011",
         "group_id": "Norway_Skongeneshelleren_IA",
@@ -2906,15 +4262,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107007.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2924,6 +4291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107008.SG",
         "master_id": "118013",
         "group_id": "Norway_Skongeneshelleren_IA",
@@ -2940,15 +4312,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107008.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2958,6 +4341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107009.SG",
         "master_id": "118015",
         "group_id": "Norway_Skongeneshelleren_IA",
@@ -2974,15 +4362,26 @@
         "time_end_bp": 1520,
         "time_mean_bp": 1380,
         "time_label": "400-550 calCE (1475\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107009.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -2992,6 +4391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105642.SG",
         "master_id": "117657",
         "group_id": "Norway_Solsem_LN_EBA",
@@ -3008,15 +4412,26 @@
         "time_end_bp": 4367,
         "time_mean_bp": 4093,
         "time_label": "1871-1686 calBCE (3728\u00b192 BP, TRa-17217 & TRa-17218, disarticulated skeletons)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105642.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3026,6 +4441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "Steigen.SG",
         "master_id": "6134",
         "group_id": "Norway_N",
@@ -3042,15 +4462,26 @@
         "time_end_bp": 5965,
         "time_mean_bp": 5857,
         "time_label": "4000-3814 calBCE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:Steigen.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3060,6 +4491,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK519.SG",
         "master_id": "7569",
         "group_id": "Norway_Viking-2",
@@ -3076,15 +4512,26 @@
         "time_end_bp": 1488,
         "time_mean_bp": 1200,
         "time_label": "500-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK519.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3094,6 +4541,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK418.SG",
         "master_id": "7472",
         "group_id": "Norway_IA",
@@ -3110,15 +4562,26 @@
         "time_end_bp": 1658,
         "time_mean_bp": 1600,
         "time_label": "300-400 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK418.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3128,6 +4591,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK547.SG",
         "master_id": "7598",
         "group_id": "Norway_Viking",
@@ -3144,15 +4612,26 @@
         "time_end_bp": 1280,
         "time_mean_bp": 1050,
         "time_label": "700-1100 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK547.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3162,6 +4641,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107038.SG",
         "master_id": "118071",
         "group_id": "Norway_StorfosenOrlandM_IA_LateGermanic",
@@ -3178,15 +4662,26 @@
         "time_end_bp": 1375,
         "time_mean_bp": 1225,
         "time_label": "550-700 calCE (1325\u00b175 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107038.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3196,6 +4691,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105604.SG",
         "master_id": "117617",
         "group_id": "Norway_Sund_LN_EBA",
@@ -3212,15 +4712,26 @@
         "time_end_bp": 4376,
         "time_mean_bp": 4096,
         "time_label": "1875-1686 calBCE (3730\u00b194 BP, UCIAMS-282658)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105604.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3230,6 +4741,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105606.SG",
         "master_id": "117619",
         "group_id": "Norway_Sund_EBA",
@@ -3246,15 +4762,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105606.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3264,6 +4791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105608.SG",
         "master_id": "117621",
         "group_id": "Norway_Sund_LN",
@@ -3280,15 +4812,26 @@
         "time_end_bp": 4524,
         "time_mean_bp": 4328,
         "time_label": "2021-1890 calBCE (3906\u00b166 BP, UCIAMS-282659)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105608.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3298,6 +4841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105610.SG",
         "master_id": "117623",
         "group_id": "Norway_Sund_EBA",
@@ -3314,15 +4862,26 @@
         "time_end_bp": 4395,
         "time_mean_bp": 4065,
         "time_label": "1870-1641 calBCE (3706\u00b1114 BP, TRa-21967)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105610.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3332,6 +4891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105612.SG",
         "master_id": "117625",
         "group_id": "Norway_Sund_LN",
@@ -3348,15 +4912,26 @@
         "time_end_bp": 4358,
         "time_mean_bp": 4136,
         "time_label": "1880-1745 calBCE (3762\u00b168 BP, UCIAMS-275208)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105612.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3366,6 +4941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105617.SG",
         "master_id": "117627",
         "group_id": "Norway_Sund_EBA",
@@ -3382,15 +4962,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105617.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3400,6 +4991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105622.SG",
         "master_id": "117629",
         "group_id": "Norway_Sund_EBA",
@@ -3416,15 +5012,26 @@
         "time_end_bp": 4375,
         "time_mean_bp": 4101,
         "time_label": "1877-1692 calBCE (3734\u00b192 BP, TRa-21973)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105622.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3434,6 +5041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105623.SG",
         "master_id": "117631",
         "group_id": "Norway_Sund_EBA",
@@ -3450,15 +5062,26 @@
         "time_end_bp": 4544,
         "time_mean_bp": 4282,
         "time_label": "2010-1829 calBCE (3870\u00b190 BP, TRa-21969)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105623.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3468,6 +5091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105626.SG",
         "master_id": "117633",
         "group_id": "Norway_Sund_EBA",
@@ -3484,15 +5112,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105626.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3502,6 +5141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105628.SG",
         "master_id": "117635",
         "group_id": "Norway_Sund_LN",
@@ -3518,15 +5162,26 @@
         "time_end_bp": 4373,
         "time_mean_bp": 4147,
         "time_label": "1888-1750 calBCE (3769\u00b169 BP, UCIAMS-275209)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105628.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3536,6 +5191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105629.SG",
         "master_id": "117637",
         "group_id": "Norway_Sund_EBA",
@@ -3552,15 +5212,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105629.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3570,6 +5241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105631.SG",
         "master_id": "117639",
         "group_id": "Norway_Sund_EBA",
@@ -3586,15 +5262,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105631.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3604,6 +5291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105632.SG",
         "master_id": "117641",
         "group_id": "Norway_Sund_EBA",
@@ -3620,15 +5312,26 @@
         "time_end_bp": 3802,
         "time_mean_bp": 3416,
         "time_label": "1400-1100 calBCE (3200\u00b1150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105632.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3638,6 +5341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK526.SG",
         "master_id": "7577",
         "group_id": "Norway_Viking",
@@ -3654,15 +5362,26 @@
         "time_end_bp": 1158,
         "time_mean_bp": 1100,
         "time_label": "800-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK526.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3672,6 +5391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105600.SG",
         "master_id": "117611",
         "group_id": "Norway_Toldnes_EBA",
@@ -3688,15 +5412,26 @@
         "time_end_bp": 3597,
         "time_mean_bp": 3349,
         "time_label": "1300-1100 calBCE (3150\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105600.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3706,6 +5441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105601.SG",
         "master_id": "117613",
         "group_id": "Norway_Toldnes_EBA",
@@ -3722,15 +5462,26 @@
         "time_end_bp": 1777,
         "time_mean_bp": 1655,
         "time_label": "129-234 calCE (1768\u00b152 BP, UCIAMS-286998)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105601.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3740,6 +5491,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105602.SG",
         "master_id": "117615",
         "group_id": "Norway_Toldnes_EBA",
@@ -3756,15 +5512,26 @@
         "time_end_bp": 3942,
         "time_mean_bp": 3390,
         "time_label": "1441-1007 calBCE (3174\u00b1217 BP, TUa-2471)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105602.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3774,6 +5541,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107021.SG",
         "master_id": "118037",
         "group_id": "Norway_TomeideNesnaM_LateRoman",
@@ -3790,15 +5562,26 @@
         "time_end_bp": 1585,
         "time_mean_bp": 1473,
         "time_label": "300-400 calCE (1600\u00b150 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107021.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3808,6 +5591,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107022.SG",
         "master_id": "118039",
         "group_id": "Norway_TomeideNesnaM_Roman",
@@ -3824,15 +5612,26 @@
         "time_end_bp": 1777,
         "time_mean_bp": 1655,
         "time_label": "129-234 calCE (1768\u00b152 BP, UCIAMS-282870)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107022.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3842,6 +5641,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107023.SG",
         "master_id": "118041",
         "group_id": "Norway_TomeideNesnaM_IA_LateGermanic",
@@ -3858,15 +5662,26 @@
         "time_end_bp": 1322,
         "time_mean_bp": 1240,
         "time_label": "599-652 calCE (1324\u00b126 BP, UCIAMS-282668)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107023.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3876,6 +5691,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK524.SG",
         "master_id": "7575",
         "group_id": "Norway_Viking",
@@ -3892,15 +5712,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK524.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3910,6 +5741,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK528.SG",
         "master_id": "7579",
         "group_id": "Norway_Viking",
@@ -3926,15 +5762,26 @@
         "time_end_bp": 1266,
         "time_mean_bp": 1150,
         "time_label": "700-900 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK528.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3944,6 +5791,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK531.SG",
         "master_id": "7582",
         "group_id": "Norway_LN_BA",
@@ -3960,15 +5812,26 @@
         "time_end_bp": 4469,
         "time_mean_bp": 4347,
         "time_label": "2559-2290 calBCE (3918\u00b136 BP, UBA-36964)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK531.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -3978,6 +5841,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK520.SG",
         "master_id": "7571",
         "group_id": "Norway_Viking",
@@ -3994,15 +5862,26 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK520.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4012,6 +5891,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107002.SG",
         "master_id": "118001",
         "group_id": "Norway_Tyrifjorden_PreImperialRoman",
@@ -4028,15 +5912,26 @@
         "time_end_bp": 2955,
         "time_mean_bp": 2127,
         "time_label": "500 calBCE-200 calCE (2100\u00b1350 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107002.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4046,6 +5941,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107003.SG",
         "master_id": "118003",
         "group_id": "Norway_Tyrifjorden_Roman",
@@ -4062,15 +5962,26 @@
         "time_end_bp": 1943,
         "time_mean_bp": 1799,
         "time_label": "9-124 calCE (1884\u00b158 BP, UCIAMS-282666)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107003.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4080,6 +5991,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107031.SG",
         "master_id": "118057",
         "group_id": "Norway_ValstadVerdalM_LateRoman",
@@ -4096,15 +6012,26 @@
         "time_end_bp": 1680,
         "time_mean_bp": 1556,
         "time_label": "250-320 calCE (1665\u00b135 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107031.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4114,6 +6041,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_105650.SG",
         "master_id": "117663",
         "group_id": "Norway_Verket_LN",
@@ -4130,15 +6062,26 @@
         "time_end_bp": 4472,
         "time_mean_bp": 4206,
         "time_label": "1950-1770 calBCE (3810\u00b190 BP, unknown)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_105650.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4148,6 +6091,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107039.SG",
         "master_id": "118073",
         "group_id": "Norway_VikKlepp_IA_LateGermanic",
@@ -4164,15 +6112,26 @@
         "time_end_bp": 1353,
         "time_mean_bp": 1155,
         "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107039.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4182,6 +6141,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107040.SG",
         "master_id": "118075",
         "group_id": "Norway_VikKlepp_IA_LateGermanic",
@@ -4198,15 +6162,26 @@
         "time_end_bp": 1353,
         "time_mean_bp": 1155,
         "time_label": "600-800 calCE (1250\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107040.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4216,6 +6191,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107041.SG",
         "master_id": "118077",
         "group_id": "Norway_VikKlepp_IA_LateGermanic",
@@ -4232,15 +6212,26 @@
         "time_end_bp": 1292,
         "time_mean_bp": 1152,
         "time_label": "675-774 calCE (1226\u00b150 BP, UCIAMS-289261)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107041.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4250,6 +6241,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107025.SG",
         "master_id": "118045",
         "group_id": "Norway_VikOrlandetMT2812611_IA_EarlyGermanic",
@@ -4266,15 +6262,26 @@
         "time_end_bp": 1680,
         "time_mean_bp": 1518,
         "time_label": "248-377 calCE (1638\u00b164 BP, direct)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "F",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107025.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4284,6 +6291,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK514.SG",
         "master_id": "7564",
         "group_id": "Norway_Viking",
@@ -4300,15 +6312,26 @@
         "time_end_bp": 1488,
         "time_mean_bp": 1200,
         "time_label": "500-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK514.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4318,6 +6341,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "CGG_2_107016.SG",
         "master_id": "118029",
         "group_id": "Norway_YtreKvaroyLuroy_IA_LateGermanic",
@@ -4334,15 +6362,26 @@
         "time_end_bp": 1394,
         "time_mean_bp": 1196,
         "time_label": "550-750 calCE (1300\u00b1100 BP)",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:CGG_2_107016.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4352,6 +6391,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK388.SG",
         "master_id": "7443",
         "group_id": "Norway_Viking",
@@ -4368,15 +6412,26 @@
         "time_end_bp": 1320,
         "time_mean_bp": 800,
         "time_label": "700-1600 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK388.SG",
+          "dataset:ho"
         ]
       }
     },
     {
+      "schema_version": "adna-sample-geojson.v1",
       "type": "Feature",
       "geometry": {
         "type": "Point",
@@ -4386,6 +6441,11 @@
         ]
       },
       "properties": {
+        "schema_version": "adna-sample-record-export.v1",
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "sample_namespace": "homo_sapiens:aadr_genetic_id",
         "genetic_id": "VK516.SG",
         "master_id": "7566",
         "group_id": "Norway_Viking",
@@ -4402,11 +6462,21 @@
         "time_end_bp": 1058,
         "time_mean_bp": 1000,
         "time_label": "900-1000 CE",
+        "dating_basis": "bp_mean_and_stddev",
+        "coordinate_confidence": "unknown",
         "data_type": "Shotgun",
         "molecular_sex": "M",
         "datasets": [
           "1240k",
           "ho"
+        ],
+        "accession_lineage": [
+          "species:Homo sapiens",
+          "source:AADR",
+          "release:v66",
+          "dataset:1240k",
+          "genetic_id:VK516.SG",
+          "dataset:ho"
         ]
       }
     }
