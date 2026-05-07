@@ -54,7 +54,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "SRP073444",
@@ -71,7 +75,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     }
   ],
   "pending_projects": [],
