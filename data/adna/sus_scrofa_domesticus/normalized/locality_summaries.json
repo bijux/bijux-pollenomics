@@ -10,8 +10,8 @@
         "political_entity": "Turkey and Europe",
         "source_anchor_tokens": [
           "PRJEB30282",
-          "39.00",
-          "35.00"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Sus scrofa domesticus",
@@ -31,11 +31,11 @@
       ],
       "locality": "Near East and Europe pig domestication transect",
       "coordinates": {
-        "latitude": 39.0,
-        "longitude": 35.0,
-        "latitude_text": "39.00",
-        "longitude_text": "35.00",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Near East and Europe pig domestication transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This is a broad domestication transect, not one excavation site, so the atlas point remains an inferred regional centroid."
+      "interpretation_note": "Region-level pig turnover evidence is kept as non-mappable context until site rows exist."
     }
   ]
 }

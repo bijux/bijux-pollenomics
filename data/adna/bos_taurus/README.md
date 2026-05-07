@@ -8,4 +8,4 @@
 - Pending projects: `1`
 - Rejected projects: `0`
 
-This species root is a tracked repository surface. `raw/` keeps archive inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, project-level, and locality-level normalized outputs, `manifests/` keeps species and citation manifests, `reports/` keeps support summaries, and `review/` keeps reader-facing review packets.
+This species root is a tracked repository surface. `raw/` keeps archive inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, coordinate-provenance, site-evidence, project-level, and locality-level normalized outputs, `manifests/` keeps species and citation manifests, `reports/` keeps support summaries, and `review/` keeps reader-facing review packets.

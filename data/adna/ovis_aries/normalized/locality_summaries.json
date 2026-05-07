@@ -10,8 +10,8 @@
         "political_entity": "Baltic Sea Region",
         "source_anchor_tokens": [
           "PRJEB59481",
-          "58.50",
-          "22.50"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Ovis aries",
@@ -31,11 +31,11 @@
       ],
       "locality": "Baltic Sea Region short-tailed sheep context",
       "coordinates": {
-        "latitude": 58.5,
-        "longitude": 22.5,
-        "latitude_text": "58.50",
-        "longitude_text": "22.50",
-        "confidence": "inferred"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Baltic Sea Region short-tailed sheep context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
-      "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row."
+      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready."
     }
   ]
 }

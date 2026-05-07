@@ -10,8 +10,8 @@
         "political_entity": "Galicia, Spain",
         "source_anchor_tokens": [
           "PRJNA705960",
-          "42.75",
-          "-8.75"
+          "",
+          ""
         ]
       },
       "species_latin_name": "Bos taurus",
@@ -31,11 +31,11 @@
       ],
       "locality": "Galician mountain cave cattle context",
       "coordinates": {
-        "latitude": 42.75,
-        "longitude": -8.75,
-        "latitude_text": "42.75",
-        "longitude_text": "-8.75",
-        "confidence": "approximate"
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -59,7 +59,7 @@
       "original_location_text": "Galician mountain cave cattle context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally."
+      "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision."
     }
   ]
 }
