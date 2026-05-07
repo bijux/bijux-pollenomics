@@ -134,6 +134,15 @@ class DataCollectorTests(unittest.TestCase):
                     / "adna"
                     / "equus_caballus"
                     / "normalized"
+                    / "coordinate_provenance.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_caballus"
+                    / "normalized"
                     / "site_evidence.json"
                 ).is_file()
             )
@@ -163,6 +172,15 @@ class DataCollectorTests(unittest.TestCase):
             )
             self.assertTrue(
                 (output_root / "adna" / "cross_species_coverage_dashboard.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "cross_species_map_readiness.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "coordinate_caveat_surface.md").is_file()
+            )
+            self.assertTrue(
+                (output_root / "adna" / "coordinate_confidence_scale.md").is_file()
             )
             self.assertTrue(
                 (output_root / "adna" / "shipped_product_audit.json").is_file()
