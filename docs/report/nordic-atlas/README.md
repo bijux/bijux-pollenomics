@@ -66,8 +66,21 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 
 - Species focus
 - Animal scope
+- Coordinate confidence
 - Chronology bucket
 - Nordic animal leads only
+
+### Animal Inspection Surfaces
+
+- Animal evidence summary panel
+- Citation-aware animal popups
+- Species and confidence legend sections
+
+### Visible Coordinate Confidence
+
+| Coordinate confidence | Visible mapped points |
+| --- | ---: |
+| approximate | 2 |
 
 ### Visible Animal Caveats
 
