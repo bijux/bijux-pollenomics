@@ -3,16 +3,16 @@
   "generated_on": "2026-05-07",
   "countries": [
     "Sweden",
-    "Denmark",
     "Norway",
-    "Finland"
+    "Finland",
+    "Denmark"
   ],
   "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
   "country_output_dirs": [
     "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
     "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
-    "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland"
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark"
   ],
   "summary_path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/published_reports_summary.json",
   "schema_version": "published-reports-summary.v1",
@@ -43,11 +43,6 @@
         "bundle_manifest": "sweden_aadr_v66_bundle.json",
         "summary_json": "sweden_aadr_v66_summary.json"
       },
-      "denmark": {
-        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
-        "bundle_manifest": "denmark_aadr_v66_bundle.json",
-        "summary_json": "denmark_aadr_v66_summary.json"
-      },
       "norway": {
         "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
         "bundle_manifest": "norway_aadr_v66_bundle.json",
@@ -57,6 +52,11 @@
         "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
         "bundle_manifest": "finland_aadr_v66_bundle.json",
         "summary_json": "finland_aadr_v66_summary.json"
+      },
+      "denmark": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
+        "bundle_manifest": "denmark_aadr_v66_bundle.json",
+        "summary_json": "denmark_aadr_v66_summary.json"
       }
     }
   }

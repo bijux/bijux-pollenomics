@@ -2,9 +2,9 @@
   "schema_version": "atlas-evidence-surface.v2",
   "countries": [
     "Sweden",
-    "Denmark",
     "Norway",
-    "Finland"
+    "Finland",
+    "Denmark"
   ],
   "layers": [
     {
@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 8,
+      "feature_count": 2,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -76,7 +76,7 @@
       ],
       "layer_role": "mapped_direct_comparator",
       "mapped": true,
-      "feature_count": 2,
+      "feature_count": 0,
       "evidence_posture": "mapped_comparator_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2772,
+      "feature_count": 2764,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -161,16 +161,8 @@
       "chronology_posture": "mapped_sample_chronology_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -196,16 +188,8 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -230,16 +214,8 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -262,22 +238,14 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "decreases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 1,
       "study_summary_count": 3,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -291,7 +259,6 @@
       ],
       "rationale": [
         "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims.",
         "Current blocking reasons reduce confidence rather than strengthening the atlas narrative.",
         "Cattle remains under a mixed-species rule, so wild or progenitor context cannot be flattened into domesticated-core support."
       ]
@@ -310,16 +277,8 @@
       "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -339,22 +298,14 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 3,
       "study_summary_count": 1,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_bp_capable_but_not_locality_bound",
+      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -362,8 +313,7 @@
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     },
     {
@@ -374,22 +324,14 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 3,
       "study_summary_count": 3,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -397,8 +339,7 @@
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     },
     {
@@ -409,22 +350,14 @@
       "dataset_bucket": "comparator_only",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 0,
       "study_summary_count": 5,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -432,8 +365,7 @@
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     },
     {
@@ -450,16 +382,8 @@
       "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -483,22 +407,14 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 2,
       "study_summary_count": 2,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -506,8 +422,7 @@
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     },
     {
@@ -524,16 +439,8 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -558,16 +465,8 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -592,16 +491,8 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -620,22 +511,14 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 3,
       "study_summary_count": 6,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -658,22 +541,14 @@
       "dataset_bucket": "comparator_only",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 0,
       "study_summary_count": 4,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -692,22 +567,14 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 1,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 1,
       "study_summary_count": 4,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points_with_mixed_precision",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-bos-taurus",
         "animal-camelus-dromedarius",
-        "animal-canis-lupus-familiaris",
-        "animal-capra-hircus",
-        "animal-equus-asinus",
         "animal-equus-caballus",
-        "animal-felis-catus",
-        "animal-ovis-aries",
-        "animal-rangifer-tarandus",
-        "animal-sus-scrofa-domesticus",
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
@@ -718,8 +585,7 @@
         "missing_archive_paper_pinning_rationale"
       ],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
-        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     }
   ],
@@ -740,26 +606,6 @@
       ],
       "human_locality_count": 77,
       "human_sample_count": 416,
-      "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
-      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
-    },
-    {
-      "country": "Denmark",
-      "mapped_direct_species": [
-        "Homo sapiens"
-      ],
-      "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
-      "too_weak_animal_species": [
-        "Anas platyrhynchos domesticus",
-        "Bos indicus",
-        "Gallus gallus domesticus",
-        "Meleagris gallopavo",
-        "Oryctolagus cuniculus"
-      ],
-      "human_locality_count": 295,
-      "human_sample_count": 653,
       "mapped_animal_locality_count": 0,
       "evidence_posture": "human_only_direct",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
@@ -803,6 +649,26 @@
       "mapped_animal_locality_count": 0,
       "evidence_posture": "human_only_direct",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    },
+    {
+      "country": "Denmark",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 295,
+      "human_sample_count": 653,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
     }
   ],
   "refusals": [
@@ -818,6 +684,11 @@
     },
     {
       "subject": "Bos taurus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Bos taurus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
@@ -828,13 +699,28 @@
     },
     {
       "subject": "Canis lupus familiaris",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Canis lupus familiaris",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
     {
       "subject": "Capra hircus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Capra hircus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Equus asinus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
       "subject": "Equus asinus",
@@ -845,6 +731,11 @@
       "subject": "Equus caballus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Felis catus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
       "subject": "Felis catus",
@@ -868,13 +759,28 @@
     },
     {
       "subject": "Ovis aries",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Ovis aries",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
     {
       "subject": "Rangifer tarandus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Rangifer tarandus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
+    },
+    {
+      "subject": "Sus scrofa domesticus",
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
       "subject": "Sus scrofa domesticus",

@@ -8,9 +8,9 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | Country | Unique samples |
 | --- | ---: |
 | Sweden | 416 |
-| Denmark | 653 |
 | Norway | 130 |
 | Finland | 32 |
+| Denmark | 653 |
 
 ## Bundle Notes
 
@@ -35,6 +35,9 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 - Animal locality GeoJSON: [`nordic-atlas_animal_localities.geojson`](./nordic-atlas_animal_localities.geojson)
 - Domesticated-core animal locality GeoJSON: [`nordic-atlas_domesticated_animal_localities.geojson`](./nordic-atlas_domesticated_animal_localities.geojson)
 - Comparator animal locality GeoJSON: [`nordic-atlas_comparator_animal_localities.geojson`](./nordic-atlas_comparator_animal_localities.geojson)
+- Animal atlas evidence CSV: [`nordic-atlas_animal_atlas_evidence.csv`](./nordic-atlas_animal_atlas_evidence.csv)
+- Animal atlas evidence JSON: [`nordic-atlas_animal_atlas_evidence.json`](./nordic-atlas_animal_atlas_evidence.json)
+- Animal point traceability JSON: [`nordic-atlas_animal_point_traceability.json`](./nordic-atlas_animal_point_traceability.json)
 - Candidate site ranking CSV: [`nordic-atlas_candidate_sites.csv`](./nordic-atlas_candidate_sites.csv)
 - Candidate site ranking JSON: [`nordic-atlas_candidate_sites.json`](./nordic-atlas_candidate_sites.json)
 - Candidate site ranking markdown: [`nordic-atlas_candidate_sites.md`](./nordic-atlas_candidate_sites.md)
@@ -49,10 +52,10 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 
 ## Animal aDNA Layers
 
-- Total animal locality points: `10`
-- Shipped animal species: `10`
-- Domesticated-core species layers: `8`
-- Comparator species layers: `2`
+- Total animal locality points: `2`
+- Shipped animal species: `2`
+- Domesticated-core species layers: `2`
+- Comparator species layers: `0`
 
 ### Layer Groups
 
@@ -77,14 +80,6 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 
 | Common name | Latin name | Animal scope | Mapped locality points |
 | --- | --- | --- | ---: |
-| horse | Equus caballus | domesticated_core | 1 |
-| pig | Sus scrofa domesticus | domesticated_core | 1 |
-| sheep | Ovis aries | domesticated_core | 1 |
-| cattle | Bos taurus | domesticated_core | 1 |
-| goat | Capra hircus | domesticated_core | 1 |
-| dog | Canis lupus familiaris | domesticated_core | 1 |
-| cat | Felis catus | domesticated_core | 1 |
 | dromedary camel | Camelus dromedarius | domesticated_core | 1 |
-| reindeer | Rangifer tarandus | comparator | 1 |
-| donkey | Equus asinus | comparator | 1 |
+| horse | Equus caballus | domesticated_core | 1 |
 

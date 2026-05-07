@@ -2,14 +2,9 @@
   "schema_version": "nordic-farming-history-scenario.v1",
   "question": "What does the currently shipped Nordic animal aDNA surface actually support about early farming history?",
   "support_statements": [
-    "The current Nordic publication surface can now name one first animal signal: `Ovis aries` in `Denmark` with a tracked window of `Four millennia of Baltic sheep history` from `PRJEB59481`."
+    "The repo now has a real country-resolved animal publication surface, but it still supports only a narrow set of Nordic-facing claims."
   ],
-  "weak_support_statements": [
-    "`Ovis aries` contributes `Denmark` evidence only through a regional projection, not a country-exact excavation label.",
-    "`Ovis aries` contributes `Finland` evidence only through a regional projection, not a country-exact excavation label.",
-    "`Rangifer tarandus` remains comparator-only in `Norway` and cannot be promoted into domesticated-core farming support.",
-    "`Ovis aries` contributes `Sweden` evidence only through a regional projection, not a country-exact excavation label."
-  ],
+  "weak_support_statements": [],
   "non_support_statements": [
     "The shipped Nordic country outputs still do not support a country-localized claim for `Equus caballus`.",
     "The shipped Nordic country outputs still do not support a country-localized claim for `Sus scrofa domesticus`.",
@@ -21,9 +16,9 @@
     "The shipped Nordic country outputs still do not support a country-localized claim for `Equus asinus`."
   ],
   "evidence_anchors": {
-    "country_species_coverage_rows": 4,
-    "animal_human_overlap_rows": 4,
-    "animal_pollen_overlap_rows": 4,
-    "first_appearance_rows": 4
+    "country_species_coverage_rows": 0,
+    "animal_human_overlap_rows": 0,
+    "animal_pollen_overlap_rows": 0,
+    "first_appearance_rows": 0
   }
 }
