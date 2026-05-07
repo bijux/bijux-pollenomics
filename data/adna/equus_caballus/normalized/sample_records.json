@@ -1,0 +1,510 @@
+{
+  "schema_version": "adna-sample-record-export.v1",
+  "species_latin_name": "Equus caballus",
+  "samples": [
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb10854",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB10854",
+          "sample:PRJEB10854"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb10854",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB10854",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB10854",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB10854",
+      "group_id": "PRJEB10854",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB10854"
+      ],
+      "project_accession": "PRJEB10854",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb19970",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB19970",
+          "sample:PRJEB19970"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb19970",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB19970",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB19970",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB19970",
+      "group_id": "PRJEB19970",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Ancient genomic changes associated with domestication of the horse",
+      "year_first_published": "2017",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB19970"
+      ],
+      "project_accession": "PRJEB19970",
+      "paper_doi": "10.1126/science.aam5298",
+      "paper_url": "https://doi.org/10.1126/science.aam5298",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb22390",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB22390",
+          "sample:PRJEB22390"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb22390",
+        "locality_text": "Botai culture steppe context",
+        "political_entity": "Kazakhstan",
+        "source_anchor_tokens": [
+          "PRJEB22390",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB22390",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB22390",
+      "group_id": "PRJEB22390",
+      "locality": "Botai culture steppe context",
+      "political_entity": "Kazakhstan",
+      "coordinates": {
+        "latitude": 52.99,
+        "longitude": 69.15,
+        "latitude_text": "52.99",
+        "longitude_text": "69.15",
+        "confidence": "approximate"
+      },
+      "publication": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "year_first_published": "2018",
+      "full_date": "~5500 BP Botai horse context",
+      "chronology": {
+        "original_text": "~5500 BP Botai horse context",
+        "time_start_bp": 5400,
+        "time_end_bp": 5600,
+        "time_mean_bp": 5500,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB22390"
+      ],
+      "project_accession": "PRJEB22390",
+      "paper_doi": "10.1126/science.aao3297",
+      "paper_url": "https://doi.org/10.1126/science.aao3297",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb31613",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB31613",
+          "sample:PRJEB31613"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb31613",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB31613",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB31613",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB31613",
+      "group_id": "PRJEB31613",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+      "year_first_published": "2019",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB31613"
+      ],
+      "project_accession": "PRJEB31613",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "paper_url": "https://doi.org/10.1016/j.cell.2019.03.049",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb44430",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB44430",
+          "sample:PRJEB44430"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb44430",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB44430",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB44430",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB44430",
+      "group_id": "PRJEB44430",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "year_first_published": "2021",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB44430"
+      ],
+      "project_accession": "PRJEB44430",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb56293",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB56293",
+          "sample:PRJEB56293"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb56293",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB56293",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB56293",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB56293",
+      "group_id": "PRJEB56293",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB56293"
+      ],
+      "project_accession": "PRJEB56293",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb7537",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB7537",
+          "sample:PRJEB7537"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb7537",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB7537",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB7537",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB7537",
+      "group_id": "PRJEB7537",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB7537"
+      ],
+      "project_accession": "PRJEB7537",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "equus_caballus:curated_sample",
+        "stable_token": "equus_caballus:sample:prjeb9799",
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB9799",
+          "sample:PRJEB9799"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "equus_caballus:sample_locality",
+        "stable_token": "equus_caballus:sample-site:prjeb9799",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB9799",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "source_family": "ENA",
+      "source_release": "PRJEB9799",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB9799",
+      "group_id": "PRJEB9799",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "modern_sampling"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "equus_caballus:project:PRJEB9799"
+      ],
+      "project_accession": "PRJEB9799",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    }
+  ]
+}
