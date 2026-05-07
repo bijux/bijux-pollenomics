@@ -1,91 +1,28 @@
 ---
-title: Sources
-audience: mixed
-type: index
+title: Project, Paper, and Supplement Capture
+audience: reader
+type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
-# Sources
+# Project, Paper, and Supplement Capture
 
-This section defines the upstream source families that feed the tracked data
-tree.
+At this stage of `bijux-pollenomics`, the real data task is not sequencing
+analysis. It is evidence capture: archive metadata, paper linkage,
+supplementary-material retrieval, and extraction of sample and site hints that
+can later become curated rows.
 
-Each page answers three reader questions: what a source contributes, what it
-cannot prove on its own, and which checked-in outputs carry that source into
-the published atlas or reports.
+## What To Inspect
 
-## Sources Model
+- [`data/adna/source_library/project_registry.json`](../../../data/adna/source_library/project_registry.json)
+- [`data/adna/source_library/paper_registry.json`](../../../data/adna/source_library/paper_registry.json)
+- [`data/adna/source_library/supplement_registry.json`](../../../data/adna/source_library/supplement_registry.json)
+- [`data/adna/source_library/source_blockers.json`](../../../data/adna/source_library/source_blockers.json)
 
-```mermaid
-flowchart TB
-    upstream["upstream source family"]
-    caveats["source-specific caveats"]
-    normalization["shared normalization rules"]
-    normalized["tracked normalized outputs"]
-    publication["reports and atlas layers"]
+## Current Rule
 
-    upstream --> caveats
-    upstream --> normalization
-    caveats --> normalized
-    normalization --> normalized
-    normalized --> publication
-```
-
-This section should show that upstream families enter the repository with
-limits attached. If the page reads like a catalog of datasets instead of a map
-of evidence pressure, the atlas will look more certain than the sources allow.
-
-## Start Here
-
-- open one source page when the question is about one upstream family and its
-  specific caveats
-- open [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/)
-  when the question is how different sources are narrowed into reviewable
-  repository-owned outputs
-- open [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
-  when the question starts from an atlas layer or report claim and you need to
-  know which source family can support it
-- open [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
-  before promising that an upstream refresh is cheap, replayable, or isolated
-
-## Section Pages
-
-- [AADR](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/aadr/)
-- [Boundaries](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/boundaries/)
-- [LandClim](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/landclim/)
-- [Neotoma](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/neotoma/)
-- [RAÄ](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/raa/)
-- [SEAD](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/sead/)
-- [Shared Normalization](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/shared-normalization/)
-- [Source Comparison](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/)
-- [Refresh Policy](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/refresh-policy/)
-
-## What This Section Settles
-
-- which upstream family supplies ancient DNA metadata, political boundaries,
-  pollen context, or archaeology context
-- which caveats stay attached to a source even after normalization
-- which source questions belong here instead of under output, atlas, runtime,
-  or fieldwork pages
-
-## First Proof Check
-
-- inspect `data/aadr/`, `data/boundaries/`, `data/landclim/`, `data/neotoma/`,
-  `data/raa/`, and `data/sead/` to see which families are actually checked in
-- inspect the matching `data/*/normalized/` tree and
-  [Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/)
-  when the question is about repository-owned files rather than upstream role
-
-## Design Pressure
-
-The common failure is to let one visible map layer flatten the difference
-between upstream collection behavior, normalization policy, and the narrower
-claims the repository can safely publish.
-
-## Boundary Test
-
-This section does not treat every visible atlas layer as equivalent evidence.
-It keeps upstream source behavior, normalization policy, and publication
-surfaces separate so the reader can see where a claim starts to widen.
+If the repository cannot point to readable project metadata, paper context, or
+supplementary support for a sample or site claim, that weakness should stay
+visible in the tracked files and downstream audits.
