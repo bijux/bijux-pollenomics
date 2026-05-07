@@ -94,6 +94,14 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         _sample_records_payload(normalization_bundle),
     )
     write_text(
+        normalized_root / "site_evidence.csv",
+        _render_site_evidence_csv(normalization_bundle),
+    )
+    write_json(
+        normalized_root / "site_evidence.json",
+        _site_evidence_payload(normalization_bundle),
+    )
+    write_text(
         normalized_root / "project_summaries.csv",
         _render_project_summaries_csv(normalization_bundle),
     )
@@ -451,6 +459,80 @@ def _project_summaries_payload(bundle: object) -> dict[str, object]:
         "schema_version": "adna-project-summary-export.v1",
         "species_latin_name": bundle.species.latin_name,
         "projects": [summary.as_dict() for summary in bundle.project_summaries],
+    }
+
+
+def _render_site_evidence_csv(bundle: object) -> str:
+    fieldnames = (
+        "project_accession",
+        "species_latin_name",
+        "species_common_name",
+        "site_label",
+        "political_entity",
+        "paper_doi",
+        "paper_url",
+        "supplementary_source",
+        "source_artifact_path",
+        "source_artifact_kind",
+        "source_locator",
+        "exact_source_text",
+        "source_support_status",
+        "coordinate_basis",
+        "latitude_text",
+        "longitude_text",
+        "chronology_text",
+        "time_start_bp",
+        "time_end_bp",
+        "dating_basis",
+        "comparator_context",
+        "domestication_context",
+        "interpretation_note",
+        "support_gap_note",
+    )
+    rows = []
+    for record in bundle.site_evidence_records:
+        rows.append(
+            {
+                "project_accession": record.project_accession,
+                "species_latin_name": record.species_latin_name,
+                "species_common_name": record.species_common_name,
+                "site_label": record.site_label,
+                "political_entity": ""
+                if record.political_entity is None
+                else record.political_entity,
+                "paper_doi": record.paper_doi,
+                "paper_url": record.paper_url,
+                "supplementary_source": record.supplementary_source,
+                "source_artifact_path": record.source_artifact_path,
+                "source_artifact_kind": record.source_artifact_kind,
+                "source_locator": record.source_locator,
+                "exact_source_text": record.exact_source_text,
+                "source_support_status": record.source_support_status,
+                "coordinate_basis": record.coordinate_basis,
+                "latitude_text": record.latitude_text,
+                "longitude_text": record.longitude_text,
+                "chronology_text": record.chronology_text,
+                "time_start_bp": ""
+                if record.time_start_bp is None
+                else record.time_start_bp,
+                "time_end_bp": ""
+                if record.time_end_bp is None
+                else record.time_end_bp,
+                "dating_basis": record.dating_basis,
+                "comparator_context": str(record.comparator_context).lower(),
+                "domestication_context": record.domestication_context,
+                "interpretation_note": record.interpretation_note,
+                "support_gap_note": record.support_gap_note,
+            }
+        )
+    return _render_csv(fieldnames, rows)
+
+
+def _site_evidence_payload(bundle: object) -> dict[str, object]:
+    return {
+        "schema_version": "adna-site-evidence-export.v1",
+        "species_latin_name": bundle.species.latin_name,
+        "site_evidence": [record.as_dict() for record in bundle.site_evidence_records],
     }
 
 
