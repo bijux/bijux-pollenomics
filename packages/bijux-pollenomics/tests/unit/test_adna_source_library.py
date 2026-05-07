@@ -5,8 +5,13 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
+from bijux_pollenomics.adna.source_inventory import (
+    build_reference_stash_doi_integrity_audit,
+    build_reference_stash_reconciliation,
+)
 from bijux_pollenomics.adna.source_library import (
     build_cross_project_source_audit,
     build_missing_source_blockers,
@@ -81,6 +86,12 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_chronology_completeness.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_chronology_completeness.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_viewer.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "tracked_project_scope_audit.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_source_evidence_matrix.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_doi_integrity_audit.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_blocker_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "cross_project_source_intake_dossier.json").is_file())
 
             sheep_project = next(
                 item for item in project_registry if item.project_accession == "PRJEB36540"
@@ -104,6 +115,10 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertEqual(sheep_paper.supplementary_count, 5)
             self.assertEqual(sheep_paper.article_download_status, "archived")
             self.assertEqual(sheep_paper.sample_extractability, "supplement_extractable")
+            self.assertEqual(
+                sheep_paper.sample_table_extraction_status,
+                "published_empty",
+            )
             self.assertTrue(
                 any(path.endswith("42003_2021_2794_MOESM4_ESM.zip") for path in sheep_paper.expected_supplementary_artifacts)
             )
@@ -181,6 +196,33 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "sample_chronology.json"
                 ).is_file()
             )
+
+    def test_reference_stash_reconciliation_marks_local_staging_ahead_of_repo(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            stash_root = Path(tmp) / "stash"
+            stash_root.mkdir(parents=True, exist_ok=True)
+            (stash_root / "10.1016-j.cell.2019.03.049.pdf").write_bytes(b"%PDF-1.4\n")
+            doi_dir = stash_root / "10.1016-j.cell.2019.03.049"
+            doi_dir.mkdir(parents=True, exist_ok=True)
+            (doi_dir / "table_s1.xlsx").write_bytes(b"sheet")
+
+            with patch.dict(
+                "os.environ",
+                {"BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT": str(stash_root)},
+                clear=False,
+            ):
+                reconciliation = build_reference_stash_reconciliation(output_root)
+                integrity = build_reference_stash_doi_integrity_audit(output_root)
+
+        cell_row = next(
+            row
+            for row in reconciliation["rows"]
+            if row["stash_slug"] == "10.1016-j.cell.2019.03.049"
+        )
+        self.assertEqual(cell_row["alignment_status"], "local_reference_ahead_of_repo")
+        self.assertTrue(integrity["all_stash_dois_tracked"])
+        self.assertEqual(integrity["reference_stash_doi_count"], 1)
 
     def test_cross_project_source_audit_and_blockers_stay_reader_visible(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

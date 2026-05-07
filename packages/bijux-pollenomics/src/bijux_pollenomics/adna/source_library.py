@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 import json
+import os
 from pathlib import Path
 import re
 from urllib.error import HTTPError, URLError
@@ -80,7 +81,13 @@ class AdnaProjectRegistryRow:
     primary_paper_url: str | None
     source_bundle_path: str
     paper_download_status: str
+    article_readability_status: str
     supplement_download_status: str
+    supplement_parse_status: str
+    local_reference_article_status: str
+    local_reference_supplement_status: str
+    sample_table_extraction_status: str
+    evidence_acquisition_state: str
     ingestion_status: str
     expected_sample_count: int | None
     expected_sample_count_status: str
@@ -103,7 +110,13 @@ class AdnaProjectRegistryRow:
             "primary_paper_url": self.primary_paper_url,
             "source_bundle_path": self.source_bundle_path,
             "paper_download_status": self.paper_download_status,
+            "article_readability_status": self.article_readability_status,
             "supplement_download_status": self.supplement_download_status,
+            "supplement_parse_status": self.supplement_parse_status,
+            "local_reference_article_status": self.local_reference_article_status,
+            "local_reference_supplement_status": self.local_reference_supplement_status,
+            "sample_table_extraction_status": self.sample_table_extraction_status,
+            "evidence_acquisition_state": self.evidence_acquisition_state,
             "ingestion_status": self.ingestion_status,
             "expected_sample_count": self.expected_sample_count,
             "expected_sample_count_status": self.expected_sample_count_status,
@@ -128,11 +141,17 @@ class AdnaPaperRegistryRow:
     species_latin_names: tuple[str, ...]
     project_accessions: tuple[str, ...]
     article_download_status: str
+    article_readability_status: str
     article_local_path: str
     supplementary_download_status: str
+    supplement_parse_status: str
+    local_reference_article_status: str
+    local_reference_supplement_status: str
     supplementary_count: int
     parsing_status: str
     sample_extractability: str
+    sample_table_extraction_status: str
+    evidence_acquisition_state: str
     expected_supplementary_artifacts: tuple[str, ...]
     sample_identifier_targets: tuple[str, ...]
     sample_site_targets: tuple[str, ...]
@@ -150,11 +169,17 @@ class AdnaPaperRegistryRow:
             "species_latin_names": list(self.species_latin_names),
             "project_accessions": list(self.project_accessions),
             "article_download_status": self.article_download_status,
+            "article_readability_status": self.article_readability_status,
             "article_local_path": self.article_local_path,
             "supplementary_download_status": self.supplementary_download_status,
+            "supplement_parse_status": self.supplement_parse_status,
+            "local_reference_article_status": self.local_reference_article_status,
+            "local_reference_supplement_status": self.local_reference_supplement_status,
             "supplementary_count": self.supplementary_count,
             "parsing_status": self.parsing_status,
             "sample_extractability": self.sample_extractability,
+            "sample_table_extraction_status": self.sample_table_extraction_status,
+            "evidence_acquisition_state": self.evidence_acquisition_state,
             "expected_supplementary_artifacts": list(self.expected_supplementary_artifacts),
             "sample_identifier_targets": list(self.sample_identifier_targets),
             "sample_site_targets": list(self.sample_site_targets),
@@ -471,13 +496,16 @@ def build_project_registry(output_root: Path) -> tuple[AdnaProjectRegistryRow, .
     """Return the master cross-species project registry."""
     output_root = Path(output_root)
     bundles = {bundle.project_accession: bundle for bundle in build_project_source_bundles(output_root)}
+    paper_rows = {row.paper_doi: row for row in build_paper_registry(output_root)}
     rows: list[AdnaProjectRegistryRow] = []
     for project in build_archive_project_catalog():
         bundle = bundles[project.project_accession]
         expectation = _project_intake_expectation(project)
         paper_url = None
+        paper_row = None
         if project.paper_linkage is not None and project.paper_linkage.doi is not None:
             paper_url = f"https://doi.org/{project.paper_linkage.doi}"
+            paper_row = paper_rows.get(project.paper_linkage.doi)
         rows.append(
             AdnaProjectRegistryRow(
                 species_latin_name=project.species_latin_name,
@@ -493,7 +521,38 @@ def build_project_registry(output_root: Path) -> tuple[AdnaProjectRegistryRow, .
                     f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/bundle_manifest.json"
                 ),
                 paper_download_status=bundle.paper_download_status,
+                article_readability_status=(
+                    "no_linked_paper"
+                    if paper_row is None
+                    else paper_row.article_readability_status
+                ),
                 supplement_download_status=bundle.supplement_download_status,
+                supplement_parse_status=(
+                    "not_applicable"
+                    if paper_row is None
+                    else paper_row.supplement_parse_status
+                ),
+                local_reference_article_status=(
+                    "missing"
+                    if paper_row is None
+                    else paper_row.local_reference_article_status
+                ),
+                local_reference_supplement_status=(
+                    "missing"
+                    if paper_row is None
+                    else paper_row.local_reference_supplement_status
+                ),
+                sample_table_extraction_status=_project_sample_table_extraction_status(
+                    output_root,
+                    project.project_accession,
+                ),
+                evidence_acquisition_state=_project_evidence_acquisition_state(
+                    bundle=bundle,
+                    project_accession=project.project_accession,
+                    paper_row=paper_row,
+                    inventory_disposition=expectation.inventory_disposition,
+                    output_root=output_root,
+                ),
                 ingestion_status=_derive_ingestion_status(bundle),
                 expected_sample_count=expectation.expected_sample_count,
                 expected_sample_count_status=expectation.expected_sample_count_status,
@@ -527,6 +586,8 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
         first = projects[0]
         linkage = first.paper_linkage
         assert linkage is not None
+        spec = _paper_source_spec(doi)
+        stash_record = _reference_stash_records(output_root).get(_doi_slug(doi), {})
         doi_artifacts = tuple(artifacts_by_doi.get(doi, ()))
         article_artifacts = tuple(
             item for item in doi_artifacts if item.artifact_kind in {"article_html", "article_pdf", "paper_metadata_json"}
@@ -534,11 +595,17 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
         supplement_artifacts = tuple(
             item for item in doi_artifacts if item.artifact_kind.startswith("supplementary_")
         )
+        article_download_status = _fold_fetch_status(article_artifacts)
+        supplementary_download_status = _fold_fetch_status(supplement_artifacts)
+        sample_table_extraction_status = _paper_sample_table_extraction_status(
+            output_root,
+            tuple(sorted(project.project_accession for project in projects)),
+        )
         rows.append(
             AdnaPaperRegistryRow(
                 paper_doi=doi,
                 canonical_url=f"https://doi.org/{doi}",
-                article_source_url=_paper_source_spec(doi).article_source_url,
+                article_source_url=spec.article_source_url,
                 journal=linkage.journal_title,
                 publication_year=linkage.publication_year,
                 title=linkage.paper_title,
@@ -546,20 +613,48 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                     sorted({project.species_latin_name for project in projects})
                 ),
                 project_accessions=tuple(sorted(project.project_accession for project in projects)),
-                article_download_status=_fold_fetch_status(article_artifacts),
-                article_local_path=_paper_source_spec(doi).article_local_path,
-                supplementary_download_status=_fold_fetch_status(supplement_artifacts),
+                article_download_status=article_download_status,
+                article_readability_status=_article_readability_status(
+                    spec,
+                    article_download_status,
+                ),
+                article_local_path=spec.article_local_path,
+                supplementary_download_status=supplementary_download_status,
+                supplement_parse_status=_supplement_parse_status(
+                    output_root,
+                    doi,
+                    supplementary_download_status=supplementary_download_status,
+                    stash_record=stash_record,
+                ),
+                local_reference_article_status=_local_reference_article_status(stash_record),
+                local_reference_supplement_status=_local_reference_supplement_status(stash_record),
                 supplementary_count=len(supplement_artifacts),
-                parsing_status=_paper_source_spec(doi).parsing_status,
-                sample_extractability=_paper_sample_extractability(_paper_source_spec(doi)),
+                parsing_status=spec.parsing_status,
+                sample_extractability=_paper_sample_extractability(spec),
+                sample_table_extraction_status=sample_table_extraction_status,
+                evidence_acquisition_state=_paper_evidence_acquisition_state(
+                    article_download_status=article_download_status,
+                    supplementary_download_status=supplementary_download_status,
+                    supplement_parse_status=_supplement_parse_status(
+                        output_root,
+                        doi,
+                        supplementary_download_status=supplementary_download_status,
+                        stash_record=stash_record,
+                    ),
+                    local_reference_supplement_status=_local_reference_supplement_status(
+                        stash_record
+                    ),
+                    sample_table_extraction_status=sample_table_extraction_status,
+                    parsing_status=spec.parsing_status,
+                ),
                 expected_supplementary_artifacts=_paper_expected_supplementary_artifacts(
-                    _paper_source_spec(doi)
+                    spec
                 ),
                 sample_identifier_targets=_paper_sample_identifier_targets(
-                    _paper_source_spec(doi)
+                    spec
                 ),
-                sample_site_targets=_paper_sample_site_targets(_paper_source_spec(doi)),
-                chronology_targets=_paper_chronology_targets(_paper_source_spec(doi)),
+                sample_site_targets=_paper_sample_site_targets(spec),
+                chronology_targets=_paper_chronology_targets(spec),
                 supplementary_manifest_path=(
                     f"{ADNA_SOURCE_LIBRARY_DIR}/papers/{_doi_slug(doi)}/supplementary_manifest.json"
                 ),
@@ -1090,10 +1185,12 @@ def materialize_source_library(output_root: Path) -> None:
     from .project_sample_chronology import materialize_project_sample_chronology_library
     from .project_sample_sites import materialize_project_sample_site_library
     from .sample_master import materialize_sample_master_library
+    from .source_inventory import materialize_source_inventory
 
     materialize_sample_master_library(output_root)
     materialize_project_sample_site_library(output_root)
     materialize_project_sample_chronology_library(output_root)
+    materialize_source_inventory(output_root)
 
 
 def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
@@ -1595,6 +1692,207 @@ def _derive_ingestion_status(bundle: AdnaSourceBundleManifest) -> str:
     if bundle.paper_required:
         return "paper_source_archived"
     return "archive_metadata_sufficient"
+
+
+def _resolve_reference_stash_root(output_root: Path) -> Path | None:
+    env_root = os.environ.get("BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT", "").strip()
+    candidates: list[Path] = []
+    if env_root:
+        candidates.append(Path(env_root))
+    candidates.append(Path(output_root).resolve().parent.parent / "bijan-references" / "bijux-pollenomics")
+    for candidate in candidates:
+        if candidate.is_dir():
+            return candidate
+    return None
+
+
+def _reference_stash_records(output_root: Path) -> dict[str, dict[str, object]]:
+    stash_root = _resolve_reference_stash_root(output_root)
+    if stash_root is None:
+        return {}
+    records: dict[str, dict[str, object]] = {}
+    for article_path in stash_root.glob("*.pdf"):
+        slug = article_path.stem
+        records.setdefault(
+            slug,
+            {
+                "stash_slug": slug,
+                "article_formats": set(),
+                "supplementary_assets": [],
+                "structured_table_count": 0,
+                "archive_bundle_count": 0,
+            },
+        )
+        records[slug]["article_formats"].add(article_path.suffix.lower().removeprefix("."))
+    for doi_dir in sorted(path for path in stash_root.iterdir() if path.is_dir() and not path.name.startswith(".")):
+        record = records.setdefault(
+            doi_dir.name,
+            {
+                "stash_slug": doi_dir.name,
+                "article_formats": set(),
+                "supplementary_assets": [],
+                "structured_table_count": 0,
+                "archive_bundle_count": 0,
+            },
+        )
+        for asset in sorted(path for path in doi_dir.rglob("*") if path.is_file()):
+            if asset.name.startswith(".") or asset.name == ".DS_Store" or asset.suffix.lower() == ".md":
+                continue
+            record["supplementary_assets"].append(str(asset.relative_to(doi_dir)))
+            suffix = asset.suffix.lower()
+            if suffix in {".csv", ".tsv", ".xls", ".xlsx", ".json"}:
+                record["structured_table_count"] += 1
+            if suffix == ".zip":
+                record["archive_bundle_count"] += 1
+    payload: dict[str, dict[str, object]] = {}
+    for slug, record in records.items():
+        payload[slug] = {
+            "stash_slug": slug,
+            "article_formats": tuple(sorted(record["article_formats"])),
+            "supplementary_assets": tuple(record["supplementary_assets"]),
+            "structured_table_count": int(record["structured_table_count"]),
+            "archive_bundle_count": int(record["archive_bundle_count"]),
+        }
+    return payload
+
+
+def _local_reference_article_status(stash_record: dict[str, object]) -> str:
+    if stash_record.get("article_formats"):
+        return "local_reference_staged"
+    return "missing"
+
+
+def _local_reference_supplement_status(stash_record: dict[str, object]) -> str:
+    if stash_record.get("supplementary_assets"):
+        return "local_reference_staged"
+    return "missing"
+
+
+def _article_readability_status(spec: _PaperSourceSpec, article_download_status: str) -> str:
+    if article_download_status == "missing":
+        return "missing"
+    if article_download_status == "partial":
+        return "partial_capture"
+    if spec.parsing_status == "full_paper_download_blocked":
+        return "blocked_landing_page_only"
+    if spec.article_kind == "article_pdf":
+        return "readable_pdf"
+    if spec.article_kind == "article_html":
+        return "readable_html"
+    return "readable_article"
+
+
+def _supplement_parse_status(
+    output_root: Path,
+    doi: str,
+    *,
+    supplementary_download_status: str,
+    stash_record: dict[str, object],
+) -> str:
+    if supplementary_download_status == "archived":
+        member_rows = [
+            row
+            for row in build_supplement_zip_member_registry(output_root)
+            if row["paper_doi"] == doi
+        ]
+        if any(
+            str(row.get("inferred_purpose", "")) == "structured_table_candidate"
+            for row in member_rows
+        ):
+            return "zip_member_inventory_published"
+        return "repository_supplement_archived"
+    if supplementary_download_status == "partial":
+        return "repository_supplement_partial"
+    if int(stash_record.get("structured_table_count", 0)) > 0:
+        return "local_structured_tables_staged"
+    if stash_record.get("supplementary_assets"):
+        return "local_supplement_staged"
+    return "missing"
+
+
+def _project_sample_table_extraction_status(output_root: Path, project_accession: str) -> str:
+    path = (
+        Path(output_root)
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "projects"
+        / project_accession
+        / "sample_master.json"
+    )
+    if not path.is_file():
+        return "not_published"
+    rows = json.loads(path.read_text(encoding="utf-8")).get("rows", [])
+    if rows:
+        return "project_sample_master_published"
+    return "published_empty"
+
+
+def _paper_sample_table_extraction_status(
+    output_root: Path,
+    project_accessions: tuple[str, ...],
+) -> str:
+    statuses = {
+        _project_sample_table_extraction_status(output_root, accession)
+        for accession in project_accessions
+    }
+    if "project_sample_master_published" in statuses:
+        return "project_sample_master_published"
+    if "published_empty" in statuses:
+        return "published_empty"
+    return "not_published"
+
+
+def _paper_evidence_acquisition_state(
+    *,
+    article_download_status: str,
+    supplementary_download_status: str,
+    supplement_parse_status: str,
+    local_reference_supplement_status: str,
+    sample_table_extraction_status: str,
+    parsing_status: str,
+) -> str:
+    if sample_table_extraction_status == "project_sample_master_published":
+        return "sample_tables_published"
+    if supplementary_download_status == "archived":
+        return "repository_supplement_captured_needs_extraction"
+    if local_reference_supplement_status == "local_reference_staged":
+        return "local_supplement_staged_needs_repo_ingestion"
+    if article_download_status == "archived":
+        return "article_captured_needs_supplement_or_extraction"
+    if article_download_status == "partial":
+        return "article_capture_partial"
+    if parsing_status == "full_paper_download_blocked":
+        return "full_paper_capture_blocked"
+    if supplement_parse_status == "missing":
+        return "missing_capture"
+    return "manual_curation_required"
+
+
+def _project_evidence_acquisition_state(
+    *,
+    bundle: AdnaSourceBundleManifest,
+    project_accession: str,
+    paper_row: AdnaPaperRegistryRow | None,
+    inventory_disposition: str,
+    output_root: Path,
+) -> str:
+    if inventory_disposition == "retained_rejected_reference":
+        return "scope_rejected"
+    if paper_row is None:
+        return "paper_linkage_not_curated"
+    sample_table_status = _project_sample_table_extraction_status(output_root, project_accession)
+    if sample_table_status == "project_sample_master_published":
+        return "sample_tables_published"
+    if bundle.supplement_download_status == "archived":
+        return "repository_supplement_captured_needs_extraction"
+    if paper_row.local_reference_supplement_status == "local_reference_staged":
+        return "local_supplement_staged_needs_repo_ingestion"
+    if bundle.paper_download_status == "archived":
+        return "paper_captured_needs_supplement_or_extraction"
+    if bundle.paper_download_status == "partial":
+        return "paper_capture_partial"
+    return "missing_capture"
 
 
 def _fold_fetch_status(artifacts: tuple[AdnaSourceArtifact, ...]) -> str:
