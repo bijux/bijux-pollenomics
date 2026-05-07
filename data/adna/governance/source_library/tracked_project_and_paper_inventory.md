@@ -62,21 +62,21 @@
 
 | Paper DOI | Title | Project accessions | Sample extractability | Supplementary artifacts |
 | --- | --- | --- | --- | ---: |
-| 10.1016/j.cell.2019.03.049 | Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series | PRJEB31613 | article_extractable | 0 |
-| 10.1016/j.isci.2025.113771 | Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands | PRJEB90261 | article_extractable | 0 |
-| 10.1016/j.xgen.2025.101099 | The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism | PRJNA1178732 | article_extractable | 0 |
-| 10.1038/ncomms16082 | Ancient European dog genomes reveal continuity since the Early Neolithic | KX379528-KX379529; SRS1407451; SRS1407453 | article_extractable | 0 |
-| 10.1038/s41562-021-01083-y | Evidence for early dispersal of domestic sheep into Central Asia | PRJEB41594 | article_extractable | 0 |
-| 10.1038/s41586-021-04018-9 | The origins and spread of domestic horses from the Western Eurasian steppes | PRJEB44430 | article_extractable | 0 |
-| 10.1038/s41586-024-08112-6 | The genomic natural history of the aurochs | PRJEB75467 | article_extractable | 0 |
-| 10.1038/s41598-024-54296-2 | Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos | PRJEB60484 | article_extractable | 0 |
+| 10.1016/j.cell.2019.03.049 | Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series | PRJEB31613 | supplement_archived_needs_extraction | 7 |
+| 10.1016/j.isci.2025.113771 | Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands | PRJEB90261 | supplement_archived_needs_extraction | 4 |
+| 10.1016/j.xgen.2025.101099 | The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism | PRJNA1178732 | supplement_archived_needs_extraction | 8 |
+| 10.1038/ncomms16082 | Ancient European dog genomes reveal continuity since the Early Neolithic | KX379528-KX379529; SRS1407451; SRS1407453 | supplement_archived_needs_extraction | 2 |
+| 10.1038/s41562-021-01083-y | Evidence for early dispersal of domestic sheep into Central Asia | PRJEB41594 | supplement_archived_needs_extraction | 4 |
+| 10.1038/s41586-021-04018-9 | The origins and spread of domestic horses from the Western Eurasian steppes | PRJEB44430 | supplement_archived_needs_extraction | 5 |
+| 10.1038/s41586-024-08112-6 | The genomic natural history of the aurochs | PRJEB75467 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1038/s41598-024-54296-2 | Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos | PRJEB60484 | supplement_known_needs_repo_ingestion | 0 |
 | 10.1038/s42003-021-02794-8 | Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication | PRJEB36540 | supplement_extractable | 5 |
-| 10.1073/pnas.1901169116 | Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe | PRJEB30282 | article_extractable | 0 |
-| 10.1093/gbe/evae114 | Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region | PRJEB59481 | article_extractable | 0 |
-| 10.1093/gbe/evaf181 | Inferring Domestic Goat Demographic History Through Ancient Genome Imputation | PRJEB90141 | article_extractable | 0 |
-| 10.1111/1755-0998.12551 | Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel | KU605068-KU605080; SRP073444 | article_extractable | 0 |
-| 10.1126/science.aam5298 | Ancient genomic changes associated with domestication of the horse | PRJEB19970 | full_paper_capture_blocked | 0 |
-| 10.1126/science.aao3297 | Ancient genomes revisit the ancestry of domestic and Przewalski's horses | PRJEB22390 | full_paper_capture_blocked | 0 |
-| 10.1126/science.aav1002 | Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent | PRJEB31621 | full_paper_capture_blocked | 0 |
-| 10.1126/science.adt2642 | The dispersal of domestic cats from North Africa to Europe around 2000 years ago | PRJEB81815 | article_extractable | 0 |
-| 10.24272/j.issn.2095-8137.2025.080 | Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago | PRJNA1328209 | article_extractable | 0 |
+| 10.1073/pnas.1901169116 | Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe | PRJEB30282 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1093/gbe/evae114 | Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region | PRJEB59481 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1093/gbe/evaf181 | Inferring Domestic Goat Demographic History Through Ancient Genome Imputation | PRJEB90141 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1111/1755-0998.12551 | Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel | KU605068-KU605080; SRP073444 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1126/science.aam5298 | Ancient genomic changes associated with domestication of the horse | PRJEB19970 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1126/science.aao3297 | Ancient genomes revisit the ancestry of domestic and Przewalski's horses | PRJEB22390 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1126/science.aav1002 | Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent | PRJEB31621 | supplement_known_needs_repo_ingestion | 0 |
+| 10.1126/science.adt2642 | The dispersal of domestic cats from North Africa to Europe around 2000 years ago | PRJEB81815 | supplement_known_needs_repo_ingestion | 0 |
+| 10.24272/j.issn.2095-8137.2025.080 | Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago | PRJNA1328209 | supplement_known_needs_repo_ingestion | 0 |
