@@ -1,0 +1,50 @@
+{
+  "schema_version": "adna-species-source-snapshot.v1",
+  "species_latin_name": "Rangifer tarandus",
+  "projects": [
+    {
+      "project_accession": "PRJEB60484",
+      "source_family": "ENA",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_title": "Overhunting of Svalbard reindeer",
+      "source_description": "Overharvest can lead to near-extirpation of a species and can therefore drastically impact its genetic diversity and gene pool, threatening its future adaptability. Overharvest has extensively happened in the past, but remains a contemporary issue especially for Arctic mammals, which now confront the fastest changing environment on Earth due to climate change. The high-Arctic Svalbard reindeer (Rangifer tarandus platyrhynchus), endemic to the Svalbard archipelago, experienced a harvest-induced bottleneck that occurred throughout the 17th to 20th centuries. We here investigate changes in genetic diversity, population structure and gene-specific differentiation before, during, and after this overharvesting event. Using shotgun sequencing, we generated the first ancient nuclear and mitochondrial genomes from Svalbard reindeer (n = 18, up to 4000 BP). Together with a large collection of modern genomes (n = 90), we were able to infer temporal changes. Our results indicate that hunting triggered drastic genetic changes and restructuring in reindeer populations. Median heterozygosity was reduced by 23%, while the mitochondrial genetic diversity was reduced only to a limited extent, likely due to a complex post-harvest recolonization process and low diversity already in ancient times. This population structuring post-harvest happened during a period in which the reduced formation of sea-ice was further isolating these reindeer populations, such that altered climatic conditions worsened the consequences of overharvesting. Near-extirpation also altered the allele frequencies of important genes contributing to a variety of basic biological systems (e.g., cardiovascular, pulmonary, immune, reproductive, digestive, and central nervous systems). The genomic erosion and genetic isolation of Svalbard reindeer populations will likely play a major role in how metapopulation dynamics (i.e., extirpation, recolonization) of the species will cope with further climate change, thus for Svalbard reindeer conservation we stress the need to understand the long-term interplay of harvesting recovery and increasing landscape fragmentation.",
+      "title_basis": "ena-study-search",
+      "description_basis": "ena-study-search",
+      "captured_on": "2026-05-07"
+    },
+    {
+      "project_accession": "PRJEB57293",
+      "source_family": "ENA",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB57293&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_title": "Population genomics of Svalbard reindeer",
+      "source_description": "Anthropogenic reintroduction can supplement natural recolonisation in reestablishing a species’ distribution and abundance. However, both reintroductions and recolonisations can give rise to population bottlenecks that reduce genetic diversity and increase inbreeding, potentially causing accumulation of genetic load and reduced fitness. Most current populations of the endemic high-arctic Svalbard reindeer (Rangifer tarandus platyrhynchus) originate from recent reintroductions or recolonisations following regional extirpations due to past overharvesting. We investigated and compared the genomic consequences of these two paths to reestablishment using whole-genome shotgun sequencing of 100 Svalbard reindeer across their range. We found little admixture between reintroduced and natural populations. Two reintroduced populations, each founded by 12 individuals around four decades (i.e. 8 reindeer generations) ago, formed two distinct genetic clusters. Compared to the source population, these populations showed only small decreases in genome-wide heterozygosity and increases in inbreeding and lengths of runs of homozygosity. In contrast, the two naturally recolonised populations without admixture possessed much lower heterozygosity, higher inbreeding, and longer runs of homozygosity, possibly caused by serial population bottlenecks and/or fewer or more genetically related founders than in the reintroduction events. Naturally recolonised populations can thus be more vulnerable to the accumulation of genetic load than reintroduced populations. This suggests that in some organisms even small-scale reintroduction programs based on genetically diverse source populations can be more effective than natural recolonisation in establishing genetically diverse populations. These findings warrant particular attention in the conservation and management of populations and species threatened by habitat fragmentation and loss.",
+      "title_basis": "ena-study-search",
+      "description_basis": "ena-study-search",
+      "captured_on": "2026-05-07"
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "source_family": "ENA",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB61721&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_title": "Genomic erosion in Svalbard reindeer",
+      "source_description": "Understanding the evolution of declining and endangered populations is of crucial significance in evolutionary and conservation biology. Since island populations are typically much smaller than those from their mainland range, they are ideal systems to examine threats such as loss of genetic diversity and adaptive potential as well as accumulation of deleterious variation. The Svalbard reindeer (Rangifer tarandus platyrhynchus) is an endemic wild subspecies that colonised the Svalbard archipelago ca. 7,000 years ago and that shows numerous physiological and morphological adaptations to its challenging high-arctic habitat. Here, we leverage a de-novo chromosome-level assembly for R. t. platyrhynchus and analyse 132 reindeer genomes spanning most of its Holarctic range, including 91 genomes from Svalbard to examine the genomic consequences of long-term isolation and small population size in this insular subspecies. Empirical data, demographic reconstructions, and forward simulations show that long-term isolation and an associated high level of inbreeding may have facilitated the reduction of highly deleterious—and to a lesser extent, moderately deleterious—variation. Importantly, our study shows that long-term reduced genetic diversity did not preclude local adaptation to the arctic environment. Thus, even a severely bottlenecked and isolated population can retain evolutionary potential.",
+      "title_basis": "ena-study-search",
+      "description_basis": "ena-study-search",
+      "captured_on": "2026-05-07"
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "source_family": "BioProject",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA634908",
+      "source_title": "Introgression and ecotypic parallelism in caribou (Rangifer tarandus)",
+      "source_description": "Parallel evolution can occur through novel mutations, standing genetic variation, or adaptive introgression. Uncovering parallelism and introgressed populations can complicate management of threatened species, particularly as admixed populations are not generally considered under conservation legislations. We examined high coverage whole-genome sequences of 30 caribou (Rangifer tarandus) from across North America and Greenland, representing divergent intra-specific lineages, to investigate parallelism and levels of introgression contributing to the formation of ecotypes. Caribou are split into four subspecies and 11 extant conservation units, known as Designatable Units (DUs), in Canada. Using genomes from all four subspecies and six DUs, we undertake demographic reconstruction and confirm two previously inferred instances of parallel evolution in the woodland subspecies and uncover an additional instance of parallelism of the eastern migratory ecotype. Detailed investigations reveal introgression in the woodland subspecies, with introgressed regions found spread throughout the genomes encompassing both neutral and functional sites. Our comprehensive investigations using whole genomes highlight the difficulties in unequivocally demonstrating parallelism through adaptive introgression in non-model species with complex demographic histories, with standing variation and introgression both potentially involved. Additionally, the impact of parallelism and introgression on the designation of conservation units has not been widely considered, and the caribou designations will need amending in light of our results.",
+      "title_basis": "ncbi-bioproject-summary",
+      "description_basis": "ncbi-bioproject-summary",
+      "captured_on": "2026-05-07"
+    }
+  ]
+}
