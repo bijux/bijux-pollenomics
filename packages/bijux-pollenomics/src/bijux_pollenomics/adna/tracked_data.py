@@ -22,6 +22,7 @@ from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
 from .reviews import build_species_project_manifest, build_species_review_packet
 from .runtime import build_species_runtime_manifest
+from .source_library import materialize_source_library
 from .source_snapshots import (
     build_species_source_snapshots,
     resolve_archive_source_snapshot,
@@ -46,6 +47,7 @@ def materialize_tracked_species_adna(
     for species_name in species_names:
         materialize_tracked_species_root(output_root, species_name)
     _materialize_cross_species_adna_artifacts(Path(output_root))
+    materialize_source_library(Path(output_root))
 
 
 def materialize_tracked_species_root(output_root: Path, species_name: str) -> None:
