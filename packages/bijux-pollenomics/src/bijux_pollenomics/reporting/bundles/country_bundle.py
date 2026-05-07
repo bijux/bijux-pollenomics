@@ -6,9 +6,11 @@ from pathlib import Path
 from ..adna.country_outputs import (
     build_country_animal_output_bundle,
     render_country_animal_citations_markdown,
+    render_country_animal_samples_markdown,
     render_country_animal_section,
     render_country_animal_warnings_markdown,
     write_country_animal_localities_geojson,
+    write_country_animal_samples_csv,
     write_country_animal_species_csv,
 )
 from ..models import CountryReport, LocalitySummary, SampleRecord
@@ -57,6 +59,10 @@ def publish_country_report_bundle(
             bundle_paths.animal_summary_json_path,
             animal_bundle.as_dict(),
         )
+        write_country_animal_samples_csv(
+            bundle_paths.animal_samples_csv_path,
+            animal_bundle,
+        )
         write_country_animal_species_csv(
             bundle_paths.animal_species_csv_path,
             animal_bundle,
@@ -64,6 +70,10 @@ def publish_country_report_bundle(
         write_country_animal_localities_geojson(
             bundle_paths.animal_localities_geojson_path,
             animal_bundle,
+        )
+        bundle_paths.animal_samples_markdown_path.write_text(
+            render_country_animal_samples_markdown(animal_bundle),
+            encoding="utf-8",
         )
         bundle_paths.animal_citations_markdown_path.write_text(
             render_country_animal_citations_markdown(animal_bundle),
@@ -76,6 +86,8 @@ def publish_country_report_bundle(
         animal_section_markdown = render_country_animal_section(
             animal_bundle,
             summary_json_name=bundle_paths.animal_summary_json_path.name,
+            samples_csv_name=bundle_paths.animal_samples_csv_path.name,
+            samples_markdown_name=bundle_paths.animal_samples_markdown_path.name,
             species_csv_name=bundle_paths.animal_species_csv_path.name,
             localities_geojson_name=bundle_paths.animal_localities_geojson_path.name,
             citations_markdown_name=bundle_paths.animal_citations_markdown_path.name,

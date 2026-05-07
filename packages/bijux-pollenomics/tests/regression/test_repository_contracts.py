@@ -86,10 +86,31 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         report_root = REPO_ROOT / "docs" / "report"
         audit_json = report_root / "animal_output_audit.json"
         audit_markdown = report_root / "animal_output_audit.md"
+        readiness_json = report_root / "animal_atlas_readiness.json"
+        readiness_markdown = report_root / "animal_atlas_readiness.md"
 
         self.assertTrue(audit_json.is_file())
         self.assertTrue(audit_markdown.is_file())
+        self.assertTrue(readiness_json.is_file())
+        self.assertTrue(readiness_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
+        self.assertIn(
+            "Animal atlas readiness",
+            readiness_markdown.read_text(encoding="utf-8"),
+        )
+
+    def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:
+        readme_text = (
+            REPO_ROOT / "data" / "adna" / "ovis_aries" / "README.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("- Curated sample rows:", readme_text)
+        self.assertIn("- Curated projects:", readme_text)
+        self.assertIn("- Curated site rows:", readme_text)
+        self.assertIn("- Direct-coordinate rows:", readme_text)
+        self.assertIn("- Geocoded rows:", readme_text)
+        self.assertIn("- Unresolved sample rows:", readme_text)
+        self.assertIn("- Mapped Nordic rows:", readme_text)
 
     @staticmethod
     def _declared_mermaid_node_ids(block: str) -> set[str]:

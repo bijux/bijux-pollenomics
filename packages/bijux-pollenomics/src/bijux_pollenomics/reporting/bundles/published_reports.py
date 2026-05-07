@@ -69,6 +69,7 @@ def publish_published_reports_tree(
     summary_path = staging_output_root / "published_reports_summary.json"
     scientific_artifacts = publish_public_animal_reporting_outputs(
         staging_output_root,
+        data_root=context_root if context_root is not None else output_root.parents[1] / "data",
         country_reports=tuple(country_reports),
         country_output_dirs=tuple(country_output_dirs),
         atlas_output_dir=shared_map_dir,

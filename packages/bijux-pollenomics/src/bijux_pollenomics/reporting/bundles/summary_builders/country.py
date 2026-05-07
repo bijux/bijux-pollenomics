@@ -36,8 +36,11 @@ def build_country_report_summary(
         payload["animal_adna"] = {
             "total_species": int(animal_summary.get("total_species", 0)),
             "total_localities": int(animal_summary.get("total_localities", 0)),
+            "total_sample_rows": int(animal_summary.get("total_sample_rows", 0)),
             "artifacts": {
                 "summary_json": bundle_paths.animal_summary_json_path.name,
+                "samples_csv": bundle_paths.animal_samples_csv_path.name,
+                "samples_markdown": bundle_paths.animal_samples_markdown_path.name,
                 "species_csv": bundle_paths.animal_species_csv_path.name,
                 "localities_geojson": bundle_paths.animal_localities_geojson_path.name,
                 "citations_markdown": bundle_paths.animal_citations_markdown_path.name,
@@ -73,6 +76,8 @@ def build_country_bundle_manifest(
     if bundle_paths.animal_summary_json_path.exists():
         payload["animal_adna"] = {
             "summary_json": bundle_paths.animal_summary_json_path.name,
+            "samples_csv": bundle_paths.animal_samples_csv_path.name,
+            "samples_markdown": bundle_paths.animal_samples_markdown_path.name,
             "species_csv": bundle_paths.animal_species_csv_path.name,
             "localities_geojson": bundle_paths.animal_localities_geojson_path.name,
             "citations_markdown": bundle_paths.animal_citations_markdown_path.name,

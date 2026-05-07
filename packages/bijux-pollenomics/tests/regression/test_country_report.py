@@ -53,6 +53,14 @@ class CountryReportTests(unittest.TestCase):
             "sweden_animal_adna_v62.0_summary.json",
         )
         self.assertEqual(
+            country_paths.animal_samples_csv_path.name,
+            "sweden_animal_adna_v62.0_samples.csv",
+        )
+        self.assertEqual(
+            country_paths.animal_samples_markdown_path.name,
+            "sweden_animal_adna_v62.0_samples.md",
+        )
+        self.assertEqual(
             country_paths.animal_species_csv_path.name,
             "sweden_animal_adna_v62.0_species.csv",
         )
@@ -390,6 +398,8 @@ class CountryReportTests(unittest.TestCase):
             generate_country_report(root, "Sweden", output, context_root=context_root)
 
             self.assertTrue((output / "sweden_animal_adna_v62.0_summary.json").exists())
+            self.assertTrue((output / "sweden_animal_adna_v62.0_samples.csv").exists())
+            self.assertTrue((output / "sweden_animal_adna_v62.0_samples.md").exists())
             self.assertTrue((output / "sweden_animal_adna_v62.0_species.csv").exists())
             self.assertTrue(
                 (output / "sweden_animal_adna_v62.0_localities.geojson").exists()
@@ -408,17 +418,52 @@ class CountryReportTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            sample_rows_markdown = (
+                output / "sweden_animal_adna_v62.0_samples.md"
+            ).read_text(encoding="utf-8")
+            citations_markdown = (
+                output / "sweden_animal_adna_v62.0_citations.md"
+            ).read_text(encoding="utf-8")
+            warnings_markdown = (
+                output / "sweden_animal_adna_v62.0_warnings.md"
+            ).read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
 
             self.assertEqual(summary["animal_adna"]["total_species"], 1)
+            self.assertEqual(summary["animal_adna"]["total_localities"], 1)
+            self.assertEqual(summary["animal_adna"]["total_sample_rows"], 1)
+            self.assertEqual(
+                summary["animal_adna"]["artifacts"]["samples_csv"],
+                "sweden_animal_adna_v62.0_samples.csv",
+            )
+            self.assertEqual(
+                summary["animal_adna"]["artifacts"]["samples_markdown"],
+                "sweden_animal_adna_v62.0_samples.md",
+            )
             self.assertEqual(animal_summary["total_localities"], 1)
+            self.assertEqual(animal_summary["total_sample_rows"], 1)
             self.assertEqual(
                 animal_summary["species_rows"][0]["assignment_confidence"],
                 "exact_country",
             )
+            self.assertEqual(
+                animal_summary["species_rows"][0]["sample_row_count"],
+                1,
+            )
+            self.assertEqual(
+                animal_summary["sample_rows"][0]["sample_record_id"],
+                "ovis_aries:sample:prjeb59481",
+            )
+            self.assertIn("Country-resolved animal sample rows", readme_text)
             self.assertIn("## Animal aDNA Country Outputs", readme_text)
+            self.assertIn("sweden_animal_adna_v62.0_samples.csv", readme_text)
+            self.assertIn("sweden_animal_adna_v62.0_samples.md", readme_text)
             self.assertIn("sweden_animal_adna_v62.0_species.csv", readme_text)
             self.assertIn("Country-Resolved Animal Species", readme_text)
+            self.assertIn("ovis_aries:sample:prjeb59481", sample_rows_markdown)
+            self.assertIn("10.1000/sheep", sample_rows_markdown)
+            self.assertIn("Sample rows", citations_markdown)
+            self.assertIn("named_site_geocoding_only", warnings_markdown)
 
     def test_generate_country_report_marks_regional_animal_projection_in_warnings(
         self,
@@ -1538,6 +1583,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "animal_output_audit.md").exists())
             self.assertTrue((output / "animal_country_species_coverage.json").exists())
             self.assertTrue((output / "animal_country_species_coverage.md").exists())
+            self.assertTrue((output / "animal_atlas_readiness.json").exists())
+            self.assertTrue((output / "animal_atlas_readiness.md").exists())
             self.assertTrue((output / "animal_human_chronology_overlap.json").exists())
             self.assertTrue((output / "animal_pollen_chronology_overlap.json").exists())
             self.assertTrue(
@@ -1563,6 +1610,16 @@ class CountryReportTests(unittest.TestCase):
             )
             animal_output_audit = json.loads(
                 (output / "animal_output_audit.json").read_text(encoding="utf-8")
+            )
+            country_species_coverage = json.loads(
+                (output / "animal_country_species_coverage.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            atlas_readiness = json.loads(
+                (output / "animal_atlas_readiness.json").read_text(
+                    encoding="utf-8"
+                )
             )
             atlas_summary = json.loads(
                 (output / "nordic-atlas" / "nordic-atlas_summary.json").read_text(
@@ -1609,6 +1666,12 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "animal_country_species_coverage.json",
             )
+            self.assertEqual(
+                published_summary["artifacts"]["public_animal_reporting"][
+                    "animal_atlas_readiness_json"
+                ],
+                "animal_atlas_readiness.json",
+            )
             self.assertEqual(animal_output_audit["report_root"], str(output))
             sheep_audit_row = next(
                 row
@@ -1616,6 +1679,25 @@ class CountryReportTests(unittest.TestCase):
                 if row["species_latin_name"] == "Ovis aries"
             )
             self.assertEqual(sheep_audit_row["country_output_count"], 1)
+            sheep_country_row = next(
+                row
+                for row in country_species_coverage["rows"]
+                if row["country"] == "Sweden"
+                and row["species_latin_name"] == "Ovis aries"
+            )
+            self.assertEqual(sheep_country_row["sample_row_count"], 1)
+            self.assertEqual(sheep_country_row["geocoded_site_count"], 1)
+            self.assertEqual(sheep_country_row["direct_coordinate_site_count"], 0)
+            sheep_readiness = next(
+                row
+                for row in atlas_readiness["rows"]
+                if row["species_latin_name"] == "Ovis aries"
+            )
+            self.assertGreaterEqual(sheep_readiness["map_ready_count"], 1)
+            self.assertGreaterEqual(
+                sheep_readiness["country_mapped_locality_counts"]["Sweden"],
+                1,
+            )
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertEqual(
                 published_summary["artifacts"]["country_bundles"]["sweden"][
