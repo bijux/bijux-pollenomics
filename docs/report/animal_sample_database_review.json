@@ -16,8 +16,8 @@
   "counts": {
     "tracked_project_count": 40,
     "tracked_paper_count": 18,
-    "tracked_supplement_count": 5,
-    "papers_with_archived_supplements": 1,
+    "tracked_supplement_count": 35,
+    "papers_with_archived_supplements": 7,
     "sample_row_count": 242,
     "site_evidence_row_count": 10,
     "sample_site_row_count": 207,
@@ -43,7 +43,6 @@
   },
   "posture_findings": [
     "published_atlas_point_count_below_minimum_reading_depth",
-    "supplement_backed_paper_coverage_still_too_low",
     "mapped_sample_share_still_too_low"
   ],
   "blockers": [
