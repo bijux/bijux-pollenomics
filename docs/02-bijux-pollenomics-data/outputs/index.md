@@ -9,11 +9,11 @@ last_reviewed: 2026-05-07
 
 # Tracked Outputs and Published Surfaces
 
-This section explains the difference between tracked evidence files and reader
-outputs.
+This section explains the difference between the tracked sample database and
+the reader outputs that query it.
 
 ## Start Here
 
-- country bundle files: [published reports](published-reports.md)
-- shared atlas files: [Nordic atlas outputs](nordic-atlas.md)
-- species-owned tracked files: [animal aDNA data model](../foundation/animal-adna-data-model.md)
+- country bundle sample queries: [published reports](published-reports.md)
+- shared atlas view files: [Nordic atlas outputs](nordic-atlas.md)
+- species-owned sample database files: [animal aDNA data model](../foundation/animal-adna-data-model.md)

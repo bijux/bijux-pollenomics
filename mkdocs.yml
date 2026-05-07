@@ -77,7 +77,16 @@ nav:
       - Sample, Site, and Coordinate Contract: 02-bijux-pollenomics-data/foundation/index.md
       - Animal aDNA Data Model: 02-bijux-pollenomics-data/foundation/animal-adna-data-model.md
       - Directory Layout: 02-bijux-pollenomics-data/foundation/directory-layout.md
-      - Project, Paper, and Supplement Capture: 02-bijux-pollenomics-data/sources/index.md
+      - Projects: 02-bijux-pollenomics-data/projects/index.md
+      - Animal Project and Paper Inventory: 02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md
+      - Papers: 02-bijux-pollenomics-data/papers/index.md
+      - Supplements: 02-bijux-pollenomics-data/supplements/index.md
+      - Samples: 02-bijux-pollenomics-data/samples/index.md
+      - Why One Project Can Map To Many Samples: 02-bijux-pollenomics-data/samples/project-sample-representation.md
+      - Sites: 02-bijux-pollenomics-data/sites/index.md
+      - Chronology: 02-bijux-pollenomics-data/chronology/index.md
+      - Coordinates: 02-bijux-pollenomics-data/coordinates/index.md
+      - How Site Names Become Coordinates: 02-bijux-pollenomics-data/coordinates/site-coordinate-resolution.md
       - Tracked Outputs and Published Surfaces: 02-bijux-pollenomics-data/outputs/index.md
       - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
       - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md

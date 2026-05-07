@@ -10,13 +10,15 @@ last_reviewed: 2026-05-07
 # Nordic Atlas Outputs
 
 The shared atlas bundle is the broadest public map surface in the repository.
-It should still be read through the underlying evidence tables.
+It should still be read as a view over the underlying sample database and its
+evidence tables.
 
 ## Direct Files
 
 - [atlas map](../../report/nordic-atlas/nordic-atlas_map.html)
 - [animal evidence rows](../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
 - [animal point traceability](../../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
+- [animal point support packets](../../report/animal_point_support_packets.md)
 - [atlas readiness audit](../../report/animal_atlas_readiness.md)
 - [sample chronology viewer](../../report/animal_sample_chronology_viewer.md)
 - [animal publication release gate](../../report/animal_publication_release_gate.md)

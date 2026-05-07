@@ -9,10 +9,11 @@ last_reviewed: 2026-05-07
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a checked-in sample-level ancient-DNA metadata
-foundation. It gathers project metadata, papers, supplementary material, sample
-rows, site evidence, coordinate provenance, and public map/report outputs into
-one repository that a reader can inspect directly.
+`bijux-pollenomics` is a checked-in sample-level ancient-animal metadata
+foundation with map views as downstream products. It gathers project metadata,
+papers, supplementary material, sample rows, site evidence, chronology,
+coordinate provenance, and public map/report outputs into one repository that a
+reader can inspect directly.
 
 The central public question is simple: which animal and human ancient-DNA
 points can this repository place on a Nordic map, and exactly which files,
@@ -43,10 +44,11 @@ papers, and coordinate decisions support those points?
 ## Start Here
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/animal-adna-data-model/">Open the animal aDNA data model</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the sample database guide</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/samples/">Open the sample database files</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
@@ -71,9 +73,11 @@ flowchart TB
 
 ## What The Repository Publishes
 
-- one shared atlas under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
+- one shared atlas view under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
 - checked country bundles under [`docs/report/`](report/published_reports_summary.json)
 - tracked animal aDNA sample, site, and coordinate files under [`data/adna/`](../data/README.md)
+- sample-owned database artifacts such as
+  [`animal_sample_foundation_truth.json`](../data/adna/governance/animal_sample_foundation_truth.json)
 - one reader-facing animal aDNA contract page under
   [animal aDNA data model](02-bijux-pollenomics-data/foundation/animal-adna-data-model.md)
 
@@ -106,6 +110,6 @@ or supplement evidence.
 ## Read By Question
 
 - what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
-- what the tracked sample and site contract is: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+- what the tracked sample database and site contract is: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - how the map points are built and filtered: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
 - how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
