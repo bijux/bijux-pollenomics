@@ -9,10 +9,10 @@ last_reviewed: 2026-05-07
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a checked-in Nordic evidence foundation. It gathers
-project metadata, papers, supplementary material, sample rows, site evidence,
-coordinate provenance, and public map/report outputs into one repository that a
-reader can inspect directly.
+`bijux-pollenomics` is a checked-in sample-level ancient-DNA metadata
+foundation. It gathers project metadata, papers, supplementary material, sample
+rows, site evidence, coordinate provenance, and public map/report outputs into
+one repository that a reader can inspect directly.
 
 The central public question is simple: which animal and human ancient-DNA
 points can this repository place on a Nordic map, and exactly which files,

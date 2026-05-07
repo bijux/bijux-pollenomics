@@ -22,13 +22,16 @@
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-`bijux-pollenomics` rebuilds a checked-in Nordic evidence workspace from tracked source data and publishes the resulting atlas, country bundles, and documentation from the same repository state.
+`bijux-pollenomics` rebuilds a checked-in sample-level animal and human aDNA
+metadata foundation from tracked source data and then publishes atlas, country,
+and documentation views from that same repository state.
 
-Today that means an atlas-builder with reproducible evidence routing. The
-repository can collect, normalize, and publish Nordic pollen and archaeology
-context into reviewed map and report bundles. It does not yet act as the full
-pollenomics runtime that scores sites or combines ancient DNA, environmental
-DNA, pollen sequences, and archaeological context into one decision engine.
+Today that means a repository whose durable unit of value is the sample record:
+sample identifier, project, paper, supplement, site, chronology, coordinate
+basis, and confidence. The atlas is downstream of that evidence base. It does
+not yet act as the full pollenomics runtime that scores sites or combines
+ancient DNA, environmental DNA, pollen sequences, and archaeological context
+into one decision engine.
 
 The fastest way to understand the current product is to open the Nordic Evidence Atlas, then use the docs to trace where each layer and artifact comes from.
 

@@ -10,7 +10,9 @@ last_reviewed: 2026-05-07
 # Nordic Evidence Atlas
 
 The Nordic Evidence Atlas is the main public inspection surface of the
-repository. It should help a reader answer four questions quickly:
+repository, but it is not the primary evidence artifact. It is a downstream
+view of the tracked sample, site, chronology, and coordinate records. It
+should help a reader answer four questions quickly:
 
 - why a point is on the map
 - which filter settings can hide or reveal it
