@@ -91,7 +91,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Dromedary mitogenome range named on the primary paper page. It supports Camelus dromedarius only, not other camelids.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "SRP073444",
@@ -108,7 +112,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Domestic-dromedary anchor. Comparator camelid evidence does not extend support to other camelid species automatically.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -144,5 +152,31 @@
       "blocking_reasons": []
     }
   ],
+  "accepted_projects": [
+    {
+      "project_accession": "KU605068-KU605080",
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "SRP073444",
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [],
+  "too_weak_projects": [],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
   "release_blockers": []
 }

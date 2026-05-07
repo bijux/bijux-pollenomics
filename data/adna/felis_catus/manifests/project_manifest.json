@@ -17,7 +17,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Domestic cat dispersal from North Africa to Europe.",
+      "nordic_relevance": "nordic_adjacent",
+      "nordic_relevance_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJNA1178732",
@@ -34,7 +38,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Late-arrival domestic cat dataset for China via Silk Road context.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     }
   ]
 }

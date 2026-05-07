@@ -53,7 +53,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Ancient dog mitochondrial genomes named on the primary paper page.",
+      "nordic_relevance": "nordic_adjacent",
+      "nordic_relevance_reason": "These ancient dog mitogenomes are European comparative context rather than a Nordic-localized animal signal.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "SRS1407451",
@@ -70,7 +74,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Ancient dog CTC sample explicitly named on the primary paper page.",
+      "nordic_relevance": "nordic_adjacent",
+      "nordic_relevance_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "SRS1407453",
@@ -87,7 +95,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Ancient dog HXH sample explicitly named on the primary paper page.",
+      "nordic_relevance": "nordic_adjacent",
+      "nordic_relevance_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
+      "last_checked_on": "2026-05-07"
     }
   ],
   "pending_projects": [],
