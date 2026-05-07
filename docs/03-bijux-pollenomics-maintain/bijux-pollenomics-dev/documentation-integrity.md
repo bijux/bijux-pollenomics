@@ -20,3 +20,10 @@ assets such as `docs/assets/site-icons/`.
 This page exists because docs are a release surface, not decoration. It should
 stay tied to the shared Bijux docs theme contract and to the tracked public
 evidence paths.
+
+## Direct Proof Surfaces
+
+- [repository truth posture](../../../report/repository_truth_posture.md)
+- [repository recovery scorecard](../../../report/repository_recovery_scorecard.md)
+- [repository claim audit](../../../report/repository_claim_audit.md)
+- [repository scientific progress audit](../../../report/repository_scientific_progress_audit.md)

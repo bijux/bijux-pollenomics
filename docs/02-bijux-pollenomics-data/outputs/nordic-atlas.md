@@ -22,6 +22,9 @@ evidence tables.
 - [atlas readiness audit](../../report/animal_atlas_readiness.md)
 - [sample chronology viewer](../../report/animal_sample_chronology_viewer.md)
 - [animal publication release gate](../../report/animal_publication_release_gate.md)
+- [repository truth posture](../../report/repository_truth_posture.md)
+- [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
+- [repository claim audit](../../report/repository_claim_audit.md)
 
 The atlas output page should answer two questions directly: which rows were
 published, and what caveats still block broader animal coverage.

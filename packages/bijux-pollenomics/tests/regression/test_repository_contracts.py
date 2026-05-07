@@ -1178,6 +1178,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "outputs"
             / "published-reports.md"
         ).read_text(encoding="utf-8")
+        atlas_outputs = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "nordic-atlas.md"
+        ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT
             / "docs"
@@ -1185,10 +1192,39 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "interfaces"
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
+        quality_index = (
+            REPO_ROOT
+            / "docs"
+            / "01-bijux-pollenomics"
+            / "quality"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+        documentation_integrity = (
+            REPO_ROOT
+            / "docs"
+            / "03-bijux-pollenomics-maintain"
+            / "bijux-pollenomics-dev"
+            / "documentation-integrity.md"
+        ).read_text(encoding="utf-8")
+        release_support = (
+            REPO_ROOT
+            / "docs"
+            / "03-bijux-pollenomics-maintain"
+            / "bijux-pollenomics-dev"
+            / "release-support.md"
+        ).read_text(encoding="utf-8")
 
         self.assertIn(
             "Published report bundles live under `docs/report/<country-slug>/`",
             published_artifacts,
+        )
+        self.assertIn(
+            "../../report/repository_truth_posture.md",
+            atlas_outputs,
+        )
+        self.assertIn(
+            "../../report/repository_claim_audit.md",
+            atlas_outputs,
         )
         self.assertIn(
             "country bundles under `docs/report/<country-slug>/`", report_layout
@@ -1199,6 +1235,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "repository truth packets",
             report_layout,
+        )
+        self.assertIn(
+            "../../report/repository_truth_posture.md",
+            quality_index,
+        )
+        self.assertIn(
+            "../../../report/repository_claim_audit.md",
+            documentation_integrity,
+        )
+        self.assertIn(
+            "../../../report/repository_governance_artifact_review.md",
+            release_support,
         )
 
     def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(
