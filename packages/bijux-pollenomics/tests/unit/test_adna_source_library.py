@@ -72,6 +72,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_intake_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_intake_release_guard.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "tracked_project_and_paper_inventory.md").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_site_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_manual_curation_queue.json").is_file())
 
             sheep_project = next(
                 item for item in project_registry if item.project_accession == "PRJEB36540"
@@ -148,6 +151,17 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "papers"
                     / "10.1038-s42003-021-02794-8"
                     / "supplementary_manifest.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "sample_sites.json"
                 ).is_file()
             )
 
