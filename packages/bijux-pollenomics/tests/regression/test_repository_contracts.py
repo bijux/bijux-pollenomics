@@ -57,6 +57,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((adna_root / "cross_species_freshness.csv").is_file())
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.json").is_file())
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.csv").is_file())
+        self.assertTrue((adna_root / "cross_species_map_readiness.json").is_file())
+        self.assertTrue((adna_root / "cross_species_map_readiness.csv").is_file())
+        self.assertTrue((adna_root / "unresolved_site_ledger.json").is_file())
+        self.assertTrue((adna_root / "unresolved_site_ledger.csv").is_file())
+        self.assertTrue((adna_root / "overbroad_site_ledger.json").is_file())
+        self.assertTrue((adna_root / "overbroad_site_ledger.csv").is_file())
+        self.assertTrue((adna_root / "coordinate_caveat_surface.json").is_file())
+        self.assertTrue((adna_root / "coordinate_caveat_surface.md").is_file())
+        self.assertTrue((adna_root / "coordinate_confidence_scale.md").is_file())
         self.assertTrue((adna_root / "shipped_product_audit.json").is_file())
         self.assertTrue((adna_root / "source_library" / "project_registry.json").is_file())
         self.assertTrue((adna_root / "source_library" / "paper_registry.json").is_file())
@@ -349,6 +358,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             )
             self.assertTrue(
                 (species_root / "normalized" / "sample_records.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "normalized" / "coordinate_provenance.csv").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "normalized" / "coordinate_provenance.json").is_file(),
                 slug,
             )
             self.assertTrue(

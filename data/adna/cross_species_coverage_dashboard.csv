@@ -1,11 +1,11 @@
-species_latin_name,species_common_name,raw_inventory_present,raw_source_snapshot_present,citation_manifest_present,normalized_project_summary_present,normalized_locality_artifact_present,review_markdown_present,review_json_present,country_output_count,atlas_layer_count,nordic_unmapped_lead_count
-Equus caballus,horse,true,true,true,true,true,true,true,0,1,0
-Sus scrofa domesticus,pig,true,true,true,true,true,true,true,0,1,0
-Ovis aries,sheep,true,true,true,true,true,true,true,3,1,1
-Bos taurus,cattle,true,true,true,true,true,true,true,0,1,0
-Capra hircus,goat,true,true,true,true,true,true,true,0,1,0
-Canis lupus familiaris,dog,true,true,true,true,true,true,true,0,1,0
-Felis catus,cat,true,true,true,true,true,true,true,0,1,0
-Camelus dromedarius,dromedary camel,true,true,true,true,true,true,true,0,1,0
-Rangifer tarandus,reindeer,true,true,true,true,true,true,true,1,1,1
-Equus asinus,donkey,true,true,true,true,true,true,true,0,1,0
+species_latin_name,species_common_name,raw_inventory_present,raw_source_snapshot_present,citation_manifest_present,normalized_project_summary_present,coordinate_provenance_present,normalized_locality_artifact_present,review_markdown_present,review_json_present,country_output_count,atlas_layer_count,map_ready_sample_count,region_refused_sample_count,unresolved_sample_count,nordic_unmapped_lead_count
+Equus caballus,horse,true,true,true,true,true,true,true,true,0,1,1,0,7,0
+Sus scrofa domesticus,pig,true,true,true,true,true,true,true,true,0,1,0,1,3,0
+Ovis aries,sheep,true,true,true,true,true,true,true,true,3,1,0,1,5,1
+Bos taurus,cattle,true,true,true,true,true,true,true,true,0,1,0,1,2,0
+Capra hircus,goat,true,true,true,true,true,true,true,true,0,1,0,1,2,0
+Canis lupus familiaris,dog,true,true,true,true,true,true,true,true,0,1,0,1,2,0
+Felis catus,cat,true,true,true,true,true,true,true,true,0,1,0,1,1,0
+Camelus dromedarius,dromedary camel,true,true,true,true,true,true,true,true,0,1,1,0,1,0
+Rangifer tarandus,reindeer,true,true,true,true,true,true,true,true,1,1,0,1,3,1
+Equus asinus,donkey,true,true,true,true,true,true,true,true,0,1,0,1,4,0

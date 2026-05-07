@@ -1,0 +1,128 @@
+{
+  "schema_version": "adna-coordinate-caveat-surface.v1",
+  "direct_coordinates": [],
+  "place_name_resolution": [
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB22390",
+      "site_label": "Botai archaeological site horse context",
+      "original_place_text": "Botai culture of the Central Asian steppes",
+      "resolved_place_text": "Botai archaeological site",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The archived paper names Botai explicitly, but does not ship a direct coordinate pair in the local source archive, so the current coordinate is an approximate named-site geocode."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "camel",
+      "project_accession": "SRP073444",
+      "site_label": "Site 1040 near Wadi Halfa dromedary context",
+      "original_place_text": "Site 1040 near Wadi Halfa",
+      "resolved_place_text": "Wadi Halfa",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair."
+    }
+  ],
+  "still_weak_geography": [
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "project_accession": "PRJEB30282",
+      "site_label": "Near East and Europe pig domestication transect",
+      "original_place_text": "Near East and Europe pig domestication transect",
+      "resolved_place_text": "Near East to Europe regional study extent",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The archived source supports a domestication transect across the Near East and Europe rather than one site, so point-level mapping would bluff precision."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "site_label": "Baltic Sea Region short-tailed sheep context",
+      "original_place_text": "Baltic Sea Region short-tailed sheep context",
+      "resolved_place_text": "Baltic Sea Region",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The local source archive currently supports Baltic-region posture, not one named sheep excavation site with defensible coordinates."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJNA705960",
+      "site_label": "Galician mountain cave cattle context",
+      "original_place_text": "different mountain caves in Galicia",
+      "resolved_place_text": "Galicia, Spain",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The current local evidence names a multi-cave Galician context rather than one site, so the row stays refused from point mapping."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "project_accession": "PRJNA1328209",
+      "site_label": "Lake Qinghai Basin ancient goat context",
+      "original_place_text": "Lake Qinghai Basin",
+      "resolved_place_text": "Lake Qinghai Basin, Qinghai-Xizang Plateau",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The current local source names the Lake Qinghai Basin rather than one excavation site, so point mapping would overstate precision."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "project_accession": "SRS1407451",
+      "site_label": "Ancient European dog CTC sample context",
+      "original_place_text": "Herxheim and Cherry Tree Cave ancient dog contexts",
+      "resolved_place_text": "Central Europe multi-site dog context",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The archived source names multiple dog sites, but the current shipped row still aggregates them, so central-Europe coordinates are refused rather than published as if they were one site."
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "project_accession": "PRJEB81815",
+      "site_label": "North Africa to Europe domestic cat dispersal transect",
+      "original_place_text": "North Africa to Europe domestic cat dispersal transect",
+      "resolved_place_text": "North Africa to Europe dispersal extent",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The source supports a North Africa to Europe dispersal process, not one cat excavation point."
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "project_accession": "PRJEB60484",
+      "site_label": "Svalbard ancient reindeer context",
+      "original_place_text": "Svalbard archipelago reindeer context",
+      "resolved_place_text": "Svalbard archipelago",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The local archive supports Svalbard archipelago context rather than one named reindeer site, so the row stays refused from point mapping."
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52849",
+      "site_label": "North African donkey domestication and spread transect",
+      "original_place_text": "Africa to Europe and Asia donkey spread context",
+      "resolved_place_text": "North Africa and Levant dispersal extent",
+      "coordinate_basis": "region_centroid_fallback",
+      "coordinate_confidence": "withheld",
+      "mapping_posture": "refused_region_only",
+      "confidence_rationale": "The local archive description supports Africa-to-Eurasia spread, not one donkey site with defensible point geometry."
+    }
+  ]
+}
