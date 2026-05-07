@@ -46,6 +46,7 @@ def generate_country_report(
     output_dir: Path,
     map_reference: tuple[str, str] | None = None,
     published_output_dir: Path | None = None,
+    context_root: Path | None = None,
 ) -> CountryReport:
     """Read all AADR anno files for a version, filter by country, and write report artifacts."""
     version_dir = Path(version_dir)
@@ -90,6 +91,7 @@ def generate_country_report(
             write_samples_csv_fn=write_samples_csv,
             write_samples_geojson_fn=write_samples_geojson,
             write_summary_json_fn=write_summary_json,
+            context_root=context_root,
         )
 
     publish_into_staging_dir(output_dir, publish_country_bundle)

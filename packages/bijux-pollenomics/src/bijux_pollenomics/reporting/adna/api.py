@@ -7,6 +7,10 @@ from .animal_localities import (
     build_tracked_animal_atlas_bundle,
     load_tracked_animal_localities,
 )
+from .country_outputs import (
+    CountryAnimalOutputBundle,
+    build_country_animal_output_bundle,
+)
 from .homo_sapiens import (
     discover_anno_files,
     iter_samples_from_anno,
@@ -16,7 +20,9 @@ from .homo_sapiens import (
 __all__ = [
     "SchemaError",
     "AnimalAtlasBundle",
+    "CountryAnimalOutputBundle",
     "build_tracked_animal_atlas_bundle",
+    "build_country_animal_output_bundle",
     "discover_anno_files",
     "iter_samples_from_anno",
     "load_country_samples",

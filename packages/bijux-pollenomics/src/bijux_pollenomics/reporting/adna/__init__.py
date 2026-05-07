@@ -1,6 +1,8 @@
 from .api import (
     AnimalAtlasBundle,
+    CountryAnimalOutputBundle,
     SchemaError,
+    build_country_animal_output_bundle,
     build_tracked_animal_atlas_bundle,
     discover_anno_files,
     iter_samples_from_anno,
@@ -11,7 +13,9 @@ from .api import (
 
 __all__ = [
     "AnimalAtlasBundle",
+    "CountryAnimalOutputBundle",
     "SchemaError",
+    "build_country_animal_output_bundle",
     "build_tracked_animal_atlas_bundle",
     "discover_anno_files",
     "iter_samples_from_anno",

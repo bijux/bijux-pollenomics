@@ -231,13 +231,23 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
                 "",
             ]
         )
-    else:
+    elif country_output_total == 0:
         lines.extend(
             [
                 f"The current public report tree now ships `{atlas_layer_total}` mapped "
                 "non-human animal atlas layer rows across the species table above. "
                 "Country-bundle animal outputs remain zero until those country surfaces "
                 "become real tracked report outputs.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                f"The current public report tree now ships `{atlas_layer_total}` mapped "
+                "non-human animal atlas layer rows and "
+                f"`{country_output_total}` country-resolved animal output hits across the "
+                "species table above.",
                 "",
             ]
         )

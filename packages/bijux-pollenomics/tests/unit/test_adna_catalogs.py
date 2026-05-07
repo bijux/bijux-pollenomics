@@ -112,6 +112,44 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertEqual(sheep_row["atlas_layer_count"], 1)
         self.assertIn("now ships `2` mapped non-human animal atlas layer rows", markdown)
 
+    def test_public_animal_output_audit_counts_country_outputs_from_country_summary(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            report_root = Path(tmp) / "docs" / "report"
+            materialize_tracked_species_adna(data_root)
+            sweden_root = report_root / "sweden"
+            sweden_root.mkdir(parents=True, exist_ok=True)
+            (sweden_root / "sweden_animal_adna_v66_summary.json").write_text(
+                """
+{
+  "schema_version": "country-animal-adna-summary.v1",
+  "country": "Sweden",
+  "species_rows": [
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "support_class": "accepted",
+      "nordic_relevance": "nordic_lead"
+    }
+  ]
+}
+""".strip(),
+                encoding="utf-8",
+            )
+
+            public_audit = build_public_animal_output_audit(data_root, report_root)
+            markdown = render_public_animal_output_audit_markdown(public_audit)
+
+        sheep_row = next(
+            row
+            for row in public_audit["species_rows"]
+            if row["species_latin_name"] == "Ovis aries"
+        )
+        self.assertEqual(sheep_row["country_output_count"], 1)
+        self.assertIn("country-resolved animal output hits", markdown)
+
 
 if __name__ == "__main__":
     unittest.main()
