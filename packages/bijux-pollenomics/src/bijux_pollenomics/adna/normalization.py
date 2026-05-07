@@ -20,10 +20,12 @@ from .models import (
     AdnaLocalitySummary,
     AdnaSampleIdentity,
     AdnaSampleRecord,
+    AdnaSiteEvidenceRecord,
 )
 from .project_context import resolve_project_context
 from .project_localities import build_species_project_locality_leads
 from .sample_registry import build_species_curated_sample_rows
+from .site_evidence import build_species_site_evidence_rows
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
@@ -255,6 +257,7 @@ class AdnaSpeciesNormalizationBundle:
     schema_version: str
     species_manifest: AdnaSpeciesManifest
     sample_records: tuple[AdnaSampleRecord, ...]
+    site_evidence_records: tuple[AdnaSiteEvidenceRecord, ...]
     locality_records: tuple[AdnaLocalitySummary, ...]
     project_summaries: tuple[AdnaProjectSummary, ...]
     study_summaries: tuple[AdnaStudySummary, ...]
@@ -271,6 +274,9 @@ class AdnaSpeciesNormalizationBundle:
             "schema_version": self.schema_version,
             "species_manifest": self.species_manifest.as_dict(),
             "sample_records": [record.as_dict() for record in self.sample_records],
+            "site_evidence_records": [
+                record.as_dict() for record in self.site_evidence_records
+            ],
             "locality_records": [record.as_dict() for record in self.locality_records],
             "project_summaries": [summary.as_dict() for summary in self.project_summaries],
             "study_summaries": [summary.as_dict() for summary in self.study_summaries],
@@ -293,6 +299,9 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         curation_manifest.curation_class,
     )
     sample_records = _build_sample_records(species_name, project_summaries)
+    site_evidence_records = build_species_site_evidence_rows(
+        tuple(project.project_accession for project in project_summaries)
+    )
     locality_records, locality_refusals = build_species_project_locality_records(
         species_name,
         project_summaries,
@@ -307,6 +316,7 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         schema_version="adna-nonhuman-normalization-bundle.v1",
         species_manifest=species_manifest,
         sample_records=sample_records,
+        site_evidence_records=site_evidence_records,
         locality_records=locality_records,
         project_summaries=project_summaries,
         study_summaries=study_summaries,

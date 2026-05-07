@@ -50,6 +50,13 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.inclusion_status, "site_curated")
         self.assertEqual(sample.sample_basis, "project_accession_anchor")
         self.assertEqual(sample.locality_identity.locality_text, "Botai culture steppe context")
+        site_evidence = next(
+            item
+            for item in bundle.site_evidence_records
+            if item.project_accession == "PRJEB22390"
+        )
+        self.assertEqual(site_evidence.source_support_status, "article_exact_quote")
+        self.assertIn("Botai", site_evidence.exact_source_text)
         self.assertEqual(
             bundle.lineage_records[0].schema_version,
             "adna-normalization-lineage.v1",
