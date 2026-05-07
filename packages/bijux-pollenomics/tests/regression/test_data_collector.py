@@ -120,6 +120,15 @@ class DataCollectorTests(unittest.TestCase):
                 ).is_file()
             )
             self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_caballus"
+                    / "normalized"
+                    / "project_summaries.json"
+                ).is_file()
+            )
+            self.assertTrue(
                 (output_root / "adna" / "cross_species_bibliography.json").is_file()
             )
             self.assertTrue(
