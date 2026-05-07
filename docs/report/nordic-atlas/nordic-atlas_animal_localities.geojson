@@ -1,0 +1,1021 @@
+{
+  "schema_version": "animal-atlas-locality-collection.v1",
+  "type": "FeatureCollection",
+  "layer_key": "animal-localities",
+  "layer_label": "Animal aDNA locality leads",
+  "subtitle": "All tracked animal aDNA locality leads included in the atlas bundle.",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.15,
+          52.99
+        ]
+      },
+      "properties": {
+        "name": "Botai culture steppe context",
+        "category": "Horse locality lead",
+        "country": "Kazakhstan",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1126/science.aao3297",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus caballus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB22390"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses"
+          },
+          {
+            "label": "Publication year",
+            "value": "2018"
+          },
+          {
+            "label": "Chronology",
+            "value": "~5500 BP Botai horse context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "approximate",
+        "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+        "publication_year": "2018",
+        "project_accessions": [
+          "PRJEB22390"
+        ],
+        "time_start_bp": 5400,
+        "time_end_bp": 5600,
+        "time_mean_bp": 5500,
+        "time_year_bp": 5500,
+        "time_label": "~5500 BP Botai horse context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0,
+          39.0
+        ]
+      },
+      "properties": {
+        "name": "Near East and Europe pig domestication transect",
+        "category": "Pig locality lead",
+        "country": "Turkey and Europe",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1073/pnas.1901169116",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB30282"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe"
+          },
+          {
+            "label": "Publication year",
+            "value": "2019"
+          },
+          {
+            "label": "Chronology",
+            "value": "~10500-6000 BP pig turnover transect"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "6001+ BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This is a broad inferred centroid for a multi-site domestication and turnover study, not a single excavated pig locality."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "6001+ BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "publication_year": "2019",
+        "project_accessions": [
+          "PRJEB30282"
+        ],
+        "time_start_bp": 6000,
+        "time_end_bp": 10500,
+        "time_mean_bp": 8250,
+        "time_year_bp": 8250,
+        "time_label": "~10500-6000 BP pig turnover transect"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.5,
+          58.5
+        ]
+      },
+      "properties": {
+        "name": "Baltic Sea Region short-tailed sheep context",
+        "category": "Sheep locality lead",
+        "country": "Baltic Sea Region",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1093/gbe/evae114",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Ovis aries"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB59481"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Chronology",
+            "value": "Four millennia of Baltic sheep history"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Nordic relevance is regional or transregional rather than one named Nordic country."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+        "publication_year": "2024",
+        "project_accessions": [
+          "PRJEB59481"
+        ],
+        "time_start_bp": 0,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2000,
+        "time_year_bp": 2000,
+        "time_label": "Four millennia of Baltic sheep history"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.75,
+          42.75
+        ]
+      },
+      "properties": {
+        "name": "Galician mountain cave cattle context",
+        "category": "Cattle locality lead",
+        "country": "Galicia, Spain",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Bos taurus"
+          },
+          {
+            "label": "Support class",
+            "value": "ancient_but_too_weak"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJNA705960"
+          },
+          {
+            "label": "Chronology",
+            "value": "Neolithic to later Galician cattle sequence"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This row captures domestic cattle evidence from Galicia and must stay separate from aurochs progenitor context."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale"
+          }
+        ],
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "domesticated_core",
+        "support_class": "ancient_but_too_weak",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "approximate",
+        "paper_title": "",
+        "publication_year": "",
+        "project_accessions": [
+          "PRJNA705960"
+        ],
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "time_year_bp": 4250,
+        "time_label": "Neolithic to later Galician cattle sequence"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.1,
+          36.9
+        ]
+      },
+      "properties": {
+        "name": "Lake Qinghai Basin ancient goat context",
+        "category": "Goat locality lead",
+        "country": "Qinghai, China",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Capra hircus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJNA1328209"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago"
+          },
+          {
+            "label": "Publication year",
+            "value": "2025"
+          },
+          {
+            "label": "Chronology",
+            "value": "Approximately 3600 BP ancient goats"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Capra hircus",
+        "species_common_name": "goat",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "approximate",
+        "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+        "publication_year": "2025",
+        "project_accessions": [
+          "PRJNA1328209"
+        ],
+        "time_start_bp": 3500,
+        "time_end_bp": 3700,
+        "time_mean_bp": 3600,
+        "time_year_bp": 3600,
+        "time_label": "Approximately 3600 BP ancient goats"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0,
+          50.0
+        ]
+      },
+      "properties": {
+        "name": "Ancient European dog CTC sample context",
+        "category": "Dog locality lead",
+        "country": "Central Europe",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1038/ncomms16082",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Canis lupus familiaris"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "SRS1407451"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient European dog genomes reveal continuity since the Early Neolithic"
+          },
+          {
+            "label": "Publication year",
+            "value": "2017"
+          },
+          {
+            "label": "Chronology",
+            "value": "Ancient European dog genomic context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This dog row is kept at central-European resolution because the shipped curation still lacks a stronger project-owned site register."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+        "publication_year": "2017",
+        "project_accessions": [
+          "SRS1407451"
+        ],
+        "time_start_bp": 4500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 5750,
+        "time_year_bp": 5750,
+        "time_label": "Ancient European dog genomic context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.0,
+          37.0
+        ]
+      },
+      "properties": {
+        "name": "North Africa to Europe domestic cat dispersal transect",
+        "category": "Cat locality lead",
+        "country": "North Africa and Europe",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1126/science.adt2642",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Felis catus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB81815"
+          },
+          {
+            "label": "Paper title",
+            "value": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Chronology",
+            "value": "Holocene cat dispersal across North Africa and Europe"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Felis catus",
+        "species_common_name": "cat",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+        "publication_year": "2024",
+        "project_accessions": [
+          "PRJEB81815"
+        ],
+        "time_start_bp": 1200,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2600,
+        "time_year_bp": 2600,
+        "time_label": "Holocene cat dispersal across North Africa and Europe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.0,
+          25.0
+        ]
+      },
+      "properties": {
+        "name": "Arabian Peninsula and Levant dromedary context",
+        "category": "Dromedary Camel locality lead",
+        "country": "Arabian Peninsula and Levant",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1111/1755-0998.12551",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Camelus dromedarius"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "SRP073444"
+          },
+          {
+            "label": "Paper title",
+            "value": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel"
+          },
+          {
+            "label": "Publication year",
+            "value": "2017"
+          },
+          {
+            "label": "Chronology",
+            "value": "Historical and archaeological dromedary range context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This dromedary row is intentionally non-Nordic and exists for domestication context only."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "publication_year": "2017",
+        "project_accessions": [
+          "SRP073444"
+        ],
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "time_mean_bp": 2200,
+        "time_year_bp": 2200,
+        "time_label": "Historical and archaeological dromedary range context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.65,
+          78.22
+        ]
+      },
+      "properties": {
+        "name": "Svalbard ancient reindeer context",
+        "category": "Reindeer locality lead",
+        "country": "Svalbard",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Rangifer tarandus"
+          },
+          {
+            "label": "Support class",
+            "value": "comparator_only"
+          },
+          {
+            "label": "Animal scope",
+            "value": "comparator"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB60484"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Chronology",
+            "value": "Ancient Arctic archipelago reindeer context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Comparator-only evidence: use for comparison, not domesticated-core claims."
+          },
+          {
+            "label": "Warning",
+            "value": "Nordic relevance is regional or transregional rather than one named Nordic country."
+          },
+          {
+            "label": "Warning",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          }
+        ],
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "animal_scope": "comparator",
+        "support_class": "comparator_only",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "coordinate_confidence": "approximate",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "publication_year": "2024",
+        "project_accessions": [
+          "PRJEB60484"
+        ],
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "time_mean_bp": 1500,
+        "time_year_bp": 1500,
+        "time_label": "Ancient Arctic archipelago reindeer context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.0,
+          26.0
+        ]
+      },
+      "properties": {
+        "name": "North African donkey domestication and spread transect",
+        "category": "Donkey locality lead",
+        "country": "North Africa and Levant",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA locality leads",
+        "source_url": "",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus asinus"
+          },
+          {
+            "label": "Support class",
+            "value": "comparator_only"
+          },
+          {
+            "label": "Animal scope",
+            "value": "comparator"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB52849"
+          },
+          {
+            "label": "Chronology",
+            "value": "~5000-2500 BCE donkey domestication and spread context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This donkey row is a broad domestication transect and remains comparator context relative to the canonical horse surface."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Comparator-only evidence: use for comparison, not domesticated-core claims."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          }
+        ],
+        "species_latin_name": "Equus asinus",
+        "species_common_name": "donkey",
+        "animal_scope": "comparator",
+        "support_class": "comparator_only",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "",
+        "publication_year": "",
+        "project_accessions": [
+          "PRJEB52849"
+        ],
+        "time_start_bp": 4450,
+        "time_end_bp": 6950,
+        "time_mean_bp": 5700,
+        "time_year_bp": 5700,
+        "time_label": "~5000-2500 BCE donkey domestication and spread context"
+      }
+    }
+  ]
+}
