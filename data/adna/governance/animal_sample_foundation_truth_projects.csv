@@ -11,7 +11,7 @@ Sus scrofa domesticus,pig,PRJEB30282,1,0,1,0,0,0,1,1,true,project_accession_anch
 Sus scrofa domesticus,pig,PRJNA421430,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Sus scrofa domesticus,pig,PRJNA788987,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Sus scrofa domesticus,pig,PRJNA878488,1,0,0,1,0,0,0,0,true,project_accession_anchor
-Ovis aries,sheep,PRJEB36540,1,0,0,0,1,0,0,0,true,project_accession_anchor
+Ovis aries,sheep,PRJEB36540,190,0,0,0,190,0,0,0,false,supplementary_table_sample_label_anchor
 Ovis aries,sheep,PRJEB41594,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Ovis aries,sheep,PRJEB59481,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Ovis aries,sheep,PRJEB61808,1,0,0,1,0,0,0,0,true,project_accession_anchor
@@ -23,12 +23,12 @@ Bos taurus,cattle,PRJNA705960,1,0,0,1,0,0,1,1,true,project_accession_anchor
 Capra hircus,goat,PRJEB90141,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Capra hircus,goat,PRJEB90261,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Capra hircus,goat,PRJNA1328209,1,0,1,0,0,0,1,1,true,project_accession_anchor
-Canis lupus familiaris,dog,KX379528-KX379529,1,0,0,0,1,0,0,0,true,accession_range_anchor
+Canis lupus familiaris,dog,KX379528-KX379529,2,0,0,0,2,0,0,0,true,accession_range_anchor
 Canis lupus familiaris,dog,SRS1407451,1,0,1,0,0,0,1,1,false,sample_accession_anchor
 Canis lupus familiaris,dog,SRS1407453,1,0,0,0,1,0,0,0,false,sample_accession_anchor
 Felis catus,cat,PRJEB81815,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Felis catus,cat,PRJNA1178732,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Camelus dromedarius,dromedary camel,KU605068-KU605080,1,0,0,0,1,0,0,0,true,accession_range_anchor
+Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,0,0,13,0,0,0,true,accession_range_anchor
 Camelus dromedarius,dromedary camel,SRP073444,1,1,0,0,0,0,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB57293,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB60484,1,0,1,0,0,0,1,1,true,project_accession_anchor

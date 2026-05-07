@@ -515,6 +515,8 @@ def _read_xlsx_member_rows(
     sheet_name: str,
 ) -> tuple[tuple[str, ...], ...]:
     with zipfile.ZipFile(bundle_path) as outer:
+        if member_name not in outer.namelist():
+            return ()
         workbook_payload = outer.read(member_name)
     with zipfile.ZipFile(BytesIO(workbook_payload)) as workbook:
         shared_strings = _xlsx_shared_strings(workbook)

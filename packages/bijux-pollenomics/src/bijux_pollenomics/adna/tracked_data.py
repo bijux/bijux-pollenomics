@@ -59,10 +59,10 @@ def materialize_tracked_species_adna(
     species_names: tuple[str, ...] = TRACKED_ADNA_SPECIES,
 ) -> None:
     """Write the tracked species-owned animal aDNA files under one data root."""
+    materialize_source_library(Path(output_root))
     for species_name in species_names:
         materialize_tracked_species_root(output_root, species_name)
     _materialize_cross_species_adna_artifacts(Path(output_root))
-    materialize_source_library(Path(output_root))
 
 
 def materialize_tracked_species_root(output_root: Path, species_name: str) -> None:
@@ -405,6 +405,13 @@ def _render_sample_records_csv(bundle: object) -> str:
         "stable_sample_id",
         "project_accession",
         "sample_basis",
+        "sample_evidence_status",
+        "sample_identity_resolution",
+        "archive_native_sample_id",
+        "paper_native_sample_label",
+        "supplementary_table_sample_label",
+        "sample_lineage_path",
+        "sample_lineage_locator",
         "inclusion_status",
         "species_latin_name",
         "species_common_name",
@@ -439,6 +446,13 @@ def _render_sample_records_csv(bundle: object) -> str:
                 "stable_sample_id": sample.genetic_id,
                 "project_accession": sample.project_accession,
                 "sample_basis": sample.sample_basis,
+                "sample_evidence_status": sample.sample_evidence_status,
+                "sample_identity_resolution": sample.sample_identity_resolution,
+                "archive_native_sample_id": sample.archive_native_sample_id,
+                "paper_native_sample_label": sample.paper_native_sample_label,
+                "supplementary_table_sample_label": sample.supplementary_table_sample_label,
+                "sample_lineage_path": sample.sample_lineage_path,
+                "sample_lineage_locator": sample.sample_lineage_locator,
                 "inclusion_status": sample.inclusion_status,
                 "species_latin_name": sample.species_latin_name,
                 "species_common_name": sample.species_common_name,

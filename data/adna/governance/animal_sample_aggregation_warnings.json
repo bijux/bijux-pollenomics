@@ -1,19 +1,19 @@
 {
   "schema_version": "animal-sample-aggregation-warnings.v1",
   "summary": {
-    "total_sample_row_count": 40,
-    "project_accession_anchor_count": 36,
-    "accession_range_anchor_count": 2,
+    "total_sample_row_count": 242,
+    "project_accession_anchor_count": 35,
+    "accession_range_anchor_count": 15,
     "sample_accession_anchor_count": 2,
     "project_locality_summary_count": 10,
-    "projects_with_project_level_sample_anchors": 38,
+    "projects_with_project_level_sample_anchors": 37,
     "projects_with_locality_count_drift": 0,
     "species_with_summary_count_drift": 0
   },
   "warning_rows": [
     {
       "warning_class": "project_level_sample_anchors",
-      "count": 38,
+      "count": 37,
       "detail": "Projects whose current sample rows are still anchored at project or accession-range level rather than true per-sample identifiers."
     },
     {

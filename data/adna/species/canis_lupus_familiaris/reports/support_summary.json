@@ -286,12 +286,12 @@
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:curated_sample",
-          "stable_token": "canis_lupus_familiaris:sample:kx379528-kx379529",
+          "stable_token": "canis_lupus_familiaris:sample:kx379528-kx379529:kx379528",
           "accession_lineage": [
             "species:Canis lupus familiaris",
             "source:GenBank",
             "project:KX379528-KX379529",
-            "sample:KX379528-KX379529"
+            "sample:kx379528-kx379529:kx379528"
           ]
         },
         "locality_identity": {
@@ -311,7 +311,7 @@
         "record_modality": "mitogenome_only",
         "review_strength": "primary_paper_pinned",
         "provenance_quality": "manual_curation_only",
-        "master_id": "KX379528-KX379529",
+        "master_id": "kx379528-kx379529:kx379528",
         "group_id": "KX379528-KX379529",
         "locality": null,
         "political_entity": null,
@@ -343,18 +343,99 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "sample_basis": "accession_range_anchor"
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KX379528",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+        "sample_lineage_locator": "accession:KX379528",
+        "sample_lineage_excerpt": "Archive-native accession KX379528 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
       },
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:curated_sample",
-          "stable_token": "canis_lupus_familiaris:sample:srs1407451",
+          "stable_token": "canis_lupus_familiaris:sample:kx379528-kx379529:kx379529",
+          "accession_lineage": [
+            "species:Canis lupus familiaris",
+            "source:GenBank",
+            "project:KX379528-KX379529",
+            "sample:kx379528-kx379529:kx379529"
+          ]
+        },
+        "locality_identity": {
+          "namespace": "canis_lupus_familiaris:sample_locality",
+          "stable_token": "canis_lupus_familiaris:sample-site:kx379528-kx379529",
+          "locality_text": "site detail not yet extracted from tracked source support",
+          "political_entity": null,
+          "source_anchor_tokens": [
+            "KX379528-KX379529",
+            "accession_range_anchor"
+          ]
+        },
+        "species_latin_name": "Canis lupus familiaris",
+        "species_common_name": "dog",
+        "source_family": "GenBank",
+        "source_release": "KX379528-KX379529",
+        "record_modality": "mitogenome_only",
+        "review_strength": "primary_paper_pinned",
+        "provenance_quality": "manual_curation_only",
+        "master_id": "kx379528-kx379529:kx379529",
+        "group_id": "KX379528-KX379529",
+        "locality": null,
+        "political_entity": null,
+        "coordinates": {
+          "latitude": null,
+          "longitude": null,
+          "latitude_text": "",
+          "longitude_text": "",
+          "confidence": "withheld"
+        },
+        "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+        "year_first_published": "2017",
+        "full_date": "chronology not yet extracted from tracked source support",
+        "chronology": {
+          "original_text": "chronology not yet extracted from tracked source support",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "date_stddev_bp": "",
+          "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        },
+        "data_type": "archive_accession_range_context",
+        "molecular_sex": "",
+        "datasets": [
+          "canis_lupus_familiaris:project:KX379528-KX379529"
+        ],
+        "project_accession": "KX379528-KX379529",
+        "paper_doi": "10.1038/ncomms16082",
+        "paper_url": "https://doi.org/10.1038/ncomms16082",
+        "supplementary_source": "",
+        "inclusion_status": "sample_context_blocked",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "accession_range_anchor",
+        "archive_native_sample_id": "KX379529",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+        "sample_lineage_locator": "accession:KX379529",
+        "sample_lineage_excerpt": "Archive-native accession KX379529 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
+      },
+      {
+        "identity": {
+          "namespace": "canis_lupus_familiaris:curated_sample",
+          "stable_token": "canis_lupus_familiaris:sample:srs1407451:srs1407451",
           "accession_lineage": [
             "species:Canis lupus familiaris",
             "source:SRA",
             "project:SRS1407451",
-            "sample:SRS1407451"
+            "sample:srs1407451:srs1407451"
           ]
         },
         "locality_identity": {
@@ -374,7 +455,7 @@
         "record_modality": "archive_reads",
         "review_strength": "primary_paper_pinned",
         "provenance_quality": "archive_project_catalog",
-        "master_id": "SRS1407451",
+        "master_id": "srs1407451:srs1407451",
         "group_id": "SRS1407451",
         "locality": "Ancient European dog CTC sample context",
         "political_entity": "Central Europe",
@@ -407,17 +488,26 @@
         "supplementary_source": "",
         "inclusion_status": "site_curated",
         "inclusion_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows.",
-        "sample_basis": "sample_accession_anchor"
+        "sample_basis": "sample_accession_anchor",
+        "archive_native_sample_id": "SRS1407451",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+        "sample_lineage_locator": "accession:SRS1407451",
+        "sample_lineage_excerpt": "Archive-native accession SRS1407451 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
       },
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:curated_sample",
-          "stable_token": "canis_lupus_familiaris:sample:srs1407453",
+          "stable_token": "canis_lupus_familiaris:sample:srs1407453:srs1407453",
           "accession_lineage": [
             "species:Canis lupus familiaris",
             "source:SRA",
             "project:SRS1407453",
-            "sample:SRS1407453"
+            "sample:srs1407453:srs1407453"
           ]
         },
         "locality_identity": {
@@ -437,7 +527,7 @@
         "record_modality": "archive_reads",
         "review_strength": "primary_paper_pinned",
         "provenance_quality": "manual_curation_only",
-        "master_id": "SRS1407453",
+        "master_id": "srs1407453:srs1407453",
         "group_id": "SRS1407453",
         "locality": null,
         "political_entity": null,
@@ -469,8 +559,17 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "sample_basis": "sample_accession_anchor"
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "sample_accession_anchor",
+        "archive_native_sample_id": "SRS1407453",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "archive_native",
+        "sample_lineage_path": "data/adna/governance/source_library/projects/SRS1407453/archive_metadata.html",
+        "sample_lineage_locator": "accession:SRS1407453",
+        "sample_lineage_excerpt": "Archive-native accession SRS1407453 is tracked directly in the curated intake catalog.",
+        "sample_identity_resolution": "final",
+        "sample_ambiguity_note": ""
       }
     ],
     "coordinate_provenance_records": [

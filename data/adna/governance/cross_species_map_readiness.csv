@@ -1,11 +1,11 @@
 species_latin_name,species_common_name,direct_coordinate_backed,indirectly_geocoded,unresolved,refused_from_mapping
 Equus caballus,horse,0,1,7,0
 Sus scrofa domesticus,pig,0,0,3,1
-Ovis aries,sheep,0,0,5,1
+Ovis aries,sheep,0,0,194,1
 Bos taurus,cattle,0,0,2,1
 Capra hircus,goat,0,0,2,1
-Canis lupus familiaris,dog,0,0,2,1
+Canis lupus familiaris,dog,0,0,3,1
 Felis catus,cat,0,0,1,1
-Camelus dromedarius,dromedary camel,0,1,1,0
+Camelus dromedarius,dromedary camel,0,1,13,0
 Rangifer tarandus,reindeer,0,0,3,1
 Equus asinus,donkey,0,0,4,1

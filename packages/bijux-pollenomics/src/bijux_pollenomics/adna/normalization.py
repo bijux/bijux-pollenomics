@@ -612,6 +612,15 @@ def _build_sample_records(
                 inclusion_status=row.inclusion_status,
                 inclusion_note=row.inclusion_note,
                 sample_basis=row.sample_basis,
+                archive_native_sample_id=row.archive_native_sample_id,
+                paper_native_sample_label=row.paper_native_sample_label,
+                supplementary_table_sample_label=row.supplementary_table_sample_label,
+                sample_evidence_status=row.sample_evidence_status,
+                sample_lineage_path=row.sample_lineage_path,
+                sample_lineage_locator=row.sample_lineage_locator,
+                sample_lineage_excerpt=row.sample_lineage_excerpt,
+                sample_identity_resolution=row.sample_identity_resolution,
+                sample_ambiguity_note=row.sample_ambiguity_note,
             )
         )
 

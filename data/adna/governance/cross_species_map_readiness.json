@@ -22,7 +22,7 @@
       "species_common_name": "sheep",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 5,
+      "unresolved": 194,
       "refused_from_mapping": 1
     },
     {
@@ -46,7 +46,7 @@
       "species_common_name": "dog",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 2,
+      "unresolved": 3,
       "refused_from_mapping": 1
     },
     {
@@ -62,7 +62,7 @@
       "species_common_name": "dromedary camel",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 1,
-      "unresolved": 1,
+      "unresolved": 13,
       "refused_from_mapping": 0
     },
     {
@@ -85,7 +85,7 @@
   "totals": {
     "direct_coordinate_backed": 0,
     "indirectly_geocoded": 2,
-    "unresolved": 30,
+    "unresolved": 232,
     "refused_from_mapping": 8
   }
 }
