@@ -1,0 +1,350 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "rows": [
+    {
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "canonical_url": "https://doi.org/10.1016/j.cell.2019.03.049",
+      "article_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
+      "journal": "Cell",
+      "publication_year": 2019,
+      "title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1016-j.cell.2019.03.049/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "canonical_url": "https://doi.org/10.1016/j.isci.2025.113771",
+      "article_source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
+      "journal": "iScience",
+      "publication_year": 2025,
+      "title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1016-j.isci.2025.113771/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "canonical_url": "https://doi.org/10.1016/j.xgen.2025.101099",
+      "article_source_url": "https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
+      "journal": "Cell Genomics",
+      "publication_year": 2025,
+      "title": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+      "species_latin_names": [
+        "Felis catus"
+      ],
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1016-j.xgen.2025.101099/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/ncomms16082",
+      "canonical_url": "https://doi.org/10.1038/ncomms16082",
+      "article_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5520058/",
+      "journal": "Nature Communications",
+      "publication_year": 2017,
+      "title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "species_latin_names": [
+        "Canis lupus familiaris"
+      ],
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-ncomms16082/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "canonical_url": "https://doi.org/10.1038/s41562-021-01083-y",
+      "article_source_url": "https://www.nature.com/articles/s41562-021-01083-y",
+      "journal": "Nature Human Behaviour",
+      "publication_year": 2021,
+      "title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-s41562-021-01083-y/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "canonical_url": "https://doi.org/10.1038/s41586-021-04018-9",
+      "article_source_url": "https://www.nature.com/articles/s41586-021-04018-9",
+      "journal": "Nature",
+      "publication_year": 2021,
+      "title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-s41586-021-04018-9/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "canonical_url": "https://doi.org/10.1038/s41586-024-08112-6",
+      "article_source_url": "https://www.nature.com/articles/s41586-024-08112-6",
+      "journal": "Nature",
+      "publication_year": 2024,
+      "title": "The genomic natural history of the aurochs",
+      "species_latin_names": [
+        "Bos taurus"
+      ],
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-s41586-024-08112-6/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "canonical_url": "https://doi.org/10.1038/s41598-024-54296-2",
+      "article_source_url": "https://www.nature.com/articles/s41598-024-54296-2",
+      "journal": "Scientific Reports",
+      "publication_year": 2024,
+      "title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+      "species_latin_names": [
+        "Rangifer tarandus"
+      ],
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-s41598-024-54296-2/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "canonical_url": "https://doi.org/10.1038/s42003-021-02794-8",
+      "article_source_url": "https://www.nature.com/articles/s42003-021-02794-8",
+      "journal": "Communications Biology",
+      "publication_year": 2021,
+      "title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1038-s42003-021-02794-8/article.pdf",
+      "supplementary_download_status": "archived",
+      "supplementary_count": 5,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1073/pnas.1901169116",
+      "canonical_url": "https://doi.org/10.1073/pnas.1901169116",
+      "article_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "publication_year": 2019,
+      "title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+      "species_latin_names": [
+        "Sus scrofa domesticus"
+      ],
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1073-pnas.1901169116/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1093/gbe/evae114",
+      "canonical_url": "https://doi.org/10.1093/gbe/evae114",
+      "article_source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evae114/7682331",
+      "journal": "Genome Biology and Evolution",
+      "publication_year": 2024,
+      "title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "article_download_status": "partial",
+      "article_local_path": "adna/source_library/papers/10.1093-gbe-evae114/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1093/gbe/evaf181",
+      "canonical_url": "https://doi.org/10.1093/gbe/evaf181",
+      "article_source_url": "https://academic.oup.com/gbe/article/doi/10.1093/gbe/evaf181/8317779",
+      "journal": "Genome Biology and Evolution",
+      "publication_year": 2025,
+      "title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "article_download_status": "partial",
+      "article_local_path": "adna/source_library/papers/10.1093-gbe-evaf181/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1111/1755-0998.12551",
+      "canonical_url": "https://doi.org/10.1111/1755-0998.12551",
+      "article_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
+      "journal": "Molecular Ecology Resources",
+      "publication_year": 2017,
+      "title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "species_latin_names": [
+        "Camelus dromedarius"
+      ],
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.1126/science.aam5298",
+      "canonical_url": "https://doi.org/10.1126/science.aam5298",
+      "article_source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
+      "journal": "Science",
+      "publication_year": 2017,
+      "title": "Ancient genomic changes associated with domestication of the horse",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1126-science.aam5298/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "full_paper_download_blocked"
+    },
+    {
+      "paper_doi": "10.1126/science.aao3297",
+      "canonical_url": "https://doi.org/10.1126/science.aao3297",
+      "article_source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+      "journal": "Science",
+      "publication_year": 2018,
+      "title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1126-science.aao3297/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "full_paper_download_blocked"
+    },
+    {
+      "paper_doi": "10.1126/science.aav1002",
+      "canonical_url": "https://doi.org/10.1126/science.aav1002",
+      "article_source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
+      "journal": "Science",
+      "publication_year": 2019,
+      "title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+      "species_latin_names": [
+        "Bos taurus"
+      ],
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1126-science.aav1002/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "full_paper_download_blocked"
+    },
+    {
+      "paper_doi": "10.1126/science.adt2642",
+      "canonical_url": "https://doi.org/10.1126/science.adt2642",
+      "article_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
+      "journal": "Science",
+      "publication_year": 2024,
+      "title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+      "species_latin_names": [
+        "Felis catus"
+      ],
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.1126-science.adt2642/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    },
+    {
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "canonical_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+      "article_source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
+      "journal": "Zoological Research",
+      "publication_year": 2025,
+      "title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "article_download_status": "archived",
+      "article_local_path": "adna/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "supplementary_download_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "ready_for_project_sample_extraction"
+    }
+  ]
+}
