@@ -129,6 +129,12 @@ from .runtime import (
     build_species_runtime_manifest,
     load_species_samples,
 )
+from .source_snapshots import (
+    ADNA_SOURCE_CAPTURE_BASES,
+    AdnaArchiveSourceSnapshot,
+    build_species_source_snapshots,
+    resolve_archive_source_snapshot,
+)
 from .species import (
     ADNA_MODALITIES,
     ADNA_SUPPORT_STATUSES,
@@ -152,12 +158,14 @@ __all__ = [
     "ADNA_PRODUCT_ROLES",
     "ADNA_PROVENANCE_QUALITIES",
     "ADNA_REVIEW_STRENGTHS",
+    "ADNA_SOURCE_CAPTURE_BASES",
     "ADNA_SUPPORT_STATUSES",
     "AdnaAccessionReference",
     "AdnaArtifactPlanEntry",
     "AdnaArchiveDuplicate",
     "AdnaArchiveIntegrityReport",
     "AdnaArchiveProject",
+    "AdnaArchiveSourceSnapshot",
     "AdnaChronology",
     "AdnaCoordinate",
     "AdnaCoordinateResolution",
@@ -223,6 +231,7 @@ __all__ = [
     "build_species_review_packet",
     "build_species_runtime_manifest",
     "build_species_support_matrix",
+    "build_species_source_snapshots",
     "build_public_animal_output_audit",
     "build_shipped_adna_product_audit",
     "classify_archive_project_evidence",
@@ -241,6 +250,7 @@ __all__ = [
     "normalize_species_anchor",
     "resolve_accession_lineage",
     "resolve_accession_reference",
+    "resolve_archive_source_snapshot",
     "resolve_homo_sapiens_schema",
     "resolve_species_definition",
     "sample_time_interval",
