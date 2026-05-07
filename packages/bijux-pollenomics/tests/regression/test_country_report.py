@@ -843,14 +843,29 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Animal Evidence", map_html)
             self.assertIn("Species Focus", map_html)
             self.assertIn("Animal Scope", map_html)
+            self.assertIn("Coordinate Confidence", map_html)
             self.assertIn("Chronology Buckets", map_html)
             self.assertIn("Nordic animal leads only", map_html)
+            self.assertIn("Atlas-side summary", map_html)
+            self.assertIn("Visible animal evidence", map_html)
+            self.assertIn('id="animal-evidence-metrics"', map_html)
+            self.assertIn('id="animal-evidence-confidence"', map_html)
+            self.assertIn('id="animal-evidence-state"', map_html)
             self.assertIn("Domesticated animal aDNA", map_html)
             self.assertIn("Comparator animal aDNA", map_html)
             self.assertIn("data-animal-species", map_html)
             self.assertIn("data-animal-scope", map_html)
+            self.assertIn("data-animal-confidence", map_html)
             self.assertIn("data-animal-chronology", map_html)
             self.assertIn("featureMatchesAnimalFilters", map_html)
+            self.assertIn("summarizeAnimalMetrics", map_html)
+            self.assertIn("renderAnimalEvidencePanel", map_html)
+            self.assertIn("Coordinate trust", map_html)
+            self.assertIn("Tracked species", map_html)
+            self.assertIn("popup-section-title", map_html)
+            self.assertIn("Citation and provenance", map_html)
+            self.assertIn("Sample and locality detail", map_html)
+            self.assertIn("Warnings and caveats", map_html)
             self.assertIn("Ovis aries", map_html)
             self.assertIn("Rangifer tarandus", map_html)
             self.assertIn("Baltic sheep lead", map_html)
@@ -858,6 +873,8 @@ class CountryReportTests(unittest.TestCase):
 
             self.assertIn("## Animal aDNA Layers", readme_text)
             self.assertIn("Public Animal Filters", readme_text)
+            self.assertIn("Animal Inspection Surfaces", readme_text)
+            self.assertIn("Visible Coordinate Confidence", readme_text)
             self.assertIn("Domesticated-core animal evidence", readme_text)
             self.assertIn("Comparator animal evidence", readme_text)
             self.assertIn("Nordic animal leads only", readme_text)
@@ -884,8 +901,20 @@ class CountryReportTests(unittest.TestCase):
             )
             self.assertIn("Species focus", summary["animal_atlas"]["filter_surfaces"])
             self.assertIn(
+                "Coordinate confidence",
+                summary["animal_atlas"]["filter_surfaces"],
+            )
+            self.assertIn(
                 "Nordic animal leads only",
                 summary["animal_atlas"]["filter_surfaces"],
+            )
+            self.assertIn(
+                "Animal evidence summary panel",
+                summary["animal_atlas"]["ui_surfaces"],
+            )
+            self.assertIn(
+                "Citation-aware animal popups",
+                summary["animal_atlas"]["ui_surfaces"],
             )
             self.assertEqual(
                 summary["animal_atlas"]["direct_coordinate_feature_count"],
@@ -898,6 +927,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 summary["animal_atlas"]["weaker_geography_feature_count"],
                 0,
+            )
+            self.assertEqual(
+                summary["animal_atlas"]["coordinate_confidence_counts"]["approximate"],
+                2,
             )
 
             self.assertEqual(len(animal_geojson["features"]), 2)
