@@ -1,0 +1,65 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Felis catus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:project-locality:prjeb81815",
+        "locality_text": "North Africa to Europe domestic cat dispersal transect",
+        "political_entity": "North Africa and Europe",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "37.00",
+          "15.00"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "North Africa to Europe domestic cat dispersal transect",
+      "coordinates": {
+        "latitude": 37.0,
+        "longitude": 15.0,
+        "latitude_text": "37.00",
+        "longitude_text": "15.00",
+        "confidence": "inferred"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB81815"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Holocene cat dispersal across North Africa and Europe",
+        "time_start_bp": 1200,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2600,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context"
+      },
+      "sample_namespace": "felis_catus:project_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "North Africa to Europe domestic cat dispersal transect",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
+      "interpretation_note": "This cat row represents a regional dispersal transect and should not be read as one exact Nordic-localized site."
+    }
+  ]
+}

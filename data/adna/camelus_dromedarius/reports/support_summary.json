@@ -245,7 +245,67 @@
       "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
     },
     "sample_records": [],
-    "locality_records": [],
+    "locality_records": [
+      {
+        "identity": {
+          "namespace": "camelus_dromedarius:project_locality",
+          "stable_token": "camelus_dromedarius:project-locality:srp073444",
+          "locality_text": "Arabian Peninsula and Levant dromedary context",
+          "political_entity": "Arabian Peninsula and Levant",
+          "source_anchor_tokens": [
+            "SRP073444",
+            "25.00",
+            "45.00"
+          ]
+        },
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "source_family": "SRA",
+        "source_releases": [
+          "SRP073444"
+        ],
+        "record_modalities": [
+          "archive_reads"
+        ],
+        "review_strengths": [
+          "primary_paper_pinned"
+        ],
+        "provenance_qualities": [
+          "primary_paper_pinned"
+        ],
+        "locality": "Arabian Peninsula and Levant dromedary context",
+        "coordinates": {
+          "latitude": 25.0,
+          "longitude": 45.0,
+          "latitude_text": "25.00",
+          "longitude_text": "45.00",
+          "confidence": "inferred"
+        },
+        "sample_count": 1,
+        "sample_ids": [
+          "SRP073444"
+        ],
+        "datasets": [
+          "camelus_dromedarius:project:SRP073444"
+        ],
+        "chronology": {
+          "original_text": "Historical and archaeological dromedary range context",
+          "time_start_bp": 1400,
+          "time_end_bp": 3000,
+          "time_mean_bp": 2200,
+          "date_stddev_bp": "",
+          "dating_basis": "historical_and_archaeological_context"
+        },
+        "sample_namespace": "camelus_dromedarius:project_locality",
+        "project_accessions": [
+          "SRP073444"
+        ],
+        "original_location_text": "Arabian Peninsula and Levant dromedary context",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "interpretation_note": "This dromedary row is intentionally non-Nordic and exists for domestication context only."
+      }
+    ],
     "project_summaries": [
       {
         "schema_version": "adna-project-summary.v1",
@@ -414,12 +474,12 @@
       {
         "schema_version": "adna-normalization-refusal.v1",
         "species_latin_name": "Camelus dromedarius",
-        "source_token": "camelus_dromedarius",
+        "source_token": "KU605068-KU605080",
         "record_kind": "locality_records",
-        "reason": "locality_level_raw_metadata_unavailable",
-        "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+        "reason": "locality_lead_not_yet_curated",
+        "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
       }
     ],
-    "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+    "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
   }
 }
