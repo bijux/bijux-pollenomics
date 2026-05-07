@@ -1,0 +1,70 @@
+{
+  "schema_version": "country-animal-adna-localities.v1",
+  "type": "FeatureCollection",
+  "country": "Norway",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.65,
+          78.22
+        ]
+      },
+      "properties": {
+        "name": "Svalbard ancient reindeer context",
+        "country": "Norway",
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "animal_scope": "comparator",
+        "project_accession": "PRJEB60484",
+        "support_class": "comparator_only",
+        "country_assignment_confidence": "territory_projection",
+        "country_assignment_reason": "The tracked locality lead is labeled `Svalbard` and is published under `Norway` as an explicit territorial projection.",
+        "coordinate_confidence": "approximate",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "time_mean_bp": 1500,
+        "time_label": "Ancient Arctic archipelago reindeer context",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "paper_doi": "10.1038/s41598-024-54296-2",
+        "source_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Rangifer tarandus"
+          },
+          {
+            "label": "Animal scope",
+            "value": "comparator"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB60484"
+          },
+          {
+            "label": "Country assignment",
+            "value": "territory_projection"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is labeled `Svalbard` and is published under `Norway` as an explicit territorial projection."
+          },
+          {
+            "label": "Chronology",
+            "value": "Ancient Arctic archipelago reindeer context"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Interpretation",
+            "value": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support."
+          }
+        ]
+      }
+    }
+  ]
+}
