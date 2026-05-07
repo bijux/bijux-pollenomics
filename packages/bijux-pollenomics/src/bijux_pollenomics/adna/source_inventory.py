@@ -19,6 +19,8 @@ __all__ = [
     "build_project_source_evidence_matrix",
     "build_reference_stash_doi_integrity_audit",
     "build_reference_stash_reconciliation",
+    "build_supplement_acquisition_checklist",
+    "build_supplement_file_family_audit",
     "build_source_blocker_review",
     "build_tracked_project_scope_audit",
     "materialize_source_inventory",
@@ -49,6 +51,14 @@ def materialize_source_inventory(output_root: Path) -> None:
         "reference_stash_doi_integrity_audit": (
             build_reference_stash_doi_integrity_audit(output_root),
             render_reference_stash_doi_integrity_markdown,
+        ),
+        "supplement_file_family_audit": (
+            build_supplement_file_family_audit(output_root),
+            render_supplement_file_family_audit_markdown,
+        ),
+        "supplement_acquisition_checklist": (
+            build_supplement_acquisition_checklist(output_root),
+            render_supplement_acquisition_checklist_markdown,
         ),
         "source_blocker_review": (
             build_source_blocker_review(output_root),
@@ -254,6 +264,78 @@ def build_reference_stash_doi_integrity_audit(output_root: Path) -> dict[str, ob
     }
 
 
+def build_supplement_file_family_audit(output_root: Path) -> dict[str, object]:
+    """Record the expected supplementary file families for each tracked paper."""
+    rows: list[dict[str, object]] = []
+    for row in build_paper_registry(output_root):
+        rows.append(
+            {
+                "paper_doi": row.paper_doi,
+                "project_accessions": list(row.project_accessions),
+                "supplementary_verification_status": row.supplementary_verification_status,
+                "repository_supplement_capture_status": row.supplementary_download_status,
+                "supplement_parse_status": row.supplement_parse_status,
+                "expected_supplementary_file_families": list(
+                    row.expected_supplementary_file_families
+                ),
+                "expected_supplementary_artifacts": list(
+                    row.expected_supplementary_artifacts
+                ),
+            }
+        )
+    return {
+        "schema_version": SOURCE_INVENTORY_SCHEMA_VERSION,
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def build_supplement_acquisition_checklist(output_root: Path) -> dict[str, object]:
+    """Publish one paper-by-paper checklist for supplement verification and ingestion."""
+    rows: list[dict[str, object]] = []
+    for row in build_paper_registry(output_root):
+        article_source_url = row.article_source_url
+        rows.append(
+            {
+                "paper_doi": row.paper_doi,
+                "project_accessions": list(row.project_accessions),
+                "article_source_url": article_source_url,
+                "publisher_page_url": article_source_url,
+                "doi_landing_url": row.canonical_url,
+                "crossref_url": f"https://api.crossref.org/works/{row.paper_doi}",
+                "article_html_source_url": article_source_url
+                if row.article_readability_status in {"readable_html", "blocked_landing_page_only"}
+                else "",
+                "pmc_or_pubmed_url": article_source_url
+                if "pmc.ncbi.nlm.nih.gov" in article_source_url
+                or "pubmed.ncbi.nlm.nih.gov" in article_source_url
+                else "",
+                "supplementary_verification_status": row.supplementary_verification_status,
+                "repository_supplement_capture_status": row.supplementary_download_status,
+                "supplement_parse_status": row.supplement_parse_status,
+                "expected_supplementary_file_families": list(
+                    row.expected_supplementary_file_families
+                ),
+                "local_reference_supplement_status": row.local_reference_supplement_status,
+                "acquisition_check_status": (
+                    "repo_archived"
+                    if row.supplementary_download_status == "archived"
+                    else (
+                        "local_reference_ready_for_ingestion"
+                        if row.local_reference_supplement_status == "local_reference_staged"
+                        else "still_missing_or_unverified"
+                    )
+                ),
+            }
+        )
+    return {
+        "schema_version": SOURCE_INVENTORY_SCHEMA_VERSION,
+        "row_count": len(rows),
+        "counts": _count_by(rows, "acquisition_check_status"),
+        "rows": rows,
+    }
+
+
 def build_source_blocker_review(output_root: Path) -> dict[str, object]:
     """Explain the real missing evidence stage for each blocked project."""
     matrix = {
@@ -412,6 +494,43 @@ def render_reference_stash_doi_integrity_markdown(payload: dict[str, object]) ->
         lines.append(
             f"| `{row['stash_slug']}` | `{row['paper_doi'] or 'none'}` | "
             f"`{row['representation_status']}` |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def render_supplement_file_family_audit_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Supplement file family audit",
+        "",
+        f"- Paper rows: `{payload['row_count']}`",
+        "",
+        "| Paper DOI | Verification | Repo capture | Parse status | Expected file families |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['paper_doi']}` | `{row['supplementary_verification_status']}` | "
+            f"`{row['repository_supplement_capture_status']}` | `{row['supplement_parse_status']}` | "
+            f"`{'; '.join(row['expected_supplementary_file_families'])}` |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def render_supplement_acquisition_checklist_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Supplement acquisition checklist",
+        "",
+        f"- Paper rows: `{payload['row_count']}`",
+        "",
+        "| Paper DOI | Check status | Publisher page | DOI landing | Crossref | PMC or PubMed | HTML source |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['paper_doi']}` | `{row['acquisition_check_status']}` | "
+            f"`{row['publisher_page_url']}` | `{row['doi_landing_url']}` | "
+            f"`{row['crossref_url']}` | `{row['pmc_or_pubmed_url'] or '-'}` | "
+            f"`{row['article_html_source_url'] or '-'}` |"
         )
     return "\n".join(lines) + "\n"
 
