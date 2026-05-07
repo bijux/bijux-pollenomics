@@ -96,6 +96,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.md").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.json").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.md").is_file())
         self.assertTrue(
             (
                 governance_root
@@ -136,6 +148,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             (
                 governance_root
                 / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "sample_chronology.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
                 / "papers"
                 / "10.1038-s42003-021-02794-8"
                 / "supplementary_manifest.json"
@@ -160,6 +181,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         absence_markdown = report_root / "animal_project_absence_packets.md"
         review_json = report_root / "animal_foundation_review.json"
         review_markdown = report_root / "animal_foundation_review.md"
+        chronology_json = report_root / "animal_sample_chronology_viewer.json"
+        chronology_markdown = report_root / "animal_sample_chronology_viewer.md"
         gate_json = report_root / "animal_publication_release_gate.json"
         gate_markdown = report_root / "animal_publication_release_gate.md"
 
@@ -179,6 +202,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(absence_markdown.is_file())
         self.assertTrue(review_json.is_file())
         self.assertTrue(review_markdown.is_file())
+        self.assertTrue(chronology_json.is_file())
+        self.assertTrue(chronology_markdown.is_file())
         self.assertTrue(gate_json.is_file())
         self.assertTrue(gate_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
@@ -209,6 +234,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Animal foundation review",
             review_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal sample chronology viewer",
+            chronology_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
             "Animal publication release gate",
@@ -250,6 +279,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("sample_master.json", inventory_text)
         self.assertIn("project_sample_site_review.json", inventory_text)
         self.assertIn("sample_sites.json", inventory_text)
+        self.assertIn("project_sample_chronology_review.json", inventory_text)
+        self.assertIn("sample_chronology.json", inventory_text)
         self.assertIn("Animal Project and Paper Inventory", sources_index)
 
     def test_project_sample_master_completeness_keeps_traceable_expected_counts(self) -> None:

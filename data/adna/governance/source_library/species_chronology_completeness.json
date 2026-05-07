@@ -1,0 +1,29 @@
+{
+  "schema_version": "animal-species-chronology-completeness.v1",
+  "rows": [
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "recovered_sample_row_count": 13,
+      "normalized_row_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 13,
+      "chronology_completeness_ratio": 0.0
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 4,
+      "normalized_row_count": 1,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 3,
+      "chronology_completeness_ratio": 0.25
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 190,
+      "normalized_row_count": 167,
+      "text_only_unparsed_count": 13,
+      "unresolved_count": 10,
+      "chronology_completeness_ratio": 0.8789
+    }
+  ]
+}
