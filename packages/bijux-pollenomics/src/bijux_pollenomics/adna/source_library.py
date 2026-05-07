@@ -451,6 +451,8 @@ def _project_intake_expectation(project: object) -> _ProjectIntakeExpectation:
 
     if paper_spec is not None and _paper_sample_extractability(
         paper_spec,
+        supplementary_download_status="missing",
+        supplement_artifacts=(),
         supplement_parse_status="missing",
         stash_record={},
     ) in {
@@ -613,6 +615,10 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
             supplementary_download_status=supplementary_download_status,
             stash_record=stash_record,
         )
+        expected_supplementary_artifacts = _paper_expected_supplementary_artifacts(
+            spec,
+            supplement_artifacts,
+        )
         sample_table_extraction_status = _paper_sample_table_extraction_status(
             output_root,
             tuple(sorted(project.project_accession for project in projects)),
@@ -647,6 +653,8 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                 parsing_status=spec.parsing_status,
                 sample_extractability=_paper_sample_extractability(
                     spec,
+                    supplementary_download_status=supplementary_download_status,
+                    supplement_artifacts=supplement_artifacts,
                     supplement_parse_status=supplement_parse_status,
                     stash_record=stash_record,
                 ),
@@ -665,14 +673,19 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
                     spec,
                     stash_record,
                 ),
-                expected_supplementary_artifacts=_paper_expected_supplementary_artifacts(
-                    spec
-                ),
+                expected_supplementary_artifacts=expected_supplementary_artifacts,
                 sample_identifier_targets=_paper_sample_identifier_targets(
-                    spec
+                    spec,
+                    expected_supplementary_artifacts,
                 ),
-                sample_site_targets=_paper_sample_site_targets(spec),
-                chronology_targets=_paper_chronology_targets(spec),
+                sample_site_targets=_paper_sample_site_targets(
+                    spec,
+                    expected_supplementary_artifacts,
+                ),
+                chronology_targets=_paper_chronology_targets(
+                    spec,
+                    expected_supplementary_artifacts,
+                ),
                 supplementary_manifest_path=(
                     f"{ADNA_SOURCE_LIBRARY_DIR}/papers/{_doi_slug(doi)}/supplementary_manifest.json"
                 ),
@@ -687,12 +700,16 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
 def _paper_sample_extractability(
     spec: _PaperSourceSpec,
     *,
+    supplementary_download_status: str,
+    supplement_artifacts: tuple[AdnaSourceArtifact, ...],
     supplement_parse_status: str,
     stash_record: dict[str, object],
 ) -> str:
     if spec.sample_extractability != "manual_curation_required":
         return spec.sample_extractability
-    if spec.supplementary_assets:
+    if spec.supplementary_assets or (
+        supplementary_download_status == "archived" and supplement_artifacts
+    ):
         return "supplement_extractable"
     if supplement_parse_status in {
         "repository_supplement_archived",
@@ -711,11 +728,16 @@ def _paper_sample_extractability(
     return "manual_curation_required"
 
 
-def _paper_expected_supplementary_artifacts(spec: _PaperSourceSpec) -> tuple[str, ...]:
-    return tuple(
-        f"{ADNA_SOURCE_LIBRARY_DIR}/{item.relative_path}"
-        for item in spec.supplementary_assets
-    )
+def _paper_expected_supplementary_artifacts(
+    spec: _PaperSourceSpec,
+    supplement_artifacts: tuple[AdnaSourceArtifact, ...],
+) -> tuple[str, ...]:
+    if spec.supplementary_assets:
+        return tuple(
+            f"{ADNA_SOURCE_LIBRARY_DIR}/{item.relative_path}"
+            for item in spec.supplementary_assets
+        )
+    return tuple(sorted(item.local_path for item in supplement_artifacts))
 
 
 def _expected_supplementary_file_families(
@@ -730,27 +752,36 @@ def _expected_supplementary_file_families(
     return tuple(sorted(family for family in families if family))
 
 
-def _paper_sample_identifier_targets(spec: _PaperSourceSpec) -> tuple[str, ...]:
+def _paper_sample_identifier_targets(
+    spec: _PaperSourceSpec,
+    expected_supplementary_artifacts: tuple[str, ...],
+) -> tuple[str, ...]:
     if spec.sample_identifier_targets:
         return spec.sample_identifier_targets
-    if spec.supplementary_assets:
-        return _paper_expected_supplementary_artifacts(spec)
+    if expected_supplementary_artifacts:
+        return expected_supplementary_artifacts
     return (spec.article_local_path,)
 
 
-def _paper_sample_site_targets(spec: _PaperSourceSpec) -> tuple[str, ...]:
+def _paper_sample_site_targets(
+    spec: _PaperSourceSpec,
+    expected_supplementary_artifacts: tuple[str, ...],
+) -> tuple[str, ...]:
     if spec.sample_site_targets:
         return spec.sample_site_targets
-    if spec.supplementary_assets:
-        return _paper_expected_supplementary_artifacts(spec)
+    if expected_supplementary_artifacts:
+        return expected_supplementary_artifacts
     return (spec.article_local_path,)
 
 
-def _paper_chronology_targets(spec: _PaperSourceSpec) -> tuple[str, ...]:
+def _paper_chronology_targets(
+    spec: _PaperSourceSpec,
+    expected_supplementary_artifacts: tuple[str, ...],
+) -> tuple[str, ...]:
     if spec.chronology_targets:
         return spec.chronology_targets
-    if spec.supplementary_assets:
-        return _paper_expected_supplementary_artifacts(spec)
+    if expected_supplementary_artifacts:
+        return expected_supplementary_artifacts
     return (spec.article_local_path,)
 
 
@@ -1478,6 +1509,17 @@ def _curated_local_supplement_ingestion_dois() -> tuple[str, ...]:
         "10.1038/ncomms16082",
         "10.1038/s41562-021-01083-y",
         "10.1038/s41586-021-04018-9",
+        "10.1038/s41586-024-08112-6",
+        "10.1038/s41598-024-54296-2",
+        "10.1073/pnas.1901169116",
+        "10.1093/gbe/evae114",
+        "10.1093/gbe/evaf181",
+        "10.1111/1755-0998.12551",
+        "10.1126/science.aam5298",
+        "10.1126/science.aao3297",
+        "10.1126/science.aav1002",
+        "10.1126/science.adt2642",
+        "10.24272/j.issn.2095-8137.2025.080",
     )
 
 

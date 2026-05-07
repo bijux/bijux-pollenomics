@@ -21,6 +21,7 @@ __all__ = [
     "build_reference_stash_reconciliation",
     "build_supplement_acquisition_checklist",
     "build_supplement_file_family_audit",
+    "build_supplement_recovery_audit",
     "build_source_blocker_review",
     "build_tracked_project_scope_audit",
     "materialize_source_inventory",
@@ -59,6 +60,10 @@ def materialize_source_inventory(output_root: Path) -> None:
         "supplement_acquisition_checklist": (
             build_supplement_acquisition_checklist(output_root),
             render_supplement_acquisition_checklist_markdown,
+        ),
+        "supplement_recovery_audit": (
+            build_supplement_recovery_audit(output_root),
+            render_supplement_recovery_audit_markdown,
         ),
         "source_blocker_review": (
             build_source_blocker_review(output_root),
@@ -336,6 +341,31 @@ def build_supplement_acquisition_checklist(output_root: Path) -> dict[str, objec
     }
 
 
+def build_supplement_recovery_audit(output_root: Path) -> dict[str, object]:
+    """Summarize whether each tracked paper has archived supplements, confirmed absence, or a remaining gap."""
+    rows: list[dict[str, object]] = []
+    for row in build_paper_registry(output_root):
+        recovery_status = _supplement_recovery_status(row)
+        rows.append(
+            {
+                "paper_doi": row.paper_doi,
+                "project_accessions": list(row.project_accessions),
+                "supplementary_verification_status": row.supplementary_verification_status,
+                "repository_supplement_capture_status": row.supplementary_download_status,
+                "supplement_parse_status": row.supplement_parse_status,
+                "local_reference_supplement_status": row.local_reference_supplement_status,
+                "supplementary_count": row.supplementary_count,
+                "recovery_status": recovery_status,
+            }
+        )
+    return {
+        "schema_version": SOURCE_INVENTORY_SCHEMA_VERSION,
+        "row_count": len(rows),
+        "counts": _count_by(rows, "recovery_status"),
+        "rows": rows,
+    }
+
+
 def build_source_blocker_review(output_root: Path) -> dict[str, object]:
     """Explain the real missing evidence stage for each blocked project."""
     matrix = {
@@ -535,6 +565,28 @@ def render_supplement_acquisition_checklist_markdown(payload: dict[str, object])
     return "\n".join(lines) + "\n"
 
 
+def render_supplement_recovery_audit_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Supplement recovery audit",
+        "",
+        f"- Paper rows: `{payload['row_count']}`",
+        f"- Archived and parseable: `{payload['counts'].get('archived_and_parseable', 0)}`",
+        f"- Confirmed absent: `{payload['counts'].get('confirmed_absent', 0)}`",
+        f"- Local reference staged: `{payload['counts'].get('local_reference_staged_needs_repo_ingestion', 0)}`",
+        f"- Not found yet: `{payload['counts'].get('not_found_yet', 0)}`",
+        "",
+        "| Paper DOI | Recovery status | Repo capture | Parse status | Local reference | Supplement count |",
+        "| --- | --- | --- | --- | --- | ---: |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['paper_doi']}` | `{row['recovery_status']}` | "
+            f"`{row['repository_supplement_capture_status']}` | `{row['supplement_parse_status']}` | "
+            f"`{row['local_reference_supplement_status']}` | `{row['supplementary_count']}` |"
+        )
+    return "\n".join(lines) + "\n"
+
+
 def render_source_blocker_review_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Source blocker review",
@@ -600,6 +652,19 @@ def _reconciliation_alignment_status(paper_row: object | None, stash_record: dic
     if paper_row is not None:
         return "repo_ahead_of_local_reference"
     return "local_reference_not_tracked"
+
+
+def _supplement_recovery_status(paper_row: object) -> str:
+    verification_status = str(getattr(paper_row, "supplementary_verification_status", ""))
+    repository_capture_status = str(getattr(paper_row, "supplementary_download_status", ""))
+    local_reference_status = str(getattr(paper_row, "local_reference_supplement_status", ""))
+    if repository_capture_status == "archived":
+        return "archived_and_parseable"
+    if verification_status == "supplement_confirmed_absent":
+        return "confirmed_absent"
+    if local_reference_status == "local_reference_staged":
+        return "local_reference_staged_needs_repo_ingestion"
+    return "not_found_yet"
 
 
 def _blocking_stage(matrix_row: dict[str, object]) -> str:
