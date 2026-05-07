@@ -1,0 +1,74 @@
+{
+  "rows": [
+    {
+      "species_latin_name": "Bos taurus",
+      "project_count": 3,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "project_count": 2,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "project_count": 3,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_count": 3,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Equus asinus",
+      "project_count": 5,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "project_count": 8,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "project_count": 2,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "project_count": 6,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": true
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "project_count": 4,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": true
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_count": 4,
+      "inventory_last_checked_on": "2026-05-07",
+      "paper_last_checked_on": "2026-05-07",
+      "has_nordic_unmapped_lead": false
+    }
+  ]
+}

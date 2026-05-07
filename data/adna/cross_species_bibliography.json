@@ -1,0 +1,278 @@
+{
+  "schema_version": "adna-cross-species-bibliography.v1",
+  "rows": [
+    {
+      "paper_title": "The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "journal_title": "Cell Genomics",
+      "publication_year": 2025,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Felis catus"
+      ],
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "journal_title": "iScience",
+      "publication_year": 2025,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "journal_title": "Genome Biology and Evolution",
+      "publication_year": 2025,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "journal_title": "Zoological Research",
+      "publication_year": 2025,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Capra hircus"
+      ],
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "The genomic natural history of the aurochs",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "journal_title": "Nature",
+      "publication_year": 2024,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Bos taurus"
+      ],
+      "project_accessions": [
+        "PRJEB75467"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
+      "paper_doi": "10.1126/science.adt2642",
+      "journal_title": "Science",
+      "publication_year": 2024,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Felis catus"
+      ],
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "journal_title": "Genome Biology and Evolution",
+      "publication_year": 2024,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "journal_title": "Scientific Reports",
+      "publication_year": 2024,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Rangifer tarandus"
+      ],
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "journal_title": "Nature",
+      "publication_year": 2021,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "journal_title": "Nature Human Behaviour",
+      "publication_year": 2021,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "journal_title": "Communications Biology",
+      "publication_year": 2021,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Ovis aries"
+      ],
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "journal_title": "Cell",
+      "publication_year": 2019,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB31613"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "journal_title": "Proceedings of the National Academy of Sciences",
+      "publication_year": 2019,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Sus scrofa domesticus"
+      ],
+      "project_accessions": [
+        "PRJEB30282"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+      "paper_doi": "10.1126/science.aav1002",
+      "journal_title": "Science",
+      "publication_year": 2019,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Bos taurus"
+      ],
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "paper_doi": "10.1126/science.aao3297",
+      "journal_title": "Science",
+      "publication_year": 2018,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB22390"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "journal_title": "Molecular Ecology Resources",
+      "publication_year": 2017,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Camelus dromedarius"
+      ],
+      "project_accessions": [
+        "KU605068-KU605080",
+        "SRP073444"
+      ],
+      "species_count": 1,
+      "project_count": 2
+    },
+    {
+      "paper_title": "Ancient genomic changes associated with domestication of the horse",
+      "paper_doi": "10.1126/science.aam5298",
+      "journal_title": "Science",
+      "publication_year": 2017,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Equus caballus"
+      ],
+      "project_accessions": [
+        "PRJEB19970"
+      ],
+      "species_count": 1,
+      "project_count": 1
+    },
+    {
+      "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+      "paper_doi": "10.1038/ncomms16082",
+      "journal_title": "Nature Communications",
+      "publication_year": 2017,
+      "reference_kind": "primary_paper",
+      "species_latin_names": [
+        "Canis lupus familiaris"
+      ],
+      "project_accessions": [
+        "KX379528-KX379529",
+        "SRS1407451",
+        "SRS1407453"
+      ],
+      "species_count": 1,
+      "project_count": 3
+    }
+  ]
+}
