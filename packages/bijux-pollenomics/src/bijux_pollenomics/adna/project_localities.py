@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .site_evidence import (
-    build_species_site_evidence_rows,
-    resolve_project_site_evidence,
+from .coordinate_provenance import (
+    build_species_coordinate_provenance_rows,
+    resolve_project_coordinate_provenance,
 )
 
 __all__ = [
@@ -58,7 +58,7 @@ def resolve_project_locality_leads(project_accession: str) -> tuple[AdnaProjectL
             time_end_bp=row.time_end_bp,
             interpretation_note=row.interpretation_note,
         )
-        for row in resolve_project_site_evidence(project_accession)
+        for row in resolve_project_coordinate_provenance(project_accession)
     )
 
 
@@ -79,5 +79,5 @@ def build_species_project_locality_leads(
             time_end_bp=row.time_end_bp,
             interpretation_note=row.interpretation_note,
         )
-        for row in build_species_site_evidence_rows(project_accessions)
+        for row in build_species_coordinate_provenance_rows(project_accessions)
     )

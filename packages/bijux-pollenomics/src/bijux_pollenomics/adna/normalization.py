@@ -10,12 +10,14 @@ from ..core.bp_time import (
     normalize_bp_interval,
     parse_bp_window_label,
 )
+from .coordinate_provenance import build_species_coordinate_provenance_rows
 from .curation import build_species_curation_manifest
 from .ena import build_species_archive_projects, classify_archive_project_evidence
 from .manifests import AdnaSpeciesManifest, build_species_manifest
 from .models import (
     AdnaChronology,
     AdnaCoordinate,
+    AdnaCoordinateProvenanceRecord,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
     AdnaSampleIdentity,
@@ -257,6 +259,7 @@ class AdnaSpeciesNormalizationBundle:
     schema_version: str
     species_manifest: AdnaSpeciesManifest
     sample_records: tuple[AdnaSampleRecord, ...]
+    coordinate_provenance_records: tuple[AdnaCoordinateProvenanceRecord, ...]
     site_evidence_records: tuple[AdnaSiteEvidenceRecord, ...]
     locality_records: tuple[AdnaLocalitySummary, ...]
     project_summaries: tuple[AdnaProjectSummary, ...]
@@ -274,6 +277,9 @@ class AdnaSpeciesNormalizationBundle:
             "schema_version": self.schema_version,
             "species_manifest": self.species_manifest.as_dict(),
             "sample_records": [record.as_dict() for record in self.sample_records],
+            "coordinate_provenance_records": [
+                record.as_dict() for record in self.coordinate_provenance_records
+            ],
             "site_evidence_records": [
                 record.as_dict() for record in self.site_evidence_records
             ],
@@ -299,6 +305,9 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         curation_manifest.curation_class,
     )
     sample_records = _build_sample_records(species_name, project_summaries)
+    coordinate_provenance_records = build_species_coordinate_provenance_rows(
+        tuple(project.project_accession for project in project_summaries)
+    )
     site_evidence_records = build_species_site_evidence_rows(
         tuple(project.project_accession for project in project_summaries)
     )
@@ -316,6 +325,7 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         schema_version="adna-nonhuman-normalization-bundle.v1",
         species_manifest=species_manifest,
         sample_records=sample_records,
+        coordinate_provenance_records=coordinate_provenance_records,
         site_evidence_records=site_evidence_records,
         locality_records=locality_records,
         project_summaries=project_summaries,
@@ -1046,11 +1056,31 @@ def _coordinate_confidence_for(geographic_basis: str) -> str:
     basis = geographic_basis.casefold()
     if "exact" in basis:
         return "exact"
+    if "named_site_geocoding" in basis:
+        return "approximate"
+    if any(
+        token in basis
+        for token in (
+            "direct_published_coordinates",
+            "supplementary_table_coordinates",
+            "archive_coordinates",
+        )
+    ):
+        return "exact"
     if "approximate" in basis or "site_level" in basis:
         return "approximate"
     if "inferred" in basis:
         return "inferred"
-    if any(token in basis for token in ("country_only", "locality_text", "withheld")):
+    if any(
+        token in basis
+        for token in (
+            "country_only",
+            "locality_text",
+            "withheld",
+            "region_centroid_fallback",
+            "unresolved_location_state",
+        )
+    ):
         return "withheld"
     return "unknown"
 
