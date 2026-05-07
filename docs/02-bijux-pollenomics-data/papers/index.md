@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Papers
@@ -17,6 +17,8 @@ supplements or archive tables that can be turned into sample-owned rows.
 
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
 - [`data/adna/governance/source_library/tracked_project_and_paper_inventory.md`](../../../data/adna/governance/source_library/tracked_project_and_paper_inventory.md)
+- [`data/adna/governance/source_library/supplement_acquisition_checklist.json`](../../../data/adna/governance/source_library/supplement_acquisition_checklist.json)
+- [`data/adna/governance/source_library/supplement_file_family_audit.json`](../../../data/adna/governance/source_library/supplement_file_family_audit.json)
 - [`data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary_manifest.json`](../../../data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary_manifest.json)
 - [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
 
@@ -25,6 +27,7 @@ supplements or archive tables that can be turned into sample-owned rows.
 - one project accession can map to one paper or a paper cluster
 - papers carry site wording that does not always appear in archive metadata
 - citation and supplement provenance must survive even after rows are normalized
+- supplement verification is a separate stage from article readability, and the paper layer now exposes that difference explicitly
 
 The paper layer keeps the database honest about where the site and chronology
 claims were actually read.
