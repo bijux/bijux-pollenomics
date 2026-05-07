@@ -8,7 +8,7 @@
   "paper_doi": "10.1038/ncomms16082",
   "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": 1,
   "expected_sample_count_status": "known_from_archive_accession_scope",
   "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
@@ -27,6 +27,8 @@
   ],
   "expected_supplementary_artifacts": [],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
     "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
     "adna/governance/source_library/projects/SRS1407453/archive_metadata.html"

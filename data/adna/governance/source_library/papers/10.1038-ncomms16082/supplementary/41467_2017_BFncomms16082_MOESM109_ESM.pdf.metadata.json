@@ -1,0 +1,15 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5520058/",
+  "artifact_kind": "supplementary_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 8386408,
+  "paper_doi": "10.1038/ncomms16082",
+  "project_accessions": [
+    "KX379528-KX379529",
+    "SRS1407451",
+    "SRS1407453"
+  ],
+  "artifact_label": "curated supplementary asset 41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+}

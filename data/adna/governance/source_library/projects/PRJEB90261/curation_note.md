@@ -6,12 +6,16 @@
 - Project URL: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90261&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0
 - Paper DOI: `10.1016/j.isci.2025.113771`
 - Paper download status: `archived`
-- Supplement download status: `missing`
+- Supplement download status: `archived`
 
 Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf`
+- `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx`
+- `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc4.xlsx`
 - `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/article.html`
 - `adna/governance/source_library/papers/10.1016-j.isci.2025.113771/crossref.json`
 - `adna/governance/source_library/projects/PRJEB90261/archive_metadata.html`
