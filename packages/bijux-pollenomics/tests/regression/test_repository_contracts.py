@@ -57,6 +57,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((adna_root / "cross_species_freshness.csv").is_file())
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.json").is_file())
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.csv").is_file())
+        self.assertTrue((adna_root / "animal_sample_product_contract.json").is_file())
+        self.assertTrue((adna_root / "animal_sample_product_contract.md").is_file())
+        self.assertTrue((adna_root / "animal_sample_foundation_truth.json").is_file())
+        self.assertTrue((adna_root / "animal_sample_foundation_truth.md").is_file())
+        self.assertTrue((adna_root / "animal_sample_foundation_truth_species.csv").is_file())
+        self.assertTrue((adna_root / "animal_sample_foundation_truth_projects.csv").is_file())
+        self.assertTrue((adna_root / "animal_sample_aggregation_warnings.json").is_file())
+        self.assertTrue((adna_root / "animal_sample_aggregation_warnings.md").is_file())
         self.assertTrue((adna_root / "cross_species_map_readiness.json").is_file())
         self.assertTrue((adna_root / "cross_species_map_readiness.csv").is_file())
         self.assertTrue((adna_root / "unresolved_site_ledger.json").is_file())
@@ -280,6 +288,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
+        self.assertIn("sample-level ancient-DNA metadata", docs_index)
 
     def test_public_docs_keep_direct_evidence_and_output_links(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
@@ -310,6 +319,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             data_model,
         )
         self.assertIn(
+            "data/adna/animal_sample_product_contract.json",
+            data_model,
+        )
+        self.assertIn(
             "../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
             data_model,
         )
@@ -317,6 +330,31 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("../report/animal_atlas_readiness.md", atlas_index)
         self.assertIn("../report/animal_country_species_coverage.md", atlas_index)
         self.assertIn("../../report/sweden/README.md", published_reports)
+
+    def test_top_level_product_descriptions_stay_sample_first(self) -> None:
+        root_readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        runtime_readme = (
+            REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
+        ).read_text(encoding="utf-8")
+        alias_readme = (
+            REPO_ROOT / "packages" / "pollenomics" / "README.md"
+        ).read_text(encoding="utf-8")
+        runtime_index = (
+            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "index.md"
+        ).read_text(encoding="utf-8")
+        data_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+        ).read_text(encoding="utf-8")
+        atlas_index = (
+            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("sample-level animal and human aDNA", root_readme)
+        self.assertIn("sample-level", runtime_readme)
+        self.assertIn("sample-first runtime behavior", alias_readme)
+        self.assertIn("sample-first evidence surfaces", runtime_index)
+        self.assertIn("real durable unit: the sample record", data_index)
+        self.assertIn("not the primary evidence artifact", atlas_index)
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
@@ -374,8 +412,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("project summaries, study summaries, lineage", command_reference)
         self.assertIn("curated, pending, and rejected projects", command_reference)
         self.assertIn("cross-species curation coverage", command_reference)
-        self.assertIn("project-level scientific metadata", command_reference)
-        self.assertIn("project-level admission reviews", command_reference)
+        self.assertIn(
+            "project-side metadata that still needs to feed sample extraction",
+            command_reference,
+        )
+        self.assertIn("project admission reviews", command_reference)
         self.assertIn("report-country <country>", command_reference)
         self.assertIn("report-multi-country-map <countries...>", command_reference)
         self.assertIn("publish-reports", command_reference)
@@ -414,14 +455,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             module_map,
         )
         self.assertIn("Homo sapiens runtime manifests", module_map)
-        self.assertIn("metadata-only analysis boundaries", module_map)
+        self.assertIn("metadata-only analysis", module_map)
         self.assertIn("accession-family resolution", module_map)
         self.assertIn("archive-integrity", module_map)
         self.assertIn("curated ENA archive intake metadata", module_map)
         self.assertIn("species curation", module_map)
-        self.assertIn("project-level paper", module_map)
-        self.assertIn("linkage and scientific metadata", module_map)
-        self.assertIn("scientist-facing species review packets", module_map)
+        self.assertIn("paper linkage", module_map)
+        self.assertIn("sample extraction", module_map)
+        self.assertIn("scientist-facing species review", module_map)
         self.assertIn("manifest diff outputs", module_map)
         self.assertIn("cross-species domestication coverage reporting", module_map)
         self.assertIn("non-human normalization", module_map)
