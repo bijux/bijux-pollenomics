@@ -24,6 +24,13 @@
       "findings": []
     },
     {
+      "check_id": "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
+      "passed": true,
+      "description": "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",
       "passed": true,
       "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",

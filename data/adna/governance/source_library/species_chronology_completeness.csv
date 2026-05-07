@@ -1,0 +1,4 @@
+species_latin_name,recovered_sample_row_count,normalized_row_count,text_only_unparsed_count,unresolved_count,chronology_completeness_ratio
+Camelus dromedarius,13,0,0,13,0.0
+Canis lupus familiaris,4,1,0,3,0.25
+Ovis aries,190,167,13,10,0.8789

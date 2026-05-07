@@ -10,6 +10,9 @@
 - Cross-project sample-site review: `project_sample_site_review.json`
 - Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`
 
+- Cross-project sample-chronology review: `project_sample_chronology_review.json`
+- Per-project sample chronology tables: `projects/<project_accession>/sample_chronology.json`
+
 ## Projects
 
 | Species | Project accession | Archive status | Inventory disposition | Expected sample count | Sample count status | Primary paper DOI |

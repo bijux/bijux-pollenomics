@@ -24,11 +24,15 @@ archived, and which projects are still blocked from sample extraction.
 - [`data/adna/governance/source_library/source_intake_release_guard.json`](../../../data/adna/governance/source_library/source_intake_release_guard.json)
 - [`data/adna/governance/source_library/project_sample_master_completeness.json`](../../../data/adna/governance/source_library/project_sample_master_completeness.json)
 - [`data/adna/governance/source_library/project_sample_site_review.json`](../../../data/adna/governance/source_library/project_sample_site_review.json)
+- [`data/adna/governance/source_library/project_sample_chronology_review.json`](../../../data/adna/governance/source_library/project_sample_chronology_review.json)
+- [`data/adna/governance/source_library/sample_chronology_normalization_audit.json`](../../../data/adna/governance/source_library/sample_chronology_normalization_audit.json)
 - [`data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_identity_ambiguity_ledger.json)
 - [`data/adna/governance/source_library/sample_site_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_site_ambiguity_ledger.json)
 - [`data/adna/governance/source_library/sample_site_manual_curation_queue.json`](../../../data/adna/governance/source_library/sample_site_manual_curation_queue.json)
+- [`data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json)
 - [`data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_master.json)
 - [`data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json)
+- [`data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json)
 
 ## What This Surface Answers
 
@@ -37,6 +41,7 @@ archived, and which projects are still blocked from sample extraction.
 - Which projects already carry archive-native sample identifiers.
 - Which projects already ship a checked project sample master with row-level lineage.
 - Which recovered sample rows already have direct site evidence and which still sit at project-level or region-level locality posture.
+- Which recovered sample rows already have normalized chronology, which still keep text-only dating claims, and which remain unresolved.
 - Which projects already have enough structured evidence for automatic sample-site extraction and which remain in the manual curation queue.
 - Which projects still have unresolved sample counts or unrecovered sample identities.
 - Which projects are intentionally retained as rejected reference rows instead of

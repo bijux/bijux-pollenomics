@@ -1,0 +1,217 @@
+# Animal sample chronology viewer
+
+- Sample chronology rows: `207`
+- Normalized intervals: `156`
+- Normalized points: `12`
+- Text-only rows: `13`
+- Unresolved rows: `26`
+
+| Species | Project accession | Sample id | Strength | Normalization | Chronology |
+| --- | --- | --- | --- | --- | --- |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605068 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605069 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605070 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605071 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605072 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605073 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605074 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605075 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605076 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605077 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605078 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605079 | unresolved | unresolved |  |
+| Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605080 | unresolved | unresolved |  |
+| Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379528 | unresolved | unresolved |  |
+| Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379529 | unresolved | unresolved |  |
+| Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | project_context_interval | normalized_interval | Ancient European dog genomic context |
+| Canis lupus familiaris | SRS1407453 | srs1407453:srs1407453 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 28 | sample_owned_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 29 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 33 | sample_owned_interval | normalized_interval | 6400-6300 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 38 | sample_owned_interval | normalized_interval | 6400-6300 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 4 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 44 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 45 | sample_owned_text_only | text_only_unparsed | - |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 47 | sample_owned_interval | normalized_interval | 6600-6500 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 50 | sample_owned_text_only | text_only_unparsed | - |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 51 | sample_owned_text_only | text_only_unparsed | - |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 54 | sample_owned_interval | normalized_interval | 6600-6500 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 55 | sample_owned_interval | normalized_interval | 6600-6500 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 56 | sample_owned_interval | normalized_interval | 6600-6500 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 57 | sample_owned_interval | normalized_interval | 6400-6300 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 58 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 59 | sample_owned_interval | normalized_interval | 6400-6300 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 60 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 61 | sample_owned_interval | normalized_interval | 6400-6300 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 62 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 66 | sample_owned_interval | normalized_interval | 6400-6300 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 68 | sample_owned_text_only | text_only_unparsed | - |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 69 | sample_owned_interval | normalized_interval | 6400-6300 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 70 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 71 | sample_owned_interval | normalized_interval | 6300-6200 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh 9 | sample_owned_interval | normalized_interval | 6500-6400 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh11 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh12 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh14 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh15 | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh16 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh17 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh19 | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh2 | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh20 | sample_owned_interval | normalized_interval | 6500-6300 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh24 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh26 | sample_owned_interval | normalized_interval | 6300-6100 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh27 | sample_owned_interval | normalized_interval | 6500-6300 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh3 | sample_owned_interval | normalized_interval | 6300-6100 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh32 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh35 | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh41 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh6 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh7 | sample_owned_interval | normalized_interval | 6300-6200 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bh8 | sample_owned_interval | normalized_interval | 6300-6100 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bk1 | sample_owned_interval | normalized_interval | 8400-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bk2 | sample_owned_interval | normalized_interval | 8400-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bk3 | sample_owned_interval | normalized_interval | 8400-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bk4 | sample_owned_interval | normalized_interval | 8400-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:bk5 | sample_owned_interval | normalized_interval | 8400-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ch1 | sample_owned_interval | normalized_interval | 7400-7100 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ch2 | sample_owned_interval | normalized_interval | 7400-7100 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ch3 | sample_owned_interval | normalized_interval | 7400-7100 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ch4 | sample_owned_interval | normalized_interval | 7400-7100 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ch5 | sample_owned_interval | normalized_interval | 7400-7100 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb10 | sample_owned_interval | normalized_interval | 6500-6000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb12 | sample_owned_interval | normalized_interval | 6500-6000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb13 | sample_owned_text_only | text_only_unparsed | 10./9. M cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb14 | sample_owned_text_only | text_only_unparsed | 10./9. M cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb15 | sample_owned_text_only | text_only_unparsed | 10./9. M cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb2 | sample_owned_interval | normalized_interval | 9600-7800 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb24 | sample_owned_text_only | text_only_unparsed | Epipaleolithic |
+| Ovis aries | PRJEB36540 | prjeb36540:pb25 | sample_owned_interval | normalized_interval | 14000-11000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb26 | sample_owned_text_only | text_only_unparsed | Epipaleolithic |
+| Ovis aries | PRJEB36540 | prjeb36540:pb28 | sample_owned_interval | normalized_interval | 14000-11000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb29 | sample_owned_text_only | text_only_unparsed | 10./9. M cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb31 | sample_owned_text_only | text_only_unparsed | Epipaleolithic |
+| Ovis aries | PRJEB36540 | prjeb36540:pb32 | sample_owned_text_only | text_only_unparsed | Epipaleolithic |
+| Ovis aries | PRJEB36540 | prjeb36540:pb33 | sample_owned_interval | normalized_interval | 14000-11000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb6 | sample_owned_interval | normalized_interval | 6500-6000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb8 | sample_owned_interval | normalized_interval | 6500-6000 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:pb9 | sample_owned_text_only | text_only_unparsed | 7. M cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep02 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep03 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep03_depo* | sample_owned_interval | normalized_interval | 7059-6756 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep05 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep09 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep10 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep10_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep11_depo | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep12_depo | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep13_depo | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep14_depo | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep15_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1637 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1638 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1639 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1640 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1641 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1642 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1653 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1654 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1659 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1661 | sample_owned_interval | normalized_interval | 6300-6100 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep16_depo | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep17 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep17_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep18_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep19_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep1_depo | sample_owned_interval | normalized_interval | 7500-7000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep20 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep20_depo | sample_owned_interval | normalized_interval | 6500-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep2_depo | sample_owned_interval | normalized_interval | 7500-7000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep4 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep41 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep43 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep45 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep46 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep48 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep48_2014 | sample_owned_interval | normalized_interval | 6800-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep49 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep4_depo | sample_owned_interval | normalized_interval | 7100-6900 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep5 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep50 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep52 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep53 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep54 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep55 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep56 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep57 | sample_owned_interval | normalized_interval | 6700-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep57_2014 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep58 | sample_owned_interval | normalized_interval | 6645-6505 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep59 | sample_owned_interval | normalized_point | 6700 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep5_depo | sample_owned_interval | normalized_interval | 7500-7000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep60 | sample_owned_interval | normalized_interval | 6700-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep60_2014 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep61 | sample_owned_interval | normalized_interval | 6800-6700 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep62* | sample_owned_interval | normalized_interval | 7031-6687 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep63 | sample_owned_interval | normalized_interval | 6700-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep68_2014 | sample_owned_interval | normalized_interval | 6900-6800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep6_depo | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep7 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep72_2014 | sample_owned_interval | normalized_interval | 6900-6800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep78_2014 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep7_depo | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep8 | sample_owned_interval | normalized_interval | 6000-5800 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep82_2014 | sample_owned_interval | normalized_interval | 6700-6600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep83 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep83_2014 | sample_owned_interval | normalized_interval | 6469-6361 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep87_2014 | sample_owned_interval | normalized_interval | 6800-6700 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep8_depo | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep9 | sample_owned_interval | normalized_interval | 6085-6010 cal BCE 7200+/-30 BPδ (Beta-373270) |
+| Ovis aries | PRJEB36540 | prjeb36540:tep93_2014 | sample_owned_interval | normalized_interval | 6800-6700 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep94_2014 | sample_owned_interval | normalized_interval | 6800-6700 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep9_depo | sample_owned_interval | normalized_interval | 6500-6400 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh1 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh10 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh11 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh13 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh14 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh15 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh16 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh17 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh18 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh19 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh2 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh20 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh21 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh22 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh24 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh25 | sample_owned_interval | normalized_point | 6000-5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh28 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh29 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh3 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh30 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh33 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh35 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh38 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh39 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh40 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh5 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh7 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:uh8 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu04 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu06 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu09 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu12 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu16 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu23 | sample_owned_interval | normalized_point | 6000- 5700/5600 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu26 | sample_owned_interval | normalized_interval | 6850-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu27 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu30 | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu31* | sample_owned_interval | normalized_interval | 6227-6071 cal BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu32 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu34 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu36 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu37 | sample_owned_interval | normalized_interval | 6500-6000 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu4 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu6 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu9 | sample_owned_interval | normalized_interval | 7000-6500 BCE |
