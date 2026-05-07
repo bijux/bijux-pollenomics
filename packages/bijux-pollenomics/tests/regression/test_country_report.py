@@ -1585,6 +1585,20 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "animal_country_species_coverage.md").exists())
             self.assertTrue((output / "animal_atlas_readiness.json").exists())
             self.assertTrue((output / "animal_atlas_readiness.md").exists())
+            self.assertTrue((output / "animal_foundation_validation.json").exists())
+            self.assertTrue((output / "animal_foundation_validation.md").exists())
+            self.assertTrue((output / "animal_cross_surface_drift.json").exists())
+            self.assertTrue((output / "animal_cross_surface_drift.md").exists())
+            self.assertTrue((output / "animal_scientific_caveat_ledger.json").exists())
+            self.assertTrue((output / "animal_scientific_caveat_ledger.md").exists())
+            self.assertTrue((output / "animal_point_support_packets.json").exists())
+            self.assertTrue((output / "animal_point_support_packets.md").exists())
+            self.assertTrue((output / "animal_project_absence_packets.json").exists())
+            self.assertTrue((output / "animal_project_absence_packets.md").exists())
+            self.assertTrue((output / "animal_foundation_review.json").exists())
+            self.assertTrue((output / "animal_foundation_review.md").exists())
+            self.assertTrue((output / "animal_publication_release_gate.json").exists())
+            self.assertTrue((output / "animal_publication_release_gate.md").exists())
             self.assertTrue((output / "animal_human_chronology_overlap.json").exists())
             self.assertTrue((output / "animal_pollen_chronology_overlap.json").exists())
             self.assertTrue(
@@ -1613,6 +1627,16 @@ class CountryReportTests(unittest.TestCase):
             )
             country_species_coverage = json.loads(
                 (output / "animal_country_species_coverage.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            foundation_review = json.loads(
+                (output / "animal_foundation_review.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            release_gate = json.loads(
+                (output / "animal_publication_release_gate.json").read_text(
                     encoding="utf-8"
                 )
             )
@@ -1672,7 +1696,30 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "animal_atlas_readiness.json",
             )
+            self.assertEqual(
+                published_summary["artifacts"]["public_animal_reporting"][
+                    "animal_foundation_validation_json"
+                ],
+                "animal_foundation_validation.json",
+            )
+            self.assertEqual(
+                published_summary["artifacts"]["public_animal_reporting"][
+                    "animal_foundation_review_json"
+                ],
+                "animal_foundation_review.json",
+            )
+            self.assertEqual(
+                published_summary["artifacts"]["public_animal_reporting"][
+                    "animal_publication_release_gate_json"
+                ],
+                "animal_publication_release_gate.json",
+            )
             self.assertEqual(animal_output_audit["report_root"], str(output))
+            self.assertEqual(
+                foundation_review["public_posture"],
+                "governed_metadata_foundation_not_reference_grade",
+            )
+            self.assertTrue(release_gate["overall_ok"])
             sheep_audit_row = next(
                 row
                 for row in animal_output_audit["species_rows"]
