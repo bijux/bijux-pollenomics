@@ -36,7 +36,197 @@
     "scientific_scope": "Cattle support remains split-sensitive. Wild or progenitor context must not be flattened into domesticated-core cattle support.",
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
-  "sample_records": [],
+  "sample_records": [
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjeb31621",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJEB31621",
+          "sample:PRJEB31621"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:sample-site:prjeb31621",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJEB31621",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB31621",
+      "group_id": "PRJEB31621",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+      "year_first_published": "2019",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "project_accession": "PRJEB31621",
+      "paper_doi": "10.1126/science.aav1002",
+      "paper_url": "https://doi.org/10.1126/science.aav1002",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjeb75467",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJEB75467",
+          "sample:PRJEB75467"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:sample-site:prjeb75467",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB75467",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJEB75467",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB75467",
+      "group_id": "PRJEB75467",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "The genomic natural history of the aurochs",
+      "year_first_published": "2024",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJEB75467"
+      ],
+      "project_accession": "PRJEB75467",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "paper_url": "https://doi.org/10.1038/s41586-024-08112-6",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:PRJNA705960"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:sample-site:prjna705960",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJNA705960",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": 42.75,
+        "longitude": -8.75,
+        "latitude_text": "42.75",
+        "longitude_text": "-8.75",
+        "confidence": "approximate"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "This row captures domestic cattle evidence from Galicia and must stay separate from aurochs progenitor context.",
+      "sample_basis": "project_accession_anchor"
+    }
+  ],
   "locality_records": [
     {
       "identity": {
@@ -396,14 +586,6 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Bos taurus",
-      "source_token": "bos_taurus",
-      "record_kind": "sample_records",
-      "reason": "sample_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level archive curation, but not enough sample-level raw metadata to emit sample rows honestly."
-    },
-    {
-      "schema_version": "adna-normalization-refusal.v1",
-      "species_latin_name": "Bos taurus",
       "source_token": "PRJEB31621",
       "record_kind": "locality_records",
       "reason": "locality_lead_not_yet_curated",
@@ -418,5 +600,5 @@
       "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs accession-backed sample master rows, project summaries, study summaries, and curated locality summaries. Site and chronology extraction still vary by accession and remain explicit in sample inclusion status rather than being silently flattened."
 }
