@@ -1,0 +1,509 @@
+{
+  "schema_version": "adna-nonhuman-normalization-bundle.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Equus asinus",
+      "slug": "equus_asinus",
+      "common_name": "donkey",
+      "support_status": "comparator_only",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "donkey"
+      ],
+      "notes": "Comparator support only. Donkey evidence must not be flattened into horse support."
+    },
+    "root_slug": "equus_asinus",
+    "data_root": "data/adna/equus_asinus",
+    "normalized_sample_namespace": "equus_asinus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "sample_records": [],
+  "locality_records": [],
+  "project_summaries": [
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "equus_asinus:project:PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB43564",
+      "study_token": "study:project:prjeb43564",
+      "source_family": "ENA",
+      "source_release": "PRJEB43564",
+      "result_kind": "read_run",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "review_strength": "comparator_only",
+      "record_modality": "archive_reads",
+      "domestication_status": "comparator_only",
+      "comparator_status": true,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "archaeological_period_assignment",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "archaeological_period_label_allowed",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Ancient donkey comparator project kept separate from horse support."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "equus_asinus:project:PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB50952",
+      "study_token": "study:project:prjeb50952",
+      "source_family": "ENA",
+      "source_release": "PRJEB50952",
+      "result_kind": "read_run",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "review_strength": "comparator_only",
+      "record_modality": "archive_reads",
+      "domestication_status": "comparator_only",
+      "comparator_status": true,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Ancient donkey comparator project kept separate from horse support."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "equus_asinus:project:PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52590",
+      "study_token": "study:project:prjeb52590",
+      "source_family": "ENA",
+      "source_release": "PRJEB52590",
+      "result_kind": "read_run",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "review_strength": "comparator_only",
+      "record_modality": "archive_reads",
+      "domestication_status": "comparator_only",
+      "comparator_status": true,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "archaeological_period_assignment",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "archaeological_period_label_allowed",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Ancient donkey comparator project kept separate from horse support."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "equus_asinus:project:PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB52849",
+      "study_token": "study:project:prjeb52849",
+      "source_family": "ENA",
+      "source_release": "PRJEB52849",
+      "result_kind": "read_run",
+      "archive_status": "comparator_only",
+      "evidence_strength": "archive_only",
+      "review_strength": "comparator_only",
+      "record_modality": "archive_reads",
+      "domestication_status": "comparator_only",
+      "comparator_status": true,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "archaeological_period_assignment",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "archaeological_period_label_allowed",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Ancient donkey comparator project kept separate from horse support."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "equus_asinus:project:PRJEB55549",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accession": "PRJEB55549",
+      "study_token": "study:project:prjeb55549",
+      "source_family": "ENA",
+      "source_release": "PRJEB55549",
+      "result_kind": "analysis",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "review_strength": "comparator_only",
+      "record_modality": "archive_reads",
+      "domestication_status": "comparator_only",
+      "comparator_status": true,
+      "normalized_breed_label": null,
+      "sequencing_target": "analysis_only",
+      "material_basis": "not_yet_curated",
+      "dating_basis": "not_yet_curated",
+      "geographic_basis": "not_yet_curated",
+      "coordinate_policy": "manual_coordinate_review_required",
+      "chronology_policy": "manual_chronology_review_required",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Analysis-level donkey entry; not promoted into direct curated support."
+    }
+  ],
+  "study_summaries": [
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb43564",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accessions": [
+        "PRJEB43564"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "comparator_only"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "comparator_only",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "archaeological_period_assignment"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb50952",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accessions": [
+        "PRJEB50952"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "comparator_only"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "comparator_only",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "mixed_radiocarbon_and_archaeological_context"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb52590",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accessions": [
+        "PRJEB52590"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "comparator_only"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "comparator_only",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "archaeological_period_assignment"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb52849",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accessions": [
+        "PRJEB52849"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "comparator_only"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "comparator_only",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "archaeological_period_assignment"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb55549",
+      "species_latin_name": "Equus asinus",
+      "species_common_name": "donkey",
+      "project_accessions": [
+        "PRJEB55549"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "reject_or_out_of_scope"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "comparator_only",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "analysis_only"
+      ],
+      "material_bases": [
+        "not_yet_curated"
+      ],
+      "dating_bases": [
+        "not_yet_curated"
+      ],
+      "geographic_bases": [
+        "not_yet_curated"
+      ]
+    }
+  ],
+  "lineage_records": [
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "equus_asinus:project:PRJEB43564",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB43564.filereport.tsv",
+      "source_accessions": [
+        "PRJEB43564"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "source_family:ENA",
+        "project_accession:PRJEB43564",
+        "archive_status:comparator_only"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "equus_asinus:project:PRJEB50952",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB50952.filereport.tsv",
+      "source_accessions": [
+        "PRJEB50952"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "source_family:ENA",
+        "project_accession:PRJEB50952",
+        "archive_status:comparator_only"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "equus_asinus:project:PRJEB52590",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB52590.filereport.tsv",
+      "source_accessions": [
+        "PRJEB52590"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "source_family:ENA",
+        "project_accession:PRJEB52590",
+        "archive_status:comparator_only"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "equus_asinus:project:PRJEB52849",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB52849.filereport.tsv",
+      "source_accessions": [
+        "PRJEB52849"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "source_family:ENA",
+        "project_accession:PRJEB52849",
+        "archive_status:comparator_only"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "equus_asinus:project:PRJEB55549",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB55549.filereport.tsv",
+      "source_accessions": [
+        "PRJEB55549"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "source_family:ENA",
+        "project_accession:PRJEB55549",
+        "archive_status:reject_or_out_of_scope"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb43564",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB43564.filereport.tsv",
+      "source_accessions": [
+        "PRJEB43564"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "study_token:study:project:prjeb43564",
+        "project_accession:PRJEB43564"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb50952",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB50952.filereport.tsv",
+      "source_accessions": [
+        "PRJEB50952"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "study_token:study:project:prjeb50952",
+        "project_accession:PRJEB50952"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb52590",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB52590.filereport.tsv",
+      "source_accessions": [
+        "PRJEB52590"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "study_token:study:project:prjeb52590",
+        "project_accession:PRJEB52590"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb52849",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB52849.filereport.tsv",
+      "source_accessions": [
+        "PRJEB52849"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "study_token:study:project:prjeb52849",
+        "project_accession:PRJEB52849"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb55549",
+      "source_artifact_path": "data/adna/equus_asinus/raw/ena/PRJEB55549.filereport.tsv",
+      "source_accessions": [
+        "PRJEB55549"
+      ],
+      "lineage_tokens": [
+        "species:Equus asinus",
+        "study_token:study:project:prjeb55549",
+        "project_accession:PRJEB55549"
+      ]
+    }
+  ],
+  "refusals": [
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus asinus",
+      "source_token": "equus_asinus",
+      "record_kind": "sample_records",
+      "reason": "sample_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level archive curation, but not enough sample-level raw metadata to emit sample rows honestly."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Equus asinus",
+      "source_token": "equus_asinus",
+      "record_kind": "locality_records",
+      "reason": "locality_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+    }
+  ],
+  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+}

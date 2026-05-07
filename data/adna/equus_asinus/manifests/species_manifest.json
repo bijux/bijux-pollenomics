@@ -1,0 +1,34 @@
+{
+  "schema_version": "adna-species-manifest.v1",
+  "species": {
+    "latin_name": "Equus asinus",
+    "slug": "equus_asinus",
+    "common_name": "donkey",
+    "support_status": "comparator_only",
+    "modalities": [
+      "archive_reads",
+      "paper_only"
+    ],
+    "source_families": [
+      "ENA",
+      "SRA",
+      "BioProject"
+    ],
+    "aliases": [
+      "donkey"
+    ],
+    "notes": "Comparator support only. Donkey evidence must not be flattened into horse support."
+  },
+  "root_slug": "equus_asinus",
+  "data_root": "data/adna/equus_asinus",
+  "normalized_sample_namespace": "equus_asinus:normalized_sample",
+  "tracked_layout": [
+    "raw",
+    "normalized",
+    "manifests",
+    "reports",
+    "review"
+  ],
+  "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+  "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+}
