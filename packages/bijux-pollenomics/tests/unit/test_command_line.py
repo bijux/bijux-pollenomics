@@ -162,6 +162,29 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 11)
         handler.assert_called_once_with(args)
 
+    def test_build_parser_supports_refresh_animal_adna_foundation_command(self) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-animal-adna-foundation"])
+
+        self.assertEqual(args.command, "refresh-animal-adna-foundation")
+        self.assertEqual(args.version, "v66")
+        self.assertEqual(args.species, [])
+
+    def test_run_command_routes_refresh_animal_adna_foundation_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-animal-adna-foundation"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_refresh_animal_adna_foundation",
+            return_value=12,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 12)
+        handler.assert_called_once_with(args)
+
     def test_build_parser_supports_adna_species_command(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-species"])
