@@ -12,7 +12,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -26,7 +26,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -39,8 +39,8 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "country_output_count": 3,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 1
     },
     {
@@ -54,7 +54,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -68,7 +68,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -82,7 +82,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -96,7 +96,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -110,7 +110,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -123,8 +123,8 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "country_output_count": 1,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 1
     },
     {
@@ -138,7 +138,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     }
   ]

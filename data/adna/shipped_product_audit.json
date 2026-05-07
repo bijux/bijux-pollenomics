@@ -3,8 +3,8 @@
   "tracked_species_count": 10,
   "species_with_source_snapshots": 10,
   "species_with_locality_artifacts": 10,
-  "species_with_country_outputs": 0,
-  "species_with_atlas_layers": 0,
+  "species_with_country_outputs": 2,
+  "species_with_atlas_layers": 10,
   "rows": [
     {
       "species_latin_name": "Equus caballus",
@@ -17,7 +17,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -31,7 +31,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -44,8 +44,8 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "country_output_count": 3,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 1
     },
     {
@@ -59,7 +59,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -73,7 +73,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -87,7 +87,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -101,7 +101,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -115,7 +115,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -128,8 +128,8 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "country_output_count": 1,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 1
     },
     {
@@ -143,20 +143,9 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 0,
+      "atlas_layer_count": 1,
       "nordic_unmapped_lead_count": 0
     }
   ],
-  "missing_public_outputs": [
-    "Equus caballus",
-    "Sus scrofa domesticus",
-    "Ovis aries",
-    "Bos taurus",
-    "Capra hircus",
-    "Canis lupus familiaris",
-    "Felis catus",
-    "Camelus dromedarius",
-    "Rangifer tarandus",
-    "Equus asinus"
-  ]
+  "missing_public_outputs": []
 }
