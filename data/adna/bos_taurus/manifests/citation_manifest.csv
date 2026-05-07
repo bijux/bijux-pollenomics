@@ -1,0 +1,4 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Bos taurus,PRJEB31621,paper_pinned_core,primary_paper_pinned,"Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",10.1126/science.aav1002,31296769,,Science,2019,primary_paper,Primary paper and PubMed record explicitly anchor PRJEB31621 to ancient cattle genomes.
+Bos taurus,PRJEB75467,paper_pinned_core,primary_paper_pinned,The genomic natural history of the aurochs,10.1038/s41586-024-08112-6,,,Nature,2024,primary_paper,Primary paper anchors PRJEB75467 to the aurochs reference framework.
+Bos taurus,PRJNA705960,archive_verified_needs_paper_pinning,archive_only,,,,,,,,
