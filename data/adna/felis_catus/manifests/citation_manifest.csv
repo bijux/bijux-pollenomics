@@ -1,0 +1,3 @@
+species_latin_name,project_accession,archive_status,evidence_strength,paper_title,paper_doi,pubmed_id,pmc_id,journal_title,publication_year,reference_kind,pinning_evidence
+Felis catus,PRJEB81815,paper_pinned_core,primary_paper_pinned,The dispersal of domestic cats from North Africa to Europe around 2000 years ago,10.1126/science.adt2642,,PMC7618505,Science,2024,primary_paper,Primary paper explicitly names PRJEB81815 in data availability.
+Felis catus,PRJNA1178732,paper_pinned_core,primary_paper_pinned,"The late arrival of domestic cats in China via the Silk Road after 3,500 years of human-leopard cat commensalism",10.1016/j.xgen.2025.101099,,PMC12926185,Cell Genomics,2025,primary_paper,Primary paper explicitly names PRJNA1178732 for newly generated FASTQ data.
