@@ -1,0 +1,65 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Ovis aries",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:project-locality:prjeb59481",
+        "locality_text": "Baltic Sea Region short-tailed sheep context",
+        "political_entity": "Baltic Sea Region",
+        "source_anchor_tokens": [
+          "PRJEB59481",
+          "58.50",
+          "22.50"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB59481"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "coordinates": {
+        "latitude": 58.5,
+        "longitude": 22.5,
+        "latitude_text": "58.50",
+        "longitude_text": "22.50",
+        "confidence": "inferred"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB59481"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB59481"
+      ],
+      "chronology": {
+        "original_text": "Four millennia of Baltic sheep history",
+        "time_start_bp": 0,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2000,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:project_locality",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "original_location_text": "Baltic Sea Region short-tailed sheep context",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+      "interpretation_note": "This row represents the Baltic sheep evidence base as a Nordic-relevant regional lead, not as one point-sized excavation."
+    }
+  ]
+}
