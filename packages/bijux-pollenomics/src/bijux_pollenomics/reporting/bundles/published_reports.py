@@ -125,4 +125,11 @@ def publish_published_reports_tree(
         render_public_animal_output_audit_markdown(animal_output_audit),
         encoding="utf-8",
     )
+    repository_claim_audit = json.loads(
+        (staging_output_root / "repository_claim_audit.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    if not bool(repository_claim_audit.get("overall_ok")):
+        raise ValueError("Repository claim audit failed")
     return generated_report

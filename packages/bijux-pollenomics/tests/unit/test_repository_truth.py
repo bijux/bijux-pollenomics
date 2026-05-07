@@ -99,7 +99,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertIn("publication_accounting", markdown)
 
-    def test_claim_audit_exposes_current_animal_review_overclaim_before_reframe(
+    def test_claim_audit_passes_once_animal_review_freezes_broad_readiness(
         self,
     ) -> None:
         payload = build_repository_claim_audit(
@@ -110,13 +110,8 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         markdown = render_repository_claim_audit_markdown(payload)
 
         self.assertEqual(payload["schema_version"], "repository-claim-audit.v1")
-        self.assertFalse(payload["overall_ok"])
-        failing_row = next(row for row in payload["checks"] if not row["passed"])
-        self.assertEqual(
-            failing_row["check_id"],
-            "animal_sample_review_freezes_broad_readiness",
-        )
-        self.assertIn("animal_sample_database_review_overclaims_current_depth", failing_row["findings"])
+        self.assertTrue(payload["overall_ok"])
+        self.assertTrue(all(row["passed"] for row in payload["checks"]))
         self.assertIn("# Repository claim audit", markdown)
 
     def test_scientific_progress_audit_prefers_evidence_depth_over_file_count(
@@ -165,4 +160,4 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             claim_audit = (output_root / "repository_claim_audit.json").read_text(
                 encoding="utf-8"
             )
-            self.assertIn('"overall_ok": false', claim_audit)
+            self.assertIn('"overall_ok": true', claim_audit)

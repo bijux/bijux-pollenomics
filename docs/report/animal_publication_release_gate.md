@@ -8,7 +8,7 @@
 
 - Sample database artifacts present: `true`
 - Sample evidence packets present: `true`
-- Map outputs present: `true`
+- Map outputs present: `false`
 
 | Check | Passed | Finding count |
 | --- | --- | ---: |

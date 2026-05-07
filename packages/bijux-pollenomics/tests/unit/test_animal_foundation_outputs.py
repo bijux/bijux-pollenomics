@@ -138,12 +138,17 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertEqual(payload["schema_version"], "animal-sample-database-review.v1")
         self.assertEqual(
             payload["public_posture"],
-            "sample_level_ancient_animal_metadata_database",
+            "partial_sample_owned_animal_evidence_surface",
         )
         self.assertTrue(payload["sample_database_claim_supported"])
-        self.assertTrue(payload["nordic_view_supported_now"])
-        self.assertTrue(payload["region_agnostic_contract_ready"])
+        self.assertFalse(payload["nordic_view_supported_now"])
+        self.assertFalse(payload["region_agnostic_contract_ready"])
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 1)
+        self.assertIn(
+            "published_atlas_point_count_below_minimum_reading_depth",
+            payload["posture_findings"],
+        )
         self.assertIn("sample_foundation_truth", payload["direct_links"])
 
     def test_foundation_review_and_release_gate_keep_public_posture_honest(self) -> None:
@@ -224,7 +229,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         }
         sample_database_review_payload = {
             "sample_database_claim_supported": True,
-            "nordic_view_supported_now": True,
+            "nordic_view_supported_now": False,
         }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
@@ -431,7 +436,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         review_payload = {"reference_grade_claim_allowed": False}
         sample_database_review_payload = {
             "sample_database_claim_supported": True,
-            "nordic_view_supported_now": True,
+            "nordic_view_supported_now": False,
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -582,6 +587,8 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
             self.assertEqual(chronology_payload["row_count"], 207)
             self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
+            self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
+            self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])
             self.assertTrue(gate_payload["overall_ok"])
 
 def _sample_row(

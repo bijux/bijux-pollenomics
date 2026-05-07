@@ -1,6 +1,6 @@
 # Norway Homo sapiens aDNA v66 Report
 
-This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-05-07`.
+This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-05-08`.
 It inventories only Homo sapiens aDNA sample rows that match the `Norway` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary

@@ -1,6 +1,6 @@
 {
   "schema_version": "repository-claim-audit.v1",
-  "overall_ok": false,
+  "overall_ok": true,
   "counts": {
     "tracked_paper_count": 18,
     "papers_with_archived_supplements": 1,
@@ -43,12 +43,10 @@
     },
     {
       "check_id": "animal_sample_review_freezes_broad_readiness",
-      "passed": false,
+      "passed": true,
       "description": "The public animal sample review does not claim broad readiness while mapped depth remains thin.",
-      "finding_count": 1,
-      "findings": [
-        "animal_sample_database_review_overclaims_current_depth"
-      ]
+      "finding_count": 0,
+      "findings": []
     },
     {
       "check_id": "animal_release_gate_blocks_strongest_claim",

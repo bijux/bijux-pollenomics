@@ -654,6 +654,17 @@ def build_animal_sample_database_review(
         status = str(row.get("chronology_normalization_status", "")).strip()
         if status in chronology_status_counts:
             chronology_status_counts[status] += 1
+    paper_with_archived_supplement_count = sum(
+        1 for row in paper_rows if int(row.supplementary_count) > 0
+    )
+    normalized_chronology_count = (
+        chronology_status_counts["normalized_interval"]
+        + chronology_status_counts["normalized_point"]
+    )
+    point_row_count = int(point_payload["row_count"])
+    mapped_sample_share = (
+        round(point_row_count / len(sample_rows), 4) if sample_rows else 0.0
+    )
 
     direct_links = {
         "project_registry": "data/adna/governance/source_library/project_registry.json",
@@ -681,21 +692,55 @@ def build_animal_sample_database_review(
             len(coordinate_rows) > 0,
         )
     )
-    nordic_view_supported_now = bool(point_payload["row_count"]) and bool(country_payloads)
-    region_agnostic_contract_ready = sample_database_claim_supported
+    nordic_view_supported_now = all(
+        (
+            point_row_count >= 10,
+            paper_with_archived_supplement_count >= 5,
+            mapped_sample_share >= 0.05,
+            normalized_chronology_count >= 100,
+            bool(country_payloads),
+        )
+    )
+    region_agnostic_contract_ready = all(
+        (
+            sample_database_claim_supported,
+            not review_payload["blockers"],
+            point_row_count >= 25,
+            paper_with_archived_supplement_count == len(paper_rows),
+            mapped_sample_share >= 0.2,
+        )
+    )
+    posture_findings = []
+    if point_row_count < 10:
+        posture_findings.append("published_atlas_point_count_below_minimum_reading_depth")
+    if paper_with_archived_supplement_count < 5:
+        posture_findings.append("supplement_backed_paper_coverage_still_too_low")
+    if mapped_sample_share < 0.05:
+        posture_findings.append("mapped_sample_share_still_too_low")
+    if normalized_chronology_count < 100:
+        posture_findings.append("normalized_chronology_depth_still_too_thin")
     return {
         "schema_version": "animal-sample-database-review.v1",
-        "public_posture": "sample_level_ancient_animal_metadata_database",
+        "public_posture": "partial_sample_owned_animal_evidence_surface",
         "sample_database_claim_supported": sample_database_claim_supported,
         "nordic_view_supported_now": nordic_view_supported_now,
         "region_agnostic_contract_ready": region_agnostic_contract_ready,
         "world_map_expansion_posture": (
-            "coverage_can_expand_by_adding_new_output_regions_to_the_same_sample_contract"
+            "not_supported_until_source_capture_site_resolution_and_chronology_depth_are_materially_stronger"
         ),
+        "readiness_thresholds": {
+            "minimum_published_atlas_points": 10,
+            "minimum_supplement_backed_papers": 5,
+            "minimum_mapped_sample_share": 0.05,
+            "minimum_normalized_chronology_rows": 100,
+            "minimum_region_agnostic_point_floor": 25,
+            "minimum_region_agnostic_mapped_share": 0.2,
+        },
         "counts": {
             "tracked_project_count": len(project_rows),
             "tracked_paper_count": len(paper_rows),
             "tracked_supplement_count": len(supplement_rows),
+            "papers_with_archived_supplements": paper_with_archived_supplement_count,
             "sample_row_count": len(sample_rows),
             "site_evidence_row_count": len(site_rows),
             "sample_site_row_count": len(sample_site_rows),
@@ -703,9 +748,11 @@ def build_animal_sample_database_review(
             "coordinate_row_count": len(coordinate_rows),
             "published_atlas_point_count": point_payload["row_count"],
             "published_country_bundle_count": len(country_payloads),
+            "mapped_sample_share": mapped_sample_share,
         },
         "locality_status_counts": locality_status_counts,
         "chronology_status_counts": chronology_status_counts,
+        "posture_findings": posture_findings,
         "blockers": list(review_payload["blockers"]),
         "direct_links": direct_links,
     }
@@ -1038,10 +1085,30 @@ def render_animal_sample_database_review_markdown(payload: dict[str, object]) ->
         f"- Coordinate rows: `{payload['counts']['coordinate_row_count']}`",
         f"- Published atlas points: `{payload['counts']['published_atlas_point_count']}`",
         f"- Published country bundles: `{payload['counts']['published_country_bundle_count']}`",
+        f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
+        f"- Mapped sample share: `{payload['counts']['mapped_sample_share']}`",
         "",
-        "## Direct Links",
+        "## Thresholds",
+        "",
+        f"- Minimum published atlas points: `{payload['readiness_thresholds']['minimum_published_atlas_points']}`",
+        f"- Minimum supplement-backed papers: `{payload['readiness_thresholds']['minimum_supplement_backed_papers']}`",
+        f"- Minimum mapped sample share: `{payload['readiness_thresholds']['minimum_mapped_sample_share']}`",
+        f"- Minimum normalized chronology rows: `{payload['readiness_thresholds']['minimum_normalized_chronology_rows']}`",
+        f"- Minimum region-agnostic point floor: `{payload['readiness_thresholds']['minimum_region_agnostic_point_floor']}`",
+        f"- Minimum region-agnostic mapped share: `{payload['readiness_thresholds']['minimum_region_agnostic_mapped_share']}`",
+        "",
+        "## Posture Findings",
         "",
     ]
+    for finding in payload["posture_findings"]:
+        lines.append(f"- {finding}")
+    lines.extend(
+        [
+            "",
+        "## Direct Links",
+        "",
+        ]
+    )
     for label, target in payload["direct_links"].items():
         lines.append(f"- {label}: `{target}`")
     if payload["blockers"]:

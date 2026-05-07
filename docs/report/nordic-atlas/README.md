@@ -1,6 +1,6 @@
 # Nordic Evidence Atlas
 
-This shared interactive map bundle was generated on `2026-05-07`.
+This shared interactive map bundle was generated on `2026-05-08`.
 It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory. When the tracked data root contains mapped animal aDNA locality records, the atlas publishes them as separate domesticated-core and comparator layers with explicit filter and caveat surfaces instead of flattening them into generic context.
 
 ## Included Countries

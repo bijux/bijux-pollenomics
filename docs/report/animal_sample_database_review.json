@@ -1,21 +1,31 @@
 {
   "schema_version": "animal-sample-database-review.v1",
-  "public_posture": "sample_level_ancient_animal_metadata_database",
+  "public_posture": "partial_sample_owned_animal_evidence_surface",
   "sample_database_claim_supported": true,
-  "nordic_view_supported_now": true,
-  "region_agnostic_contract_ready": true,
-  "world_map_expansion_posture": "coverage_can_expand_by_adding_new_output_regions_to_the_same_sample_contract",
+  "nordic_view_supported_now": false,
+  "region_agnostic_contract_ready": false,
+  "world_map_expansion_posture": "not_supported_until_source_capture_site_resolution_and_chronology_depth_are_materially_stronger",
+  "readiness_thresholds": {
+    "minimum_published_atlas_points": 10,
+    "minimum_supplement_backed_papers": 5,
+    "minimum_mapped_sample_share": 0.05,
+    "minimum_normalized_chronology_rows": 100,
+    "minimum_region_agnostic_point_floor": 25,
+    "minimum_region_agnostic_mapped_share": 0.2
+  },
   "counts": {
     "tracked_project_count": 40,
     "tracked_paper_count": 18,
     "tracked_supplement_count": 5,
+    "papers_with_archived_supplements": 1,
     "sample_row_count": 242,
     "site_evidence_row_count": 10,
     "sample_site_row_count": 207,
     "chronology_row_count": 207,
     "coordinate_row_count": 10,
     "published_atlas_point_count": 2,
-    "published_country_bundle_count": 4
+    "published_country_bundle_count": 4,
+    "mapped_sample_share": 0.0083
   },
   "locality_status_counts": {
     "direct_sample_site": 190,
@@ -31,6 +41,11 @@
     "text_only_unparsed": 13,
     "unresolved": 26
   },
+  "posture_findings": [
+    "published_atlas_point_count_below_minimum_reading_depth",
+    "supplement_backed_paper_coverage_still_too_low",
+    "mapped_sample_share_still_too_low"
+  ],
   "blockers": [
     "foundation_validation_not_yet_clean",
     "unresolved_site_assignment_rows_remain",
