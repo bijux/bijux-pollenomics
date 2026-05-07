@@ -1,0 +1,65 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Rangifer tarandus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:project-locality:prjeb60484",
+        "locality_text": "Svalbard ancient reindeer context",
+        "political_entity": "Svalbard",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "78.22",
+          "15.65"
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Svalbard ancient reindeer context",
+      "coordinates": {
+        "latitude": 78.22,
+        "longitude": 15.65,
+        "latitude_text": "78.22",
+        "longitude_text": "15.65",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJEB60484"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "Ancient Arctic archipelago reindeer context",
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "time_mean_bp": 1500,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context"
+      },
+      "sample_namespace": "rangifer_tarandus:project_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Svalbard ancient reindeer context",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+      "interpretation_note": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support."
+    }
+  ]
+}
