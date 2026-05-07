@@ -50,3 +50,6 @@ Cross-species animal aDNA audits live directly under `adna/` as checked-in
 artifacts such as `cross_species_bibliography.json`,
 `cross_species_archive_inventory.csv`, `cross_species_coverage_dashboard.json`,
 `cross_species_freshness.csv`, and `shipped_product_audit.json`.
+Each tracked non-human species root also keeps `raw/source_snapshot.json` and
+`raw/source_snapshot.csv` so archive-facing study wording is preserved alongside
+the narrower curated inventory tables.
