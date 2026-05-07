@@ -1,0 +1,91 @@
+{
+  "projects": [
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90141",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90141&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Ancient goat demographic-history anchor from genome imputation study.",
+      "paper_linkage": {
+        "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+        "doi": "10.1093/gbe/evaf181",
+        "pubmed_id": null,
+        "pmc_id": "PMC12598287",
+        "journal_title": "Genome Biology and Evolution",
+        "publication_year": 2025,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper and PMC record explicitly anchor PRJEB90141 to the ancient goat study."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": "2025-12-31",
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned"
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90261",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90261&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Canary Islands goat temporal continuity anchor.",
+      "paper_linkage": {
+        "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+        "doi": "10.1016/j.isci.2025.113771",
+        "pubmed_id": null,
+        "pmc_id": "PMC12629918",
+        "journal_title": "iScience",
+        "publication_year": 2025,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper and PMC record explicitly anchor PRJEB90261 to the Canary Islands goat dataset."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "historical_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned"
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJNA1328209",
+      "result_kind": "read_run",
+      "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1328209&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "notes": "Qinghai-Xizang Plateau goat population-history anchor.",
+      "paper_linkage": {
+        "paper_title": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+        "doi": "10.24272/j.issn.2095-8137.2025.080",
+        "pubmed_id": "41983443",
+        "pmc_id": null,
+        "journal_title": "Zoological Research",
+        "publication_year": 2025,
+        "reference_kind": "primary_paper",
+        "pinning_evidence": "Primary paper and PubMed record explicitly anchor PRJNA1328209 to the goat dataset."
+      },
+      "ancient_status": "ancient_confirmed",
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "archaeological_period_assignment",
+      "geographic_basis": "site_level_localities",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "evidence_strength": "primary_paper_pinned"
+    }
+  ]
+}
