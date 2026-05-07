@@ -1,0 +1,15 @@
+{
+  "schema_version": "adna-archive-integrity-report.v1",
+  "duplicates": [],
+  "access_findings": [],
+  "species_mismatches": [],
+  "domestication_scope_mismatches": [
+    {
+      "curated_species_latin_name": "Rangifer tarandus",
+      "project_accession": "PRJEB60484",
+      "domestication_scope": "ancient_comparator",
+      "archive_status": "comparator_only",
+      "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference."
+    }
+  ]
+}
