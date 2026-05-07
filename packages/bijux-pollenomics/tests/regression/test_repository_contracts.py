@@ -58,6 +58,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.json").is_file())
         self.assertTrue((adna_root / "cross_species_coverage_dashboard.csv").is_file())
         self.assertTrue((adna_root / "shipped_product_audit.json").is_file())
+        self.assertTrue((adna_root / "source_library" / "project_registry.json").is_file())
+        self.assertTrue((adna_root / "source_library" / "paper_registry.json").is_file())
+        self.assertTrue((adna_root / "source_library" / "supplement_registry.json").is_file())
+        self.assertTrue((adna_root / "source_library" / "source_audit.json").is_file())
+        self.assertTrue((adna_root / "source_library" / "source_blockers.json").is_file())
+        self.assertTrue(
+            (
+                adna_root
+                / "source_library"
+                / "projects"
+                / "PRJEB22390"
+                / "bundle_manifest.json"
+            ).is_file()
+        )
 
     def test_public_report_root_ships_animal_output_audit(self) -> None:
         report_root = REPO_ROOT / "docs" / "report"
