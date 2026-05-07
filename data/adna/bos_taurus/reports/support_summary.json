@@ -479,8 +479,36 @@
         "paper_url": "",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "This row captures domestic cattle evidence from Galicia and must stay separate from aurochs progenitor context.",
+        "inclusion_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
         "sample_basis": "project_accession_anchor"
+      }
+    ],
+    "site_evidence_records": [
+      {
+        "project_accession": "PRJNA705960",
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "site_label": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_artifact_path": "adna/source_library/projects/PRJNA705960/archive_metadata.html",
+        "source_artifact_kind": "archive_metadata_description",
+        "source_locator": "source description snapshot",
+        "exact_source_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+        "source_support_status": "archive_description_quote",
+        "paper_doi": "",
+        "paper_url": "",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "42.75",
+        "longitude_text": "-8.75",
+        "chronology_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "dating_basis": "archaeological_period",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core_with_progenitor_boundary",
+        "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
+        "support_gap_note": "No local primary paper is pinned for this project yet, so the site assignment is currently justified by the captured project description rather than a paper body or supplement."
       }
     ],
     "locality_records": [
@@ -541,7 +569,7 @@
         "original_location_text": "Galician mountain cave cattle context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "This row captures domestic cattle evidence from Galicia and must stay separate from aurochs progenitor context."
+        "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally."
       }
     ],
     "project_summaries": [
