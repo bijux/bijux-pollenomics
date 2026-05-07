@@ -8,6 +8,7 @@ from ...adna.catalogs import (
     build_overbroad_site_ledger,
     build_unresolved_site_ledger,
 )
+from ...adna.sample_truth import build_project_locality_count_drift
 from ...adna.source_library import (
     build_cross_project_source_audit,
     build_paper_registry,
@@ -583,6 +584,7 @@ def build_animal_publication_release_gate(
     reference_grade_claim = "reference-grade nordic animal adna metadata-and-atlas foundation" in docs_text
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
+    project_locality_drift_rows = build_project_locality_count_drift(data_root)
     checks = [
         _check_row(
             "published_points_keep_required_traceability",
@@ -603,6 +605,15 @@ def build_animal_publication_release_gate(
                     and bool(row.get("coordinate_provenance"))
                     and bool(str(row.get("paper_url", "")).strip())
                 )
+            ],
+        ),
+        _check_row(
+            "project_locality_outputs_do_not_flatten_sample_site_disagreement",
+            not project_locality_drift_rows,
+            "Animal publication does not flatten multi-site sample evidence into one project-level locality claim.",
+            [
+                str(row.get("project_accession", ""))
+                for row in project_locality_drift_rows
             ],
         ),
         _check_row(

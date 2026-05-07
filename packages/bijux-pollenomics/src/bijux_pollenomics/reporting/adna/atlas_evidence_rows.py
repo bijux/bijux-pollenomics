@@ -192,6 +192,11 @@ def build_tracked_animal_atlas_evidence_rows(
                 for row in sample_rows
                 if str(row.get("project_accession", "")).strip() in project_accessions
             )
+            _assert_no_project_level_flattening(
+                primary_project_accession=primary_project_accession,
+                site_record_id=site_record_id,
+                sample_rows=matched_sample_rows,
+            )
             site_evidence = site_evidence_lookup.get(primary_project_accession, {})
             citation = citation_lookup.get(primary_project_accession, {})
             review = review_lookup.get(primary_project_accession, {})
@@ -575,6 +580,28 @@ def _supplementary_sources_for(
         if value:
             sources.add(value)
     return tuple(sorted(sources))
+
+
+def _assert_no_project_level_flattening(
+    *,
+    primary_project_accession: str,
+    site_record_id: str,
+    sample_rows: tuple[dict[str, object], ...],
+) -> None:
+    locality_tokens = {
+        str(row.get("locality_identity", {}).get("stable_token", "")).strip()
+        for row in sample_rows
+        if isinstance(row.get("locality_identity"), dict)
+        and str(row.get("locality_identity", {}).get("stable_token", "")).strip()
+        and str(row.get("inclusion_status", "")).strip() != "sample_context_blocked"
+    }
+    if len(locality_tokens) <= 1:
+        return
+    raise ValueError(
+        "Project-level flattening detected for "
+        f"{primary_project_accession}: one locality summary would collapse "
+        f"multiple sample-site identities {sorted(locality_tokens)} into {site_record_id}."
+    )
 
 
 def _paper_url_for(doi: str) -> str:
