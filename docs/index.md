@@ -78,6 +78,8 @@ flowchart TB
 - tracked animal aDNA sample, site, and coordinate files under [`data/adna/`](../data/README.md)
 - sample-owned database artifacts such as
   [`animal_sample_foundation_truth.json`](../data/adna/governance/animal_sample_foundation_truth.json)
+- one public database review packet under
+  [`docs/report/animal_sample_database_review.md`](report/animal_sample_database_review.md)
 - one reader-facing animal aDNA contract page under
   [animal aDNA data model](02-bijux-pollenomics-data/foundation/animal-adna-data-model.md)
 

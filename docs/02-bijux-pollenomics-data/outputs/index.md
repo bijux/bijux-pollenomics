@@ -14,6 +14,7 @@ the reader outputs that query it.
 
 ## Start Here
 
+- sample database review packet: [animal sample database review](../../report/animal_sample_database_review.md)
 - country bundle sample queries: [published reports](published-reports.md)
 - shared atlas view files: [Nordic atlas outputs](nordic-atlas.md)
 - species-owned sample database files: [animal aDNA data model](../foundation/animal-adna-data-model.md)

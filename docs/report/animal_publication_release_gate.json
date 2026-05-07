@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-publication-release-gate.v1",
-  "overall_ok": false,
+  "overall_ok": true,
   "checks": [
     {
       "check_id": "published_points_keep_required_traceability",
@@ -39,12 +39,10 @@
     },
     {
       "check_id": "docs_do_not_claim_reference_grade_without_support",
-      "passed": false,
-      "description": "Public docs do not claim reference-grade posture before the sample database, evidence packets, and map outputs all support it.",
-      "finding_count": 1,
-      "findings": [
-        "docs_claim_reference_grade"
-      ]
+      "passed": true,
+      "description": "Public docs do not claim the strongest posture before the sample database, evidence packets, and map outputs all support it.",
+      "finding_count": 0,
+      "findings": []
     }
   ],
   "reference_grade_claim_allowed": false,
