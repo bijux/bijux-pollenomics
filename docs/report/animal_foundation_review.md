@@ -1,7 +1,7 @@
 # Animal foundation review
 
 - Public posture: `governed_metadata_foundation_not_reference_grade`
-- Reference-grade claim allowed: `false`
+- Strongest claim allowed: `false`
 - Published point count: `2`
 - Direct-coordinate point count: `0`
 - Geocoded point count: `2`

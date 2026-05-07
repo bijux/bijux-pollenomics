@@ -8,6 +8,7 @@ import unittest
 from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_cross_surface_drift_report,
     build_animal_foundation_review_packet,
+    build_animal_sample_database_review,
     build_animal_sample_chronology_viewer,
     build_animal_foundation_validation_report,
     build_animal_point_support_packets,
@@ -122,6 +123,29 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
+    def test_sample_database_review_packet_proves_sample_owned_public_posture(self) -> None:
+        point_payload = build_animal_point_support_packets(
+            data_root=self.data_root,
+            report_root=self.report_root,
+        )
+        payload = build_animal_sample_database_review(
+            data_root=self.data_root,
+            report_root=self.report_root,
+            point_payload=point_payload,
+            review_payload={"blockers": ["foundation_validation_not_yet_clean"]},
+        )
+
+        self.assertEqual(payload["schema_version"], "animal-sample-database-review.v1")
+        self.assertEqual(
+            payload["public_posture"],
+            "sample_level_ancient_animal_metadata_database",
+        )
+        self.assertTrue(payload["sample_database_claim_supported"])
+        self.assertTrue(payload["nordic_view_supported_now"])
+        self.assertTrue(payload["region_agnostic_contract_ready"])
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
+        self.assertIn("sample_foundation_truth", payload["direct_links"])
+
     def test_foundation_review_and_release_gate_keep_public_posture_honest(self) -> None:
         validation_payload = build_animal_foundation_validation_report(
             data_root=self.data_root,
@@ -149,12 +173,19 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             point_payload=point_payload,
             absence_payload=absence_payload,
         )
+        sample_database_review_payload = build_animal_sample_database_review(
+            data_root=self.data_root,
+            report_root=self.report_root,
+            point_payload=point_payload,
+            review_payload=review_payload,
+        )
         gate_payload = build_animal_publication_release_gate(
             data_root=self.data_root,
             report_root=self.report_root,
             docs_root=self.docs_root,
             point_payload=point_payload,
             review_payload=review_payload,
+            sample_database_review_payload=sample_database_review_payload,
         )
 
         self.assertEqual(review_payload["schema_version"], "animal-foundation-review.v1")
@@ -163,8 +194,18 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             review_payload["public_posture"],
             "governed_metadata_foundation_not_reference_grade",
         )
+        self.assertEqual(
+            sample_database_review_payload["schema_version"],
+            "animal-sample-database-review.v1",
+        )
         self.assertEqual(gate_payload["schema_version"], "animal-publication-release-gate.v1")
         self.assertTrue(gate_payload["overall_ok"])
+        self.assertFalse(gate_payload["reference_grade_support_ready"])
+        self.assertTrue(
+            gate_payload["reference_grade_support_requirements"][
+                "sample_database_artifacts_present"
+            ]
+        )
 
     def test_release_gate_fails_when_docs_overclaim_readiness(self) -> None:
         point_payload = {
@@ -180,6 +221,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         }
         review_payload = {
             "reference_grade_claim_allowed": False,
+        }
+        sample_database_review_payload = {
+            "sample_database_claim_supported": True,
+            "nordic_view_supported_now": True,
         }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
@@ -205,6 +250,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 docs_root=docs_root,
                 point_payload=point_payload,
                 review_payload=review_payload,
+                sample_database_review_payload=sample_database_review_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -215,6 +261,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
     def test_release_gate_fails_when_project_locality_output_flattens_sample_sites(self) -> None:
         point_payload = {"rows": []}
         review_payload = {"reference_grade_claim_allowed": False}
+        sample_database_review_payload = {
+            "sample_database_claim_supported": True,
+            "nordic_view_supported_now": False,
+        }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             data_root = root / "data"
@@ -277,6 +327,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 docs_root=docs_root,
                 point_payload=point_payload,
                 review_payload=review_payload,
+                sample_database_review_payload=sample_database_review_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -292,6 +343,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
     def test_release_gate_fails_when_blocked_sample_site_rows_publish_as_exact_rows(self) -> None:
         point_payload = {"rows": []}
         review_payload = {"reference_grade_claim_allowed": False}
+        sample_database_review_payload = {
+            "sample_database_claim_supported": True,
+            "nordic_view_supported_now": False,
+        }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             data_root = root / "data"
@@ -357,6 +412,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 docs_root=docs_root,
                 point_payload=point_payload,
                 review_payload=review_payload,
+                sample_database_review_payload=sample_database_review_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -373,6 +429,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self,
     ) -> None:
         review_payload = {"reference_grade_claim_allowed": False}
+        sample_database_review_payload = {
+            "sample_database_claim_supported": True,
+            "nordic_view_supported_now": True,
+        }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             data_root = root / "data"
@@ -466,6 +526,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 docs_root=docs_root,
                 point_payload=point_payload,
                 review_payload=review_payload,
+                sample_database_review_payload=sample_database_review_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -495,20 +556,32 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "animal_sample_chronology_viewer_json",
                 artifacts,
             )
+            self.assertIn(
+                "animal_sample_database_review_json",
+                artifacts,
+            )
             review_path = output_root / artifacts["animal_foundation_review_json"]
             chronology_path = output_root / artifacts["animal_sample_chronology_viewer_json"]
+            sample_database_review_path = (
+                output_root / artifacts["animal_sample_database_review_json"]
+            )
             gate_path = output_root / artifacts["animal_publication_release_gate_json"]
             self.assertTrue(review_path.is_file())
             self.assertTrue(chronology_path.is_file())
+            self.assertTrue(sample_database_review_path.is_file())
             self.assertTrue(gate_path.is_file())
             review_payload = json.loads(review_path.read_text(encoding="utf-8"))
             chronology_payload = json.loads(chronology_path.read_text(encoding="utf-8"))
+            sample_database_review_payload = json.loads(
+                sample_database_review_path.read_text(encoding="utf-8")
+            )
             gate_payload = json.loads(gate_path.read_text(encoding="utf-8"))
             self.assertEqual(
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertEqual(chronology_payload["row_count"], 207)
+            self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
             self.assertTrue(gate_payload["overall_ok"])
 
 def _sample_row(
