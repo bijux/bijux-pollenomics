@@ -21,6 +21,8 @@
   },
   "animal_adna": {
     "summary_json": "denmark_animal_adna_v66_summary.json",
+    "samples_csv": "denmark_animal_adna_v66_samples.csv",
+    "samples_markdown": "denmark_animal_adna_v66_samples.md",
     "species_csv": "denmark_animal_adna_v66_species.csv",
     "localities_geojson": "denmark_animal_adna_v66_localities.geojson",
     "citations_markdown": "denmark_animal_adna_v66_citations.md",
