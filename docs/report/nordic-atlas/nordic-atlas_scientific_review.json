@@ -160,6 +160,150 @@
       "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
     },
     {
+      "country": "Denmark",
+      "species_latin_name": "Homo sapiens",
+      "evidence_scope": "mapped_direct",
+      "mapped_locality_count": 295,
+      "contextual_project_count": 0,
+      "assignment_confidence": "country_filter_from_aadr_metadata",
+      "caution_note": "Human country assignment is metadata-derived and remains separate from non-human context."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Anas platyrhynchos domesticus",
+      "evidence_scope": "too_weak",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Bos indicus",
+      "evidence_scope": "too_weak",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Bos taurus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 1,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Camelus dromedarius",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 2,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Canis lupus familiaris",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 3,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Capra hircus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 3,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus asinus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus caballus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 4,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Felis catus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 2,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Gallus gallus domesticus",
+      "evidence_scope": "too_weak",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Meleagris gallopavo",
+      "evidence_scope": "too_weak",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Oryctolagus cuniculus",
+      "evidence_scope": "too_weak",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Ovis aries",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 3,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Rangifer tarandus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 0,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "evidence_scope": "direct",
+      "mapped_locality_count": 0,
+      "contextual_project_count": 1,
+      "assignment_confidence": "not_country_assignable_from_current_runtime",
+      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
+    },
+    {
       "country": "Norway",
       "species_latin_name": "Homo sapiens",
       "evidence_scope": "mapped_direct",
@@ -440,150 +584,6 @@
     },
     {
       "country": "Finland",
-      "species_latin_name": "Sus scrofa domesticus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 1,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Homo sapiens",
-      "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 295,
-      "contextual_project_count": 0,
-      "assignment_confidence": "country_filter_from_aadr_metadata",
-      "caution_note": "Human country assignment is metadata-derived and remains separate from non-human context."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Anas platyrhynchos domesticus",
-      "evidence_scope": "too_weak",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Bos indicus",
-      "evidence_scope": "too_weak",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Bos taurus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 1,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Camelus dromedarius",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 2,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Canis lupus familiaris",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 3,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Capra hircus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 3,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Equus asinus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Equus caballus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 4,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Felis catus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 2,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Gallus gallus domesticus",
-      "evidence_scope": "too_weak",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Meleagris gallopavo",
-      "evidence_scope": "too_weak",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Oryctolagus cuniculus",
-      "evidence_scope": "too_weak",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Ovis aries",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 3,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
-      "species_latin_name": "Rangifer tarandus",
-      "evidence_scope": "direct",
-      "mapped_locality_count": 0,
-      "contextual_project_count": 0,
-      "assignment_confidence": "not_country_assignable_from_current_runtime",
-      "caution_note": "Current non-human support is species-level review context, not country-resolved locality evidence."
-    },
-    {
-      "country": "Denmark",
       "species_latin_name": "Sus scrofa domesticus",
       "evidence_scope": "direct",
       "mapped_locality_count": 0,

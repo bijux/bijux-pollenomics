@@ -2,9 +2,9 @@
   "schema_version": "atlas-evidence-surface.v2",
   "countries": [
     "Sweden",
+    "Denmark",
     "Norway",
-    "Finland",
-    "Denmark"
+    "Finland"
   ],
   "layers": [
     {
@@ -745,6 +745,26 @@
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
     },
     {
+      "country": "Denmark",
+      "mapped_direct_species": [
+        "Homo sapiens"
+      ],
+      "mapped_animal_direct_species": [],
+      "unmapped_animal_context_species": [],
+      "too_weak_animal_species": [
+        "Anas platyrhynchos domesticus",
+        "Bos indicus",
+        "Gallus gallus domesticus",
+        "Meleagris gallopavo",
+        "Oryctolagus cuniculus"
+      ],
+      "human_locality_count": 295,
+      "human_sample_count": 653,
+      "mapped_animal_locality_count": 0,
+      "evidence_posture": "human_only_direct",
+      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+    },
+    {
       "country": "Norway",
       "mapped_direct_species": [
         "Homo sapiens"
@@ -780,26 +800,6 @@
       ],
       "human_locality_count": 6,
       "human_sample_count": 32,
-      "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
-      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
-    },
-    {
-      "country": "Denmark",
-      "mapped_direct_species": [
-        "Homo sapiens"
-      ],
-      "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
-      "too_weak_animal_species": [
-        "Anas platyrhynchos domesticus",
-        "Bos indicus",
-        "Gallus gallus domesticus",
-        "Meleagris gallopavo",
-        "Oryctolagus cuniculus"
-      ],
-      "human_locality_count": 295,
-      "human_sample_count": 653,
       "mapped_animal_locality_count": 0,
       "evidence_posture": "human_only_direct",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."

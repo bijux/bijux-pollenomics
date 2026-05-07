@@ -1,0 +1,49 @@
+{
+  "schema_version": "animal-first-appearance-by-country.v1",
+  "rows": [
+    {
+      "country": "Denmark",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 4000,
+      "time_label": "Four millennia of Baltic sheep history",
+      "project_accession": "PRJEB59481",
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "assignment_confidence": "regional_projection"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 4000,
+      "time_label": "Four millennia of Baltic sheep history",
+      "project_accession": "PRJEB59481",
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "assignment_confidence": "regional_projection"
+    },
+    {
+      "country": "Norway",
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "animal_scope": "comparator",
+      "first_signal_bp": 2500,
+      "time_label": "Ancient Arctic archipelago reindeer context",
+      "project_accession": "PRJEB60484",
+      "locality": "Svalbard ancient reindeer context",
+      "assignment_confidence": "territory_projection"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 4000,
+      "time_label": "Four millennia of Baltic sheep history",
+      "project_accession": "PRJEB59481",
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "assignment_confidence": "regional_projection"
+    }
+  ]
+}

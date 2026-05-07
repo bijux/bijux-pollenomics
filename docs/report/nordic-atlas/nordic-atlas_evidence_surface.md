@@ -28,9 +28,9 @@ Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA 
 | Country | Evidence posture | Human localities | Human samples | Mapped animal species | Mapped animal localities | Unmapped animal context | Too weak animal species | Caution |
 | --- | --- | ---: | ---: | --- | ---: | --- | --- | --- |
 | Sweden | human_only_direct | 77 | 416 | none | 0 | none | Anas platyrhynchos domesticus, Bos indicus, Gallus gallus domesticus, Meleagris gallopavo, Oryctolagus cuniculus | Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support. |
+| Denmark | human_only_direct | 295 | 653 | none | 0 | none | Anas platyrhynchos domesticus, Bos indicus, Gallus gallus domesticus, Meleagris gallopavo, Oryctolagus cuniculus | Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support. |
 | Norway | human_only_direct | 69 | 130 | none | 0 | none | Anas platyrhynchos domesticus, Bos indicus, Gallus gallus domesticus, Meleagris gallopavo, Oryctolagus cuniculus | Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support. |
 | Finland | human_only_direct | 6 | 32 | none | 0 | none | Anas platyrhynchos domesticus, Bos indicus, Gallus gallus domesticus, Meleagris gallopavo, Oryctolagus cuniculus | Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support. |
-| Denmark | human_only_direct | 295 | 653 | none | 0 | none | Anas platyrhynchos domesticus, Bos indicus, Gallus gallus domesticus, Meleagris gallopavo, Oryctolagus cuniculus | Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support. |
 
 ## Refusals
 

@@ -1,0 +1,69 @@
+{
+  "schema_version": "animal-country-species-coverage.v1",
+  "rows": [
+    {
+      "country": "Denmark",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "assignment_confidence": "regional_projection",
+      "coordinate_posture": "inferred",
+      "oldest_signal_bp": 0,
+      "youngest_signal_bp": 4000,
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "caution_note": "regional Baltic projection, not country-exact; coordinates remain approximate or inferred"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "assignment_confidence": "regional_projection",
+      "coordinate_posture": "inferred",
+      "oldest_signal_bp": 0,
+      "youngest_signal_bp": 4000,
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "caution_note": "regional Baltic projection, not country-exact; coordinates remain approximate or inferred"
+    },
+    {
+      "country": "Norway",
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "animal_scope": "comparator",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "assignment_confidence": "territory_projection",
+      "coordinate_posture": "approximate",
+      "oldest_signal_bp": 500,
+      "youngest_signal_bp": 2500,
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "caution_note": "territorial projection rather than mainland-only assignment; comparator evidence only; coordinates remain approximate or inferred"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "assignment_confidence": "regional_projection",
+      "coordinate_posture": "inferred",
+      "oldest_signal_bp": 0,
+      "youngest_signal_bp": 4000,
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "caution_note": "regional Baltic projection, not country-exact; coordinates remain approximate or inferred"
+    }
+  ]
+}
