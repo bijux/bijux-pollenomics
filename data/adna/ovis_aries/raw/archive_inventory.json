@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB36540",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB36540&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+        "source_description": "Sheep was among the first domesticated animals, but its demographic history is little understood. Here we present a combined analyses of mitochondrial DNA and genome-wide polymorphism data from ancient central and west Anatolian sheep dating to the early Holocene. First, we observe strong loss of mitochondrial haplotype diversity around 7500 BCE during the early Neolithic, consistent with a domestication-related bottleneck. Post-7000 BCE, mitochondrial haplogroup diversity increases, compatible with admixture from other domestication centers and/or from wild populations. Analysing archaeogenomic data, we further find that Anatolian Neolithic sheep (ANS) are genetically closest to present-day European breeds, and especially those from central and north Europe. Our analysis revealed that Asian contribution to south European breeds, possibly during the Bronze Age, could partly explain this pattern.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -56,7 +67,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB41594",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB41594&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+        "source_description": "The development and dispersal of agropastoralism transformed the cultural and ecological landscapes of the Old World, but little is known about when or how this process first impacted Central Asia. Here, we present archaeological/biomolecular evidence from Obishir V in southern Kyrgyzstan, establishing the presence of domesticated sheep by ca. 6,000 BCE. Zooarchaeological and collagen peptide mass fingerprinting show exploitation of Ovis and Capra, while cementum analysis of intact teeth implicates possible pastoral slaughter during the fall season. Most significantly, ancient DNA reveals these directly dated specimens as the domestic O. aries, within the genetic diversity of domesticated sheep lineages. Together, these results provide the earliest evidence for the use of livestock in the mountains of the Ferghana Valley, predating previous evidence by 3,000 years and suggesting that domestic animal economies reached the mountains of interior Central Asia far earlier than previously recognized.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -85,7 +107,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB59481",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB59481&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Ancient sheep genomes from Baltic islands",
+        "source_description": "Sheep were domesticated 10-12 thousand years ago (kya) in western Asia. Sheep spread across Europe with the Neolithic expansion and had reached Scandinavia by around 5 kya. At the same time the first wool economies started to become established in the Near East, probably associated with a new type of sheep breeds which later expanded across Europe. Northern European short-tailed sheep are believed to be remnants of the first expansion of meat sheep. Very little is known about the genomics of early sheep in northern Europe with most studies to date focusing on uniparental markers or retrovirus genotypes. In this study we investigate the genomic history of sheep in the Baltic-sea area with a focus on Sweden and Finland. We present five new high quality ancient sheep genomes from two islands, Gotland and Åland, dating from the Late Neoltihic to the late Medieval/early Vasa. We compare these genomes to a large panel of modern breeds from across the world with a focus on northern European breeds. We investigate what happened genetically in Scandinavian sheep from their introduction up until modern times.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -105,7 +138,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJEB61808",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB61808&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Ancient genomes of sheep from Eurasia spanning ten millenia",
+        "source_description": "We report over 100 ancient genomes of sheep, principally from domestic Ovis aries but also from wild Ovis gmelini and Ovis vignei. Please note that the uploaded data is RAW and has not been trimmed for adaptors, due to variation in how groups and pipelines handle data. Please refer to the associated publication for steps on how to replicate our adaptor filtering.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -125,7 +169,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJEB69690",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB69690&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Genomic insights into population history of sheep",
+        "source_description": "Being amongst the first domesticated animal species, the demographic history of sheep is not yet fully understood. Previous findings suggest a complex population history with widespread intercontinental admixture, and point to Southwest Asia as a potential domestication center. Here, we study the domestication history of sheep with pale genomes from Anatolia (n=15), Iran (n=2) and South Russia (n=1). We also incorporate present-day genomes from Anatolian (n=5) and Cypriot mouflon (n=10), which are suggested as close relatives or feralized remnants of domestic sheep. We further study these mouflon populations in a conservation genomics perspective, as they are currently listed as endangered and have comprised small population sizes with multiple bottlenecks in the last decades.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -145,7 +200,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJEB81145",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81145&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Neolithic Sheeps from France",
+        "source_description": "Sheep was one of the first domesticated animals in Neolithic West Eurasia. The zooarchaeological record suggests that domestication first took place in Southwest Asia, although much remains unresolved about the precise location(s) and timing(s) of earliest domestication, or the post-domestication history of sheep. Here we present new 24 partial sheep paleogenomes, including one from late Palaeolithic/Late Glacial and 14 from Neolithic Anatolia, two from Neolithic Iran, two from Neolithic Iberia, three from Neolithic France, and one each from mid-Holocene Baltic and South Russia, in addition to five present-day Central Anatolian Mouflons and two present-day Cyprian Mouflons. We find that domestic sheep breeds are genetically closer to the Anatolian Epipaleolithic sheep, as well as the present-day Anatolian and Cyprian Mouflon than the Iranian Mouflon. This supports a Central Anatolian source for domestication, the first clear-cut evidence of a domestication process in SW Asia outside the Fertile Crescent, although we cannot rule out multiple domestication events also within the Neolithic Fertile Crescent. We further find evidence for multiple admixture and replacement events, including one that parallels the Yamnaya expansion in humans and a post-Bronze Age event that appears to have introduced Asia-related alleles across global sheep breeds. Our findings mark the dynamism of past domestic sheep populations in their potential for dispersal and admixture, sometimes being paralleled by their shepherds and in other cases not. These sequences are those from the three Neolithic sheep from France reported in this paper by Kaptan et al, in press in MBE.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }
