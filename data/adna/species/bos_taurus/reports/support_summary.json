@@ -353,8 +353,17 @@
         "paper_url": "https://doi.org/10.1126/science.aav1002",
         "supplementary_source": "",
         "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "sample_basis": "project_accession_anchor"
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
       },
       {
         "identity": {
@@ -416,8 +425,17 @@
         "paper_url": "https://doi.org/10.1038/s41586-024-08112-6",
         "supplementary_source": "",
         "inclusion_status": "sample_context_blocked",
-        "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
-        "sample_basis": "project_accession_anchor"
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
       },
       {
         "identity": {
@@ -480,7 +498,16 @@
         "supplementary_source": "",
         "inclusion_status": "site_curated",
         "inclusion_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
-        "sample_basis": "project_accession_anchor"
+        "sample_basis": "project_accession_anchor",
+        "archive_native_sample_id": "",
+        "paper_native_sample_label": "",
+        "supplementary_table_sample_label": "",
+        "sample_evidence_status": "not_yet_recoverable",
+        "sample_lineage_path": "",
+        "sample_lineage_locator": "",
+        "sample_lineage_excerpt": "",
+        "sample_identity_resolution": "provisional",
+        "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
       }
     ],
     "coordinate_provenance_records": [

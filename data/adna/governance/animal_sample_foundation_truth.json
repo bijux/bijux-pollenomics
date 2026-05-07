@@ -3,11 +3,11 @@
   "summary": {
     "tracked_species_count": 10,
     "tracked_project_count": 40,
-    "sample_row_count": 40,
+    "sample_row_count": 242,
     "fully_grounded_count": 2,
     "partially_grounded_count": 6,
     "blocked_missing_metadata_count": 19,
-    "blocked_missing_location_detail_count": 13,
+    "blocked_missing_location_detail_count": 215,
     "blocked_weak_chronology_count": 0
   },
   "species_rows": [
@@ -40,14 +40,14 @@
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "sample_row_count": 6,
+      "sample_row_count": 195,
       "fully_grounded_count": 0,
       "partially_grounded_count": 1,
       "blocked_missing_metadata_count": 3,
-      "blocked_missing_location_detail_count": 2,
+      "blocked_missing_location_detail_count": 191,
       "blocked_weak_chronology_count": 0,
       "project_count": 6,
-      "reported_curated_sample_count": 6,
+      "reported_curated_sample_count": 195,
       "uses_project_level_sample_anchor": true
     },
     {
@@ -79,14 +79,14 @@
     {
       "species_latin_name": "Canis lupus familiaris",
       "species_common_name": "dog",
-      "sample_row_count": 3,
+      "sample_row_count": 4,
       "fully_grounded_count": 0,
       "partially_grounded_count": 1,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 2,
+      "blocked_missing_location_detail_count": 3,
       "blocked_weak_chronology_count": 0,
       "project_count": 3,
-      "reported_curated_sample_count": 3,
+      "reported_curated_sample_count": 4,
       "uses_project_level_sample_anchor": true
     },
     {
@@ -105,14 +105,14 @@
     {
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "dromedary camel",
-      "sample_row_count": 2,
+      "sample_row_count": 14,
       "fully_grounded_count": 1,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
+      "blocked_missing_location_detail_count": 13,
       "blocked_weak_chronology_count": 0,
       "project_count": 2,
-      "reported_curated_sample_count": 2,
+      "reported_curated_sample_count": 14,
       "uses_project_level_sample_anchor": true
     },
     {
@@ -351,17 +351,17 @@
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
       "project_accession": "PRJEB36540",
-      "sample_row_count": 1,
+      "sample_row_count": 190,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
+      "blocked_missing_location_detail_count": 190,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
       "project_locality_summary_count": 0,
-      "uses_project_level_sample_anchor": true,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "supplementary_table_sample_label_anchor"
       ]
     },
     {
@@ -555,11 +555,11 @@
       "species_latin_name": "Canis lupus familiaris",
       "species_common_name": "dog",
       "project_accession": "KX379528-KX379529",
-      "sample_row_count": 1,
+      "sample_row_count": 2,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
+      "blocked_missing_location_detail_count": 2,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
       "project_locality_summary_count": 0,
@@ -640,11 +640,11 @@
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "dromedary camel",
       "project_accession": "KU605068-KU605080",
-      "sample_row_count": 1,
+      "sample_row_count": 13,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
+      "blocked_missing_location_detail_count": 13,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
       "project_locality_summary_count": 0,

@@ -149,6 +149,15 @@ class AdnaSampleRecord:
     inclusion_status: str = "included"
     inclusion_note: str = ""
     sample_basis: str = ""
+    archive_native_sample_id: str = ""
+    paper_native_sample_label: str = ""
+    supplementary_table_sample_label: str = ""
+    sample_evidence_status: str = ""
+    sample_lineage_path: str = ""
+    sample_lineage_locator: str = ""
+    sample_lineage_excerpt: str = ""
+    sample_identity_resolution: str = ""
+    sample_ambiguity_note: str = ""
 
     @property
     def genetic_id(self) -> str:
@@ -248,6 +257,15 @@ class AdnaSampleRecord:
             "inclusion_status": self.inclusion_status,
             "inclusion_note": self.inclusion_note,
             "sample_basis": self.sample_basis,
+            "archive_native_sample_id": self.archive_native_sample_id,
+            "paper_native_sample_label": self.paper_native_sample_label,
+            "supplementary_table_sample_label": self.supplementary_table_sample_label,
+            "sample_evidence_status": self.sample_evidence_status,
+            "sample_lineage_path": self.sample_lineage_path,
+            "sample_lineage_locator": self.sample_lineage_locator,
+            "sample_lineage_excerpt": self.sample_lineage_excerpt,
+            "sample_identity_resolution": self.sample_identity_resolution,
+            "sample_ambiguity_note": self.sample_ambiguity_note,
         }
 
 

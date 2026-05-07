@@ -23,7 +23,7 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
             ],
         )
         botai = next(row for row in rows if row.project_accession == "PRJEB22390")
-        self.assertEqual(botai.site_label, "Botai culture steppe context")
+        self.assertEqual(botai.site_label, "Botai archaeological site horse context")
         self.assertEqual(botai.inclusion_status, "site_curated")
 
     def test_species_curated_sample_rows_preserve_supplementary_path_when_archived(self) -> None:
