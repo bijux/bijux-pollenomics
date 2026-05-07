@@ -125,7 +125,7 @@
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This dromedary row is intentionally non-Nordic and exists for domestication context only.",
+      "inclusion_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point.",
       "sample_basis": "project_accession_anchor"
     }
   ]

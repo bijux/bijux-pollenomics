@@ -59,7 +59,7 @@
       "original_location_text": "Ancient European dog CTC sample context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-      "interpretation_note": "This dog row is kept at central-European resolution because the shipped curation still lacks a stronger project-owned site register."
+      "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added."
     }
   ]
 }

@@ -59,7 +59,7 @@
       "original_location_text": "Arabian Peninsula and Levant dromedary context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This dromedary row is intentionally non-Nordic and exists for domestication context only."
+      "interpretation_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point."
     }
   ]
 }

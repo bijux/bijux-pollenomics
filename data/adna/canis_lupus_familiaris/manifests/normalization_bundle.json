@@ -159,7 +159,7 @@
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This dog row is kept at central-European resolution because the shipped curation still lacks a stronger project-owned site register.",
+      "inclusion_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
       "sample_basis": "sample_accession_anchor"
     },
     {
@@ -226,6 +226,34 @@
       "sample_basis": "sample_accession_anchor"
     }
   ],
+  "site_evidence_records": [
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "site_label": "Ancient European dog CTC sample context",
+      "political_entity": "Central Europe",
+      "source_artifact_path": "adna/source_library/papers/10.1038-ncomms16082/article.html",
+      "source_artifact_kind": "article_html_body_quote",
+      "source_locator": "results text",
+      "exact_source_text": "The older specimen, which we refer to hereafter as HXH, was found at the Early Neolithic site of Herxheim and is dated to 5,223-5,040 cal. BCE. The younger specimen, CTC, was found in Cherry Tree Cave and corresponds to the End Neolithic period in Central Europe.",
+      "source_support_status": "article_exact_quote",
+      "paper_doi": "10.1038/ncomms16082",
+      "paper_url": "https://doi.org/10.1038/ncomms16082",
+      "supplementary_source": "",
+      "coordinate_basis": "inferred_region_centroid",
+      "latitude_text": "50.00",
+      "longitude_text": "10.00",
+      "chronology_text": "Ancient European dog genomic context",
+      "time_start_bp": 4500,
+      "time_end_bp": 7000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
+      "support_gap_note": "The source text names Herxheim and Cherry Tree Cave explicitly, but the current normalized locality still aggregates them into one regional lead."
+    }
+  ],
   "locality_records": [
     {
       "identity": {
@@ -284,7 +312,7 @@
       "original_location_text": "Ancient European dog CTC sample context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-      "interpretation_note": "This dog row is kept at central-European resolution because the shipped curation still lacks a stronger project-owned site register."
+      "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added."
     }
   ],
   "project_summaries": [
