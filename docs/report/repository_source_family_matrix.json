@@ -1,0 +1,119 @@
+{
+  "schema_version": "repository-source-family-matrix.v1",
+  "row_count": 8,
+  "rows": [
+    {
+      "source_key": "animal_adna",
+      "display_name": "Animal aDNA papers and supplements",
+      "role": "contextual_domain",
+      "artifact_paths": [
+        "data/adna/governance/source_library/project_registry.json",
+        "data/adna/governance/source_library/project_source_evidence_matrix.json"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md"
+      ],
+      "visible_count": 18,
+      "acquisition_posture": "local_reference_staging_ahead_of_repo_capture",
+      "main_gap": "tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative"
+    },
+    {
+      "source_key": "aadr",
+      "display_name": "AADR human ancient DNA",
+      "role": "contextual_domain",
+      "artifact_paths": [
+        "data/aadr/v66/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/aadr.md"
+      ],
+      "visible_count": 1,
+      "acquisition_posture": "tracked_query_surface",
+      "main_gap": "AADR is queryable and documented, but it remains one context layer rather than the whole repository mission"
+    },
+    {
+      "source_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "role": "primary_domain",
+      "artifact_paths": [
+        "data/landclim/normalized/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/landclim.md"
+      ],
+      "visible_count": 4,
+      "acquisition_posture": "tracked_context_layer",
+      "main_gap": "LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture"
+    },
+    {
+      "source_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "role": "primary_domain",
+      "artifact_paths": [
+        "data/neotoma/normalized/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/neotoma.md"
+      ],
+      "visible_count": 2,
+      "acquisition_posture": "tracked_context_layer",
+      "main_gap": "Neotoma remains a core pollen-site context family and should stay visible beside aDNA and archaeology surfaces"
+    },
+    {
+      "source_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "role": "contextual_domain",
+      "artifact_paths": [
+        "data/sead/normalized/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/sead.md"
+      ],
+      "visible_count": 2,
+      "acquisition_posture": "tracked_context_layer",
+      "main_gap": "SEAD provides environmental archaeology context and should not disappear behind animal intake work"
+    },
+    {
+      "source_key": "raa",
+      "display_name": "RA\u00c4 archaeology context",
+      "role": "contextual_domain",
+      "artifact_paths": [
+        "data/raa/normalized/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/raa.md"
+      ],
+      "visible_count": 2,
+      "acquisition_posture": "tracked_context_layer",
+      "main_gap": "RA\u00c4 remains Sweden-scoped archaeology context and should keep its explicit national scope"
+    },
+    {
+      "source_key": "boundaries",
+      "display_name": "Boundary geometry",
+      "role": "framing_domain",
+      "artifact_paths": [
+        "data/boundaries/normalized/"
+      ],
+      "docs_paths": [
+        "docs/02-bijux-pollenomics-data/sources/boundaries.md"
+      ],
+      "visible_count": 1,
+      "acquisition_posture": "tracked_boundary_frame",
+      "main_gap": "Boundary layers are one of the clearest repository surfaces and keep region framing honest"
+    },
+    {
+      "source_key": "fieldwork",
+      "display_name": "Fieldwork evidence",
+      "role": "contextual_domain",
+      "artifact_paths": [
+        "docs/04-fieldwork/"
+      ],
+      "docs_paths": [
+        "docs/04-fieldwork/index.md"
+      ],
+      "visible_count": 2,
+      "acquisition_posture": "narrow_documented_surface",
+      "main_gap": "Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps"
+    }
+  ]
+}
