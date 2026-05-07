@@ -1087,6 +1087,10 @@ def materialize_source_library(output_root: Path) -> None:
         )
         write_text(paper_dir / "supplementary_manifest.csv", _render_csv(manifest_rows))
 
+    from .sample_master import materialize_sample_master_library
+
+    materialize_sample_master_library(output_root)
+
 
 def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
     requirement = (
