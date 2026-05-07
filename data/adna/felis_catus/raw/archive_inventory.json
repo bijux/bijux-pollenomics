@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB81815",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81815&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Ancient DNA from wild and domestic cats in Europe",
+        "source_description": "The domestic cat (Felis catus) descend from the African wildcat subspecies Felis lybica lybica. Its global distribution alongside humans testifies to its successful adaptation to the anthropogenic environment. Uncertainty remains regarding whether cats originated in the Levant, Egypt or elsewhere, when that process took place, and how cats dispersed into Europe. By generating 87 ancient and modern cat genomes, we demonstrate that cats did not spread to Europe with Neolithic farmers. Our results suggest a more recent (1st millennium BCE) date for cat domestication and that North Africa was the original source of the modern global domestic gene pool. We show that North African cats were introduced to Europe at least twice from genetically distinct populations.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Felis catus",
@@ -56,7 +67,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJNA1178732",
+        "source_family": "BioProject",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1178732",
+        "source_title": "Leopard Cats Occupied Human Settlements in China for 3,500 years before the Arrival of Domestic cats in the 600-900 CE",
+        "source_description": "Raw sequencing data for ancient Chinese leopard cats (Prionailurus bengalensis) and domestic cats (Felis catus)",
+        "title_basis": "ncbi-bioproject-summary",
+        "description_basis": "ncbi-bioproject-summary",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }

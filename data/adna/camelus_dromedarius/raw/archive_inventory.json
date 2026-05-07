@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "SRP073444",
+        "source_family": "SRA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
+        "source_title": "Camelus dromedarius Raw sequence reads",
+        "source_description": "DNA sequences from ancient domestic and wild dromedary camel",
+        "title_basis": "ena-secondary-study-search",
+        "description_basis": "ena-secondary-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -56,7 +67,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "KU605068-KU605080",
+        "source_family": "GenBank",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/nuccore/KU605068",
+        "source_title": "Camelus dromedarius isolate Palm152 mitochondrion, partial genome",
+        "source_description": "KU605068",
+        "title_basis": "ncbi-nuccore-summary",
+        "description_basis": "ncbi-nuccore-summary",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }

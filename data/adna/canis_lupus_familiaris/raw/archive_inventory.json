@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "SRS1407451",
+        "source_family": "SRA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407451",
+        "source_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+        "source_description": "Ancient dog CTC sample explicitly named on the primary paper page.",
+        "title_basis": "primary_paper_sample_accession_fallback",
+        "description_basis": "curated_scope_note_fallback",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -56,7 +67,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "SRS1407453",
+        "source_family": "SRA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407453",
+        "source_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
+        "source_description": "Ancient dog HXH sample explicitly named on the primary paper page.",
+        "title_basis": "primary_paper_sample_accession_fallback",
+        "description_basis": "curated_scope_note_fallback",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -85,7 +107,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "KX379528-KX379529",
+        "source_family": "GenBank",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ncbi.nlm.nih.gov/nuccore/KX379528",
+        "source_title": "Canis lupus familiaris isolate CTCdog mitochondrion, complete genome",
+        "source_description": "KX379528",
+        "title_basis": "ncbi-nuccore-summary",
+        "description_basis": "ncbi-nuccore-summary",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }
