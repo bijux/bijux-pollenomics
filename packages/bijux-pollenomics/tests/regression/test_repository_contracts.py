@@ -258,9 +258,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("- Mapped Nordic rows:", readme_text)
         self.assertIn("- Tracked intake projects:", readme_text)
 
-    def test_public_sources_docs_point_to_project_and_paper_inventory(self) -> None:
-        sources_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+    def test_public_data_docs_keep_the_evidence_chain_directly_linked(self) -> None:
+        projects_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "projects" / "index.md"
+        ).read_text(encoding="utf-8")
+        papers_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "papers" / "index.md"
+        ).read_text(encoding="utf-8")
+        supplements_index = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "supplements"
+            / "index.md"
         ).read_text(encoding="utf-8")
         inventory_page = (
             REPO_ROOT
@@ -272,8 +282,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertTrue(inventory_page.is_file())
         inventory_text = inventory_page.read_text(encoding="utf-8")
+        self.assertIn("tracked_project_and_paper_inventory.json", projects_index)
+        self.assertIn("bundle_manifest.json", projects_index)
+        self.assertIn("paper_registry.json", papers_index)
+        self.assertIn("supplementary_manifest.json", papers_index)
+        self.assertIn("supplement_registry.json", supplements_index)
+        self.assertIn("supplement_zip_member_registry.json", supplements_index)
         self.assertIn("Animal Project and Paper Inventory", inventory_text)
-        self.assertIn("tracked_project_and_paper_inventory.json", inventory_text)
         self.assertIn("source_intake_audit.json", inventory_text)
         self.assertIn("project_sample_master_completeness.json", inventory_text)
         self.assertIn("sample_master.json", inventory_text)
@@ -281,7 +296,6 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("sample_sites.json", inventory_text)
         self.assertIn("project_sample_chronology_review.json", inventory_text)
         self.assertIn("sample_chronology.json", inventory_text)
-        self.assertIn("Animal Project and Paper Inventory", sources_index)
 
     def test_project_sample_master_completeness_keeps_traceable_expected_counts(self) -> None:
         import json
@@ -444,16 +458,34 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("sample-level ancient-DNA metadata", docs_index)
+        self.assertIn("sample-level ancient-animal metadata", docs_index)
+        self.assertIn("map views as downstream products", docs_index)
 
-    def test_public_docs_keep_direct_evidence_and_output_links(self) -> None:
+    def test_public_docs_keep_direct_sample_database_packet_and_query_links(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
-        data_model = (
+        sample_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
-            / "foundation"
-            / "animal-adna-data-model.md"
+            / "samples"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+        site_page = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sites" / "index.md"
+        ).read_text(encoding="utf-8")
+        chronology_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "chronology"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+        coordinate_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "coordinates"
+            / "index.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
@@ -466,25 +498,25 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "published-reports.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("02-bijux-pollenomics-data/foundation/animal-adna-data-model", docs_index)
+        self.assertIn("02-bijux-pollenomics-data/samples/", docs_index)
         self.assertIn("report/nordic-atlas/nordic-atlas_map.html", docs_index)
-        self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", data_model)
-        self.assertIn("data/adna/species/ovis_aries/normalized/site_evidence.json", data_model)
+        self.assertIn("data/adna/governance/animal_sample_foundation_truth.json", sample_page)
+        self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", sample_page)
+        self.assertIn("data/adna/species/ovis_aries/normalized/site_evidence.json", site_page)
+        self.assertIn(
+            "data/adna/governance/source_library/project_sample_chronology_review.json",
+            chronology_page,
+        )
         self.assertIn(
             "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
-            data_model,
+            coordinate_page,
         )
         self.assertIn(
-            "data/adna/governance/animal_sample_product_contract.json",
-            data_model,
+            "../report/animal_point_support_packets.md",
+            atlas_index,
         )
-        self.assertIn(
-            "../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
-            data_model,
-        )
-        self.assertIn("../report/nordic-atlas/nordic-atlas_map.html", atlas_index)
-        self.assertIn("../report/animal_atlas_readiness.md", atlas_index)
-        self.assertIn("../report/animal_country_species_coverage.md", atlas_index)
+        self.assertIn("../../report/animal_point_support_packets.md", published_reports)
+        self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
 
     def test_top_level_product_descriptions_stay_sample_first(self) -> None:
@@ -506,11 +538,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("sample-level animal and human aDNA", root_readme)
-        self.assertIn("sample-level", runtime_readme)
-        self.assertIn("sample-first runtime behavior", alias_readme)
+        self.assertIn("sample\ndatabase and its downstream map/report products", runtime_readme)
+        self.assertIn("same sample-first runtime behavior", alias_readme)
         self.assertIn("sample-first evidence surfaces", runtime_index)
-        self.assertIn("real durable unit: the sample record", data_index)
-        self.assertIn("not the primary evidence artifact", atlas_index)
+        self.assertIn(
+            "real durable unit: the sample record",
+            " ".join(data_index.split()),
+        )
+        self.assertIn("downstream view of the sample database", atlas_index)
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
@@ -594,8 +629,32 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("Use this package if you want the canonical CLI", runtime_readme)
-        self.assertIn("Compatibility and alias distribution", alias_readme)
+        self.assertIn("project intake, paper capture, supplement capture", runtime_readme)
+        self.assertIn("Alias distribution", alias_readme)
         self.assertIn("Maintainer-only package", maintainer_readme)
+        self.assertIn("It is not the owner of project intake", maintainer_readme)
+
+    def test_runtime_package_boundary_doc_names_durable_scientific_ownership(self) -> None:
+        boundary_doc = (
+            REPO_ROOT
+            / "packages"
+            / "bijux-pollenomics"
+            / "src"
+            / "bijux_pollenomics"
+            / "package_boundaries.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("# Runtime Package Boundaries", boundary_doc)
+        self.assertIn("## Project Intake", boundary_doc)
+        self.assertIn("## Paper Capture", boundary_doc)
+        self.assertIn("## Supplement Capture", boundary_doc)
+        self.assertIn("## Sample Extraction", boundary_doc)
+        self.assertIn("## Site Extraction", boundary_doc)
+        self.assertIn("## Chronology Normalization", boundary_doc)
+        self.assertIn("## Coordinate Provenance", boundary_doc)
+        self.assertIn("## Output Publishing", boundary_doc)
+        self.assertIn("bijux_pollenomics.adna.project_sample_sites", boundary_doc)
+        self.assertIn("bijux_pollenomics.reporting", boundary_doc)
 
     def test_module_map_mentions_adna_runtime_boundary(self) -> None:
         module_map = (
