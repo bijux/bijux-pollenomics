@@ -144,12 +144,15 @@ def test_release_readiness_gate_stays_outside_adna_domain() -> None:
     release_gate = (
         RUNTIME_SRC / "foundation" / "release_readiness.py"
     ).read_text(encoding="utf-8")
+    release_bar = (RUNTIME_SRC / "foundation" / "release_bar.py").read_text(encoding="utf-8")
     adna_modules = "\n".join(
         path.read_text(encoding="utf-8") for path in _python_files(ADNA_SRC)
     )
 
     assert "build_release_readiness_report" in release_gate
     assert "build_release_readiness_report" not in adna_modules
+    assert "build_release_bar" in release_bar
+    assert "build_release_bar" not in adna_modules
 
 
 def test_evidence_domain_does_not_import_rendering_cli_or_foundation_layers() -> None:

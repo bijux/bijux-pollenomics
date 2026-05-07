@@ -23,6 +23,7 @@ __all__ = [
     "build_adna_curation_manifest_parser",
     "build_adna_domestication_coverage_parser",
     "build_adna_layout_parser",
+    "build_adna_release_bar_parser",
     "build_adna_release_readiness_parser",
     "build_adna_normalization_bundle_parser",
     "build_adna_runtime_manifest_parser",
@@ -50,6 +51,7 @@ def register_subcommands(
     build_adna_curation_manifest_parser(subparsers)
     build_adna_domestication_coverage_parser(subparsers)
     build_adna_layout_parser(subparsers)
+    build_adna_release_bar_parser(subparsers)
     build_adna_release_readiness_parser(subparsers)
     build_adna_normalization_bundle_parser(subparsers)
     build_adna_runtime_manifest_parser(subparsers)
@@ -175,6 +177,25 @@ def build_adna_release_readiness_parser(
         "--species",
         required=True,
         help="Latin name or registered alias for one species.",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Emit machine-readable JSON instead of a table.",
+    )
+    return parser
+
+
+def build_adna_release_bar_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the platform release-bar parser."""
+    parser = subparsers.add_parser(
+        "adna-release-bar",
+        help=(
+            "Print the platform release bar for calling bijux-pollenomics a real "
+            "pollenomics app."
+        ),
     )
     parser.add_argument(
         "--json",
