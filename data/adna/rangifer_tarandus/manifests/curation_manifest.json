@@ -53,7 +53,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "ancient_comparator"
+      "domestication_scope": "ancient_comparator",
+      "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference.",
+      "nordic_relevance": "nordic_relevant_unmapped",
+      "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+      "last_checked_on": "2026-05-07"
     }
   ],
   "rejected_projects": [
