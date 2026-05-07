@@ -64,6 +64,8 @@ nav:
   - Repository:
       - Repository: 01-bijux-pollenomics/index.md
       - Runtime Purpose and Boundary: 01-bijux-pollenomics/foundation/index.md
+      - Repository Fit: 01-bijux-pollenomics/foundation/repository-fit.md
+      - Pollenomics Engine Roadmap: 01-bijux-pollenomics/foundation/pollenomics-engine-roadmap.md
       - Evidence Publication Flow: 01-bijux-pollenomics/architecture/index.md
       - Commands and Contracts: 01-bijux-pollenomics/interfaces/index.md
       - CLI Surface: 01-bijux-pollenomics/interfaces/cli-surface.md
@@ -75,8 +77,16 @@ nav:
   - Data Reference:
       - Data Reference: 02-bijux-pollenomics-data/index.md
       - Sample, Site, and Coordinate Contract: 02-bijux-pollenomics-data/foundation/index.md
+      - Data System Overview: 02-bijux-pollenomics-data/foundation/data-system-overview.md
       - Animal aDNA Data Model: 02-bijux-pollenomics-data/foundation/animal-adna-data-model.md
       - Directory Layout: 02-bijux-pollenomics-data/foundation/directory-layout.md
+      - Source Comparison: 02-bijux-pollenomics-data/sources/source-comparison.md
+      - AADR: 02-bijux-pollenomics-data/sources/aadr.md
+      - Boundaries: 02-bijux-pollenomics-data/sources/boundaries.md
+      - LandClim: 02-bijux-pollenomics-data/sources/landclim.md
+      - Neotoma: 02-bijux-pollenomics-data/sources/neotoma.md
+      - RAÄ: 02-bijux-pollenomics-data/sources/raa.md
+      - SEAD: 02-bijux-pollenomics-data/sources/sead.md
       - Projects: 02-bijux-pollenomics-data/projects/index.md
       - Animal Project and Paper Inventory: 02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md
       - Papers: 02-bijux-pollenomics-data/papers/index.md
@@ -93,6 +103,8 @@ nav:
   - Maintainer:
       - Maintainer: 03-bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
+      - Operating Guidelines: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/operating-guidelines.md
+      - Quality Gates: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/quality-gates.md
       - Documentation Integrity: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md
       - Release Support: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md
       - Make and Local Commands: 03-bijux-pollenomics-maintain/makes/index.md

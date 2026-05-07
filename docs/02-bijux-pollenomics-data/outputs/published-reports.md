@@ -24,6 +24,8 @@ site, chronology, and coordinate rules are applied?
 - [animal point support packets](../../report/animal_point_support_packets.md)
 - [animal sample database review](../../report/animal_sample_database_review.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
+- [repository truth posture](../../report/repository_truth_posture.md)
+- [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
 - [published reports summary](../../report/published_reports_summary.json)
 
 ## Expected Animal Bundle Files

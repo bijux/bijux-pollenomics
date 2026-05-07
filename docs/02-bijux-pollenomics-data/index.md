@@ -9,19 +9,19 @@ last_reviewed: 2026-05-07
 
 # bijux-pollenomics-data
 
-`bijux-pollenomics-data` is the evidence handbook for the tracked sample
-database. Its main job is to explain how project metadata, papers,
-supplementary material, sample rows, site evidence, chronology, coordinate
-provenance, and report outputs fit together around the real durable unit: the
-sample record.
+`bijux-pollenomics-data` is the evidence handbook for the tracked data system.
+Its main job is to explain how pollen context, environmental archaeology,
+boundary geometry, fieldwork records, ancient DNA source capture, normalized
+evidence files, and report outputs fit together without pretending that one
+thin slice already explains the whole repository.
 
 <div class="bijux-callout"><strong>Use this section when the real question is evidence, not software.</strong> It should tell a reader where a sample row came from, why a site was accepted or blocked, how coordinates were justified, and which files feed the atlas and country bundles.</div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="samples/">Open the sample database files</a>
-  <a class="md-button" href="projects/">Open tracked projects</a>
-  <a class="md-button" href="sites/">Open site evidence</a>
-  <a class="md-button" href="coordinates/">Open coordinate provenance</a>
+  <a class="md-button md-button--primary" href="foundation/data-system-overview/">Open the data system overview</a>
+  <a class="md-button" href="sources/source-comparison/">Open the source comparison</a>
+  <a class="md-button" href="sources/aadr/">Open AADR context</a>
+  <a class="md-button" href="sources/neotoma/">Open Neotoma context</a>
   <a class="md-button" href="outputs/published-reports/">Open country output files</a>
   <a class="md-button" href="outputs/nordic-atlas/">Open atlas output files</a>
 </div>
@@ -30,29 +30,22 @@ sample record.
 
 ```mermaid
 flowchart TB
-    projects["tracked projects"]
-    papers["papers"]
-    supplements["supplementary artifacts"]
-    samples["sample records"]
-    sites["site evidence"]
-    chronology["sample chronology"]
-    coordinates["coordinate provenance"]
+    pollen["pollen context"]
+    archaeology["archaeology context"]
+    boundaries["boundary framing"]
+    adna["sample-backed ancient DNA context"]
     outputs["country bundles and atlas outputs"]
 
-    projects --> papers
-    papers --> supplements
-    supplements --> samples
-    sites --> coordinates
-    samples --> sites
-    samples --> chronology
-    chronology --> outputs
-    samples --> outputs
-    coordinates --> outputs
+    pollen --> outputs
+    archaeology --> outputs
+    boundaries --> outputs
+    adna --> outputs
 ```
 
 ## Start Here
 
-- sample, site, and coordinate contract: [foundation](foundation/index.md)
+- data-system overview: [foundation](foundation/index.md)
+- source-family comparison: [sources/source-comparison](sources/source-comparison.md)
 - tracked project intake: [projects](projects/index.md)
 - paper capture: [papers](papers/index.md)
 - supplementary capture: [supplements](supplements/index.md)

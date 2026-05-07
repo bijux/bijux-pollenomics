@@ -18,3 +18,10 @@ runtime.
 - release support and repository truth gates
 - badge synchronization
 - maintainer-only validation helpers
+
+## Next Pages
+
+- [operating guidelines](operating-guidelines.md)
+- [quality gates](quality-gates.md)
+- [documentation integrity](documentation-integrity.md)
+- [release support](release-support.md)

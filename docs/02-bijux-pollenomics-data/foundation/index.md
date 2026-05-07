@@ -13,6 +13,11 @@ The core discipline of the current repository is simple: a published animal
 point should be explainable from sample rows, site evidence, and coordinate
 provenance, not just from a project list.
 
+That discipline sits inside a broader data system. Pollen context,
+environmental archaeology context, boundary framing, and fieldwork records are
+also tracked source families, and they must remain visible instead of being
+buried beneath the current aDNA recovery effort.
+
 ## What This Section Settles
 
 - what the repository counts as a sample row
@@ -22,5 +27,6 @@ provenance, not just from a project list.
 
 ## Start Here
 
+- [data system overview](data-system-overview.md)
 - [animal aDNA data model](animal-adna-data-model.md)
 - [directory layout](directory-layout.md)

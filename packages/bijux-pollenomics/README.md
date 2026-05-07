@@ -1,12 +1,14 @@
 # bijux-pollenomics
 
-Runtime package for rebuilding the checked-in `bijux-pollenomics` sample
-database and its downstream map/report products.
+Runtime package for rebuilding the checked-in `bijux-pollenomics`
+pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA
+evidence surfaces plus their downstream map/report products.
 
 Use this package if you want the canonical CLI and Python entrypoints that own
-project intake, paper capture, supplement capture, sample extraction, site
-extraction, chronology normalization, coordinate provenance, and the Nordic
-atlas plus country bundles that query those sample records.
+tracked source collection, project intake, paper capture, supplement capture,
+sample extraction, site extraction, chronology normalization, coordinate
+provenance, and the Nordic atlas plus country bundles that summarize those
+reviewable files.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -32,6 +34,9 @@ atlas plus country bundles that query those sample records.
 - readers who want the canonical `bijux-pollenomics` command
 - maintainers who rebuild `data/` and `docs/report/`
 - contributors who need the scientific-logic ownership boundaries inside the runtime package
+- readers who need the canonical runtime that keeps pollenomics and
+  environmental evidence first-class while treating animal aDNA extraction as
+  one still-recovering contextual program
 
 ## Install
 
