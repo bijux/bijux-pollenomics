@@ -18,6 +18,7 @@ from .reporting import (
     write_scientific_review_surface_json,
 )
 from .scientific_review import (
+    AnimalCoordinateVisibilityReview,
     ChronologyOverlapRow,
     EvidenceUncertaintyRow,
     NordicScenarioAssessment,
@@ -31,6 +32,7 @@ from .surfaces import build_atlas_evidence_surface
 __all__ = [
     "ATLAS_EVIDENCE_CONTRIBUTION_ROLES",
     "ATLAS_EVIDENCE_INTERACTION_POSTURES",
+    "AnimalCoordinateVisibilityReview",
     "AtlasEvidenceCountryProfile",
     "AtlasEvidenceLayer",
     "AtlasEvidenceRefusal",

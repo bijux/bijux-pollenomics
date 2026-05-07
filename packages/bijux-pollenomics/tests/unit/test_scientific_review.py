@@ -16,9 +16,10 @@ def test_scientific_review_surface_exposes_country_and_period_coverage() -> None
         context_points=(build_context_point(layer_key="neotoma-pollen"),),
     )
 
-    assert surface.schema_version == "scientific-review-surface.v1"
+    assert surface.schema_version == "scientific-review-surface.v3"
     assert any(row.species_latin_name == "Ovis aries" for row in surface.country_coverage)
     assert any(row.period_label == "1001-3000 BP" for row in surface.period_coverage)
+    assert surface.animal_coordinate_review.named_site_geocoded_feature_count == 0
 
 
 def test_scientific_review_surface_keeps_nonhuman_chronology_not_comparable() -> None:
@@ -60,8 +61,9 @@ def test_scientific_review_surface_markdown_makes_scope_and_blockers_explicit() 
 
     assert "# Scientific Review Surface" in markdown
     assert "Exploratory Scope" in markdown
+    assert "Animal Coordinate Review" in markdown
     assert "nordic_farming_arrival" in markdown
-    assert "animal_evidence_unmapped" in markdown
+    assert "animal_evidence_not_yet_dense_enough_for_fieldwork_recommendation" in markdown
 
 
 def build_human_locality(*, country: str) -> AdnaLocalitySummary:

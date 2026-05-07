@@ -577,18 +577,22 @@ def _species_root(data_root: Path, species_name: str) -> Path:
 
 
 def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:
+    path = species_root / "normalized" / "sample_records.json"
+    if not path.is_file():
+        return []
     payload = json.loads(
-        (species_root / "normalized" / "sample_records.json").read_text(encoding="utf-8")
+        path.read_text(encoding="utf-8")
     )
     rows = payload.get("samples", [])
     return [row for row in rows if isinstance(row, dict)]
 
 
 def _load_coordinate_provenance_rows(species_root: Path) -> list[dict[str, object]]:
+    path = species_root / "normalized" / "coordinate_provenance.json"
+    if not path.is_file():
+        return []
     payload = json.loads(
-        (species_root / "normalized" / "coordinate_provenance.json").read_text(
-            encoding="utf-8"
-        )
+        path.read_text(encoding="utf-8")
     )
     rows = payload.get("coordinate_provenance", [])
     return [row for row in rows if isinstance(row, dict)]

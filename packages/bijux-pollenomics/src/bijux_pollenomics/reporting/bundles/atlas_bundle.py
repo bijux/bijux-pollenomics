@@ -17,6 +17,7 @@ from ...analysis import (
 from ...core.geojson import JsonObject
 from ...data_downloader.models import ContextPointRecord
 from ...evidence import (
+    AnimalCoordinateVisibilityReview,
     build_atlas_evidence_surface,
     build_scientific_review_surface,
     render_atlas_evidence_surface_markdown,
@@ -72,6 +73,11 @@ def publish_multi_country_map_bundle(
         context_root=context_root,
     )
     animal_localities = ()
+    animal_coordinate_review = AnimalCoordinateVisibilityReview(
+        direct_coordinate_feature_count=0,
+        named_site_geocoded_feature_count=0,
+        weaker_geography_feature_count=0,
+    )
     if context_root is not None:
         animal_bundle = build_tracked_animal_atlas_bundle(
             data_root=context_root,
@@ -81,7 +87,16 @@ def publish_multi_country_map_bundle(
         point_layers.extend(animal_bundle.point_layers)
         extra_artifacts.extend(animal_bundle.extra_artifacts)
         animal_localities = animal_bundle.localities
-    animal_atlas_summary = _build_animal_atlas_summary(point_layers, animal_localities)
+        animal_coordinate_review = AnimalCoordinateVisibilityReview(
+            direct_coordinate_feature_count=animal_bundle.coordinate_review.direct_coordinate_feature_count,
+            named_site_geocoded_feature_count=animal_bundle.coordinate_review.named_site_geocoded_feature_count,
+            weaker_geography_feature_count=animal_bundle.coordinate_review.weaker_geography_feature_count,
+        )
+    animal_atlas_summary = _build_animal_atlas_summary(
+        point_layers,
+        animal_localities,
+        animal_coordinate_review,
+    )
     summarized_localities = tuple(summarize_localities(all_samples))
     context_points = _extract_context_points(point_layers)
     evidence_surface = build_atlas_evidence_surface(
@@ -103,6 +118,7 @@ def publish_multi_country_map_bundle(
         human_localities=summarized_localities,
         animal_localities=animal_localities,
         context_points=context_points,
+        animal_coordinate_review=animal_coordinate_review,
     )
     write_scientific_review_surface_json(
         bundle_paths.scientific_review_json_path,
@@ -280,6 +296,7 @@ def _as_optional_int(value: object) -> int | None:
 def _build_animal_atlas_summary(
     point_layers: list[dict[str, object]],
     animal_localities: tuple[object, ...],
+    animal_coordinate_review: AnimalCoordinateVisibilityReview,
 ) -> dict[str, object]:
     animal_layers = [
         layer
@@ -312,6 +329,9 @@ def _build_animal_atlas_summary(
     ]
     return {
         "total_locality_points": len(animal_localities),
+        "direct_coordinate_feature_count": animal_coordinate_review.direct_coordinate_feature_count,
+        "named_site_geocoded_feature_count": animal_coordinate_review.named_site_geocoded_feature_count,
+        "weaker_geography_feature_count": animal_coordinate_review.weaker_geography_feature_count,
         "total_species": len(species_layers),
         "domesticated_species_count": sum(
             1 for row in species_layers if row["animal_scope"] == "domesticated_core"

@@ -85,6 +85,18 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_comparator_animal_localities.geojson",
         )
         self.assertEqual(
+            atlas_paths.animal_atlas_evidence_csv_path.name,
+            "nordic-atlas_animal_atlas_evidence.csv",
+        )
+        self.assertEqual(
+            atlas_paths.animal_atlas_evidence_json_path.name,
+            "nordic-atlas_animal_atlas_evidence.json",
+        )
+        self.assertEqual(
+            atlas_paths.animal_point_traceability_json_path.name,
+            "nordic-atlas_animal_point_traceability.json",
+        )
+        self.assertEqual(
             atlas_paths.candidate_sites_csv_path.name,
             "nordic-atlas_candidate_sites.csv",
         )
@@ -811,6 +823,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue(
                 (output / "nordic-atlas_comparator_animal_localities.geojson").exists()
             )
+            self.assertTrue((output / "nordic-atlas_animal_atlas_evidence.csv").exists())
+            self.assertTrue((output / "nordic-atlas_animal_atlas_evidence.json").exists())
+            self.assertTrue(
+                (output / "nordic-atlas_animal_point_traceability.json").exists()
+            )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
@@ -853,13 +870,44 @@ class CountryReportTests(unittest.TestCase):
                 summary["artifacts"]["animal_localities_geojson"],
                 "nordic-atlas_animal_localities.geojson",
             )
+            self.assertEqual(
+                summary["artifacts"]["animal_atlas_evidence_csv"],
+                "nordic-atlas_animal_atlas_evidence.csv",
+            )
+            self.assertEqual(
+                summary["artifacts"]["animal_atlas_evidence_json"],
+                "nordic-atlas_animal_atlas_evidence.json",
+            )
+            self.assertEqual(
+                summary["artifacts"]["animal_point_traceability_json"],
+                "nordic-atlas_animal_point_traceability.json",
+            )
             self.assertIn("Species focus", summary["animal_atlas"]["filter_surfaces"])
             self.assertIn(
                 "Nordic animal leads only",
                 summary["animal_atlas"]["filter_surfaces"],
             )
+            self.assertEqual(
+                summary["animal_atlas"]["direct_coordinate_feature_count"],
+                0,
+            )
+            self.assertEqual(
+                summary["animal_atlas"]["named_site_geocoded_feature_count"],
+                2,
+            )
+            self.assertEqual(
+                summary["animal_atlas"]["weaker_geography_feature_count"],
+                0,
+            )
 
             self.assertEqual(len(animal_geojson["features"]), 2)
+            sheep_properties = animal_geojson["features"][0]["properties"]
+            self.assertIn("feature_id", sheep_properties)
+            self.assertIn("evidence_row_id", sheep_properties)
+            self.assertIn("site_record_id", sheep_properties)
+            self.assertIn("sample_record_ids", sheep_properties)
+            self.assertIn("coordinate_basis", sheep_properties)
+            self.assertIn("source_artifact_path", sheep_properties)
 
     def test_generate_multi_country_map_can_include_context_layers(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -1488,6 +1536,16 @@ class CountryReportTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            atlas_traceability = json.loads(
+                (
+                    output / "nordic-atlas" / "nordic-atlas_animal_point_traceability.json"
+                ).read_text(encoding="utf-8")
+            )
+            sweden_animal_geojson = json.loads(
+                (
+                    output / "sweden" / "sweden_animal_adna_v62.0_localities.geojson"
+                ).read_text(encoding="utf-8")
+            )
             sweden_summary = json.loads(
                 (output / "sweden" / "sweden_aadr_v62.0_summary.json").read_text(
                     encoding="utf-8"
@@ -1537,6 +1595,20 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
             self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
             self.assertNotIn(".report.tmp", sweden_summary["output_dir"])
+            self.assertEqual(
+                atlas_summary["artifacts"]["animal_point_traceability_json"],
+                "nordic-atlas_animal_point_traceability.json",
+            )
+            sweden_evidence_row_ids = {
+                feature["properties"]["evidence_row_id"]
+                for feature in sweden_animal_geojson["features"]
+            }
+            atlas_evidence_row_ids = {
+                row["evidence_row_id"]
+                for row in atlas_traceability["rows"]
+                if row["species_latin_name"] == "Ovis aries"
+            }
+            self.assertEqual(sweden_evidence_row_ids, atlas_evidence_row_ids)
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -1662,6 +1734,17 @@ class CountryReportTests(unittest.TestCase):
         paper_doi: str,
     ) -> None:
         species_root.mkdir(parents=True, exist_ok=True)
+        species_slug = species_root.name
+        stable_token = f"{species_slug}:project-locality:{project_accession.lower()}"
+        sample_token = f"{species_slug}:sample:{project_accession.lower()}"
+        sample_site_token = f"{species_slug}:sample-site:{project_accession.lower()}"
+        inclusion_status = (
+            "comparator_site_curated"
+            if product_role == "comparator"
+            else "nordic_lead_site_curated"
+            if nordic_inclusion
+            else "site_curated"
+        )
         self.write_json(
             species_root / "normalized" / "locality_summaries.json",
             {
@@ -1669,7 +1752,7 @@ class CountryReportTests(unittest.TestCase):
                     {
                         "identity": {
                             "namespace": "animal-locality",
-                            "stable_token": f"{latin_name}:{project_accession}",
+                            "stable_token": stable_token,
                             "locality_text": locality,
                             "political_entity": political_entity,
                             "source_anchor_tokens": [project_accession],
@@ -1707,6 +1790,147 @@ class CountryReportTests(unittest.TestCase):
                         "interpretation_note": "Tracked atlas locality lead",
                     }
                 ]
+            },
+        )
+        self.write_json(
+            species_root / "normalized" / "sample_records.json",
+            {
+                "schema_version": "adna-sample-record-export.v1",
+                "species_latin_name": latin_name,
+                "samples": [
+                    {
+                        "identity": {
+                            "namespace": f"{species_slug}:curated_sample",
+                            "stable_token": sample_token,
+                            "accession_lineage": [
+                                f"species:{latin_name}",
+                                "source:ENA",
+                                f"project:{project_accession}",
+                                f"sample:{project_accession}",
+                            ],
+                        },
+                        "locality_identity": {
+                            "namespace": f"{species_slug}:sample_locality",
+                            "stable_token": sample_site_token,
+                            "locality_text": locality,
+                            "political_entity": political_entity,
+                            "source_anchor_tokens": [project_accession, "project_accession_anchor"],
+                        },
+                        "species_latin_name": latin_name,
+                        "species_common_name": common_name,
+                        "source_family": "ENA",
+                        "source_release": project_accession,
+                        "record_modality": "archive_reads",
+                        "review_strength": "primary_paper_pinned",
+                        "provenance_quality": "manual_curation_only",
+                        "master_id": project_accession,
+                        "group_id": project_accession,
+                        "locality": locality,
+                        "political_entity": political_entity,
+                        "coordinates": {
+                            "latitude": None,
+                            "longitude": None,
+                            "latitude_text": "",
+                            "longitude_text": "",
+                            "confidence": "withheld",
+                        },
+                        "publication": paper_title,
+                        "year_first_published": "2024",
+                        "full_date": chronology_bucket,
+                        "chronology": {
+                            "original_text": chronology_bucket,
+                            "time_start_bp": 1200,
+                            "time_end_bp": 1600,
+                            "time_mean_bp": 1400,
+                            "date_stddev_bp": "",
+                            "dating_basis": "bp_window",
+                        },
+                        "data_type": "archive_project_context",
+                        "molecular_sex": "",
+                        "datasets": [f"{species_slug}:project:{project_accession}"],
+                        "project_accession": project_accession,
+                        "paper_doi": paper_doi,
+                        "paper_url": f"https://doi.org/{paper_doi}",
+                        "supplementary_source": f"supplementary/{project_accession}.pdf",
+                        "inclusion_status": inclusion_status,
+                        "inclusion_note": "Curated into the atlas evidence contract.",
+                        "sample_basis": "project_accession_anchor",
+                    }
+                ],
+            },
+        )
+        self.write_json(
+            species_root / "normalized" / "coordinate_provenance.json",
+            {
+                "schema_version": "adna-coordinate-provenance-export.v1",
+                "species_latin_name": latin_name,
+                "coordinate_provenance": [
+                    {
+                        "project_accession": project_accession,
+                        "species_latin_name": latin_name,
+                        "species_common_name": common_name,
+                        "site_label": locality,
+                        "original_place_text": locality,
+                        "resolved_place_text": locality,
+                        "political_entity": political_entity,
+                        "source_artifact_path": f"adna/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
+                        "source_locator": "supplementary table",
+                        "coordinate_basis": "named_site_geocoding",
+                        "mapping_posture": "mappable_point",
+                        "latitude_text": "59.4",
+                        "longitude_text": "18.1",
+                        "geocoding_method": "manual_named_place_resolution",
+                        "geocoder_or_gazetteer": "test archaeological site anchor",
+                        "confidence_rationale": "Test fixture publishes one named-place geocode.",
+                        "coordinate_confidence": "approximate",
+                        "paper_doi": paper_doi,
+                        "paper_url": f"https://doi.org/{paper_doi}",
+                        "supplementary_source": f"supplementary/{project_accession}.pdf",
+                        "chronology_text": chronology_bucket,
+                        "time_start_bp": 1200,
+                        "time_end_bp": 1600,
+                        "dating_basis": "bp_window",
+                        "comparator_context": product_role == "comparator",
+                        "domestication_context": product_role,
+                        "interpretation_note": "Test fixture named-place coordinate provenance.",
+                        "support_gap_note": "",
+                    }
+                ],
+            },
+        )
+        self.write_json(
+            species_root / "normalized" / "site_evidence.json",
+            {
+                "schema_version": "adna-site-evidence-export.v1",
+                "species_latin_name": latin_name,
+                "site_evidence": [
+                    {
+                        "project_accession": project_accession,
+                        "species_latin_name": latin_name,
+                        "species_common_name": common_name,
+                        "site_label": locality,
+                        "political_entity": political_entity,
+                        "source_artifact_path": f"adna/source_library/papers/{paper_doi.replace('/', '-')}/article.html",
+                        "source_artifact_kind": "article_html_body_quote",
+                        "source_locator": "supplementary table",
+                        "exact_source_text": f"{locality} named in supplementary support.",
+                        "source_support_status": "article_exact_quote",
+                        "paper_doi": paper_doi,
+                        "paper_url": f"https://doi.org/{paper_doi}",
+                        "supplementary_source": f"supplementary/{project_accession}.pdf",
+                        "coordinate_basis": "site_level_localities",
+                        "latitude_text": "59.4",
+                        "longitude_text": "18.1",
+                        "chronology_text": chronology_bucket,
+                        "time_start_bp": 1200,
+                        "time_end_bp": 1600,
+                        "dating_basis": "bp_window",
+                        "comparator_context": product_role == "comparator",
+                        "domestication_context": product_role,
+                        "interpretation_note": "Test fixture site evidence row.",
+                        "support_gap_note": "",
+                    }
+                ],
             },
         )
         self.write_json(

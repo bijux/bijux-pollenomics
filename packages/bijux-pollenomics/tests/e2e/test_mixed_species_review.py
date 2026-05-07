@@ -48,6 +48,7 @@ def test_report_multi_country_map_emits_mixed_species_scientific_review_artifact
 
     species_rows = {row["species_latin_name"] for row in payload["country_coverage"]}
     assert exit_code == 0
-    assert payload["schema_version"] == "scientific-review-surface.v1"
+    assert payload["schema_version"] == "scientific-review-surface.v3"
     assert "Homo sapiens" in species_rows
     assert "Ovis aries" in species_rows
+    assert "animal_coordinate_review" in payload
