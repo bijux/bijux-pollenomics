@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+import json
 from pathlib import Path
 
 from ...adna.catalogs import (
     build_public_animal_output_audit,
     render_public_animal_output_audit_markdown,
 )
+from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .paths import AtlasBundlePaths
@@ -74,6 +76,19 @@ def publish_published_reports_tree(
         country_output_dirs=tuple(country_output_dirs),
         atlas_output_dir=shared_map_dir,
     )
+    foundation_artifacts = publish_animal_foundation_outputs(
+        staging_output_root,
+        data_root=context_root if context_root is not None else output_root.parents[1] / "data",
+        docs_root=output_root.parent,
+    )
+    scientific_artifacts = {**scientific_artifacts, **foundation_artifacts}
+    release_gate_payload = json.loads(
+        (staging_output_root / "animal_publication_release_gate.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    if not bool(release_gate_payload.get("overall_ok")):
+        raise ValueError("Animal publication release gate failed")
     generated_report = PublishedReportsReport(
         version=map_report.version,
         generated_on=map_report.generated_on,
