@@ -1,16 +1,16 @@
 ---
 title: CLI Surface
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
 # CLI Surface
 
-The CLI is the primary public interface for `bijux-pollenomics`. It matters
-because these commands rewrite tracked repository state.
+The CLI is the primary runtime interface because it rewrites tracked repository
+state.
 
 ## CLI Model
 
@@ -28,9 +28,8 @@ flowchart TB
     outputs --> review
 ```
 
-This page should make the command surface feel bounded and reviewable. The user
-is not just invoking helpers; they are choosing one explicit rewrite path
-through the repository with visible output consequences.
+The point of this page is not to list every internal helper. It is to make the
+reviewable command surface explicit.
 
 ## Supported Commands
 
@@ -68,6 +67,10 @@ through the repository with visible output consequences.
 - `source-support` prints source-family support status and country coverage
 - `validate-collection-summary` validates one collected summary payload without rerunning source collection
 
+The commands that matter most for readers are `collect-data`, `report-country`,
+`report-multi-country-map`, and `publish-reports`. The rest are evidence and
+contract inspection commands that explain how one species surface is shaped.
+
 ## Shared Options
 
 - `--version` selects the AADR version directory and defaults to `v66`
@@ -98,9 +101,3 @@ bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-r
 - `src/bijux_pollenomics/cli.py`
 - `src/bijux_pollenomics/command_line/parsing/`
 - `tests/e2e/test_cli.py`
-
-## Design Pressure
-
-The common failure is to document commands like generic utilities, which hides
-that each CLI entrypoint is a controlled path for rewriting tracked evidence or
-publication surfaces.
