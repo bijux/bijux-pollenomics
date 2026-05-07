@@ -53,7 +53,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Early domestic horses and domestication-associated genomic change.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJEB22390",
@@ -70,7 +74,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Botai and Przewalski/domestic ancestry anchor.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJEB31613",
@@ -87,7 +95,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Extensive horse management time series.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJEB44430",
@@ -104,7 +116,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Major horse domestication-and-dispersal anchor.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     }
   ],
   "pending_projects": [
@@ -123,7 +139,11 @@
       "geographic_basis": "not_yet_curated",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJEB56293",
@@ -140,7 +160,11 @@
       "geographic_basis": "site_level_localities",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Ancient horse project, but currently phenotype-method oriented and not yet core-pinned.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     },
     {
       "project_accession": "PRJEB7537",
@@ -157,7 +181,11 @@
       "geographic_basis": "not_yet_curated",
       "access_policy": "public_downloadable",
       "public_release_date": null,
-      "domestication_scope": "domesticated_core"
+      "domestication_scope": "domesticated_core",
+      "notes": "Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "last_checked_on": "2026-05-07"
     }
   ],
   "rejected_projects": [

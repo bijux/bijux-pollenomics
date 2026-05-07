@@ -128,7 +128,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Early Anatolian sheep domestication-demography anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB41594",
@@ -145,7 +149,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Central Asian sheep dispersal anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB59481",
@@ -162,7 +170,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Baltic ancient sheep genomes across four millennia.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+        "last_checked_on": "2026-05-07"
       }
     ],
     "pending_projects": [
@@ -181,7 +193,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB69690",
@@ -198,7 +214,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB81145",
@@ -215,7 +235,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ],
     "rejected_projects": []
@@ -239,7 +263,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Early Anatolian sheep domestication-demography anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB41594",
@@ -256,7 +284,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Central Asian sheep dispersal anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB59481",
@@ -273,7 +305,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Baltic ancient sheep genomes across four millennia.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB61808",
@@ -290,7 +326,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB69690",
@@ -307,7 +347,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB81145",
@@ -324,7 +368,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },

@@ -124,7 +124,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": "2025-12-31",
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient goat demographic-history anchor from genome imputation study.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB90261",
@@ -141,7 +145,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Canary Islands goat temporal continuity anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJNA1328209",
@@ -158,7 +166,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Qinghai-Xizang Plateau goat population-history anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ],
     "pending_projects": [],
@@ -183,7 +195,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": "2025-12-31",
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient goat demographic-history anchor from genome imputation study.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB90261",
@@ -200,7 +216,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Canary Islands goat temporal continuity anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJNA1328209",
@@ -217,7 +237,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Qinghai-Xizang Plateau goat population-history anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
