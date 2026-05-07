@@ -27,7 +27,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "primary_paper_pinned"
+      "evidence_strength": "primary_paper_pinned",
+      "source_snapshot": {
+        "project_accession": "PRJEB30282",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB30282&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "source_description": "Archaeological evidence indicates that pig domestication had begun by ∼10,500 y before the present (BP) in the Near East, and mitochondrial DNA (mtDNA) suggests that pigs arrived in Europe alongside farmers ∼8,500 y BP. A few thousand years after the introduction of Near Eastern pigs into Europe, however, their characteristic mtDNA signature disappeared and was replaced by haplotypes associated with European wild boar. This turnover could be accounted for by substantial gene flow from local European wild boar, although it is also possible that European wild boar were domesticated independently without any genetic contribution from the Near East. To test these hypotheses, we obtained mtDNA sequences from 2,099 modern and ancient pig samples and 63 nuclear ancient genomes from Near Eastern and European pigs. Our analyses revealed that European domestic pigs dating from 7,100 to 6,000 y BP possessed both Near Eastern and European nuclear ancestry, while later pigs possessed no more than 4% Near Eastern ancestry, indicating that gene flow from European wild boar resulted in a near-complete disappearance of Near East ancestry. In addition, we demonstrate that a variant at a locus encoding black coat color likely originated in the Near East and persisted in European pigs. Altogether, our results indicate that while pigswere not independently domesticated in Europe, the vast majority of human-mediated selection over the past 5,000 y focused on the genomic fraction derived from the European wild boar, and not on the fraction that was selected by early Neolithic farmers over the first 2,500 y of the domestication process.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -47,7 +58,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJNA788987",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA788987&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Sus scrofa Raw sequence reads",
+        "source_description": "Whole genome re-sequencing data of 7 ancient Chinese pigs",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -67,7 +89,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJNA878488",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA878488&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Sus scrofa Raw sequence reads",
+        "source_description": "Retracing the ancient human migration routes in the remote islands of the Pacific relies on robust models of the origins and spread of animals that were commensal to long-distance ocean voyag-es. Domestic pigs (Sus scrofa) in Polynesia belong to a rare mitochondrial DNA group whose ge-ographic origins are disputed. We report new complete genome ancient DNA that suggests all founding populations of pigs in Polynesia, first settled by people about 2800-700 years ago, can be traced back to northern peninsular Southeast Asia.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -87,7 +120,18 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "evidence_strength": "archive_only"
+      "evidence_strength": "archive_only",
+      "source_snapshot": {
+        "project_accession": "PRJNA421430",
+        "source_family": "ENA",
+        "result_kind": "read_run",
+        "metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA421430&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+        "source_title": "Sus scrofa Raw sequence reads",
+        "source_description": "DNA extracted from Sus scrofa tissues used to test the effect of varying temperatures and concentrations of NaCl on rates of cytosine deamination in mammalian DNA. Used to develop rate estimates of ancient DNA damage under marine conditions.",
+        "title_basis": "ena-study-search",
+        "description_basis": "ena-study-search",
+        "captured_on": "2026-05-07"
+      }
     }
   ]
 }
