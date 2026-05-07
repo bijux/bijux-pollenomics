@@ -52,7 +52,7 @@ reviewable command surface explicit.
   and explicit refusals
 - `adna-archive-projects` prints the curated ENA project inventory for
   domesticated-animal ancient-DNA intake review, including evidence strength and
-  project-level scientific metadata
+  the current project-side metadata that still needs to feed sample extraction
 - `adna-domestication-coverage` prints the cross-species curation coverage
   report, including support class and honesty posture for each domestication
   program species
@@ -60,7 +60,7 @@ reviewable command surface explicit.
   current runtime scope
 - `adna-species-review --species <name>` prints the governed review for one
   species, including assignment rules, dataset bucket, release blockers,
-  project-level admission reviews, and archive integrity
+  project admission reviews, sample-foundation blockers, and archive integrity
 - `surface-map` prints a short runtime-versus-roadmap package surface map
 - `product-scope` prints explicit current atlas-builder scope versus not-yet-supported engine claims
 - `ownership-map` prints where source-data, ranking, and publication logic live

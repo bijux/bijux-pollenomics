@@ -10,9 +10,10 @@ last_reviewed: 2026-05-07
 # bijux-pollenomics Runtime Handbook
 
 `bijux-pollenomics` is the runtime package that rebuilds the repository's
-checked-in evidence surfaces. It does one durable job: collect evidence,
-normalize it into tracked files, and publish reviewed country bundles plus the
-shared Nordic atlas.
+checked-in sample-first evidence surfaces. It does one durable job: collect
+project, paper, supplement, sample, site, and coordinate evidence, normalize
+it into tracked files, and publish reviewed country bundles plus the shared
+Nordic atlas as downstream views.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="interfaces/cli-surface/">Open the CLI surface</a>

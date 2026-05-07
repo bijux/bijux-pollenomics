@@ -41,6 +41,25 @@ Each tracked species root is expected to publish these reviewed surfaces:
 | country outputs | which rows survive country publication | [`docs/report/sweden/README.md`](../../report/sweden/README.md) |
 | atlas outputs | which rows survive atlas publication | [`docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json`](../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json) |
 
+## Mandatory Sample Fields
+
+The checked product contract also ships in machine-readable form under
+[`data/adna/animal_sample_product_contract.json`](../../../data/adna/animal_sample_product_contract.json).
+
+Every non-human sample row is expected to keep at least these questions
+answerable:
+
+- which stable sample identifier the repository uses
+- which species the sample belongs to
+- which project accession anchors the sample
+- which paper DOI or canonical paper URL supports the sample claim
+- which supplementary or supporting source anchors the site claim
+- which site label is attached to the sample
+- which raw chronology text the repository preserves
+- which normalized BP interval the repository keeps when defensible
+- which coordinate basis and coordinate confidence the repository keeps
+- which inclusion or blocking status the repository assigns
+
 ## Core Fields
 
 - sample identity: stable token, accession context, publication linkage

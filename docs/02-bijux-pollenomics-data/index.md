@@ -11,8 +11,8 @@ last_reviewed: 2026-05-07
 
 `bijux-pollenomics-data` is the evidence handbook for the tracked data tree.
 Its main job is to explain how project metadata, papers, supplementary
-material, sample rows, site evidence, coordinate provenance, and report outputs
-fit together.
+material, sample rows, site evidence, chronology, coordinate provenance, and
+report outputs fit together around the real durable unit: the sample record.
 
 <div class="bijux-callout"><strong>Use this section when the real question is evidence, not software.</strong> It should tell a reader where a sample row came from, why a site was accepted or blocked, how coordinates were justified, and which files feed the atlas and country bundles.</div>
 

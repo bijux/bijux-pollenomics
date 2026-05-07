@@ -3,7 +3,7 @@
 Compatibility and alias distribution for `bijux-pollenomics`.
 
 Install this package if you want the shorter package name and CLI command while
-running the same runtime behavior as `bijux-pollenomics`.
+running the same sample-first runtime behavior as `bijux-pollenomics`.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)

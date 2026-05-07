@@ -1,10 +1,12 @@
 # bijux-pollenomics
 
-Runtime package for rebuilding the tracked `bijux-pollenomics` evidence tree.
+Runtime package for rebuilding the tracked `bijux-pollenomics` sample-level
+evidence tree.
 
 Use this package if you want the canonical CLI and Python entrypoints that
-collect data, normalize species-owned animal aDNA files, and publish the Nordic
-atlas plus country bundles.
+collect project metadata, papers, supplementary artifacts, sample rows, site
+evidence, coordinate provenance, and the Nordic atlas plus country bundles that
+sit downstream of those sample records.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
