@@ -174,10 +174,20 @@ def render_multi_country_map_markdown(
             f"- {label}"
             for label in animal_atlas_summary.get("filter_surfaces", [])
         ) or "- No animal-specific filters shipped"
+        ui_lines = "\n".join(
+            f"- {label}"
+            for label in animal_atlas_summary.get("ui_surfaces", [])
+        ) or "- No animal-specific inspection surfaces shipped"
         caution_lines = "\n".join(
             f"- {label}"
             for label in animal_atlas_summary.get("visible_caveats", [])
         ) or "- No animal-specific caveats shipped"
+        confidence_rows = "\n".join(
+            f"| {escape_pipes(str(label))} | {count} |"
+            for label, count in sorted(
+                animal_atlas_summary.get("coordinate_confidence_counts", {}).items()
+            )
+        ) or "| No visible coordinate-confidence counts | 0 |"
         species_lines = "\n".join(
             f"| {escape_pipes(str(row.get('common_name', '')))} | {escape_pipes(str(row.get('latin_name', '')))} | {escape_pipes(str(row.get('animal_scope', '')))} | {row.get('locality_count', 0)} |"
             for row in animal_atlas_summary.get("species_layers", [])
@@ -198,6 +208,16 @@ def render_multi_country_map_markdown(
 ### Public Animal Filters
 
 {filter_lines}
+
+### Animal Inspection Surfaces
+
+{ui_lines}
+
+### Visible Coordinate Confidence
+
+| Coordinate confidence | Visible mapped points |
+| --- | ---: |
+{confidence_rows}
 
 ### Visible Animal Caveats
 
