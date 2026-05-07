@@ -75,7 +75,7 @@ def build_release_bar() -> PollenomicsReleaseBar:
         row.coverage_posture == "strong" for row in coverage_report.rows
     ) and any(row.coverage_posture in {"thin", "pretending"} for row in coverage_report.rows)
     scientific_review_surface_defined = (
-        scientific_review.schema_version == "scientific-review-surface.v2"
+        scientific_review.schema_version == "scientific-review-surface.v3"
         and bool(scientific_review.descriptive_scope)
         and bool(scientific_review.comparative_scope)
         and bool(scientific_review.exploratory_scope)

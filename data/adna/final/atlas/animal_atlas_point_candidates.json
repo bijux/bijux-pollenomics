@@ -1,5 +1,6 @@
 {
-  "schema_version": "animal-atlas-evidence-rows.v1",
+  "schema_version": "animal-atlas-point-candidates.v1",
+  "row_count": 2,
   "rows": [
     {
       "feature_id": "animal-atlas-feature:camelus-dromedarius-project-locality-srp073444",

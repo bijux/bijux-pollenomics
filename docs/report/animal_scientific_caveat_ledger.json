@@ -233,7 +233,7 @@
         "stable_sample_id": "ovis_aries:sample:prjeb36540",
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/s42003-021-02794-8",
-        "supplementary_source": "data/adna/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+        "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
         "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },
       {

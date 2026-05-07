@@ -10,6 +10,13 @@
       "findings": []
     },
     {
+      "check_id": "project_locality_outputs_do_not_flatten_sample_site_disagreement",
+      "passed": true,
+      "description": "Animal publication does not flatten multi-site sample evidence into one project-level locality claim.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",
       "passed": true,
       "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",

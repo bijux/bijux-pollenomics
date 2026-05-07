@@ -59,15 +59,16 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
             self.assertGreater(report.source_library_project_count, 0)
             self.assertGreaterEqual(report.atlas_evidence_row_count, 0)
             self.assertTrue(
-                (data_root / "adna" / "ovis_aries" / "normalized" / "sample_records.json").is_file()
+                (data_root / "adna" / "species" / "ovis_aries" / "normalized" / "sample_records.json").is_file()
             )
             self.assertTrue(
-                (data_root / "adna" / "ovis_aries" / "normalized" / "site_evidence.json").is_file()
+                (data_root / "adna" / "species" / "ovis_aries" / "normalized" / "site_evidence.json").is_file()
             )
             self.assertTrue(
                 (
                     data_root
                     / "adna"
+                    / "species"
                     / "ovis_aries"
                     / "normalized"
                     / "coordinate_provenance.json"
@@ -77,6 +78,7 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
                 (
                     data_root
                     / "adna"
+                    / "governance"
                     / "source_library"
                     / "projects"
                     / "PRJEB36540"
