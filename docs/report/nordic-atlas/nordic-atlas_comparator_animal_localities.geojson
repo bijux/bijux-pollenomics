@@ -1,0 +1,213 @@
+{
+  "schema_version": "animal-atlas-locality-collection.v1",
+  "type": "FeatureCollection",
+  "layer_key": "comparator-animal-localities",
+  "layer_label": "Comparator animal aDNA locality leads",
+  "subtitle": "Comparator animal aDNA locality leads included in the atlas bundle.",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.65,
+          78.22
+        ]
+      },
+      "properties": {
+        "name": "Svalbard ancient reindeer context",
+        "category": "Reindeer locality lead",
+        "country": "Svalbard",
+        "layer_key": "comparator-animal-localities",
+        "layer_label": "Comparator animal aDNA locality leads",
+        "source_url": "https://doi.org/10.1038/s41598-024-54296-2",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Rangifer tarandus"
+          },
+          {
+            "label": "Support class",
+            "value": "comparator_only"
+          },
+          {
+            "label": "Animal scope",
+            "value": "comparator"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB60484"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Chronology",
+            "value": "Ancient Arctic archipelago reindeer context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This comparator row is Nordic-relevant and mappable, but it must remain comparator evidence rather than domesticated-core support."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Comparator-only evidence: use for comparison, not domesticated-core claims."
+          },
+          {
+            "label": "Warning",
+            "value": "Nordic relevance is regional or transregional rather than one named Nordic country."
+          },
+          {
+            "label": "Warning",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          }
+        ],
+        "species_latin_name": "Rangifer tarandus",
+        "species_common_name": "reindeer",
+        "animal_scope": "comparator",
+        "support_class": "comparator_only",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "coordinate_confidence": "approximate",
+        "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+        "publication_year": "2024",
+        "project_accessions": [
+          "PRJEB60484"
+        ],
+        "time_start_bp": 500,
+        "time_end_bp": 2500,
+        "time_mean_bp": 1500,
+        "time_year_bp": 1500,
+        "time_label": "Ancient Arctic archipelago reindeer context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.0,
+          26.0
+        ]
+      },
+      "properties": {
+        "name": "North African donkey domestication and spread transect",
+        "category": "Donkey locality lead",
+        "country": "North Africa and Levant",
+        "layer_key": "comparator-animal-localities",
+        "layer_label": "Comparator animal aDNA locality leads",
+        "source_url": "",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus asinus"
+          },
+          {
+            "label": "Support class",
+            "value": "comparator_only"
+          },
+          {
+            "label": "Animal scope",
+            "value": "comparator"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB52849"
+          },
+          {
+            "label": "Chronology",
+            "value": "~5000-2500 BCE donkey domestication and spread context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "3001-6000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "inferred"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "This donkey row is a broad domestication transect and remains comparator context relative to the canonical horse surface."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are inferred, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Comparator-only evidence: use for comparison, not domesticated-core claims."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "scientifically useful comparator evidence that must not count as domesticated-core support"
+          }
+        ],
+        "species_latin_name": "Equus asinus",
+        "species_common_name": "donkey",
+        "animal_scope": "comparator",
+        "support_class": "comparator_only",
+        "chronology_bucket": "3001-6000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_confidence": "inferred",
+        "paper_title": "",
+        "publication_year": "",
+        "project_accessions": [
+          "PRJEB52849"
+        ],
+        "time_start_bp": 4450,
+        "time_end_bp": 6950,
+        "time_mean_bp": 5700,
+        "time_year_bp": 5700,
+        "time_label": "~5000-2500 BCE donkey domestication and spread context"
+      }
+    }
+  ]
+}
