@@ -1,0 +1,28 @@
+{
+  "schema_version": "animal-publication-release-gate.v1",
+  "overall_ok": true,
+  "checks": [
+    {
+      "check_id": "published_points_keep_required_traceability",
+      "passed": true,
+      "description": "Every published animal point keeps sample, site, coordinate, and citation support.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "docs_do_not_overclaim_all_species_map_readiness",
+      "passed": true,
+      "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "docs_do_not_claim_reference_grade_without_support",
+      "passed": true,
+      "description": "Public docs do not claim reference-grade posture before the shipped evidence earns it.",
+      "finding_count": 0,
+      "findings": []
+    }
+  ],
+  "reference_grade_claim_allowed": false
+}

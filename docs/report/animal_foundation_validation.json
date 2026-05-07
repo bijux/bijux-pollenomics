@@ -1,0 +1,70 @@
+{
+  "schema_version": "animal-foundation-validation.v1",
+  "overall_ok": false,
+  "sample_row_count": 40,
+  "site_evidence_row_count": 10,
+  "coordinate_row_count": 10,
+  "atlas_row_count": 2,
+  "checks": [
+    {
+      "check_id": "unique_sample_stable_ids",
+      "passed": true,
+      "description": "Stable sample identifiers stay unique across all tracked animal rows.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "sample_project_linkage_present",
+      "passed": true,
+      "description": "Every curated animal sample row keeps a project accession.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "sample_paper_linkage_present",
+      "passed": false,
+      "description": "Every curated animal sample row keeps a paper DOI reference.",
+      "finding_count": 19,
+      "findings": [
+        "PRJNA705960",
+        "PRJEB43564",
+        "PRJEB50952",
+        "PRJEB52590",
+        "PRJEB52849",
+        "PRJEB55549",
+        "PRJEB10854",
+        "PRJEB56293",
+        "PRJEB7537",
+        "PRJEB9799"
+      ]
+    },
+    {
+      "check_id": "supplement_required_projects_archived",
+      "passed": true,
+      "description": "Projects that require supplementary material keep a local archived supplement.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "site_evidence_keeps_source_traceability",
+      "passed": true,
+      "description": "Every site-evidence row keeps source artifact, locator, and support status.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "mappable_coordinates_keep_complete_basis",
+      "passed": true,
+      "description": "Every mappable coordinate row keeps basis, confidence, rationale, and text coordinates.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "check_id": "atlas_rows_keep_traceability",
+      "passed": true,
+      "description": "Every published animal atlas row keeps feature, project, paper, and sample traceability.",
+      "finding_count": 0,
+      "findings": []
+    }
+  ]
+}
