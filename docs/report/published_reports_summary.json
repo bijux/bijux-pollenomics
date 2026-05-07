@@ -1,6 +1,6 @@
 {
   "version": "v66",
-  "generated_on": "2026-04-16",
+  "generated_on": "2026-05-07",
   "countries": [
     "Sweden",
     "Norway",
@@ -15,18 +15,37 @@
     "docs/report/denmark"
   ],
   "summary_path": "docs/report/published_reports_summary.json",
+  "schema_version": "published-reports-summary.v1",
   "artifacts": {
     "shared_bundle": {
       "slug": "nordic-atlas",
-      "directory": "docs/report/nordic-atlas"
-    },
-    "country_bundles": {
-      "sweden": "docs/report/sweden",
-      "norway": "docs/report/norway",
-      "finland": "docs/report/finland",
-      "denmark": "docs/report/denmark"
+      "directory": "docs/report/nordic-atlas",
+      "bundle_manifest": "nordic-atlas_bundle.json",
+      "summary_json": "nordic-atlas_summary.json"
     },
     "animal_output_audit_json": "animal_output_audit.json",
-    "animal_output_audit_markdown": "animal_output_audit.md"
+    "animal_output_audit_markdown": "animal_output_audit.md",
+    "country_bundles": {
+      "sweden": {
+        "directory": "docs/report/sweden",
+        "bundle_manifest": "sweden_aadr_v66_bundle.json",
+        "summary_json": "sweden_aadr_v66_summary.json"
+      },
+      "norway": {
+        "directory": "docs/report/norway",
+        "bundle_manifest": "norway_aadr_v66_bundle.json",
+        "summary_json": "norway_aadr_v66_summary.json"
+      },
+      "finland": {
+        "directory": "docs/report/finland",
+        "bundle_manifest": "finland_aadr_v66_bundle.json",
+        "summary_json": "finland_aadr_v66_summary.json"
+      },
+      "denmark": {
+        "directory": "docs/report/denmark",
+        "bundle_manifest": "denmark_aadr_v66_bundle.json",
+        "summary_json": "denmark_aadr_v66_summary.json"
+      }
+    }
   }
 }
