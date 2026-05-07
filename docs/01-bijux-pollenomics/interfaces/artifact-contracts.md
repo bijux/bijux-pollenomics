@@ -4,7 +4,7 @@ audience: mixed
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
 # Artifact Contracts
@@ -35,6 +35,8 @@ contract failures, not cosmetic output glitches.
 
 - country bundles under `docs/report/<country-slug>/`
 - the shared atlas under `docs/report/nordic-atlas/`
+- root-level report artifacts under `docs/report/` that summarize public animal
+  coverage, chronology overlap, first appearance, and scenario posture
 - report summaries and map payloads produced by the reporting package
 - atlas candidate ranking sidecars that summarize locality proximity against
   tracked context layers
@@ -45,8 +47,16 @@ contract failures, not cosmetic output glitches.
   atlas bundles
 - country bundles include `README.md`, sample and locality CSV files, sample
   GeoJSON, sample Markdown, and summary JSON outputs
+- country bundles can also include country-resolved animal aDNA summary JSON,
+  species CSV, locality GeoJSON, citation Markdown, and warning Markdown when
+  tracked animal locality leads are assignable into the country surface
 - atlas bundles include `README.md`, the map HTML document, sample GeoJSON, and
   summary JSON outputs
+- root-level report artifacts include `animal_output_audit.*`,
+  `animal_country_species_coverage.*`, `animal_human_chronology_overlap.*`,
+  `animal_pollen_chronology_overlap.*`,
+  `animal_first_appearance_by_country.*`, and
+  `nordic_farming_history_scenario.*`
 - atlas candidate ranking sidecars include one CSV file for machine-readable
   sorting and one Markdown file for reader review
 - bundled map assets copied by the rendering layer are part of the publication

@@ -8,9 +8,9 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | Country | Unique samples |
 | --- | ---: |
 | Sweden | 416 |
+| Denmark | 653 |
 | Norway | 130 |
 | Finland | 32 |
-| Denmark | 653 |
 
 ## Bundle Notes
 

@@ -6,18 +6,18 @@
   "generated_on": "2026-05-07",
   "countries": [
     "Sweden",
+    "Denmark",
     "Norway",
-    "Finland",
-    "Denmark"
+    "Finland"
   ],
   "country_sample_counts": {
     "Sweden": 416,
+    "Denmark": 653,
     "Norway": 130,
-    "Finland": 32,
-    "Denmark": 653
+    "Finland": 32
   },
   "total_unique_samples": 1231,
-  "output_dir": "docs/report/nordic-atlas",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
   "artifacts": {
     "bundle_manifest": "nordic-atlas_bundle.json",
     "readme": "README.md",

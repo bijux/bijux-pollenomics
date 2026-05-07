@@ -37,6 +37,22 @@
 | Sweden | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Homo sapiens | mapped_direct | 295 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
+| Denmark | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Bos taurus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Homo sapiens | mapped_direct | 69 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Norway | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -69,22 +85,6 @@
 | Finland | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Homo sapiens | mapped_direct | 295 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
-| Denmark | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Bos taurus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Camelus dromedarius | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Canis lupus familiaris | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Equus asinus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 
 ## Period Coverage
 

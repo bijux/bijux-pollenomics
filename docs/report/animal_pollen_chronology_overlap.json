@@ -1,0 +1,57 @@
+{
+  "schema_version": "animal-pollen-chronology-overlap.v1",
+  "rows": [
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 297,
+      "overlapping_pollen_records": 249,
+      "non_overlapping_pollen_records": 22,
+      "noncomparable_pollen_records": 26,
+      "assignment_confidence": "regional_projection",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 134,
+      "overlapping_pollen_records": 117,
+      "non_overlapping_pollen_records": 13,
+      "noncomparable_pollen_records": 4,
+      "assignment_confidence": "regional_projection",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Norway",
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "animal_scope": "comparator",
+      "animal_locality_count": 1,
+      "pollen_record_count": 156,
+      "overlapping_pollen_records": 136,
+      "non_overlapping_pollen_records": 13,
+      "noncomparable_pollen_records": 7,
+      "assignment_confidence": "territory_projection",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 105,
+      "overlapping_pollen_records": 102,
+      "non_overlapping_pollen_records": 0,
+      "noncomparable_pollen_records": 3,
+      "assignment_confidence": "regional_projection",
+      "overlap_status": "overlap_detected"
+    }
+  ]
+}
