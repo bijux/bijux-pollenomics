@@ -1,0 +1,599 @@
+{
+  "schema_version": "adna-nonhuman-normalization-bundle.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Ovis aries",
+      "slug": "ovis_aries",
+      "common_name": "sheep",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "sheep",
+        "domestic sheep"
+      ],
+      "notes": "Ancient sheep projects are identified but not yet normalized inside the runtime."
+    },
+    "root_slug": "ovis_aries",
+    "data_root": "data/adna/ovis_aries",
+    "normalized_sample_namespace": "ovis_aries:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "sample_records": [],
+  "locality_records": [],
+  "project_summaries": [
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB36540",
+      "study_token": "study:10-1038-s42003-021-02794-8",
+      "source_family": "ENA",
+      "source_release": "PRJEB36540",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "notes": "Early Anatolian sheep domestication-demography anchor."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB41594",
+      "study_token": "study:10-1038-s41562-021-01083-y",
+      "source_family": "ENA",
+      "source_release": "PRJEB41594",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "notes": "Central Asian sheep dispersal anchor."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "study_token": "study:10-1093-gbe-evae114",
+      "source_family": "ENA",
+      "source_release": "PRJEB59481",
+      "result_kind": "read_run",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "shotgun_genome",
+      "material_basis": "individual_bone_or_tooth",
+      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "geographic_basis": "site_level_localities",
+      "coordinate_policy": "site_level_coordinates_expected",
+      "chronology_policy": "bp_interval_expected",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "notes": "Baltic ancient sheep genomes across four millennia."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB61808",
+      "study_token": "study:project:prjeb61808",
+      "source_family": "ENA",
+      "source_release": "PRJEB61808",
+      "result_kind": "read_run",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "unknown_or_mixed",
+      "material_basis": "not_yet_curated",
+      "dating_basis": "not_yet_curated",
+      "geographic_basis": "not_yet_curated",
+      "coordinate_policy": "manual_coordinate_review_required",
+      "chronology_policy": "manual_chronology_review_required",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB69690",
+      "study_token": "study:project:prjeb69690",
+      "source_family": "ENA",
+      "source_release": "PRJEB69690",
+      "result_kind": "read_run",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "unknown_or_mixed",
+      "material_basis": "not_yet_curated",
+      "dating_basis": "not_yet_curated",
+      "geographic_basis": "not_yet_curated",
+      "coordinate_policy": "manual_coordinate_review_required",
+      "chronology_policy": "manual_chronology_review_required",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning."
+    },
+    {
+      "schema_version": "adna-project-summary.v1",
+      "summary_token": "ovis_aries:project:PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB81145",
+      "study_token": "study:project:prjeb81145",
+      "source_family": "ENA",
+      "source_release": "PRJEB81145",
+      "result_kind": "read_run",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "record_modality": "archive_reads",
+      "domestication_status": "domesticated_core",
+      "comparator_status": false,
+      "normalized_breed_label": null,
+      "sequencing_target": "unknown_or_mixed",
+      "material_basis": "not_yet_curated",
+      "dating_basis": "not_yet_curated",
+      "geographic_basis": "not_yet_curated",
+      "coordinate_policy": "manual_coordinate_review_required",
+      "chronology_policy": "manual_chronology_review_required",
+      "paper_title": null,
+      "paper_doi": null,
+      "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning."
+    }
+  ],
+  "study_summaries": [
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:10-1038-s41562-021-01083-y",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB41594"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "paper_pinned_core"
+      ],
+      "evidence_strengths": [
+        "primary_paper_pinned"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "mixed_radiocarbon_and_archaeological_context"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:10-1038-s42003-021-02794-8",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "paper_pinned_core"
+      ],
+      "evidence_strengths": [
+        "primary_paper_pinned"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "mixed_radiocarbon_and_archaeological_context"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:10-1093-gbe-evae114",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "paper_pinned_core"
+      ],
+      "evidence_strengths": [
+        "primary_paper_pinned"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "sequencing_targets": [
+        "shotgun_genome"
+      ],
+      "material_bases": [
+        "individual_bone_or_tooth"
+      ],
+      "dating_bases": [
+        "mixed_radiocarbon_and_archaeological_context"
+      ],
+      "geographic_bases": [
+        "site_level_localities"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb61808",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB61808"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "archive_verified_needs_paper_pinning"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "unknown_or_mixed"
+      ],
+      "material_bases": [
+        "not_yet_curated"
+      ],
+      "dating_bases": [
+        "not_yet_curated"
+      ],
+      "geographic_bases": [
+        "not_yet_curated"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb69690",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB69690"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "archive_verified_needs_paper_pinning"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "unknown_or_mixed"
+      ],
+      "material_bases": [
+        "not_yet_curated"
+      ],
+      "dating_bases": [
+        "not_yet_curated"
+      ],
+      "geographic_bases": [
+        "not_yet_curated"
+      ]
+    },
+    {
+      "schema_version": "adna-study-summary.v1",
+      "summary_token": "study:project:prjeb81145",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accessions": [
+        "PRJEB81145"
+      ],
+      "source_families": [
+        "ENA"
+      ],
+      "archive_statuses": [
+        "archive_verified_needs_paper_pinning"
+      ],
+      "evidence_strengths": [
+        "archive_only"
+      ],
+      "domestication_status": "domesticated_core",
+      "paper_title": null,
+      "paper_doi": null,
+      "sequencing_targets": [
+        "unknown_or_mixed"
+      ],
+      "material_bases": [
+        "not_yet_curated"
+      ],
+      "dating_bases": [
+        "not_yet_curated"
+      ],
+      "geographic_bases": [
+        "not_yet_curated"
+      ]
+    }
+  ],
+  "lineage_records": [
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB36540",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB36540.filereport.tsv",
+      "source_accessions": [
+        "PRJEB36540"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB36540",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB41594",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB41594.filereport.tsv",
+      "source_accessions": [
+        "PRJEB41594"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB41594",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB59481",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB59481.filereport.tsv",
+      "source_accessions": [
+        "PRJEB59481"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB59481",
+        "archive_status:paper_pinned_core"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB61808",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB61808.filereport.tsv",
+      "source_accessions": [
+        "PRJEB61808"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB61808",
+        "archive_status:archive_verified_needs_paper_pinning"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB69690",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB69690.filereport.tsv",
+      "source_accessions": [
+        "PRJEB69690"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB69690",
+        "archive_status:archive_verified_needs_paper_pinning"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "project_summary",
+      "output_record_token": "ovis_aries:project:PRJEB81145",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB81145.filereport.tsv",
+      "source_accessions": [
+        "PRJEB81145"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "source_family:ENA",
+        "project_accession:PRJEB81145",
+        "archive_status:archive_verified_needs_paper_pinning"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:10-1038-s41562-021-01083-y",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB41594.filereport.tsv",
+      "source_accessions": [
+        "PRJEB41594"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:10-1038-s41562-021-01083-y",
+        "project_accession:PRJEB41594"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:10-1038-s42003-021-02794-8",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB36540.filereport.tsv",
+      "source_accessions": [
+        "PRJEB36540"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:10-1038-s42003-021-02794-8",
+        "project_accession:PRJEB36540"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:10-1093-gbe-evae114",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB59481.filereport.tsv",
+      "source_accessions": [
+        "PRJEB59481"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:10-1093-gbe-evae114",
+        "project_accession:PRJEB59481"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb61808",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB61808.filereport.tsv",
+      "source_accessions": [
+        "PRJEB61808"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:project:prjeb61808",
+        "project_accession:PRJEB61808"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb69690",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB69690.filereport.tsv",
+      "source_accessions": [
+        "PRJEB69690"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:project:prjeb69690",
+        "project_accession:PRJEB69690"
+      ]
+    },
+    {
+      "schema_version": "adna-normalization-lineage.v1",
+      "output_record_kind": "study_summary",
+      "output_record_token": "study:project:prjeb81145",
+      "source_artifact_path": "data/adna/ovis_aries/raw/ena/PRJEB81145.filereport.tsv",
+      "source_accessions": [
+        "PRJEB81145"
+      ],
+      "lineage_tokens": [
+        "species:Ovis aries",
+        "study_token:study:project:prjeb81145",
+        "project_accession:PRJEB81145"
+      ]
+    }
+  ],
+  "refusals": [
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Ovis aries",
+      "source_token": "ovis_aries",
+      "record_kind": "sample_records",
+      "reason": "sample_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level archive curation, but not enough sample-level raw metadata to emit sample rows honestly."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Ovis aries",
+      "source_token": "ovis_aries",
+      "record_kind": "locality_records",
+      "reason": "locality_level_raw_metadata_unavailable",
+      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+    }
+  ],
+  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+}
