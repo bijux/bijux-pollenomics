@@ -87,7 +87,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "modern_or_irrelevant"
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB60484",
@@ -104,7 +108,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "ancient_comparator"
+        "domestication_scope": "ancient_comparator",
+        "notes": "Ancient reindeer comparator retained for Arctic cervid context and kept out of domesticated-core inference.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB61721",
@@ -121,7 +129,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "modern_or_irrelevant"
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJNA634908",
@@ -138,7 +150,11 @@
         "geographic_basis": "country_or_breed_panel",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "modern_or_irrelevant"
+        "domestication_scope": "modern_or_irrelevant",
+        "notes": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -202,6 +218,64 @@
       "core_project": false,
       "admissible_for_curated_support": false,
       "blocking_reasons": []
+    }
+  ],
+  "accepted_projects": [],
+  "rejected_projects": [
+    {
+      "project_accession": "PRJEB57293",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB61721",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJNA634908",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "too_weak_projects": [],
+  "comparator_projects": [
+    {
+      "project_accession": "PRJEB60484",
+      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "nordic_relevant_unmapped",
+      "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs."
+    }
+  ],
+  "nordic_unmapped_leads": [
+    {
+      "project_accession": "PRJEB60484",
+      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
+      "paper_doi": "10.1038/s41598-024-54296-2",
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "nordic_relevant_unmapped",
+      "nordic_relevance_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs."
     }
   ],
   "release_blockers": []

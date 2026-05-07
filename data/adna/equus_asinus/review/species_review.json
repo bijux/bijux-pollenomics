@@ -87,7 +87,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient donkey comparator project kept separate from horse support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB50952",
@@ -104,7 +108,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient donkey comparator project kept separate from horse support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB52590",
@@ -121,7 +129,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient donkey comparator project kept separate from horse support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB52849",
@@ -138,7 +150,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient donkey comparator project kept separate from horse support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB55549",
@@ -155,7 +171,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Analysis-level donkey entry; not promoted into direct curated support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -236,5 +256,62 @@
       "blocking_reasons": []
     }
   ],
+  "accepted_projects": [],
+  "rejected_projects": [
+    {
+      "project_accession": "PRJEB55549",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Analysis-level donkey entry; not promoted into direct curated support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "too_weak_projects": [],
+  "comparator_projects": [
+    {
+      "project_accession": "PRJEB43564",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "comparator_only",
+      "support_class": "comparator_only",
+      "reason": "scientifically useful comparator evidence that must not count as domesticated-core support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "nordic_unmapped_leads": [],
   "release_blockers": []
 }
