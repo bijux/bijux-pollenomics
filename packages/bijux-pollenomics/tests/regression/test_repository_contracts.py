@@ -352,6 +352,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 slug,
             )
             self.assertTrue(
+                (species_root / "normalized" / "site_evidence.csv").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "normalized" / "site_evidence.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
                 (species_root / "normalized" / "project_summaries.csv").is_file(),
                 slug,
             )

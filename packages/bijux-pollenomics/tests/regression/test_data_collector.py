@@ -134,6 +134,15 @@ class DataCollectorTests(unittest.TestCase):
                     / "adna"
                     / "equus_caballus"
                     / "normalized"
+                    / "site_evidence.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_caballus"
+                    / "normalized"
                     / "project_summaries.json"
                 ).is_file()
             )
