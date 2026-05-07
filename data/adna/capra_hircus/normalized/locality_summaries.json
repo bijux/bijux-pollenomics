@@ -1,0 +1,65 @@
+{
+  "schema_version": "adna-locality-summary-export.v1",
+  "species_latin_name": "Capra hircus",
+  "localities": [
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:project-locality:prjna1328209",
+        "locality_text": "Lake Qinghai Basin ancient goat context",
+        "political_entity": "Qinghai, China",
+        "source_anchor_tokens": [
+          "PRJNA1328209",
+          "36.90",
+          "100.10"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJNA1328209"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Lake Qinghai Basin ancient goat context",
+      "coordinates": {
+        "latitude": 36.9,
+        "longitude": 100.1,
+        "latitude_text": "36.90",
+        "longitude_text": "100.10",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJNA1328209"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJNA1328209"
+      ],
+      "chronology": {
+        "original_text": "Approximately 3600 BP ancient goats",
+        "time_start_bp": 3500,
+        "time_end_bp": 3700,
+        "time_mean_bp": 3600,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "sample_namespace": "capra_hircus:project_locality",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "original_location_text": "Lake Qinghai Basin ancient goat context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence."
+    }
+  ]
+}

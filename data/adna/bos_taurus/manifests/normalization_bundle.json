@@ -37,7 +37,67 @@
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
   "sample_records": [],
-  "locality_records": [],
+  "locality_records": [
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:project-locality:prjna705960",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "42.75",
+          "-8.75"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJNA705960"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "archive_verified_needs_paper_pinning"
+      ],
+      "provenance_qualities": [
+        "archive_only"
+      ],
+      "locality": "Galician mountain cave cattle context",
+      "coordinates": {
+        "latitude": 42.75,
+        "longitude": -8.75,
+        "latitude_text": "42.75",
+        "longitude_text": "-8.75",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJNA705960"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "sample_namespace": "bos_taurus:project_locality",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "original_location_text": "Galician mountain cave cattle context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This row captures domestic cattle evidence from Galicia and must stay separate from aurochs progenitor context."
+    }
+  ],
   "project_summaries": [
     {
       "schema_version": "adna-project-summary.v1",
@@ -344,11 +404,19 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Bos taurus",
-      "source_token": "bos_taurus",
+      "source_token": "PRJEB31621",
       "record_kind": "locality_records",
-      "reason": "locality_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Bos taurus",
+      "source_token": "PRJEB75467",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
 }

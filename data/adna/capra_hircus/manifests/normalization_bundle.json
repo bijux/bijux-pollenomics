@@ -36,7 +36,67 @@
     "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
   },
   "sample_records": [],
-  "locality_records": [],
+  "locality_records": [
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:project-locality:prjna1328209",
+        "locality_text": "Lake Qinghai Basin ancient goat context",
+        "political_entity": "Qinghai, China",
+        "source_anchor_tokens": [
+          "PRJNA1328209",
+          "36.90",
+          "100.10"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJNA1328209"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Lake Qinghai Basin ancient goat context",
+      "coordinates": {
+        "latitude": 36.9,
+        "longitude": 100.1,
+        "latitude_text": "36.90",
+        "longitude_text": "100.10",
+        "confidence": "approximate"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "PRJNA1328209"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJNA1328209"
+      ],
+      "chronology": {
+        "original_text": "Approximately 3600 BP ancient goats",
+        "time_start_bp": 3500,
+        "time_end_bp": 3700,
+        "time_mean_bp": 3600,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "sample_namespace": "capra_hircus:project_locality",
+      "project_accessions": [
+        "PRJNA1328209"
+      ],
+      "original_location_text": "Lake Qinghai Basin ancient goat context",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence."
+    }
+  ],
   "project_summaries": [
     {
       "schema_version": "adna-project-summary.v1",
@@ -343,11 +403,19 @@
     {
       "schema_version": "adna-normalization-refusal.v1",
       "species_latin_name": "Capra hircus",
-      "source_token": "capra_hircus",
+      "source_token": "PRJEB90141",
       "record_kind": "locality_records",
-      "reason": "locality_level_raw_metadata_unavailable",
-      "detail": "The current non-human program has project-level geographic review, but not enough locality-level raw metadata to emit locality rows honestly."
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Capra hircus",
+      "source_token": "PRJEB90261",
+      "record_kind": "locality_records",
+      "reason": "locality_lead_not_yet_curated",
+      "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
     }
   ],
-  "normalization_scope": "Non-human normalization currently governs project and study summaries. Sample and locality rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
+  "normalization_scope": "Non-human normalization currently governs project, study, and curated locality summaries. Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
 }
