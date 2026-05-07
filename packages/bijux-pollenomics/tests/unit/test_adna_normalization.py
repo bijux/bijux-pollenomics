@@ -49,7 +49,17 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.paper_doi, "10.1126/science.aao3297")
         self.assertEqual(sample.inclusion_status, "site_curated")
         self.assertEqual(sample.sample_basis, "project_accession_anchor")
-        self.assertEqual(sample.locality_identity.locality_text, "Botai culture steppe context")
+        self.assertEqual(
+            sample.locality_identity.locality_text,
+            "Botai archaeological site horse context",
+        )
+        coordinate_provenance = next(
+            item
+            for item in bundle.coordinate_provenance_records
+            if item.project_accession == "PRJEB22390"
+        )
+        self.assertEqual(coordinate_provenance.mapping_posture, "mappable_point")
+        self.assertEqual(coordinate_provenance.coordinate_basis, "named_site_geocoding")
         site_evidence = next(
             item
             for item in bundle.site_evidence_records
@@ -144,6 +154,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if "PRJEB59481" in item.project_accessions
         )
         self.assertTrue(sheep_locality.nordic_inclusion)
+        self.assertEqual(sheep_locality.coordinate_confidence, "withheld")
         self.assertIn("Nordic", sheep_locality.nordic_inclusion_reason)
 
     def test_species_normalization_bundle_marks_bovine_progenitor_context_explicitly(
