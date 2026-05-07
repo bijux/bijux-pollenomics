@@ -44,15 +44,20 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("│   ├── felis_catus", readme)
         self.assertIn("│   ├── equus_asinus", readme)
         self.assertIn("│   └── homo_sapiens", readme)
-        self.assertIn("│       │   └── aadr -> ../../../aadr", readme)
+        self.assertIn("│   ├── governance", readme)
+        self.assertIn("│   │   └── source_library", readme)
+        self.assertIn("│   └── final", readme)
+        self.assertIn("│   │       │   └── aadr -> ../../../../aadr", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
         self.assertIn("`Homo sapiens` ancient DNA is governed under", readme)
-        self.assertIn("`adna/equus_caballus/`", readme)
-        self.assertIn("`adna/bos_taurus/`", readme)
-        self.assertIn("`adna/canis_lupus_familiaris/`", readme)
-        self.assertIn("`adna/camelus_dromedarius/`", readme)
-        self.assertIn("`adna/rangifer_tarandus/`", readme)
+        self.assertIn("`adna/species/equus_caballus/`", readme)
+        self.assertIn("`adna/species/bos_taurus/`", readme)
+        self.assertIn("`adna/species/canis_lupus_familiaris/`", readme)
+        self.assertIn("`adna/species/camelus_dromedarius/`", readme)
+        self.assertIn("`adna/species/rangifer_tarandus/`", readme)
+        self.assertIn("`adna/governance/source_library/project_registry.json`", readme)
+        self.assertIn("`adna/final/`", readme)
         self.assertIn(
             "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
             f"({DATA_SOURCE_INDEX})",
@@ -80,14 +85,14 @@ class DataLayoutUnitTests(unittest.TestCase):
 
             ensure_homo_sapiens_adna_layout(output_root)
 
-            species_root = output_root / "adna" / "homo_sapiens"
+            species_root = output_root / "adna" / "species" / "homo_sapiens"
             self.assertTrue((species_root / "normalized").is_dir())
             self.assertTrue((species_root / "manifests").is_dir())
             self.assertTrue((species_root / "reports").is_dir())
             self.assertTrue((species_root / "review").is_dir())
             raw_aadr = species_root / "raw" / "aadr"
             self.assertTrue(raw_aadr.is_symlink())
-            self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")
+            self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
 
     def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -96,10 +101,10 @@ class DataLayoutUnitTests(unittest.TestCase):
 
             ensure_curated_species_adna_layout(output_root)
 
-            horse_root = output_root / "adna" / "equus_caballus"
-            dog_root = output_root / "adna" / "canis_lupus_familiaris"
-            camel_root = output_root / "adna" / "camelus_dromedarius"
-            donkey_root = output_root / "adna" / "equus_asinus"
+            horse_root = output_root / "adna" / "species" / "equus_caballus"
+            dog_root = output_root / "adna" / "species" / "canis_lupus_familiaris"
+            camel_root = output_root / "adna" / "species" / "camelus_dromedarius"
+            donkey_root = output_root / "adna" / "species" / "equus_asinus"
 
             for root in (horse_root, dog_root, camel_root, donkey_root):
                 self.assertTrue((root / "raw").is_dir())
@@ -107,6 +112,9 @@ class DataLayoutUnitTests(unittest.TestCase):
                 self.assertTrue((root / "manifests").is_dir())
                 self.assertTrue((root / "reports").is_dir())
                 self.assertTrue((root / "review").is_dir())
+            self.assertTrue((output_root / "adna" / "governance").is_dir())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library").is_dir())
+            self.assertTrue((output_root / "adna" / "final").is_dir())
 
     def test_materialize_tracked_species_root_writes_real_reviewable_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -115,7 +123,7 @@ class DataLayoutUnitTests(unittest.TestCase):
 
             materialize_tracked_species_root(output_root, "horse")
 
-            horse_root = output_root / "adna" / "equus_caballus"
+            horse_root = output_root / "adna" / "species" / "equus_caballus"
             self.assertTrue((horse_root / "README.md").is_file())
             self.assertTrue((horse_root / "raw" / "archive_inventory.json").is_file())
             self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())

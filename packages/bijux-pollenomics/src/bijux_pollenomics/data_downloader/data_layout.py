@@ -3,6 +3,12 @@ from __future__ import annotations
 from pathlib import Path
 
 from ..adna import resolve_species_definition
+from ..adna.paths import (
+    ADNA_FINAL_DIR,
+    ADNA_GOVERNANCE_DIR,
+    ADNA_SOURCE_LIBRARY_DIR,
+    ADNA_SPECIES_DIR,
+)
 from ..adna.tracked_species import TRACKED_ADNA_SPECIES, tracked_species_slugs
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
@@ -10,7 +16,7 @@ from ..core.files import write_text
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
 DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/foundation/directory-layout.md"
-HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../aadr"
+HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../../aadr"
 ADNA_LAYOUT_DIRS = ("raw", "normalized", "manifests", "reports", "review")
 
 
@@ -26,15 +32,19 @@ def render_data_root_readme_for(output_root: Path, version: str) -> str:
     tree_lines = [
         root_name,
         "├── adna",
-        *(f"│   ├── {slug}" for slug in tracked_slugs[:-1]),
-        f"│   ├── {tracked_slugs[-1]}",
-        "│   └── homo_sapiens",
-        "│       ├── raw",
-        "│       │   └── aadr -> ../../../aadr",
-        "│       ├── normalized",
-        "│       ├── manifests",
-        "│       ├── reports",
-        "│       └── review",
+        "│   ├── species",
+        *(f"│   │   ├── {slug}" for slug in tracked_slugs[:-1]),
+        f"│   │   ├── {tracked_slugs[-1]}",
+        "│   │   └── homo_sapiens",
+        "│   │       ├── raw",
+        "│   │       │   └── aadr -> ../../../../aadr",
+        "│   │       ├── normalized",
+        "│   │       ├── manifests",
+        "│   │       ├── reports",
+        "│   │       └── review",
+        "│   ├── governance",
+        "│   │   └── source_library",
+        "│   └── final",
         "├── aadr",
         f"│   └── {version}",
         *(f"├── {source}" for source in AVAILABLE_SOURCES[1:-1]),
@@ -57,20 +67,21 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
-`Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, while the
+`Homo sapiens` ancient DNA is governed under `adna/species/homo_sapiens/`, while the
 domesticated-animal curation program owns species roots such as
-`adna/equus_caballus/`, `adna/sus_scrofa_domesticus/`, `adna/ovis_aries/`,
-`adna/bos_taurus/`, `adna/capra_hircus/`, `adna/canis_lupus_familiaris/`,
-`adna/felis_catus/`, `adna/camelus_dromedarius/`, `adna/rangifer_tarandus/`,
-and `adna/equus_asinus/`.
+`adna/species/equus_caballus/`, `adna/species/sus_scrofa_domesticus/`,
+`adna/species/ovis_aries/`, `adna/species/bos_taurus/`,
+`adna/species/capra_hircus/`, `adna/species/canis_lupus_familiaris/`,
+`adna/species/felis_catus/`, `adna/species/camelus_dromedarius/`,
+`adna/species/rangifer_tarandus/`, and `adna/species/equus_asinus/`.
 
-Cross-species animal aDNA audits live directly under `adna/` as checked-in
-artifacts such as `cross_species_bibliography.json`,
-`cross_species_archive_inventory.csv`, `cross_species_coverage_dashboard.json`,
-`cross_species_freshness.csv`, and `shipped_product_audit.json`.
-Each tracked non-human species root also keeps `raw/source_snapshot.json` and
-`raw/source_snapshot.csv` so archive-facing study wording is preserved alongside
-the narrower curated inventory tables.
+Cross-species audits, caveat ledgers, sample-foundation contracts, and source
+registries live under `adna/governance/`, including
+`adna/governance/cross_species_bibliography.json`,
+`adna/governance/source_library/project_registry.json`, and
+`adna/governance/animal_sample_foundation_truth.json`.
+Shared atlas-ready and country-ready downstream data products live under
+`adna/final/`.
 """
 
 
@@ -101,7 +112,7 @@ def write_data_directory_readme(output_root: Path, version: str) -> None:
 def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
     """Materialize the governed Homo sapiens aDNA layout under one data root."""
     output_root = Path(output_root)
-    species_root = output_root / "adna" / "homo_sapiens"
+    species_root = output_root / ADNA_SPECIES_DIR.removeprefix("data/") / "homo_sapiens"
     raw_root = species_root / "raw"
     for directory in (raw_root, *(species_root / name for name in ADNA_LAYOUT_DIRS[1:])):
         directory.mkdir(parents=True, exist_ok=True)
@@ -123,6 +134,9 @@ def ensure_curated_species_adna_layout(output_root: Path) -> None:
     output_root = Path(output_root)
     for species_name in TRACKED_ADNA_SPECIES:
         species = resolve_species_definition(species_name)
-        species_root = output_root / "adna" / species.slug
+        species_root = output_root / ADNA_SPECIES_DIR.removeprefix("data/") / species.slug
         for directory_name in ADNA_LAYOUT_DIRS:
             (species_root / directory_name).mkdir(parents=True, exist_ok=True)
+    (output_root / ADNA_GOVERNANCE_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)
+    (output_root / ADNA_SOURCE_LIBRARY_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)
+    (output_root / ADNA_FINAL_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)

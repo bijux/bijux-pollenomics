@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Capra hircus",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "site_label": "Lake Qinghai Basin ancient goat context",
+      "original_place_text": "Lake Qinghai Basin",
+      "resolved_place_text": "Lake Qinghai Basin, Qinghai-Xizang Plateau",
+      "political_entity": "Qinghai, China",
+      "source_artifact_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "source_locator": "title and keywords",
+      "coordinate_basis": "region_centroid_fallback",
+      "mapping_posture": "refused_region_only",
+      "latitude_text": "",
+      "longitude_text": "",
+      "geocoding_method": "manual_regional_basin_retention",
+      "geocoder_or_gazetteer": "not applied because the current lead is basin-level",
+      "confidence_rationale": "The current local source names the Lake Qinghai Basin rather than one excavation site, so point mapping would overstate precision.",
+      "coordinate_confidence": "withheld",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+      "supplementary_source": "",
+      "chronology_text": "Approximately 3600 BP ancient goats",
+      "time_start_bp": 3500,
+      "time_end_bp": 3700,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "The goat lead is paper-backed but still basin-level geography.",
+      "support_gap_note": "The local paper capture supports region-level place naming rather than an excavation-grade site point."
+    }
+  ]
+}

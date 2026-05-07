@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+from ..adna.paths import ADNA_SPECIES_DIR
 from .data_layout import AVAILABLE_SOURCES
 
 __all__ = [
@@ -32,15 +33,19 @@ def build_source_layout_contract(output_root: Path) -> SourceLayoutContract:
         source_directories=AVAILABLE_SOURCES,
         species_directories=(
             "adna",
-            "adna/homo_sapiens",
-            "adna/homo_sapiens/raw",
-            "adna/homo_sapiens/normalized",
-            "adna/homo_sapiens/manifests",
-            "adna/homo_sapiens/reports",
-            "adna/homo_sapiens/review",
+            "adna/species",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/raw",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/normalized",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/manifests",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/reports",
+            f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/review",
+            "adna/governance",
+            "adna/governance/source_library",
+            "adna/final",
         ),
         species_symlinks=(
-            ("adna/homo_sapiens/raw/aadr", "../../../aadr"),
+            (f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/raw/aadr", "../../../../aadr"),
         ),
         collection_manifest_name="collection_summary.json",
     )

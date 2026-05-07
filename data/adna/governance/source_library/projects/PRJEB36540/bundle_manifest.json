@@ -1,0 +1,35 @@
+{
+  "project_accession": "PRJEB36540",
+  "species_latin_name": "Ovis aries",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
+  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB36540&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+  "paper_doi": "10.1038/s42003-021-02794-8",
+  "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+  "archive_metadata_sufficient": false,
+  "paper_required": true,
+  "supplement_required": true,
+  "paper_download_status": "archived",
+  "supplement_download_status": "archived",
+  "local_artifact_ids": [
+    "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM1_ESM.pdf",
+    "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM2_ESM.pdf",
+    "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM3_ESM.pdf",
+    "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM4_ESM.zip",
+    "10.1038-s42003-021-02794-8:42003_2021_2794_MOESM5_ESM.pdf",
+    "10.1038-s42003-021-02794-8:article.pdf",
+    "10.1038-s42003-021-02794-8:crossref.json",
+    "PRJEB36540:archive_metadata.html"
+  ],
+  "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/article.pdf",
+    "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/crossref.json",
+    "adna/governance/source_library/projects/PRJEB36540/archive_metadata.html"
+  ],
+  "blockers": []
+}

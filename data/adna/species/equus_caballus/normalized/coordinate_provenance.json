@@ -1,0 +1,36 @@
+{
+  "schema_version": "adna-coordinate-provenance-export.v1",
+  "species_latin_name": "Equus caballus",
+  "coordinate_provenance": [
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "site_label": "Botai archaeological site horse context",
+      "original_place_text": "Botai culture of the Central Asian steppes",
+      "resolved_place_text": "Botai archaeological site",
+      "political_entity": "Kazakhstan",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
+      "source_locator": "meta description",
+      "coordinate_basis": "named_site_geocoding",
+      "mapping_posture": "mappable_point",
+      "latitude_text": "52.99",
+      "longitude_text": "69.15",
+      "geocoding_method": "manual_named_place_resolution",
+      "geocoder_or_gazetteer": "repository-curated archaeological site anchor",
+      "confidence_rationale": "The archived paper names Botai explicitly, but does not ship a direct coordinate pair in the local source archive, so the current coordinate is an approximate named-site geocode.",
+      "coordinate_confidence": "approximate",
+      "paper_doi": "10.1126/science.aao3297",
+      "paper_url": "https://doi.org/10.1126/science.aao3297",
+      "supplementary_source": "",
+      "chronology_text": "~5500 BP Botai horse context",
+      "time_start_bp": 5400,
+      "time_end_bp": 5600,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "Botai remains the only clearly named domesticated-core horse site that currently earns point-level publication.",
+      "support_gap_note": ""
+    }
+  ]
+}
