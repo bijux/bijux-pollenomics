@@ -8,11 +8,15 @@ from bijux_pollenomics.foundation import (
     build_repository_claim_audit,
     build_repository_governance_artifact_review,
     build_repository_recovery_scorecard,
+    build_repository_source_acquisition_queue,
+    build_repository_source_family_matrix,
     build_repository_scientific_progress_audit,
     build_repository_truth_posture,
     render_repository_claim_audit_markdown,
     render_repository_governance_artifact_review_markdown,
     render_repository_recovery_scorecard_markdown,
+    render_repository_source_acquisition_queue_markdown,
+    render_repository_source_family_matrix_markdown,
     render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
@@ -43,6 +47,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 1)
+        self.assertEqual(payload["counts"]["papers_with_local_reference_supplements"], 18)
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
         self.assertTrue(
             any(
@@ -114,6 +119,29 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertTrue(all(row["passed"] for row in payload["checks"]))
         self.assertIn("# Repository claim audit", markdown)
 
+    def test_source_family_matrix_and_acquisition_queue_keep_cross_domain_pressure_visible(
+        self,
+    ) -> None:
+        matrix_payload = build_repository_source_family_matrix(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        queue_payload = build_repository_source_acquisition_queue(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        matrix_markdown = render_repository_source_family_matrix_markdown(matrix_payload)
+        queue_markdown = render_repository_source_acquisition_queue_markdown(queue_payload)
+
+        self.assertEqual(matrix_payload["schema_version"], "repository-source-family-matrix.v1")
+        self.assertEqual(queue_payload["schema_version"], "repository-source-acquisition-queue.v1")
+        self.assertEqual(matrix_payload["row_count"], 8)
+        self.assertGreaterEqual(queue_payload["row_count"], 1)
+        self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
+        self.assertIn("animal_adna", queue_markdown)
+
     def test_scientific_progress_audit_prefers_evidence_depth_over_file_count(
         self,
     ) -> None:
@@ -155,8 +183,12 @@ class RepositoryTruthUnitTests(unittest.TestCase):
 
             self.assertIn("repository_truth_posture_json", artifacts)
             self.assertIn("repository_claim_audit_markdown", artifacts)
+            self.assertIn("repository_source_family_matrix_json", artifacts)
+            self.assertIn("repository_source_acquisition_queue_markdown", artifacts)
             self.assertTrue((output_root / "repository_truth_posture.json").is_file())
             self.assertTrue((output_root / "repository_recovery_scorecard.md").is_file())
+            self.assertTrue((output_root / "repository_source_family_matrix.md").is_file())
+            self.assertTrue((output_root / "repository_source_acquisition_queue.json").is_file())
             claim_audit = (output_root / "repository_claim_audit.json").read_text(
                 encoding="utf-8"
             )
