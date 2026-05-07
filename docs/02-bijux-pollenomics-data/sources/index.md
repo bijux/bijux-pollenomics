@@ -20,6 +20,7 @@ can later become curated rows.
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
 - [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
 - [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
+- [Animal Project and Paper Inventory](./animal-project-and-paper-inventory.md)
 
 ## Current Rule
 
