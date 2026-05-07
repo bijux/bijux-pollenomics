@@ -783,6 +783,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Geocoded rows: `{geocoded_count}`\n"
         f"- Unresolved sample rows: `{unresolved_count}`\n"
         f"- Mapped Nordic rows: `{mapped_nordic_count}`\n"
+        f"- Tracked intake projects: `{review.archive_project_count}`\n"
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
