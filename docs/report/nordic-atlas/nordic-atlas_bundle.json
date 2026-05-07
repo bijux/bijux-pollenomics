@@ -150,13 +150,22 @@
     "filter_surfaces": [
       "Species focus",
       "Animal scope",
+      "Coordinate confidence",
       "Chronology bucket",
       "Nordic animal leads only"
+    ],
+    "ui_surfaces": [
+      "Animal evidence summary panel",
+      "Citation-aware animal popups",
+      "Species and confidence legend sections"
     ],
     "chronology_buckets": [
       "1001-3000 BP",
       "3001-6000 BP"
     ],
+    "coordinate_confidence_counts": {
+      "approximate": 2
+    },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
       "Comparator-only evidence remains visible without being counted as domesticated-core support.",
