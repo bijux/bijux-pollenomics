@@ -86,6 +86,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "source_intake_release_guard.json").is_file())
         self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.json").is_file())
         self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_master_completeness.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_master_completeness.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_identity_ambiguity_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_identity_ambiguity_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_site_review.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_sample_site_review.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.md").is_file())
         self.assertTrue(
             (
                 governance_root
@@ -102,6 +112,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "projects"
                 / "PRJEB22390"
                 / "intake_dossier.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "sample_master.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "sample_sites.json"
             ).is_file()
         )
         self.assertTrue(
@@ -218,7 +246,60 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Animal Project and Paper Inventory", inventory_text)
         self.assertIn("tracked_project_and_paper_inventory.json", inventory_text)
         self.assertIn("source_intake_audit.json", inventory_text)
+        self.assertIn("project_sample_master_completeness.json", inventory_text)
+        self.assertIn("sample_master.json", inventory_text)
+        self.assertIn("project_sample_site_review.json", inventory_text)
+        self.assertIn("sample_sites.json", inventory_text)
         self.assertIn("Animal Project and Paper Inventory", sources_index)
+
+    def test_project_sample_master_completeness_keeps_traceable_expected_counts(self) -> None:
+        import json
+
+        payload = json.loads(
+            (
+                REPO_ROOT
+                / "data"
+                / "adna"
+                / "governance"
+                / "source_library"
+                / "project_sample_master_completeness.json"
+            ).read_text(encoding="utf-8")
+        )
+        rows = payload["rows"]
+
+        self.assertTrue(rows)
+        for row in rows:
+            if row["expected_sample_count"] is None:
+                continue
+            self.assertTrue(
+                str(row["expected_sample_count_provenance"]).strip(),
+                f"Expected sample count for {row['project_accession']} lacks provenance.",
+            )
+            self.assertTrue(
+                str(row["expected_sample_count_artifact_path"]).strip(),
+                f"Expected sample count for {row['project_accession']} lacks an artifact path.",
+            )
+
+    def test_sample_master_rows_do_not_claim_final_status_with_unresolved_ambiguity(self) -> None:
+        import json
+
+        project_root = (
+            REPO_ROOT
+            / "data"
+            / "adna"
+            / "governance"
+            / "source_library"
+            / "projects"
+        )
+        for path in project_root.glob("*/sample_master.json"):
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            for row in payload["rows"]:
+                if row["sample_identity_resolution"] != "final":
+                    continue
+                self.assertFalse(
+                    str(row["sample_ambiguity_note"]).strip(),
+                    f"{path.relative_to(REPO_ROOT)} publishes a final sample row with an ambiguity note.",
+                )
 
     @staticmethod
     def _declared_mermaid_node_ids(block: str) -> set[str]:

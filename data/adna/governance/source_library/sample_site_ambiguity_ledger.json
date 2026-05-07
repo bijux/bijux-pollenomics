@@ -1,0 +1,192 @@
+{
+  "schema_version": "animal-sample-site-ambiguity-ledger.v1",
+  "rows": [
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "repo_stable_sample_id": "srs1407451:srs1407451",
+      "preferred_sample_label": "SRS1407451",
+      "locality_resolution_status": "region_only",
+      "locality_text": "Ancient European dog CTC sample context",
+      "review_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "location_evidence_artifact_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+      "location_evidence_locator": "results text"
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "repo_stable_sample_id": "srs1407453:srs1407453",
+      "preferred_sample_label": "SRS1407453",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "repo_stable_sample_id": "kx379528-kx379529:kx379528",
+      "preferred_sample_label": "KX379528",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "repo_stable_sample_id": "kx379528-kx379529:kx379529",
+      "preferred_sample_label": "KX379529",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605068",
+      "preferred_sample_label": "KU605068",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605069",
+      "preferred_sample_label": "KU605069",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605070",
+      "preferred_sample_label": "KU605070",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605071",
+      "preferred_sample_label": "KU605071",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605072",
+      "preferred_sample_label": "KU605072",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605073",
+      "preferred_sample_label": "KU605073",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605074",
+      "preferred_sample_label": "KU605074",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605075",
+      "preferred_sample_label": "KU605075",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605076",
+      "preferred_sample_label": "KU605076",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605077",
+      "preferred_sample_label": "KU605077",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605078",
+      "preferred_sample_label": "KU605078",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605079",
+      "preferred_sample_label": "KU605079",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "repo_stable_sample_id": "ku605068-ku605080:ku605080",
+      "preferred_sample_label": "KU605080",
+      "locality_resolution_status": "unresolved",
+      "locality_text": "",
+      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
+      "location_evidence_artifact_path": "",
+      "location_evidence_locator": ""
+    }
+  ]
+}
