@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .paths import ADNA_SPECIES_DIR
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
@@ -38,9 +39,9 @@ class AdnaSpeciesLayout:
 
 
 def build_species_layout(name: str) -> AdnaSpeciesLayout:
-    """Build the canonical `data/adna/<latin_name>/...` layout for one species."""
+    """Build the canonical `data/adna/species/<latin_name>/...` layout for one species."""
     species = resolve_species_definition(name)
-    root_dir = f"data/adna/{species.slug}"
+    root_dir = f"{ADNA_SPECIES_DIR}/{species.slug}"
     return AdnaSpeciesLayout(
         species=species,
         root_dir=root_dir,

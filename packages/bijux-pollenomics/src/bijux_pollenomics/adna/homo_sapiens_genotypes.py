@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
+from .paths import ADNA_SPECIES_DIR
 
 __all__ = [
     "HomoSapiensGenotypeArtifact",
@@ -64,11 +65,18 @@ def build_homo_sapiens_genotype_contract(
     version: str = DEFAULT_AADR_VERSION,
 ) -> HomoSapiensGenotypeContract:
     """Build the future genotype-ingestion contract for Homo sapiens."""
-    tracked_root = Path(data_root) / "adna" / "homo_sapiens" / "raw" / "aadr" / version
+    tracked_root = (
+        Path(data_root)
+        / ADNA_SPECIES_DIR.removeprefix("data/")
+        / "homo_sapiens"
+        / "raw"
+        / "aadr"
+        / version
+    )
     required_artifacts = tuple(
         HomoSapiensGenotypeArtifact(
             artifact_kind=kind,
-            relative_path=f"data/adna/homo_sapiens/raw/aadr/{version}/{filename}",
+            relative_path=f"{ADNA_SPECIES_DIR}/homo_sapiens/raw/aadr/{version}/{filename}",
             required_for_ingestion=True,
             currently_present=(tracked_root / filename).exists(),
         )

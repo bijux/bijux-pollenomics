@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import re
 
+from .paths import adna_species_root
 from .species import resolve_species_definition
 from .tracked_species import TRACKED_ADNA_SPECIES
 
@@ -543,4 +544,4 @@ def _load_locality_rows(species_root: Path) -> list[dict[str, object]]:
 
 
 def _species_root(data_root: Path, species_name: str) -> Path:
-    return Path(data_root) / "adna" / resolve_species_definition(species_name).slug
+    return adna_species_root(Path(data_root), species_name)

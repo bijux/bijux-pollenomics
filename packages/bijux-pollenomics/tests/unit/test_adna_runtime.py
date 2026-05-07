@@ -18,7 +18,7 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
 
         self.assertTrue(manifest.runtime_ready)
         self.assertEqual(manifest.species.latin_name, "Homo sapiens")
-        self.assertEqual(manifest.source_bundles[0].tracked_root, "data/adna/homo_sapiens/raw/aadr/v66")
+        self.assertEqual(manifest.source_bundles[0].tracked_root, "data/adna/species/homo_sapiens/raw/aadr/v66")
         self.assertEqual(
             manifest.source_bundles[0].release_manifest_path,
             "data/aadr/v66/release_manifest.json",
@@ -36,7 +36,7 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
         )
         self.assertEqual(
             manifest.source_bundles[0].release_manifest_path,
-            "data/adna/equus_caballus/manifests/curation_manifest.json",
+            "data/adna/species/equus_caballus/manifests/curation_manifest.json",
         )
         self.assertIn("Paper-pinned core domestication support exists", manifest.analysis_boundary)
         self.assertIn("curated accession-backed sample loading is available", manifest.analysis_boundary)
@@ -111,9 +111,9 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
                 ),
                 encoding="utf-8",
             )
-            adna_root = data_root / "adna" / "homo_sapiens" / "raw"
+            adna_root = data_root / "adna" / "species" / "homo_sapiens" / "raw"
             adna_root.mkdir(parents=True, exist_ok=True)
-            (adna_root / "aadr").symlink_to(Path("../../../aadr"))
+            (adna_root / "aadr").symlink_to(Path("../../../../aadr"))
 
             manifest = build_species_runtime_manifest(
                 "Homo sapiens",

@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 from ..core.files import write_json, write_text
 from .ena import build_archive_project_catalog
+from .paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
 
 __all__ = [
     "AdnaPaperRegistryRow",
@@ -220,7 +221,6 @@ class _PaperSourceSpec:
 
 
 SOURCE_LIBRARY_SCHEMA_VERSION = "adna-source-library.v1"
-SOURCE_LIBRARY_DIRNAME = "source_library"
 _USER_AGENT = "Mozilla/5.0 (compatible; bijux-pollenomics/1.0)"
 _NATURE_DOI_RE = re.compile(r"https?://www\.nature\.com/articles/(?P<slug>[A-Za-z0-9_.-]+)")
 
@@ -318,7 +318,7 @@ def build_project_registry(output_root: Path) -> tuple[AdnaProjectRegistryRow, .
                 primary_paper_doi=None if project.paper_linkage is None else project.paper_linkage.doi,
                 primary_paper_url=paper_url,
                 source_bundle_path=(
-                    f"data/adna/{SOURCE_LIBRARY_DIRNAME}/projects/{project.project_accession}/bundle_manifest.json"
+                    f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/bundle_manifest.json"
                 ),
                 paper_download_status=bundle.paper_download_status,
                 supplement_download_status=bundle.supplement_download_status,
@@ -463,7 +463,7 @@ def refresh_source_library(
     """Download or refresh local paper and supplementary artifacts."""
     output_root = Path(output_root)
     downloader = _download_url if downloader is None else downloader
-    source_root = output_root / "adna" / SOURCE_LIBRARY_DIRNAME
+    source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
 
     for project in build_archive_project_catalog():
@@ -511,7 +511,7 @@ def refresh_source_library(
 def materialize_source_library(output_root: Path) -> None:
     """Write registries, per-project manifests, and curation notes for the local source library."""
     output_root = Path(output_root)
-    source_root = output_root / "adna" / SOURCE_LIBRARY_DIRNAME
+    source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
 
     project_registry = build_project_registry(output_root)
@@ -580,7 +580,7 @@ def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
 
 
 def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact, ...]:
-    source_root = Path(output_root) / "adna" / SOURCE_LIBRARY_DIRNAME
+    source_root = adna_source_library_root(Path(output_root))
     rows: list[AdnaSourceArtifact] = []
     catalog = build_archive_project_catalog()
     for project in catalog:
@@ -657,7 +657,7 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         "10.1038/s42003-021-02794-8": _PaperSourceSpec(
             doi="10.1038/s42003-021-02794-8",
             article_source_url="https://www.nature.com/articles/s42003-021-02794-8",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-s42003-021-02794-8/article.pdf",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s42003-021-02794-8/article.pdf",
             article_kind="article_pdf",
             article_note="Nature article PDF is directly downloadable and anchors sheep project metadata plus supplementary sample tables.",
             supplementary_assets=(
@@ -701,63 +701,63 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         "10.1038/s41562-021-01083-y": _PaperSourceSpec(
             doi="10.1038/s41562-021-01083-y",
             article_source_url="https://www.nature.com/articles/s41562-021-01083-y",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-s41562-021-01083-y/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41562-021-01083-y/article.html",
             article_kind="article_html",
             article_note="Nature Human Behaviour article page is archived as the accessible paper surface.",
         ),
         "10.1038/s41586-021-04018-9": _PaperSourceSpec(
             doi="10.1038/s41586-021-04018-9",
             article_source_url="https://www.nature.com/articles/s41586-021-04018-9",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-s41586-021-04018-9/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41586-021-04018-9/article.html",
             article_kind="article_html",
             article_note="Nature article page is archived because direct PDF automation is inconsistent.",
         ),
         "10.1038/s41586-024-08112-6": _PaperSourceSpec(
             doi="10.1038/s41586-024-08112-6",
             article_source_url="https://www.nature.com/articles/s41586-024-08112-6",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-s41586-024-08112-6/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41586-024-08112-6/article.html",
             article_kind="article_html",
             article_note="Nature article page is archived as the accessible paper surface.",
         ),
         "10.1038/s41598-024-54296-2": _PaperSourceSpec(
             doi="10.1038/s41598-024-54296-2",
             article_source_url="https://www.nature.com/articles/s41598-024-54296-2",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-s41598-024-54296-2/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41598-024-54296-2/article.html",
             article_kind="article_html",
             article_note="Scientific Reports article page is archived as the accessible paper surface.",
         ),
         "10.1038/ncomms16082": _PaperSourceSpec(
             doi="10.1038/ncomms16082",
             article_source_url="https://pmc.ncbi.nlm.nih.gov/articles/PMC5520058/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1038-ncomms16082/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-ncomms16082/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the dog paper.",
         ),
         "10.1093/gbe/evae114": _PaperSourceSpec(
             doi="10.1093/gbe/evae114",
             article_source_url="https://academic.oup.com/gbe/article/doi/10.1093/gbe/evae114/7682331",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1093-gbe-evae114/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evae114/article.html",
             article_kind="article_html",
             article_note="Publisher article page is archived where accessible; OUP bot protection can still block richer downloads.",
         ),
         "10.1093/gbe/evaf181": _PaperSourceSpec(
             doi="10.1093/gbe/evaf181",
             article_source_url="https://academic.oup.com/gbe/article/doi/10.1093/gbe/evaf181/8317779",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1093-gbe-evaf181/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evaf181/article.html",
             article_kind="article_html",
             article_note="Publisher article page is archived where accessible; OUP bot protection can still block richer downloads.",
         ),
         "10.1111/1755-0998.12551": _PaperSourceSpec(
             doi="10.1111/1755-0998.12551",
             article_source_url="https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1111-1755-0998.12551/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-1755-0998.12551/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the camel paper.",
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(
             doi="10.1126/science.aam5298",
             article_source_url="https://pubmed.ncbi.nlm.nih.gov/28450643/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1126-science.aam5298/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aam5298/article.html",
             article_kind="article_html",
             article_note="PubMed landing page is archived because publisher automation is blocked.",
             parsing_status="full_paper_download_blocked",
@@ -765,7 +765,7 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         "10.1126/science.aao3297": _PaperSourceSpec(
             doi="10.1126/science.aao3297",
             article_source_url="https://pubmed.ncbi.nlm.nih.gov/29472442/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1126-science.aao3297/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aao3297/article.html",
             article_kind="article_html",
             article_note="PubMed landing page is archived because publisher automation is blocked.",
             parsing_status="full_paper_download_blocked",
@@ -773,7 +773,7 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         "10.1126/science.aav1002": _PaperSourceSpec(
             doi="10.1126/science.aav1002",
             article_source_url="https://pubmed.ncbi.nlm.nih.gov/31296769/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1126-science.aav1002/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aav1002/article.html",
             article_kind="article_html",
             article_note="PubMed landing page is archived because publisher automation is blocked.",
             parsing_status="full_paper_download_blocked",
@@ -781,42 +781,42 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         "10.1126/science.adt2642": _PaperSourceSpec(
             doi="10.1126/science.adt2642",
             article_source_url="https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1126-science.adt2642/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.adt2642/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the cat dispersal paper.",
         ),
         "10.1073/pnas.1901169116": _PaperSourceSpec(
             doi="10.1073/pnas.1901169116",
             article_source_url="https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1073-pnas.1901169116/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1073-pnas.1901169116/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the pig turnover paper.",
         ),
         "10.1016/j.cell.2019.03.049": _PaperSourceSpec(
             doi="10.1016/j.cell.2019.03.049",
             article_source_url="https://pmc.ncbi.nlm.nih.gov/articles/PMC6547883/",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1016-j.cell.2019.03.049/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.cell.2019.03.049/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the horse time-series paper.",
         ),
         "10.1016/j.isci.2025.113771": _PaperSourceSpec(
             doi="10.1016/j.isci.2025.113771",
             article_source_url="https://linkinghub.elsevier.com/retrieve/pii/S2589004225020322",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1016-j.isci.2025.113771/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.isci.2025.113771/article.html",
             article_kind="article_html",
             article_note="Elsevier article landing page is archived as the accessible paper surface.",
         ),
         "10.1016/j.xgen.2025.101099": _PaperSourceSpec(
             doi="10.1016/j.xgen.2025.101099",
             article_source_url="https://linkinghub.elsevier.com/retrieve/pii/S2666979X25003556",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.1016-j.xgen.2025.101099/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.xgen.2025.101099/article.html",
             article_kind="article_html",
             article_note="Elsevier article landing page is archived as the accessible paper surface.",
         ),
         "10.24272/j.issn.2095-8137.2025.080": _PaperSourceSpec(
             doi="10.24272/j.issn.2095-8137.2025.080",
             article_source_url="https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
-            article_local_path=f"adna/{SOURCE_LIBRARY_DIRNAME}/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
             article_kind="article_html",
             article_note="Publisher article page is archived for the goat paper.",
         ),
@@ -834,7 +834,7 @@ def _expand_remote_assets(
     spec: _PaperSourceSpec,
     catalog: tuple[object, ...],
 ) -> tuple[_RemoteArtifactSpec, ...]:
-    article_relative = spec.article_local_path.split(f"adna/{SOURCE_LIBRARY_DIRNAME}/", 1)[1]
+    article_relative = spec.article_local_path.split(f"{ADNA_SOURCE_LIBRARY_DIR}/", 1)[1]
     assets = [
         _RemoteArtifactSpec(
             artifact_kind=spec.article_kind,

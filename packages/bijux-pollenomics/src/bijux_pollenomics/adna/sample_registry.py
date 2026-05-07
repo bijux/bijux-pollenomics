@@ -79,7 +79,7 @@ class AdnaCuratedSampleRow:
 
 _SUPPLEMENTARY_SOURCE_BY_DOI: dict[str, str] = {
     "10.1038/s42003-021-02794-8": (
-        "data/adna/source_library/papers/10.1038-s42003-021-02794-8/"
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/"
         "supplementary/42003_2021_2794_MOESM4_ESM.zip"
     ),
 }

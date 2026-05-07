@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from .ena import build_archive_project_catalog
+from .paths import adna_species_root
 from .project_context import build_species_freshness_rows, resolve_project_context
 from .tracked_species import TRACKED_ADNA_SPECIES
 
@@ -469,7 +470,7 @@ def _build_species_coverage_row(
     from .species import resolve_species_definition
 
     species = resolve_species_definition(species_name)
-    species_root = data_root / "adna" / species.slug
+    species_root = adna_species_root(data_root, species_name)
     context_rows = [
         resolve_project_context(project)
         for project in build_archive_project_catalog()
@@ -570,10 +571,7 @@ def _build_species_map_readiness_row(data_root: Path, species_name: str) -> dict
 
 
 def _species_root(data_root: Path, species_name: str) -> Path:
-    from .species import resolve_species_definition
-
-    species = resolve_species_definition(species_name)
-    return Path(data_root) / "adna" / species.slug
+    return adna_species_root(Path(data_root), species_name)
 
 
 def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:
