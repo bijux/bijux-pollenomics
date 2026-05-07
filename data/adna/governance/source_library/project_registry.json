@@ -14,7 +14,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB31621/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+      "sample_identifier_status": "manual_curation_required",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Bos taurus",
@@ -29,7 +36,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB75467/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Bos taurus",
@@ -44,7 +58,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA705960/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -59,7 +80,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/KU605068-KU605080/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": 13,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "expected_sample_count_provenance": "The tracked accession range implies a finite set of archive-native sample identifiers.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -74,7 +102,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/SRP073444/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -89,7 +124,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/KX379528-KX379529/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": 2,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "expected_sample_count_provenance": "The tracked accession range implies a finite set of archive-native sample identifiers.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -104,7 +146,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/SRS1407451/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": 1,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -119,7 +168,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/SRS1407453/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": 1,
+      "expected_sample_count_status": "known_from_archive_accession_scope",
+      "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/SRS1407453/archive_metadata.html",
+      "sample_identifier_status": "archive_native_identifiers_known",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Capra hircus",
@@ -134,7 +190,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB90141/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Capra hircus",
@@ -149,7 +212,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB90261/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Capra hircus",
@@ -164,7 +234,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA1328209/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus asinus",
@@ -179,7 +256,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB43564/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB43564/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus asinus",
@@ -194,7 +278,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB50952/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB50952/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus asinus",
@@ -209,7 +300,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB52590/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB52590/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus asinus",
@@ -224,7 +322,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB52849/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB52849/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus asinus",
@@ -239,7 +344,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB55549/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB55549/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Analysis-level donkey entry; not promoted into direct curated support."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -254,7 +366,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB10854/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB10854/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -269,7 +388,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB19970/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+      "sample_identifier_status": "manual_curation_required",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -284,7 +410,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB22390/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB22390/archive_metadata.html",
+      "sample_identifier_status": "manual_curation_required",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -299,7 +432,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB31613/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -314,7 +454,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB44430/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -329,7 +476,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB56293/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB56293/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -344,7 +498,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB7537/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB7537/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Equus caballus",
@@ -359,7 +520,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB9799/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB9799/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Modern horse breed genomics from the source note set; not ancient domestication support."
     },
     {
       "species_latin_name": "Felis catus",
@@ -374,7 +542,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB81815/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Felis catus",
@@ -389,7 +564,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA1178732/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -404,7 +586,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB36540/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "ingestion_status": "paper_and_supplement_archived"
+      "ingestion_status": "paper_and_supplement_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -419,7 +608,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB41594/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -434,7 +630,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB59481/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -449,7 +652,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB61808/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB61808/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -464,7 +674,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB69690/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB69690/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Ovis aries",
@@ -479,7 +696,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB81145/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB81145/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -494,7 +718,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB57293/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB57293/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -509,7 +740,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB60484/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -524,7 +762,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB61721/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB61721/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support."
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -539,7 +784,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA634908/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA634908/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Modern caribou comparator retained only as an explicit reject so cross-cervid context does not masquerade as domesticated support."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -554,7 +806,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB30282/bundle_manifest.json",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "ingestion_status": "paper_source_archived"
+      "ingestion_status": "paper_source_archived",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
+      "expected_sample_count_artifact_path": "",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -569,7 +828,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA421430/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA421430/archive_metadata.html",
+      "sample_identifier_status": "not_yet_curated",
+      "inventory_disposition": "retained_rejected_reference",
+      "rejection_reason": "Method and modern tissue context from the source note set; not curated ancient pig support."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -584,7 +850,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA788987/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA788987/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -599,7 +872,14 @@
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJNA878488/bundle_manifest.json",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "ingestion_status": "blocked"
+      "ingestion_status": "blocked",
+      "expected_sample_count": null,
+      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
+      "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA878488/archive_metadata.html",
+      "sample_identifier_status": "missing_primary_paper_linkage",
+      "inventory_disposition": "tracked_intake_candidate",
+      "rejection_reason": ""
     }
   ]
 }

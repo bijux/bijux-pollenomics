@@ -12,6 +12,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -25,6 +30,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -38,6 +48,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -51,6 +66,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -64,6 +84,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -76,7 +101,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB56293",
@@ -89,6 +115,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -101,7 +132,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB61721",
@@ -113,7 +145,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB61808",
@@ -126,6 +159,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -139,6 +177,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -152,6 +195,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -165,6 +213,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -177,7 +230,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJNA421430",
@@ -189,7 +243,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJNA634908",
@@ -201,7 +256,8 @@
       "supplement_download_status": "missing",
       "blockers": [
         "paper_linkage_not_curated"
-      ]
+      ],
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJNA705960",
@@ -214,6 +270,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -227,6 +288,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -240,6 +306,11 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     }
   ]
