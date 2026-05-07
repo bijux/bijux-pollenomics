@@ -79,8 +79,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "project_registry.json").is_file())
         self.assertTrue((governance_root / "source_library" / "paper_registry.json").is_file())
         self.assertTrue((governance_root / "source_library" / "supplement_registry.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "supplement_zip_member_registry.json").is_file())
         self.assertTrue((governance_root / "source_library" / "source_audit.json").is_file())
         self.assertTrue((governance_root / "source_library" / "source_blockers.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "source_intake_audit.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "source_intake_release_guard.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.md").is_file())
         self.assertTrue(
             (
                 governance_root
@@ -88,6 +93,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "projects"
                 / "PRJEB22390"
                 / "bundle_manifest.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB22390"
+                / "intake_dossier.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "papers"
+                / "10.1038-s42003-021-02794-8"
+                / "supplementary_manifest.json"
             ).is_file()
         )
 
@@ -176,6 +199,26 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("- Geocoded rows:", readme_text)
         self.assertIn("- Unresolved sample rows:", readme_text)
         self.assertIn("- Mapped Nordic rows:", readme_text)
+        self.assertIn("- Tracked intake projects:", readme_text)
+
+    def test_public_sources_docs_point_to_project_and_paper_inventory(self) -> None:
+        sources_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+        ).read_text(encoding="utf-8")
+        inventory_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "animal-project-and-paper-inventory.md"
+        )
+
+        self.assertTrue(inventory_page.is_file())
+        inventory_text = inventory_page.read_text(encoding="utf-8")
+        self.assertIn("Animal Project and Paper Inventory", inventory_text)
+        self.assertIn("tracked_project_and_paper_inventory.json", inventory_text)
+        self.assertIn("source_intake_audit.json", inventory_text)
+        self.assertIn("Animal Project and Paper Inventory", sources_index)
 
     @staticmethod
     def _declared_mermaid_node_ids(block: str) -> set[str]:
