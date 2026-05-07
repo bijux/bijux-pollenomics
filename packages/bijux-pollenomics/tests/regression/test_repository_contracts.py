@@ -29,15 +29,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
         targets = re.findall(r"\]\((\.\./docs/[^\)]+)\)", readme_text)
 
-        self.assertIn("adna/homo_sapiens", readme_text)
-        self.assertIn("adna/equus_caballus", readme_text)
-        self.assertIn("adna/bos_taurus", readme_text)
-        self.assertIn("adna/canis_lupus_familiaris", readme_text)
-        self.assertIn("adna/camelus_dromedarius", readme_text)
-        self.assertIn("adna/rangifer_tarandus", readme_text)
-        self.assertIn("adna/equus_asinus", readme_text)
+        self.assertIn("adna/species/homo_sapiens", readme_text)
+        self.assertIn("adna/species/equus_caballus", readme_text)
+        self.assertIn("adna/species/bos_taurus", readme_text)
+        self.assertIn("adna/species/canis_lupus_familiaris", readme_text)
+        self.assertIn("adna/species/camelus_dromedarius", readme_text)
+        self.assertIn("adna/species/rangifer_tarandus", readme_text)
+        self.assertIn("adna/species/equus_asinus", readme_text)
         self.assertIn("domesticated-animal curation program", readme_text)
-        self.assertIn("aadr -> ../../../aadr", readme_text)
+        self.assertIn("aadr -> ../../../../aadr", readme_text)
         self.assertGreaterEqual(len(targets), 2)
         for target in targets:
             resolved = (REPO_ROOT / "data" / target).resolve()
@@ -48,41 +48,42 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_tracked_adna_root_ships_cross_species_audit_artifacts(self) -> None:
         adna_root = REPO_ROOT / "data" / "adna"
+        governance_root = adna_root / "governance"
 
-        self.assertTrue((adna_root / "cross_species_bibliography.json").is_file())
-        self.assertTrue((adna_root / "cross_species_bibliography.csv").is_file())
-        self.assertTrue((adna_root / "cross_species_archive_inventory.json").is_file())
-        self.assertTrue((adna_root / "cross_species_archive_inventory.csv").is_file())
-        self.assertTrue((adna_root / "cross_species_freshness.json").is_file())
-        self.assertTrue((adna_root / "cross_species_freshness.csv").is_file())
-        self.assertTrue((adna_root / "cross_species_coverage_dashboard.json").is_file())
-        self.assertTrue((adna_root / "cross_species_coverage_dashboard.csv").is_file())
-        self.assertTrue((adna_root / "animal_sample_product_contract.json").is_file())
-        self.assertTrue((adna_root / "animal_sample_product_contract.md").is_file())
-        self.assertTrue((adna_root / "animal_sample_foundation_truth.json").is_file())
-        self.assertTrue((adna_root / "animal_sample_foundation_truth.md").is_file())
-        self.assertTrue((adna_root / "animal_sample_foundation_truth_species.csv").is_file())
-        self.assertTrue((adna_root / "animal_sample_foundation_truth_projects.csv").is_file())
-        self.assertTrue((adna_root / "animal_sample_aggregation_warnings.json").is_file())
-        self.assertTrue((adna_root / "animal_sample_aggregation_warnings.md").is_file())
-        self.assertTrue((adna_root / "cross_species_map_readiness.json").is_file())
-        self.assertTrue((adna_root / "cross_species_map_readiness.csv").is_file())
-        self.assertTrue((adna_root / "unresolved_site_ledger.json").is_file())
-        self.assertTrue((adna_root / "unresolved_site_ledger.csv").is_file())
-        self.assertTrue((adna_root / "overbroad_site_ledger.json").is_file())
-        self.assertTrue((adna_root / "overbroad_site_ledger.csv").is_file())
-        self.assertTrue((adna_root / "coordinate_caveat_surface.json").is_file())
-        self.assertTrue((adna_root / "coordinate_caveat_surface.md").is_file())
-        self.assertTrue((adna_root / "coordinate_confidence_scale.md").is_file())
-        self.assertTrue((adna_root / "shipped_product_audit.json").is_file())
-        self.assertTrue((adna_root / "source_library" / "project_registry.json").is_file())
-        self.assertTrue((adna_root / "source_library" / "paper_registry.json").is_file())
-        self.assertTrue((adna_root / "source_library" / "supplement_registry.json").is_file())
-        self.assertTrue((adna_root / "source_library" / "source_audit.json").is_file())
-        self.assertTrue((adna_root / "source_library" / "source_blockers.json").is_file())
+        self.assertTrue((governance_root / "cross_species_bibliography.json").is_file())
+        self.assertTrue((governance_root / "cross_species_bibliography.csv").is_file())
+        self.assertTrue((governance_root / "cross_species_archive_inventory.json").is_file())
+        self.assertTrue((governance_root / "cross_species_archive_inventory.csv").is_file())
+        self.assertTrue((governance_root / "cross_species_freshness.json").is_file())
+        self.assertTrue((governance_root / "cross_species_freshness.csv").is_file())
+        self.assertTrue((governance_root / "cross_species_coverage_dashboard.json").is_file())
+        self.assertTrue((governance_root / "cross_species_coverage_dashboard.csv").is_file())
+        self.assertTrue((governance_root / "animal_sample_product_contract.json").is_file())
+        self.assertTrue((governance_root / "animal_sample_product_contract.md").is_file())
+        self.assertTrue((governance_root / "animal_sample_foundation_truth.json").is_file())
+        self.assertTrue((governance_root / "animal_sample_foundation_truth.md").is_file())
+        self.assertTrue((governance_root / "animal_sample_foundation_truth_species.csv").is_file())
+        self.assertTrue((governance_root / "animal_sample_foundation_truth_projects.csv").is_file())
+        self.assertTrue((governance_root / "animal_sample_aggregation_warnings.json").is_file())
+        self.assertTrue((governance_root / "animal_sample_aggregation_warnings.md").is_file())
+        self.assertTrue((governance_root / "cross_species_map_readiness.json").is_file())
+        self.assertTrue((governance_root / "cross_species_map_readiness.csv").is_file())
+        self.assertTrue((governance_root / "unresolved_site_ledger.json").is_file())
+        self.assertTrue((governance_root / "unresolved_site_ledger.csv").is_file())
+        self.assertTrue((governance_root / "overbroad_site_ledger.json").is_file())
+        self.assertTrue((governance_root / "overbroad_site_ledger.csv").is_file())
+        self.assertTrue((governance_root / "coordinate_caveat_surface.json").is_file())
+        self.assertTrue((governance_root / "coordinate_caveat_surface.md").is_file())
+        self.assertTrue((governance_root / "coordinate_confidence_scale.md").is_file())
+        self.assertTrue((governance_root / "shipped_product_audit.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_registry.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "paper_registry.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "supplement_registry.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "source_audit.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "source_blockers.json").is_file())
         self.assertTrue(
             (
-                adna_root
+                governance_root
                 / "source_library"
                 / "projects"
                 / "PRJEB22390"
@@ -165,7 +166,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:
         readme_text = (
-            REPO_ROOT / "data" / "adna" / "ovis_aries" / "README.md"
+            REPO_ROOT / "data" / "adna" / "species" / "ovis_aries" / "README.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("- Curated sample rows:", readme_text)
@@ -312,14 +313,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("02-bijux-pollenomics-data/foundation/animal-adna-data-model", docs_index)
         self.assertIn("report/nordic-atlas/nordic-atlas_map.html", docs_index)
-        self.assertIn("data/adna/ovis_aries/normalized/sample_records.json", data_model)
-        self.assertIn("data/adna/ovis_aries/normalized/site_evidence.json", data_model)
+        self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", data_model)
+        self.assertIn("data/adna/species/ovis_aries/normalized/site_evidence.json", data_model)
         self.assertIn(
-            "data/adna/ovis_aries/normalized/coordinate_provenance.json",
+            "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
             data_model,
         )
         self.assertIn(
-            "data/adna/animal_sample_product_contract.json",
+            "data/adna/governance/animal_sample_product_contract.json",
             data_model,
         )
         self.assertIn(
@@ -481,16 +482,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("species-owned ancient-DNA surface", directory_layout)
         self.assertIn("domesticated-animal curation roots", directory_layout)
-        self.assertIn("`data/adna/equus_caballus/`", directory_layout)
-        self.assertIn("`data/adna/bos_taurus/`", directory_layout)
-        self.assertIn("`data/adna/canis_lupus_familiaris/`", directory_layout)
-        self.assertIn("`data/adna/camelus_dromedarius/`", directory_layout)
-        self.assertIn("`data/adna/rangifer_tarandus/`", directory_layout)
-        self.assertIn("`data/adna/equus_asinus/`", directory_layout)
-        self.assertIn("`data/adna/felis_catus/`", directory_layout)
+        self.assertIn("`data/adna/species/equus_caballus/`", directory_layout)
+        self.assertIn("`data/adna/species/bos_taurus/`", directory_layout)
+        self.assertIn("`data/adna/species/canis_lupus_familiaris/`", directory_layout)
+        self.assertIn("`data/adna/species/camelus_dromedarius/`", directory_layout)
+        self.assertIn("`data/adna/species/rangifer_tarandus/`", directory_layout)
+        self.assertIn("`data/adna/species/equus_asinus/`", directory_layout)
+        self.assertIn("`data/adna/species/felis_catus/`", directory_layout)
 
     def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
-        species_root = REPO_ROOT / "data" / "adna" / "homo_sapiens"
+        species_root = REPO_ROOT / "data" / "adna" / "species" / "homo_sapiens"
 
         self.assertTrue((species_root / "README.md").exists())
         self.assertTrue((species_root / "normalized").is_dir())
@@ -499,7 +500,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((species_root / "review").is_dir())
         raw_aadr = species_root / "raw" / "aadr"
         self.assertTrue(raw_aadr.is_symlink())
-        self.assertEqual(raw_aadr.readlink().as_posix(), "../../../aadr")
+        self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
 
     def test_tracked_nonhuman_adna_roots_ship_real_reviewable_files(self) -> None:
         tracked_roots = (
@@ -516,7 +517,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
 
         for slug in tracked_roots:
-            species_root = REPO_ROOT / "data" / "adna" / slug
+            species_root = REPO_ROOT / "data" / "adna" / "species" / slug
             self.assertTrue((species_root / "README.md").is_file(), slug)
             self.assertTrue((species_root / "raw" / "archive_inventory.json").is_file(), slug)
             self.assertTrue((species_root / "raw" / "archive_inventory.csv").is_file(), slug)
@@ -602,6 +603,42 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 (species_root / "review" / "archive_integrity.json").is_file(),
                 slug,
             )
+
+    def test_adna_root_keeps_only_named_entrypoints_and_index_files(self) -> None:
+        adna_root = REPO_ROOT / "data" / "adna"
+        names = {path.name for path in adna_root.iterdir()}
+
+        self.assertEqual(names, {"README.md", "species", "governance", "final"})
+
+    def test_governance_files_do_not_spill_into_adna_root(self) -> None:
+        adna_root = REPO_ROOT / "data" / "adna"
+        disallowed_prefixes = (
+            "cross_species_",
+            "animal_sample_",
+            "coordinate_",
+            "unresolved_site_",
+            "overbroad_site_",
+            "shipped_product_",
+            "source_",
+        )
+        offenders = [
+            path.name
+            for path in adna_root.iterdir()
+            if path.is_file() and path.name.startswith(disallowed_prefixes)
+        ]
+
+        self.assertFalse(
+            offenders,
+            f"data/adna root contains governance-style files: {offenders}",
+        )
+
+    def test_cross_species_publishable_outputs_live_under_adna_final(self) -> None:
+        final_root = REPO_ROOT / "data" / "adna" / "final"
+
+        self.assertTrue((final_root / "atlas" / "animal_atlas_point_candidates.json").is_file())
+        self.assertTrue((final_root / "atlas" / "animal_atlas_point_candidates.csv").is_file())
+        self.assertTrue((final_root / "countries" / "country_publication_index.json").is_file())
+        self.assertTrue((final_root / "countries" / "country_publication_index.csv").is_file())
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
