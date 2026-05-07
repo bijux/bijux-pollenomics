@@ -146,6 +146,9 @@ def build_shipped_adna_product_audit(
     return {
         "schema_version": "adna-shipped-product-audit.v1",
         "tracked_species_count": len(rows),
+        "species_with_source_snapshots": sum(
+            1 for row in rows if row["raw_source_snapshot_present"]
+        ),
         "species_with_locality_artifacts": sum(
             1 for row in rows if row["normalized_locality_artifact_present"]
         ),
@@ -274,6 +277,9 @@ def _build_species_coverage_row(
         "species_latin_name": species.latin_name,
         "species_common_name": species.common_name,
         "raw_inventory_present": (species_root / "raw" / "archive_inventory.csv").is_file(),
+        "raw_source_snapshot_present": (
+            species_root / "raw" / "source_snapshot.json"
+        ).is_file(),
         "citation_manifest_present": (
             species_root / "manifests" / "citation_manifest.csv"
         ).is_file(),

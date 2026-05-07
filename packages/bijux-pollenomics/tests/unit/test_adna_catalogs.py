@@ -69,9 +69,11 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             if row["species_latin_name"] == "Equus caballus"
         )
         self.assertTrue(horse_row["raw_inventory_present"])
+        self.assertTrue(horse_row["raw_source_snapshot_present"])
         self.assertTrue(horse_row["citation_manifest_present"])
         self.assertEqual(horse_row["country_output_count"], 0)
         self.assertEqual(horse_row["atlas_layer_count"], 0)
+        self.assertEqual(product_audit["species_with_source_snapshots"], 10)
         self.assertIn("Equus caballus", product_audit["missing_public_outputs"])
         self.assertIn("ships no mapped non-human animal atlas layers", markdown)
 
