@@ -75,6 +75,12 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_site_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_manual_curation_queue.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_chronology_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_normalization_audit.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_chronology_completeness.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_chronology_completeness.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_viewer.json").is_file())
 
             sheep_project = next(
                 item for item in project_registry if item.project_accession == "PRJEB36540"
@@ -162,6 +168,17 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "projects"
                     / "PRJEB36540"
                     / "sample_sites.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "sample_chronology.json"
                 ).is_file()
             )
 
