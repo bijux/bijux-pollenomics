@@ -96,7 +96,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Near East cattle origins and turnover anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB75467",
@@ -113,7 +117,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "wild_or_progenitor_context"
+        "domestication_scope": "wild_or_progenitor_context",
+        "notes": "Aurochs genomic natural-history context for cattle domestication.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJNA705960",
@@ -130,7 +138,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -186,6 +198,43 @@
       ]
     }
   ],
+  "accepted_projects": [
+    {
+      "project_accession": "PRJEB31621",
+      "paper_title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
+      "paper_doi": "10.1126/science.aav1002",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [],
+  "too_weak_projects": [
+    {
+      "project_accession": "PRJEB75467",
+      "paper_title": "The genomic natural history of the aurochs",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "archive_status": "paper_pinned_core",
+      "support_class": "ancient_but_too_weak",
+      "reason": "ancient_but_not_domesticated_core",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
   "release_blockers": [
     "missing_primary_paper_pins",
     "missing_archive_paper_pinning_rationale",

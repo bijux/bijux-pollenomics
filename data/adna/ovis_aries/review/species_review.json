@@ -93,7 +93,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Early Anatolian sheep domestication-demography anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB41594",
@@ -110,7 +114,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Central Asian sheep dispersal anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB59481",
@@ -127,7 +135,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Baltic ancient sheep genomes across four millennia.",
+        "nordic_relevance": "nordic_relevant_unmapped",
+        "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB61808",
@@ -144,7 +156,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB69690",
@@ -161,7 +177,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB81145",
@@ -178,7 +198,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed sheep dataset awaiting explicit primary-paper pinning.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -284,6 +308,84 @@
         "missing_primary_paper_anchor",
         "missing_archive_paper_pinning_rationale"
       ]
+    }
+  ],
+  "accepted_projects": [
+    {
+      "project_accession": "PRJEB36540",
+      "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "paper_title": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "nordic_relevant_unmapped",
+      "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it."
+    }
+  ],
+  "rejected_projects": [],
+  "too_weak_projects": [
+    {
+      "project_accession": "PRJEB61808",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "not_confirmed_ancient, missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "not_confirmed_ancient, missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "not_confirmed_ancient, missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [
+    {
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "nordic_relevant_unmapped",
+      "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it."
     }
   ],
   "release_blockers": [

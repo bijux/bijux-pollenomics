@@ -93,7 +93,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB19970",
@@ -110,7 +114,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Early domestic horses and domestication-associated genomic change.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB22390",
@@ -127,7 +135,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Botai and Przewalski/domestic ancestry anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB31613",
@@ -144,7 +156,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Extensive horse management time series.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB44430",
@@ -161,7 +177,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Major horse domestication-and-dispersal anchor.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB56293",
@@ -178,7 +198,11 @@
         "geographic_basis": "site_level_localities",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient horse project, but currently phenotype-method oriented and not yet core-pinned.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB7537",
@@ -195,7 +219,11 @@
         "geographic_basis": "not_yet_curated",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Archive-backed horse dataset kept provisional until explicit primary-paper linkage is recorded.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       },
       {
         "project_accession": "PRJEB9799",
@@ -212,7 +240,11 @@
         "geographic_basis": "country_or_breed_panel",
         "access_policy": "public_downloadable",
         "public_release_date": null,
-        "domestication_scope": "domesticated_core"
+        "domestication_scope": "domesticated_core",
+        "notes": "Modern horse breed genomics from the source note set; not ancient domestication support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
       }
     ]
   },
@@ -349,6 +381,94 @@
       "blocking_reasons": []
     }
   ],
+  "accepted_projects": [
+    {
+      "project_accession": "PRJEB19970",
+      "paper_title": "Ancient genomic changes associated with domestication of the horse",
+      "paper_doi": "10.1126/science.aam5298",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "paper_title": "Ancient genomes revisit the ancestry of domestic and Przewalski's horses",
+      "paper_doi": "10.1126/science.aao3297",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [
+    {
+      "project_accession": "PRJEB9799",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Modern horse breed genomics from the source note set; not ancient domestication support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "too_weak_projects": [
+    {
+      "project_accession": "PRJEB10854",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "not_confirmed_ancient, missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "not_confirmed_ancient, missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
   "release_blockers": [
     "missing_primary_paper_pins",
     "missing_archive_paper_pinning_rationale",
