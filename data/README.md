@@ -45,3 +45,8 @@ domesticated-animal curation program owns species roots such as
 `adna/bos_taurus/`, `adna/capra_hircus/`, `adna/canis_lupus_familiaris/`,
 `adna/felis_catus/`, `adna/camelus_dromedarius/`, `adna/rangifer_tarandus/`,
 and `adna/equus_asinus/`.
+
+Cross-species animal aDNA audits live directly under `adna/` as checked-in
+artifacts such as `cross_species_bibliography.json`,
+`cross_species_archive_inventory.csv`, `cross_species_coverage_dashboard.json`,
+`cross_species_freshness.csv`, and `shipped_product_audit.json`.

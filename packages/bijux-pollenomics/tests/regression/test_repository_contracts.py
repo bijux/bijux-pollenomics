@@ -46,6 +46,28 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 f"data/README.md points at a missing docs page: {target}",
             )
 
+    def test_tracked_adna_root_ships_cross_species_audit_artifacts(self) -> None:
+        adna_root = REPO_ROOT / "data" / "adna"
+
+        self.assertTrue((adna_root / "cross_species_bibliography.json").is_file())
+        self.assertTrue((adna_root / "cross_species_bibliography.csv").is_file())
+        self.assertTrue((adna_root / "cross_species_archive_inventory.json").is_file())
+        self.assertTrue((adna_root / "cross_species_archive_inventory.csv").is_file())
+        self.assertTrue((adna_root / "cross_species_freshness.json").is_file())
+        self.assertTrue((adna_root / "cross_species_freshness.csv").is_file())
+        self.assertTrue((adna_root / "cross_species_coverage_dashboard.json").is_file())
+        self.assertTrue((adna_root / "cross_species_coverage_dashboard.csv").is_file())
+        self.assertTrue((adna_root / "shipped_product_audit.json").is_file())
+
+    def test_public_report_root_ships_animal_output_audit(self) -> None:
+        report_root = REPO_ROOT / "docs" / "report"
+        audit_json = report_root / "animal_output_audit.json"
+        audit_markdown = report_root / "animal_output_audit.md"
+
+        self.assertTrue(audit_json.is_file())
+        self.assertTrue(audit_markdown.is_file())
+        self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
+
     @staticmethod
     def _declared_mermaid_node_ids(block: str) -> set[str]:
         ids: set[str] = set()
