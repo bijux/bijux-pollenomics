@@ -1,0 +1,721 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+__all__ = [
+    "build_repository_claim_audit",
+    "build_repository_governance_artifact_review",
+    "build_repository_recovery_scorecard",
+    "build_repository_scientific_progress_audit",
+    "build_repository_truth_posture",
+    "render_repository_claim_audit_markdown",
+    "render_repository_governance_artifact_review_markdown",
+    "render_repository_recovery_scorecard_markdown",
+    "render_repository_scientific_progress_audit_markdown",
+    "render_repository_truth_posture_markdown",
+]
+
+SCORE_MAX = 4
+
+
+def build_repository_truth_posture(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Build one repository-level truth packet about scope, thinness, and recovery."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    scorecard = build_repository_recovery_scorecard(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+    governance_review = build_repository_governance_artifact_review(
+        data_root=data_root,
+        report_root=report_root,
+    )
+    return {
+        "schema_version": "repository-truth-posture.v1",
+        "repository": "bijux-pollenomics",
+        "primary_domains": [
+            "pollen_context",
+            "environmental_context",
+        ],
+        "contextual_domains": [
+            "archaeology_context",
+            "boundary_framing",
+            "fieldwork_record",
+            "ancient_dna_context",
+            "publication_outputs",
+        ],
+        "incomplete_programs": [
+            "animal_sample_site_extraction",
+            "animal_sample_chronology_extraction",
+            "animal_coordinate_resolution",
+            "supplement_capture_recovery",
+            "atlas_depth_recovery",
+        ],
+        "counts": counts,
+        "recovery_priorities": [
+            "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
+            "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
+            "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
+            "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues",
+        ],
+        "claim_freeze_reasons": _build_claim_freeze_reasons(counts),
+        "do_not_repeat": [
+            "do not treat checked-in JSON file count as scientific progress",
+            "do not let public atlas presence stand in for sample-owned locality and chronology evidence",
+            "do not narrow the repository mission to one thin recovery slice",
+            "do not present internal publication accounting as if it were evidence depth",
+            "do not call weak or partial animal aDNA coverage region-agnostic or broadly ready",
+        ],
+        "scorecard_overview": {
+            "overall_recovery_posture": scorecard["overall_recovery_posture"],
+            "average_dimension_scores": scorecard["average_dimension_scores"],
+        },
+        "governance_review_summary": governance_review["summary"],
+    }
+
+
+def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository truth posture",
+        "",
+        f"- Repository: `{payload['repository']}`",
+        f"- Primary domains: `{', '.join(payload['primary_domains'])}`",
+        f"- Contextual domains: `{', '.join(payload['contextual_domains'])}`",
+        f"- Overall recovery posture: `{payload['scorecard_overview']['overall_recovery_posture']}`",
+        "",
+        "## Counts",
+        "",
+        f"- Tracked paper count: `{payload['counts']['tracked_paper_count']}`",
+        f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
+        f"- Published animal atlas points: `{payload['counts']['published_atlas_point_count']}`",
+        f"- Unresolved animal map rows: `{payload['counts']['animal_map_unresolved_rows']}`",
+        f"- Refused animal map rows: `{payload['counts']['animal_map_refused_rows']}`",
+        f"- Source-family explainer count: `{payload['counts']['source_explainer_count']}`",
+        "",
+        "## Claim Freeze Reasons",
+        "",
+    ]
+    for row in payload["claim_freeze_reasons"]:
+        lines.append(f"- {row}")
+    lines.extend(
+        [
+            "",
+            "## Recovery Priorities",
+            "",
+        ]
+    )
+    for row in payload["recovery_priorities"]:
+        lines.append(f"- {row}")
+    lines.extend(
+        [
+            "",
+            "## Do Not Repeat",
+            "",
+        ]
+    )
+    for row in payload["do_not_repeat"]:
+        lines.append(f"- {row}")
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_recovery_scorecard(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Score the main repository surfaces by evidence depth and honesty."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    rows = [
+        _scorecard_row(
+            "pollen_context",
+            "Pollen context",
+            data_completeness=3,
+            provenance_clarity=3,
+            documentation_clarity=4,
+            output_honesty=3,
+            metrics={
+                "normalized_file_count": counts["pollen_normalized_file_count"],
+                "source_pages": 2,
+            },
+            note="LandClim and Neotoma are real tracked context layers and now have direct explainer pages.",
+        ),
+        _scorecard_row(
+            "archaeology_context",
+            "Archaeology context",
+            data_completeness=3,
+            provenance_clarity=3,
+            documentation_clarity=4,
+            output_honesty=3,
+            metrics={
+                "normalized_file_count": counts["archaeology_normalized_file_count"],
+                "source_pages": 2,
+            },
+            note="SEAD and RAÄ are present and documented, but they remain contextual rather than fully synthesized outputs.",
+        ),
+        _scorecard_row(
+            "boundary_framing",
+            "Boundary framing",
+            data_completeness=4,
+            provenance_clarity=4,
+            documentation_clarity=4,
+            output_honesty=4,
+            metrics={
+                "raw_file_count": counts["boundary_raw_file_count"],
+                "normalized_file_count": counts["boundary_normalized_file_count"],
+            },
+            note="Boundary geometry is one of the strongest and clearest non-aDNA surfaces in the repository.",
+        ),
+        _scorecard_row(
+            "fieldwork_record",
+            "Fieldwork record",
+            data_completeness=2,
+            provenance_clarity=3,
+            documentation_clarity=3,
+            output_honesty=4,
+            metrics={"fieldwork_page_count": counts["fieldwork_page_count"]},
+            note="Fieldwork is intentionally narrow and honest, but it is still only one anchored record surface.",
+        ),
+        _scorecard_row(
+            "ancient_dna_context",
+            "Ancient DNA context",
+            data_completeness=_ratio_score(
+                counts["papers_with_archived_supplements"],
+                counts["tracked_paper_count"],
+            ),
+            provenance_clarity=_ratio_score(
+                counts["animal_map_supported_rows"],
+                counts["animal_sample_row_count"],
+            ),
+            documentation_clarity=3,
+            output_honesty=3,
+            metrics={
+                "tracked_papers": counts["tracked_paper_count"],
+                "papers_with_archived_supplements": counts["papers_with_archived_supplements"],
+                "published_atlas_points": counts["published_atlas_point_count"],
+                "unresolved_rows": counts["animal_map_unresolved_rows"],
+            },
+            note="The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces.",
+        ),
+        _scorecard_row(
+            "publication_outputs",
+            "Publication outputs",
+            data_completeness=_ratio_score(
+                counts["published_atlas_point_count"],
+                max(counts["animal_sample_row_count"], 1),
+            ),
+            provenance_clarity=3,
+            documentation_clarity=3,
+            output_honesty=3,
+            metrics={
+                "published_atlas_points": counts["published_atlas_point_count"],
+                "published_country_bundles": counts["published_country_bundle_count"],
+            },
+            note="The publication tree is reviewable and traceable, but the animal point surface remains too thin for stronger readiness language.",
+        ),
+        _scorecard_row(
+            "documentation_architecture",
+            "Documentation architecture",
+            data_completeness=3,
+            provenance_clarity=3,
+            documentation_clarity=4,
+            output_honesty=4,
+            metrics={
+                "source_explainer_count": counts["source_explainer_count"],
+                "landing_page_count": counts["landing_page_count"],
+            },
+            note="Breadth has been restored across repository, data, maintainer, fieldwork, and atlas entry surfaces.",
+        ),
+    ]
+    averages = {
+        "data_completeness": round(
+            sum(int(row["data_completeness"]) for row in rows) / len(rows), 2
+        ),
+        "provenance_clarity": round(
+            sum(int(row["provenance_clarity"]) for row in rows) / len(rows), 2
+        ),
+        "documentation_clarity": round(
+            sum(int(row["documentation_clarity"]) for row in rows) / len(rows), 2
+        ),
+        "output_honesty": round(
+            sum(int(row["output_honesty"]) for row in rows) / len(rows), 2
+        ),
+    }
+    return {
+        "schema_version": "repository-recovery-scorecard.v1",
+        "score_max": SCORE_MAX,
+        "overall_recovery_posture": (
+            "recovery_required"
+            if any(int(row["data_completeness"]) <= 1 for row in rows)
+            else "moderate_recovery"
+        ),
+        "average_dimension_scores": averages,
+        "rows": rows,
+    }
+
+
+def render_repository_recovery_scorecard_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository recovery scorecard",
+        "",
+        f"- Overall recovery posture: `{payload['overall_recovery_posture']}`",
+        f"- Score max: `{payload['score_max']}`",
+        "",
+        "| Surface | Data completeness | Provenance clarity | Documentation clarity | Output honesty |",
+        "| --- | ---: | ---: | ---: | ---: |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | {row['data_completeness']} | "
+            f"{row['provenance_clarity']} | {row['documentation_clarity']} | "
+            f"{row['output_honesty']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_governance_artifact_review(
+    *,
+    data_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Review current aDNA governance artifacts by evidence value, not file presence."""
+    _ = data_root
+    rows = [
+        _artifact_review_row(
+            "docs/report/animal_publication_release_gate.json",
+            "keep",
+            "claim_gate",
+            "This file blocks strong public claims when traceability or chronology support is missing.",
+        ),
+        _artifact_review_row(
+            "docs/report/animal_foundation_validation.json",
+            "keep",
+            "validation",
+            "This file checks sample, site, coordinate, and source structure instead of just formatting.",
+        ),
+        _artifact_review_row(
+            "data/adna/governance/source_library/project_sample_site_review.json",
+            "keep",
+            "evidence_review",
+            "This file surfaces site-assignment weakness project by project.",
+        ),
+        _artifact_review_row(
+            "data/adna/governance/source_library/project_sample_chronology_review.json",
+            "keep",
+            "evidence_review",
+            "This file surfaces chronology extraction weakness project by project.",
+        ),
+        _artifact_review_row(
+            "docs/report/animal_point_support_packets.json",
+            "keep",
+            "traceability",
+            "This file keeps published points anchored to sample, site, and coordinate support.",
+        ),
+        _artifact_review_row(
+            "docs/report/animal_atlas_readiness.json",
+            "reframe",
+            "coverage_summary",
+            "The current name reads stronger than the underlying point depth and must always sit beside unresolved and blocked counts.",
+        ),
+        _artifact_review_row(
+            "docs/report/animal_sample_database_review.json",
+            "reframe",
+            "public_posture",
+            "This file should describe partial recovery posture, not broad readiness or region-agnostic support.",
+        ),
+        _artifact_review_row(
+            "data/adna/governance/cross_species_map_readiness.json",
+            "reframe",
+            "coverage_summary",
+            "This file is useful only when readers can also see how many rows remain unresolved or refused.",
+        ),
+        _artifact_review_row(
+            "docs/report/animal_output_audit.json",
+            "retire",
+            "publication_accounting",
+            "This file counts shipped public surfaces but says little about evidence depth and should not lead the scientific story.",
+        ),
+    ]
+    repo_root = report_root.parents[1]
+    existing_rows = [row for row in rows if (repo_root / row["artifact_path"]).exists()]
+    summary = {
+        "keep": sum(1 for row in existing_rows if row["action"] == "keep"),
+        "reframe": sum(1 for row in existing_rows if row["action"] == "reframe"),
+        "retire": sum(1 for row in existing_rows if row["action"] == "retire"),
+    }
+    return {
+        "schema_version": "repository-governance-artifact-review.v1",
+        "summary": summary,
+        "rows": existing_rows,
+    }
+
+
+def render_repository_governance_artifact_review_markdown(
+    payload: dict[str, object]
+) -> str:
+    lines = [
+        "# Repository governance artifact review",
+        "",
+        "| Artifact | Action | Surface kind | Reason |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['artifact_path']}` | `{row['action']}` | `{row['surface_kind']}` | {row['reason']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_claim_audit(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Audit the public story against current tracked evidence depth."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    root_readme = (docs_root.parent / "README.md").read_text(encoding="utf-8")
+    docs_index = (docs_root / "index.md").read_text(encoding="utf-8")
+    runtime_readme = (
+        docs_root.parent / "packages" / "bijux-pollenomics" / "README.md"
+    ).read_text(encoding="utf-8")
+    data_index = (
+        docs_root / "02-bijux-pollenomics-data" / "index.md"
+    ).read_text(encoding="utf-8")
+    sample_database_review = _load_json(report_root / "animal_sample_database_review.json")
+    release_gate = _load_json(report_root / "animal_publication_release_gate.json")
+
+    checks = [
+        _claim_check(
+            "repository_landings_name_pollenomics_first",
+            all(
+                text in root_readme + docs_index + runtime_readme + data_index
+                for text in (
+                    "pollenomics and environmental evidence",
+                    "source comparison",
+                )
+            ),
+            "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
+            [],
+        ),
+        _claim_check(
+            "source_family_pages_restore_non_adna_breadth",
+            counts["source_explainer_count"] >= 6,
+            "The docs tree keeps non-aDNA source families visible and directly linkable.",
+            [] if counts["source_explainer_count"] >= 6 else ["source_explainer_count_below_expected_floor"],
+        ),
+        _claim_check(
+            "animal_sample_review_freezes_broad_readiness",
+            (
+                not bool(sample_database_review.get("nordic_view_supported_now"))
+                and not bool(sample_database_review.get("region_agnostic_contract_ready"))
+            ),
+            "The public animal sample review does not claim broad readiness while mapped depth remains thin.",
+            []
+            if (
+                not bool(sample_database_review.get("nordic_view_supported_now"))
+                and not bool(sample_database_review.get("region_agnostic_contract_ready"))
+            )
+            else ["animal_sample_database_review_overclaims_current_depth"],
+        ),
+        _claim_check(
+            "animal_release_gate_blocks_strongest_claim",
+            not bool(release_gate.get("reference_grade_claim_allowed")),
+            "The current release gate still freezes the strongest public claim.",
+            []
+            if not bool(release_gate.get("reference_grade_claim_allowed"))
+            else ["strongest_claim_not_frozen"],
+        ),
+        _claim_check(
+            "thin_animal_surface_stays_visible",
+            (
+                counts["published_atlas_point_count"] <= 2
+                and "thin animal adna atlas candidate set" in docs_index.lower()
+            ),
+            "The public docs keep the thin current atlas depth visible instead of hiding it.",
+            []
+            if (
+                counts["published_atlas_point_count"] <= 2
+                and "thin animal adna atlas candidate set" in docs_index.lower()
+            )
+            else ["thin_atlas_depth_not_explicitly_named"],
+        ),
+    ]
+    return {
+        "schema_version": "repository-claim-audit.v1",
+        "overall_ok": all(bool(row["passed"]) for row in checks),
+        "counts": counts,
+        "checks": checks,
+    }
+
+
+def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository claim audit",
+        "",
+        f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
+        f"- Published animal atlas points: `{payload['counts']['published_atlas_point_count']}`",
+        f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
+        "",
+        "| Check | Passed | Finding count |",
+        "| --- | --- | ---: |",
+    ]
+    for row in payload["checks"]:
+        lines.append(
+            f"| {row['check_id']} | `{str(row['passed']).lower()}` | {row['finding_count']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_scientific_progress_audit(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Describe progress using evidence depth instead of artifact count."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    zero_collection_surfaces = counts["zero_collection_summary_surfaces"]
+    return {
+        "schema_version": "repository-scientific-progress-audit.v1",
+        "overall_progress_posture": "data_recovery_required",
+        "progress_measures": [
+            "paper-by-paper supplement coverage",
+            "sample-owned locality and chronology support depth",
+            "mappable animal rows with traceable site and coordinate evidence",
+            "non-aDNA source-family explanation breadth",
+        ],
+        "anti_measures": [
+            "checked-in JSON file count",
+            "country bundle count without sample-depth context",
+            "atlas bundle existence without mapped evidence depth",
+        ],
+        "findings": [
+            f"only {counts['papers_with_archived_supplements']} of {counts['tracked_paper_count']} tracked papers currently ship archived supplementary material",
+            f"the shipped animal atlas still exposes only {counts['published_atlas_point_count']} published animal point rows",
+            f"{counts['animal_map_unresolved_rows']} animal rows remain unresolved for mapping and {counts['animal_map_refused_rows']} are refused from mapping",
+            (
+                "collection_summary still reports zero counts for "
+                + ", ".join(zero_collection_surfaces)
+                if zero_collection_surfaces
+                else "collection_summary keeps non-aDNA counts visible"
+            ),
+        ],
+    }
+
+
+def render_repository_scientific_progress_audit_markdown(
+    payload: dict[str, object]
+) -> str:
+    lines = [
+        "# Repository scientific progress audit",
+        "",
+        f"- Overall progress posture: `{payload['overall_progress_posture']}`",
+        "",
+        "## Use These Measures",
+        "",
+    ]
+    for row in payload["progress_measures"]:
+        lines.append(f"- {row}")
+    lines.extend(
+        [
+            "",
+            "## Do Not Use These As Progress",
+            "",
+        ]
+    )
+    for row in payload["anti_measures"]:
+        lines.append(f"- {row}")
+    lines.extend(
+        [
+            "",
+            "## Current Findings",
+            "",
+        ]
+    )
+    for row in payload["findings"]:
+        lines.append(f"- {row}")
+    return "\n".join(lines) + "\n"
+
+
+def _build_core_counts(
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    paper_registry = _load_json(
+        data_root / "adna" / "governance" / "source_library" / "paper_registry.json"
+    )
+    map_readiness = _load_json(
+        data_root / "adna" / "governance" / "cross_species_map_readiness.json"
+    )
+    sample_database_review = _load_json(report_root / "animal_sample_database_review.json")
+    collection_summary = _load_json(data_root / "collection_summary.json")
+
+    paper_rows = list(paper_registry.get("rows", []))
+    totals = dict(map_readiness.get("totals", {}))
+    zero_collection_surfaces = [
+        key
+        for key in (
+            "landclim_site_count",
+            "landclim_grid_cell_count",
+            "neotoma_point_count",
+            "sead_point_count",
+            "raa_total_site_count",
+            "raa_heritage_site_count",
+        )
+        if int(collection_summary.get(key, 0)) == 0
+    ]
+    return {
+        "tracked_paper_count": len(paper_rows),
+        "papers_with_archived_supplements": sum(
+            1 for row in paper_rows if int(row.get("supplementary_count", 0)) > 0
+        ),
+        "published_atlas_point_count": int(
+            sample_database_review.get("counts", {}).get("published_atlas_point_count", 0)
+        ),
+        "published_country_bundle_count": int(
+            sample_database_review.get("counts", {}).get("published_country_bundle_count", 0)
+        ),
+        "animal_sample_row_count": int(
+            sample_database_review.get("counts", {}).get("sample_row_count", 0)
+        ),
+        "animal_map_supported_rows": int(totals.get("direct_coordinate_backed", 0))
+        + int(totals.get("indirectly_geocoded", 0)),
+        "animal_map_unresolved_rows": int(totals.get("unresolved", 0)),
+        "animal_map_refused_rows": int(totals.get("refused_from_mapping", 0)),
+        "pollen_normalized_file_count": _count_files(
+            data_root / "landclim" / "normalized"
+        )
+        + _count_files(data_root / "neotoma" / "normalized"),
+        "archaeology_normalized_file_count": _count_files(
+            data_root / "sead" / "normalized"
+        )
+        + _count_files(data_root / "raa" / "normalized"),
+        "boundary_raw_file_count": _count_files(data_root / "boundaries" / "raw"),
+        "boundary_normalized_file_count": _count_files(
+            data_root / "boundaries" / "normalized"
+        ),
+        "fieldwork_page_count": sum(
+            1 for _ in (docs_root / "04-fieldwork").rglob("index.md")
+        ),
+        "source_explainer_count": sum(
+            1
+            for path in (docs_root / "02-bijux-pollenomics-data" / "sources").glob(
+                "*.md"
+            )
+            if path.name
+            not in {
+                "index.md",
+                "animal-project-and-paper-inventory.md",
+            }
+        ),
+        "landing_page_count": sum(
+            int(path.exists())
+            for path in (
+                docs_root / "index.md",
+                docs_root / "01-bijux-pollenomics" / "index.md",
+                docs_root / "02-bijux-pollenomics-data" / "index.md",
+                docs_root / "03-bijux-pollenomics-maintain" / "index.md",
+                docs_root / "04-fieldwork" / "index.md",
+                docs_root / "05-nordic-evidence-atlas" / "index.md",
+            )
+        ),
+        "zero_collection_summary_surfaces": zero_collection_surfaces,
+    }
+
+
+def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
+    reasons = []
+    if int(counts["papers_with_archived_supplements"]) < int(counts["tracked_paper_count"]):
+        reasons.append("supplement recovery is still far below paper coverage")
+    if int(counts["published_atlas_point_count"]) <= 2:
+        reasons.append("the shipped animal atlas point surface is still effectively empty")
+    if int(counts["animal_map_unresolved_rows"]) > int(counts["animal_map_supported_rows"]):
+        reasons.append("unresolved animal geography still overwhelms mapped support")
+    if counts["zero_collection_summary_surfaces"]:
+        reasons.append("collection summary still under-reports several non-aDNA source counts")
+    return reasons
+
+
+def _scorecard_row(
+    key: str,
+    display_name: str,
+    *,
+    data_completeness: int,
+    provenance_clarity: int,
+    documentation_clarity: int,
+    output_honesty: int,
+    metrics: dict[str, object],
+    note: str,
+) -> dict[str, object]:
+    return {
+        "surface_key": key,
+        "display_name": display_name,
+        "data_completeness": data_completeness,
+        "provenance_clarity": provenance_clarity,
+        "documentation_clarity": documentation_clarity,
+        "output_honesty": output_honesty,
+        "metrics": metrics,
+        "note": note,
+    }
+
+
+def _artifact_review_row(
+    artifact_path: str,
+    action: str,
+    surface_kind: str,
+    reason: str,
+) -> dict[str, object]:
+    return {
+        "artifact_path": artifact_path,
+        "action": action,
+        "surface_kind": surface_kind,
+        "reason": reason,
+    }
+
+
+def _claim_check(
+    check_id: str,
+    passed: bool,
+    description: str,
+    findings: list[str],
+) -> dict[str, object]:
+    return {
+        "check_id": check_id,
+        "passed": passed,
+        "description": description,
+        "finding_count": len(findings),
+        "findings": findings,
+    }
+
+
+def _ratio_score(numerator: int, denominator: int) -> int:
+    if denominator <= 0:
+        return 0
+    ratio = numerator / denominator
+    if ratio >= 0.9:
+        return 4
+    if ratio >= 0.6:
+        return 3
+    if ratio >= 0.3:
+        return 2
+    if ratio >= 0.1:
+        return 1
+    return 0
+
+
+def _count_files(path: Path) -> int:
+    if not path.exists():
+        return 0
+    return sum(1 for file_path in path.iterdir() if file_path.is_file())
+
+
+def _load_json(path: Path) -> dict[str, object]:
+    return json.loads(path.read_text(encoding="utf-8"))

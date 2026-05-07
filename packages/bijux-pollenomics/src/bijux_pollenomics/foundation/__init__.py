@@ -2,6 +2,18 @@ from .alias import CompatibilityAliasContract, compatibility_alias_contract
 from .contracts import RuntimeSurfaceContract, runtime_surface_contract
 from .ownership_map import OwnershipMapEntry, build_ownership_map
 from .product_scope import ProductScope, build_product_scope
+from .repository_truth import (
+    build_repository_claim_audit,
+    build_repository_governance_artifact_review,
+    build_repository_recovery_scorecard,
+    build_repository_scientific_progress_audit,
+    build_repository_truth_posture,
+    render_repository_claim_audit_markdown,
+    render_repository_governance_artifact_review_markdown,
+    render_repository_recovery_scorecard_markdown,
+    render_repository_scientific_progress_audit_markdown,
+    render_repository_truth_posture_markdown,
+)
 from .release_bar import PollenomicsReleaseBar, build_release_bar
 from .release_readiness import ReleaseReadinessReport, build_release_readiness_report
 from .surface_map import SurfaceMap, build_surface_map
@@ -11,9 +23,19 @@ __all__ = [
     "OwnershipMapEntry",
     "PollenomicsReleaseBar",
     "ProductScope",
+    "build_repository_claim_audit",
+    "build_repository_governance_artifact_review",
+    "build_repository_recovery_scorecard",
+    "build_repository_scientific_progress_audit",
+    "build_repository_truth_posture",
     "ReleaseReadinessReport",
     "RuntimeSurfaceContract",
     "SurfaceMap",
+    "render_repository_claim_audit_markdown",
+    "render_repository_governance_artifact_review_markdown",
+    "render_repository_recovery_scorecard_markdown",
+    "render_repository_scientific_progress_audit_markdown",
+    "render_repository_truth_posture_markdown",
     "build_release_readiness_report",
     "build_ownership_map",
     "build_product_scope",
