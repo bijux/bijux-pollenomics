@@ -24,6 +24,7 @@ from ...data_downloader import (
 from ...foundation import (
     build_ownership_map,
     build_product_scope,
+    build_release_bar,
     build_release_readiness_report,
     build_surface_map,
 )
@@ -40,6 +41,7 @@ __all__ = [
     "run_adna_curation_manifest",
     "run_adna_domestication_coverage",
     "run_adna_layout",
+    "run_adna_release_bar",
     "run_adna_normalization_bundle",
     "run_adna_runtime_manifest",
     "run_adna_release_readiness",
@@ -202,6 +204,36 @@ def run_adna_release_readiness(args: argparse.Namespace) -> int:
     print(f"overall_ok={str(report.overall_ok).lower()}")
     if report.findings:
         print("findings=" + ", ".join(report.findings))
+    return 0
+
+
+def run_adna_release_bar(args: argparse.Namespace) -> int:
+    """Print the platform release bar for bijux-pollenomics."""
+    release_bar = build_release_bar()
+    if args.json:
+        print(json.dumps(release_bar.as_dict(), indent=2, sort_keys=True))
+        return 0
+    print(f"current_posture={release_bar.current_posture}")
+    print(
+        "species_aware_adna_support_defined="
+        f"{str(release_bar.species_aware_adna_support_defined).lower()}"
+    )
+    print(f"bovine_split_rule_defined={str(release_bar.bovine_split_rule_defined).lower()}")
+    print(
+        "homo_sapiens_genotype_boundary_defined="
+        f"{str(release_bar.homo_sapiens_genotype_boundary_defined).lower()}"
+    )
+    print(
+        "nonhuman_domestication_program_defined="
+        f"{str(release_bar.nonhuman_domestication_program_defined).lower()}"
+    )
+    print(
+        "scientific_review_surface_defined="
+        f"{str(release_bar.scientific_review_surface_defined).lower()}"
+    )
+    print(f"ranking_boundary_defined={str(release_bar.ranking_boundary_defined).lower()}")
+    if release_bar.blockers:
+        print("blockers=" + ", ".join(release_bar.blockers))
     return 0
 
 

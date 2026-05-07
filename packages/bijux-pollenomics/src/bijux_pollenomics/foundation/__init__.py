@@ -2,12 +2,14 @@ from .alias import CompatibilityAliasContract, compatibility_alias_contract
 from .contracts import RuntimeSurfaceContract, runtime_surface_contract
 from .ownership_map import OwnershipMapEntry, build_ownership_map
 from .product_scope import ProductScope, build_product_scope
+from .release_bar import PollenomicsReleaseBar, build_release_bar
 from .release_readiness import ReleaseReadinessReport, build_release_readiness_report
 from .surface_map import SurfaceMap, build_surface_map
 
 __all__ = [
     "CompatibilityAliasContract",
     "OwnershipMapEntry",
+    "PollenomicsReleaseBar",
     "ProductScope",
     "ReleaseReadinessReport",
     "RuntimeSurfaceContract",
@@ -15,6 +17,7 @@ __all__ = [
     "build_release_readiness_report",
     "build_ownership_map",
     "build_product_scope",
+    "build_release_bar",
     "build_surface_map",
     "compatibility_alias_contract",
     "runtime_surface_contract",

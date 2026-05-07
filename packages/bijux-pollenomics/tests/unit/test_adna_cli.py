@@ -12,6 +12,7 @@ from bijux_pollenomics.command_line.runtime.handlers import (
     run_adna_domestication_coverage,
     run_adna_layout,
     run_adna_normalization_bundle,
+    run_adna_release_bar,
     run_adna_release_readiness,
     run_adna_runtime_manifest,
     run_adna_species,
@@ -56,7 +57,7 @@ class AdnaCliUnitTests(unittest.TestCase):
             )
         )
 
-    def test_adna_domestication_coverage_json_output_marks_pretending_species(
+    def test_adna_domestication_coverage_json_output_marks_indicine_support_as_pretending(
         self,
     ) -> None:
         stdout = io.StringIO()
@@ -68,7 +69,7 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         payload = json.loads(stdout.getvalue())
         cattle = next(
-            row for row in payload["rows"] if row["species_latin_name"] == "Bos taurus"
+            row for row in payload["rows"] if row["species_latin_name"] == "Bos indicus"
         )
         self.assertEqual(cattle["coverage_posture"], "pretending")
 
@@ -190,6 +191,23 @@ class AdnaCliUnitTests(unittest.TestCase):
         self.assertTrue(payload["source_identity_ok"])
         self.assertTrue(payload["atlas_bundle_contract_ok"])
         self.assertTrue(payload["ranking_provenance_ok"])
+
+    def test_adna_release_bar_json_output_exposes_platform_posture(self) -> None:
+        stdout = io.StringIO()
+        with patch("sys.stdout", stdout):
+            exit_code = run_adna_release_bar(type("Args", (), {"json": True})())
+
+        self.assertEqual(exit_code, 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(payload["schema_version"], "pollenomics-release-bar.v1")
+        self.assertEqual(
+            payload["current_posture"],
+            "governed_exploratory_not_release_bar_ready",
+        )
+        self.assertIn(
+            "nonhuman_sample_and_locality_runtime_rows_not_implemented",
+            payload["blockers"],
+        )
 
     def test_adna_species_json_output_exposes_human_support_row(self) -> None:
         stdout = io.StringIO()
