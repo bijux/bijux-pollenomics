@@ -321,6 +321,17 @@ def _build_animal_atlas_summary(
             if isinstance(feature, dict) and str(feature.get("chronology_bucket", "")).strip()
         }
     )
+    coordinate_confidence_counts: dict[str, int] = {}
+    for layer in animal_layers:
+        for feature in layer.get("features", []):
+            if not isinstance(feature, dict):
+                continue
+            confidence = str(feature.get("coordinate_confidence", "")).strip()
+            if not confidence:
+                continue
+            coordinate_confidence_counts[confidence] = (
+                coordinate_confidence_counts.get(confidence, 0) + 1
+            )
     visible_caveats = [
         "Approximate or inferred coordinates remain visible with explicit warnings.",
         "Comparator-only evidence remains visible without being counted as domesticated-core support.",
@@ -348,12 +359,21 @@ def _build_animal_atlas_summary(
         "filter_surfaces": [
             "Species focus",
             "Animal scope",
+            "Coordinate confidence",
             "Chronology bucket",
             "Nordic animal leads only",
         ]
         if species_layers
         else [],
+        "ui_surfaces": [
+            "Animal evidence summary panel",
+            "Citation-aware animal popups",
+            "Species and confidence legend sections",
+        ]
+        if species_layers
+        else [],
         "chronology_buckets": chronology_buckets,
+        "coordinate_confidence_counts": coordinate_confidence_counts,
         "visible_caveats": visible_caveats if species_layers else [],
         "species_layers": species_layers,
     }
