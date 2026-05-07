@@ -670,7 +670,7 @@
         "paper_url": "https://doi.org/10.1126/science.aao3297",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface.",
+        "inclusion_note": "Botai is the current horse anchor because the paper explicitly states the husbandry context and the repo already maps it at site-level resolution.",
         "sample_basis": "project_accession_anchor"
       },
       {
@@ -989,6 +989,34 @@
         "sample_basis": "project_accession_anchor"
       }
     ],
+    "site_evidence_records": [
+      {
+        "project_accession": "PRJEB22390",
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "site_label": "Botai culture steppe context",
+        "political_entity": "Kazakhstan",
+        "source_artifact_path": "adna/source_library/papers/10.1126-science.aao3297/article.html",
+        "source_artifact_kind": "article_html_meta_description",
+        "source_locator": "meta description",
+        "exact_source_text": "The Eneolithic Botai culture of the Central Asian steppes provides the earliest archaeological evidence for horse husbandry, ~5500 years ago, but the exact nature of early horse domestication remains controversial.",
+        "source_support_status": "article_exact_quote",
+        "paper_doi": "10.1126/science.aao3297",
+        "paper_url": "https://doi.org/10.1126/science.aao3297",
+        "supplementary_source": "",
+        "coordinate_basis": "site_level_localities",
+        "latitude_text": "52.99",
+        "longitude_text": "69.15",
+        "chronology_text": "~5500 BP Botai horse context",
+        "time_start_bp": 5400,
+        "time_end_bp": 5600,
+        "dating_basis": "bp_window",
+        "comparator_context": false,
+        "domestication_context": "domesticated_core",
+        "interpretation_note": "Botai is the current horse anchor because the paper explicitly states the husbandry context and the repo already maps it at site-level resolution.",
+        "support_gap_note": ""
+      }
+    ],
     "locality_records": [
       {
         "identity": {
@@ -1047,7 +1075,7 @@
         "original_location_text": "Botai culture steppe context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "Botai is the key horse domestication anchor in the current shipped animal aDNA surface."
+        "interpretation_note": "Botai is the current horse anchor because the paper explicitly states the husbandry context and the repo already maps it at site-level resolution."
       }
     ],
     "project_summaries": [
