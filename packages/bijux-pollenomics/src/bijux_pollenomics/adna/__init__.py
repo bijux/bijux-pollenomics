@@ -126,6 +126,13 @@ from .api import (
     schema_value,
     summarize_sample_localities,
 )
+from .sample_truth import (
+    build_animal_sample_aggregation_warnings,
+    build_animal_sample_foundation_truth,
+    build_animal_sample_product_contract,
+    build_project_locality_count_drift,
+    build_species_sample_count_drift,
+)
 
 __all__ = [
     "ADNA_ENA_RESULT_KINDS",
@@ -207,7 +214,11 @@ __all__ = [
     "build_homo_sapiens_runtime_manifest",
     "build_homo_sapiens_runtime_manifest_for_version_dir",
     "build_locality_identity",
+    "build_animal_sample_aggregation_warnings",
+    "build_animal_sample_foundation_truth",
+    "build_animal_sample_product_contract",
     "build_project_admission_review",
+    "build_project_locality_count_drift",
     "build_overbroad_site_ledger",
     "build_species_artifact_plan",
     "build_species_curation_manifest",
@@ -225,6 +236,7 @@ __all__ = [
     "build_species_coordinate_provenance_rows",
     "build_species_runtime_manifest",
     "build_species_support_matrix",
+    "build_species_sample_count_drift",
     "build_public_animal_output_audit",
     "build_shipped_adna_product_audit",
     "build_unresolved_site_ledger",

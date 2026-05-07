@@ -28,6 +28,14 @@ from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
 from .reviews import build_species_project_manifest, build_species_review_packet
 from .runtime import build_species_runtime_manifest
+from .sample_truth import (
+    build_animal_sample_aggregation_warnings,
+    build_animal_sample_foundation_truth,
+    build_animal_sample_product_contract,
+    render_animal_sample_aggregation_warnings_markdown,
+    render_animal_sample_foundation_truth_markdown,
+    render_animal_sample_product_contract_markdown,
+)
 from .source_library import materialize_source_library
 from .source_snapshots import (
     build_species_source_snapshots,
@@ -717,17 +725,17 @@ def _render_species_root_readme(species_name: str) -> str:
     normalization_bundle = build_species_normalization_bundle(species_name).as_dict()
     sample_rows = [
         row
-        for row in normalization_bundle.get("sample_rows", [])
+        for row in normalization_bundle.get("sample_records", [])
         if isinstance(row, dict)
     ]
     site_rows = [
         row
-        for row in normalization_bundle.get("site_evidence_rows", [])
+        for row in normalization_bundle.get("site_evidence_records", [])
         if isinstance(row, dict)
     ]
     coordinate_rows = [
         row
-        for row in normalization_bundle.get("coordinate_provenance_rows", [])
+        for row in normalization_bundle.get("coordinate_provenance_records", [])
         if isinstance(row, dict)
     ]
     direct_coordinate_count = sum(
@@ -756,7 +764,7 @@ def _render_species_root_readme(species_name: str) -> str:
     )
     mapped_nordic_count = sum(
         1
-        for row in normalization_bundle.get("locality_rows", [])
+        for row in normalization_bundle.get("locality_records", [])
         if isinstance(row, dict)
         and bool(row.get("nordic_inclusion"))
         and str(row.get("coordinate_confidence", "")) != "withheld"
@@ -777,7 +785,7 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
-        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, coordinate-provenance, site-evidence, project-level, and locality-level normalized outputs, "
+        "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, site-level, chronology, coordinate-provenance, project-summary, and locality-summary outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
         "summaries, and `review/` keeps reader-facing review packets.\n"
     )
@@ -906,6 +914,12 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     coverage_dashboard = build_cross_species_coverage_dashboard(output_root, report_root)
     product_audit = build_shipped_adna_product_audit(output_root, report_root)
     map_readiness = build_cross_species_map_readiness(output_root)
+    sample_product_contract = build_animal_sample_product_contract()
+    sample_foundation_truth = build_animal_sample_foundation_truth(output_root)
+    sample_aggregation_warnings = build_animal_sample_aggregation_warnings(
+        output_root,
+        report_root,
+    )
     unresolved_site_ledger = build_unresolved_site_ledger(output_root)
     overbroad_site_ledger = build_overbroad_site_ledger(output_root)
     coordinate_caveat_surface = build_coordinate_caveat_surface(output_root)
@@ -934,6 +948,34 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     write_text(
         adna_root / "cross_species_coverage_dashboard.csv",
         render_csv_rows(tuple(coverage_dashboard["rows"])),
+    )
+    write_json(adna_root / "animal_sample_product_contract.json", sample_product_contract)
+    write_text(
+        adna_root / "animal_sample_product_contract.md",
+        render_animal_sample_product_contract_markdown(sample_product_contract),
+    )
+    write_json(adna_root / "animal_sample_foundation_truth.json", sample_foundation_truth)
+    write_text(
+        adna_root / "animal_sample_foundation_truth.md",
+        render_animal_sample_foundation_truth_markdown(sample_foundation_truth),
+    )
+    write_text(
+        adna_root / "animal_sample_foundation_truth_species.csv",
+        render_csv_rows(tuple(sample_foundation_truth["species_rows"])),
+    )
+    write_text(
+        adna_root / "animal_sample_foundation_truth_projects.csv",
+        render_csv_rows(tuple(sample_foundation_truth["project_rows"])),
+    )
+    write_json(
+        adna_root / "animal_sample_aggregation_warnings.json",
+        sample_aggregation_warnings,
+    )
+    write_text(
+        adna_root / "animal_sample_aggregation_warnings.md",
+        render_animal_sample_aggregation_warnings_markdown(
+            sample_aggregation_warnings
+        ),
     )
     write_json(adna_root / "shipped_product_audit.json", product_audit)
     write_json(adna_root / "cross_species_map_readiness.json", map_readiness)
