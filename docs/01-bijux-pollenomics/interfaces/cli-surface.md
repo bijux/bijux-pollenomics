@@ -40,7 +40,7 @@ reviewable command surface explicit.
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
 - `adna-layout --species <name>` prints the canonical species-owned aDNA layout
-  under `data/adna/<latin_name>/...`
+  under `data/adna/species/<latin_name>/...`
 - `adna-runtime-manifest --species <name>` prints the species-owned runtime
   manifest, including source bundles and analysis boundaries
 - `adna-artifact-plan --species <name>` prints the deterministic species rebuild

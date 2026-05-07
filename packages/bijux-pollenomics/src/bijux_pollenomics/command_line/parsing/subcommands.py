@@ -125,7 +125,7 @@ def build_adna_layout_parser(
     """Build the canonical ancient-DNA layout parser."""
     parser = subparsers.add_parser(
         "adna-layout",
-        help="Print the canonical `data/adna/<latin_name>/...` layout for one species.",
+        help="Print the canonical `data/adna/species/<latin_name>/...` layout for one species.",
     )
     parser.add_argument(
         "--species",
