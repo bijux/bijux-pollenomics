@@ -48,6 +48,26 @@ class CountryReportTests(unittest.TestCase):
         self.assertEqual(
             country_paths.bundle_manifest_path.name, "sweden_aadr_v62.0_bundle.json"
         )
+        self.assertEqual(
+            country_paths.animal_summary_json_path.name,
+            "sweden_animal_adna_v62.0_summary.json",
+        )
+        self.assertEqual(
+            country_paths.animal_species_csv_path.name,
+            "sweden_animal_adna_v62.0_species.csv",
+        )
+        self.assertEqual(
+            country_paths.animal_localities_geojson_path.name,
+            "sweden_animal_adna_v62.0_localities.geojson",
+        )
+        self.assertEqual(
+            country_paths.animal_citations_markdown_path.name,
+            "sweden_animal_adna_v62.0_citations.md",
+        )
+        self.assertEqual(
+            country_paths.animal_warnings_markdown_path.name,
+            "sweden_animal_adna_v62.0_warnings.md",
+        )
         self.assertEqual(atlas_paths.map_html_path.name, "nordic-atlas_map.html")
         self.assertEqual(
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
@@ -328,6 +348,111 @@ class CountryReportTests(unittest.TestCase):
                 "Environmental and archaeology context layers are published in the shared map bundle",
                 readme_text,
             )
+
+    def test_generate_country_report_can_publish_country_animal_outputs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "sweden"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "ovis_aries",
+                latin_name="Ovis aries",
+                common_name="sheep",
+                locality="Uppland sheep lead",
+                political_entity="Sweden",
+                project_accession="PRJEB59481",
+                support_class="accepted",
+                product_role="domesticated_core",
+                nordic_inclusion=True,
+                chronology_bucket="1001-3000 BP",
+                paper_title="Baltic short-tailed sheep aDNA",
+                paper_doi="10.1000/sheep",
+            )
+
+            generate_country_report(root, "Sweden", output, context_root=context_root)
+
+            self.assertTrue((output / "sweden_animal_adna_v62.0_summary.json").exists())
+            self.assertTrue((output / "sweden_animal_adna_v62.0_species.csv").exists())
+            self.assertTrue(
+                (output / "sweden_animal_adna_v62.0_localities.geojson").exists()
+            )
+            self.assertTrue(
+                (output / "sweden_animal_adna_v62.0_citations.md").exists()
+            )
+            self.assertTrue(
+                (output / "sweden_animal_adna_v62.0_warnings.md").exists()
+            )
+            summary = json.loads(
+                (output / "sweden_aadr_v62.0_summary.json").read_text(encoding="utf-8")
+            )
+            animal_summary = json.loads(
+                (output / "sweden_animal_adna_v62.0_summary.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            readme_text = (output / "README.md").read_text(encoding="utf-8")
+
+            self.assertEqual(summary["animal_adna"]["total_species"], 1)
+            self.assertEqual(animal_summary["total_localities"], 1)
+            self.assertEqual(
+                animal_summary["species_rows"][0]["assignment_confidence"],
+                "exact_country",
+            )
+            self.assertIn("## Animal aDNA Country Outputs", readme_text)
+            self.assertIn("sweden_animal_adna_v62.0_species.csv", readme_text)
+            self.assertIn("Country-Resolved Animal Species", readme_text)
+
+    def test_generate_country_report_marks_regional_animal_projection_in_warnings(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report" / "sweden"
+            context_root = Path(tmp) / "data"
+            self.write_anno(
+                root / "ho" / "v62.0_HO_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
+                ],
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "ovis_aries",
+                latin_name="Ovis aries",
+                common_name="sheep",
+                locality="Baltic sheep lead",
+                political_entity="Baltic Sea Region",
+                project_accession="PRJEB59481",
+                support_class="accepted",
+                product_role="domesticated_core",
+                nordic_inclusion=True,
+                chronology_bucket="1001-3000 BP",
+                paper_title="Baltic short-tailed sheep aDNA",
+                paper_doi="10.1000/sheep",
+            )
+
+            generate_country_report(root, "Sweden", output, context_root=context_root)
+
+            animal_summary = json.loads(
+                (output / "sweden_animal_adna_v62.0_summary.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            warnings_text = (
+                output / "sweden_animal_adna_v62.0_warnings.md"
+            ).read_text(encoding="utf-8")
+
+            self.assertEqual(
+                animal_summary["localities"][0]["country_assignment_confidence"],
+                "regional_projection",
+            )
+            self.assertIn("regional_projection", warnings_text)
+            self.assertIn("not one country-exact excavation label", warnings_text)
 
     def test_generate_country_report_replaces_stale_bundle_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -766,6 +891,34 @@ class CountryReportTests(unittest.TestCase):
                 layer_key="neotoma-pollen",
                 layer_label="Neotoma pollen sites",
                 category="Pollen",
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "ovis_aries",
+                latin_name="Ovis aries",
+                common_name="sheep",
+                locality="Sweden sheep lead",
+                political_entity="Sweden",
+                project_accession="PRJEB59481",
+                support_class="accepted",
+                product_role="domesticated_core",
+                nordic_inclusion=True,
+                chronology_bucket="1001-3000 BP",
+                paper_title="Baltic short-tailed sheep aDNA",
+                paper_doi="10.1000/sheep",
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "rangifer_tarandus",
+                latin_name="Rangifer tarandus",
+                common_name="reindeer",
+                locality="Svalbard reindeer lead",
+                political_entity="Norway",
+                project_accession="PRJEB60484",
+                support_class="comparator_only",
+                product_role="comparator",
+                nordic_inclusion=True,
+                chronology_bucket="0-1000 BP",
+                paper_title="Ancient reindeer context",
+                paper_doi="10.1000/reindeer",
             )
             self.write_geojson(
                 context_root
@@ -1260,6 +1413,34 @@ class CountryReportTests(unittest.TestCase):
                 layer_label="Neotoma pollen sites",
                 category="Pollen",
             )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "ovis_aries",
+                latin_name="Ovis aries",
+                common_name="sheep",
+                locality="Sweden sheep lead",
+                political_entity="Sweden",
+                project_accession="PRJEB59481",
+                support_class="accepted",
+                product_role="domesticated_core",
+                nordic_inclusion=True,
+                chronology_bucket="1001-3000 BP",
+                paper_title="Baltic short-tailed sheep aDNA",
+                paper_doi="10.1000/sheep",
+            )
+            self.write_tracked_animal_species(
+                context_root / "adna" / "rangifer_tarandus",
+                latin_name="Rangifer tarandus",
+                common_name="reindeer",
+                locality="Svalbard reindeer lead",
+                political_entity="Norway",
+                project_accession="PRJEB60484",
+                support_class="comparator_only",
+                product_role="comparator",
+                nordic_inclusion=True,
+                chronology_bucket="0-1000 BP",
+                paper_title="Ancient reindeer context",
+                paper_doi="10.1000/reindeer",
+            )
 
             report = generate_published_reports(
                 version_dir=root,
@@ -1274,11 +1455,25 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "published_reports_summary.json").exists())
             self.assertTrue((output / "animal_output_audit.json").exists())
             self.assertTrue((output / "animal_output_audit.md").exists())
+            self.assertTrue((output / "animal_country_species_coverage.json").exists())
+            self.assertTrue((output / "animal_country_species_coverage.md").exists())
+            self.assertTrue((output / "animal_human_chronology_overlap.json").exists())
+            self.assertTrue((output / "animal_pollen_chronology_overlap.json").exists())
+            self.assertTrue(
+                (output / "animal_first_appearance_by_country.json").exists()
+            )
+            self.assertTrue((output / "nordic_farming_history_scenario.json").exists())
             self.assertTrue(
                 (output / "nordic-atlas" / "nordic-atlas_map.html").exists()
             )
             self.assertTrue((output / "sweden" / "README.md").exists())
             self.assertTrue((output / "norway" / "README.md").exists())
+            self.assertTrue(
+                (output / "sweden" / "sweden_animal_adna_v62.0_summary.json").exists()
+            )
+            self.assertTrue(
+                (output / "norway" / "norway_animal_adna_v62.0_summary.json").exists()
+            )
             sweden_readme = (output / "sweden" / "README.md").read_text(
                 encoding="utf-8"
             )
@@ -1314,6 +1509,12 @@ class CountryReportTests(unittest.TestCase):
                 published_summary["artifacts"]["animal_output_audit_markdown"],
                 "animal_output_audit.md",
             )
+            self.assertEqual(
+                published_summary["artifacts"]["public_animal_reporting"][
+                    "animal_country_species_coverage_json"
+                ],
+                "animal_country_species_coverage.json",
+            )
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertEqual(
                 published_summary["artifacts"]["country_bundles"]["sweden"][
@@ -1321,6 +1522,7 @@ class CountryReportTests(unittest.TestCase):
                 ],
                 "sweden_aadr_v62.0_bundle.json",
             )
+            self.assertEqual(sweden_summary["animal_adna"]["total_species"], 1)
             self.assertEqual(atlas_summary["output_dir"], str(output / "nordic-atlas"))
             self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
             self.assertNotIn(".report.tmp", atlas_summary["output_dir"])

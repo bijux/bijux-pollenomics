@@ -7,7 +7,8 @@ from ...adna.catalogs import (
     build_public_animal_output_audit,
     render_public_animal_output_audit_markdown,
 )
-from ..models import MultiCountryMapReport, PublishedReportsReport
+from ..adna.public_outputs import publish_public_animal_reporting_outputs
+from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from .paths import AtlasBundlePaths
 
 __all__ = ["publish_published_reports_tree"]
@@ -42,6 +43,7 @@ def publish_published_reports_tree(
     )
 
     country_output_dirs: list[Path] = []
+    country_reports: list[CountryReport] = []
     shared_bundle_paths = build_atlas_bundle_paths_fn(
         output_dir=shared_map_dir,
         slug=map_report.slug,
@@ -52,16 +54,25 @@ def publish_published_reports_tree(
     )
     for country in normalized_countries:
         country_dir = staging_output_root / slugify_fn(country)
-        generate_country_report_fn(
+        country_report = generate_country_report_fn(
             version_dir=version_dir,
             country=country,
             output_dir=country_dir,
             map_reference=(title, shared_map_path),
             published_output_dir=output_root / country_dir.name,
+            context_root=context_root,
         )
         country_output_dirs.append(country_dir)
+        if isinstance(country_report, CountryReport):
+            country_reports.append(country_report)
 
     summary_path = staging_output_root / "published_reports_summary.json"
+    scientific_artifacts = publish_public_animal_reporting_outputs(
+        staging_output_root,
+        country_reports=tuple(country_reports),
+        country_output_dirs=tuple(country_output_dirs),
+        atlas_output_dir=shared_map_dir,
+    )
     generated_report = PublishedReportsReport(
         version=map_report.version,
         generated_on=map_report.generated_on,
@@ -73,7 +84,12 @@ def publish_published_reports_tree(
         summary_path=output_root / summary_path.name,
     )
     write_summary_json_fn(
-        summary_path, build_published_reports_summary_fn(generated_report, map_report)
+        summary_path,
+        build_published_reports_summary_fn(
+            generated_report,
+            map_report,
+            scientific_artifacts=scientific_artifacts,
+        ),
     )
     data_root = context_root if context_root is not None else output_root.parents[1] / "data"
     animal_output_audit = build_public_animal_output_audit(data_root, output_root)

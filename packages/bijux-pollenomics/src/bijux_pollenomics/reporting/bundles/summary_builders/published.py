@@ -8,6 +8,8 @@ from ...models import MultiCountryMapReport, PublishedReportsReport
 def build_published_reports_summary(
     report: PublishedReportsReport,
     map_report: MultiCountryMapReport,
+    *,
+    scientific_artifacts: dict[str, str] | None = None,
 ) -> dict[str, object]:
     """Build a machine-readable summary for the current published report set."""
     payload = asdict(report)
@@ -24,6 +26,7 @@ def build_published_reports_summary(
         },
         "animal_output_audit_json": "animal_output_audit.json",
         "animal_output_audit_markdown": "animal_output_audit.md",
+        "public_animal_reporting": scientific_artifacts or {},
         "country_bundles": {
             path.name: {
                 "directory": str(path),
