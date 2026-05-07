@@ -1,6 +1,6 @@
 # pollenomics
 
-Compatibility and alias distribution for `bijux-pollenomics`.
+Alias distribution for `bijux-pollenomics`.
 
 Install this package if you want the shorter package name and CLI command while
 running the same sample-first runtime behavior as `bijux-pollenomics`.
