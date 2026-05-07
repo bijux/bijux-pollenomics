@@ -44,5 +44,17 @@ class PublishedReportsReport:
     summary_path: Path
 
 
+@dataclass(frozen=True)
+class AnimalFoundationRefreshReport:
+    schema_version: str
+    refreshed_species_latin_names: tuple[str, ...]
+    refreshed_project_accessions: tuple[str, ...]
+    source_library_project_count: int
+    atlas_evidence_row_count: int
+    version: str
+    data_root: Path
+    report_root: Path
+
+
 class SchemaError(ValueError):
     """Raised when an AADR anno file does not contain expected columns."""
