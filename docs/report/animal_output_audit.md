@@ -8,15 +8,15 @@
 
 | Species | Atlas layers | Country outputs | Locality artifact shipped | Nordic lead count |
 | --- | ---: | ---: | --- | ---: |
-| Equus caballus | 0 | 0 | true | 0 |
-| Sus scrofa domesticus | 0 | 0 | true | 0 |
-| Ovis aries | 0 | 0 | true | 1 |
-| Bos taurus | 0 | 0 | true | 0 |
-| Capra hircus | 0 | 0 | true | 0 |
-| Canis lupus familiaris | 0 | 0 | true | 0 |
-| Felis catus | 0 | 0 | true | 0 |
-| Camelus dromedarius | 0 | 0 | true | 0 |
-| Rangifer tarandus | 0 | 0 | true | 1 |
-| Equus asinus | 0 | 0 | true | 0 |
+| Equus caballus | 1 | 0 | true | 0 |
+| Sus scrofa domesticus | 1 | 0 | true | 0 |
+| Ovis aries | 1 | 0 | true | 1 |
+| Bos taurus | 1 | 0 | true | 0 |
+| Capra hircus | 1 | 0 | true | 0 |
+| Canis lupus familiaris | 1 | 0 | true | 0 |
+| Felis catus | 1 | 0 | true | 0 |
+| Camelus dromedarius | 1 | 0 | true | 0 |
+| Rangifer tarandus | 1 | 0 | true | 1 |
+| Equus asinus | 1 | 0 | true | 0 |
 
-The current public report tree still ships no mapped non-human animal atlas layers or country bundles. The species rows above stay zero until those artifacts become real tracked report outputs.
+The current public report tree now ships `10` mapped non-human animal atlas layer rows across the species table above. Country-bundle animal outputs remain zero until those country surfaces become real tracked report outputs.

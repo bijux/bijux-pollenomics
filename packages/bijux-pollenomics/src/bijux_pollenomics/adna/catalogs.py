@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 from pathlib import Path
 
 from .ena import build_archive_project_catalog
@@ -199,6 +200,8 @@ def build_public_animal_output_audit(
 def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> str:
     """Render the shipped public animal-output audit as reader-facing markdown."""
     rows = payload["species_rows"]
+    atlas_layer_total = sum(int(row["atlas_layer_count"]) for row in rows)
+    country_output_total = sum(int(row["country_output_count"]) for row in rows)
     lines = [
         "# Animal output audit",
         "",
@@ -218,15 +221,26 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
             f"{str(row['normalized_locality_artifact_present']).lower()} | "
             f"{row['nordic_unmapped_lead_count']} |"
         )
-    lines.extend(
-        [
-            "",
-            "The current public report tree still ships no mapped non-human animal atlas "
-            "layers or country bundles. The species rows above stay zero until those "
-            "artifacts become real tracked report outputs.",
-            "",
-        ]
-    )
+    lines.append("")
+    if atlas_layer_total == 0 and country_output_total == 0:
+        lines.extend(
+            [
+                "The current public report tree still ships no mapped non-human animal atlas "
+                "layers or country bundles. The species rows above stay zero until those "
+                "artifacts become real tracked report outputs.",
+                "",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                f"The current public report tree now ships `{atlas_layer_total}` mapped "
+                "non-human animal atlas layer rows across the species table above. "
+                "Country-bundle animal outputs remain zero until those country surfaces "
+                "become real tracked report outputs.",
+                "",
+            ]
+        )
     return "\n".join(lines)
 
 
@@ -353,6 +367,18 @@ def _atlas_layer_count(
     latin_name: str,
     common_name: str,
 ) -> int:
+    summary_path = atlas_root / "nordic-atlas_summary.json"
+    if summary_path.is_file():
+        payload = json.loads(summary_path.read_text(encoding="utf-8"))
+        animal_atlas = payload.get("animal_atlas", {})
+        if isinstance(animal_atlas, dict):
+            species_layers = animal_atlas.get("species_layers", [])
+            if isinstance(species_layers, list):
+                for row in species_layers:
+                    if not isinstance(row, dict):
+                        continue
+                    if str(row.get("latin_name", "")).strip() == latin_name:
+                        return int(row.get("locality_count", 0) or 0)
     return _species_output_count(atlas_root, latin_name, common_name)
 
 
