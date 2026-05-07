@@ -12,13 +12,15 @@ last_reviewed: 2026-05-07
 Published report bundles live under `docs/report/<country-slug>/`.
 
 Each country bundle is the public answer to a narrower question than the atlas:
-what survives country-level publication after the same sample, site, and
-coordinate rules are applied?
+which sample-owned animal rows survive country-level publication after the same
+site, chronology, and coordinate rules are applied?
 
 ## Direct Files
 
 - [Sweden country bundle](../../report/sweden/README.md)
 - [Norway country bundle](../../report/norway/README.md)
+- [Sweden animal sample query](../../report/sweden/sweden_animal_adna_v66_samples.md)
+- [Norway animal sample query](../../report/norway/norway_animal_adna_v66_samples.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
 - [published reports summary](../../report/published_reports_summary.json)
 
