@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from pathlib import Path
 
+from ..adna.tracked_data import materialize_tracked_species_adna
 from ..config import DEFAULT_AADR_VERSION
 from .boundaries import (
     collect_boundaries_data,
@@ -147,6 +148,7 @@ def collect_data(
         (output_root / source_dir).mkdir(parents=True, exist_ok=True)
     ensure_homo_sapiens_adna_layout(output_root)
     ensure_curated_species_adna_layout(output_root)
+    materialize_tracked_species_adna(output_root)
     write_data_directory_readme(output_root, version=version)
     validate_source_layout_contract(build_source_layout_contract(output_root))
     validate_source_snapshot(

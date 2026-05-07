@@ -4,6 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
+from bijux_pollenomics.adna.tracked_data import materialize_tracked_species_root
 from bijux_pollenomics.data_downloader.data_layout import (
     AVAILABLE_SOURCES,
     DATA_LAYOUT_INDEX,
@@ -36,13 +37,22 @@ class DataLayoutUnitTests(unittest.TestCase):
         )
         self.assertIn("`custom-data/`", readme)
         self.assertIn("│   ├── equus_caballus", readme)
+        self.assertIn("│   ├── bos_taurus", readme)
+        self.assertIn("│   ├── canis_lupus_familiaris", readme)
+        self.assertIn("│   ├── camelus_dromedarius", readme)
+        self.assertIn("│   ├── rangifer_tarandus", readme)
         self.assertIn("│   ├── felis_catus", readme)
+        self.assertIn("│   ├── equus_asinus", readme)
         self.assertIn("│   └── homo_sapiens", readme)
         self.assertIn("│       │   └── aadr -> ../../../aadr", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
         self.assertIn("`Homo sapiens` ancient DNA is governed under", readme)
         self.assertIn("`adna/equus_caballus/`", readme)
+        self.assertIn("`adna/bos_taurus/`", readme)
+        self.assertIn("`adna/canis_lupus_familiaris/`", readme)
+        self.assertIn("`adna/camelus_dromedarius/`", readme)
+        self.assertIn("`adna/rangifer_tarandus/`", readme)
         self.assertIn(
             "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
             f"({DATA_SOURCE_INDEX})",
@@ -87,12 +97,53 @@ class DataLayoutUnitTests(unittest.TestCase):
             ensure_curated_species_adna_layout(output_root)
 
             horse_root = output_root / "adna" / "equus_caballus"
-            chicken_root = output_root / "adna" / "gallus_gallus_domesticus"
-            rabbit_root = output_root / "adna" / "oryctolagus_cuniculus"
+            dog_root = output_root / "adna" / "canis_lupus_familiaris"
+            camel_root = output_root / "adna" / "camelus_dromedarius"
+            donkey_root = output_root / "adna" / "equus_asinus"
 
-            for root in (horse_root, chicken_root, rabbit_root):
+            for root in (horse_root, dog_root, camel_root, donkey_root):
                 self.assertTrue((root / "raw").is_dir())
                 self.assertTrue((root / "normalized").is_dir())
                 self.assertTrue((root / "manifests").is_dir())
                 self.assertTrue((root / "reports").is_dir())
                 self.assertTrue((root / "review").is_dir())
+
+    def test_materialize_tracked_species_root_writes_real_reviewable_files(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            output_root.mkdir(parents=True, exist_ok=True)
+
+            materialize_tracked_species_root(output_root, "horse")
+
+            horse_root = output_root / "adna" / "equus_caballus"
+            self.assertTrue((horse_root / "README.md").is_file())
+            self.assertTrue((horse_root / "raw" / "archive_inventory.json").is_file())
+            self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())
+            self.assertTrue((horse_root / "normalized" / "project_summaries.csv").is_file())
+            self.assertTrue(
+                (horse_root / "manifests" / "species_manifest.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "manifests" / "curation_manifest.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "manifests" / "project_manifest.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "manifests" / "runtime_manifest.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "manifests" / "normalization_bundle.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "manifests" / "citation_manifest.csv").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "reports" / "support_summary.json").is_file()
+            )
+            self.assertTrue((horse_root / "reports" / "support_summary.md").is_file())
+            self.assertTrue((horse_root / "review" / "species_review.json").is_file())
+            self.assertTrue(
+                (horse_root / "review" / "archive_integrity.json").is_file()
+            )
+            self.assertTrue((horse_root / "review" / "species_review.md").is_file())
