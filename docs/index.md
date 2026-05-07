@@ -1,29 +1,22 @@
 ---
 title: Bijux Pollenomics
-audience: mixed
+audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-04-26
+last_reviewed: 2026-05-07
 ---
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a checked-in Nordic evidence workspace. The repository
-collects source-backed records, normalizes them into tracked files, and
-publishes those files as country bundles plus one shared atlas that readers can
-inspect directly.
+`bijux-pollenomics` is a checked-in Nordic evidence foundation. It gathers
+project metadata, papers, supplementary material, sample rows, site evidence,
+coordinate provenance, and public map/report outputs into one repository that a
+reader can inspect directly.
 
-Right now the honest description is atlas-builder first. This repository
-publishes a reproducible evidence surface and can now emit heuristic candidate
-site outputs from that surface, but it is not yet the broader pollenomics
-analysis engine that combines aDNA, eDNA, pollen, and archaeological context
-in one scientific workflow.
-
-The atlas is the fastest honest route into the repository. It shows what is
-actually published today: AADR sample points, LandClim pollen sequences and
-REVEALS grid cells, Neotoma pollen sites, SEAD sites, Swedish archaeology
-density from RAÄ, fieldwork media, and Nordic country boundaries.
+The central public question is simple: which animal and human ancient-DNA
+points can this repository place on a Nordic map, and exactly which files,
+papers, and coordinate decisions support those points?
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -47,78 +40,48 @@ density from RAÄ, fieldwork media, and Nordic country boundaries.
 [![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-<div class="bijux-callout">
-  <strong>Start with the atlas, then check the supporting surface that owns the next answer.</strong> The runtime handbook explains how the repository rebuilds outputs, the data handbook explains where layers come from, the fieldwork pages tie one mapped point to a real visit, and the maintainer handbook covers repository-health rules.
-</div>
+## Start Here
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the package handbook</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/">Open the engine roadmap</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data reference</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/animal-adna-data-model/">Open the animal aDNA data model</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
 
-<div class="bijux-map-mobile-note">
-  <strong>Phone view:</strong> Open the atlas in its own tab for panning, layer toggles, and map controls. The inline embed stays available on larger screens where the full layer stack fits.
-  <div class="bijux-quicklinks">
-    <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
-  </div>
-</div>
-
-<div class="bijux-map-frame">
-  <iframe src="report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
-</div>
-
-## Evidence Flow
+Read the site in this order:
 
 ```mermaid
 flowchart TB
-    sources["upstream evidence families"]
-    runtime["runtime collect and normalize loop"]
-    tree["tracked data tree"]
-    reports["country report bundles"]
-    atlas["nordic evidence atlas"]
-    fieldwork["lyngsjon visit media"]
-    maintainers["repository health checks"]
-    reader["reader asks what is supportable"]
+    archive["archive metadata, papers, and supplements"]
+    samples["tracked sample rows"]
+    sites["site evidence and coordinate provenance"]
+    reports["country bundles and atlas evidence tables"]
+    atlas["visible atlas point or country surface"]
+    review["reader checks traceability"]
 
-    sources --> runtime
-    runtime --> tree
-    tree --> reports
-    tree --> atlas
-    fieldwork --> atlas
-    maintainers --> runtime
-    reports --> reader
-    atlas --> reader
+    archive --> samples
+    samples --> sites
+    sites --> reports
+    reports --> atlas
+    atlas --> review
 ```
 
-Read the site as a chain of evidence, not as a table of contents. A visible
-map layer starts in an upstream family, becomes reviewable only after it lands
-in the tracked data tree, and becomes public through a report or atlas bundle.
-The fieldwork media is intentionally narrow: it gives one mapped point a direct
-visit record without pretending to cover the whole Nordic evidence landscape.
+## What The Repository Publishes
 
-The landing page should make one thing immediately clear: visible atlas layers, country reports, and tracked files are different proof surfaces in one chain. If that chain feels decorative instead of operational, readers will assume the site is presentation first and evidence second.
-
-## Start Here
-
-Open the route that matches the real question:
-
-- visible map, layer, point, or polygon: open the
-  [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/)
-- runtime commands, rebuild logic, package boundaries, or tests: open
-  [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- source provenance, normalized file families, or publication bundles: open
-  [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- release, docs, CI, or shared command routing: open
-  [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
+- one shared atlas under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
+- checked country bundles under [`docs/report/`](report/published_reports_summary.json)
+- tracked animal aDNA sample, site, and coordinate files under [`data/adna/`](../data/README.md)
+- one reader-facing animal aDNA contract page under
+  [animal aDNA data model](02-bijux-pollenomics-data/foundation/animal-adna-data-model.md)
 
 ## Fieldwork Record
 
-The repository also carries checked-in field media from the Lyngsjön Lake
-sampling visit on 2026-02-26. That material anchors one atlas point to a real
-collection day on the lake ice rather than to a database row alone.
+The fieldwork section is intentionally narrow. It anchors one mapped point to a
+real visit without pretending that field media replaces curated sample, paper,
+or supplement evidence.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/">Open the fieldwork page</a>
@@ -132,48 +95,17 @@ collection day on the lake ice rather than to a database row alone.
   </figure>
 </div>
 
-## What This Repository Publishes
-
-- one shared Nordic atlas under `docs/report/nordic-atlas/`
-- one checked-in country report bundle for each published country under
-  `docs/report/`
-- tracked normalized evidence files under `data/`
-- one runtime package that rebuilds those outputs from stable commands
-- one narrow fieldwork record that ties a mapped point to a real visit
-
-## What Comes Next
-
-The next repository step is not to make the atlas prettier. It is to make the
-evidence loop stronger: candidate ranking must stay traceable to tracked
-layers, multi-evidence workflows must remain explicit about provenance, and the
-future pollenomics engine must grow from this checked-in evidence base rather
-than bypass it.
-
-## What This Repository Does Not Claim
+## What The Repository Does Not Claim
 
 - that map proximity alone establishes scientific weight
 - that every visible layer has identical provenance quality
-- that mutable upstream services will always replay identically
-- that one field visit stands in for regional evidence coverage
+- that a project list alone is enough to justify a mapped point
+- that unresolved or region-only geography should be published like exact site evidence
+- that the repository is already the full cross-evidence pollenomics engine
 
-## Package Handbooks
+## Read By Question
 
-- [bijux-pollenomics](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- [bijux-pollenomics-data](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- [bijux-pollenomics-maintain](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
-
-## First Proof Check
-
-- `docs/report/nordic-atlas/nordic-atlas_map.html` for the visible publication
-  surface most readers will inspect first
-- `data/` for the tracked normalized evidence tree that feeds the atlas
-- `packages/bijux-pollenomics/src/bijux_pollenomics/` for the runtime code that
-  collects, normalizes, and publishes
-- `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/` and `makes/` for
-  the repository-health surfaces that protect release, docs, and verification
-
-## Boundary Test
-
-If a claim about the atlas cannot be backed by tracked source provenance,
-runtime contracts, checked-in outputs, or maintainer proof, this site should
-state that limit directly instead of implying certainty it does not have.
+- what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
+- what the tracked sample and site contract is: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+- how the map points are built and filtered: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
+- how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
