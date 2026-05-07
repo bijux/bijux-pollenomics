@@ -1,0 +1,195 @@
+{
+  "schema_version": "adna-sample-record-export.v1",
+  "species_latin_name": "Capra hircus",
+  "samples": [
+    {
+      "identity": {
+        "namespace": "capra_hircus:curated_sample",
+        "stable_token": "capra_hircus:sample:prjeb90141",
+        "accession_lineage": [
+          "species:Capra hircus",
+          "source:ENA",
+          "project:PRJEB90141",
+          "sample:PRJEB90141"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "capra_hircus:sample_locality",
+        "stable_token": "capra_hircus:sample-site:prjeb90141",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB90141",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_release": "PRJEB90141",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB90141",
+      "group_id": "PRJEB90141",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "year_first_published": "2025",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "capra_hircus:project:PRJEB90141"
+      ],
+      "project_accession": "PRJEB90141",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "paper_url": "https://doi.org/10.1093/gbe/evaf181",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:curated_sample",
+        "stable_token": "capra_hircus:sample:prjeb90261",
+        "accession_lineage": [
+          "species:Capra hircus",
+          "source:ENA",
+          "project:PRJEB90261",
+          "sample:PRJEB90261"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "capra_hircus:sample_locality",
+        "stable_token": "capra_hircus:sample-site:prjeb90261",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_release": "PRJEB90261",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB90261",
+      "group_id": "PRJEB90261",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "year_first_published": "2025",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "project_accession": "PRJEB90261",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:curated_sample",
+        "stable_token": "capra_hircus:sample:prjna1328209",
+        "accession_lineage": [
+          "species:Capra hircus",
+          "source:ENA",
+          "project:PRJNA1328209",
+          "sample:PRJNA1328209"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "capra_hircus:sample_locality",
+        "stable_token": "capra_hircus:sample-site:prjna1328209",
+        "locality_text": "Lake Qinghai Basin ancient goat context",
+        "political_entity": "Qinghai, China",
+        "source_anchor_tokens": [
+          "PRJNA1328209",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_release": "PRJNA1328209",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJNA1328209",
+      "group_id": "PRJNA1328209",
+      "locality": "Lake Qinghai Basin ancient goat context",
+      "political_entity": "Qinghai, China",
+      "coordinates": {
+        "latitude": 36.9,
+        "longitude": 100.1,
+        "latitude_text": "36.90",
+        "longitude_text": "100.10",
+        "confidence": "approximate"
+      },
+      "publication": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago",
+      "year_first_published": "2025",
+      "full_date": "Approximately 3600 BP ancient goats",
+      "chronology": {
+        "original_text": "Approximately 3600 BP ancient goats",
+        "time_start_bp": 3500,
+        "time_end_bp": 3700,
+        "time_mean_bp": 3600,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "capra_hircus:project:PRJNA1328209"
+      ],
+      "project_accession": "PRJNA1328209",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "This Qinghai Basin goat row is strong regional demographic evidence but not Nordic evidence.",
+      "sample_basis": "project_accession_anchor"
+    }
+  ]
+}
