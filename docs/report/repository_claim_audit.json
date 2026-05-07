@@ -4,7 +4,7 @@
   "overall_ok": true,
   "counts": {
     "tracked_paper_count": 18,
-    "papers_with_archived_supplements": 1,
+    "papers_with_archived_supplements": 7,
     "published_atlas_point_count": 2,
     "published_country_bundle_count": 4,
     "reference_stash_doi_count": 18,
@@ -18,7 +18,7 @@
     "boundary_raw_file_count": 4,
     "boundary_normalized_file_count": 1,
     "fieldwork_page_count": 2,
-    "source_explainer_count": 7,
+    "source_explainer_count": 8,
     "landing_page_count": 6,
     "zero_collection_summary_surfaces": [
       "landclim_site_count",

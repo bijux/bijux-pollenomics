@@ -2,7 +2,7 @@
 
 - Overall ok: `true`
 - Published animal atlas points: `2`
-- Papers with archived supplements: `1`
+- Papers with archived supplements: `7`
 
 | Check | Passed | Finding count |
 | --- | --- | ---: |
