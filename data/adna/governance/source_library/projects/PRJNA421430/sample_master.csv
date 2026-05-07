@@ -1,0 +1,2 @@
+species_latin_name,species_common_name,project_accession,repo_stable_sample_id,archive_native_sample_id,paper_native_sample_label,supplementary_table_sample_label,preferred_sample_label,sample_basis,sample_evidence_status,sample_lineage_path,sample_lineage_locator,sample_lineage_excerpt,sample_identity_resolution,sample_ambiguity_note,locality_text,chronology_text
+Sus scrofa domesticus,pig,PRJNA421430,,,,,,,not_yet_recoverable,,,,provisional,No recoverable sample-level row has been extracted yet for this project.,,
