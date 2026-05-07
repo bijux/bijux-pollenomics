@@ -16,10 +16,12 @@ from .manifests import AdnaSpeciesManifest, build_species_manifest
 from .models import (
     AdnaChronology,
     AdnaCoordinate,
+    AdnaLocalityIdentity,
     AdnaLocalitySummary,
     AdnaSampleRecord,
 )
 from .project_context import resolve_project_context
+from .project_localities import build_species_project_locality_leads
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
@@ -31,6 +33,7 @@ __all__ = [
     "AdnaSpeciesNormalizationBundle",
     "AdnaStudySummary",
     "build_species_normalization_bundle",
+    "build_species_project_locality_records",
     "normalize_chronology_text",
     "normalize_coordinate_resolution",
     "normalize_explicit_bp_window",
@@ -265,8 +268,8 @@ class AdnaSpeciesNormalizationBundle:
         return {
             "schema_version": self.schema_version,
             "species_manifest": self.species_manifest.as_dict(),
-            "sample_records": [record.__dict__ for record in self.sample_records],
-            "locality_records": [record.__dict__ for record in self.locality_records],
+            "sample_records": [record.as_dict() for record in self.sample_records],
+            "locality_records": [record.as_dict() for record in self.locality_records],
             "project_summaries": [summary.as_dict() for summary in self.project_summaries],
             "study_summaries": [summary.as_dict() for summary in self.study_summaries],
             "lineage_records": [row.as_dict() for row in self.lineage_records],
@@ -287,6 +290,10 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         species_name,
         curation_manifest.curation_class,
     )
+    locality_records, locality_refusals = build_species_project_locality_records(
+        species_name,
+        project_summaries,
+    )
     study_summaries = _build_study_summaries(project_summaries)
     lineage_records = _build_lineage_records(
         species_manifest.species,
@@ -297,7 +304,7 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         schema_version="adna-nonhuman-normalization-bundle.v1",
         species_manifest=species_manifest,
         sample_records=(),
-        locality_records=(),
+        locality_records=locality_records,
         project_summaries=project_summaries,
         study_summaries=study_summaries,
         lineage_records=lineage_records,
@@ -314,22 +321,11 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
                     "but not enough sample-level raw metadata to emit sample rows honestly."
                 ),
             ),
-            AdnaNormalizationRefusal(
-                schema_version="adna-normalization-refusal.v1",
-                species_latin_name=species_manifest.species.latin_name,
-                source_token=species_manifest.root_slug,
-                record_kind="locality_records",
-                reason="locality_level_raw_metadata_unavailable",
-                detail=(
-                    "The current non-human program has project-level geographic review, "
-                    "but not enough locality-level raw metadata to emit locality rows honestly."
-                ),
-            ),
-        ),
+        )
+        + locality_refusals,
         normalization_scope=(
-            "Non-human normalization currently governs project and study summaries. "
-            "Sample and locality rows stay empty until archive-backed sample metadata "
-            "is curated into species-owned raw inputs."
+            "Non-human normalization currently governs project, study, and curated locality summaries. "
+            "Sample rows stay empty until archive-backed sample metadata is curated into species-owned raw inputs."
         ),
     )
 
@@ -508,6 +504,122 @@ def normalize_explicit_bp_window(
         time_mean_bp=midpoint_bp_year(start_bp, end_bp),
         dating_basis=dating_basis,
     )
+
+
+def build_species_project_locality_records(
+    species_name: str,
+    project_summaries: tuple[AdnaProjectSummary, ...],
+) -> tuple[tuple[AdnaLocalitySummary, ...], tuple[AdnaNormalizationRefusal, ...]]:
+    """Build curated non-human project locality rows and explicit locality refusals."""
+    species = resolve_species_definition(species_name)
+    project_index = {summary.project_accession: summary for summary in project_summaries}
+    archive_index = {
+        project.project_accession: project
+        for project in build_species_archive_projects(species_name)
+    }
+    locality_records: list[AdnaLocalitySummary] = []
+    refusals: list[AdnaNormalizationRefusal] = []
+
+    leads = build_species_project_locality_leads(tuple(project_index))
+    covered_accessions = {lead.project_accession for lead in leads}
+
+    for lead in leads:
+        project = project_index.get(lead.project_accession)
+        if project is None:
+            continue
+        project_context = resolve_project_context(archive_index[lead.project_accession])
+        coordinate_resolution = normalize_coordinate_resolution(
+            latitude_text=lead.latitude_text,
+            longitude_text=lead.longitude_text,
+            geographic_basis=lead.coordinate_basis,
+        )
+        chronology = (
+            normalize_explicit_bp_window(
+                lead.time_start_bp,
+                lead.time_end_bp,
+                original_text=lead.chronology_text,
+                dating_basis=project.chronology_basis or project.dating_basis or "bp_window",
+            )
+            if lead.time_start_bp is not None and lead.time_end_bp is not None
+            else normalize_chronology_text(
+                lead.chronology_text,
+                dating_basis=project.chronology_basis or project.dating_basis or "unknown",
+            )
+        )
+        identity = AdnaLocalityIdentity(
+            namespace=f"{species.slug}:project_locality",
+            stable_token=(
+                f"{species.slug}:project-locality:{lead.project_accession.casefold()}"
+            ),
+            locality_text=lead.locality_text,
+            political_entity=lead.political_entity,
+            source_anchor_tokens=(
+                lead.project_accession,
+                lead.latitude_text,
+                lead.longitude_text,
+            ),
+        )
+        locality_records.append(
+            AdnaLocalitySummary(
+                identity=identity,
+                species_latin_name=project.species_latin_name,
+                species_common_name=project.species_common_name,
+                source_family=project.source_family,
+                source_releases=(project.source_release,),
+                record_modalities=(project.record_modality,),
+                review_strengths=(project.review_strength,),
+                provenance_qualities=(project.evidence_strength,),
+                locality=lead.locality_text,
+                coordinates=AdnaCoordinate(
+                    latitude=coordinate_resolution.coordinate.latitude
+                    if coordinate_resolution.coordinate is not None
+                    else None,
+                    longitude=coordinate_resolution.coordinate.longitude
+                    if coordinate_resolution.coordinate is not None
+                    else None,
+                    latitude_text=lead.latitude_text,
+                    longitude_text=lead.longitude_text,
+                    confidence=coordinate_resolution.confidence,
+                ),
+                sample_count=1,
+                sample_ids=(lead.project_accession,),
+                datasets=(project.summary_token,),
+                chronology=chronology,
+                sample_namespace=f"{species.slug}:project_locality",
+                project_accessions=(lead.project_accession,),
+                original_location_text=lead.locality_text,
+                nordic_inclusion=project_context.nordic_relevance
+                == "nordic_relevant_unmapped",
+                nordic_inclusion_reason=project_context.nordic_relevance_reason,
+                interpretation_note=lead.interpretation_note,
+            )
+        )
+
+    for project in project_summaries:
+        if project.project_accession in covered_accessions:
+            continue
+        refusals.append(
+            AdnaNormalizationRefusal(
+                schema_version="adna-normalization-refusal.v1",
+                species_latin_name=species.latin_name,
+                source_token=project.project_accession,
+                record_kind="locality_records",
+                reason="locality_lead_not_yet_curated",
+                detail=(
+                    "This project already ships project-level interpretation, but a defensible locality lead "
+                    "has not yet been curated into the species-owned locality artifact."
+                ),
+            )
+        )
+
+    locality_records.sort(
+        key=lambda item: (
+            item.project_accessions[0] if item.project_accessions else item.locality_token,
+            item.locality_token,
+        )
+    )
+    refusals.sort(key=lambda item: item.source_token)
+    return tuple(locality_records), tuple(refusals)
 
 
 def _build_project_summary(

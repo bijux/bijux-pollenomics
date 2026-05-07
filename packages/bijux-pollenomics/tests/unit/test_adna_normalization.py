@@ -25,7 +25,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
         self.assertEqual(bundle.species.latin_name, "Equus caballus")
         self.assertEqual(bundle.sample_records, ())
-        self.assertEqual(bundle.locality_records, ())
+        self.assertTrue(bundle.locality_records)
         self.assertTrue(bundle.project_summaries)
         self.assertTrue(bundle.study_summaries)
         self.assertTrue(bundle.lineage_records)
@@ -45,6 +45,14 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             bundle.lineage_records[0].schema_version,
             "adna-normalization-lineage.v1",
         )
+        locality = next(
+            item
+            for item in bundle.locality_records
+            if "PRJEB22390" in item.project_accessions
+        )
+        self.assertTrue(locality.nordic_inclusion is False)
+        self.assertEqual(locality.coordinate_confidence, "approximate")
+        self.assertEqual((locality.time_start_bp, locality.time_end_bp), (5400, 5600))
 
     def test_species_normalization_bundle_marks_donkey_as_comparator_only(self) -> None:
         bundle = build_species_normalization_bundle("donkey")
@@ -102,6 +110,13 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertIn("unmapped", sheep_project.interpretation_caveat)
         self.assertEqual(camel_project.nordic_relevance, "non_nordic")
         self.assertIn("not as shipped Nordic evidence", camel_project.interpretation_caveat)
+        sheep_locality = next(
+            item
+            for item in sheep_bundle.locality_records
+            if "PRJEB59481" in item.project_accessions
+        )
+        self.assertTrue(sheep_locality.nordic_inclusion)
+        self.assertIn("Nordic", sheep_locality.nordic_inclusion_reason)
 
     def test_species_normalization_bundle_marks_bovine_progenitor_context_explicitly(
         self,
@@ -116,6 +131,19 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(aurochs_project.domestication_scope, "wild_or_progenitor_context")
         self.assertEqual(aurochs_project.support_class, "wild_or_progenitor_context")
         self.assertIn("wild or progenitor context", aurochs_project.interpretation_caveat)
+
+    def test_species_normalization_bundle_marks_reindeer_locality_as_comparator_context(
+        self,
+    ) -> None:
+        bundle = build_species_normalization_bundle("reindeer")
+        locality = next(
+            item
+            for item in bundle.locality_records
+            if "PRJEB60484" in item.project_accessions
+        )
+
+        self.assertTrue(locality.nordic_inclusion)
+        self.assertIn("comparator", locality.interpretation_note)
 
     def test_normalize_species_anchor_accepts_alias_and_rejects_mismatch(self) -> None:
         species = normalize_species_anchor("pig", expected_species_name="Sus scrofa domesticus")
