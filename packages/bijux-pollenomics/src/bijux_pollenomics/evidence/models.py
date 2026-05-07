@@ -97,14 +97,16 @@ class AtlasEvidenceLayer:
 
 @dataclass(frozen=True)
 class AtlasEvidenceCountryProfile:
-    """Country-scoped evidence profile that avoids pretending unmapped animal support is local."""
+    """Country-scoped evidence profile for mapped human and animal evidence."""
 
     country: str
     mapped_direct_species: tuple[str, ...]
+    mapped_animal_direct_species: tuple[str, ...]
     unmapped_animal_context_species: tuple[str, ...]
     too_weak_animal_species: tuple[str, ...]
     human_locality_count: int
     human_sample_count: int
+    mapped_animal_locality_count: int
     evidence_posture: str
     caution_note: str
 
@@ -112,12 +114,14 @@ class AtlasEvidenceCountryProfile:
         return {
             "country": self.country,
             "mapped_direct_species": list(self.mapped_direct_species),
+            "mapped_animal_direct_species": list(self.mapped_animal_direct_species),
             "unmapped_animal_context_species": list(
                 self.unmapped_animal_context_species
             ),
             "too_weak_animal_species": list(self.too_weak_animal_species),
             "human_locality_count": self.human_locality_count,
             "human_sample_count": self.human_sample_count,
+            "mapped_animal_locality_count": self.mapped_animal_locality_count,
             "evidence_posture": self.evidence_posture,
             "caution_note": self.caution_note,
         }

@@ -25,6 +25,7 @@ from ...evidence import (
     write_scientific_review_surface_json,
 )
 from ..aadr import summarize_localities
+from ..adna import build_tracked_animal_atlas_bundle
 from ..models import MultiCountryMapReport, SampleRecord
 from .paths import AtlasBundlePaths
 from .summary_builders.atlas import build_multi_country_bundle_manifest
@@ -70,11 +71,23 @@ def publish_multi_country_map_bundle(
         output_dir=staging_output_dir,
         context_root=context_root,
     )
+    animal_localities = ()
+    if context_root is not None:
+        animal_bundle = build_tracked_animal_atlas_bundle(
+            data_root=context_root,
+            output_dir=staging_output_dir,
+            atlas_slug=report.slug,
+        )
+        point_layers.extend(animal_bundle.point_layers)
+        extra_artifacts.extend(animal_bundle.extra_artifacts)
+        animal_localities = animal_bundle.localities
+    animal_atlas_summary = _build_animal_atlas_summary(point_layers, animal_localities)
     summarized_localities = tuple(summarize_localities(all_samples))
     context_points = _extract_context_points(point_layers)
     evidence_surface = build_atlas_evidence_surface(
         countries=countries,
         human_localities=summarized_localities,
+        animal_localities=animal_localities,
         context_points=context_points,
     )
     write_atlas_evidence_surface_json(
@@ -88,6 +101,7 @@ def publish_multi_country_map_bundle(
     scientific_review = build_scientific_review_surface(
         countries=countries,
         human_localities=summarized_localities,
+        animal_localities=animal_localities,
         context_points=context_points,
     )
     write_scientific_review_surface_json(
@@ -166,12 +180,22 @@ def publish_multi_country_map_bundle(
     )
     write_summary_json_fn(
         bundle_paths.bundle_manifest_path,
-        build_multi_country_bundle_manifest(report, bundle_paths, extra_artifacts),
+        build_multi_country_bundle_manifest(
+            report,
+            bundle_paths,
+            extra_artifacts,
+            animal_atlas_summary=animal_atlas_summary,
+        ),
     )
     copy_map_assets_fn(staging_output_dir)
     write_summary_json_fn(
         bundle_paths.summary_json_path,
-        build_multi_country_map_summary_fn(report, bundle_paths, extra_artifacts),
+        build_multi_country_map_summary_fn(
+            report,
+            bundle_paths,
+            extra_artifacts,
+            animal_atlas_summary=animal_atlas_summary,
+        ),
     )
     bundle_paths.map_html_path.write_text(
         render_multi_country_map_html_fn(
@@ -196,6 +220,7 @@ def publish_multi_country_map_bundle(
             geojson_name=bundle_paths.samples_geojson_path.name,
             summary_json_name=bundle_paths.summary_json_path.name,
             extra_artifacts=extra_artifacts,
+            animal_atlas_summary=animal_atlas_summary,
         ),
         encoding="utf-8",
     )
@@ -250,3 +275,65 @@ def _as_optional_int(value: object) -> int | None:
     if isinstance(value, int):
         return value
     return None
+
+
+def _build_animal_atlas_summary(
+    point_layers: list[dict[str, object]],
+    animal_localities: tuple[object, ...],
+) -> dict[str, object]:
+    animal_layers = [
+        layer
+        for layer in point_layers
+        if str(layer.get("group", "")).strip()
+        in {"animal-domesticated-evidence", "animal-comparator-evidence"}
+    ]
+    species_layers = [
+        {
+            "latin_name": str(layer.get("species_latin_name", "")),
+            "common_name": str(layer.get("species_common_name", "")),
+            "animal_scope": str(layer.get("animal_scope", "")),
+            "locality_count": int(layer.get("count", 0) or 0),
+        }
+        for layer in animal_layers
+    ]
+    chronology_buckets = sorted(
+        {
+            str(feature.get("chronology_bucket", "")).strip()
+            for layer in animal_layers
+            for feature in layer.get("features", [])
+            if isinstance(feature, dict) and str(feature.get("chronology_bucket", "")).strip()
+        }
+    )
+    visible_caveats = [
+        "Approximate or inferred coordinates remain visible with explicit warnings.",
+        "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+        "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
+        "Nordic relevance can remain regional rather than one exact named country.",
+    ]
+    return {
+        "total_locality_points": len(animal_localities),
+        "total_species": len(species_layers),
+        "domesticated_species_count": sum(
+            1 for row in species_layers if row["animal_scope"] == "domesticated_core"
+        ),
+        "comparator_species_count": sum(
+            1 for row in species_layers if row["animal_scope"] == "comparator"
+        ),
+        "layer_groups": [
+            "Domesticated-core animal evidence",
+            "Comparator animal evidence",
+        ]
+        if species_layers
+        else [],
+        "filter_surfaces": [
+            "Species focus",
+            "Animal scope",
+            "Chronology bucket",
+            "Nordic animal leads only",
+        ]
+        if species_layers
+        else [],
+        "chronology_buckets": chronology_buckets,
+        "visible_caveats": visible_caveats if species_layers else [],
+        "species_layers": species_layers,
+    }

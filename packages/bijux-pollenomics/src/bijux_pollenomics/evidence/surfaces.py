@@ -24,23 +24,28 @@ def build_atlas_evidence_surface(
     *,
     countries: tuple[str, ...],
     human_localities: Iterable[AdnaLocalitySummary],
+    animal_localities: Iterable[AdnaLocalitySummary] = (),
     context_points: Iterable[ContextPointRecord],
 ) -> AtlasEvidenceSurface:
-    """Build the atlas evidence contract without overstating non-human spatial support."""
+    """Build the atlas evidence contract without overstating animal locality claims."""
     human_locality_rows = tuple(human_localities)
+    animal_locality_rows = tuple(animal_localities)
     context_records = tuple(context_points)
     nonhuman_rows = _build_nonhuman_species_rows(
         human_localities=human_locality_rows,
+        animal_localities=animal_locality_rows,
         context_points=context_records,
     )
     layers = _build_atlas_layers(
         human_localities=human_locality_rows,
+        animal_localities=animal_locality_rows,
         context_points=context_records,
         nonhuman_rows=nonhuman_rows,
     )
     country_profiles = _build_country_profiles(
         countries=countries,
         human_localities=human_locality_rows,
+        animal_localities=animal_locality_rows,
         nonhuman_rows=nonhuman_rows,
     )
     refusals = _build_refusals(nonhuman_rows)
@@ -49,7 +54,7 @@ def build_atlas_evidence_surface(
         context_points=context_records,
     )
     return AtlasEvidenceSurface(
-        schema_version="atlas-evidence-surface.v1",
+        schema_version="atlas-evidence-surface.v2",
         countries=tuple(countries),
         layers=layers,
         species_rows=(human_row, *nonhuman_rows),
@@ -57,9 +62,10 @@ def build_atlas_evidence_surface(
         refusals=refusals,
         north_star_boundary=(
             "Mapped Homo sapiens localities are direct atlas evidence. Non-human "
-            "ancient-DNA support currently remains project and study review context "
-            "unless species-owned sample or locality records exist with defensible "
-            "geography and chronology."
+            "ancient-DNA support becomes direct atlas evidence only where tracked "
+            "species-owned locality rows exist. Approximate coordinates, regional "
+            "leads, comparator species, and mixed-species claims still require "
+            "explicit caution."
         ),
     )
 
@@ -94,6 +100,7 @@ def _build_human_species_row(
 def _build_nonhuman_species_rows(
     *,
     human_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     context_points: tuple[ContextPointRecord, ...],
 ) -> tuple[AtlasEvidenceSpeciesRow, ...]:
     rows: list[AtlasEvidenceSpeciesRow] = []
@@ -105,14 +112,21 @@ def _build_nonhuman_species_rows(
             continue
         dataset_review = build_species_dataset_review(species.latin_name)
         normalization_bundle = build_species_normalization_bundle(species.latin_name)
+        species_localities = tuple(
+            locality
+            for locality in animal_localities
+            if locality.species_latin_name == species.latin_name
+        )
         contribution_role = _contribution_role_for(
             dataset_review=dataset_review,
             normalization_bundle=normalization_bundle,
+            mapped_locality_count=len(species_localities),
         )
         interaction_posture = _interaction_posture_for(
             contribution_role=contribution_role,
             dataset_review=dataset_review,
             normalization_bundle=normalization_bundle,
+            mapped_locality_count=len(species_localities),
             has_human_direct=bool(human_localities),
             has_time_aware_context=any(
                 point.time_start_bp is not None and point.time_end_bp is not None
@@ -128,14 +142,15 @@ def _build_nonhuman_species_rows(
                 dataset_bucket=dataset_review.dataset_bucket,
                 contribution_role=contribution_role,
                 interaction_posture=interaction_posture,
-                mapped_direct_record_count=(
-                    len(normalization_bundle.sample_records)
-                    + len(normalization_bundle.locality_records)
-                ),
+                mapped_direct_record_count=len(species_localities),
                 curated_project_count=dataset_review.curated_support_project_count,
                 study_summary_count=len(normalization_bundle.study_summaries),
-                chronology_posture=_chronology_posture_for(normalization_bundle),
-                geography_posture=_geography_posture_for(normalization_bundle),
+                chronology_posture=_chronology_posture_for(
+                    normalization_bundle, species_localities
+                ),
+                geography_posture=_geography_posture_for(
+                    normalization_bundle, species_localities
+                ),
                 contextual_layer_dependencies=context_layer_dependencies,
                 blocking_reasons=dataset_review.blocking_reasons,
                 rationale=_rationale_for(
@@ -144,14 +159,17 @@ def _build_nonhuman_species_rows(
                     interaction_posture=interaction_posture,
                     has_human_direct=bool(human_localities),
                     normalization_bundle=normalization_bundle,
+                    species_localities=species_localities,
                 ),
             )
         )
     return tuple(sorted(rows, key=lambda row: row.species_latin_name))
 
 
-def _contribution_role_for(*, dataset_review, normalization_bundle) -> str:
-    if normalization_bundle.sample_records or normalization_bundle.locality_records:
+def _contribution_role_for(
+    *, dataset_review, normalization_bundle, mapped_locality_count: int
+) -> str:
+    if mapped_locality_count or normalization_bundle.sample_records:
         return "direct"
     if (
         dataset_review.product_role in {"domesticated_core", "comparator"}
@@ -169,14 +187,23 @@ def _interaction_posture_for(
     contribution_role: str,
     dataset_review,
     normalization_bundle,
+    mapped_locality_count: int,
     has_human_direct: bool,
     has_time_aware_context: bool,
 ) -> str:
+    blocking = set(dataset_review.blocking_reasons)
     if contribution_role == "too_weak":
         return "refused"
     if contribution_role == "direct":
+        if "mixed_species_rule_unresolved" in blocking:
+            return "decreases_confidence"
+        if "restricted_or_delayed_archive_projects" in blocking:
+            return "decreases_confidence"
+        if mapped_locality_count and has_time_aware_context:
+            return "increases_confidence"
+        if not has_human_direct:
+            return "suggestive_only"
         return "increases_confidence"
-    blocking = set(dataset_review.blocking_reasons)
     if "mixed_species_rule_unresolved" in blocking:
         return "decreases_confidence"
     if "restricted_or_delayed_archive_projects" in blocking:
@@ -199,7 +226,17 @@ def _interaction_posture_for(
     return "suggestive_only"
 
 
-def _chronology_posture_for(normalization_bundle) -> str:
+def _chronology_posture_for(
+    normalization_bundle,
+    species_localities: tuple[AdnaLocalitySummary, ...],
+) -> str:
+    if species_localities:
+        if all(
+            locality.time_start_bp is not None and locality.time_end_bp is not None
+            for locality in species_localities
+        ):
+            return "mapped_locality_bp_windows_available"
+        return "mapped_locality_points_with_partial_chronology"
     policies = {summary.chronology_policy for summary in normalization_bundle.project_summaries}
     if not policies:
         return "no_curated_nonhuman_chronology"
@@ -210,7 +247,15 @@ def _chronology_posture_for(normalization_bundle) -> str:
     return "project_level_chronology_without_locality_alignment"
 
 
-def _geography_posture_for(normalization_bundle) -> str:
+def _geography_posture_for(
+    normalization_bundle,
+    species_localities: tuple[AdnaLocalitySummary, ...],
+) -> str:
+    if species_localities:
+        confidences = {locality.coordinate_confidence for locality in species_localities}
+        if confidences == {"exact"}:
+            return "mapped_locality_points"
+        return "mapped_locality_points_with_mixed_precision"
     policies = {summary.coordinate_policy for summary in normalization_bundle.project_summaries}
     if not policies:
         return "no_curated_nonhuman_geography"
@@ -228,12 +273,17 @@ def _rationale_for(
     interaction_posture: str,
     has_human_direct: bool,
     normalization_bundle,
+    species_localities: tuple[AdnaLocalitySummary, ...],
 ) -> tuple[str, ...]:
     lines = []
     if contribution_role == "direct":
         lines.append(
-            "This species has runtime-owned sample or locality records and can act as direct atlas evidence."
+            "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
         )
+        if any(not locality.nordic_inclusion for locality in species_localities):
+            lines.append(
+                "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
+            )
     elif contribution_role == "contextual":
         lines.append(
             "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows."
@@ -249,7 +299,7 @@ def _rationale_for(
         lines.append(
             "No mapped Homo sapiens direct evidence was available, so species interaction stays suggestive at best."
         )
-    if any(
+    if contribution_role != "direct" and any(
         summary.coordinate_policy != "site_level_coordinates_expected"
         for summary in normalization_bundle.project_summaries
     ):
@@ -270,9 +320,20 @@ def _rationale_for(
 def _build_atlas_layers(
     *,
     human_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     context_points: tuple[ContextPointRecord, ...],
     nonhuman_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[AtlasEvidenceLayer, ...]:
+    direct_domesticated_species = tuple(
+        row.species_latin_name
+        for row in nonhuman_rows
+        if row.contribution_role == "direct" and row.product_role != "comparator"
+    )
+    direct_comparator_species = tuple(
+        row.species_latin_name
+        for row in nonhuman_rows
+        if row.contribution_role == "direct" and row.product_role == "comparator"
+    )
     contextual_species = tuple(
         row.species_latin_name
         for row in nonhuman_rows
@@ -305,7 +366,65 @@ def _build_atlas_layers(
                 "Dating basis",
             ),
             rationale=(
-                "This is the only atlas layer that currently carries direct mapped ancient-DNA evidence.",
+                "This is the mapped Homo sapiens direct ancient-DNA layer.",
+            ),
+        ),
+        AtlasEvidenceLayer(
+            layer_key="animal_domesticated_direct",
+            label="Domesticated-core animal direct evidence",
+            species_scope=direct_domesticated_species,
+            layer_role="mapped_direct",
+            mapped=True,
+            feature_count=sum(
+                1
+                for locality in animal_localities
+                if locality.species_latin_name in direct_domesticated_species
+            ),
+            evidence_posture="mapped_species_owned_locality_evidence",
+            provenance_posture="tracked_species_locality_summaries",
+            popup_contract=(
+                "Species",
+                "Support class",
+                "Project accession",
+                "Paper title",
+                "Publication year",
+                "Chronology",
+                "Coordinate confidence",
+                "Nordic relevance",
+                "Interpretation",
+                "Warning",
+            ),
+            rationale=(
+                "Domesticated-core animal species now ship mapped locality leads in the atlas bundle.",
+            ),
+        ),
+        AtlasEvidenceLayer(
+            layer_key="animal_comparator_direct",
+            label="Comparator animal direct evidence",
+            species_scope=direct_comparator_species,
+            layer_role="mapped_direct_comparator",
+            mapped=True,
+            feature_count=sum(
+                1
+                for locality in animal_localities
+                if locality.species_latin_name in direct_comparator_species
+            ),
+            evidence_posture="mapped_comparator_locality_evidence",
+            provenance_posture="tracked_species_locality_summaries",
+            popup_contract=(
+                "Species",
+                "Support class",
+                "Project accession",
+                "Paper title",
+                "Publication year",
+                "Chronology",
+                "Coordinate confidence",
+                "Nordic relevance",
+                "Interpretation",
+                "Warning",
+            ),
+            rationale=(
+                "Comparator species remain distinct from domesticated-core support even when mapped as localities.",
             ),
         ),
         AtlasEvidenceLayer(
@@ -319,8 +438,7 @@ def _build_atlas_layers(
             provenance_posture="project_and_study_manifests",
             popup_contract=(),
             rationale=(
-                "Animal aDNA is currently curated at project and study level and therefore remains an atlas-side review surface.",
-                "No implied locality overlap is allowed until species-owned sample or locality records are published.",
+                "Some animal species still remain project and study review surfaces without mapped locality rows.",
             ),
         ),
         AtlasEvidenceLayer(
@@ -358,6 +476,7 @@ def _build_country_profiles(
     *,
     countries: tuple[str, ...],
     human_localities: tuple[AdnaLocalitySummary, ...],
+    animal_localities: tuple[AdnaLocalitySummary, ...],
     nonhuman_rows: tuple[AtlasEvidenceSpeciesRow, ...],
 ) -> tuple[AtlasEvidenceCountryProfile, ...]:
     contextual_species = tuple(
@@ -377,8 +496,20 @@ def _build_country_profiles(
             for locality in human_localities
             if (locality.identity.political_entity or "").strip() == country
         )
+        animal_country_localities = tuple(
+            locality
+            for locality in animal_localities
+            if (locality.identity.political_entity or "").strip() == country
+        )
+        mapped_animal_species = tuple(
+            sorted({locality.species_latin_name for locality in animal_country_localities})
+        )
         human_sample_count = sum(locality.sample_count for locality in country_localities)
-        if country_localities and contextual_species:
+        if country_localities and mapped_animal_species:
+            evidence_posture = "human_direct_plus_mapped_animal_direct"
+        elif mapped_animal_species:
+            evidence_posture = "mapped_animal_direct_only"
+        elif country_localities and contextual_species:
             evidence_posture = "human_direct_plus_unmapped_animal_context"
         elif country_localities:
             evidence_posture = "human_only_direct"
@@ -391,14 +522,23 @@ def _build_country_profiles(
         profiles.append(
             AtlasEvidenceCountryProfile(
                 country=country,
-                mapped_direct_species=("Homo sapiens",) if country_localities else (),
+                mapped_direct_species=(
+                    ("Homo sapiens", *mapped_animal_species)
+                    if country_localities
+                    else mapped_animal_species
+                ),
+                mapped_animal_direct_species=mapped_animal_species,
                 unmapped_animal_context_species=contextual_species,
                 too_weak_animal_species=too_weak_species,
                 human_locality_count=len(country_localities),
                 human_sample_count=human_sample_count,
+                mapped_animal_locality_count=len(animal_country_localities),
                 evidence_posture=evidence_posture,
                 caution_note=(
-                    "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. "
+                    "Mapped animal localities can now appear in the atlas, but many remain approximate, regional, comparator-only, or not country-resolved. "
+                    "Do not read this profile as excavation-grade support without the popup caveats."
+                    if mapped_animal_species
+                    else "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. "
                     "This country profile must not be read as country-assigned animal support."
                 ),
             )
@@ -422,14 +562,29 @@ def _build_refusals(
                     ),
                 )
             )
-        if row.chronology_posture != "project_level_bp_capable_but_not_locality_bound":
+        if (
+            row.contribution_role == "direct"
+            and row.chronology_posture != "mapped_locality_bp_windows_available"
+        ):
             refusals.append(
                 AtlasEvidenceRefusal(
                     subject=row.species_latin_name,
-                    reason="animal_context_cannot_be_time_aligned_to_localities",
+                    reason="mapped_animal_chronology_requires_caution",
                     detail=(
-                        "Project-level chronology is not specific enough to claim temporal alignment "
-                        "with atlas localities or environmental layers."
+                        "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+                    ),
+                )
+            )
+        if (
+            row.contribution_role == "direct"
+            and row.geography_posture != "mapped_locality_points"
+        ):
+            refusals.append(
+                AtlasEvidenceRefusal(
+                    subject=row.species_latin_name,
+                    reason="mapped_animal_geography_requires_caution",
+                    detail=(
+                        "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
                     ),
                 )
             )

@@ -1234,6 +1234,34 @@ MAP_DOCUMENT_TEMPLATE = """
               <details class="control-group" open>
                 <summary class="control-group-head">
                   <div>
+                    <span class="control-group-label">Animal aDNA</span>
+                    <h3>Animal Evidence</h3>
+                  </div>
+                  <span id="animal-filter-summary" class="control-group-summary">All animal evidence visible</span>
+                </summary>
+                <div class="control-group-body">
+                  <div>
+                    <div class="field-label"><span>Animal Scope</span><span>Domesticated-core or comparator</span></div>
+                    <div id="animal-scope-filters" class="dock-presets"></div>
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Species Focus</span><span>One species at a time if needed</span></div>
+                    <div id="animal-species-filters" class="dock-layer-grid"></div>
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Chronology Buckets</span><span>Inspect temporal structure</span></div>
+                    <div id="animal-chronology-filters" class="dock-presets"></div>
+                  </div>
+                  <label class="chip-toggle">
+                    <input id="animal-nordic-only" type="checkbox" aria-label="Restrict animal evidence to Nordic leads only">
+                    <span class="chip-swatch" style="background: rgba(8, 145, 178, 0.18); border-color: rgba(14, 116, 144, 0.78);"></span>
+                    <span>Nordic animal leads only</span>
+                  </label>
+                </div>
+              </details>
+              <details class="control-group" open>
+                <summary class="control-group-head">
+                  <div>
                     <span class="control-group-label">Time</span>
                     <h3>Date Window</h3>
                   </div>
@@ -1391,6 +1419,35 @@ MAP_DOCUMENT_TEMPLATE = """
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const DEFAULT_COUNTRIES = [...COUNTRIES];
       const DEFAULT_LAYER_KEYS = ALL_LAYERS.filter((layer) => layer.default_enabled !== false).map((layer) => layer.key);
+      const LAYER_GROUP_DEFINITIONS = [
+        { key: 'primary-evidence', label: 'Human aDNA' },
+        { key: 'animal-domesticated-evidence', label: 'Domesticated animal aDNA' },
+        { key: 'animal-comparator-evidence', label: 'Comparator animal aDNA' },
+        { key: 'environmental-context', label: 'Environmental context' },
+        { key: 'archaeology-context', label: 'Archaeology context' },
+        { key: 'orientation', label: 'Orientation layers' },
+      ];
+      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence']);
+      const ANIMAL_SPECIES = Array.from(
+        new Map(
+          POINT_LAYERS
+            .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group) && layer.species_latin_name)
+            .map((layer) => [
+              layer.species_latin_name,
+              {
+                latinName: layer.species_latin_name,
+                commonName: layer.species_common_name || layer.label || layer.species_latin_name,
+              },
+            ])
+        ).values()
+      );
+      const ANIMAL_CHRONOLOGY_BUCKETS = Array.from(
+        new Set(
+          POINT_LAYERS
+            .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group))
+            .flatMap((layer) => (layer.features || []).map((feature) => feature.chronology_bucket).filter(Boolean))
+        )
+      );
       const TIME_MIN_BP = __TIME_MIN_BP__;
       const TIME_MAX_BP = __TIME_MAX_BP__;
       const TIME_HAS_DATA = __TIME_HAS_DATA__;
@@ -1427,6 +1484,11 @@ MAP_DOCUMENT_TEMPLATE = """
       const legendToggleButton = document.getElementById('legend-toggle');
       const countryFilters = document.getElementById('country-filters');
       const layerFilters = document.getElementById('dock-layer-filters');
+      const animalFilterSummary = document.getElementById('animal-filter-summary');
+      const animalScopeFilters = document.getElementById('animal-scope-filters');
+      const animalSpeciesFilters = document.getElementById('animal-species-filters');
+      const animalChronologyFilters = document.getElementById('animal-chronology-filters');
+      const animalNordicOnlyCheckbox = document.getElementById('animal-nordic-only');
       const legendItems = document.getElementById('legend-items');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
@@ -1468,6 +1530,10 @@ MAP_DOCUMENT_TEMPLATE = """
         return {
           countries: params.get('countries'),
           layers: params.get('layers'),
+          animalSpecies: params.get('animal_species'),
+          animalScope: params.get('animal_scope'),
+          animalChronology: params.get('animal_chronology'),
+          animalNordic: params.get('animal_nordic'),
           diameter: params.get('diameter'),
           timeStart: params.get('time_start'),
           timeInterval: params.get('time_interval'),
@@ -1485,6 +1551,10 @@ MAP_DOCUMENT_TEMPLATE = """
           .map((value) => value.trim())
           .filter((value) => value && allowedSet.has(value));
         return new Set(values.length ? values : fallbackValues);
+      }
+      function normalizedSingleValue(raw, allowed, fallbackValue) {
+        const value = String(raw || '').trim();
+        return allowed.includes(value) ? value : fallbackValue;
       }
       function clampTimeInterval(value) {
         return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(Number(value) || DEFAULT_TIME_INTERVAL_YEARS)));
@@ -1531,6 +1601,22 @@ MAP_DOCUMENT_TEMPLATE = """
       const initialState = parseHashState();
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
+      let activeAnimalSpecies = normalizedSingleValue(
+        initialState.animalSpecies,
+        ['all', ...ANIMAL_SPECIES.map((species) => species.latinName)],
+        'all'
+      );
+      let activeAnimalScope = normalizedSingleValue(
+        initialState.animalScope,
+        ['all', 'domesticated_core', 'comparator'],
+        'all'
+      );
+      let activeAnimalChronology = normalizedSingleValue(
+        initialState.animalChronology,
+        ['all', ...ANIMAL_CHRONOLOGY_BUCKETS],
+        'all'
+      );
+      let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
@@ -1566,6 +1652,17 @@ MAP_DOCUMENT_TEMPLATE = """
       }
       function countryStyle(country) { return countryColors[country] || { fill: '#475569', stroke: '#1e293b' }; }
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
+      function isAnimalLayer(layer) {
+        return ANIMAL_LAYER_GROUPS.has(layer.group);
+      }
+      function featureMatchesAnimalFilters(layer, feature) {
+        if (!isAnimalLayer(layer)) return true;
+        if (activeAnimalSpecies !== 'all' && String(feature.species_latin_name || '') !== activeAnimalSpecies) return false;
+        if (activeAnimalScope !== 'all' && String(feature.animal_scope || '') !== activeAnimalScope) return false;
+        if (activeAnimalChronology !== 'all' && String(feature.chronology_bucket || '') !== activeAnimalChronology) return false;
+        if (animalNordicOnly && !feature.nordic_inclusion) return false;
+        return true;
+      }
       function syncPresetButtons() {
         document.querySelectorAll('[data-km]').forEach((button) => {
           button.classList.toggle('is-active', Number(button.dataset.km) === Number(slider.value));
@@ -1619,6 +1716,10 @@ MAP_DOCUMENT_TEMPLATE = """
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
+        if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
+        if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
+        if (activeAnimalChronology !== 'all') params.set('animal_chronology', activeAnimalChronology);
+        if (animalNordicOnly) params.set('animal_nordic', 'only');
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
         if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
         if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
@@ -1723,6 +1824,10 @@ MAP_DOCUMENT_TEMPLATE = """
         let count = 0;
         if (activeCountries.size !== COUNTRIES.length) count += 1;
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
+        if (activeAnimalSpecies !== 'all') count += 1;
+        if (activeAnimalScope !== 'all') count += 1;
+        if (activeAnimalChronology !== 'all') count += 1;
+        if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
         if (Number(slider.value) !== __INITIAL_DIAMETER__) count += 1;
         if (Math.round(densityOpacity * 100) !== 60) count += 1;
@@ -1756,10 +1861,9 @@ MAP_DOCUMENT_TEMPLATE = """
         });
       }
       function renderLayerControls() {
-        const groupOrder = ['primary-evidence', 'environmental-context', 'archaeology-context', 'orientation'];
-        layerFilters.innerHTML = groupOrder
+        layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
           .map((group) => {
-            const layers = ALL_LAYERS.filter((layer) => layer.group === group);
+            const layers = ALL_LAYERS.filter((layer) => layer.group === group.key);
             if (!layers.length) return '';
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
@@ -1767,7 +1871,7 @@ MAP_DOCUMENT_TEMPLATE = """
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
               return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
             }).join('');
-            return cards;
+            return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(group.label)}</div><div class="dock-layer-grid">${cards}</div></div>`;
           })
           .join('');
         dockLayerSummary.textContent = activeLayerKeys.size ? `${activeLayerKeys.size} layers enabled` : 'No layers enabled';
@@ -1778,21 +1882,81 @@ MAP_DOCUMENT_TEMPLATE = """
           });
         });
       }
+      function renderAnimalControls() {
+        if (!ANIMAL_SPECIES.length) {
+          animalFilterSummary.textContent = 'No mapped animal evidence shipped';
+          animalScopeFilters.innerHTML = '<span class="search-meta">No mapped animal layers available.</span>';
+          animalSpeciesFilters.innerHTML = '';
+          animalChronologyFilters.innerHTML = '';
+          animalNordicOnlyCheckbox.checked = false;
+          animalNordicOnlyCheckbox.disabled = true;
+          return;
+        }
+        animalNordicOnlyCheckbox.disabled = false;
+        const scopeOptions = [
+          { value: 'all', label: 'All animal evidence' },
+          { value: 'domesticated_core', label: 'Domesticated-core only' },
+          { value: 'comparator', label: 'Comparator only' },
+        ];
+        animalScopeFilters.innerHTML = scopeOptions
+          .map((option) => `<button class="preset-button ${activeAnimalScope === option.value ? 'is-active' : ''}" type="button" data-animal-scope="${escapeHtml(option.value)}">${escapeHtml(option.label)}</button>`)
+          .join('');
+        const speciesButtons = [
+          `<button class="preset-button ${activeAnimalSpecies === 'all' ? 'is-active' : ''}" type="button" data-animal-species="all">All species</button>`,
+          ...ANIMAL_SPECIES.map((species) => `<button class="preset-button ${activeAnimalSpecies === species.latinName ? 'is-active' : ''}" type="button" data-animal-species="${escapeHtml(species.latinName)}">${escapeHtml(String(species.commonName))}</button>`),
+        ];
+        animalSpeciesFilters.innerHTML = speciesButtons.join('');
+        const chronologyButtons = [
+          `<button class="preset-button ${activeAnimalChronology === 'all' ? 'is-active' : ''}" type="button" data-animal-chronology="all">All chronology</button>`,
+          ...ANIMAL_CHRONOLOGY_BUCKETS.map((bucket) => `<button class="preset-button ${activeAnimalChronology === bucket ? 'is-active' : ''}" type="button" data-animal-chronology="${escapeHtml(bucket)}">${escapeHtml(bucket)}</button>`),
+        ];
+        animalChronologyFilters.innerHTML = chronologyButtons.join('');
+        animalNordicOnlyCheckbox.checked = animalNordicOnly;
+        const visibleAnimalEntries = visiblePointEntries.filter(({ layer }) => isAnimalLayer(layer));
+        const visibleSpecies = new Set(
+          visibleAnimalEntries
+            .map(({ feature }) => String(feature.species_latin_name || '').trim())
+            .filter(Boolean)
+        );
+        animalFilterSummary.textContent = `${visibleAnimalEntries.length} animal points · ${visibleSpecies.size} species visible`;
+        document.querySelectorAll('[data-animal-scope]').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeAnimalScope = button.dataset.animalScope;
+            renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-animal-species]').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeAnimalSpecies = button.dataset.animalSpecies;
+            renderMapState();
+          });
+        });
+        document.querySelectorAll('[data-animal-chronology]').forEach((button) => {
+          button.addEventListener('click', () => {
+            activeAnimalChronology = button.dataset.animalChronology;
+            renderMapState();
+          });
+        });
+      }
       function applyLayerPreset(preset) {
         if (preset === 'evidence') {
-          activeLayerKeys = new Set(ALL_LAYERS.filter((layer) => layer.group === 'primary-evidence').map((layer) => layer.key));
+          activeLayerKeys = new Set(
+            ALL_LAYERS
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence'].includes(layer.group))
+              .map((layer) => layer.key)
+          );
         }
         if (preset === 'context') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
         if (preset === 'orientation') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'orientation'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'orientation'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
@@ -1804,15 +1968,12 @@ MAP_DOCUMENT_TEMPLATE = """
       }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
-        const pointLayers = activeLegendLayers.filter((layer) => Object.prototype.hasOwnProperty.call(layer, 'features'));
-        const polygonLayers = activeLegendLayers.filter((layer) => !Object.prototype.hasOwnProperty.call(layer, 'features'));
         const renderGroup = (label, layers) => layers.length
           ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
           : '';
-        legendItems.innerHTML = [
-          renderGroup('Point layers', pointLayers),
-          renderGroup('Polygon overlays', polygonLayers),
-        ].join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
+        legendItems.innerHTML = LAYER_GROUP_DEFINITIONS
+          .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
+          .join('') || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
       }
       function popupHtml(feature) {
@@ -1872,6 +2033,7 @@ MAP_DOCUMENT_TEMPLATE = """
           activeLayerKeys.has(layer.key)
           && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
+          && featureMatchesAnimalFilters(layer, feature)
         );
       }
       function polygonFeatureVisible(layer, properties) {
@@ -2080,6 +2242,7 @@ MAP_DOCUMENT_TEMPLATE = """
         renderPointLayers();
         renderPolygonLayers();
         renderCountryControls();
+        renderAnimalControls();
         renderLegend();
         renderControlPanelSummary();
         updateStats();
@@ -2109,6 +2272,11 @@ MAP_DOCUMENT_TEMPLATE = """
       function restoreDefaults() {
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
+        activeAnimalSpecies = 'all';
+        activeAnimalScope = 'all';
+        activeAnimalChronology = 'all';
+        animalNordicOnly = false;
+        animalNordicOnlyCheckbox.checked = false;
         slider.value = __INITIAL_DIAMETER__;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
@@ -2157,6 +2325,10 @@ MAP_DOCUMENT_TEMPLATE = """
       timeStartSlider.addEventListener('input', () => { timeStartBp = Number(timeStartSlider.value); renderMapState(); });
       timeIntervalSlider.addEventListener('input', () => { timeIntervalYears = Number(timeIntervalSlider.value); renderMapState(); });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
+      animalNordicOnlyCheckbox.addEventListener('change', () => {
+        animalNordicOnly = animalNordicOnlyCheckbox.checked;
+        renderMapState();
+      });
       document.querySelectorAll('[data-km]').forEach((button) => {
         button.addEventListener('click', () => {
           slider.value = button.dataset.km;

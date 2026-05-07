@@ -36,6 +36,9 @@ class AtlasBundlePaths:
     bundle_manifest_path: Path
     map_html_path: Path
     samples_geojson_path: Path
+    animal_localities_geojson_path: Path
+    domesticated_animal_localities_geojson_path: Path
+    comparator_animal_localities_geojson_path: Path
     candidate_sites_csv_path: Path
     candidate_sites_json_path: Path
     candidate_sites_markdown_path: Path
@@ -85,6 +88,12 @@ def build_atlas_bundle_paths(
         bundle_manifest_path=output_dir / f"{atlas_slug}_bundle.json",
         map_html_path=output_dir / f"{atlas_slug}_map.html",
         samples_geojson_path=output_dir / f"{atlas_slug}_samples.geojson",
+        animal_localities_geojson_path=output_dir
+        / f"{atlas_slug}_animal_localities.geojson",
+        domesticated_animal_localities_geojson_path=output_dir
+        / f"{atlas_slug}_domesticated_animal_localities.geojson",
+        comparator_animal_localities_geojson_path=output_dir
+        / f"{atlas_slug}_comparator_animal_localities.geojson",
         candidate_sites_csv_path=output_dir / f"{atlas_slug}_candidate_sites.csv",
         candidate_sites_json_path=output_dir / f"{atlas_slug}_candidate_sites.json",
         candidate_sites_markdown_path=output_dir / f"{atlas_slug}_candidate_sites.md",

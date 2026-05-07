@@ -70,6 +70,8 @@ def render_atlas_evidence_surface_markdown(surface: AtlasEvidenceSurface) -> str
         (
             f"| {profile.country} | {profile.evidence_posture} | "
             f"{profile.human_locality_count} | {profile.human_sample_count} | "
+            f"{', '.join(profile.mapped_animal_direct_species) or 'none'} | "
+            f"{profile.mapped_animal_locality_count} | "
             f"{', '.join(profile.unmapped_animal_context_species) or 'none'} | "
             f"{', '.join(profile.too_weak_animal_species) or 'none'} | "
             f"{profile.caution_note} |"
@@ -77,7 +79,7 @@ def render_atlas_evidence_surface_markdown(surface: AtlasEvidenceSurface) -> str
         for profile in surface.country_profiles
     )
     if not country_rows:
-        country_rows = "| No countries | - | 0 | 0 | none | none | - |"
+        country_rows = "| No countries | - | 0 | 0 | none | 0 | none | none | - |"
 
     refusal_rows = "\n".join(
         f"| {refusal.subject} | {refusal.reason} | {refusal.detail} |"
@@ -98,8 +100,8 @@ def render_atlas_evidence_surface_markdown(surface: AtlasEvidenceSurface) -> str
 
 ## Country Evidence Profiles
 
-| Country | Evidence posture | Human localities | Human samples | Unmapped animal context | Too weak animal species | Caution |
-| --- | --- | ---: | ---: | --- | --- | --- |
+| Country | Evidence posture | Human localities | Human samples | Mapped animal species | Mapped animal localities | Unmapped animal context | Too weak animal species | Caution |
+| --- | --- | ---: | ---: | --- | ---: | --- | --- | --- |
 {country_rows}
 
 ## Refusals
