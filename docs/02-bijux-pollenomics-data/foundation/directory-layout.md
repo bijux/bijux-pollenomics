@@ -63,13 +63,27 @@ scope does not stay implicit inside source folders.
 
 - `data/adna/homo_sapiens/raw/aadr/`
 - `data/adna/equus_caballus/`
+- `data/adna/sus_scrofa_domesticus/`
+- `data/adna/ovis_aries/`
+- `data/adna/bos_taurus/`
+- `data/adna/capra_hircus/`
+- `data/adna/canis_lupus_familiaris/`
 - `data/adna/felis_catus/`
+- `data/adna/camelus_dromedarius/`
+- `data/adna/rangifer_tarandus/`
+- `data/adna/equus_asinus/`
 - `data/aadr/`
 - `data/boundaries/`
 - `data/landclim/`
 - `data/neotoma/`
 - `data/raa/`
 - `data/sead/`
+
+The non-human roots are only honest if each one ships reviewable files, not
+empty directories. A tracked species root is expected to carry archive
+inventory under `raw/`, normalization summaries under `normalized/`, manifest
+contracts under `manifests/`, support summaries under `reports/`, and review
+evidence under `review/`.
 
 ## Design Pressure
 

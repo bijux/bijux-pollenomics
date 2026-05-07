@@ -9,13 +9,13 @@ data
 │   ├── equus_caballus
 │   ├── sus_scrofa_domesticus
 │   ├── ovis_aries
+│   ├── bos_taurus
 │   ├── capra_hircus
+│   ├── canis_lupus_familiaris
 │   ├── felis_catus
+│   ├── camelus_dromedarius
+│   ├── rangifer_tarandus
 │   ├── equus_asinus
-│   ├── gallus_gallus_domesticus
-│   ├── meleagris_gallopavo
-│   ├── oryctolagus_cuniculus
-│   ├── anas_platyrhynchos_domesticus
 │   └── homo_sapiens
 │       ├── raw
 │       │   └── aadr -> ../../../aadr
@@ -42,6 +42,6 @@ The collector also writes `collection_summary.json` so the current data tree can
 `Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, while the
 domesticated-animal curation program owns species roots such as
 `adna/equus_caballus/`, `adna/sus_scrofa_domesticus/`, `adna/ovis_aries/`,
-`adna/capra_hircus/`, `adna/felis_catus/`, `adna/equus_asinus/`,
-`adna/gallus_gallus_domesticus/`, `adna/meleagris_gallopavo/`,
-`adna/oryctolagus_cuniculus/`, and `adna/anas_platyrhynchos_domesticus/`.
+`adna/bos_taurus/`, `adna/capra_hircus/`, `adna/canis_lupus_familiaris/`,
+`adna/felis_catus/`, `adna/camelus_dromedarius/`, `adna/rangifer_tarandus/`,
+and `adna/equus_asinus/`.
