@@ -87,6 +87,10 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         normalized_root / "project_summaries.csv",
         _render_project_summaries_csv(normalization_bundle),
     )
+    write_json(
+        normalized_root / "project_summaries.json",
+        _project_summaries_payload(normalization_bundle),
+    )
     write_json(manifests_root / "species_manifest.json", species_manifest.as_dict())
     write_json(manifests_root / "curation_manifest.json", curation_manifest.as_dict())
     write_json(manifests_root / "project_manifest.json", project_manifest.as_dict())
@@ -286,18 +290,25 @@ def _render_project_summaries_csv(bundle: object) -> str:
         "archive_status",
         "evidence_strength",
         "review_strength",
+        "support_class",
         "record_modality",
         "domestication_status",
+        "domestication_scope",
         "comparator_status",
         "normalized_breed_label",
         "sequencing_target",
         "material_basis",
+        "chronology_basis",
         "dating_basis",
         "geographic_basis",
         "coordinate_policy",
         "chronology_policy",
         "paper_title",
         "paper_doi",
+        "paper_url",
+        "nordic_relevance",
+        "nordic_relevance_reason",
+        "interpretation_caveat",
         "notes",
     )
     rows = []
@@ -315,22 +326,37 @@ def _render_project_summaries_csv(bundle: object) -> str:
                 "archive_status": summary.archive_status,
                 "evidence_strength": summary.evidence_strength,
                 "review_strength": summary.review_strength,
+                "support_class": summary.support_class,
                 "record_modality": summary.record_modality,
                 "domestication_status": summary.domestication_status,
+                "domestication_scope": summary.domestication_scope,
                 "comparator_status": str(summary.comparator_status).lower(),
                 "normalized_breed_label": "" if summary.normalized_breed_label is None else summary.normalized_breed_label,
                 "sequencing_target": "" if summary.sequencing_target is None else summary.sequencing_target,
                 "material_basis": "" if summary.material_basis is None else summary.material_basis,
+                "chronology_basis": "" if summary.chronology_basis is None else summary.chronology_basis,
                 "dating_basis": "" if summary.dating_basis is None else summary.dating_basis,
                 "geographic_basis": "" if summary.geographic_basis is None else summary.geographic_basis,
                 "coordinate_policy": summary.coordinate_policy,
                 "chronology_policy": summary.chronology_policy,
                 "paper_title": "" if summary.paper_title is None else summary.paper_title,
                 "paper_doi": "" if summary.paper_doi is None else summary.paper_doi,
+                "paper_url": "" if summary.paper_url is None else summary.paper_url,
+                "nordic_relevance": summary.nordic_relevance,
+                "nordic_relevance_reason": summary.nordic_relevance_reason,
+                "interpretation_caveat": summary.interpretation_caveat,
                 "notes": summary.notes,
             }
         )
     return _render_csv(fieldnames, rows)
+
+
+def _project_summaries_payload(bundle: object) -> dict[str, object]:
+    return {
+        "schema_version": "adna-project-summary-export.v1",
+        "species_latin_name": bundle.species.latin_name,
+        "projects": [summary.as_dict() for summary in bundle.project_summaries],
+    }
 
 
 def _render_species_root_readme(species_name: str) -> str:

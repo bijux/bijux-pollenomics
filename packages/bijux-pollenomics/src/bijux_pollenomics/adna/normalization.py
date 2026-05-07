@@ -19,6 +19,7 @@ from .models import (
     AdnaLocalitySummary,
     AdnaSampleRecord,
 )
+from .project_context import resolve_project_context
 from .species import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
@@ -42,6 +43,13 @@ ADNA_DOMESTICATION_STATUSES = (
     "comparator_only",
     "thin_evidence",
     "unsupported",
+)
+ADNA_PROJECT_SUPPORT_CLASSES = (
+    "domesticated_core_curated",
+    "archive_pending_paper_linkage",
+    "wild_or_progenitor_context",
+    "comparator_only",
+    "rejected_or_out_of_scope",
 )
 _BP_MEAN_STDDEV_RE = re.compile(
     r"(?P<mean>\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",
@@ -137,18 +145,25 @@ class AdnaProjectSummary:
     archive_status: str
     evidence_strength: str
     review_strength: str
+    support_class: str
     record_modality: str
     domestication_status: str
+    domestication_scope: str
     comparator_status: bool
     normalized_breed_label: str | None
     sequencing_target: str | None
     material_basis: str | None
+    chronology_basis: str | None
     dating_basis: str | None
     geographic_basis: str | None
     coordinate_policy: str
     chronology_policy: str
     paper_title: str | None
     paper_doi: str | None
+    paper_url: str | None
+    nordic_relevance: str
+    nordic_relevance_reason: str
+    interpretation_caveat: str
     notes: str
 
     def as_dict(self) -> dict[str, object]:
@@ -165,18 +180,25 @@ class AdnaProjectSummary:
             "archive_status": self.archive_status,
             "evidence_strength": self.evidence_strength,
             "review_strength": self.review_strength,
+            "support_class": self.support_class,
             "record_modality": self.record_modality,
             "domestication_status": self.domestication_status,
+            "domestication_scope": self.domestication_scope,
             "comparator_status": self.comparator_status,
             "normalized_breed_label": self.normalized_breed_label,
             "sequencing_target": self.sequencing_target,
             "material_basis": self.material_basis,
+            "chronology_basis": self.chronology_basis,
             "dating_basis": self.dating_basis,
             "geographic_basis": self.geographic_basis,
             "coordinate_policy": self.coordinate_policy,
             "chronology_policy": self.chronology_policy,
             "paper_title": self.paper_title,
             "paper_doi": self.paper_doi,
+            "paper_url": self.paper_url,
+            "nordic_relevance": self.nordic_relevance,
+            "nordic_relevance_reason": self.nordic_relevance_reason,
+            "interpretation_caveat": self.interpretation_caveat,
             "notes": self.notes,
         }
 
@@ -493,8 +515,10 @@ def _build_project_summary(
     curation_class: str,
 ) -> AdnaProjectSummary:
     species = normalize_species_anchor(project.species_latin_name)
+    project_context = resolve_project_context(project)
     paper_doi = None if project.paper_linkage is None else project.paper_linkage.doi
     paper_title = None if project.paper_linkage is None else project.paper_linkage.paper_title
+    support_class = _support_class_for(project, curation_class)
     return AdnaProjectSummary(
         schema_version="adna-project-summary.v1",
         summary_token=f"{species.slug}:project:{project.project_accession}",
@@ -508,19 +532,30 @@ def _build_project_summary(
         archive_status=project.archive_status,
         evidence_strength=classify_archive_project_evidence(project),
         review_strength=_review_strength_for(project.archive_status, curation_class, paper_doi),
+        support_class=support_class,
         record_modality=_record_modality_for(project),
         domestication_status=_domestication_status_for(curation_class),
+        domestication_scope=project.domestication_scope,
         comparator_status=curation_class == "comparator_only"
         or project.archive_status == "comparator_only",
         normalized_breed_label=normalize_breed_label(_breed_label_from_notes(project.notes)),
         sequencing_target=project.sequencing_target,
         material_basis=project.material_basis,
+        chronology_basis=project.dating_basis,
         dating_basis=project.dating_basis,
         geographic_basis=project.geographic_basis,
         coordinate_policy=_coordinate_policy_for(project.geographic_basis),
         chronology_policy=_chronology_policy_for(project.dating_basis),
         paper_title=paper_title,
         paper_doi=paper_doi,
+        paper_url=_paper_url_for(project),
+        nordic_relevance=project_context.nordic_relevance,
+        nordic_relevance_reason=project_context.nordic_relevance_reason,
+        interpretation_caveat=_interpretation_caveat_for(
+            project=project,
+            support_class=support_class,
+            project_context=project_context,
+        ),
         notes=project.notes,
     )
 
@@ -717,6 +752,69 @@ def _domestication_status_for(curation_class: str) -> str:
     }:
         return "thin_evidence"
     return "unsupported"
+
+
+def _support_class_for(project, curation_class: str) -> str:
+    if project.archive_status == "reject_or_out_of_scope":
+        return "rejected_or_out_of_scope"
+    if curation_class == "comparator_only" or project.archive_status == "comparator_only":
+        return "comparator_only"
+    if project.domestication_scope == "wild_or_progenitor_context":
+        return "wild_or_progenitor_context"
+    if project.archive_status == "paper_pinned_core":
+        return "domesticated_core_curated"
+    return "archive_pending_paper_linkage"
+
+
+def _paper_url_for(project) -> str | None:
+    if project.paper_linkage is None:
+        return None
+    if project.paper_linkage.doi:
+        return f"https://doi.org/{project.paper_linkage.doi}"
+    if project.paper_linkage.pmc_id:
+        return f"https://pmc.ncbi.nlm.nih.gov/articles/{project.paper_linkage.pmc_id}/"
+    if project.paper_linkage.pubmed_id:
+        return f"https://pubmed.ncbi.nlm.nih.gov/{project.paper_linkage.pubmed_id}/"
+    return None
+
+
+def _interpretation_caveat_for(
+    *,
+    project,
+    support_class: str,
+    project_context,
+) -> str:
+    caveats = [project.notes.strip()]
+
+    if support_class == "archive_pending_paper_linkage":
+        caveats.append(
+            "Keep this project out of strong pollenomics interpretation until the primary paper linkage is encoded explicitly."
+        )
+    if support_class == "wild_or_progenitor_context":
+        caveats.append(
+            "Treat this as wild or progenitor context, not as direct domesticated-animal support."
+        )
+    if support_class == "comparator_only":
+        caveats.append(
+            "Use this only as comparator context and do not count it toward domesticated-core support."
+        )
+    if support_class == "rejected_or_out_of_scope":
+        caveats.append(
+            "Keep this row visible as a reject so archive presence does not masquerade as curated support."
+        )
+
+    if project_context.nordic_relevance == "nordic_relevant_unmapped":
+        caveats.append("Nordic-relevant lead remains unmapped in the shipped public atlas.")
+    elif project_context.nordic_relevance == "nordic_adjacent":
+        caveats.append(
+            "Nordic-adjacent context does not justify a Nordic-localized project claim."
+        )
+    elif project_context.nordic_relevance == "non_nordic":
+        caveats.append(
+            "This project stays in the evidence base for comparative context, not as shipped Nordic evidence."
+        )
+
+    return " ".join(dict.fromkeys(part for part in caveats if part))
 
 
 def _coordinate_policy_for(geographic_basis: str | None) -> str:

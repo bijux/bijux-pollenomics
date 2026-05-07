@@ -36,8 +36,10 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if item.project_accession == "PRJEB22390"
         )
         self.assertEqual(project.domestication_status, "domesticated_core")
+        self.assertEqual(project.support_class, "domesticated_core_curated")
         self.assertEqual(project.coordinate_policy, "site_level_coordinates_expected")
         self.assertEqual(project.chronology_policy, "bp_interval_expected")
+        self.assertEqual(project.paper_url, "https://doi.org/10.1126/science.aao3297")
         self.assertEqual(project.review_strength, "primary_paper_pinned")
         self.assertEqual(
             bundle.lineage_records[0].schema_version,
@@ -55,6 +57,12 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 item.domestication_status == "comparator_only"
                 for item in bundle.project_summaries
             )
+        )
+        self.assertTrue(
+            {
+                item.support_class
+                for item in bundle.project_summaries
+            }.issubset({"comparator_only", "rejected_or_out_of_scope"})
         )
 
     def test_species_normalization_bundle_deduplicates_project_tokens_deterministically(
@@ -75,6 +83,39 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         refusal_kinds = {item.record_kind for item in bundle.refusals}
         self.assertIn("sample_records", refusal_kinds)
         self.assertIn("locality_records", refusal_kinds)
+
+    def test_species_normalization_bundle_carries_nordic_context_and_caveats(self) -> None:
+        sheep_bundle = build_species_normalization_bundle("sheep")
+        sheep_project = next(
+            item
+            for item in sheep_bundle.project_summaries
+            if item.project_accession == "PRJEB59481"
+        )
+        camel_bundle = build_species_normalization_bundle("camel")
+        camel_project = next(
+            item
+            for item in camel_bundle.project_summaries
+            if item.project_accession == "SRP073444"
+        )
+
+        self.assertEqual(sheep_project.nordic_relevance, "nordic_relevant_unmapped")
+        self.assertIn("unmapped", sheep_project.interpretation_caveat)
+        self.assertEqual(camel_project.nordic_relevance, "non_nordic")
+        self.assertIn("not as shipped Nordic evidence", camel_project.interpretation_caveat)
+
+    def test_species_normalization_bundle_marks_bovine_progenitor_context_explicitly(
+        self,
+    ) -> None:
+        bundle = build_species_normalization_bundle("cattle")
+        aurochs_project = next(
+            item
+            for item in bundle.project_summaries
+            if item.project_accession == "PRJEB75467"
+        )
+
+        self.assertEqual(aurochs_project.domestication_scope, "wild_or_progenitor_context")
+        self.assertEqual(aurochs_project.support_class, "wild_or_progenitor_context")
+        self.assertIn("wild or progenitor context", aurochs_project.interpretation_caveat)
 
     def test_normalize_species_anchor_accepts_alias_and_rejects_mismatch(self) -> None:
         species = normalize_species_anchor("pig", expected_species_name="Sus scrofa domesticus")
