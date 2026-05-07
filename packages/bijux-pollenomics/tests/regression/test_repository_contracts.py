@@ -225,6 +225,43 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
 
+    def test_public_docs_keep_direct_evidence_and_output_links(self) -> None:
+        docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
+        data_model = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "foundation"
+            / "animal-adna-data-model.md"
+        ).read_text(encoding="utf-8")
+        atlas_index = (
+            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
+        ).read_text(encoding="utf-8")
+        published_reports = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "published-reports.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("02-bijux-pollenomics-data/foundation/animal-adna-data-model", docs_index)
+        self.assertIn("report/nordic-atlas/nordic-atlas_map.html", docs_index)
+        self.assertIn("data/adna/ovis_aries/normalized/sample_records.json", data_model)
+        self.assertIn("data/adna/ovis_aries/normalized/site_evidence.json", data_model)
+        self.assertIn(
+            "data/adna/ovis_aries/normalized/coordinate_provenance.json",
+            data_model,
+        )
+        self.assertIn(
+            "../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
+            data_model,
+        )
+        self.assertIn("../report/nordic-atlas/nordic-atlas_map.html", atlas_index)
+        self.assertIn("../report/animal_atlas_readiness.md", atlas_index)
+        self.assertIn("../report/animal_country_species_coverage.md", atlas_index)
+        self.assertIn("../../report/sweden/README.md", published_reports)
+
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
     ) -> None:
@@ -291,6 +328,21 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("for collection or `docs/report` for", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
+
+    def test_package_readmes_keep_sharp_audiences(self) -> None:
+        runtime_readme = (
+            REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
+        ).read_text(encoding="utf-8")
+        alias_readme = (
+            REPO_ROOT / "packages" / "pollenomics" / "README.md"
+        ).read_text(encoding="utf-8")
+        maintainer_readme = (
+            REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "README.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("Use this package if you want the canonical CLI", runtime_readme)
+        self.assertIn("Compatibility and alias distribution", alias_readme)
+        self.assertIn("Maintainer-only package", maintainer_readme)
 
     def test_module_map_mentions_adna_runtime_boundary(self) -> None:
         module_map = (

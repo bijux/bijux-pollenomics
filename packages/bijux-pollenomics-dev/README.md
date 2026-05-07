@@ -1,5 +1,8 @@
 # bijux-pollenomics-dev
 
+Maintainer-only package for repository-health checks and release support in the
+`bijux-pollenomics` monorepo.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://github.com/bijux/bijux-pollenomics)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -10,16 +13,13 @@
 [![Docs](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/bijux/bijux-pollenomics/actions/workflows/deploy-docs.yml)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-Repository-owned developer tooling and automation helpers for bijux-pollenomics.
+## Audience
 
-This package owns repository checks for API freeze validation, OpenAPI drift
-review, quality gates, and release support. It is intended for maintainers
-working from the monorepo, not as the runtime entry point for end users.
+- maintainers working in the monorepo
+- contributors changing docs, release checks, badge sync, or repository truth logic
 
-## Read this next
+## Read Next
 
-- maintainer handbook: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/)
-- release support: [Release support guide](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/)
-- source directory: [Developer tooling source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics-dev)
-- changelog: [Developer tooling changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/CHANGELOG.md)
-- security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
+- maintainer handbook: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/>
+- documentation integrity: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity/>
+- release support: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/>

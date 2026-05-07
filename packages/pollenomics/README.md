@@ -1,5 +1,10 @@
 # pollenomics
 
+Compatibility and alias distribution for `bijux-pollenomics`.
+
+Install this package if you want the shorter package name and CLI command while
+running the same runtime behavior as `bijux-pollenomics`.
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)
@@ -19,11 +24,6 @@
 [![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
-Compatibility and alias distribution for `bijux-pollenomics`.
-
-Install this package if you want the shorter package name and CLI command while
-running the same runtime behavior as `bijux-pollenomics`.
-
 ## Install
 
 ```bash
@@ -31,16 +31,8 @@ python3.11 -m pip install pollenomics
 pollenomics --help
 ```
 
-## Compatibility
+## What It Does
 
-- Runtime implementation is provided by `bijux-pollenomics`
-- Public Python API is re-exported under the `pollenomics` module
-- CLI command `pollenomics` dispatches through the same command handlers as
-  `bijux-pollenomics`
-
-## Read this next
-
-- runtime package docs: [Runtime package docs](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- source directory: [pollenomics source directory](https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics)
-- changelog: [pollenomics changelog](https://github.com/bijux/bijux-pollenomics/blob/main/packages/pollenomics/CHANGELOG.md)
-- security policy: [Security policy](https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md)
+- re-exports the public Python API from `bijux-pollenomics`
+- dispatches the same CLI handlers through the shorter `pollenomics` command
+- stays subordinate to the canonical runtime package
