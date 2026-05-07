@@ -88,9 +88,27 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
-                    / "gallus_gallus_domesticus"
+                    / "bos_taurus"
                     / "manifests"
                 ).is_dir()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_caballus"
+                    / "manifests"
+                    / "curation_manifest.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_caballus"
+                    / "review"
+                    / "species_review.json"
+                ).is_file()
             )
             self.assertEqual(report.boundary_source, "network")
             self.assertTrue(report.summary_path.exists())
@@ -159,6 +177,15 @@ class DataCollectorTests(unittest.TestCase):
             collect_raa.assert_called_once()
             self.assertEqual(report.boundary_source, "collected")
             self.assertTrue((output_root / "adna" / "equus_asinus" / "raw").is_dir())
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "equus_asinus"
+                    / "raw"
+                    / "archive_inventory.json"
+                ).is_file()
+            )
 
     def test_collect_data_replaces_selected_source_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ..adna import build_domestication_coverage_report, resolve_species_definition
+from ..adna import resolve_species_definition
+from ..adna.tracked_data import TRACKED_ADNA_SPECIES, tracked_species_slugs
 from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
 from ..core.files import write_text
 
@@ -21,19 +22,12 @@ def render_data_root_readme() -> str:
 def render_data_root_readme_for(output_root: Path, version: str) -> str:
     """Render the data-root README with the active output directory name."""
     root_name = output_root.name or str(output_root)
+    tracked_slugs = tracked_species_slugs()
     tree_lines = [
         root_name,
         "├── adna",
-        "│   ├── equus_caballus",
-        "│   ├── sus_scrofa_domesticus",
-        "│   ├── ovis_aries",
-        "│   ├── capra_hircus",
-        "│   ├── felis_catus",
-        "│   ├── equus_asinus",
-        "│   ├── gallus_gallus_domesticus",
-        "│   ├── meleagris_gallopavo",
-        "│   ├── oryctolagus_cuniculus",
-        "│   ├── anas_platyrhynchos_domesticus",
+        *(f"│   ├── {slug}" for slug in tracked_slugs[:-1]),
+        f"│   ├── {tracked_slugs[-1]}",
         "│   └── homo_sapiens",
         "│       ├── raw",
         "│       │   └── aadr -> ../../../aadr",
@@ -66,9 +60,9 @@ The collector also writes `collection_summary.json` so the current data tree can
 `Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, while the
 domesticated-animal curation program owns species roots such as
 `adna/equus_caballus/`, `adna/sus_scrofa_domesticus/`, `adna/ovis_aries/`,
-`adna/capra_hircus/`, `adna/felis_catus/`, `adna/equus_asinus/`,
-`adna/gallus_gallus_domesticus/`, `adna/meleagris_gallopavo/`,
-`adna/oryctolagus_cuniculus/`, and `adna/anas_platyrhynchos_domesticus/`.
+`adna/bos_taurus/`, `adna/capra_hircus/`, `adna/canis_lupus_familiaris/`,
+`adna/felis_catus/`, `adna/camelus_dromedarius/`, `adna/rangifer_tarandus/`,
+and `adna/equus_asinus/`.
 """
 
 
@@ -119,10 +113,8 @@ def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
 def ensure_curated_species_adna_layout(output_root: Path) -> None:
     """Materialize species-owned curation roots for the non-human aDNA program."""
     output_root = Path(output_root)
-    for row in build_domestication_coverage_report().rows:
-        if row.curation_class == "provisional_unmaterialized":
-            continue
-        species = resolve_species_definition(row.species_latin_name)
+    for species_name in TRACKED_ADNA_SPECIES:
+        species = resolve_species_definition(species_name)
         species_root = output_root / "adna" / species.slug
         for directory_name in ADNA_LAYOUT_DIRS:
             (species_root / directory_name).mkdir(parents=True, exist_ok=True)
