@@ -185,6 +185,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         chronology_markdown = report_root / "animal_sample_chronology_viewer.md"
         gate_json = report_root / "animal_publication_release_gate.json"
         gate_markdown = report_root / "animal_publication_release_gate.md"
+        sample_database_review_json = report_root / "animal_sample_database_review.json"
+        sample_database_review_markdown = report_root / "animal_sample_database_review.md"
 
         self.assertTrue(audit_json.is_file())
         self.assertTrue(audit_markdown.is_file())
@@ -206,6 +208,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(chronology_markdown.is_file())
         self.assertTrue(gate_json.is_file())
         self.assertTrue(gate_markdown.is_file())
+        self.assertTrue(sample_database_review_json.is_file())
+        self.assertTrue(sample_database_review_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
         self.assertIn(
             "Animal atlas readiness",
@@ -242,6 +246,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Animal publication release gate",
             gate_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal sample database review",
+            sample_database_review_markdown.read_text(encoding="utf-8"),
         )
 
     def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:
@@ -515,9 +523,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../report/animal_point_support_packets.md",
             atlas_index,
         )
+        self.assertIn("../../report/animal_sample_database_review.md", published_reports)
         self.assertIn("../../report/animal_point_support_packets.md", published_reports)
         self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
+
+    def test_public_docs_do_not_ship_reference_grade_phrase(self) -> None:
+        failures: list[str] = []
+
+        for path in (REPO_ROOT / "docs").rglob("*.md"):
+            text = path.read_text(encoding="utf-8").lower()
+            if "reference-grade" in text:
+                failures.append(str(path.relative_to(REPO_ROOT)))
+
+        self.assertFalse(
+            failures,
+            "Public docs still ship the forbidden reference-grade phrase:\n"
+            + "\n".join(failures),
+        )
 
     def test_top_level_product_descriptions_stay_sample_first(self) -> None:
         root_readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")

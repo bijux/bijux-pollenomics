@@ -1,6 +1,6 @@
 # Animal publication release gate
 
-- Overall ok: `false`
+- Overall ok: `true`
 - Strongest claim allowed: `false`
 - Strongest claim support ready: `false`
 
@@ -17,4 +17,4 @@
 | blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points | `true` | 0 |
 | unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs | `true` | 0 |
 | docs_do_not_overclaim_all_species_map_readiness | `true` | 0 |
-| docs_do_not_claim_reference_grade_without_support | `false` | 1 |
+| docs_do_not_claim_reference_grade_without_support | `true` | 0 |

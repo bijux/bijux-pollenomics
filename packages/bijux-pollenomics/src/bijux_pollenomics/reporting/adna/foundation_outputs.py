@@ -856,7 +856,7 @@ def build_animal_publication_release_gate(
         _check_row(
             "docs_do_not_claim_reference_grade_without_support",
             not (reference_grade_claim and not reference_grade_support_ready),
-            "Public docs do not claim reference-grade posture before the sample database, evidence packets, and map outputs all support it.",
+            "Public docs do not claim the strongest posture before the sample database, evidence packets, and map outputs all support it.",
             ["docs_claim_reference_grade"] if reference_grade_claim else [],
         ),
     ]
