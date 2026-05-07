@@ -4,7 +4,13 @@
 - Product role: `comparator`
 - Dataset bucket: `comparator_only`
 - Curation class: `comparator_only`
+- Curated sample rows: `0`
 - Curated projects: `0`
+- Curated site rows: `0`
+- Direct-coordinate rows: `0`
+- Geocoded rows: `0`
+- Unresolved sample rows: `0`
+- Mapped Nordic rows: `0`
 - Pending projects: `4`
 - Rejected projects: `1`
 
