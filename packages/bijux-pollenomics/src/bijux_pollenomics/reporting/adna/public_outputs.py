@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from ...adna.catalogs import build_cross_species_map_readiness
 from ..models import CountryReport
 
 __all__ = ["publish_public_animal_reporting_outputs"]
@@ -11,6 +12,7 @@ __all__ = ["publish_public_animal_reporting_outputs"]
 def publish_public_animal_reporting_outputs(
     output_root: Path,
     *,
+    data_root: Path,
     country_reports: tuple[CountryReport, ...],
     country_output_dirs: tuple[Path, ...],
     atlas_output_dir: Path,
@@ -25,6 +27,10 @@ def publish_public_animal_reporting_outputs(
         country_payloads, atlas_output_dir
     )
     first_appearance_payload = _build_first_appearance_by_country(country_payloads)
+    atlas_readiness_payload = _build_animal_atlas_readiness(
+        Path(data_root),
+        country_payloads,
+    )
     scenario_payload = _build_farming_history_scenario(
         coverage_payload=coverage_payload,
         human_overlap_payload=human_overlap_payload,
@@ -37,6 +43,7 @@ def publish_public_animal_reporting_outputs(
         "animal_human_chronology_overlap": human_overlap_payload,
         "animal_pollen_chronology_overlap": pollen_overlap_payload,
         "animal_first_appearance_by_country": first_appearance_payload,
+        "animal_atlas_readiness": atlas_readiness_payload,
         "nordic_farming_history_scenario": scenario_payload,
     }
     for stem, payload in artifact_payloads.items():
@@ -59,6 +66,10 @@ def publish_public_animal_reporting_outputs(
         _render_first_appearance_markdown(first_appearance_payload),
         encoding="utf-8",
     )
+    (output_root / "animal_atlas_readiness.md").write_text(
+        _render_animal_atlas_readiness_markdown(atlas_readiness_payload),
+        encoding="utf-8",
+    )
     (output_root / "nordic_farming_history_scenario.md").write_text(
         _render_scenario_markdown(scenario_payload),
         encoding="utf-8",
@@ -72,6 +83,8 @@ def publish_public_animal_reporting_outputs(
         "animal_pollen_chronology_overlap_markdown": "animal_pollen_chronology_overlap.md",
         "animal_first_appearance_by_country_json": "animal_first_appearance_by_country.json",
         "animal_first_appearance_by_country_markdown": "animal_first_appearance_by_country.md",
+        "animal_atlas_readiness_json": "animal_atlas_readiness.json",
+        "animal_atlas_readiness_markdown": "animal_atlas_readiness.md",
         "nordic_farming_history_scenario_json": "nordic_farming_history_scenario.json",
         "nordic_farming_history_scenario_markdown": "nordic_farming_history_scenario.md",
     }
@@ -101,10 +114,46 @@ def _build_country_species_coverage(
 ) -> dict[str, object]:
     rows: list[dict[str, object]] = []
     for payload in country_payloads:
+        sample_rows = payload.get("sample_rows", [])
+        if not isinstance(sample_rows, list):
+            sample_rows = []
+        sample_counts: dict[str, int] = {}
+        direct_counts: dict[str, int] = {}
+        geocoded_counts: dict[str, int] = {}
+        unresolved_counts: dict[str, int] = {}
+        for sample_row in sample_rows:
+            if not isinstance(sample_row, dict):
+                continue
+            species_name = str(sample_row.get("species_latin_name", ""))
+            if not species_name:
+                continue
+            sample_counts[species_name] = sample_counts.get(species_name, 0) + 1
+            coordinate_basis = str(sample_row.get("coordinate_basis", ""))
+            if coordinate_basis in {
+                "direct_published_coordinates",
+                "supplementary_table_coordinates",
+                "archive_coordinates",
+            }:
+                direct_counts[species_name] = direct_counts.get(species_name, 0) + 1
+            if coordinate_basis in {"named_site_geocoding", "named_site_geocoded"}:
+                geocoded_counts[species_name] = geocoded_counts.get(species_name, 0) + 1
+            if str(sample_row.get("inclusion_status", "")) == "sample_context_blocked":
+                unresolved_counts[species_name] = (
+                    unresolved_counts.get(species_name, 0) + 1
+                )
         for row in payload.get("species_rows", []):
             if not isinstance(row, dict):
                 continue
-            rows.append(row)
+            species_name = str(row.get("species_latin_name", ""))
+            rows.append(
+                {
+                    **row,
+                    "sample_row_count": sample_counts.get(species_name, 0),
+                    "direct_coordinate_site_count": direct_counts.get(species_name, 0),
+                    "geocoded_site_count": geocoded_counts.get(species_name, 0),
+                    "unresolved_sample_count": unresolved_counts.get(species_name, 0),
+                }
+            )
     rows.sort(key=lambda row: (str(row["country"]), str(row["species_latin_name"])))
     return {
         "schema_version": "animal-country-species-coverage.v1",
@@ -343,6 +392,52 @@ def _build_farming_history_scenario(
     }
 
 
+def _build_animal_atlas_readiness(
+    data_root: Path,
+    country_payloads: list[dict[str, object]],
+) -> dict[str, object]:
+    readiness_payload = build_cross_species_map_readiness(Path(data_root))
+    rows = []
+    country_counts: dict[str, dict[str, int]] = {}
+    for payload in country_payloads:
+        country = str(payload.get("country", ""))
+        for row in payload.get("species_rows", []):
+            if not isinstance(row, dict):
+                continue
+            species_name = str(row.get("species_latin_name", ""))
+            if not species_name:
+                continue
+            species_counts = country_counts.setdefault(species_name, {})
+            species_counts[country] = int(row.get("mapped_locality_count", 0) or 0)
+    for row in readiness_payload.get("rows", []):
+        if not isinstance(row, dict):
+            continue
+        direct_count = int(row.get("direct_coordinate_backed", 0) or 0)
+        geocoded_count = int(row.get("indirectly_geocoded", 0) or 0)
+        unresolved_count = int(row.get("unresolved", 0) or 0)
+        refused_count = int(row.get("refused_from_mapping", 0) or 0)
+        map_ready_count = direct_count + geocoded_count
+        total_curated = map_ready_count + unresolved_count + refused_count
+        rows.append(
+            {
+                **row,
+                "map_ready_count": map_ready_count,
+                "total_curated_rows": total_curated,
+                "map_ready_share": (
+                    round(map_ready_count / total_curated, 4) if total_curated else 0.0
+                ),
+                "country_mapped_locality_counts": country_counts.get(
+                    str(row.get("species_latin_name", "")),
+                    {},
+                ),
+            }
+        )
+    return {
+        "schema_version": "animal-atlas-readiness.v1",
+        "rows": rows,
+    }
+
+
 def _load_pollen_records(atlas_output_dir: Path) -> list[dict[str, object]]:
     records: list[dict[str, object]] = []
     for filename in (
@@ -459,16 +554,18 @@ def _render_country_species_coverage_markdown(payload: dict[str, object]) -> str
     lines = [
         "# Animal country species coverage",
         "",
-        "| Country | Species | Scope | Projects | Localities | Assignment posture |",
-        "| --- | --- | --- | ---: | ---: | --- |",
+        "| Country | Species | Scope | Sample rows | Localities | Direct-coordinate sites | Geocoded sites | Unresolved rows | Assignment posture |",
+        "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
     if not rows:
-        lines.append("| No country-resolved animal rows yet | - | - | 0 | 0 | - |")
+        lines.append("| No country-resolved animal rows yet | - | - | 0 | 0 | 0 | 0 | 0 | - |")
     else:
         for row in rows:
             lines.append(
                 f"| {row['country']} | {row['species_latin_name']} | {row['animal_scope']} | "
-                f"{row['curated_project_count']} | {row['mapped_locality_count']} | "
+                f"{row['sample_row_count']} | {row['mapped_locality_count']} | "
+                f"{row['direct_coordinate_site_count']} | {row['geocoded_site_count']} | "
+                f"{row['unresolved_sample_count']} | "
                 f"{row['assignment_confidence']} |"
             )
     lines.append("")
@@ -534,6 +631,28 @@ def _render_first_appearance_markdown(payload: dict[str, object]) -> str:
             lines.append(
                 f"| {row['country']} | {row['species_latin_name']} | {row['first_signal_bp']} | "
                 f"{row['project_accession']} | {row['assignment_confidence']} |"
+            )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _render_animal_atlas_readiness_markdown(payload: dict[str, object]) -> str:
+    rows = [row for row in payload.get("rows", []) if isinstance(row, dict)]
+    lines = [
+        "# Animal atlas readiness",
+        "",
+        "| Species | Map-ready rows | Direct-coordinate rows | Geocoded rows | Unresolved rows | Region-refused rows | Map-ready share |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    if not rows:
+        lines.append("| No readiness rows yet | 0 | 0 | 0 | 0 | 0 | 0.0000 |")
+    else:
+        for row in rows:
+            lines.append(
+                f"| {row['species_latin_name']} | {row['map_ready_count']} | "
+                f"{row['direct_coordinate_backed']} | {row['indirectly_geocoded']} | "
+                f"{row['unresolved']} | {row['refused_from_mapping']} | "
+                f"{row['map_ready_share']:.4f} |"
             )
     lines.append("")
     return "\n".join(lines)

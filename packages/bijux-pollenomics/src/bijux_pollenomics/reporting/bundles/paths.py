@@ -26,6 +26,8 @@ class CountryBundlePaths:
     samples_markdown_path: Path
     summary_json_path: Path
     animal_summary_json_path: Path
+    animal_samples_csv_path: Path
+    animal_samples_markdown_path: Path
     animal_species_csv_path: Path
     animal_localities_geojson_path: Path
     animal_citations_markdown_path: Path
@@ -81,6 +83,10 @@ def build_country_bundle_paths(
         summary_json_path=output_dir / f"{country_slug}_aadr_{version}_summary.json",
         animal_summary_json_path=output_dir
         / f"{country_slug}_animal_adna_{version}_summary.json",
+        animal_samples_csv_path=output_dir
+        / f"{country_slug}_animal_adna_{version}_samples.csv",
+        animal_samples_markdown_path=output_dir
+        / f"{country_slug}_animal_adna_{version}_samples.md",
         animal_species_csv_path=output_dir
         / f"{country_slug}_animal_adna_{version}_species.csv",
         animal_localities_geojson_path=output_dir
