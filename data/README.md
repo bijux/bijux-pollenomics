@@ -6,23 +6,27 @@ under `data/`:
 ```text
 data
 ├── adna
-│   ├── equus_caballus
-│   ├── sus_scrofa_domesticus
-│   ├── ovis_aries
-│   ├── bos_taurus
-│   ├── capra_hircus
-│   ├── canis_lupus_familiaris
-│   ├── felis_catus
-│   ├── camelus_dromedarius
-│   ├── rangifer_tarandus
-│   ├── equus_asinus
-│   └── homo_sapiens
-│       ├── raw
-│       │   └── aadr -> ../../../aadr
-│       ├── normalized
-│       ├── manifests
-│       ├── reports
-│       └── review
+│   ├── species
+│   │   ├── equus_caballus
+│   │   ├── sus_scrofa_domesticus
+│   │   ├── ovis_aries
+│   │   ├── bos_taurus
+│   │   ├── capra_hircus
+│   │   ├── canis_lupus_familiaris
+│   │   ├── felis_catus
+│   │   ├── camelus_dromedarius
+│   │   ├── rangifer_tarandus
+│   │   ├── equus_asinus
+│   │   └── homo_sapiens
+│   │       ├── raw
+│   │       │   └── aadr -> ../../../../aadr
+│   │       ├── normalized
+│   │       ├── manifests
+│   │       ├── reports
+│   │       └── review
+│   ├── governance
+│   │   └── source_library
+│   └── final
 ├── aadr
 │   └── v66
 ├── boundaries
@@ -39,17 +43,18 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
-`Homo sapiens` ancient DNA is governed under `adna/homo_sapiens/`, while the
+`Homo sapiens` ancient DNA is governed under `adna/species/homo_sapiens/`, while the
 domesticated-animal curation program owns species roots such as
-`adna/equus_caballus/`, `adna/sus_scrofa_domesticus/`, `adna/ovis_aries/`,
-`adna/bos_taurus/`, `adna/capra_hircus/`, `adna/canis_lupus_familiaris/`,
-`adna/felis_catus/`, `adna/camelus_dromedarius/`, `adna/rangifer_tarandus/`,
-and `adna/equus_asinus/`.
+`adna/species/equus_caballus/`, `adna/species/sus_scrofa_domesticus/`,
+`adna/species/ovis_aries/`, `adna/species/bos_taurus/`,
+`adna/species/capra_hircus/`, `adna/species/canis_lupus_familiaris/`,
+`adna/species/felis_catus/`, `adna/species/camelus_dromedarius/`,
+`adna/species/rangifer_tarandus/`, and `adna/species/equus_asinus/`.
 
-Cross-species animal aDNA audits live directly under `adna/` as checked-in
-artifacts such as `cross_species_bibliography.json`,
-`cross_species_archive_inventory.csv`, `cross_species_coverage_dashboard.json`,
-`cross_species_freshness.csv`, and `shipped_product_audit.json`.
-Each tracked non-human species root also keeps `raw/source_snapshot.json` and
-`raw/source_snapshot.csv` so archive-facing study wording is preserved alongside
-the narrower curated inventory tables.
+Cross-species audits, caveat ledgers, sample-foundation contracts, and source
+registries live under `adna/governance/`, including
+`adna/governance/cross_species_bibliography.json`,
+`adna/governance/source_library/project_registry.json`, and
+`adna/governance/animal_sample_foundation_truth.json`.
+Shared atlas-ready and country-ready downstream data products live under
+`adna/final/`.

@@ -83,11 +83,12 @@ class DataCollectorTests(unittest.TestCase):
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
-            self.assertTrue((output_root / "adna" / "equus_caballus" / "review").is_dir())
+            self.assertTrue((output_root / "adna" / "species" / "equus_caballus" / "review").is_dir())
             self.assertTrue(
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "bos_taurus"
                     / "manifests"
                 ).is_dir()
@@ -96,6 +97,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "manifests"
                     / "curation_manifest.json"
@@ -105,6 +107,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "review"
                     / "species_review.json"
@@ -114,6 +117,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "raw"
                     / "source_snapshot.json"
@@ -123,6 +127,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "normalized"
                     / "sample_records.json"
@@ -132,6 +137,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "normalized"
                     / "coordinate_provenance.json"
@@ -141,6 +147,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "normalized"
                     / "site_evidence.json"
@@ -150,6 +157,7 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "normalized"
                     / "project_summaries.json"
@@ -159,39 +167,41 @@ class DataCollectorTests(unittest.TestCase):
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_caballus"
                     / "normalized"
                     / "locality_summaries.json"
                 ).is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "cross_species_bibliography.json").is_file()
+                (output_root / "adna" / "governance" / "cross_species_bibliography.json").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "cross_species_archive_inventory.csv").is_file()
+                (output_root / "adna" / "governance" / "cross_species_archive_inventory.csv").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "cross_species_coverage_dashboard.json").is_file()
+                (output_root / "adna" / "governance" / "cross_species_coverage_dashboard.json").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "cross_species_map_readiness.json").is_file()
+                (output_root / "adna" / "governance" / "cross_species_map_readiness.json").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "coordinate_caveat_surface.md").is_file()
+                (output_root / "adna" / "governance" / "coordinate_caveat_surface.md").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "coordinate_confidence_scale.md").is_file()
+                (output_root / "adna" / "governance" / "coordinate_confidence_scale.md").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "shipped_product_audit.json").is_file()
+                (output_root / "adna" / "governance" / "shipped_product_audit.json").is_file()
             )
             self.assertTrue(
-                (output_root / "adna" / "source_library" / "project_registry.json").is_file()
+                (output_root / "adna" / "governance" / "source_library" / "project_registry.json").is_file()
             )
             self.assertTrue(
                 (
                     output_root
                     / "adna"
+                    / "governance"
                     / "source_library"
                     / "projects"
                     / "PRJEB22390"
@@ -264,11 +274,12 @@ class DataCollectorTests(unittest.TestCase):
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
             self.assertEqual(report.boundary_source, "collected")
-            self.assertTrue((output_root / "adna" / "equus_asinus" / "raw").is_dir())
+            self.assertTrue((output_root / "adna" / "species" / "equus_asinus" / "raw").is_dir())
             self.assertTrue(
                 (
                     output_root
                     / "adna"
+                    / "species"
                     / "equus_asinus"
                     / "raw"
                     / "archive_inventory.json"

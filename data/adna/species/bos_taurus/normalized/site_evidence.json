@@ -1,0 +1,32 @@
+{
+  "schema_version": "adna-site-evidence-export.v1",
+  "species_latin_name": "Bos taurus",
+  "site_evidence": [
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "site_label": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "source_artifact_kind": "archive_metadata_description",
+      "source_locator": "source description snapshot",
+      "exact_source_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "source_support_status": "archive_description_quote",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "coordinate_basis": "site_level_localities",
+      "latitude_text": "42.75",
+      "longitude_text": "-8.75",
+      "chronology_text": "Neolithic to later Galician cattle sequence",
+      "time_start_bp": 1500,
+      "time_end_bp": 7000,
+      "dating_basis": "archaeological_period",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core_with_progenitor_boundary",
+      "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
+      "support_gap_note": "No local primary paper is pinned for this project yet, so the site assignment is currently justified by the captured project description rather than a paper body or supplement."
+    }
+  ]
+}

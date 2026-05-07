@@ -1,0 +1,286 @@
+{
+  "schema_version": "adna-species-review-packet.v1",
+  "species_manifest": {
+    "schema_version": "adna-species-manifest.v1",
+    "species": {
+      "latin_name": "Sus scrofa domesticus",
+      "slug": "sus_scrofa_domesticus",
+      "common_name": "pig",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "pig",
+        "domestic pig"
+      ],
+      "notes": "Ancient domesticated pig intake is curated in meta notes but not yet runtime-owned."
+    },
+    "root_slug": "sus_scrofa_domesticus",
+    "data_root": "data/adna/species/sus_scrofa_domesticus",
+    "normalized_sample_namespace": "sus_scrofa_domesticus:normalized_sample",
+    "tracked_layout": [
+      "raw",
+      "normalized",
+      "manifests",
+      "reports",
+      "review"
+    ],
+    "scientific_scope": "Species-aware ancient-DNA intake and review boundary. Support status describes evidence readiness, not broad scientific sufficiency.",
+    "runtime_scope": "Current runtime normalization and reporting remain human AADR-first until species-specific collectors and archive bridges are implemented."
+  },
+  "dataset_review": {
+    "species": {
+      "latin_name": "Sus scrofa domesticus",
+      "slug": "sus_scrofa_domesticus",
+      "common_name": "pig",
+      "support_status": "provisional",
+      "modalities": [
+        "archive_reads",
+        "paper_only"
+      ],
+      "source_families": [
+        "ENA",
+        "SRA",
+        "BioProject"
+      ],
+      "aliases": [
+        "pig",
+        "domestic pig"
+      ],
+      "notes": "Ancient domesticated pig intake is curated in meta notes but not yet runtime-owned."
+    },
+    "product_role": "domesticated_core",
+    "assignment_rule": "single_species_core",
+    "dataset_bucket": "archive_verified_needs_paper_pinning",
+    "archive_project_count": 4,
+    "core_project_count": 3,
+    "primary_paper_pin_count": 1,
+    "curated_support_project_count": 1,
+    "archive_required": true,
+    "primary_paper_required": true,
+    "manifest_schema_required": true,
+    "release_gate_satisfied": false,
+    "eligible_for_supported_status": false,
+    "blocking_reasons": [
+      "missing_primary_paper_pins",
+      "missing_archive_paper_pinning_rationale"
+    ]
+  },
+  "project_manifest": {
+    "schema_version": "adna-species-project-manifest.v1",
+    "species_latin_name": "Sus scrofa domesticus",
+    "projects": [
+      {
+        "project_accession": "PRJEB30282",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "paper_doi": "10.1073/pnas.1901169116",
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient pig genomic turnover anchor after introduction to Europe.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJNA421430",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "reject_or_out_of_scope",
+        "evidence_strength": "archive_only",
+        "ancient_status": "modern_or_irrelevant",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "capture_or_method_panel",
+        "material_basis": "modern_tissue",
+        "dating_basis": "modern_sampling",
+        "geographic_basis": "country_or_breed_panel",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Method and modern tissue context from the source note set; not curated ancient pig support.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJNA788987",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "evidence_strength": "archive_only",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "archaeological_period_assignment",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient Chinese pig genomes remain archive-verified until paper linkage is recorded in code.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      },
+      {
+        "project_accession": "PRJNA878488",
+        "source_family": "ENA",
+        "accession_scope": "project",
+        "archive_status": "archive_verified_needs_paper_pinning",
+        "evidence_strength": "archive_only",
+        "ancient_status": "ancient_confirmed",
+        "paper_title": null,
+        "paper_doi": null,
+        "sequencing_target": "shotgun_genome",
+        "material_basis": "individual_bone_or_tooth",
+        "dating_basis": "archaeological_period_assignment",
+        "geographic_basis": "site_level_localities",
+        "access_policy": "public_downloadable",
+        "public_release_date": null,
+        "domestication_scope": "domesticated_core",
+        "notes": "Ancient Polynesian pig genomes remain archive-verified until paper linkage is recorded in code.",
+        "nordic_relevance": "non_nordic",
+        "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "last_checked_on": "2026-05-07"
+      }
+    ]
+  },
+  "project_reviews": [
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJEB30282",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA788987",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": [
+        "missing_primary_paper_anchor",
+        "missing_archive_paper_pinning_rationale"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA878488",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "evidence_strength": "archive_only",
+      "ancient_status": "ancient_confirmed",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": true,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": [
+        "missing_primary_paper_anchor",
+        "missing_archive_paper_pinning_rationale"
+      ]
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "project_accession": "PRJNA421430",
+      "source_family": "ENA",
+      "accession_scope": "project",
+      "archive_status": "reject_or_out_of_scope",
+      "evidence_strength": "archive_only",
+      "ancient_status": "modern_or_irrelevant",
+      "access_policy": "public_downloadable",
+      "public_release_date": null,
+      "domestication_scope": "domesticated_core",
+      "core_project": false,
+      "admissible_for_curated_support": false,
+      "blocking_reasons": []
+    }
+  ],
+  "accepted_projects": [
+    {
+      "project_accession": "PRJEB30282",
+      "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "rejected_projects": [
+    {
+      "project_accession": "PRJNA421430",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "reject_or_out_of_scope",
+      "support_class": "rejected",
+      "reason": "Method and modern tissue context from the source note set; not curated ancient pig support.",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "too_weak_projects": [
+    {
+      "project_accession": "PRJNA788987",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "paper_title": null,
+      "paper_doi": null,
+      "archive_status": "archive_verified_needs_paper_pinning",
+      "support_class": "ancient_but_too_weak",
+      "reason": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    }
+  ],
+  "comparator_projects": [],
+  "nordic_unmapped_leads": [],
+  "release_blockers": [
+    "missing_primary_paper_pins",
+    "missing_archive_paper_pinning_rationale"
+  ]
+}

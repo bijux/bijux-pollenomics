@@ -1,0 +1,32 @@
+{
+  "schema_version": "adna-site-evidence-export.v1",
+  "species_latin_name": "Capra hircus",
+  "site_evidence": [
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "site_label": "Lake Qinghai Basin ancient goat context",
+      "political_entity": "Qinghai, China",
+      "source_artifact_path": "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
+      "source_artifact_kind": "article_html_title_and_keywords",
+      "source_locator": "title and keywords",
+      "exact_source_text": "Ancient genomes reveal the genetic history of domestic goats on the Qinghai-Xizang Plateau approximately 3,600 years ago.",
+      "source_support_status": "title_support",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
+      "supplementary_source": "",
+      "coordinate_basis": "site_level_localities",
+      "latitude_text": "36.90",
+      "longitude_text": "100.10",
+      "chronology_text": "Approximately 3600 BP ancient goats",
+      "time_start_bp": 3500,
+      "time_end_bp": 3700,
+      "dating_basis": "bp_window",
+      "comparator_context": false,
+      "domestication_context": "domesticated_core",
+      "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
+      "support_gap_note": ""
+    }
+  ]
+}

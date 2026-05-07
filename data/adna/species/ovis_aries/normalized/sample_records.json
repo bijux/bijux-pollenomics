@@ -1,0 +1,384 @@
+{
+  "schema_version": "adna-sample-record-export.v1",
+  "species_latin_name": "Ovis aries",
+  "samples": [
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb36540",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB36540",
+          "sample:PRJEB36540"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb36540",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB36540",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB36540",
+      "group_id": "PRJEB36540",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
+      "year_first_published": "2021",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "project_accession": "PRJEB36540",
+      "paper_doi": "10.1038/s42003-021-02794-8",
+      "paper_url": "https://doi.org/10.1038/s42003-021-02794-8",
+      "supplementary_source": "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb41594",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB41594",
+          "sample:PRJEB41594"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb41594",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB41594",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB41594",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB41594",
+      "group_id": "PRJEB41594",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Evidence for early dispersal of domestic sheep into Central Asia",
+      "year_first_published": "2021",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB41594"
+      ],
+      "project_accession": "PRJEB41594",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "paper_url": "https://doi.org/10.1038/s41562-021-01083-y",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb59481",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB59481",
+          "sample:PRJEB59481"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb59481",
+        "locality_text": "Baltic Sea Region short-tailed sheep context",
+        "political_entity": "Baltic Sea Region",
+        "source_anchor_tokens": [
+          "PRJEB59481",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB59481",
+      "record_modality": "archive_reads",
+      "review_strength": "primary_paper_pinned",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB59481",
+      "group_id": "PRJEB59481",
+      "locality": "Baltic Sea Region short-tailed sheep context",
+      "political_entity": "Baltic Sea Region",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "year_first_published": "2024",
+      "full_date": "Four millennia of Baltic sheep history",
+      "chronology": {
+        "original_text": "Four millennia of Baltic sheep history",
+        "time_start_bp": 0,
+        "time_end_bp": 4000,
+        "time_mean_bp": 2000,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB59481"
+      ],
+      "project_accession": "PRJEB59481",
+      "paper_doi": "10.1093/gbe/evae114",
+      "paper_url": "https://doi.org/10.1093/gbe/evae114",
+      "supplementary_source": "",
+      "inclusion_status": "nordic_lead_site_curated",
+      "inclusion_note": "The sheep lead remains Nordic-relevant but not point-ready.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb61808",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB61808",
+          "sample:PRJEB61808"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb61808",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB61808",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB61808",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB61808",
+      "group_id": "PRJEB61808",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB61808"
+      ],
+      "project_accession": "PRJEB61808",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb69690",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB69690",
+          "sample:PRJEB69690"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb69690",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB69690",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB69690",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB69690",
+      "group_id": "PRJEB69690",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB69690"
+      ],
+      "project_accession": "PRJEB69690",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:curated_sample",
+        "stable_token": "ovis_aries:sample:prjeb81145",
+        "accession_lineage": [
+          "species:Ovis aries",
+          "source:ENA",
+          "project:PRJEB81145",
+          "sample:PRJEB81145"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "ovis_aries:sample_locality",
+        "stable_token": "ovis_aries:sample-site:prjeb81145",
+        "locality_text": "site detail not yet extracted from tracked source support",
+        "political_entity": null,
+        "source_anchor_tokens": [
+          "PRJEB81145",
+          "project_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_release": "PRJEB81145",
+      "record_modality": "archive_reads",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "PRJEB81145",
+      "group_id": "PRJEB81145",
+      "locality": null,
+      "political_entity": null,
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "chronology not yet extracted from tracked source support",
+      "chronology": {
+        "original_text": "chronology not yet extracted from tracked source support",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "not_yet_curated"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "ovis_aries:project:PRJEB81145"
+      ],
+      "project_accession": "PRJEB81145",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "This accession-backed sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "sample_basis": "project_accession_anchor"
+    }
+  ]
+}
