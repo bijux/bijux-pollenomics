@@ -16,7 +16,7 @@
     },
     {
       "species_latin_name": "Camelus dromedarius",
-      "normalized_sample_row_count": 2,
+      "normalized_sample_row_count": 14,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 1,
@@ -29,7 +29,7 @@
     },
     {
       "species_latin_name": "Canis lupus familiaris",
-      "normalized_sample_row_count": 3,
+      "normalized_sample_row_count": 4,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
@@ -94,7 +94,7 @@
     },
     {
       "species_latin_name": "Ovis aries",
-      "normalized_sample_row_count": 6,
+      "normalized_sample_row_count": 195,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
