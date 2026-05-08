@@ -4,53 +4,70 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # bijux-pollenomics-data
 
-`bijux-pollenomics-data` is the evidence handbook for the tracked data system.
-Its main job is to explain how pollen context, environmental archaeology,
-boundary geometry, fieldwork records, ancient DNA source capture, normalized
-evidence files, and report outputs fit together without pretending that one
-thin slice already explains the whole repository.
+`bijux-pollenomics-data` is the public guide to the repository's evidence
+layers. It explains how pollen context, environmental archaeology, boundary
+framing, animal ancient DNA, and public outputs fit together, how those
+records are checked and organized, and how they later appear in country
+reports or the Nordic atlas.
 
-<div class="bijux-callout"><strong>Use this section when the real question is evidence, not software.</strong> It should tell a reader where a sample row came from, why a site was accepted or blocked, how coordinates were justified, and which files feed the atlas and country bundles.</div>
+<div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader answer simple questions clearly: what the repository knows, where it came from, what is still incomplete, and why some records appear in public outputs while others do not.</div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="foundation/data-system-overview/">Open the data system overview</a>
+  <a class="md-button md-button--primary" href="overview/">Start with the overview</a>
+  <a class="md-button" href="sources/">See the source families</a>
+  <a class="md-button" href="sources/animal-source-intake/">See animal source intake</a>
+  <a class="md-button" href="evidence/">See sample-to-map evidence</a>
+  <a class="md-button" href="outputs/">See public outputs</a>
   <a class="md-button" href="sources/source-comparison/">Open the source comparison</a>
-  <a class="md-button" href="sources/aadr/">Open AADR context</a>
-  <a class="md-button" href="sources/neotoma/">Open Neotoma context</a>
-  <a class="md-button" href="outputs/published-reports/">Open country output files</a>
-  <a class="md-button" href="outputs/nordic-atlas/">Open atlas output files</a>
 </div>
 
-## Evidence Route
+## What This Section Covers
 
 ```mermaid
 flowchart TB
-    pollen["pollen context"]
-    archaeology["archaeology context"]
-    boundaries["boundary framing"]
-    adna["sample-backed ancient DNA context"]
-    outputs["country bundles and atlas outputs"]
+    sources["source families"]
+    intake["tracked intake and recovery"]
+    evidence["sample, locality, date, and coordinate evidence"]
+    outputs["country reports and atlas views"]
 
-    pollen --> outputs
-    archaeology --> outputs
-    boundaries --> outputs
-    adna --> outputs
+    sources --> intake
+    intake --> evidence
+    evidence --> outputs
 ```
+
+The point of this guide is to keep those steps legible. The site should not
+force readers to infer the difference between a source, a recovered sample
+table, a locality decision, and a public map point.
 
 ## Start Here
 
-- data-system overview: [foundation](foundation/index.md)
-- source-family comparison: [sources/source-comparison](sources/source-comparison.md)
-- tracked project intake: [projects](projects/index.md)
-- paper capture: [papers](papers/index.md)
-- supplementary capture: [supplements](supplements/index.md)
-- sample database files: [samples](samples/index.md)
-- site extraction and locality posture: [sites](sites/index.md)
-- chronology normalization: [chronology](chronology/index.md)
-- coordinate provenance: [coordinates](coordinates/index.md)
-- atlas and country output files: [outputs](outputs/index.md)
+- [Overview](overview/index.md): how the data system is organized and how to read it
+- [Sources](sources/index.md): the main source families, from pollen context to animal ancient DNA
+- [Evidence](evidence/index.md): how sample records, localities, chronology, and coordinates are justified
+- [Outputs](outputs/index.md): what the country reports and the Nordic atlas publish
+
+## Source-Family Comparison
+
+Start with the [source-family comparison](sources/source-comparison.md) when the
+main question is how pollen, archaeology, boundaries, and ancient DNA differ.
+
+## Reader Questions
+
+- Where does the repository's pollen, archaeology, boundary, and aDNA material come from?
+- What happens between a paper or dataset and a public-facing output?
+- Which animal records already have sample-level locality and date evidence?
+- Why is one row publishable while another stays blocked or uncertain?
+
+## Section Map
+
+| Section | Main question | Main pages |
+| --- | --- | --- |
+| Overview | How is the repository's data system structured? | [overview](overview/index.md) |
+| Sources | What source families are in scope and what do they contribute? | [sources](sources/index.md) |
+| Evidence | How are sample, locality, chronology, and coordinate claims justified? | [evidence](evidence/index.md) |
+| Outputs | What reaches reports and maps, and what remains partial? | [outputs](outputs/index.md) |
