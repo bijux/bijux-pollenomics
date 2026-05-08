@@ -96,7 +96,7 @@
       "documentation_clarity": 4,
       "output_honesty": 4,
       "metrics": {
-        "source_explainer_count": 8,
+        "source_explainer_count": 11,
         "landing_page_count": 6
       },
       "note": "Breadth has been restored across repository, data, maintainer, fieldwork, and atlas entry surfaces."
