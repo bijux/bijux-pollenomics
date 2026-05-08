@@ -6,12 +6,13 @@
 - Project URL: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0
 - Paper DOI: `10.1038/s41598-024-54296-2`
 - Paper download status: `archived`
-- Supplement download status: `missing`
+- Supplement download status: `archived`
 
 Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
 - `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json`
 - `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html`

@@ -14,22 +14,23 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html`
 - `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json`
 - `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html`
