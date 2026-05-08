@@ -92,9 +92,12 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_chronology_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_normalization_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_conflict_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_precision_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_chronology_completeness.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_chronology_completeness.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_viewer.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "date_evidence_gap_queue.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "tracked_project_scope_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_source_evidence_matrix.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json").is_file())
@@ -228,6 +231,17 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "projects"
                     / "PRJEB36540"
                     / "sample_chronology.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "sample_chronology_evidence.json"
                 ).is_file()
             )
 

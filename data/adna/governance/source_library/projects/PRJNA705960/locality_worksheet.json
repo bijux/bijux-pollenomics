@@ -2,7 +2,7 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJNA705960",
   "species_latin_name": "Bos taurus",
-  "row_count": 3,
+  "row_count": 4,
   "rows": [
     {
       "project_accession": "PRJNA705960",
@@ -63,6 +63,26 @@
       "source_artifact_kind": "coordinate_provenance_resolved_place",
       "source_locator": "source description snapshot",
       "source_excerpt": "The current local evidence names a multi-cave Galician context rather than one site, so the row stays refused from point mapping."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 11,
+      "original_locality_text": "Galician mountain cave cattle context",
+      "resolved_locality_text": "Galician mountain cave cattle context",
+      "locality_class": "broader_locality",
+      "site_name": "Galician mountain cave cattle context",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "Galicia, Spain",
+      "geocoding_safe_token": "galicianmountaincavecattlecontext",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "source_artifact_kind": "archive_metadata_description",
+      "source_locator": "source description snapshot",
+      "source_excerpt": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis."
     }
   ]
 }

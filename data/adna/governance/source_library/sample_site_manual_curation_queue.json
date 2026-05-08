@@ -2,6 +2,20 @@
   "schema_version": "animal-sample-site-manual-curation-queue.v1",
   "rows": [
     {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "queued_sample_count": 11,
+      "queue_reasons": [
+        "region_only_rows_require_finer_location_evidence"
+      ],
+      "sample_site_targets": [],
+      "expected_supplementary_artifacts": [],
+      "local_artifact_paths": [
+        "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+    },
+    {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
       "queued_sample_count": 1,
@@ -93,6 +107,27 @@
         "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html"
       ],
       "recommended_next_surface": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "queued_sample_count": 20,
+      "queue_reasons": [
+        "region_only_rows_require_finer_location_evidence"
+      ],
+      "sample_site_targets": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
+      ],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
+      ],
+      "local_artifact_paths": [
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
+        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/crossref.json",
+        "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
+      ],
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
     }
   ]
 }

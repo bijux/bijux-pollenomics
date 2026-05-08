@@ -252,13 +252,39 @@ PRJEB44430,Equus caballus,Černý Vůl,černývůl,Černý Vůl,,supplementary_t
 PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africatoeuropeandasiadonkeyspreadcontext,Africa to Europe and Asia donkey spread context,,archive_metadata,broader_locality
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
 PRJEB59481,Ovis aries,Baltic Sea Region short-tailed sheep context,balticsearegionshorttailedsheepcontext,Baltic Sea Region;Baltic Sea Region short-tailed sheep context,Baltic Sea Region,coordinate_resolution;crossref_metadata,broader_locality
-PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
+PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution;supplementary_table,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
 PRJEB81815,Felis catus,North Africa to Europe domestic cat dispersal transect,northafricatoeuropedomesticcatdispersaltransect,North Africa to Europe dispersal extent;North Africa to Europe domestic cat dispersal transect,North Africa to Europe dispersal extent,article_text;coordinate_resolution,broader_locality
-PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin,,article_text,broader_locality
+PRJEB90141,Capra hircus,Acemhöyük,acemhöyük,Acemhöyük,,supplementary_table,excavation_site
+PRJEB90141,Capra hircus,Blagotin-Poljna,blagotinpoljna,Blagotin-Poljna,,supplementary_table,excavation_site
+PRJEB90141,Capra hircus,Direkli Cave,direklicave,Direkli Cave,,supplementary_table,excavation_site
+PRJEB90141,Capra hircus,Sang-e Chakhmaq,sangechakhmaq,Sang-e Chakhmaq,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Aguadulce,aguadulce,Aguadulce,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Belmaco,belmaco,Belmaco,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Buracas,buracas,Buracas,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Caserones,caserones,Caserones,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Cueva de Bencomo,cuevadebencomo,Cueva de Bencomo,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Cueva de la Herradura,cuevadelaherradura,Cueva de la Herradura,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Cueva de Villaverde,cuevadevillaverde,Cueva de Villaverde,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Cuevas de Herrera González,cuevasdeherreragonzález,Cuevas de Herrera González,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,El Chorrillo,elchorrillo,El Chorrillo,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,El Lomito del Medio,ellomitodelmedio,El Lomito del Medio,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,El Portalón,elportalón,El Portalón,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,El Tendal,eltendal,El Tendal,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Fiquinineo,fiquinineo,Fiquinineo,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Hospital de San Martin - Calle San Marcial,hospitaldesanmartincallesanmarcial,Hospital de San Martin - Calle San Marcial,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,La Cañada de la Gurona,lacañadadelagurona,La Cañada de la Gurona,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,La Fortaleza,lafortaleza,La Fortaleza,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Llano del Sombrero,llanodelsombrero,Llano del Sombrero,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Lobos,lobos,Lobos,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Los Riscos de Ifara,losriscosdeifara,Los Riscos de Ifara,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Playa Chica,playachica,Playa Chica,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Punta del Mallorquín,puntadelmallorquín,Punta del Mallorquín,,supplementary_table,excavation_site
+PRJEB90261,Capra hircus,Tigalate,tigalate,Tigalate,,supplementary_table,excavation_site
+PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin;Lake Qinghai basin,Lake Qinghai basin,article_text;supplementary_table,broader_locality
 PRJNA1328209,Capra hircus,Lake Qinghai Basin ancient goat context,lakeqinghaibasinancientgoatcontext,"Lake Qinghai Basin ancient goat context;Lake Qinghai Basin, Qinghai-Xizang Plateau","Lake Qinghai Basin, Qinghai-Xizang Plateau",article_text;coordinate_resolution,broader_locality
 PRJNA705960,Bos taurus,different mountain caves in Galicia,differentmountaincavesingalicia,different mountain caves in Galicia,,archive_metadata,broader_locality
-PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution,broader_locality
+PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution;supplementary_table,broader_locality
 SRP073444,Camelus dromedarius,Arabian Peninsula and Levant dromedary context,arabianpeninsulaandlevantdromedarycontext,Arabian Peninsula and Levant dromedary context,,article_text,broader_locality
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Wadi Halfa,Wadi Halfa,coordinate_resolution,country

@@ -2,7 +2,7 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJNA1328209",
   "species_latin_name": "Capra hircus",
-  "row_count": 3,
+  "row_count": 4,
   "rows": [
     {
       "project_accession": "PRJNA1328209",
@@ -63,6 +63,26 @@
       "source_artifact_kind": "coordinate_provenance_resolved_place",
       "source_locator": "title and keywords",
       "source_excerpt": "The current local source names the Lake Qinghai Basin rather than one excavation site, so point mapping would overstate precision."
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 5,
+      "original_locality_text": "Lake Qinghai basin",
+      "resolved_locality_text": "Lake Qinghai basin",
+      "locality_class": "broader_locality",
+      "site_name": "Lake Qinghai basin",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "China",
+      "broader_geography": "",
+      "geocoding_safe_token": "lakeqinghaibasin",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "Table S2!row3",
+      "source_excerpt": "DC23 | Lake Qinghai basin | 36.584302000000001 | 100.50297500000001 | 6.7999999999999996E-3 | 6.0000000000000001E-3 | 0.12 | 82 | 36 | 444750 | 16134323 | 40.9 | 6.5399999999999998E-3 | 2652 | Male | 5.0000000000000001E-3 | C | 3480 – 3580a"
     }
   ]
 }

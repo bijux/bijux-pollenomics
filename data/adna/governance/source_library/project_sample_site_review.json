@@ -264,21 +264,23 @@
     {
       "project_accession": "PRJNA705960",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 0,
+      "recovered_sample_row_count": 11,
       "direct_sample_site_count": 0,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
-      "region_only_count": 0,
+      "region_only_count": 11,
       "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "lacking_defensible_site_assignment_count": 11,
+      "missing_reasons": [
+        "region_only"
+      ]
     },
     {
       "project_accession": "PRJEB90141",
       "species_latin_name": "Capra hircus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 4,
+      "direct_sample_site_count": 4,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -290,8 +292,8 @@
     {
       "project_accession": "PRJEB90261",
       "species_latin_name": "Capra hircus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 73,
+      "direct_sample_site_count": 73,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -303,8 +305,8 @@
     {
       "project_accession": "PRJNA1328209",
       "species_latin_name": "Capra hircus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 5,
+      "direct_sample_site_count": 5,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -480,15 +482,17 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "recovered_sample_row_count": 0,
+      "recovered_sample_row_count": 20,
       "direct_sample_site_count": 0,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
-      "region_only_count": 0,
+      "region_only_count": 20,
       "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "lacking_defensible_site_assignment_count": 20,
+      "missing_reasons": [
+        "region_only"
+      ]
     },
     {
       "project_accession": "PRJEB57293",

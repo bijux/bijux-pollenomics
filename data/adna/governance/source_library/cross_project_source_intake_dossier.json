@@ -2,8 +2,8 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 40,
   "counts": {
-    "projects_with_site_expectation": 12,
-    "projects_with_chronology_expectation": 12,
+    "projects_with_site_expectation": 8,
+    "projects_with_chronology_expectation": 8,
     "projects_with_identifier_expectation": 27
   },
   "rows": [
@@ -161,13 +161,10 @@
       "species_latin_name": "Capra hircus",
       "paper_doi": "10.1093/gbe/evaf181",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -182,13 +179,10 @@
       "species_latin_name": "Capra hircus",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -203,13 +197,10 @@
       "species_latin_name": "Capra hircus",
       "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
@@ -586,13 +577,10 @@
       "species_latin_name": "Rangifer tarandus",
       "paper_doi": "10.1038/s41598-024-54296-2",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
