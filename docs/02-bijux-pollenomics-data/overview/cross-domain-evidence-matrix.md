@@ -9,7 +9,7 @@ last_reviewed: 2026-05-08
 
 # Cross-Domain Evidence Matrix
 
-This page points to the repository packet that compares real domain coverage by
+This page points to the repository review that compares real domain coverage by
 evidence units instead of by file count.
 
 ## Reader Anchors
@@ -27,5 +27,5 @@ evidence units instead of by file count.
 
 ## Boundary
 
-The cross-domain matrix is a review packet. It does not replace the source
+The cross-domain matrix is a review surface. It does not replace the source
 pages or output pages, but it makes the balance question impossible to hide.

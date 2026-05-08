@@ -17,7 +17,7 @@ still being recovered.
 - commands rewrite governed roots rather than ad hoc destinations
 - source-family ownership stays visible in tracked data layout
 - publication outputs remain downstream of tracked repository state
-- docs and review packets must not hide weak evidence posture
+- docs and review surfaces must not hide weak evidence posture
 
 ## Definition Of Done
 

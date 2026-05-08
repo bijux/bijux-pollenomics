@@ -22,7 +22,7 @@ flowchart TB
     archaeology["archaeology context families"]
     framing["boundary and fieldwork framing"]
     samples["sample-backed animal evidence"]
-    reports["country bundles and review packets"]
+    reports["country bundles and review surfaces"]
     atlas["shared Nordic atlas"]
 
     pollen --> reports

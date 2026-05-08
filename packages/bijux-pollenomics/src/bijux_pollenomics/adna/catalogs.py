@@ -482,7 +482,7 @@ def build_public_animal_output_honesty(
 
 
 def render_public_animal_output_honesty_markdown(payload: dict[str, object]) -> str:
-    """Render one honesty packet for tracked versus published animal sample counts."""
+    """Render one honesty review for tracked versus published animal sample counts."""
     totals = payload["totals"]
     rows = payload["rows"]
     lines = [

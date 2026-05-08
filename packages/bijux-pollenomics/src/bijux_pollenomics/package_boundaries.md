@@ -50,7 +50,7 @@ Primary modules:
 ## Evidence Review
 
 Evidence review classifies what the repository can claim, what remains blocked,
-and which review packets or ranking surfaces must exist before publication.
+and which review surfaces or ranking surfaces must exist before publication.
 
 Primary modules:
 
@@ -96,5 +96,5 @@ The repository keeps three distributions for three audiences:
 ## Cross-Tree Contract
 
 - `data/` holds tracked source, normalized, and reviewed evidence surfaces
-- `docs/report/` holds governed public artifacts and review packets
+- `docs/report/` holds governed public artifacts and review surfaces
 - `docs/` explains those surfaces but does not replace them

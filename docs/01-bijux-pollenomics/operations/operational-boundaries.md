@@ -22,7 +22,7 @@ do locally with confidence, and what the runtime still refuses to claim.
 
 - inspect `data/collection_summary.json` after collection work
 - inspect `docs/report/published_reports_summary.json` after publication work
-- inspect repository-truth packets when a change affects scope or claim posture
+- inspect repository truth reviews when a change affects scope or claim posture
 
 ## Release And Versioning
 
@@ -34,7 +34,7 @@ do locally with confidence, and what the runtime still refuses to claim.
 
 - keep transient output under `artifacts/`
 - do not treat unchecked external source output as publishable state
-- do not let public docs or atlas language outrun the tracked evidence packets
+- do not let public docs or atlas language outrun the tracked evidence surfaces
 
 ## Performance Posture
 

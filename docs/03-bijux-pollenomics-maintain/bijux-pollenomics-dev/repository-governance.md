@@ -53,6 +53,6 @@ This package does not own:
 Maintainer code must fail when:
 
 - public docs become narrower than the repository evidence story
-- release packets imply stronger readiness than tracked evidence supports
+- release surfaces imply stronger readiness than tracked evidence supports
 - frozen contract files drift without deliberate regeneration
 - security or policy gates are bypassed by convenience command routing

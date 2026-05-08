@@ -13,7 +13,7 @@ The runtime is easiest to understand as one controlled evidence pipeline. A
 user calls a CLI entrypoint, the command surface resolves one owned action,
 collection and evidence code change tracked files under `data/`, and the
 publication system turns that state into country bundles, atlas layers, and
-review packets under `docs/report/`.
+review surfaces under `docs/report/`.
 
 ## Execution Path
 
@@ -36,7 +36,7 @@ review packets under `docs/report/`.
 - `data_downloader/` owns source collection, workbook intake, context exports,
   and shared normalized file layout.
 - `adna/` owns animal aDNA intake, extraction, normalization, and validation.
-- `analysis/review/` owns ranking-review packets without taking over report
+- `analysis/review/` owns ranking-review surfaces without taking over report
   rendering.
 - `reporting/` depends on tracked data contracts and never invents evidence
   that the upstream repository state does not already justify.
@@ -59,7 +59,7 @@ review packets under `docs/report/`.
   logic from intake parsing and artifact writing
 - `adna/` keeps animal evidence recovery separate from pollen, archaeology, and
   boundary context
-- `analysis/review/` isolates ranking review packets from publication code
+- `analysis/review/` isolates ranking review surfaces from publication code
 - `reporting/bundles/`, `reporting/presentation/`, `reporting/rendering/`, and
   `reporting/review/` separate output assembly, helper formatting, artifact
   writing, and repository-truth publication
@@ -89,6 +89,6 @@ command to tracked file to published surface.
 - start in `packages/bijux-pollenomics/src/bijux_pollenomics/adna/` when the
   question begins from sample-owned evidence recovery
 - start in `packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/`
-  when the question begins from ranking review packets
+  when the question begins from ranking review surfaces
 - start in `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/` when
   the question begins from country or atlas publication

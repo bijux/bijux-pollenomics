@@ -18,7 +18,7 @@ evidence tables.
 - [atlas map](../../report/nordic-atlas/nordic-atlas_map.html)
 - [animal evidence rows](../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
 - [animal point traceability](../../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
-- [final atlas candidate packet](../../../data/adna/final/atlas/animal_atlas_point_candidates.json)
+- [final atlas candidate review](../../../data/adna/final/atlas/animal_atlas_point_candidates.json)
 - [final atlas candidate accountability](../../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
 - [animal point evidence review](../../report/animal_point_evidence_review.md)
 - [atlas readiness audit](../../report/animal_atlas_readiness.md)

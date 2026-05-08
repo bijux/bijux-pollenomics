@@ -16,7 +16,7 @@ Every runtime change should prove the boundary it touched.
 - unit tests for narrow logic and file-shape contracts
 - regression tests for repository-owned docs, outputs, and public file presence
 - command-level rebuilds when a change affects tracked `data/` or `docs/report/`
-- repository-truth packets when a change affects breadth, posture, or public
+- repository truth reviews when a change affects breadth, posture, or public
   claim language
 
 ## Minimum Rule

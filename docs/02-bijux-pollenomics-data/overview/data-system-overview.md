@@ -13,7 +13,7 @@ The data system in `bijux-pollenomics` is designed to keep different kinds of
 evidence visible instead of merging everything into one vague export. Readers
 should be able to tell whether they are looking at pollen context,
 archaeological context, boundary framing, fieldwork documentation, public
-review packets, or ancient DNA sample evidence.
+review surfaces, or ancient DNA sample evidence.
 
 ## The Basic Shape
 
@@ -47,7 +47,7 @@ to read the public-facing country or atlas outputs built from it.
 ## Main Repository Surfaces
 
 - `data/` keeps repository-owned source material, normalized records, and review artifacts.
-- `docs/report/` keeps the generated country bundles, atlas assets, and public review packets.
+- `docs/report/` keeps the generated country bundles, atlas assets, and public review surfaces.
 - `docs/02-bijux-pollenomics-data/` explains how those tracked files fit together.
 
 ## Reading Pressure

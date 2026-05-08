@@ -36,7 +36,7 @@ during earlier docs reshaping and are now being restored in durable form.
 
 - the repository still needs stronger pollen-first synthesis than the current atlas-facing context pages provide
 - animal aDNA recovery remains documentation-heavy because the scientific surface is still recovering sample-owned evidence
-- the maintained audit packets should keep forcing explanation breadth to stay broader than one thin recovery program
+- the maintained audit surfaces should keep forcing explanation breadth to stay broader than one thin recovery program
 
 ## Boundary
 

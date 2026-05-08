@@ -71,7 +71,7 @@ state of the data.
 - Which papers already have local supplementary material staged outside the repo even though governed repo ingestion is still missing
 - Which projects already carry archive-native sample identifiers
 - Which projects already ship a reviewed project sample master
-- Which projects already ship one per-project locality worksheet and one per-sample locality evidence packet
+- Which projects already ship one per-project locality worksheet and one per-sample locality evidence review
 - Which recovered sample rows already have direct site evidence and which still sit at project-level or region-level locality posture
 - Which projects still keep locality conflicts or manual curation blockers between supplementary rows, article text, and archive metadata
 - Which recovered sample rows already have normalized chronology, which still keep text-only dating claims, and which remain unresolved

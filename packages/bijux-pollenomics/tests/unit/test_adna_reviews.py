@@ -6,36 +6,39 @@ from bijux_pollenomics.adna import (
     AdnaSpeciesProjectManifest,
     AdnaSpeciesProjectRow,
     build_species_manifest_diff,
-    build_species_review_packet,
+    build_species_review_dossier,
 )
 
 
-class AdnaReviewPacketUnitTests(unittest.TestCase):
-    def test_species_review_packet_exposes_scientific_manifest_and_release_blockers(
+class AdnaReviewDossierUnitTests(unittest.TestCase):
+    def test_species_review_dossier_exposes_scientific_manifest_and_release_blockers(
         self,
     ) -> None:
-        packet = build_species_review_packet("horse")
+        dossier = build_species_review_dossier("horse")
 
-        self.assertEqual(packet.species_manifest.species.latin_name, "Equus caballus")
-        self.assertEqual(packet.dataset_review.dataset_bucket, "archive_verified_needs_paper_pinning")
-        self.assertIn("missing_archive_paper_pinning_rationale", packet.release_blockers)
+        self.assertEqual(dossier.species_manifest.species.latin_name, "Equus caballus")
+        self.assertEqual(
+            dossier.dataset_review.dataset_bucket,
+            "archive_verified_needs_paper_pinning",
+        )
+        self.assertIn("missing_archive_paper_pinning_rationale", dossier.release_blockers)
         self.assertTrue(
             any(
                 review.project_accession == "PRJEB56293"
                 and not review.admissible_for_curated_support
-                for review in packet.project_reviews
+                for review in dossier.project_reviews
             )
         )
         self.assertTrue(
             any(
                 row.project_accession == "PRJEB56293"
                 and row.support_class == "ancient_but_too_weak"
-                for row in packet.too_weak_projects
+                for row in dossier.too_weak_projects
             )
         )
         botai = next(
             row
-            for row in packet.project_manifest.projects
+            for row in dossier.project_manifest.projects
             if row.project_accession == "PRJEB22390"
         )
         self.assertEqual(botai.paper_doi, "10.1126/science.aao3297")
@@ -150,21 +153,21 @@ class AdnaReviewPacketUnitTests(unittest.TestCase):
         self.assertIn("archive_status", diff.changed_projects[0].changed_fields)
         self.assertIn("paper_doi", diff.changed_projects[0].changed_fields)
 
-    def test_species_review_packet_surfaces_rejected_and_nordic_lead_tables(self) -> None:
-        packet = build_species_review_packet("reindeer")
+    def test_species_review_dossier_surfaces_rejected_and_nordic_lead_tables(self) -> None:
+        dossier = build_species_review_dossier("reindeer")
 
         self.assertTrue(
             any(
                 row.project_accession == "PRJEB57293"
                 and row.support_class == "rejected"
-                for row in packet.rejected_projects
+                for row in dossier.rejected_projects
             )
         )
         self.assertTrue(
             any(
                 row.project_accession == "PRJEB60484"
                 and row.nordic_relevance == "nordic_relevant_unmapped"
-                for row in packet.nordic_unmapped_leads
+                for row in dossier.nordic_unmapped_leads
             )
         )
 

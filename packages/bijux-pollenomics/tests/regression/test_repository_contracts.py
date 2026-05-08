@@ -876,7 +876,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ):
             self.assertIn(expected, readme_text)
             self.assertIn(expected, source_index)
-        self.assertIn("Open the repository truth packet", docs_index)
+        self.assertIn("Open the repository truth review", docs_index)
         self.assertIn("Open the docs recovery review", docs_index)
         self.assertIn("pollen-context layers, environmental archaeology context", docs_index)
         self.assertIn("source-family comparison", data_index)
@@ -1003,7 +1003,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             module_map,
         )
         self.assertIn("`data_downloader/pipeline/`, `data_downloader/sources/`", module_map)
-        self.assertIn("`analysis/review/` owns candidate-site ranking packets", module_map)
+        self.assertIn("`analysis/review/` owns candidate-site ranking reviews", module_map)
         self.assertIn("`reporting/presentation/`", module_map)
         self.assertIn("`reporting/review/`", module_map)
         self.assertIn("compatibility shims", module_map)
@@ -1462,7 +1462,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "the shared atlas under `docs/report/nordic-atlas/`", report_layout
         )
         self.assertIn(
-            "repository truth packets",
+            "repository truth reviews",
             report_layout,
         )
         self.assertIn(

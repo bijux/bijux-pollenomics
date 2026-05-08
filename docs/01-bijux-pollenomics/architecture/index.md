@@ -43,7 +43,7 @@ flowchart LR
 - `data_downloader/` owns source-family collection, intake helpers, and tracked
   context normalization
 - `adna/` owns animal aDNA intake, extraction, normalization, and validation
-- `analysis/review/` owns ranking review packets rather than public rendering
+- `analysis/review/` owns ranking review surfaces rather than public rendering
 - `reporting/` owns publication assembly, rendering, and governed report
   writing
 - `foundation/` owns repository-truth, release posture, and architecture

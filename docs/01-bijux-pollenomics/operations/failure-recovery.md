@@ -32,4 +32,4 @@ repository blindly.
   sample-owned evidence
 - docs rewrites that narrow `01`, `02`, or `03` while keeping pages green
 - report output changes that make atlas posture sound stronger than the support
-  packets justify
+  reviews justify

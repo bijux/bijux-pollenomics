@@ -12,7 +12,7 @@ from ...adna import (
     build_species_curation_manifest,
     build_species_layout,
     build_species_normalization_bundle,
-    build_species_review_packet,
+    build_species_review_dossier,
     build_species_runtime_manifest,
     build_species_support_matrix,
 )
@@ -242,14 +242,14 @@ def run_adna_release_bar(args: argparse.Namespace) -> int:
 
 def run_adna_species_review(args: argparse.Namespace) -> int:
     """Print the governed review for one species dataset."""
-    packet = build_species_review_packet(args.species)
-    review = packet.dataset_review
+    dossier = build_species_review_dossier(args.species)
+    review = dossier.dataset_review
     integrity = build_archive_integrity_report(species_name=args.species)
     payload = {
         "review": review.as_dict(),
-        "project_manifest": packet.project_manifest.as_dict(),
-        "project_reviews": [item.as_dict() for item in packet.project_reviews],
-        "release_blockers": list(packet.release_blockers),
+        "project_manifest": dossier.project_manifest.as_dict(),
+        "project_reviews": [item.as_dict() for item in dossier.project_reviews],
+        "release_blockers": list(dossier.release_blockers),
         "integrity": integrity.as_dict(),
     }
     if args.json:
@@ -265,7 +265,7 @@ def run_adna_species_review(args: argparse.Namespace) -> int:
     print(f"curated_projects={review.curated_support_project_count}")
     print(f"duplicate_accessions={len(integrity.duplicates)}")
     print(f"species_mismatches={len(integrity.species_mismatches)}")
-    for item in packet.project_reviews:
+    for item in dossier.project_reviews:
         print(
             f"project={item.project_accession}; "
             f"evidence={item.evidence_strength}; "

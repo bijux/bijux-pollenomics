@@ -19,10 +19,10 @@ __all__ = [
     "AdnaSpeciesProjectRow",
     "AdnaSpeciesReviewTableRow",
     "AdnaSpeciesManifestDiff",
-    "AdnaSpeciesReviewPacket",
+    "AdnaSpeciesReviewDossier",
     "build_species_manifest_diff",
     "build_species_project_manifest",
-    "build_species_review_packet",
+    "build_species_review_dossier",
 ]
 
 
@@ -155,8 +155,8 @@ class AdnaSpeciesManifestDiff:
 
 
 @dataclass(frozen=True)
-class AdnaSpeciesReviewPacket:
-    """Scientist-facing species review packet for promotion from provisional support."""
+class AdnaSpeciesReviewDossier:
+    """Scientist-facing species review dossier for promotion from provisional support."""
 
     schema_version: str
     species_manifest: AdnaSpeciesManifest
@@ -270,8 +270,8 @@ def build_species_manifest_diff(
     )
 
 
-def build_species_review_packet(species_name: str) -> AdnaSpeciesReviewPacket:
-    """Build the governed packet a scientist should inspect before species promotion."""
+def build_species_review_dossier(species_name: str) -> AdnaSpeciesReviewDossier:
+    """Build the governed dossier a scientist should inspect before species promotion."""
     species_manifest = build_species_manifest(species_name)
     dataset_review = build_species_dataset_review(species_name)
     product_role = classify_species_product_role(species_name)
@@ -288,8 +288,8 @@ def build_species_review_packet(species_name: str) -> AdnaSpeciesReviewPacket:
         for row in (*accepted_projects, *too_weak_projects, *comparator_projects)
         if row.nordic_relevance == "nordic_relevant_unmapped"
     )
-    return AdnaSpeciesReviewPacket(
-        schema_version="adna-species-review-packet.v1",
+    return AdnaSpeciesReviewDossier(
+        schema_version="adna-species-review-dossier.v1",
         species_manifest=species_manifest,
         dataset_review=dataset_review,
         project_manifest=project_manifest,

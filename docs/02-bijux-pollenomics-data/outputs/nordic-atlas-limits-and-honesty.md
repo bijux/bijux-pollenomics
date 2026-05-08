@@ -27,5 +27,5 @@ still narrower than the visible map suggests.
 - exclusion: every tracked sample row that stays off the public atlas and the exact blocking reason
 - country coverage: which country surfaces still keep sample, site, chronology, and coordinate evidence anchors
 
-If these packets show blocked or unresolved rows, that is not a docs failure. It
+If these surfaces show blocked or unresolved rows, that is not a docs failure. It
 is the repository telling the truth about the current animal aDNA foundation.

@@ -28,7 +28,7 @@ visible by preserving:
 - repository-level overview pages for source landscape and publication model
 - direct source-family pages for pollen, archaeology, boundaries, and aDNA
 - explicit evidence pages for sample, locality, chronology, and coordinate work
-- explicit output pages for country bundles, atlas products, and review packets
+- explicit output pages for country bundles, atlas products, and review surfaces
 
 ## Directory Layout
 
