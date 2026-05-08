@@ -14,22 +14,78 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1126-science.aao3297/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aao3297/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aao3297/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
 - `adna/governance/source_library/papers/10.1126-science.aao3297/article.html`
 - `adna/governance/source_library/papers/10.1126-science.aao3297/crossref.json`
 - `adna/governance/source_library/papers/10.1126-science.aao3297/pubmed.xml`

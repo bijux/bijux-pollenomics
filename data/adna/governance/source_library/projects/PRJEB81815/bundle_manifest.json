@@ -10,15 +10,21 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
     "10.1126-science.adt2642:article.html",
     "10.1126-science.adt2642:crossref.json",
+    "10.1126-science.adt2642:science.adt2642_mdar_reproducibility_checklist.pdf",
+    "10.1126-science.adt2642:science.adt2642_sm.pdf",
+    "10.1126-science.adt2642:science.adt2642_tables s1_to_s8.zip",
     "PRJEB81815:archive_metadata.html"
   ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
     "adna/governance/source_library/papers/10.1126-science.adt2642/crossref.json",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
     "adna/governance/source_library/projects/PRJEB81815/archive_metadata.html"
   ],
   "blockers": []

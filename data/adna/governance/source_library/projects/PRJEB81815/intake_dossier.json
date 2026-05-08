@@ -8,7 +8,7 @@
   "paper_doi": "10.1126/science.adt2642",
   "paper_title": "The dispersal of domestic cats from North Africa to Europe around 2000 years ago",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -17,18 +17,31 @@
   "inventory_disposition": "tracked_intake_candidate",
   "rejection_reason": "",
   "sample_identifier_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html"
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
   ],
   "sample_site_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html"
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
   ],
   "chronology_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html"
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
   ],
-  "expected_supplementary_artifacts": [],
+  "expected_supplementary_artifacts": [
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+  ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
     "adna/governance/source_library/papers/10.1126-science.adt2642/crossref.json",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
     "adna/governance/source_library/projects/PRJEB81815/archive_metadata.html"
   ],
   "blockers": [],

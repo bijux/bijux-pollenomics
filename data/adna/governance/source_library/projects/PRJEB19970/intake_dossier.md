@@ -14,25 +14,51 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
 - `adna/governance/source_library/papers/10.1126-science.aam5298/article.html`
 - `adna/governance/source_library/papers/10.1126-science.aam5298/crossref.json`
 - `adna/governance/source_library/papers/10.1126-science.aam5298/pubmed.xml`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
+- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 - `adna/governance/source_library/projects/PRJEB19970/archive_metadata.html`
 
 ## Blockers

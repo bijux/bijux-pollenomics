@@ -14,22 +14,23 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html`
+- `adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf`
 - `adna/governance/source_library/papers/10.1126-science.aav1002/article.html`
 - `adna/governance/source_library/papers/10.1126-science.aav1002/crossref.json`
 - `adna/governance/source_library/papers/10.1126-science.aav1002/pubmed.xml`

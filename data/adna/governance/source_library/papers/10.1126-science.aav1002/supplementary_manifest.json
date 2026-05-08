@@ -49,6 +49,21 @@
     {
       "row_kind": "archived_asset",
       "paper_doi": "10.1126/science.aav1002",
+      "artifact_id": "10.1126-science.aav1002:aav1002_verdugo_sm.pdf",
+      "artifact_kind": "supplementary_pdf",
+      "label": "curated supplementary asset aav1002_verdugo_sm.pdf",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
+      "local_path": "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
+      "fetch_status": "archived",
+      "content_type": "application/pdf",
+      "byte_size": 5901232,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1126/science.aav1002",
       "artifact_id": "PRJEB31621:archive_metadata.html",
       "artifact_kind": "archive_metadata_html",
       "label": "archive metadata page",

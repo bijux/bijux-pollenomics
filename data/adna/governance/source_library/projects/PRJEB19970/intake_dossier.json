@@ -8,7 +8,7 @@
   "paper_doi": "10.1126/science.aam5298",
   "paper_title": "Ancient genomic changes associated with domestication of the horse",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
@@ -17,19 +17,47 @@
   "inventory_disposition": "tracked_intake_candidate",
   "rejection_reason": "",
   "sample_identifier_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx"
   ],
   "sample_site_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx"
   ],
   "chronology_targets": [
-    "data/adna/governance/source_library/papers/10.1126-science.aam5298/article.html"
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx"
   ],
-  "expected_supplementary_artifacts": [],
+  "expected_supplementary_artifacts": [
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx"
+  ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
     "adna/governance/source_library/papers/10.1126-science.aam5298/article.html",
     "adna/governance/source_library/papers/10.1126-science.aam5298/crossref.json",
     "adna/governance/source_library/papers/10.1126-science.aam5298/pubmed.xml",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx",
     "adna/governance/source_library/projects/PRJEB19970/archive_metadata.html"
   ],
   "blockers": [],

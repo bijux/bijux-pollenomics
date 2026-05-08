@@ -14,24 +14,35 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip`
 
 ## Local artifacts
 
 - `adna/governance/source_library/papers/10.1126-science.adt2642/article.html`
 - `adna/governance/source_library/papers/10.1126-science.adt2642/crossref.json`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf`
+- `adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip`
 - `adna/governance/source_library/projects/PRJEB81815/archive_metadata.html`
 
 ## Blockers
