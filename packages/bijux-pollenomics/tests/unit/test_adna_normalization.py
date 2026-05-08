@@ -30,6 +30,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertTrue(bundle.study_summaries)
         self.assertTrue(bundle.lineage_records)
         self.assertTrue(bundle.refusals)
+        self.assertEqual(len(bundle.sample_records), 552)
+        self.assertEqual(len(bundle.locality_records), 240)
+        self.assertEqual(len(bundle.coordinate_provenance_records), 208)
         project = next(
             item
             for item in bundle.project_summaries
@@ -59,17 +62,20 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         coordinate_provenance = next(
             item
             for item in bundle.coordinate_provenance_records
-            if item.project_accession == "PRJEB22390"
+            if item.project_accession == "PRJEB44430"
+            and item.site_label == "Ginnerup"
         )
         self.assertEqual(coordinate_provenance.mapping_posture, "mappable_point")
-        self.assertEqual(coordinate_provenance.coordinate_basis, "named_site_geocoding")
+        self.assertEqual(coordinate_provenance.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(coordinate_provenance.coordinate_confidence, "exact")
         site_evidence = next(
             item
             for item in bundle.site_evidence_records
-            if item.project_accession == "PRJEB22390"
+            if item.project_accession == "PRJEB31613"
+            and item.site_label == "Uppsala"
         )
-        self.assertEqual(site_evidence.source_support_status, "article_exact_quote")
-        self.assertIn("Botai", site_evidence.exact_source_text)
+        self.assertEqual(site_evidence.source_support_status, "supplementary_table_row")
+        self.assertIn("Uppsala", site_evidence.exact_source_text)
         self.assertEqual(
             bundle.lineage_records[0].schema_version,
             "adna-normalization-lineage.v1",
@@ -77,11 +83,12 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         locality = next(
             item
             for item in bundle.locality_records
-            if "PRJEB22390" in item.project_accessions
+            if item.locality == "Ginnerup"
         )
-        self.assertTrue(locality.nordic_inclusion is False)
-        self.assertEqual(locality.coordinate_confidence, "approximate")
-        self.assertEqual((locality.time_start_bp, locality.time_end_bp), (5400, 5600))
+        self.assertTrue(locality.nordic_inclusion)
+        self.assertEqual(locality.coordinate_confidence, "exact")
+        self.assertEqual(locality.sample_count, 2)
+        self.assertEqual((locality.time_start_bp, locality.time_end_bp), (4944, 4961))
 
     def test_species_normalization_bundle_marks_donkey_as_comparator_only(self) -> None:
         bundle = build_species_normalization_bundle("donkey")
@@ -126,14 +133,16 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             item
             for item in bundle.sample_records
             if item.project_accession == "PRJEB44430"
+            and item.locality_identity.locality_text == "Ginnerup"
         )
 
-        self.assertEqual(sample.inclusion_status, "sample_context_blocked")
-        self.assertEqual(sample.coordinate_confidence, "withheld")
+        self.assertEqual(sample.inclusion_status, "site_curated")
+        self.assertEqual(sample.coordinate_confidence, "exact")
         self.assertEqual(sample.paper_doi, "10.1038/s41586-021-04018-9")
-        self.assertEqual(sample.chronology_strength, "project_context_text_only")
-        self.assertEqual(sample.chronology_normalization_status, "text_only_unparsed")
-        self.assertIn("blocked", sample.inclusion_note)
+        self.assertEqual(sample.chronology_strength, "sample_owned_interval")
+        self.assertEqual(sample.chronology_normalization_status, "normalized_point")
+        self.assertEqual(sample.political_entity, "Denmark")
+        self.assertEqual(sample.full_date, "4961 BP")
 
     def test_species_normalization_bundle_carries_nordic_context_and_caveats(self) -> None:
         sheep_bundle = build_species_normalization_bundle("sheep")
@@ -161,6 +170,20 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertTrue(sheep_locality.nordic_inclusion)
         self.assertEqual(sheep_locality.coordinate_confidence, "withheld")
         self.assertIn("Nordic", sheep_locality.nordic_inclusion_reason)
+        horse_localities = {
+            (item.locality, item.identity.political_entity)
+            for item in build_species_normalization_bundle("horse").locality_records
+            if item.nordic_inclusion
+        }
+        self.assertEqual(
+            horse_localities,
+            {
+                ("Berufjordur", "Iceland"),
+                ("Granastaðir", "Iceland"),
+                ("Uppsala", "Sweden"),
+                ("Ginnerup", "Denmark"),
+            },
+        )
 
     def test_species_normalization_bundle_marks_bovine_progenitor_context_explicitly(
         self,

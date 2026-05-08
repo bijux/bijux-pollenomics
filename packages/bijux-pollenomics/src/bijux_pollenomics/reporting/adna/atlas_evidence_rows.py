@@ -170,7 +170,15 @@ def build_tracked_animal_atlas_evidence_rows(
             if not project_accessions:
                 continue
             primary_project_accession = project_accessions[0]
-            provenance = provenance_lookup.get(primary_project_accession)
+            site_identity = locality.get("identity", {})
+            if not isinstance(site_identity, dict):
+                continue
+            locality_label = str(locality.get("locality") or site_identity.get("locality_text", ""))
+            provenance = _lookup_project_locality_row(
+                provenance_lookup,
+                project_accession=primary_project_accession,
+                locality_text=locality_label,
+            )
             if provenance is None:
                 continue
             if str(provenance.get("mapping_posture", "")) != "mappable_point":
@@ -182,9 +190,6 @@ def build_tracked_animal_atlas_evidence_rows(
             longitude = _optional_float(coordinates.get("longitude"))
             if latitude is None or longitude is None:
                 continue
-            site_identity = locality.get("identity", {})
-            if not isinstance(site_identity, dict):
-                continue
             site_record_id = str(site_identity.get("stable_token", "")).strip()
             if not site_record_id:
                 continue
@@ -192,13 +197,18 @@ def build_tracked_animal_atlas_evidence_rows(
                 row
                 for row in sample_rows
                 if str(row.get("project_accession", "")).strip() in project_accessions
+                and _sample_locality_token(row) == site_record_id
             )
             _assert_no_project_level_flattening(
                 primary_project_accession=primary_project_accession,
                 site_record_id=site_record_id,
                 sample_rows=matched_sample_rows,
             )
-            site_evidence = site_evidence_lookup.get(primary_project_accession, {})
+            site_evidence = _lookup_project_locality_row(
+                site_evidence_lookup,
+                project_accession=primary_project_accession,
+                locality_text=locality_label,
+            ) or {}
             citation = citation_lookup.get(primary_project_accession, {})
             review = review_lookup.get(primary_project_accession, {})
             feature_token = slugify(site_record_id)
@@ -425,30 +435,62 @@ def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:
     return [row for row in rows if isinstance(row, dict)]
 
 
-def _load_coordinate_provenance_lookup(species_root: Path) -> dict[str, dict[str, object]]:
+def _load_coordinate_provenance_lookup(
+    species_root: Path,
+) -> dict[tuple[str, str], dict[str, object]]:
     path = species_root / "normalized" / "coordinate_provenance.json"
     if not path.is_file():
         return {}
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get("coordinate_provenance", [])
-    return {
-        str(row.get("project_accession", "")).strip(): row
-        for row in rows
-        if isinstance(row, dict) and str(row.get("project_accession", "")).strip()
-    }
+    lookup: dict[tuple[str, str], dict[str, object]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        project_accession = str(row.get("project_accession", "")).strip()
+        if not project_accession:
+            continue
+        site_label = str(row.get("site_label", "")).strip()
+        lookup[(project_accession, site_label)] = row
+        lookup.setdefault((project_accession, ""), row)
+    return lookup
 
 
-def _load_site_evidence_lookup(species_root: Path) -> dict[str, dict[str, object]]:
+def _load_site_evidence_lookup(
+    species_root: Path,
+) -> dict[tuple[str, str], dict[str, object]]:
     path = species_root / "normalized" / "site_evidence.json"
     if not path.is_file():
         return {}
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get("site_evidence", [])
-    return {
-        str(row.get("project_accession", "")).strip(): row
-        for row in rows
-        if isinstance(row, dict) and str(row.get("project_accession", "")).strip()
-    }
+    lookup: dict[tuple[str, str], dict[str, object]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        project_accession = str(row.get("project_accession", "")).strip()
+        if not project_accession:
+            continue
+        site_label = str(row.get("site_label", "")).strip()
+        lookup[(project_accession, site_label)] = row
+        lookup.setdefault((project_accession, ""), row)
+    return lookup
+
+
+def _lookup_project_locality_row(
+    lookup: dict[tuple[str, str], dict[str, object]],
+    *,
+    project_accession: str,
+    locality_text: str,
+) -> dict[str, object] | None:
+    return lookup.get((project_accession, locality_text)) or lookup.get((project_accession, ""))
+
+
+def _sample_locality_token(row: dict[str, object]) -> str:
+    locality_identity = row.get("locality_identity", {})
+    if not isinstance(locality_identity, dict):
+        return ""
+    return str(locality_identity.get("stable_token", "")).strip()
 
 
 def _load_citation_lookup(species_root: Path) -> dict[str, dict[str, str]]:
@@ -589,24 +631,41 @@ def _assert_no_project_level_flattening(
     site_record_id: str,
     sample_rows: tuple[dict[str, object], ...],
 ) -> None:
+    retained_rows = tuple(
+        row
+        for row in sample_rows
+        if str(row.get("inclusion_status", "")).strip() != "sample_context_blocked"
+    )
     locality_tokens = {
         str(row.get("locality_identity", {}).get("stable_token", "")).strip()
-        for row in sample_rows
+        for row in retained_rows
         if isinstance(row.get("locality_identity"), dict)
         and str(row.get("locality_identity", {}).get("stable_token", "")).strip()
-        and str(row.get("inclusion_status", "")).strip() != "sample_context_blocked"
     }
-    if len(locality_tokens) <= 1:
+    locality_texts = {
+        _normalize_locality_text(
+            str(row.get("locality_identity", {}).get("locality_text", "")).strip()
+        )
+        for row in retained_rows
+        if isinstance(row.get("locality_identity"), dict)
+        and str(row.get("locality_identity", {}).get("locality_text", "")).strip()
+    }
+    if len(locality_tokens) <= 1 and len(locality_texts) <= 1:
         return
     raise ValueError(
         "Project-level flattening detected for "
         f"{primary_project_accession}: one locality summary would collapse "
-        f"multiple sample-site identities {sorted(locality_tokens)} into {site_record_id}."
+        f"multiple sample-site identities {sorted(locality_tokens)} and "
+        f"locality labels {sorted(locality_texts)} into {site_record_id}."
     )
 
 
 def _paper_url_for(doi: str) -> str:
     return f"https://doi.org/{doi}" if doi else ""
+
+
+def _normalize_locality_text(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())
 
 
 def _optional_str(value: object) -> str | None:
