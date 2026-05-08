@@ -29,7 +29,8 @@ flowchart TB
     normalization --> publication
 ```
 
-That structure matters because the repository serves two audiences at once:
+That structure matters because the repository serves two audiences at once and
+still aims at a pollenomics-first publication model:
 people who want to inspect the tracked evidence directly, and people who want
 to read the public-facing country or atlas outputs built from it.
 
