@@ -13,7 +13,7 @@ from ...adna import (
     build_species_support_matrix,
 )
 from ...adna.paths import adna_species_dir
-from ..shared.text import slugify
+from ..presentation.text import slugify
 
 __all__ = [
     "AnimalAtlasCoordinateReview",

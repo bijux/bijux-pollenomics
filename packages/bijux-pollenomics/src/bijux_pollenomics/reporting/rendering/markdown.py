@@ -6,7 +6,7 @@ from ...publication_policy import (
     build_sample_inventory_policy,
 )
 from ..models import CountryReport
-from ..shared.text import escape_pipes
+from ..presentation.text import escape_pipes
 
 __all__ = [
     "render_multi_country_map_markdown",

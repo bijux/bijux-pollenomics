@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from ...adna.paths import adna_species_dir
-from ..shared.text import escape_pipes
+from ..presentation.text import escape_pipes
 from .atlas_evidence_rows import (
     AnimalAtlasEvidenceRow,
     build_tracked_animal_atlas_evidence_rows,

@@ -32,7 +32,7 @@ from bijux_pollenomics.foundation import (
     render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
-from bijux_pollenomics.reporting.foundation import publish_repository_truth_outputs
+from bijux_pollenomics.reporting.review import publish_repository_truth_outputs
 
 
 class RepositoryTruthUnitTests(unittest.TestCase):
