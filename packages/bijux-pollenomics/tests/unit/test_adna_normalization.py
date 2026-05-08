@@ -55,6 +55,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.sample_basis, "supplementary_table_sample_label_anchor")
         self.assertEqual(sample.chronology_strength, "sample_owned_interval")
         self.assertEqual(sample.chronology_normalization_status, "normalized_point")
+        self.assertEqual(sample.chronology.evidence_class, "direct_radiocarbon_date")
+        self.assertEqual(sample.chronology.precision_posture, "sample_precise_point")
         self.assertEqual(
             sample.locality_identity.locality_text,
             "Botai",
@@ -141,6 +143,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.paper_doi, "10.1038/s41586-021-04018-9")
         self.assertEqual(sample.chronology_strength, "sample_owned_interval")
         self.assertEqual(sample.chronology_normalization_status, "normalized_point")
+        self.assertEqual(sample.chronology.evidence_class, "direct_radiocarbon_date")
+        self.assertEqual(sample.chronology.precision_posture, "sample_precise_point")
         self.assertEqual(sample.political_entity, "Denmark")
         self.assertEqual(sample.full_date, "4961 BP")
 
@@ -198,6 +202,11 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(aurochs_project.domestication_scope, "wild_or_progenitor_context")
         self.assertEqual(aurochs_project.support_class, "wild_or_progenitor_context")
         self.assertIn("wild or progenitor context", aurochs_project.interpretation_caveat)
+        galician_sample = next(
+            item for item in bundle.sample_records if item.project_accession == "PRJNA705960"
+        )
+        self.assertEqual(galician_sample.chronology.evidence_class, "archaeological_context_date")
+        self.assertEqual(galician_sample.chronology.precision_posture, "contextual_interval")
 
     def test_species_normalization_bundle_marks_reindeer_locality_as_comparator_context(
         self,
@@ -210,7 +219,25 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
 
         self.assertTrue(locality.nordic_inclusion)
-        self.assertIn("comparator", locality.interpretation_note)
+        self.assertIn("region or transect scale", locality.interpretation_note)
+        sample = next(
+            item for item in bundle.sample_records if item.project_accession == "PRJEB60484"
+        )
+        self.assertEqual(sample.chronology.precision_posture, "contextual_interval")
+
+    def test_species_normalization_bundle_recovers_goat_sample_owned_chronology(self) -> None:
+        bundle = build_species_normalization_bundle("goat")
+
+        self.assertEqual(len(bundle.sample_records), 82)
+        qinghai_sample = next(
+            item for item in bundle.sample_records if item.project_accession == "PRJNA1328209"
+        )
+        self.assertEqual(qinghai_sample.chronology.evidence_class, "direct_radiocarbon_date")
+        self.assertEqual(qinghai_sample.chronology.precision_posture, "sample_precise_interval")
+        self.assertEqual(
+            (qinghai_sample.time_start_bp, qinghai_sample.time_end_bp),
+            (3480, 3580),
+        )
 
     def test_normalize_species_anchor_accepts_alias_and_rejects_mismatch(self) -> None:
         species = normalize_species_anchor("pig", expected_species_name="Sus scrofa domesticus")
