@@ -2,22 +2,32 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+import re
 
 from ..core.files import write_json, write_text
 from .catalogs import render_csv_rows
 from .ena import build_archive_project_catalog
+from .models import (
+    ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
+    ADNA_CHRONOLOGY_PRECISION_POSTURES,
+)
 from .sample_master import build_project_sample_master_rows
 from .site_evidence import resolve_project_site_evidence
 
 __all__ = [
+    "ADNA_CHRONOLOGY_EVIDENCE_CLASSES",
     "ADNA_CHRONOLOGY_NORMALIZATION_STATUSES",
+    "ADNA_CHRONOLOGY_PRECISION_POSTURES",
     "ADNA_CHRONOLOGY_STRENGTHS",
     "AdnaProjectSampleChronologyRow",
     "build_cross_project_sample_chronology_audit",
+    "build_date_evidence_gap_queue",
     "build_project_chronology_completeness_rows",
     "build_project_sample_chronology_review_rows",
     "build_project_sample_chronology_rows",
     "build_sample_chronology_ambiguity_ledger",
+    "build_sample_chronology_conflict_ledger",
+    "build_sample_chronology_precision_audit",
     "build_species_chronology_completeness_rows",
     "build_sample_chronology_viewer_rows",
     "materialize_project_sample_chronology_library",
@@ -36,6 +46,26 @@ ADNA_CHRONOLOGY_NORMALIZATION_STATUSES = (
     "text_only_unparsed",
     "unresolved",
 )
+_BROAD_PERIOD_TEXT_RE = re.compile(
+    r"\b("
+    r"bronze|iron|neolithic|mesolithic|palaeolithic|paleolithic|chalcolithic|eneolithic|"
+    r"roman|medieval|viking|migration|hellenistic|dynasty|period|epoch|century|millennium|"
+    r"late antiquity|prehistoric|historic|holocene"
+    r")\b",
+    re.IGNORECASE,
+)
+_MODELED_DATE_RE = re.compile(
+    r"\b(modeled|modelled|bayesian|posterior|oxcal|phase|sigma|2σ|1σ|calibrated|cal\.)\b",
+    re.IGNORECASE,
+)
+_APPROXIMATE_DATE_RE = re.compile(
+    r"\b(ca\.?|circa|around|approx(?:\.|imately)?|c\.)\b",
+    re.IGNORECASE,
+)
+_HISTORICAL_DATE_RE = re.compile(
+    r"\b(modern|present|recent|historic|historical|ce|ad)\b",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -51,6 +81,8 @@ class AdnaProjectSampleChronologyRow:
     sample_ambiguity_note: str
     chronology_text: str
     chronology_strength: str
+    chronology_evidence_class: str
+    chronology_precision_posture: str
     chronology_provenance_path: str
     chronology_provenance_kind: str
     chronology_provenance_locator: str
@@ -76,6 +108,8 @@ class AdnaProjectSampleChronologyRow:
             "sample_ambiguity_note": self.sample_ambiguity_note,
             "chronology_text": self.chronology_text,
             "chronology_strength": self.chronology_strength,
+            "chronology_evidence_class": self.chronology_evidence_class,
+            "chronology_precision_posture": self.chronology_precision_posture,
             "chronology_provenance_path": self.chronology_provenance_path,
             "chronology_provenance_kind": self.chronology_provenance_kind,
             "chronology_provenance_locator": self.chronology_provenance_locator,
@@ -116,6 +150,8 @@ def build_project_sample_chronology_rows(
                 sample_ambiguity_note=master_row.sample_ambiguity_note,
                 chronology_text=source.chronology_text,
                 chronology_strength=source.chronology_strength,
+                chronology_evidence_class=source.chronology_evidence_class,
+                chronology_precision_posture=source.chronology_precision_posture,
                 chronology_provenance_path=source.chronology_provenance_path,
                 chronology_provenance_kind=source.chronology_provenance_kind,
                 chronology_provenance_locator=source.chronology_provenance_locator,
@@ -145,6 +181,16 @@ def build_project_sample_chronology_review_rows(
             ADNA_CHRONOLOGY_STRENGTHS,
             lambda row: row.chronology_strength,
         )
+        evidence_counts = _counts_by_key(
+            chronology_rows,
+            ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
+            lambda row: row.chronology_evidence_class,
+        )
+        precision_counts = _counts_by_key(
+            chronology_rows,
+            ADNA_CHRONOLOGY_PRECISION_POSTURES,
+            lambda row: row.chronology_precision_posture,
+        )
         normalization_counts = _counts_by_key(
             chronology_rows,
             ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
@@ -161,6 +207,18 @@ def build_project_sample_chronology_review_rows(
                 "project_context_interval_count": strength_counts["project_context_interval"],
                 "project_context_text_only_count": strength_counts["project_context_text_only"],
                 "unresolved_count": strength_counts["unresolved"],
+                "direct_radiocarbon_date_count": evidence_counts["direct_radiocarbon_date"],
+                "modeled_sample_date_count": evidence_counts["modeled_sample_date"],
+                "archaeological_context_date_count": evidence_counts["archaeological_context_date"],
+                "broad_period_label_count": evidence_counts["broad_period_label"],
+                "historical_or_recent_date_count": evidence_counts["historical_or_recent_date"],
+                "evidence_class_unresolved_count": evidence_counts["unresolved"],
+                "sample_precise_point_count": precision_counts["sample_precise_point"],
+                "sample_precise_interval_count": precision_counts["sample_precise_interval"],
+                "sample_approximate_or_modeled_count": precision_counts["sample_approximate_or_modeled"],
+                "contextual_interval_count": precision_counts["contextual_interval"],
+                "broad_period_only_count": precision_counts["broad_period_only"],
+                "precision_unresolved_count": precision_counts["unresolved"],
                 "normalized_interval_count": normalization_counts["normalized_interval"],
                 "normalized_point_count": normalization_counts["normalized_point"],
                 "text_only_unparsed_count": normalization_counts["text_only_unparsed"],
@@ -185,6 +243,16 @@ def build_cross_project_sample_chronology_audit(
         ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
         lambda row: row.chronology_normalization_status,
     )
+    evidence_counts = _counts_by_key(
+        sample_rows,
+        ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
+        lambda row: row.chronology_evidence_class,
+    )
+    precision_counts = _counts_by_key(
+        sample_rows,
+        ADNA_CHRONOLOGY_PRECISION_POSTURES,
+        lambda row: row.chronology_precision_posture,
+    )
     projects_requiring_manual_review = [
         row["project_accession"]
         for row in review_rows
@@ -199,6 +267,8 @@ def build_cross_project_sample_chronology_audit(
         "normalized_point_count": normalization_counts["normalized_point"],
         "text_only_unparsed_count": normalization_counts["text_only_unparsed"],
         "unresolved_count": normalization_counts["unresolved"],
+        "evidence_counts": evidence_counts,
+        "precision_counts": precision_counts,
         "projects_requiring_manual_review": projects_requiring_manual_review,
         "rows": list(review_rows),
     }
@@ -219,6 +289,8 @@ def build_sample_chronology_ambiguity_ledger(
                     "repo_stable_sample_id": row.repo_stable_sample_id,
                     "preferred_sample_label": row.preferred_sample_label,
                     "chronology_strength": row.chronology_strength,
+                    "chronology_evidence_class": row.chronology_evidence_class,
+                    "chronology_precision_posture": row.chronology_precision_posture,
                     "chronology_normalization_status": row.chronology_normalization_status,
                     "chronology_text": row.chronology_text,
                     "chronology_conflict_note": row.chronology_conflict_note,
@@ -239,25 +311,22 @@ def build_species_chronology_completeness_rows(
             grouped.setdefault(row.species_latin_name, []).append(row)
     rows: list[dict[str, object]] = []
     for species_name, chronology_rows in sorted(grouped.items()):
-        normalization_counts = _counts_by_key(
-            chronology_rows,
-            ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
-            lambda row: row.chronology_normalization_status,
-        )
-        interval_like_count = (
-            normalization_counts["normalized_interval"] + normalization_counts["normalized_point"]
-        )
+        completeness = _chronology_completeness_counts(chronology_rows)
         recovered_count = len(chronology_rows)
         rows.append(
             {
                 "species_latin_name": species_name,
                 "recovered_sample_row_count": recovered_count,
-                "normalized_row_count": interval_like_count,
-                "text_only_unparsed_count": normalization_counts["text_only_unparsed"],
-                "unresolved_count": normalization_counts["unresolved"],
+                "normalized_row_count": completeness["usable_date_evidence_count"],
+                "exact_sample_date_count": completeness["exact_sample_date_count"],
+                "modeled_or_approximate_sample_date_count": completeness["modeled_or_approximate_sample_date_count"],
+                "contextual_date_count": completeness["contextual_date_count"],
+                "broad_label_count": completeness["broad_label_count"],
+                "text_only_unparsed_count": completeness["text_only_unparsed_count"],
+                "unresolved_count": completeness["missing_date_count"],
                 "chronology_completeness_ratio": 0.0
                 if recovered_count == 0
-                else round(interval_like_count / recovered_count, 4),
+                else round(completeness["usable_date_evidence_count"] / recovered_count, 4),
             }
         )
     return tuple(rows)
@@ -269,26 +338,23 @@ def build_project_chronology_completeness_rows(
     rows: list[dict[str, object]] = []
     for project in build_archive_project_catalog():
         chronology_rows = build_project_sample_chronology_rows(output_root, project.project_accession)
-        normalization_counts = _counts_by_key(
-            chronology_rows,
-            ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
-            lambda row: row.chronology_normalization_status,
-        )
-        interval_like_count = (
-            normalization_counts["normalized_interval"] + normalization_counts["normalized_point"]
-        )
+        completeness = _chronology_completeness_counts(chronology_rows)
         recovered_count = len(chronology_rows)
         rows.append(
             {
                 "project_accession": project.project_accession,
                 "species_latin_name": project.species_latin_name,
                 "recovered_sample_row_count": recovered_count,
-                "normalized_row_count": interval_like_count,
-                "text_only_unparsed_count": normalization_counts["text_only_unparsed"],
-                "unresolved_count": normalization_counts["unresolved"],
+                "normalized_row_count": completeness["usable_date_evidence_count"],
+                "exact_sample_date_count": completeness["exact_sample_date_count"],
+                "modeled_or_approximate_sample_date_count": completeness["modeled_or_approximate_sample_date_count"],
+                "contextual_date_count": completeness["contextual_date_count"],
+                "broad_label_count": completeness["broad_label_count"],
+                "text_only_unparsed_count": completeness["text_only_unparsed_count"],
+                "unresolved_count": completeness["missing_date_count"],
                 "chronology_completeness_ratio": 0.0
                 if recovered_count == 0
-                else round(interval_like_count / recovered_count, 4),
+                else round(completeness["usable_date_evidence_count"] / recovered_count, 4),
             }
         )
     return tuple(rows)
@@ -311,6 +377,136 @@ def build_sample_chronology_viewer_rows(
     return tuple(rows)
 
 
+def build_sample_chronology_conflict_ledger(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
+    rows: list[dict[str, object]] = []
+    for project in build_archive_project_catalog():
+        for row in build_project_sample_chronology_rows(output_root, project.project_accession):
+            if not row.chronology_conflict_note.strip():
+                continue
+            rows.append(
+                {
+                    "project_accession": row.project_accession,
+                    "species_latin_name": row.species_latin_name,
+                    "repo_stable_sample_id": row.repo_stable_sample_id,
+                    "preferred_sample_label": row.preferred_sample_label,
+                    "chronology_strength": row.chronology_strength,
+                    "chronology_evidence_class": row.chronology_evidence_class,
+                    "chronology_precision_posture": row.chronology_precision_posture,
+                    "chronology_normalization_status": row.chronology_normalization_status,
+                    "chronology_text": row.chronology_text,
+                    "time_start_bp": row.time_start_bp,
+                    "time_end_bp": row.time_end_bp,
+                    "dating_basis": row.dating_basis,
+                    "chronology_provenance_path": row.chronology_provenance_path,
+                    "chronology_provenance_locator": row.chronology_provenance_locator,
+                    "chronology_provenance_text": row.chronology_provenance_text,
+                    "chronology_conflict_note": row.chronology_conflict_note,
+                }
+            )
+    return tuple(rows)
+
+
+def build_sample_chronology_precision_audit(
+    output_root: Path,
+) -> dict[str, object]:
+    rows: list[dict[str, object]] = []
+    for project in build_archive_project_catalog():
+        for row in build_project_sample_chronology_rows(output_root, project.project_accession):
+            if row.chronology_precision_posture == "sample_precise_point":
+                precision_bucket = "sample_precise_point"
+            elif row.chronology_precision_posture == "sample_precise_interval":
+                precision_bucket = "sample_precise_interval"
+            elif row.chronology_precision_posture == "sample_approximate_or_modeled":
+                precision_bucket = "sample_approximate_or_modeled"
+            elif row.chronology_precision_posture == "contextual_interval":
+                precision_bucket = "contextual_interval"
+            elif row.chronology_precision_posture == "broad_period_only":
+                precision_bucket = "broad_period_only"
+            else:
+                precision_bucket = "unresolved"
+            rows.append(
+                {
+                    "project_accession": row.project_accession,
+                    "species_latin_name": row.species_latin_name,
+                    "repo_stable_sample_id": row.repo_stable_sample_id,
+                    "preferred_sample_label": row.preferred_sample_label,
+                    "chronology_text": row.chronology_text,
+                    "chronology_strength": row.chronology_strength,
+                    "chronology_evidence_class": row.chronology_evidence_class,
+                    "chronology_precision_posture": row.chronology_precision_posture,
+                    "chronology_normalization_status": row.chronology_normalization_status,
+                    "time_start_bp": row.time_start_bp,
+                    "time_end_bp": row.time_end_bp,
+                    "dating_basis": row.dating_basis,
+                    "precision_bucket": precision_bucket,
+                    "precision_review_note": row.review_note,
+                    "chronology_conflict_note": row.chronology_conflict_note,
+                }
+            )
+    precision_counts = _counts_by_key(
+        rows,
+        ADNA_CHRONOLOGY_PRECISION_POSTURES,
+        lambda row: str(row["chronology_precision_posture"]),
+    )
+    return {
+        "schema_version": "animal-sample-chronology-precision-audit.v1",
+        "row_count": len(rows),
+        "precision_counts": precision_counts,
+        "rows": rows,
+    }
+
+
+def build_date_evidence_gap_queue(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
+    queue: list[dict[str, object]] = []
+    for project in build_archive_project_catalog():
+        chronology_rows = build_project_sample_chronology_rows(output_root, project.project_accession)
+        completeness = _chronology_completeness_counts(chronology_rows)
+        recovered_count = len(chronology_rows)
+        sample_owned_count = sum(
+            1
+            for row in chronology_rows
+            if row.chronology_strength in {"sample_owned_interval", "sample_owned_text_only"}
+        )
+        if sample_owned_count == recovered_count:
+            if completeness["missing_date_count"] == 0 and completeness["broad_label_count"] == 0:
+                continue
+        gap_reasons = []
+        if sample_owned_count == 0:
+            gap_reasons.append("no_sample_owned_chronology_recovered")
+        if completeness["missing_date_count"]:
+            gap_reasons.append("missing_sample_level_date_evidence")
+        if completeness["broad_label_count"]:
+            gap_reasons.append("broad_period_labels_still_need_stronger_date_support")
+        if completeness["contextual_date_count"] and not completeness["exact_sample_date_count"]:
+            gap_reasons.append("project_context_dates_still_dominate")
+        queue.append(
+            {
+                "project_accession": project.project_accession,
+                "species_latin_name": project.species_latin_name,
+                "recovered_sample_row_count": recovered_count,
+                "sample_owned_date_row_count": sample_owned_count,
+                "exact_sample_date_count": completeness["exact_sample_date_count"],
+                "modeled_or_approximate_sample_date_count": completeness["modeled_or_approximate_sample_date_count"],
+                "contextual_date_count": completeness["contextual_date_count"],
+                "broad_label_count": completeness["broad_label_count"],
+                "missing_date_count": completeness["missing_date_count"],
+                "gap_reasons": gap_reasons,
+            }
+        )
+    queue.sort(
+        key=lambda row: (
+            -int(row["missing_date_count"]),
+            -int(row["broad_label_count"]),
+            str(row["project_accession"]),
+        )
+    )
+    return tuple(queue)
+
+
 def materialize_project_sample_chronology_library(output_root: Path) -> None:
     output_root = Path(output_root)
     source_root = output_root / "adna" / "governance" / "source_library"
@@ -319,6 +515,9 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
     review_rows = list(build_project_sample_chronology_review_rows(output_root))
     audit_payload = build_cross_project_sample_chronology_audit(output_root)
     ambiguity_rows = list(build_sample_chronology_ambiguity_ledger(output_root))
+    conflict_rows = list(build_sample_chronology_conflict_ledger(output_root))
+    precision_audit_payload = build_sample_chronology_precision_audit(output_root)
+    gap_queue_rows = list(build_date_evidence_gap_queue(output_root))
     species_rows = list(build_species_chronology_completeness_rows(output_root))
     project_rows = list(build_project_chronology_completeness_rows(output_root))
     viewer_rows = list(build_sample_chronology_viewer_rows(output_root))
@@ -330,6 +529,13 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
             row.as_dict()
             for row in build_project_sample_chronology_rows(output_root, project.project_accession)
         ]
+        evidence_payload = {
+            "schema_version": "animal-project-sample-chronology-evidence.v1",
+            "project_accession": project.project_accession,
+            "species_latin_name": project.species_latin_name,
+            "row_count": len(chronology_rows),
+            "rows": chronology_rows,
+        }
         write_json(
             project_root / "sample_chronology.json",
             {
@@ -342,6 +548,15 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
         )
         write_text(
             project_root / "sample_chronology.csv",
+            render_csv_rows(
+                tuple(chronology_rows)
+                if chronology_rows
+                else (_empty_sample_chronology_row(project),)
+            ),
+        )
+        write_json(project_root / "sample_chronology_evidence.json", evidence_payload)
+        write_text(
+            project_root / "sample_chronology_evidence.csv",
             render_csv_rows(
                 tuple(chronology_rows)
                 if chronology_rows
@@ -377,6 +592,22 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
         _render_sample_chronology_ambiguity_markdown(ambiguity_rows),
     )
     write_json(
+        source_root / "sample_chronology_conflict_ledger.json",
+        {
+            "schema_version": "animal-sample-chronology-conflict-ledger.v1",
+            "rows": conflict_rows,
+        },
+    )
+    write_text(
+        source_root / "sample_chronology_conflict_ledger.md",
+        _render_sample_chronology_conflict_markdown(conflict_rows),
+    )
+    write_json(source_root / "sample_chronology_precision_audit.json", precision_audit_payload)
+    write_text(
+        source_root / "sample_chronology_precision_audit.md",
+        _render_sample_chronology_precision_audit_markdown(precision_audit_payload),
+    )
+    write_json(
         source_root / "species_chronology_completeness.json",
         {
             "schema_version": "animal-species-chronology-completeness.v1",
@@ -409,12 +640,25 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
         source_root / "sample_chronology_viewer.md",
         _render_sample_chronology_viewer_markdown(viewer_rows),
     )
+    write_json(
+        source_root / "date_evidence_gap_queue.json",
+        {
+            "schema_version": "animal-date-evidence-gap-queue.v1",
+            "rows": gap_queue_rows,
+        },
+    )
+    write_text(
+        source_root / "date_evidence_gap_queue.md",
+        _render_date_evidence_gap_queue_markdown(gap_queue_rows),
+    )
 
 
 @dataclass(frozen=True)
 class _ResolvedChronologySource:
     chronology_text: str
     chronology_strength: str
+    chronology_evidence_class: str
+    chronology_precision_posture: str
     chronology_provenance_path: str
     chronology_provenance_kind: str
     chronology_provenance_locator: str
@@ -446,13 +690,29 @@ def _resolve_chronology_source(
             comparison_chronology=_site_chronology(site_row, dating_basis=dating_basis),
         )
         normalization_status = _normalization_status_for(chronology)
+        chronology_strength = (
+            "sample_owned_interval"
+            if normalization_status in {"normalized_interval", "normalized_point"}
+            else "sample_owned_text_only"
+        )
+        evidence_class = _evidence_class_for(
+            chronology_text=sample_text,
+            chronology=chronology,
+            chronology_strength=chronology_strength,
+            dating_basis=dating_basis,
+        )
+        precision_posture = _precision_posture_for(
+            chronology_text=sample_text,
+            chronology=chronology,
+            chronology_strength=chronology_strength,
+            chronology_evidence_class=evidence_class,
+            chronology_normalization_status=normalization_status,
+        )
         return _ResolvedChronologySource(
             chronology_text=sample_text,
-            chronology_strength=(
-                "sample_owned_interval"
-                if normalization_status in {"normalized_interval", "normalized_point"}
-                else "sample_owned_text_only"
-            ),
+            chronology_strength=chronology_strength,
+            chronology_evidence_class=evidence_class,
+            chronology_precision_posture=precision_posture,
             chronology_provenance_path=str(getattr(master_row, "sample_lineage_path", "")),
             chronology_provenance_kind=_artifact_kind_from_path(
                 str(getattr(master_row, "sample_lineage_path", ""))
@@ -473,13 +733,29 @@ def _resolve_chronology_source(
     if site_text:
         chronology = _site_chronology(site_row, dating_basis=dating_basis)
         normalization_status = _normalization_status_for(chronology)
+        chronology_strength = (
+            "project_context_interval"
+            if normalization_status in {"normalized_interval", "normalized_point"}
+            else "project_context_text_only"
+        )
+        evidence_class = _evidence_class_for(
+            chronology_text=site_text,
+            chronology=chronology,
+            chronology_strength=chronology_strength,
+            dating_basis=dating_basis,
+        )
+        precision_posture = _precision_posture_for(
+            chronology_text=site_text,
+            chronology=chronology,
+            chronology_strength=chronology_strength,
+            chronology_evidence_class=evidence_class,
+            chronology_normalization_status=normalization_status,
+        )
         return _ResolvedChronologySource(
             chronology_text=site_text,
-            chronology_strength=(
-                "project_context_interval"
-                if normalization_status in {"normalized_interval", "normalized_point"}
-                else "project_context_text_only"
-            ),
+            chronology_strength=chronology_strength,
+            chronology_evidence_class=evidence_class,
+            chronology_precision_posture=precision_posture,
             chronology_provenance_path=str(getattr(site_row, "source_artifact_path", "")),
             chronology_provenance_kind=str(getattr(site_row, "source_artifact_kind", "")),
             chronology_provenance_locator=str(getattr(site_row, "source_locator", "")),
@@ -494,6 +770,8 @@ def _resolve_chronology_source(
     return _ResolvedChronologySource(
         chronology_text="",
         chronology_strength="unresolved",
+        chronology_evidence_class="unresolved",
+        chronology_precision_posture="unresolved",
         chronology_provenance_path="",
         chronology_provenance_kind="",
         chronology_provenance_locator="",
@@ -565,12 +843,122 @@ def _normalization_status_for(chronology: object) -> str:
     return "normalized_interval"
 
 
+def _evidence_class_for(
+    *,
+    chronology_text: str,
+    chronology: object,
+    chronology_strength: str,
+    dating_basis: str,
+) -> str:
+    text = chronology_text.strip()
+    if not text and getattr(chronology, "time_start_bp", None) is None:
+        return "unresolved"
+    lowered_basis = dating_basis.casefold()
+    if _MODELED_DATE_RE.search(text):
+        return "modeled_sample_date"
+    if _HISTORICAL_DATE_RE.search(text) or lowered_basis in {
+        "historical_attribution",
+        "historical_and_archaeological_context",
+        "modern_sampling",
+    }:
+        return "historical_or_recent_date"
+    if _BROAD_PERIOD_TEXT_RE.search(text) and getattr(chronology, "time_start_bp", None) is None:
+        return "broad_period_label"
+    if chronology_strength.startswith("project_context"):
+        return "archaeological_context_date"
+    if "radiocarbon" in lowered_basis or "bp" in text.casefold():
+        return "direct_radiocarbon_date"
+    if _BROAD_PERIOD_TEXT_RE.search(text):
+        return "broad_period_label"
+    if getattr(chronology, "time_start_bp", None) is not None:
+        return "modeled_sample_date" if _APPROXIMATE_DATE_RE.search(text) else "direct_radiocarbon_date"
+    return "unresolved"
+
+
+def _precision_posture_for(
+    *,
+    chronology_text: str,
+    chronology: object,
+    chronology_strength: str,
+    chronology_evidence_class: str,
+    chronology_normalization_status: str,
+) -> str:
+    text = chronology_text.strip()
+    start_bp = getattr(chronology, "time_start_bp", None)
+    end_bp = getattr(chronology, "time_end_bp", None)
+    if chronology_evidence_class == "unresolved":
+        return "unresolved"
+    if chronology_evidence_class == "broad_period_label":
+        return "broad_period_only"
+    if chronology_strength.startswith("project_context"):
+        return "contextual_interval" if start_bp is not None and end_bp is not None else "broad_period_only"
+    if chronology_evidence_class == "modeled_sample_date" or _APPROXIMATE_DATE_RE.search(text):
+        return "sample_approximate_or_modeled"
+    if chronology_normalization_status == "normalized_point":
+        return "sample_precise_point"
+    if chronology_normalization_status == "normalized_interval":
+        return "sample_precise_interval"
+    if chronology_normalization_status == "text_only_unparsed" and text:
+        return "sample_approximate_or_modeled"
+    return "unresolved"
+
+
 def _row_requires_attention(row: AdnaProjectSampleChronologyRow) -> bool:
     return (
         row.chronology_strength != "sample_owned_interval"
-        or row.chronology_normalization_status not in {"normalized_interval", "normalized_point"}
+        or row.chronology_precision_posture
+        not in {"sample_precise_interval", "sample_precise_point"}
         or bool(row.chronology_conflict_note.strip())
     )
+
+
+def _chronology_completeness_counts(
+    rows: list[AdnaProjectSampleChronologyRow] | tuple[AdnaProjectSampleChronologyRow, ...],
+) -> dict[str, int]:
+    exact_sample_date_count = sum(
+        1
+        for row in rows
+        if row.chronology_precision_posture
+        in {"sample_precise_point", "sample_precise_interval"}
+    )
+    modeled_or_approximate_sample_date_count = sum(
+        1
+        for row in rows
+        if row.chronology_precision_posture == "sample_approximate_or_modeled"
+    )
+    contextual_date_count = sum(
+        1
+        for row in rows
+        if row.chronology_precision_posture == "contextual_interval"
+    )
+    broad_label_count = sum(
+        1
+        for row in rows
+        if row.chronology_precision_posture == "broad_period_only"
+    )
+    text_only_unparsed_count = sum(
+        1
+        for row in rows
+        if row.chronology_normalization_status == "text_only_unparsed"
+    )
+    missing_date_count = sum(
+        1
+        for row in rows
+        if row.chronology_precision_posture == "unresolved"
+    )
+    return {
+        "exact_sample_date_count": exact_sample_date_count,
+        "modeled_or_approximate_sample_date_count": modeled_or_approximate_sample_date_count,
+        "contextual_date_count": contextual_date_count,
+        "broad_label_count": broad_label_count,
+        "text_only_unparsed_count": text_only_unparsed_count,
+        "missing_date_count": missing_date_count,
+        "usable_date_evidence_count": (
+            exact_sample_date_count
+            + modeled_or_approximate_sample_date_count
+            + contextual_date_count
+        ),
+    }
 
 
 def _counts_by_key(
@@ -616,6 +1004,8 @@ def _empty_sample_chronology_row(project: object) -> dict[str, object]:
         "sample_ambiguity_note": "",
         "chronology_text": "",
         "chronology_strength": "unresolved",
+        "chronology_evidence_class": "unresolved",
+        "chronology_precision_posture": "unresolved",
         "chronology_provenance_path": "",
         "chronology_provenance_kind": "",
         "chronology_provenance_locator": "",
@@ -639,6 +1029,10 @@ def _render_sample_chronology_audit_markdown(payload: dict[str, object]) -> str:
         f"- Normalized points: `{payload['normalized_point_count']}`",
         f"- Text-only rows: `{payload['text_only_unparsed_count']}`",
         f"- Unresolved rows: `{payload['unresolved_count']}`",
+        f"- Direct radiocarbon rows: `{payload['evidence_counts']['direct_radiocarbon_date']}`",
+        f"- Modeled sample-date rows: `{payload['evidence_counts']['modeled_sample_date']}`",
+        f"- Archaeological-context rows: `{payload['evidence_counts']['archaeological_context_date']}`",
+        f"- Broad period rows: `{payload['evidence_counts']['broad_period_label']}`",
         "",
     ]
     if payload["projects_requiring_manual_review"]:
@@ -685,7 +1079,7 @@ def _render_sample_chronology_ambiguity_markdown(rows: list[dict[str, object]]) 
         note = row["chronology_conflict_note"] or row["review_note"]
         lines.append(
             f"| {row['project_accession']} | {row['repo_stable_sample_id']} | "
-            f"{row['chronology_strength']} | {row['chronology_normalization_status']} | "
+            f"{row['chronology_strength']} / {row['chronology_precision_posture']} | {row['chronology_normalization_status']} | "
             f"{row['chronology_text']} | {note} |"
         )
     lines.append("")
@@ -705,16 +1099,99 @@ def _render_sample_chronology_viewer_markdown(rows: list[dict[str, object]]) -> 
         return "\n".join(lines)
     lines.extend(
         [
-            "| Species | Project accession | Sample id | Strength | Normalization | Chronology | Provenance |",
-            "| --- | --- | --- | --- | --- | --- | --- |",
+            "| Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology | Provenance |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
         ]
     )
     for row in rows:
         lines.append(
             f"| {row['species_latin_name']} | {row['project_accession']} | "
             f"{row['repo_stable_sample_id']} | {row['chronology_strength']} | "
+            f"{row['chronology_evidence_class']} | {row['chronology_precision_posture']} | "
             f"{row['chronology_normalization_status']} | {row['chronology_text']} | "
             f"{row['chronology_provenance_path']} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _render_sample_chronology_conflict_markdown(rows: list[dict[str, object]]) -> str:
+    lines = [
+        "# Sample chronology conflict ledger",
+        "",
+        f"- Conflicting rows: `{len(rows)}`",
+        "",
+    ]
+    if not rows:
+        lines.append("No cross-source chronology conflicts are currently published.")
+        lines.append("")
+        return "\n".join(lines)
+    lines.extend(
+        [
+            "| Project accession | Sample id | Evidence class | Precision posture | Chronology | Conflict note |",
+            "| --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for row in rows:
+        lines.append(
+            f"| {row['project_accession']} | {row['repo_stable_sample_id']} | "
+            f"{row['chronology_evidence_class']} | {row['chronology_precision_posture']} | "
+            f"{row['chronology_text']} | {row['chronology_conflict_note']} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _render_sample_chronology_precision_audit_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Sample chronology precision audit",
+        "",
+        f"- Rows audited: `{payload['row_count']}`",
+        f"- Precise point rows: `{payload['precision_counts']['sample_precise_point']}`",
+        f"- Precise interval rows: `{payload['precision_counts']['sample_precise_interval']}`",
+        f"- Approximate or modeled rows: `{payload['precision_counts']['sample_approximate_or_modeled']}`",
+        f"- Contextual rows: `{payload['precision_counts']['contextual_interval']}`",
+        f"- Broad period rows: `{payload['precision_counts']['broad_period_only']}`",
+        f"- Unresolved rows: `{payload['precision_counts']['unresolved']}`",
+        "",
+        "| Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        if row["chronology_precision_posture"] in {"sample_precise_point", "sample_precise_interval"}:
+            continue
+        lines.append(
+            f"| {row['project_accession']} | {row['repo_stable_sample_id']} | "
+            f"{row['chronology_evidence_class']} | {row['chronology_precision_posture']} | "
+            f"{row['chronology_normalization_status']} | {row['chronology_text']} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _render_date_evidence_gap_queue_markdown(rows: list[dict[str, object]]) -> str:
+    lines = [
+        "# Date evidence gap queue",
+        "",
+        f"- Projects still needing stronger sample-level chronology: `{len(rows)}`",
+        "",
+    ]
+    if not rows:
+        lines.append("All tracked projects currently publish defensible sample-level chronology surfaces.")
+        lines.append("")
+        return "\n".join(lines)
+    lines.extend(
+        [
+            "| Project accession | Species | Sample rows | Exact sample dates | Contextual dates | Broad labels | Missing dates | Gap reasons |",
+            "| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |",
+        ]
+    )
+    for row in rows:
+        lines.append(
+            f"| {row['project_accession']} | {row['species_latin_name']} | "
+            f"{row['recovered_sample_row_count']} | {row['exact_sample_date_count']} | "
+            f"{row['contextual_date_count']} | {row['broad_label_count']} | "
+            f"{row['missing_date_count']} | {', '.join(row['gap_reasons'])} |"
         )
     lines.append("")
     return "\n".join(lines)

@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 __all__ = [
     "ADNA_COORDINATE_CONFIDENCE",
+    "ADNA_CHRONOLOGY_EVIDENCE_CLASSES",
+    "ADNA_CHRONOLOGY_PRECISION_POSTURES",
     "ADNA_COORDINATE_PROVENANCE_CLASSES",
     "ADNA_DATING_BASES",
     "ADNA_MAPPING_POSTURES",
@@ -23,6 +25,22 @@ ADNA_COORDINATE_CONFIDENCE = (
     "inferred",
     "withheld",
     "unknown",
+)
+ADNA_CHRONOLOGY_EVIDENCE_CLASSES = (
+    "direct_radiocarbon_date",
+    "modeled_sample_date",
+    "archaeological_context_date",
+    "broad_period_label",
+    "historical_or_recent_date",
+    "unresolved",
+)
+ADNA_CHRONOLOGY_PRECISION_POSTURES = (
+    "sample_precise_point",
+    "sample_precise_interval",
+    "sample_approximate_or_modeled",
+    "contextual_interval",
+    "broad_period_only",
+    "unresolved",
 )
 ADNA_COORDINATE_PROVENANCE_CLASSES = (
     "direct_published_coordinates",
@@ -76,6 +94,8 @@ class AdnaChronology:
     time_mean_bp: int | None
     date_stddev_bp: str = ""
     dating_basis: str = "unknown"
+    evidence_class: str = "unresolved"
+    precision_posture: str = "unresolved"
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -85,6 +105,8 @@ class AdnaChronology:
             "time_mean_bp": self.time_mean_bp,
             "date_stddev_bp": self.date_stddev_bp,
             "dating_basis": self.dating_basis,
+            "evidence_class": self.evidence_class,
+            "precision_posture": self.precision_posture,
         }
 
 
