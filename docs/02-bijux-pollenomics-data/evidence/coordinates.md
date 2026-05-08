@@ -16,13 +16,13 @@ to map the row at all.
 
 ## Direct Files
 
-- [`data/adna/species/ovis_aries/normalized/coordinate_provenance.json`](../../../data/adna/species/ovis_aries/normalized/coordinate_provenance.json)
-- [`data/adna/governance/coordinate_caveat_surface.json`](../../../data/adna/governance/coordinate_caveat_surface.json)
-- [`data/adna/governance/cross_species_map_readiness.json`](../../../data/adna/governance/cross_species_map_readiness.json)
+- `data/adna/species/ovis_aries/normalized/coordinate_provenance.json`
+- `data/adna/governance/coordinate_caveat_surface.json`
+- `data/adna/governance/cross_species_map_readiness.json`
 - [`docs/report/animal_point_support_packets.md`](../../report/animal_point_support_packets.md)
-- [`data/adna/species/ovis_aries/normalized/site_evidence.json`](../../../data/adna/species/ovis_aries/normalized/site_evidence.json)
-- [`data/adna/governance/unresolved_site_ledger.json`](../../../data/adna/governance/unresolved_site_ledger.json)
-- [`data/adna/governance/overbroad_site_ledger.json`](../../../data/adna/governance/overbroad_site_ledger.json)
+- `data/adna/species/ovis_aries/normalized/site_evidence.json`
+- `data/adna/governance/unresolved_site_ledger.json`
+- `data/adna/governance/overbroad_site_ledger.json`
 
 ## How Place Names Become Map Points
 
