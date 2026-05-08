@@ -1051,6 +1051,10 @@ def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> No
     from ..reporting.adna.atlas_evidence_rows import (
         build_tracked_animal_atlas_evidence_rows,
     )
+    from .catalogs import (
+        build_animal_atlas_candidate_accountability,
+        render_animal_atlas_candidate_accountability_markdown,
+    )
     from ..reporting.adna.country_outputs import build_country_animal_output_bundle
 
     atlas_root = final_root / "atlas"
@@ -1073,6 +1077,25 @@ def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> No
         atlas_root / "animal_atlas_point_candidates.csv",
         render_csv_rows(atlas_rows),
     )
+    candidate_accountability = build_animal_atlas_candidate_accountability(output_root)
+    write_json(
+        atlas_root / "animal_atlas_candidate_accountability.json",
+        candidate_accountability,
+    )
+    write_text(
+        atlas_root / "animal_atlas_candidate_accountability.md",
+        render_animal_atlas_candidate_accountability_markdown(
+            candidate_accountability
+        ),
+    )
+    accountability_rows = tuple(
+        dict(row) for row in candidate_accountability.get("rows", [])
+    )
+    if accountability_rows:
+        write_text(
+            atlas_root / "animal_atlas_candidate_accountability.csv",
+            render_csv_rows(accountability_rows),
+        )
 
     country_rows = []
     for country in ("Sweden", "Norway", "Finland", "Denmark"):
