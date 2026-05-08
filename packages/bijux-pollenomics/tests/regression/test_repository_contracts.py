@@ -262,6 +262,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         repository_governance_markdown = report_root / "repository_governance_artifact_review.md"
         repository_claim_json = report_root / "repository_claim_audit.json"
         repository_claim_markdown = report_root / "repository_claim_audit.md"
+        repository_explainer_json = report_root / "repository_source_explainer_audit.json"
+        repository_explainer_markdown = report_root / "repository_source_explainer_audit.md"
+        repository_atlas_inputs_json = report_root / "repository_atlas_input_audit.json"
+        repository_atlas_inputs_markdown = report_root / "repository_atlas_input_audit.md"
+        repository_domain_matrix_json = (
+            report_root / "repository_cross_domain_evidence_matrix.json"
+        )
+        repository_domain_matrix_markdown = (
+            report_root / "repository_cross_domain_evidence_matrix.md"
+        )
         repository_progress_json = report_root / "repository_scientific_progress_audit.json"
         repository_progress_markdown = report_root / "repository_scientific_progress_audit.md"
 
@@ -295,6 +305,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(repository_governance_markdown.is_file())
         self.assertTrue(repository_claim_json.is_file())
         self.assertTrue(repository_claim_markdown.is_file())
+        self.assertTrue(repository_explainer_json.is_file())
+        self.assertTrue(repository_explainer_markdown.is_file())
+        self.assertTrue(repository_atlas_inputs_json.is_file())
+        self.assertTrue(repository_atlas_inputs_markdown.is_file())
+        self.assertTrue(repository_domain_matrix_json.is_file())
+        self.assertTrue(repository_domain_matrix_markdown.is_file())
         self.assertTrue(repository_progress_json.is_file())
         self.assertTrue(repository_progress_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
@@ -353,6 +369,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Repository claim audit",
             repository_claim_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository source explainer audit",
+            repository_explainer_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository atlas input audit",
+            repository_atlas_inputs_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository cross-domain evidence matrix",
+            repository_domain_matrix_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
             "Repository scientific progress audit",
@@ -609,12 +637,33 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "sources"
             / "source-family-matrix.md"
         ).read_text(encoding="utf-8")
+        publication_model_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "overview"
+            / "pollenomics-publication-model.md"
+        ).read_text(encoding="utf-8")
+        cross_domain_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "overview"
+            / "cross-domain-evidence-matrix.md"
+        ).read_text(encoding="utf-8")
         inventory_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
             / "sources"
             / "animal-source-intake.md"
+        ).read_text(encoding="utf-8")
+        source_recovery_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "non-adna-explainer-recovery.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
@@ -625,6 +674,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "02-bijux-pollenomics-data"
             / "outputs"
             / "published-reports.md"
+        ).read_text(encoding="utf-8")
+        outputs_index = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+        atlas_inputs_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "nordic-atlas-inputs.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("02-bijux-pollenomics-data/", docs_index)
@@ -657,9 +720,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             source_family_matrix_page,
         )
         self.assertIn(
+            "../../report/repository_cross_domain_evidence_matrix.json",
+            source_family_matrix_page,
+        )
+        self.assertIn(
+            "../../report/repository_source_explainer_audit.md",
+            source_family_matrix_page,
+        )
+        self.assertIn(
             "../../report/repository_source_acquisition_queue.json",
             source_family_matrix_page,
         )
+        self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", cross_domain_page)
+        self.assertIn("../../report/repository_atlas_input_audit.md", cross_domain_page)
+        self.assertIn("cross-domain evidence matrix", publication_model_page.lower())
         self.assertIn(
             "data/adna/governance/source_library/reference_stash_reconciliation.json",
             inventory_page,
@@ -668,10 +742,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "data/adna/governance/source_library/source_blocker_review.json",
             inventory_page,
         )
+        self.assertIn("../../report/repository_source_explainer_audit.md", source_recovery_page)
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
         self.assertIn("../../report/animal_point_support_packets.md", published_reports)
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
+        self.assertIn("output-surface-classes.md", outputs_index)
+        self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
+        self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page)
         self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
 

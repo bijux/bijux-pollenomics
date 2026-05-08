@@ -78,11 +78,16 @@ nav:
       - Data Reference: 02-bijux-pollenomics-data/index.md
       - Overview: 02-bijux-pollenomics-data/overview/index.md
       - Data System Overview: 02-bijux-pollenomics-data/overview/data-system-overview.md
+      - Pollenomics Publication Model: 02-bijux-pollenomics-data/overview/pollenomics-publication-model.md
+      - Cross-Domain Evidence Matrix: 02-bijux-pollenomics-data/overview/cross-domain-evidence-matrix.md
       - Animal Ancient DNA Evidence: 02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence.md
       - Data Directory Layout: 02-bijux-pollenomics-data/overview/data-directory-layout.md
       - Sources: 02-bijux-pollenomics-data/sources/index.md
       - Source Comparison: 02-bijux-pollenomics-data/sources/source-comparison.md
       - Source Family Matrix: 02-bijux-pollenomics-data/sources/source-family-matrix.md
+      - Refresh Policy: 02-bijux-pollenomics-data/sources/refresh-policy.md
+      - Shared Normalization: 02-bijux-pollenomics-data/sources/shared-normalization.md
+      - Non-aDNA Explainer Recovery: 02-bijux-pollenomics-data/sources/non-adna-explainer-recovery.md
       - Animal Source Intake: 02-bijux-pollenomics-data/sources/animal-source-intake.md
       - AADR: 02-bijux-pollenomics-data/sources/aadr.md
       - Boundaries: 02-bijux-pollenomics-data/sources/boundaries.md
@@ -96,8 +101,17 @@ nav:
       - Chronology: 02-bijux-pollenomics-data/evidence/chronology.md
       - Coordinates: 02-bijux-pollenomics-data/evidence/coordinates.md
       - Tracked Outputs and Published Surfaces: 02-bijux-pollenomics-data/outputs/index.md
+      - Output Surface Classes: 02-bijux-pollenomics-data/outputs/output-surface-classes.md
+      - Collection Summary: 02-bijux-pollenomics-data/outputs/collection-summary.md
       - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
       - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
+      - Nordic Atlas Inputs: 02-bijux-pollenomics-data/outputs/nordic-atlas-inputs.md
+      - Normalized AADR Outputs: 02-bijux-pollenomics-data/outputs/normalized-aadr.md
+      - Normalized Boundary Outputs: 02-bijux-pollenomics-data/outputs/normalized-boundaries.md
+      - Normalized LandClim Outputs: 02-bijux-pollenomics-data/outputs/normalized-landclim.md
+      - Normalized Neotoma Outputs: 02-bijux-pollenomics-data/outputs/normalized-neotoma.md
+      - Normalized RAÄ Outputs: 02-bijux-pollenomics-data/outputs/normalized-raa.md
+      - Normalized SEAD Outputs: 02-bijux-pollenomics-data/outputs/normalized-sead.md
   - Maintainer:
       - Maintainer: 03-bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
