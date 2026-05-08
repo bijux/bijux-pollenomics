@@ -15,13 +15,13 @@ outputs all meet here.
 
 ## Direct Files
 
-- [`data/adna/governance/animal_sample_foundation_truth.json`](../../../data/adna/governance/animal_sample_foundation_truth.json)
-- [`data/adna/governance/animal_sample_product_contract.json`](../../../data/adna/governance/animal_sample_product_contract.json)
-- [`data/adna/governance/source_library/project_sample_master_completeness.json`](../../../data/adna/governance/source_library/project_sample_master_completeness.json)
-- [`data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_identity_ambiguity_ledger.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_master.json)
-- [`data/adna/species/ovis_aries/normalized/sample_records.json`](../../../data/adna/species/ovis_aries/normalized/sample_records.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json)
+- `data/adna/governance/animal_sample_foundation_truth.json`
+- `data/adna/governance/animal_sample_product_contract.json`
+- `data/adna/governance/source_library/project_sample_master_completeness.json`
+- `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`
+- `data/adna/species/ovis_aries/normalized/sample_records.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
 
 ## What A Sample Record Should Answer
 

@@ -15,11 +15,11 @@ source wording, and different publication status.
 
 ## Direct Files
 
-- [`data/adna/governance/source_library/project_sample_chronology_review.json`](../../../data/adna/governance/source_library/project_sample_chronology_review.json)
-- [`data/adna/governance/source_library/sample_chronology_normalization_audit.json`](../../../data/adna/governance/source_library/sample_chronology_normalization_audit.json)
-- [`data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json)
-- [`data/adna/governance/source_library/sample_chronology_viewer.json`](../../../data/adna/governance/source_library/sample_chronology_viewer.json)
+- `data/adna/governance/source_library/project_sample_chronology_review.json`
+- `data/adna/governance/source_library/sample_chronology_normalization_audit.json`
+- `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`
+- `data/adna/governance/source_library/sample_chronology_viewer.json`
 - [`docs/report/animal_sample_chronology_viewer.md`](../../report/animal_sample_chronology_viewer.md)
 
 ## What This Layer Answers
