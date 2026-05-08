@@ -1,0 +1,84 @@
+---
+title: Runtime Scope and Ownership
+audience: reader
+type: explanation
+status: canonical
+owner: bijux-pollenomics-docs
+last_reviewed: 2026-05-08
+---
+
+# Runtime Scope and Ownership
+
+`bijux-pollenomics` exists to rebuild repository-owned evidence state. Its job
+is not abstract scientific interpretation and it is not general-purpose
+workflow policy. It owns the runtime loop that turns tracked inputs into
+tracked outputs.
+
+## Capability Map
+
+- collect source families into governed `data/` trees
+- normalize pollen, archaeology, boundary, and aDNA evidence into inspectable
+  repository files
+- publish country bundles, atlas layers, and repository-truth packets
+- keep command defaults and output locations stable enough to review in one
+  repository checkout
+
+## Surface Map
+
+- runtime commands
+- tracked source-family and normalized evidence files
+- tracked publication outputs
+- repository-truth and claim-audit packets
+
+## Ownership Boundary
+
+The runtime owns:
+
+- command entrypoints and command defaults
+- collection and normalization behavior
+- publication behavior for `docs/report/`
+- file and path contracts needed to rebuild checked-in state
+
+The runtime does not own:
+
+- repository-health policy that belongs in `bijux-pollenomics-dev`
+- reader-facing provenance interpretation that belongs in
+  `02-bijux-pollenomics-data`
+- atlas interpretation guidance that belongs in `05-nordic-evidence-atlas`
+- broader paper-grade pollenomics analysis that has not been implemented yet
+
+## Dependencies And Adjacencies
+
+The runtime sits between repository provenance and repository publication. It
+depends on source-family inputs and feeds country bundles, atlas layers, and
+review packets, but it should not blur those adjacent responsibilities into one
+flat story.
+
+## Domain Language
+
+- `source family`: one governed upstream domain such as LandClim, Neotoma,
+  SEAD, RAÄ, boundaries, AADR, or animal aDNA papers
+- `normalized evidence`: tracked repository output derived from those sources
+- `publication surface`: a downstream atlas, country bundle, or report packet
+- `partial recovery`: a surface that is real and inspectable but still too thin
+  for stronger scientific or release language
+
+## Lifecycle
+
+1. collect or refresh source-family state
+2. normalize it into reviewable repository artifacts
+3. publish downstream surfaces from that state
+4. run validation that can block overclaims or drift
+
+## Change Principles
+
+- preserve provenance differences across source families
+- prefer durable path and artifact contracts over convenience shortcuts
+- keep pollenomics breadth visible while weaker aDNA recovery continues
+- block stronger publication language when evidence depth is not there
+
+## Related Pages
+
+- [repository fit](repository-fit.md)
+- [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
+- [runtime system model](../architecture/runtime-system-model.md)
