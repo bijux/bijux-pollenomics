@@ -10,7 +10,7 @@
 
 - Tracked projects: `40`
 - Tracked papers: `18`
-- Tracked supplements: `35`
+- Tracked supplements: `72`
 - Sample rows: `242`
 - Site evidence rows: `10`
 - Sample site rows: `207`
@@ -18,7 +18,7 @@
 - Coordinate rows: `10`
 - Published atlas points: `2`
 - Published country bundles: `4`
-- Papers with archived supplements: `7`
+- Papers with archived supplements: `18`
 - Mapped sample share: `0.0083`
 
 ## Thresholds
