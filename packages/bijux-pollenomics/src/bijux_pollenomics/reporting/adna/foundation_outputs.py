@@ -11,7 +11,9 @@ from ...adna.catalogs import (
 from ...adna.ena import build_archive_project_catalog
 from ...adna.paths import adna_species_dir
 from ...adna.project_sample_chronology import (
+    ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
+    ADNA_CHRONOLOGY_PRECISION_POSTURES,
     ADNA_CHRONOLOGY_STRENGTHS,
     build_sample_chronology_viewer_rows,
 )
@@ -152,7 +154,10 @@ def build_animal_foundation_validation_report(
     sample_rows = _load_all_sample_rows(data_root)
     site_rows = _load_all_site_evidence_rows(data_root)
     provenance_rows = _load_all_coordinate_rows(data_root)
-    atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+    try:
+        atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+    except FileNotFoundError:
+        atlas_rows = []
     source_bundles = build_project_source_bundles(data_root)
 
     sample_tokens: list[str] = []
@@ -617,14 +622,20 @@ def build_animal_sample_chronology_viewer(
     """Publish one reader-facing chronology view across all governed animal sample rows."""
     rows = list(build_sample_chronology_viewer_rows(data_root))
     strength_counts = {key: 0 for key in ADNA_CHRONOLOGY_STRENGTHS}
+    evidence_counts = {key: 0 for key in ADNA_CHRONOLOGY_EVIDENCE_CLASSES}
+    precision_counts = {key: 0 for key in ADNA_CHRONOLOGY_PRECISION_POSTURES}
     normalization_counts = {key: 0 for key in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES}
     for row in rows:
         strength_counts[str(row.get("chronology_strength", ""))] += 1
+        evidence_counts[str(row.get("chronology_evidence_class", ""))] += 1
+        precision_counts[str(row.get("chronology_precision_posture", ""))] += 1
         normalization_counts[str(row.get("chronology_normalization_status", ""))] += 1
     return {
         "schema_version": "animal-sample-chronology-viewer.v1",
         "row_count": len(rows),
         "strength_counts": strength_counts,
+        "evidence_counts": evidence_counts,
+        "precision_counts": precision_counts,
         "normalization_counts": normalization_counts,
         "rows": rows,
     }
@@ -662,10 +673,16 @@ def build_animal_sample_database_review(
     chronology_status_counts = {
         status: 0 for status in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES
     }
+    chronology_precision_counts = {
+        posture: 0 for posture in ADNA_CHRONOLOGY_PRECISION_POSTURES
+    }
     for row in chronology_rows:
         status = str(row.get("chronology_normalization_status", "")).strip()
         if status in chronology_status_counts:
             chronology_status_counts[status] += 1
+        precision_posture = str(row.get("chronology_precision_posture", "")).strip()
+        if precision_posture in chronology_precision_counts:
+            chronology_precision_counts[precision_posture] += 1
     paper_with_archived_supplement_count = sum(
         1 for row in paper_rows if int(row.supplementary_count) > 0
     )
@@ -692,6 +709,9 @@ def build_animal_sample_database_review(
         "locality_normalization_dictionary": "data/adna/governance/source_library/site_name_normalization_dictionary.json",
         "locality_completeness": "data/adna/governance/source_library/project_locality_completeness.json",
         "chronology_review": "data/adna/governance/source_library/project_sample_chronology_review.json",
+        "chronology_conflicts": "data/adna/governance/source_library/sample_chronology_conflict_ledger.json",
+        "chronology_precision_audit": "data/adna/governance/source_library/sample_chronology_precision_audit.json",
+        "date_evidence_gap_queue": "data/adna/governance/source_library/date_evidence_gap_queue.json",
         "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
         "point_support_packets": "docs/report/animal_point_support_packets.md",
         "atlas_evidence_rows": "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
@@ -784,6 +804,7 @@ def build_animal_sample_database_review(
             ),
         },
         "chronology_status_counts": chronology_status_counts,
+        "chronology_precision_counts": chronology_precision_counts,
         "posture_findings": posture_findings,
         "blockers": list(review_payload["blockers"]),
         "direct_links": direct_links,
@@ -805,6 +826,10 @@ def build_animal_publication_release_gate(
     all_species_claim = "all-species animal map readiness" in docs_text or "all species animal map readiness" in docs_text
     reference_grade_claim = "reference-grade" in docs_text
     country_payloads = _load_country_payloads(report_root)
+    try:
+        atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+    except FileNotFoundError:
+        atlas_rows = []
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
     project_locality_drift_rows = build_project_locality_count_drift(data_root)
@@ -891,6 +916,21 @@ def build_animal_publication_release_gate(
             in substitution_blocked_projects
         }
     )
+    imprecise_country_chronology_rows = sorted(
+        {
+            str(locality.get("feature_id", "")).strip()
+            for payload in country_payloads
+            for locality in payload.get("localities", [])
+            if _public_chronology_window_exposed(locality)
+        }
+    )
+    imprecise_atlas_chronology_rows = sorted(
+        {
+            str(row.get("feature_id", "")).strip()
+            for row in atlas_rows
+            if _public_chronology_window_exposed(row.get("chronology", {}))
+        }
+    )
     point_row_count = int(point_payload.get("row_count", len(point_payload.get("rows", []))))
     reference_grade_support_requirements = {
         "sample_database_artifacts_present": bool(
@@ -955,6 +995,12 @@ def build_animal_publication_release_gate(
             substitution_blocked_country_rows + substitution_blocked_atlas_rows,
         ),
         _check_row(
+            "broad_or_contextual_chronology_does_not_publish_numeric_windows",
+            not (imprecise_country_chronology_rows or imprecise_atlas_chronology_rows),
+            "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
+            imprecise_country_chronology_rows + imprecise_atlas_chronology_rows,
+        ),
+        _check_row(
             "docs_do_not_overclaim_all_species_map_readiness",
             not (all_species_claim and (unresolved_rows or overbroad_rows)),
             "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",
@@ -986,6 +1032,18 @@ def _chronology_row_blocks_publication(row: dict[str, object]) -> bool:
     if not conflict_note:
         return False
     return str(row.get("chronology_strength", "")).strip() != "sample_owned_interval"
+
+
+def _public_chronology_window_exposed(payload: dict[str, object]) -> bool:
+    precision_posture = str(payload.get("chronology_precision_posture", "")).strip()
+    if not precision_posture and isinstance(payload.get("precision_posture"), str):
+        precision_posture = str(payload.get("precision_posture", "")).strip()
+    if precision_posture in {"sample_precise_point", "sample_precise_interval", ""}:
+        return False
+    return any(
+        payload.get(field) is not None
+        for field in ("time_start_bp", "time_end_bp", "time_mean_bp")
+    )
 
 
 def render_animal_foundation_validation_markdown(payload: dict[str, object]) -> str:
@@ -1120,14 +1178,19 @@ def render_animal_sample_chronology_viewer_markdown(payload: dict[str, object]) 
         f"- Normalized points: `{payload['normalization_counts']['normalized_point']}`",
         f"- Text-only rows: `{payload['normalization_counts']['text_only_unparsed']}`",
         f"- Unresolved rows: `{payload['normalization_counts']['unresolved']}`",
+        f"- Direct radiocarbon rows: `{payload['evidence_counts']['direct_radiocarbon_date']}`",
+        f"- Modeled rows: `{payload['evidence_counts']['modeled_sample_date']}`",
+        f"- Contextual rows: `{payload['evidence_counts']['archaeological_context_date']}`",
+        f"- Broad period rows: `{payload['evidence_counts']['broad_period_label']}`",
         "",
-        "| Species | Project accession | Sample id | Strength | Normalization | Chronology |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for row in payload["rows"]:
         lines.append(
             f"| {row['species_latin_name']} | {row['project_accession']} | "
             f"{row['repo_stable_sample_id']} | {row['chronology_strength']} | "
+            f"{row['chronology_evidence_class']} | {row['chronology_precision_posture']} | "
             f"{row['chronology_normalization_status']} | {row['chronology_text']} |"
         )
     return "\n".join(lines) + "\n"
