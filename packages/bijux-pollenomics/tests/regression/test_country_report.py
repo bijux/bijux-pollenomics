@@ -1585,6 +1585,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "animal_country_species_coverage.md").exists())
             self.assertTrue((output / "animal_atlas_readiness.json").exists())
             self.assertTrue((output / "animal_atlas_readiness.md").exists())
+            self.assertTrue((output / "animal_output_honesty.json").exists())
+            self.assertTrue((output / "animal_output_honesty.md").exists())
+            self.assertTrue((output / "animal_atlas_exclusion_report.json").exists())
+            self.assertTrue((output / "animal_atlas_exclusion_report.md").exists())
             self.assertTrue((output / "animal_foundation_validation.json").exists())
             self.assertTrue((output / "animal_foundation_validation.md").exists())
             self.assertTrue((output / "animal_cross_surface_drift.json").exists())
@@ -1629,8 +1633,16 @@ class CountryReportTests(unittest.TestCase):
             animal_output_audit = json.loads(
                 (output / "animal_output_audit.json").read_text(encoding="utf-8")
             )
+            animal_output_honesty = json.loads(
+                (output / "animal_output_honesty.json").read_text(encoding="utf-8")
+            )
             country_species_coverage = json.loads(
                 (output / "animal_country_species_coverage.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            atlas_exclusion_report = json.loads(
+                (output / "animal_atlas_exclusion_report.json").read_text(
                     encoding="utf-8"
                 )
             )
@@ -1749,6 +1761,14 @@ class CountryReportTests(unittest.TestCase):
                 and row["species_latin_name"] == "Ovis aries"
             )
             self.assertEqual(sheep_country_row["sample_row_count"], 1)
+            self.assertEqual(sheep_country_row["sample_lineage_backed_sample_count"], 1)
+            self.assertEqual(sheep_country_row["site_evidence_backed_sample_count"], 1)
+            self.assertEqual(
+                sheep_country_row["chronology_provenance_backed_sample_count"], 1
+            )
+            self.assertEqual(
+                sheep_country_row["coordinate_provenance_backed_sample_count"], 1
+            )
             self.assertEqual(sheep_country_row["geocoded_site_count"], 1)
             self.assertEqual(sheep_country_row["direct_coordinate_site_count"], 0)
             sheep_readiness = next(
@@ -1761,6 +1781,12 @@ class CountryReportTests(unittest.TestCase):
                 sheep_readiness["country_mapped_locality_counts"]["Sweden"],
                 1,
             )
+            self.assertIn(
+                sheep_readiness["readiness_status"],
+                {"thin", "publishable"},
+            )
+            self.assertIn("tracked_sample_count", animal_output_honesty["totals"])
+            self.assertIn("row_count", atlas_exclusion_report)
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
             self.assertEqual(
                 published_summary["artifacts"]["country_bundles"]["sweden"][
@@ -1787,6 +1813,28 @@ class CountryReportTests(unittest.TestCase):
                 if row["species_latin_name"] == "Ovis aries"
             }
             self.assertEqual(sweden_evidence_row_ids, atlas_evidence_row_ids)
+            sweden_animal_summary = json.loads(
+                (
+                    output / "sweden" / "sweden_animal_adna_v62.0_summary.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertIn(
+                "evidence_quality_summary",
+                sweden_animal_summary,
+            )
+            self.assertIn(
+                "traceability_summary",
+                sweden_animal_summary,
+            )
+            self.assertTrue(
+                sweden_animal_summary["sample_rows"][0]["sample_lineage_path"]
+            )
+            self.assertTrue(
+                sweden_animal_summary["sample_rows"][0]["chronology_provenance_path"]
+            )
+            self.assertTrue(
+                sweden_animal_summary["sample_rows"][0]["coordinate_provenance_path"]
+            )
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -1915,7 +1963,6 @@ class CountryReportTests(unittest.TestCase):
         species_slug = species_root.name
         stable_token = f"{species_slug}:project-locality:{project_accession.lower()}"
         sample_token = f"{species_slug}:sample:{project_accession.lower()}"
-        sample_site_token = f"{species_slug}:sample-site:{project_accession.lower()}"
         inclusion_status = (
             "comparator_site_curated"
             if product_role == "comparator"
@@ -1989,7 +2036,7 @@ class CountryReportTests(unittest.TestCase):
                         },
                         "locality_identity": {
                             "namespace": f"{species_slug}:sample_locality",
-                            "stable_token": sample_site_token,
+                            "stable_token": stable_token,
                             "locality_text": locality,
                             "political_entity": political_entity,
                             "source_anchor_tokens": [project_accession, "project_accession_anchor"],
@@ -2032,7 +2079,25 @@ class CountryReportTests(unittest.TestCase):
                         "supplementary_source": f"supplementary/{project_accession}.pdf",
                         "inclusion_status": inclusion_status,
                         "inclusion_note": "Curated into the atlas evidence contract.",
+                        "chronology_strength": "sample_owned_interval",
+                        "chronology_normalization_status": "normalized_interval",
+                        "chronology_provenance_path": (
+                            f"adna/governance/source_library/papers/{paper_doi.replace('/', '-')}/supplementary/{project_accession}.xlsx"
+                        ),
+                        "chronology_provenance_kind": "supplementary_spreadsheet_row",
+                        "chronology_provenance_locator": "Sheet1!row2",
+                        "chronology_provenance_text": (
+                            f"{locality} | {project_accession} | {chronology_bucket}"
+                        ),
                         "sample_basis": "project_accession_anchor",
+                        "sample_evidence_status": "direct_table_extracted",
+                        "sample_lineage_path": (
+                            f"adna/governance/source_library/papers/{paper_doi.replace('/', '-')}/supplementary/{project_accession}.xlsx"
+                        ),
+                        "sample_lineage_locator": "Sheet1!row2",
+                        "sample_lineage_excerpt": (
+                            f"{locality} | {project_accession} | {chronology_bucket}"
+                        ),
                     }
                 ],
             },

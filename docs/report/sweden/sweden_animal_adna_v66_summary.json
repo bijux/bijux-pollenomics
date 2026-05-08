@@ -7,6 +7,36 @@
   "total_species": 1,
   "total_localities": 1,
   "total_projects": 1,
+  "evidence_quality_summary": {
+    "sample_row_count": 1,
+    "species_row_count": 1,
+    "sample_lineage_backed_sample_count": 1,
+    "site_evidence_backed_sample_count": 1,
+    "chronology_provenance_backed_sample_count": 1,
+    "coordinate_provenance_backed_sample_count": 1,
+    "exact_coordinate_sample_count": 1,
+    "approximate_coordinate_sample_count": 0
+  },
+  "traceability_summary": {
+    "sample_record_ids": [
+      "equus_caballus:sample:prjeb31613:cgg_1_018490"
+    ],
+    "site_record_ids": [
+      "equus_caballus:locality:prjeb31613:uppsala:sweden"
+    ],
+    "sample_lineage_paths": [
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+    ],
+    "site_evidence_paths": [
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+    ],
+    "chronology_provenance_paths": [
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+    ],
+    "coordinate_provenance_paths": [
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+    ]
+  },
   "sample_rows": [
     {
       "country": "Sweden",
@@ -29,14 +59,30 @@
       "coordinate_confidence": "exact",
       "source_locator": "Sheet1!row226",
       "source_support_status": "supplementary_table_row",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "sample_lineage_locator": "Sheet1!row226",
+      "sample_lineage_excerpt": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "site_evidence_kind": "supplementary_spreadsheet_row",
+      "site_evidence_locator": "Sheet1!row226",
+      "site_evidence_text": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
       "time_label": "1217-1417 BP",
       "chronology_evidence_class": "direct_radiocarbon_date",
       "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "chronology_provenance_kind": "supplementary_spreadsheet_row",
+      "chronology_provenance_locator": "Sheet1!row226",
+      "chronology_provenance_text": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
       "inclusion_status": "site_curated",
       "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "59.860999999999997",
-      "longitude_text": "17.638999999999999"
+      "longitude_text": "17.638999999999999",
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "coordinate_provenance_locator": "Sheet1!row226",
+      "coordinate_provenance_note": ""
     }
   ],
   "species_rows": [
@@ -56,6 +102,12 @@
         "PRJEB31613"
       ],
       "sample_row_count": 1,
+      "exact_coordinate_sample_count": 1,
+      "approximate_coordinate_sample_count": 0,
+      "sample_lineage_backed_sample_count": 1,
+      "site_evidence_backed_sample_count": 1,
+      "chronology_provenance_backed_sample_count": 1,
+      "coordinate_provenance_backed_sample_count": 1,
       "caution_note": "sample support remains sparse"
     }
   ],
@@ -88,6 +140,10 @@
       "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
       "original_place_text": "Uppsala",
       "resolved_place_text": "Uppsala",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "coordinate_source_locator": "Sheet1!row226",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
       "time_start_bp": 1217,
       "time_end_bp": 1417,
       "time_mean_bp": 1317,

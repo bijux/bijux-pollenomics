@@ -7,6 +7,37 @@
   "total_species": 1,
   "total_localities": 1,
   "total_projects": 1,
+  "evidence_quality_summary": {
+    "sample_row_count": 2,
+    "species_row_count": 1,
+    "sample_lineage_backed_sample_count": 2,
+    "site_evidence_backed_sample_count": 2,
+    "chronology_provenance_backed_sample_count": 2,
+    "coordinate_provenance_backed_sample_count": 2,
+    "exact_coordinate_sample_count": 2,
+    "approximate_coordinate_sample_count": 0
+  },
+  "traceability_summary": {
+    "sample_record_ids": [
+      "equus_caballus:sample:prjeb44430:samea9533224",
+      "equus_caballus:sample:prjeb44430:samea9533225"
+    ],
+    "site_record_ids": [
+      "equus_caballus:locality:prjeb44430:ginnerup:denmark"
+    ],
+    "sample_lineage_paths": [
+      "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+    ],
+    "site_evidence_paths": [
+      "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+    ],
+    "chronology_provenance_paths": [
+      "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+    ],
+    "coordinate_provenance_paths": [
+      "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+    ]
+  },
   "sample_rows": [
     {
       "country": "Denmark",
@@ -29,14 +60,30 @@
       "coordinate_confidence": "exact",
       "source_locator": "SI Table 1!row252",
       "source_support_status": "supplementary_table_row",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "sample_lineage_locator": "SI Table 1!row252",
+      "sample_lineage_excerpt": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "site_evidence_kind": "supplementary_spreadsheet_row",
+      "site_evidence_locator": "SI Table 1!row252",
+      "site_evidence_text": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
       "time_label": "4961 BP",
       "chronology_evidence_class": "direct_radiocarbon_date",
       "chronology_precision_posture": "sample_precise_point",
+      "chronology_normalization_status": "normalized_point",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_kind": "supplementary_spreadsheet_row",
+      "chronology_provenance_locator": "SI Table 1!row252",
+      "chronology_provenance_text": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
       "inclusion_status": "site_curated",
       "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "56.41134",
-      "longitude_text": "10.74481"
+      "longitude_text": "10.74481",
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_provenance_locator": "SI Table 1!row252",
+      "coordinate_provenance_note": ""
     },
     {
       "country": "Denmark",
@@ -59,14 +106,30 @@
       "coordinate_confidence": "exact",
       "source_locator": "SI Table 1!row252",
       "source_support_status": "supplementary_table_row",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "sample_lineage_locator": "SI Table 1!row253",
+      "sample_lineage_excerpt": "DJM613x1_Dan_m2994 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224903 | 4370 | 20 | -3076 | -2912 | 2994 | 4944 | F | this study | 1 | 3 | 3 | 168066670 | 34531226 | 202597896 | - | - | - | 49.5824445776",
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "site_evidence_kind": "supplementary_spreadsheet_row",
+      "site_evidence_locator": "SI Table 1!row252",
+      "site_evidence_text": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
       "time_label": "4944 BP",
       "chronology_evidence_class": "direct_radiocarbon_date",
       "chronology_precision_posture": "sample_precise_point",
+      "chronology_normalization_status": "normalized_point",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_kind": "supplementary_spreadsheet_row",
+      "chronology_provenance_locator": "SI Table 1!row253",
+      "chronology_provenance_text": "DJM613x1_Dan_m2994 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224903 | 4370 | 20 | -3076 | -2912 | 2994 | 4944 | F | this study | 1 | 3 | 3 | 168066670 | 34531226 | 202597896 | - | - | - | 49.5824445776",
       "inclusion_status": "site_curated",
       "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "56.41134",
-      "longitude_text": "10.74481"
+      "longitude_text": "10.74481",
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_provenance_locator": "SI Table 1!row252",
+      "coordinate_provenance_note": ""
     }
   ],
   "species_rows": [
@@ -86,6 +149,12 @@
         "PRJEB44430"
       ],
       "sample_row_count": 2,
+      "exact_coordinate_sample_count": 2,
+      "approximate_coordinate_sample_count": 0,
+      "sample_lineage_backed_sample_count": 2,
+      "site_evidence_backed_sample_count": 2,
+      "chronology_provenance_backed_sample_count": 2,
+      "coordinate_provenance_backed_sample_count": 2,
       "caution_note": "sample support remains sparse"
     }
   ],
@@ -118,6 +187,10 @@
       "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
       "original_place_text": "Ginnerup",
       "resolved_place_text": "Ginnerup",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_source_locator": "SI Table 1!row252",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
       "time_start_bp": 4944,
       "time_end_bp": 4961,
       "time_mean_bp": 4952,
