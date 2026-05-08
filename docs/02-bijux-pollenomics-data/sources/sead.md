@@ -1,6 +1,6 @@
 ---
 title: SEAD
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -25,9 +25,9 @@ flowchart TB
     normalized --> atlas
 ```
 
-This page should show why SEAD belongs beside RAÄ without becoming identical to
-it. SEAD gives broader archaeology context, but it still keeps its own source
-story and evidence limits.
+SEAD belongs beside RAÄ, but it is not the same kind of archaeology source.
+It provides broader environmental archaeology context with its own coverage and
+limits.
 
 ## What This Source Adds
 
@@ -47,15 +47,3 @@ meaning depends on being read beside the other normalized layers.
 - `data/sead/normalized/nordic_environmental_sites.csv`
 - `data/sead/normalized/nordic_environmental_sites.geojson`
 - atlas context layers under `docs/report/nordic-atlas/`
-
-## First Proof Check
-
-- inspect `data/sead/raw/` and `data/sead/normalized/`
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  when the question is about the checked-in repository output family
-
-## Design Pressure
-
-The common failure is to flatten archaeology context into one layer family,
-which makes broader SEAD context and Sweden-scoped RAÄ context look more
-equivalent than they actually are.

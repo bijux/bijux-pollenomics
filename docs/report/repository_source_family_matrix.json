@@ -11,7 +11,7 @@
         "data/adna/governance/source_library/project_source_evidence_matrix.json"
       ],
       "docs_paths": [
-        "docs/02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md"
+        "docs/02-bijux-pollenomics-data/sources/animal-source-intake.md"
       ],
       "visible_count": 18,
       "acquisition_posture": "repo_capture_matches_visible_staging",

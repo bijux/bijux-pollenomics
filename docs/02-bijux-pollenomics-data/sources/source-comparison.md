@@ -1,6 +1,6 @@
 ---
 title: Source Comparison
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -9,7 +9,9 @@ last_reviewed: 2026-05-08
 
 # Source Comparison
 
-Each supported source family answers a different kind of question.
+Each source family in this repository answers a different kind of question.
+They can appear together in one map or report, but that does not make their
+evidence claims interchangeable.
 
 ## Comparison Model
 
@@ -31,40 +33,24 @@ flowchart TB
     sead --> atlas
 ```
 
-Layers can render together while still answering different kinds of questions.
-Similar shapes on the map do not mean similar evidence claims underneath.
+Layers can render together while still meaning very different things.
 
 ## Which Source Helps With Which Question
 
-- AADR supports ancient DNA sample-locality and country-report questions
-- Boundaries support country framing and map filtering questions
+- AADR supports human ancient DNA context and release-based sample metadata questions
+- Boundaries support country framing, region filtering, and map context questions
 - LandClim supports pollen sequence and REVEALS context questions
 - Neotoma supports paleoecological pollen-site context questions
-- RAÄ supports Sweden-scoped archaeology density questions
+- RAÄ supports Sweden-scoped archaeology context questions
 - SEAD supports broader environmental archaeology context questions
+- animal source intake supports project recovery, supplement capture, and non-human sample extraction questions
 
-## Evidence Audit
+## Good Reader Rule
 
-- open [Source family matrix](source-family-matrix.md) when the question is
-  which family is primary, contextual, or currently under-acquired
-- open [Animal Project and Paper Inventory](animal-project-and-paper-inventory.md)
-  when the question is specifically paper capture, supplements, and sample
-  extraction
+- open [Source family matrix](source-family-matrix.md) when the question is repository balance
+- open [Animal source intake](animal-source-intake.md) when the question is paper, supplement, or sample recovery
 
-## Boundary
+## Why This Comparison Matters
 
-The atlas is strongest when these roles stay separate. A point or polygon can
-look similar on the map while representing a very different source claim,
-geographic scope, and refresh story underneath.
-
-## First Proof Check
-
-- inspect the matching source page before making a source-wide claim
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  when the question is how these families are rendered together on the
-  publication surface
-
-## Design Pressure
-
-The common failure is to compare sources by visual similarity on the atlas
-instead of by the narrower question each source family can honestly answer.
+The common failure is to compare sources by how they look on a map instead of
+by the narrower question each one can honestly answer.

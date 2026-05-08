@@ -1,5 +1,5 @@
 ---
-title: Project, Paper, and Supplement Capture
+title: Sources
 audience: reader
 type: explanation
 status: canonical
@@ -7,44 +7,42 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-08
 ---
 
-# Project, Paper, and Supplement Capture
+# Sources
 
-At this stage of `bijux-pollenomics`, the source story is broader than one
-pipeline. The repository tracks pollen context, environmental archaeology,
-boundary framing, fieldwork evidence, and ancient DNA source capture. The aDNA
-task still includes archive metadata, paper linkage, supplementary-material
-retrieval, and extraction of sample and site hints that can later become
-curated rows.
+The repository brings together several different source families. Some are
+primary pollenomics context, such as pollen records. Others are contextual
+layers, such as archaeology or animal ancient DNA. They belong on one site,
+but they should not be described as if they all answer the same question.
 
-The primary navigation now breaks that evidence chain into dedicated project,
-paper, supplement, sample, site, chronology, coordinate, and output pages.
-Use this legacy overview if you want one short bridge across those surfaces.
+## Main Source Families
 
-## What To Inspect
+| Family | Main role in `bijux-pollenomics` | Start here |
+| --- | --- | --- |
+| LandClim | pollen sequence and REVEALS context | [LandClim](landclim.md) |
+| Neotoma | paleoecological pollen-site context | [Neotoma](neotoma.md) |
+| SEAD | environmental archaeology context | [SEAD](sead.md) |
+| RAÄ | Sweden-specific archaeology context | [RAÄ](raa.md) |
+| Boundaries | country framing and filtering | [Boundaries](boundaries.md) |
+| AADR | human ancient DNA context | [AADR](aadr.md) |
+| Animal source intake | project, paper, supplement, and sample recovery for non-human aDNA | [Animal source intake](animal-source-intake.md) |
+
+## Start Here
+
+- [Source comparison](source-comparison.md) for the shortest cross-family overview
+- [Source family matrix](source-family-matrix.md) for the repository-wide balance view
+- [Animal source intake](animal-source-intake.md) for project, paper, supplement, and sample-recovery status
+
+## Direct Files
 
 - [`data/adna/governance/source_library/project_registry.json`](../../../data/adna/governance/source_library/project_registry.json)
 - [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
 - [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
-- [`data/adna/governance/source_library/source_blockers.json`](../../../data/adna/governance/source_library/source_blockers.json)
 - [`data/adna/governance/source_library/project_source_evidence_matrix.json`](../../../data/adna/governance/source_library/project_source_evidence_matrix.json)
-- [`data/adna/governance/source_library/reference_stash_reconciliation.json`](../../../data/adna/governance/source_library/reference_stash_reconciliation.json)
-- [Source family matrix](source-family-matrix.md)
-- [Source comparison](source-comparison.md)
-- [AADR](aadr.md)
-- [Neotoma](neotoma.md)
-- [LandClim](landclim.md)
-- [SEAD](sead.md)
-- [RAÄ](raa.md)
-- [Boundaries](boundaries.md)
-- [Projects](../projects/index.md)
-- [Papers](../papers/index.md)
-- [Supplements](../supplements/index.md)
-- [Animal Project and Paper Inventory](./animal-project-and-paper-inventory.md)
+- [`docs/report/repository_source_family_matrix.json`](../../report/repository_source_family_matrix.json)
 
-## Current Rule
+## What This Section Should Make Clear
 
-If the repository cannot point to readable project metadata, paper context, or
-supplementary support for a sample or site claim, that weakness should stay
-visible in the tracked files and downstream audits. If the local paper stash is
-ahead of the repo-owned source library, that mismatch should also stay explicit
-instead of being treated as silent progress.
+- different source families do different jobs
+- pollen, archaeology, boundaries, and aDNA should stay distinguishable
+- animal ancient DNA depends on project and supplement recovery before it becomes sample-backed evidence
+- public outputs are downstream of those source and intake decisions

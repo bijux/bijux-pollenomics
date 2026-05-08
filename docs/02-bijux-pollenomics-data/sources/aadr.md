@@ -1,6 +1,6 @@
 ---
 title: AADR
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -10,7 +10,7 @@ last_reviewed: 2026-05-07
 # AADR
 
 AADR is the ancient DNA source family that anchors the repository's current
-sample-backed context work.
+human ancient DNA context work.
 
 ## AADR Source Model
 
@@ -26,23 +26,22 @@ flowchart TB
     normalized --> publication
 ```
 
-This page should make AADR feel like the strongest direct source-to-publication
-chain in the repository. Readers should be able to see how one release version
-widens into visible report and atlas changes without guessing where the bridge
-is.
+AADR is the clearest example of a release-based source family in this
+repository. Readers should be able to see how one versioned metadata release
+turns into tracked sample outputs and public reports.
 
 ## What This Source Adds
 
 - versioned metadata under `data/aadr/<version>/`
-- the sample-locality layer that drives country reports and the shared atlas
-- the clearest bridge between tracked data refreshes and visible publication
+- human sample-locality context used in reports and the shared atlas
+- a clear bridge between tracked source refreshes and visible publication
   changes
 
 ## Boundary
 
 The repository currently works from public metadata files, not genotype
-payloads. This source supports sample-locality and metadata-based reporting. It
-does not claim to run population-genetic analysis inside this repository.
+payloads. AADR supports sample-locality and metadata-based reporting here. It
+does not claim to perform population-genetic analysis inside this repository.
 
 ## Downstream Outputs
 
@@ -50,16 +49,3 @@ does not claim to run population-genetic analysis inside this repository.
 - atlas-facing files under `docs/report/nordic-atlas/`
 - versioned source records that stay visible in the tracked tree instead of
   disappearing behind one merged export
-
-## First Proof Check
-
-- inspect `data/aadr/`
-- inspect `data/aadr/v66/release_manifest.json`
-- open [Published Reports](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/)
-  when the question shifts from upstream role to checked-in repository outputs
-
-## Design Pressure
-
-The easy failure is to talk about AADR as generic ancient DNA context, which
-hides the versioned metadata path that makes visible publication changes
-traceable and reviewable.

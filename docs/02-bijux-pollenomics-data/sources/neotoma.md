@@ -1,6 +1,6 @@
 ---
 title: Neotoma
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -25,9 +25,9 @@ flowchart TB
     normalized --> atlas
 ```
 
-This page should keep Neotoma visible as its own pollen-context family. It
-helps readers compare site distributions without pretending that all pollen
-context comes from one interchangeable source.
+Neotoma is a second major pollen-context family in the repository. Keeping it
+visible as its own source helps readers compare pollen coverage without turning
+all pollen context into one interchangeable backdrop.
 
 ## What This Source Adds
 
@@ -46,15 +46,3 @@ questions by itself.
 - `data/neotoma/normalized/nordic_pollen_sites.csv`
 - `data/neotoma/normalized/nordic_pollen_sites.geojson`
 - shared atlas layers under `docs/report/nordic-atlas/`
-
-## First Proof Check
-
-- inspect `data/neotoma/raw/` and `data/neotoma/normalized/`
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  when the question is about the repository-owned output family
-
-## Design Pressure
-
-The common failure is to merge Neotoma into a generic pollen backdrop, which
-erases the source-specific provenance readers need when they judge context
-quality and interpretation limits.
