@@ -90,6 +90,15 @@
       "member_local_path": "adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip#Supplementary_Data_9.nwk",
       "member_byte_size": 12334,
       "inferred_purpose": "unclassified_bundle_member"
+    },
+    {
+      "paper_doi": "10.1126/science.adt2642",
+      "parent_artifact_id": "10.1126-science.adt2642:science.adt2642_tables s1_to_s8.zip",
+      "zip_local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "member_name": "science.adt2642_tables s1_to_s8.xlsx",
+      "member_local_path": "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip#science.adt2642_tables s1_to_s8.xlsx",
+      "member_byte_size": 575108,
+      "inferred_purpose": "structured_table_candidate"
     }
   ]
 }

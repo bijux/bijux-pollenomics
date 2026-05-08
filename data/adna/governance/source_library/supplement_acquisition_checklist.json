@@ -2,8 +2,7 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 18,
   "counts": {
-    "repo_archived": 7,
-    "local_reference_ready_for_ingestion": 11
+    "repo_archived": 18
   },
   "rows": [
     {
@@ -144,15 +143,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1038/s41586-024-08112-6",
       "article_html_source_url": "https://www.nature.com/articles/s41586-024-08112-6",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1038/s41598-024-54296-2",
@@ -165,14 +164,14 @@
       "crossref_url": "https://api.crossref.org/works/10.1038/s41598-024-54296-2",
       "article_html_source_url": "https://www.nature.com/articles/s41598-024-54296-2",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_supplement_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1038/s42003-021-02794-8",
@@ -208,15 +207,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1073/pnas.1901169116",
       "article_html_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
       "pmc_or_pubmed_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6717267/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1093/gbe/evae114",
@@ -229,15 +228,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1093/gbe/evae114",
       "article_html_source_url": "",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1093/gbe/evaf181",
@@ -250,15 +249,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1093/gbe/evaf181",
       "article_html_source_url": "",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1111/1755-0998.12551",
@@ -272,14 +271,14 @@
       "crossref_url": "https://api.crossref.org/works/10.1111/1755-0998.12551",
       "article_html_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
       "pmc_or_pubmed_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_supplement_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "docx_appendix"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1126/science.aam5298",
@@ -292,15 +291,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1126/science.aam5298",
       "article_html_source_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
       "pmc_or_pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28450643/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1126/science.aao3297",
@@ -313,15 +312,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1126/science.aao3297",
       "article_html_source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
       "pmc_or_pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1126/science.aav1002",
@@ -334,14 +333,14 @@
       "crossref_url": "https://api.crossref.org/works/10.1126/science.aav1002",
       "article_html_source_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
       "pmc_or_pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31296769/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_supplement_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1126/science.adt2642",
@@ -354,15 +353,15 @@
       "crossref_url": "https://api.crossref.org/works/10.1126/science.adt2642",
       "article_html_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
       "pmc_or_pubmed_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7618505/",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_supplement_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "zip_bundle"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
@@ -375,15 +374,15 @@
       "crossref_url": "https://api.crossref.org/works/10.24272/j.issn.2095-8137.2025.080",
       "article_html_source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_verified_in_local_reference_stash",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "local_structured_tables_staged",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"
       ],
       "local_reference_supplement_status": "local_reference_staged",
-      "acquisition_check_status": "local_reference_ready_for_ingestion"
+      "acquisition_check_status": "repo_archived"
     }
   ]
 }

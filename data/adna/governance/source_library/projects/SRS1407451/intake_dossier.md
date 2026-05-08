@@ -14,19 +14,23 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
+- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 
 ## Local artifacts
 

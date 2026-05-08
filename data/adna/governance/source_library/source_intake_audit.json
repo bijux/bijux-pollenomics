@@ -1,8 +1,8 @@
 {
   "schema_version": "adna-source-library.v1",
-  "sample_extractable_paper_count": 1,
-  "supplementary_manifested_paper_count": 1,
-  "supplement_zip_member_count": 10,
+  "sample_extractable_paper_count": 18,
+  "supplementary_manifested_paper_count": 18,
+  "supplement_zip_member_count": 11,
   "blocker_counts": {
     "missing_paper_capture_count": 13,
     "missing_supplementary_capture_count": 0,
