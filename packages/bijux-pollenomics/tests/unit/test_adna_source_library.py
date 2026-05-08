@@ -83,6 +83,12 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_site_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_manual_curation_queue.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_locality_conflict_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_locality_manual_curation_workflow.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_locality_substitution_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "site_name_normalization_dictionary.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_locality_completeness.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_locality_completeness.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_chronology_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_normalization_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
@@ -178,6 +184,28 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "papers"
                     / "10.1038-s42003-021-02794-8"
                     / "supplementary_manifest.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "locality_worksheet.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "sample_locality_evidence.json"
                 ).is_file()
             )
             self.assertTrue(
