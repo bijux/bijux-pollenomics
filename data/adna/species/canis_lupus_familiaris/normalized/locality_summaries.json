@@ -5,6 +5,66 @@
     {
       "identity": {
         "namespace": "canis_lupus_familiaris:project_locality",
+        "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "KX379528-KX379529",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "source_family": "GenBank",
+      "source_releases": [
+        "KX379528-KX379529"
+      ],
+      "record_modalities": [
+        "mitogenome_only"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "kx379528-kx379529:kx379528",
+        "kx379528-kx379529:kx379529"
+      ],
+      "datasets": [
+        "canis_lupus_familiaris:project:KX379528-KX379529"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "canis_lupus_familiaris:sample_locality",
+      "project_accessions": [
+        "KX379528-KX379529"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "These ancient dog mitogenomes are European comparative context rather than a Nordic-localized animal signal.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "canis_lupus_familiaris:project_locality",
         "stable_token": "canis_lupus_familiaris:locality:srs1407451:ancienteuropeandogctcsamplecontext:centraleurope",
         "locality_text": "Ancient European dog CTC sample context",
         "political_entity": "Central Europe",
@@ -59,7 +119,66 @@
       "original_location_text": "Ancient European dog CTC sample context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-      "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
+    },
+    {
+      "identity": {
+        "namespace": "canis_lupus_familiaris:project_locality",
+        "stable_token": "canis_lupus_familiaris:locality:srs1407453:unresolved",
+        "locality_text": "",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "SRS1407453",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Canis lupus familiaris",
+      "species_common_name": "dog",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRS1407453"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "srs1407453:srs1407453"
+      ],
+      "datasets": [
+        "canis_lupus_familiaris:project:SRS1407453"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "canis_lupus_familiaris:sample_locality",
+      "project_accessions": [
+        "SRS1407453"
+      ],
+      "original_location_text": "",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
+      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
     }
   ]
 }

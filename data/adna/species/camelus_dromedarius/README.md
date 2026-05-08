@@ -9,7 +9,7 @@
 - Curated site rows: `1`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `1`
-- Unresolved sample rows: `13`
+- Unresolved sample rows: `0`
 - Mapped Nordic rows: `0`
 - Tracked intake projects: `2`
 - Pending projects: `0`

@@ -23,13 +23,13 @@ Bos taurus,cattle,PRJNA705960,1,0,0,1,0,0,1,1,true,project_accession_anchor
 Capra hircus,goat,PRJEB90141,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Capra hircus,goat,PRJEB90261,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Capra hircus,goat,PRJNA1328209,1,0,1,0,0,0,1,1,true,project_accession_anchor
-Canis lupus familiaris,dog,KX379528-KX379529,2,0,0,0,2,0,0,0,true,accession_range_anchor
+Canis lupus familiaris,dog,KX379528-KX379529,2,0,0,0,0,2,1,1,true,accession_range_anchor
 Canis lupus familiaris,dog,SRS1407451,1,0,1,0,0,0,1,1,false,sample_accession_anchor
-Canis lupus familiaris,dog,SRS1407453,1,0,0,0,1,0,0,0,false,sample_accession_anchor
+Canis lupus familiaris,dog,SRS1407453,1,0,0,0,0,1,1,1,false,sample_accession_anchor
 Felis catus,cat,PRJEB81815,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Felis catus,cat,PRJNA1178732,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,0,0,13,0,0,0,true,accession_range_anchor
-Camelus dromedarius,dromedary camel,SRP073444,1,0,0,0,0,1,1,1,true,project_accession_anchor
+Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,0,0,0,13,1,1,true,accession_range_anchor
+Camelus dromedarius,dromedary camel,SRP073444,1,1,0,0,0,0,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB57293,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB60484,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB61721,1,0,0,1,0,0,0,0,true,project_accession_anchor

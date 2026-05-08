@@ -5,9 +5,9 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb36540:barcnhyk",
+        "stable_token": "ovis_aries:locality:prjeb36540:barcnhyk:turkey",
         "locality_text": "Barcın Höyük",
-        "political_entity": "",
+        "political_entity": "Turkey",
         "source_anchor_tokens": [
           "PRJEB36540",
           "",
@@ -102,7 +102,7 @@
       "original_location_text": "Barcın Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -165,7 +165,7 @@
       "original_location_text": "Boncuklu Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -228,7 +228,7 @@
       "original_location_text": "Canhasan III Höyüğü",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -303,14 +303,14 @@
       "original_location_text": "Pınarbaşı Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb36540:tepecikiftlikhyk",
+        "stable_token": "ovis_aries:locality:prjeb36540:tepecikiftlikhyk:turkey",
         "locality_text": "Tepecik-Çiftlik Höyük",
-        "political_entity": "",
+        "political_entity": "Turkey",
         "source_anchor_tokens": [
           "PRJEB36540",
           "",
@@ -435,14 +435,14 @@
       "original_location_text": "Tepecik-Çiftlik Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb36540:ulucakhyk",
+        "stable_token": "ovis_aries:locality:prjeb36540:ulucakhyk:turkey",
         "locality_text": "Ulucak Höyük",
-        "political_entity": "",
+        "political_entity": "Turkey",
         "source_anchor_tokens": [
           "PRJEB36540",
           "",
@@ -538,7 +538,7 @@
       "original_location_text": "Ulucak Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -597,7 +597,7 @@
       "original_location_text": "Baltic Sea Region short-tailed sheep context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs.",
-      "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row."
+      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready."
     }
   ]
 }
