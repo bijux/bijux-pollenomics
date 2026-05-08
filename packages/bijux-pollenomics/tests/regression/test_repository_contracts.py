@@ -236,6 +236,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         audit_markdown = report_root / "animal_output_audit.md"
         readiness_json = report_root / "animal_atlas_readiness.json"
         readiness_markdown = report_root / "animal_atlas_readiness.md"
+        honesty_json = report_root / "animal_output_honesty.json"
+        honesty_markdown = report_root / "animal_output_honesty.md"
+        exclusion_json = report_root / "animal_atlas_exclusion_report.json"
+        exclusion_markdown = report_root / "animal_atlas_exclusion_report.md"
         validation_json = report_root / "animal_foundation_validation.json"
         validation_markdown = report_root / "animal_foundation_validation.md"
         drift_json = report_root / "animal_cross_surface_drift.json"
@@ -279,6 +283,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(audit_markdown.is_file())
         self.assertTrue(readiness_json.is_file())
         self.assertTrue(readiness_markdown.is_file())
+        self.assertTrue(honesty_json.is_file())
+        self.assertTrue(honesty_markdown.is_file())
+        self.assertTrue(exclusion_json.is_file())
+        self.assertTrue(exclusion_markdown.is_file())
         self.assertTrue(validation_json.is_file())
         self.assertTrue(validation_markdown.is_file())
         self.assertTrue(drift_json.is_file())
@@ -682,6 +690,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "outputs"
             / "index.md"
         ).read_text(encoding="utf-8")
+        atlas_outputs = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "nordic-atlas.md"
+        ).read_text(encoding="utf-8")
         atlas_inputs_page = (
             REPO_ROOT
             / "docs"
@@ -745,13 +760,19 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("../../report/repository_source_explainer_audit.md", source_recovery_page)
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
         self.assertIn("../../report/animal_point_support_packets.md", published_reports)
+        self.assertIn("../../report/animal_output_honesty.md", published_reports)
+        self.assertIn("../../report/animal_atlas_exclusion_report.md", published_reports)
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
         self.assertIn("output-surface-classes.md", outputs_index)
+        self.assertIn("nordic-atlas-point-publication.md", outputs_index)
+        self.assertIn("nordic-atlas-filters-and-popups.md", outputs_index)
+        self.assertIn("nordic-atlas-limits-and-honesty.md", outputs_index)
         self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
         self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page)
         self.assertIn("../../report/sweden/sweden_animal_adna_v66_samples.md", published_reports)
         self.assertIn("../../report/sweden/README.md", published_reports)
+        self.assertIn("animal_atlas_candidate_accountability.md", atlas_outputs)
 
     def test_public_docs_do_not_ship_reference_grade_phrase(self) -> None:
         failures: list[str] = []
@@ -788,6 +809,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         atlas_index = (
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
         ).read_text(encoding="utf-8")
+        atlas_files = sorted(
+            path.name for path in (REPO_ROOT / "docs" / "05-nordic-evidence-atlas").glob("*.md")
+        )
 
         self.assertIn("pollenomics and environmental evidence repository", root_readme)
         self.assertIn(
@@ -802,6 +826,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("checked-in evidence surfaces across pollen context", runtime_index)
         self.assertIn("pollen context, environmental archaeology", data_index)
         self.assertIn("downstream view of the repository evidence tree", atlas_index)
+        self.assertEqual(atlas_files, ["index.md"])
 
     def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
