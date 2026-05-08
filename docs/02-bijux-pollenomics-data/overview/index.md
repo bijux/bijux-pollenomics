@@ -29,6 +29,9 @@ different limits, and different paths into public outputs.
 
 - [Data system overview](data-system-overview.md)
 - [Pollenomics publication model](pollenomics-publication-model.md)
+- [Provenance and publication linkage](provenance-and-publication-linkage.md)
+- [Source selection and refresh](source-selection-and-refresh.md)
+- [Coverage and naming](coverage-and-naming.md)
 - [Cross-domain evidence matrix](cross-domain-evidence-matrix.md)
 - [Animal ancient DNA evidence](animal-ancient-dna-evidence.md)
 - [Data directory layout](data-directory-layout.md)
@@ -40,3 +43,12 @@ different limits, and different paths into public outputs.
 3. Open [cross-domain evidence matrix](cross-domain-evidence-matrix.md) when the question is balance rather than one file family.
 4. Read [animal ancient DNA evidence](animal-ancient-dna-evidence.md) when the question is about sample-backed animal records.
 5. Open [data directory layout](data-directory-layout.md) when you need the file-tree view behind those explanations.
+
+## Restored Foundation Topics
+
+- provenance model and publication linkage now live in
+  [provenance and publication linkage](provenance-and-publication-linkage.md)
+- source selection rules, update lifecycle, and rewrite pressure now live in
+  [source selection and refresh](source-selection-and-refresh.md)
+- naming conventions, breadth expectations, and layout pressure now live in
+  [coverage and naming](coverage-and-naming.md)

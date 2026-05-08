@@ -10,10 +10,10 @@ last_reviewed: 2026-05-08
 # bijux-pollenomics-data
 
 `bijux-pollenomics-data` is the public guide to the repository's evidence
-layers. It explains how pollen context, environmental archaeology, boundary
-framing, animal ancient DNA, and public outputs fit together, how those
-records are checked and organized, and how they later appear in country
-reports or the Nordic atlas.
+layers. It explains how pollen context, environmental archaeology, boundary framing,
+animal ancient DNA, and public outputs fit together, how those records are
+checked and organized, and how they later appear in country reports or the
+Nordic atlas.
 
 <div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader answer simple questions clearly: what the repository knows, where it came from, what is still incomplete, and why some records appear in public outputs while others do not.</div>
 
@@ -21,7 +21,10 @@ reports or the Nordic atlas.
   <a class="md-button md-button--primary" href="overview/">Start with the overview</a>
   <a class="md-button" href="sources/">See the source families</a>
   <a class="md-button" href="overview/pollenomics-publication-model/">See the pollenomics publication model</a>
+  <a class="md-button" href="overview/provenance-and-publication-linkage/">See provenance and publication linkage</a>
   <a class="md-button" href="overview/cross-domain-evidence-matrix/">Open the cross-domain evidence matrix</a>
+  <a class="md-button" href="overview/source-selection-and-refresh/">See source selection and refresh</a>
+  <a class="md-button" href="overview/coverage-and-naming/">See coverage and naming</a>
   <a class="md-button" href="sources/animal-source-intake/">See animal source intake</a>
   <a class="md-button" href="evidence/">See sample-to-map evidence</a>
   <a class="md-button" href="outputs/">See public outputs</a>
@@ -53,6 +56,12 @@ table, a locality decision, and a public map point.
 - [Evidence](evidence/index.md): how sample records, localities, chronology, and coordinates are justified
 - [Outputs](outputs/index.md): what the country reports and the Nordic atlas publish
 - [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md): how domain balance is audited without file-count theater
+
+## Restored System Coverage
+
+- [provenance and publication linkage](overview/provenance-and-publication-linkage.md)
+- [source selection and refresh](overview/source-selection-and-refresh.md)
+- [coverage and naming](overview/coverage-and-naming.md)
 
 ## Source-Family Comparison
 
