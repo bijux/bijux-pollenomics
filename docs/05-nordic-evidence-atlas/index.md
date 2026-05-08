@@ -46,7 +46,7 @@ justify. It should help a reader answer four questions quickly:
 - [animal point traceability](../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
 - [final atlas candidate packet](../../data/adna/final/atlas/animal_atlas_point_candidates.json)
 - [final atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
-- [animal point support packets](../report/animal_point_support_packets.md)
+- [animal point evidence review](../report/animal_point_evidence_review.md)
 - [atlas readiness audit](../report/animal_atlas_readiness.md)
 - [animal output honesty](../report/animal_output_honesty.md)
 - [animal atlas exclusion report](../report/animal_atlas_exclusion_report.md)

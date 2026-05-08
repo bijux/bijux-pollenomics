@@ -328,7 +328,7 @@ def build_repository_governance_artifact_review(
             "This file surfaces chronology extraction weakness project by project.",
         ),
         _artifact_review_row(
-            "docs/report/animal_point_support_packets.json",
+            "docs/report/animal_point_evidence_review.json",
             "keep",
             "traceability",
             "This file keeps published points anchored to sample, site, and coordinate support.",

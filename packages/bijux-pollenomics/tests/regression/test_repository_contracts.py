@@ -246,10 +246,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         drift_markdown = report_root / "animal_cross_surface_drift.md"
         caveat_json = report_root / "animal_scientific_caveat_ledger.json"
         caveat_markdown = report_root / "animal_scientific_caveat_ledger.md"
-        point_json = report_root / "animal_point_support_packets.json"
-        point_markdown = report_root / "animal_point_support_packets.md"
-        absence_json = report_root / "animal_project_absence_packets.json"
-        absence_markdown = report_root / "animal_project_absence_packets.md"
+        point_json = report_root / "animal_point_evidence_review.json"
+        point_markdown = report_root / "animal_point_evidence_review.md"
+        absence_json = report_root / "animal_project_publication_gap_review.json"
+        absence_markdown = report_root / "animal_project_publication_gap_review.md"
         review_json = report_root / "animal_foundation_review.json"
         review_markdown = report_root / "animal_foundation_review.md"
         chronology_json = report_root / "animal_sample_chronology_review.json"
@@ -355,11 +355,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             caveat_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "Animal point support packets",
+            "Animal point evidence review",
             point_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "Animal project absence packets",
+            "Animal project publication gap review",
             absence_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
@@ -747,7 +747,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             coordinate_page,
         )
         self.assertIn(
-            "../report/animal_point_support_packets.md",
+            "../report/animal_point_evidence_review.md",
             atlas_index,
         )
         self.assertIn(
@@ -787,7 +787,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("../../report/repository_source_explainer_audit.md", source_recovery_page)
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
-        self.assertIn("../../report/animal_point_support_packets.md", published_reports)
+        self.assertIn("../../report/animal_point_evidence_review.md", published_reports)
         self.assertIn("../../report/animal_output_honesty.md", published_reports)
         self.assertIn("../../report/animal_atlas_exclusion_report.md", published_reports)
         self.assertIn("../../report/repository_truth_posture.md", published_reports)

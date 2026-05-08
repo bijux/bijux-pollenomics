@@ -1,5 +1,5 @@
 {
-  "schema_version": "animal-project-absence-packets.v1",
+  "schema_version": "animal-project-publication-gap-review.v1",
   "source_audit": {
     "schema_version": "adna-source-library.v1",
     "archive_sufficient_count": 6,

@@ -21,7 +21,7 @@ site, chronology, and coordinate rules are applied?
 - [Norway country bundle](../../report/norway/README.md)
 - [Sweden animal sample query](../../report/sweden/sweden_animal_adna_v66_samples.md)
 - [Norway animal sample query](../../report/norway/norway_animal_adna_v66_samples.md)
-- [animal point support packets](../../report/animal_point_support_packets.md)
+- [animal point evidence review](../../report/animal_point_evidence_review.md)
 - [animal sample database review](../../report/animal_sample_database_review.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
 - [animal output honesty](../../report/animal_output_honesty.md)
