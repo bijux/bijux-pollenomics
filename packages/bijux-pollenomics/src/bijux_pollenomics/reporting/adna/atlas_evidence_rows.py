@@ -241,7 +241,9 @@ def build_tracked_animal_atlas_evidence_rows(
                     confidence_rationale=str(provenance.get("confidence_rationale", "")),
                     original_place_text=str(provenance.get("original_place_text", "")),
                     resolved_place_text=str(provenance.get("resolved_place_text", "")),
-                    chronology=_parse_chronology(locality.get("chronology", {})),
+                    chronology=_atlas_public_chronology(
+                        _parse_chronology(locality.get("chronology", {}))
+                    ),
                     project_accessions=project_accessions,
                     primary_project_accession=primary_project_accession,
                     sample_record_ids=_sample_record_ids_for(
@@ -392,7 +394,7 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
         sample_count=int(payload.get("sample_count", 0) or 0),
         sample_ids=tuple(str(item) for item in payload.get("sample_ids", [])),
         datasets=tuple(str(item) for item in payload.get("datasets", [])),
-        chronology=_parse_chronology(chronology),
+        chronology=_atlas_public_chronology(_parse_chronology(chronology)),
         sample_namespace=str(payload.get("sample_namespace", "")),
         project_accessions=tuple(
             str(item) for item in payload.get("project_accessions", [])
@@ -414,6 +416,23 @@ def _parse_chronology(payload: object) -> AdnaChronology:
         time_mean_bp=_optional_int(payload.get("time_mean_bp")),
         date_stddev_bp=str(payload.get("date_stddev_bp", "")),
         dating_basis=str(payload.get("dating_basis", "unknown")),
+        evidence_class=str(payload.get("evidence_class", "unresolved")),
+        precision_posture=str(payload.get("precision_posture", "unresolved")),
+    )
+
+
+def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
+    if chronology.precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+        return chronology
+    return AdnaChronology(
+        original_text=chronology.original_text,
+        time_start_bp=None,
+        time_end_bp=None,
+        time_mean_bp=None,
+        date_stddev_bp=chronology.date_stddev_bp,
+        dating_basis=chronology.dating_basis,
+        evidence_class=chronology.evidence_class,
+        precision_posture=chronology.precision_posture,
     )
 
 

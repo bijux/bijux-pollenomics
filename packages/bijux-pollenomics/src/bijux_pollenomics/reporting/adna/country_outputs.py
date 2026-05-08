@@ -111,11 +111,22 @@ def build_country_animal_output_bundle(
                 "confidence_rationale": row.confidence_rationale,
                 "original_place_text": row.original_place_text,
                 "resolved_place_text": row.resolved_place_text,
-                "time_start_bp": row.chronology.time_start_bp,
-                "time_end_bp": row.chronology.time_end_bp,
-                "time_mean_bp": row.chronology.time_mean_bp,
+                "time_start_bp": _published_chronology_value(
+                    row.chronology.time_start_bp,
+                    row.chronology.precision_posture,
+                ),
+                "time_end_bp": _published_chronology_value(
+                    row.chronology.time_end_bp,
+                    row.chronology.precision_posture,
+                ),
+                "time_mean_bp": _published_chronology_value(
+                    row.chronology.time_mean_bp,
+                    row.chronology.precision_posture,
+                ),
                 "time_label": row.chronology.original_text,
                 "dating_basis": row.chronology.dating_basis,
+                "chronology_evidence_class": row.chronology.evidence_class,
+                "chronology_precision_posture": row.chronology.precision_posture,
                 "nordic_inclusion": row.nordic_inclusion,
                 "nordic_inclusion_reason": row.nordic_inclusion_reason,
                 "interpretation_note": row.interpretation_note,
@@ -189,6 +200,8 @@ def write_country_animal_samples_csv(path: Path, bundle: CountryAnimalOutputBund
         "source_locator",
         "source_support_status",
         "time_label",
+        "chronology_evidence_class",
+        "chronology_precision_posture",
         "inclusion_status",
         "inclusion_note",
         "sample_basis",
@@ -245,6 +258,8 @@ def write_country_animal_localities_geojson(path: Path, bundle: CountryAnimalOut
             {"label": "Country assignment", "value": row["country_assignment_confidence"]},
             {"label": "Assignment note", "value": row["country_assignment_reason"]},
             {"label": "Chronology", "value": row["time_label"]},
+            {"label": "Chronology class", "value": row["chronology_evidence_class"]},
+            {"label": "Chronology posture", "value": row["chronology_precision_posture"]},
             {"label": "Coordinate basis", "value": row["coordinate_basis"]},
             {"label": "Coordinate confidence", "value": row["coordinate_confidence"]},
             {"label": "Mapped sample identifiers", "value": ", ".join(row["sample_record_ids"])},
@@ -282,6 +297,8 @@ def write_country_animal_localities_geojson(path: Path, bundle: CountryAnimalOut
                     "time_end_bp": row["time_end_bp"],
                     "time_mean_bp": row["time_mean_bp"],
                     "time_label": row["time_label"],
+                    "chronology_evidence_class": row["chronology_evidence_class"],
+                    "chronology_precision_posture": row["chronology_precision_posture"],
                     "paper_title": row["paper_title"],
                     "paper_doi": row["paper_doi"],
                     "source_url": row["source_url"],
@@ -536,6 +553,14 @@ def _build_sample_rows(
                     "time_label": str(
                         chronology.get("original_text") or locality.get("time_label", "")
                     ),
+                    "chronology_evidence_class": str(
+                        chronology.get("evidence_class")
+                        or locality.get("chronology_evidence_class", "")
+                    ),
+                    "chronology_precision_posture": str(
+                        chronology.get("precision_posture")
+                        or locality.get("chronology_precision_posture", "")
+                    ),
                     "inclusion_status": str(sample.get("inclusion_status", "")),
                     "inclusion_note": str(sample.get("inclusion_note", "")),
                     "sample_basis": str(sample.get("sample_basis", "")),
@@ -626,6 +651,15 @@ def _build_species_rows(
             }
         )
     return species_rows
+
+
+def _published_chronology_value(
+    value: int | None,
+    precision_posture: str,
+) -> int | None:
+    if precision_posture not in {"sample_precise_point", "sample_precise_interval"}:
+        return None
+    return value
 
 
 def _build_citation_rows(

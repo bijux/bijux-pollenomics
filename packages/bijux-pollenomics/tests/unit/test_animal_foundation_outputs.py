@@ -80,7 +80,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-point-support-packets.v1")
-        self.assertEqual(payload["row_count"], 207)
+        self.assertEqual(payload["row_count"], 208)
         first_row = payload["rows"][0]
         self.assertTrue(first_row["sample_rows"])
         self.assertTrue(first_row["site_evidence"])
@@ -111,10 +111,11 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         payload = build_animal_sample_chronology_viewer(data_root=self.data_root)
 
         self.assertEqual(payload["schema_version"], "animal-sample-chronology-viewer.v1")
-        self.assertEqual(payload["row_count"], 755)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 256)
+        self.assertEqual(payload["row_count"], 868)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 296)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 469)
         self.assertEqual(payload["normalization_counts"]["unresolved"], 16)
+        self.assertEqual(payload["precision_counts"]["contextual_interval"], 50)
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB36540"
@@ -143,7 +144,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertTrue(payload["sample_database_claim_supported"])
         self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 207)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 208)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)
@@ -158,6 +159,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
         self.assertIn("sample_foundation_truth", payload["direct_links"])
         self.assertIn("locality_conflicts", payload["direct_links"])
+        self.assertIn("chronology_precision_audit", payload["direct_links"])
 
     def test_foundation_review_and_release_gate_keep_public_posture_honest(self) -> None:
         validation_payload = build_animal_foundation_validation_report(
@@ -593,7 +595,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
-            self.assertEqual(chronology_payload["row_count"], 755)
+            self.assertEqual(chronology_payload["row_count"], 868)
             self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
             self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
             self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])
