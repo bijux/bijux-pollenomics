@@ -14,22 +14,28 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1093-gbe-evae114/article.html`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1093-gbe-evae114/article.html`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1093-gbe-evae114/article.html`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
 - `adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json`
 - `adna/governance/source_library/projects/PRJEB59481/archive_metadata.html`
 

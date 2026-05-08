@@ -14,24 +14,35 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 
 ## Local artifacts
 
 - `adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html`
 - `adna/governance/source_library/papers/10.1073-pnas.1901169116/crossref.json`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 - `adna/governance/source_library/projects/PRJEB30282/archive_metadata.html`
 
 ## Blockers

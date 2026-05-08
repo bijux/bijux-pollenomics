@@ -8,7 +8,7 @@
   "paper_doi": "10.1073/pnas.1901169116",
   "paper_title": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -17,18 +17,31 @@
   "inventory_disposition": "tracked_intake_candidate",
   "rejection_reason": "",
   "sample_identifier_targets": [
-    "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html"
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx"
   ],
   "sample_site_targets": [
-    "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html"
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx"
   ],
   "chronology_targets": [
-    "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html"
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx"
   ],
-  "expected_supplementary_artifacts": [],
+  "expected_supplementary_artifacts": [
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx"
+  ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
     "adna/governance/source_library/papers/10.1073-pnas.1901169116/crossref.json",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
     "adna/governance/source_library/projects/PRJEB30282/archive_metadata.html"
   ],
   "blockers": [],

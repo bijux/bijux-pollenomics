@@ -10,12 +10,16 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.1093-gbe-evae114:Supplementary Figures Baltic Sheep.pdf",
+    "10.1093-gbe-evae114:SupplementaryTables_Revision2.xlsx",
     "10.1093-gbe-evae114:crossref.json",
     "PRJEB59481:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
     "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html"
   ],

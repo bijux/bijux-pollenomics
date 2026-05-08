@@ -8,7 +8,7 @@
   "paper_doi": "10.1093/gbe/evaf181",
   "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -17,16 +17,24 @@
   "inventory_disposition": "tracked_intake_candidate",
   "rejection_reason": "",
   "sample_identifier_targets": [
-    "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/article.html"
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
   ],
   "sample_site_targets": [
-    "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/article.html"
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
   ],
   "chronology_targets": [
-    "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/article.html"
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
   ],
-  "expected_supplementary_artifacts": [],
+  "expected_supplementary_artifacts": [
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
+  ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evaf181/crossref.json",
     "adna/governance/source_library/projects/PRJEB90141/archive_metadata.html"
   ],

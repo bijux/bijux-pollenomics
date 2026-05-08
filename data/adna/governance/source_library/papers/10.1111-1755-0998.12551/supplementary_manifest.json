@@ -34,6 +34,21 @@
     {
       "row_kind": "archived_asset",
       "paper_doi": "10.1111/1755-0998.12551",
+      "artifact_id": "10.1111-1755-0998.12551:men12551-sup-0001-supinfo.docx",
+      "artifact_kind": "supplementary_pdf",
+      "label": "curated supplementary asset men12551-sup-0001-supinfo.docx",
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5324683/",
+      "local_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
+      "fetch_status": "archived",
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "byte_size": 170976839,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/1755-0998.12551",
       "artifact_id": "KU605068-KU605080:archive_metadata.html",
       "artifact_kind": "archive_metadata_html",
       "label": "archive metadata page",
