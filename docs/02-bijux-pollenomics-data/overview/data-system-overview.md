@@ -12,8 +12,8 @@ last_reviewed: 2026-05-08
 The data system in `bijux-pollenomics` is designed to keep different kinds of
 evidence visible instead of merging everything into one vague export. Readers
 should be able to tell whether they are looking at pollen context,
-archaeological context, boundary framing, fieldwork documentation, or ancient
-DNA sample evidence.
+archaeological context, boundary framing, fieldwork documentation, public
+review packets, or ancient DNA sample evidence.
 
 ## The Basic Shape
 
@@ -35,19 +35,25 @@ to read the public-facing country or atlas outputs built from it.
 
 ## Main Data Families
 
-| Family | Role in the repository | Main location |
+| Family | Role in the repository | Main location | Current publication posture |
 | --- | --- | --- |
-| Pollen context | environmental and paleoecological context | `data/landclim/`, `data/neotoma/` |
-| Archaeology context | broader settlement and environmental archaeology layers | `data/sead/`, `data/raa/` |
-| Boundary framing | country filtering and regional map framing | `data/boundaries/` |
-| Animal ancient DNA | sample-backed contextual evidence from papers and supplements | `data/adna/` |
-| Fieldwork | direct visit and observation records | `docs/04-fieldwork/` |
+| Pollen context | environmental and paleoecological context | `data/landclim/`, `data/neotoma/` | first-class pollenomics context |
+| Archaeology context | broader settlement and environmental archaeology layers | `data/sead/`, `data/raa/` | contextual support layers |
+| Boundary framing | country filtering and regional map framing | `data/boundaries/` | framing layer, not scientific evidence |
+| Animal ancient DNA | sample-backed contextual evidence from papers and supplements | `data/adna/` | partial recovery program |
+| Fieldwork | direct visit and observation records | `docs/04-fieldwork/` | narrow but explicit record surface |
 
 ## Main Repository Surfaces
 
 - `data/` keeps repository-owned source material, normalized records, and review artifacts.
 - `docs/report/` keeps the generated country bundles, atlas assets, and public review packets.
 - `docs/02-bijux-pollenomics-data/` explains how those tracked files fit together.
+
+## Reading Pressure
+
+- [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
+- [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) keeps domain balance visible in evidence units instead of file counts.
+- [Output surface classes](../outputs/output-surface-classes.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.
 
 ## Why The Separation Matters
 
