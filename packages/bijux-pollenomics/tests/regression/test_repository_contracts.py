@@ -118,6 +118,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.md").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.json").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_locality_conflict_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_locality_conflict_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_locality_manual_curation_workflow.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_locality_manual_curation_workflow.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_locality_substitution_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_locality_substitution_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "site_name_normalization_dictionary.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "site_name_normalization_dictionary.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "species_locality_completeness.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "species_locality_completeness.csv").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_locality_completeness.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "project_locality_completeness.csv").is_file())
         self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.json").is_file())
         self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.csv").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.json").is_file())
@@ -155,6 +167,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "projects"
                 / "PRJEB36540"
                 / "sample_master.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "locality_worksheet.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "sample_locality_evidence.json"
             ).is_file()
         )
         self.assertTrue(
@@ -349,6 +379,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("sample_master.json", inventory_text)
         self.assertIn("project_sample_site_review.json", inventory_text)
         self.assertIn("sample_sites.json", inventory_text)
+        self.assertIn("locality_worksheet.json", inventory_text)
+        self.assertIn("sample_locality_evidence.json", inventory_text)
+        self.assertIn("sample_locality_conflict_ledger.json", inventory_text)
+        self.assertIn("site_name_normalization_dictionary.json", inventory_text)
         self.assertIn("project_sample_chronology_review.json", inventory_text)
         self.assertIn("sample_chronology.json", inventory_text)
 

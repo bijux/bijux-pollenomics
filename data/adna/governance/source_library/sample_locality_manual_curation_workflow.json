@@ -1,0 +1,83 @@
+{
+  "schema_version": "animal-sample-locality-manual-curation-workflow.v1",
+  "rows": [
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 13,
+      "queued_sample_ids": [
+        "ku605068-ku605080:ku605068",
+        "ku605068-ku605080:ku605069",
+        "ku605068-ku605080:ku605070",
+        "ku605068-ku605080:ku605071",
+        "ku605068-ku605080:ku605072",
+        "ku605068-ku605080:ku605073",
+        "ku605068-ku605080:ku605074",
+        "ku605068-ku605080:ku605075",
+        "ku605068-ku605080:ku605076",
+        "ku605068-ku605080:ku605077",
+        "ku605068-ku605080:ku605078",
+        "ku605068-ku605080:ku605079",
+        "ku605068-ku605080:ku605080"
+      ],
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 2,
+      "queued_sample_ids": [
+        "kx379528-kx379529:kx379528",
+        "kx379528-kx379529:kx379529"
+      ],
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "region_only",
+      "unresolved_place_string": "Ancient European dog CTC sample context",
+      "candidate_matches": [
+        "Ancient European dog CTC sample context"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 1,
+      "queued_sample_ids": [
+        "srs1407451:srs1407451"
+      ],
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 1,
+      "queued_sample_ids": [
+        "srs1407453:srs1407453"
+      ],
+      "recommended_source_surfaces": []
+    }
+  ]
+}

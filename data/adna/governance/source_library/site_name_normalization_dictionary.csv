@@ -1,0 +1,266 @@
+project_accession,species_latin_name,normalized_display_spelling,geocoding_safe_token,original_source_spellings,alternative_spellings,source_surfaces,locality_classes
+PRJEB19970,Equus caballus,Arzhan I,arzhani,Arzhan I,,supplementary_table,excavation_site
+PRJEB19970,Equus caballus,Berel',berel,Berel',,supplementary_table,excavation_site
+PRJEB19970,Equus caballus,N/A,na,N/A,,supplementary_table,excavation_site
+PRJEB19970,Equus caballus,Sintashta,sintashta,Sintashta,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Actiparc,actiparc,Actiparc,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Bateni,bateni,Bateni,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Borly4,borly4,Borly4,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai,botai,Botai,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai archaeological site horse context,botaiarchaeologicalsitehorsecontext,Botai archaeological site,Botai archaeological site,coordinate_resolution,country
+PRJEB22390,Equus caballus,Botai C,botaic,Botai C,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai culture of the Central Asian steppes,botaicultureofthecentralasiansteppes,Botai culture of the Central Asian steppes,,article_text,broader_locality
+PRJEB22390,Equus caballus,Botai culture steppe context,botaiculturesteppecontext,Botai culture steppe context,,article_text,broader_locality
+PRJEB22390,Equus caballus,Botai F,botaif,Botai F,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai G,botaig,Botai G,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai I,botaii,Botai I,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai K,botaik,Botai K,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai LM,botailm,Botai LM,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai P,botaip,Botai P,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai Petrous,botaipetrous,Botai Petrous,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Botai R,botair,Botai R,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Dunaujvaros,dunaujvaros,Dunaujvaros,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,FMontauban,fmontauban,FMontauban,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Garbovat,garbovat,Garbovat,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,GolModII,golmodii,GolModII,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Grigorevka4,grigorevka4,Grigorevka4,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Haunstetten,haunstetten,Haunstetten,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Ridala,ridala,Ridala,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,ShahrIQumis,shahriqumis,ShahrIQumis,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Syrgal,syrgal,Syrgal,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,TachtiPerda,tachtiperda,TachtiPerda,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,TepeHasanlu,tepehasanlu,TepeHasanlu,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,UushgiinUvur,uushgiinuvur,UushgiinUvur,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Yenikapi,yenikapi,Yenikapi,,supplementary_table,excavation_site
+PRJEB22390,Equus caballus,Zhanaturmus,zhanaturmus,Zhanaturmus,,supplementary_table,excavation_site
+PRJEB30282,Sus scrofa domesticus,Near East and Europe pig domestication transect,neareastandeuropepigdomesticationtransect,Near East and Europe pig domestication transect;Near East to Europe regional study extent,Near East to Europe regional study extent,article_text;coordinate_resolution,broader_locality
+PRJEB31613,Equus caballus,Actiparc,actiparc,Actiparc,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Alcáçova de Santarém,alcáçovadesantarém,Alcáçova de Santarém,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Altata,altata,Altata,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Arzhan I,arzhani,Arzhan I,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Arzhan II,arzhanii,Arzhan II,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Augusta Raurica - Insula 8,augustarauricainsula8,Augusta Raurica - Insula 8,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Augusta Raurica - Schmidmatt,augustarauricaschmidmatt,Augusta Raurica - Schmidmatt,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Balagansk,balagansk,Balagansk,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Bapska Gradac,bapskagradac,Bapska Gradac,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Batagai,batagai,Batagai,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Bateni,bateni,Bateni,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Beauvais, la Maladrerie Saint-Lazare",beauvaislamaladreriesaintlazare,"Beauvais, la Maladrerie Saint-Lazare",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Beauvais, VIlliers-de-l'Isle Adam",beauvaisvilliersdelisleadam,"Beauvais, VIlliers-de-l'Isle Adam",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Belgheis,belgheis,Belgheis,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Belkaragay,belkaragay,Belkaragay,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Berel',berel,Berel',,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Berufjordur,berufjordur,Berufjordur,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Borly 4,borly4,Borly 4,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Botai,botai,Botai,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Boves, chemin de Glisy",boveschemindeglisy,"Boves, chemin de Glisy",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Boz-Adyr,bozadyr,Boz-Adyr,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Brough Of Deerness,broughofdeerness,Brough Of Deerness,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Bruszcewo,bruszcewo,Bruszcewo,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Camino de las Yeseras, Madrid",caminodelasyeserasmadrid,"Camino de las Yeseras, Madrid",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Cantorella,cantorella,Cantorella,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Capesterre-Belle-Eau,capesterrebelleeau,Capesterre-Belle-Eau,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Capote,capote,Capote,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Chartres, boulevard de la Courtille",chartresboulevarddelacourtille,"Chartres, boulevard de la Courtille",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Dariali, Tamara Fort",darialitamarafort,"Dariali, Tamara Fort",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Derkul,derkul,Derkul,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Dunaújváros,dunaújváros,Dunaújváros,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,El Acequión,elacequión,El Acequión,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Els Vilars,elsvilars,Els Vilars,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Evreux, Clos-au-Duc",evreuxclosauduc,"Evreux, Clos-au-Duc",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Fengtai,fengtai,Fengtai,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Frankfurt-Heddenheim,frankfurtheddenheim,Frankfurt-Heddenheim,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Fresnes-lès-Montauban,fresneslèsmontauban,Fresnes-lès-Montauban,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Garbovat,garbovat,Garbovat,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Gol Mod II,golmodii,Gol Mod II,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Goyet,goyet,Goyet,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Granastaðir,granastaðir,Granastaðir,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Gregorevka 4,gregorevka4,Gregorevka 4,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Halvai 3,halvai3,Halvai 3,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Halvai 5,halvai5,Halvai 5,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Haunstetten,haunstetten,Haunstetten,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Khatuu 2,khatuu2,Khatuu 2,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Khotont,khotont,Khotont,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Kokorevo,kokorevo,Kokorevo,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Krasnaya Gorka,krasnayagorka,Krasnaya Gorka,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Krasnokamenka,krasnokamenka,Krasnokamenka,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Kulian Cave,kuliancave,Kulian Cave,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Lebyazhinka IV,lebyazhinkaiv,Lebyazhinka IV,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Longueil-Annel,longueilannel,Longueil-Annel,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Macon, rue Rambuteau",maconruerambuteau,"Macon, rue Rambuteau",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Mainz,mainz,Mainz,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Marvelė cemetery,marvelėcemetery,Marvelė cemetery,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Merzly Yar,merzlyyar,Merzly Yar,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Metz, Place de la République",metzplacedelarépublique,"Metz, Place de la République",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Miciurin,miciurin,Miciurin,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,museum specimen,museumspecimen,museum specimen,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Noyon - Orroire,noyonorroire,Noyon - Orroire,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Nuštar,nuštar,Nuštar,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Oktyabrsky,oktyabrsky,Oktyabrsky,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Olon Kurin Gol,olonkuringol,Olon Kurin Gol,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Otepää,otepää,Otepää,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Otok,otok,Otok,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Potapovka I,potapovkai,Potapovka I,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Quoygrew,quoygrew,Quoygrew,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Ridala,ridala,Ridala,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Saadjärve,saadjärve,Saadjärve,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Sagzabad,sagzabad,Sagzabad,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Saint-Just-en-Chaussée,saintjustenchaussée,Saint-Just-en-Chaussée,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Saint-Quentin,saintquentin,Saint-Quentin,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Sayangorsk,sayangorsk,Sayangorsk,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Schloßvippach,schlossvippach,Schloßvippach,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Shar-I-Qumis,shariqumis,Shar-I-Qumis,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Sintashta,sintashta,Sintashta,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Solothurn-Vigier,solothurnvigier,Solothurn-Vigier,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Steim am Rhein Charregass,steimamrheincharregass,Steim am Rhein Charregass,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Syrgal 1,syrgal1,Syrgal 1,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Tachti Perda,tachtiperda,Tachti Perda,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Tavan Tolgoi,tavantolgoi,Tavan Tolgoi,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Taymyr,taymyr,Taymyr,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Tepe Hasanlu,tepehasanlu,Tepe Hasanlu,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Tumeski,tumeski,Tumeski,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Uppsala,uppsala,Uppsala,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Uushgiin Uvur,uushgiinuvur,Uushgiin Uvur,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,"Vermand, rue De Gaulle",vermandruedegaulle,"Vermand, rue De Gaulle",,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Vicerrectorado,vicerrectorado,Vicerrectorado,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Whitehall Roman Villa,whitehallromanvilla,Whitehall Roman Villa,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Witter Place,witterplace,Witter Place,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Yenikapi,yenikapi,Yenikapi,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Yerqorqan,yerqorqan,Yerqorqan,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Zhanaturmus,zhanaturmus,Zhanaturmus,,supplementary_table,excavation_site
+PRJEB31613,Equus caballus,Šebastovce,šebastovce,Šebastovce,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Barcın Höyük,barcınhöyük,Barcın Höyük,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Boncuklu Höyük,boncukluhöyük,Boncuklu Höyük,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Canhasan III Höyüğü,canhasaniiihöyüğü,Canhasan III Höyüğü,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Pınarbaşı Höyük,pınarbaşıhöyük,Pınarbaşı Höyük,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Tepecik-Çiftlik Höyük,tepecikçiftlikhöyük,Tepecik-Çiftlik Höyük,,supplementary_table,excavation_site
+PRJEB36540,Ovis aries,Ulucak Höyük,ulucakhöyük,Ulucak Höyük,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Acemhoyuk,acemhoyuk,Acemhoyuk,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Aleksandrovskoe IV,aleksandrovskoeiv,Aleksandrovskoe IV,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Algay,algay,Algay,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Althiburos,althiburos,Althiburos,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Arzhan-I,arzhani,Arzhan-I,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Arzhan-II,arzhanii,Arzhan-II,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ashchisu,ashchisu,Ashchisu,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Asva,asva,Asva,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Aygurskiy 2,aygurskiy2,Aygurskiy 2,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Bad Pirawarth,badpirawarth,Bad Pirawarth,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Belkaragay,belkaragay,Belkaragay,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Bestamak,bestamak,Bestamak,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Bijke-V,bijkev,Bijke-V,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Bol'shekaraganskii,bolshekaraganskii,Bol'shekaraganskii,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Bor Shoroonii,borshoroonii,Bor Shoroonii,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Borly,borly,Borly,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Borly 4,borly4,Borly 4,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Botai,botai,Botai,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Burgast,burgast,Burgast,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Burial mound at Berezovaya mountain,burialmoundatberezovayamountain,Burial mound at Berezovaya mountain,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Březno,březno,Březno,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Chalk Hill,chalkhill,Chalk Hill,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Chinge-Tey-I,chingeteyi,Chinge-Tey-I,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Choburak-I,choburaki,Choburak-I,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Cova Fosca,covafosca,Cova Fosca,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Căscioarele,căscioarele,Căscioarele,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Divnogor'ye 9,divnogorye9,Divnogor'ye 9,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,El Turuñuelo,elturuñuelo,El Turuñuelo,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Els Vilars,elsvilars,Els Vilars,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Etiolles,etiolles,Etiolles,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ganga-Tsagaan Ereg,gangatsagaanereg,Ganga-Tsagaan Ereg,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ginnerup,ginnerup,Ginnerup,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Gordinesti II,gordinestiii,Gordinesti II,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Halvai,halvai,Halvai,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Hohler Stein bei Schwabthal,hohlersteinbeischwabthal,Hohler Stein bei Schwabthal,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Holubice,holubice,Holubice,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Hyena's Lair,hyenaslair,Hyena's Lair,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Igue du Gral,iguedugral,Igue du Gral,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kamennyi Ambar 5,kamennyiambar5,Kamennyi Ambar 5,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kaposújlak-Várdomb,kaposújlakvárdomb,Kaposújlak-Várdomb,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kazimierza Wielka 6,kazimierzawielka6,Kazimierza Wielka 6,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kent,kent,Kent,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kents cavern,kentscavern,Kents cavern,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Khantain-tov,khantaintov,Khantain-tov,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kirklareli-Kanligecit,kirklarelikanligecit,Kirklareli-Kanligecit,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kostenki,kostenki,Kostenki,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kozhai,kozhai,Kozhai,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Krasnosamarskoye,krasnosamarskoye,Krasnosamarskoye,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Krasnyi Yar,krasnyiyar,Krasnyi Yar,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Kuyum,kuyum,Kuyum,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Köşk Höyük,köşkhöyük,Köşk Höyük,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,La Monédière,lamonédière,La Monédière,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Le Closeau,lecloseau,Le Closeau,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Litovice,litovice,Litovice,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Magor,magor,Magor,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Medvezhiya cave,medvezhiyacave,Medvezhiya cave,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Michuruno I,michurunoi,Michuruno I,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Miciurin,miciurin,Miciurin,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Miechów 3,miechów3,Miechów 3,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Monostoy-Nuga,monostoynuga,Monostoy-Nuga,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Morin Mort,morinmort,Morin Mort,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Mozgawa 1-3,mozgawa13,Mozgawa 1-3,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Museum specimen,museumspecimen,Museum specimen,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Nandru Peștera Curată,nandrupeșteracurată,Nandru Peștera Curată,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Nikolskaya,nikolskaya,Nikolskaya,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Nitriansky Hrádok,nitrianskyhrádok,Nitriansky Hrádok,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Noviye Kluchi III,noviyekluchiiii,Noviye Kluchi III,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Novoilinka-III,novoilinkaiii,Novoilinka-III,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Novoilinka-VI,novoilinkavi,Novoilinka-VI,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Novoil’inovskiy 2,novoilinovskiy2,Novoil’inovskiy 2,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Oroshaemoe I,oroshaemoei,Oroshaemoe I,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ouren,ouren,Ouren,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Pershinskaya,pershinskaya,Pershinskaya,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Pielgrzymowice 6,pielgrzymowice6,Pielgrzymowice 6,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Pietrele,pietrele,Pietrele,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Potapovka,potapovka,Potapovka,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Repin khutor,repinkhutor,Repin khutor,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ridala,ridala,Ridala,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Sagzabad,sagzabad,Sagzabad,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Semenovka 1,semenovka1,Semenovka 1,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Serpievskaya,serpievskaya,Serpievskaya,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Shiderty III,shidertyiii,Shiderty III,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Shilikty 5,shilikty5,Shilikty 5,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Sholma-1,sholma1,Sholma-1,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Sigarra,sigarra,Sigarra,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Sintashta,sintashta,Sintashta,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Sosnovka,sosnovka,Sosnovka,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Stránská skála,stránskáskála,Stránská skála,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tarquinia,tarquinia,Tarquinia,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tatsyn Ereg,tatsynereg,Tatsyn Ereg,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tepe Hasanlu,tepehasanlu,Tepe Hasanlu,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tištín,tištín,Tištín,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Toušeň – Hradišťko,toušeňhradišťko,Toušeň – Hradišťko,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tuchoměřice,tuchoměřice,Tuchoměřice,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tuchoměřice – Kněžívka,tuchoměřicekněžívka,Tuchoměřice – Kněžívka,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Tureau des Gardes 6,tureaudesgardes6,Tureau des Gardes 6,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Turganik,turganik,Turganik,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ulaan Tolgoi,ulaantolgoi,Ulaan Tolgoi,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ullu,ullu,Ullu,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Ushgiin Uvur,ushgiinuvur,Ushgiin Uvur,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Utevka VI,utevkavi,Utevka VI,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Uvarovka II,uvarovkaii,Uvarovka II,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Varfolomeevka,varfolomeevka,Varfolomeevka,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Verkhnegubakhinskaya,verkhnegubakhinskaya,Verkhnegubakhinskaya,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Vliněves,vliněves,Vliněves,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Yana,yana,Yana,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Yukagir,yukagir,Yukagir,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Zambujal,zambujal,Zambujal,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Zeerdegchingiin Khoshuu,zeerdegchingiinkhoshuu,Zeerdegchingiin Khoshuu,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Zunii Gol,zuniigol,Zunii Gol,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Zuunkhangai 1,zuunkhangai1,Zuunkhangai 1,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Zuunkhangai 257,zuunkhangai257,Zuunkhangai 257,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Çadır Höyük,çadırhöyük,Çadır Höyük,,supplementary_table,excavation_site
+PRJEB44430,Equus caballus,Černý Vůl,černývůl,Černý Vůl,,supplementary_table,excavation_site
+PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africatoeuropeandasiadonkeyspreadcontext,Africa to Europe and Asia donkey spread context,,archive_metadata,broader_locality
+PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
+PRJEB59481,Ovis aries,Baltic Sea Region short-tailed sheep context,balticsearegionshorttailedsheepcontext,Baltic Sea Region;Baltic Sea Region short-tailed sheep context,Baltic Sea Region,coordinate_resolution;crossref_metadata,broader_locality
+PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
+PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
+PRJEB81815,Felis catus,North Africa to Europe domestic cat dispersal transect,northafricatoeuropedomesticcatdispersaltransect,North Africa to Europe dispersal extent;North Africa to Europe domestic cat dispersal transect,North Africa to Europe dispersal extent,article_text;coordinate_resolution,broader_locality
+PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin,,article_text,broader_locality
+PRJNA1328209,Capra hircus,Lake Qinghai Basin ancient goat context,lakeqinghaibasinancientgoatcontext,"Lake Qinghai Basin ancient goat context;Lake Qinghai Basin, Qinghai-Xizang Plateau","Lake Qinghai Basin, Qinghai-Xizang Plateau",article_text;coordinate_resolution,broader_locality
+PRJNA705960,Bos taurus,different mountain caves in Galicia,differentmountaincavesingalicia,different mountain caves in Galicia,,archive_metadata,broader_locality
+PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution,broader_locality
+SRP073444,Camelus dromedarius,Arabian Peninsula and Levant dromedary context,arabianpeninsulaandlevantdromedarycontext,Arabian Peninsula and Levant dromedary context,,article_text,broader_locality
+SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
+SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Wadi Halfa,Wadi Halfa,coordinate_resolution,country
+SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution;supplementary_table,broader_locality
+SRS1407451,Canis lupus familiaris,Herxheim and Cherry Tree Cave ancient dog contexts,herxheimandcherrytreecaveancientdogcontexts,Herxheim and Cherry Tree Cave ancient dog contexts,,article_text,broader_locality

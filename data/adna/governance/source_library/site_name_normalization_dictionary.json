@@ -1,0 +1,4282 @@
+{
+  "schema_version": "animal-site-name-normalization-dictionary.v1",
+  "rows": [
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Arzhan I",
+      "geocoding_safe_token": "arzhani",
+      "original_source_spellings": [
+        "Arzhan I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Berel'",
+      "geocoding_safe_token": "berel",
+      "original_source_spellings": [
+        "Berel'"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "N/A",
+      "geocoding_safe_token": "na",
+      "original_source_spellings": [
+        "N/A"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sintashta",
+      "geocoding_safe_token": "sintashta",
+      "original_source_spellings": [
+        "Sintashta"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Actiparc",
+      "geocoding_safe_token": "actiparc",
+      "original_source_spellings": [
+        "Actiparc"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bateni",
+      "geocoding_safe_token": "bateni",
+      "original_source_spellings": [
+        "Bateni"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Borly4",
+      "geocoding_safe_token": "borly4",
+      "original_source_spellings": [
+        "Borly4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai",
+      "geocoding_safe_token": "botai",
+      "original_source_spellings": [
+        "Botai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai archaeological site horse context",
+      "geocoding_safe_token": "botaiarchaeologicalsitehorsecontext",
+      "original_source_spellings": [
+        "Botai archaeological site"
+      ],
+      "alternative_spellings": [
+        "Botai archaeological site"
+      ],
+      "source_surfaces": [
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "country"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai C",
+      "geocoding_safe_token": "botaic",
+      "original_source_spellings": [
+        "Botai C"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai culture of the Central Asian steppes",
+      "geocoding_safe_token": "botaicultureofthecentralasiansteppes",
+      "original_source_spellings": [
+        "Botai culture of the Central Asian steppes"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai culture steppe context",
+      "geocoding_safe_token": "botaiculturesteppecontext",
+      "original_source_spellings": [
+        "Botai culture steppe context"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai F",
+      "geocoding_safe_token": "botaif",
+      "original_source_spellings": [
+        "Botai F"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai G",
+      "geocoding_safe_token": "botaig",
+      "original_source_spellings": [
+        "Botai G"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai I",
+      "geocoding_safe_token": "botaii",
+      "original_source_spellings": [
+        "Botai I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai K",
+      "geocoding_safe_token": "botaik",
+      "original_source_spellings": [
+        "Botai K"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai LM",
+      "geocoding_safe_token": "botailm",
+      "original_source_spellings": [
+        "Botai LM"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai P",
+      "geocoding_safe_token": "botaip",
+      "original_source_spellings": [
+        "Botai P"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai Petrous",
+      "geocoding_safe_token": "botaipetrous",
+      "original_source_spellings": [
+        "Botai Petrous"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai R",
+      "geocoding_safe_token": "botair",
+      "original_source_spellings": [
+        "Botai R"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Dunaujvaros",
+      "geocoding_safe_token": "dunaujvaros",
+      "original_source_spellings": [
+        "Dunaujvaros"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "FMontauban",
+      "geocoding_safe_token": "fmontauban",
+      "original_source_spellings": [
+        "FMontauban"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Garbovat",
+      "geocoding_safe_token": "garbovat",
+      "original_source_spellings": [
+        "Garbovat"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "GolModII",
+      "geocoding_safe_token": "golmodii",
+      "original_source_spellings": [
+        "GolModII"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Grigorevka4",
+      "geocoding_safe_token": "grigorevka4",
+      "original_source_spellings": [
+        "Grigorevka4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Haunstetten",
+      "geocoding_safe_token": "haunstetten",
+      "original_source_spellings": [
+        "Haunstetten"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ridala",
+      "geocoding_safe_token": "ridala",
+      "original_source_spellings": [
+        "Ridala"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "ShahrIQumis",
+      "geocoding_safe_token": "shahriqumis",
+      "original_source_spellings": [
+        "ShahrIQumis"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Syrgal",
+      "geocoding_safe_token": "syrgal",
+      "original_source_spellings": [
+        "Syrgal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "TachtiPerda",
+      "geocoding_safe_token": "tachtiperda",
+      "original_source_spellings": [
+        "TachtiPerda"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "TepeHasanlu",
+      "geocoding_safe_token": "tepehasanlu",
+      "original_source_spellings": [
+        "TepeHasanlu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "UushgiinUvur",
+      "geocoding_safe_token": "uushgiinuvur",
+      "original_source_spellings": [
+        "UushgiinUvur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Yenikapi",
+      "geocoding_safe_token": "yenikapi",
+      "original_source_spellings": [
+        "Yenikapi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB22390",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zhanaturmus",
+      "geocoding_safe_token": "zhanaturmus",
+      "original_source_spellings": [
+        "Zhanaturmus"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Near East and Europe pig domestication transect",
+      "geocoding_safe_token": "neareastandeuropepigdomesticationtransect",
+      "original_source_spellings": [
+        "Near East and Europe pig domestication transect",
+        "Near East to Europe regional study extent"
+      ],
+      "alternative_spellings": [
+        "Near East to Europe regional study extent"
+      ],
+      "source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Actiparc",
+      "geocoding_safe_token": "actiparc",
+      "original_source_spellings": [
+        "Actiparc"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Alcáçova de Santarém",
+      "geocoding_safe_token": "alcáçovadesantarém",
+      "original_source_spellings": [
+        "Alcáçova de Santarém"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Altata",
+      "geocoding_safe_token": "altata",
+      "original_source_spellings": [
+        "Altata"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Arzhan I",
+      "geocoding_safe_token": "arzhani",
+      "original_source_spellings": [
+        "Arzhan I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Arzhan II",
+      "geocoding_safe_token": "arzhanii",
+      "original_source_spellings": [
+        "Arzhan II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Augusta Raurica - Insula 8",
+      "geocoding_safe_token": "augustarauricainsula8",
+      "original_source_spellings": [
+        "Augusta Raurica - Insula 8"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Augusta Raurica - Schmidmatt",
+      "geocoding_safe_token": "augustarauricaschmidmatt",
+      "original_source_spellings": [
+        "Augusta Raurica - Schmidmatt"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Balagansk",
+      "geocoding_safe_token": "balagansk",
+      "original_source_spellings": [
+        "Balagansk"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bapska Gradac",
+      "geocoding_safe_token": "bapskagradac",
+      "original_source_spellings": [
+        "Bapska Gradac"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Batagai",
+      "geocoding_safe_token": "batagai",
+      "original_source_spellings": [
+        "Batagai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bateni",
+      "geocoding_safe_token": "bateni",
+      "original_source_spellings": [
+        "Bateni"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Beauvais, la Maladrerie Saint-Lazare",
+      "geocoding_safe_token": "beauvaislamaladreriesaintlazare",
+      "original_source_spellings": [
+        "Beauvais, la Maladrerie Saint-Lazare"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Beauvais, VIlliers-de-l'Isle Adam",
+      "geocoding_safe_token": "beauvaisvilliersdelisleadam",
+      "original_source_spellings": [
+        "Beauvais, VIlliers-de-l'Isle Adam"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Belgheis",
+      "geocoding_safe_token": "belgheis",
+      "original_source_spellings": [
+        "Belgheis"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Belkaragay",
+      "geocoding_safe_token": "belkaragay",
+      "original_source_spellings": [
+        "Belkaragay"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Berel'",
+      "geocoding_safe_token": "berel",
+      "original_source_spellings": [
+        "Berel'"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Berufjordur",
+      "geocoding_safe_token": "berufjordur",
+      "original_source_spellings": [
+        "Berufjordur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Borly 4",
+      "geocoding_safe_token": "borly4",
+      "original_source_spellings": [
+        "Borly 4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai",
+      "geocoding_safe_token": "botai",
+      "original_source_spellings": [
+        "Botai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Boves, chemin de Glisy",
+      "geocoding_safe_token": "boveschemindeglisy",
+      "original_source_spellings": [
+        "Boves, chemin de Glisy"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Boz-Adyr",
+      "geocoding_safe_token": "bozadyr",
+      "original_source_spellings": [
+        "Boz-Adyr"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Brough Of Deerness",
+      "geocoding_safe_token": "broughofdeerness",
+      "original_source_spellings": [
+        "Brough Of Deerness"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bruszcewo",
+      "geocoding_safe_token": "bruszcewo",
+      "original_source_spellings": [
+        "Bruszcewo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Camino de las Yeseras, Madrid",
+      "geocoding_safe_token": "caminodelasyeserasmadrid",
+      "original_source_spellings": [
+        "Camino de las Yeseras, Madrid"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Cantorella",
+      "geocoding_safe_token": "cantorella",
+      "original_source_spellings": [
+        "Cantorella"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Capesterre-Belle-Eau",
+      "geocoding_safe_token": "capesterrebelleeau",
+      "original_source_spellings": [
+        "Capesterre-Belle-Eau"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Capote",
+      "geocoding_safe_token": "capote",
+      "original_source_spellings": [
+        "Capote"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Chartres, boulevard de la Courtille",
+      "geocoding_safe_token": "chartresboulevarddelacourtille",
+      "original_source_spellings": [
+        "Chartres, boulevard de la Courtille"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Dariali, Tamara Fort",
+      "geocoding_safe_token": "darialitamarafort",
+      "original_source_spellings": [
+        "Dariali, Tamara Fort"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Derkul",
+      "geocoding_safe_token": "derkul",
+      "original_source_spellings": [
+        "Derkul"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Dunaújváros",
+      "geocoding_safe_token": "dunaújváros",
+      "original_source_spellings": [
+        "Dunaújváros"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "El Acequión",
+      "geocoding_safe_token": "elacequión",
+      "original_source_spellings": [
+        "El Acequión"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Els Vilars",
+      "geocoding_safe_token": "elsvilars",
+      "original_source_spellings": [
+        "Els Vilars"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Evreux, Clos-au-Duc",
+      "geocoding_safe_token": "evreuxclosauduc",
+      "original_source_spellings": [
+        "Evreux, Clos-au-Duc"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Fengtai",
+      "geocoding_safe_token": "fengtai",
+      "original_source_spellings": [
+        "Fengtai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Frankfurt-Heddenheim",
+      "geocoding_safe_token": "frankfurtheddenheim",
+      "original_source_spellings": [
+        "Frankfurt-Heddenheim"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Fresnes-lès-Montauban",
+      "geocoding_safe_token": "fresneslèsmontauban",
+      "original_source_spellings": [
+        "Fresnes-lès-Montauban"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Garbovat",
+      "geocoding_safe_token": "garbovat",
+      "original_source_spellings": [
+        "Garbovat"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Gol Mod II",
+      "geocoding_safe_token": "golmodii",
+      "original_source_spellings": [
+        "Gol Mod II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Goyet",
+      "geocoding_safe_token": "goyet",
+      "original_source_spellings": [
+        "Goyet"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Granastaðir",
+      "geocoding_safe_token": "granastaðir",
+      "original_source_spellings": [
+        "Granastaðir"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Gregorevka 4",
+      "geocoding_safe_token": "gregorevka4",
+      "original_source_spellings": [
+        "Gregorevka 4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Halvai 3",
+      "geocoding_safe_token": "halvai3",
+      "original_source_spellings": [
+        "Halvai 3"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Halvai 5",
+      "geocoding_safe_token": "halvai5",
+      "original_source_spellings": [
+        "Halvai 5"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Haunstetten",
+      "geocoding_safe_token": "haunstetten",
+      "original_source_spellings": [
+        "Haunstetten"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Khatuu 2",
+      "geocoding_safe_token": "khatuu2",
+      "original_source_spellings": [
+        "Khatuu 2"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Khotont",
+      "geocoding_safe_token": "khotont",
+      "original_source_spellings": [
+        "Khotont"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kokorevo",
+      "geocoding_safe_token": "kokorevo",
+      "original_source_spellings": [
+        "Kokorevo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Krasnaya Gorka",
+      "geocoding_safe_token": "krasnayagorka",
+      "original_source_spellings": [
+        "Krasnaya Gorka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Krasnokamenka",
+      "geocoding_safe_token": "krasnokamenka",
+      "original_source_spellings": [
+        "Krasnokamenka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kulian Cave",
+      "geocoding_safe_token": "kuliancave",
+      "original_source_spellings": [
+        "Kulian Cave"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Lebyazhinka IV",
+      "geocoding_safe_token": "lebyazhinkaiv",
+      "original_source_spellings": [
+        "Lebyazhinka IV"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Longueil-Annel",
+      "geocoding_safe_token": "longueilannel",
+      "original_source_spellings": [
+        "Longueil-Annel"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Macon, rue Rambuteau",
+      "geocoding_safe_token": "maconruerambuteau",
+      "original_source_spellings": [
+        "Macon, rue Rambuteau"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Mainz",
+      "geocoding_safe_token": "mainz",
+      "original_source_spellings": [
+        "Mainz"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Marvelė cemetery",
+      "geocoding_safe_token": "marvelėcemetery",
+      "original_source_spellings": [
+        "Marvelė cemetery"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Merzly Yar",
+      "geocoding_safe_token": "merzlyyar",
+      "original_source_spellings": [
+        "Merzly Yar"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Metz, Place de la République",
+      "geocoding_safe_token": "metzplacedelarépublique",
+      "original_source_spellings": [
+        "Metz, Place de la République"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Miciurin",
+      "geocoding_safe_token": "miciurin",
+      "original_source_spellings": [
+        "Miciurin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "museum specimen",
+      "geocoding_safe_token": "museumspecimen",
+      "original_source_spellings": [
+        "museum specimen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Noyon - Orroire",
+      "geocoding_safe_token": "noyonorroire",
+      "original_source_spellings": [
+        "Noyon - Orroire"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Nuštar",
+      "geocoding_safe_token": "nuštar",
+      "original_source_spellings": [
+        "Nuštar"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Oktyabrsky",
+      "geocoding_safe_token": "oktyabrsky",
+      "original_source_spellings": [
+        "Oktyabrsky"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Olon Kurin Gol",
+      "geocoding_safe_token": "olonkuringol",
+      "original_source_spellings": [
+        "Olon Kurin Gol"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Otepää",
+      "geocoding_safe_token": "otepää",
+      "original_source_spellings": [
+        "Otepää"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Otok",
+      "geocoding_safe_token": "otok",
+      "original_source_spellings": [
+        "Otok"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Potapovka I",
+      "geocoding_safe_token": "potapovkai",
+      "original_source_spellings": [
+        "Potapovka I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Quoygrew",
+      "geocoding_safe_token": "quoygrew",
+      "original_source_spellings": [
+        "Quoygrew"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ridala",
+      "geocoding_safe_token": "ridala",
+      "original_source_spellings": [
+        "Ridala"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Saadjärve",
+      "geocoding_safe_token": "saadjärve",
+      "original_source_spellings": [
+        "Saadjärve"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sagzabad",
+      "geocoding_safe_token": "sagzabad",
+      "original_source_spellings": [
+        "Sagzabad"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Saint-Just-en-Chaussée",
+      "geocoding_safe_token": "saintjustenchaussée",
+      "original_source_spellings": [
+        "Saint-Just-en-Chaussée"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Saint-Quentin",
+      "geocoding_safe_token": "saintquentin",
+      "original_source_spellings": [
+        "Saint-Quentin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sayangorsk",
+      "geocoding_safe_token": "sayangorsk",
+      "original_source_spellings": [
+        "Sayangorsk"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Schloßvippach",
+      "geocoding_safe_token": "schlossvippach",
+      "original_source_spellings": [
+        "Schloßvippach"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Shar-I-Qumis",
+      "geocoding_safe_token": "shariqumis",
+      "original_source_spellings": [
+        "Shar-I-Qumis"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sintashta",
+      "geocoding_safe_token": "sintashta",
+      "original_source_spellings": [
+        "Sintashta"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Solothurn-Vigier",
+      "geocoding_safe_token": "solothurnvigier",
+      "original_source_spellings": [
+        "Solothurn-Vigier"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Steim am Rhein Charregass",
+      "geocoding_safe_token": "steimamrheincharregass",
+      "original_source_spellings": [
+        "Steim am Rhein Charregass"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Syrgal 1",
+      "geocoding_safe_token": "syrgal1",
+      "original_source_spellings": [
+        "Syrgal 1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tachti Perda",
+      "geocoding_safe_token": "tachtiperda",
+      "original_source_spellings": [
+        "Tachti Perda"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tavan Tolgoi",
+      "geocoding_safe_token": "tavantolgoi",
+      "original_source_spellings": [
+        "Tavan Tolgoi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Taymyr",
+      "geocoding_safe_token": "taymyr",
+      "original_source_spellings": [
+        "Taymyr"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tepe Hasanlu",
+      "geocoding_safe_token": "tepehasanlu",
+      "original_source_spellings": [
+        "Tepe Hasanlu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tumeski",
+      "geocoding_safe_token": "tumeski",
+      "original_source_spellings": [
+        "Tumeski"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Uppsala",
+      "geocoding_safe_token": "uppsala",
+      "original_source_spellings": [
+        "Uppsala"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Uushgiin Uvur",
+      "geocoding_safe_token": "uushgiinuvur",
+      "original_source_spellings": [
+        "Uushgiin Uvur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Vermand, rue De Gaulle",
+      "geocoding_safe_token": "vermandruedegaulle",
+      "original_source_spellings": [
+        "Vermand, rue De Gaulle"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Vicerrectorado",
+      "geocoding_safe_token": "vicerrectorado",
+      "original_source_spellings": [
+        "Vicerrectorado"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Whitehall Roman Villa",
+      "geocoding_safe_token": "whitehallromanvilla",
+      "original_source_spellings": [
+        "Whitehall Roman Villa"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Witter Place",
+      "geocoding_safe_token": "witterplace",
+      "original_source_spellings": [
+        "Witter Place"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Yenikapi",
+      "geocoding_safe_token": "yenikapi",
+      "original_source_spellings": [
+        "Yenikapi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Yerqorqan",
+      "geocoding_safe_token": "yerqorqan",
+      "original_source_spellings": [
+        "Yerqorqan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zhanaturmus",
+      "geocoding_safe_token": "zhanaturmus",
+      "original_source_spellings": [
+        "Zhanaturmus"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Šebastovce",
+      "geocoding_safe_token": "šebastovce",
+      "original_source_spellings": [
+        "Šebastovce"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Barcın Höyük",
+      "geocoding_safe_token": "barcınhöyük",
+      "original_source_spellings": [
+        "Barcın Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Boncuklu Höyük",
+      "geocoding_safe_token": "boncukluhöyük",
+      "original_source_spellings": [
+        "Boncuklu Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Canhasan III Höyüğü",
+      "geocoding_safe_token": "canhasaniiihöyüğü",
+      "original_source_spellings": [
+        "Canhasan III Höyüğü"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Pınarbaşı Höyük",
+      "geocoding_safe_token": "pınarbaşıhöyük",
+      "original_source_spellings": [
+        "Pınarbaşı Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Tepecik-Çiftlik Höyük",
+      "geocoding_safe_token": "tepecikçiftlikhöyük",
+      "original_source_spellings": [
+        "Tepecik-Çiftlik Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Ulucak Höyük",
+      "geocoding_safe_token": "ulucakhöyük",
+      "original_source_spellings": [
+        "Ulucak Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Acemhoyuk",
+      "geocoding_safe_token": "acemhoyuk",
+      "original_source_spellings": [
+        "Acemhoyuk"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Aleksandrovskoe IV",
+      "geocoding_safe_token": "aleksandrovskoeiv",
+      "original_source_spellings": [
+        "Aleksandrovskoe IV"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Algay",
+      "geocoding_safe_token": "algay",
+      "original_source_spellings": [
+        "Algay"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Althiburos",
+      "geocoding_safe_token": "althiburos",
+      "original_source_spellings": [
+        "Althiburos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Arzhan-I",
+      "geocoding_safe_token": "arzhani",
+      "original_source_spellings": [
+        "Arzhan-I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Arzhan-II",
+      "geocoding_safe_token": "arzhanii",
+      "original_source_spellings": [
+        "Arzhan-II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ashchisu",
+      "geocoding_safe_token": "ashchisu",
+      "original_source_spellings": [
+        "Ashchisu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Asva",
+      "geocoding_safe_token": "asva",
+      "original_source_spellings": [
+        "Asva"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Aygurskiy 2",
+      "geocoding_safe_token": "aygurskiy2",
+      "original_source_spellings": [
+        "Aygurskiy 2"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bad Pirawarth",
+      "geocoding_safe_token": "badpirawarth",
+      "original_source_spellings": [
+        "Bad Pirawarth"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Belkaragay",
+      "geocoding_safe_token": "belkaragay",
+      "original_source_spellings": [
+        "Belkaragay"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bestamak",
+      "geocoding_safe_token": "bestamak",
+      "original_source_spellings": [
+        "Bestamak"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bijke-V",
+      "geocoding_safe_token": "bijkev",
+      "original_source_spellings": [
+        "Bijke-V"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bol'shekaraganskii",
+      "geocoding_safe_token": "bolshekaraganskii",
+      "original_source_spellings": [
+        "Bol'shekaraganskii"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Bor Shoroonii",
+      "geocoding_safe_token": "borshoroonii",
+      "original_source_spellings": [
+        "Bor Shoroonii"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Borly",
+      "geocoding_safe_token": "borly",
+      "original_source_spellings": [
+        "Borly"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Borly 4",
+      "geocoding_safe_token": "borly4",
+      "original_source_spellings": [
+        "Borly 4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Botai",
+      "geocoding_safe_token": "botai",
+      "original_source_spellings": [
+        "Botai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Burgast",
+      "geocoding_safe_token": "burgast",
+      "original_source_spellings": [
+        "Burgast"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Burial mound at Berezovaya mountain",
+      "geocoding_safe_token": "burialmoundatberezovayamountain",
+      "original_source_spellings": [
+        "Burial mound at Berezovaya mountain"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Březno",
+      "geocoding_safe_token": "březno",
+      "original_source_spellings": [
+        "Březno"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Chalk Hill",
+      "geocoding_safe_token": "chalkhill",
+      "original_source_spellings": [
+        "Chalk Hill"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Chinge-Tey-I",
+      "geocoding_safe_token": "chingeteyi",
+      "original_source_spellings": [
+        "Chinge-Tey-I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Choburak-I",
+      "geocoding_safe_token": "choburaki",
+      "original_source_spellings": [
+        "Choburak-I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Cova Fosca",
+      "geocoding_safe_token": "covafosca",
+      "original_source_spellings": [
+        "Cova Fosca"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Căscioarele",
+      "geocoding_safe_token": "căscioarele",
+      "original_source_spellings": [
+        "Căscioarele"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Divnogor'ye 9",
+      "geocoding_safe_token": "divnogorye9",
+      "original_source_spellings": [
+        "Divnogor'ye 9"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "El Turuñuelo",
+      "geocoding_safe_token": "elturuñuelo",
+      "original_source_spellings": [
+        "El Turuñuelo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Els Vilars",
+      "geocoding_safe_token": "elsvilars",
+      "original_source_spellings": [
+        "Els Vilars"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Etiolles",
+      "geocoding_safe_token": "etiolles",
+      "original_source_spellings": [
+        "Etiolles"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ganga-Tsagaan Ereg",
+      "geocoding_safe_token": "gangatsagaanereg",
+      "original_source_spellings": [
+        "Ganga-Tsagaan Ereg"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ginnerup",
+      "geocoding_safe_token": "ginnerup",
+      "original_source_spellings": [
+        "Ginnerup"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Gordinesti II",
+      "geocoding_safe_token": "gordinestiii",
+      "original_source_spellings": [
+        "Gordinesti II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Halvai",
+      "geocoding_safe_token": "halvai",
+      "original_source_spellings": [
+        "Halvai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Hohler Stein bei Schwabthal",
+      "geocoding_safe_token": "hohlersteinbeischwabthal",
+      "original_source_spellings": [
+        "Hohler Stein bei Schwabthal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Holubice",
+      "geocoding_safe_token": "holubice",
+      "original_source_spellings": [
+        "Holubice"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Hyena's Lair",
+      "geocoding_safe_token": "hyenaslair",
+      "original_source_spellings": [
+        "Hyena's Lair"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Igue du Gral",
+      "geocoding_safe_token": "iguedugral",
+      "original_source_spellings": [
+        "Igue du Gral"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kamennyi Ambar 5",
+      "geocoding_safe_token": "kamennyiambar5",
+      "original_source_spellings": [
+        "Kamennyi Ambar 5"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kaposújlak-Várdomb",
+      "geocoding_safe_token": "kaposújlakvárdomb",
+      "original_source_spellings": [
+        "Kaposújlak-Várdomb"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kazimierza Wielka 6",
+      "geocoding_safe_token": "kazimierzawielka6",
+      "original_source_spellings": [
+        "Kazimierza Wielka 6"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kent",
+      "geocoding_safe_token": "kent",
+      "original_source_spellings": [
+        "Kent"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kents cavern",
+      "geocoding_safe_token": "kentscavern",
+      "original_source_spellings": [
+        "Kents cavern"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Khantain-tov",
+      "geocoding_safe_token": "khantaintov",
+      "original_source_spellings": [
+        "Khantain-tov"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kirklareli-Kanligecit",
+      "geocoding_safe_token": "kirklarelikanligecit",
+      "original_source_spellings": [
+        "Kirklareli-Kanligecit"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kostenki",
+      "geocoding_safe_token": "kostenki",
+      "original_source_spellings": [
+        "Kostenki"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kozhai",
+      "geocoding_safe_token": "kozhai",
+      "original_source_spellings": [
+        "Kozhai"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Krasnosamarskoye",
+      "geocoding_safe_token": "krasnosamarskoye",
+      "original_source_spellings": [
+        "Krasnosamarskoye"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Krasnyi Yar",
+      "geocoding_safe_token": "krasnyiyar",
+      "original_source_spellings": [
+        "Krasnyi Yar"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Kuyum",
+      "geocoding_safe_token": "kuyum",
+      "original_source_spellings": [
+        "Kuyum"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Köşk Höyük",
+      "geocoding_safe_token": "köşkhöyük",
+      "original_source_spellings": [
+        "Köşk Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "La Monédière",
+      "geocoding_safe_token": "lamonédière",
+      "original_source_spellings": [
+        "La Monédière"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Le Closeau",
+      "geocoding_safe_token": "lecloseau",
+      "original_source_spellings": [
+        "Le Closeau"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Litovice",
+      "geocoding_safe_token": "litovice",
+      "original_source_spellings": [
+        "Litovice"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Magor",
+      "geocoding_safe_token": "magor",
+      "original_source_spellings": [
+        "Magor"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Medvezhiya cave",
+      "geocoding_safe_token": "medvezhiyacave",
+      "original_source_spellings": [
+        "Medvezhiya cave"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Michuruno I",
+      "geocoding_safe_token": "michurunoi",
+      "original_source_spellings": [
+        "Michuruno I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Miciurin",
+      "geocoding_safe_token": "miciurin",
+      "original_source_spellings": [
+        "Miciurin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Miechów 3",
+      "geocoding_safe_token": "miechów3",
+      "original_source_spellings": [
+        "Miechów 3"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Monostoy-Nuga",
+      "geocoding_safe_token": "monostoynuga",
+      "original_source_spellings": [
+        "Monostoy-Nuga"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Morin Mort",
+      "geocoding_safe_token": "morinmort",
+      "original_source_spellings": [
+        "Morin Mort"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Mozgawa 1-3",
+      "geocoding_safe_token": "mozgawa13",
+      "original_source_spellings": [
+        "Mozgawa 1-3"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Museum specimen",
+      "geocoding_safe_token": "museumspecimen",
+      "original_source_spellings": [
+        "Museum specimen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Nandru Peștera Curată",
+      "geocoding_safe_token": "nandrupeșteracurată",
+      "original_source_spellings": [
+        "Nandru Peștera Curată"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Nikolskaya",
+      "geocoding_safe_token": "nikolskaya",
+      "original_source_spellings": [
+        "Nikolskaya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Nitriansky Hrádok",
+      "geocoding_safe_token": "nitrianskyhrádok",
+      "original_source_spellings": [
+        "Nitriansky Hrádok"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Noviye Kluchi III",
+      "geocoding_safe_token": "noviyekluchiiii",
+      "original_source_spellings": [
+        "Noviye Kluchi III"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Novoilinka-III",
+      "geocoding_safe_token": "novoilinkaiii",
+      "original_source_spellings": [
+        "Novoilinka-III"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Novoilinka-VI",
+      "geocoding_safe_token": "novoilinkavi",
+      "original_source_spellings": [
+        "Novoilinka-VI"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Novoil’inovskiy 2",
+      "geocoding_safe_token": "novoilinovskiy2",
+      "original_source_spellings": [
+        "Novoil’inovskiy 2"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Oroshaemoe I",
+      "geocoding_safe_token": "oroshaemoei",
+      "original_source_spellings": [
+        "Oroshaemoe I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ouren",
+      "geocoding_safe_token": "ouren",
+      "original_source_spellings": [
+        "Ouren"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Pershinskaya",
+      "geocoding_safe_token": "pershinskaya",
+      "original_source_spellings": [
+        "Pershinskaya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Pielgrzymowice 6",
+      "geocoding_safe_token": "pielgrzymowice6",
+      "original_source_spellings": [
+        "Pielgrzymowice 6"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Pietrele",
+      "geocoding_safe_token": "pietrele",
+      "original_source_spellings": [
+        "Pietrele"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Potapovka",
+      "geocoding_safe_token": "potapovka",
+      "original_source_spellings": [
+        "Potapovka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Repin khutor",
+      "geocoding_safe_token": "repinkhutor",
+      "original_source_spellings": [
+        "Repin khutor"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ridala",
+      "geocoding_safe_token": "ridala",
+      "original_source_spellings": [
+        "Ridala"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sagzabad",
+      "geocoding_safe_token": "sagzabad",
+      "original_source_spellings": [
+        "Sagzabad"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Semenovka 1",
+      "geocoding_safe_token": "semenovka1",
+      "original_source_spellings": [
+        "Semenovka 1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Serpievskaya",
+      "geocoding_safe_token": "serpievskaya",
+      "original_source_spellings": [
+        "Serpievskaya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Shiderty III",
+      "geocoding_safe_token": "shidertyiii",
+      "original_source_spellings": [
+        "Shiderty III"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Shilikty 5",
+      "geocoding_safe_token": "shilikty5",
+      "original_source_spellings": [
+        "Shilikty 5"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sholma-1",
+      "geocoding_safe_token": "sholma1",
+      "original_source_spellings": [
+        "Sholma-1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sigarra",
+      "geocoding_safe_token": "sigarra",
+      "original_source_spellings": [
+        "Sigarra"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sintashta",
+      "geocoding_safe_token": "sintashta",
+      "original_source_spellings": [
+        "Sintashta"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Sosnovka",
+      "geocoding_safe_token": "sosnovka",
+      "original_source_spellings": [
+        "Sosnovka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Stránská skála",
+      "geocoding_safe_token": "stránskáskála",
+      "original_source_spellings": [
+        "Stránská skála"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tarquinia",
+      "geocoding_safe_token": "tarquinia",
+      "original_source_spellings": [
+        "Tarquinia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tatsyn Ereg",
+      "geocoding_safe_token": "tatsynereg",
+      "original_source_spellings": [
+        "Tatsyn Ereg"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tepe Hasanlu",
+      "geocoding_safe_token": "tepehasanlu",
+      "original_source_spellings": [
+        "Tepe Hasanlu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tištín",
+      "geocoding_safe_token": "tištín",
+      "original_source_spellings": [
+        "Tištín"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Toušeň – Hradišťko",
+      "geocoding_safe_token": "toušeňhradišťko",
+      "original_source_spellings": [
+        "Toušeň – Hradišťko"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tuchoměřice",
+      "geocoding_safe_token": "tuchoměřice",
+      "original_source_spellings": [
+        "Tuchoměřice"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tuchoměřice – Kněžívka",
+      "geocoding_safe_token": "tuchoměřicekněžívka",
+      "original_source_spellings": [
+        "Tuchoměřice – Kněžívka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Tureau des Gardes 6",
+      "geocoding_safe_token": "tureaudesgardes6",
+      "original_source_spellings": [
+        "Tureau des Gardes 6"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Turganik",
+      "geocoding_safe_token": "turganik",
+      "original_source_spellings": [
+        "Turganik"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ulaan Tolgoi",
+      "geocoding_safe_token": "ulaantolgoi",
+      "original_source_spellings": [
+        "Ulaan Tolgoi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ullu",
+      "geocoding_safe_token": "ullu",
+      "original_source_spellings": [
+        "Ullu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Ushgiin Uvur",
+      "geocoding_safe_token": "ushgiinuvur",
+      "original_source_spellings": [
+        "Ushgiin Uvur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Utevka VI",
+      "geocoding_safe_token": "utevkavi",
+      "original_source_spellings": [
+        "Utevka VI"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Uvarovka II",
+      "geocoding_safe_token": "uvarovkaii",
+      "original_source_spellings": [
+        "Uvarovka II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Varfolomeevka",
+      "geocoding_safe_token": "varfolomeevka",
+      "original_source_spellings": [
+        "Varfolomeevka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Verkhnegubakhinskaya",
+      "geocoding_safe_token": "verkhnegubakhinskaya",
+      "original_source_spellings": [
+        "Verkhnegubakhinskaya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Vliněves",
+      "geocoding_safe_token": "vliněves",
+      "original_source_spellings": [
+        "Vliněves"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Yana",
+      "geocoding_safe_token": "yana",
+      "original_source_spellings": [
+        "Yana"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Yukagir",
+      "geocoding_safe_token": "yukagir",
+      "original_source_spellings": [
+        "Yukagir"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zambujal",
+      "geocoding_safe_token": "zambujal",
+      "original_source_spellings": [
+        "Zambujal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zeerdegchingiin Khoshuu",
+      "geocoding_safe_token": "zeerdegchingiinkhoshuu",
+      "original_source_spellings": [
+        "Zeerdegchingiin Khoshuu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zunii Gol",
+      "geocoding_safe_token": "zuniigol",
+      "original_source_spellings": [
+        "Zunii Gol"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zuunkhangai 1",
+      "geocoding_safe_token": "zuunkhangai1",
+      "original_source_spellings": [
+        "Zuunkhangai 1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Zuunkhangai 257",
+      "geocoding_safe_token": "zuunkhangai257",
+      "original_source_spellings": [
+        "Zuunkhangai 257"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Çadır Höyük",
+      "geocoding_safe_token": "çadırhöyük",
+      "original_source_spellings": [
+        "Çadır Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "normalized_display_spelling": "Černý Vůl",
+      "geocoding_safe_token": "černývůl",
+      "original_source_spellings": [
+        "Černý Vůl"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "normalized_display_spelling": "Africa to Europe and Asia donkey spread context",
+      "geocoding_safe_token": "africatoeuropeandasiadonkeyspreadcontext",
+      "original_source_spellings": [
+        "Africa to Europe and Asia donkey spread context"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "normalized_display_spelling": "North African donkey domestication and spread transect",
+      "geocoding_safe_token": "northafricandonkeydomesticationandspreadtransect",
+      "original_source_spellings": [
+        "North Africa and Levant dispersal extent",
+        "North African donkey domestication and spread transect"
+      ],
+      "alternative_spellings": [
+        "North Africa and Levant dispersal extent"
+      ],
+      "source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Baltic Sea Region short-tailed sheep context",
+      "geocoding_safe_token": "balticsearegionshorttailedsheepcontext",
+      "original_source_spellings": [
+        "Baltic Sea Region",
+        "Baltic Sea Region short-tailed sheep context"
+      ],
+      "alternative_spellings": [
+        "Baltic Sea Region"
+      ],
+      "source_surfaces": [
+        "coordinate_resolution",
+        "crossref_metadata"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Svalbard ancient reindeer context",
+      "geocoding_safe_token": "svalbardancientreindeercontext",
+      "original_source_spellings": [
+        "Svalbard ancient reindeer context",
+        "Svalbard archipelago"
+      ],
+      "alternative_spellings": [
+        "Svalbard archipelago"
+      ],
+      "source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Svalbard archipelago reindeer context",
+      "geocoding_safe_token": "svalbardarchipelagoreindeercontext",
+      "original_source_spellings": [
+        "Svalbard archipelago reindeer context"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "normalized_display_spelling": "North Africa to Europe domestic cat dispersal transect",
+      "geocoding_safe_token": "northafricatoeuropedomesticcatdispersaltransect",
+      "original_source_spellings": [
+        "North Africa to Europe dispersal extent",
+        "North Africa to Europe domestic cat dispersal transect"
+      ],
+      "alternative_spellings": [
+        "North Africa to Europe dispersal extent"
+      ],
+      "source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Lake Qinghai Basin",
+      "geocoding_safe_token": "lakeqinghaibasin",
+      "original_source_spellings": [
+        "Lake Qinghai Basin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Lake Qinghai Basin ancient goat context",
+      "geocoding_safe_token": "lakeqinghaibasinancientgoatcontext",
+      "original_source_spellings": [
+        "Lake Qinghai Basin ancient goat context",
+        "Lake Qinghai Basin, Qinghai-Xizang Plateau"
+      ],
+      "alternative_spellings": [
+        "Lake Qinghai Basin, Qinghai-Xizang Plateau"
+      ],
+      "source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "different mountain caves in Galicia",
+      "geocoding_safe_token": "differentmountaincavesingalicia",
+      "original_source_spellings": [
+        "different mountain caves in Galicia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "archive_metadata"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Galician mountain cave cattle context",
+      "geocoding_safe_token": "galicianmountaincavecattlecontext",
+      "original_source_spellings": [
+        "Galicia, Spain",
+        "Galician mountain cave cattle context"
+      ],
+      "alternative_spellings": [
+        "Galicia, Spain"
+      ],
+      "source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Arabian Peninsula and Levant dromedary context",
+      "geocoding_safe_token": "arabianpeninsulaandlevantdromedarycontext",
+      "original_source_spellings": [
+        "Arabian Peninsula and Levant dromedary context"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Site 1040 near Wadi Halfa",
+      "geocoding_safe_token": "site1040nearwadihalfa",
+      "original_source_spellings": [
+        "Site 1040 near Wadi Halfa"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "country"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "normalized_display_spelling": "Site 1040 near Wadi Halfa dromedary context",
+      "geocoding_safe_token": "site1040nearwadihalfadromedarycontext",
+      "original_source_spellings": [
+        "Wadi Halfa"
+      ],
+      "alternative_spellings": [
+        "Wadi Halfa"
+      ],
+      "source_surfaces": [
+        "coordinate_resolution"
+      ],
+      "locality_classes": [
+        "country"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "normalized_display_spelling": "Ancient European dog CTC sample context",
+      "geocoding_safe_token": "ancienteuropeandogctcsamplecontext",
+      "original_source_spellings": [
+        "Ancient European dog CTC sample context",
+        "Central Europe multi-site dog context"
+      ],
+      "alternative_spellings": [
+        "Central Europe multi-site dog context"
+      ],
+      "source_surfaces": [
+        "article_text",
+        "coordinate_resolution",
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "normalized_display_spelling": "Herxheim and Cherry Tree Cave ancient dog contexts",
+      "geocoding_safe_token": "herxheimandcherrytreecaveancientdogcontexts",
+      "original_source_spellings": [
+        "Herxheim and Cherry Tree Cave ancient dog contexts"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "article_text"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    }
+  ]
+}
