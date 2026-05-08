@@ -64,7 +64,7 @@ class DataLayoutUnitTests(unittest.TestCase):
             readme,
         )
         self.assertIn(
-            "[`docs/02-bijux-pollenomics-data/foundation/directory-layout.md`]"
+            "[`docs/02-bijux-pollenomics-data/overview/data-directory-layout.md`]"
             f"({DATA_LAYOUT_INDEX})",
             readme,
         )
