@@ -27,6 +27,33 @@
       "distinct_sample_owned_locality_count": 27,
       "project_context_row_count": 3,
       "blocked_sample_count": 0
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 20
+    },
+    {
+      "project_accession": "PRJNA1328209",
+      "species_latin_name": "Capra hircus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 5
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "publication_blocked": true,
+      "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
+      "distinct_sample_owned_locality_count": 0,
+      "project_context_row_count": 3,
+      "blocked_sample_count": 11
     }
   ]
 }

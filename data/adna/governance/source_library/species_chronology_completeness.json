@@ -2,9 +2,25 @@
   "schema_version": "animal-species-chronology-completeness.v1",
   "rows": [
     {
+      "species_latin_name": "Bos taurus",
+      "recovered_sample_row_count": 11,
+      "normalized_row_count": 11,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 11,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
+    },
+    {
       "species_latin_name": "Camelus dromedarius",
       "recovered_sample_row_count": 13,
       "normalized_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
       "text_only_unparsed_count": 0,
       "unresolved_count": 13,
       "chronology_completeness_ratio": 0.0
@@ -13,25 +29,61 @@
       "species_latin_name": "Canis lupus familiaris",
       "recovered_sample_row_count": 4,
       "normalized_row_count": 1,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 1,
+      "broad_label_count": 0,
       "text_only_unparsed_count": 0,
       "unresolved_count": 3,
       "chronology_completeness_ratio": 0.25
     },
     {
+      "species_latin_name": "Capra hircus",
+      "recovered_sample_row_count": 82,
+      "normalized_row_count": 82,
+      "exact_sample_date_count": 9,
+      "modeled_or_approximate_sample_date_count": 73,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 73,
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
+    },
+    {
       "species_latin_name": "Equus caballus",
       "recovered_sample_row_count": 548,
-      "normalized_row_count": 547,
+      "normalized_row_count": 548,
+      "exact_sample_date_count": 539,
+      "modeled_or_approximate_sample_date_count": 1,
+      "contextual_date_count": 8,
+      "broad_label_count": 0,
       "text_only_unparsed_count": 1,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 0.9982
+      "chronology_completeness_ratio": 1.0
     },
     {
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 190,
-      "normalized_row_count": 177,
+      "normalized_row_count": 190,
+      "exact_sample_date_count": 167,
+      "modeled_or_approximate_sample_date_count": 13,
+      "contextual_date_count": 10,
+      "broad_label_count": 0,
       "text_only_unparsed_count": 13,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 0.9316
+      "chronology_completeness_ratio": 1.0
+    },
+    {
+      "species_latin_name": "Rangifer tarandus",
+      "recovered_sample_row_count": 20,
+      "normalized_row_count": 20,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 20,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
     }
   ]
 }

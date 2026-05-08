@@ -16,6 +16,8 @@
       "sample_ambiguity_note": "",
       "chronology_text": "Ancient European dog genomic context",
       "chronology_strength": "project_context_interval",
+      "chronology_evidence_class": "archaeological_context_date",
+      "chronology_precision_posture": "contextual_interval",
       "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
       "chronology_provenance_kind": "article_html_body_quote",
       "chronology_provenance_locator": "results text",

@@ -136,12 +136,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.md").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_conflict_ledger.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_conflict_ledger.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_precision_audit.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_precision_audit.md").is_file())
         self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.json").is_file())
         self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.csv").is_file())
         self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.json").is_file())
         self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.csv").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.json").is_file())
         self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.md").is_file())
         self.assertTrue(
             (
                 governance_root
@@ -203,6 +209,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "projects"
                 / "PRJEB36540"
                 / "sample_chronology.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "projects"
+                / "PRJEB36540"
+                / "sample_chronology_evidence.json"
             ).is_file()
         )
         self.assertTrue(

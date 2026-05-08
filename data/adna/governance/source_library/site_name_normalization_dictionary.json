@@ -4077,7 +4077,8 @@
       ],
       "source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "supplementary_table"
       ],
       "locality_classes": [
         "broader_locality"
@@ -4120,16 +4121,436 @@
       ]
     },
     {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Acemhöyük",
+      "geocoding_safe_token": "acemhöyük",
+      "original_source_spellings": [
+        "Acemhöyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Blagotin-Poljna",
+      "geocoding_safe_token": "blagotinpoljna",
+      "original_source_spellings": [
+        "Blagotin-Poljna"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Direkli Cave",
+      "geocoding_safe_token": "direklicave",
+      "original_source_spellings": [
+        "Direkli Cave"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Sang-e Chakhmaq",
+      "geocoding_safe_token": "sangechakhmaq",
+      "original_source_spellings": [
+        "Sang-e Chakhmaq"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Aguadulce",
+      "geocoding_safe_token": "aguadulce",
+      "original_source_spellings": [
+        "Aguadulce"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Belmaco",
+      "geocoding_safe_token": "belmaco",
+      "original_source_spellings": [
+        "Belmaco"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Buracas",
+      "geocoding_safe_token": "buracas",
+      "original_source_spellings": [
+        "Buracas"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Caserones",
+      "geocoding_safe_token": "caserones",
+      "original_source_spellings": [
+        "Caserones"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Cueva de Bencomo",
+      "geocoding_safe_token": "cuevadebencomo",
+      "original_source_spellings": [
+        "Cueva de Bencomo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Cueva de la Herradura",
+      "geocoding_safe_token": "cuevadelaherradura",
+      "original_source_spellings": [
+        "Cueva de la Herradura"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Cueva de Villaverde",
+      "geocoding_safe_token": "cuevadevillaverde",
+      "original_source_spellings": [
+        "Cueva de Villaverde"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Cuevas de Herrera González",
+      "geocoding_safe_token": "cuevasdeherreragonzález",
+      "original_source_spellings": [
+        "Cuevas de Herrera González"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "El Chorrillo",
+      "geocoding_safe_token": "elchorrillo",
+      "original_source_spellings": [
+        "El Chorrillo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "El Lomito del Medio",
+      "geocoding_safe_token": "ellomitodelmedio",
+      "original_source_spellings": [
+        "El Lomito del Medio"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "El Portalón",
+      "geocoding_safe_token": "elportalón",
+      "original_source_spellings": [
+        "El Portalón"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "El Tendal",
+      "geocoding_safe_token": "eltendal",
+      "original_source_spellings": [
+        "El Tendal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Fiquinineo",
+      "geocoding_safe_token": "fiquinineo",
+      "original_source_spellings": [
+        "Fiquinineo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Hospital de San Martin - Calle San Marcial",
+      "geocoding_safe_token": "hospitaldesanmartincallesanmarcial",
+      "original_source_spellings": [
+        "Hospital de San Martin - Calle San Marcial"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "La Cañada de la Gurona",
+      "geocoding_safe_token": "lacañadadelagurona",
+      "original_source_spellings": [
+        "La Cañada de la Gurona"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "La Fortaleza",
+      "geocoding_safe_token": "lafortaleza",
+      "original_source_spellings": [
+        "La Fortaleza"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Llano del Sombrero",
+      "geocoding_safe_token": "llanodelsombrero",
+      "original_source_spellings": [
+        "Llano del Sombrero"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Lobos",
+      "geocoding_safe_token": "lobos",
+      "original_source_spellings": [
+        "Lobos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Los Riscos de Ifara",
+      "geocoding_safe_token": "losriscosdeifara",
+      "original_source_spellings": [
+        "Los Riscos de Ifara"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Playa Chica",
+      "geocoding_safe_token": "playachica",
+      "original_source_spellings": [
+        "Playa Chica"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Punta del Mallorquín",
+      "geocoding_safe_token": "puntadelmallorquín",
+      "original_source_spellings": [
+        "Punta del Mallorquín"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "normalized_display_spelling": "Tigalate",
+      "geocoding_safe_token": "tigalate",
+      "original_source_spellings": [
+        "Tigalate"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJNA1328209",
       "species_latin_name": "Capra hircus",
       "normalized_display_spelling": "Lake Qinghai Basin",
       "geocoding_safe_token": "lakeqinghaibasin",
       "original_source_spellings": [
-        "Lake Qinghai Basin"
+        "Lake Qinghai Basin",
+        "Lake Qinghai basin"
       ],
-      "alternative_spellings": [],
+      "alternative_spellings": [
+        "Lake Qinghai basin"
+      ],
       "source_surfaces": [
-        "article_text"
+        "article_text",
+        "supplementary_table"
       ],
       "locality_classes": [
         "broader_locality"
@@ -4185,7 +4606,8 @@
       ],
       "source_surfaces": [
         "archive_metadata",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "supplementary_table"
       ],
       "locality_classes": [
         "broader_locality"
