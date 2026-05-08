@@ -8,6 +8,16 @@ from .architecture import (
 from .alias import CompatibilityAliasContract, compatibility_alias_contract
 from .contracts import RuntimeSurfaceContract, runtime_surface_contract
 from .ownership_map import OwnershipMapEntry, build_ownership_map
+from .public_artifact_language import (
+    DISALLOWED_PUBLIC_ARTIFACT_TOKENS,
+    PUBLIC_INFORMATION_ROLE_MEANINGS,
+    PublicArtifactLanguageFinding,
+    audit_public_artifact_inventory,
+    extract_markdown_heading,
+    infer_public_information_role,
+    split_public_artifact_stem,
+    validate_public_artifact_stem,
+)
 from .product_scope import ProductScope, build_product_scope
 from .repository_truth import (
     build_repository_atlas_input_audit,
@@ -45,11 +55,15 @@ __all__ = [
     "ArchitectureStage",
     "CompatibilityAliasContract",
     "CrossTreeSurfaceContract",
+    "DISALLOWED_PUBLIC_ARTIFACT_TOKENS",
     "OwnershipMapEntry",
     "PackageOwnershipContract",
     "PollenomicsReleaseBar",
     "ProductScope",
+    "PUBLIC_INFORMATION_ROLE_MEANINGS",
+    "PublicArtifactLanguageFinding",
     "RepositoryArchitectureContract",
+    "audit_public_artifact_inventory",
     "build_repository_atlas_input_audit",
     "build_repository_architecture_contract",
     "build_repository_claim_audit",
@@ -67,6 +81,8 @@ __all__ = [
     "ReleaseReadinessReport",
     "RuntimeSurfaceContract",
     "SurfaceMap",
+    "extract_markdown_heading",
+    "infer_public_information_role",
     "render_repository_atlas_input_audit_markdown",
     "render_repository_claim_audit_markdown",
     "render_repository_cross_domain_evidence_matrix_markdown",
@@ -87,4 +103,6 @@ __all__ = [
     "build_surface_map",
     "compatibility_alias_contract",
     "runtime_surface_contract",
+    "split_public_artifact_stem",
+    "validate_public_artifact_stem",
 ]
