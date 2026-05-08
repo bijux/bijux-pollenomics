@@ -51,7 +51,9 @@
         "time_end_bp": 2727,
         "time_mean_bp": 2727,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -119,7 +121,9 @@
         "time_end_bp": 2300,
         "time_mean_bp": 2300,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -178,7 +182,9 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -237,7 +243,9 @@
         "time_end_bp": 4023,
         "time_mean_bp": 4023,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -296,7 +304,9 @@
         "time_end_bp": 2319,
         "time_mean_bp": 2319,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -355,7 +365,9 @@
         "time_end_bp": 3318,
         "time_mean_bp": 3318,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -418,7 +430,9 @@
         "time_end_bp": 5015,
         "time_mean_bp": 4994,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -487,7 +501,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -546,7 +562,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -605,7 +623,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -664,7 +684,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -723,7 +745,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -782,7 +806,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -841,7 +867,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -900,7 +928,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -959,7 +989,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1018,7 +1050,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1077,7 +1111,9 @@
         "time_end_bp": 4077,
         "time_mean_bp": 4077,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1136,7 +1172,9 @@
         "time_end_bp": 1872,
         "time_mean_bp": 1872,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1195,7 +1233,9 @@
         "time_end_bp": 3574,
         "time_mean_bp": 3574,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1254,7 +1294,9 @@
         "time_end_bp": 3101,
         "time_mean_bp": 3101,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1313,7 +1355,9 @@
         "time_end_bp": 1192,
         "time_mean_bp": 1192,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1372,7 +1416,9 @@
         "time_end_bp": 1979,
         "time_mean_bp": 1979,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1431,7 +1477,9 @@
         "time_end_bp": 2717,
         "time_mean_bp": 2717,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1490,7 +1538,9 @@
         "time_end_bp": 1694,
         "time_mean_bp": 1694,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1549,7 +1599,9 @@
         "time_end_bp": 2317,
         "time_mean_bp": 2317,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1608,7 +1660,9 @@
         "time_end_bp": 3604,
         "time_mean_bp": 3604,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1667,7 +1721,9 @@
         "time_end_bp": 2886,
         "time_mean_bp": 2886,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1727,7 +1783,9 @@
         "time_end_bp": 3123,
         "time_mean_bp": 3081,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1786,7 +1844,9 @@
         "time_end_bp": 1695,
         "time_mean_bp": 1695,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1845,7 +1905,9 @@
         "time_end_bp": 1143,
         "time_mean_bp": 1143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1909,7 +1971,9 @@
         "time_end_bp": 2319,
         "time_mean_bp": 2223,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -1968,7 +2032,9 @@
         "time_end_bp": 1217,
         "time_mean_bp": 1017,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2027,7 +2093,9 @@
         "time_end_bp": 2143,
         "time_mean_bp": 2143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2088,7 +2156,9 @@
         "time_end_bp": 2817,
         "time_mean_bp": 2767,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2150,7 +2220,9 @@
         "time_end_bp": 2667,
         "time_mean_bp": 2584,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2209,7 +2281,9 @@
         "time_end_bp": 1917,
         "time_mean_bp": 1817,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2269,7 +2343,9 @@
         "time_end_bp": 1887,
         "time_mean_bp": 1752,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2328,7 +2404,9 @@
         "time_end_bp": 2217,
         "time_mean_bp": 2017,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2387,7 +2465,9 @@
         "time_end_bp": 1305,
         "time_mean_bp": 1305,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2446,7 +2526,9 @@
         "time_end_bp": 5155,
         "time_mean_bp": 5155,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2506,7 +2588,9 @@
         "time_end_bp": 3350,
         "time_mean_bp": 3334,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2565,7 +2649,9 @@
         "time_end_bp": 517,
         "time_mean_bp": 417,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2624,7 +2710,9 @@
         "time_end_bp": 517,
         "time_mean_bp": 467,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2683,7 +2771,9 @@
         "time_end_bp": 485,
         "time_mean_bp": 485,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2743,7 +2833,9 @@
         "time_end_bp": 2143,
         "time_mean_bp": 2143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2812,7 +2904,9 @@
         "time_end_bp": 2300,
         "time_mean_bp": 2300,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2871,7 +2965,9 @@
         "time_end_bp": 1217,
         "time_mean_bp": 1067,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -2934,7 +3030,9 @@
         "time_end_bp": 5015,
         "time_mean_bp": 4994,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3020,7 +3118,9 @@
         "time_end_bp": 5500,
         "time_mean_bp": 5096,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3079,7 +3179,9 @@
         "time_end_bp": 1817,
         "time_mean_bp": 1717,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3139,7 +3241,9 @@
         "time_end_bp": 1217,
         "time_mean_bp": 1217,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3201,7 +3305,9 @@
         "time_end_bp": 1517,
         "time_mean_bp": 1417,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3260,7 +3366,9 @@
         "time_end_bp": 4217,
         "time_mean_bp": 3917,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3319,7 +3427,9 @@
         "time_end_bp": 4861,
         "time_mean_bp": 4678,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3378,7 +3488,9 @@
         "time_end_bp": 4791,
         "time_mean_bp": 4791,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3437,7 +3549,9 @@
         "time_end_bp": 517,
         "time_mean_bp": 417,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3496,7 +3610,9 @@
         "time_end_bp": 2217,
         "time_mean_bp": 2167,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3571,7 +3687,9 @@
         "time_end_bp": 1917,
         "time_mean_bp": 1917,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3630,7 +3748,9 @@
         "time_end_bp": 617,
         "time_mean_bp": 317,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3690,7 +3810,9 @@
         "time_end_bp": 2143,
         "time_mean_bp": 2143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3749,7 +3871,9 @@
         "time_end_bp": 4077,
         "time_mean_bp": 4077,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3808,7 +3932,9 @@
         "time_end_bp": 1417,
         "time_mean_bp": 1317,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3868,7 +3994,9 @@
         "time_end_bp": 4058,
         "time_mean_bp": 4026,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3927,7 +4055,9 @@
         "time_end_bp": 2672,
         "time_mean_bp": 2672,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -3988,7 +4118,9 @@
         "time_end_bp": 1917,
         "time_mean_bp": 1817,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4047,7 +4179,9 @@
         "time_end_bp": 2820,
         "time_mean_bp": 2820,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4106,7 +4240,9 @@
         "time_end_bp": 1863,
         "time_mean_bp": 1863,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4165,7 +4301,9 @@
         "time_end_bp": 1872,
         "time_mean_bp": 1872,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4224,7 +4362,9 @@
         "time_end_bp": 3574,
         "time_mean_bp": 3574,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4288,7 +4428,9 @@
         "time_end_bp": 2011,
         "time_mean_bp": 2000,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4350,7 +4492,9 @@
         "time_end_bp": 35870,
         "time_mean_bp": 19006,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4409,7 +4553,9 @@
         "time_end_bp": 1217,
         "time_mean_bp": 1067,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4468,7 +4614,9 @@
         "time_end_bp": 1192,
         "time_mean_bp": 1192,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4527,7 +4675,9 @@
         "time_end_bp": 2867,
         "time_mean_bp": 2542,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4586,7 +4736,9 @@
         "time_end_bp": 4217,
         "time_mean_bp": 4017,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4645,7 +4797,9 @@
         "time_end_bp": 1979,
         "time_mean_bp": 1979,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4704,7 +4858,9 @@
         "time_end_bp": 2312,
         "time_mean_bp": 2312,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4763,7 +4919,9 @@
         "time_end_bp": 1406,
         "time_mean_bp": 1292,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4822,7 +4980,9 @@
         "time_end_bp": 14450,
         "time_mean_bp": 14450,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4881,7 +5041,9 @@
         "time_end_bp": 1446,
         "time_mean_bp": 1446,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -4941,7 +5103,9 @@
         "time_end_bp": 5000,
         "time_mean_bp": 4500,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5000,7 +5164,9 @@
         "time_end_bp": 1694,
         "time_mean_bp": 1694,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5059,7 +5225,9 @@
         "time_end_bp": 2143,
         "time_mean_bp": 2143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5118,7 +5286,9 @@
         "time_end_bp": 317,
         "time_mean_bp": 267,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5177,7 +5347,9 @@
         "time_end_bp": 1817,
         "time_mean_bp": 1767,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5236,7 +5408,9 @@
         "time_end_bp": 1373,
         "time_mean_bp": 1373,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5303,7 +5477,9 @@
         "time_end_bp": 1189,
         "time_mean_bp": 1138,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5362,7 +5538,9 @@
         "time_end_bp": 23789,
         "time_mean_bp": 23789,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5421,7 +5599,9 @@
         "time_end_bp": 517,
         "time_mean_bp": 492,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5480,7 +5660,9 @@
         "time_end_bp": 3517,
         "time_mean_bp": 3267,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5540,7 +5722,9 @@
         "time_end_bp": 105,
         "time_mean_bp": 97,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5599,7 +5783,9 @@
         "time_end_bp": 817,
         "time_mean_bp": 717,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5659,7 +5845,9 @@
         "time_end_bp": 1187,
         "time_mean_bp": 1187,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5719,7 +5907,9 @@
         "time_end_bp": 830,
         "time_mean_bp": 744,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5779,7 +5969,9 @@
         "time_end_bp": 2417,
         "time_mean_bp": 2367,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5838,7 +6030,9 @@
         "time_end_bp": 1184,
         "time_mean_bp": 1184,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5897,7 +6091,9 @@
         "time_end_bp": 1308,
         "time_mean_bp": 1308,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -5956,7 +6152,9 @@
         "time_end_bp": 4042,
         "time_mean_bp": 3900,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6015,7 +6213,9 @@
         "time_end_bp": 1217,
         "time_mean_bp": 1117,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6075,7 +6275,9 @@
         "time_end_bp": 2817,
         "time_mean_bp": 2717,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6134,7 +6336,9 @@
         "time_end_bp": 1017,
         "time_mean_bp": 1017,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6193,7 +6397,9 @@
         "time_end_bp": 3117,
         "time_mean_bp": 3117,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6252,7 +6458,9 @@
         "time_end_bp": 2250,
         "time_mean_bp": 2250,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6311,7 +6519,9 @@
         "time_end_bp": 2017,
         "time_mean_bp": 1917,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6370,7 +6580,9 @@
         "time_end_bp": 2677,
         "time_mean_bp": 2677,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6429,7 +6641,9 @@
         "time_end_bp": 4217,
         "time_mean_bp": 3917,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6489,7 +6703,9 @@
         "time_end_bp": 1694,
         "time_mean_bp": 1626,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6550,7 +6766,9 @@
         "time_end_bp": 4023,
         "time_mean_bp": 3786,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6610,7 +6828,9 @@
         "time_end_bp": 2017,
         "time_mean_bp": 1867,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6669,7 +6889,9 @@
         "time_end_bp": 1717,
         "time_mean_bp": 1667,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6729,7 +6951,9 @@
         "time_end_bp": 2417,
         "time_mean_bp": 2317,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6788,7 +7012,9 @@
         "time_end_bp": 3604,
         "time_mean_bp": 3604,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6849,7 +7075,9 @@
         "time_end_bp": 811,
         "time_mean_bp": 730,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6909,7 +7137,9 @@
         "time_end_bp": 42758,
         "time_mean_bp": 29407,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -6976,7 +7206,9 @@
         "time_end_bp": 2930,
         "time_mean_bp": 2608,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7035,7 +7267,9 @@
         "time_end_bp": 192,
         "time_mean_bp": 192,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7094,7 +7328,9 @@
         "time_end_bp": 1417,
         "time_mean_bp": 1317,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7165,7 +7401,9 @@
         "time_end_bp": 3130,
         "time_mean_bp": 3084,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7224,7 +7462,9 @@
         "time_end_bp": 1767,
         "time_mean_bp": 1742,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7283,7 +7523,9 @@
         "time_end_bp": 1817,
         "time_mean_bp": 1717,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7342,7 +7584,9 @@
         "time_end_bp": 1717,
         "time_mean_bp": 1667,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7406,7 +7650,9 @@
         "time_end_bp": 317,
         "time_mean_bp": 217,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7481,7 +7727,9 @@
         "time_end_bp": 1730,
         "time_mean_bp": 1443,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7540,7 +7788,9 @@
         "time_end_bp": 2853,
         "time_mean_bp": 2853,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7599,7 +7849,9 @@
         "time_end_bp": 1143,
         "time_mean_bp": 1143,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7660,7 +7912,9 @@
         "time_end_bp": 4075,
         "time_mean_bp": 3158,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7721,7 +7975,9 @@
         "time_end_bp": 6482,
         "time_mean_bp": 4708,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7783,7 +8039,9 @@
         "time_end_bp": 4740,
         "time_mean_bp": 4722,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7842,7 +8100,9 @@
         "time_end_bp": 7356,
         "time_mean_bp": 7356,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7903,7 +8163,9 @@
         "time_end_bp": 2610,
         "time_mean_bp": 2570,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -7964,7 +8226,9 @@
         "time_end_bp": 2804,
         "time_mean_bp": 2668,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8023,7 +8287,9 @@
         "time_end_bp": 2600,
         "time_mean_bp": 2600,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8082,7 +8348,9 @@
         "time_end_bp": 3704,
         "time_mean_bp": 3704,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8142,7 +8410,9 @@
         "time_end_bp": 2611,
         "time_mean_bp": 2610,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8201,7 +8471,9 @@
         "time_end_bp": 5400,
         "time_mean_bp": 5400,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8260,7 +8532,9 @@
         "time_end_bp": 2535,
         "time_mean_bp": 2535,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8320,7 +8594,9 @@
         "time_end_bp": 5100,
         "time_mean_bp": 5031,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8381,7 +8657,9 @@
         "time_end_bp": 5082,
         "time_mean_bp": 3846,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8440,7 +8718,9 @@
         "time_end_bp": 3191,
         "time_mean_bp": 3191,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8499,7 +8779,9 @@
         "time_end_bp": 2575,
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8561,7 +8843,9 @@
         "time_end_bp": 3901,
         "time_mean_bp": 3833,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8621,7 +8905,9 @@
         "time_end_bp": 4911,
         "time_mean_bp": 4910,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8683,7 +8969,9 @@
         "time_end_bp": 6586,
         "time_mean_bp": 6413,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8742,7 +9030,9 @@
         "time_end_bp": 2608,
         "time_mean_bp": 2608,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8818,7 +9108,9 @@
         "time_end_bp": 5278,
         "time_mean_bp": 5205,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8877,7 +9169,9 @@
         "time_end_bp": 3018,
         "time_mean_bp": 3018,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8936,7 +9230,9 @@
         "time_end_bp": 3799,
         "time_mean_bp": 3799,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -8996,7 +9292,9 @@
         "time_end_bp": 2815,
         "time_mean_bp": 2620,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9055,7 +9353,9 @@
         "time_end_bp": 2760,
         "time_mean_bp": 2760,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9114,7 +9414,9 @@
         "time_end_bp": 2575,
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9173,7 +9475,9 @@
         "time_end_bp": 7130,
         "time_mean_bp": 7130,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9234,7 +9538,9 @@
         "time_end_bp": 6259,
         "time_mean_bp": 6002,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9293,7 +9599,9 @@
         "time_end_bp": 17009,
         "time_mean_bp": 17009,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9354,7 +9662,9 @@
         "time_end_bp": 2688,
         "time_mean_bp": 2556,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9413,7 +9723,9 @@
         "time_end_bp": 2538,
         "time_mean_bp": 2538,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9472,7 +9784,9 @@
         "time_end_bp": 2737,
         "time_mean_bp": 2737,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9534,7 +9848,9 @@
         "time_end_bp": 15765,
         "time_mean_bp": 15662,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9594,7 +9910,9 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9654,7 +9972,9 @@
         "time_end_bp": 4961,
         "time_mean_bp": 4952,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9713,7 +10033,9 @@
         "time_end_bp": 4013,
         "time_mean_bp": 4013,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9773,7 +10095,9 @@
         "time_end_bp": 3806,
         "time_mean_bp": 3806,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9837,7 +10161,9 @@
         "time_end_bp": 4669,
         "time_mean_bp": 4648,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9896,7 +10222,9 @@
         "time_end_bp": 3987,
         "time_mean_bp": 3987,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -9956,7 +10284,9 @@
         "time_end_bp": 52200,
         "time_mean_bp": 51050,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10026,7 +10356,9 @@
         "time_end_bp": 23605,
         "time_mean_bp": 20828,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10093,7 +10425,9 @@
         "time_end_bp": 3904,
         "time_mean_bp": 3850,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10152,7 +10486,9 @@
         "time_end_bp": 4408,
         "time_mean_bp": 4408,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10216,7 +10552,9 @@
         "time_end_bp": 3500,
         "time_mean_bp": 3465,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10279,7 +10617,9 @@
         "time_end_bp": 3444,
         "time_mean_bp": 3428,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10338,7 +10678,9 @@
         "time_end_bp": 14616,
         "time_mean_bp": 14616,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10397,7 +10739,9 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10456,7 +10800,9 @@
         "time_end_bp": 4336,
         "time_mean_bp": 4336,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10515,7 +10861,9 @@
         "time_end_bp": 8269,
         "time_mean_bp": 8269,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10574,7 +10922,9 @@
         "time_end_bp": 31606,
         "time_mean_bp": 31606,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10634,7 +10984,9 @@
         "time_end_bp": 5292,
         "time_mean_bp": 5238,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10694,7 +11046,9 @@
         "time_end_bp": 3748,
         "time_mean_bp": 3404,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10753,7 +11107,9 @@
         "time_end_bp": 5194,
         "time_mean_bp": 5194,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10812,7 +11168,9 @@
         "time_end_bp": 2530,
         "time_mean_bp": 2530,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10871,7 +11229,9 @@
         "time_end_bp": 2567,
         "time_mean_bp": 2567,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10930,7 +11290,9 @@
         "time_end_bp": 12350,
         "time_mean_bp": 12350,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -10989,7 +11351,9 @@
         "time_end_bp": 5176,
         "time_mean_bp": 5176,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11048,7 +11412,9 @@
         "time_end_bp": 2959,
         "time_mean_bp": 2959,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11110,7 +11476,9 @@
         "time_end_bp": 44425,
         "time_mean_bp": 35292,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11169,7 +11537,9 @@
         "time_end_bp": 3969,
         "time_mean_bp": 3969,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11229,7 +11599,9 @@
         "time_end_bp": 3323,
         "time_mean_bp": 3262,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11289,7 +11661,9 @@
         "time_end_bp": 3433,
         "time_mean_bp": 3016,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11351,7 +11725,9 @@
         "time_end_bp": 3050,
         "time_mean_bp": 2888,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11410,7 +11786,9 @@
         "time_end_bp": 2815,
         "time_mean_bp": 2815,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11470,7 +11848,9 @@
         "time_end_bp": 5751,
         "time_mean_bp": 5603,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11529,7 +11909,9 @@
         "time_end_bp": 82,
         "time_mean_bp": 82,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11588,7 +11970,9 @@
         "time_end_bp": 36751,
         "time_mean_bp": 36751,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11649,7 +12033,9 @@
         "time_end_bp": 44950,
         "time_mean_bp": 34022,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11708,7 +12094,9 @@
         "time_end_bp": 3633,
         "time_mean_bp": 3633,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11767,7 +12155,9 @@
         "time_end_bp": 3794,
         "time_mean_bp": 3794,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11827,7 +12217,9 @@
         "time_end_bp": 5401,
         "time_mean_bp": 5397,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11888,7 +12280,9 @@
         "time_end_bp": 5174,
         "time_mean_bp": 5170,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -11948,7 +12342,9 @@
         "time_end_bp": 3782,
         "time_mean_bp": 3782,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12007,7 +12403,9 @@
         "time_end_bp": 6536,
         "time_mean_bp": 6536,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12067,7 +12465,9 @@
         "time_end_bp": 3746,
         "time_mean_bp": 3740,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12131,7 +12531,9 @@
         "time_end_bp": 23963,
         "time_mean_bp": 19695,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12190,7 +12592,9 @@
         "time_end_bp": 3482,
         "time_mean_bp": 3482,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12249,7 +12653,9 @@
         "time_end_bp": 6375,
         "time_mean_bp": 6375,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12309,7 +12715,9 @@
         "time_end_bp": 3833,
         "time_mean_bp": 3822,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12369,7 +12777,9 @@
         "time_end_bp": 5039,
         "time_mean_bp": 4992,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12430,7 +12840,9 @@
         "time_end_bp": 2650,
         "time_mean_bp": 2627,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12489,7 +12901,9 @@
         "time_end_bp": 3052,
         "time_mean_bp": 3052,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12548,7 +12962,9 @@
         "time_end_bp": 6135,
         "time_mean_bp": 6135,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12607,7 +13023,9 @@
         "time_end_bp": 19719,
         "time_mean_bp": 19719,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12666,7 +13084,9 @@
         "time_end_bp": 12408,
         "time_mean_bp": 12408,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12725,7 +13145,9 @@
         "time_end_bp": 2243,
         "time_mean_bp": 2243,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12784,7 +13206,9 @@
         "time_end_bp": 9450,
         "time_mean_bp": 9450,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12843,7 +13267,9 @@
         "time_end_bp": 2267,
         "time_mean_bp": 2267,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12903,7 +13329,9 @@
         "time_end_bp": 3815,
         "time_mean_bp": 3810,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -12966,7 +13394,9 @@
         "time_end_bp": 4701,
         "time_mean_bp": 4004,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13025,7 +13455,9 @@
         "time_end_bp": 5186,
         "time_mean_bp": 5186,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13084,7 +13516,9 @@
         "time_end_bp": 2607,
         "time_mean_bp": 2607,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13146,7 +13580,9 @@
         "time_end_bp": 3007,
         "time_mean_bp": 2985,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13207,7 +13643,9 @@
         "time_end_bp": 2718,
         "time_mean_bp": 2718,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13266,7 +13704,9 @@
         "time_end_bp": 3199,
         "time_mean_bp": 3199,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13325,7 +13765,9 @@
         "time_end_bp": 3795,
         "time_mean_bp": 3795,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13384,7 +13826,9 @@
         "time_end_bp": 3060,
         "time_mean_bp": 3060,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13443,7 +13887,9 @@
         "time_end_bp": 3260,
         "time_mean_bp": 3260,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13502,7 +13948,9 @@
         "time_end_bp": 13750,
         "time_mean_bp": 13750,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13565,7 +14013,9 @@
         "time_end_bp": 7301,
         "time_mean_bp": 6004,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13624,7 +14074,9 @@
         "time_end_bp": 2892,
         "time_mean_bp": 2892,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13683,7 +14135,9 @@
         "time_end_bp": 2821,
         "time_mean_bp": 2821,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13742,7 +14196,9 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13803,7 +14259,9 @@
         "time_end_bp": 3801,
         "time_mean_bp": 3770,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13862,7 +14320,9 @@
         "time_end_bp": 3801,
         "time_mean_bp": 3801,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13922,7 +14382,9 @@
         "time_end_bp": 7499,
         "time_mean_bp": 7496,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -13982,7 +14444,9 @@
         "time_end_bp": 32142,
         "time_mean_bp": 27756,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14041,7 +14505,9 @@
         "time_end_bp": 2574,
         "time_mean_bp": 2574,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14103,7 +14569,9 @@
         "time_end_bp": 51700,
         "time_mean_bp": 41108,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14162,7 +14630,9 @@
         "time_end_bp": 5385,
         "time_mean_bp": 5385,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14221,7 +14691,9 @@
         "time_end_bp": 4509,
         "time_mean_bp": 4509,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14280,7 +14752,9 @@
         "time_end_bp": 3086,
         "time_mean_bp": 3086,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14341,7 +14815,9 @@
         "time_end_bp": 3095,
         "time_mean_bp": 2992,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14400,7 +14876,9 @@
         "time_end_bp": 3066,
         "time_mean_bp": 3066,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [
@@ -14459,7 +14937,9 @@
         "time_end_bp": 2960,
         "time_mean_bp": 2960,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_point"
       },
       "sample_namespace": "equus_caballus:sample_locality",
       "project_accessions": [

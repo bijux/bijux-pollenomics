@@ -5,13 +5,1650 @@
     {
       "identity": {
         "namespace": "capra_hircus:project_locality",
-        "stable_token": "capra_hircus:locality:prjna1328209:lakeqinghaibasinancientgoatcontext:qinghaichina",
-        "locality_text": "Lake Qinghai Basin ancient goat context",
-        "political_entity": "Qinghai, China",
+        "stable_token": "capra_hircus:locality:prjeb90141:acemhyk:aksarayplainturkey",
+        "locality_text": "Acemhöyük",
+        "political_entity": "Aksaray Plain, Turkey",
         "source_anchor_tokens": [
-          "PRJNA1328209",
+          "PRJEB90141",
+          "38.540978000000003",
+          "33.771234"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90141"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Acemhöyük",
+      "coordinates": {
+        "latitude": 38.540978,
+        "longitude": 33.771234,
+        "latitude_text": "38.540978000000003",
+        "longitude_text": "33.771234",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90141:samea4591761"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90141"
+      ],
+      "chronology": {
+        "original_text": "3833-3984 BP",
+        "time_start_bp": 3833,
+        "time_end_bp": 3984,
+        "time_mean_bp": 3908,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "original_location_text": "Acemhöyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90141:blagotinpoljna:trstenikserbia",
+        "locality_text": "Blagotin-Poljna",
+        "political_entity": "Trstenik, Serbia",
+        "source_anchor_tokens": [
+          "PRJEB90141",
+          "43.723286000000002",
+          "21.099449"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90141"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Blagotin-Poljna",
+      "coordinates": {
+        "latitude": 43.723286,
+        "longitude": 21.099449,
+        "latitude_text": "43.723286000000002",
+        "longitude_text": "21.099449",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90141:samea4588077"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90141"
+      ],
+      "chronology": {
+        "original_text": "7840-8030 BP",
+        "time_start_bp": 7840,
+        "time_end_bp": 8030,
+        "time_mean_bp": 7935,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "original_location_text": "Blagotin-Poljna",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90141:direklicave:taurusmountainsturkey",
+        "locality_text": "Direkli Cave",
+        "political_entity": "Taurus Mountains, Turkey",
+        "source_anchor_tokens": [
+          "PRJEB90141",
+          "37.857799999999997",
+          "36.653883"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90141"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Direkli Cave",
+      "coordinates": {
+        "latitude": 37.8578,
+        "longitude": 36.653883,
+        "latitude_text": "37.857799999999997",
+        "longitude_text": "36.653883",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90141:samea4453841"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90141"
+      ],
+      "chronology": {
+        "original_text": "13169-13316 BP",
+        "time_start_bp": 13169,
+        "time_end_bp": 13316,
+        "time_mean_bp": 13242,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "original_location_text": "Direkli Cave",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90141:sangechakhmaq:semnaniran",
+        "locality_text": "Sang-e Chakhmaq",
+        "political_entity": "Semnan, Iran",
+        "source_anchor_tokens": [
+          "PRJEB90141",
+          "36.504157999999997",
+          "55.000785999999998"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90141"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sang-e Chakhmaq",
+      "coordinates": {
+        "latitude": 36.504158,
+        "longitude": 55.000786,
+        "latitude_text": "36.504157999999997",
+        "longitude_text": "55.000785999999998",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90141:samea4591758"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90141"
+      ],
+      "chronology": {
+        "original_text": "7939-8170 BP",
+        "time_start_bp": 7939,
+        "time_end_bp": 8170,
+        "time_mean_bp": 8054,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90141"
+      ],
+      "original_location_text": "Sang-e Chakhmaq",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:aguadulce:grancanaria",
+        "locality_text": "Aguadulce",
+        "political_entity": "Gran Canaria",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "27.963740999999999",
+          "-15.381411999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Aguadulce",
+      "coordinates": {
+        "latitude": 27.963741,
+        "longitude": -15.381412,
+        "latitude_text": "27.963740999999999",
+        "longitude_text": "-15.381411999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-1961"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "11th - 12th centuries CE (SUII)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Aguadulce",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:belmaco:lapalma",
+        "locality_text": "Belmaco",
+        "political_entity": "La Palma",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.578600000000002",
+          "-17.776199999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Belmaco",
+      "coordinates": {
+        "latitude": 28.5786,
+        "longitude": -17.7762,
+        "latitude_text": "28.578600000000002",
+        "longitude_text": "-17.776199999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2197"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "11th - 12th centuries CE (SU17-18)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Belmaco",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:buracas:lapalma",
+        "locality_text": "Buracas",
+        "political_entity": "La Palma",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.792400000000001",
+          "-17.976500000000001"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Buracas",
+      "coordinates": {
+        "latitude": 28.7924,
+        "longitude": -17.9765,
+        "latitude_text": "28.792400000000001",
+        "longitude_text": "-17.976500000000001",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2201"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "6th - 8th centuries CE (SU15)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Buracas",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:caserones:grancanaria",
+        "locality_text": "Caserones",
+        "political_entity": "Gran Canaria",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.002673999999999",
+          "-15.813492"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Caserones",
+      "coordinates": {
+        "latitude": 28.002674,
+        "longitude": -15.813492,
+        "latitude_text": "28.002673999999999",
+        "longitude_text": "-15.813492",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb90261:pgull-2144",
+        "prjeb90261:pgull-2145"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "13th - 14th centuries CE (SU13)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Caserones",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:cuevadebencomo:tenerife",
+        "locality_text": "Cueva de Bencomo",
+        "political_entity": "Tenerife",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.4071",
+          "-16.5061"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Cueva de Bencomo",
+      "coordinates": {
+        "latitude": 28.4071,
+        "longitude": -16.5061,
+        "latitude_text": "28.4071",
+        "longitude_text": "-16.5061",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-1786"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "7th - 11th centuries CE (SU2)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Cueva de Bencomo",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:cuevadelaherradura:elhierro",
+        "locality_text": "Cueva de la Herradura",
+        "political_entity": "El Hierro",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "27.640201000000001",
+          "-17.989809000000001"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Cueva de la Herradura",
+      "coordinates": {
+        "latitude": 27.640201,
+        "longitude": -17.989809,
+        "latitude_text": "27.640201000000001",
+        "longitude_text": "-17.989809000000001",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb90261:pgull-1962",
+        "prjeb90261:pgull-1965",
+        "prjeb90261:pgull-2202"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "3rd - 4th centuries CE (SU110)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Cueva de la Herradura",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:cuevadevillaverde:fuerteventura",
+        "locality_text": "Cueva de Villaverde",
+        "political_entity": "Fuerteventura",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.637195999999999",
+          "-13.899853999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Cueva de Villaverde",
+      "coordinates": {
+        "latitude": 28.637196,
+        "longitude": -13.899854,
+        "latitude_text": "28.637195999999999",
+        "longitude_text": "-13.899853999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 13,
+      "sample_ids": [
+        "prjeb90261:pgull-1233",
+        "prjeb90261:pgull-1235",
+        "prjeb90261:pgull-1236",
+        "prjeb90261:pgull-1238",
+        "prjeb90261:pgull-1239",
+        "prjeb90261:pgull-1240",
+        "prjeb90261:pgull-1241",
+        "prjeb90261:pgull-1244",
+        "prjeb90261:pgull-1246",
+        "prjeb90261:pgull-1247",
+        "prjeb90261:pgull-1249",
+        "prjeb90261:pgull-1251",
+        "prjeb90261:pgull-1256"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "6th - 12th centuries CE (site)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Cueva de Villaverde",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:cuevasdeherreragonzlez:lagomera",
+        "locality_text": "Cuevas de Herrera González",
+        "political_entity": "La Gomera",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.174384",
+          "-17.323678999999998"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Cuevas de Herrera González",
+      "coordinates": {
+        "latitude": 28.174384,
+        "longitude": -17.323679,
+        "latitude_text": "28.174384",
+        "longitude_text": "-17.323678999999998",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-0529"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "15th century CE (SU6)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Cuevas de Herrera González",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:elchorrillo:tenerife",
+        "locality_text": "El Chorrillo",
+        "political_entity": "Tenerife",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.422000000000001",
+          "-16.313300000000002"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "El Chorrillo",
+      "coordinates": {
+        "latitude": 28.422,
+        "longitude": -16.3133,
+        "latitude_text": "28.422000000000001",
+        "longitude_text": "-16.313300000000002",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2220"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "13th - 14th centuries CE (SU8)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "El Chorrillo",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:ellomitodelmedio:lagomera",
+        "locality_text": "El Lomito del Medio",
+        "political_entity": "La Gomera",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.085573",
+          "-17.149227"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "El Lomito del Medio",
+      "coordinates": {
+        "latitude": 28.085573,
+        "longitude": -17.149227,
+        "latitude_text": "28.085573",
+        "longitude_text": "-17.149227",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb90261:pgull-0515",
+        "prjeb90261:pgull-0518",
+        "prjeb90261:pgull-0523"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "7th - 8th centuries CE (SU2)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "El Lomito del Medio",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:elportaln:burgos",
+        "locality_text": "El Portalón",
+        "political_entity": "Burgos",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "42.285299999999999",
+          "-3.8334999999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "El Portalón",
+      "coordinates": {
+        "latitude": 42.2853,
+        "longitude": -3.8335,
+        "latitude_text": "42.285299999999999",
+        "longitude_text": "-3.8334999999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:apor012"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "86-237 cal CE (sample)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "El Portalón",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:eltendal:lapalma",
+        "locality_text": "El Tendal",
+        "political_entity": "La Palma",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.787616",
+          "-17.765601"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "El Tendal",
+      "coordinates": {
+        "latitude": 28.787616,
+        "longitude": -17.765601,
+        "latitude_text": "28.787616",
+        "longitude_text": "-17.765601",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb90261:pgull-1964",
+        "prjeb90261:pgull-2228",
+        "prjeb90261:pgull-2230"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "11th - 12th centuries CE (SU104)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "El Tendal",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:fiquinineo:lanzarote",
+        "locality_text": "Fiquinineo",
+        "political_entity": "Lanzarote",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "29.078037999999999",
+          "-13.596783"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Fiquinineo",
+      "coordinates": {
+        "latitude": 29.078038,
+        "longitude": -13.596783,
+        "latitude_text": "29.078037999999999",
+        "longitude_text": "-13.596783",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-1963"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "11th - 12th centuries (SU3)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Fiquinineo",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:hospitaldesanmartincallesanmarcial:grancanaria",
+        "locality_text": "Hospital de San Martin - Calle San Marcial",
+        "political_entity": "Gran Canaria",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.101313749999999",
+          "-15.4148534"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Hospital de San Martin - Calle San Marcial",
+      "coordinates": {
+        "latitude": 28.10131375,
+        "longitude": -15.4148534,
+        "latitude_text": "28.101313749999999",
+        "longitude_text": "-15.4148534",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb90261:pgull-1664",
+        "prjeb90261:pgull-1677",
+        "prjeb90261:pgull-1688"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "17th - 18th centuries CE (R3; SU72)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Hospital de San Martin - Calle San Marcial",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:lacaadadelagurona:lagomera",
+        "locality_text": "La Cañada de la Gurona",
+        "political_entity": "La Gomera",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.178343999999999",
+          "-17.193563999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "La Cañada de la Gurona",
+      "coordinates": {
+        "latitude": 28.178344,
+        "longitude": -17.193564,
+        "latitude_text": "28.178343999999999",
+        "longitude_text": "-17.193563999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb90261:pgull-0533",
+        "prjeb90261:pgull-0535",
+        "prjeb90261:pgull-0537",
+        "prjeb90261:pgull-0539",
+        "prjeb90261:pgull-0540"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "10th - 11th centuries CE (site)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "La Cañada de la Gurona",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:lafortaleza:grancanaria",
+        "locality_text": "La Fortaleza",
+        "political_entity": "Gran Canaria",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "27.881289408640399",
+          "-15.527314352842801"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "La Fortaleza",
+      "coordinates": {
+        "latitude": 27.8812894086404,
+        "longitude": -15.5273143528428,
+        "latitude_text": "27.881289408640399",
+        "longitude_text": "-15.527314352842801",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-1404"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "7th - 8th centuries CE (SU8)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "La Fortaleza",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:llanodelsombrero:fuerteventura",
+        "locality_text": "Llano del Sombrero",
+        "political_entity": "Fuerteventura",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.408760999999998",
+          "-14.125189000000001"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Llano del Sombrero",
+      "coordinates": {
+        "latitude": 28.408761,
+        "longitude": -14.125189,
+        "latitude_text": "28.408760999999998",
+        "longitude_text": "-14.125189000000001",
+        "confidence": "exact"
+      },
+      "sample_count": 4,
+      "sample_ids": [
+        "prjeb90261:pgull-1969",
+        "prjeb90261:pgull-1971",
+        "prjeb90261:pgull-1972",
+        "prjeb90261:pgull-2235"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "11th - 12th centuries (A; SU11)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Llano del Sombrero",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:lobos",
+        "locality_text": "Lobos",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB90261",
           "",
           ""
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Lobos",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "exact"
+      },
+      "sample_count": 17,
+      "sample_ids": [
+        "prjeb90261:pgull-1295",
+        "prjeb90261:pgull-1296",
+        "prjeb90261:pgull-1299",
+        "prjeb90261:pgull-1300",
+        "prjeb90261:pgull-1301",
+        "prjeb90261:pgull-1302",
+        "prjeb90261:pgull-1304",
+        "prjeb90261:pgull-1305",
+        "prjeb90261:pgull-1307",
+        "prjeb90261:pgull-1308",
+        "prjeb90261:pgull-1309",
+        "prjeb90261:pgull-1314",
+        "prjeb90261:pgull-1315",
+        "prjeb90261:pgull-1316",
+        "prjeb90261:pgull-1317",
+        "prjeb90261:pgull-1319",
+        "prjeb90261:pgull-1868"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "1st century BCE - 3rd century CE (site)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Lobos",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:losriscosdeifara:tenerife",
+        "locality_text": "Los Riscos de Ifara",
+        "political_entity": "Tenerife",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.084199999999999",
+          "-16.5289"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Los Riscos de Ifara",
+      "coordinates": {
+        "latitude": 28.0842,
+        "longitude": -16.5289,
+        "latitude_text": "28.084199999999999",
+        "longitude_text": "-16.5289",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2143"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "15th century CE (SU3)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Los Riscos de Ifara",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:playachica:grancanaria",
+        "locality_text": "Playa Chica",
+        "political_entity": "Gran Canaria",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.151167000000001",
+          "-15.696242"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Playa Chica",
+      "coordinates": {
+        "latitude": 28.151167,
+        "longitude": -15.696242,
+        "latitude_text": "28.151167000000001",
+        "longitude_text": "-15.696242",
+        "confidence": "exact"
+      },
+      "sample_count": 6,
+      "sample_ids": [
+        "prjeb90261:pgull-1968",
+        "prjeb90261:pgull-2205",
+        "prjeb90261:pgull-2207",
+        "prjeb90261:pgull-2208",
+        "prjeb90261:pgull-2210",
+        "prjeb90261:pgull-2211"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "12th - 13th centuries CE (Zone 1; SU2)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Playa Chica",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:puntadelmallorqun:fuerteventura",
+        "locality_text": "Punta del Mallorquín",
+        "political_entity": "Fuerteventura",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.665572999999998",
+          "-14.008963"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Punta del Mallorquín",
+      "coordinates": {
+        "latitude": 28.665573,
+        "longitude": -14.008963,
+        "latitude_text": "28.665572999999998",
+        "longitude_text": "-14.008963",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb90261:pgull-1974",
+        "prjeb90261:pgull-2217",
+        "prjeb90261:pgull-2218"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "5th - 6th centuries (C; SU12)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Punta del Mallorquín",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjeb90261:tigalate:lapalma",
+        "locality_text": "Tigalate",
+        "political_entity": "La Palma",
+        "source_anchor_tokens": [
+          "PRJEB90261",
+          "28.552054999999999",
+          "-17.812253999999999"
+        ]
+      },
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB90261"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tigalate",
+      "coordinates": {
+        "latitude": 28.552055,
+        "longitude": -17.812254,
+        "latitude_text": "28.552054999999999",
+        "longitude_text": "-17.812253999999999",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb90261:pgull-2146"
+      ],
+      "datasets": [
+        "capra_hircus:project:PRJEB90261"
+      ],
+      "chronology": {
+        "original_text": "15th - 17th centuries CE (site)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "capra_hircus:sample_locality",
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "original_location_text": "Tigalate",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "capra_hircus:project_locality",
+        "stable_token": "capra_hircus:locality:prjna1328209:lakeqinghaibasin:china",
+        "locality_text": "Lake Qinghai basin",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1328209",
+          "36.584302000000001",
+          "100.50297500000001"
         ]
       },
       "species_latin_name": "Capra hircus",
@@ -29,37 +1666,43 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Lake Qinghai Basin ancient goat context",
+      "locality": "Lake Qinghai basin",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "withheld"
+        "latitude": 36.584302,
+        "longitude": 100.502975,
+        "latitude_text": "36.584302000000001",
+        "longitude_text": "100.50297500000001",
+        "confidence": "exact"
       },
-      "sample_count": 1,
+      "sample_count": 5,
       "sample_ids": [
-        "PRJNA1328209"
+        "prjna1328209:dc23",
+        "prjna1328209:dc27-he",
+        "prjna1328209:dc40",
+        "prjna1328209:dc47_4he",
+        "prjna1328209:dc48-1"
       ],
       "datasets": [
         "capra_hircus:project:PRJNA1328209"
       ],
       "chronology": {
-        "original_text": "Approximately 3600 BP ancient goats",
-        "time_start_bp": 3500,
-        "time_end_bp": 3700,
-        "time_mean_bp": 3600,
+        "original_text": "3480-3580 BP",
+        "time_start_bp": 3480,
+        "time_end_bp": 3580,
+        "time_mean_bp": 3530,
         "date_stddev_bp": "",
-        "dating_basis": "archaeological_period_assignment"
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
         "PRJNA1328209"
       ],
-      "original_location_text": "Lake Qinghai Basin ancient goat context",
+      "original_location_text": "Lake Qinghai basin",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "The goat lead is paper-backed but still basin-level geography."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

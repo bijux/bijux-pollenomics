@@ -1,8 +1,8 @@
 # Coordinate caveat surface
 
-- Direct-coordinate points: `207`
+- Direct-coordinate points: `234`
 - Place-name resolved points: `2`
-- Still-weak geography rows: `8`
+- Still-weak geography rows: `7`
 
 ## Direct-coordinate points
 
@@ -215,6 +215,33 @@
 | Equus caballus | PRJEB44430 | Zuunkhangai 257 | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Çadır Höyük | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Černý Vůl | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90141 | Acemhöyük | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90141 | Blagotin-Poljna | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90141 | Direkli Cave | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90141 | Sang-e Chakhmaq | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Aguadulce | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Belmaco | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Buracas | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Caserones | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Cueva de Bencomo | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Cueva de Villaverde | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Cueva de la Herradura | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Cuevas de Herrera González | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | El Chorrillo | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | El Lomito del Medio | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | El Portalón | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | El Tendal | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Fiquinineo | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Hospital de San Martin - Calle San Marcial | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | La Cañada de la Gurona | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | La Fortaleza | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Llano del Sombrero | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Lobos | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Los Riscos de Ifara | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Playa Chica | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Punta del Mallorquín | supplementary_table_coordinates | exact |
+| Capra hircus | PRJEB90261 | Tigalate | supplementary_table_coordinates | exact |
+| Capra hircus | PRJNA1328209 | Lake Qinghai basin | supplementary_table_coordinates | exact |
 
 ## Place-name resolved points
 
@@ -230,7 +257,6 @@
 | Sus scrofa domesticus | PRJEB30282 | Near East and Europe pig domestication transect | Near East to Europe regional study extent | refused_region_only |
 | Ovis aries | PRJEB59481 | Baltic Sea Region short-tailed sheep context | Baltic Sea Region | refused_region_only |
 | Bos taurus | PRJNA705960 | different mountain caves in Galicia | Galicia, Spain | refused_region_only |
-| Capra hircus | PRJNA1328209 | Lake Qinghai Basin | Lake Qinghai Basin, Qinghai-Xizang Plateau | refused_region_only |
 | Canis lupus familiaris | SRS1407451 | Herxheim and Cherry Tree Cave ancient dog contexts | Central Europe multi-site dog context | refused_region_only |
 | Felis catus | PRJEB81815 | North Africa to Europe domestic cat dispersal transect | North Africa to Europe dispersal extent | refused_region_only |
 | Rangifer tarandus | PRJEB60484 | Svalbard archipelago reindeer context | Svalbard archipelago | refused_region_only |

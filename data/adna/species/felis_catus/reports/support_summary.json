@@ -289,7 +289,9 @@
           "time_end_bp": 4000,
           "time_mean_bp": 2600,
           "date_stddev_bp": "",
-          "dating_basis": "historical_and_archaeological_context"
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_precise_interval"
         },
         "data_type": "archive_project_context",
         "molecular_sex": "",
@@ -368,7 +370,9 @@
           "time_end_bp": null,
           "time_mean_bp": null,
           "date_stddev_bp": "",
-          "dating_basis": "historical_and_archaeological_context"
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_approximate_or_modeled"
         },
         "data_type": "archive_project_context",
         "molecular_sex": "",
@@ -509,7 +513,9 @@
           "time_end_bp": 4000,
           "time_mean_bp": 2600,
           "date_stddev_bp": "",
-          "dating_basis": "historical_and_archaeological_context"
+          "dating_basis": "historical_and_archaeological_context",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "contextual_interval"
         },
         "sample_namespace": "felis_catus:sample_locality",
         "project_accessions": [

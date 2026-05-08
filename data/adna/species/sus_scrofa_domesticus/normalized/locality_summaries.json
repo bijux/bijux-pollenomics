@@ -50,7 +50,9 @@
         "time_end_bp": 10500,
         "time_mean_bp": 8250,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [

@@ -85,7 +85,9 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -164,7 +166,9 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -198,12 +202,12 @@
     {
       "identity": {
         "namespace": "bos_taurus:curated_sample",
-        "stable_token": "bos_taurus:sample:prjna705960",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106827",
         "accession_lineage": [
           "species:Bos taurus",
           "source:ENA",
           "project:PRJNA705960",
-          "sample:PRJNA705960"
+          "sample:prjna705960:samn18106827"
         ]
       },
       "locality_identity": {
@@ -213,7 +217,7 @@
         "political_entity": "Galicia, Spain",
         "source_anchor_tokens": [
           "PRJNA705960",
-          "project_accession_anchor"
+          "archive_project_sample_accession_anchor"
         ]
       },
       "species_latin_name": "Bos taurus",
@@ -223,7 +227,7 @@
       "record_modality": "mitogenome_only",
       "review_strength": "archive_verified_needs_paper_pinning",
       "provenance_quality": "manual_curation_only",
-      "master_id": "PRJNA705960",
+      "master_id": "prjna705960:samn18106827",
       "group_id": "PRJNA705960",
       "locality": "Galician mountain cave cattle context",
       "political_entity": "Galicia, Spain",
@@ -243,7 +247,9 @@
         "time_end_bp": 7000,
         "time_mean_bp": 4250,
         "date_stddev_bp": "",
-        "dating_basis": "archaeological_period_assignment"
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -255,24 +261,834 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
       "chronology_strength": "project_context_interval",
       "chronology_normalization_status": "normalized_interval",
-      "chronology_provenance_path": "",
-      "chronology_provenance_kind": "",
-      "chronology_provenance_locator": "",
-      "chronology_provenance_text": "",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
       "chronology_conflict_note": "",
-      "sample_basis": "project_accession_anchor",
-      "archive_native_sample_id": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106827",
       "paper_native_sample_label": "",
       "supplementary_table_sample_label": "",
-      "sample_evidence_status": "not_yet_recoverable",
-      "sample_lineage_path": "",
-      "sample_lineage_locator": "",
-      "sample_lineage_excerpt": "",
-      "sample_identity_resolution": "provisional",
-      "sample_ambiguity_note": "No recoverable project sample-master row is published yet for this project."
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106827",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106828",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106828"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106828",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106828",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106828",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106829",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106829"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106829",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106829",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106829",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106830",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106830"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106830",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106830",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106830",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106831",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106831"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106831",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106831",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106831",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106832",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106832"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106832",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106832",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106832",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106833",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106833"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106833",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106833",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106833",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106834",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106834"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106834",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106834",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106834",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106835",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106835"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106835",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106835",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106835",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106836",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106836"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106836",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106836",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106836",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:curated_sample",
+        "stable_token": "bos_taurus:sample:prjna705960:samn18106837",
+        "accession_lineage": [
+          "species:Bos taurus",
+          "source:ENA",
+          "project:PRJNA705960",
+          "sample:prjna705960:samn18106837"
+        ]
+      },
+      "locality_identity": {
+        "namespace": "bos_taurus:sample_locality",
+        "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
+        "locality_text": "Galician mountain cave cattle context",
+        "political_entity": "Galicia, Spain",
+        "source_anchor_tokens": [
+          "PRJNA705960",
+          "archive_project_sample_accession_anchor"
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_release": "PRJNA705960",
+      "record_modality": "mitogenome_only",
+      "review_strength": "archive_verified_needs_paper_pinning",
+      "provenance_quality": "manual_curation_only",
+      "master_id": "prjna705960:samn18106837",
+      "group_id": "PRJNA705960",
+      "locality": "Galician mountain cave cattle context",
+      "political_entity": "Galicia, Spain",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "withheld"
+      },
+      "publication": "",
+      "year_first_published": "",
+      "full_date": "Neolithic to later Galician cattle sequence",
+      "chronology": {
+        "original_text": "Neolithic to later Galician cattle sequence",
+        "time_start_bp": 1500,
+        "time_end_bp": 7000,
+        "time_mean_bp": 4250,
+        "date_stddev_bp": "",
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "data_type": "archive_project_context",
+      "molecular_sex": "",
+      "datasets": [
+        "bos_taurus:project:PRJNA705960"
+      ],
+      "project_accession": "PRJNA705960",
+      "paper_doi": "",
+      "paper_url": "",
+      "supplementary_source": "",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "chronology_provenance_kind": "archive_metadata_description",
+      "chronology_provenance_locator": "source description snapshot",
+      "chronology_provenance_text": "We sampled 18 cattle subfossils from different ages and different mountain caves in Galicia, of which 11 were subject to sequencing of the mitochondrial genome and phylogenetic analysis.",
+      "chronology_conflict_note": "",
+      "sample_basis": "archive_project_sample_accession_anchor",
+      "archive_native_sample_id": "SAMN18106837",
+      "paper_native_sample_label": "",
+      "supplementary_table_sample_label": "",
+      "sample_evidence_status": "archive_native",
+      "sample_lineage_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "sample_lineage_locator": "sample_accession:SAMN18106837",
+      "sample_lineage_excerpt": "Archive metadata preserves a distinct project-owned sample accession, but no richer sample-owned chronology row has been extracted yet.",
+      "sample_identity_resolution": "final",
+      "sample_ambiguity_note": ""
     }
   ],
   "coordinate_provenance_records": [
@@ -371,20 +1187,32 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 1,
+      "sample_count": 11,
       "sample_ids": [
-        "PRJNA705960"
+        "prjna705960:samn18106827",
+        "prjna705960:samn18106828",
+        "prjna705960:samn18106829",
+        "prjna705960:samn18106830",
+        "prjna705960:samn18106831",
+        "prjna705960:samn18106832",
+        "prjna705960:samn18106833",
+        "prjna705960:samn18106834",
+        "prjna705960:samn18106835",
+        "prjna705960:samn18106836",
+        "prjna705960:samn18106837"
       ],
       "datasets": [
         "bos_taurus:project:PRJNA705960"
       ],
       "chronology": {
-        "original_text": "Neolithic to later Galician cattle sequence",
+        "original_text": "1500-7000 BP",
         "time_start_bp": 1500,
         "time_end_bp": 7000,
         "time_mean_bp": 4250,
         "date_stddev_bp": "",
-        "dating_basis": "archaeological_period_assignment"
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "bos_taurus:sample_locality",
       "project_accessions": [
@@ -393,7 +1221,7 @@
       "original_location_text": "Galician mountain cave cattle context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
     }
   ],
   "project_summaries": [
