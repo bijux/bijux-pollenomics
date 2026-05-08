@@ -45,15 +45,16 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             item
             for item in bundle.sample_records
             if item.project_accession == "PRJEB22390"
+            and item.archive_native_sample_id == "CGG_1_018173"
         )
         self.assertEqual(sample.paper_doi, "10.1126/science.aao3297")
         self.assertEqual(sample.inclusion_status, "site_curated")
-        self.assertEqual(sample.sample_basis, "project_accession_anchor")
-        self.assertEqual(sample.chronology_strength, "project_context_interval")
-        self.assertEqual(sample.chronology_normalization_status, "normalized_interval")
+        self.assertEqual(sample.sample_basis, "supplementary_table_sample_label_anchor")
+        self.assertEqual(sample.chronology_strength, "sample_owned_interval")
+        self.assertEqual(sample.chronology_normalization_status, "normalized_point")
         self.assertEqual(
             sample.locality_identity.locality_text,
-            "Botai archaeological site horse context",
+            "Botai",
         )
         coordinate_provenance = next(
             item
@@ -235,6 +236,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
     def test_normalize_chronology_text_parses_bp_and_calendar_ranges(self) -> None:
         bp_window = normalize_chronology_text("1200-1500 BP", dating_basis="radiocarbon")
+        bp_point = normalize_chronology_text("5500 BP", dating_basis="radiocarbon")
         cal_bce = normalize_chronology_text(
             "803-425 calBCE (2562±47 BP)",
             dating_basis="mixed_radiocarbon_and_archaeological_context",
@@ -245,6 +247,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
 
         self.assertEqual((bp_window.time_start_bp, bp_window.time_end_bp), (1200, 1500))
+        self.assertEqual((bp_point.time_start_bp, bp_point.time_end_bp), (5500, 5500))
         self.assertEqual(cal_bce.time_start_bp, 2374)
         self.assertEqual(cal_bce.time_end_bp, 2752)
         self.assertIsNone(vague.time_start_bp)
