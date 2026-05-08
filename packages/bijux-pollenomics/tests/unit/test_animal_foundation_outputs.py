@@ -9,7 +9,7 @@ from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_cross_surface_drift_report,
     build_animal_foundation_review_packet,
     build_animal_sample_database_review,
-    build_animal_sample_chronology_viewer,
+    build_animal_sample_chronology_review,
     build_animal_foundation_validation_report,
     build_animal_point_support_packets,
     build_animal_project_absence_packets,
@@ -107,10 +107,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
-    def test_sample_chronology_viewer_keeps_current_governed_rows_reader_visible(self) -> None:
-        payload = build_animal_sample_chronology_viewer(data_root=self.data_root)
+    def test_sample_chronology_review_keeps_current_governed_rows_reader_visible(self) -> None:
+        payload = build_animal_sample_chronology_review(data_root=self.data_root)
 
-        self.assertEqual(payload["schema_version"], "animal-sample-chronology-viewer.v1")
+        self.assertEqual(payload["schema_version"], "animal-sample-chronology-review.v1")
         self.assertEqual(payload["row_count"], 868)
         self.assertEqual(payload["normalization_counts"]["normalized_interval"], 296)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 469)
@@ -568,7 +568,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 artifacts,
             )
             self.assertIn(
-                "animal_sample_chronology_viewer_json",
+                "animal_sample_chronology_review_json",
                 artifacts,
             )
             self.assertIn(
@@ -576,7 +576,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 artifacts,
             )
             review_path = output_root / artifacts["animal_foundation_review_json"]
-            chronology_path = output_root / artifacts["animal_sample_chronology_viewer_json"]
+            chronology_path = output_root / artifacts["animal_sample_chronology_review_json"]
             sample_database_review_path = (
                 output_root / artifacts["animal_sample_database_review_json"]
             )

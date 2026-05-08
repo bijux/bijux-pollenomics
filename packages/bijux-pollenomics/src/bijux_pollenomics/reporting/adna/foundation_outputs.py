@@ -15,7 +15,7 @@ from ...adna.project_sample_chronology import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
     ADNA_CHRONOLOGY_STRENGTHS,
-    build_sample_chronology_viewer_rows,
+    build_sample_chronology_review_rows,
 )
 from ...adna.project_sample_locality_evidence import (
     build_project_locality_completeness_rows,
@@ -78,7 +78,7 @@ def publish_animal_foundation_outputs(
         point_payload=point_payload,
         absence_payload=absence_payload,
     )
-    chronology_viewer_payload = build_animal_sample_chronology_viewer(data_root=data_root)
+    chronology_review_payload = build_animal_sample_chronology_review(data_root=data_root)
     sample_database_review_payload = build_animal_sample_database_review(
         data_root=data_root,
         report_root=output_root,
@@ -119,9 +119,9 @@ def publish_animal_foundation_outputs(
             review_payload,
             render_animal_foundation_review_markdown(review_payload),
         ),
-        "animal_sample_chronology_viewer": (
-            chronology_viewer_payload,
-            render_animal_sample_chronology_viewer_markdown(chronology_viewer_payload),
+        "animal_sample_chronology_review": (
+            chronology_review_payload,
+            render_animal_sample_chronology_review_markdown(chronology_review_payload),
         ),
         "animal_sample_database_review": (
             sample_database_review_payload,
@@ -615,12 +615,12 @@ def build_animal_foundation_review_packet(
     }
 
 
-def build_animal_sample_chronology_viewer(
+def build_animal_sample_chronology_review(
     *,
     data_root: Path,
 ) -> dict[str, object]:
-    """Publish one reader-facing chronology view across all governed animal sample rows."""
-    rows = list(build_sample_chronology_viewer_rows(data_root))
+    """Publish one reader-facing chronology review across all governed animal sample rows."""
+    rows = list(build_sample_chronology_review_rows(data_root))
     strength_counts = {key: 0 for key in ADNA_CHRONOLOGY_STRENGTHS}
     evidence_counts = {key: 0 for key in ADNA_CHRONOLOGY_EVIDENCE_CLASSES}
     precision_counts = {key: 0 for key in ADNA_CHRONOLOGY_PRECISION_POSTURES}
@@ -631,7 +631,7 @@ def build_animal_sample_chronology_viewer(
         precision_counts[str(row.get("chronology_precision_posture", ""))] += 1
         normalization_counts[str(row.get("chronology_normalization_status", ""))] += 1
     return {
-        "schema_version": "animal-sample-chronology-viewer.v1",
+        "schema_version": "animal-sample-chronology-review.v1",
         "row_count": len(rows),
         "strength_counts": strength_counts,
         "evidence_counts": evidence_counts,
@@ -1165,9 +1165,9 @@ def render_animal_foundation_review_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_animal_sample_chronology_viewer_markdown(payload: dict[str, object]) -> str:
+def render_animal_sample_chronology_review_markdown(payload: dict[str, object]) -> str:
     lines = [
-        "# Animal sample chronology viewer",
+        "# Animal sample chronology review",
         "",
         f"- Sample chronology rows: `{payload['row_count']}`",
         f"- Normalized intervals: `{payload['normalization_counts']['normalized_interval']}`",
@@ -1386,7 +1386,7 @@ def _load_all_project_sample_chronology_rows(data_root: Path) -> list[dict[str, 
                     continue
                 rows.append(row)
         return rows
-    rows.extend(dict(row) for row in build_sample_chronology_viewer_rows(data_root))
+    rows.extend(dict(row) for row in build_sample_chronology_review_rows(data_root))
     return rows
 
 

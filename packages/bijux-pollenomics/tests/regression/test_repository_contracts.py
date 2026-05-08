@@ -144,8 +144,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.csv").is_file())
         self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.json").is_file())
         self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_viewer.md").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_review.json").is_file())
+        self.assertTrue((governance_root / "source_library" / "sample_chronology_review.md").is_file())
         self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.json").is_file())
         self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.md").is_file())
         self.assertTrue(
@@ -252,8 +252,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         absence_markdown = report_root / "animal_project_absence_packets.md"
         review_json = report_root / "animal_foundation_review.json"
         review_markdown = report_root / "animal_foundation_review.md"
-        chronology_json = report_root / "animal_sample_chronology_viewer.json"
-        chronology_markdown = report_root / "animal_sample_chronology_viewer.md"
+        chronology_json = report_root / "animal_sample_chronology_review.json"
+        chronology_markdown = report_root / "animal_sample_chronology_review.md"
         gate_json = report_root / "animal_publication_release_gate.json"
         gate_markdown = report_root / "animal_publication_release_gate.md"
         sample_database_review_json = report_root / "animal_sample_database_review.json"
@@ -367,7 +367,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             review_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "Animal sample chronology viewer",
+            "Animal sample chronology review",
             chronology_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(

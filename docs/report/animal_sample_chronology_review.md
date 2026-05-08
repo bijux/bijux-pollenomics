@@ -1,4 +1,4 @@
-# Animal sample chronology viewer
+# Animal sample chronology review
 
 - Sample chronology rows: `868`
 - Normalized intervals: `296`
