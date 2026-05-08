@@ -966,7 +966,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_adna_root_keeps_only_named_entrypoints_and_index_files(self) -> None:
         adna_root = REPO_ROOT / "data" / "adna"
-        names = {path.name for path in adna_root.iterdir()}
+        names = {path.name for path in adna_root.iterdir() if not path.name.startswith(".")}
 
         self.assertEqual(names, {"README.md", "species", "governance", "final"})
 

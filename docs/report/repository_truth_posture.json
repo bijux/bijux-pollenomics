@@ -21,7 +21,7 @@
   ],
   "counts": {
     "tracked_paper_count": 18,
-    "papers_with_archived_supplements": 7,
+    "papers_with_archived_supplements": 18,
     "published_atlas_point_count": 2,
     "published_country_bundle_count": 4,
     "reference_stash_doi_count": 18,
@@ -53,7 +53,6 @@
     "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
   ],
   "claim_freeze_reasons": [
-    "supplement recovery is still far below paper coverage",
     "the shipped animal atlas point surface is still effectively empty",
     "unresolved animal geography still overwhelms mapped support",
     "collection summary still under-reports several non-aDNA source counts"
@@ -68,7 +67,7 @@
   "scorecard_overview": {
     "overall_recovery_posture": "recovery_required",
     "average_dimension_scores": {
-      "data_completeness": 2.43,
+      "data_completeness": 2.71,
       "provenance_clarity": 2.71,
       "documentation_clarity": 3.57,
       "output_honesty": 3.43

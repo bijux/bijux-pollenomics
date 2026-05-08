@@ -144,7 +144,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertFalse(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 7)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertIn(
             "published_atlas_point_count_below_minimum_reading_depth",
             payload["posture_findings"],

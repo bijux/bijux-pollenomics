@@ -14,7 +14,7 @@
         "docs/02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md"
       ],
       "visible_count": 18,
-      "acquisition_posture": "local_reference_staging_ahead_of_repo_capture",
+      "acquisition_posture": "repo_capture_matches_visible_staging",
       "main_gap": "tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative"
     },
     {
