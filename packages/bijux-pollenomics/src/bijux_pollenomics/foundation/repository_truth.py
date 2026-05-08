@@ -4,17 +4,23 @@ import json
 from pathlib import Path
 
 __all__ = [
+    "build_repository_atlas_input_audit",
     "build_repository_claim_audit",
+    "build_repository_cross_domain_evidence_matrix",
     "build_repository_governance_artifact_review",
     "build_repository_recovery_scorecard",
     "build_repository_source_acquisition_queue",
+    "build_repository_source_explainer_audit",
     "build_repository_source_family_matrix",
     "build_repository_scientific_progress_audit",
     "build_repository_truth_posture",
+    "render_repository_atlas_input_audit_markdown",
     "render_repository_claim_audit_markdown",
+    "render_repository_cross_domain_evidence_matrix_markdown",
     "render_repository_governance_artifact_review_markdown",
     "render_repository_recovery_scorecard_markdown",
     "render_repository_source_acquisition_queue_markdown",
+    "render_repository_source_explainer_audit_markdown",
     "render_repository_source_family_matrix_markdown",
     "render_repository_scientific_progress_audit_markdown",
     "render_repository_truth_posture_markdown",
@@ -513,6 +519,171 @@ def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def build_repository_source_explainer_audit(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Audit whether cross-domain data explainers exist in useful form."""
+    _ = data_root
+    _ = report_root
+    rows = []
+    expectations = (
+        (
+            "source_family",
+            "LandClim source explainer",
+            "docs/02-bijux-pollenomics-data/sources/landclim.md",
+            ["data/landclim/normalized/", "pollen context"],
+            None,
+        ),
+        (
+            "source_family",
+            "Neotoma source explainer",
+            "docs/02-bijux-pollenomics-data/sources/neotoma.md",
+            ["data/neotoma/normalized/", "pollen-site context"],
+            None,
+        ),
+        (
+            "source_family",
+            "SEAD source explainer",
+            "docs/02-bijux-pollenomics-data/sources/sead.md",
+            ["data/sead/normalized/", "archaeology context"],
+            None,
+        ),
+        (
+            "source_family",
+            "RAÄ source explainer",
+            "docs/02-bijux-pollenomics-data/sources/raa.md",
+            ["data/raa/normalized/", "Sweden"],
+            None,
+        ),
+        (
+            "source_family",
+            "Boundary source explainer",
+            "docs/02-bijux-pollenomics-data/sources/boundaries.md",
+            ["data/boundaries/normalized/", "country filtering"],
+            None,
+        ),
+        (
+            "source_family",
+            "AADR source explainer",
+            "docs/02-bijux-pollenomics-data/sources/aadr.md",
+            ["data/aadr/v66/", "human ancient DNA"],
+            None,
+        ),
+        (
+            "recovery_rule",
+            "Refresh policy explainer",
+            "docs/02-bijux-pollenomics-data/sources/refresh-policy.md",
+            ["data/collection_summary.json", "refresh"],
+            "restore the refresh-policy page so readers can separate evidence refresh from silent maintenance",
+        ),
+        (
+            "recovery_rule",
+            "Shared normalization explainer",
+            "docs/02-bijux-pollenomics-data/sources/shared-normalization.md",
+            ["docs/report/nordic-atlas/", "normalized"],
+            "restore the shared-normalization page so readers can see how cross-family output shapes differ from source identity",
+        ),
+        (
+            "output_family",
+            "Normalized LandClim outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
+            ["data/landclim/normalized/", "LandClim"],
+            "restore the LandClim output page so pollen context is not explained only through map presence",
+        ),
+        (
+            "output_family",
+            "Normalized Neotoma outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
+            ["data/neotoma/normalized/", "Neotoma"],
+            "restore the Neotoma output page so pollen-site context stays visible as its own family",
+        ),
+        (
+            "output_family",
+            "Normalized SEAD outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
+            ["data/sead/normalized/", "SEAD"],
+            "restore the SEAD output page so environmental archaeology context does not vanish behind animal publication work",
+        ),
+        (
+            "output_family",
+            "Normalized RAÄ outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
+            ["data/raa/normalized/", "Sweden-scoped"],
+            "restore the RAÄ output page so Swedish archaeology scope remains explicit",
+        ),
+        (
+            "output_family",
+            "Normalized boundary outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
+            ["data/boundaries/normalized/", "boundary"],
+            "restore the boundary output page so framing layers stay explainable on their own terms",
+        ),
+        (
+            "output_family",
+            "Normalized AADR outputs explainer",
+            "docs/02-bijux-pollenomics-data/outputs/normalized-aadr.md",
+            ["data/aadr/v66/", "AADR"],
+            "restore the AADR output page so versioned human context remains inspectable from source to publication",
+        ),
+        (
+            "output_family",
+            "Collection summary explainer",
+            "docs/02-bijux-pollenomics-data/outputs/collection-summary.md",
+            ["data/collection_summary.json", "summary"],
+            "restore the collection summary page so refresh diagnostics are not mistaken for balanced domain coverage",
+        ),
+    )
+    for surface_kind, display_name, page_path, required_snippets, restoration_plan in expectations:
+        rows.append(
+            _build_source_explainer_audit_row(
+                docs_root=docs_root,
+                surface_kind=surface_kind,
+                display_name=display_name,
+                page_path=page_path,
+                required_snippets=required_snippets,
+                restoration_plan=restoration_plan,
+            )
+        )
+
+    status_counts = {
+        "present_useful_form": sum(
+            1 for row in rows if row["status"] == "present_useful_form"
+        ),
+        "restoration_plan_required": sum(
+            1 for row in rows if row["status"] == "restoration_plan_required"
+        ),
+    }
+    return {
+        "schema_version": "repository-source-explainer-audit.v1",
+        "row_count": len(rows),
+        "status_counts": status_counts,
+        "rows": rows,
+    }
+
+
+def render_repository_source_explainer_audit_markdown(
+    payload: dict[str, object]
+) -> str:
+    lines = [
+        "# Repository source explainer audit",
+        "",
+        f"- Explainer rows: `{payload['row_count']}`",
+        f"- Present in useful form: `{payload['status_counts']['present_useful_form']}`",
+        f"- Still needing a restoration plan: `{payload['status_counts']['restoration_plan_required']}`",
+        "",
+        "| Explainer | Surface kind | Status | Notes |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['page_path']}` | `{row['surface_kind']}` | `{row['status']}` | {row['notes']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
 def build_repository_source_family_matrix(
     *,
     data_root: Path,
@@ -544,7 +715,7 @@ def build_repository_source_family_matrix(
             "contextual_domain",
             ["data/aadr/v66/"],
             ["docs/02-bijux-pollenomics-data/sources/aadr.md"],
-            _count_files(data_root / "aadr" / "v66"),
+            counts["tracked_aadr_release_file_count"],
             "tracked_query_surface",
             "AADR is queryable and documented, but it remains one context layer rather than the whole repository mission",
         ),
@@ -554,7 +725,8 @@ def build_repository_source_family_matrix(
             "primary_domain",
             ["data/landclim/normalized/"],
             ["docs/02-bijux-pollenomics-data/sources/landclim.md"],
-            _count_files(data_root / "landclim" / "normalized"),
+            counts["tracked_landclim_site_count"]
+            + counts["tracked_landclim_grid_cell_count"],
             "tracked_context_layer",
             "LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture",
         ),
@@ -564,7 +736,7 @@ def build_repository_source_family_matrix(
             "primary_domain",
             ["data/neotoma/normalized/"],
             ["docs/02-bijux-pollenomics-data/sources/neotoma.md"],
-            _count_files(data_root / "neotoma" / "normalized"),
+            counts["tracked_neotoma_site_count"],
             "tracked_context_layer",
             "Neotoma remains a core pollen-site context family and should stay visible beside aDNA and archaeology surfaces",
         ),
@@ -574,7 +746,7 @@ def build_repository_source_family_matrix(
             "contextual_domain",
             ["data/sead/normalized/"],
             ["docs/02-bijux-pollenomics-data/sources/sead.md"],
-            _count_files(data_root / "sead" / "normalized"),
+            counts["tracked_sead_site_count"],
             "tracked_context_layer",
             "SEAD provides environmental archaeology context and should not disappear behind animal intake work",
         ),
@@ -584,7 +756,7 @@ def build_repository_source_family_matrix(
             "contextual_domain",
             ["data/raa/normalized/"],
             ["docs/02-bijux-pollenomics-data/sources/raa.md"],
-            _count_files(data_root / "raa" / "normalized"),
+            counts["tracked_raa_published_site_count"],
             "tracked_context_layer",
             "RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope",
         ),
@@ -594,7 +766,7 @@ def build_repository_source_family_matrix(
             "framing_domain",
             ["data/boundaries/normalized/"],
             ["docs/02-bijux-pollenomics-data/sources/boundaries.md"],
-            _count_files(data_root / "boundaries" / "normalized"),
+            counts["tracked_boundary_feature_count"],
             "tracked_boundary_frame",
             "Boundary layers are one of the clearest repository surfaces and keep region framing honest",
         ),
@@ -629,6 +801,294 @@ def render_repository_source_family_matrix_markdown(payload: dict[str, object]) 
         lines.append(
             f"| {row['display_name']} | `{row['role']}` | {row['visible_count']} | "
             f"`{row['acquisition_posture']}` | {row['main_gap']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_atlas_input_audit(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Audit how each main atlas layer is sourced and refreshed."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    rows = [
+        _atlas_input_row(
+            "landclim",
+            "LandClim pollen context",
+            "primary_domain",
+            ["data/landclim/raw/landclim_sources.json"],
+            [
+                "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+                "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+            ],
+            [
+                "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
+                "docs/report/nordic-atlas/nordic_reveals_grid_cells.geojson",
+            ],
+            "data/landclim/normalized/landclim_summary.json",
+            {
+                "site_count": counts["tracked_landclim_site_count"],
+                "grid_cell_count": counts["tracked_landclim_grid_cell_count"],
+            },
+            "LandClim is a first-class pollen context family, not generic map decoration.",
+        ),
+        _atlas_input_row(
+            "neotoma",
+            "Neotoma pollen context",
+            "primary_domain",
+            ["data/neotoma/raw/neotoma_pollen_dataset_inventory.json"],
+            ["data/neotoma/normalized/nordic_pollen_sites.geojson"],
+            ["docs/report/nordic-atlas/nordic_pollen_sites.geojson"],
+            "data/neotoma/raw/neotoma_pollen_sites.json",
+            {"site_count": counts["tracked_neotoma_site_count"]},
+            "Neotoma broadens the pollen story with its own site inventory and should remain distinct from LandClim.",
+        ),
+        _atlas_input_row(
+            "sead",
+            "SEAD archaeology context",
+            "contextual_domain",
+            ["data/sead/raw/nordic_sites.json"],
+            ["data/sead/normalized/nordic_environmental_sites.geojson"],
+            ["docs/report/nordic-atlas/nordic_environmental_sites.geojson"],
+            "data/sead/raw/nordic_sites.json",
+            {"site_count": counts["tracked_sead_site_count"]},
+            "SEAD is broader environmental archaeology context and should stay visible as its own source family.",
+        ),
+        _atlas_input_row(
+            "raa",
+            "RAÄ archaeology context",
+            "contextual_domain",
+            [
+                "data/raa/raw/arkreg_v1_0_wfs_capabilities.xml",
+                "data/raa/raw/fornsok_domains.json",
+            ],
+            [
+                "data/raa/normalized/sweden_archaeology_density.geojson",
+                "data/raa/normalized/sweden_archaeology_layer.json",
+            ],
+            [
+                "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
+                "docs/report/nordic-atlas/sweden_archaeology_layer.json",
+            ],
+            "data/raa/normalized/sweden_archaeology_layer.json",
+            {
+                "published_site_count": counts["tracked_raa_published_site_count"],
+                "density_cell_count": counts["tracked_raa_density_cell_count"],
+            },
+            "RAÄ is explicitly Sweden-scoped and should never be mistaken for Nordic-wide archaeology coverage.",
+        ),
+        _atlas_input_row(
+            "boundaries",
+            "Nordic boundary framing",
+            "framing_domain",
+            [
+                "data/boundaries/raw/denmark.geojson",
+                "data/boundaries/raw/finland.geojson",
+                "data/boundaries/raw/norway.geojson",
+                "data/boundaries/raw/sweden.geojson",
+            ],
+            ["data/boundaries/normalized/nordic_country_boundaries.geojson"],
+            ["docs/report/nordic-atlas/nordic_country_boundaries.geojson"],
+            "data/boundaries/normalized/nordic_country_boundaries.geojson",
+            {"country_feature_count": counts["tracked_boundary_feature_count"]},
+            "Boundary geometry is framing, not scientific evidence, but it still changes how every mapped layer is interpreted.",
+        ),
+        _atlas_input_row(
+            "animal_adna",
+            "Animal aDNA publication surface",
+            "contextual_domain",
+            [
+                "data/adna/governance/source_library/project_source_evidence_matrix.json",
+                "data/adna/governance/cross_species_map_readiness.json",
+            ],
+            [
+                "data/adna/final/atlas/animal_atlas_point_candidates.json",
+                "data/adna/final/atlas/animal_atlas_point_candidates.csv",
+            ],
+            [
+                "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
+                "docs/report/nordic-atlas/nordic-atlas_animal_point_traceability.json",
+            ],
+            "docs/report/animal_sample_database_review.json",
+            {
+                "published_point_count": counts["published_atlas_point_count"],
+                "unresolved_row_count": counts["animal_map_unresolved_rows"],
+            },
+            "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support packets and release gates.",
+        ),
+    ]
+    return {
+        "schema_version": "repository-atlas-input-audit.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_atlas_input_audit_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository atlas input audit",
+        "",
+        f"- Atlas input rows: `{payload['row_count']}`",
+        "",
+        "| Atlas input | Domain role | Refresh anchor | Tracked metrics | Note |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['domain_role']}` | "
+            f"`{row['refresh_anchor']}` | {_format_metric_map(row['metrics'])} | {row['note']} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_cross_domain_evidence_matrix(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Describe balanced cross-domain coverage using evidence units, not file counts."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    rows = [
+        _cross_domain_matrix_row(
+            "pollen_context",
+            "Pollen context",
+            "primary_domain",
+            ["landclim", "neotoma"],
+            {
+                "landclim_site_count": counts["tracked_landclim_site_count"],
+                "landclim_grid_cell_count": counts["tracked_landclim_grid_cell_count"],
+                "neotoma_site_count": counts["tracked_neotoma_site_count"],
+            },
+            [
+                "docs/02-bijux-pollenomics-data/sources/landclim.md",
+                "docs/02-bijux-pollenomics-data/sources/neotoma.md",
+                "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
+                "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
+            ],
+            [
+                "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
+                "docs/report/nordic-atlas/nordic_pollen_sites.geojson",
+            ],
+            "first_class_context_family",
+            "pollen context is strong as tracked context, but it still needs more pollenomics-first synthesis than the current atlas-facing slices provide",
+        ),
+        _cross_domain_matrix_row(
+            "archaeology_context",
+            "Archaeology context",
+            "contextual_domain",
+            ["sead", "raa"],
+            {
+                "sead_site_count": counts["tracked_sead_site_count"],
+                "raa_published_site_count": counts["tracked_raa_published_site_count"],
+                "raa_density_cell_count": counts["tracked_raa_density_cell_count"],
+            },
+            [
+                "docs/02-bijux-pollenomics-data/sources/sead.md",
+                "docs/02-bijux-pollenomics-data/sources/raa.md",
+                "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
+                "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
+            ],
+            [
+                "docs/report/nordic-atlas/nordic_environmental_sites.geojson",
+                "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
+            ],
+            "explicit_context_family",
+            "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence",
+        ),
+        _cross_domain_matrix_row(
+            "boundary_framing",
+            "Boundary framing",
+            "framing_domain",
+            ["boundaries"],
+            {"country_feature_count": counts["tracked_boundary_feature_count"]},
+            [
+                "docs/02-bijux-pollenomics-data/sources/boundaries.md",
+                "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
+            ],
+            ["docs/report/nordic-atlas/nordic_country_boundaries.geojson"],
+            "strong_framing_surface",
+            "boundary geometry is robust framing, but it should never be mistaken for scientific balance on its own",
+        ),
+        _cross_domain_matrix_row(
+            "fieldwork_record",
+            "Fieldwork record",
+            "contextual_domain",
+            ["fieldwork"],
+            {"fieldwork_page_count": counts["fieldwork_page_count"]},
+            ["docs/04-fieldwork/index.md"],
+            ["docs/04-fieldwork/lyngsjon-lake-fieldwork/index.md"],
+            "narrow_honest_surface",
+            "fieldwork is deliberately narrow and should stay explicit rather than being implied by atlas presence",
+        ),
+        _cross_domain_matrix_row(
+            "animal_adna_context",
+            "Animal aDNA context",
+            "contextual_domain",
+            ["animal_adna"],
+            {
+                "tracked_paper_count": counts["tracked_paper_count"],
+                "published_atlas_point_count": counts["published_atlas_point_count"],
+                "unresolved_map_rows": counts["animal_map_unresolved_rows"],
+            },
+            [
+                "docs/02-bijux-pollenomics-data/sources/animal-source-intake.md",
+                "docs/02-bijux-pollenomics-data/evidence/sample-records.md",
+                "docs/02-bijux-pollenomics-data/evidence/chronology.md",
+            ],
+            [
+                "docs/report/animal_sample_database_review.md",
+                "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
+            ],
+            "partial_sample_owned_surface",
+            "animal aDNA is real and now traceable, but it is still a thinner and more recovery-bound surface than the repository's context families",
+        ),
+        _cross_domain_matrix_row(
+            "publication_outputs",
+            "Publication outputs",
+            "downstream_surface",
+            ["country_reports", "nordic_atlas"],
+            {
+                "country_bundle_count": counts["published_country_bundle_count"],
+                "animal_point_count": counts["published_atlas_point_count"],
+            },
+            [
+                "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
+                "docs/02-bijux-pollenomics-data/outputs/nordic-atlas.md",
+                "docs/02-bijux-pollenomics-data/outputs/output-surface-classes.md",
+            ],
+            [
+                "docs/report/sweden/README.md",
+                "docs/report/nordic-atlas/nordic-atlas_map.html",
+            ],
+            "downstream_not_governing",
+            "reports and atlas bundles summarize upstream evidence; they do not prove balanced coverage by themselves",
+        ),
+    ]
+    return {
+        "schema_version": "repository-cross-domain-evidence-matrix.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_cross_domain_evidence_matrix_markdown(
+    payload: dict[str, object]
+) -> str:
+    lines = [
+        "# Repository cross-domain evidence matrix",
+        "",
+        f"- Domain rows: `{payload['row_count']}`",
+        "",
+        "| Domain | Role | Evidence units | Coverage posture | Current gap |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['domain_role']}` | "
+            f"{_format_metric_map(row['tracked_metrics'])} | `{row['coverage_posture']}` | {row['current_gap']} |"
         )
     return "\n".join(lines) + "\n"
 
@@ -809,6 +1269,22 @@ def _build_core_counts(
         {"counts": {}},
     )
     collection_summary = _load_json_or_default(data_root / "collection_summary.json", {})
+    landclim_summary = _load_json_or_default(
+        data_root / "landclim" / "normalized" / "landclim_summary.json",
+        {"site_count": 0, "grid_cell_count": 0},
+    )
+    neotoma_sites = _load_json_or_default(
+        data_root / "neotoma" / "raw" / "neotoma_pollen_sites.json",
+        {"site_count": 0},
+    )
+    sead_sites = _load_json_or_default(
+        data_root / "sead" / "raw" / "nordic_sites.json",
+        {"row_count": 0},
+    )
+    raa_layer = _load_json_or_default(
+        data_root / "raa" / "normalized" / "sweden_archaeology_layer.json",
+        {"density_feature_count": 0, "counts": {}},
+    )
 
     paper_rows = list(paper_registry.get("rows", []))
     totals = dict(map_readiness.get("totals", {}))
@@ -838,6 +1314,7 @@ def _build_core_counts(
         "reference_stash_doi_count": int(
             reference_stash_doi_integrity.get("reference_stash_doi_count", 0)
         ),
+        "tracked_aadr_release_file_count": _count_tree_files(data_root / "aadr" / "v66"),
         "papers_with_local_reference_supplements": sum(
             1
             for row in reference_stash_reconciliation.get("rows", [])
@@ -851,6 +1328,21 @@ def _build_core_counts(
         + int(totals.get("indirectly_geocoded", 0)),
         "animal_map_unresolved_rows": int(totals.get("unresolved", 0)),
         "animal_map_refused_rows": int(totals.get("refused_from_mapping", 0)),
+        "tracked_landclim_site_count": int(landclim_summary.get("site_count", 0)),
+        "tracked_landclim_grid_cell_count": int(
+            landclim_summary.get("grid_cell_count", 0)
+        ),
+        "tracked_neotoma_site_count": int(neotoma_sites.get("site_count", 0)),
+        "tracked_sead_site_count": int(sead_sites.get("row_count", 0)),
+        "tracked_raa_published_site_count": int(
+            dict(raa_layer.get("counts", {})).get("all_published_sites", 0)
+        ),
+        "tracked_raa_density_cell_count": int(
+            raa_layer.get("density_feature_count", 0)
+        ),
+        "tracked_boundary_feature_count": _count_geojson_features(
+            data_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+        ),
         "pollen_normalized_file_count": _count_files(
             data_root / "landclim" / "normalized"
         )
@@ -964,6 +1456,95 @@ def _source_family_row(
     }
 
 
+def _build_source_explainer_audit_row(
+    *,
+    docs_root: Path,
+    surface_kind: str,
+    display_name: str,
+    page_path: str,
+    required_snippets: list[str],
+    restoration_plan: str | None,
+) -> dict[str, object]:
+    page = docs_root.parent / page_path
+    if page.exists():
+        text = page.read_text(encoding="utf-8")
+        missing_snippets = [
+            snippet for snippet in required_snippets if snippet not in text
+        ]
+        if not missing_snippets:
+            return {
+                "surface_kind": surface_kind,
+                "display_name": display_name,
+                "page_path": page_path,
+                "status": "present_useful_form",
+                "notes": "page exists and keeps the expected source or output anchors visible",
+            }
+        return {
+            "surface_kind": surface_kind,
+            "display_name": display_name,
+            "page_path": page_path,
+            "status": "restoration_plan_required",
+            "notes": "missing expected anchors: "
+            + ", ".join(f"`{snippet}`" for snippet in missing_snippets),
+        }
+    return {
+        "surface_kind": surface_kind,
+        "display_name": display_name,
+        "page_path": page_path,
+        "status": "restoration_plan_required",
+        "notes": restoration_plan
+        or "page is missing and needs a concrete restoration path",
+    }
+
+
+def _atlas_input_row(
+    key: str,
+    display_name: str,
+    domain_role: str,
+    source_paths: list[str],
+    normalized_paths: list[str],
+    published_paths: list[str],
+    refresh_anchor: str,
+    metrics: dict[str, int],
+    note: str,
+) -> dict[str, object]:
+    return {
+        "input_key": key,
+        "display_name": display_name,
+        "domain_role": domain_role,
+        "source_paths": source_paths,
+        "normalized_paths": normalized_paths,
+        "published_paths": published_paths,
+        "refresh_anchor": refresh_anchor,
+        "metrics": metrics,
+        "note": note,
+    }
+
+
+def _cross_domain_matrix_row(
+    key: str,
+    display_name: str,
+    domain_role: str,
+    source_families: list[str],
+    tracked_metrics: dict[str, int],
+    docs_paths: list[str],
+    published_paths: list[str],
+    coverage_posture: str,
+    current_gap: str,
+) -> dict[str, object]:
+    return {
+        "domain_key": key,
+        "display_name": display_name,
+        "domain_role": domain_role,
+        "source_families": source_families,
+        "tracked_metrics": tracked_metrics,
+        "docs_paths": docs_paths,
+        "published_paths": published_paths,
+        "coverage_posture": coverage_posture,
+        "current_gap": current_gap,
+    }
+
+
 def _claim_check(
     check_id: str,
     passed: bool,
@@ -998,6 +1579,23 @@ def _count_files(path: Path) -> int:
     if not path.exists():
         return 0
     return sum(1 for file_path in path.iterdir() if file_path.is_file())
+
+
+def _count_tree_files(path: Path) -> int:
+    if not path.exists():
+        return 0
+    return sum(1 for file_path in path.rglob("*") if file_path.is_file())
+
+
+def _count_geojson_features(path: Path) -> int:
+    if not path.exists():
+        return 0
+    payload = _load_json(path)
+    return len(list(payload.get("features", [])))
+
+
+def _format_metric_map(metrics: dict[str, object]) -> str:
+    return ", ".join(f"`{key}` {value}" for key, value in metrics.items())
 
 
 def _load_json(path: Path) -> dict[str, object]:
