@@ -31,7 +31,7 @@ in and reviewed like code.
 - [animal country coverage](../../report/animal_country_species_coverage.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
-- [sample-backed species evidence](../../../data/adna/species/ovis_aries/normalized/sample_records.json)
+- sample-backed species evidence in `data/adna/species/ovis_aries/normalized/sample_records.json`
 
 ## Stable Path Anchors
 
