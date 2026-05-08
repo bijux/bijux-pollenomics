@@ -276,6 +276,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         repository_domain_matrix_markdown = (
             report_root / "repository_cross_domain_evidence_matrix.md"
         )
+        repository_docs_ledger_json = (
+            report_root / "repository_docs_restoration_ledger.json"
+        )
+        repository_docs_ledger_markdown = (
+            report_root / "repository_docs_restoration_ledger.md"
+        )
+        repository_docs_guard_json = report_root / "repository_docs_breadth_guard.json"
+        repository_docs_guard_markdown = report_root / "repository_docs_breadth_guard.md"
+        repository_docs_review_json = report_root / "repository_docs_recovery_review.json"
+        repository_docs_review_markdown = report_root / "repository_docs_recovery_review.md"
         repository_progress_json = report_root / "repository_scientific_progress_audit.json"
         repository_progress_markdown = report_root / "repository_scientific_progress_audit.md"
 
@@ -319,6 +329,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(repository_atlas_inputs_markdown.is_file())
         self.assertTrue(repository_domain_matrix_json.is_file())
         self.assertTrue(repository_domain_matrix_markdown.is_file())
+        self.assertTrue(repository_docs_ledger_json.is_file())
+        self.assertTrue(repository_docs_ledger_markdown.is_file())
+        self.assertTrue(repository_docs_guard_json.is_file())
+        self.assertTrue(repository_docs_guard_markdown.is_file())
+        self.assertTrue(repository_docs_review_json.is_file())
+        self.assertTrue(repository_docs_review_markdown.is_file())
         self.assertTrue(repository_progress_json.is_file())
         self.assertTrue(repository_progress_markdown.is_file())
         self.assertIn("Animal output audit", audit_markdown.read_text(encoding="utf-8"))
@@ -357,6 +373,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Animal publication release gate",
             gate_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository docs restoration ledger",
+            repository_docs_ledger_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository docs breadth guard",
+            repository_docs_guard_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Repository docs recovery review",
+            repository_docs_review_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
             "Animal sample database review",
@@ -849,6 +877,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             self.assertIn(expected, readme_text)
             self.assertIn(expected, source_index)
         self.assertIn("Open the repository truth packet", docs_index)
+        self.assertIn("Open the docs recovery review", docs_index)
         self.assertIn("pollen-context layers, environmental archaeology context", docs_index)
         self.assertIn("source-family comparison", data_index)
 
