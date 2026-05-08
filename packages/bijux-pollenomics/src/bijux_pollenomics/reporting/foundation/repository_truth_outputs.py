@@ -4,17 +4,23 @@ import json
 from pathlib import Path
 
 from ...foundation import (
+    build_repository_atlas_input_audit,
     build_repository_claim_audit,
+    build_repository_cross_domain_evidence_matrix,
     build_repository_governance_artifact_review,
     build_repository_recovery_scorecard,
     build_repository_source_acquisition_queue,
+    build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
     build_repository_scientific_progress_audit,
     build_repository_truth_posture,
+    render_repository_atlas_input_audit_markdown,
     render_repository_claim_audit_markdown,
+    render_repository_cross_domain_evidence_matrix_markdown,
     render_repository_governance_artifact_review_markdown,
     render_repository_recovery_scorecard_markdown,
     render_repository_source_acquisition_queue_markdown,
+    render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
     render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
@@ -58,6 +64,30 @@ def publish_repository_truth_outputs(
                 report_root=output_root,
             ),
             render_repository_source_family_matrix_markdown,
+        ),
+        "repository_source_explainer_audit": (
+            build_repository_source_explainer_audit(
+                data_root=data_root,
+                docs_root=docs_root,
+                report_root=output_root,
+            ),
+            render_repository_source_explainer_audit_markdown,
+        ),
+        "repository_atlas_input_audit": (
+            build_repository_atlas_input_audit(
+                data_root=data_root,
+                docs_root=docs_root,
+                report_root=output_root,
+            ),
+            render_repository_atlas_input_audit_markdown,
+        ),
+        "repository_cross_domain_evidence_matrix": (
+            build_repository_cross_domain_evidence_matrix(
+                data_root=data_root,
+                docs_root=docs_root,
+                report_root=output_root,
+            ),
+            render_repository_cross_domain_evidence_matrix_markdown,
         ),
         "repository_source_acquisition_queue": (
             build_repository_source_acquisition_queue(
