@@ -1,13 +1,13 @@
 ---
-title: Filters and Popups
+title: Nordic Atlas Filters and Popups
 audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
-# Filters and Popups
+# Nordic Atlas Filters and Popups
 
 The animal atlas is useful only if readers can inspect the limits of a point,
 not just its position.
@@ -36,6 +36,7 @@ show:
 
 ## Where To Inspect The Files
 
-- [`nordic-atlas_map.html`](../report/nordic-atlas/nordic-atlas_map.html)
-- [`nordic-atlas_summary.json`](../report/nordic-atlas/nordic-atlas_summary.json)
-- [`nordic-atlas_animal_point_traceability.json`](../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
+- [atlas map](../../report/nordic-atlas/nordic-atlas_map.html)
+- [atlas summary](../../report/nordic-atlas/nordic-atlas_summary.json)
+- [animal point traceability](../../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
+- [animal output honesty](../../report/animal_output_honesty.md)

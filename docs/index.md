@@ -107,12 +107,12 @@ or supplement evidence.
 - that every visible layer has identical provenance quality
 - that a project list alone is enough to justify a mapped point
 - that unresolved or region-only geography should be published like exact site evidence
-- that the current thin animal aDNA atlas candidate set means the repository is already scientifically broad
+- that the current narrow animal aDNA atlas candidate surface means the repository is already scientifically broad
 - that the repository is already the full cross-evidence pollenomics engine
 
 ## Read By Question
 
 - what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
 - what the tracked data system and source families are: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
-- how the map points are built and filtered: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
+- how the map points, filters, and honesty packets work: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
 - how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)

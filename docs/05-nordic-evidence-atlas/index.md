@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Nordic Evidence Atlas
@@ -25,9 +25,9 @@ justify. It should help a reader answer four questions quickly:
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="point-construction/">How animal points are built</a>
-  <a class="md-button" href="filters-and-popups/">How filters and popups work</a>
-  <a class="md-button" href="limits-and-audit/">Current limits and audits</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-point-publication/">How animal points are built</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-filters-and-popups/">How filters and popups work</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-limits-and-honesty/">Current limits and audits</a>
 </div>
 
 <div class="bijux-map-mobile-note">
@@ -44,7 +44,11 @@ justify. It should help a reader answer four questions quickly:
 - [shipped atlas map](../report/nordic-atlas/nordic-atlas_map.html)
 - [animal atlas evidence rows](../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
 - [animal point traceability](../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
+- [final atlas candidate packet](../../data/adna/final/atlas/animal_atlas_point_candidates.json)
+- [final atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
 - [animal point support packets](../report/animal_point_support_packets.md)
 - [atlas readiness audit](../report/animal_atlas_readiness.md)
+- [animal output honesty](../report/animal_output_honesty.md)
+- [animal atlas exclusion report](../report/animal_atlas_exclusion_report.md)
 - [country output coverage](../report/animal_country_species_coverage.md)
 - [repository truth posture](../report/repository_truth_posture.md)

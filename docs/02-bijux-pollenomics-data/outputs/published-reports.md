@@ -24,6 +24,8 @@ site, chronology, and coordinate rules are applied?
 - [animal point support packets](../../report/animal_point_support_packets.md)
 - [animal sample database review](../../report/animal_sample_database_review.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
+- [animal output honesty](../../report/animal_output_honesty.md)
+- [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
 - [repository source family matrix](../../report/repository_source_family_matrix.md)
@@ -48,4 +50,6 @@ site, chronology, and coordinate rules are applied?
 - `*_animal_adna_*_warnings.md`
 
 Country bundles are not a replacement for the tracked evidence tables. They are
-reader-facing summaries derived from them.
+reader-facing summaries derived from them. The current country sample tables and
+summary JSON files now keep exact sample, site, chronology, and coordinate
+evidence locators for every published animal row.
