@@ -15,5 +15,6 @@ contracts that local maintainer commands check.
 ## Start Here
 
 - [docs deployment](deploy-docs.md)
+- [verification and release](verification-and-release.md)
 - `verify.yml` for shared verification
 - release workflows for package and container publication

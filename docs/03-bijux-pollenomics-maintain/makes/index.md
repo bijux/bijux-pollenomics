@@ -18,3 +18,7 @@ verification, and docs publication checks.
 - `make package-check`
 - `make test-regression`
 - `make docs`
+
+## Expanded Guide
+
+- [make system contracts](make-system-contracts.md)
