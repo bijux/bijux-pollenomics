@@ -49,7 +49,7 @@
       },
       "locality_identity": {
         "namespace": "felis_catus:sample_locality",
-        "stable_token": "felis_catus:sample-site:prjeb81815",
+        "stable_token": "felis_catus:locality:prjeb81815:northafricatoeuropedomesticcatdispersaltransect:northafricaandeurope",
         "locality_text": "North Africa to Europe domestic cat dispersal transect",
         "political_entity": "North Africa and Europe",
         "source_anchor_tokens": [
@@ -96,7 +96,7 @@
       "paper_url": "https://doi.org/10.1126/science.adt2642",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "Cat remains a broad dispersal signal, not a point-ready site lead.",
+      "inclusion_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level.",
       "chronology_strength": "project_context_interval",
       "chronology_normalization_status": "normalized_interval",
       "chronology_provenance_path": "",
@@ -128,7 +128,7 @@
       },
       "locality_identity": {
         "namespace": "felis_catus:sample_locality",
-        "stable_token": "felis_catus:sample-site:prjna1178732",
+        "stable_token": "felis_catus:locality:prjna1178732:sitedetailnotyetextractedfromtrackedsourcesupport",
         "locality_text": "site detail not yet extracted from tracked source support",
         "political_entity": null,
         "source_anchor_tokens": [
@@ -259,7 +259,7 @@
     {
       "identity": {
         "namespace": "felis_catus:project_locality",
-        "stable_token": "felis_catus:project-locality:prjeb81815",
+        "stable_token": "felis_catus:locality:prjeb81815:northafricatoeuropedomesticcatdispersaltransect:northafricaandeurope",
         "locality_text": "North Africa to Europe domestic cat dispersal transect",
         "political_entity": "North Africa and Europe",
         "source_anchor_tokens": [
@@ -306,14 +306,14 @@
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context"
       },
-      "sample_namespace": "felis_catus:project_locality",
+      "sample_namespace": "felis_catus:sample_locality",
       "project_accessions": [
         "PRJEB81815"
       ],
       "original_location_text": "North Africa to Europe domestic cat dispersal transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead."
+      "interpretation_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level."
     }
   ],
   "project_summaries": [

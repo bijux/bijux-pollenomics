@@ -5,7 +5,7 @@
     {
       "identity": {
         "namespace": "capra_hircus:project_locality",
-        "stable_token": "capra_hircus:project-locality:prjna1328209",
+        "stable_token": "capra_hircus:locality:prjna1328209:lakeqinghaibasinancientgoatcontext:qinghaichina",
         "locality_text": "Lake Qinghai Basin ancient goat context",
         "political_entity": "Qinghai, China",
         "source_anchor_tokens": [
@@ -52,14 +52,14 @@
         "date_stddev_bp": "",
         "dating_basis": "archaeological_period_assignment"
       },
-      "sample_namespace": "capra_hircus:project_locality",
+      "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
         "PRJNA1328209"
       ],
       "original_location_text": "Lake Qinghai Basin ancient goat context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "The goat lead is paper-backed but still basin-level geography."
+      "interpretation_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context."
     }
   ]
 }

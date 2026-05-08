@@ -296,7 +296,7 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:sample-site:kx379528-kx379529",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -375,7 +375,7 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:sample-site:kx379528-kx379529",
+          "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -454,7 +454,7 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:sample-site:srs1407451",
+          "stable_token": "canis_lupus_familiaris:locality:srs1407451:ancienteuropeandogctcsamplecontext:centraleurope",
           "locality_text": "Ancient European dog CTC sample context",
           "political_entity": "Central Europe",
           "source_anchor_tokens": [
@@ -501,7 +501,7 @@
         "paper_url": "https://doi.org/10.1038/ncomms16082",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows.",
+        "inclusion_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
         "chronology_strength": "project_context_interval",
         "chronology_normalization_status": "normalized_interval",
         "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
@@ -533,7 +533,7 @@
         },
         "locality_identity": {
           "namespace": "canis_lupus_familiaris:sample_locality",
-          "stable_token": "canis_lupus_familiaris:sample-site:srs1407453",
+          "stable_token": "canis_lupus_familiaris:locality:srs1407453:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -664,7 +664,7 @@
       {
         "identity": {
           "namespace": "canis_lupus_familiaris:project_locality",
-          "stable_token": "canis_lupus_familiaris:project-locality:srs1407451",
+          "stable_token": "canis_lupus_familiaris:locality:srs1407451:ancienteuropeandogctcsamplecontext:centraleurope",
           "locality_text": "Ancient European dog CTC sample context",
           "political_entity": "Central Europe",
           "source_anchor_tokens": [
@@ -698,27 +698,27 @@
         },
         "sample_count": 1,
         "sample_ids": [
-          "SRS1407451"
+          "srs1407451:srs1407451"
         ],
         "datasets": [
           "canis_lupus_familiaris:project:SRS1407451"
         ],
         "chronology": {
-          "original_text": "Ancient European dog genomic context",
+          "original_text": "4500-7000 BP",
           "time_start_bp": 4500,
           "time_end_bp": 7000,
           "time_mean_bp": 5750,
           "date_stddev_bp": "",
           "dating_basis": "mixed_radiocarbon_and_archaeological_context"
         },
-        "sample_namespace": "canis_lupus_familiaris:project_locality",
+        "sample_namespace": "canis_lupus_familiaris:sample_locality",
         "project_accessions": [
           "SRS1407451"
         ],
         "original_location_text": "Ancient European dog CTC sample context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "This ancient European dog sample informs North European context, but the current curation does not justify a Nordic-localized claim.",
-        "interpretation_note": "Dog stays sample-context-rich but point-refused until the repo splits the multi-site context into exact site rows."
+        "interpretation_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added."
       }
     ],
     "project_summaries": [

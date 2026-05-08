@@ -6,10 +6,10 @@
 - Curation class: `paper_pinned_core`
 - Curated sample rows: `195`
 - Curated projects: `3`
-- Curated site rows: `1`
+- Curated site rows: `7`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `194`
+- Unresolved sample rows: `4`
 - Mapped Nordic rows: `1`
 - Tracked intake projects: `6`
 - Pending projects: `3`

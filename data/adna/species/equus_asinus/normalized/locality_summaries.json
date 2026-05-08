@@ -5,7 +5,7 @@
     {
       "identity": {
         "namespace": "equus_asinus:project_locality",
-        "stable_token": "equus_asinus:project-locality:prjeb52849",
+        "stable_token": "equus_asinus:locality:prjeb52849:northafricandonkeydomesticationandspreadtransect:northafricaandlevant",
         "locality_text": "North African donkey domestication and spread transect",
         "political_entity": "North Africa and Levant",
         "source_anchor_tokens": [
@@ -52,14 +52,14 @@
         "date_stddev_bp": "",
         "dating_basis": "archaeological_period_assignment"
       },
-      "sample_namespace": "equus_asinus:project_locality",
+      "sample_namespace": "equus_asinus:sample_locality",
       "project_accessions": [
         "PRJEB52849"
       ],
       "original_location_text": "North African donkey domestication and spread transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Donkey remains broad comparator domestication context rather than point-ready evidence."
+      "interpretation_note": "This is a broad comparator domestication transect rather than one point-sized excavation context."
     }
   ]
 }
