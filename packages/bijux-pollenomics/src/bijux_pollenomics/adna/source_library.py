@@ -1263,12 +1263,16 @@ def materialize_source_library(output_root: Path) -> None:
         write_text(paper_dir / "supplementary_manifest.csv", _render_csv(manifest_rows))
 
     from .project_sample_chronology import materialize_project_sample_chronology_library
+    from .project_sample_locality_evidence import (
+        materialize_project_sample_locality_evidence_library,
+    )
     from .project_sample_sites import materialize_project_sample_site_library
     from .sample_master import materialize_sample_master_library
     from .source_inventory import materialize_source_inventory
 
     materialize_sample_master_library(output_root)
     materialize_project_sample_site_library(output_root)
+    materialize_project_sample_locality_evidence_library(output_root)
     materialize_project_sample_chronology_library(output_root)
     materialize_source_inventory(output_root)
 
@@ -1444,6 +1448,12 @@ def _render_tracked_project_and_paper_inventory(
         "- Per-project sample masters: `projects/<project_accession>/sample_master.json`\n"
         "- Cross-project sample-site review: `project_sample_site_review.json`\n"
         "- Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`\n\n"
+        "- Per-project locality worksheets: `projects/<project_accession>/locality_worksheet.json`\n"
+        "- Per-project sample locality evidence packets: `projects/<project_accession>/sample_locality_evidence.json`\n"
+        "- Cross-project sample locality conflicts: `sample_locality_conflict_ledger.json`\n"
+        "- Cross-project locality manual curation workflow: `sample_locality_manual_curation_workflow.json`\n"
+        "- Cross-project site-name normalization dictionary: `site_name_normalization_dictionary.json`\n"
+        "- Cross-project locality completeness: `project_locality_completeness.json`\n\n"
         "- Cross-project sample-chronology review: `project_sample_chronology_review.json`\n"
         "- Per-project sample chronology tables: `projects/<project_accession>/sample_chronology.json`\n\n"
         "## Projects\n\n"
