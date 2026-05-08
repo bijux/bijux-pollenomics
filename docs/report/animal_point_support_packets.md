@@ -1,6 +1,15 @@
 # Animal point support packets
 
-- Published point count: `207`
+- Published point count: `208`
+
+## animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan
+
+- Species: `Camelus dromedarius`
+- Project accession: `SRP073444`
+- Paper DOI: `10.1111/1755-0998.12551`
+- Coordinate basis: `named_site_geocoding`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-actiparc-france
 

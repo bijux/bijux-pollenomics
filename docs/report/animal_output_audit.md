@@ -15,8 +15,8 @@
 | Capra hircus | 2 | 0 | true | 0 |
 | Canis lupus familiaris | 2 | 0 | true | 0 |
 | Felis catus | 2 | 0 | true | 0 |
-| Camelus dromedarius | 2 | 0 | true | 0 |
+| Camelus dromedarius | 1 | 0 | true | 0 |
 | Rangifer tarandus | 2 | 0 | true | 1 |
 | Equus asinus | 2 | 0 | true | 0 |
 
-The current public report tree now ships `225` mapped non-human animal atlas layer rows and `2` country-resolved animal output hits across the species table above.
+The current public report tree now ships `224` mapped non-human animal atlas layer rows and `2` country-resolved animal output hits across the species table above.

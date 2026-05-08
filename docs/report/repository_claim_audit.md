@@ -1,7 +1,7 @@
 # Repository claim audit
 
 - Overall ok: `true`
-- Published animal atlas points: `207`
+- Published animal atlas points: `208`
 - Papers with archived supplements: `18`
 
 | Check | Passed | Finding count |

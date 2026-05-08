@@ -31,6 +31,13 @@
       "findings": []
     },
     {
+      "check_id": "project_level_locality_substitution_projects_do_not_publish_country_or_atlas_rows",
+      "passed": true,
+      "description": "Projects whose locality evidence still collapses all samples into one blocked context do not leak into country or atlas publication.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",
       "passed": true,
       "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",

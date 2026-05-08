@@ -16,10 +16,10 @@
 - Sample site rows: `755`
 - Chronology rows: `755`
 - Coordinate rows: `217`
-- Published atlas points: `207`
+- Published atlas points: `208`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.2634`
+- Mapped sample share: `0.2646`
 
 ## Thresholds
 
@@ -42,6 +42,11 @@
 - sample_database_contract: `data/adna/governance/animal_sample_product_contract.json`
 - sample_query_example: `docs/report/sweden/sweden_animal_adna_v66_samples.md`
 - site_review: `data/adna/governance/source_library/project_sample_site_review.json`
+- locality_conflicts: `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
+- locality_curation_workflow: `data/adna/governance/source_library/sample_locality_manual_curation_workflow.json`
+- locality_substitution_ledger: `data/adna/governance/source_library/project_locality_substitution_ledger.json`
+- locality_normalization_dictionary: `data/adna/governance/source_library/site_name_normalization_dictionary.json`
+- locality_completeness: `data/adna/governance/source_library/project_locality_completeness.json`
 - chronology_review: `data/adna/governance/source_library/project_sample_chronology_review.json`
 - coordinate_provenance_example: `data/adna/species/ovis_aries/normalized/coordinate_provenance.json`
 - point_support_packets: `docs/report/animal_point_support_packets.md`

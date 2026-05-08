@@ -1,17 +1,16 @@
 # Animal project absence packets
 
-- Non-published project count: `38`
+- Non-published project count: `37`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
 | PRJEB31621 | Bos taurus | site_extraction | sample_context_blocked |
 | PRJEB75467 | Bos taurus | site_extraction | sample_context_blocked |
 | PRJNA705960 | Bos taurus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated, region_only_geography |
-| KU605068-KU605080 | Camelus dromedarius | site_extraction | sample_context_blocked |
-| SRP073444 | Camelus dromedarius | not_point_publishable |  |
-| KX379528-KX379529 | Canis lupus familiaris | site_extraction | sample_context_blocked |
+| KU605068-KU605080 | Camelus dromedarius | not_point_publishable |  |
+| KX379528-KX379529 | Canis lupus familiaris | not_point_publishable |  |
 | SRS1407451 | Canis lupus familiaris | coordinate_resolution | region_only_geography |
-| SRS1407453 | Canis lupus familiaris | site_extraction | sample_context_blocked |
+| SRS1407453 | Canis lupus familiaris | not_point_publishable |  |
 | PRJEB90141 | Capra hircus | site_extraction | sample_context_blocked |
 | PRJEB90261 | Capra hircus | site_extraction | sample_context_blocked |
 | PRJNA1328209 | Capra hircus | coordinate_resolution | region_only_geography |

@@ -10,6 +10,194 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          31.371316,
+          21.799142
+        ]
+      },
+      "properties": {
+        "name": "Site 1040 near Wadi Halfa dromedary context",
+        "feature_id": "animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
+        "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
+        "site_record_id": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+        "category": "Dromedary Camel atlas evidence row",
+        "country": "Sudan",
+        "layer_key": "domesticated-animal-localities",
+        "layer_label": "Domesticated-core animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1111/1755-0998.12551",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Camelus dromedarius"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "camelus_dromedarius:sample:srp073444"
+          },
+          {
+            "label": "Project accession",
+            "value": "SRP073444"
+          },
+          {
+            "label": "Paper title",
+            "value": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1111/1755-0998.12551"
+          },
+          {
+            "label": "Publication year",
+            "value": "2017"
+          },
+          {
+            "label": "Journal",
+            "value": "Molecular Ecology Resources"
+          },
+          {
+            "label": "Chronology",
+            "value": "Historical and archaeological dromedary range context"
+          },
+          {
+            "label": "Chronology bucket",
+            "value": "1001-3000 BP"
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "named_site_geocoding"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "manual_named_place_resolution"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "named-place resolution to Wadi Halfa city anchor"
+          },
+          {
+            "label": "Original place text",
+            "value": "Site 1040 near Wadi Halfa"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Wadi Halfa"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair."
+          },
+          {
+            "label": "Source locator",
+            "value": "abstract and introduction"
+          },
+          {
+            "label": "Source support status",
+            "value": "article_exact_quote"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier."
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Camelus dromedarius",
+        "species_common_name": "dromedary camel",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "chronology_bucket": "1001-3000 BP",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_basis": "named_site_geocoding",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "camelus_dromedarius:sample:srp073444"
+        ],
+        "sample_group_ids": [
+          "SRP073444"
+        ],
+        "sample_namespace": "camelus_dromedarius:sample_locality",
+        "inclusion_notes": [
+          "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid."
+        ],
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "geocoding_method": "manual_named_place_resolution",
+        "geocoder_or_gazetteer": "named-place resolution to Wadi Halfa city anchor",
+        "confidence_rationale": "The archived article names Site 1040 near Wadi Halfa explicitly. The current coordinate is an approximate city-level geocode for Wadi Halfa rather than a published excavation coordinate pair.",
+        "original_place_text": "Site 1040 near Wadi Halfa",
+        "resolved_place_text": "Wadi Halfa",
+        "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
+        "paper_doi": "10.1111/1755-0998.12551",
+        "journal_title": "Molecular Ecology Resources",
+        "publication_year": "2017",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "SRP073444"
+        ],
+        "primary_project_accession": "SRP073444",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "source_artifact_kind": "article_html_body_quote",
+        "source_locator": "abstract and introduction",
+        "source_support_status": "article_exact_quote",
+        "exact_source_text": "The remains of a single large-sized Late Pleistocene camel individual recovered from the Site 1040 near Wadi Halfa were first evaluated by Gautier.",
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "time_mean_bp": 2200,
+        "time_year_bp": 2200,
+        "time_label": "Historical and archaeological dromedary range context"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -22.117,
           65.53
         ]
@@ -127,7 +315,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -152,7 +340,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "65.53",
         "longitude_text": "-22.117000000000001",
@@ -307,7 +495,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -333,7 +521,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "56.41134",
         "longitude_text": "10.74481",
@@ -488,7 +676,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -513,7 +701,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "65.268000000000001",
         "longitude_text": "-18.239999999999998",
@@ -668,7 +856,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -693,7 +881,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "59.860999999999997",
         "longitude_text": "17.638999999999999",
@@ -848,7 +1036,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -879,7 +1067,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "38.411227",
         "longitude_text": "33.835694",
@@ -1034,7 +1222,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1068,7 +1256,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.31503",
         "longitude_text": "2.8217970000000001",
@@ -1223,7 +1411,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1252,7 +1440,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "39.241",
         "longitude_text": "-8.6920000000000002",
@@ -1407,7 +1595,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1439,7 +1627,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.974236",
         "longitude_text": "74.884425",
@@ -1594,7 +1782,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1623,7 +1811,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.156028",
         "longitude_text": "48.526306",
@@ -1778,7 +1966,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1807,7 +1995,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.07",
         "longitude_text": "48.44",
@@ -1962,7 +2150,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -1993,7 +2181,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "35.873429",
         "longitude_text": "8.78621",
@@ -2148,7 +2336,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -2179,7 +2367,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.058888899999999",
         "longitude_text": "93.603888900000001",
@@ -2334,7 +2522,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -2366,7 +2554,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.058888899999999",
         "longitude_text": "93.603888900000001",
@@ -2521,7 +2709,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -2552,7 +2740,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.066389",
         "longitude_text": "93.5225",
@@ -2707,7 +2895,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -2736,7 +2924,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.066389",
         "longitude_text": "93.5225",
@@ -2891,7 +3079,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -2920,7 +3108,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.916667",
         "longitude_text": "74.216667",
@@ -3075,7 +3263,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -3105,7 +3293,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.410926",
         "longitude_text": "23.016137",
@@ -3260,7 +3448,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -3289,7 +3477,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.533178200000002",
         "longitude_text": "7.7220154000000001",
@@ -3444,7 +3632,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -3474,7 +3662,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.536085",
         "longitude_text": "7.7220154000000001",
@@ -3629,7 +3817,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -3658,7 +3846,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.69",
         "longitude_text": "43.262",
@@ -3813,7 +4001,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -3842,7 +4030,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.451361",
         "longitude_text": "16.599992",
@@ -3997,7 +4185,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4026,7 +4214,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.666666669999998",
         "longitude_text": "8.85",
@@ -4181,7 +4369,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4210,7 +4398,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.197325499999998",
         "longitude_text": "19.262490700000001",
@@ -4365,7 +4553,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4394,7 +4582,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "67.566666699999999",
         "longitude_text": "134.766666666666",
@@ -4549,7 +4737,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4579,7 +4767,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "54.623611099999998",
         "longitude_text": "90.944999999999993",
@@ -4734,7 +4922,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4763,7 +4951,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.415371",
         "longitude_text": "2.1013069999999998",
@@ -4918,7 +5106,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -4947,7 +5135,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.415371",
         "longitude_text": "2.1013069999999998",
@@ -5102,7 +5290,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -5131,7 +5319,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "37.042453100000003",
         "longitude_text": "57.471565200000001",
@@ -5286,7 +5474,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -5316,7 +5504,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.52",
         "longitude_text": "62.55",
@@ -5471,7 +5659,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -5501,7 +5689,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.52",
         "longitude_text": "62.55",
@@ -5656,7 +5844,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -5695,7 +5883,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.3737353",
         "longitude_text": "86.427292199999997",
@@ -5850,7 +6038,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -5881,7 +6069,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.575646",
         "longitude_text": "64.724468",
@@ -6036,7 +6224,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6065,7 +6253,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.164483",
         "longitude_text": "86.139367",
@@ -6220,7 +6408,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6252,7 +6440,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.65",
         "longitude_text": "59.566667",
@@ -6407,7 +6595,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6436,7 +6624,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.4",
         "longitude_text": "100.68",
@@ -6591,7 +6779,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6623,7 +6811,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.826192",
         "longitude_text": "77.948253",
@@ -6778,7 +6966,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6811,7 +6999,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.287303199999997",
         "longitude_text": "76.967402300000003",
@@ -6966,7 +7154,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -6996,7 +7184,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.824694",
         "longitude_text": "77.945111",
@@ -7151,7 +7339,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -7207,7 +7395,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.303942399999997",
         "longitude_text": "67.645786400000006",
@@ -7362,7 +7550,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -7408,7 +7596,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.303942",
         "longitude_text": "67.645786",
@@ -7563,7 +7751,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -7592,7 +7780,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.853433899999999",
         "longitude_text": "2.3969306000000001",
@@ -7747,7 +7935,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -7777,7 +7965,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "39.998333299999999",
         "longitude_text": "71.073333300000002",
@@ -7932,7 +8120,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -7964,7 +8152,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.964098999999997",
         "longitude_text": "-2.704933",
@@ -8119,7 +8307,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -8148,7 +8336,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.006999999999998",
         "longitude_text": "16.562000000000001",
@@ -8303,7 +8491,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -8332,7 +8520,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.830833",
         "longitude_text": "89.99",
@@ -8487,7 +8675,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -8516,7 +8704,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.429072",
         "longitude_text": "55.227878",
@@ -8671,7 +8859,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -8700,7 +8888,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.35784",
         "longitude_text": "13.74354",
@@ -8855,7 +9043,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -8884,7 +9072,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "40.442100000000003",
         "longitude_text": "-3.4940799999999999",
@@ -9039,7 +9227,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -9068,7 +9256,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.552778000000004",
         "longitude_text": "1.039444",
@@ -9223,7 +9411,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -9252,7 +9440,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "16.049578",
         "longitude_text": "-61.569156",
@@ -9407,7 +9595,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -9436,7 +9624,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "38.098281100000001",
         "longitude_text": "-6.6931940000000001",
@@ -9591,7 +9779,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -9621,7 +9809,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.330592",
         "longitude_text": "1.389657",
@@ -9776,7 +9964,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -9821,7 +10009,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.442396000000002",
         "longitude_text": "1.494154",
@@ -9976,7 +10164,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10005,7 +10193,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.067083",
         "longitude_text": "93.464806",
@@ -10160,7 +10348,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10189,7 +10377,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.173733",
         "longitude_text": "86.113083",
@@ -10344,7 +10532,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10373,7 +10561,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "40.42019",
         "longitude_text": "0.12547",
@@ -10528,7 +10716,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10559,7 +10747,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "44.12731",
         "longitude_text": "26.4696",
@@ -10714,7 +10902,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10743,7 +10931,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "42.740163709999997",
         "longitude_text": "44.620164189999997",
@@ -10898,7 +11086,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -10928,7 +11116,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.16",
         "longitude_text": "51.17",
@@ -11083,7 +11271,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -11112,7 +11300,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.963242",
         "longitude_text": "39.29496",
@@ -11267,7 +11455,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -11296,7 +11484,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.961905899999998",
         "longitude_text": "18.9355227",
@@ -11451,7 +11639,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -11481,7 +11669,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "39.024444000000003",
         "longitude_text": "-2.0280559999999999",
@@ -11636,7 +11824,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -11665,7 +11853,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "38.949334",
         "longitude_text": "6.064916",
@@ -11820,7 +12008,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -11849,7 +12037,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.57",
         "longitude_text": "0.95",
@@ -12004,7 +12192,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12035,7 +12223,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.57",
         "longitude_text": "0.95",
@@ -12190,7 +12378,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12222,7 +12410,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.63324",
         "longitude_text": "2.465916",
@@ -12377,7 +12565,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12408,7 +12596,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.019638499999999",
         "longitude_text": "1.1589729",
@@ -12563,7 +12751,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12592,7 +12780,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "36.8406667",
         "longitude_text": "101.9584722",
@@ -12747,7 +12935,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12776,7 +12964,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.161262499999999",
         "longitude_text": "8.6424693000000001",
@@ -12931,7 +13119,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -12960,7 +13148,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.442396000000002",
         "longitude_text": "1.494154",
@@ -13115,7 +13303,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -13145,7 +13333,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.572897",
         "longitude_text": "103.251933",
@@ -13300,7 +13488,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -13329,7 +13517,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "44.866990000000001",
         "longitude_text": "22.0079387",
@@ -13484,7 +13672,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -13518,7 +13706,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.017777780000003",
         "longitude_text": "101.3533333",
@@ -13673,7 +13861,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -13702,7 +13890,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.159923",
         "longitude_text": "27.169232",
@@ -13857,7 +14045,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -13889,7 +14077,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.446669999999997",
         "longitude_text": "5.0091099999999997",
@@ -14044,7 +14232,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14073,7 +14261,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.629089999999998",
         "longitude_text": "76.738793999999999",
@@ -14228,7 +14416,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14258,7 +14446,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.843",
         "longitude_text": "62.9029",
@@ -14413,7 +14601,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14442,7 +14630,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.843000000000004",
         "longitude_text": "62.902900000000002",
@@ -14597,7 +14785,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14626,7 +14814,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.843000000000004",
         "longitude_text": "62.902900000000002",
@@ -14781,7 +14969,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14810,7 +14998,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.307911799999999",
         "longitude_text": "10.8938381",
@@ -14965,7 +15153,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -14999,7 +15187,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.06053",
         "longitude_text": "11.104783",
@@ -15154,7 +15342,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -15183,7 +15371,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.20132",
         "longitude_text": "14.29183",
@@ -15338,7 +15526,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -15368,7 +15556,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.17025",
         "longitude_text": "82.967972",
@@ -15523,7 +15711,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -15563,7 +15751,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "44.499039",
         "longitude_text": "1.692232",
@@ -15718,7 +15906,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -15755,7 +15943,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.833333",
         "longitude_text": "60.366667",
@@ -15910,7 +16098,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -15939,7 +16127,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.362",
         "longitude_text": "17.731",
@@ -16094,7 +16282,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -16128,7 +16316,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.2741",
         "longitude_text": "20.4654",
@@ -16283,7 +16471,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -16316,7 +16504,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.202561",
         "longitude_text": "75.940728",
@@ -16471,7 +16659,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -16500,7 +16688,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.467709",
         "longitude_text": "3.502667",
@@ -16655,7 +16843,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -16684,7 +16872,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.56105",
         "longitude_text": "103.2428",
@@ -16839,7 +17027,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -16868,7 +17056,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.583055999999999",
         "longitude_text": "88.393528000000003",
@@ -17023,7 +17211,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17052,7 +17240,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.3056111",
         "longitude_text": "102.64647220000001",
@@ -17207,7 +17395,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17236,7 +17424,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.721357",
         "longitude_text": "27.225306",
@@ -17391,7 +17579,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17420,7 +17608,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.933",
         "longitude_text": "90.933000000000007",
@@ -17575,7 +17763,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17604,7 +17792,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.376",
         "longitude_text": "39.071",
@@ -17759,7 +17947,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17789,7 +17977,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.4",
         "longitude_text": "66.75",
@@ -17944,7 +18132,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -17973,7 +18161,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.538690000000003",
         "longitude_text": "94.008849999999995",
@@ -18128,7 +18316,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -18158,7 +18346,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "54.35",
         "longitude_text": "60.15",
@@ -18313,7 +18501,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -18343,7 +18531,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.497056",
         "longitude_text": "85.9745",
@@ -18498,7 +18686,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -18527,7 +18715,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.325935",
         "longitude_text": "69.260924",
@@ -18682,7 +18870,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -18711,7 +18899,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "34.730428000000003",
         "longitude_text": "46.671981000000002",
@@ -18866,7 +19054,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -18895,7 +19083,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.497292",
         "longitude_text": "85.971322",
@@ -19050,7 +19238,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19079,7 +19267,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "37.847803",
         "longitude_text": "34.611841",
@@ -19234,7 +19422,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19263,7 +19451,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "43.3667",
         "longitude_text": "3.4167",
@@ -19418,7 +19606,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19447,7 +19635,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.871883",
         "longitude_text": "2.157139",
@@ -19602,7 +19790,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19631,7 +19819,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.43",
         "longitude_text": "50.4",
@@ -19786,7 +19974,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19815,7 +20003,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.08088",
         "longitude_text": "14.23425",
@@ -19970,7 +20158,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -19999,7 +20187,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.469034999999998",
         "longitude_text": "2.8605299999999998",
@@ -20154,7 +20342,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -20183,7 +20371,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.307532000000002",
         "longitude_text": "4.823474",
@@ -20338,7 +20526,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -20367,7 +20555,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.578275",
         "longitude_text": "2.829228",
@@ -20522,7 +20710,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -20551,7 +20739,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.99",
         "longitude_text": "8.26",
@@ -20706,7 +20894,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -20743,7 +20931,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "54.896740000000001",
         "longitude_text": "23.872479999999999",
@@ -20898,7 +21086,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -20930,7 +21118,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "62.083",
         "longitude_text": "58.083",
@@ -21085,7 +21273,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -21114,7 +21302,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.363333330000003",
         "longitude_text": "95.362777780000002",
@@ -21269,7 +21457,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -21298,7 +21486,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.115293000000001",
         "longitude_text": "6.1727509999999999",
@@ -21453,7 +21641,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -21482,7 +21670,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.447098",
         "longitude_text": "76.794851",
@@ -21637,7 +21825,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -21666,7 +21854,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.986874999999998",
         "longitude_text": "27.790130999999999",
@@ -21821,7 +22009,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -21851,7 +22039,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.987105",
         "longitude_text": "27.788329",
@@ -22006,7 +22194,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22036,7 +22224,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.35749",
         "longitude_text": "20.04609",
@@ -22191,7 +22379,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22223,7 +22411,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.553253",
         "longitude_text": "103.277861",
@@ -22378,7 +22566,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22407,7 +22595,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.94125",
         "longitude_text": "98.595817",
@@ -22562,7 +22750,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22592,7 +22780,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.44378",
         "longitude_text": "20.51853",
@@ -22747,7 +22935,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22776,7 +22964,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.807945",
         "longitude_text": "22.812173",
@@ -22931,7 +23119,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -22962,7 +23150,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "55.466667",
         "longitude_text": "59.45",
@@ -23117,7 +23305,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -23146,7 +23334,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.069502",
         "longitude_text": "18.200384",
@@ -23301,7 +23489,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -23330,7 +23518,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.338939",
         "longitude_text": "51.870031",
@@ -23485,7 +23673,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -23515,7 +23703,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.546361",
         "longitude_text": "79.350056",
@@ -23670,7 +23858,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -23701,7 +23889,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.546361",
         "longitude_text": "79.350056",
@@ -23856,7 +24044,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -23886,7 +24074,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.6401793",
         "longitude_text": "62.7610338",
@@ -24041,7 +24229,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24070,7 +24258,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.571362999999998",
         "longitude_text": "3.0177420000000001",
@@ -24225,7 +24413,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24255,7 +24443,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.332528099999998",
         "longitude_text": "18.841491699999999",
@@ -24410,7 +24598,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24440,7 +24628,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.966666699999998",
         "longitude_text": "43.643611100000001",
@@ -24595,7 +24783,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24625,7 +24813,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.328749999999999",
         "longitude_text": "88.348861099999993",
@@ -24780,7 +24968,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24809,7 +24997,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.157528",
         "longitude_text": "48.527694",
@@ -24964,7 +25152,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -24993,7 +25181,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.058047999999999",
         "longitude_text": "26.494752299999998",
@@ -25148,7 +25336,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -25177,7 +25365,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.146408399999999",
         "longitude_text": "18.883864899999999",
@@ -25332,7 +25520,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -25362,7 +25550,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.44725",
         "longitude_text": "48.942667",
@@ -25517,7 +25705,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -25551,7 +25739,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "57.45",
         "longitude_text": "61.45",
@@ -25706,7 +25894,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -25735,7 +25923,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.143",
         "longitude_text": "20.04672",
@@ -25890,7 +26078,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -25919,7 +26107,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "44.067779",
         "longitude_text": "26.156737",
@@ -26074,7 +26262,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -26104,7 +26292,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.658",
         "longitude_text": "50.668444",
@@ -26259,7 +26447,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -26288,7 +26476,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.662987000000001",
         "longitude_text": "50.671470999999997",
@@ -26443,7 +26631,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -26472,7 +26660,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "59.337156",
         "longitude_text": "-2.97",
@@ -26627,7 +26815,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -26657,7 +26845,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.215583",
         "longitude_text": "43.904556",
@@ -26812,7 +27000,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -26842,7 +27030,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.455199899999997",
         "longitude_text": "23.032599900000001",
@@ -26997,7 +27185,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27028,7 +27216,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.4552",
         "longitude_text": "23.0326",
@@ -27183,7 +27371,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27212,7 +27400,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.543199899999998",
         "longitude_text": "26.678100000000001",
@@ -27367,7 +27555,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27396,7 +27584,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "35.773055999999997",
         "longitude_text": "49.937778000000002",
@@ -27551,7 +27739,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27580,7 +27768,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "35.773",
         "longitude_text": "49.938",
@@ -27735,7 +27923,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27764,7 +27952,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.505431999999999",
         "longitude_text": "2.4350589999999999",
@@ -27919,7 +28107,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -27948,7 +28136,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.847997999999997",
         "longitude_text": "3.2903989999999999",
@@ -28103,7 +28291,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -28132,7 +28320,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.096618800000002",
         "longitude_text": "91.416451800000004",
@@ -28287,7 +28475,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -28316,7 +28504,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.103999999999999",
         "longitude_text": "11.145",
@@ -28471,7 +28659,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -28500,7 +28688,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "46.86888889",
         "longitude_text": "35.43305556",
@@ -28655,7 +28843,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -28684,7 +28872,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "54.833333",
         "longitude_text": "57.883333",
@@ -28839,7 +29027,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -28869,7 +29057,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "35.961666999999998",
         "longitude_text": "54.037500000000001",
@@ -29024,7 +29212,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29053,7 +29241,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.639256",
         "longitude_text": "74.654947",
@@ -29208,7 +29396,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29237,7 +29425,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.237169",
         "longitude_text": "84.542033",
@@ -29392,7 +29580,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29421,7 +29609,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "55.883333",
         "longitude_text": "47.491667",
@@ -29576,7 +29764,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29605,7 +29793,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.7075",
         "longitude_text": "1.54222",
@@ -29760,7 +29948,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29791,7 +29979,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "55.1644419",
         "longitude_text": "61.436843099999997",
@@ -29946,7 +30134,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -29976,7 +30164,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.486359",
         "longitude_text": "60.187925",
@@ -30131,7 +30319,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -30161,7 +30349,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.2333",
         "longitude_text": "7.5167000000000002",
@@ -30316,7 +30504,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -30349,7 +30537,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.566667",
         "longitude_text": "45.783333",
@@ -30504,7 +30692,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -30533,7 +30721,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.65",
         "longitude_text": "8.85",
@@ -30688,7 +30876,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -30717,7 +30905,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.19081",
         "longitude_text": "16.6764",
@@ -30872,7 +31060,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -30902,7 +31090,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.583055999999999",
         "longitude_text": "88.393528000000003",
@@ -31057,7 +31245,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -31086,7 +31274,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.466667000000001",
         "longitude_text": "46.016666999999998",
@@ -31241,7 +31429,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -31270,7 +31458,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "42.249167",
         "longitude_text": "11.756111",
@@ -31425,7 +31613,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -31457,7 +31645,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "47.750843",
         "longitude_text": "101.369458",
@@ -31612,7 +31800,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -31643,7 +31831,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "45.099722200000002",
         "longitude_text": "112.71969439999999",
@@ -31798,7 +31986,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -31828,7 +32016,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "73.046000000000006",
         "longitude_text": "109.708",
@@ -31983,7 +32171,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32020,7 +32208,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "37.004486",
         "longitude_text": "45.458817000000003",
@@ -32175,7 +32363,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32206,7 +32394,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "37.004486",
         "longitude_text": "45.458817",
@@ -32361,7 +32549,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32390,7 +32578,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.313",
         "longitude_text": "17.15314",
@@ -32545,7 +32733,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32574,7 +32762,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.16813",
         "longitude_text": "14.72267",
@@ -32729,7 +32917,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32758,7 +32946,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.13493",
         "longitude_text": "14.28531",
@@ -32913,7 +33101,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -32942,7 +33130,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.12523",
         "longitude_text": "14.26973",
@@ -33097,7 +33285,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -33126,7 +33314,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "66.933333329999996",
         "longitude_text": "131.91666670000001",
@@ -33281,7 +33469,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -33310,7 +33498,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.387245",
         "longitude_text": "3.007653",
@@ -33465,7 +33653,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -33498,7 +33686,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.80375",
         "longitude_text": "53.793639",
@@ -33653,7 +33841,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -33682,7 +33870,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.931778",
         "longitude_text": "99.804167",
@@ -33837,7 +34025,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -33866,7 +34054,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "43.79028",
         "longitude_text": "42.7278",
@@ -34021,7 +34209,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34050,7 +34238,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.655567",
         "longitude_text": "99.9271",
@@ -34205,7 +34393,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34236,7 +34424,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.918694",
         "longitude_text": "50.962611",
@@ -34391,7 +34579,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34432,7 +34620,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.6561667",
         "longitude_text": "99.912205599999993",
@@ -34587,7 +34775,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34616,7 +34804,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.116583",
         "longitude_text": "48.351833",
@@ -34771,7 +34959,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34801,7 +34989,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.133333",
         "longitude_text": "48.05",
@@ -34956,7 +35144,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -34986,7 +35174,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "58.883333",
         "longitude_text": "57.633333",
@@ -35141,7 +35329,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -35170,7 +35358,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.877490000000002",
         "longitude_text": "3.145772",
@@ -35325,7 +35513,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -35354,7 +35542,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "43.009282900000002",
         "longitude_text": "-7.5592896999999999",
@@ -35509,7 +35697,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -35538,7 +35726,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.36361",
         "longitude_text": "14.44931",
@@ -35693,7 +35881,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -35722,7 +35910,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "52.226036399999998",
         "longitude_text": "-1.0568534999999999",
@@ -35877,7 +36065,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -35911,7 +36099,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "53.193018000000002",
         "longitude_text": "-2.882844",
@@ -36066,7 +36254,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -36098,7 +36286,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "70.723611",
         "longitude_text": "135.413056",
@@ -36253,7 +36441,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -36298,7 +36486,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "41.005209999999998",
         "longitude_text": "28.951720000000002",
@@ -36453,7 +36641,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -36482,7 +36670,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "38.867277999999999",
         "longitude_text": "65.800161000000003",
@@ -36637,7 +36825,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -36666,7 +36854,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "72.69086",
         "longitude_text": "142.821769",
@@ -36821,7 +37009,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -36850,7 +37038,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "39.0744",
         "longitude_text": "9.2857",
@@ -37005,7 +37193,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37034,7 +37222,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "51.421361",
         "longitude_text": "99.364611",
@@ -37189,7 +37377,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37218,7 +37406,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "43.1836111",
         "longitude_text": "76.779722199999995",
@@ -37373,7 +37561,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37404,7 +37592,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.309444",
         "longitude_text": "99.849722",
@@ -37559,7 +37747,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37588,7 +37776,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.325583",
         "longitude_text": "95.442278",
@@ -37743,7 +37931,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37772,7 +37960,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "49.325583",
         "longitude_text": "95.442278",
@@ -37927,7 +38115,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -37958,7 +38146,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "39.676776",
         "longitude_text": "35.1436",
@@ -38113,7 +38301,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -38142,7 +38330,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "50.14943",
         "longitude_text": "14.33203",
@@ -38297,7 +38485,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           },
           {
             "label": "Warning",
@@ -38326,7 +38514,7 @@
         ],
         "sample_namespace": "equus_caballus:sample_locality",
         "inclusion_notes": [
-          "This locality is backed by direct sample rows recovered from the supplementary table."
+          "Sample-level locality comes directly from the recovered sample source row."
         ],
         "latitude_text": "48.655000000000001",
         "longitude_text": "21.268000000000001",

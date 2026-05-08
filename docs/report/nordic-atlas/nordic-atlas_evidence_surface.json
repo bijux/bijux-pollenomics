@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 207,
+      "feature_count": 208,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2969,
+      "feature_count": 2970,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -161,6 +161,7 @@
       "chronology_posture": "mapped_sample_chronology_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -187,6 +188,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -212,6 +214,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -241,6 +244,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -267,12 +271,13 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 0,
+      "mapped_direct_record_count": 1,
       "curated_project_count": 2,
       "study_summary_count": 1,
-      "chronology_posture": "project_level_chronology_without_locality_alignment",
-      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -281,7 +286,8 @@
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
       ]
     },
     {
@@ -298,6 +304,7 @@
       "chronology_posture": "project_level_bp_capable_but_not_locality_bound",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -323,6 +330,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -348,6 +356,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -373,6 +382,7 @@
       "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -403,6 +413,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -428,6 +439,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -453,6 +465,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -478,6 +491,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -503,6 +517,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -532,6 +547,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -557,6 +573,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
+        "animal-camelus-dromedarius",
         "animal-equus-caballus",
         "fieldwork-documentation",
         "landclim-sites",
@@ -680,11 +697,6 @@
       "subject": "Bos taurus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
-    },
-    {
-      "subject": "Camelus dromedarius",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
       "subject": "Camelus dromedarius",

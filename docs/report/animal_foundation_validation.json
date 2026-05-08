@@ -4,7 +4,7 @@
   "sample_row_count": 786,
   "site_evidence_row_count": 255,
   "coordinate_row_count": 217,
-  "atlas_row_count": 207,
+  "atlas_row_count": 208,
   "checks": [
     {
       "check_id": "unique_sample_stable_ids",

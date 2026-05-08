@@ -88,7 +88,7 @@
           },
           {
             "label": "Interpretation",
-            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+            "value": "Sample-level locality comes directly from the recovered sample source row."
           }
         ]
       }
