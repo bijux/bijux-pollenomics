@@ -55,7 +55,24 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Animal aDNA Country Outputs
 
-No tracked non-human animal locality lead is currently assignable to `Denmark`
-with the current repository rules, so this country bundle ships only the human AADR
-surface for now.
+- Tracked animal species represented: `1`
+- Country-resolved animal sample rows: `2`
+- Country-resolved animal locality rows: `1`
+- Supporting tracked projects: `1`
+
+### Animal Output Files
+
+- Machine-readable animal summary: [`denmark_animal_adna_v66_summary.json`](./denmark_animal_adna_v66_summary.json)
+- Animal sample rows CSV: [`denmark_animal_adna_v66_samples.csv`](./denmark_animal_adna_v66_samples.csv)
+- Animal sample rows markdown: [`denmark_animal_adna_v66_samples.md`](./denmark_animal_adna_v66_samples.md)
+- Animal species summary CSV: [`denmark_animal_adna_v66_species.csv`](./denmark_animal_adna_v66_species.csv)
+- Animal localities GeoJSON: [`denmark_animal_adna_v66_localities.geojson`](./denmark_animal_adna_v66_localities.geojson)
+- Animal citation appendix: [`denmark_animal_adna_v66_citations.md`](./denmark_animal_adna_v66_citations.md)
+- Animal warning appendix: [`denmark_animal_adna_v66_warnings.md`](./denmark_animal_adna_v66_warnings.md)
+
+### Country-Resolved Animal Species
+
+| Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
+| --- | --- | --- | ---: | --- | --- |
+| horse | Equus caballus | domesticated_core | 1 | exact_country | sample support remains sparse |
 

@@ -4,14 +4,17 @@
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 207,
       "indirectly_geocoded": 1,
-      "unresolved": 7,
+      "unresolved": 4,
       "refused_from_mapping": 0,
-      "map_ready_count": 1,
-      "total_curated_rows": 8,
-      "map_ready_share": 0.125,
-      "country_mapped_locality_counts": {}
+      "map_ready_count": 208,
+      "total_curated_rows": 212,
+      "map_ready_share": 0.9811,
+      "country_mapped_locality_counts": {
+        "Sweden": 1,
+        "Denmark": 1
+      }
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -30,10 +33,10 @@
       "species_common_name": "sheep",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 194,
+      "unresolved": 4,
       "refused_from_mapping": 1,
       "map_ready_count": 0,
-      "total_curated_rows": 195,
+      "total_curated_rows": 5,
       "map_ready_share": 0.0,
       "country_mapped_locality_counts": {}
     },

@@ -4,14 +4,13 @@ What does the currently shipped Nordic animal aDNA surface actually support abou
 
 ## Support
 
-- The repo now has a real country-resolved animal publication surface, but it still supports only a narrow set of Nordic-facing claims.
+- The current Nordic publication surface can now name one first animal signal: `Equus caballus` in `Denmark` with a tracked window of `4944-4961 BP` from `PRJEB44430`.
 
 ## Weak support
 
 
 ## Non-support
 
-- The shipped Nordic country outputs still do not support a country-localized claim for `Equus caballus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Sus scrofa domesticus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Bos taurus`.
 - The shipped Nordic country outputs still do not support a country-localized claim for `Capra hircus`.

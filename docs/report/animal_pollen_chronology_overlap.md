@@ -2,4 +2,5 @@
 
 | Country | Species | Pollen records | Overlapping | Non-overlapping | Non-comparable | Status |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| No overlap rows | - | 0 | 0 | 0 | 0 | no_context_rows |
+| Sweden | Equus caballus | 297 | 234 | 37 | 26 | overlap_detected |
+| Denmark | Equus caballus | 134 | 42 | 88 | 4 | overlap_detected |

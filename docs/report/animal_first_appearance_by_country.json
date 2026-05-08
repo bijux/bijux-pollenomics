@@ -1,4 +1,27 @@
 {
   "schema_version": "animal-first-appearance-by-country.v1",
-  "rows": []
+  "rows": [
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 4961,
+      "time_label": "4944-4961 BP",
+      "project_accession": "PRJEB44430",
+      "locality": "Ginnerup",
+      "assignment_confidence": "exact_country"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 1417,
+      "time_label": "1217-1417 BP",
+      "project_accession": "PRJEB31613",
+      "locality": "Uppsala",
+      "assignment_confidence": "exact_country"
+    }
+  ]
 }

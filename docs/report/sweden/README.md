@@ -55,7 +55,24 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Animal aDNA Country Outputs
 
-No tracked non-human animal locality lead is currently assignable to `Sweden`
-with the current repository rules, so this country bundle ships only the human AADR
-surface for now.
+- Tracked animal species represented: `1`
+- Country-resolved animal sample rows: `1`
+- Country-resolved animal locality rows: `1`
+- Supporting tracked projects: `1`
+
+### Animal Output Files
+
+- Machine-readable animal summary: [`sweden_animal_adna_v66_summary.json`](./sweden_animal_adna_v66_summary.json)
+- Animal sample rows CSV: [`sweden_animal_adna_v66_samples.csv`](./sweden_animal_adna_v66_samples.csv)
+- Animal sample rows markdown: [`sweden_animal_adna_v66_samples.md`](./sweden_animal_adna_v66_samples.md)
+- Animal species summary CSV: [`sweden_animal_adna_v66_species.csv`](./sweden_animal_adna_v66_species.csv)
+- Animal localities GeoJSON: [`sweden_animal_adna_v66_localities.geojson`](./sweden_animal_adna_v66_localities.geojson)
+- Animal citation appendix: [`sweden_animal_adna_v66_citations.md`](./sweden_animal_adna_v66_citations.md)
+- Animal warning appendix: [`sweden_animal_adna_v66_warnings.md`](./sweden_animal_adna_v66_warnings.md)
+
+### Country-Resolved Animal Species
+
+| Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
+| --- | --- | --- | ---: | --- | --- |
+| horse | Equus caballus | domesticated_core | 1 | exact_country | sample support remains sparse |
 

@@ -136,12 +136,12 @@
     "animal_point_traceability_json": "nordic-atlas_animal_point_traceability.json"
   },
   "animal_atlas": {
-    "total_locality_points": 2,
-    "direct_coordinate_feature_count": 0,
-    "named_site_geocoded_feature_count": 2,
+    "total_locality_points": 207,
+    "direct_coordinate_feature_count": 207,
+    "named_site_geocoded_feature_count": 0,
     "weaker_geography_feature_count": 0,
-    "total_species": 2,
-    "domesticated_species_count": 2,
+    "total_species": 1,
+    "domesticated_species_count": 1,
     "comparator_species_count": 0,
     "layer_groups": [
       "Domesticated-core animal evidence",
@@ -160,11 +160,13 @@
       "Species and confidence legend sections"
     ],
     "chronology_buckets": [
+      "0-1000 BP",
       "1001-3000 BP",
-      "3001-6000 BP"
+      "3001-6000 BP",
+      "6001+ BP"
     ],
     "coordinate_confidence_counts": {
-      "approximate": 2
+      "exact": 207
     },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
@@ -174,16 +176,10 @@
     ],
     "species_layers": [
       {
-        "latin_name": "Camelus dromedarius",
-        "common_name": "dromedary camel",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
-      },
-      {
         "latin_name": "Equus caballus",
         "common_name": "horse",
         "animal_scope": "domesticated_core",
-        "locality_count": 1
+        "locality_count": 207
       }
     ]
   }

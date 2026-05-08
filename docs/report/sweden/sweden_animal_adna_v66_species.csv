@@ -1,1 +1,2 @@
 country,species_latin_name,species_common_name,animal_scope,curated_project_count,mapped_locality_count,mapped_sample_count,sample_row_count,assignment_confidence,coordinate_posture,oldest_signal_bp,youngest_signal_bp,project_accessions,caution_note
+Sweden,Equus caballus,horse,domesticated_core,1,1,1,1,exact_country,exact;supplementary_table_coordinates,1217,1417,PRJEB31613,sample support remains sparse

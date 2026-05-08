@@ -2,5 +2,96 @@
   "schema_version": "country-animal-adna-localities.v1",
   "type": "FeatureCollection",
   "country": "Sweden",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.639,
+          59.861
+        ]
+      },
+      "properties": {
+        "name": "Uppsala",
+        "country": "Sweden",
+        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden",
+        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-uppsala-sweden",
+        "site_record_id": "equus_caballus:locality:prjeb31613:uppsala:sweden",
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB31613",
+        "project_accessions": [
+          "PRJEB31613"
+        ],
+        "support_class": "accepted",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+        "coordinate_basis": "supplementary_table_coordinates",
+        "coordinate_confidence": "exact",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "equus_caballus:sample:prjeb31613:cgg_1_018490"
+        ],
+        "sample_group_ids": [
+          "PRJEB31613"
+        ],
+        "sample_namespace": "equus_caballus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Sheet1!row226",
+        "source_support_status": "supplementary_table_row",
+        "time_start_bp": 1217,
+        "time_end_bp": 1417,
+        "time_mean_bp": 1317,
+        "time_label": "1217-1417 BP",
+        "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
+        "paper_doi": "10.1016/j.cell.2019.03.049",
+        "source_url": "https://doi.org/10.1016/j.cell.2019.03.049",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus caballus"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB31613"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Sweden`."
+          },
+          {
+            "label": "Chronology",
+            "value": "1217-1417 BP"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_table_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "exact"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "equus_caballus:sample:prjeb31613:cgg_1_018490"
+          },
+          {
+            "label": "Interpretation",
+            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+          }
+        ]
+      }
+    }
+  ]
 }

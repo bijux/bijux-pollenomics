@@ -2,5 +2,97 @@
   "schema_version": "country-animal-adna-localities.v1",
   "type": "FeatureCollection",
   "country": "Denmark",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.74481,
+          56.41134
+        ]
+      },
+      "properties": {
+        "name": "Ginnerup",
+        "country": "Denmark",
+        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark",
+        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-ginnerup-denmark",
+        "site_record_id": "equus_caballus:locality:prjeb44430:ginnerup:denmark",
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB44430",
+        "project_accessions": [
+          "PRJEB44430"
+        ],
+        "support_class": "accepted",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Denmark`.",
+        "coordinate_basis": "supplementary_table_coordinates",
+        "coordinate_confidence": "exact",
+        "sample_count": 2,
+        "sample_record_ids": [
+          "equus_caballus:sample:prjeb44430:samea9533224",
+          "equus_caballus:sample:prjeb44430:samea9533225"
+        ],
+        "sample_group_ids": [
+          "PRJEB44430"
+        ],
+        "sample_namespace": "equus_caballus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "SI Table 1!row252",
+        "source_support_status": "supplementary_table_row",
+        "time_start_bp": 4944,
+        "time_end_bp": 4961,
+        "time_mean_bp": 4952,
+        "time_label": "4944-4961 BP",
+        "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+        "paper_doi": "10.1038/s41586-021-04018-9",
+        "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Equus caballus"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB44430"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Denmark`."
+          },
+          {
+            "label": "Chronology",
+            "value": "4944-4961 BP"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_table_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "exact"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "equus_caballus:sample:prjeb44430:samea9533224, equus_caballus:sample:prjeb44430:samea9533225"
+          },
+          {
+            "label": "Interpretation",
+            "value": "This locality is backed by direct sample rows recovered from the supplementary table."
+          }
+        ]
+      }
+    }
+  ]
 }
