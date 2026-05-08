@@ -559,7 +559,7 @@ def _build_sample_records(
             longitude_text=row.longitude_text,
             geographic_basis=row.coordinate_basis,
         )
-        chronology = (
+        normalized_chronology = (
             normalize_explicit_bp_window(
                 chronology_row.time_start_bp if chronology_row is not None else row.time_start_bp,
                 chronology_row.time_end_bp if chronology_row is not None else row.time_end_bp,
@@ -578,6 +578,22 @@ def _build_sample_records(
                 chronology_row.chronology_text if chronology_row is not None else row.chronology_text,
                 dating_basis=chronology_row.dating_basis if chronology_row is not None else row.dating_basis,
             )
+        )
+        chronology = _apply_chronology_semantics(
+            normalized_chronology,
+            evidence_class=(
+                chronology_row.chronology_evidence_class
+                if chronology_row is not None
+                else _fallback_chronology_evidence_class(
+                    chronology=normalized_chronology,
+                    dating_basis=row.dating_basis,
+                )
+            ),
+            precision_posture=(
+                chronology_row.chronology_precision_posture
+                if chronology_row is not None
+                else _fallback_chronology_precision_posture(normalized_chronology)
+            ),
         )
         locality_text = row.site_label
         sample_records.append(
@@ -650,22 +666,24 @@ def _build_sample_records(
                     chronology_row.chronology_strength
                     if chronology_row is not None
                     else "project_context_interval"
-                    if chronology.time_start_bp is not None and chronology.time_end_bp is not None
+                    if normalized_chronology.time_start_bp is not None
+                    and normalized_chronology.time_end_bp is not None
                     else "project_context_text_only"
-                    if chronology.original_text
+                    if normalized_chronology.original_text
                     else "unresolved"
                 ),
                 chronology_normalization_status=(
                     chronology_row.chronology_normalization_status
                     if chronology_row is not None
                     else "normalized_point"
-                    if chronology.time_start_bp is not None
-                    and chronology.time_end_bp is not None
-                    and chronology.time_start_bp == chronology.time_end_bp
+                    if normalized_chronology.time_start_bp is not None
+                    and normalized_chronology.time_end_bp is not None
+                    and normalized_chronology.time_start_bp == normalized_chronology.time_end_bp
                     else "normalized_interval"
-                    if chronology.time_start_bp is not None and chronology.time_end_bp is not None
+                    if normalized_chronology.time_start_bp is not None
+                    and normalized_chronology.time_end_bp is not None
                     else "text_only_unparsed"
-                    if chronology.original_text
+                    if normalized_chronology.original_text
                     else "unresolved"
                 ),
                 chronology_provenance_path=(
@@ -747,26 +765,147 @@ def _aggregate_locality_chronology(
     if interval_rows:
         start_bp = min(int(row.time_start_bp) for row in interval_rows)
         end_bp = max(int(row.time_end_bp) for row in interval_rows)
-        return normalize_explicit_bp_window(
+        chronology = normalize_explicit_bp_window(
             start_bp,
             end_bp,
             original_text=_locality_chronology_label(start_bp, end_bp),
             dating_basis=dating_basis,
         )
+        return _apply_chronology_semantics(
+            chronology,
+            evidence_class=_aggregate_locality_evidence_class(chronology_rows, chronology),
+            precision_posture=_aggregate_locality_precision_posture(chronology_rows, chronology),
+        )
     if fallback_start_bp is not None and fallback_end_bp is not None:
-        return normalize_explicit_bp_window(
+        chronology = normalize_explicit_bp_window(
             fallback_start_bp,
             fallback_end_bp,
             original_text=fallback_text,
             dating_basis=dating_basis,
         )
-    return normalize_chronology_text(fallback_text, dating_basis=dating_basis)
+        return _apply_chronology_semantics(
+            chronology,
+            evidence_class=_fallback_chronology_evidence_class(
+                chronology=chronology,
+                dating_basis=dating_basis,
+            ),
+            precision_posture="contextual_interval",
+        )
+    chronology = normalize_chronology_text(fallback_text, dating_basis=dating_basis)
+    return _apply_chronology_semantics(
+        chronology,
+        evidence_class=_fallback_chronology_evidence_class(
+            chronology=chronology,
+            dating_basis=dating_basis,
+        ),
+        precision_posture=_fallback_chronology_precision_posture(chronology),
+    )
 
 
 def _locality_chronology_label(start_bp: int, end_bp: int) -> str:
     if start_bp == end_bp:
         return f"{start_bp} BP"
     return f"{start_bp}-{end_bp} BP"
+
+
+def _apply_chronology_semantics(
+    chronology: AdnaChronology,
+    *,
+    evidence_class: str,
+    precision_posture: str,
+) -> AdnaChronology:
+    return AdnaChronology(
+        original_text=chronology.original_text,
+        time_start_bp=chronology.time_start_bp,
+        time_end_bp=chronology.time_end_bp,
+        time_mean_bp=chronology.time_mean_bp,
+        date_stddev_bp=chronology.date_stddev_bp,
+        dating_basis=chronology.dating_basis,
+        evidence_class=evidence_class,
+        precision_posture=precision_posture,
+    )
+
+
+def _fallback_chronology_evidence_class(
+    *,
+    chronology: AdnaChronology,
+    dating_basis: str | None,
+) -> str:
+    basis = (dating_basis or "").casefold()
+    text = chronology.original_text.casefold()
+    if not chronology.original_text and chronology.time_start_bp is None:
+        return "unresolved"
+    if any(token in text for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")):
+        return "broad_period_label"
+    if basis in {"historical_attribution", "historical_and_archaeological_context", "modern_sampling"}:
+        return "historical_or_recent_date"
+    if basis in {"archaeological_period", "archaeological_period_assignment"}:
+        return "archaeological_context_date"
+    if any(token in text for token in ("bayesian", "modeled", "modelled", "calibrated", "2σ", "1σ")):
+        return "modeled_sample_date"
+    if chronology.time_start_bp is not None:
+        return "direct_radiocarbon_date"
+    return "unresolved"
+
+
+def _fallback_chronology_precision_posture(chronology: AdnaChronology) -> str:
+    text = chronology.original_text.casefold()
+    if chronology.time_start_bp is None or chronology.time_end_bp is None:
+        if any(token in text for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")):
+            return "broad_period_only"
+        return "unresolved" if not chronology.original_text else "sample_approximate_or_modeled"
+    if any(token in text for token in ("ca.", "circa", "approx", "bayesian", "modeled", "modelled", "calibrated", "2σ", "1σ")):
+        return "sample_approximate_or_modeled"
+    if chronology.time_start_bp == chronology.time_end_bp:
+        return "sample_precise_point"
+    return "sample_precise_interval"
+
+
+def _aggregate_locality_evidence_class(
+    chronology_rows: list[object],
+    chronology: AdnaChronology,
+) -> str:
+    classes = {
+        str(getattr(row, "chronology_evidence_class", "")).strip()
+        for row in chronology_rows
+        if str(getattr(row, "chronology_evidence_class", "")).strip()
+    }
+    if "direct_radiocarbon_date" in classes:
+        return "direct_radiocarbon_date"
+    if "modeled_sample_date" in classes:
+        return "modeled_sample_date"
+    if "archaeological_context_date" in classes:
+        return "archaeological_context_date"
+    if "historical_or_recent_date" in classes:
+        return "historical_or_recent_date"
+    if "broad_period_label" in classes:
+        return "broad_period_label"
+    return _fallback_chronology_evidence_class(
+        chronology=chronology,
+        dating_basis=chronology.dating_basis,
+    )
+
+
+def _aggregate_locality_precision_posture(
+    chronology_rows: list[object],
+    chronology: AdnaChronology,
+) -> str:
+    postures = {
+        str(getattr(row, "chronology_precision_posture", "")).strip()
+        for row in chronology_rows
+        if str(getattr(row, "chronology_precision_posture", "")).strip()
+    }
+    if postures & {"sample_approximate_or_modeled"}:
+        return "sample_approximate_or_modeled"
+    if postures <= {"sample_precise_point"} and postures:
+        return "sample_precise_point"
+    if postures & {"sample_precise_interval", "sample_precise_point"}:
+        return "sample_precise_interval"
+    if "contextual_interval" in postures:
+        return "contextual_interval"
+    if "broad_period_only" in postures:
+        return "broad_period_only"
+    return _fallback_chronology_precision_posture(chronology)
 
 
 def _is_nordic_locality(
