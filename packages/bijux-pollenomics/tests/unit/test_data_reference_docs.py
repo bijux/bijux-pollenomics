@@ -51,6 +51,27 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertIn("[Sources](sources/index.md)", data_index)
         self.assertIn("[Evidence](evidence/index.md)", data_index)
         self.assertIn("[Outputs](outputs/index.md)", data_index)
+        self.assertIn("overview/pollenomics-publication-model/", data_index)
+        self.assertIn("overview/cross-domain-evidence-matrix/", data_index)
+
+    def test_data_reference_restores_cross_domain_docs_routes(self) -> None:
+        overview_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "overview" / "index.md"
+        ).read_text(encoding="utf-8")
+        source_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+        ).read_text(encoding="utf-8")
+        outputs_index = (
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "outputs" / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("pollenomics-publication-model.md", overview_index)
+        self.assertIn("cross-domain-evidence-matrix.md", overview_index)
+        self.assertIn("refresh-policy.md", source_index)
+        self.assertIn("shared-normalization.md", source_index)
+        self.assertIn("non-adna-explainer-recovery.md", source_index)
+        self.assertIn("output-surface-classes.md", outputs_index)
+        self.assertIn("nordic-atlas-inputs.md", outputs_index)
 
 
 if __name__ == "__main__":
