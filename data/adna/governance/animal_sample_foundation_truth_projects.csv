@@ -1,9 +1,9 @@
 species_latin_name,species_common_name,project_accession,sample_row_count,fully_grounded_count,partially_grounded_count,blocked_missing_metadata_count,blocked_missing_location_detail_count,blocked_weak_chronology_count,sample_backed_site_count,project_locality_summary_count,uses_project_level_sample_anchor,sample_basis_values
 Equus caballus,horse,PRJEB10854,1,0,0,1,0,0,0,0,true,project_accession_anchor
-Equus caballus,horse,PRJEB19970,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Equus caballus,horse,PRJEB22390,1,1,0,0,0,0,1,1,true,project_accession_anchor
-Equus caballus,horse,PRJEB31613,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Equus caballus,horse,PRJEB44430,1,0,0,0,1,0,0,0,true,project_accession_anchor
+Equus caballus,horse,PRJEB19970,14,0,13,0,0,1,4,4,false,supplementary_table_sample_label_anchor
+Equus caballus,horse,PRJEB22390,42,0,42,0,0,0,27,27,false,supplementary_table_sample_label_anchor
+Equus caballus,horse,PRJEB31613,244,244,0,0,0,0,95,95,false,supplementary_table_sample_label_anchor
+Equus caballus,horse,PRJEB44430,248,248,0,0,0,0,114,114,false,supplementary_table_sample_label_anchor
 Equus caballus,horse,PRJEB56293,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Equus caballus,horse,PRJEB7537,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Equus caballus,horse,PRJEB9799,1,0,0,1,0,0,0,0,true,project_accession_anchor
@@ -11,7 +11,7 @@ Sus scrofa domesticus,pig,PRJEB30282,1,0,1,0,0,0,1,1,true,project_accession_anch
 Sus scrofa domesticus,pig,PRJNA421430,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Sus scrofa domesticus,pig,PRJNA788987,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Sus scrofa domesticus,pig,PRJNA878488,1,0,0,1,0,0,0,0,true,project_accession_anchor
-Ovis aries,sheep,PRJEB36540,190,0,0,0,190,0,0,0,false,supplementary_table_sample_label_anchor
+Ovis aries,sheep,PRJEB36540,190,0,177,0,0,13,6,6,false,supplementary_table_sample_label_anchor
 Ovis aries,sheep,PRJEB41594,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Ovis aries,sheep,PRJEB59481,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Ovis aries,sheep,PRJEB61808,1,0,0,1,0,0,0,0,true,project_accession_anchor
@@ -29,7 +29,7 @@ Canis lupus familiaris,dog,SRS1407453,1,0,0,0,1,0,0,0,false,sample_accession_anc
 Felis catus,cat,PRJEB81815,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Felis catus,cat,PRJNA1178732,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,0,0,13,0,0,0,true,accession_range_anchor
-Camelus dromedarius,dromedary camel,SRP073444,1,1,0,0,0,0,1,1,true,project_accession_anchor
+Camelus dromedarius,dromedary camel,SRP073444,1,0,0,0,0,1,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB57293,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB60484,1,0,1,0,0,0,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB61721,1,0,0,1,0,0,0,0,true,project_accession_anchor

@@ -4,9 +4,9 @@
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 207,
       "indirectly_geocoded": 1,
-      "unresolved": 7,
+      "unresolved": 4,
       "refused_from_mapping": 0
     },
     {
@@ -22,7 +22,7 @@
       "species_common_name": "sheep",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 194,
+      "unresolved": 4,
       "refused_from_mapping": 1
     },
     {
@@ -83,9 +83,9 @@
     }
   ],
   "totals": {
-    "direct_coordinate_backed": 0,
+    "direct_coordinate_backed": 207,
     "indirectly_geocoded": 2,
-    "unresolved": 232,
+    "unresolved": 39,
     "refused_from_mapping": 8
   }
 }
