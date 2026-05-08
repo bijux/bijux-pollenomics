@@ -7,6 +7,9 @@ __all__ = [
     "build_repository_atlas_input_audit",
     "build_repository_claim_audit",
     "build_repository_cross_domain_evidence_matrix",
+    "build_repository_docs_breadth_guard",
+    "build_repository_docs_recovery_review",
+    "build_repository_docs_restoration_ledger",
     "build_repository_governance_artifact_review",
     "build_repository_recovery_scorecard",
     "build_repository_source_acquisition_queue",
@@ -17,6 +20,9 @@ __all__ = [
     "render_repository_atlas_input_audit_markdown",
     "render_repository_claim_audit_markdown",
     "render_repository_cross_domain_evidence_matrix_markdown",
+    "render_repository_docs_breadth_guard_markdown",
+    "render_repository_docs_recovery_review_markdown",
+    "render_repository_docs_restoration_ledger_markdown",
     "render_repository_governance_artifact_review_markdown",
     "render_repository_recovery_scorecard_markdown",
     "render_repository_source_acquisition_queue_markdown",
@@ -390,6 +396,11 @@ def build_repository_claim_audit(
 ) -> dict[str, object]:
     """Audit the public story against current tracked evidence depth."""
     counts = _build_core_counts(data_root, docs_root, report_root)
+    docs_breadth_guard = build_repository_docs_breadth_guard(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
     root_readme_path = docs_root.parent / "README.md"
     docs_index_path = docs_root / "index.md"
     runtime_readme_path = (
@@ -490,6 +501,14 @@ def build_repository_claim_audit(
                 == "partial_sample_owned_animal_evidence_surface"
             )
             else ["partial_animal_surface_not_explicitly_named"],
+        ),
+        _claim_check(
+            "docs_breadth_guard_keeps_repository_story_wide_enough",
+            bool(docs_breadth_guard.get("overall_ok")),
+            "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
+            []
+            if bool(docs_breadth_guard.get("overall_ok"))
+            else ["docs_breadth_guard_failed"],
         ),
     ]
     return {
@@ -1236,6 +1255,257 @@ def render_repository_scientific_progress_audit_markdown(
     return "\n".join(lines) + "\n"
 
 
+def build_repository_docs_restoration_ledger(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Track how missing origin/main docs pages were restored or merged."""
+    _ = data_root
+    _ = report_root
+    rows = []
+    repo_root = docs_root.parent
+    for row in _docs_restoration_expectations():
+        current_path = repo_root / row["current_path"]
+        missing_snippets: list[str] = []
+        if current_path.exists():
+            text = current_path.read_text(encoding="utf-8")
+            missing_snippets = [
+                snippet
+                for snippet in row["required_snippets"]
+                if snippet not in text
+            ]
+        status = (
+            "verified_replacement"
+            if current_path.exists() and not missing_snippets
+            else "replacement_incomplete"
+        )
+        notes = row["rationale"]
+        if missing_snippets:
+            notes += "; missing anchors: " + ", ".join(
+                f"`{snippet}`" for snippet in missing_snippets
+            )
+        rows.append(
+            {
+                "legacy_path": row["legacy_path"],
+                "decision": row["decision"],
+                "current_path": row["current_path"],
+                "status": status,
+                "notes": notes,
+            }
+        )
+    decision_counts = {
+        "restored": sum(1 for row in rows if row["decision"] == "restored"),
+        "merged": sum(1 for row in rows if row["decision"] == "merged"),
+        "retired_with_replacement": sum(
+            1 for row in rows if row["decision"] == "retired_with_replacement"
+        ),
+    }
+    status_counts = {
+        "verified_replacement": sum(
+            1 for row in rows if row["status"] == "verified_replacement"
+        ),
+        "replacement_incomplete": sum(
+            1 for row in rows if row["status"] == "replacement_incomplete"
+        ),
+    }
+    return {
+        "schema_version": "repository-docs-restoration-ledger.v1",
+        "rule": (
+            "missing origin/main handbook pages must be restored, merged, or retired only with a verified replacement"
+        ),
+        "row_count": len(rows),
+        "decision_counts": decision_counts,
+        "status_counts": status_counts,
+        "rows": rows,
+    }
+
+
+def render_repository_docs_restoration_ledger_markdown(
+    payload: dict[str, object]
+) -> str:
+    lines = [
+        "# Repository docs restoration ledger",
+        "",
+        f"- Rule: {payload['rule']}",
+        f"- Ledger rows: `{payload['row_count']}`",
+        f"- Verified replacements: `{payload['status_counts']['verified_replacement']}`",
+        f"- Replacement gaps: `{payload['status_counts']['replacement_incomplete']}`",
+        "",
+        "| Legacy page | Decision | Current replacement | Status |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['legacy_path']}` | `{row['decision']}` | `{row['current_path']}` | `{row['status']}` |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_docs_breadth_guard(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Enforce that major handbook rewrites keep breadth present and linked."""
+    _ = data_root
+    _ = report_root
+    repo_root = docs_root.parent
+    rows = []
+    for row in _docs_breadth_expectations():
+        landing_path = repo_root / row["landing_path"]
+        landing_text = landing_path.read_text(encoding="utf-8") if landing_path.exists() else ""
+        missing_pages = [
+            path
+            for path in row["required_pages"]
+            if not (repo_root / path).exists()
+        ]
+        missing_links = [
+            snippet
+            for snippet in row["required_link_snippets"]
+            if snippet not in landing_text
+        ]
+        missing_snippets = [
+            snippet
+            for snippet in row["required_topic_snippets"]
+            if snippet not in landing_text
+        ]
+        overall_ok = not missing_pages and not missing_links and not missing_snippets
+        rows.append(
+            {
+                "section_key": row["section_key"],
+                "display_name": row["display_name"],
+                "landing_path": row["landing_path"],
+                "required_page_count": len(row["required_pages"]),
+                "missing_pages": missing_pages,
+                "missing_links": missing_links,
+                "missing_topic_snippets": missing_snippets,
+                "overall_ok": overall_ok,
+            }
+        )
+    return {
+        "schema_version": "repository-docs-breadth-guard.v1",
+        "rule": (
+            "no docs rewrite may destroy breadth in 01, 02, or 03 unless an equally informative replacement is already present and linked"
+        ),
+        "overall_ok": all(bool(row["overall_ok"]) for row in rows),
+        "rows": rows,
+    }
+
+
+def render_repository_docs_breadth_guard_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository docs breadth guard",
+        "",
+        f"- Rule: {payload['rule']}",
+        f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
+        "",
+        "| Section | Landing | Required pages | Missing pages | Missing links |",
+        "| --- | --- | ---: | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['landing_path']}` | {row['required_page_count']} | "
+            f"{', '.join(f'`{path}`' for path in row['missing_pages']) or '`none`'} | "
+            f"{', '.join(f'`{path}`' for path in row['missing_links']) or '`none`'} |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def build_repository_docs_recovery_review(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Review whether docs recovery is improving correctness and credibility."""
+    counts = _build_core_counts(data_root, docs_root, report_root)
+    ledger = build_repository_docs_restoration_ledger(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+    breadth_guard = build_repository_docs_breadth_guard(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+    claim_audit = build_repository_claim_audit(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+    rows = [
+        {
+            "dimension_key": "restoration_completeness",
+            "score": 4
+            if ledger["status_counts"]["replacement_incomplete"] == 0
+            else 2,
+            "finding": (
+                f"{ledger['status_counts']['verified_replacement']} of {ledger['row_count']} missing handbook pages now have verified replacements"
+            ),
+        },
+        {
+            "dimension_key": "navigation_breadth",
+            "score": 4 if breadth_guard["overall_ok"] else 1,
+            "finding": "runtime, data, and maintainer landings link their restored breadth surfaces directly",
+        },
+        {
+            "dimension_key": "credible_presentation",
+            "score": 4 if claim_audit["overall_ok"] else 2,
+            "finding": "repository truth, claim, and docs breadth surfaces now fail overclaims rather than narrating optimism",
+        },
+        {
+            "dimension_key": "cross_domain_visibility",
+            "score": 4 if int(counts["source_explainer_count"]) >= 10 else 2,
+            "finding": "non-aDNA source families remain directly explainable beside the thinner animal recovery surface",
+        },
+    ]
+    overall_posture = (
+        "moving_toward_elegant_correctness"
+        if all(int(row["score"]) >= 4 for row in rows)
+        else "recovery_still_fragile"
+    )
+    return {
+        "schema_version": "repository-docs-recovery-review.v1",
+        "overall_posture": overall_posture,
+        "evidence_anchors": [
+            "docs/report/repository_docs_restoration_ledger.json",
+            "docs/report/repository_docs_breadth_guard.json",
+            "docs/report/repository_claim_audit.json",
+            "docs/report/repository_cross_domain_evidence_matrix.json",
+        ],
+        "rows": rows,
+    }
+
+
+def render_repository_docs_recovery_review_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Repository docs recovery review",
+        "",
+        f"- Overall posture: `{payload['overall_posture']}`",
+        "",
+        "| Dimension | Score | Finding |",
+        "| --- | ---: | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['dimension_key']}` | {row['score']} | {row['finding']} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Evidence Anchors",
+            "",
+        ]
+    )
+    for row in payload["evidence_anchors"]:
+        lines.append(f"- `{row}`")
+    return "\n".join(lines) + "\n"
+
+
 def _build_core_counts(
     data_root: Path,
     docs_root: Path,
@@ -1558,6 +1828,457 @@ def _claim_check(
         "finding_count": len(findings),
         "findings": findings,
     }
+
+
+def _docs_restoration_expectations() -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/01-bijux-pollenomics/architecture/architecture-risks.md",
+                "docs/01-bijux-pollenomics/architecture/code-navigation.md",
+                "docs/01-bijux-pollenomics/architecture/dependency-direction.md",
+                "docs/01-bijux-pollenomics/architecture/error-model.md",
+                "docs/01-bijux-pollenomics/architecture/execution-model.md",
+                "docs/01-bijux-pollenomics/architecture/extensibility-model.md",
+                "docs/01-bijux-pollenomics/architecture/integration-seams.md",
+                "docs/01-bijux-pollenomics/architecture/state-and-persistence.md",
+            ],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+            required_snippets=[
+                "Execution Path",
+                "Dependency Direction",
+                "State And Persistence",
+                "Integration Seams",
+                "Error Model",
+                "Extensibility Posture",
+                "Code Navigation",
+            ],
+            rationale="architecture coverage is now consolidated into one runtime system model page instead of several thin fragments",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/01-bijux-pollenomics/foundation/capability-map.md",
+                "docs/01-bijux-pollenomics/foundation/change-principles.md",
+                "docs/01-bijux-pollenomics/foundation/dependencies-and-adjacencies.md",
+                "docs/01-bijux-pollenomics/foundation/domain-language.md",
+                "docs/01-bijux-pollenomics/foundation/lifecycle-overview.md",
+                "docs/01-bijux-pollenomics/foundation/ownership-boundary.md",
+                "docs/01-bijux-pollenomics/foundation/ownership-map.md",
+                "docs/01-bijux-pollenomics/foundation/package-overview.md",
+                "docs/01-bijux-pollenomics/foundation/scope-and-non-goals.md",
+                "docs/01-bijux-pollenomics/foundation/surface-map.md",
+            ],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+            required_snippets=[
+                "Capability Map",
+                "Surface Map",
+                "Ownership Boundary",
+                "Domain Language",
+                "Lifecycle",
+                "Change Principles",
+                "Dependencies And Adjacencies",
+            ],
+            rationale="foundation topics now live in one ownership-and-scope page that keeps package purpose, language, and boundaries together",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/interfaces/api-surface.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/interfaces/api-surface.md",
+            required_snippets=["Python Surface", "Compatibility Posture"],
+            rationale="the API boundary page is restored directly because it remains a durable contract surface",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/01-bijux-pollenomics/interfaces/compatibility-commitments.md",
+                "docs/01-bijux-pollenomics/interfaces/public-imports.md",
+            ],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/interfaces/api-surface.md",
+            required_snippets=["Python Surface", "Compatibility Posture"],
+            rationale="compatibility and public-import expectations are merged into the restored API surface page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/interfaces/configuration-surface.md"],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/interfaces/cli-surface.md",
+            required_snippets=[
+                "`--output-root` defaults to `data` for collection",
+                "for collection or `docs/report` for",
+            ],
+            rationale="configuration defaults remain part of the CLI contract page because operators encounter them through command usage",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/interfaces/data-contracts.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/interfaces/data-contracts.md",
+            required_snippets=["Governing Roots", "Contract Rules"],
+            rationale="data contracts are restored directly because they remain a durable reader-facing contract surface",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
+            required_snippets=[
+                "Verification Entry Points",
+                "Collection And Publication Examples",
+            ],
+            rationale="entrypoint examples are restored directly because the repository root already promises them",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/interfaces/operator-workflows.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
+            required_snippets=["Verify Only", "Refresh Data", "Publish Outputs"],
+            rationale="operator workflows are restored directly because they remain a durable distinction between verify, refresh, and publish",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/operations/common-workflows.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/operations/common-workflows.md",
+            required_snippets=[
+                "Fresh Checkout",
+                "Data Refresh Review",
+                "Publication Review",
+            ],
+            rationale="common workflows are restored directly because the repository needs a concrete rebuild sequence page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/01-bijux-pollenomics/operations/deployment-boundaries.md",
+                "docs/01-bijux-pollenomics/operations/local-development.md",
+                "docs/01-bijux-pollenomics/operations/observability-and-diagnostics.md",
+                "docs/01-bijux-pollenomics/operations/performance-and-scaling.md",
+                "docs/01-bijux-pollenomics/operations/release-and-versioning.md",
+                "docs/01-bijux-pollenomics/operations/security-and-safety.md",
+            ],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+            required_snippets=[
+                "Local Development",
+                "Observability And Diagnostics",
+                "Release And Versioning",
+                "Security And Safety",
+                "Performance Posture",
+            ],
+            rationale="operational edge cases are merged into one page so local development, release, safety, and diagnostics stay readable together",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/operations/failure-recovery.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/operations/failure-recovery.md",
+            required_snippets=["Failure Questions", "Recovery Route"],
+            rationale="failure recovery is restored directly because it remains a distinct operational task",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/quality/change-validation.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/quality/change-validation.md",
+            required_snippets=["Validation Layers", "Breadth Rule"],
+            rationale="change validation is restored directly because it is the clearest location for the docs breadth rule",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/01-bijux-pollenomics/quality/definition-of-done.md",
+                "docs/01-bijux-pollenomics/quality/dependency-governance.md",
+                "docs/01-bijux-pollenomics/quality/invariants.md",
+                "docs/01-bijux-pollenomics/quality/known-limitations.md",
+                "docs/01-bijux-pollenomics/quality/risk-register.md",
+            ],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+            required_snippets=[
+                "Invariants",
+                "Definition Of Done",
+                "Dependency Governance",
+                "Known Limits",
+                "Risk Posture",
+            ],
+            rationale="definition, invariant, limitation, and risk material now lives in one durable runtime limits page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/quality/documentation-standards.md"],
+            decision="merged",
+            current_path="docs/01-bijux-pollenomics/quality/change-validation.md",
+            required_snippets=["Breadth Rule"],
+            rationale="documentation standards now live with validation because breadth loss is enforced as a quality rule",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/01-bijux-pollenomics/quality/review-checklist.md"],
+            decision="restored",
+            current_path="docs/01-bijux-pollenomics/quality/review-checklist.md",
+            required_snippets=["Review Checklist"],
+            rationale="review checklist is restored directly because it remains a useful maintainer-facing stop list",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/02-bijux-pollenomics-data/foundation/coordinate-policy.md",
+                "docs/02-bijux-pollenomics-data/foundation/provenance-model.md",
+                "docs/02-bijux-pollenomics-data/foundation/publication-linkage.md",
+            ],
+            decision="merged",
+            current_path="docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+            required_snippets=[
+                "Provenance Model",
+                "Publication Linkage",
+                "Coordinate Policy",
+            ],
+            rationale="provenance, coordinate, and publication linkage topics now live under the current overview model",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/02-bijux-pollenomics-data/foundation/data-system-overview.md"],
+            decision="merged",
+            current_path="docs/02-bijux-pollenomics-data/overview/data-system-overview.md",
+            required_snippets=["docs/report/", "pollenomics-first"],
+            rationale="the old foundation overview is replaced by the current data-system overview page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/02-bijux-pollenomics-data/foundation/directory-layout.md"],
+            decision="merged",
+            current_path="docs/02-bijux-pollenomics-data/overview/data-directory-layout.md",
+            required_snippets=["docs/report/", "data/"],
+            rationale="the old directory layout page now lives under the current overview layout page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/02-bijux-pollenomics-data/foundation/index.md"],
+            decision="retired_with_replacement",
+            current_path="docs/02-bijux-pollenomics-data/overview/index.md",
+            required_snippets=["Restored Foundation Topics", "Provenance and publication linkage"],
+            rationale="the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/02-bijux-pollenomics-data/foundation/migration-issues.md",
+                "docs/02-bijux-pollenomics-data/foundation/source-selection-rules.md",
+                "docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md",
+            ],
+            decision="merged",
+            current_path="docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+            required_snippets=[
+                "Selection Rules",
+                "Refresh Lifecycle",
+                "Migration Pressure",
+            ],
+            rationale="selection rules, lifecycle, and migration pressure now live together in one current overview page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/02-bijux-pollenomics-data/foundation/naming-conventions.md"],
+            decision="merged",
+            current_path="docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
+            required_snippets=["Naming Rules", "Coverage Rule"],
+            rationale="naming conventions are merged into the current coverage-and-naming page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            ["docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",
+             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md",
+             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md",
+             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals.md",
+             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md"],
+            decision="merged",
+            current_path="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+            required_snippets=[
+                "Package Boundary",
+                "Module Map",
+                "Schema And Scope Governance",
+                "Security And Release Pressure",
+            ],
+            rationale="maintainer package governance topics now live in one repository-governance page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/03-bijux-pollenomics-maintain/gh-workflows/release-publication.md",
+                "docs/03-bijux-pollenomics-maintain/gh-workflows/reusable-workflows.md",
+                "docs/03-bijux-pollenomics-maintain/gh-workflows/verify.md",
+            ],
+            decision="merged",
+            current_path="docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+            required_snippets=[
+                "Verification Surface",
+                "Release Surface",
+                "Reusable Workflow Pressure",
+            ],
+            rationale="workflow verification, release, and reusable-automation guidance now lives in one page",
+        )
+    )
+    rows.extend(
+        _docs_restoration_group(
+            [
+                "docs/03-bijux-pollenomics-maintain/makes/authoring-rules.md",
+                "docs/03-bijux-pollenomics-maintain/makes/ci-targets.md",
+                "docs/03-bijux-pollenomics-maintain/makes/environment-model.md",
+                "docs/03-bijux-pollenomics-maintain/makes/make-system-overview.md",
+                "docs/03-bijux-pollenomics-maintain/makes/package-contracts.md",
+                "docs/03-bijux-pollenomics-maintain/makes/package-dispatch.md",
+                "docs/03-bijux-pollenomics-maintain/makes/release-surfaces.md",
+                "docs/03-bijux-pollenomics-maintain/makes/repository-layout.md",
+                "docs/03-bijux-pollenomics-maintain/makes/root-entrypoints.md",
+            ],
+            decision="merged",
+            current_path="docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+            required_snippets=[
+                "Main Files",
+                "Repository Layout And Entry Points",
+                "Authoring And CI Pressure",
+                "Contract Rule",
+            ],
+            rationale="Make authoring, dispatch, release, and root-entrypoint guidance now lives in one stable contracts page",
+        )
+    )
+    return rows
+
+
+def _docs_restoration_group(
+    legacy_paths: list[str],
+    *,
+    decision: str,
+    current_path: str,
+    required_snippets: list[str],
+    rationale: str,
+) -> list[dict[str, object]]:
+    return [
+        {
+            "legacy_path": legacy_path,
+            "decision": decision,
+            "current_path": current_path,
+            "required_snippets": required_snippets,
+            "rationale": rationale,
+        }
+        for legacy_path in legacy_paths
+    ]
+
+
+def _docs_breadth_expectations() -> list[dict[str, object]]:
+    return [
+        {
+            "section_key": "runtime_handbook",
+            "display_name": "Runtime handbook",
+            "landing_path": "docs/01-bijux-pollenomics/index.md",
+            "required_pages": [
+                "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+                "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+                "docs/01-bijux-pollenomics/interfaces/api-surface.md",
+                "docs/01-bijux-pollenomics/interfaces/data-contracts.md",
+                "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
+                "docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
+                "docs/01-bijux-pollenomics/operations/common-workflows.md",
+                "docs/01-bijux-pollenomics/operations/failure-recovery.md",
+                "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+                "docs/01-bijux-pollenomics/quality/change-validation.md",
+                "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+                "docs/01-bijux-pollenomics/quality/review-checklist.md",
+            ],
+            "required_link_snippets": [
+                "interfaces/entrypoints-and-examples/",
+                "operations/common-workflows/",
+                "quality/change-validation.md",
+            ],
+            "required_topic_snippets": [
+                "Breadth Restored",
+                "runtime system model",
+                "runtime scope and ownership",
+            ],
+        },
+        {
+            "section_key": "data_handbook",
+            "display_name": "Data handbook",
+            "landing_path": "docs/02-bijux-pollenomics-data/index.md",
+            "required_pages": [
+                "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+                "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+                "docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
+                "docs/02-bijux-pollenomics-data/sources/landclim.md",
+                "docs/02-bijux-pollenomics-data/sources/neotoma.md",
+                "docs/02-bijux-pollenomics-data/sources/sead.md",
+                "docs/02-bijux-pollenomics-data/sources/raa.md",
+                "docs/02-bijux-pollenomics-data/sources/boundaries.md",
+                "docs/02-bijux-pollenomics-data/sources/aadr.md",
+                "docs/02-bijux-pollenomics-data/evidence/sample-records.md",
+                "docs/02-bijux-pollenomics-data/evidence/localities.md",
+                "docs/02-bijux-pollenomics-data/evidence/chronology.md",
+                "docs/02-bijux-pollenomics-data/evidence/coordinates.md",
+                "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
+                "docs/02-bijux-pollenomics-data/outputs/nordic-atlas.md",
+            ],
+            "required_link_snippets": [
+                "overview/provenance-and-publication-linkage/",
+                "overview/source-selection-and-refresh/",
+                "overview/coverage-and-naming/",
+            ],
+            "required_topic_snippets": [
+                "Restored System Coverage",
+                "pollen context",
+                "boundary framing",
+            ],
+        },
+        {
+            "section_key": "maintainer_handbook",
+            "display_name": "Maintainer handbook",
+            "landing_path": "docs/03-bijux-pollenomics-maintain/index.md",
+            "required_pages": [
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+                "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+                "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+            ],
+            "required_link_snippets": [
+                "bijux-pollenomics-dev/repository-governance.md",
+                "gh-workflows/verification-and-release.md",
+                "makes/make-system-contracts.md",
+            ],
+            "required_topic_snippets": [
+                "repository-governance overview",
+                "command-routing boundary",
+                "workflow verification and release map",
+            ],
+        },
+    ]
 
 
 def _ratio_score(numerator: int, denominator: int) -> int:

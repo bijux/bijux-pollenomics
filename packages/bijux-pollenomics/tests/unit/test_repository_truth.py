@@ -8,6 +8,9 @@ from bijux_pollenomics.foundation import (
     build_repository_atlas_input_audit,
     build_repository_claim_audit,
     build_repository_cross_domain_evidence_matrix,
+    build_repository_docs_breadth_guard,
+    build_repository_docs_recovery_review,
+    build_repository_docs_restoration_ledger,
     build_repository_governance_artifact_review,
     build_repository_recovery_scorecard,
     build_repository_source_acquisition_queue,
@@ -18,6 +21,9 @@ from bijux_pollenomics.foundation import (
     render_repository_atlas_input_audit_markdown,
     render_repository_claim_audit_markdown,
     render_repository_cross_domain_evidence_matrix_markdown,
+    render_repository_docs_breadth_guard_markdown,
+    render_repository_docs_recovery_review_markdown,
+    render_repository_docs_restoration_ledger_markdown,
     render_repository_governance_artifact_review_markdown,
     render_repository_recovery_scorecard_markdown,
     render_repository_source_acquisition_queue_markdown,
@@ -123,6 +129,13 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["schema_version"], "repository-claim-audit.v1")
         self.assertTrue(payload["overall_ok"])
         self.assertTrue(all(row["passed"] for row in payload["checks"]))
+        docs_breadth_row = next(
+            row
+            for row in payload["checks"]
+            if row["check_id"]
+            == "docs_breadth_guard_keeps_repository_story_wide_enough"
+        )
+        self.assertTrue(docs_breadth_row["passed"])
         self.assertIn("# Repository claim audit", markdown)
 
     def test_source_family_matrix_and_acquisition_queue_keep_cross_domain_pressure_visible(
@@ -222,6 +235,62 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertIn("Do Not Use These As Progress", markdown)
 
+    def test_docs_restoration_ledger_breadth_guard_and_recovery_review_hold(
+        self,
+    ) -> None:
+        ledger_payload = build_repository_docs_restoration_ledger(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        breadth_payload = build_repository_docs_breadth_guard(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        review_payload = build_repository_docs_recovery_review(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        ledger_markdown = render_repository_docs_restoration_ledger_markdown(
+            ledger_payload
+        )
+        breadth_markdown = render_repository_docs_breadth_guard_markdown(
+            breadth_payload
+        )
+        review_markdown = render_repository_docs_recovery_review_markdown(
+            review_payload
+        )
+
+        self.assertEqual(
+            ledger_payload["schema_version"],
+            "repository-docs-restoration-ledger.v1",
+        )
+        self.assertEqual(
+            breadth_payload["schema_version"],
+            "repository-docs-breadth-guard.v1",
+        )
+        self.assertEqual(
+            review_payload["schema_version"],
+            "repository-docs-recovery-review.v1",
+        )
+        self.assertEqual(ledger_payload["row_count"], 68)
+        self.assertEqual(
+            ledger_payload["status_counts"]["replacement_incomplete"], 0
+        )
+        self.assertEqual(
+            ledger_payload["status_counts"]["verified_replacement"], 68
+        )
+        self.assertTrue(breadth_payload["overall_ok"])
+        self.assertEqual(
+            review_payload["overall_posture"],
+            "moving_toward_elegant_correctness",
+        )
+        self.assertIn("Repository docs restoration ledger", ledger_markdown)
+        self.assertIn("Repository docs breadth guard", breadth_markdown)
+        self.assertIn("Repository docs recovery review", review_markdown)
+
     def test_publish_repository_truth_outputs_writes_all_truth_packets(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "report"
@@ -247,6 +316,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             self.assertIn("repository_source_explainer_audit_markdown", artifacts)
             self.assertIn("repository_atlas_input_audit_json", artifacts)
             self.assertIn("repository_cross_domain_evidence_matrix_markdown", artifacts)
+            self.assertIn("repository_docs_restoration_ledger_json", artifacts)
+            self.assertIn("repository_docs_breadth_guard_markdown", artifacts)
+            self.assertIn("repository_docs_recovery_review_markdown", artifacts)
             self.assertIn("repository_source_acquisition_queue_markdown", artifacts)
             self.assertTrue((output_root / "repository_truth_posture.json").is_file())
             self.assertTrue((output_root / "repository_recovery_scorecard.md").is_file())
@@ -259,6 +331,15 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             )
             self.assertTrue(
                 (output_root / "repository_cross_domain_evidence_matrix.md").is_file()
+            )
+            self.assertTrue(
+                (output_root / "repository_docs_restoration_ledger.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "repository_docs_breadth_guard.md").is_file()
+            )
+            self.assertTrue(
+                (output_root / "repository_docs_recovery_review.md").is_file()
             )
             self.assertTrue((output_root / "repository_source_acquisition_queue.json").is_file())
             claim_audit = (output_root / "repository_claim_audit.json").read_text(
