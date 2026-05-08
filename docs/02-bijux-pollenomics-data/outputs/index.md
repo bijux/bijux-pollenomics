@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Tracked Outputs and Published Surfaces
@@ -27,5 +27,6 @@ them.
 - [Nordic atlas inputs](nordic-atlas-inputs.md) for the layer-by-layer source and refresh audit
 - [output surface classes](output-surface-classes.md) for the difference between pollen context, contextual support, recovery outputs, and scaffolding
 - [collection summary](collection-summary.md) for the refresh ledger contract
+- [data architecture handbook](../overview/data-architecture-handbook.md) for the source-family and file-contract model behind those outputs
 - [animal sample database review](../../report/animal_sample_database_review.md) for current evidence posture
 - [animal ancient DNA evidence](../overview/animal-ancient-dna-evidence.md) for the evidence chain behind those outputs

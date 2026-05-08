@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Data System Overview
@@ -49,9 +49,12 @@ to read the public-facing country or atlas outputs built from it.
 - `data/` keeps repository-owned source material, normalized records, and review artifacts.
 - `docs/report/` keeps the generated country bundles, atlas assets, and public review surfaces.
 - `docs/02-bijux-pollenomics-data/` explains how those tracked files fit together.
+- `data/source_family_contracts.json` and `data/source_family_evidence_stage_matrix.json` keep the stage model explicit instead of forcing readers to infer it from directory names.
+- `data/source_fact_ownership_registry.json` names the governing surface for recurring concepts such as project inventory, sample identity, and atlas candidates.
 
 ## Reading Pressure
 
+- [Data architecture handbook](data-architecture-handbook.md) explains the raw -> normalized -> review -> publication model in one place.
 - [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
 - [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) keeps domain balance visible in evidence units instead of file counts.
 - [Output surface classes](../outputs/output-surface-classes.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.

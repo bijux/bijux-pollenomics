@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Overview
@@ -28,6 +28,7 @@ different limits, and different paths into public outputs.
 ## Start Here
 
 - [Data system overview](data-system-overview.md)
+- [Data architecture handbook](data-architecture-handbook.md)
 - [Pollenomics publication model](pollenomics-publication-model.md)
 - [Provenance and publication linkage](provenance-and-publication-linkage.md)
 - [Source selection and refresh](source-selection-and-refresh.md)
@@ -39,10 +40,11 @@ different limits, and different paths into public outputs.
 ## Reading Order
 
 1. Start with the [data system overview](data-system-overview.md) to see the full evidence landscape.
-2. Read [pollenomics publication model](pollenomics-publication-model.md) when the question is how the repository should publish across domains.
-3. Open [cross-domain evidence matrix](cross-domain-evidence-matrix.md) when the question is balance rather than one file family.
-4. Read [animal ancient DNA evidence](animal-ancient-dna-evidence.md) when the question is about sample-backed animal records.
-5. Open [data directory layout](data-directory-layout.md) when you need the file-tree view behind those explanations.
+2. Read [data architecture handbook](data-architecture-handbook.md) when the question is where truth lives and how stages differ.
+3. Read [pollenomics publication model](pollenomics-publication-model.md) when the question is how the repository should publish across domains.
+4. Open [cross-domain evidence matrix](cross-domain-evidence-matrix.md) when the question is balance rather than one file family.
+5. Read [animal ancient DNA evidence](animal-ancient-dna-evidence.md) when the question is about sample-backed animal records.
+6. Open [data directory layout](data-directory-layout.md) when you need the file-tree view behind those explanations.
 
 ## Restored Foundation Topics
 

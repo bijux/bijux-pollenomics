@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Data Directory Layout
@@ -21,6 +21,9 @@ source material, normalized evidence, and public outputs do not blur together.
 | `data/adna/governance/` | cross-species audits, ledgers, and source registries |
 | `data/adna/final/` | shared downstream animal data prepared for atlas or country publication |
 | `docs/report/` | public-facing report bundles and map support files |
+| `data/source_family_contracts.json` | stage and ownership contract for each source family |
+| `data/source_fact_ownership_registry.json` | governing surface for recurring facts such as project inventory or sample identity |
+| `data/evidence_artifact_contracts.json` | file-contract standard for project, paper, sample, site, region, and country artifacts |
 
 ## Animal Ancient DNA Layout
 
@@ -33,6 +36,10 @@ different jobs:
 
 ## Reader Anchors
 
+- `data/source_family_contracts.json`
+- `data/source_family_evidence_stage_matrix.json`
+- `data/source_fact_ownership_registry.json`
+- `data/evidence_artifact_contracts.json`
 - `data/adna/species/ovis_aries/`
 - `data/adna/species/equus_caballus/`
 - `data/adna/species/bos_taurus/`
@@ -42,6 +49,8 @@ different jobs:
 - `data/adna/species/equus_asinus/`
 - `data/adna/species/felis_catus/`
 - `data/adna/governance/source_library/`
+- `data/adna/governance/surface_role_registry.json`
+- `data/adna/governance/source_library/project_surface_contract.json`
 - [`docs/report/sweden/`](../../report/sweden/README.md)
 - [`docs/report/nordic-atlas/`](../../report/nordic-atlas/nordic-atlas_map.html)
 
@@ -55,3 +64,7 @@ Readers should be able to tell the difference between:
 
 If those layers were stored together without explanation, the repository would
 look more complete than its evidence actually is.
+
+The checked-in contract files now make that split explicit, and the governance
+role registry prevents `data/adna/governance/` from reading like one shapeless
+overflow directory.

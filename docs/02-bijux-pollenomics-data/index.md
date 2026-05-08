@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # bijux-pollenomics-data
@@ -19,6 +19,7 @@ Nordic atlas.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Start with the overview</a>
+  <a class="md-button" href="overview/data-architecture-handbook/">Open the data architecture handbook</a>
   <a class="md-button" href="sources/">See the source families</a>
   <a class="md-button" href="overview/pollenomics-publication-model/">See the pollenomics publication model</a>
   <a class="md-button" href="overview/provenance-and-publication-linkage/">See provenance and publication linkage</a>
@@ -52,6 +53,7 @@ table, a locality decision, and a public map point.
 ## Start Here
 
 - [Overview](overview/index.md): how the data system is organized and how to read it
+- [Data architecture handbook](overview/data-architecture-handbook.md): where truth lives and how raw, normalized, review, and publication stages differ
 - [Sources](sources/index.md): the main source families, from pollen context to animal ancient DNA
 - [Evidence](evidence/index.md): how sample records, localities, chronology, and coordinates are justified
 - [Outputs](outputs/index.md): what the country reports and the Nordic atlas publish
