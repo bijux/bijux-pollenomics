@@ -13,7 +13,7 @@ from bijux_pollenomics.adna.project_sample_chronology import (
     build_sample_chronology_ambiguity_ledger,
     build_sample_chronology_conflict_ledger,
     build_sample_chronology_precision_audit,
-    build_sample_chronology_viewer_rows,
+    build_sample_chronology_review_rows,
     build_species_chronology_completeness_rows,
 )
 from bijux_pollenomics.adna.project_sample_chronology import _resolve_chronology_source
@@ -86,7 +86,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         gap_queue = build_date_evidence_gap_queue(self.data_root)
         species_rows = build_species_chronology_completeness_rows(self.data_root)
         project_rows = build_project_chronology_completeness_rows(self.data_root)
-        viewer_rows = build_sample_chronology_viewer_rows(self.data_root)
+        sample_review_rows = build_sample_chronology_review_rows(self.data_root)
 
         self.assertEqual(len(review_rows), 40)
         sheep_review = next(
@@ -139,7 +139,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in gap_queue
             )
         )
-        self.assertEqual(len(viewer_rows), 868)
+        self.assertEqual(len(sample_review_rows), 868)
 
     def test_conflicting_chronology_corpus_surfaces_disagreement_notes(self) -> None:
         for case in CONFLICTING_CHRONOLOGY_CASES:

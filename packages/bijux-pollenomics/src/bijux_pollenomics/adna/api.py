@@ -166,7 +166,7 @@ from .project_sample_chronology import (
     build_project_sample_chronology_review_rows,
     build_project_sample_chronology_rows,
     build_sample_chronology_ambiguity_ledger,
-    build_sample_chronology_viewer_rows,
+    build_sample_chronology_review_rows,
     build_species_chronology_completeness_rows,
 )
 from .source_snapshots import (
@@ -297,7 +297,7 @@ __all__ = [
     "build_species_chronology_completeness_rows",
     "build_project_chronology_completeness_rows",
     "build_project_locality_completeness_rows",
-    "build_sample_chronology_viewer_rows",
+    "build_sample_chronology_review_rows",
     "build_overbroad_site_ledger",
     "build_public_animal_output_audit",
     "build_shipped_adna_product_audit",

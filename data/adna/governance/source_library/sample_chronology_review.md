@@ -1,4 +1,4 @@
-# Sample chronology viewer
+# Sample chronology review
 
 - Sample chronology rows: `868`
 

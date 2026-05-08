@@ -28,8 +28,8 @@ __all__ = [
     "build_sample_chronology_ambiguity_ledger",
     "build_sample_chronology_conflict_ledger",
     "build_sample_chronology_precision_audit",
+    "build_sample_chronology_review_rows",
     "build_species_chronology_completeness_rows",
-    "build_sample_chronology_viewer_rows",
     "materialize_project_sample_chronology_library",
 ]
 
@@ -360,7 +360,7 @@ def build_project_chronology_completeness_rows(
     return tuple(rows)
 
 
-def build_sample_chronology_viewer_rows(
+def build_sample_chronology_review_rows(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
     rows: list[dict[str, object]] = []
@@ -512,7 +512,7 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
     source_root = output_root / "adna" / "governance" / "source_library"
     source_root.mkdir(parents=True, exist_ok=True)
 
-    review_rows = list(build_project_sample_chronology_review_rows(output_root))
+    project_review_rows = list(build_project_sample_chronology_review_rows(output_root))
     audit_payload = build_cross_project_sample_chronology_audit(output_root)
     ambiguity_rows = list(build_sample_chronology_ambiguity_ledger(output_root))
     conflict_rows = list(build_sample_chronology_conflict_ledger(output_root))
@@ -520,7 +520,7 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
     gap_queue_rows = list(build_date_evidence_gap_queue(output_root))
     species_rows = list(build_species_chronology_completeness_rows(output_root))
     project_rows = list(build_project_chronology_completeness_rows(output_root))
-    viewer_rows = list(build_sample_chronology_viewer_rows(output_root))
+    sample_review_rows = list(build_sample_chronology_review_rows(output_root))
 
     for project in build_archive_project_catalog():
         project_root = source_root / "projects" / project.project_accession
@@ -568,12 +568,12 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
         source_root / "project_sample_chronology_review.json",
         {
             "schema_version": "animal-project-sample-chronology-review.v1",
-            "rows": review_rows,
+            "rows": project_review_rows,
         },
     )
     write_text(
         source_root / "project_sample_chronology_review.csv",
-        render_csv_rows(tuple(review_rows)),
+        render_csv_rows(tuple(project_review_rows)),
     )
     write_json(source_root / "sample_chronology_normalization_audit.json", audit_payload)
     write_text(
@@ -630,15 +630,15 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
         render_csv_rows(tuple(project_rows)),
     )
     write_json(
-        source_root / "sample_chronology_viewer.json",
+        source_root / "sample_chronology_review.json",
         {
-            "schema_version": "animal-sample-chronology-viewer.v1",
-            "rows": viewer_rows,
+            "schema_version": "animal-sample-chronology-review.v1",
+            "rows": sample_review_rows,
         },
     )
     write_text(
-        source_root / "sample_chronology_viewer.md",
-        _render_sample_chronology_viewer_markdown(viewer_rows),
+        source_root / "sample_chronology_review.md",
+        _render_sample_chronology_review_markdown(sample_review_rows),
     )
     write_json(
         source_root / "date_evidence_gap_queue.json",
@@ -1086,9 +1086,9 @@ def _render_sample_chronology_ambiguity_markdown(rows: list[dict[str, object]]) 
     return "\n".join(lines)
 
 
-def _render_sample_chronology_viewer_markdown(rows: list[dict[str, object]]) -> str:
+def _render_sample_chronology_review_markdown(rows: list[dict[str, object]]) -> str:
     lines = [
-        "# Sample chronology viewer",
+        "# Sample chronology review",
         "",
         f"- Sample chronology rows: `{len(rows)}`",
         "",

@@ -24,7 +24,7 @@ evidence tables.
 - [atlas readiness audit](../../report/animal_atlas_readiness.md)
 - [animal output honesty](../../report/animal_output_honesty.md)
 - [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
-- [sample chronology viewer](../../report/animal_sample_chronology_viewer.md)
+- [sample chronology review](../../report/animal_sample_chronology_review.md)
 - [animal publication release gate](../../report/animal_publication_release_gate.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
