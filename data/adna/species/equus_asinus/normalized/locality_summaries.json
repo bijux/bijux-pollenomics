@@ -50,7 +50,9 @@
         "time_end_bp": 6950,
         "time_mean_bp": 5700,
         "date_stddev_bp": "",
-        "dating_basis": "archaeological_period_assignment"
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "equus_asinus:sample_locality",
       "project_accessions": [

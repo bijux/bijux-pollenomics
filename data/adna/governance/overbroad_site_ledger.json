@@ -24,17 +24,6 @@
       "support_gap_note": "Cherry Tree Cave and Herxheim are named, but the current accession-backed row still collapses them into one aggregate context."
     },
     {
-      "species_latin_name": "Capra hircus",
-      "species_common_name": "goat",
-      "project_accession": "PRJNA1328209",
-      "site_label": "Lake Qinghai Basin ancient goat context",
-      "original_place_text": "Lake Qinghai Basin",
-      "resolved_place_text": "Lake Qinghai Basin, Qinghai-Xizang Plateau",
-      "coordinate_basis": "region_centroid_fallback",
-      "confidence_rationale": "The current local source names the Lake Qinghai Basin rather than one excavation site, so point mapping would overstate precision.",
-      "support_gap_note": "The local paper capture supports region-level place naming rather than an excavation-grade site point."
-    },
-    {
       "species_latin_name": "Equus asinus",
       "species_common_name": "donkey",
       "project_accession": "PRJEB52849",

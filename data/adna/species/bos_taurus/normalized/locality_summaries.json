@@ -37,20 +37,32 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 1,
+      "sample_count": 11,
       "sample_ids": [
-        "PRJNA705960"
+        "prjna705960:samn18106827",
+        "prjna705960:samn18106828",
+        "prjna705960:samn18106829",
+        "prjna705960:samn18106830",
+        "prjna705960:samn18106831",
+        "prjna705960:samn18106832",
+        "prjna705960:samn18106833",
+        "prjna705960:samn18106834",
+        "prjna705960:samn18106835",
+        "prjna705960:samn18106836",
+        "prjna705960:samn18106837"
       ],
       "datasets": [
         "bos_taurus:project:PRJNA705960"
       ],
       "chronology": {
-        "original_text": "Neolithic to later Galician cattle sequence",
+        "original_text": "1500-7000 BP",
         "time_start_bp": 1500,
         "time_end_bp": 7000,
         "time_mean_bp": 4250,
         "date_stddev_bp": "",
-        "dating_basis": "archaeological_period_assignment"
+        "dating_basis": "archaeological_period_assignment",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "bos_taurus:sample_locality",
       "project_accessions": [
@@ -59,7 +71,7 @@
       "original_location_text": "Galician mountain cave cattle context",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
     }
   ]
 }

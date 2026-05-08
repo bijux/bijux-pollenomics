@@ -37,20 +37,41 @@
         "longitude_text": "",
         "confidence": "withheld"
       },
-      "sample_count": 1,
+      "sample_count": 20,
       "sample_ids": [
-        "PRJEB60484"
+        "prjeb60484:samea112757323",
+        "prjeb60484:samea112757324",
+        "prjeb60484:samea112757325",
+        "prjeb60484:samea112757326",
+        "prjeb60484:samea112757327",
+        "prjeb60484:samea112757328",
+        "prjeb60484:samea112757329",
+        "prjeb60484:samea112757330",
+        "prjeb60484:samea112757331",
+        "prjeb60484:samea112757332",
+        "prjeb60484:samea112757333",
+        "prjeb60484:samea112757334",
+        "prjeb60484:samea112757335",
+        "prjeb60484:samea112757336",
+        "prjeb60484:samea112757337",
+        "prjeb60484:samea112757338",
+        "prjeb60484:samea112757339",
+        "prjeb60484:samea112757340",
+        "prjeb60484:samea114857470",
+        "prjeb60484:samea114857471"
       ],
       "datasets": [
         "rangifer_tarandus:project:PRJEB60484"
       ],
       "chronology": {
-        "original_text": "Ancient Arctic archipelago reindeer context",
+        "original_text": "500-2500 BP",
         "time_start_bp": 500,
         "time_end_bp": 2500,
         "time_mean_bp": 1500,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context"
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "rangifer_tarandus:sample_locality",
       "project_accessions": [
@@ -59,7 +80,7 @@
       "original_location_text": "Svalbard ancient reindeer context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Svalbard evidence.",
-      "interpretation_note": "Reindeer remains Nordic-relevant comparator evidence but not a point-ready excavation lead."
+      "interpretation_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
     }
   ]
 }

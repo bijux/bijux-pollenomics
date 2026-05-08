@@ -92,9 +92,9 @@
       "review_json_present": true,
       "country_output_count": 0,
       "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 2,
+      "map_ready_sample_count": 27,
+      "region_refused_sample_count": 0,
+      "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -145,7 +145,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 2,
+      "atlas_layer_count": 1,
       "map_ready_sample_count": 1,
       "region_refused_sample_count": 0,
       "unresolved_sample_count": 0,

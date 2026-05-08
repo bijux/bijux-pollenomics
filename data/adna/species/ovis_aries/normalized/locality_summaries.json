@@ -93,7 +93,9 @@
         "time_end_bp": 8549,
         "time_mean_bp": 8299,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -156,7 +158,9 @@
         "time_end_bp": 10349,
         "time_mean_bp": 10049,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -219,7 +223,9 @@
         "time_end_bp": 9349,
         "time_mean_bp": 9199,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -294,7 +300,9 @@
         "time_end_bp": 15949,
         "time_mean_bp": 11949,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -426,7 +434,9 @@
         "time_end_bp": 9449,
         "time_mean_bp": 8599,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -529,7 +539,9 @@
         "time_end_bp": 8949,
         "time_mean_bp": 8249,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -588,7 +600,9 @@
         "time_end_bp": 4000,
         "time_mean_bp": 2000,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "contextual_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [

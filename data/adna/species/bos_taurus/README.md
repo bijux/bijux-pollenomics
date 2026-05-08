@@ -4,7 +4,7 @@
 - Product role: `domesticated_core`
 - Dataset bucket: `archive_verified_needs_paper_pinning`
 - Curation class: `paper_pinned_core`
-- Curated sample rows: `3`
+- Curated sample rows: `13`
 - Curated projects: `2`
 - Curated site rows: `1`
 - Direct-coordinate rows: `0`

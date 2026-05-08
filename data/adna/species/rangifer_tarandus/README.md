@@ -4,7 +4,7 @@
 - Product role: `comparator`
 - Dataset bucket: `comparator_only`
 - Curation class: `comparator_only`
-- Curated sample rows: `4`
+- Curated sample rows: `23`
 - Curated projects: `0`
 - Curated site rows: `1`
 - Direct-coordinate rows: `0`

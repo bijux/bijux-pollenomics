@@ -36,10 +36,10 @@
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 27,
       "indirectly_geocoded": 0,
-      "unresolved": 2,
-      "refused_from_mapping": 1
+      "unresolved": 0,
+      "refused_from_mapping": 0
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -83,9 +83,9 @@
     }
   ],
   "totals": {
-    "direct_coordinate_backed": 207,
+    "direct_coordinate_backed": 234,
     "indirectly_geocoded": 2,
-    "unresolved": 23,
-    "refused_from_mapping": 8
+    "unresolved": 21,
+    "refused_from_mapping": 7
   }
 }

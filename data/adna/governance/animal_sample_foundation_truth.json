@@ -3,12 +3,12 @@
   "summary": {
     "tracked_species_count": 10,
     "tracked_project_count": 40,
-    "sample_row_count": 786,
-    "fully_grounded_count": 493,
-    "partially_grounded_count": 238,
-    "blocked_missing_metadata_count": 19,
-    "blocked_missing_location_detail_count": 6,
-    "blocked_weak_chronology_count": 30
+    "sample_row_count": 894,
+    "fully_grounded_count": 502,
+    "partially_grounded_count": 256,
+    "blocked_missing_metadata_count": 29,
+    "blocked_missing_location_detail_count": 4,
+    "blocked_weak_chronology_count": 103
   },
   "species_rows": [
     {
@@ -53,28 +53,28 @@
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
-      "sample_row_count": 3,
+      "sample_row_count": 13,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
-      "blocked_missing_metadata_count": 1,
+      "blocked_missing_metadata_count": 11,
       "blocked_missing_location_detail_count": 2,
       "blocked_weak_chronology_count": 0,
       "project_count": 3,
-      "reported_curated_sample_count": 3,
+      "reported_curated_sample_count": 13,
       "uses_project_level_sample_anchor": true
     },
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
-      "sample_row_count": 3,
-      "fully_grounded_count": 0,
-      "partially_grounded_count": 1,
+      "sample_row_count": 82,
+      "fully_grounded_count": 9,
+      "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 2,
-      "blocked_weak_chronology_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 73,
       "project_count": 3,
-      "reported_curated_sample_count": 3,
-      "uses_project_level_sample_anchor": true
+      "reported_curated_sample_count": 82,
+      "uses_project_level_sample_anchor": false
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -118,14 +118,14 @@
     {
       "species_latin_name": "Rangifer tarandus",
       "species_common_name": "reindeer",
-      "sample_row_count": 4,
+      "sample_row_count": 23,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 1,
+      "partially_grounded_count": 20,
       "blocked_missing_metadata_count": 3,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
       "project_count": 4,
-      "reported_curated_sample_count": 4,
+      "reported_curated_sample_count": 23,
       "uses_project_level_sample_anchor": true
     },
     {
@@ -487,68 +487,68 @@
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
       "project_accession": "PRJNA705960",
-      "sample_row_count": 1,
+      "sample_row_count": 11,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
-      "blocked_missing_metadata_count": 1,
+      "blocked_missing_metadata_count": 11,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 1,
       "project_locality_summary_count": 1,
-      "uses_project_level_sample_anchor": true,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "archive_project_sample_accession_anchor"
       ]
     },
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJEB90141",
-      "sample_row_count": 1,
-      "fully_grounded_count": 0,
+      "sample_row_count": 4,
+      "fully_grounded_count": 4,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
+      "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
-      "sample_backed_site_count": 0,
-      "project_locality_summary_count": 0,
-      "uses_project_level_sample_anchor": true,
+      "sample_backed_site_count": 4,
+      "project_locality_summary_count": 4,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "supplementary_table_sample_label_anchor"
       ]
     },
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJEB90261",
-      "sample_row_count": 1,
+      "sample_row_count": 73,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 1,
-      "blocked_weak_chronology_count": 0,
-      "sample_backed_site_count": 0,
-      "project_locality_summary_count": 0,
-      "uses_project_level_sample_anchor": true,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 73,
+      "sample_backed_site_count": 22,
+      "project_locality_summary_count": 22,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "supplementary_table_sample_label_anchor"
       ]
     },
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJNA1328209",
-      "sample_row_count": 1,
-      "fully_grounded_count": 0,
-      "partially_grounded_count": 1,
+      "sample_row_count": 5,
+      "fully_grounded_count": 5,
+      "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 1,
       "project_locality_summary_count": 1,
-      "uses_project_level_sample_anchor": true,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "supplementary_table_sample_label_anchor"
       ]
     },
     {
@@ -691,17 +691,17 @@
       "species_latin_name": "Rangifer tarandus",
       "species_common_name": "reindeer",
       "project_accession": "PRJEB60484",
-      "sample_row_count": 1,
+      "sample_row_count": 20,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 1,
+      "partially_grounded_count": 20,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 1,
       "project_locality_summary_count": 1,
-      "uses_project_level_sample_anchor": true,
+      "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "project_accession_anchor"
+        "archive_project_sample_accession_anchor"
       ]
     },
     {

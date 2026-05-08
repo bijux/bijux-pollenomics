@@ -19,10 +19,10 @@ Ovis aries,sheep,PRJEB69690,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Ovis aries,sheep,PRJEB81145,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Bos taurus,cattle,PRJEB31621,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Bos taurus,cattle,PRJEB75467,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Bos taurus,cattle,PRJNA705960,1,0,0,1,0,0,1,1,true,project_accession_anchor
-Capra hircus,goat,PRJEB90141,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Capra hircus,goat,PRJEB90261,1,0,0,0,1,0,0,0,true,project_accession_anchor
-Capra hircus,goat,PRJNA1328209,1,0,1,0,0,0,1,1,true,project_accession_anchor
+Bos taurus,cattle,PRJNA705960,11,0,0,11,0,0,1,1,false,archive_project_sample_accession_anchor
+Capra hircus,goat,PRJEB90141,4,4,0,0,0,0,4,4,false,supplementary_table_sample_label_anchor
+Capra hircus,goat,PRJEB90261,73,0,0,0,0,73,22,22,false,supplementary_table_sample_label_anchor
+Capra hircus,goat,PRJNA1328209,5,5,0,0,0,0,1,1,false,supplementary_table_sample_label_anchor
 Canis lupus familiaris,dog,KX379528-KX379529,2,0,0,0,0,2,1,1,true,accession_range_anchor
 Canis lupus familiaris,dog,SRS1407451,1,0,1,0,0,0,1,1,false,sample_accession_anchor
 Canis lupus familiaris,dog,SRS1407453,1,0,0,0,0,1,1,1,false,sample_accession_anchor
@@ -31,7 +31,7 @@ Felis catus,cat,PRJNA1178732,1,0,0,0,1,0,0,0,true,project_accession_anchor
 Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,0,0,0,13,1,1,true,accession_range_anchor
 Camelus dromedarius,dromedary camel,SRP073444,1,1,0,0,0,0,1,1,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJEB57293,1,0,0,1,0,0,0,0,true,project_accession_anchor
-Rangifer tarandus,reindeer,PRJEB60484,1,0,1,0,0,0,1,1,true,project_accession_anchor
+Rangifer tarandus,reindeer,PRJEB60484,20,0,20,0,0,0,1,1,false,archive_project_sample_accession_anchor
 Rangifer tarandus,reindeer,PRJEB61721,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Rangifer tarandus,reindeer,PRJNA634908,1,0,0,1,0,0,0,0,true,project_accession_anchor
 Equus asinus,donkey,PRJEB43564,1,0,0,1,0,0,0,0,true,project_accession_anchor
