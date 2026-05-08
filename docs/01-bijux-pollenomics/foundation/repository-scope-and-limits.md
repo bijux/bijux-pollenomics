@@ -1,5 +1,5 @@
 ---
-title: Repository Fit
+title: Repository Scope and Limits
 audience: mixed
 type: explanation
 status: canonical
@@ -7,13 +7,13 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-07
 ---
 
-# Repository Fit
+# Repository Scope and Limits
 
 This runtime fits the repository because the repository publishes checked-in
 evidence outputs and needs one accountable owner that can regenerate them
 without narrowing the repository story to one data slice.
 
-## Fit Model
+## Scope Model
 
 ```mermaid
 flowchart TB

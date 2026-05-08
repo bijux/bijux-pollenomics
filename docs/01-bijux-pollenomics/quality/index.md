@@ -1,5 +1,5 @@
 ---
-title: Proof and Limits
+title: Verification and Limits
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-08
 ---
 
-# Proof and Limits
+# Verification and Limits
 
 This section explains how the runtime earns confidence and where it still
 refuses stronger claims.
@@ -17,6 +17,7 @@ refuses stronger claims.
 - [test strategy](test-strategy.md)
 - [change validation](change-validation.md)
 - [review checklist](review-checklist.md)
+- [public language guide](public-language-guide.md)
 - [runtime invariants and limits](runtime-invariants-and-limits.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
 - [animal output honesty](../../report/animal_output_honesty.md)

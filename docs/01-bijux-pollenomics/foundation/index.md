@@ -26,7 +26,7 @@ presentation without accountable evidence publication.
 
 ## Next Pages
 
-- [repository fit](repository-fit.md)
+- [repository scope and limits](repository-scope-and-limits.md)
 - [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
 - [runtime scope and ownership](runtime-scope-and-ownership.md)
 
