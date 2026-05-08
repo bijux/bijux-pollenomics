@@ -4,8 +4,8 @@
     {
       "project_accession": "PRJEB22390",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 42,
+      "direct_sample_site_count": 42,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,

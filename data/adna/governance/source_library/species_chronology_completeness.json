@@ -18,6 +18,14 @@
       "chronology_completeness_ratio": 0.25
     },
     {
+      "species_latin_name": "Equus caballus",
+      "recovered_sample_row_count": 42,
+      "normalized_row_count": 42,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
+    },
+    {
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 190,
       "normalized_row_count": 167,

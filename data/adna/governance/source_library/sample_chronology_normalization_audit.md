@@ -1,13 +1,14 @@
 # Sample chronology normalization audit
 
-- Sample rows: `207`
+- Sample rows: `249`
 - Normalized intervals: `156`
-- Normalized points: `12`
+- Normalized points: `54`
 - Text-only rows: `13`
 - Unresolved rows: `26`
 
 ## Projects requiring manual chronology review
 
+- `PRJEB22390`
 - `PRJEB36540`
 - `SRS1407453`
 - `KX379528-KX379529`
@@ -15,7 +16,7 @@
 
 | Project accession | Sample rows | Interval rows | Point rows | Text-only rows | Unresolved rows | Conflicts |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| PRJEB22390 | 0 | 0 | 0 | 0 | 0 | 0 |
+| PRJEB22390 | 42 | 0 | 42 | 0 | 0 | 42 |
 | PRJEB44430 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB31613 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB19970 | 0 | 0 | 0 | 0 | 0 | 0 |

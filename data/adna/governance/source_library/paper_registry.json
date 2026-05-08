@@ -817,8 +817,8 @@
       "supplementary_count": 12,
       "parsing_status": "full_paper_download_blocked",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_supplementary_file_families": [
         "pdf_appendix",
         "xlsx_table"

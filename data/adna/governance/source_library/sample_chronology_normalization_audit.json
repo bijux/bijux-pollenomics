@@ -1,11 +1,12 @@
 {
   "schema_version": "animal-sample-chronology-normalization-audit.v1",
-  "sample_row_count": 207,
+  "sample_row_count": 249,
   "normalized_interval_count": 156,
-  "normalized_point_count": 12,
+  "normalized_point_count": 54,
   "text_only_unparsed_count": 13,
   "unresolved_count": 26,
   "projects_requiring_manual_review": [
+    "PRJEB22390",
     "PRJEB36540",
     "SRS1407453",
     "KX379528-KX379529",
@@ -15,17 +16,17 @@
     {
       "project_accession": "PRJEB22390",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "sample_owned_interval_count": 0,
+      "recovered_sample_row_count": 42,
+      "sample_owned_interval_count": 42,
       "sample_owned_text_only_count": 0,
       "project_context_interval_count": 0,
       "project_context_text_only_count": 0,
       "unresolved_count": 0,
       "normalized_interval_count": 0,
-      "normalized_point_count": 0,
+      "normalized_point_count": 42,
       "text_only_unparsed_count": 0,
       "normalization_unresolved_count": 0,
-      "conflicting_context_count": 0
+      "conflicting_context_count": 42
     },
     {
       "project_accession": "PRJEB44430",

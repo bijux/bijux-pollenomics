@@ -22,7 +22,7 @@
 | `PRJEB55549` | `none` | `sample_identifiers` | `scope_rejected` |
 | `PRJEB10854` | `none` | `` | `paper_linkage_not_curated` |
 | `PRJEB19970` | `10.1126/science.aam5298` | `sample_identifiers; taxonomic_context; site_names; coordinate_resolution_candidate; chronology` | `repository_supplement_captured_needs_extraction` |
-| `PRJEB22390` | `10.1126/science.aao3297` | `sample_identifiers; taxonomic_context; site_names; coordinate_resolution_candidate; chronology` | `repository_supplement_captured_needs_extraction` |
+| `PRJEB22390` | `10.1126/science.aao3297` | `sample_identifiers; taxonomic_context` | `sample_tables_published` |
 | `PRJEB31613` | `10.1016/j.cell.2019.03.049` | `sample_identifiers; taxonomic_context; site_names; coordinate_resolution_candidate; chronology` | `repository_supplement_captured_needs_extraction` |
 | `PRJEB44430` | `10.1038/s41586-021-04018-9` | `sample_identifiers; taxonomic_context; site_names; coordinate_resolution_candidate; chronology` | `repository_supplement_captured_needs_extraction` |
 | `PRJEB56293` | `none` | `` | `paper_linkage_not_curated` |
