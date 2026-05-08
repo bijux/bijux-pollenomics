@@ -20,6 +20,8 @@ reports or the Nordic atlas.
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Start with the overview</a>
   <a class="md-button" href="sources/">See the source families</a>
+  <a class="md-button" href="overview/pollenomics-publication-model/">See the pollenomics publication model</a>
+  <a class="md-button" href="overview/cross-domain-evidence-matrix/">Open the cross-domain evidence matrix</a>
   <a class="md-button" href="sources/animal-source-intake/">See animal source intake</a>
   <a class="md-button" href="evidence/">See sample-to-map evidence</a>
   <a class="md-button" href="outputs/">See public outputs</a>
@@ -50,6 +52,7 @@ table, a locality decision, and a public map point.
 - [Sources](sources/index.md): the main source families, from pollen context to animal ancient DNA
 - [Evidence](evidence/index.md): how sample records, localities, chronology, and coordinates are justified
 - [Outputs](outputs/index.md): what the country reports and the Nordic atlas publish
+- [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md): how domain balance is audited without file-count theater
 
 ## Source-Family Comparison
 
