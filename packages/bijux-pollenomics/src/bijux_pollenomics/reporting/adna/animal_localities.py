@@ -7,7 +7,7 @@ from pathlib import Path
 
 from ...adna import AdnaLocalitySummary, build_species_support_matrix
 from ...adna.paths import adna_species_dir
-from ..shared.text import slugify
+from ..presentation.text import slugify
 from .atlas_evidence_rows import (
     AnimalAtlasCoordinateReview,
     AnimalAtlasEvidenceRow,

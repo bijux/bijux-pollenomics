@@ -47,7 +47,7 @@ from .rendering import (
     write_samples_geojson,
     write_summary_json,
 )
-from .shared.text import slugify
+from .presentation.text import slugify
 
 
 def generate_country_report(

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ...core.geojson import JsonObject
-from ..shared.text import escape_html
+from ..presentation.text import escape_html
 from .payload import build_map_document_payload
 from .template import MAP_DOCUMENT_TEMPLATE
 

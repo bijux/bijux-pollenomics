@@ -14,7 +14,7 @@ from .ranking import (
     rank_localities,
     temporal_overlap,
 )
-from .reporting import (
+from .review import (
     render_candidate_site_markdown,
     render_candidate_site_sensitivity_markdown,
     write_candidate_site_sensitivity_json,
@@ -46,8 +46,8 @@ __all__ = [
     "CandidateSiteContext",
     "CandidateSiteScore",
     "rank_localities",
-    "render_candidate_site_sensitivity_markdown",
     "render_candidate_site_markdown",
+    "render_candidate_site_sensitivity_markdown",
     "resolve_ranking_profile",
     "ScoringWeights",
     "score_candidate_site",

@@ -3,10 +3,10 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Iterable
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from ..core import haversine_km
 from ..data_downloader.models import ContextPointRecord
-from ..reporting.models import LocalitySummary
 from .site_candidates import (
     CandidateSiteContext,
     CandidateSiteScore,
@@ -23,6 +23,9 @@ __all__ = [
     "rank_localities",
     "temporal_overlap",
 ]
+
+if TYPE_CHECKING:
+    from ..reporting.models import LocalitySummary
 
 
 @dataclass(frozen=True)

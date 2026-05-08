@@ -12,7 +12,7 @@ from .service import (
     generate_published_reports,
     refresh_animal_adna_foundation,
 )
-from .shared.text import slugify
+from .presentation.text import slugify
 
 __all__ = [
     "CountryReport",

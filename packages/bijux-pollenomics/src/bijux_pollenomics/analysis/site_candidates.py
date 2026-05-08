@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from statistics import fmean
+from typing import TYPE_CHECKING
 
-from ..reporting.models import LocalitySummary
+if TYPE_CHECKING:
+    from ..reporting.models import LocalitySummary
 
 __all__ = [
     "CandidateRankingProfile",
