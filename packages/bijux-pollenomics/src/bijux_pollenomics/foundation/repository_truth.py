@@ -526,7 +526,7 @@ def build_repository_source_family_matrix(
                 "data/adna/governance/source_library/project_registry.json",
                 "data/adna/governance/source_library/project_source_evidence_matrix.json",
             ],
-            ["docs/02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md"],
+            ["docs/02-bijux-pollenomics-data/sources/animal-source-intake.md"],
             counts["tracked_paper_count"],
             "local_reference_staging_ahead_of_repo_capture"
             if counts["papers_with_local_reference_supplements"]
@@ -870,7 +870,7 @@ def _build_core_counts(
             if path.name
             not in {
                 "index.md",
-                "animal-project-and-paper-inventory.md",
+                "animal-source-intake.md",
             }
         ),
         "landing_page_count": sum(

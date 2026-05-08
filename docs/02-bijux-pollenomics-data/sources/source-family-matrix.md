@@ -1,6 +1,6 @@
 ---
 title: Source Family Matrix
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -9,11 +9,10 @@ last_reviewed: 2026-05-08
 
 # Source Family Matrix
 
-`bijux-pollenomics` should not flatten pollen context, archaeology context,
-boundary framing, fieldwork evidence, human aDNA, and animal paper capture into
-one vague idea of "data". The source-family matrix exists so a reader can see
-which family is primary, which is contextual, what is already visible in-tree,
-and where the current acquisition pressure still sits.
+The source-family matrix is the repository-wide balance sheet for the data
+story. It helps readers see which families are primary evidence, which are
+contextual, what is already visible in the tracked tree, and where the current
+recovery pressure still sits.
 
 ## Reader Anchors
 
@@ -22,14 +21,14 @@ and where the current acquisition pressure still sits.
 - [`docs/report/repository_source_acquisition_queue.json`](../../report/repository_source_acquisition_queue.json)
 - [`docs/report/repository_source_acquisition_queue.md`](../../report/repository_source_acquisition_queue.md)
 - [Source comparison](source-comparison.md)
-- [Animal Project and Paper Inventory](animal-project-and-paper-inventory.md)
+- [Animal source intake](animal-source-intake.md)
 
 ## What This Surface Answers
 
-- Which source families are primary pollenomics evidence and which are context.
-- Which tracked family still has the strongest acquisition backlog.
-- Whether the repository is undercounting a source family in `data/collection_summary.json`.
-- Whether animal paper capture is ahead in the local reference stash but still behind in governed repo ingestion.
+- Which source families are primary pollenomics evidence and which are context
+- Which tracked family still has the strongest acquisition backlog
+- Whether the repository is undercounting a source family in `data/collection_summary.json`
+- Whether animal source intake is ahead in the local reference stash but still behind in governed repo ingestion
 
 ## Current Reading
 

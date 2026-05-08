@@ -1,6 +1,6 @@
 ---
 title: LandClim
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -27,9 +27,9 @@ flowchart TB
     reveals --> atlas
 ```
 
-This page should make LandClim legible as environmental context with two
-distinct downstream roles: sequence context and broader grid framing. That is
-what keeps it from collapsing into a generic pollen label.
+LandClim is one of the repository's main pollen-context families. It matters
+because it carries both site-level sequence context and broader REVEALS grid
+context.
 
 ## What This Source Adds
 
@@ -50,15 +50,3 @@ be read as a substitute for sample metadata or on-site visit records.
 - `data/landclim/normalized/nordic_pollen_site_sequences.csv`
 - `data/landclim/normalized/nordic_pollen_site_sequences.geojson`
 - `data/landclim/normalized/nordic_reveals_grid_cells.geojson`
-
-## First Proof Check
-
-- inspect `data/landclim/raw/` and `data/landclim/normalized/`
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  when the question is about the atlas-facing checked-in files
-
-## Design Pressure
-
-The easy failure is to let LandClim inherit the certainty of sample-locality
-data because both surfaces end up in the atlas, even though one is contextual
-environmental framing.

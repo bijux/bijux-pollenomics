@@ -1,6 +1,6 @@
 ---
 title: Boundaries
-audience: mixed
+audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
@@ -25,9 +25,9 @@ flowchart TB
     framing --> publication
 ```
 
-This page should make boundaries read as a framing dependency with real
-interpretation weight. It is not scientific evidence, but it does shape how
-every other mapped layer is seen and filtered.
+Boundary data is not scientific evidence, but it shapes how readers see every
+other mapped layer. It defines the country framing used across reports and the
+Nordic atlas.
 
 ## What This Source Adds
 
@@ -47,15 +47,3 @@ ancient DNA, or archaeology on its own.
 - `data/boundaries/normalized/nordic_country_boundaries.geojson`
 - shared geometry in `docs/report/nordic-atlas/`
 - country filtering behavior reused by publication bundles
-
-## First Proof Check
-
-- inspect `data/boundaries/raw/` and `data/boundaries/normalized/`
-- open [Nordic Atlas Outputs](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/nordic-atlas/)
-  when the question is about the checked-in geometry files
-
-## Design Pressure
-
-The common failure is to treat political geometry as neutral backdrop only,
-even though changing the framing surface can silently change how readers parse
-every evidence layer on top of it.
