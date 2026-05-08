@@ -18,6 +18,9 @@ recovery pressure still sits.
 
 - [`docs/report/repository_source_family_matrix.json`](../../report/repository_source_family_matrix.json)
 - [`docs/report/repository_source_family_matrix.md`](../../report/repository_source_family_matrix.md)
+- [`docs/report/repository_cross_domain_evidence_matrix.json`](../../report/repository_cross_domain_evidence_matrix.json)
+- [`docs/report/repository_cross_domain_evidence_matrix.md`](../../report/repository_cross_domain_evidence_matrix.md)
+- [`docs/report/repository_source_explainer_audit.md`](../../report/repository_source_explainer_audit.md)
 - [`docs/report/repository_source_acquisition_queue.json`](../../report/repository_source_acquisition_queue.json)
 - [`docs/report/repository_source_acquisition_queue.md`](../../report/repository_source_acquisition_queue.md)
 - [Source comparison](source-comparison.md)
@@ -28,6 +31,7 @@ recovery pressure still sits.
 - Which source families are primary pollenomics evidence and which are context
 - Which tracked family still has the strongest acquisition backlog
 - Whether the repository is undercounting a source family in `data/collection_summary.json`
+- Whether the docs still explain each non-aDNA family in durable form
 - Whether animal source intake is ahead in the local reference stash but still behind in governed repo ingestion
 
 ## Current Reading
@@ -37,3 +41,7 @@ Neotoma remain primary pollen context, SEAD and RAÄ remain archaeology context,
 boundaries remain framing layers, fieldwork remains narrow but visible, and the
 animal aDNA program is still an evidence-recovery track whose local supplement
 stash is materially ahead of its repo-owned capture.
+
+Use the [cross-domain evidence matrix](../overview/cross-domain-evidence-matrix.md)
+when the real question is whether the repository is balanced by evidence depth
+rather than by file presence.

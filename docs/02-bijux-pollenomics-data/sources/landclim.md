@@ -9,8 +9,8 @@ last_reviewed: 2026-05-07
 
 # LandClim
 
-LandClim supplies Nordic pollen sequence context and REVEALS-related spatial
-context.
+LandClim supplies Nordic pollen context through sequence records and
+REVEALS-related spatial context.
 
 ## LandClim Source Model
 

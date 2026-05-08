@@ -32,7 +32,7 @@ turns into tracked sample outputs and public reports.
 
 ## What This Source Adds
 
-- versioned metadata under `data/aadr/<version>/`
+- versioned metadata under `data/aadr/<version>/`, including the current `data/aadr/v66/` release tree
 - human sample-locality context used in reports and the shared atlas
 - a clear bridge between tracked source refreshes and visible publication
   changes
