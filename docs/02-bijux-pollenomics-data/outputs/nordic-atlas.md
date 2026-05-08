@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Nordic Atlas Outputs
@@ -26,5 +26,12 @@ evidence tables.
 - [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
 
-The atlas output page should answer two questions directly: which rows were
-published, and what caveats still block broader animal coverage.
+## What The Atlas Should Answer
+
+- which rows were published
+- what species and localities they represent
+- what caveats still block broader animal coverage
+- where a visible point can be traced back to sample-backed evidence
+
+The atlas is the broadest map surface, but it is still a downstream view rather
+than the evidence itself.

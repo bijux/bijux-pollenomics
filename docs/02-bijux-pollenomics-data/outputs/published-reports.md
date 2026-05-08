@@ -30,6 +30,12 @@ site, chronology, and coordinate rules are applied?
 - [repository source acquisition queue](../../report/repository_source_acquisition_queue.md)
 - [published reports summary](../../report/published_reports_summary.json)
 
+## What Country Bundles Are Good For
+
+- showing which animal rows currently survive one country filter
+- keeping citations, warnings, and sample tables together
+- exposing the difference between visible rows and blocked rows at country scale
+
 ## Expected Animal Bundle Files
 
 - `README.md`
@@ -40,3 +46,6 @@ site, chronology, and coordinate rules are applied?
 - `*_animal_adna_*_localities.geojson`
 - `*_animal_adna_*_citations.md`
 - `*_animal_adna_*_warnings.md`
+
+Country bundles are not a replacement for the tracked evidence tables. They are
+reader-facing summaries derived from them.
