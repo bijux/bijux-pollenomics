@@ -408,6 +408,14 @@ def _project_specific_sample_rows(
         return _horse_time_series_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB44430":
         return _horse_nature_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJNA1328209":
+        return _goat_qinghai_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB90141":
+        return _goat_imputation_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB90261":
+        return _goat_canary_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession in {"PRJNA705960", "PRJEB60484"}:
+        return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
 
 
@@ -597,6 +605,123 @@ def _horse_nature_supplementary_sample_rows(
         ),
         rows=_read_xlsx_rows(workbook_path, sheet_name="SI Table 1"),
         archive_sample_labels=archive_sample_labels,
+    )
+
+
+def _goat_qinghai_supplementary_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("Supplementary_tables.xlsx")
+        ),
+        None,
+    )
+    if workbook_path is None or not workbook_path.is_file():
+        return ()
+    return _build_goat_qinghai_rows(
+        species=species,
+        project=project,
+        source_path=(
+            f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.24272-j.issn.2095-8137.2025.080/"
+            "supplementary/Supplementary_tables.xlsx"
+        ),
+        rows=_read_xlsx_rows(workbook_path, sheet_name="Table S2"),
+    )
+
+
+def _goat_imputation_supplementary_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx")
+        ),
+        None,
+    )
+    if workbook_path is None or not workbook_path.is_file():
+        return ()
+    return _build_goat_imputation_rows(
+        species=species,
+        project=project,
+        source_path=(
+            f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evaf181/"
+            "supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
+        ),
+        rows=_read_xlsx_rows(workbook_path, sheet_name="Table S2 downsampled samples"),
+    )
+
+
+def _goat_canary_supplementary_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("1-s2.0-S2589004225020322-mmc3.xlsx")
+        ),
+        None,
+    )
+    if workbook_path is None or not workbook_path.is_file():
+        return ()
+    return _build_goat_canary_rows(
+        species=species,
+        project=project,
+        source_path=(
+            f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1016-j.isci.2025.113771/"
+            "supplementary/1-s2.0-S2589004225020322-mmc3.xlsx"
+        ),
+        rows=_read_xlsx_rows(workbook_path, sheet_name="Table S2"),
+    )
+
+
+def _project_scope_archive_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    sample_accessions = _project_scope_archive_sample_accessions(output_root, project.project_accession)
+    return tuple(
+        AdnaProjectSampleMasterRow(
+            species_latin_name=species.latin_name,
+            species_common_name=species.common_name,
+            project_accession=project.project_accession,
+            repo_stable_sample_id=f"{project.project_accession}:{sample_accession}".casefold(),
+            archive_native_sample_id=sample_accession,
+            paper_native_sample_label="",
+            supplementary_table_sample_label="",
+            preferred_sample_label=sample_accession,
+            sample_basis="archive_project_sample_accession_anchor",
+            sample_evidence_status="archive_native",
+            sample_lineage_path=f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html",
+            sample_lineage_locator=f"sample_accession:{sample_accession}",
+            sample_lineage_excerpt=(
+                "Archive metadata preserves a distinct project-owned sample accession, but "
+                "no richer sample-owned chronology row has been extracted yet."
+            ),
+            sample_identity_resolution="final",
+            sample_ambiguity_note="",
+            locality_text="",
+            political_entity="",
+            latitude_text="",
+            longitude_text="",
+            chronology_text="",
+        )
+        for sample_accession in sample_accessions
     )
 
 
@@ -940,6 +1065,178 @@ def _build_horse_nature_rows(
     return tuple(built_rows)
 
 
+def _build_goat_qinghai_rows(
+    *,
+    species: object,
+    project: object,
+    source_path: str,
+    rows: tuple[tuple[str, ...], ...],
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if len(rows) < 3:
+        return ()
+    headers = rows[1]
+    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    sample_index = header_map.get("Samples")
+    locality_index = header_map.get("Label")
+    latitude_index = header_map.get("Lat")
+    longitude_index = header_map.get("Lon")
+    chronology_index = header_map.get("14C years (BP)")
+    if sample_index is None or locality_index is None or chronology_index is None:
+        return ()
+
+    built_rows: list[AdnaProjectSampleMasterRow] = []
+    for row_number, row in enumerate(rows[2:], start=3):
+        sample_label = _cell_value(row, sample_index)
+        chronology_text = (
+            ""
+            if chronology_index is None
+            else _ensure_bp_chronology_text(
+                _clean_sample_chronology_text(_cell_value(row, chronology_index))
+            )
+        )
+        if not sample_label or not chronology_text:
+            continue
+        excerpt = " | ".join(value for value in row if value)[:300]
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=f"{project.project_accession}:{sample_label}".casefold(),
+                archive_native_sample_id="",
+                paper_native_sample_label=sample_label,
+                supplementary_table_sample_label=sample_label,
+                preferred_sample_label=sample_label,
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"Table S2!row{row_number}",
+                sample_lineage_excerpt=excerpt,
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text=_cell_value(row, locality_index),
+                political_entity="China",
+                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                chronology_text=chronology_text,
+            )
+        )
+    return tuple(built_rows)
+
+
+def _build_goat_imputation_rows(
+    *,
+    species: object,
+    project: object,
+    source_path: str,
+    rows: tuple[tuple[str, ...], ...],
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if len(rows) < 2:
+        return ()
+    headers = rows[0]
+    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    sample_index = header_map.get("Sample")
+    locality_index = header_map.get("Site")
+    country_index = header_map.get("Geographic Origin")
+    latitude_index = header_map.get("Latitude")
+    longitude_index = header_map.get("Longitude")
+    chronology_index = header_map.get("C14 range, 2σ calibrated")
+    accession_index = header_map.get("Accession")
+    if sample_index is None or locality_index is None or chronology_index is None:
+        return ()
+
+    built_rows: list[AdnaProjectSampleMasterRow] = []
+    for row_number, row in enumerate(rows[1:], start=2):
+        sample_label = _cell_value(row, sample_index)
+        chronology_text = "" if chronology_index is None else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        if not sample_label or not chronology_text:
+            continue
+        archive_accession = "" if accession_index is None else _first_accession(_cell_value(row, accession_index))
+        excerpt = " | ".join(value for value in row if value)[:300]
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=f"{project.project_accession}:{archive_accession or sample_label}".casefold(),
+                archive_native_sample_id=archive_accession,
+                paper_native_sample_label=sample_label,
+                supplementary_table_sample_label=sample_label,
+                preferred_sample_label=sample_label,
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"Table S2 downsampled samples!row{row_number}",
+                sample_lineage_excerpt=excerpt,
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text=_cell_value(row, locality_index),
+                political_entity="" if country_index is None else _cell_value(row, country_index),
+                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                chronology_text=chronology_text,
+            )
+        )
+    return tuple(built_rows)
+
+
+def _build_goat_canary_rows(
+    *,
+    species: object,
+    project: object,
+    source_path: str,
+    rows: tuple[tuple[str, ...], ...],
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if len(rows) < 3:
+        return ()
+    headers = rows[1]
+    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    sample_index = header_map.get("Sample ID")
+    library_index = header_map.get("Library ID")
+    location_index = header_map.get("Location")
+    site_index = header_map.get("Archaeological site")
+    latitude_index = header_map.get("Latitude")
+    longitude_index = header_map.get("Longitude")
+    chronology_index = header_map.get("RCD available from the same sample, stratigrafic unit or site")
+    if sample_index is None or site_index is None or chronology_index is None:
+        return ()
+
+    built_rows: list[AdnaProjectSampleMasterRow] = []
+    for row_number, row in enumerate(rows[2:], start=3):
+        sample_label = _cell_value(row, sample_index)
+        chronology_text = "" if chronology_index is None else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        if not sample_label or not chronology_text:
+            continue
+        library_label = "" if library_index is None else _cell_value(row, library_index)
+        location = "" if location_index is None else _cell_value(row, location_index).replace("_", " ")
+        excerpt = " | ".join(value for value in row if value)[:300]
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=f"{project.project_accession}:{sample_label}".casefold(),
+                archive_native_sample_id="",
+                paper_native_sample_label=sample_label,
+                supplementary_table_sample_label=library_label or sample_label,
+                preferred_sample_label=sample_label,
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"Table S2!row{row_number}",
+                sample_lineage_excerpt=excerpt,
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text=_cell_value(row, site_index),
+                political_entity=location,
+                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                chronology_text=chronology_text,
+            )
+        )
+    return tuple(built_rows)
+
+
 def _read_xlsx_member_rows(
     bundle_path: Path,
     *,
@@ -995,6 +1292,38 @@ def _read_xlsx_rows(
                     values.append(value_node.text.strip())
             rows.append(tuple(values))
     return tuple(rows)
+
+
+def _project_scope_archive_sample_accessions(
+    output_root: Path,
+    project_accession: str,
+) -> tuple[str, ...]:
+    archive_path = (
+        Path(output_root)
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "projects"
+        / project_accession
+        / "archive_metadata.html"
+    )
+    if not archive_path.is_file():
+        return ()
+    rows = archive_path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    if not rows:
+        return ()
+    header = rows[0].split("\t")
+    try:
+        sample_index = header.index("sample_accession")
+    except ValueError:
+        return ()
+    sample_accessions = {
+        fields[sample_index].strip()
+        for line in rows[1:]
+        if (fields := line.split("\t")) and len(fields) > sample_index
+        and fields[sample_index].strip()
+    }
+    return tuple(sorted(sample_accessions))
 
 
 def _build_archive_sample_accession_lookup(
@@ -1240,6 +1569,32 @@ def _clean_coordinate_text(value: str) -> str:
     if not text or text == "-" or text.upper() == "N/A":
         return ""
     return text
+
+
+def _clean_sample_chronology_text(value: str) -> str:
+    text = value.replace("–", "-").replace("\xa0", " ").strip()
+    if not text or text == "-" or text.upper() == "N/A":
+        return ""
+    text = re.sub(r"(?<=\d)\s*[-]\s*(?=\d)", "-", text)
+    text = re.sub(r"(?<=\d)[A-Za-z]+$", "", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _ensure_bp_chronology_text(value: str) -> str:
+    text = value.strip()
+    if not text:
+        return ""
+    if "BP" in text.upper():
+        return text
+    if re.fullmatch(r"\d{1,5}(?:-\d{1,5})?", text):
+        return f"{text} BP"
+    return text
+
+
+def _first_accession(value: str) -> str:
+    if not value.strip():
+        return ""
+    return value.split(";")[0].strip()
 
 
 def _cell_value(row: tuple[str, ...], index: int) -> str:
