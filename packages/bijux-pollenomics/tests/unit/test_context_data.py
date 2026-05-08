@@ -28,7 +28,7 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     normalize_sead_rows,
 )
-from bijux_pollenomics.data_downloader.shared import (
+from bijux_pollenomics.data_downloader.exports import (
     write_context_points_csv,
     write_context_points_geojson,
 )
