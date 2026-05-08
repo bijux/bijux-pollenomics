@@ -9,9 +9,13 @@
         "region_only_rows_require_finer_location_evidence"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
       ],
-      "expected_supplementary_artifacts": [],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
       "local_artifact_paths": [
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
@@ -19,7 +23,7 @@
         "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
         "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
       ],
-      "recommended_next_surface": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
     },
     {
       "project_accession": "SRS1407453",
@@ -29,9 +33,13 @@
         "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
       ],
-      "expected_supplementary_artifacts": [],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
       "local_artifact_paths": [
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
@@ -39,7 +47,7 @@
         "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
         "adna/governance/source_library/projects/SRS1407453/archive_metadata.html"
       ],
-      "recommended_next_surface": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
     },
     {
       "project_accession": "KX379528-KX379529",
@@ -49,9 +57,13 @@
         "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
       ],
-      "expected_supplementary_artifacts": [],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+      ],
       "local_artifact_paths": [
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
@@ -59,7 +71,7 @@
         "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
         "adna/governance/source_library/projects/KX379528-KX379529/archive_metadata.html"
       ],
-      "recommended_next_surface": "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html"
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf"
     },
     {
       "project_accession": "KU605068-KU605080",
@@ -69,15 +81,18 @@
         "recovered_sample_rows_still_lack_any_location_claim"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html"
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
       ],
-      "expected_supplementary_artifacts": [],
+      "expected_supplementary_artifacts": [
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+      ],
       "local_artifact_paths": [
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
         "adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html"
       ],
-      "recommended_next_surface": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html"
+      "recommended_next_surface": "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
     }
   ]
 }

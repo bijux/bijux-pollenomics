@@ -12,7 +12,7 @@
       "species_latin_name": "Bos taurus",
       "paper_doi": "10.1126/science.aav1002",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -24,7 +24,7 @@
       "species_latin_name": "Bos taurus",
       "paper_doi": "10.1038/s41586-024-08112-6",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -48,7 +48,7 @@
       "species_latin_name": "Camelus dromedarius",
       "paper_doi": "10.1111/1755-0998.12551",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -60,7 +60,7 @@
       "species_latin_name": "Capra hircus",
       "paper_doi": "10.1093/gbe/evaf181",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -84,7 +84,7 @@
       "species_latin_name": "Capra hircus",
       "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -167,7 +167,7 @@
       "species_latin_name": "Equus caballus",
       "paper_doi": "10.1126/science.aam5298",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -179,7 +179,7 @@
       "species_latin_name": "Equus caballus",
       "paper_doi": "10.1126/science.aao3297",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -250,7 +250,7 @@
       "species_latin_name": "Felis catus",
       "paper_doi": "10.1126/science.adt2642",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -286,7 +286,7 @@
       "species_latin_name": "Ovis aries",
       "paper_doi": "10.1093/gbe/evae114",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -345,7 +345,7 @@
       "species_latin_name": "Rangifer tarandus",
       "paper_doi": "10.1038/s41598-024-54296-2",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
@@ -379,7 +379,7 @@
       "species_latin_name": "Sus scrofa domesticus",
       "paper_doi": "10.1073/pnas.1901169116",
       "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "local_supplement_staged_needs_repo_ingestion",
+      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [
         "repo_supplement_copy",
         "structured_table_inventory"
