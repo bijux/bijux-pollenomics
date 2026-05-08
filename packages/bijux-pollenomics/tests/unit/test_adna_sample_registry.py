@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 import unittest
 
 from bijux_pollenomics.adna.sample_registry import build_species_curated_sample_rows
@@ -10,21 +11,42 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         rows = build_species_curated_sample_rows("horse")
 
         self.assertEqual(
-            [row.project_accession for row in rows],
-            [
-                "PRJEB10854",
-                "PRJEB19970",
-                "PRJEB22390",
-                "PRJEB31613",
-                "PRJEB44430",
-                "PRJEB56293",
-                "PRJEB7537",
-                "PRJEB9799",
-            ],
+            Counter(row.project_accession for row in rows),
+            Counter(
+                {
+                    "PRJEB10854": 1,
+                    "PRJEB19970": 14,
+                    "PRJEB22390": 42,
+                    "PRJEB31613": 244,
+                    "PRJEB44430": 248,
+                    "PRJEB56293": 1,
+                    "PRJEB7537": 1,
+                    "PRJEB9799": 1,
+                }
+            ),
         )
-        botai = next(row for row in rows if row.project_accession == "PRJEB22390")
-        self.assertEqual(botai.site_label, "Botai archaeological site horse context")
+        botai = next(
+            row
+            for row in rows
+            if row.project_accession == "PRJEB22390" and row.site_label == "Botai"
+        )
+        self.assertEqual(botai.site_label, "Botai")
         self.assertEqual(botai.inclusion_status, "site_curated")
+
+        nordic = next(
+            row for row in rows if row.project_accession == "PRJEB31613" and row.site_label == "Uppsala"
+        )
+        self.assertEqual(nordic.political_entity, "Sweden")
+        self.assertEqual(nordic.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(nordic.chronology_text, "1217-1417 BP")
+
+        ginnerup = next(
+            row for row in rows if row.project_accession == "PRJEB44430" and row.site_label == "Ginnerup"
+        )
+        self.assertEqual(ginnerup.political_entity, "Denmark")
+        self.assertEqual(ginnerup.latitude_text, "56.41134")
+        self.assertEqual(ginnerup.longitude_text, "10.74481")
+        self.assertEqual(ginnerup.chronology_text, "4961 BP")
 
     def test_species_curated_sample_rows_preserve_supplementary_path_when_archived(self) -> None:
         rows = build_species_curated_sample_rows("sheep")

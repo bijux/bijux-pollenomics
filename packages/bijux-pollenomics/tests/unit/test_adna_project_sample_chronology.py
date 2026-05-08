@@ -58,6 +58,16 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual((botai.time_start_bp, botai.time_end_bp), (5500, 5500))
         self.assertIn("aao3297_tables15.xlsx", botai.chronology_provenance_path)
 
+    def test_horse_nordic_sample_chronology_rows_publish_direct_ranges(self) -> None:
+        rows = build_project_sample_chronology_rows(self.data_root, "PRJEB31613")
+
+        uppsala = next(row for row in rows if row.preferred_sample_label == "Uppsala_Upps02_1317")
+        self.assertEqual(uppsala.chronology_strength, "sample_owned_interval")
+        self.assertEqual(uppsala.chronology_normalization_status, "normalized_interval")
+        self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
+        self.assertEqual((uppsala.time_start_bp, uppsala.time_end_bp), (1217, 1417))
+        self.assertIn("1-s2.0-S0092867419303848-mmc1.xlsx", uppsala.chronology_provenance_path)
+
     def test_chronology_review_audit_and_completeness_surfaces_stay_reader_visible(self) -> None:
         review_rows = build_project_sample_chronology_review_rows(self.data_root)
         audit = build_cross_project_sample_chronology_audit(self.data_root)
@@ -72,10 +82,10 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
-        self.assertEqual(audit["sample_row_count"], 249)
-        self.assertEqual(audit["normalized_interval_count"], 156)
-        self.assertEqual(audit["normalized_point_count"], 54)
-        self.assertEqual(audit["unresolved_count"], 26)
+        self.assertEqual(audit["sample_row_count"], 755)
+        self.assertEqual(audit["normalized_interval_count"], 256)
+        self.assertEqual(audit["normalized_point_count"], 469)
+        self.assertEqual(audit["unresolved_count"], 16)
         self.assertTrue(
             any(
                 row["project_accession"] == "KU605068-KU605080"
@@ -86,16 +96,20 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_species["normalized_row_count"], 167)
+        self.assertEqual(sheep_species["normalized_row_count"], 177)
         camel_project = next(
             row for row in project_rows if row["project_accession"] == "KU605068-KU605080"
         )
         self.assertEqual(camel_project["unresolved_count"], 13)
-        horse_project = next(
-            row for row in project_rows if row["project_accession"] == "PRJEB22390"
+        horse_species = next(
+            row for row in species_rows if row["species_latin_name"] == "Equus caballus"
         )
-        self.assertEqual(horse_project["normalized_row_count"], 42)
-        self.assertEqual(len(viewer_rows), 249)
+        self.assertEqual(horse_species["normalized_row_count"], 547)
+        horse_dom2 = next(
+            row for row in project_rows if row["project_accession"] == "PRJEB44430"
+        )
+        self.assertEqual(horse_dom2["normalized_row_count"], 248)
+        self.assertEqual(len(viewer_rows), 755)
 
     def test_conflicting_chronology_corpus_surfaces_disagreement_notes(self) -> None:
         for case in CONFLICTING_CHRONOLOGY_CASES:

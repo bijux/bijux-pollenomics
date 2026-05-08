@@ -51,6 +51,17 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertEqual(row.geocoding_method, "manual_named_place_resolution")
         self.assertIn("Wadi Halfa", row.geocoder_or_gazetteer)
 
+    def test_resolve_project_coordinate_provenance_prefers_direct_horse_coordinates(self) -> None:
+        rows = resolve_project_coordinate_provenance("PRJEB44430")
+
+        ginnerup = next(row for row in rows if row.site_label == "Ginnerup")
+        self.assertEqual(ginnerup.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(ginnerup.mapping_posture, "mappable_point")
+        self.assertEqual(ginnerup.coordinate_confidence, "exact")
+        self.assertEqual(ginnerup.latitude_text, "56.41134")
+        self.assertEqual(ginnerup.longitude_text, "10.74481")
+        self.assertEqual(ginnerup.paper_doi, "10.1038/s41586-021-04018-9")
+
     def test_build_species_coordinate_provenance_rows_preserves_requested_accession_order(
         self,
     ) -> None:

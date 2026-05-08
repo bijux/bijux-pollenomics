@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from .models import AdnaCoordinateProvenanceRecord
+from .sample_master import build_project_sample_master_rows
+from .source_library import build_project_registry
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
@@ -336,6 +340,8 @@ def resolve_project_coordinate_provenance(
     project_accession: str,
 ) -> tuple[AdnaCoordinateProvenanceRecord, ...]:
     """Return curated coordinate provenance rows for one project accession."""
+    if direct_rows := _direct_sample_coordinate_rows(project_accession):
+        return direct_rows
     return _PROJECT_COORDINATE_PROVENANCE.get(project_accession, ())
 
 
@@ -347,3 +353,85 @@ def build_species_coordinate_provenance_rows(
     for accession in project_accessions:
         rows.extend(resolve_project_coordinate_provenance(accession))
     return tuple(rows)
+
+
+def _default_data_root() -> Path:
+    return Path(__file__).resolve().parents[5] / "data"
+
+
+def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
+    project_registry = {
+        row.project_accession: row for row in build_project_registry(_default_data_root())
+    }
+    project_row = project_registry.get(project_accession)
+    if project_row is None or not project_row.primary_paper_doi:
+        return "", ""
+    doi = str(project_row.primary_paper_doi)
+    return doi, f"https://doi.org/{doi}"
+
+
+def _direct_sample_coordinate_rows(
+    project_accession: str,
+) -> tuple[AdnaCoordinateProvenanceRecord, ...]:
+    grouped: dict[tuple[str, str], list[object]] = {}
+    try:
+        sample_rows = build_project_sample_master_rows(_default_data_root(), project_accession)
+    except KeyError:
+        return ()
+    for row in sample_rows:
+        if not row.locality_text or not row.latitude_text or not row.longitude_text:
+            continue
+        key = _normalized_group_key(row.locality_text, row.political_entity)
+        grouped.setdefault(key, []).append(row)
+    if not grouped:
+        return ()
+    paper_doi, paper_url = _project_paper_lookup(project_accession)
+    records: list[AdnaCoordinateProvenanceRecord] = []
+    for rows in grouped.values():
+        first = rows[0]
+        records.append(
+            AdnaCoordinateProvenanceRecord(
+                project_accession=project_accession,
+                species_latin_name=first.species_latin_name,
+                species_common_name=first.species_common_name,
+                site_label=first.locality_text,
+                original_place_text=first.locality_text,
+                resolved_place_text=first.locality_text,
+                political_entity=first.political_entity or None,
+                source_artifact_path=first.sample_lineage_path,
+                source_locator=first.sample_lineage_locator,
+                coordinate_basis="supplementary_table_coordinates",
+                mapping_posture="mappable_point",
+                latitude_text=first.latitude_text,
+                longitude_text=first.longitude_text,
+                geocoding_method="direct_supplementary_coordinate_capture",
+                geocoder_or_gazetteer="not required because the supplementary table ships coordinates",
+                confidence_rationale=(
+                    "The published supplementary table provides direct coordinates for this locality."
+                ),
+                coordinate_confidence="exact",
+                paper_doi=paper_doi,
+                paper_url=paper_url,
+                chronology_text=first.chronology_text,
+                comparator_context=False,
+                domestication_context="domesticated_core",
+                interpretation_note=(
+                    "This locality is mapped from direct supplementary coordinates rather than a project-level geocode."
+                ),
+            )
+        )
+    records.sort(
+        key=lambda row: (
+            row.project_accession,
+            row.site_label,
+        )
+    )
+    return tuple(records)
+
+
+def _normalized_group_key(locality_text: str, political_entity: str | None) -> tuple[str, str]:
+    return (_normalize_text(locality_text), _normalize_text(political_entity or ""))
+
+
+def _normalize_text(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())

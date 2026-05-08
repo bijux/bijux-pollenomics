@@ -9,13 +9,14 @@ from bijux_pollenomics.adna.project_localities import (
 
 
 class AdnaProjectLocalityUnitTests(unittest.TestCase):
-    def test_resolve_project_locality_leads_returns_curated_botai_anchor(self) -> None:
+    def test_resolve_project_locality_leads_expand_botai_into_sample_owned_sites(self) -> None:
         rows = resolve_project_locality_leads("PRJEB22390")
 
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0].locality_text, "Botai archaeological site horse context")
-        self.assertEqual(rows[0].political_entity, "Kazakhstan")
-        self.assertEqual((rows[0].time_start_bp, rows[0].time_end_bp), (5400, 5600))
+        self.assertEqual(len(rows), 27)
+        botai = next(row for row in rows if row.locality_text == "Botai")
+        self.assertEqual(botai.political_entity, "")
+        self.assertEqual(botai.coordinate_basis, "")
+        self.assertEqual(botai.chronology_text, "5500 BP")
 
     def test_resolve_project_locality_leads_withholds_region_only_coordinates(self) -> None:
         rows = resolve_project_locality_leads("PRJEB59481")
@@ -24,6 +25,15 @@ class AdnaProjectLocalityUnitTests(unittest.TestCase):
         self.assertEqual(rows[0].coordinate_basis, "region_centroid_fallback")
         self.assertEqual(rows[0].latitude_text, "")
         self.assertEqual(rows[0].longitude_text, "")
+
+    def test_resolve_project_locality_leads_keep_direct_horse_coordinate_sites(self) -> None:
+        rows = resolve_project_locality_leads("PRJEB31613")
+
+        uppsala = next(row for row in rows if row.locality_text == "Uppsala")
+        self.assertEqual(uppsala.political_entity, "Sweden")
+        self.assertEqual(uppsala.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(uppsala.latitude_text, "59.860999999999997")
+        self.assertEqual(uppsala.longitude_text, "17.638999999999999")
 
     def test_build_species_project_locality_leads_keeps_requested_accession_order(self) -> None:
         rows = build_species_project_locality_leads(
