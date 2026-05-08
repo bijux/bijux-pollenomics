@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
 
 # Proof and Limits
@@ -16,6 +16,8 @@ refuses stronger claims.
 
 - [test strategy](test-strategy.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
+- [animal output honesty](../../report/animal_output_honesty.md)
+- [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
 - [animal output audit](../../report/animal_output_audit.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
