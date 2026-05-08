@@ -43,3 +43,8 @@ flowchart LR
 - `packages/bijux-pollenomics/src/bijux_pollenomics/adna/`
 - `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/`
 - `packages/bijux-pollenomics/tests/`
+
+## Expanded Pages
+
+- [runtime system model](runtime-system-model.md)
+- [module map](module-map.md)

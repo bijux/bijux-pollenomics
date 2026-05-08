@@ -28,6 +28,7 @@ presentation without accountable evidence publication.
 
 - [repository fit](repository-fit.md)
 - [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
+- [runtime scope and ownership](runtime-scope-and-ownership.md)
 
 ## Ownership Boundary
 

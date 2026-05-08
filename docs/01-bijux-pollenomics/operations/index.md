@@ -15,5 +15,8 @@ environment, run the CLI, and verify that tracked outputs still match the code.
 ## Start Here
 
 - [installation and setup](installation-and-setup.md)
+- [common workflows](common-workflows.md)
+- [failure recovery](failure-recovery.md)
+- [operational boundaries](operational-boundaries.md)
 - [CLI surface](../interfaces/cli-surface.md)
 - [test strategy](../quality/test-strategy.md)

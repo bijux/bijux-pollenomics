@@ -15,6 +15,9 @@ refuses stronger claims.
 ## Start Here
 
 - [test strategy](test-strategy.md)
+- [change validation](change-validation.md)
+- [review checklist](review-checklist.md)
+- [runtime invariants and limits](runtime-invariants-and-limits.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
 - [animal output honesty](../../report/animal_output_honesty.md)
 - [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)

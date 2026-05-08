@@ -18,7 +18,9 @@ views.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="interfaces/cli-surface/">Open the CLI surface</a>
+  <a class="md-button" href="interfaces/entrypoints-and-examples/">Open command entrypoints</a>
   <a class="md-button" href="interfaces/artifact-contracts/">Open the artifact contracts</a>
+  <a class="md-button" href="operations/common-workflows/">Open common workflows</a>
   <a class="md-button" href="operations/installation-and-setup/">Open the install and rebuild path</a>
   <a class="md-button" href="quality/test-strategy/">Open test strategy</a>
 </div>
@@ -53,6 +55,19 @@ publication surface is rebuilt. It is not an internal catalog of helpers.
   [operations](operations/index.md)
 - how proof is layered and where current limits still sit:
   [quality](quality/index.md)
+
+## Breadth Restored
+
+- [runtime system model](architecture/runtime-system-model.md): execution path,
+  dependency direction, persistence, and failure boundaries
+- [runtime scope and ownership](foundation/runtime-scope-and-ownership.md):
+  capability map, ownership boundary, lifecycle, and change principles
+- [entrypoints and examples](interfaces/entrypoints-and-examples.md): installed
+  command paths for verification, data refresh, and report publication
+- [common workflows](operations/common-workflows.md): fresh checkout, data
+  refresh, publication review, and full local rebuild
+- [change validation](quality/change-validation.md): proof layers and the docs
+  breadth rule
 
 ## What This Package Owns
 
