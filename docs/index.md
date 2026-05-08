@@ -76,7 +76,7 @@ flowchart TB
 ## What The Repository Publishes
 
 - tracked source trees for pollen, environmental archaeology, boundaries, and
-  ancient DNA under [`data/`](../data/README.md)
+  ancient DNA under `data/`
 - one shared atlas view under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
 - checked country bundles under [`docs/report/`](report/published_reports_summary.json)
 - reader-facing data-system pages that explain the source families rather than
