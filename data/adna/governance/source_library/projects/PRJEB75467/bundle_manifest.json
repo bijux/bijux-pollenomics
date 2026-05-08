@@ -10,13 +10,21 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM1_ESM.pdf",
+    "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM2_ESM.pdf",
+    "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM3_ESM.xlsx",
+    "10.1038-s41586-024-08112-6:41586_2024_8112_MOESM4_ESM.pdf",
     "10.1038-s41586-024-08112-6:article.html",
     "10.1038-s41586-024-08112-6:crossref.json",
     "PRJEB75467:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+    "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM4_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html",
     "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/crossref.json",
     "adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
