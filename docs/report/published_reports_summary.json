@@ -7,19 +7,19 @@
     "Finland",
     "Denmark"
   ],
-  "shared_map_dir": "docs/report/nordic-atlas",
+  "shared_map_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
   "country_output_dirs": [
-    "docs/report/sweden",
-    "docs/report/norway",
-    "docs/report/finland",
-    "docs/report/denmark"
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark"
   ],
-  "summary_path": "docs/report/published_reports_summary.json",
+  "summary_path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/published_reports_summary.json",
   "schema_version": "published-reports-summary.v1",
   "artifacts": {
     "shared_bundle": {
       "slug": "nordic-atlas",
-      "directory": "docs/report/nordic-atlas",
+      "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
       "bundle_manifest": "nordic-atlas_bundle.json",
       "summary_json": "nordic-atlas_summary.json"
     },
@@ -28,6 +28,8 @@
     "public_animal_reporting": {
       "animal_country_species_coverage_json": "animal_country_species_coverage.json",
       "animal_country_species_coverage_markdown": "animal_country_species_coverage.md",
+      "animal_output_honesty_json": "animal_output_honesty.json",
+      "animal_output_honesty_markdown": "animal_output_honesty.md",
       "animal_human_chronology_overlap_json": "animal_human_chronology_overlap.json",
       "animal_human_chronology_overlap_markdown": "animal_human_chronology_overlap.md",
       "animal_pollen_chronology_overlap_json": "animal_pollen_chronology_overlap.json",
@@ -36,6 +38,8 @@
       "animal_first_appearance_by_country_markdown": "animal_first_appearance_by_country.md",
       "animal_atlas_readiness_json": "animal_atlas_readiness.json",
       "animal_atlas_readiness_markdown": "animal_atlas_readiness.md",
+      "animal_atlas_exclusion_report_json": "animal_atlas_exclusion_report.json",
+      "animal_atlas_exclusion_report_markdown": "animal_atlas_exclusion_report.md",
       "nordic_farming_history_scenario_json": "nordic_farming_history_scenario.json",
       "nordic_farming_history_scenario_markdown": "nordic_farming_history_scenario.md",
       "animal_foundation_validation_json": "animal_foundation_validation.json",
@@ -61,6 +65,9 @@
       "repository_truth_posture_json": "repository_truth_posture.json",
       "repository_recovery_scorecard_json": "repository_recovery_scorecard.json",
       "repository_source_family_matrix_json": "repository_source_family_matrix.json",
+      "repository_source_explainer_audit_json": "repository_source_explainer_audit.json",
+      "repository_atlas_input_audit_json": "repository_atlas_input_audit.json",
+      "repository_cross_domain_evidence_matrix_json": "repository_cross_domain_evidence_matrix.json",
       "repository_source_acquisition_queue_json": "repository_source_acquisition_queue.json",
       "repository_governance_artifact_review_json": "repository_governance_artifact_review.json",
       "repository_claim_audit_json": "repository_claim_audit.json",
@@ -68,6 +75,9 @@
       "repository_truth_posture_markdown": "repository_truth_posture.md",
       "repository_recovery_scorecard_markdown": "repository_recovery_scorecard.md",
       "repository_source_family_matrix_markdown": "repository_source_family_matrix.md",
+      "repository_source_explainer_audit_markdown": "repository_source_explainer_audit.md",
+      "repository_atlas_input_audit_markdown": "repository_atlas_input_audit.md",
+      "repository_cross_domain_evidence_matrix_markdown": "repository_cross_domain_evidence_matrix.md",
       "repository_source_acquisition_queue_markdown": "repository_source_acquisition_queue.md",
       "repository_governance_artifact_review_markdown": "repository_governance_artifact_review.md",
       "repository_claim_audit_markdown": "repository_claim_audit.md",
@@ -75,22 +85,22 @@
     },
     "country_bundles": {
       "sweden": {
-        "directory": "docs/report/sweden",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/sweden",
         "bundle_manifest": "sweden_aadr_v66_bundle.json",
         "summary_json": "sweden_aadr_v66_summary.json"
       },
       "norway": {
-        "directory": "docs/report/norway",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/norway",
         "bundle_manifest": "norway_aadr_v66_bundle.json",
         "summary_json": "norway_aadr_v66_summary.json"
       },
       "finland": {
-        "directory": "docs/report/finland",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/finland",
         "bundle_manifest": "finland_aadr_v66_bundle.json",
         "summary_json": "finland_aadr_v66_summary.json"
       },
       "denmark": {
-        "directory": "docs/report/denmark",
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/docs/report/denmark",
         "bundle_manifest": "denmark_aadr_v66_bundle.json",
         "summary_json": "denmark_aadr_v66_summary.json"
       }

@@ -1,8 +1,15 @@
 # Animal output audit
 
-- Report root: `docs/report`
+- Report root: `/Users/bijan/bijux/bijux-pollenomics/docs/report`
 - Atlas bundle present: `true`
 - Country bundle count: `4`
+- Point candidate count: `234`
+- Candidate rows with full traceability: `233`
+- Tracked sample rows: `894`
+- Mapped sample rows: `555`
+- Blocked sample rows: `339`
+- Unresolved sample rows: `21`
+- Country-published sample rows: `3`
 
 ## Species output counts
 
@@ -19,4 +26,4 @@
 | Rangifer tarandus | 2 | 0 | true | 1 |
 | Equus asinus | 2 | 0 | true | 0 |
 
-The current public report tree now ships `248` mapped non-human animal atlas layer rows and `2` country-resolved animal output hits across the species table above.
+The current public report tree ships `248` mapped non-human animal atlas layer rows and `2` country-resolved animal output hits across the species table above. Those counts still need to be read beside blocked and unresolved sample totals rather than as a standalone readiness claim.
