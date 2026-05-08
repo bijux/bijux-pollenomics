@@ -61,11 +61,11 @@ def publish_animal_foundation_outputs(
         report_root=output_root,
     )
     caveat_payload = build_animal_scientific_caveat_ledger(data_root)
-    point_payload = build_animal_point_support_packets(
+    point_payload = build_animal_point_evidence_review(
         data_root=data_root,
         report_root=output_root,
     )
-    absence_payload = build_animal_project_absence_packets(
+    absence_payload = build_animal_project_publication_gap_review(
         data_root=data_root,
         report_root=output_root,
     )
@@ -107,13 +107,13 @@ def publish_animal_foundation_outputs(
             caveat_payload,
             render_animal_scientific_caveat_ledger_markdown(caveat_payload),
         ),
-        "animal_point_support_packets": (
+        "animal_point_evidence_review": (
             point_payload,
-            render_animal_point_support_packets_markdown(point_payload),
+            render_animal_point_evidence_review_markdown(point_payload),
         ),
-        "animal_project_absence_packets": (
+        "animal_project_publication_gap_review": (
             absence_payload,
-            render_animal_project_absence_packets_markdown(absence_payload),
+            render_animal_project_publication_gap_review_markdown(absence_payload),
         ),
         "animal_foundation_review": (
             review_payload,
@@ -443,7 +443,7 @@ def build_animal_scientific_caveat_ledger(data_root: Path) -> dict[str, object]:
     }
 
 
-def build_animal_point_support_packets(
+def build_animal_point_evidence_review(
     *,
     data_root: Path,
     report_root: Path,
@@ -488,13 +488,13 @@ def build_animal_point_support_packets(
         )
     packets.sort(key=lambda row: str(row["feature_id"]))
     return {
-        "schema_version": "animal-point-support-packets.v1",
+        "schema_version": "animal-point-evidence-review.v1",
         "row_count": len(packets),
         "rows": packets,
     }
 
 
-def build_animal_project_absence_packets(
+def build_animal_project_publication_gap_review(
     *,
     data_root: Path,
     report_root: Path,
@@ -541,7 +541,7 @@ def build_animal_project_absence_packets(
         )
     rows.sort(key=lambda row: (str(row["species_latin_name"]), str(row["project_accession"])))
     return {
-        "schema_version": "animal-project-absence-packets.v1",
+        "schema_version": "animal-project-publication-gap-review.v1",
         "source_audit": source_audit,
         "row_count": len(rows),
         "rows": rows,
@@ -713,7 +713,7 @@ def build_animal_sample_database_review(
         "chronology_precision_audit": "data/adna/governance/source_library/sample_chronology_precision_audit.json",
         "date_evidence_gap_queue": "data/adna/governance/source_library/date_evidence_gap_queue.json",
         "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
-        "point_support_packets": "docs/report/animal_point_support_packets.md",
+        "point_evidence_review": "docs/report/animal_point_evidence_review.md",
         "atlas_evidence_rows": "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
         "atlas_map": "docs/report/nordic-atlas/nordic-atlas_map.html",
         "country_output_summary": "docs/report/published_reports_summary.json",
@@ -1096,9 +1096,9 @@ def render_animal_scientific_caveat_ledger_markdown(payload: dict[str, object]) 
     )
 
 
-def render_animal_point_support_packets_markdown(payload: dict[str, object]) -> str:
+def render_animal_point_evidence_review_markdown(payload: dict[str, object]) -> str:
     lines = [
-        "# Animal point support packets",
+        "# Animal point evidence review",
         "",
         f"- Published point count: `{payload['row_count']}`",
         "",
@@ -1120,9 +1120,11 @@ def render_animal_point_support_packets_markdown(payload: dict[str, object]) -> 
     return "\n".join(lines) + "\n"
 
 
-def render_animal_project_absence_packets_markdown(payload: dict[str, object]) -> str:
+def render_animal_project_publication_gap_review_markdown(
+    payload: dict[str, object]
+) -> str:
     lines = [
-        "# Animal project absence packets",
+        "# Animal project publication gap review",
         "",
         f"- Non-published project count: `{payload['row_count']}`",
         "",

@@ -1,4 +1,4 @@
-# Animal project absence packets
+# Animal project publication gap review
 
 - Non-published project count: `34`
 

@@ -11,8 +11,8 @@ from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_sample_database_review,
     build_animal_sample_chronology_review,
     build_animal_foundation_validation_report,
-    build_animal_point_support_packets,
-    build_animal_project_absence_packets,
+    build_animal_point_evidence_review,
+    build_animal_project_publication_gap_review,
     build_animal_publication_release_gate,
     build_animal_scientific_caveat_ledger,
     publish_animal_foundation_outputs,
@@ -71,28 +71,31 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertGreater(payload["summary"]["uncertain_site_assignment_count"], 0)
         self.assertGreater(payload["summary"]["region_only_geography_count"], 0)
 
-    def test_point_support_packets_keep_sample_site_and_coordinate_support_together(
+    def test_point_evidence_review_keeps_sample_site_and_coordinate_support_together(
         self,
     ) -> None:
-        payload = build_animal_point_support_packets(
+        payload = build_animal_point_evidence_review(
             data_root=self.data_root,
             report_root=self.report_root,
         )
 
-        self.assertEqual(payload["schema_version"], "animal-point-support-packets.v1")
+        self.assertEqual(payload["schema_version"], "animal-point-evidence-review.v1")
         self.assertEqual(payload["row_count"], 234)
         first_row = payload["rows"][0]
         self.assertTrue(first_row["sample_rows"])
         self.assertTrue(first_row["site_evidence"])
         self.assertTrue(first_row["coordinate_provenance"])
 
-    def test_project_absence_packets_explain_non_published_projects(self) -> None:
-        payload = build_animal_project_absence_packets(
+    def test_project_publication_gap_review_explains_non_published_projects(self) -> None:
+        payload = build_animal_project_publication_gap_review(
             data_root=self.data_root,
             report_root=self.report_root,
         )
 
-        self.assertEqual(payload["schema_version"], "animal-project-absence-packets.v1")
+        self.assertEqual(
+            payload["schema_version"],
+            "animal-project-publication-gap-review.v1",
+        )
         self.assertGreater(payload["row_count"], 0)
         self.assertTrue(
             any(
@@ -125,7 +128,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
 
     def test_sample_database_review_packet_proves_sample_owned_public_posture(self) -> None:
-        point_payload = build_animal_point_support_packets(
+        point_payload = build_animal_point_evidence_review(
             data_root=self.data_root,
             report_root=self.report_root,
         )
@@ -171,11 +174,11 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             report_root=self.report_root,
         )
         caveat_payload = build_animal_scientific_caveat_ledger(self.data_root)
-        point_payload = build_animal_point_support_packets(
+        point_payload = build_animal_point_evidence_review(
             data_root=self.data_root,
             report_root=self.report_root,
         )
-        absence_payload = build_animal_project_absence_packets(
+        absence_payload = build_animal_project_publication_gap_review(
             data_root=self.data_root,
             report_root=self.report_root,
         )
