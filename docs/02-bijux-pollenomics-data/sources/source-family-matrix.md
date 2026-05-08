@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Source Family Matrix
@@ -16,6 +16,9 @@ recovery pressure still sits.
 
 ## Reader Anchors
 
+- `data/source_family_contracts.json`
+- `data/source_family_evidence_stage_matrix.json`
+- `data/source_fact_ownership_registry.json`
 - [`docs/report/repository_source_family_matrix.json`](../../report/repository_source_family_matrix.json)
 - [`docs/report/repository_source_family_matrix.md`](../../report/repository_source_family_matrix.md)
 - [`docs/report/repository_cross_domain_evidence_matrix.json`](../../report/repository_cross_domain_evidence_matrix.json)
@@ -29,6 +32,7 @@ recovery pressure still sits.
 ## What This Surface Answers
 
 - Which source families are primary pollenomics evidence and which are context
+- Which raw, normalized, review, and publication stage is governing each family
 - Which tracked family still has the strongest acquisition backlog
 - Whether the repository is undercounting a source family in `data/collection_summary.json`
 - Whether the docs still explain each non-aDNA family in durable form
@@ -45,3 +49,7 @@ stash is materially ahead of its repo-owned capture.
 Use the [cross-domain evidence matrix](../overview/cross-domain-evidence-matrix.md)
 when the real question is whether the repository is balanced by evidence depth
 rather than by file presence.
+
+Use the [data architecture handbook](../overview/data-architecture-handbook.md)
+when the real question is where one fact should live rather than how broad one
+source family is.

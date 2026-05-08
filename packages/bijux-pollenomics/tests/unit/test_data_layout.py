@@ -50,6 +50,10 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("│   │       │   └── aadr -> ../../../../aadr", readme)
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
+        self.assertIn("source_family_contracts.json", readme)
+        self.assertIn("source_family_evidence_stage_matrix.json", readme)
+        self.assertIn("source_fact_ownership_registry.json", readme)
+        self.assertIn("evidence_artifact_contracts.json", readme)
         self.assertIn("`Homo sapiens` ancient DNA is governed under", readme)
         self.assertIn("`adna/species/equus_caballus/`", readme)
         self.assertIn("`adna/species/bos_taurus/`", readme)
@@ -57,6 +61,10 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("`adna/species/camelus_dromedarius/`", readme)
         self.assertIn("`adna/species/rangifer_tarandus/`", readme)
         self.assertIn("`adna/governance/source_library/project_registry.json`", readme)
+        self.assertIn("`adna/governance/surface_role_registry.json`", readme)
+        self.assertIn(
+            "`adna/governance/source_library/project_surface_contract.json`", readme
+        )
         self.assertIn("`adna/final/`", readme)
         self.assertIn(
             "[`docs/02-bijux-pollenomics-data/sources/index.md`]"

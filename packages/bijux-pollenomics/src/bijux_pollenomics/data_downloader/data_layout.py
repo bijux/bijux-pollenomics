@@ -67,6 +67,14 @@ Detailed acquisition commands, source explanations, and storage rationale are do
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
+The data root also ships contract surfaces that explain ownership instead of
+forcing readers to infer it from directory names alone:
+
+- `source_family_contracts.json`
+- `source_family_evidence_stage_matrix.json`
+- `source_fact_ownership_registry.json`
+- `evidence_artifact_contracts.json`
+
 `Homo sapiens` ancient DNA is governed under `adna/species/homo_sapiens/`, while the
 domesticated-animal curation program owns species roots such as
 `adna/species/equus_caballus/`, `adna/species/sus_scrofa_domesticus/`,
@@ -80,6 +88,9 @@ registries live under `adna/governance/`, including
 `adna/governance/cross_species_bibliography.json`,
 `adna/governance/source_library/project_registry.json`, and
 `adna/governance/animal_sample_foundation_truth.json`.
+The role split inside that tree is made explicit in
+`adna/governance/surface_role_registry.json`, and the shared per-project file
+contract lives in `adna/governance/source_library/project_surface_contract.json`.
 Shared atlas-ready and country-ready downstream data products live under
 `adna/final/`.
 """

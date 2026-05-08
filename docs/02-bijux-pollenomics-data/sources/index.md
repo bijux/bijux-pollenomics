@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Sources
@@ -34,6 +34,7 @@ but they should not be described as if they all answer the same question.
 - [Shared normalization](shared-normalization.md) for the cross-family output contract
 - [Animal source intake](animal-source-intake.md) for project, paper, supplement, and sample-recovery status
 - [Non-aDNA explainer recovery](non-adna-explainer-recovery.md) for the restored contextual-docs ledger
+- [Data architecture handbook](../overview/data-architecture-handbook.md) for the cross-family stage model
 
 ## Direct Files
 
@@ -41,6 +42,9 @@ but they should not be described as if they all answer the same question.
 - `data/adna/governance/source_library/paper_registry.json`
 - `data/adna/governance/source_library/supplement_registry.json`
 - `data/adna/governance/source_library/project_source_evidence_matrix.json`
+- `data/source_family_contracts.json`
+- `data/source_family_evidence_stage_matrix.json`
+- `data/source_fact_ownership_registry.json`
 - [`docs/report/repository_source_family_matrix.json`](../../report/repository_source_family_matrix.json)
 
 ## What This Section Should Make Clear

@@ -80,6 +80,7 @@ nav:
       - Data Reference: 02-bijux-pollenomics-data/index.md
       - Overview: 02-bijux-pollenomics-data/overview/index.md
       - Data System Overview: 02-bijux-pollenomics-data/overview/data-system-overview.md
+      - Data Architecture Handbook: 02-bijux-pollenomics-data/overview/data-architecture-handbook.md
       - Pollenomics Publication Model: 02-bijux-pollenomics-data/overview/pollenomics-publication-model.md
       - Cross-Domain Evidence Matrix: 02-bijux-pollenomics-data/overview/cross-domain-evidence-matrix.md
       - Animal Ancient DNA Evidence: 02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence.md

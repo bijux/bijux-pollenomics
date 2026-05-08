@@ -48,6 +48,10 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
 
         self.assertIn("public guide to the repository's evidence", data_index)
         self.assertIn("[Overview](overview/index.md)", data_index)
+        self.assertIn(
+            "[Data architecture handbook](overview/data-architecture-handbook.md)",
+            data_index,
+        )
         self.assertIn("[Sources](sources/index.md)", data_index)
         self.assertIn("[Evidence](evidence/index.md)", data_index)
         self.assertIn("[Outputs](outputs/index.md)", data_index)
@@ -66,6 +70,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("pollenomics-publication-model.md", overview_index)
+        self.assertIn("data-architecture-handbook.md", overview_index)
         self.assertIn("cross-domain-evidence-matrix.md", overview_index)
         self.assertIn("refresh-policy.md", source_index)
         self.assertIn("shared-normalization.md", source_index)

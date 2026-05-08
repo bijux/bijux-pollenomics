@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Published Reports
@@ -31,6 +31,8 @@ site, chronology, and coordinate rules are applied?
 - [repository source family matrix](../../report/repository_source_family_matrix.md)
 - [repository source acquisition queue](../../report/repository_source_acquisition_queue.md)
 - [published reports summary](../../report/published_reports_summary.json)
+- `data/evidence_artifact_contracts.json`
+- `data/source_fact_ownership_registry.json`
 
 ## What Country Bundles Are Good For
 
@@ -53,3 +55,8 @@ Country bundles are not a replacement for the tracked evidence tables. They are
 reader-facing summaries derived from them. The current country sample tables and
 summary JSON files now keep exact sample, site, chronology, and coordinate
 evidence locators for every published animal row.
+
+The governing file contract for those bundle families is published in
+`data/evidence_artifact_contracts.json`, and the owning-truth registry that
+distinguishes bundle views from governing sample and site surfaces is published
+in `data/source_fact_ownership_registry.json`.
