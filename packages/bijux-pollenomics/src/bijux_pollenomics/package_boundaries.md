@@ -4,86 +4,97 @@
 surfaces derived from it. The package is organized around durable evidence
 responsibilities instead of temporary delivery steps.
 
-## Project Intake
+## Runtime Command Surface
 
-Project intake decides which archive accessions enter the repository, which
-paper DOI anchors each project, and which source-library bundles must exist
-before deeper extraction begins.
+The command surface turns CLI arguments into one owned runtime action. It is
+the only layer that should know how operator intent maps onto collection,
+normalization, review, or publication entrypoints.
 
 Primary modules:
 
+- `bijux_pollenomics.command_line.parsing`
+- `bijux_pollenomics.command_line.runtime`
+
+## Source Collection And Intake
+
+Source collection and intake admit external source-family data into tracked
+repository state. This includes general context sources and the intake helpers
+that decode source-owned workbook structure.
+
+Primary modules:
+
+- `bijux_pollenomics.data_downloader.pipeline`
+- `bijux_pollenomics.data_downloader.sources`
+- `bijux_pollenomics.data_downloader.intake`
+- `bijux_pollenomics.data_downloader.exports`
 - `bijux_pollenomics.adna.source_library`
 - `bijux_pollenomics.adna.ena`
 
-## Paper Capture
+## Evidence Normalization
 
-Paper capture preserves the citation layer that explains why a project, site,
-or chronology claim exists in the first place.
-
-Primary modules:
-
-- `bijux_pollenomics.adna.source_library`
-- `bijux_pollenomics.evidence`
-
-## Supplement Capture
-
-Supplement capture archives the project-owned tables, PDFs, and member files
-that are later mined into sample-owned rows.
-
-Primary modules:
-
-- `bijux_pollenomics.adna.source_library`
-- `bijux_pollenomics.adna.pdf`
-
-## Sample Extraction
-
-Sample extraction converts archive-native and supplement-native identifiers into
-stable repository sample rows with explicit lineage back to the project and
-paper surfaces.
+Evidence normalization turns admitted source material into species-aware sample,
+site, chronology, and coordinate surfaces that the repository can review and
+publish honestly.
 
 Primary modules:
 
 - `bijux_pollenomics.adna.sample_master`
 - `bijux_pollenomics.adna.sample_truth`
-
-## Site Extraction
-
-Site extraction decides whether a sample owns a named locality, remains
-project-level only, or must stay unresolved and blocked from exact geography.
-
-Primary modules:
-
 - `bijux_pollenomics.adna.project_sample_sites`
-- `bijux_pollenomics.adna.catalogs`
-
-## Chronology Normalization
-
-Chronology normalization keeps sample-owned dating claims visible, classifies
-their strength, and blocks unresolved or conflicting rows from publication.
-
-Primary modules:
-
 - `bijux_pollenomics.adna.project_sample_chronology`
-- `bijux_pollenomics.adna.normalization`
-
-## Coordinate Provenance
-
-Coordinate provenance records whether a published point came from direct
-coordinates, geocoding, broader projection logic, or a decision not to map the
-row.
-
-Primary modules:
-
+- `bijux_pollenomics.adna.project_sample_locality_evidence`
 - `bijux_pollenomics.adna.coordinate_provenance`
+- `bijux_pollenomics.adna.normalization`
 - `bijux_pollenomics.adna.catalogs`
 
-## Output Publishing
+## Evidence Review
 
-Output publishing turns the checked-in sample database into country bundles,
-atlas evidence tables, review packets, and release gates without erasing the
-underlying evidence posture.
+Evidence review classifies what the repository can claim, what remains blocked,
+and which review packets or ranking surfaces must exist before publication.
 
 Primary modules:
 
-- `bijux_pollenomics.reporting`
+- `bijux_pollenomics.adna.reviews`
+- `bijux_pollenomics.evidence`
+- `bijux_pollenomics.analysis.review`
 - `bijux_pollenomics.foundation`
+
+## Publication Assembly
+
+Publication assembly turns checked-in evidence into atlas bundles, country
+bundles, and scope-filtered output payloads without erasing the upstream
+evidence posture.
+
+Primary modules:
+
+- `bijux_pollenomics.reporting.adna`
+- `bijux_pollenomics.reporting.bundles`
+- `bijux_pollenomics.reporting.context`
+
+## Public Artifact Writing
+
+Public artifact writing formats and writes the governed report tree under
+`docs/report/`.
+
+Primary modules:
+
+- `bijux_pollenomics.reporting.presentation`
+- `bijux_pollenomics.reporting.rendering`
+- `bijux_pollenomics.reporting.map_document`
+- `bijux_pollenomics.reporting.review`
+
+## Package Split
+
+The repository keeps three distributions for three audiences:
+
+- `bijux_pollenomics` is the canonical runtime and scientific owner
+- `bijux_pollenomics_dev` is maintainer tooling and must not absorb runtime
+  scientific logic
+- `pollenomics` is a compatibility alias and must not drift into an
+  independent runtime
+
+## Cross-Tree Contract
+
+- `data/` holds tracked source, normalized, and reviewed evidence surfaces
+- `docs/report/` holds governed public artifacts and review packets
+- `docs/` explains those surfaces but does not replace them
