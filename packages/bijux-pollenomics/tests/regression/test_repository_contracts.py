@@ -68,6 +68,17 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 f"data/README.md points at a missing docs page: {target}",
             )
 
+    def test_data_root_ships_contract_and_state_surfaces(self) -> None:
+        data_root = REPO_ROOT / "data"
+
+        self.assertTrue((data_root / "collection_summary.json").is_file())
+        self.assertTrue((data_root / "source_family_contracts.json").is_file())
+        self.assertTrue(
+            (data_root / "source_family_evidence_stage_matrix.json").is_file()
+        )
+        self.assertTrue((data_root / "source_fact_ownership_registry.json").is_file())
+        self.assertTrue((data_root / "evidence_artifact_contracts.json").is_file())
+
     def test_tracked_adna_root_ships_cross_species_audit_artifacts(self) -> None:
         adna_root = REPO_ROOT / "data" / "adna"
         governance_root = adna_root / "governance"
@@ -98,7 +109,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "coordinate_caveat_surface.md").is_file())
         self.assertTrue((governance_root / "coordinate_confidence_scale.md").is_file())
         self.assertTrue((governance_root / "shipped_product_audit.json").is_file())
+        self.assertTrue((governance_root / "surface_role_registry.json").is_file())
+        self.assertTrue((governance_root / "surface_role_registry.md").is_file())
         self.assertTrue((governance_root / "source_library" / "project_registry.json").is_file())
+        self.assertTrue(
+            (governance_root / "source_library" / "project_surface_contract.json").is_file()
+        )
         self.assertTrue((governance_root / "source_library" / "paper_registry.json").is_file())
         self.assertTrue((governance_root / "source_library" / "supplement_registry.json").is_file())
         self.assertTrue((governance_root / "source_library" / "supplement_zip_member_registry.json").is_file())

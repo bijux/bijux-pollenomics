@@ -1,0 +1,180 @@
+{
+  "schema_version": "source-fact-ownership-registry.v1",
+  "row_count": 16,
+  "rows": [
+    {
+      "fact_key": "human_archive_program_identity",
+      "display_name": "Human ancient-DNA source program identity",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/aadr",
+      "supporting_surface_paths": [
+        "data/adna/species/homo_sapiens/raw/aadr",
+        "data/collection_summary.json"
+      ],
+      "reason": "The governed AADR snapshot is the root identity for human archive provenance."
+    },
+    {
+      "fact_key": "animal_project_inventory",
+      "display_name": "Animal ancient-DNA project inventory",
+      "evidence_scope": "project",
+      "governing_surface_path": "data/adna/governance/source_library/project_registry.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/source_library/tracked_project_and_paper_inventory.json",
+        "data/adna/governance/source_library/projects/<project_accession>/bundle_manifest.json"
+      ],
+      "reason": "Cross-project project registry rows govern whether one archive project is tracked at all."
+    },
+    {
+      "fact_key": "animal_paper_inventory",
+      "display_name": "Animal ancient-DNA paper inventory",
+      "evidence_scope": "paper",
+      "governing_surface_path": "data/adna/governance/source_library/paper_registry.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/source_library/tracked_project_and_paper_inventory.json",
+        "data/adna/governance/source_library/papers/<paper_doi_slug>/supplementary_manifest.json"
+      ],
+      "reason": "Paper registry rows govern which publication surfaces anchor the animal source program."
+    },
+    {
+      "fact_key": "animal_sample_identity",
+      "display_name": "Animal sample identity",
+      "evidence_scope": "sample",
+      "governing_surface_path": "data/adna/governance/source_library/projects/<project_accession>/sample_master.json",
+      "supporting_surface_paths": [
+        "data/adna/species/<latin_name>/normalized/sample_records.json",
+        "data/adna/governance/source_library/project_sample_master_completeness.json"
+      ],
+      "reason": "Per-project sample masters govern the stable sample row before cross-species normalization rolls it up."
+    },
+    {
+      "fact_key": "animal_sample_site_linkage",
+      "display_name": "Animal sample-to-site linkage",
+      "evidence_scope": "site",
+      "governing_surface_path": "data/adna/governance/source_library/projects/<project_accession>/sample_sites.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/source_library/project_sample_site_review.json",
+        "data/adna/species/<latin_name>/normalized/site_evidence.json"
+      ],
+      "reason": "Per-project sample-site tables govern the stable site attachment for one sample lineage."
+    },
+    {
+      "fact_key": "animal_sample_locality_claims",
+      "display_name": "Animal locality evidence claims",
+      "evidence_scope": "sample",
+      "governing_surface_path": "data/adna/governance/source_library/projects/<project_accession>/sample_locality_evidence.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/source_library/locality_worksheet.json",
+        "data/adna/governance/source_library/sample_locality_conflict_ledger.json",
+        "data/adna/species/<latin_name>/normalized/locality_summaries.json"
+      ],
+      "reason": "Locality evidence packets govern locality provenance before species normalization and atlas publication."
+    },
+    {
+      "fact_key": "animal_sample_chronology_claims",
+      "display_name": "Animal chronology evidence claims",
+      "evidence_scope": "sample",
+      "governing_surface_path": "data/adna/governance/source_library/projects/<project_accession>/sample_chronology_evidence.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/source_library/project_sample_chronology_review.json",
+        "data/adna/species/<latin_name>/normalized/sample_records.json"
+      ],
+      "reason": "Chronology evidence packets govern temporal support before downstream species and atlas surfaces reuse it."
+    },
+    {
+      "fact_key": "animal_species_normalized_records",
+      "display_name": "Animal species normalized records",
+      "evidence_scope": "species",
+      "governing_surface_path": "data/adna/species/<latin_name>/normalized/sample_records.json",
+      "supporting_surface_paths": [
+        "data/adna/species/<latin_name>/normalized/site_evidence.json",
+        "data/adna/species/<latin_name>/normalized/project_summaries.json"
+      ],
+      "reason": "Species-owned normalized sample records are the governing cross-project merge surface for one taxon."
+    },
+    {
+      "fact_key": "animal_foundation_truth",
+      "display_name": "Animal sample foundation truth",
+      "evidence_scope": "cross_species_review",
+      "governing_surface_path": "data/adna/governance/animal_sample_foundation_truth.json",
+      "supporting_surface_paths": [
+        "data/adna/governance/animal_sample_product_contract.json",
+        "data/adna/governance/cross_species_map_readiness.json"
+      ],
+      "reason": "Foundation truth governs whether the repository can claim sample-backed animal coverage with a straight face."
+    },
+    {
+      "fact_key": "animal_atlas_candidates",
+      "display_name": "Animal atlas publication candidates",
+      "evidence_scope": "region",
+      "governing_surface_path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "supporting_surface_paths": [
+        "docs/report/animal_output_honesty_review.json",
+        "docs/report/nordic-atlas/animal_points.geojson"
+      ],
+      "reason": "Atlas candidate rows govern region-level publication inputs before public map bundles reinterpret them."
+    },
+    {
+      "fact_key": "country_publication_bundles",
+      "display_name": "Country publication bundles",
+      "evidence_scope": "country",
+      "governing_surface_path": "docs/report/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
+      "supporting_surface_paths": [
+        "docs/report/published_reports_summary.json",
+        "docs/report/<country_slug>/README.md"
+      ],
+      "reason": "Country bundles govern public country deliveries; summaries and readmes only explain the same artifact set."
+    },
+    {
+      "fact_key": "landclim_pollen_context",
+      "display_name": "LandClim pollen context",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+      "supporting_surface_paths": [
+        "data/landclim/normalized/landclim_summary.json",
+        "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+      ],
+      "reason": "The normalized LandClim sequence surface is the governing pollen-context layer for site-level use."
+    },
+    {
+      "fact_key": "neotoma_pollen_context",
+      "display_name": "Neotoma pollen context",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
+      "supporting_surface_paths": [
+        "data/neotoma/raw/neotoma_pollen_dataset_inventory.json",
+        "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+      ],
+      "reason": "The normalized Neotoma site layer governs what survives into publication-grade pollen context."
+    },
+    {
+      "fact_key": "sead_archaeology_context",
+      "display_name": "SEAD archaeology context",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/sead/normalized/nordic_environmental_sites.geojson",
+      "supporting_surface_paths": [
+        "data/sead/raw/nordic_sites.json"
+      ],
+      "reason": "The normalized SEAD site layer governs contextual archaeology that the repository is willing to map."
+    },
+    {
+      "fact_key": "raa_archaeology_context",
+      "display_name": "RAÄ archaeology context",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/raa/normalized/sweden_archaeology_layer.json",
+      "supporting_surface_paths": [
+        "data/raa/normalized/sweden_archaeology_density.geojson"
+      ],
+      "reason": "The normalized RAÄ layer governs Swedish archaeology context before density rendering publishes it."
+    },
+    {
+      "fact_key": "country_boundary_framing",
+      "display_name": "Country boundary framing",
+      "evidence_scope": "source_family",
+      "governing_surface_path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "supporting_surface_paths": [
+        "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+      ],
+      "reason": "Normalized boundary geometry governs region and country framing across every published map."
+    }
+  ]
+}

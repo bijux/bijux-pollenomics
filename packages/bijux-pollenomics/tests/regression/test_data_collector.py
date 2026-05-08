@@ -83,6 +83,16 @@ class DataCollectorTests(unittest.TestCase):
                 country_boundaries={"Sweden": {"features": []}},
             )
             self.assertTrue((output_root / "README.md").exists())
+            self.assertTrue((output_root / "source_family_contracts.json").is_file())
+            self.assertTrue(
+                (output_root / "source_family_evidence_stage_matrix.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "source_fact_ownership_registry.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "evidence_artifact_contracts.json").is_file()
+            )
             self.assertTrue((output_root / "adna" / "species" / "equus_caballus" / "review").is_dir())
             self.assertTrue(
                 (
@@ -195,7 +205,19 @@ class DataCollectorTests(unittest.TestCase):
                 (output_root / "adna" / "governance" / "shipped_product_audit.json").is_file()
             )
             self.assertTrue(
+                (output_root / "adna" / "governance" / "surface_role_registry.json").is_file()
+            )
+            self.assertTrue(
                 (output_root / "adna" / "governance" / "source_library" / "project_registry.json").is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_surface_contract.json"
+                ).is_file()
             )
             self.assertTrue(
                 (
@@ -218,6 +240,8 @@ class DataCollectorTests(unittest.TestCase):
                 report.source_replacement_rules["raa"].preserves_previous_on_failure
             )
             self.assertEqual(report.source_traceability["aadr"].source_version, "v62.0")
+            self.assertIn("source_family_contracts", report.contract_artifacts)
+            self.assertTrue(report.source_family_state_rows)
             self.assertTrue(
                 report.source_traceability["aadr"].dispute_token.startswith(
                     "aadr@v62.0:"
@@ -426,6 +450,8 @@ class DataCollectorTests(unittest.TestCase):
                 summary["source_output_roots"]["aadr_version_dir"],
                 str(output_root / "aadr" / "v62.0"),
             )
+            self.assertIn("contract_artifacts", summary)
+            self.assertIn("source_family_state_rows", summary)
             self.assertIsNone(summary["boundary_source"])
             self.assertIn("source_metadata", summary)
             self.assertEqual(

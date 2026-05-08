@@ -1,9 +1,14 @@
 {
-  "generated_on": "2026-04-16",
+  "generated_on": "2026-05-09",
   "output_root": "data",
   "version": "v66",
   "collected_sources": [
-    "aadr"
+    "aadr",
+    "boundaries",
+    "landclim",
+    "neotoma",
+    "raa",
+    "sead"
   ],
   "source_output_roots": {
     "aadr": "data/aadr",
@@ -14,13 +19,406 @@
     "raa": "data/raa",
     "sead": "data/sead"
   },
-  "boundary_source": null,
-  "aadr_file_count": 2,
-  "landclim_site_count": 0,
-  "landclim_grid_cell_count": 0,
-  "neotoma_point_count": 0,
-  "sead_point_count": 0,
-  "raa_total_site_count": 0,
-  "raa_heritage_site_count": 0,
+  "source_metadata": {
+    "aadr": {
+      "source": "aadr",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    },
+    "boundaries": {
+      "source": "boundaries",
+      "version": "v66",
+      "license": "public geodata terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    },
+    "landclim": {
+      "source": "landclim",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    },
+    "neotoma": {
+      "source": "neotoma",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    },
+    "raa": {
+      "source": "raa",
+      "version": "v66",
+      "license": "open data terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    },
+    "sead": {
+      "source": "sead",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline"
+    }
+  },
+  "source_hashes": {
+    "aadr": {
+      "snapshot_sha256": "1a87ce20bfd7e975ee71b059973099a47b5a514d0fce82a7a6226e589cd9d127",
+      "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "boundaries": {
+      "snapshot_sha256": "d56ad10851400c7c9682d9264a2588b0d94e7ff0f50b4644980c8d2da2611ebf",
+      "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
+    },
+    "landclim": {
+      "snapshot_sha256": "5cc1800654d4ac06f1ae64d1a4c82c49e5f52cc9450842c0d4122243d0c95b5b",
+      "normalized_sha256": "07b787bda3a1b3fa962ed88e2dc9a85e89fb0847dfef3b8a0aa2523d39cf9fc4"
+    },
+    "neotoma": {
+      "snapshot_sha256": "7d74883e6c3f06e548c3bf8ae465a91331ab3d65691804334018567126e5367d",
+      "normalized_sha256": "9facf6fdbba4031dac8f955683d02d8920cd4b4c30eefc8f0b8d9ec7d188f8c0"
+    },
+    "raa": {
+      "snapshot_sha256": "a84f4b99f96e4e237c4bbd8e984232433e4632ee554542552e987129141a94f7",
+      "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
+    },
+    "sead": {
+      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
+      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43"
+    }
+  },
+  "source_provenance": {
+    "aadr": {
+      "source": "aadr",
+      "display_name": "AADR",
+      "evidence_family": "ancient_dna_context",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/aadr",
+      "normalized_root": "data/aadr/normalized",
+      "snapshot_sha256": "1a87ce20bfd7e975ee71b059973099a47b5a514d0fce82a7a6226e589cd9d127",
+      "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "boundaries": {
+      "source": "boundaries",
+      "display_name": "Nordic Boundaries",
+      "evidence_family": "geospatial_boundary_context",
+      "version": "v66",
+      "license": "public geodata terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/boundaries",
+      "normalized_root": "data/boundaries/normalized",
+      "snapshot_sha256": "d56ad10851400c7c9682d9264a2588b0d94e7ff0f50b4644980c8d2da2611ebf",
+      "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
+    },
+    "landclim": {
+      "source": "landclim",
+      "display_name": "LandClim",
+      "evidence_family": "pollen_paleoclimate_context",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/landclim",
+      "normalized_root": "data/landclim/normalized",
+      "snapshot_sha256": "5cc1800654d4ac06f1ae64d1a4c82c49e5f52cc9450842c0d4122243d0c95b5b",
+      "normalized_sha256": "07b787bda3a1b3fa962ed88e2dc9a85e89fb0847dfef3b8a0aa2523d39cf9fc4"
+    },
+    "neotoma": {
+      "source": "neotoma",
+      "display_name": "Neotoma",
+      "evidence_family": "pollen_context",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/neotoma",
+      "normalized_root": "data/neotoma/normalized",
+      "snapshot_sha256": "7d74883e6c3f06e548c3bf8ae465a91331ab3d65691804334018567126e5367d",
+      "normalized_sha256": "9facf6fdbba4031dac8f955683d02d8920cd4b4c30eefc8f0b8d9ec7d188f8c0"
+    },
+    "raa": {
+      "source": "raa",
+      "display_name": "RAÄ",
+      "evidence_family": "archaeology_context",
+      "version": "v66",
+      "license": "open data terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/raa",
+      "normalized_root": "data/raa/normalized",
+      "snapshot_sha256": "a84f4b99f96e4e237c4bbd8e984232433e4632ee554542552e987129141a94f7",
+      "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
+    },
+    "sead": {
+      "source": "sead",
+      "display_name": "SEAD",
+      "evidence_family": "environmental_archaeology_context",
+      "version": "v66",
+      "license": "source-specific terms",
+      "retrieved_on": "2026-05-09",
+      "acquisition_method": "collector_pipeline",
+      "snapshot_root": "data/sead",
+      "normalized_root": "data/sead/normalized",
+      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
+      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43"
+    }
+  },
+  "source_replacement_rules": {
+    "aadr": {
+      "source": "aadr",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/aadr",
+      "staging_output_root": "data/.aadr.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "boundaries": {
+      "source": "boundaries",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/boundaries",
+      "staging_output_root": "data/.boundaries.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "landclim": {
+      "source": "landclim",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/landclim",
+      "staging_output_root": "data/.landclim.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "neotoma": {
+      "source": "neotoma",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/neotoma",
+      "staging_output_root": "data/.neotoma.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "raa": {
+      "source": "raa",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/raa",
+      "staging_output_root": "data/.raa.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    },
+    "sead": {
+      "source": "sead",
+      "refresh_mode": "staging_swap",
+      "final_output_root": "data/sead",
+      "staging_output_root": "data/.sead.tmp",
+      "destructive_refresh": true,
+      "preserves_previous_on_failure": true
+    }
+  },
+  "source_traceability": {
+    "aadr": {
+      "source": "aadr",
+      "source_identity": "aadr",
+      "source_version": "v66",
+      "snapshot_sha256": "1a87ce20bfd7e975ee71b059973099a47b5a514d0fce82a7a6226e589cd9d127",
+      "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dispute_token": "aadr@v66:1a87ce20bfd7"
+    },
+    "boundaries": {
+      "source": "boundaries",
+      "source_identity": "boundaries",
+      "source_version": "v66",
+      "snapshot_sha256": "d56ad10851400c7c9682d9264a2588b0d94e7ff0f50b4644980c8d2da2611ebf",
+      "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59",
+      "dispute_token": "boundaries@v66:d56ad1085140"
+    },
+    "landclim": {
+      "source": "landclim",
+      "source_identity": "landclim",
+      "source_version": "v66",
+      "snapshot_sha256": "5cc1800654d4ac06f1ae64d1a4c82c49e5f52cc9450842c0d4122243d0c95b5b",
+      "normalized_sha256": "07b787bda3a1b3fa962ed88e2dc9a85e89fb0847dfef3b8a0aa2523d39cf9fc4",
+      "dispute_token": "landclim@v66:5cc1800654d4"
+    },
+    "neotoma": {
+      "source": "neotoma",
+      "source_identity": "neotoma",
+      "source_version": "v66",
+      "snapshot_sha256": "7d74883e6c3f06e548c3bf8ae465a91331ab3d65691804334018567126e5367d",
+      "normalized_sha256": "9facf6fdbba4031dac8f955683d02d8920cd4b4c30eefc8f0b8d9ec7d188f8c0",
+      "dispute_token": "neotoma@v66:7d74883e6c3f"
+    },
+    "raa": {
+      "source": "raa",
+      "source_identity": "raa",
+      "source_version": "v66",
+      "snapshot_sha256": "a84f4b99f96e4e237c4bbd8e984232433e4632ee554542552e987129141a94f7",
+      "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a",
+      "dispute_token": "raa@v66:a84f4b99f96e"
+    },
+    "sead": {
+      "source": "sead",
+      "source_identity": "sead",
+      "source_version": "v66",
+      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
+      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43",
+      "dispute_token": "sead@v66:0a650d30355f"
+    }
+  },
+  "contract_artifacts": {
+    "source_family_contracts": "data/source_family_contracts.json",
+    "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+    "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
+    "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
+    "adna_governance_role_registry": "data/adna/governance/surface_role_registry.json",
+    "source_library_project_surface_contract": "data/adna/governance/source_library/project_surface_contract.json"
+  },
+  "source_family_state_rows": [
+    {
+      "source_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "missing",
+      "published_status": "present",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
+      "coverage_metrics": {
+        "landclim_site_count": 492,
+        "landclim_grid_cell_count": 88
+      },
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
+    },
+    {
+      "source_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked Neotoma pollen records survive normalization and remain visible in atlas-ready context layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "missing",
+      "published_status": "present",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
+      "coverage_metrics": {
+        "neotoma_point_count": 200
+      },
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
+    },
+    {
+      "source_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which SEAD records are captured, normalized, and still safe to use as contextual archaeology layers?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "missing",
+      "published_status": "present",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
+      "coverage_metrics": {
+        "sead_point_count": 2069
+      },
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
+    },
+    {
+      "source_key": "raa",
+      "display_name": "RAÄ archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "missing",
+      "published_status": "present",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
+      "coverage_metrics": {
+        "raa_total_site_count": 761917,
+        "raa_heritage_site_count": 318265
+      },
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
+    },
+    {
+      "source_key": "boundaries",
+      "display_name": "Boundary framing",
+      "domain_group": "framing_context",
+      "evidence_role": "framing_domain",
+      "primary_question": "Which tracked framing geometries constrain interpretation of country and atlas outputs?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "missing",
+      "published_status": "present",
+      "provenance_depth": "normalized_without_review_layer",
+      "publication_posture": "normalized_but_thin",
+      "coverage_metrics": {
+        "boundary_country_count": 4
+      },
+      "blocking_reasons": [
+        "missing_review_surface"
+      ]
+    },
+    {
+      "source_key": "aadr",
+      "display_name": "AADR human ancient DNA",
+      "domain_group": "human_ancient_dna",
+      "evidence_role": "direct_evidence_domain",
+      "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "aadr_file_count": 3
+      },
+      "blocking_reasons": []
+    },
+    {
+      "source_key": "animal_adna",
+      "display_name": "Animal ancient DNA recovery",
+      "domain_group": "animal_ancient_dna",
+      "evidence_role": "sample_owned_evidence_domain",
+      "primary_question": "Which animal ancient-DNA records are only captured, which are normalized, and which are safe for public publication?",
+      "raw_status": "present",
+      "normalized_status": "present",
+      "reviewed_status": "present",
+      "published_status": "present",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
+      "coverage_metrics": {
+        "animal_species_count": 10,
+        "animal_project_count": 40,
+        "animal_sample_count": 0
+      },
+      "blocking_reasons": []
+    }
+  ],
+  "boundary_source": "boundaries",
+  "aadr_file_count": 3,
+  "landclim_site_count": 492,
+  "landclim_grid_cell_count": 88,
+  "neotoma_point_count": 200,
+  "sead_point_count": 2069,
+  "raa_total_site_count": 761917,
+  "raa_heritage_site_count": 318265,
   "summary_path": "data/collection_summary.json"
 }

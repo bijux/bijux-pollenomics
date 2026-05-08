@@ -1,0 +1,37 @@
+{
+  "schema_version": "adna-governance-role-registry.v1",
+  "row_count": 3,
+  "rows": [
+    {
+      "role_key": "source_recovery",
+      "display_name": "Source recovery",
+      "path_pattern": "data/adna/governance/source_library/**",
+      "owned_responsibility": "capture archive metadata, project dossiers, paper manifests, and per-project recovery evidence before species normalization",
+      "example_artifacts": [
+        "data/adna/governance/source_library/project_registry.json",
+        "data/adna/governance/source_library/projects/<project_accession>/bundle_manifest.json"
+      ]
+    },
+    {
+      "role_key": "cross_species_review",
+      "display_name": "Cross-species review",
+      "path_pattern": "data/adna/governance/*.json",
+      "owned_responsibility": "publish truth, caveats, coverage posture, and evidence-honesty surfaces that compare projects across species",
+      "example_artifacts": [
+        "data/adna/governance/animal_sample_foundation_truth.json",
+        "data/adna/governance/cross_species_map_readiness.json",
+        "data/adna/governance/coordinate_caveat_surface.json"
+      ]
+    },
+    {
+      "role_key": "publication_accounting",
+      "display_name": "Publication accounting",
+      "path_pattern": "data/adna/governance/*product*.json",
+      "owned_responsibility": "state what the repository is allowed to ship and how publication surfaces are audited against foundation truth",
+      "example_artifacts": [
+        "data/adna/governance/animal_sample_product_contract.json",
+        "data/adna/governance/shipped_product_audit.json"
+      ]
+    }
+  ]
+}
