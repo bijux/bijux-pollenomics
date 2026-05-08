@@ -13,29 +13,29 @@
     {
       "project_accession": "PRJEB44430",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "normalized_row_count": 0,
+      "recovered_sample_row_count": 248,
+      "normalized_row_count": 248,
       "text_only_unparsed_count": 0,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 0.0
+      "chronology_completeness_ratio": 1.0
     },
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "normalized_row_count": 0,
+      "recovered_sample_row_count": 244,
+      "normalized_row_count": 244,
       "text_only_unparsed_count": 0,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 0.0
+      "chronology_completeness_ratio": 1.0
     },
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "normalized_row_count": 0,
-      "text_only_unparsed_count": 0,
+      "recovered_sample_row_count": 14,
+      "normalized_row_count": 13,
+      "text_only_unparsed_count": 1,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 0.0
+      "chronology_completeness_ratio": 0.9286
     },
     {
       "project_accession": "PRJEB56293",
@@ -77,10 +77,10 @@
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 190,
-      "normalized_row_count": 167,
+      "normalized_row_count": 177,
       "text_only_unparsed_count": 13,
-      "unresolved_count": 10,
-      "chronology_completeness_ratio": 0.8789
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 0.9316
     },
     {
       "project_accession": "PRJEB41594",

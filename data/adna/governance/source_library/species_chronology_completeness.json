@@ -19,19 +19,19 @@
     },
     {
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 42,
-      "normalized_row_count": 42,
-      "text_only_unparsed_count": 0,
+      "recovered_sample_row_count": 548,
+      "normalized_row_count": 547,
+      "text_only_unparsed_count": 1,
       "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "chronology_completeness_ratio": 0.9982
     },
     {
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 190,
-      "normalized_row_count": 167,
+      "normalized_row_count": 177,
       "text_only_unparsed_count": 13,
-      "unresolved_count": 10,
-      "chronology_completeness_ratio": 0.8789
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 0.9316
     }
   ]
 }

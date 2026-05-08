@@ -1,6 +1,6 @@
 # Source blocker review
 
-- Blocked project rows: `34`
+- Blocked project rows: `31`
 
 | Project | Stage | Required evidence | Explanation |
 | --- | --- | --- | --- |
@@ -17,9 +17,6 @@
 | `PRJEB52849` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
 | `PRJEB55549` | `scope_filter` | `explicit_rejection_reason` | The project is retained only as an explicit out-of-scope or comparator reference. |
 | `PRJEB10854` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
-| `PRJEB19970` | `supplement_ingestion_or_parsing` | `repo_supplement_copy; structured_table_inventory` | Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory. |
-| `PRJEB31613` | `supplement_ingestion_or_parsing` | `repo_supplement_copy; structured_table_inventory` | Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory. |
-| `PRJEB44430` | `supplement_ingestion_or_parsing` | `repo_supplement_copy; structured_table_inventory` | Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory. |
 | `PRJEB56293` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
 | `PRJEB7537` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
 | `PRJEB9799` | `scope_filter` | `explicit_rejection_reason` | The project is retained only as an explicit out-of-scope or comparator reference. |
