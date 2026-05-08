@@ -44,6 +44,8 @@ class CountryAnimalOutputBundle:
     localities: tuple[dict[str, object], ...]
     citations: tuple[dict[str, object], ...]
     warnings: tuple[dict[str, str], ...]
+    evidence_quality_summary: dict[str, object]
+    traceability_summary: dict[str, object]
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -61,6 +63,8 @@ class CountryAnimalOutputBundle:
                     if str(row.get("project_accession", "")).strip()
                 }
             ),
+            "evidence_quality_summary": self.evidence_quality_summary,
+            "traceability_summary": self.traceability_summary,
             "sample_rows": list(self.sample_rows),
             "species_rows": list(self.species_rows),
             "localities": list(self.localities),
@@ -111,6 +115,10 @@ def build_country_animal_output_bundle(
                 "confidence_rationale": row.confidence_rationale,
                 "original_place_text": row.original_place_text,
                 "resolved_place_text": row.resolved_place_text,
+                "coordinate_source_artifact_path": row.coordinate_source_artifact_path,
+                "coordinate_source_locator": row.coordinate_source_locator,
+                "coordinate_supplementary_source": row.coordinate_supplementary_source,
+                "coordinate_support_gap_note": row.coordinate_support_gap_note,
                 "time_start_bp": _published_chronology_value(
                     row.chronology.time_start_bp,
                     row.chronology.precision_posture,
@@ -162,6 +170,14 @@ def build_country_animal_output_bundle(
     species_rows = _build_species_rows(country, locality_rows, sample_rows)
     citations = _build_citation_rows(country, locality_rows, sample_rows)
     warnings = _build_warning_rows(country, locality_rows, sample_rows, species_rows)
+    evidence_quality_summary = _build_evidence_quality_summary(
+        sample_rows=sample_rows,
+        species_rows=species_rows,
+    )
+    traceability_summary = _build_traceability_summary(
+        sample_rows=sample_rows,
+        locality_rows=locality_rows,
+    )
     return CountryAnimalOutputBundle(
         country=country,
         version=version,
@@ -171,6 +187,8 @@ def build_country_animal_output_bundle(
         localities=tuple(locality_rows),
         citations=tuple(citations),
         warnings=tuple(warnings),
+        evidence_quality_summary=evidence_quality_summary,
+        traceability_summary=traceability_summary,
     )
 
 
@@ -199,6 +217,22 @@ def write_country_animal_samples_csv(path: Path, bundle: CountryAnimalOutputBund
         "longitude_text",
         "source_locator",
         "source_support_status",
+        "sample_evidence_status",
+        "sample_lineage_path",
+        "sample_lineage_locator",
+        "sample_lineage_excerpt",
+        "chronology_provenance_path",
+        "chronology_provenance_kind",
+        "chronology_provenance_locator",
+        "chronology_provenance_text",
+        "chronology_normalization_status",
+        "site_evidence_path",
+        "site_evidence_kind",
+        "site_evidence_locator",
+        "site_evidence_text",
+        "coordinate_provenance_path",
+        "coordinate_provenance_locator",
+        "coordinate_provenance_note",
         "time_label",
         "chronology_evidence_class",
         "chronology_precision_posture",
@@ -229,6 +263,12 @@ def write_country_animal_species_csv(path: Path, bundle: CountryAnimalOutputBund
         "oldest_signal_bp",
         "youngest_signal_bp",
         "project_accessions",
+        "sample_lineage_backed_sample_count",
+        "site_evidence_backed_sample_count",
+        "chronology_provenance_backed_sample_count",
+        "coordinate_provenance_backed_sample_count",
+        "exact_coordinate_sample_count",
+        "approximate_coordinate_sample_count",
         "caution_note",
     )
     with path.open("w", encoding="utf-8", newline="") as handle:
@@ -263,6 +303,24 @@ def write_country_animal_localities_geojson(path: Path, bundle: CountryAnimalOut
             {"label": "Coordinate basis", "value": row["coordinate_basis"]},
             {"label": "Coordinate confidence", "value": row["coordinate_confidence"]},
             {"label": "Mapped sample identifiers", "value": ", ".join(row["sample_record_ids"])},
+            {
+                "label": "Site evidence locator",
+                "value": (
+                    f"{row['source_artifact_path']}#{row['source_locator']}"
+                    if row["source_artifact_path"] and row["source_locator"]
+                    else row["source_artifact_path"] or row["source_locator"]
+                ),
+            },
+            {
+                "label": "Coordinate evidence locator",
+                "value": (
+                    f"{row['coordinate_source_artifact_path']}#{row['coordinate_source_locator']}"
+                    if row["coordinate_source_artifact_path"]
+                    and row["coordinate_source_locator"]
+                    else row["coordinate_source_artifact_path"]
+                    or row["coordinate_source_locator"]
+                ),
+            },
             {"label": "Interpretation", "value": row["interpretation_note"]},
         ]
         features.append(
@@ -293,6 +351,14 @@ def write_country_animal_localities_geojson(path: Path, bundle: CountryAnimalOut
                     "source_artifact_kind": row["source_artifact_kind"],
                     "source_locator": row["source_locator"],
                     "source_support_status": row["source_support_status"],
+                    "coordinate_source_artifact_path": row[
+                        "coordinate_source_artifact_path"
+                    ],
+                    "coordinate_source_locator": row["coordinate_source_locator"],
+                    "coordinate_supplementary_source": row[
+                        "coordinate_supplementary_source"
+                    ],
+                    "coordinate_support_gap_note": row["coordinate_support_gap_note"],
                     "time_start_bp": row["time_start_bp"],
                     "time_end_bp": row["time_end_bp"],
                     "time_mean_bp": row["time_mean_bp"],
@@ -359,10 +425,11 @@ def render_country_animal_samples_markdown(bundle: CountryAnimalOutputBundle) ->
         f"# {bundle.country} animal aDNA sample rows",
         "",
         "This table lists the exact curated animal sample rows that currently feed the",
-        f"`{bundle.country}` country surface.",
+        f"`{bundle.country}` country surface. Each row keeps the exact sample, site,",
+        "chronology, and coordinate evidence locator that justifies publication.",
         "",
-        "| Species | Sample record | Project accession | Locality | Assignment posture | Coordinate posture | Source locator | Citation |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- |",
+        "| Species | Sample record | Project accession | Locality | Assignment posture | Coordinate posture | Sample evidence | Site evidence | Chronology evidence | Coordinate evidence | Citation |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     if not bundle.sample_rows:
         lines.append("| No country-resolved animal sample rows yet | - | - | - | - | - | - | - |")
@@ -371,6 +438,22 @@ def render_country_animal_samples_markdown(bundle: CountryAnimalOutputBundle) ->
     for row in bundle.sample_rows:
         doi = str(row["paper_doi"])
         citation = f"[{escape_pipes(doi)}](https://doi.org/{doi})" if doi else "-"
+        sample_locator = _format_evidence_locator(
+            str(row.get("sample_lineage_path", "")),
+            str(row.get("sample_lineage_locator", "")),
+        )
+        site_locator = _format_evidence_locator(
+            str(row.get("site_evidence_path", "")),
+            str(row.get("site_evidence_locator", "")),
+        )
+        chronology_locator = _format_evidence_locator(
+            str(row.get("chronology_provenance_path", "")),
+            str(row.get("chronology_provenance_locator", "")),
+        )
+        coordinate_locator = _format_evidence_locator(
+            str(row.get("coordinate_provenance_path", "")),
+            str(row.get("coordinate_provenance_locator", "")),
+        )
         lines.append(
             f"| {escape_pipes(str(row['species_latin_name']))} | "
             f"{escape_pipes(str(row['sample_record_id']))} | "
@@ -379,7 +462,10 @@ def render_country_animal_samples_markdown(bundle: CountryAnimalOutputBundle) ->
             f"{escape_pipes(str(row['country_assignment_confidence']))} | "
             f"{escape_pipes(str(row['coordinate_basis']))} / "
             f"{escape_pipes(str(row['coordinate_confidence']))} | "
-            f"{escape_pipes(str(row['source_locator']) or '-')} | "
+            f"{escape_pipes(sample_locator)} | "
+            f"{escape_pipes(site_locator)} | "
+            f"{escape_pipes(chronology_locator)} | "
+            f"{escape_pipes(coordinate_locator)} | "
             f"{citation} |"
         )
     lines.append("")
@@ -443,6 +529,9 @@ surface for now.
 - Country-resolved animal sample rows: `{len(bundle.sample_rows)}`
 - Country-resolved animal locality rows: `{len(bundle.localities)}`
 - Supporting tracked projects: `{len(bundle.citations)}`
+- Sample evidence-backed rows: `{bundle.evidence_quality_summary['sample_lineage_backed_sample_count']}`
+- Chronology-provenance-backed rows: `{bundle.evidence_quality_summary['chronology_provenance_backed_sample_count']}`
+- Coordinate-provenance-backed rows: `{bundle.evidence_quality_summary['coordinate_provenance_backed_sample_count']}`
 
 ### Animal Output Files
 
@@ -550,6 +639,24 @@ def _build_sample_rows(
                     "source_support_status": str(
                         locality.get("source_support_status", "")
                     ),
+                    "sample_evidence_status": str(
+                        sample.get("sample_evidence_status", "")
+                    ),
+                    "sample_lineage_path": str(sample.get("sample_lineage_path", "")),
+                    "sample_lineage_locator": str(
+                        sample.get("sample_lineage_locator", "")
+                    ),
+                    "sample_lineage_excerpt": str(
+                        sample.get("sample_lineage_excerpt", "")
+                    ),
+                    "site_evidence_path": str(
+                        locality.get("source_artifact_path", "")
+                    ),
+                    "site_evidence_kind": str(
+                        locality.get("source_artifact_kind", "")
+                    ),
+                    "site_evidence_locator": str(locality.get("source_locator", "")),
+                    "site_evidence_text": str(locality.get("exact_source_text", "")),
                     "time_label": str(
                         chronology.get("original_text") or locality.get("time_label", "")
                     ),
@@ -561,6 +668,21 @@ def _build_sample_rows(
                         chronology.get("precision_posture")
                         or locality.get("chronology_precision_posture", "")
                     ),
+                    "chronology_normalization_status": str(
+                        sample.get("chronology_normalization_status", "")
+                    ),
+                    "chronology_provenance_path": str(
+                        sample.get("chronology_provenance_path", "")
+                    ),
+                    "chronology_provenance_kind": str(
+                        sample.get("chronology_provenance_kind", "")
+                    ),
+                    "chronology_provenance_locator": str(
+                        sample.get("chronology_provenance_locator", "")
+                    ),
+                    "chronology_provenance_text": str(
+                        sample.get("chronology_provenance_text", "")
+                    ),
                     "inclusion_status": str(sample.get("inclusion_status", "")),
                     "inclusion_note": str(sample.get("inclusion_note", "")),
                     "sample_basis": str(sample.get("sample_basis", "")),
@@ -570,6 +692,15 @@ def _build_sample_rows(
                     "longitude_text": str(
                         coordinates.get("longitude_text")
                         or locality.get("longitude_text", "")
+                    ),
+                    "coordinate_provenance_path": str(
+                        locality.get("coordinate_source_artifact_path", "")
+                    ),
+                    "coordinate_provenance_locator": str(
+                        locality.get("coordinate_source_locator", "")
+                    ),
+                    "coordinate_provenance_note": str(
+                        locality.get("coordinate_support_gap_note", "")
                     ),
                 }
             )
@@ -607,6 +738,32 @@ def _build_species_rows(
         assignment_confidences = {str(row["country_assignment_confidence"]) for row in rows}
         coordinate_bases = {str(row["coordinate_basis"]) for row in rows}
         coordinate_confidences = {str(row["coordinate_confidence"]) for row in rows}
+        exact_coordinate_sample_count = sum(
+            1
+            for row in species_sample_rows
+            if str(row.get("coordinate_confidence", "")).strip() == "exact"
+        )
+        approximate_coordinate_sample_count = sum(
+            1
+            for row in species_sample_rows
+            if str(row.get("coordinate_confidence", "")).strip() in {"approximate", "inferred"}
+        )
+        sample_lineage_backed_count = sum(
+            1 for row in species_sample_rows if str(row.get("sample_lineage_path", "")).strip()
+        )
+        chronology_provenance_backed_count = sum(
+            1
+            for row in species_sample_rows
+            if str(row.get("chronology_provenance_path", "")).strip()
+        )
+        site_evidence_backed_count = sum(
+            1 for row in species_sample_rows if str(row.get("site_evidence_path", "")).strip()
+        )
+        coordinate_provenance_backed_count = sum(
+            1
+            for row in species_sample_rows
+            if str(row.get("coordinate_provenance_path", "")).strip()
+        )
         oldest_values = [
             int(row["time_start_bp"])
             for row in rows
@@ -647,10 +804,108 @@ def _build_species_rows(
                 "youngest_signal_bp": min(youngest_values) if youngest_values else None,
                 "project_accessions": project_accessions,
                 "sample_row_count": len(species_sample_rows),
+                "exact_coordinate_sample_count": exact_coordinate_sample_count,
+                "approximate_coordinate_sample_count": approximate_coordinate_sample_count,
+                "sample_lineage_backed_sample_count": sample_lineage_backed_count,
+                "site_evidence_backed_sample_count": site_evidence_backed_count,
+                "chronology_provenance_backed_sample_count": (
+                    chronology_provenance_backed_count
+                ),
+                "coordinate_provenance_backed_sample_count": (
+                    coordinate_provenance_backed_count
+                ),
                 "caution_note": "; ".join(caution_bits) or "current country assignment is direct and explicit",
             }
         )
     return species_rows
+
+
+def _build_evidence_quality_summary(
+    *,
+    sample_rows: list[dict[str, object]],
+    species_rows: list[dict[str, object]],
+) -> dict[str, object]:
+    return {
+        "sample_row_count": len(sample_rows),
+        "species_row_count": len(species_rows),
+        "sample_lineage_backed_sample_count": sum(
+            1 for row in sample_rows if str(row.get("sample_lineage_path", "")).strip()
+        ),
+        "site_evidence_backed_sample_count": sum(
+            1 for row in sample_rows if str(row.get("site_evidence_path", "")).strip()
+        ),
+        "chronology_provenance_backed_sample_count": sum(
+            1
+            for row in sample_rows
+            if str(row.get("chronology_provenance_path", "")).strip()
+        ),
+        "coordinate_provenance_backed_sample_count": sum(
+            1
+            for row in sample_rows
+            if str(row.get("coordinate_provenance_path", "")).strip()
+        ),
+        "exact_coordinate_sample_count": sum(
+            1
+            for row in sample_rows
+            if str(row.get("coordinate_confidence", "")).strip() == "exact"
+        ),
+        "approximate_coordinate_sample_count": sum(
+            1
+            for row in sample_rows
+            if str(row.get("coordinate_confidence", "")).strip() in {"approximate", "inferred"}
+        ),
+    }
+
+
+def _build_traceability_summary(
+    *,
+    sample_rows: list[dict[str, object]],
+    locality_rows: list[dict[str, object]],
+) -> dict[str, object]:
+    return {
+        "sample_record_ids": sorted(
+            {
+                str(row.get("sample_record_id", "")).strip()
+                for row in sample_rows
+                if str(row.get("sample_record_id", "")).strip()
+            }
+        ),
+        "site_record_ids": sorted(
+            {
+                str(row.get("site_record_id", "")).strip()
+                for row in locality_rows
+                if str(row.get("site_record_id", "")).strip()
+            }
+        ),
+        "sample_lineage_paths": sorted(
+            {
+                str(row.get("sample_lineage_path", "")).strip()
+                for row in sample_rows
+                if str(row.get("sample_lineage_path", "")).strip()
+            }
+        ),
+        "site_evidence_paths": sorted(
+            {
+                str(row.get("source_artifact_path", "")).strip()
+                for row in locality_rows
+                if str(row.get("source_artifact_path", "")).strip()
+            }
+        ),
+        "chronology_provenance_paths": sorted(
+            {
+                str(row.get("chronology_provenance_path", "")).strip()
+                for row in sample_rows
+                if str(row.get("chronology_provenance_path", "")).strip()
+            }
+        ),
+        "coordinate_provenance_paths": sorted(
+            {
+                str(row.get("coordinate_provenance_path", "")).strip()
+                for row in sample_rows
+                if str(row.get("coordinate_provenance_path", "")).strip()
+            }
+        ),
+    }
 
 
 def _published_chronology_value(
@@ -851,6 +1106,18 @@ def _deduplicate_warnings(warnings: list[dict[str, str]]) -> list[dict[str, str]
         seen.add(key)
         deduplicated.append(row)
     return deduplicated
+
+
+def _format_evidence_locator(path: str, locator: str) -> str:
+    path = path.strip()
+    locator = locator.strip()
+    if path and locator:
+        return f"{path}#{locator}"
+    if path:
+        return path
+    if locator:
+        return locator
+    return "-"
 
 
 def _summarize_confidence(values: set[str]) -> str:

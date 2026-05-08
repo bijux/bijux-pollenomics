@@ -42,6 +42,10 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "Sheet1!row226",
         "source_support_status": "supplementary_table_row",
+        "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "coordinate_source_locator": "Sheet1!row226",
+        "coordinate_supplementary_source": "",
+        "coordinate_support_gap_note": "",
         "time_start_bp": 1217,
         "time_end_bp": 1417,
         "time_mean_bp": 1317,
@@ -95,6 +99,14 @@
           {
             "label": "Mapped sample identifiers",
             "value": "equus_caballus:sample:prjeb31613:cgg_1_018490"
+          },
+          {
+            "label": "Site evidence locator",
+            "value": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx#Sheet1!row226"
+          },
+          {
+            "label": "Coordinate evidence locator",
+            "value": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx#Sheet1!row226"
           },
           {
             "label": "Interpretation",

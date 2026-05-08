@@ -59,6 +59,9 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 - Country-resolved animal sample rows: `2`
 - Country-resolved animal locality rows: `1`
 - Supporting tracked projects: `1`
+- Sample evidence-backed rows: `2`
+- Chronology-provenance-backed rows: `2`
+- Coordinate-provenance-backed rows: `2`
 
 ### Animal Output Files
 
