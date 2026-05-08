@@ -23,6 +23,7 @@ from .catalogs import (
 )
 from .coordinate_provenance import (
     build_species_coordinate_provenance_rows,
+    resolve_project_context_coordinate_provenance,
     resolve_project_coordinate_provenance,
 )
 from .curation import (
@@ -143,7 +144,19 @@ from .runtime import (
 )
 from .site_evidence import (
     build_species_site_evidence_rows,
+    resolve_project_context_site_evidence,
     resolve_project_site_evidence,
+)
+from .project_sample_locality_evidence import (
+    ADNA_LOCALITY_CLASSES,
+    build_project_locality_completeness_rows,
+    build_project_locality_substitution_ledger,
+    build_project_locality_worksheet_rows,
+    build_project_sample_locality_evidence_rows,
+    build_sample_locality_conflict_ledger,
+    build_sample_locality_manual_curation_workflow_rows,
+    build_site_name_normalization_dictionary_rows,
+    build_species_locality_completeness_rows,
 )
 from .project_sample_chronology import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
@@ -178,6 +191,7 @@ __all__ = [
     "ADNA_COORDINATE_PROVENANCE_CLASSES",
     "ADNA_CHRONOLOGY_NORMALIZATION_STATUSES",
     "ADNA_CHRONOLOGY_STRENGTHS",
+    "ADNA_LOCALITY_CLASSES",
     "ADNA_COVERAGE_POSTURES",
     "ADNA_CURATION_CLASSES",
     "ADNA_DATASET_BUCKETS",
@@ -266,15 +280,23 @@ __all__ = [
     "build_species_review_packet",
     "build_species_runtime_manifest",
     "build_species_coordinate_provenance_rows",
+    "build_species_locality_completeness_rows",
     "build_species_support_matrix",
     "build_species_source_snapshots",
     "build_species_site_evidence_rows",
+    "build_project_locality_worksheet_rows",
+    "build_project_sample_locality_evidence_rows",
+    "build_sample_locality_conflict_ledger",
+    "build_sample_locality_manual_curation_workflow_rows",
+    "build_project_locality_substitution_ledger",
+    "build_site_name_normalization_dictionary_rows",
     "build_project_sample_chronology_rows",
     "build_project_sample_chronology_review_rows",
     "build_cross_project_sample_chronology_audit",
     "build_sample_chronology_ambiguity_ledger",
     "build_species_chronology_completeness_rows",
     "build_project_chronology_completeness_rows",
+    "build_project_locality_completeness_rows",
     "build_sample_chronology_viewer_rows",
     "build_overbroad_site_ledger",
     "build_public_animal_output_audit",
@@ -297,7 +319,9 @@ __all__ = [
     "resolve_accession_lineage",
     "resolve_accession_reference",
     "resolve_archive_source_snapshot",
+    "resolve_project_context_coordinate_provenance",
     "resolve_project_coordinate_provenance",
+    "resolve_project_context_site_evidence",
     "resolve_project_site_evidence",
     "resolve_homo_sapiens_schema",
     "resolve_species_definition",

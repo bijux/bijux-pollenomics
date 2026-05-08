@@ -8,6 +8,7 @@ from .source_library import build_project_registry
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
+    "resolve_project_context_coordinate_provenance",
     "resolve_project_coordinate_provenance",
 ]
 
@@ -342,6 +343,13 @@ def resolve_project_coordinate_provenance(
     """Return curated coordinate provenance rows for one project accession."""
     if direct_rows := _direct_sample_coordinate_rows(project_accession):
         return direct_rows
+    return _PROJECT_COORDINATE_PROVENANCE.get(project_accession, ())
+
+
+def resolve_project_context_coordinate_provenance(
+    project_accession: str,
+) -> tuple[AdnaCoordinateProvenanceRecord, ...]:
+    """Return the curated non-supplementary coordinate context for one project."""
     return _PROJECT_COORDINATE_PROVENANCE.get(project_accession, ())
 
 
