@@ -596,8 +596,11 @@ def _build_sample_records(
                 ),
                 locality_identity=AdnaLocalityIdentity(
                     namespace=f"{species.slug}:sample_locality",
-                    stable_token=(
-                        f"{species.slug}:sample-site:{row.project_accession.casefold()}"
+                    stable_token=_locality_identity_token(
+                        species=species,
+                        project_accession=row.project_accession,
+                        locality_text=locality_text,
+                        political_entity=row.political_entity or "",
                     ),
                     locality_text=locality_text,
                     political_entity=row.political_entity,
@@ -701,6 +704,109 @@ def _default_data_root() -> Path:
     return Path(__file__).resolve().parents[5] / "data"
 
 
+def _locality_identity_token(
+    *,
+    species: AdnaSpeciesDefinition,
+    project_accession: str,
+    locality_text: str,
+    political_entity: str | None,
+) -> str:
+    locality_fragment = _normalize_sample_label(locality_text) or "unresolved"
+    entity_fragment = _normalize_sample_label(political_entity or "")
+    if entity_fragment:
+        return (
+            f"{species.slug}:locality:{project_accession.casefold()}:"
+            f"{locality_fragment}:{entity_fragment}"
+        )
+    return f"{species.slug}:locality:{project_accession.casefold()}:{locality_fragment}"
+
+
+def _normalize_sample_label(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.casefold())
+
+
+def _aggregate_locality_chronology(
+    *,
+    sample_rows: tuple[object, ...],
+    chronology_lookup: dict[str, object],
+    fallback_text: str,
+    fallback_start_bp: int | None,
+    fallback_end_bp: int | None,
+    dating_basis: str,
+) -> AdnaChronology:
+    chronology_rows = [
+        chronology_lookup[row.stable_sample_id]
+        for row in sample_rows
+        if row.stable_sample_id in chronology_lookup
+    ]
+    interval_rows = [
+        row
+        for row in chronology_rows
+        if row.time_start_bp is not None and row.time_end_bp is not None
+    ]
+    if interval_rows:
+        start_bp = min(int(row.time_start_bp) for row in interval_rows)
+        end_bp = max(int(row.time_end_bp) for row in interval_rows)
+        return normalize_explicit_bp_window(
+            start_bp,
+            end_bp,
+            original_text=_locality_chronology_label(start_bp, end_bp),
+            dating_basis=dating_basis,
+        )
+    if fallback_start_bp is not None and fallback_end_bp is not None:
+        return normalize_explicit_bp_window(
+            fallback_start_bp,
+            fallback_end_bp,
+            original_text=fallback_text,
+            dating_basis=dating_basis,
+        )
+    return normalize_chronology_text(fallback_text, dating_basis=dating_basis)
+
+
+def _locality_chronology_label(start_bp: int, end_bp: int) -> str:
+    if start_bp == end_bp:
+        return f"{start_bp} BP"
+    return f"{start_bp}-{end_bp} BP"
+
+
+def _is_nordic_locality(
+    *,
+    political_entity: str | None,
+    locality_text: str,
+    project_context: object,
+) -> bool:
+    entity = (political_entity or "").strip()
+    if entity in {"Sweden", "Norway", "Finland", "Denmark", "Iceland"}:
+        return True
+    if entity == "Baltic Sea Region":
+        return True
+    locality = locality_text.casefold()
+    if "svalbard" in locality:
+        return True
+    return getattr(project_context, "nordic_relevance", "") == "nordic_relevant_unmapped"
+
+
+def _nordic_locality_reason(
+    *,
+    political_entity: str | None,
+    locality_text: str,
+    project_context: object,
+) -> str:
+    if _is_nordic_locality(
+        political_entity=political_entity,
+        locality_text=locality_text,
+        project_context=project_context,
+    ):
+        entity = (political_entity or "").strip()
+        if entity in {"Sweden", "Norway", "Finland", "Denmark", "Iceland"}:
+            return f"This locality falls inside the Nordic publication footprint through direct {entity} sample evidence."
+        if entity == "Baltic Sea Region":
+            return "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs."
+        if "svalbard" in locality_text.casefold():
+            return "This locality falls inside the Nordic publication footprint through direct Svalbard evidence."
+    return project_context.nordic_relevance_reason
+
+
 def build_species_project_locality_records(
     species_name: str,
     project_summaries: tuple[AdnaProjectSummary, ...],
@@ -711,6 +817,20 @@ def build_species_project_locality_records(
     archive_index = {
         project.project_accession: project
         for project in build_species_archive_projects(species_name)
+    }
+    curated_sample_rows = build_species_curated_sample_rows(species_name)
+    sample_rows_by_project: dict[str, list[object]] = defaultdict(list)
+    for row in curated_sample_rows:
+        sample_rows_by_project[row.project_accession].append(row)
+    chronology_index = {
+        project_accession: {
+            chronology_row.repo_stable_sample_id: chronology_row
+            for chronology_row in build_project_sample_chronology_rows(
+                _default_data_root(),
+                project_accession,
+            )
+        }
+        for project_accession in project_index
     }
     locality_records: list[AdnaLocalitySummary] = []
     refusals: list[AdnaNormalizationRefusal] = []
@@ -723,28 +843,33 @@ def build_species_project_locality_records(
         if project is None:
             continue
         project_context = resolve_project_context(archive_index[lead.project_accession])
+        matched_sample_rows = [
+            row
+            for row in sample_rows_by_project.get(lead.project_accession, [])
+            if _normalize_sample_label(row.site_label) == _normalize_sample_label(lead.locality_text)
+        ]
+        if not matched_sample_rows:
+            matched_sample_rows = list(sample_rows_by_project.get(lead.project_accession, []))
         coordinate_resolution = normalize_coordinate_resolution(
             latitude_text=lead.latitude_text,
             longitude_text=lead.longitude_text,
             geographic_basis=lead.coordinate_basis,
         )
-        chronology = (
-            normalize_explicit_bp_window(
-                lead.time_start_bp,
-                lead.time_end_bp,
-                original_text=lead.chronology_text,
-                dating_basis=project.chronology_basis or project.dating_basis or "bp_window",
-            )
-            if lead.time_start_bp is not None and lead.time_end_bp is not None
-            else normalize_chronology_text(
-                lead.chronology_text,
-                dating_basis=project.chronology_basis or project.dating_basis or "unknown",
-            )
+        chronology = _aggregate_locality_chronology(
+            sample_rows=tuple(matched_sample_rows),
+            chronology_lookup=chronology_index.get(lead.project_accession, {}),
+            fallback_text=lead.chronology_text,
+            fallback_start_bp=lead.time_start_bp,
+            fallback_end_bp=lead.time_end_bp,
+            dating_basis=project.chronology_basis or project.dating_basis or "unknown",
         )
         identity = AdnaLocalityIdentity(
             namespace=f"{species.slug}:project_locality",
-            stable_token=(
-                f"{species.slug}:project-locality:{lead.project_accession.casefold()}"
+            stable_token=_locality_identity_token(
+                species=species,
+                project_accession=lead.project_accession,
+                locality_text=lead.locality_text,
+                political_entity=lead.political_entity,
             ),
             locality_text=lead.locality_text,
             political_entity=lead.political_entity,
@@ -776,16 +901,26 @@ def build_species_project_locality_records(
                     longitude_text=lead.longitude_text,
                     confidence=coordinate_resolution.confidence,
                 ),
-                sample_count=1,
-                sample_ids=(lead.project_accession,),
+                sample_count=max(len(matched_sample_rows), 1),
+                sample_ids=tuple(
+                    row.stable_sample_id for row in matched_sample_rows
+                )
+                or (lead.project_accession,),
                 datasets=(project.summary_token,),
                 chronology=chronology,
-                sample_namespace=f"{species.slug}:project_locality",
+                sample_namespace=f"{species.slug}:sample_locality",
                 project_accessions=(lead.project_accession,),
                 original_location_text=lead.locality_text,
-                nordic_inclusion=project_context.nordic_relevance
-                == "nordic_relevant_unmapped",
-                nordic_inclusion_reason=project_context.nordic_relevance_reason,
+                nordic_inclusion=_is_nordic_locality(
+                    political_entity=lead.political_entity,
+                    locality_text=lead.locality_text,
+                    project_context=project_context,
+                ),
+                nordic_inclusion_reason=_nordic_locality_reason(
+                    political_entity=lead.political_entity,
+                    locality_text=lead.locality_text,
+                    project_context=project_context,
+                ),
                 interpretation_note=lead.interpretation_note,
             )
         )

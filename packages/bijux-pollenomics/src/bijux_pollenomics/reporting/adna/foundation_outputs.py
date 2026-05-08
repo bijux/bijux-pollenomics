@@ -808,8 +808,7 @@ def build_animal_publication_release_gate(
     chronology_blocked_master_ids = {
         str(row.get("repo_stable_sample_id", "")).strip(): row
         for row in chronology_rows
-        if str(row.get("chronology_normalization_status", "")) in {"text_only_unparsed", "unresolved"}
-        or bool(str(row.get("chronology_conflict_note", "")).strip())
+        if _chronology_row_blocks_publication(row)
     }
     sample_master_ids = {
         str(row.get("identity", {}).get("stable_token", "")).strip(): str(row.get("master_id", "")).strip()
@@ -916,6 +915,16 @@ def build_animal_publication_release_gate(
         "reference_grade_support_ready": reference_grade_support_ready,
         "reference_grade_support_requirements": reference_grade_support_requirements,
     }
+
+
+def _chronology_row_blocks_publication(row: dict[str, object]) -> bool:
+    status = str(row.get("chronology_normalization_status", "")).strip()
+    if status in {"text_only_unparsed", "unresolved"}:
+        return True
+    conflict_note = str(row.get("chronology_conflict_note", "")).strip()
+    if not conflict_note:
+        return False
+    return str(row.get("chronology_strength", "")).strip() != "sample_owned_interval"
 
 
 def render_animal_foundation_validation_markdown(payload: dict[str, object]) -> str:

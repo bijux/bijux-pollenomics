@@ -1951,7 +1951,7 @@ class CountryReportTests(unittest.TestCase):
                             "confidence": "approximate",
                         },
                         "sample_count": 1,
-                        "sample_ids": [f"{project_accession}:lead"],
+                        "sample_ids": [sample_token],
                         "datasets": ["animal-adna"],
                         "chronology": {
                             "original_text": chronology_bucket,

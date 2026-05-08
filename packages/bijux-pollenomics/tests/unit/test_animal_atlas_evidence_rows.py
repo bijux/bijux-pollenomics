@@ -82,6 +82,13 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                                 "sample:PRJEB59481",
                             ],
                         },
+                        "locality_identity": {
+                            "namespace": "animal-locality",
+                            "stable_token": "ovis_aries:project-locality:prjeb59481",
+                            "locality_text": "Baltic sheep lead",
+                            "political_entity": "Sweden",
+                            "source_anchor_tokens": ["PRJEB59481"],
+                        },
                         "group_id": "PRJEB59481",
                         "project_accession": "PRJEB59481",
                         "supplementary_source": "supplementary/prjeb59481.pdf",
@@ -287,7 +294,7 @@ def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_sit
                         },
                         "locality_identity": {
                             "namespace": "ovis_aries:sample_locality",
-                            "stable_token": "ovis_aries:sample-site:one",
+                            "stable_token": "ovis_aries:project-locality:prjtest",
                             "locality_text": "Site One",
                             "political_entity": "Sweden",
                             "source_anchor_tokens": ["PRJTEST"],
@@ -305,7 +312,7 @@ def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_sit
                         },
                         "locality_identity": {
                             "namespace": "ovis_aries:sample_locality",
-                            "stable_token": "ovis_aries:sample-site:two",
+                            "stable_token": "ovis_aries:project-locality:prjtest",
                             "locality_text": "Site Two",
                             "political_entity": "Sweden",
                             "source_anchor_tokens": ["PRJTEST"],

@@ -80,7 +80,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-point-support-packets.v1")
-        self.assertEqual(payload["row_count"], 2)
+        self.assertEqual(payload["row_count"], 207)
         first_row = payload["rows"][0]
         self.assertTrue(first_row["sample_rows"])
         self.assertTrue(first_row["site_evidence"])
@@ -111,10 +111,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         payload = build_animal_sample_chronology_viewer(data_root=self.data_root)
 
         self.assertEqual(payload["schema_version"], "animal-sample-chronology-viewer.v1")
-        self.assertEqual(payload["row_count"], 249)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 156)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 54)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 26)
+        self.assertEqual(payload["row_count"], 755)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 256)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 469)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 16)
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB36540"
@@ -141,14 +141,11 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "partial_sample_owned_animal_evidence_surface",
         )
         self.assertTrue(payload["sample_database_claim_supported"])
-        self.assertFalse(payload["nordic_view_supported_now"])
+        self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 207)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
-        self.assertIn(
-            "published_atlas_point_count_below_minimum_reading_depth",
-            payload["posture_findings"],
-        )
+        self.assertEqual(payload["posture_findings"], [])
         self.assertNotIn(
             "supplement_backed_paper_coverage_still_too_low",
             payload["posture_findings"],
@@ -589,7 +586,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
-            self.assertEqual(chronology_payload["row_count"], 249)
+            self.assertEqual(chronology_payload["row_count"], 755)
             self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
             self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
             self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])

@@ -448,13 +448,15 @@ def build_repository_claim_audit(
         _claim_check(
             "animal_sample_review_freezes_broad_readiness",
             (
-                not bool(sample_database_review.get("nordic_view_supported_now"))
+                str(sample_database_review.get("public_posture", "")).strip()
+                == "partial_sample_owned_animal_evidence_surface"
                 and not bool(sample_database_review.get("region_agnostic_contract_ready"))
             ),
-            "The public animal sample review does not claim broad readiness while mapped depth remains thin.",
+            "The public animal sample review keeps the stronger Nordic sample-owned view separate from any broader region-agnostic readiness claim.",
             []
             if (
-                not bool(sample_database_review.get("nordic_view_supported_now"))
+                str(sample_database_review.get("public_posture", "")).strip()
+                == "partial_sample_owned_animal_evidence_surface"
                 and not bool(sample_database_review.get("region_agnostic_contract_ready"))
             )
             else ["animal_sample_database_review_overclaims_current_depth"],
@@ -470,16 +472,18 @@ def build_repository_claim_audit(
         _claim_check(
             "thin_animal_surface_stays_visible",
             (
-                counts["published_atlas_point_count"] <= 2
-                and "thin animal adna atlas candidate set" in docs_index.lower()
+                counts["published_atlas_point_count"] >= 10
+                and str(sample_database_review.get("public_posture", "")).strip()
+                == "partial_sample_owned_animal_evidence_surface"
             ),
-            "The public docs keep the thin current atlas depth visible instead of hiding it.",
+            "The public animal surfaces keep the current partial sample-owned posture visible instead of implying broad completion.",
             []
             if (
-                counts["published_atlas_point_count"] <= 2
-                and "thin animal adna atlas candidate set" in docs_index.lower()
+                counts["published_atlas_point_count"] >= 10
+                and str(sample_database_review.get("public_posture", "")).strip()
+                == "partial_sample_owned_animal_evidence_surface"
             )
-            else ["thin_atlas_depth_not_explicitly_named"],
+            else ["partial_animal_surface_not_explicitly_named"],
         ),
     ]
     return {

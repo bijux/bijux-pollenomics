@@ -48,10 +48,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertEqual(payload["counts"]["papers_with_local_reference_supplements"], 18)
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 207)
         self.assertTrue(
             any(
-                "effectively empty" in row
+                "under-reports" in row
                 for row in payload["claim_freeze_reasons"]
             )
         )
