@@ -4,7 +4,7 @@
 
 | Source family | Role | Visible count | Acquisition posture | Main gap |
 | --- | --- | ---: | --- | --- |
-| Animal aDNA papers and supplements | `contextual_domain` | 18 | `local_reference_staging_ahead_of_repo_capture` | tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative |
+| Animal aDNA papers and supplements | `contextual_domain` | 18 | `repo_capture_matches_visible_staging` | tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative |
 | AADR human ancient DNA | `contextual_domain` | 1 | `tracked_query_surface` | AADR is queryable and documented, but it remains one context layer rather than the whole repository mission |
 | LandClim pollen context | `primary_domain` | 4 | `tracked_context_layer` | LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture |
 | Neotoma pollen context | `primary_domain` | 2 | `tracked_context_layer` | Neotoma remains a core pollen-site context family and should stay visible beside aDNA and archaeology surfaces |

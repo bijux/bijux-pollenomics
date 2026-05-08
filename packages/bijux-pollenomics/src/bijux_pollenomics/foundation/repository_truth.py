@@ -637,16 +637,24 @@ def build_repository_source_acquisition_queue(
 ) -> dict[str, object]:
     """Publish the next real acquisition or reader-truth work across source families."""
     counts = _build_core_counts(data_root, docs_root, report_root)
-    rows = [
-        {
-            "queue_key": "animal_adna_repo_ingestion",
+    animal_gap_row = {
+        "queue_key": "animal_adna_repo_ingestion",
+        "source_family": "animal_adna",
+        "priority": "high",
+        "current_gap": "local reference supplements exceed repository supplement capture",
+        "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
+        "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json",
+    }
+    if counts["papers_with_local_reference_supplements"] <= counts["papers_with_archived_supplements"]:
+        animal_gap_row = {
+            "queue_key": "animal_adna_sample_extraction",
             "source_family": "animal_adna",
             "priority": "high",
-            "current_gap": "local reference supplements exceed repository supplement capture",
-            "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
-            "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json",
+            "current_gap": "repository supplement capture now matches visible local staging, but sample, site, and chronology extraction still lags",
+            "required_outcome": "use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence",
+            "evidence_anchor": "data/adna/governance/source_library/project_source_evidence_matrix.json",
         }
-    ]
+    rows = [animal_gap_row]
     surface_to_source = {
         "landclim_site_count": "landclim",
         "landclim_grid_cell_count": "landclim",
@@ -713,7 +721,11 @@ def build_repository_scientific_progress_audit(
             "atlas bundle existence without mapped evidence depth",
         ],
         "findings": [
-            f"only {counts['papers_with_archived_supplements']} of {counts['tracked_paper_count']} tracked papers currently ship archived supplementary material",
+            (
+                f"all {counts['tracked_paper_count']} tracked papers now ship archived supplementary material, but sample-owned extraction still lags behind supplement recovery"
+                if counts["papers_with_archived_supplements"] >= counts["tracked_paper_count"]
+                else f"only {counts['papers_with_archived_supplements']} of {counts['tracked_paper_count']} tracked papers currently ship archived supplementary material"
+            ),
             f"the shipped animal atlas still exposes only {counts['published_atlas_point_count']} published animal point rows",
             f"{counts['animal_map_unresolved_rows']} animal rows remain unresolved for mapping and {counts['animal_map_refused_rows']} are refused from mapping",
             (

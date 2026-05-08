@@ -3,7 +3,7 @@
   "score_max": 4,
   "overall_recovery_posture": "recovery_required",
   "average_dimension_scores": {
-    "data_completeness": 2.43,
+    "data_completeness": 2.71,
     "provenance_clarity": 2.71,
     "documentation_clarity": 3.57,
     "output_honesty": 3.43
@@ -63,13 +63,13 @@
     {
       "surface_key": "ancient_dna_context",
       "display_name": "Ancient DNA context",
-      "data_completeness": 2,
+      "data_completeness": 4,
       "provenance_clarity": 0,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
         "tracked_papers": 18,
-        "papers_with_archived_supplements": 7,
+        "papers_with_archived_supplements": 18,
         "published_atlas_points": 2,
         "unresolved_rows": 232
       },

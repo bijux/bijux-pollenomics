@@ -46,7 +46,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             ["pollen_context", "environmental_context"],
         )
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 7)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertEqual(payload["counts"]["papers_with_local_reference_supplements"], 18)
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 2)
         self.assertTrue(
@@ -78,9 +78,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             if row["surface_key"] == "documentation_architecture"
         )
         self.assertEqual(payload["overall_recovery_posture"], "recovery_required")
-        self.assertEqual(animal_row["data_completeness"], 2)
+        self.assertEqual(animal_row["data_completeness"], 4)
         self.assertEqual(docs_row["documentation_clarity"], 4)
-        self.assertIn("| Ancient DNA context | 2 |", markdown)
+        self.assertIn("| Ancient DNA context | 4 |", markdown)
 
     def test_governance_artifact_review_marks_accounting_surfaces_for_retirement(
         self,
@@ -158,7 +158,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["overall_progress_posture"], "data_recovery_required")
         self.assertIn("checked-in JSON file count", payload["anti_measures"])
         self.assertTrue(
-            any("only 7 of 18 tracked papers" in row for row in payload["findings"])
+            any(
+                "all 18 tracked papers now ship archived supplementary material" in row
+                for row in payload["findings"]
+            )
         )
         self.assertIn("Do Not Use These As Progress", markdown)
 
