@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from ...adna.governance_contracts import materialize_adna_governance_contracts
 from ...core.files import write_json
 from ..data_contracts import (
@@ -20,11 +22,11 @@ def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
     output_root = summary.output_root
     contract_artifacts = summary.contract_artifacts
     write_json(
-        contract_artifacts["source_family_contracts"],
+        Path(contract_artifacts["source_family_contracts"]),
         build_source_family_contract_payload(),
     )
     write_json(
-        contract_artifacts["source_family_evidence_stage_matrix"],
+        Path(contract_artifacts["source_family_evidence_stage_matrix"]),
         build_source_family_state_matrix_payload(
             output_root,
             counts={
@@ -39,11 +41,11 @@ def write_data_contract_surfaces(summary: DataCollectionSummary) -> None:
         ),
     )
     write_json(
-        contract_artifacts["source_fact_ownership_registry"],
+        Path(contract_artifacts["source_fact_ownership_registry"]),
         build_source_fact_ownership_payload(),
     )
     write_json(
-        contract_artifacts["evidence_artifact_contracts"],
+        Path(contract_artifacts["evidence_artifact_contracts"]),
         build_evidence_artifact_contract_payload(),
     )
     materialize_adna_governance_contracts(output_root)

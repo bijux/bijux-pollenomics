@@ -1,0 +1,96 @@
+{
+  "schema_version": "evidence-artifact-contracts.v1",
+  "row_count": 6,
+  "rows": [
+    {
+      "artifact_key": "project_source_bundle",
+      "artifact_scope": "project",
+      "canonical_path_pattern": "data/adna/governance/source_library/projects/<project_accession>/bundle_manifest.json",
+      "governing_surface_path": "data/adna/governance/source_library/project_surface_contract.json",
+      "companion_surface_patterns": [
+        "data/adna/governance/source_library/projects/<project_accession>/intake_dossier.json",
+        "data/adna/governance/source_library/projects/<project_accession>/curation_note.md"
+      ],
+      "purpose": "govern which source artifacts, blockers, and curation posture belong to one tracked project",
+      "required_artifacts": [
+        "bundle_manifest.json",
+        "intake_dossier.json",
+        "curation_note.md"
+      ]
+    },
+    {
+      "artifact_key": "paper_supporting_materials",
+      "artifact_scope": "paper",
+      "canonical_path_pattern": "data/adna/governance/source_library/papers/<paper_doi_slug>/supplementary_manifest.json",
+      "governing_surface_path": "data/evidence_artifact_contracts.json",
+      "companion_surface_patterns": [
+        "data/adna/governance/source_library/papers/<paper_doi_slug>/article.html",
+        "data/adna/governance/source_library/papers/<paper_doi_slug>/supplementary/*"
+      ],
+      "purpose": "govern which article and supplementary assets back one tracked paper surface",
+      "required_artifacts": [
+        "supplementary_manifest.json"
+      ]
+    },
+    {
+      "artifact_key": "sample_foundation_surface",
+      "artifact_scope": "sample",
+      "canonical_path_pattern": "data/adna/governance/source_library/projects/<project_accession>/sample_master.json",
+      "governing_surface_path": "data/source_fact_ownership_registry.json",
+      "companion_surface_patterns": [
+        "data/adna/governance/source_library/projects/<project_accession>/sample_locality_evidence.json",
+        "data/adna/governance/source_library/projects/<project_accession>/sample_chronology_evidence.json"
+      ],
+      "purpose": "govern one project-owned sample foundation before species normalization reuses it",
+      "required_artifacts": [
+        "sample_master.json",
+        "sample_locality_evidence.json",
+        "sample_chronology_evidence.json"
+      ]
+    },
+    {
+      "artifact_key": "site_evidence_surface",
+      "artifact_scope": "site",
+      "canonical_path_pattern": "data/adna/governance/source_library/projects/<project_accession>/sample_sites.json",
+      "governing_surface_path": "data/source_fact_ownership_registry.json",
+      "companion_surface_patterns": [
+        "data/adna/governance/source_library/projects/<project_accession>/locality_worksheet.json"
+      ],
+      "purpose": "govern sample-to-site linkage and site evidence review for one project",
+      "required_artifacts": [
+        "sample_sites.json",
+        "locality_worksheet.json"
+      ]
+    },
+    {
+      "artifact_key": "regional_atlas_bundle",
+      "artifact_scope": "region",
+      "canonical_path_pattern": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "governing_surface_path": "data/source_fact_ownership_registry.json",
+      "companion_surface_patterns": [
+        "docs/report/nordic-atlas/nordic-atlas_bundle.json",
+        "docs/report/nordic-atlas/animal_points.geojson"
+      ],
+      "purpose": "govern shared region-level publication inputs and downstream bundle assembly",
+      "required_artifacts": [
+        "animal_atlas_point_candidates.json"
+      ]
+    },
+    {
+      "artifact_key": "country_publication_bundle",
+      "artifact_scope": "country",
+      "canonical_path_pattern": "docs/report/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
+      "governing_surface_path": "data/source_fact_ownership_registry.json",
+      "companion_surface_patterns": [
+        "docs/report/<country_slug>/<country_slug>_aadr_<version>.csv",
+        "docs/report/<country_slug>/<country_slug>_aadr_<version>.json"
+      ],
+      "purpose": "govern the durable published country delivery for one geography and version",
+      "required_artifacts": [
+        "bundle.json",
+        "csv",
+        "json"
+      ]
+    }
+  ]
+}

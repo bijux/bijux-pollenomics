@@ -1,0 +1,600 @@
+{
+  "schema_version": "source-family-contracts.v1",
+  "row_count": 7,
+  "rows": [
+    {
+      "source_key": "landclim",
+      "display_name": "LandClim pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/landclim/raw",
+        "required": true,
+        "purpose": "tracked upstream pollen-site source capture",
+        "example_artifacts": [
+          "data/landclim/raw/landclim_sources.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/landclim/normalized",
+        "required": true,
+        "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
+        "example_artifacts": [
+          "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+          "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/nordic-atlas",
+        "required": true,
+        "purpose": "published pollen-context layers used in atlas outputs",
+        "example_artifacts": [
+          "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "landclim_site_count",
+        "landclim_grid_cell_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/landclim/raw",
+          "required": true,
+          "purpose": "tracked upstream pollen-site source capture",
+          "example_artifacts": [
+            "data/landclim/raw/landclim_sources.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/landclim/normalized",
+          "required": true,
+          "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
+          "example_artifacts": [
+            "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+            "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/nordic-atlas",
+          "required": true,
+          "purpose": "published pollen-context layers used in atlas outputs",
+          "example_artifacts": [
+            "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "neotoma",
+      "display_name": "Neotoma pollen context",
+      "domain_group": "pollen_context",
+      "evidence_role": "primary_context",
+      "primary_question": "Which tracked Neotoma pollen records survive normalization and remain visible in atlas-ready context layers?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/neotoma/raw",
+        "required": true,
+        "purpose": "tracked Neotoma acquisition and downloaded source tables",
+        "example_artifacts": [
+          "data/neotoma/raw/neotoma_pollen_sites.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/neotoma/normalized",
+        "required": true,
+        "purpose": "tracked normalized Neotoma context ready for downstream layering",
+        "example_artifacts": [
+          "data/neotoma/normalized/nordic_pollen_sites.geojson"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/nordic-atlas",
+        "required": true,
+        "purpose": "published Neotoma context layers used in atlas outputs",
+        "example_artifacts": [
+          "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "neotoma_point_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/neotoma/raw",
+          "required": true,
+          "purpose": "tracked Neotoma acquisition and downloaded source tables",
+          "example_artifacts": [
+            "data/neotoma/raw/neotoma_pollen_sites.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/neotoma/normalized",
+          "required": true,
+          "purpose": "tracked normalized Neotoma context ready for downstream layering",
+          "example_artifacts": [
+            "data/neotoma/normalized/nordic_pollen_sites.geojson"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/nordic-atlas",
+          "required": true,
+          "purpose": "published Neotoma context layers used in atlas outputs",
+          "example_artifacts": [
+            "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "sead",
+      "display_name": "SEAD archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which SEAD records are captured, normalized, and still safe to use as contextual archaeology layers?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/sead/raw",
+        "required": true,
+        "purpose": "tracked SEAD site inventory and source payload capture",
+        "example_artifacts": [
+          "data/sead/raw/nordic_sites.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/sead/normalized",
+        "required": true,
+        "purpose": "tracked normalized SEAD context ready for downstream use",
+        "example_artifacts": [
+          "data/sead/normalized/nordic_environmental_sites.geojson"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/nordic-atlas",
+        "required": true,
+        "purpose": "published archaeology context layers used in atlas outputs",
+        "example_artifacts": [
+          "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "sead_point_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/sead/raw",
+          "required": true,
+          "purpose": "tracked SEAD site inventory and source payload capture",
+          "example_artifacts": [
+            "data/sead/raw/nordic_sites.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/sead/normalized",
+          "required": true,
+          "purpose": "tracked normalized SEAD context ready for downstream use",
+          "example_artifacts": [
+            "data/sead/normalized/nordic_environmental_sites.geojson"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/nordic-atlas",
+          "required": true,
+          "purpose": "published archaeology context layers used in atlas outputs",
+          "example_artifacts": [
+            "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "raa",
+      "display_name": "RAÄ archaeology context",
+      "domain_group": "archaeology_context",
+      "evidence_role": "contextual_domain",
+      "primary_question": "Which Sweden-scoped archaeology context layers are captured and published from RAÄ?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/raa/raw",
+        "required": true,
+        "purpose": "tracked RAÄ source capture",
+        "example_artifacts": [
+          "data/raa/raw/fornsok_domains.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/raa/normalized",
+        "required": true,
+        "purpose": "tracked normalized archaeology layers used in density and map products",
+        "example_artifacts": [
+          "data/raa/normalized/sweden_archaeology_layer.json"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/nordic-atlas",
+        "required": true,
+        "purpose": "published archaeology density and context layers",
+        "example_artifacts": [
+          "docs/report/nordic-atlas/sweden_archaeology_density.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "raa_total_site_count",
+        "raa_heritage_site_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/raa/raw",
+          "required": true,
+          "purpose": "tracked RAÄ source capture",
+          "example_artifacts": [
+            "data/raa/raw/fornsok_domains.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/raa/normalized",
+          "required": true,
+          "purpose": "tracked normalized archaeology layers used in density and map products",
+          "example_artifacts": [
+            "data/raa/normalized/sweden_archaeology_layer.json"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/nordic-atlas",
+          "required": true,
+          "purpose": "published archaeology density and context layers",
+          "example_artifacts": [
+            "docs/report/nordic-atlas/sweden_archaeology_density.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "boundaries",
+      "display_name": "Boundary framing",
+      "domain_group": "framing_context",
+      "evidence_role": "framing_domain",
+      "primary_question": "Which tracked framing geometries constrain interpretation of country and atlas outputs?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/boundaries/raw",
+        "required": true,
+        "purpose": "tracked upstream boundary geometry capture",
+        "example_artifacts": [
+          "data/boundaries/raw/sweden.geojson"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/boundaries/normalized",
+        "required": true,
+        "purpose": "tracked normalized boundary layers ready for publication",
+        "example_artifacts": [
+          "data/boundaries/normalized/nordic_country_boundaries.geojson"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "required": true,
+        "purpose": "cross-family review of framing coverage and publication posture",
+        "example_artifacts": [
+          "data/source_family_evidence_stage_matrix.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/nordic-atlas",
+        "required": true,
+        "purpose": "published boundary layers used in map framing",
+        "example_artifacts": [
+          "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+        ]
+      },
+      "coverage_metric_keys": [
+        "boundary_country_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/boundaries/raw",
+          "required": true,
+          "purpose": "tracked upstream boundary geometry capture",
+          "example_artifacts": [
+            "data/boundaries/raw/sweden.geojson"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/boundaries/normalized",
+          "required": true,
+          "purpose": "tracked normalized boundary layers ready for publication",
+          "example_artifacts": [
+            "data/boundaries/normalized/nordic_country_boundaries.geojson"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "required": true,
+          "purpose": "cross-family review of framing coverage and publication posture",
+          "example_artifacts": [
+            "data/source_family_evidence_stage_matrix.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/nordic-atlas",
+          "required": true,
+          "purpose": "published boundary layers used in map framing",
+          "example_artifacts": [
+            "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "aadr",
+      "display_name": "AADR human ancient DNA",
+      "domain_group": "human_ancient_dna",
+      "evidence_role": "direct_evidence_domain",
+      "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/aadr",
+        "required": true,
+        "purpose": "tracked AADR versioned source files",
+        "example_artifacts": [
+          "data/aadr/v66"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/adna/species/homo_sapiens/normalized",
+        "required": true,
+        "purpose": "tracked governed Homo sapiens normalized outputs",
+        "example_artifacts": [
+          "data/adna/species/homo_sapiens/normalized"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/adna/species/homo_sapiens/review",
+        "required": true,
+        "purpose": "review-ready Homo sapiens package artifacts",
+        "example_artifacts": [
+          "data/adna/species/homo_sapiens/review"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report",
+        "required": true,
+        "purpose": "country and atlas outputs that consume governed AADR records",
+        "example_artifacts": [
+          "docs/report/published_reports_summary.json"
+        ]
+      },
+      "coverage_metric_keys": [
+        "aadr_file_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/aadr",
+          "required": true,
+          "purpose": "tracked AADR versioned source files",
+          "example_artifacts": [
+            "data/aadr/v66"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/adna/species/homo_sapiens/normalized",
+          "required": true,
+          "purpose": "tracked governed Homo sapiens normalized outputs",
+          "example_artifacts": [
+            "data/adna/species/homo_sapiens/normalized"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/adna/species/homo_sapiens/review",
+          "required": true,
+          "purpose": "review-ready Homo sapiens package artifacts",
+          "example_artifacts": [
+            "data/adna/species/homo_sapiens/review"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report",
+          "required": true,
+          "purpose": "country and atlas outputs that consume governed AADR records",
+          "example_artifacts": [
+            "docs/report/published_reports_summary.json"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "animal_adna",
+      "display_name": "Animal ancient DNA recovery",
+      "domain_group": "animal_ancient_dna",
+      "evidence_role": "sample_owned_evidence_domain",
+      "primary_question": "Which animal ancient-DNA records are only captured, which are normalized, and which are safe for public publication?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/adna/governance/source_library",
+        "required": true,
+        "purpose": "tracked project, paper, archive, and supplement capture for the animal recovery program",
+        "example_artifacts": [
+          "data/adna/governance/source_library/project_registry.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/adna/species",
+        "required": true,
+        "purpose": "species-owned normalized sample, locality, chronology, and coordinate evidence",
+        "example_artifacts": [
+          "data/adna/species/equus_caballus/normalized/sample_records.json"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/adna/governance",
+        "required": true,
+        "purpose": "cross-species review, curation, and evidence-honesty artifacts",
+        "example_artifacts": [
+          "data/adna/governance/animal_sample_foundation_truth.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "data/adna/final",
+        "required": true,
+        "purpose": "shared publication-ready animal bundles and atlas candidate surfaces",
+        "example_artifacts": [
+          "data/adna/final/atlas/animal_atlas_point_candidates.json"
+        ]
+      },
+      "coverage_metric_keys": [
+        "animal_species_count",
+        "animal_project_count",
+        "animal_sample_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/adna/governance/source_library",
+          "required": true,
+          "purpose": "tracked project, paper, archive, and supplement capture for the animal recovery program",
+          "example_artifacts": [
+            "data/adna/governance/source_library/project_registry.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/adna/species",
+          "required": true,
+          "purpose": "species-owned normalized sample, locality, chronology, and coordinate evidence",
+          "example_artifacts": [
+            "data/adna/species/equus_caballus/normalized/sample_records.json"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/adna/governance",
+          "required": true,
+          "purpose": "cross-species review, curation, and evidence-honesty artifacts",
+          "example_artifacts": [
+            "data/adna/governance/animal_sample_foundation_truth.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "data/adna/final",
+          "required": true,
+          "purpose": "shared publication-ready animal bundles and atlas candidate surfaces",
+          "example_artifacts": [
+            "data/adna/final/atlas/animal_atlas_point_candidates.json"
+          ]
+        }
+      }
+    }
+  ]
+}
