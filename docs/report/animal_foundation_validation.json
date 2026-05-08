@@ -1,10 +1,10 @@
 {
   "schema_version": "animal-foundation-validation.v1",
   "overall_ok": false,
-  "sample_row_count": 786,
-  "site_evidence_row_count": 255,
-  "coordinate_row_count": 217,
-  "atlas_row_count": 208,
+  "sample_row_count": 894,
+  "site_evidence_row_count": 281,
+  "coordinate_row_count": 243,
+  "atlas_row_count": 234,
   "checks": [
     {
       "check_id": "unique_sample_stable_ids",
@@ -24,18 +24,18 @@
       "check_id": "sample_paper_linkage_present",
       "passed": false,
       "description": "Every curated animal sample row keeps a paper DOI reference.",
-      "finding_count": 19,
+      "finding_count": 29,
       "findings": [
         "PRJNA705960",
-        "PRJEB43564",
-        "PRJEB50952",
-        "PRJEB52590",
-        "PRJEB52849",
-        "PRJEB55549",
-        "PRJEB10854",
-        "PRJEB56293",
-        "PRJEB7537",
-        "PRJEB9799"
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960",
+        "PRJNA705960"
       ]
     },
     {

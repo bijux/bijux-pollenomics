@@ -130,12 +130,12 @@
     "animal_point_traceability_json": "nordic-atlas_animal_point_traceability.json"
   },
   "animal_atlas": {
-    "total_locality_points": 208,
-    "direct_coordinate_feature_count": 207,
+    "total_locality_points": 234,
+    "direct_coordinate_feature_count": 233,
     "named_site_geocoded_feature_count": 1,
     "weaker_geography_feature_count": 0,
-    "total_species": 2,
-    "domesticated_species_count": 2,
+    "total_species": 3,
+    "domesticated_species_count": 3,
     "comparator_species_count": 0,
     "layer_groups": [
       "Domesticated-core animal evidence",
@@ -157,11 +157,12 @@
       "0-1000 BP",
       "1001-3000 BP",
       "3001-6000 BP",
-      "6001+ BP"
+      "6001+ BP",
+      "undated"
     ],
     "coordinate_confidence_counts": {
       "approximate": 1,
-      "exact": 207
+      "exact": 233
     },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
@@ -175,6 +176,12 @@
         "common_name": "dromedary camel",
         "animal_scope": "domesticated_core",
         "locality_count": 1
+      },
+      {
+        "latin_name": "Capra hircus",
+        "common_name": "goat",
+        "animal_scope": "domesticated_core",
+        "locality_count": 26
       },
       {
         "latin_name": "Equus caballus",

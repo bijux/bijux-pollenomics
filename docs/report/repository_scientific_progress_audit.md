@@ -18,6 +18,6 @@
 ## Current Findings
 
 - all 18 tracked papers now ship archived supplementary material, but sample-owned extraction still lags behind supplement recovery
-- the shipped animal atlas still exposes only 208 published animal point rows
-- 23 animal rows remain unresolved for mapping and 8 are refused from mapping
+- the shipped animal atlas still exposes only 234 published animal point rows
+- 21 animal rows remain unresolved for mapping and 7 are refused from mapping
 - collection_summary still reports zero counts for landclim_site_count, landclim_grid_cell_count, neotoma_point_count, sead_point_count, raa_total_site_count, raa_heritage_site_count

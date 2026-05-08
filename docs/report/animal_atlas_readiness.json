@@ -55,13 +55,13 @@
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 27,
       "indirectly_geocoded": 0,
-      "unresolved": 2,
-      "refused_from_mapping": 1,
-      "map_ready_count": 0,
-      "total_curated_rows": 3,
-      "map_ready_share": 0.0,
+      "unresolved": 0,
+      "refused_from_mapping": 0,
+      "map_ready_count": 27,
+      "total_curated_rows": 27,
+      "map_ready_share": 1.0,
       "country_mapped_locality_counts": {}
     },
     {

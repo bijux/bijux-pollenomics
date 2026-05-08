@@ -47,6 +47,8 @@
         "time_end_bp": 4961,
         "time_mean_bp": 4952,
         "time_label": "4944-4961 BP",
+        "chronology_evidence_class": "direct_radiocarbon_date",
+        "chronology_precision_posture": "sample_precise_point",
         "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
         "paper_doi": "10.1038/s41586-021-04018-9",
         "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -74,6 +76,14 @@
           {
             "label": "Chronology",
             "value": "4944-4961 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "direct_radiocarbon_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_precise_point"
           },
           {
             "label": "Coordinate basis",

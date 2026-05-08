@@ -22,6 +22,565 @@
       "supplementary_sources": []
     },
     {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
+      "site_record_id": "capra_hircus:locality:prjeb90141:acemhyk:aksarayplainturkey",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90141",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90141:samea4591761"
+      ],
+      "sample_group_ids": [
+        "PRJEB90141"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "source_locator": "Table S2 downsampled samples!row4",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-blagotinpoljna-trstenikserbia",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-blagotinpoljna-trstenikserbia",
+      "site_record_id": "capra_hircus:locality:prjeb90141:blagotinpoljna:trstenikserbia",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90141",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90141:samea4588077"
+      ],
+      "sample_group_ids": [
+        "PRJEB90141"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "source_locator": "Table S2 downsampled samples!row3",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey",
+      "site_record_id": "capra_hircus:locality:prjeb90141:direklicave:taurusmountainsturkey",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90141",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90141:samea4453841"
+      ],
+      "sample_group_ids": [
+        "PRJEB90141"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "source_locator": "Table S2 downsampled samples!row2",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-sangechakhmaq-semnaniran",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-sangechakhmaq-semnaniran",
+      "site_record_id": "capra_hircus:locality:prjeb90141:sangechakhmaq:semnaniran",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90141",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90141:samea4591758"
+      ],
+      "sample_group_ids": [
+        "PRJEB90141"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+      "source_locator": "Table S2 downsampled samples!row5",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-aguadulce-grancanaria",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-aguadulce-grancanaria",
+      "site_record_id": "capra_hircus:locality:prjeb90261:aguadulce:grancanaria",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1961"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row31",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-belmaco-lapalma",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-belmaco-lapalma",
+      "site_record_id": "capra_hircus:locality:prjeb90261:belmaco:lapalma",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2197"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row6",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-buracas-lapalma",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-buracas-lapalma",
+      "site_record_id": "capra_hircus:locality:prjeb90261:buracas:lapalma",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2201"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row7",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-caserones-grancanaria",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-caserones-grancanaria",
+      "site_record_id": "capra_hircus:locality:prjeb90261:caserones:grancanaria",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2144",
+        "capra_hircus:sample:prjeb90261:pgull-2145"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row30",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadebencomo-tenerife",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-cuevadebencomo-tenerife",
+      "site_record_id": "capra_hircus:locality:prjeb90261:cuevadebencomo:tenerife",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1786"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row21",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadelaherradura-elhierro",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-cuevadelaherradura-elhierro",
+      "site_record_id": "capra_hircus:locality:prjeb90261:cuevadelaherradura:elhierro",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1962",
+        "capra_hircus:sample:prjeb90261:pgull-1965",
+        "capra_hircus:sample:prjeb90261:pgull-2202"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row3",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadevillaverde-fuerteventura",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-cuevadevillaverde-fuerteventura",
+      "site_record_id": "capra_hircus:locality:prjeb90261:cuevadevillaverde:fuerteventura",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1233",
+        "capra_hircus:sample:prjeb90261:pgull-1235",
+        "capra_hircus:sample:prjeb90261:pgull-1236",
+        "capra_hircus:sample:prjeb90261:pgull-1238",
+        "capra_hircus:sample:prjeb90261:pgull-1239",
+        "capra_hircus:sample:prjeb90261:pgull-1240",
+        "capra_hircus:sample:prjeb90261:pgull-1241",
+        "capra_hircus:sample:prjeb90261:pgull-1244",
+        "capra_hircus:sample:prjeb90261:pgull-1246",
+        "capra_hircus:sample:prjeb90261:pgull-1247",
+        "capra_hircus:sample:prjeb90261:pgull-1249",
+        "capra_hircus:sample:prjeb90261:pgull-1251",
+        "capra_hircus:sample:prjeb90261:pgull-1256"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 13,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row40",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevasdeherreragonzlez-lagomera",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-cuevasdeherreragonzlez-lagomera",
+      "site_record_id": "capra_hircus:locality:prjeb90261:cuevasdeherreragonzlez:lagomera",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-0529"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row20",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-elchorrillo-tenerife",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-elchorrillo-tenerife",
+      "site_record_id": "capra_hircus:locality:prjeb90261:elchorrillo:tenerife",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2220"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row24",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-ellomitodelmedio-lagomera",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-ellomitodelmedio-lagomera",
+      "site_record_id": "capra_hircus:locality:prjeb90261:ellomitodelmedio:lagomera",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-0515",
+        "capra_hircus:sample:prjeb90261:pgull-0518",
+        "capra_hircus:sample:prjeb90261:pgull-0523"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row12",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-elportaln-burgos",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-elportaln-burgos",
+      "site_record_id": "capra_hircus:locality:prjeb90261:elportaln:burgos",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:apor012"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row76",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-eltendal-lapalma",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-eltendal-lapalma",
+      "site_record_id": "capra_hircus:locality:prjeb90261:eltendal:lapalma",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1964",
+        "capra_hircus:sample:prjeb90261:pgull-2228",
+        "capra_hircus:sample:prjeb90261:pgull-2230"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row8",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-fiquinineo-lanzarote",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-fiquinineo-lanzarote",
+      "site_record_id": "capra_hircus:locality:prjeb90261:fiquinineo:lanzarote",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1963"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row58",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-hospitaldesanmartincallesanmarcial-grancanaria",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-hospitaldesanmartincallesanmarcial-grancanaria",
+      "site_record_id": "capra_hircus:locality:prjeb90261:hospitaldesanmartincallesanmarcial:grancanaria",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1664",
+        "capra_hircus:sample:prjeb90261:pgull-1677",
+        "capra_hircus:sample:prjeb90261:pgull-1688"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row26",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-lacaadadelagurona-lagomera",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lacaadadelagurona-lagomera",
+      "site_record_id": "capra_hircus:locality:prjeb90261:lacaadadelagurona:lagomera",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-0533",
+        "capra_hircus:sample:prjeb90261:pgull-0535",
+        "capra_hircus:sample:prjeb90261:pgull-0537",
+        "capra_hircus:sample:prjeb90261:pgull-0539",
+        "capra_hircus:sample:prjeb90261:pgull-0540"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 5,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row16",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-lafortaleza-grancanaria",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lafortaleza-grancanaria",
+      "site_record_id": "capra_hircus:locality:prjeb90261:lafortaleza:grancanaria",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1404"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row25",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-llanodelsombrero-fuerteventura",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-llanodelsombrero-fuerteventura",
+      "site_record_id": "capra_hircus:locality:prjeb90261:llanodelsombrero:fuerteventura",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1969",
+        "capra_hircus:sample:prjeb90261:pgull-1971",
+        "capra_hircus:sample:prjeb90261:pgull-1972",
+        "capra_hircus:sample:prjeb90261:pgull-2235"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 4,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row52",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-losriscosdeifara-tenerife",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-losriscosdeifara-tenerife",
+      "site_record_id": "capra_hircus:locality:prjeb90261:losriscosdeifara:tenerife",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2143"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row23",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-playachica-grancanaria",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-playachica-grancanaria",
+      "site_record_id": "capra_hircus:locality:prjeb90261:playachica:grancanaria",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1968",
+        "capra_hircus:sample:prjeb90261:pgull-2205",
+        "capra_hircus:sample:prjeb90261:pgull-2207",
+        "capra_hircus:sample:prjeb90261:pgull-2208",
+        "capra_hircus:sample:prjeb90261:pgull-2210",
+        "capra_hircus:sample:prjeb90261:pgull-2211"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 6,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row32",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-puntadelmallorqun-fuerteventura",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-puntadelmallorqun-fuerteventura",
+      "site_record_id": "capra_hircus:locality:prjeb90261:puntadelmallorqun:fuerteventura",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1974",
+        "capra_hircus:sample:prjeb90261:pgull-2217",
+        "capra_hircus:sample:prjeb90261:pgull-2218"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row55",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-tigalate-lapalma",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-tigalate-lapalma",
+      "site_record_id": "capra_hircus:locality:prjeb90261:tigalate:lapalma",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-2146"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row11",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjna1328209-lakeqinghaibasin-china",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjna1328209-capra-hircus-locality-prjna1328209-lakeqinghaibasin-china",
+      "site_record_id": "capra_hircus:locality:prjna1328209:lakeqinghaibasin:china",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJNA1328209",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjna1328209:dc23",
+        "capra_hircus:sample:prjna1328209:dc27-he",
+        "capra_hircus:sample:prjna1328209:dc40",
+        "capra_hircus:sample:prjna1328209:dc47_4he",
+        "capra_hircus:sample:prjna1328209:dc48-1"
+      ],
+      "sample_group_ids": [
+        "PRJNA1328209"
+      ],
+      "sample_count": 5,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+      "source_locator": "Table S2!row3",
+      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-berufjordur-iceland",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-berufjordur-iceland",
       "site_record_id": "equus_caballus:locality:prjeb31613:berufjordur:iceland",
