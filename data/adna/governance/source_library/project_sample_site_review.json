@@ -17,8 +17,8 @@
     {
       "project_accession": "PRJEB44430",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 248,
+      "direct_sample_site_count": 248,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -30,8 +30,8 @@
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 244,
+      "direct_sample_site_count": 244,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -43,8 +43,8 @@
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 14,
+      "direct_sample_site_count": 14,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,

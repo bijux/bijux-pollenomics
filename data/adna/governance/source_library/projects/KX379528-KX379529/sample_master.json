@@ -31,6 +31,9 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "",
+      "political_entity": "",
+      "latitude_text": "",
+      "longitude_text": "",
       "chronology_text": ""
     },
     {
@@ -50,6 +53,9 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "",
+      "political_entity": "",
+      "latitude_text": "",
+      "longitude_text": "",
       "chronology_text": ""
     }
   ]

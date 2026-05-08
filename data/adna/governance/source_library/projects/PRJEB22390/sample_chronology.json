@@ -649,8 +649,8 @@
       "time_end_bp": 2319,
       "time_mean_bp": 2319,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
