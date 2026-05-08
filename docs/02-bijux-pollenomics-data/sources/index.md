@@ -30,7 +30,10 @@ but they should not be described as if they all answer the same question.
 
 - [Source comparison](source-comparison.md) for the shortest cross-family overview
 - [Source family matrix](source-family-matrix.md) for the repository-wide balance view
+- [Refresh policy](refresh-policy.md) for the rule that source refreshes are evidence events
+- [Shared normalization](shared-normalization.md) for the cross-family output contract
 - [Animal source intake](animal-source-intake.md) for project, paper, supplement, and sample-recovery status
+- [Non-aDNA explainer recovery](non-adna-explainer-recovery.md) for the restored contextual-docs ledger
 
 ## Direct Files
 
@@ -46,3 +49,4 @@ but they should not be described as if they all answer the same question.
 - pollen, archaeology, boundaries, and aDNA should stay distinguishable
 - animal ancient DNA depends on project and supplement recovery before it becomes sample-backed evidence
 - public outputs are downstream of those source and intake decisions
+- refresh and normalization rules should stay visible enough that non-aDNA context does not disappear behind one recovery track
