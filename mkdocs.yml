@@ -76,27 +76,25 @@ nav:
       - Test Strategy: 01-bijux-pollenomics/quality/test-strategy.md
   - Data Reference:
       - Data Reference: 02-bijux-pollenomics-data/index.md
-      - Sample, Site, and Coordinate Contract: 02-bijux-pollenomics-data/foundation/index.md
-      - Data System Overview: 02-bijux-pollenomics-data/foundation/data-system-overview.md
-      - Animal aDNA Data Model: 02-bijux-pollenomics-data/foundation/animal-adna-data-model.md
-      - Directory Layout: 02-bijux-pollenomics-data/foundation/directory-layout.md
+      - Overview: 02-bijux-pollenomics-data/overview/index.md
+      - Data System Overview: 02-bijux-pollenomics-data/overview/data-system-overview.md
+      - Animal Ancient DNA Evidence: 02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence.md
+      - Data Directory Layout: 02-bijux-pollenomics-data/overview/data-directory-layout.md
+      - Sources: 02-bijux-pollenomics-data/sources/index.md
       - Source Comparison: 02-bijux-pollenomics-data/sources/source-comparison.md
+      - Source Family Matrix: 02-bijux-pollenomics-data/sources/source-family-matrix.md
+      - Animal Source Intake: 02-bijux-pollenomics-data/sources/animal-source-intake.md
       - AADR: 02-bijux-pollenomics-data/sources/aadr.md
       - Boundaries: 02-bijux-pollenomics-data/sources/boundaries.md
       - LandClim: 02-bijux-pollenomics-data/sources/landclim.md
       - Neotoma: 02-bijux-pollenomics-data/sources/neotoma.md
       - RAÄ: 02-bijux-pollenomics-data/sources/raa.md
       - SEAD: 02-bijux-pollenomics-data/sources/sead.md
-      - Projects: 02-bijux-pollenomics-data/projects/index.md
-      - Animal Project and Paper Inventory: 02-bijux-pollenomics-data/sources/animal-project-and-paper-inventory.md
-      - Papers: 02-bijux-pollenomics-data/papers/index.md
-      - Supplements: 02-bijux-pollenomics-data/supplements/index.md
-      - Samples: 02-bijux-pollenomics-data/samples/index.md
-      - Why One Project Can Map To Many Samples: 02-bijux-pollenomics-data/samples/project-sample-representation.md
-      - Sites: 02-bijux-pollenomics-data/sites/index.md
-      - Chronology: 02-bijux-pollenomics-data/chronology/index.md
-      - Coordinates: 02-bijux-pollenomics-data/coordinates/index.md
-      - How Site Names Become Coordinates: 02-bijux-pollenomics-data/coordinates/site-coordinate-resolution.md
+      - Evidence: 02-bijux-pollenomics-data/evidence/index.md
+      - Sample Records: 02-bijux-pollenomics-data/evidence/sample-records.md
+      - Localities: 02-bijux-pollenomics-data/evidence/localities.md
+      - Chronology: 02-bijux-pollenomics-data/evidence/chronology.md
+      - Coordinates: 02-bijux-pollenomics-data/evidence/coordinates.md
       - Tracked Outputs and Published Surfaces: 02-bijux-pollenomics-data/outputs/index.md
       - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
       - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md

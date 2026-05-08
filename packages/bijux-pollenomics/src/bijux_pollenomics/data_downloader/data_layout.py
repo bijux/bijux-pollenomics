@@ -15,7 +15,7 @@ from ..core.files import write_text
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
-DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/foundation/directory-layout.md"
+DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md"
 HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../../aadr"
 ADNA_LAYOUT_DIRS = ("raw", "normalized", "manifests", "reports", "review")
 
@@ -63,7 +63,7 @@ under `{root_name}/`:
 Detailed acquisition commands, source explanations, and storage rationale are documented in the canonical docs pages:
 
 - [`docs/02-bijux-pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})
-- [`docs/02-bijux-pollenomics-data/foundation/directory-layout.md`]({DATA_LAYOUT_INDEX})
+- [`docs/02-bijux-pollenomics-data/overview/data-directory-layout.md`]({DATA_LAYOUT_INDEX})
 
 The collector also writes `collection_summary.json` so the current data tree can be inspected with machine-readable counts, source output roots, and provenance metadata.
 
