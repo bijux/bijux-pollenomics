@@ -15,9 +15,9 @@
       },
       "locality_identity": {
         "namespace": "canis_lupus_familiaris:sample_locality",
-        "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KX379528-KX379529",
           "accession_range_anchor"
@@ -32,18 +32,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "kx379528-kx379529:kx379528",
       "group_id": "KX379528-KX379529",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -61,8 +61,8 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -94,9 +94,9 @@
       },
       "locality_identity": {
         "namespace": "canis_lupus_familiaris:sample_locality",
-        "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "canis_lupus_familiaris:locality:kx379528-kx379529:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KX379528-KX379529",
           "accession_range_anchor"
@@ -111,18 +111,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "kx379528-kx379529:kx379529",
       "group_id": "KX379528-KX379529",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -140,8 +140,8 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -220,7 +220,7 @@
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The paper gives exact site names, but the shipped point remains a Central Europe centroid until a precise site coordinate workflow is added.",
+      "inclusion_note": "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth.",
       "chronology_strength": "project_context_interval",
       "chronology_normalization_status": "normalized_interval",
       "chronology_provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
@@ -252,9 +252,9 @@
       },
       "locality_identity": {
         "namespace": "canis_lupus_familiaris:sample_locality",
-        "stable_token": "canis_lupus_familiaris:locality:srs1407453:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "canis_lupus_familiaris:locality:srs1407453:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "SRS1407453",
           "sample_accession_anchor"
@@ -266,21 +266,21 @@
       "source_release": "SRS1407453",
       "record_modality": "archive_reads",
       "review_strength": "primary_paper_pinned",
-      "provenance_quality": "manual_curation_only",
+      "provenance_quality": "archive_project_catalog",
       "master_id": "srs1407453:srs1407453",
       "group_id": "SRS1407453",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Ancient European dog genomes reveal continuity since the Early Neolithic",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -298,8 +298,8 @@
       "paper_doi": "10.1038/ncomms16082",
       "paper_url": "https://doi.org/10.1038/ncomms16082",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",

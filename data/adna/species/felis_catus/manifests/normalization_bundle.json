@@ -96,7 +96,7 @@
       "paper_url": "https://doi.org/10.1126/science.adt2642",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level.",
+      "inclusion_note": "Cat remains a broad dispersal signal, not a point-ready site lead.",
       "chronology_strength": "project_context_interval",
       "chronology_normalization_status": "normalized_interval",
       "chronology_provenance_path": "",
@@ -313,7 +313,7 @@
       "original_location_text": "North Africa to Europe domestic cat dispersal transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "This is a dispersal transect, not one excavated cat site, so the current mapped point remains region-level."
+      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead."
     }
   ],
   "project_summaries": [

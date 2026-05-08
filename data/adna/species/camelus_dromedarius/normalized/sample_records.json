@@ -15,9 +15,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -32,18 +32,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605068",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -61,8 +61,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -94,9 +94,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -111,18 +111,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605069",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -140,8 +140,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -173,9 +173,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -190,18 +190,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605070",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -219,8 +219,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -252,9 +252,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -269,18 +269,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605071",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -298,8 +298,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -331,9 +331,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -348,18 +348,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605072",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -377,8 +377,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -410,9 +410,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -427,18 +427,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605073",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -456,8 +456,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -489,9 +489,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -506,18 +506,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605074",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -535,8 +535,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -568,9 +568,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -585,18 +585,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605075",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -614,8 +614,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -647,9 +647,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -664,18 +664,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605076",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -693,8 +693,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -726,9 +726,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -743,18 +743,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605077",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -772,8 +772,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -805,9 +805,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -822,18 +822,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605078",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -851,8 +851,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -884,9 +884,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -901,18 +901,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605079",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -930,8 +930,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -963,9 +963,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sitedetailnotyetextractedfromtrackedsourcesupport",
-        "locality_text": "site detail not yet extracted from tracked source support",
-        "political_entity": null,
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:unresolved",
+        "locality_text": "",
+        "political_entity": "",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "accession_range_anchor"
@@ -980,18 +980,18 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "ku605068-ku605080:ku605080",
       "group_id": "KU605068-KU605080",
-      "locality": null,
-      "political_entity": null,
+      "locality": "",
+      "political_entity": "",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
-      "full_date": "chronology not yet extracted from tracked source support",
+      "full_date": "",
       "chronology": {
         "original_text": "",
         "time_start_bp": null,
@@ -1009,8 +1009,8 @@
       "paper_doi": "10.1111/1755-0998.12551",
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
-      "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_status": "site_curated",
+      "inclusion_note": "No location evidence has been extracted yet for this recovered sample row.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -1042,9 +1042,9 @@
       },
       "locality_identity": {
         "namespace": "camelus_dromedarius:sample_locality",
-        "stable_token": "camelus_dromedarius:locality:srp073444:arabianpeninsulaandlevantdromedarycontext:arabianpeninsulaandlevant",
-        "locality_text": "Arabian Peninsula and Levant dromedary context",
-        "political_entity": "Arabian Peninsula and Levant",
+        "stable_token": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+        "locality_text": "Site 1040 near Wadi Halfa dromedary context",
+        "political_entity": "Sudan",
         "source_anchor_tokens": [
           "SRP073444",
           "project_accession_anchor"
@@ -1059,23 +1059,23 @@
       "provenance_quality": "manual_curation_only",
       "master_id": "SRP073444",
       "group_id": "SRP073444",
-      "locality": "Arabian Peninsula and Levant dromedary context",
-      "political_entity": "Arabian Peninsula and Levant",
+      "locality": "Site 1040 near Wadi Halfa dromedary context",
+      "political_entity": "Sudan",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "unknown"
+        "latitude": 21.799142,
+        "longitude": 31.371316,
+        "latitude_text": "21.799142",
+        "longitude_text": "31.371316",
+        "confidence": "approximate"
       },
       "publication": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
       "year_first_published": "2017",
       "full_date": "Historical and archaeological dromedary range context",
       "chronology": {
         "original_text": "Historical and archaeological dromedary range context",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "time_start_bp": 1400,
+        "time_end_bp": 3000,
+        "time_mean_bp": 2200,
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context"
       },
@@ -1089,9 +1089,9 @@
       "paper_url": "https://doi.org/10.1111/1755-0998.12551",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The paper names an exact Wadi Halfa specimen, but the current repository still publishes camel only as broad non-Nordic context rather than a precise atlas-grade point.",
-      "chronology_strength": "project_context_text_only",
-      "chronology_normalization_status": "text_only_unparsed",
+      "inclusion_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+      "chronology_strength": "project_context_interval",
+      "chronology_normalization_status": "normalized_interval",
       "chronology_provenance_path": "",
       "chronology_provenance_kind": "",
       "chronology_provenance_locator": "",

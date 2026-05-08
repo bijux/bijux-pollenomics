@@ -60,7 +60,7 @@
       "original_location_text": "Arzhan I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -128,14 +128,14 @@
       "original_location_text": "Berel'",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
         "namespace": "equus_caballus:project_locality",
-        "stable_token": "equus_caballus:locality:prjeb19970:na:na",
+        "stable_token": "equus_caballus:locality:prjeb19970:na",
         "locality_text": "N/A",
-        "political_entity": "N/A",
+        "political_entity": "",
         "source_anchor_tokens": [
           "PRJEB19970",
           "",
@@ -187,7 +187,7 @@
       "original_location_text": "N/A",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -246,7 +246,7 @@
       "original_location_text": "Sintashta",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -305,7 +305,7 @@
       "original_location_text": "Actiparc",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -364,7 +364,7 @@
       "original_location_text": "Bateni",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -427,7 +427,7 @@
       "original_location_text": "Borly4",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -496,7 +496,7 @@
       "original_location_text": "Botai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -555,7 +555,7 @@
       "original_location_text": "Botai C",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -614,7 +614,7 @@
       "original_location_text": "Botai F",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -673,7 +673,7 @@
       "original_location_text": "Botai G",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -732,7 +732,7 @@
       "original_location_text": "Botai I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -791,7 +791,7 @@
       "original_location_text": "Botai K",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -850,7 +850,7 @@
       "original_location_text": "Botai LM",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -909,7 +909,7 @@
       "original_location_text": "Botai P",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -968,7 +968,7 @@
       "original_location_text": "Botai Petrous",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1027,7 +1027,7 @@
       "original_location_text": "Botai R",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1086,7 +1086,7 @@
       "original_location_text": "Dunaujvaros",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1145,7 +1145,7 @@
       "original_location_text": "FMontauban",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1204,7 +1204,7 @@
       "original_location_text": "Garbovat",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1263,7 +1263,7 @@
       "original_location_text": "GolModII",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1322,7 +1322,7 @@
       "original_location_text": "Grigorevka4",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1381,7 +1381,7 @@
       "original_location_text": "Haunstetten",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1440,7 +1440,7 @@
       "original_location_text": "Ridala",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1499,7 +1499,7 @@
       "original_location_text": "ShahrIQumis",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1558,7 +1558,7 @@
       "original_location_text": "Syrgal",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1617,7 +1617,7 @@
       "original_location_text": "TachtiPerda",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1676,7 +1676,7 @@
       "original_location_text": "TepeHasanlu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1736,7 +1736,7 @@
       "original_location_text": "UushgiinUvur",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1795,7 +1795,7 @@
       "original_location_text": "Yenikapi",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1854,7 +1854,7 @@
       "original_location_text": "Zhanaturmus",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1918,7 +1918,7 @@
       "original_location_text": "Actiparc",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -1977,7 +1977,7 @@
       "original_location_text": "Alcáçova de Santarém",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2036,7 +2036,7 @@
       "original_location_text": "Altata",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2097,7 +2097,7 @@
       "original_location_text": "Arzhan I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2159,7 +2159,7 @@
       "original_location_text": "Arzhan II",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2218,7 +2218,7 @@
       "original_location_text": "Augusta Raurica - Insula 8",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2278,7 +2278,7 @@
       "original_location_text": "Augusta Raurica - Schmidmatt",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2337,7 +2337,7 @@
       "original_location_text": "Balagansk",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2396,7 +2396,7 @@
       "original_location_text": "Bapska Gradac",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2455,7 +2455,7 @@
       "original_location_text": "Batagai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2515,7 +2515,7 @@
       "original_location_text": "Bateni",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2574,7 +2574,7 @@
       "original_location_text": "Beauvais, la Maladrerie Saint-Lazare",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2633,7 +2633,7 @@
       "original_location_text": "Beauvais, VIlliers-de-l'Isle Adam",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2692,7 +2692,7 @@
       "original_location_text": "Belgheis",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2752,7 +2752,7 @@
       "original_location_text": "Belkaragay",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2821,7 +2821,7 @@
       "original_location_text": "Berel'",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2880,7 +2880,7 @@
       "original_location_text": "Berufjordur",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Iceland sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -2943,7 +2943,7 @@
       "original_location_text": "Borly 4",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3029,7 +3029,7 @@
       "original_location_text": "Botai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3088,7 +3088,7 @@
       "original_location_text": "Boves, chemin de Glisy",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3148,7 +3148,7 @@
       "original_location_text": "Boz-Adyr",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3210,7 +3210,7 @@
       "original_location_text": "Brough Of Deerness",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3269,7 +3269,7 @@
       "original_location_text": "Bruszcewo",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3328,7 +3328,7 @@
       "original_location_text": "Camino de las Yeseras, Madrid",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3387,7 +3387,7 @@
       "original_location_text": "Cantorella",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3446,7 +3446,7 @@
       "original_location_text": "Capesterre-Belle-Eau",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3505,7 +3505,7 @@
       "original_location_text": "Capote",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3580,7 +3580,7 @@
       "original_location_text": "Chartres, boulevard de la Courtille",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3639,7 +3639,7 @@
       "original_location_text": "Dariali, Tamara Fort",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3699,7 +3699,7 @@
       "original_location_text": "Derkul",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3758,7 +3758,7 @@
       "original_location_text": "Dunaújváros",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3817,7 +3817,7 @@
       "original_location_text": "Šebastovce",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3877,7 +3877,7 @@
       "original_location_text": "El Acequión",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3936,7 +3936,7 @@
       "original_location_text": "Els Vilars",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -3997,7 +3997,7 @@
       "original_location_text": "Evreux, Clos-au-Duc",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4056,7 +4056,7 @@
       "original_location_text": "Fengtai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4115,7 +4115,7 @@
       "original_location_text": "Frankfurt-Heddenheim",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4174,7 +4174,7 @@
       "original_location_text": "Fresnes-lès-Montauban",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4233,7 +4233,7 @@
       "original_location_text": "Garbovat",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4297,7 +4297,7 @@
       "original_location_text": "Gol Mod II",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4359,7 +4359,7 @@
       "original_location_text": "Goyet",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4418,7 +4418,7 @@
       "original_location_text": "Granastaðir",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Iceland sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4477,7 +4477,7 @@
       "original_location_text": "Gregorevka 4",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4536,7 +4536,7 @@
       "original_location_text": "Halvai 3",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4595,7 +4595,7 @@
       "original_location_text": "Halvai 5",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4654,7 +4654,7 @@
       "original_location_text": "Haunstetten",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4713,7 +4713,7 @@
       "original_location_text": "Khatuu 2",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4772,7 +4772,7 @@
       "original_location_text": "Khotont",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4831,7 +4831,7 @@
       "original_location_text": "Kokorevo",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4890,7 +4890,7 @@
       "original_location_text": "Krasnaya Gorka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -4950,7 +4950,7 @@
       "original_location_text": "Krasnokamenka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5009,7 +5009,7 @@
       "original_location_text": "Kulian Cave",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5068,7 +5068,7 @@
       "original_location_text": "Lebyazhinka IV",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5127,7 +5127,7 @@
       "original_location_text": "Longueil-Annel",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5186,7 +5186,7 @@
       "original_location_text": "Macon, rue Rambuteau",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5245,7 +5245,7 @@
       "original_location_text": "Mainz",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5312,7 +5312,7 @@
       "original_location_text": "Marvelė cemetery",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5371,7 +5371,7 @@
       "original_location_text": "Merzly Yar",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5430,7 +5430,7 @@
       "original_location_text": "Metz, Place de la République",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5489,7 +5489,7 @@
       "original_location_text": "Miciurin",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5524,7 +5524,7 @@
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "unknown"
+        "confidence": "exact"
       },
       "sample_count": 2,
       "sample_ids": [
@@ -5549,7 +5549,7 @@
       "original_location_text": "museum specimen",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5608,7 +5608,7 @@
       "original_location_text": "Noyon - Orroire",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5668,7 +5668,7 @@
       "original_location_text": "Nuštar",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5728,7 +5728,7 @@
       "original_location_text": "Oktyabrsky",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5788,7 +5788,7 @@
       "original_location_text": "Olon Kurin Gol",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5847,7 +5847,7 @@
       "original_location_text": "Otepää",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5906,7 +5906,7 @@
       "original_location_text": "Otok",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -5965,7 +5965,7 @@
       "original_location_text": "Potapovka I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6024,7 +6024,7 @@
       "original_location_text": "Quoygrew",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6084,7 +6084,7 @@
       "original_location_text": "Ridala",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6143,7 +6143,7 @@
       "original_location_text": "Saadjärve",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6202,7 +6202,7 @@
       "original_location_text": "Sagzabad",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6261,7 +6261,7 @@
       "original_location_text": "Saint-Just-en-Chaussée",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6320,7 +6320,7 @@
       "original_location_text": "Saint-Quentin",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6379,7 +6379,7 @@
       "original_location_text": "Sayangorsk",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6438,7 +6438,7 @@
       "original_location_text": "Schloßvippach",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6498,7 +6498,7 @@
       "original_location_text": "Shar-I-Qumis",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6559,7 +6559,7 @@
       "original_location_text": "Sintashta",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6619,7 +6619,7 @@
       "original_location_text": "Solothurn-Vigier",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6678,7 +6678,7 @@
       "original_location_text": "Steim am Rhein Charregass",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6738,7 +6738,7 @@
       "original_location_text": "Syrgal 1",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6797,7 +6797,7 @@
       "original_location_text": "Tachti Perda",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6858,7 +6858,7 @@
       "original_location_text": "Tavan Tolgoi",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6918,7 +6918,7 @@
       "original_location_text": "Taymyr",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -6985,7 +6985,7 @@
       "original_location_text": "Tepe Hasanlu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7044,7 +7044,7 @@
       "original_location_text": "Tumeski",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7103,7 +7103,7 @@
       "original_location_text": "Uppsala",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7174,7 +7174,7 @@
       "original_location_text": "Uushgiin Uvur",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7233,7 +7233,7 @@
       "original_location_text": "Vermand, rue De Gaulle",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7292,7 +7292,7 @@
       "original_location_text": "Vicerrectorado",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7351,7 +7351,7 @@
       "original_location_text": "Whitehall Roman Villa",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7415,7 +7415,7 @@
       "original_location_text": "Witter Place",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7490,7 +7490,7 @@
       "original_location_text": "Yenikapi",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7549,7 +7549,7 @@
       "original_location_text": "Yerqorqan",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7608,7 +7608,7 @@
       "original_location_text": "Zhanaturmus",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7669,7 +7669,7 @@
       "original_location_text": "Acemhoyuk",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7730,7 +7730,7 @@
       "original_location_text": "Çadır Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7792,7 +7792,7 @@
       "original_location_text": "Aleksandrovskoe IV",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7851,7 +7851,7 @@
       "original_location_text": "Algay",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7912,7 +7912,7 @@
       "original_location_text": "Althiburos",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -7973,7 +7973,7 @@
       "original_location_text": "Arzhan-I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8032,7 +8032,7 @@
       "original_location_text": "Arzhan-II",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8091,7 +8091,7 @@
       "original_location_text": "Ashchisu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8151,7 +8151,7 @@
       "original_location_text": "Asva",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8210,7 +8210,7 @@
       "original_location_text": "Aygurskiy 2",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8269,7 +8269,7 @@
       "original_location_text": "Bad Pirawarth",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8329,7 +8329,7 @@
       "original_location_text": "Belkaragay",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8390,7 +8390,7 @@
       "original_location_text": "Bestamak",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8449,7 +8449,7 @@
       "original_location_text": "Březno",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8508,7 +8508,7 @@
       "original_location_text": "Bijke-V",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8570,7 +8570,7 @@
       "original_location_text": "Bol'shekaraganskii",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8630,7 +8630,7 @@
       "original_location_text": "Borly 4",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8692,7 +8692,7 @@
       "original_location_text": "Borly",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8751,7 +8751,7 @@
       "original_location_text": "Bor Shoroonii",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8827,7 +8827,7 @@
       "original_location_text": "Botai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8886,7 +8886,7 @@
       "original_location_text": "Burgast",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -8945,7 +8945,7 @@
       "original_location_text": "Burial mound at Berezovaya mountain",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9005,7 +9005,7 @@
       "original_location_text": "Chalk Hill",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9064,7 +9064,7 @@
       "original_location_text": "Chinge-Tey-I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9123,7 +9123,7 @@
       "original_location_text": "Choburak-I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9182,7 +9182,7 @@
       "original_location_text": "Cova Fosca",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9243,7 +9243,7 @@
       "original_location_text": "Căscioarele",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9302,7 +9302,7 @@
       "original_location_text": "Divnogor'ye 9",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9363,7 +9363,7 @@
       "original_location_text": "Els Vilars",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9422,7 +9422,7 @@
       "original_location_text": "El Turuñuelo",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9481,7 +9481,7 @@
       "original_location_text": "Černý Vůl",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9543,7 +9543,7 @@
       "original_location_text": "Etiolles",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9603,7 +9603,7 @@
       "original_location_text": "Ganga-Tsagaan Ereg",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9663,7 +9663,7 @@
       "original_location_text": "Ginnerup",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9722,7 +9722,7 @@
       "original_location_text": "Gordinesti II",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9782,7 +9782,7 @@
       "original_location_text": "Halvai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9846,7 +9846,7 @@
       "original_location_text": "Hohler Stein bei Schwabthal",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9905,7 +9905,7 @@
       "original_location_text": "Holubice",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -9965,7 +9965,7 @@
       "original_location_text": "Hyena's Lair",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10035,7 +10035,7 @@
       "original_location_text": "Igue du Gral",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10102,7 +10102,7 @@
       "original_location_text": "Kamennyi Ambar 5",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10161,7 +10161,7 @@
       "original_location_text": "Kaposújlak-Várdomb",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10225,7 +10225,7 @@
       "original_location_text": "Kazimierza Wielka 6",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10288,7 +10288,7 @@
       "original_location_text": "Kent",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10347,7 +10347,7 @@
       "original_location_text": "Kents cavern",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10406,7 +10406,7 @@
       "original_location_text": "Khantain-tov",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10465,7 +10465,7 @@
       "original_location_text": "Kirklareli-Kanligecit",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10524,7 +10524,7 @@
       "original_location_text": "Köşk Höyük",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10583,7 +10583,7 @@
       "original_location_text": "Kostenki",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10643,7 +10643,7 @@
       "original_location_text": "Kozhai",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10703,7 +10703,7 @@
       "original_location_text": "Krasnosamarskoye",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10762,7 +10762,7 @@
       "original_location_text": "Krasnyi Yar",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10821,7 +10821,7 @@
       "original_location_text": "Kuyum",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10880,7 +10880,7 @@
       "original_location_text": "La Monédière",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10939,7 +10939,7 @@
       "original_location_text": "Le Closeau",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -10998,7 +10998,7 @@
       "original_location_text": "Litovice",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11057,7 +11057,7 @@
       "original_location_text": "Magor",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11119,7 +11119,7 @@
       "original_location_text": "Medvezhiya cave",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11178,7 +11178,7 @@
       "original_location_text": "Michuruno I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11238,7 +11238,7 @@
       "original_location_text": "Miciurin",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11298,7 +11298,7 @@
       "original_location_text": "Miechów 3",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11360,7 +11360,7 @@
       "original_location_text": "Monostoy-Nuga",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11419,7 +11419,7 @@
       "original_location_text": "Morin Mort",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11479,7 +11479,7 @@
       "original_location_text": "Mozgawa 1-3",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11514,7 +11514,7 @@
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "unknown"
+        "confidence": "exact"
       },
       "sample_count": 1,
       "sample_ids": [
@@ -11538,7 +11538,7 @@
       "original_location_text": "Museum specimen",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11597,7 +11597,7 @@
       "original_location_text": "Nandru Peștera Curată",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11658,7 +11658,7 @@
       "original_location_text": "Nikolskaya",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11717,7 +11717,7 @@
       "original_location_text": "Nitriansky Hrádok",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11776,7 +11776,7 @@
       "original_location_text": "Noviye Kluchi III",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11836,7 +11836,7 @@
       "original_location_text": "Novoilinka-III",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11897,7 +11897,7 @@
       "original_location_text": "Novoilinka-VI",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -11957,7 +11957,7 @@
       "original_location_text": "Novoil’inovskiy 2",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12016,7 +12016,7 @@
       "original_location_text": "Oroshaemoe I",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12076,7 +12076,7 @@
       "original_location_text": "Ouren",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12140,7 +12140,7 @@
       "original_location_text": "Pershinskaya",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12199,7 +12199,7 @@
       "original_location_text": "Pielgrzymowice 6",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12258,7 +12258,7 @@
       "original_location_text": "Pietrele",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12318,7 +12318,7 @@
       "original_location_text": "Potapovka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12378,7 +12378,7 @@
       "original_location_text": "Repin khutor",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12439,7 +12439,7 @@
       "original_location_text": "Ridala",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12498,7 +12498,7 @@
       "original_location_text": "Sagzabad",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12557,7 +12557,7 @@
       "original_location_text": "Semenovka 1",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12616,7 +12616,7 @@
       "original_location_text": "Serpievskaya",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12675,7 +12675,7 @@
       "original_location_text": "Shiderty III",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12734,7 +12734,7 @@
       "original_location_text": "Shilikty 5",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12793,7 +12793,7 @@
       "original_location_text": "Sholma-1",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12852,7 +12852,7 @@
       "original_location_text": "Sigarra",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12912,7 +12912,7 @@
       "original_location_text": "Sintashta",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -12975,7 +12975,7 @@
       "original_location_text": "Sosnovka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13034,7 +13034,7 @@
       "original_location_text": "Stránská skála",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13093,7 +13093,7 @@
       "original_location_text": "Tarquinia",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13155,7 +13155,7 @@
       "original_location_text": "Tatsyn Ereg",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13216,7 +13216,7 @@
       "original_location_text": "Tepe Hasanlu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13275,7 +13275,7 @@
       "original_location_text": "Tištín",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13334,7 +13334,7 @@
       "original_location_text": "Toušeň – Hradišťko",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13393,7 +13393,7 @@
       "original_location_text": "Tuchoměřice",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13452,7 +13452,7 @@
       "original_location_text": "Tuchoměřice – Kněžívka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13511,7 +13511,7 @@
       "original_location_text": "Tureau des Gardes 6",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13574,7 +13574,7 @@
       "original_location_text": "Turganik",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13633,7 +13633,7 @@
       "original_location_text": "Ulaan Tolgoi",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13692,7 +13692,7 @@
       "original_location_text": "Ullu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13751,7 +13751,7 @@
       "original_location_text": "Ushgiin Uvur",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13812,7 +13812,7 @@
       "original_location_text": "Utevka VI",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13871,7 +13871,7 @@
       "original_location_text": "Uvarovka II",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13931,7 +13931,7 @@
       "original_location_text": "Varfolomeevka",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -13991,7 +13991,7 @@
       "original_location_text": "Verkhnegubakhinskaya",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14050,7 +14050,7 @@
       "original_location_text": "Vliněves",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14112,7 +14112,7 @@
       "original_location_text": "Yana",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14171,7 +14171,7 @@
       "original_location_text": "Yukagir",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14230,7 +14230,7 @@
       "original_location_text": "Zambujal",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14289,7 +14289,7 @@
       "original_location_text": "Zeerdegchingiin Khoshuu",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14350,7 +14350,7 @@
       "original_location_text": "Zunii Gol",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14409,7 +14409,7 @@
       "original_location_text": "Zuunkhangai 1",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
@@ -14468,7 +14468,7 @@
       "original_location_text": "Zuunkhangai 257",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

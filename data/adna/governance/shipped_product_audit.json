@@ -4,7 +4,7 @@
   "species_with_source_snapshots": 10,
   "species_with_coordinate_provenance": 10,
   "species_with_locality_artifacts": 10,
-  "species_with_country_outputs": 0,
+  "species_with_country_outputs": 1,
   "species_with_atlas_layers": 10,
   "rows": [
     {
@@ -18,8 +18,8 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 1,
+      "country_output_count": 2,
+      "atlas_layer_count": 207,
       "map_ready_sample_count": 208,
       "region_refused_sample_count": 0,
       "unresolved_sample_count": 4,
@@ -112,7 +112,7 @@
       "atlas_layer_count": 2,
       "map_ready_sample_count": 0,
       "region_refused_sample_count": 1,
-      "unresolved_sample_count": 3,
+      "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -145,10 +145,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 1,
+      "atlas_layer_count": 2,
       "map_ready_sample_count": 1,
       "region_refused_sample_count": 0,
-      "unresolved_sample_count": 13,
+      "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
     {
