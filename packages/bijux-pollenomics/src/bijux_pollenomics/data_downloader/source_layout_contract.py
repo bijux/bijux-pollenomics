@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ..adna.paths import ADNA_SPECIES_DIR
+from .data_contracts import build_contract_artifact_paths
 from .data_layout import AVAILABLE_SOURCES
 
 __all__ = [
@@ -20,6 +21,7 @@ class SourceLayoutContract:
     species_directories: tuple[str, ...]
     species_symlinks: tuple[tuple[str, str], ...]
     collection_manifest_name: str
+    contract_artifact_paths: tuple[str, ...]
 
     @property
     def collection_manifest_path(self) -> Path:
@@ -48,6 +50,10 @@ def build_source_layout_contract(output_root: Path) -> SourceLayoutContract:
             (f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/raw/aadr", "../../../../aadr"),
         ),
         collection_manifest_name="collection_summary.json",
+        contract_artifact_paths=tuple(
+            Path(path).relative_to(output_root).as_posix()
+            for path in build_contract_artifact_paths(output_root).values()
+        ),
     )
 
 
@@ -75,3 +81,8 @@ def validate_source_layout_contract(contract: SourceLayoutContract) -> None:
                 "source layout contract violation: "
                 f"expected {path} -> {expected_target}, got {path.readlink()}"
             )
+
+    for relative_path in contract.contract_artifact_paths:
+        path = contract.output_root / relative_path
+        if not path.exists() or not path.is_file():
+            raise ValueError(f"source layout contract violation: missing {path}")

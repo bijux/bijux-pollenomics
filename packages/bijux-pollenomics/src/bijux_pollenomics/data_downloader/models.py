@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+from .source_family_contracts import SourceFamilyStateRow
+
 
 @dataclass(frozen=True)
 class SourceAcquisitionMetadata:
@@ -95,6 +97,8 @@ class DataCollectionSummary:
     source_provenance: dict[str, SourceProvenanceRecord]
     source_replacement_rules: dict[str, SourceReplacementRule]
     source_traceability: dict[str, SourceTraceabilityRecord]
+    contract_artifacts: dict[str, str]
+    source_family_state_rows: tuple[SourceFamilyStateRow, ...]
     boundary_source: str | None
     aadr_file_count: int
     landclim_site_count: int
@@ -118,6 +122,8 @@ class DataCollectionReport:
     source_provenance: dict[str, SourceProvenanceRecord]
     source_replacement_rules: dict[str, SourceReplacementRule]
     source_traceability: dict[str, SourceTraceabilityRecord]
+    contract_artifacts: dict[str, str]
+    source_family_state_rows: tuple[SourceFamilyStateRow, ...]
     aadr_file_count: int
     landclim_site_count: int
     landclim_grid_cell_count: int

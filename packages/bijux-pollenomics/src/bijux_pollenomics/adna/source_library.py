@@ -12,6 +12,7 @@ import zipfile
 
 from ..core.files import write_json, write_text
 from .ena import build_archive_project_catalog
+from .governance_contracts import materialize_adna_governance_contracts
 from .paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
 
 __all__ = [
@@ -1275,6 +1276,7 @@ def materialize_source_library(output_root: Path) -> None:
     materialize_project_sample_locality_evidence_library(output_root)
     materialize_project_sample_chronology_library(output_root)
     materialize_source_inventory(output_root)
+    materialize_adna_governance_contracts(output_root)
 
 
 def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
