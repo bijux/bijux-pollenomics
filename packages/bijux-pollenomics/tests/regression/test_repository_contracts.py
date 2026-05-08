@@ -307,40 +307,21 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("- Tracked intake projects:", readme_text)
 
     def test_public_data_docs_keep_the_evidence_chain_directly_linked(self) -> None:
-        projects_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "projects" / "index.md"
-        ).read_text(encoding="utf-8")
-        papers_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "papers" / "index.md"
-        ).read_text(encoding="utf-8")
-        supplements_index = (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "supplements"
-            / "index.md"
-        ).read_text(encoding="utf-8")
         inventory_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
             / "sources"
-            / "animal-project-and-paper-inventory.md"
+            / "animal-source-intake.md"
         )
 
         self.assertTrue(inventory_page.is_file())
         inventory_text = inventory_page.read_text(encoding="utf-8")
-        self.assertIn("tracked_project_and_paper_inventory.json", projects_index)
-        self.assertIn("bundle_manifest.json", projects_index)
-        self.assertIn("paper_registry.json", papers_index)
-        self.assertIn("supplement_acquisition_checklist.json", papers_index)
-        self.assertIn("supplement_file_family_audit.json", papers_index)
-        self.assertIn("supplementary_manifest.json", papers_index)
-        self.assertIn("supplement_registry.json", supplements_index)
-        self.assertIn("supplement_zip_member_registry.json", supplements_index)
-        self.assertIn("supplement_file_family_audit.json", supplements_index)
-        self.assertIn("supplement_acquisition_checklist.json", supplements_index)
-        self.assertIn("Animal Project and Paper Inventory", inventory_text)
+        self.assertIn("tracked_project_and_paper_inventory.json", inventory_text)
+        self.assertIn("paper_registry.json", inventory_text)
+        self.assertIn("supplement_acquisition_checklist.json", inventory_text)
+        self.assertIn("supplement_file_family_audit.json", inventory_text)
+        self.assertIn("Animal Source Intake", inventory_text)
         self.assertIn("source_intake_audit.json", inventory_text)
         self.assertIn("project_sample_master_completeness.json", inventory_text)
         self.assertIn("sample_master.json", inventory_text)
@@ -519,25 +500,29 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
-            / "samples"
-            / "index.md"
+            / "evidence"
+            / "sample-records.md"
         ).read_text(encoding="utf-8")
         site_page = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sites" / "index.md"
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "evidence"
+            / "localities.md"
         ).read_text(encoding="utf-8")
         chronology_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
-            / "chronology"
-            / "index.md"
+            / "evidence"
+            / "chronology.md"
         ).read_text(encoding="utf-8")
         coordinate_page = (
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
-            / "coordinates"
-            / "index.md"
+            / "evidence"
+            / "coordinates.md"
         ).read_text(encoding="utf-8")
         source_index = (
             REPO_ROOT
@@ -558,7 +543,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "docs"
             / "02-bijux-pollenomics-data"
             / "sources"
-            / "animal-project-and-paper-inventory.md"
+            / "animal-source-intake.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
@@ -836,12 +821,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT
             / "docs"
             / "02-bijux-pollenomics-data"
-            / "foundation"
-            / "directory-layout.md"
+            / "overview"
+            / "data-directory-layout.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("species-owned ancient-DNA surface", directory_layout)
-        self.assertIn("domesticated-animal curation roots", directory_layout)
+        self.assertIn("species-centered animal ancient DNA recovery", directory_layout)
+        self.assertIn("data/adna/final/", directory_layout)
         self.assertIn("`data/adna/species/equus_caballus/`", directory_layout)
         self.assertIn("`data/adna/species/bos_taurus/`", directory_layout)
         self.assertIn("`data/adna/species/canis_lupus_familiaris/`", directory_layout)
