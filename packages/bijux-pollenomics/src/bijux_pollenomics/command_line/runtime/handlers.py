@@ -22,6 +22,9 @@ from ...data_downloader import (
     collect_data,
     validate_collection_summary_file,
 )
+from ...data_downloader.repository_snapshot import (
+    materialize_repository_collection_snapshot,
+)
 from ...foundation import (
     build_ownership_map,
     build_product_scope,
@@ -52,6 +55,7 @@ __all__ = [
     "run_collect_data",
     "run_refresh_animal_adna_foundation",
     "run_publish_reports",
+    "run_refresh_data_contract_surfaces",
     "run_ownership_map",
     "run_product_scope",
     "run_report_country",
@@ -434,5 +438,18 @@ def run_validate_collection_summary(args: argparse.Namespace) -> int:
     source_count = len(sources) if isinstance(sources, list) else 0
     print(
         f"Validated collection summary at {args.summary_path} with {source_count} collected sources"
+    )
+    return 0
+
+
+def run_refresh_data_contract_surfaces(args: argparse.Namespace) -> int:
+    """Refresh checked-in data contract surfaces from the current repository tree."""
+    summary = materialize_repository_collection_snapshot(
+        args.data_root,
+        version=args.version,
+    )
+    print(
+        "Refreshed data contract surfaces at "
+        f"{summary.summary_path} for {len(summary.source_family_state_rows)} source families"
     )
     return 0

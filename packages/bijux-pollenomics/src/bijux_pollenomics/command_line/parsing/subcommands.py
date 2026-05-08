@@ -32,6 +32,7 @@ __all__ = [
     "build_adna_species_parser",
     "build_refresh_animal_adna_foundation_parser",
     "build_collect_data_parser",
+    "build_refresh_data_contract_surfaces_parser",
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
     "build_ownership_map_parser",
@@ -64,6 +65,7 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)
     build_product_scope_parser(subparsers)
     build_ownership_map_parser(subparsers)
@@ -569,4 +571,25 @@ def build_validate_collection_summary_parser(
         default=DEFAULT_CONTEXT_ROOT / "collection_summary.json",
         help="Path to collection_summary.json. Default: data/collection_summary.json",
     )
+    return parser
+
+
+def build_refresh_data_contract_surfaces_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the checked-in data-contract refresh parser."""
+    parser = subparsers.add_parser(
+        "refresh-data-contract-surfaces",
+        help=(
+            "Refresh collection_summary.json and the checked-in data contract "
+            "surfaces from the current repository data tree."
+        ),
+    )
+    parser.add_argument(
+        "--data-root",
+        type=Path,
+        default=DEFAULT_DATA_ROOT,
+        help="Path to the repository data root. Default: data",
+    )
+    add_version_argument(parser)
     return parser
