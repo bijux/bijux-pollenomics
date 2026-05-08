@@ -10,7 +10,7 @@ from zipfile import ZipFile
 from ....core.bp_time import mean_bp_year_from_interval
 from ....core.geojson import parse_linear_ring
 from ....core.text import clean_optional_text
-from ...shared.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
+from ...intake.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
 from ...spatial import classify_country, point_in_bbox
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
