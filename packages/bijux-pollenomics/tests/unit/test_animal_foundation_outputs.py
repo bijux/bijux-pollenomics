@@ -111,9 +111,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         payload = build_animal_sample_chronology_viewer(data_root=self.data_root)
 
         self.assertEqual(payload["schema_version"], "animal-sample-chronology-viewer.v1")
-        self.assertEqual(payload["row_count"], 207)
+        self.assertEqual(payload["row_count"], 249)
         self.assertEqual(payload["normalization_counts"]["normalized_interval"], 156)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 12)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 54)
         self.assertEqual(payload["normalization_counts"]["unresolved"], 26)
         self.assertTrue(
             any(
@@ -589,7 +589,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
-            self.assertEqual(chronology_payload["row_count"], 207)
+            self.assertEqual(chronology_payload["row_count"], 249)
             self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
             self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
             self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])

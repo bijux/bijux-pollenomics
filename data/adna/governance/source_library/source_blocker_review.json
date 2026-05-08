@@ -1,8 +1,8 @@
 {
   "schema_version": "adna-source-inventory.v1",
-  "row_count": 35,
+  "row_count": 34,
   "counts": {
-    "supplement_ingestion_or_parsing": 16,
+    "supplement_ingestion_or_parsing": 15,
     "paper_capture": 13,
     "scope_filter": 6
   },
@@ -166,18 +166,6 @@
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
       "paper_doi": "10.1126/science.aam5298",
-      "blocking_stage": "supplement_ingestion_or_parsing",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "required_evidence": [
-        "repo_supplement_copy",
-        "structured_table_inventory"
-      ],
-      "explanation": "Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory."
-    },
-    {
-      "project_accession": "PRJEB22390",
-      "species_latin_name": "Equus caballus",
-      "paper_doi": "10.1126/science.aao3297",
       "blocking_stage": "supplement_ingestion_or_parsing",
       "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
       "required_evidence": [

@@ -24,7 +24,7 @@
 | `PRJEB55549` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `scope_rejected` |
 | `PRJEB10854` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `paper_linkage_not_curated` |
 | `PRJEB19970` | `10.1126/science.aam5298` | `blocked_landing_page_only` | `repository_supplement_archived` | `local_reference_staged` | `published_empty` | `published_empty` | `published_empty` | `repository_supplement_captured_needs_extraction` |
-| `PRJEB22390` | `10.1126/science.aao3297` | `blocked_landing_page_only` | `repository_supplement_archived` | `local_reference_staged` | `published_empty` | `published_empty` | `published_empty` | `repository_supplement_captured_needs_extraction` |
+| `PRJEB22390` | `10.1126/science.aao3297` | `blocked_landing_page_only` | `repository_supplement_archived` | `local_reference_staged` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `PRJEB31613` | `10.1016/j.cell.2019.03.049` | `readable_html` | `repository_supplement_archived` | `local_reference_staged` | `published_empty` | `published_empty` | `published_empty` | `repository_supplement_captured_needs_extraction` |
 | `PRJEB44430` | `10.1038/s41586-021-04018-9` | `readable_html` | `repository_supplement_archived` | `local_reference_staged` | `published_empty` | `published_empty` | `published_empty` | `repository_supplement_captured_needs_extraction` |
 | `PRJEB56293` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `paper_linkage_not_curated` |

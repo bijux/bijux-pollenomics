@@ -9,9 +9,9 @@
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
       "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB22390/archive_metadata.html",
-      "recovered_sample_count": 0,
+      "recovered_sample_count": 42,
       "unresolved_sample_count": null,
-      "final_sample_count": 0,
+      "final_sample_count": 42,
       "ambiguity_row_count": 0,
       "sample_identifier_status": "manual_curation_required"
     },

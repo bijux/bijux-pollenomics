@@ -4,9 +4,9 @@
   "counts": {
     "repository_supplement_captured": 21,
     "local_reference_supplement_staged": 21,
-    "sample_master_published": 5,
-    "sample_site_published": 5,
-    "sample_chronology_published": 5
+    "sample_master_published": 6,
+    "sample_site_published": 6,
+    "sample_chronology_published": 6
   },
   "rows": [
     {
@@ -419,13 +419,13 @@
       "repository_supplement_parse_status": "repository_supplement_archived",
       "local_reference_article_status": "local_reference_staged",
       "local_reference_supplement_status": "local_reference_staged",
-      "sample_table_extraction_status": "published_empty",
-      "sample_master_row_count": 0,
-      "sample_site_table_status": "published_empty",
-      "sample_site_row_count": 0,
-      "sample_chronology_table_status": "published_empty",
-      "sample_chronology_row_count": 0,
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "sample_table_extraction_status": "project_sample_master_published",
+      "sample_master_row_count": 42,
+      "sample_site_table_status": "published",
+      "sample_site_row_count": 42,
+      "sample_chronology_table_status": "published",
+      "sample_chronology_row_count": 42,
+      "evidence_acquisition_state": "sample_tables_published",
       "blockers": []
     },
     {

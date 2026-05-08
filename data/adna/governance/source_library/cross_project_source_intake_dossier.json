@@ -2,8 +2,8 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 40,
   "counts": {
-    "projects_with_site_expectation": 16,
-    "projects_with_chronology_expectation": 16,
+    "projects_with_site_expectation": 15,
+    "projects_with_chronology_expectation": 15,
     "projects_with_identifier_expectation": 27
   },
   "rows": [
@@ -331,13 +331,10 @@
       "species_latin_name": "Equus caballus",
       "paper_doi": "10.1126/science.aao3297",
       "inventory_disposition": "tracked_intake_candidate",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
+      "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "manual_curation_required",
