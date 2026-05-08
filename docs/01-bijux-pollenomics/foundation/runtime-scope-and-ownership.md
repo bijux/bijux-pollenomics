@@ -79,6 +79,6 @@ flat story.
 
 ## Related Pages
 
-- [repository fit](repository-fit.md)
+- [repository scope and limits](repository-scope-and-limits.md)
 - [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
 - [runtime system model](../architecture/runtime-system-model.md)

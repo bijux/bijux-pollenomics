@@ -64,7 +64,7 @@ nav:
   - Repository:
       - Repository: 01-bijux-pollenomics/index.md
       - Runtime Purpose and Boundary: 01-bijux-pollenomics/foundation/index.md
-      - Repository Fit: 01-bijux-pollenomics/foundation/repository-fit.md
+      - Repository Scope and Limits: 01-bijux-pollenomics/foundation/repository-scope-and-limits.md
       - Pollenomics Engine Roadmap: 01-bijux-pollenomics/foundation/pollenomics-engine-roadmap.md
       - Evidence Publication Flow: 01-bijux-pollenomics/architecture/index.md
       - Package Split: 01-bijux-pollenomics/architecture/package-split.md
@@ -73,7 +73,8 @@ nav:
       - Artifact Contracts: 01-bijux-pollenomics/interfaces/artifact-contracts.md
       - Install, Rebuild, Verify: 01-bijux-pollenomics/operations/index.md
       - Installation and Setup: 01-bijux-pollenomics/operations/installation-and-setup.md
-      - Proof and Limits: 01-bijux-pollenomics/quality/index.md
+      - Verification and Limits: 01-bijux-pollenomics/quality/index.md
+      - Public Language Guide: 01-bijux-pollenomics/quality/public-language-guide.md
       - Test Strategy: 01-bijux-pollenomics/quality/test-strategy.md
   - Data Reference:
       - Data Reference: 02-bijux-pollenomics-data/index.md
