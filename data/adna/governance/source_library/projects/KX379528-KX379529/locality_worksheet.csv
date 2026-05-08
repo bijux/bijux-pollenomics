@@ -1,0 +1,2 @@
+project_accession,species_latin_name,source_surface,source_claim_scope,supporting_sample_count,original_locality_text,resolved_locality_text,locality_class,site_name,municipality_name,region_name,country_name,broader_geography,geocoding_safe_token,source_artifact_path,source_artifact_kind,source_locator,source_excerpt
+KX379528-KX379529,Canis lupus familiaris,supplementary_table,sample_owned_locality,2,,,unresolved,,,,,,,,,,
