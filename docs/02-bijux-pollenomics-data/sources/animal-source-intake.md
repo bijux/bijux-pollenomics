@@ -20,31 +20,31 @@ state of the data.
 
 ## Reader Anchors
 
-- [`data/adna/governance/source_library/tracked_project_and_paper_inventory.json`](../../../data/adna/governance/source_library/tracked_project_and_paper_inventory.json)
-- [`data/adna/governance/source_library/tracked_project_and_paper_inventory.md`](../../../data/adna/governance/source_library/tracked_project_and_paper_inventory.md)
-- [`data/adna/governance/source_library/project_registry.json`](../../../data/adna/governance/source_library/project_registry.json)
-- [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
-- [`data/adna/governance/source_library/tracked_project_scope_audit.json`](../../../data/adna/governance/source_library/tracked_project_scope_audit.json)
-- [`data/adna/governance/source_library/project_source_evidence_matrix.json`](../../../data/adna/governance/source_library/project_source_evidence_matrix.json)
-- [`data/adna/governance/source_library/supplement_acquisition_checklist.json`](../../../data/adna/governance/source_library/supplement_acquisition_checklist.json)
-- [`data/adna/governance/source_library/supplement_file_family_audit.json`](../../../data/adna/governance/source_library/supplement_file_family_audit.json)
-- [`data/adna/governance/source_library/reference_stash_reconciliation.json`](../../../data/adna/governance/source_library/reference_stash_reconciliation.json)
-- [`data/adna/governance/source_library/reference_stash_doi_integrity_audit.json`](../../../data/adna/governance/source_library/reference_stash_doi_integrity_audit.json)
-- [`data/adna/governance/source_library/source_intake_audit.json`](../../../data/adna/governance/source_library/source_intake_audit.json)
-- [`data/adna/governance/source_library/source_intake_release_guard.json`](../../../data/adna/governance/source_library/source_intake_release_guard.json)
-- [`data/adna/governance/source_library/source_blocker_review.json`](../../../data/adna/governance/source_library/source_blocker_review.json)
-- [`data/adna/governance/source_library/cross_project_source_intake_dossier.json`](../../../data/adna/governance/source_library/cross_project_source_intake_dossier.json)
-- [`data/adna/governance/source_library/project_sample_master_completeness.json`](../../../data/adna/governance/source_library/project_sample_master_completeness.json)
-- [`data/adna/governance/source_library/project_sample_site_review.json`](../../../data/adna/governance/source_library/project_sample_site_review.json)
-- [`data/adna/governance/source_library/project_sample_chronology_review.json`](../../../data/adna/governance/source_library/project_sample_chronology_review.json)
-- [`data/adna/governance/source_library/sample_chronology_normalization_audit.json`](../../../data/adna/governance/source_library/sample_chronology_normalization_audit.json)
-- [`data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_identity_ambiguity_ledger.json)
-- [`data/adna/governance/source_library/sample_site_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_site_ambiguity_ledger.json)
-- [`data/adna/governance/source_library/sample_site_manual_curation_queue.json`](../../../data/adna/governance/source_library/sample_site_manual_curation_queue.json)
-- [`data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`](../../../data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_master.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json)
-- [`data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`](../../../data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json)
+- `data/adna/governance/source_library/tracked_project_and_paper_inventory.json`
+- `data/adna/governance/source_library/tracked_project_and_paper_inventory.md`
+- `data/adna/governance/source_library/project_registry.json`
+- `data/adna/governance/source_library/paper_registry.json`
+- `data/adna/governance/source_library/tracked_project_scope_audit.json`
+- `data/adna/governance/source_library/project_source_evidence_matrix.json`
+- `data/adna/governance/source_library/supplement_acquisition_checklist.json`
+- `data/adna/governance/source_library/supplement_file_family_audit.json`
+- `data/adna/governance/source_library/reference_stash_reconciliation.json`
+- `data/adna/governance/source_library/reference_stash_doi_integrity_audit.json`
+- `data/adna/governance/source_library/source_intake_audit.json`
+- `data/adna/governance/source_library/source_intake_release_guard.json`
+- `data/adna/governance/source_library/source_blocker_review.json`
+- `data/adna/governance/source_library/cross_project_source_intake_dossier.json`
+- `data/adna/governance/source_library/project_sample_master_completeness.json`
+- `data/adna/governance/source_library/project_sample_site_review.json`
+- `data/adna/governance/source_library/project_sample_chronology_review.json`
+- `data/adna/governance/source_library/sample_chronology_normalization_audit.json`
+- `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
+- `data/adna/governance/source_library/sample_site_ambiguity_ledger.json`
+- `data/adna/governance/source_library/sample_site_manual_curation_queue.json`
+- `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`
 
 ## Intake Stages
 
@@ -71,3 +71,6 @@ state of the data.
 The intake surface is broader than the Nordic atlas on purpose. Many projects
 still matter to the repository even when they are not yet ready for map
 publication.
+
+When a page name above ends in `.json` or `.md`, it refers to a tracked file in
+the repository tree rather than another page in this docs site.

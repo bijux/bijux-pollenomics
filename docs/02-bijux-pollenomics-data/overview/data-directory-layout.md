@@ -33,7 +33,7 @@ different jobs:
 
 ## Reader Anchors
 
-- [`data/adna/species/ovis_aries/`](../../../data/adna/species/ovis_aries/README.md)
+- `data/adna/species/ovis_aries/`
 - `data/adna/species/equus_caballus/`
 - `data/adna/species/bos_taurus/`
 - `data/adna/species/canis_lupus_familiaris/`
@@ -41,7 +41,7 @@ different jobs:
 - `data/adna/species/rangifer_tarandus/`
 - `data/adna/species/equus_asinus/`
 - `data/adna/species/felis_catus/`
-- [`data/adna/governance/source_library/`](../../../data/adna/governance/source_library/project_registry.json)
+- `data/adna/governance/source_library/`
 - [`docs/report/sweden/`](../../report/sweden/README.md)
 - [`docs/report/nordic-atlas/`](../../report/nordic-atlas/nordic-atlas_map.html)
 

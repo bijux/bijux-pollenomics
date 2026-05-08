@@ -34,10 +34,10 @@ but they should not be described as if they all answer the same question.
 
 ## Direct Files
 
-- [`data/adna/governance/source_library/project_registry.json`](../../../data/adna/governance/source_library/project_registry.json)
-- [`data/adna/governance/source_library/paper_registry.json`](../../../data/adna/governance/source_library/paper_registry.json)
-- [`data/adna/governance/source_library/supplement_registry.json`](../../../data/adna/governance/source_library/supplement_registry.json)
-- [`data/adna/governance/source_library/project_source_evidence_matrix.json`](../../../data/adna/governance/source_library/project_source_evidence_matrix.json)
+- `data/adna/governance/source_library/project_registry.json`
+- `data/adna/governance/source_library/paper_registry.json`
+- `data/adna/governance/source_library/supplement_registry.json`
+- `data/adna/governance/source_library/project_source_evidence_matrix.json`
 - [`docs/report/repository_source_family_matrix.json`](../../report/repository_source_family_matrix.json)
 
 ## What This Section Should Make Clear
