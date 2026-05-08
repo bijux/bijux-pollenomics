@@ -2,4 +2,5 @@
 
 | Country | Species | Human localities | Overlapping | Non-overlapping | Non-comparable | Status |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| No overlap rows | - | 0 | 0 | 0 | 0 | no_context_rows |
+| Sweden | Equus caballus | 77 | 10 | 67 | 0 | overlap_detected |
+| Denmark | Equus caballus | 295 | 8 | 287 | 0 | overlap_detected |

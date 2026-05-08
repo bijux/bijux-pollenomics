@@ -1,10 +1,10 @@
 # Animal foundation validation
 
 - Overall ok: `false`
-- Sample rows: `242`
-- Site evidence rows: `10`
-- Coordinate rows: `10`
-- Atlas rows: `2`
+- Sample rows: `786`
+- Site evidence rows: `255`
+- Coordinate rows: `217`
+- Atlas rows: `207`
 
 | Check | Passed | Finding count |
 | --- | --- | ---: |

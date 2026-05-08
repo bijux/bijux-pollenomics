@@ -20,9 +20,9 @@
     "summary_json": "denmark_aadr_v66_summary.json"
   },
   "animal_adna": {
-    "total_species": 0,
-    "total_localities": 0,
-    "total_sample_rows": 0,
+    "total_species": 1,
+    "total_localities": 1,
+    "total_sample_rows": 2,
     "artifacts": {
       "summary_json": "denmark_animal_adna_v66_summary.json",
       "samples_csv": "denmark_animal_adna_v66_samples.csv",

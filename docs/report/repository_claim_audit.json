@@ -5,13 +5,13 @@
   "counts": {
     "tracked_paper_count": 18,
     "papers_with_archived_supplements": 18,
-    "published_atlas_point_count": 2,
+    "published_atlas_point_count": 207,
     "published_country_bundle_count": 4,
     "reference_stash_doi_count": 18,
     "papers_with_local_reference_supplements": 18,
-    "animal_sample_row_count": 242,
-    "animal_map_supported_rows": 2,
-    "animal_map_unresolved_rows": 232,
+    "animal_sample_row_count": 786,
+    "animal_map_supported_rows": 209,
+    "animal_map_unresolved_rows": 39,
     "animal_map_refused_rows": 8,
     "pollen_normalized_file_count": 6,
     "archaeology_normalized_file_count": 4,
@@ -47,7 +47,7 @@
     {
       "check_id": "animal_sample_review_freezes_broad_readiness",
       "passed": true,
-      "description": "The public animal sample review does not claim broad readiness while mapped depth remains thin.",
+      "description": "The public animal sample review keeps the stronger Nordic sample-owned view separate from any broader region-agnostic readiness claim.",
       "finding_count": 0,
       "findings": []
     },
@@ -61,7 +61,7 @@
     {
       "check_id": "thin_animal_surface_stays_visible",
       "passed": true,
-      "description": "The public docs keep the thin current atlas depth visible instead of hiding it.",
+      "description": "The public animal surfaces keep the current partial sample-owned posture visible instead of implying broad completion.",
       "finding_count": 0,
       "findings": []
     }

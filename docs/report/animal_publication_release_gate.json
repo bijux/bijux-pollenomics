@@ -50,6 +50,6 @@
   "reference_grade_support_requirements": {
     "sample_database_artifacts_present": true,
     "sample_evidence_packets_present": true,
-    "map_outputs_present": false
+    "map_outputs_present": true
   }
 }

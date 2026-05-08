@@ -1,4 +1,31 @@
 {
   "schema_version": "animal-human-chronology-overlap.v1",
-  "rows": []
+  "rows": [
+    {
+      "country": "Sweden",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "human_locality_count": 77,
+      "overlapping_human_localities": 10,
+      "non_overlapping_human_localities": 67,
+      "noncomparable_human_localities": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "human_locality_count": 295,
+      "overlapping_human_localities": 8,
+      "non_overlapping_human_localities": 287,
+      "noncomparable_human_localities": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    }
+  ]
 }

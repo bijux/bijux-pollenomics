@@ -2,4 +2,5 @@
 
 | Country | Species | Scope | Sample rows | Localities | Direct-coordinate sites | Geocoded sites | Unresolved rows | Assignment posture |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| No country-resolved animal rows yet | - | - | 0 | 0 | 0 | 0 | 0 | - |
+| Denmark | Equus caballus | domesticated_core | 2 | 1 | 2 | 0 | 0 | exact_country |
+| Sweden | Equus caballus | domesticated_core | 1 | 1 | 1 | 0 | 0 | exact_country |

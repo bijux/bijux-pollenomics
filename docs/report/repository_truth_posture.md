@@ -9,15 +9,13 @@
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `2`
-- Unresolved animal map rows: `232`
+- Published animal atlas points: `207`
+- Unresolved animal map rows: `39`
 - Refused animal map rows: `8`
 - Source-family explainer count: `8`
 
 ## Claim Freeze Reasons
 
-- the shipped animal atlas point surface is still effectively empty
-- unresolved animal geography still overwhelms mapped support
 - collection summary still under-reports several non-aDNA source counts
 
 ## Recovery Priorities

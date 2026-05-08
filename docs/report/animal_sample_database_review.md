@@ -2,7 +2,7 @@
 
 - Public posture: `partial_sample_owned_animal_evidence_surface`
 - Sample database claim supported: `true`
-- Nordic view supported now: `false`
+- Nordic view supported now: `true`
 - Region-agnostic contract ready: `false`
 - World-map expansion posture: `not_supported_until_source_capture_site_resolution_and_chronology_depth_are_materially_stronger`
 
@@ -11,15 +11,15 @@
 - Tracked projects: `40`
 - Tracked papers: `18`
 - Tracked supplements: `72`
-- Sample rows: `242`
-- Site evidence rows: `10`
-- Sample site rows: `207`
-- Chronology rows: `207`
-- Coordinate rows: `10`
-- Published atlas points: `2`
+- Sample rows: `786`
+- Site evidence rows: `255`
+- Sample site rows: `755`
+- Chronology rows: `755`
+- Coordinate rows: `217`
+- Published atlas points: `207`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.0083`
+- Mapped sample share: `0.2634`
 
 ## Thresholds
 
@@ -32,8 +32,6 @@
 
 ## Posture Findings
 
-- published_atlas_point_count_below_minimum_reading_depth
-- mapped_sample_share_still_too_low
 
 ## Direct Links
 
