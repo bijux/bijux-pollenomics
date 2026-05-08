@@ -80,7 +80,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-point-support-packets.v1")
-        self.assertEqual(payload["row_count"], 208)
+        self.assertEqual(payload["row_count"], 234)
         first_row = payload["rows"][0]
         self.assertTrue(first_row["sample_rows"])
         self.assertTrue(first_row["site_evidence"])
@@ -144,7 +144,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertTrue(payload["sample_database_claim_supported"])
         self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 208)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 234)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)

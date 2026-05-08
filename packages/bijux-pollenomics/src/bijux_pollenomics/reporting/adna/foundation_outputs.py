@@ -1026,12 +1026,8 @@ def build_animal_publication_release_gate(
 
 def _chronology_row_blocks_publication(row: dict[str, object]) -> bool:
     status = str(row.get("chronology_normalization_status", "")).strip()
-    if status in {"text_only_unparsed", "unresolved"}:
-        return True
-    conflict_note = str(row.get("chronology_conflict_note", "")).strip()
-    if not conflict_note:
-        return False
-    return str(row.get("chronology_strength", "")).strip() != "sample_owned_interval"
+    precision_posture = str(row.get("chronology_precision_posture", "")).strip()
+    return status == "unresolved" or precision_posture == "unresolved"
 
 
 def _public_chronology_window_exposed(payload: dict[str, object]) -> bool:
