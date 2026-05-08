@@ -41,7 +41,7 @@ def build_repository_truth_posture(
     docs_root: Path,
     report_root: Path,
 ) -> dict[str, object]:
-    """Build one repository-level truth packet about scope, thinness, and recovery."""
+    """Build one repository-level truth review about scope, thinness, and recovery."""
     counts = _build_core_counts(data_root, docs_root, report_root)
     recovery_review = build_repository_recovery_review(
         data_root=data_root,
@@ -935,7 +935,7 @@ def build_repository_atlas_input_audit(
                 "published_point_count": counts["published_atlas_point_count"],
                 "unresolved_row_count": counts["animal_map_unresolved_rows"],
             },
-            "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support packets and release gates.",
+            "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates.",
         ),
     ]
     return {

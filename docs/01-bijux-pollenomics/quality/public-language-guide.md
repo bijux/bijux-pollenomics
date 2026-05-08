@@ -56,6 +56,6 @@ that explain them.
 
 - call a surface `publishable` only when the governed checks for that surface
   actually pass
-- keep `reference-grade` or stronger language behind the release gate
+- keep the strongest readiness language behind the release gate
 - when evidence is partial, say `partial`, `thin`, `blocked`, or `contextual`
   rather than hiding that status in softer wording

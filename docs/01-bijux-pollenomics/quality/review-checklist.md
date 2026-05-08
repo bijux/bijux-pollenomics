@@ -14,5 +14,5 @@ last_reviewed: 2026-05-08
 - check whether the repository story stayed pollenomics-first
 - check whether non-aDNA source breadth stayed visible
 - check whether atlas or country output language became stronger than the
-  evidence packets allow
+  evidence reviews allow
 - run the narrowest relevant tests before commit

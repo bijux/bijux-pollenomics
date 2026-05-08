@@ -41,7 +41,7 @@ def publish_repository_truth_outputs(
     data_root: Path,
     docs_root: Path,
 ) -> dict[str, str]:
-    """Publish repository-level truth packets beside the tracked report tree."""
+    """Publish repository-level truth reviews beside the tracked report tree."""
     output_root = Path(output_root)
     data_root = Path(data_root)
     docs_root = Path(docs_root)

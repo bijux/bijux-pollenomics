@@ -14,7 +14,7 @@ An animal point reaches the atlas only after four evidence checks hold:
 1. a curated sample row exists
 2. a site evidence row points to a paper, supplement, or archive text
 3. a coordinate provenance row explains the mapping basis
-4. the final candidate packet confirms that the row still keeps all of those anchors
+4. the final candidate review confirms that the row still keeps all of those anchors
 
 ## Direct Proof Files
 
@@ -36,5 +36,5 @@ An animal point reaches the atlas only after four evidence checks hold:
 ## Why The Final Candidate Packet Matters
 
 `data/adna/final/atlas/` is not trusted just because a row exists there. The
-candidate accountability packet must still show sample, site, chronology, and
+candidate accountability review must still show sample, site, chronology, and
 coordinate anchors for every published row.

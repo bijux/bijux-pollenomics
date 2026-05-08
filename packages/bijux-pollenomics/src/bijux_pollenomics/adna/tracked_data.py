@@ -27,7 +27,7 @@ from .layout import build_species_layout
 from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
 from .paths import adna_final_root, adna_governance_root
-from .reviews import build_species_project_manifest, build_species_review_packet
+from .reviews import build_species_project_manifest, build_species_review_dossier
 from .runtime import build_species_runtime_manifest
 from .sample_truth import (
     build_animal_sample_aggregation_warnings,
@@ -91,7 +91,7 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     project_manifest = build_species_project_manifest(species_name)
     runtime_manifest = build_species_runtime_manifest(species_name)
     normalization_bundle = build_species_normalization_bundle(species_name)
-    review_packet = build_species_review_packet(species_name)
+    review_dossier = build_species_review_dossier(species_name)
     integrity_report = build_archive_integrity_report(species_name=species_name)
     archive_projects = build_species_archive_projects(species_name)
 
@@ -160,9 +160,9 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         normalization_bundle=normalization_bundle.as_dict(),
     ))
     write_text(reports_root / "support_summary.md", _render_support_summary_markdown(species_name))
-    write_json(review_root / "species_review.json", review_packet.as_dict())
+    write_json(review_root / "species_review.json", review_dossier.as_dict())
     write_json(review_root / "archive_integrity.json", integrity_report.as_dict())
-    write_text(review_root / "species_review.md", _render_review_packet_markdown(species_name))
+    write_text(review_root / "species_review.md", _render_review_dossier_markdown(species_name))
 
 
 def _archive_inventory_payload(archive_projects: tuple[object, ...]) -> dict[str, object]:
@@ -821,7 +821,7 @@ def _render_species_root_readme(species_name: str) -> str:
         "This species root is a tracked repository surface. `raw/` keeps archive "
         "inventory artifacts and source wording snapshots, `normalized/` keeps sample-level, site-level, chronology, coordinate-provenance, project-summary, and locality-summary outputs, "
         "`manifests/` keeps species and citation manifests, `reports/` keeps support "
-        "summaries, and `review/` keeps reader-facing review packets.\n"
+        "summaries, and `review/` keeps reader-facing review dossiers.\n"
     )
 
 
@@ -851,21 +851,21 @@ def _render_support_summary_markdown(species_name: str) -> str:
     )
 
 
-def _render_review_packet_markdown(species_name: str) -> str:
+def _render_review_dossier_markdown(species_name: str) -> str:
     species = resolve_species_definition(species_name)
-    packet = build_species_review_packet(species_name)
+    dossier = build_species_review_dossier(species_name)
     lines = [
         f"# {species.common_name} species review",
         "",
         f"- Species: `{species.latin_name}`",
-        f"- Dataset bucket: `{packet.dataset_review.dataset_bucket}`",
-        f"- Product role: `{packet.dataset_review.product_role}`",
+        f"- Dataset bucket: `{dossier.dataset_review.dataset_bucket}`",
+        f"- Product role: `{dossier.dataset_review.product_role}`",
         "",
         "## Release blockers",
         "",
     ]
-    if packet.release_blockers:
-        lines.extend(f"- `{reason}`" for reason in packet.release_blockers)
+    if dossier.release_blockers:
+        lines.extend(f"- `{reason}`" for reason in dossier.release_blockers)
     else:
         lines.append("- none")
     lines.extend(
@@ -877,7 +877,7 @@ def _render_review_packet_markdown(species_name: str) -> str:
             "| --- | --- | --- | --- | --- | --- |",
         ]
     )
-    for row in packet.project_manifest.projects:
+    for row in dossier.project_manifest.projects:
         paper_doi = "" if row.paper_doi is None else row.paper_doi
         lines.append(
             f"| {row.project_accession} | {row.archive_status} | {row.ancient_status} | "
@@ -886,25 +886,25 @@ def _render_review_packet_markdown(species_name: str) -> str:
     lines.extend(
         _render_grouped_review_table(
             "Rejected projects",
-            packet.rejected_projects,
+            dossier.rejected_projects,
         )
     )
     lines.extend(
         _render_grouped_review_table(
             "Ancient but still too weak",
-            packet.too_weak_projects,
+            dossier.too_weak_projects,
         )
     )
     lines.extend(
         _render_grouped_review_table(
             "Comparator-only projects",
-            packet.comparator_projects,
+            dossier.comparator_projects,
         )
     )
     lines.extend(
         _render_grouped_review_table(
             "Nordic-relevant leads not yet mapped confidently",
-            packet.nordic_unmapped_leads,
+            dossier.nordic_unmapped_leads,
         )
     )
     lines.append("")

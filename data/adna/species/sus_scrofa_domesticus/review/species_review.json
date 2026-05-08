@@ -1,5 +1,5 @@
 {
-  "schema_version": "adna-species-review-packet.v1",
+  "schema_version": "adna-species-review-dossier.v1",
   "species_manifest": {
     "schema_version": "adna-species-manifest.v1",
     "species": {

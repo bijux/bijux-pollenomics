@@ -936,7 +936,7 @@ def build_animal_publication_release_gate(
         "sample_database_artifacts_present": bool(
             sample_database_review_payload["sample_database_claim_supported"]
         ),
-        "sample_evidence_packets_present": bool(point_row_count),
+        "sample_evidence_reviews_present": bool(point_row_count),
         "map_outputs_present": bool(
             sample_database_review_payload["nordic_view_supported_now"]
         ),
@@ -1009,7 +1009,7 @@ def build_animal_publication_release_gate(
         _check_row(
             "docs_do_not_claim_reference_grade_without_support",
             not (reference_grade_claim and not reference_grade_support_ready),
-            "Public docs do not claim the strongest posture before the sample database, evidence packets, and map outputs all support it.",
+            "Public docs do not claim the strongest posture before the sample database, evidence reviews, and map outputs all support it.",
             ["docs_claim_reference_grade"] if reference_grade_claim else [],
         ),
     ]
@@ -1266,7 +1266,7 @@ def render_animal_publication_release_gate_markdown(payload: dict[str, object]) 
         "## Strongest-Claim Support Requirements",
         "",
         f"- Sample database artifacts present: `{str(payload['reference_grade_support_requirements']['sample_database_artifacts_present']).lower()}`",
-        f"- Sample evidence packets present: `{str(payload['reference_grade_support_requirements']['sample_evidence_packets_present']).lower()}`",
+        f"- Sample evidence reviews present: `{str(payload['reference_grade_support_requirements']['sample_evidence_reviews_present']).lower()}`",
         f"- Map outputs present: `{str(payload['reference_grade_support_requirements']['map_outputs_present']).lower()}`",
         "",
         "| Check | Passed | Finding count |",

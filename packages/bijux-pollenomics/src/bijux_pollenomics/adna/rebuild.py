@@ -7,7 +7,7 @@ from .integrity import build_archive_integrity_report
 from .layout import build_species_layout
 from .manifests import build_species_manifest
 from .normalization import build_species_normalization_bundle
-from .reviews import build_species_project_manifest, build_species_review_packet
+from .reviews import build_species_project_manifest, build_species_review_dossier
 from .runtime import build_species_runtime_manifest
 
 __all__ = [
@@ -56,7 +56,7 @@ def build_species_artifact_plan(species_name: str) -> AdnaSpeciesArtifactPlan:
     curation_manifest = build_species_curation_manifest(species_name)
     project_manifest = build_species_project_manifest(species_name)
     normalization_bundle = build_species_normalization_bundle(species_name)
-    review_packet = build_species_review_packet(species_name)
+    review_dossier = build_species_review_dossier(species_name)
     integrity_report = build_archive_integrity_report(species_name=species_name)
     runtime_manifest = build_species_runtime_manifest(species_name)
     entries = (
@@ -88,7 +88,7 @@ def build_species_artifact_plan(species_name: str) -> AdnaSpeciesArtifactPlan:
         AdnaArtifactPlanEntry(
             target_path=f"{species_layout.review_dir}/species_review.json",
             artifact_kind="species_review",
-            payload=review_packet.as_dict(),
+            payload=review_dossier.as_dict(),
         ),
         AdnaArtifactPlanEntry(
             target_path=f"{species_layout.review_dir}/archive_integrity.json",

@@ -19,7 +19,7 @@ tracked outputs.
 - collect source families into governed `data/` trees
 - normalize pollen, archaeology, boundary, and aDNA evidence into inspectable
   repository files
-- publish country bundles, atlas layers, and repository-truth packets
+- publish country bundles, atlas layers, and repository truth reviews
 - keep command defaults and output locations stable enough to review in one
   repository checkout
 
@@ -28,7 +28,7 @@ tracked outputs.
 - runtime commands
 - tracked source-family and normalized evidence files
 - tracked publication outputs
-- repository-truth and claim-audit packets
+- repository truth and claim-audit surfaces
 
 ## Ownership Boundary
 
@@ -51,7 +51,7 @@ The runtime does not own:
 
 The runtime sits between repository provenance and repository publication. It
 depends on source-family inputs and feeds country bundles, atlas layers, and
-review packets, but it should not blur those adjacent responsibilities into one
+review surfaces, but it should not blur those adjacent responsibilities into one
 flat story.
 
 ## Domain Language
@@ -59,7 +59,7 @@ flat story.
 - `source family`: one governed upstream domain such as LandClim, Neotoma,
   SEAD, RAÄ, boundaries, AADR, or animal aDNA papers
 - `normalized evidence`: tracked repository output derived from those sources
-- `publication surface`: a downstream atlas, country bundle, or report packet
+- `publication surface`: a downstream atlas, country bundle, or report surface
 - `partial recovery`: a surface that is real and inspectable but still too thin
   for stronger scientific or release language
 

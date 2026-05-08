@@ -39,4 +39,4 @@ Use this path when the goal is collection or normalization review.
 - inspect `docs/report/repository_truth_posture.md`
 
 Use this path when the goal is country bundles, atlas layers, or public review
-packets.
+surfaces.

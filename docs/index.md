@@ -50,7 +50,7 @@ animal aDNA extraction already equals the whole pollenomics engine?
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth packet</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth review</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_docs_recovery_review.md">Open the docs recovery review</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
@@ -82,7 +82,7 @@ flowchart TB
 - checked country bundles under [`docs/report/`](report/published_reports_summary.json)
 - reader-facing data-system pages that explain the source families rather than
   only the current aDNA slice
-- public truth and progress packets under [`docs/report/`](report/published_reports_summary.json)
+- public truth and progress surfaces under [`docs/report/`](report/published_reports_summary.json)
 
 ## Fieldwork Record
 
@@ -115,7 +115,7 @@ or supplement evidence.
 
 - what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
 - what the tracked data system and source families are: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
-- how the map points, filters, and honesty packets work: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
+- how the map points, filters, and honesty surfaces work: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
 - how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
 - how restored docs breadth is being kept honest:
   [repository docs recovery review](report/repository_docs_recovery_review.md)

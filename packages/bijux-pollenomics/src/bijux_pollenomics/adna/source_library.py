@@ -1449,7 +1449,7 @@ def _render_tracked_project_and_paper_inventory(
         "- Cross-project sample-site review: `project_sample_site_review.json`\n"
         "- Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`\n\n"
         "- Per-project locality worksheets: `projects/<project_accession>/locality_worksheet.json`\n"
-        "- Per-project sample locality evidence packets: `projects/<project_accession>/sample_locality_evidence.json`\n"
+        "- Per-project sample locality evidence reviews: `projects/<project_accession>/sample_locality_evidence.json`\n"
         "- Cross-project sample locality conflicts: `sample_locality_conflict_ledger.json`\n"
         "- Cross-project locality manual curation workflow: `sample_locality_manual_curation_workflow.json`\n"
         "- Cross-project site-name normalization dictionary: `site_name_normalization_dictionary.json`\n"

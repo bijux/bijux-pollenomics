@@ -28,7 +28,7 @@ strength.
 - fieldwork publishes as a narrow direct-visit record
 - animal aDNA publishes only after sample, site, chronology, and coordinate
   evidence survive release checks
-- repository-truth packets under `docs/report/` describe whether public
+- repository truth reviews under `docs/report/` describe whether public
   language is keeping pace with actual evidence depth
 
 ## Coordinate Policy
@@ -39,5 +39,5 @@ Coordinates are not one generic fact class. The repository distinguishes:
 - indirect geocoding derived from weaker locality language
 - blocked or refused rows that must stay out of strong public map claims
 
-Use the evidence pages and the atlas honesty packets whenever the question is
+Use the evidence pages and the atlas honesty surfaces whenever the question is
 which of those postures applies to a specific row.
