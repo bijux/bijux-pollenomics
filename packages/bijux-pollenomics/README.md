@@ -5,10 +5,9 @@ pollenomics, environmental, archaeology, boundary, fieldwork, and ancient-DNA
 evidence surfaces plus their downstream map/report products.
 
 Use this package if you want the canonical CLI and Python entrypoints that own
-tracked source collection, project intake, paper capture, supplement capture,
-sample extraction, site extraction, chronology normalization, coordinate
-provenance, and the Nordic atlas plus country bundles that summarize those
-reviewable files.
+tracked source collection, animal aDNA intake, sample extraction, chronology
+and coordinate normalization, evidence review, and the atlas plus country
+bundles that summarize those reviewable files.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -37,6 +36,8 @@ reviewable files.
 - readers who need the canonical runtime that keeps pollenomics and
   environmental evidence first-class while treating animal aDNA extraction as
   one still-recovering contextual program
+- contributors who need one clear owner for command handling, collection,
+  normalization, review, and publication
 
 ## Install
 

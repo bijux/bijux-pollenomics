@@ -67,6 +67,7 @@ nav:
       - Repository Fit: 01-bijux-pollenomics/foundation/repository-fit.md
       - Pollenomics Engine Roadmap: 01-bijux-pollenomics/foundation/pollenomics-engine-roadmap.md
       - Evidence Publication Flow: 01-bijux-pollenomics/architecture/index.md
+      - Package Split: 01-bijux-pollenomics/architecture/package-split.md
       - Commands and Contracts: 01-bijux-pollenomics/interfaces/index.md
       - CLI Surface: 01-bijux-pollenomics/interfaces/cli-surface.md
       - Artifact Contracts: 01-bijux-pollenomics/interfaces/artifact-contracts.md

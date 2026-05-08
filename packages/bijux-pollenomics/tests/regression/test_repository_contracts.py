@@ -963,10 +963,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("Use this package if you want the canonical CLI", runtime_readme)
-        self.assertIn("project intake, paper capture, supplement capture", runtime_readme)
+        self.assertIn("tracked source collection, animal aDNA intake", runtime_readme)
         self.assertIn("Alias distribution", alias_readme)
         self.assertIn("Maintainer-only package", maintainer_readme)
-        self.assertIn("It is not the owner of project intake", maintainer_readme)
+        self.assertIn("It is not the owner of runtime commands", maintainer_readme)
 
     def test_runtime_package_boundary_doc_names_durable_scientific_ownership(self) -> None:
         boundary_doc = (
@@ -979,16 +979,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("# Runtime Package Boundaries", boundary_doc)
-        self.assertIn("## Project Intake", boundary_doc)
-        self.assertIn("## Paper Capture", boundary_doc)
-        self.assertIn("## Supplement Capture", boundary_doc)
-        self.assertIn("## Sample Extraction", boundary_doc)
-        self.assertIn("## Site Extraction", boundary_doc)
-        self.assertIn("## Chronology Normalization", boundary_doc)
-        self.assertIn("## Coordinate Provenance", boundary_doc)
-        self.assertIn("## Output Publishing", boundary_doc)
+        self.assertIn("## Runtime Command Surface", boundary_doc)
+        self.assertIn("## Source Collection And Intake", boundary_doc)
+        self.assertIn("## Evidence Normalization", boundary_doc)
+        self.assertIn("## Evidence Review", boundary_doc)
+        self.assertIn("## Publication Assembly", boundary_doc)
+        self.assertIn("## Public Artifact Writing", boundary_doc)
+        self.assertIn("## Package Split", boundary_doc)
         self.assertIn("bijux_pollenomics.adna.project_sample_sites", boundary_doc)
-        self.assertIn("bijux_pollenomics.reporting", boundary_doc)
+        self.assertIn("bijux_pollenomics.reporting.review", boundary_doc)
 
     def test_module_map_mentions_adna_runtime_boundary(self) -> None:
         module_map = (
@@ -1000,23 +999,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            "`adna/` owns species-aware ancient-DNA contracts",
+            "`command_line/` owns parsing, dispatch, and the durable command registry",
             module_map,
         )
-        self.assertIn("Homo sapiens runtime manifests", module_map)
-        self.assertIn("metadata-only analysis", module_map)
-        self.assertIn("accession-family resolution", module_map)
-        self.assertIn("archive-integrity", module_map)
-        self.assertIn("curated ENA archive intake metadata", module_map)
-        self.assertIn("species curation", module_map)
-        self.assertIn("paper linkage", module_map)
-        self.assertIn("sample extraction", module_map)
-        self.assertIn("scientist-facing species review", module_map)
-        self.assertIn("manifest diff outputs", module_map)
-        self.assertIn("cross-species domestication coverage reporting", module_map)
-        self.assertIn("non-human normalization", module_map)
-        self.assertIn("deterministic artifact plans", module_map)
-        self.assertIn("`reporting/adna/`", module_map)
+        self.assertIn("`data_downloader/pipeline/`, `data_downloader/sources/`", module_map)
+        self.assertIn("`analysis/review/` owns candidate-site ranking packets", module_map)
+        self.assertIn("`reporting/presentation/`", module_map)
+        self.assertIn("`reporting/review/`", module_map)
+        self.assertIn("compatibility shims", module_map)
+        self.assertIn("alias distribution", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
     def test_directory_layout_docs_mentions_curated_species_roots(self) -> None:

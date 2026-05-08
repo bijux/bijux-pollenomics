@@ -3,10 +3,10 @@
 Maintainer-only package for repository-health checks, docs integrity, and
 release support in the `bijux-pollenomics` monorepo.
 
-It is not the owner of project intake, paper capture, supplement capture,
-sample extraction, site extraction, chronology normalization, coordinate
-provenance, or atlas publication logic. Those durable scientific boundaries
-live in the runtime package.
+It is not the owner of runtime commands, source collection, animal aDNA
+intake, sample extraction, chronology normalization, coordinate provenance,
+evidence review, or atlas publication logic. Those durable scientific
+boundaries live in the runtime package.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://github.com/bijux/bijux-pollenomics)

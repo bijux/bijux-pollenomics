@@ -9,23 +9,45 @@ last_reviewed: 2026-05-07
 
 # Module Map
 
-The runtime module map matters mainly for the animal aDNA publication boundary.
+The module tree should teach the evidence lifecycle by shape, not by local
+lore.
 
-## Core Ownership
+## Lifecycle Owners
 
-- `src/bijux_pollenomics/adna/` holds the species-aware ancient-DNA contracts
-- `adna/` owns species-aware ancient-DNA contracts, non-human normalization,
-  accession-family resolution, deterministic artifact plans, species curation,
-  project, paper, supplement, sample, site, chronology, and coordinate
-  evidence handling, Homo sapiens runtime manifests, metadata-only analysis
-  boundaries, archive-integrity review, and scientist-facing species review
-  packets
-- `reporting/adna/` and `reporting/bundles/` turn those tracked contracts into
-  country outputs, manifest diff outputs, and cross-species domestication coverage reporting
+- `command_line/` owns parsing, dispatch, and the durable command registry
+- `data_downloader/pipeline/`, `data_downloader/sources/`,
+  `data_downloader/intake/`, and `data_downloader/exports/` own source-family
+  collection, workbook intake, and context artifact writing
+- `adna/` owns animal aDNA intake, sample extraction, locality recovery,
+  chronology recovery, coordinate provenance, normalization, and validation
+- `analysis/review/` owns candidate-site ranking packets and sensitivity
+  surfaces
+- `evidence/` owns atlas evidence and scientific review surfaces
+- `reporting/adna/`, `reporting/bundles/`, `reporting/context/`,
+  `reporting/map_document/`, `reporting/presentation/`,
+  `reporting/rendering/`, and `reporting/review/` own publication assembly,
+  presentation helpers, governed report packets, and public artifact writing
+- `foundation/` owns architecture contracts, ownership maps, repository-truth
+  builders, and release posture
+- `core/` remains intentionally small: files, text, geojson, HTTP, time, and
+  geo-distance primitives
 
-## Reader Meaning
+## Animal aDNA Ownership
 
-If a question is about curated ENA archive intake metadata, paper linkage,
-sample extraction, site evidence, chronology, coordinate provenance, species
-review packets, or map-ready animal rows, the answer should usually be
-traceable back into `src/bijux_pollenomics/adna/`.
+If a question is about project intake, paper linkage, supplement capture,
+sample extraction, locality resolution, chronology evidence, coordinate
+provenance, species review, or atlas-ready animal rows, the answer should
+usually trace back into `src/bijux_pollenomics/adna/`.
+
+If a question is about how those animal rows become country bundles, atlas
+bundles, or repository-truth packets, the path should continue into
+`reporting/adna/`, `reporting/bundles/`, `reporting/review/`, and
+`foundation/`.
+
+## What The Tree Refuses
+
+- `data_downloader/shared/` and `reporting/shared/` remain compatibility shims,
+  not canonical ownership areas
+- `pollenomics` is an alias distribution, not a second runtime
+- `bijux-pollenomics-dev` is maintainer tooling, not a home for runtime
+  scientific logic

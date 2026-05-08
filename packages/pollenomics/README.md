@@ -36,3 +36,4 @@ pollenomics --help
 - re-exports the public Python API from `bijux-pollenomics`
 - dispatches the same CLI handlers through the shorter `pollenomics` command
 - stays subordinate to the canonical runtime package
+- avoids becoming a second home for scientific logic or publication behavior
