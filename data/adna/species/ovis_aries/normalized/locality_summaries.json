@@ -5,7 +5,545 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:project-locality:prjeb59481",
+        "stable_token": "ovis_aries:locality:prjeb36540:barcnhyk",
+        "locality_text": "Barcın Höyük",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Barcın Höyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 44,
+      "sample_ids": [
+        "prjeb36540:bh 28",
+        "prjeb36540:bh 29",
+        "prjeb36540:bh 33",
+        "prjeb36540:bh 38",
+        "prjeb36540:bh 4",
+        "prjeb36540:bh 44",
+        "prjeb36540:bh 45",
+        "prjeb36540:bh 47",
+        "prjeb36540:bh 50",
+        "prjeb36540:bh 51",
+        "prjeb36540:bh 54",
+        "prjeb36540:bh 55",
+        "prjeb36540:bh 56",
+        "prjeb36540:bh 57",
+        "prjeb36540:bh 58",
+        "prjeb36540:bh 59",
+        "prjeb36540:bh 60",
+        "prjeb36540:bh 61",
+        "prjeb36540:bh 62",
+        "prjeb36540:bh 66",
+        "prjeb36540:bh 68",
+        "prjeb36540:bh 69",
+        "prjeb36540:bh 70",
+        "prjeb36540:bh 71",
+        "prjeb36540:bh 9",
+        "prjeb36540:bh11",
+        "prjeb36540:bh12",
+        "prjeb36540:bh14",
+        "prjeb36540:bh15",
+        "prjeb36540:bh16",
+        "prjeb36540:bh17",
+        "prjeb36540:bh19",
+        "prjeb36540:bh2",
+        "prjeb36540:bh20",
+        "prjeb36540:bh24",
+        "prjeb36540:bh26",
+        "prjeb36540:bh27",
+        "prjeb36540:bh3",
+        "prjeb36540:bh32",
+        "prjeb36540:bh35",
+        "prjeb36540:bh41",
+        "prjeb36540:bh6",
+        "prjeb36540:bh7",
+        "prjeb36540:bh8"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "8049-8549 BP",
+        "time_start_bp": 8049,
+        "time_end_bp": 8549,
+        "time_mean_bp": 8299,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Barcın Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb36540:boncukluhyk",
+        "locality_text": "Boncuklu Höyük",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Boncuklu Höyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb36540:bk1",
+        "prjeb36540:bk2",
+        "prjeb36540:bk3",
+        "prjeb36540:bk4",
+        "prjeb36540:bk5"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "9749-10349 BP",
+        "time_start_bp": 9749,
+        "time_end_bp": 10349,
+        "time_mean_bp": 10049,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Boncuklu Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb36540:canhasaniiihy",
+        "locality_text": "Canhasan III Höyüğü",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Canhasan III Höyüğü",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb36540:ch1",
+        "prjeb36540:ch2",
+        "prjeb36540:ch3",
+        "prjeb36540:ch4",
+        "prjeb36540:ch5"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "9049-9349 BP",
+        "time_start_bp": 9049,
+        "time_end_bp": 9349,
+        "time_mean_bp": 9199,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Canhasan III Höyüğü",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb36540:pnarbahyk",
+        "locality_text": "Pınarbaşı Höyük",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Pınarbaşı Höyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 17,
+      "sample_ids": [
+        "prjeb36540:pb10",
+        "prjeb36540:pb12",
+        "prjeb36540:pb13",
+        "prjeb36540:pb14",
+        "prjeb36540:pb15",
+        "prjeb36540:pb2",
+        "prjeb36540:pb24",
+        "prjeb36540:pb25",
+        "prjeb36540:pb26",
+        "prjeb36540:pb28",
+        "prjeb36540:pb29",
+        "prjeb36540:pb31",
+        "prjeb36540:pb32",
+        "prjeb36540:pb33",
+        "prjeb36540:pb6",
+        "prjeb36540:pb8",
+        "prjeb36540:pb9"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "7949-15949 BP",
+        "time_start_bp": 7949,
+        "time_end_bp": 15949,
+        "time_mean_bp": 11949,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Pınarbaşı Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb36540:tepecikiftlikhyk",
+        "locality_text": "Tepecik-Çiftlik Höyük",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tepecik-Çiftlik Höyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 74,
+      "sample_ids": [
+        "prjeb36540:tep02",
+        "prjeb36540:tep03",
+        "prjeb36540:tep03_depo*",
+        "prjeb36540:tep05",
+        "prjeb36540:tep09",
+        "prjeb36540:tep1",
+        "prjeb36540:tep10",
+        "prjeb36540:tep10_depo",
+        "prjeb36540:tep11_depo",
+        "prjeb36540:tep12_depo",
+        "prjeb36540:tep13_depo",
+        "prjeb36540:tep14_depo",
+        "prjeb36540:tep15_depo",
+        "prjeb36540:tep1637",
+        "prjeb36540:tep1638",
+        "prjeb36540:tep1639",
+        "prjeb36540:tep1640",
+        "prjeb36540:tep1641",
+        "prjeb36540:tep1642",
+        "prjeb36540:tep1653",
+        "prjeb36540:tep1654",
+        "prjeb36540:tep1659",
+        "prjeb36540:tep1661",
+        "prjeb36540:tep16_depo",
+        "prjeb36540:tep17",
+        "prjeb36540:tep17_depo",
+        "prjeb36540:tep18_depo",
+        "prjeb36540:tep19_depo",
+        "prjeb36540:tep1_depo",
+        "prjeb36540:tep20",
+        "prjeb36540:tep20_depo",
+        "prjeb36540:tep2_depo",
+        "prjeb36540:tep4",
+        "prjeb36540:tep41",
+        "prjeb36540:tep43",
+        "prjeb36540:tep45",
+        "prjeb36540:tep46",
+        "prjeb36540:tep48",
+        "prjeb36540:tep48_2014",
+        "prjeb36540:tep49",
+        "prjeb36540:tep4_depo",
+        "prjeb36540:tep5",
+        "prjeb36540:tep50",
+        "prjeb36540:tep52",
+        "prjeb36540:tep53",
+        "prjeb36540:tep54",
+        "prjeb36540:tep55",
+        "prjeb36540:tep56",
+        "prjeb36540:tep57",
+        "prjeb36540:tep57_2014",
+        "prjeb36540:tep58",
+        "prjeb36540:tep59",
+        "prjeb36540:tep5_depo",
+        "prjeb36540:tep60",
+        "prjeb36540:tep60_2014",
+        "prjeb36540:tep61",
+        "prjeb36540:tep62*",
+        "prjeb36540:tep63",
+        "prjeb36540:tep68_2014",
+        "prjeb36540:tep6_depo",
+        "prjeb36540:tep7",
+        "prjeb36540:tep72_2014",
+        "prjeb36540:tep78_2014",
+        "prjeb36540:tep7_depo",
+        "prjeb36540:tep8",
+        "prjeb36540:tep82_2014",
+        "prjeb36540:tep83",
+        "prjeb36540:tep83_2014",
+        "prjeb36540:tep87_2014",
+        "prjeb36540:tep8_depo",
+        "prjeb36540:tep9",
+        "prjeb36540:tep93_2014",
+        "prjeb36540:tep94_2014",
+        "prjeb36540:tep9_depo"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "7749-9449 BP",
+        "time_start_bp": 7749,
+        "time_end_bp": 9449,
+        "time_mean_bp": 8599,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Tepecik-Çiftlik Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb36540:ulucakhyk",
+        "locality_text": "Ulucak Höyük",
+        "political_entity": "",
+        "source_anchor_tokens": [
+          "PRJEB36540",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB36540"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Ulucak Höyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 45,
+      "sample_ids": [
+        "prjeb36540:uh1",
+        "prjeb36540:uh10",
+        "prjeb36540:uh11",
+        "prjeb36540:uh13",
+        "prjeb36540:uh14",
+        "prjeb36540:uh15",
+        "prjeb36540:uh16",
+        "prjeb36540:uh17",
+        "prjeb36540:uh18",
+        "prjeb36540:uh19",
+        "prjeb36540:uh2",
+        "prjeb36540:uh20",
+        "prjeb36540:uh21",
+        "prjeb36540:uh22",
+        "prjeb36540:uh24",
+        "prjeb36540:uh25",
+        "prjeb36540:uh28",
+        "prjeb36540:uh29",
+        "prjeb36540:uh3",
+        "prjeb36540:uh30",
+        "prjeb36540:uh33",
+        "prjeb36540:uh35",
+        "prjeb36540:uh38",
+        "prjeb36540:uh39",
+        "prjeb36540:uh40",
+        "prjeb36540:uh5",
+        "prjeb36540:uh7",
+        "prjeb36540:uh8",
+        "prjeb36540:ulu04",
+        "prjeb36540:ulu06",
+        "prjeb36540:ulu09",
+        "prjeb36540:ulu12",
+        "prjeb36540:ulu16",
+        "prjeb36540:ulu23",
+        "prjeb36540:ulu26",
+        "prjeb36540:ulu27",
+        "prjeb36540:ulu30",
+        "prjeb36540:ulu31*",
+        "prjeb36540:ulu32",
+        "prjeb36540:ulu34",
+        "prjeb36540:ulu36",
+        "prjeb36540:ulu37",
+        "prjeb36540:ulu4",
+        "prjeb36540:ulu6",
+        "prjeb36540:ulu9"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB36540"
+      ],
+      "chronology": {
+        "original_text": "7549-8949 BP",
+        "time_start_bp": 7549,
+        "time_end_bp": 8949,
+        "time_mean_bp": 8249,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context"
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB36540"
+      ],
+      "original_location_text": "Ulucak Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb59481:balticsearegionshorttailedsheepcontext:balticsearegion",
         "locality_text": "Baltic Sea Region short-tailed sheep context",
         "political_entity": "Baltic Sea Region",
         "source_anchor_tokens": [
@@ -52,14 +590,14 @@
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context"
       },
-      "sample_namespace": "ovis_aries:project_locality",
+      "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
         "PRJEB59481"
       ],
       "original_location_text": "Baltic Sea Region short-tailed sheep context",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
-      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready."
+      "nordic_inclusion_reason": "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs.",
+      "interpretation_note": "The current sheep lead is regional and Nordic-relevant, but the local source archive still lacks a readable article or extracted supplement table for a finer-grained site row."
     }
   ]
 }

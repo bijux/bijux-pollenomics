@@ -4,13 +4,13 @@
 - Product role: `domesticated_core`
 - Dataset bucket: `archive_verified_needs_paper_pinning`
 - Curation class: `paper_pinned_core`
-- Curated sample rows: `8`
+- Curated sample rows: `552`
 - Curated projects: `4`
-- Curated site rows: `1`
-- Direct-coordinate rows: `0`
+- Curated site rows: `240`
+- Direct-coordinate rows: `207`
 - Geocoded rows: `1`
-- Unresolved sample rows: `7`
-- Mapped Nordic rows: `0`
+- Unresolved sample rows: `4`
+- Mapped Nordic rows: `4`
 - Tracked intake projects: `8`
 - Pending projects: `3`
 - Rejected projects: `1`

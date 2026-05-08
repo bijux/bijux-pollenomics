@@ -362,7 +362,7 @@
         },
         "locality_identity": {
           "namespace": "equus_asinus:sample_locality",
-          "stable_token": "equus_asinus:sample-site:prjeb43564",
+          "stable_token": "equus_asinus:locality:prjeb43564:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -441,7 +441,7 @@
         },
         "locality_identity": {
           "namespace": "equus_asinus:sample_locality",
-          "stable_token": "equus_asinus:sample-site:prjeb50952",
+          "stable_token": "equus_asinus:locality:prjeb50952:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -520,7 +520,7 @@
         },
         "locality_identity": {
           "namespace": "equus_asinus:sample_locality",
-          "stable_token": "equus_asinus:sample-site:prjeb52590",
+          "stable_token": "equus_asinus:locality:prjeb52590:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -599,7 +599,7 @@
         },
         "locality_identity": {
           "namespace": "equus_asinus:sample_locality",
-          "stable_token": "equus_asinus:sample-site:prjeb52849",
+          "stable_token": "equus_asinus:locality:prjeb52849:northafricandonkeydomesticationandspreadtransect:northafricaandlevant",
           "locality_text": "North African donkey domestication and spread transect",
           "political_entity": "North Africa and Levant",
           "source_anchor_tokens": [
@@ -646,7 +646,7 @@
         "paper_url": "",
         "supplementary_source": "",
         "inclusion_status": "comparator_site_curated",
-        "inclusion_note": "Donkey remains broad comparator domestication context rather than point-ready evidence.",
+        "inclusion_note": "This is a broad comparator domestication transect rather than one point-sized excavation context.",
         "chronology_strength": "project_context_interval",
         "chronology_normalization_status": "normalized_interval",
         "chronology_provenance_path": "",
@@ -678,7 +678,7 @@
         },
         "locality_identity": {
           "namespace": "equus_asinus:sample_locality",
-          "stable_token": "equus_asinus:sample-site:prjeb55549",
+          "stable_token": "equus_asinus:locality:prjeb55549:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -809,7 +809,7 @@
       {
         "identity": {
           "namespace": "equus_asinus:project_locality",
-          "stable_token": "equus_asinus:project-locality:prjeb52849",
+          "stable_token": "equus_asinus:locality:prjeb52849:northafricandonkeydomesticationandspreadtransect:northafricaandlevant",
           "locality_text": "North African donkey domestication and spread transect",
           "political_entity": "North Africa and Levant",
           "source_anchor_tokens": [
@@ -856,14 +856,14 @@
           "date_stddev_bp": "",
           "dating_basis": "archaeological_period_assignment"
         },
-        "sample_namespace": "equus_asinus:project_locality",
+        "sample_namespace": "equus_asinus:sample_locality",
         "project_accessions": [
           "PRJEB52849"
         ],
         "original_location_text": "North African donkey domestication and spread transect",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "Donkey remains broad comparator domestication context rather than point-ready evidence."
+        "interpretation_note": "This is a broad comparator domestication transect rather than one point-sized excavation context."
       }
     ],
     "project_summaries": [

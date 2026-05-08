@@ -5,7 +5,7 @@
     {
       "identity": {
         "namespace": "sus_scrofa_domesticus:project_locality",
-        "stable_token": "sus_scrofa_domesticus:project-locality:prjeb30282",
+        "stable_token": "sus_scrofa_domesticus:locality:prjeb30282:neareastandeuropepigdomesticationtransect:turkeyandeurope",
         "locality_text": "Near East and Europe pig domestication transect",
         "political_entity": "Turkey and Europe",
         "source_anchor_tokens": [
@@ -52,14 +52,14 @@
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context"
       },
-      "sample_namespace": "sus_scrofa_domesticus:project_locality",
+      "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [
         "PRJEB30282"
       ],
       "original_location_text": "Near East and Europe pig domestication transect",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Region-level pig turnover evidence is kept as non-mappable context until site rows exist."
+      "interpretation_note": "This is a broad domestication transect, not one excavation site, so the atlas point remains an inferred regional centroid."
     }
   ]
 }

@@ -15,7 +15,7 @@
       },
       "locality_identity": {
         "namespace": "capra_hircus:sample_locality",
-        "stable_token": "capra_hircus:sample-site:prjeb90141",
+        "stable_token": "capra_hircus:locality:prjeb90141:sitedetailnotyetextractedfromtrackedsourcesupport",
         "locality_text": "site detail not yet extracted from tracked source support",
         "political_entity": null,
         "source_anchor_tokens": [
@@ -94,7 +94,7 @@
       },
       "locality_identity": {
         "namespace": "capra_hircus:sample_locality",
-        "stable_token": "capra_hircus:sample-site:prjeb90261",
+        "stable_token": "capra_hircus:locality:prjeb90261:sitedetailnotyetextractedfromtrackedsourcesupport",
         "locality_text": "site detail not yet extracted from tracked source support",
         "political_entity": null,
         "source_anchor_tokens": [
@@ -173,7 +173,7 @@
       },
       "locality_identity": {
         "namespace": "capra_hircus:sample_locality",
-        "stable_token": "capra_hircus:sample-site:prjna1328209",
+        "stable_token": "capra_hircus:locality:prjna1328209:lakeqinghaibasinancientgoatcontext:qinghaichina",
         "locality_text": "Lake Qinghai Basin ancient goat context",
         "political_entity": "Qinghai, China",
         "source_anchor_tokens": [
@@ -220,7 +220,7 @@
       "paper_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
       "supplementary_source": "",
       "inclusion_status": "site_curated",
-      "inclusion_note": "The goat lead is paper-backed but still basin-level geography.",
+      "inclusion_note": "This goat evidence is geographically explicit and paper-backed, but it remains non-Nordic domestication context.",
       "chronology_strength": "project_context_interval",
       "chronology_normalization_status": "normalized_interval",
       "chronology_provenance_path": "",

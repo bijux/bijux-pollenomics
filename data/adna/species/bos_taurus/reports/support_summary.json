@@ -306,7 +306,7 @@
         },
         "locality_identity": {
           "namespace": "bos_taurus:sample_locality",
-          "stable_token": "bos_taurus:sample-site:prjeb31621",
+          "stable_token": "bos_taurus:locality:prjeb31621:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -385,7 +385,7 @@
         },
         "locality_identity": {
           "namespace": "bos_taurus:sample_locality",
-          "stable_token": "bos_taurus:sample-site:prjeb75467",
+          "stable_token": "bos_taurus:locality:prjeb75467:sitedetailnotyetextractedfromtrackedsourcesupport",
           "locality_text": "site detail not yet extracted from tracked source support",
           "political_entity": null,
           "source_anchor_tokens": [
@@ -464,7 +464,7 @@
         },
         "locality_identity": {
           "namespace": "bos_taurus:sample_locality",
-          "stable_token": "bos_taurus:sample-site:prjna705960",
+          "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
           "locality_text": "Galician mountain cave cattle context",
           "political_entity": "Galicia, Spain",
           "source_anchor_tokens": [
@@ -511,7 +511,7 @@
         "paper_url": "",
         "supplementary_source": "",
         "inclusion_status": "site_curated",
-        "inclusion_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision.",
+        "inclusion_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally.",
         "chronology_strength": "project_context_interval",
         "chronology_normalization_status": "normalized_interval",
         "chronology_provenance_path": "",
@@ -595,7 +595,7 @@
       {
         "identity": {
           "namespace": "bos_taurus:project_locality",
-          "stable_token": "bos_taurus:project-locality:prjna705960",
+          "stable_token": "bos_taurus:locality:prjna705960:galicianmountaincavecattlecontext:galiciaspain",
           "locality_text": "Galician mountain cave cattle context",
           "political_entity": "Galicia, Spain",
           "source_anchor_tokens": [
@@ -642,14 +642,14 @@
           "date_stddev_bp": "",
           "dating_basis": "archaeological_period_assignment"
         },
-        "sample_namespace": "bos_taurus:project_locality",
+        "sample_namespace": "bos_taurus:sample_locality",
         "project_accessions": [
           "PRJNA705960"
         ],
         "original_location_text": "Galician mountain cave cattle context",
         "nordic_inclusion": false,
         "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "This row must stay separated from wild-progenitor context and from fake cave-point precision."
+        "interpretation_note": "The current shipped cattle lead is archive-backed rather than paper-linked; it must stay separate from wild-progenitor or aurochs context until stronger paper pinning is archived locally."
       }
     ],
     "project_summaries": [
