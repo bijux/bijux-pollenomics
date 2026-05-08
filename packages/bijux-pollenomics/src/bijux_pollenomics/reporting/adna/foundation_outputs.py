@@ -15,6 +15,13 @@ from ...adna.project_sample_chronology import (
     ADNA_CHRONOLOGY_STRENGTHS,
     build_sample_chronology_viewer_rows,
 )
+from ...adna.project_sample_locality_evidence import (
+    build_project_locality_completeness_rows,
+    build_project_locality_substitution_ledger,
+    build_sample_locality_conflict_ledger,
+    build_sample_locality_manual_curation_workflow_rows,
+    build_site_name_normalization_dictionary_rows,
+)
 from ...adna.project_sample_sites import (
     ADNA_LOCALITY_RESOLUTION_STATUSES,
     build_project_sample_site_rows,
@@ -639,6 +646,11 @@ def build_animal_sample_database_review(
     chronology_rows = _load_all_project_sample_chronology_rows(data_root)
     coordinate_rows = _load_all_coordinate_rows(data_root)
     sample_site_rows = _load_all_project_sample_site_rows(data_root)
+    locality_conflict_rows = build_sample_locality_conflict_ledger(data_root)
+    locality_curation_rows = build_sample_locality_manual_curation_workflow_rows(data_root)
+    locality_substitution_rows = build_project_locality_substitution_ledger(data_root)
+    locality_dictionary_rows = build_site_name_normalization_dictionary_rows(data_root)
+    locality_completeness_rows = build_project_locality_completeness_rows(data_root)
     country_payloads = _load_country_payloads(report_root)
 
     locality_status_counts = {status: 0 for status in ADNA_LOCALITY_RESOLUTION_STATUSES}
@@ -674,6 +686,11 @@ def build_animal_sample_database_review(
         "sample_database_contract": "data/adna/governance/animal_sample_product_contract.json",
         "sample_query_example": "docs/report/sweden/sweden_animal_adna_v66_samples.md",
         "site_review": "data/adna/governance/source_library/project_sample_site_review.json",
+        "locality_conflicts": "data/adna/governance/source_library/sample_locality_conflict_ledger.json",
+        "locality_curation_workflow": "data/adna/governance/source_library/sample_locality_manual_curation_workflow.json",
+        "locality_substitution_ledger": "data/adna/governance/source_library/project_locality_substitution_ledger.json",
+        "locality_normalization_dictionary": "data/adna/governance/source_library/site_name_normalization_dictionary.json",
+        "locality_completeness": "data/adna/governance/source_library/project_locality_completeness.json",
         "chronology_review": "data/adna/governance/source_library/project_sample_chronology_review.json",
         "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
         "point_support_packets": "docs/report/animal_point_support_packets.md",
@@ -749,8 +766,23 @@ def build_animal_sample_database_review(
             "published_atlas_point_count": point_payload["row_count"],
             "published_country_bundle_count": len(country_payloads),
             "mapped_sample_share": mapped_sample_share,
+            "locality_conflict_row_count": len(locality_conflict_rows),
+            "locality_curation_row_count": len(locality_curation_rows),
+            "locality_substitution_project_count": len(locality_substitution_rows),
+            "locality_dictionary_row_count": len(locality_dictionary_rows),
         },
         "locality_status_counts": locality_status_counts,
+        "locality_completeness_counts": {
+            "exact_site_evidence_count": sum(
+                int(row["exact_site_evidence_count"]) for row in locality_completeness_rows
+            ),
+            "broader_locality_evidence_count": sum(
+                int(row["broader_locality_evidence_count"]) for row in locality_completeness_rows
+            ),
+            "unresolved_geography_count": sum(
+                int(row["unresolved_geography_count"]) for row in locality_completeness_rows
+            ),
+        },
         "chronology_status_counts": chronology_status_counts,
         "posture_findings": posture_findings,
         "blockers": list(review_payload["blockers"]),
@@ -776,8 +808,14 @@ def build_animal_publication_release_gate(
     unresolved_rows = build_unresolved_site_ledger(data_root)
     overbroad_rows = build_overbroad_site_ledger(data_root)
     project_locality_drift_rows = build_project_locality_count_drift(data_root)
+    locality_substitution_rows = build_project_locality_substitution_ledger(data_root)
     sample_site_rows = _load_all_project_sample_site_rows(data_root)
     chronology_rows = _load_all_project_sample_chronology_rows(data_root)
+    substitution_blocked_projects = {
+        str(row.get("project_accession", "")).strip()
+        for row in locality_substitution_rows
+        if bool(row.get("publication_blocked"))
+    }
     blocked_sample_site_rows = {
         str(row.get("repo_stable_sample_id", "")).strip(): row
         for row in sample_site_rows
@@ -836,6 +874,23 @@ def build_animal_publication_release_gate(
             in chronology_blocked_master_ids
         }
     )
+    substitution_blocked_country_rows = sorted(
+        {
+            str(sample_row.get("sample_record_id", "")).strip()
+            for payload in country_payloads
+            for sample_row in payload.get("sample_rows", [])
+            if str(sample_row.get("project_accession", "")).strip()
+            in substitution_blocked_projects
+        }
+    )
+    substitution_blocked_atlas_rows = sorted(
+        {
+            str(point.get("feature_id", "")).strip()
+            for point in point_payload["rows"]
+            if str(point.get("primary_project_accession", "")).strip()
+            in substitution_blocked_projects
+        }
+    )
     point_row_count = int(point_payload.get("row_count", len(point_payload.get("rows", []))))
     reference_grade_support_requirements = {
         "sample_database_artifacts_present": bool(
@@ -892,6 +947,12 @@ def build_animal_publication_release_gate(
             not (blocked_country_chronology_rows or blocked_atlas_chronology_rows),
             "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
             blocked_country_chronology_rows + blocked_atlas_chronology_rows,
+        ),
+        _check_row(
+            "project_level_locality_substitution_projects_do_not_publish_country_or_atlas_rows",
+            not (substitution_blocked_country_rows or substitution_blocked_atlas_rows),
+            "Projects whose locality evidence still collapses all samples into one blocked context do not leak into country or atlas publication.",
+            substitution_blocked_country_rows + substitution_blocked_atlas_rows,
         ),
         _check_row(
             "docs_do_not_overclaim_all_species_map_readiness",
