@@ -14,22 +14,28 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf`
 
 ## Local artifacts
 
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx`
+- `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf`
 - `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html`
 - `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/crossref.json`
 - `adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/pubmed.xml`

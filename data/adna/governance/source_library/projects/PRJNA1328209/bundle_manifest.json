@@ -10,14 +10,18 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.24272-j.issn.2095-8137.2025.080:Supplementary_tables.xlsx",
+    "10.24272-j.issn.2095-8137.2025.080:ZR-2025-080-Supplementary Materials.pdf",
     "10.24272-j.issn.2095-8137.2025.080:article.html",
     "10.24272-j.issn.2095-8137.2025.080:crossref.json",
     "10.24272-j.issn.2095-8137.2025.080:pubmed.xml",
     "PRJNA1328209:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+    "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf",
     "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/article.html",
     "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/crossref.json",
     "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/pubmed.xml",

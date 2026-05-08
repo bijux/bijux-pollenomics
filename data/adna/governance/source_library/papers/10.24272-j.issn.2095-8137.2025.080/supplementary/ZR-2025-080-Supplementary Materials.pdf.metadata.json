@@ -1,0 +1,13 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
+  "artifact_kind": "supplementary_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 1252589,
+  "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
+  "project_accessions": [
+    "PRJNA1328209"
+  ],
+  "artifact_label": "curated supplementary asset ZR-2025-080-Supplementary Materials.pdf",
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+}

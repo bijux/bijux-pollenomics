@@ -10,17 +10,29 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.1126-science.aam5298:aam5298_librado.sm.pdf",
     "10.1126-science.aam5298:article.html",
     "10.1126-science.aam5298:crossref.json",
     "10.1126-science.aam5298:pubmed.xml",
+    "10.1126-science.aam5298:tables27.xlsx",
+    "10.1126-science.aam5298:tables28.xlsx",
+    "10.1126-science.aam5298:tables29.xlsx",
+    "10.1126-science.aam5298:tables30.xlsx",
+    "10.1126-science.aam5298:tables31.xlsx",
     "PRJEB19970:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
     "adna/governance/source_library/papers/10.1126-science.aam5298/article.html",
     "adna/governance/source_library/papers/10.1126-science.aam5298/crossref.json",
     "adna/governance/source_library/papers/10.1126-science.aam5298/pubmed.xml",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
+    "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx",
     "adna/governance/source_library/projects/PRJEB19970/archive_metadata.html"
   ],
   "blockers": []

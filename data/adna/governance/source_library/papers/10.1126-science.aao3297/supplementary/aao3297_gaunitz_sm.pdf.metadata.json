@@ -1,0 +1,13 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://pubmed.ncbi.nlm.nih.gov/29472442/",
+  "artifact_kind": "supplementary_pdf",
+  "content_type": "application/pdf",
+  "byte_size": 5001419,
+  "paper_doi": "10.1126/science.aao3297",
+  "project_accessions": [
+    "PRJEB22390"
+  ],
+  "artifact_label": "curated supplementary asset aao3297_gaunitz_sm.pdf",
+  "source_note": "Recovered from the local DOI-keyed supplement stash and copied into the governed source library."
+}
