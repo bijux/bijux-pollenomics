@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import re
 
+from bijux_pollenomics.foundation import build_repository_architecture_contract
+
 REPO_ROOT = Path(__file__).resolve().parents[4]
 RUNTIME_SRC = REPO_ROOT / "packages" / "bijux-pollenomics" / "src" / "bijux_pollenomics"
 DATA_DOWNLOADER_SRC = RUNTIME_SRC / "data_downloader"
@@ -62,7 +64,7 @@ def test_harmonization_logic_stays_out_of_map_rendering_layers() -> None:
 def test_ranking_logic_stays_out_of_publication_modules() -> None:
     failures = _find_forbidden_imports(
         _python_files(REPORTING_SRC),
-        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.(ranking|site_candidates|reporting)(\.|\s|$)",
+        r"(^|\n)\s*(from|import)\s+bijux_pollenomics\.analysis\.(ranking|site_candidates|reporting|review)(\.|\s|$)",
     )
 
     assert not failures, (
@@ -178,4 +180,47 @@ def test_evidence_domain_does_not_import_rendering_cli_or_foundation_layers() ->
 
     assert not failures, "evidence domain imports higher-level runtime layers:\n" + "\n".join(
         failures
+    )
+
+
+def test_repository_architecture_contract_names_existing_owner_paths() -> None:
+    contract = build_repository_architecture_contract()
+    seen_stage_keys: set[str] = set()
+
+    for stage in contract.lifecycle_stages + contract.animal_adna_stages:
+        assert stage.stage_key not in seen_stage_keys
+        seen_stage_keys.add(stage.stage_key)
+        assert (REPO_ROOT / stage.owner_path).exists(), stage.owner_path
+
+
+def test_named_runtime_boundaries_exist_for_intake_review_and_publication() -> None:
+    expected_paths = (
+        DATA_DOWNLOADER_SRC / "intake",
+        DATA_DOWNLOADER_SRC / "exports",
+        RUNTIME_SRC / "analysis" / "review",
+        REPORTING_SRC / "presentation",
+        REPORTING_SRC / "review",
+    )
+
+    missing = [str(path.relative_to(REPO_ROOT)) for path in expected_paths if not path.exists()]
+    assert not missing, "named runtime boundaries are missing:\n" + "\n".join(missing)
+
+
+def test_shared_runtime_buckets_remain_thin_compatibility_shims() -> None:
+    shared_roots = (
+        DATA_DOWNLOADER_SRC / "shared",
+        REPORTING_SRC / "shared",
+    )
+    failures: list[str] = []
+
+    for root in shared_roots:
+        for path in root.glob("*.py"):
+            if path.name == "__init__.py":
+                continue
+            text = path.read_text(encoding="utf-8")
+            if "def " in text or "class " in text:
+                failures.append(f"{path.relative_to(REPO_ROOT)} defines runtime logic")
+
+    assert not failures, (
+        "compatibility shim buckets grew new logic:\n" + "\n".join(failures)
     )
