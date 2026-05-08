@@ -51,6 +51,7 @@ animal aDNA extraction already equals the whole pollenomics engine?
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth packet</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_docs_recovery_review.md">Open the docs recovery review</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
 </div>
@@ -116,3 +117,5 @@ or supplement evidence.
 - what the tracked data system and source families are: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - how the map points, filters, and honesty packets work: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
 - how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
+- how restored docs breadth is being kept honest:
+  [repository docs recovery review](report/repository_docs_recovery_review.md)
