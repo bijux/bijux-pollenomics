@@ -83,6 +83,30 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(berel.political_entity, "Kazakhstan")
         self.assertEqual(berel.chronology_text, "2300 BP")
 
+    def test_goat_cattle_and_reindeer_projects_publish_source_backed_sample_rows(self) -> None:
+        goat_rows = build_project_sample_master_rows(self.data_root, "PRJNA1328209")
+        cattle_rows = build_project_sample_master_rows(self.data_root, "PRJNA705960")
+        reindeer_rows = build_project_sample_master_rows(self.data_root, "PRJEB60484")
+
+        self.assertEqual(len(goat_rows), 5)
+        self.assertEqual(len(cattle_rows), 11)
+        self.assertEqual(len(reindeer_rows), 20)
+
+        qinghai = next(row for row in goat_rows if row.preferred_sample_label == "DC23")
+        self.assertEqual(qinghai.locality_text, "Lake Qinghai basin")
+        self.assertEqual(qinghai.chronology_text, "3480-3580 BP")
+        self.assertIn("Supplementary_tables.xlsx", qinghai.sample_lineage_path)
+
+        cattle_anchor = cattle_rows[0]
+        self.assertEqual(cattle_anchor.sample_basis, "archive_project_sample_accession_anchor")
+        self.assertEqual(cattle_anchor.sample_evidence_status, "archive_native")
+        self.assertTrue(cattle_anchor.archive_native_sample_id.startswith("SAMN"))
+
+        reindeer_anchor = reindeer_rows[0]
+        self.assertEqual(reindeer_anchor.sample_basis, "archive_project_sample_accession_anchor")
+        self.assertEqual(reindeer_anchor.sample_evidence_status, "archive_native")
+        self.assertTrue(reindeer_anchor.archive_native_sample_id.startswith("SAMEA"))
+
     def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(self) -> None:
         camel = build_project_sample_master(self.data_root, "KU605068-KU605080")
 
