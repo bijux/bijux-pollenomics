@@ -48,6 +48,6 @@ bijux-pollenomics --help
 ## Read Next
 
 - runtime handbook: <https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/>
-- animal aDNA data model: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/foundation/animal-adna-data-model/>
+- animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/>
 - package boundaries: [`src/bijux_pollenomics/package_boundaries.md`](src/bijux_pollenomics/package_boundaries.md)

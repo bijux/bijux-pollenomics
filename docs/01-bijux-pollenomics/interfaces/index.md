@@ -17,5 +17,5 @@ artifact families those commands regenerate.
 - open [CLI surface](cli-surface.md) for command names and examples
 - open [Artifact contracts](artifact-contracts.md) for the checked-in
   publication bundle shape
-- open [animal aDNA data model](../../02-bijux-pollenomics-data/foundation/animal-adna-data-model.md)
-  for the tracked sample, site, and coordinate contract
+- open [animal ancient DNA evidence](../../02-bijux-pollenomics-data/overview/animal-ancient-dna-evidence.md)
+  for the tracked sample, locality, chronology, and coordinate evidence chain
