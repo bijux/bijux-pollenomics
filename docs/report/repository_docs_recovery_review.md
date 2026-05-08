@@ -12,6 +12,6 @@
 ## Evidence Anchors
 
 - `docs/report/repository_docs_restoration_ledger.json`
-- `docs/report/repository_docs_breadth_guard.json`
+- `docs/report/repository_docs_scope_validation.json`
 - `docs/report/repository_claim_audit.json`
 - `docs/report/repository_cross_domain_evidence_matrix.json`

@@ -83,8 +83,8 @@ class DocsBreadthRegressionTests(unittest.TestCase):
                 "Repository docs restoration ledger",
             ),
             (
-                "repository_docs_breadth_guard.md",
-                "Repository docs breadth guard",
+                "repository_docs_scope_validation.md",
+                "Repository docs scope validation",
             ),
             (
                 "repository_docs_recovery_review.md",

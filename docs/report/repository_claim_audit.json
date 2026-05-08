@@ -74,7 +74,7 @@
       "findings": []
     },
     {
-      "check_id": "docs_breadth_guard_keeps_repository_story_wide_enough",
+      "check_id": "docs_scope_validation_keeps_repository_story_wide_enough",
       "passed": true,
       "description": "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
       "finding_count": 0,

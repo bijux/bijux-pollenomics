@@ -1,4 +1,4 @@
-# Repository docs breadth guard
+# Repository docs scope validation
 
 - Rule: no docs rewrite may destroy breadth in 01, 02, or 03 unless an equally informative replacement is already present and linked
 - Overall ok: `true`
