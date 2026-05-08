@@ -23,7 +23,7 @@ evidence paths.
 
 ## Direct Proof Surfaces
 
-- [repository truth posture](../../../report/repository_truth_posture.md)
-- [repository recovery scorecard](../../../report/repository_recovery_scorecard.md)
-- [repository claim audit](../../../report/repository_claim_audit.md)
-- [repository scientific progress audit](../../../report/repository_scientific_progress_audit.md)
+- [repository truth posture](../../report/repository_truth_posture.md)
+- [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
+- [repository claim audit](../../report/repository_claim_audit.md)
+- [repository scientific progress audit](../../report/repository_scientific_progress_audit.md)

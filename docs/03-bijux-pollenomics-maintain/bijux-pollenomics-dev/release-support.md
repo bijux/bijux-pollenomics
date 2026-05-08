@@ -21,7 +21,7 @@ of public evidence.
 
 ## Direct Release Stops
 
-- [repository truth posture](../../../report/repository_truth_posture.md)
-- [repository governance artifact review](../../../report/repository_governance_artifact_review.md)
-- [repository claim audit](../../../report/repository_claim_audit.md)
-- [animal publication release gate](../../../report/animal_publication_release_gate.md)
+- [repository truth posture](../../report/repository_truth_posture.md)
+- [repository governance artifact review](../../report/repository_governance_artifact_review.md)
+- [repository claim audit](../../report/repository_claim_audit.md)
+- [animal publication release gate](../../report/animal_publication_release_gate.md)
