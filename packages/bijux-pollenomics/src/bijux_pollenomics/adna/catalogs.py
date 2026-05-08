@@ -6,25 +6,29 @@ import json
 from pathlib import Path
 
 from .ena import build_archive_project_catalog
-from .paths import adna_species_root
+from .paths import adna_species_dir, adna_species_root
 from .project_context import build_species_freshness_rows, resolve_project_context
 from .tracked_species import TRACKED_ADNA_SPECIES
 
 __all__ = [
+    "build_animal_atlas_candidate_accountability",
     "build_coordinate_caveat_surface",
     "build_cross_species_archive_inventory",
     "build_cross_species_bibliography",
     "build_cross_species_coverage_dashboard",
     "build_cross_species_map_readiness",
     "build_public_animal_output_audit",
+    "build_public_animal_output_honesty",
     "build_shipped_adna_product_audit",
     "build_species_freshness_table",
     "build_overbroad_site_ledger",
     "build_unresolved_site_ledger",
     "render_csv_rows",
+    "render_animal_atlas_candidate_accountability_markdown",
     "render_coordinate_caveat_surface_markdown",
     "render_coordinate_confidence_scale_markdown",
     "render_public_animal_output_audit_markdown",
+    "render_public_animal_output_honesty_markdown",
 ]
 
 
@@ -307,12 +311,31 @@ def build_public_animal_output_audit(
         if atlas_readme.exists()
         else ""
     )
+    honesty = build_public_animal_output_honesty(data_root, report_root)
+    accountability_path = (
+        Path(data_root)
+        / "adna"
+        / "final"
+        / "atlas"
+        / "animal_atlas_candidate_accountability.json"
+    )
+    if accountability_path.is_file():
+        accountability = json.loads(accountability_path.read_text(encoding="utf-8"))
+    else:
+        accountability = build_animal_atlas_candidate_accountability(data_root)
     return {
         "schema_version": "animal-output-audit.v1",
         "report_root": str(report_root),
         "countries": list(countries),
         "atlas_bundle_present": (report_root / "nordic-atlas").is_dir(),
         "country_bundle_count": len(countries),
+        "point_candidate_count": accountability["candidate_row_count"],
+        "candidate_rows_with_full_traceability": accountability["passed_row_count"],
+        "tracked_sample_count": honesty["totals"]["tracked_sample_count"],
+        "mapped_sample_count": honesty["totals"]["mapped_sample_count"],
+        "blocked_sample_count": honesty["totals"]["blocked_sample_count"],
+        "unresolved_sample_count": honesty["totals"]["unresolved_sample_count"],
+        "country_published_sample_count": honesty["totals"]["country_published_sample_count"],
         "atlas_notes": atlas_notes,
         "species_rows": dashboard["rows"],
     }
@@ -329,6 +352,13 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
         f"- Report root: `{payload['report_root']}`",
         f"- Atlas bundle present: `{str(payload['atlas_bundle_present']).lower()}`",
         f"- Country bundle count: `{payload['country_bundle_count']}`",
+        f"- Point candidate count: `{payload['point_candidate_count']}`",
+        f"- Candidate rows with full traceability: `{payload['candidate_rows_with_full_traceability']}`",
+        f"- Tracked sample rows: `{payload['tracked_sample_count']}`",
+        f"- Mapped sample rows: `{payload['mapped_sample_count']}`",
+        f"- Blocked sample rows: `{payload['blocked_sample_count']}`",
+        f"- Unresolved sample rows: `{payload['unresolved_sample_count']}`",
+        f"- Country-published sample rows: `{payload['country_published_sample_count']}`",
         "",
         "## Species output counts",
         "",
@@ -352,12 +382,21 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
                 "",
             ]
         )
+    elif payload["point_candidate_count"] <= 2:
+        lines.extend(
+            [
+                f"The atlas still rests on only `{payload['point_candidate_count']}` candidate "
+                "row(s), so the public surface must be read as a traceable pilot rather than "
+                "a broad animal coverage claim.",
+                "",
+            ]
+        )
     elif country_output_total == 0:
         lines.extend(
             [
-                f"The current public report tree now ships `{atlas_layer_total}` mapped "
-                "non-human animal atlas layer rows across the species table above. "
-                "Country-bundle animal outputs remain zero until those country surfaces "
+                f"The current public report tree ships `{atlas_layer_total}` mapped "
+                "non-human animal atlas layer rows across the species table above, but "
+                "country-bundle animal outputs remain zero until those narrower surfaces "
                 "become real tracked report outputs.",
                 "",
             ]
@@ -365,13 +404,222 @@ def render_public_animal_output_audit_markdown(payload: dict[str, object]) -> st
     else:
         lines.extend(
             [
-                f"The current public report tree now ships `{atlas_layer_total}` mapped "
+                f"The current public report tree ships `{atlas_layer_total}` mapped "
                 "non-human animal atlas layer rows and "
                 f"`{country_output_total}` country-resolved animal output hits across the "
-                "species table above.",
+                "species table above. Those counts still need to be read beside blocked and "
+                "unresolved sample totals rather than as a standalone readiness claim.",
                 "",
             ]
         )
+    return "\n".join(lines)
+
+
+def build_public_animal_output_honesty(
+    data_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Compare tracked, mapped, blocked, and unresolved sample counts in one place."""
+    report_root = Path(report_root)
+    country_sample_ids_by_species = _load_country_sample_ids_by_species(report_root)
+    mapped_sample_ids_by_species = _load_mapped_sample_ids_by_species(Path(data_root))
+    rows = []
+    totals = {
+        "tracked_sample_count": 0,
+        "mapped_sample_count": 0,
+        "blocked_sample_count": 0,
+        "unresolved_sample_count": 0,
+        "country_published_sample_count": 0,
+        "region_refused_count": 0,
+    }
+    species_root = Path(data_root) / "adna" / "species"
+    for root in sorted(path for path in species_root.iterdir() if path.is_dir()):
+        if root.name == "homo_sapiens":
+            continue
+        sample_rows = _load_sample_rows(root)
+        if not sample_rows:
+            continue
+        species_name = str(sample_rows[0].get("species_latin_name", "")).strip()
+        common_name = str(sample_rows[0].get("species_common_name", "")).strip()
+        tracked_sample_ids = {
+            str(row.get("identity", {}).get("stable_token", "")).strip()
+            for row in sample_rows
+            if str(row.get("identity", {}).get("stable_token", "")).strip()
+        }
+        mapped_sample_ids = mapped_sample_ids_by_species.get(species_name, set())
+        unresolved_sample_count = sum(
+            1
+            for row in sample_rows
+            if str(row.get("inclusion_status", "")).strip() == "sample_context_blocked"
+        )
+        region_refused_count = sum(
+            1
+            for row in _load_coordinate_provenance_rows(root)
+            if str(row.get("mapping_posture", "")).strip() == "refused_region_only"
+        )
+        country_published_sample_count = len(
+            country_sample_ids_by_species.get(species_name, set())
+        )
+        blocked_sample_count = len(tracked_sample_ids - mapped_sample_ids)
+        row = {
+            "species_latin_name": species_name,
+            "species_common_name": common_name,
+            "tracked_sample_count": len(tracked_sample_ids),
+            "mapped_sample_count": len(mapped_sample_ids),
+            "blocked_sample_count": blocked_sample_count,
+            "unresolved_sample_count": unresolved_sample_count,
+            "country_published_sample_count": country_published_sample_count,
+            "region_refused_count": region_refused_count,
+        }
+        rows.append(row)
+        for key in totals:
+            totals[key] += int(row[key])
+    return {
+        "schema_version": "animal-output-honesty.v1",
+        "totals": totals,
+        "rows": rows,
+    }
+
+
+def render_public_animal_output_honesty_markdown(payload: dict[str, object]) -> str:
+    """Render one honesty packet for tracked versus published animal sample counts."""
+    totals = payload["totals"]
+    rows = payload["rows"]
+    lines = [
+        "# Animal output honesty",
+        "",
+        f"- Tracked sample rows: `{totals['tracked_sample_count']}`",
+        f"- Mapped sample rows: `{totals['mapped_sample_count']}`",
+        f"- Blocked sample rows: `{totals['blocked_sample_count']}`",
+        f"- Unresolved sample rows: `{totals['unresolved_sample_count']}`",
+        f"- Country-published sample rows: `{totals['country_published_sample_count']}`",
+        "",
+        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples | Region-refused rows |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    if not rows:
+        lines.append("| No tracked animal sample rows yet | 0 | 0 | 0 | 0 | 0 | 0 |")
+    else:
+        for row in rows:
+            lines.append(
+                f"| {row['species_latin_name']} | {row['tracked_sample_count']} | "
+                f"{row['mapped_sample_count']} | {row['blocked_sample_count']} | "
+                f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} | "
+                f"{row['region_refused_count']} |"
+            )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, object]:
+    """Require every checked-in final atlas candidate row to keep full evidence anchors."""
+    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+
+    sample_lookup = _load_all_sample_rows_by_id(Path(data_root))
+    rows = []
+    passed_row_count = 0
+    for row in build_tracked_animal_atlas_evidence_rows(Path(data_root)):
+        matched_samples = [
+            sample_lookup[sample_id]
+            for sample_id in row.sample_record_ids
+            if sample_id in sample_lookup
+        ]
+        sample_locality_tokens = sorted(
+            {
+                str(sample.get("locality_identity", {}).get("stable_token", "")).strip()
+                for sample in matched_samples
+                if str(sample.get("locality_identity", {}).get("stable_token", "")).strip()
+            }
+        )
+        chronology_paths = sorted(
+            {
+                str(sample.get("chronology_provenance_path", "")).strip()
+                for sample in matched_samples
+                if str(sample.get("chronology_provenance_path", "")).strip()
+            }
+        )
+        sample_lineage_paths = sorted(
+            {
+                str(sample.get("sample_lineage_path", "")).strip()
+                for sample in matched_samples
+                if str(sample.get("sample_lineage_path", "")).strip()
+            }
+        )
+        row_payload = {
+            "evidence_row_id": row.evidence_row_id,
+            "species_latin_name": row.species_latin_name,
+            "project_accession": row.primary_project_accession,
+            "site_record_id": row.site_record_id,
+            "sample_record_ids": list(row.sample_record_ids),
+            "sample_rows_present": bool(matched_samples),
+            "sample_lineage_present": bool(sample_lineage_paths),
+            "site_evidence_present": bool(
+                row.source_artifact_path.strip() and row.source_locator.strip()
+            ),
+            "chronology_evidence_present": bool(chronology_paths)
+            or (
+                bool(row.chronology.original_text.strip())
+                and str(row.chronology.evidence_class).strip() != "unresolved"
+            ),
+            "coordinate_provenance_present": bool(
+                row.coordinate_source_artifact_path.strip()
+                and row.coordinate_source_locator.strip()
+            ),
+            "sample_locality_matches_site_record": row.site_record_id in sample_locality_tokens,
+            "sample_lineage_paths": sample_lineage_paths,
+            "site_evidence_path": row.source_artifact_path,
+            "site_evidence_locator": row.source_locator,
+            "chronology_provenance_paths": chronology_paths,
+            "coordinate_provenance_path": row.coordinate_source_artifact_path,
+            "coordinate_provenance_locator": row.coordinate_source_locator,
+        }
+        row_payload["fully_accountable"] = all(
+            (
+                row_payload["sample_rows_present"],
+                row_payload["sample_lineage_present"],
+                row_payload["site_evidence_present"],
+                row_payload["chronology_evidence_present"],
+                row_payload["coordinate_provenance_present"],
+                row_payload["sample_locality_matches_site_record"],
+            )
+        )
+        if row_payload["fully_accountable"]:
+            passed_row_count += 1
+        rows.append(row_payload)
+    return {
+        "schema_version": "animal-atlas-candidate-accountability.v1",
+        "candidate_row_count": len(rows),
+        "passed_row_count": passed_row_count,
+        "overall_ok": passed_row_count == len(rows),
+        "rows": rows,
+    }
+
+
+def render_animal_atlas_candidate_accountability_markdown(
+    payload: dict[str, object]
+) -> str:
+    """Render one accountability table for final atlas candidate rows."""
+    lines = [
+        "# Animal atlas candidate accountability",
+        "",
+        f"- Candidate rows: `{payload['candidate_row_count']}`",
+        f"- Fully accountable rows: `{payload['passed_row_count']}`",
+        f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
+        "",
+        "| Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| {row['species_latin_name']} | {row['project_accession']} | "
+            f"{str(row['sample_rows_present']).lower()} | "
+            f"{str(row['sample_lineage_present']).lower()} | "
+            f"{str(row['site_evidence_present']).lower()} | "
+            f"{str(row['chronology_evidence_present']).lower()} | "
+            f"{str(row['coordinate_provenance_present']).lower()} | "
+            f"{str(row['sample_locality_matches_site_record']).lower()} |"
+        )
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -594,6 +842,50 @@ def _load_coordinate_provenance_rows(species_root: Path) -> list[dict[str, objec
     )
     rows = payload.get("coordinate_provenance", [])
     return [row for row in rows if isinstance(row, dict)]
+
+
+def _load_all_sample_rows_by_id(data_root: Path) -> dict[str, dict[str, object]]:
+    lookup: dict[str, dict[str, object]] = {}
+    species_root = adna_species_dir(Path(data_root))
+    for sample_path in species_root.glob("*/normalized/sample_records.json"):
+        rows = _load_sample_rows(sample_path.parent.parent)
+        for row in rows:
+            stable_token = str(row.get("identity", {}).get("stable_token", "")).strip()
+            if stable_token:
+                lookup[stable_token] = row
+    return lookup
+
+
+def _load_mapped_sample_ids_by_species(data_root: Path) -> dict[str, set[str]]:
+    from ..reporting.adna import build_tracked_animal_atlas_evidence_rows
+
+    rows = build_tracked_animal_atlas_evidence_rows(Path(data_root))
+    mapped: dict[str, set[str]] = {}
+    for row in rows:
+        mapped.setdefault(row.species_latin_name, set()).update(row.sample_record_ids)
+    return mapped
+
+
+def _load_country_sample_ids_by_species(report_root: Path) -> dict[str, set[str]]:
+    sample_ids: dict[str, set[str]] = {}
+    if not report_root.exists():
+        return sample_ids
+    for country_dir in report_root.iterdir():
+        if not country_dir.is_dir() or country_dir.name in {"nordic-atlas", "_map_assets"}:
+            continue
+        for summary_path in sorted(country_dir.glob("*_animal_adna_*_summary.json")):
+            payload = json.loads(summary_path.read_text(encoding="utf-8"))
+            rows = payload.get("sample_rows", [])
+            if not isinstance(rows, list):
+                continue
+            for row in rows:
+                if not isinstance(row, dict):
+                    continue
+                species_name = str(row.get("species_latin_name", "")).strip()
+                sample_id = str(row.get("sample_record_id", "")).strip()
+                if species_name and sample_id:
+                    sample_ids.setdefault(species_name, set()).add(sample_id)
+    return sample_ids
 
 
 def _count_sample_rows_by_mapping_posture(species_root: Path, mapping_posture: str) -> int:

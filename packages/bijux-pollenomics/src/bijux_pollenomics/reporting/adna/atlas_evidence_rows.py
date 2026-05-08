@@ -55,6 +55,10 @@ class AnimalAtlasEvidenceRow:
     confidence_rationale: str
     original_place_text: str
     resolved_place_text: str
+    coordinate_source_artifact_path: str
+    coordinate_source_locator: str
+    coordinate_supplementary_source: str
+    coordinate_support_gap_note: str
     chronology: AdnaChronology
     project_accessions: tuple[str, ...]
     primary_project_accession: str
@@ -102,6 +106,10 @@ class AnimalAtlasEvidenceRow:
             "confidence_rationale": self.confidence_rationale,
             "original_place_text": self.original_place_text,
             "resolved_place_text": self.resolved_place_text,
+            "coordinate_source_artifact_path": self.coordinate_source_artifact_path,
+            "coordinate_source_locator": self.coordinate_source_locator,
+            "coordinate_supplementary_source": self.coordinate_supplementary_source,
+            "coordinate_support_gap_note": self.coordinate_support_gap_note,
             "chronology": self.chronology.as_dict(),
             "project_accessions": list(self.project_accessions),
             "primary_project_accession": self.primary_project_accession,
@@ -241,6 +249,16 @@ def build_tracked_animal_atlas_evidence_rows(
                     confidence_rationale=str(provenance.get("confidence_rationale", "")),
                     original_place_text=str(provenance.get("original_place_text", "")),
                     resolved_place_text=str(provenance.get("resolved_place_text", "")),
+                    coordinate_source_artifact_path=str(
+                        provenance.get("source_artifact_path", "")
+                    ),
+                    coordinate_source_locator=str(provenance.get("source_locator", "")),
+                    coordinate_supplementary_source=str(
+                        provenance.get("supplementary_source", "")
+                    ),
+                    coordinate_support_gap_note=str(
+                        provenance.get("support_gap_note", "")
+                    ),
                     chronology=_atlas_public_chronology(
                         _parse_chronology(locality.get("chronology", {}))
                     ),

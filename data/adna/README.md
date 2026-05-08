@@ -16,6 +16,7 @@ entrypoints:
 - [`governance/animal_sample_product_contract.json`](governance/animal_sample_product_contract.json)
 - [`governance/path_ownership_map.md`](governance/path_ownership_map.md)
 - [`final/atlas/animal_atlas_point_candidates.json`](final/atlas/animal_atlas_point_candidates.json)
+- [`final/atlas/animal_atlas_candidate_accountability.md`](final/atlas/animal_atlas_candidate_accountability.md)
 - [`final/countries/country_publication_index.json`](final/countries/country_publication_index.json)
 
 ## Meaning

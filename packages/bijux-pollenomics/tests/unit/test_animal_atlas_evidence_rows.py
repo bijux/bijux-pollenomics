@@ -221,6 +221,8 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert row.paper_doi == "10.1000/sheep"
     assert row.source_locator == "supplementary table"
     assert row.exact_source_text == "Baltic sheep lead named in the source support."
+    assert row.coordinate_source_artifact_path.endswith("10.1000-sheep/article.html")
+    assert row.coordinate_source_locator == "supplementary table"
     assert coordinate_review.direct_coordinate_feature_count == 0
     assert coordinate_review.named_site_geocoded_feature_count == 1
     assert coordinate_review.weaker_geography_feature_count == 0
