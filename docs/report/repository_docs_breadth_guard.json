@@ -1,0 +1,37 @@
+{
+  "schema_version": "repository-docs-breadth-guard.v1",
+  "rule": "no docs rewrite may destroy breadth in 01, 02, or 03 unless an equally informative replacement is already present and linked",
+  "overall_ok": true,
+  "rows": [
+    {
+      "section_key": "runtime_handbook",
+      "display_name": "Runtime handbook",
+      "landing_path": "docs/01-bijux-pollenomics/index.md",
+      "required_page_count": 12,
+      "missing_pages": [],
+      "missing_links": [],
+      "missing_topic_snippets": [],
+      "overall_ok": true
+    },
+    {
+      "section_key": "data_handbook",
+      "display_name": "Data handbook",
+      "landing_path": "docs/02-bijux-pollenomics-data/index.md",
+      "required_page_count": 15,
+      "missing_pages": [],
+      "missing_links": [],
+      "missing_topic_snippets": [],
+      "overall_ok": true
+    },
+    {
+      "section_key": "maintainer_handbook",
+      "display_name": "Maintainer handbook",
+      "landing_path": "docs/03-bijux-pollenomics-maintain/index.md",
+      "required_page_count": 5,
+      "missing_pages": [],
+      "missing_links": [],
+      "missing_topic_snippets": [],
+      "overall_ok": true
+    }
+  ]
+}

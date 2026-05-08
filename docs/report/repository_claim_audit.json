@@ -72,6 +72,13 @@
       "description": "The public animal surfaces keep the current partial sample-owned posture visible instead of implying broad completion.",
       "finding_count": 0,
       "findings": []
+    },
+    {
+      "check_id": "docs_breadth_guard_keeps_repository_story_wide_enough",
+      "passed": true,
+      "description": "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
+      "finding_count": 0,
+      "findings": []
     }
   ]
 }
