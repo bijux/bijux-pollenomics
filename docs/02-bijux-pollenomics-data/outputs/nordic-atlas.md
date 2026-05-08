@@ -25,6 +25,8 @@ evidence tables.
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
+- [repository atlas input audit](../../report/repository_atlas_input_audit.md)
+- [repository cross-domain evidence matrix](../../report/repository_cross_domain_evidence_matrix.md)
 
 ## What The Atlas Should Answer
 
