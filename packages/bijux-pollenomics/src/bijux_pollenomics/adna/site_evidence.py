@@ -8,6 +8,7 @@ from .source_library import build_project_registry
 
 __all__ = [
     "build_species_site_evidence_rows",
+    "resolve_project_context_site_evidence",
     "resolve_project_site_evidence",
 ]
 
@@ -372,6 +373,13 @@ def resolve_project_site_evidence(project_accession: str) -> tuple[AdnaSiteEvide
     """Return the curated site-evidence rows for one project accession."""
     if direct_rows := _direct_sample_site_rows(project_accession):
         return direct_rows
+    return _PROJECT_SITE_EVIDENCE.get(project_accession, ())
+
+
+def resolve_project_context_site_evidence(
+    project_accession: str,
+) -> tuple[AdnaSiteEvidenceRecord, ...]:
+    """Return the curated non-supplementary context rows for one project accession."""
     return _PROJECT_SITE_EVIDENCE.get(project_accession, ())
 
 
