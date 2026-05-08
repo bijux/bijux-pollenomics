@@ -27,7 +27,7 @@ evidence tables.
 - [sample chronology review](../../report/animal_sample_chronology_review.md)
 - [animal publication release gate](../../report/animal_publication_release_gate.md)
 - [repository truth posture](../../report/repository_truth_posture.md)
-- [repository recovery scorecard](../../report/repository_recovery_scorecard.md)
+- [repository recovery review](../../report/repository_recovery_review.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
 - [repository atlas input audit](../../report/repository_atlas_input_audit.md)
 - [repository cross-domain evidence matrix](../../report/repository_cross_domain_evidence_matrix.md)

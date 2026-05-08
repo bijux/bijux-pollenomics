@@ -1,5 +1,5 @@
 {
-  "schema_version": "repository-recovery-scorecard.v1",
+  "schema_version": "repository-recovery-review.v1",
   "score_max": 4,
   "overall_recovery_posture": "recovery_required",
   "average_dimension_scores": {

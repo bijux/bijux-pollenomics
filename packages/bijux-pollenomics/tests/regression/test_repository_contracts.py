@@ -260,8 +260,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         sample_database_review_markdown = report_root / "animal_sample_database_review.md"
         repository_truth_json = report_root / "repository_truth_posture.json"
         repository_truth_markdown = report_root / "repository_truth_posture.md"
-        repository_scorecard_json = report_root / "repository_recovery_scorecard.json"
-        repository_scorecard_markdown = report_root / "repository_recovery_scorecard.md"
+        repository_scorecard_json = report_root / "repository_recovery_review.json"
+        repository_scorecard_markdown = report_root / "repository_recovery_review.md"
         repository_governance_json = report_root / "repository_governance_artifact_review.json"
         repository_governance_markdown = report_root / "repository_governance_artifact_review.md"
         repository_claim_json = report_root / "repository_claim_audit.json"
@@ -282,8 +282,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         repository_docs_ledger_markdown = (
             report_root / "repository_docs_restoration_ledger.md"
         )
-        repository_docs_guard_json = report_root / "repository_docs_breadth_guard.json"
-        repository_docs_guard_markdown = report_root / "repository_docs_breadth_guard.md"
+        repository_docs_guard_json = report_root / "repository_docs_scope_validation.json"
+        repository_docs_guard_markdown = report_root / "repository_docs_scope_validation.md"
         repository_docs_review_json = report_root / "repository_docs_recovery_review.json"
         repository_docs_review_markdown = report_root / "repository_docs_recovery_review.md"
         repository_progress_json = report_root / "repository_scientific_progress_audit.json"
@@ -379,7 +379,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             repository_docs_ledger_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "Repository docs breadth guard",
+            "Repository docs scope validation",
             repository_docs_guard_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
@@ -395,7 +395,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             repository_truth_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "Repository recovery scorecard",
+            "Repository recovery review",
             repository_scorecard_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(

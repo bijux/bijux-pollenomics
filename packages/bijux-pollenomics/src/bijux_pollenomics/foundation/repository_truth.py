@@ -7,11 +7,11 @@ __all__ = [
     "build_repository_atlas_input_audit",
     "build_repository_claim_audit",
     "build_repository_cross_domain_evidence_matrix",
-    "build_repository_docs_breadth_guard",
+    "build_repository_docs_scope_validation",
     "build_repository_docs_recovery_review",
     "build_repository_docs_restoration_ledger",
     "build_repository_governance_artifact_review",
-    "build_repository_recovery_scorecard",
+    "build_repository_recovery_review",
     "build_repository_source_acquisition_queue",
     "build_repository_source_explainer_audit",
     "build_repository_source_family_matrix",
@@ -20,11 +20,11 @@ __all__ = [
     "render_repository_atlas_input_audit_markdown",
     "render_repository_claim_audit_markdown",
     "render_repository_cross_domain_evidence_matrix_markdown",
-    "render_repository_docs_breadth_guard_markdown",
+    "render_repository_docs_scope_validation_markdown",
     "render_repository_docs_recovery_review_markdown",
     "render_repository_docs_restoration_ledger_markdown",
     "render_repository_governance_artifact_review_markdown",
-    "render_repository_recovery_scorecard_markdown",
+    "render_repository_recovery_review_markdown",
     "render_repository_source_acquisition_queue_markdown",
     "render_repository_source_explainer_audit_markdown",
     "render_repository_source_family_matrix_markdown",
@@ -43,7 +43,7 @@ def build_repository_truth_posture(
 ) -> dict[str, object]:
     """Build one repository-level truth packet about scope, thinness, and recovery."""
     counts = _build_core_counts(data_root, docs_root, report_root)
-    scorecard = build_repository_recovery_scorecard(
+    recovery_review = build_repository_recovery_review(
         data_root=data_root,
         docs_root=docs_root,
         report_root=report_root,
@@ -88,9 +88,9 @@ def build_repository_truth_posture(
             "do not present internal publication accounting as if it were evidence depth",
             "do not call weak or partial animal aDNA coverage region-agnostic or broadly ready",
         ],
-        "scorecard_overview": {
-            "overall_recovery_posture": scorecard["overall_recovery_posture"],
-            "average_dimension_scores": scorecard["average_dimension_scores"],
+        "recovery_review_overview": {
+            "overall_recovery_posture": recovery_review["overall_recovery_posture"],
+            "average_dimension_scores": recovery_review["average_dimension_scores"],
         },
         "governance_review_summary": governance_review["summary"],
     }
@@ -103,7 +103,7 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
         f"- Repository: `{payload['repository']}`",
         f"- Primary domains: `{', '.join(payload['primary_domains'])}`",
         f"- Contextual domains: `{', '.join(payload['contextual_domains'])}`",
-        f"- Overall recovery posture: `{payload['scorecard_overview']['overall_recovery_posture']}`",
+        f"- Overall recovery posture: `{payload['recovery_review_overview']['overall_recovery_posture']}`",
         "",
         "## Counts",
         "",
@@ -140,7 +140,7 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def build_repository_recovery_scorecard(
+def build_repository_recovery_review(
     *,
     data_root: Path,
     docs_root: Path,
@@ -149,7 +149,7 @@ def build_repository_recovery_scorecard(
     """Score the main repository surfaces by evidence depth and honesty."""
     counts = _build_core_counts(data_root, docs_root, report_root)
     rows = [
-        _scorecard_row(
+        _recovery_review_row(
             "pollen_context",
             "Pollen context",
             data_completeness=3,
@@ -162,7 +162,7 @@ def build_repository_recovery_scorecard(
             },
             note="LandClim and Neotoma are real tracked context layers and now have direct explainer pages.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "archaeology_context",
             "Archaeology context",
             data_completeness=3,
@@ -175,7 +175,7 @@ def build_repository_recovery_scorecard(
             },
             note="SEAD and RAÄ are present and documented, but they remain contextual rather than fully synthesized outputs.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "boundary_framing",
             "Boundary framing",
             data_completeness=4,
@@ -188,7 +188,7 @@ def build_repository_recovery_scorecard(
             },
             note="Boundary geometry is one of the strongest and clearest non-aDNA surfaces in the repository.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "fieldwork_record",
             "Fieldwork record",
             data_completeness=2,
@@ -198,7 +198,7 @@ def build_repository_recovery_scorecard(
             metrics={"fieldwork_page_count": counts["fieldwork_page_count"]},
             note="Fieldwork is intentionally narrow and honest, but it is still only one anchored record surface.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "ancient_dna_context",
             "Ancient DNA context",
             data_completeness=_ratio_score(
@@ -219,7 +219,7 @@ def build_repository_recovery_scorecard(
             },
             note="The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "publication_outputs",
             "Publication outputs",
             data_completeness=_ratio_score(
@@ -235,7 +235,7 @@ def build_repository_recovery_scorecard(
             },
             note="The publication tree is reviewable and traceable, but the animal point surface remains too thin for stronger readiness language.",
         ),
-        _scorecard_row(
+        _recovery_review_row(
             "documentation_architecture",
             "Documentation architecture",
             data_completeness=3,
@@ -264,7 +264,7 @@ def build_repository_recovery_scorecard(
         ),
     }
     return {
-        "schema_version": "repository-recovery-scorecard.v1",
+        "schema_version": "repository-recovery-review.v1",
         "score_max": SCORE_MAX,
         "overall_recovery_posture": (
             "recovery_required"
@@ -276,9 +276,9 @@ def build_repository_recovery_scorecard(
     }
 
 
-def render_repository_recovery_scorecard_markdown(payload: dict[str, object]) -> str:
+def render_repository_recovery_review_markdown(payload: dict[str, object]) -> str:
     lines = [
-        "# Repository recovery scorecard",
+        "# Repository recovery review",
         "",
         f"- Overall recovery posture: `{payload['overall_recovery_posture']}`",
         f"- Score max: `{payload['score_max']}`",
@@ -396,7 +396,7 @@ def build_repository_claim_audit(
 ) -> dict[str, object]:
     """Audit the public story against current tracked evidence depth."""
     counts = _build_core_counts(data_root, docs_root, report_root)
-    docs_breadth_guard = build_repository_docs_breadth_guard(
+    docs_scope_validation = build_repository_docs_scope_validation(
         data_root=data_root,
         docs_root=docs_root,
         report_root=report_root,
@@ -503,12 +503,12 @@ def build_repository_claim_audit(
             else ["partial_animal_surface_not_explicitly_named"],
         ),
         _claim_check(
-            "docs_breadth_guard_keeps_repository_story_wide_enough",
-            bool(docs_breadth_guard.get("overall_ok")),
+            "docs_scope_validation_keeps_repository_story_wide_enough",
+            bool(docs_scope_validation.get("overall_ok")),
             "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
             []
-            if bool(docs_breadth_guard.get("overall_ok"))
-            else ["docs_breadth_guard_failed"],
+            if bool(docs_scope_validation.get("overall_ok"))
+            else ["docs_scope_validation_failed"],
         ),
     ]
     return {
@@ -1343,7 +1343,7 @@ def render_repository_docs_restoration_ledger_markdown(
     return "\n".join(lines) + "\n"
 
 
-def build_repository_docs_breadth_guard(
+def build_repository_docs_scope_validation(
     *,
     data_root: Path,
     docs_root: Path,
@@ -1386,7 +1386,7 @@ def build_repository_docs_breadth_guard(
             }
         )
     return {
-        "schema_version": "repository-docs-breadth-guard.v1",
+        "schema_version": "repository-docs-scope-validation.v1",
         "rule": (
             "no docs rewrite may destroy breadth in 01, 02, or 03 unless an equally informative replacement is already present and linked"
         ),
@@ -1395,9 +1395,9 @@ def build_repository_docs_breadth_guard(
     }
 
 
-def render_repository_docs_breadth_guard_markdown(payload: dict[str, object]) -> str:
+def render_repository_docs_scope_validation_markdown(payload: dict[str, object]) -> str:
     lines = [
-        "# Repository docs breadth guard",
+        "# Repository docs scope validation",
         "",
         f"- Rule: {payload['rule']}",
         f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
@@ -1427,7 +1427,7 @@ def build_repository_docs_recovery_review(
         docs_root=docs_root,
         report_root=report_root,
     )
-    breadth_guard = build_repository_docs_breadth_guard(
+    docs_scope_validation = build_repository_docs_scope_validation(
         data_root=data_root,
         docs_root=docs_root,
         report_root=report_root,
@@ -1449,7 +1449,7 @@ def build_repository_docs_recovery_review(
         },
         {
             "dimension_key": "navigation_breadth",
-            "score": 4 if breadth_guard["overall_ok"] else 1,
+            "score": 4 if docs_scope_validation["overall_ok"] else 1,
             "finding": "runtime, data, and maintainer landings link their restored breadth surfaces directly",
         },
         {
@@ -1473,7 +1473,7 @@ def build_repository_docs_recovery_review(
         "overall_posture": overall_posture,
         "evidence_anchors": [
             "docs/report/repository_docs_restoration_ledger.json",
-            "docs/report/repository_docs_breadth_guard.json",
+            "docs/report/repository_docs_scope_validation.json",
             "docs/report/repository_claim_audit.json",
             "docs/report/repository_cross_domain_evidence_matrix.json",
         ],
@@ -1667,7 +1667,7 @@ def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
     return reasons
 
 
-def _scorecard_row(
+def _recovery_review_row(
     key: str,
     display_name: str,
     *,

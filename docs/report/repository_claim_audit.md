@@ -11,4 +11,4 @@
 | animal_sample_review_freezes_broad_readiness | `true` | 0 |
 | animal_release_gate_blocks_strongest_claim | `true` | 0 |
 | thin_animal_surface_stays_visible | `true` | 0 |
-| docs_breadth_guard_keeps_repository_story_wide_enough | `true` | 0 |
+| docs_scope_validation_keeps_repository_story_wide_enough | `true` | 0 |

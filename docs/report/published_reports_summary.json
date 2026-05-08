@@ -63,7 +63,7 @@
     },
     "repository_truth": {
       "repository_truth_posture_json": "repository_truth_posture.json",
-      "repository_recovery_scorecard_json": "repository_recovery_scorecard.json",
+      "repository_recovery_review_json": "repository_recovery_review.json",
       "repository_source_family_matrix_json": "repository_source_family_matrix.json",
       "repository_source_explainer_audit_json": "repository_source_explainer_audit.json",
       "repository_atlas_input_audit_json": "repository_atlas_input_audit.json",
@@ -73,7 +73,7 @@
       "repository_claim_audit_json": "repository_claim_audit.json",
       "repository_scientific_progress_audit_json": "repository_scientific_progress_audit.json",
       "repository_truth_posture_markdown": "repository_truth_posture.md",
-      "repository_recovery_scorecard_markdown": "repository_recovery_scorecard.md",
+      "repository_recovery_review_markdown": "repository_recovery_review.md",
       "repository_source_family_matrix_markdown": "repository_source_family_matrix.md",
       "repository_source_explainer_audit_markdown": "repository_source_explainer_audit.md",
       "repository_atlas_input_audit_markdown": "repository_atlas_input_audit.md",

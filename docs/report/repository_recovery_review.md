@@ -1,4 +1,4 @@
-# Repository recovery scorecard
+# Repository recovery review
 
 - Overall recovery posture: `recovery_required`
 - Score max: `4`
