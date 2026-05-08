@@ -1,6 +1,6 @@
 # Animal point support packets
 
-- Published point count: `208`
+- Published point count: `234`
 
 ## animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan
 
@@ -10,6 +10,240 @@
 - Coordinate basis: `named_site_geocoding`
 - Coordinate confidence: `approximate`
 - Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90141`
+- Paper DOI: `10.1093/gbe/evaf181`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90141-blagotinpoljna-trstenikserbia
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90141`
+- Paper DOI: `10.1093/gbe/evaf181`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90141`
+- Paper DOI: `10.1093/gbe/evaf181`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90141-sangechakhmaq-semnaniran
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90141`
+- Paper DOI: `10.1093/gbe/evaf181`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-aguadulce-grancanaria
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-belmaco-lapalma
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-buracas-lapalma
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-caserones-grancanaria
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadebencomo-tenerife
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadelaherradura-elhierro
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevadevillaverde-fuerteventura
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `13`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-cuevasdeherreragonzlez-lagomera
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-elchorrillo-tenerife
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-ellomitodelmedio-lagomera
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-elportaln-burgos
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-eltendal-lapalma
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-fiquinineo-lanzarote
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-hospitaldesanmartincallesanmarcial-grancanaria
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-lacaadadelagurona-lagomera
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `5`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-lafortaleza-grancanaria
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-llanodelsombrero-fuerteventura
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `4`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-losriscosdeifara-tenerife
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-playachica-grancanaria
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `6`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-puntadelmallorqun-fuerteventura
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-tigalate-lapalma
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:capra-hircus-locality-prjna1328209-lakeqinghaibasin-china
+
+- Species: `Capra hircus`
+- Project accession: `PRJNA1328209`
+- Paper DOI: `10.24272/j.issn.2095-8137.2025.080`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `5`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-actiparc-france
 

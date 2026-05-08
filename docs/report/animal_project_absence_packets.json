@@ -500,7 +500,7 @@
       }
     ]
   },
-  "row_count": 37,
+  "row_count": 34,
   "rows": [
     {
       "project_accession": "PRJEB31621",
@@ -616,57 +616,6 @@
       "region_only_site_count": 0,
       "blockers": [],
       "absence_stage": "not_point_publishable"
-    },
-    {
-      "project_accession": "PRJEB90141",
-      "species_latin_name": "Capra hircus",
-      "paper_doi": "10.1093/gbe/evaf181",
-      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90141&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-      "archive_status": "paper_pinned_core",
-      "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
-      "unresolved_sample_count": 1,
-      "region_only_site_count": 0,
-      "blockers": [
-        "sample_context_blocked"
-      ],
-      "absence_stage": "site_extraction"
-    },
-    {
-      "project_accession": "PRJEB90261",
-      "species_latin_name": "Capra hircus",
-      "paper_doi": "10.1016/j.isci.2025.113771",
-      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB90261&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-      "archive_status": "paper_pinned_core",
-      "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
-      "unresolved_sample_count": 1,
-      "region_only_site_count": 0,
-      "blockers": [
-        "sample_context_blocked"
-      ],
-      "absence_stage": "site_extraction"
-    },
-    {
-      "project_accession": "PRJNA1328209",
-      "species_latin_name": "Capra hircus",
-      "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
-      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1328209&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-      "archive_status": "paper_pinned_core",
-      "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
-      "region_only_site_count": 1,
-      "blockers": [
-        "region_only_geography"
-      ],
-      "absence_stage": "coordinate_resolution"
     },
     {
       "project_accession": "PRJEB43564",

@@ -3,7 +3,7 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "normalized_sample_row_count": 3,
+      "normalized_sample_row_count": 13,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,
@@ -42,12 +42,12 @@
     },
     {
       "species_latin_name": "Capra hircus",
-      "normalized_sample_row_count": 3,
-      "normalized_site_evidence_count": 1,
-      "normalized_coordinate_row_count": 1,
-      "mappable_coordinate_row_count": 0,
-      "atlas_evidence_row_count": 0,
-      "atlas_evidence_sample_count": 0,
+      "normalized_sample_row_count": 82,
+      "normalized_site_evidence_count": 27,
+      "normalized_coordinate_row_count": 27,
+      "mappable_coordinate_row_count": 27,
+      "atlas_evidence_row_count": 26,
+      "atlas_evidence_sample_count": 65,
       "published_country_sample_count": 0,
       "published_country_locality_count": 0,
       "drift_detected": false,
@@ -107,7 +107,7 @@
     },
     {
       "species_latin_name": "Rangifer tarandus",
-      "normalized_sample_row_count": 4,
+      "normalized_sample_row_count": 23,
       "normalized_site_evidence_count": 1,
       "normalized_coordinate_row_count": 1,
       "mappable_coordinate_row_count": 0,

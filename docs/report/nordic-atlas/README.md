@@ -52,9 +52,9 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 
 ## Animal aDNA Layers
 
-- Total animal locality points: `208`
-- Shipped animal species: `2`
-- Domesticated-core species layers: `2`
+- Total animal locality points: `234`
+- Shipped animal species: `3`
+- Domesticated-core species layers: `3`
 - Comparator species layers: `0`
 
 ### Layer Groups
@@ -81,7 +81,7 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | Coordinate confidence | Visible mapped points |
 | --- | ---: |
 | approximate | 1 |
-| exact | 207 |
+| exact | 233 |
 
 ### Visible Animal Caveats
 
@@ -95,5 +95,6 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | Common name | Latin name | Animal scope | Mapped locality points |
 | --- | --- | --- | ---: |
 | dromedary camel | Camelus dromedarius | domesticated_core | 1 |
+| goat | Capra hircus | domesticated_core | 26 |
 | horse | Equus caballus | domesticated_core | 207 |
 

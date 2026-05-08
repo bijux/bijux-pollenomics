@@ -46,6 +46,8 @@
         "time_end_bp": 1417,
         "time_mean_bp": 1317,
         "time_label": "1217-1417 BP",
+        "chronology_evidence_class": "direct_radiocarbon_date",
+        "chronology_precision_posture": "sample_precise_interval",
         "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
         "paper_doi": "10.1016/j.cell.2019.03.049",
         "source_url": "https://doi.org/10.1016/j.cell.2019.03.049",
@@ -73,6 +75,14 @@
           {
             "label": "Chronology",
             "value": "1217-1417 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "direct_radiocarbon_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_precise_interval"
           },
           {
             "label": "Coordinate basis",

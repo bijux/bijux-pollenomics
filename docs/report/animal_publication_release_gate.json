@@ -38,6 +38,13 @@
       "findings": []
     },
     {
+      "check_id": "broad_or_contextual_chronology_does_not_publish_numeric_windows",
+      "passed": true,
+      "description": "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",
       "passed": true,
       "description": "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",

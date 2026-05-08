@@ -11,15 +11,15 @@
 - Tracked projects: `40`
 - Tracked papers: `18`
 - Tracked supplements: `72`
-- Sample rows: `786`
-- Site evidence rows: `255`
-- Sample site rows: `755`
-- Chronology rows: `755`
-- Coordinate rows: `217`
-- Published atlas points: `208`
+- Sample rows: `894`
+- Site evidence rows: `281`
+- Sample site rows: `868`
+- Chronology rows: `868`
+- Coordinate rows: `243`
+- Published atlas points: `234`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.2646`
+- Mapped sample share: `0.2617`
 
 ## Thresholds
 
@@ -48,6 +48,9 @@
 - locality_normalization_dictionary: `data/adna/governance/source_library/site_name_normalization_dictionary.json`
 - locality_completeness: `data/adna/governance/source_library/project_locality_completeness.json`
 - chronology_review: `data/adna/governance/source_library/project_sample_chronology_review.json`
+- chronology_conflicts: `data/adna/governance/source_library/sample_chronology_conflict_ledger.json`
+- chronology_precision_audit: `data/adna/governance/source_library/sample_chronology_precision_audit.json`
+- date_evidence_gap_queue: `data/adna/governance/source_library/date_evidence_gap_queue.json`
 - coordinate_provenance_example: `data/adna/species/ovis_aries/normalized/coordinate_provenance.json`
 - point_support_packets: `docs/report/animal_point_support_packets.md`
 - atlas_evidence_rows: `docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json`

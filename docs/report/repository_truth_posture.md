@@ -9,9 +9,9 @@
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `208`
-- Unresolved animal map rows: `23`
-- Refused animal map rows: `8`
+- Published animal atlas points: `234`
+- Unresolved animal map rows: `21`
+- Refused animal map rows: `7`
 - Source-family explainer count: `8`
 
 ## Claim Freeze Reasons

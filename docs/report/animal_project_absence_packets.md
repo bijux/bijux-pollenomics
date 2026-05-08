@@ -1,6 +1,6 @@
 # Animal project absence packets
 
-- Non-published project count: `37`
+- Non-published project count: `34`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
@@ -11,9 +11,6 @@
 | KX379528-KX379529 | Canis lupus familiaris | not_point_publishable |  |
 | SRS1407451 | Canis lupus familiaris | coordinate_resolution | region_only_geography |
 | SRS1407453 | Canis lupus familiaris | not_point_publishable |  |
-| PRJEB90141 | Capra hircus | site_extraction | sample_context_blocked |
-| PRJEB90261 | Capra hircus | site_extraction | sample_context_blocked |
-| PRJNA1328209 | Capra hircus | coordinate_resolution | region_only_geography |
 | PRJEB43564 | Equus asinus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated, sample_context_blocked |
 | PRJEB50952 | Equus asinus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated, sample_context_blocked |
 | PRJEB52590 | Equus asinus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated, sample_context_blocked |
