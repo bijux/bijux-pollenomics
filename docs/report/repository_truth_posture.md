@@ -12,7 +12,7 @@
 - Published animal atlas points: `234`
 - Unresolved animal map rows: `21`
 - Refused animal map rows: `7`
-- Source-family explainer count: `8`
+- Source-family explainer count: `11`
 
 ## Claim Freeze Reasons
 

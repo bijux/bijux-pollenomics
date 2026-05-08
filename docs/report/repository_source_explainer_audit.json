@@ -1,0 +1,115 @@
+{
+  "schema_version": "repository-source-explainer-audit.v1",
+  "row_count": 15,
+  "status_counts": {
+    "present_useful_form": 15,
+    "restoration_plan_required": 0
+  },
+  "rows": [
+    {
+      "surface_kind": "source_family",
+      "display_name": "LandClim source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/landclim.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "source_family",
+      "display_name": "Neotoma source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/neotoma.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "source_family",
+      "display_name": "SEAD source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/sead.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "source_family",
+      "display_name": "RA\u00c4 source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/raa.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "source_family",
+      "display_name": "Boundary source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/boundaries.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "source_family",
+      "display_name": "AADR source explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/aadr.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "recovery_rule",
+      "display_name": "Refresh policy explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/refresh-policy.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "recovery_rule",
+      "display_name": "Shared normalization explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/sources/shared-normalization.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized LandClim outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized Neotoma outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized SEAD outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized RA\u00c4 outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized boundary outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Normalized AADR outputs explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/normalized-aadr.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    },
+    {
+      "surface_kind": "output_family",
+      "display_name": "Collection summary explainer",
+      "page_path": "docs/02-bijux-pollenomics-data/outputs/collection-summary.md",
+      "status": "present_useful_form",
+      "notes": "page exists and keeps the expected source or output anchors visible"
+    }
+  ]
+}
