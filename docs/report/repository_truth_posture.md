@@ -9,8 +9,8 @@
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `207`
-- Unresolved animal map rows: `39`
+- Published animal atlas points: `208`
+- Unresolved animal map rows: `23`
 - Refused animal map rows: `8`
 - Source-family explainer count: `8`
 

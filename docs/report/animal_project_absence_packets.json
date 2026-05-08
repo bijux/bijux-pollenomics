@@ -500,7 +500,7 @@
       }
     ]
   },
-  "row_count": 38,
+  "row_count": 37,
   "rows": [
     {
       "project_accession": "PRJEB31621",
@@ -565,23 +565,6 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 13,
-      "region_only_site_count": 0,
-      "blockers": [
-        "sample_context_blocked"
-      ],
-      "absence_stage": "site_extraction"
-    },
-    {
-      "project_accession": "SRP073444",
-      "species_latin_name": "Camelus dromedarius",
-      "paper_doi": "10.1111/1755-0998.12551",
-      "project_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRP073444",
-      "archive_status": "paper_pinned_core",
-      "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
       "unresolved_sample_count": 0,
       "region_only_site_count": 0,
       "blockers": [],
@@ -597,12 +580,10 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 2,
+      "unresolved_sample_count": 0,
       "region_only_site_count": 0,
-      "blockers": [
-        "sample_context_blocked"
-      ],
-      "absence_stage": "site_extraction"
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
     },
     {
       "project_accession": "SRS1407451",
@@ -631,12 +612,10 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 0,
       "region_only_site_count": 0,
-      "blockers": [
-        "sample_context_blocked"
-      ],
-      "absence_stage": "site_extraction"
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
     },
     {
       "project_accession": "PRJEB90141",

@@ -23,9 +23,13 @@
     "sample_site_row_count": 755,
     "chronology_row_count": 755,
     "coordinate_row_count": 217,
-    "published_atlas_point_count": 207,
+    "published_atlas_point_count": 208,
     "published_country_bundle_count": 4,
-    "mapped_sample_share": 0.2634
+    "mapped_sample_share": 0.2646,
+    "locality_conflict_row_count": 127,
+    "locality_curation_row_count": 4,
+    "locality_substitution_project_count": 3,
+    "locality_dictionary_row_count": 265
   },
   "locality_status_counts": {
     "direct_sample_site": 738,
@@ -34,6 +38,11 @@
     "named_place_inferred": 0,
     "region_only": 1,
     "unresolved": 16
+  },
+  "locality_completeness_counts": {
+    "exact_site_evidence_count": 738,
+    "broader_locality_evidence_count": 1,
+    "unresolved_geography_count": 16
   },
   "chronology_status_counts": {
     "normalized_interval": 256,
@@ -56,6 +65,11 @@
     "sample_database_contract": "data/adna/governance/animal_sample_product_contract.json",
     "sample_query_example": "docs/report/sweden/sweden_animal_adna_v66_samples.md",
     "site_review": "data/adna/governance/source_library/project_sample_site_review.json",
+    "locality_conflicts": "data/adna/governance/source_library/sample_locality_conflict_ledger.json",
+    "locality_curation_workflow": "data/adna/governance/source_library/sample_locality_manual_curation_workflow.json",
+    "locality_substitution_ledger": "data/adna/governance/source_library/project_locality_substitution_ledger.json",
+    "locality_normalization_dictionary": "data/adna/governance/source_library/site_name_normalization_dictionary.json",
+    "locality_completeness": "data/adna/governance/source_library/project_locality_completeness.json",
     "chronology_review": "data/adna/governance/source_library/project_sample_chronology_review.json",
     "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
     "point_support_packets": "docs/report/animal_point_support_packets.md",

@@ -31,7 +31,7 @@
       "source_support_status": "supplementary_table_row",
       "time_label": "1217-1417 BP",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "59.860999999999997",
       "longitude_text": "17.638999999999999"
@@ -93,7 +93,7 @@
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row.",
       "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
       "paper_doi": "10.1016/j.cell.2019.03.049",
       "publication_year": "2019",
@@ -111,7 +111,7 @@
         "site_curated"
       ],
       "inclusion_notes": [
-        "This locality is backed by direct sample rows recovered from the supplementary table."
+        "Sample-level locality comes directly from the recovered sample source row."
       ],
       "supplementary_sources": [],
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",

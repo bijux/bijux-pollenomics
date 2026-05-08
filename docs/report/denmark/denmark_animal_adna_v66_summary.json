@@ -31,7 +31,7 @@
       "source_support_status": "supplementary_table_row",
       "time_label": "4961 BP",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "56.41134",
       "longitude_text": "10.74481"
@@ -59,7 +59,7 @@
       "source_support_status": "supplementary_table_row",
       "time_label": "4944 BP",
       "inclusion_status": "site_curated",
-      "inclusion_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "inclusion_note": "Sample-level locality comes directly from the recovered sample source row.",
       "sample_basis": "supplementary_table_sample_label_anchor",
       "latitude_text": "56.41134",
       "longitude_text": "10.74481"
@@ -121,7 +121,7 @@
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
       "nordic_inclusion": true,
       "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row.",
       "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "publication_year": "2021",
@@ -140,7 +140,7 @@
         "site_curated"
       ],
       "inclusion_notes": [
-        "This locality is backed by direct sample rows recovered from the supplementary table."
+        "Sample-level locality comes directly from the recovered sample source row."
       ],
       "supplementary_sources": [],
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",

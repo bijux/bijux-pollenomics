@@ -130,12 +130,12 @@
     "animal_point_traceability_json": "nordic-atlas_animal_point_traceability.json"
   },
   "animal_atlas": {
-    "total_locality_points": 207,
+    "total_locality_points": 208,
     "direct_coordinate_feature_count": 207,
-    "named_site_geocoded_feature_count": 0,
+    "named_site_geocoded_feature_count": 1,
     "weaker_geography_feature_count": 0,
-    "total_species": 1,
-    "domesticated_species_count": 1,
+    "total_species": 2,
+    "domesticated_species_count": 2,
     "comparator_species_count": 0,
     "layer_groups": [
       "Domesticated-core animal evidence",
@@ -160,6 +160,7 @@
       "6001+ BP"
     ],
     "coordinate_confidence_counts": {
+      "approximate": 1,
       "exact": 207
     },
     "visible_caveats": [
@@ -169,6 +170,12 @@
       "Nordic relevance can remain regional rather than one exact named country."
     ],
     "species_layers": [
+      {
+        "latin_name": "Camelus dromedarius",
+        "common_name": "dromedary camel",
+        "animal_scope": "domesticated_core",
+        "locality_count": 1
+      },
       {
         "latin_name": "Equus caballus",
         "common_name": "horse",

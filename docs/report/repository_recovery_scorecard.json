@@ -70,8 +70,8 @@
       "metrics": {
         "tracked_papers": 18,
         "papers_with_archived_supplements": 18,
-        "published_atlas_points": 207,
-        "unresolved_rows": 39
+        "published_atlas_points": 208,
+        "unresolved_rows": 23
       },
       "note": "The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces."
     },
@@ -83,7 +83,7 @@
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
-        "published_atlas_points": 207,
+        "published_atlas_points": 208,
         "published_country_bundles": 4
       },
       "note": "The publication tree is reviewable and traceable, but the animal point surface remains too thin for stronger readiness language."

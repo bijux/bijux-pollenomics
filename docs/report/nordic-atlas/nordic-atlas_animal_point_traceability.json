@@ -2,6 +2,26 @@
   "schema_version": "animal-atlas-point-traceability.v1",
   "rows": [
     {
+      "feature_id": "animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
+      "evidence_row_id": "animal-atlas-row:camelus-dromedarius-srp073444-camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan",
+      "site_record_id": "camelus_dromedarius:locality:srp073444:site1040nearwadihalfadromedarycontext:sudan",
+      "species_latin_name": "Camelus dromedarius",
+      "primary_project_accession": "SRP073444",
+      "sample_record_ids": [
+        "camelus_dromedarius:sample:srp073444"
+      ],
+      "sample_group_ids": [
+        "SRP073444"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+      "source_locator": "abstract and introduction",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-berufjordur-iceland",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-berufjordur-iceland",
       "site_record_id": "equus_caballus:locality:prjeb31613:berufjordur:iceland",
