@@ -388,6 +388,8 @@ def _project_specific_sample_rows(
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
     if project.project_accession == "PRJEB36540":
         return _sheep_supplementary_sample_rows(output_root, species, project)
+    if project.project_accession == "PRJEB22390":
+        return _horse_botai_supplementary_sample_rows(output_root, species, project)
     return ()
 
 
@@ -454,6 +456,51 @@ def _sheep_supplementary_sample_rows(
     return tuple(rows)
 
 
+def _horse_botai_supplementary_sample_rows(
+    output_root: Path,
+    species: object,
+    project: object,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    base_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1126-science.aao3297/supplementary"
+    )
+    table11_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("aao3297_tables11.xlsx")
+        ),
+        None,
+    )
+    table15_path = next(
+        (
+            _resolve_data_relative_path(output_root, artifact)
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("aao3297_tables15.xlsx")
+        ),
+        None,
+    )
+    if table11_path is None or table15_path is None:
+        return ()
+    if not table11_path.is_file() or not table15_path.is_file():
+        return ()
+
+    panel_rows = _build_horse_panel_context_rows(
+        species=species,
+        project=project,
+        source_path=f"{base_path}/aao3297_tables15.xlsx",
+        rows=_read_xlsx_rows(table15_path, sheet_name="Sheet1"),
+    )
+    lab_rows = _build_horse_lab_anchor_rows(
+        species=species,
+        project=project,
+        source_path=f"{base_path}/aao3297_tables11.xlsx",
+        rows=_read_xlsx_rows(table11_path, sheet_name="Sheet1"),
+    )
+    return tuple([*panel_rows, *lab_rows])
+
+
 def _build_sheep_table_rows(
     *,
     species: object,
@@ -504,6 +551,106 @@ def _build_sheep_table_rows(
                 locality_text=locality_text,
                 chronology_text=chronology_text,
             )
+    )
+    return tuple(built_rows)
+
+
+def _build_horse_panel_context_rows(
+    *,
+    species: object,
+    project: object,
+    source_path: str,
+    rows: tuple[tuple[str, ...], ...],
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if len(rows) < 2:
+        return ()
+    headers = rows[1]
+    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    sample_index = header_map.get("Sample name")
+    age_index = header_map.get("Tip Age (years ago)")
+    registration_index = header_map.get("Accession / Registration number")
+    reference_index = header_map.get("Reference")
+    if sample_index is None or registration_index is None:
+        return ()
+
+    built_rows: list[AdnaProjectSampleMasterRow] = []
+    for row_number, row in enumerate(rows[2:], start=3):
+        sample_label = _cell_value(row, sample_index)
+        registration = _cell_value(row, registration_index)
+        reference = "" if reference_index is None else _cell_value(row, reference_index)
+        if not sample_label or not registration or reference != "This study":
+            continue
+        chronology_text = (
+            "" if age_index is None else _format_bp_point_text(_cell_value(row, age_index))
+        )
+        excerpt = " | ".join(value for value in row if value)[:300]
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=f"{project.project_accession}:{registration}".casefold(),
+                archive_native_sample_id=registration,
+                paper_native_sample_label=sample_label,
+                supplementary_table_sample_label="",
+                preferred_sample_label=sample_label,
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"Sheet1!row{row_number}",
+                sample_lineage_excerpt=excerpt,
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text=_derive_horse_locality_text(sample_label),
+                chronology_text=chronology_text,
+            )
+        )
+    return tuple(built_rows)
+
+
+def _build_horse_lab_anchor_rows(
+    *,
+    species: object,
+    project: object,
+    source_path: str,
+    rows: tuple[tuple[str, ...], ...],
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if len(rows) < 2:
+        return ()
+    headers = rows[1]
+    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    sample_index = header_map.get("Sample name")
+    registration_index = header_map.get("Registration number")
+    if sample_index is None or registration_index is None:
+        return ()
+
+    built_rows: list[AdnaProjectSampleMasterRow] = []
+    for row_number, row in enumerate(rows[2:], start=3):
+        sample_label = _cell_value(row, sample_index)
+        registration = _cell_value(row, registration_index)
+        if not sample_label or not registration:
+            continue
+        excerpt = " | ".join(value for value in row if value)[:300]
+        built_rows.append(
+            AdnaProjectSampleMasterRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                project_accession=project.project_accession,
+                repo_stable_sample_id=f"{project.project_accession}:{registration}".casefold(),
+                archive_native_sample_id=registration,
+                paper_native_sample_label=_normalize_horse_panel_label(sample_label),
+                supplementary_table_sample_label=sample_label,
+                preferred_sample_label=_normalize_horse_panel_label(sample_label),
+                sample_basis="supplementary_table_sample_label_anchor",
+                sample_evidence_status="direct_table_extracted",
+                sample_lineage_path=source_path,
+                sample_lineage_locator=f"Sheet1!row{row_number}",
+                sample_lineage_excerpt=excerpt,
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text="",
+                chronology_text="",
+            )
         )
     return tuple(built_rows)
 
@@ -519,6 +666,32 @@ def _read_xlsx_member_rows(
             return ()
         workbook_payload = outer.read(member_name)
     with zipfile.ZipFile(BytesIO(workbook_payload)) as workbook:
+        shared_strings = _xlsx_shared_strings(workbook)
+        sheet_targets = _xlsx_sheet_targets(workbook)
+        target = sheet_targets[sheet_name]
+        root = ET.fromstring(workbook.read(target))
+        rows = []
+        for row in root.findall(".//a:sheetData/a:row", _XLSX_NS):
+            values: list[str] = []
+            for cell in row.findall("a:c", _XLSX_NS):
+                cell_type = cell.attrib.get("t")
+                value_node = cell.find("a:v", _XLSX_NS)
+                if value_node is None or value_node.text is None:
+                    values.append("")
+                elif cell_type == "s":
+                    values.append(shared_strings[int(value_node.text)])
+                else:
+                    values.append(value_node.text.strip())
+            rows.append(tuple(values))
+    return tuple(rows)
+
+
+def _read_xlsx_rows(
+    workbook_path: Path,
+    *,
+    sheet_name: str,
+) -> tuple[tuple[str, ...], ...]:
+    with zipfile.ZipFile(workbook_path) as workbook:
         shared_strings = _xlsx_shared_strings(workbook)
         sheet_targets = _xlsx_sheet_targets(workbook)
         target = sheet_targets[sheet_name]
@@ -650,6 +823,40 @@ def _first_non_empty(*values: str) -> str:
         if value:
             return value
     return ""
+
+
+def _normalize_horse_panel_label(value: str) -> str:
+    text = value.replace("_", " ").strip()
+    text = re.sub(r"\bExtract\s*\d+\b", "", text, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _derive_horse_locality_text(sample_label: str) -> str:
+    normalized = _normalize_horse_panel_label(sample_label)
+    tokens = normalized.split()
+    if tokens and tokens[-1].isdigit():
+        tokens = tokens[:-1]
+    locality_tokens: list[str] = []
+    for index, token in enumerate(tokens):
+        if index > 0 and any(char.isdigit() for char in token):
+            break
+        locality_tokens.append(token)
+    if locality_tokens:
+        return " ".join(locality_tokens)
+    return normalized
+
+
+def _format_bp_point_text(value: str) -> str:
+    text = value.replace(",", "").strip()
+    if not text:
+        return ""
+    text = re.sub(r"\s*yBP\b", " BP", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s+years?\s+ago\b", " BP", text, flags=re.IGNORECASE)
+    if text.endswith("BP"):
+        return re.sub(r"\s+", " ", text).strip()
+    if text.isdigit():
+        return f"{text} BP"
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def _cell_value(row: tuple[str, ...], index: int) -> str:

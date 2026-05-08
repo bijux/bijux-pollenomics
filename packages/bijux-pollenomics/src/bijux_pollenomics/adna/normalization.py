@@ -67,6 +67,7 @@ _BP_MEAN_STDDEV_RE = re.compile(
     r"(?P<mean>\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",
     re.IGNORECASE,
 )
+_BP_SINGLE_RE = re.compile(r"(?P<mean>\d{1,5})\s*BP", re.IGNORECASE)
 _BCE_RANGE_RE = re.compile(
     r"(?P<start>\d{1,5})\s*-\s*(?P<end>\d{1,5})\s*(?:cal\s*)?BCE",
     re.IGNORECASE,
@@ -489,6 +490,15 @@ def normalize_chronology_text(
             time_end_bp=mean_bp,
             time_mean_bp=mean_bp,
             date_stddev_bp=stddev_bp,
+            dating_basis=basis,
+        )
+    if point_match := _BP_SINGLE_RE.search(text):
+        mean_bp = int(point_match.group("mean"))
+        return AdnaChronology(
+            original_text=text,
+            time_start_bp=mean_bp,
+            time_end_bp=mean_bp,
+            time_mean_bp=mean_bp,
             dating_basis=basis,
         )
     return AdnaChronology(

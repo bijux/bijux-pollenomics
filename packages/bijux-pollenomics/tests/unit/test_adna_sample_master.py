@@ -35,6 +35,18 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertIn("Sheet1!row", first.sample_lineage_locator)
         self.assertEqual(first.sample_identity_resolution, "final")
 
+    def test_horse_project_sample_master_merges_lab_and_panel_tables(self) -> None:
+        rows = build_project_sample_master_rows(self.data_root, "PRJEB22390")
+
+        self.assertEqual(len(rows), 42)
+        botai = next(row for row in rows if row.archive_native_sample_id == "CGG_1_018173")
+        self.assertEqual(botai.preferred_sample_label, "Botai 1 5500")
+        self.assertEqual(botai.locality_text, "Botai")
+        self.assertEqual(botai.chronology_text, "5500 BP")
+        self.assertIn("aao3297_tables11.xlsx", botai.sample_lineage_path)
+        self.assertIn("aao3297_tables15.xlsx", botai.sample_lineage_path)
+        self.assertEqual(botai.sample_identity_resolution, "final")
+
     def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(self) -> None:
         camel = build_project_sample_master(self.data_root, "KU605068-KU605080")
 
