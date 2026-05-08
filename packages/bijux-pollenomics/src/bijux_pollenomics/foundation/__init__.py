@@ -1,3 +1,10 @@
+from .architecture import (
+    ArchitectureStage,
+    CrossTreeSurfaceContract,
+    PackageOwnershipContract,
+    RepositoryArchitectureContract,
+    build_repository_architecture_contract,
+)
 from .alias import CompatibilityAliasContract, compatibility_alias_contract
 from .contracts import RuntimeSurfaceContract, runtime_surface_contract
 from .ownership_map import OwnershipMapEntry, build_ownership_map
@@ -35,11 +42,16 @@ from .release_readiness import ReleaseReadinessReport, build_release_readiness_r
 from .surface_map import SurfaceMap, build_surface_map
 
 __all__ = [
+    "ArchitectureStage",
     "CompatibilityAliasContract",
+    "CrossTreeSurfaceContract",
     "OwnershipMapEntry",
+    "PackageOwnershipContract",
     "PollenomicsReleaseBar",
     "ProductScope",
+    "RepositoryArchitectureContract",
     "build_repository_atlas_input_audit",
+    "build_repository_architecture_contract",
     "build_repository_claim_audit",
     "build_repository_cross_domain_evidence_matrix",
     "build_repository_docs_breadth_guard",
