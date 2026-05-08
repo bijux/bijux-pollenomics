@@ -10,15 +10,21 @@
   "paper_required": true,
   "supplement_required": false,
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
     "10.1073-pnas.1901169116:article.html",
     "10.1073-pnas.1901169116:crossref.json",
+    "10.1073-pnas.1901169116:pnas.1901169116.sapp.pdf",
+    "10.1073-pnas.1901169116:pnas.1901169116.sd01.xlsx",
+    "10.1073-pnas.1901169116:pnas.1901169116.sd02.xlsx",
     "PRJEB30282:archive_metadata.html"
   ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
     "adna/governance/source_library/papers/10.1073-pnas.1901169116/crossref.json",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+    "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx",
     "adna/governance/source_library/projects/PRJEB30282/archive_metadata.html"
   ],
   "blockers": []

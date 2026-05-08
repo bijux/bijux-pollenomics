@@ -6,7 +6,7 @@
 - Project URL: https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB30282&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0
 - Paper DOI: `10.1073/pnas.1901169116`
 - Paper download status: `archived`
-- Supplement download status: `missing`
+- Supplement download status: `archived`
 
 Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
 
@@ -14,6 +14,9 @@ Paper-level evidence is required for this project, but no supplementary artifact
 
 - `adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html`
 - `adna/governance/source_library/papers/10.1073-pnas.1901169116/crossref.json`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx`
+- `adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx`
 - `adna/governance/source_library/projects/PRJEB30282/archive_metadata.html`
 
 ## Blockers

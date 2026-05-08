@@ -14,24 +14,25 @@
 
 ### Sample identifiers
 
-- `data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html`
+- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 
 ### Site evidence
 
-- `data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html`
+- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 
 ### Chronology evidence
 
-- `data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html`
+- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 
 ### Supplementary artifacts
 
-- none
+- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 
 ## Local artifacts
 
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html`
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json`
+- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 - `adna/governance/source_library/projects/SRP073444/archive_metadata.html`
 
 ## Blockers

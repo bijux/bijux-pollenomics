@@ -8,7 +8,7 @@
   "paper_doi": "10.1111/1755-0998.12551",
   "paper_title": "Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel",
   "paper_download_status": "archived",
-  "supplement_download_status": "missing",
+  "supplement_download_status": "archived",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -17,18 +17,21 @@
   "inventory_disposition": "tracked_intake_candidate",
   "rejection_reason": "",
   "sample_identifier_targets": [
-    "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html"
+    "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
   ],
   "sample_site_targets": [
-    "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html"
+    "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
   ],
   "chronology_targets": [
-    "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html"
+    "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
   ],
-  "expected_supplementary_artifacts": [],
+  "expected_supplementary_artifacts": [
+    "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+  ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json",
+    "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
     "adna/governance/source_library/projects/SRP073444/archive_metadata.html"
   ],
   "blockers": [],
