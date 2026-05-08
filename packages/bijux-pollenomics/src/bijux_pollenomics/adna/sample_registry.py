@@ -271,6 +271,13 @@ def _resolve_row_context(
     if master_row is not None:
         if getattr(master_row, "locality_text", ""):
             site_label = master_row.locality_text
+        if getattr(master_row, "political_entity", ""):
+            political_entity = master_row.political_entity
+        if getattr(master_row, "latitude_text", ""):
+            latitude_text = master_row.latitude_text
+        if getattr(master_row, "longitude_text", ""):
+            longitude_text = master_row.longitude_text
+            coordinate_basis = "supplementary_table_coordinates"
         if getattr(master_row, "chronology_text", ""):
             chronology_text = master_row.chronology_text
             if lead is None:

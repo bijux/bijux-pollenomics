@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from .models import AdnaSiteEvidenceRecord
+from .sample_master import build_project_sample_master_rows
+from .source_library import build_project_registry
 
 __all__ = [
     "build_species_site_evidence_rows",
@@ -366,6 +370,8 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
 
 def resolve_project_site_evidence(project_accession: str) -> tuple[AdnaSiteEvidenceRecord, ...]:
     """Return the curated site-evidence rows for one project accession."""
+    if direct_rows := _direct_sample_site_rows(project_accession):
+        return direct_rows
     return _PROJECT_SITE_EVIDENCE.get(project_accession, ())
 
 
@@ -377,3 +383,76 @@ def build_species_site_evidence_rows(
     for accession in project_accessions:
         rows.extend(resolve_project_site_evidence(accession))
     return tuple(rows)
+
+
+def _default_data_root() -> Path:
+    return Path(__file__).resolve().parents[5] / "data"
+
+
+def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
+    project_registry = {
+        row.project_accession: row for row in build_project_registry(_default_data_root())
+    }
+    project_row = project_registry.get(project_accession)
+    if project_row is None or not project_row.primary_paper_doi:
+        return "", ""
+    doi = str(project_row.primary_paper_doi)
+    return doi, f"https://doi.org/{doi}"
+
+
+def _direct_sample_site_rows(project_accession: str) -> tuple[AdnaSiteEvidenceRecord, ...]:
+    grouped: dict[tuple[str, str], list[object]] = {}
+    try:
+        sample_rows = build_project_sample_master_rows(_default_data_root(), project_accession)
+    except KeyError:
+        return ()
+    for row in sample_rows:
+        if not row.locality_text:
+            continue
+        key = _normalized_group_key(row.locality_text, row.political_entity)
+        grouped.setdefault(key, []).append(row)
+    if not grouped:
+        return ()
+    paper_doi, paper_url = _project_paper_lookup(project_accession)
+    rows: list[AdnaSiteEvidenceRecord] = []
+    for group in grouped.values():
+        first = group[0]
+        rows.append(
+            AdnaSiteEvidenceRecord(
+                project_accession=project_accession,
+                species_latin_name=first.species_latin_name,
+                species_common_name=first.species_common_name,
+                site_label=first.locality_text,
+                political_entity=first.political_entity or None,
+                source_artifact_path=first.sample_lineage_path,
+                source_artifact_kind="supplementary_spreadsheet_row",
+                source_locator=first.sample_lineage_locator,
+                exact_source_text=first.sample_lineage_excerpt,
+                source_support_status="supplementary_table_row",
+                paper_doi=paper_doi,
+                paper_url=paper_url,
+                coordinate_basis=(
+                    "supplementary_table_coordinates"
+                    if first.latitude_text and first.longitude_text
+                    else "site_level_localities"
+                ),
+                latitude_text=first.latitude_text,
+                longitude_text=first.longitude_text,
+                chronology_text=first.chronology_text,
+                comparator_context=False,
+                domestication_context="domesticated_core",
+                interpretation_note=(
+                    "This locality is backed by direct sample rows recovered from the supplementary table."
+                ),
+            )
+        )
+    rows.sort(key=lambda row: (row.project_accession, row.site_label))
+    return tuple(rows)
+
+
+def _normalized_group_key(locality_text: str, political_entity: str | None) -> tuple[str, str]:
+    return (_normalize_text(locality_text), _normalize_text(political_entity or ""))
+
+
+def _normalize_text(value: str) -> str:
+    return "".join(character for character in value.casefold() if character.isalnum())

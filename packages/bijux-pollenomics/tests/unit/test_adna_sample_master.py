@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 import unittest
 
@@ -47,6 +48,41 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertIn("aao3297_tables15.xlsx", botai.sample_lineage_path)
         self.assertEqual(botai.sample_identity_resolution, "final")
 
+    def test_horse_time_series_and_dom2_projects_publish_recovered_sample_rows(self) -> None:
+        time_series_rows = build_project_sample_master_rows(self.data_root, "PRJEB31613")
+        dom2_rows = build_project_sample_master_rows(self.data_root, "PRJEB44430")
+        domestication_rows = build_project_sample_master_rows(self.data_root, "PRJEB19970")
+
+        self.assertEqual(len(time_series_rows), 244)
+        self.assertEqual(len(dom2_rows), 248)
+        self.assertEqual(len(domestication_rows), 14)
+
+        uppsala = next(
+            row for row in time_series_rows if row.preferred_sample_label == "Uppsala_Upps02_1317"
+        )
+        self.assertEqual(uppsala.locality_text, "Uppsala")
+        self.assertEqual(uppsala.political_entity, "Sweden")
+        self.assertEqual(uppsala.latitude_text, "59.860999999999997")
+        self.assertEqual(uppsala.longitude_text, "17.638999999999999")
+        self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
+
+        ginnerup = next(
+            row for row in dom2_rows if row.preferred_sample_label == "DJM130x6_Dan_m3011"
+        )
+        self.assertEqual(ginnerup.locality_text, "Ginnerup")
+        self.assertEqual(ginnerup.political_entity, "Denmark")
+        self.assertEqual(ginnerup.latitude_text, "56.41134")
+        self.assertEqual(ginnerup.longitude_text, "10.74481")
+        self.assertEqual(ginnerup.chronology_text, "4961 BP")
+        self.assertEqual(ginnerup.archive_native_sample_id, "SAMEA9533224")
+
+        berel = next(
+            row for row in domestication_rows if row.preferred_sample_label == "Berel_BER01_A_2300"
+        )
+        self.assertEqual(berel.locality_text, "Berel'")
+        self.assertEqual(berel.political_entity, "Kazakhstan")
+        self.assertEqual(berel.chronology_text, "2300 BP")
+
     def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(self) -> None:
         camel = build_project_sample_master(self.data_root, "KU605068-KU605080")
 
@@ -70,6 +106,12 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
                 for row in completeness_rows
             )
         )
+        horse_counts = Counter(
+            row["recovered_sample_count"]
+            for row in completeness_rows
+            if row["project_accession"] in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
+        )
+        self.assertEqual(horse_counts, Counter({14: 1, 42: 1, 244: 1, 248: 1}))
         self.assertEqual(ambiguity_rows, ())
 
 

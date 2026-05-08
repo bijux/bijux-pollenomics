@@ -113,7 +113,7 @@ def build_project_sample_site_rows(
             hierarchy = _resolve_hierarchy(
                 hierarchy_profiles=hierarchy_profiles,
                 locality_text=locality_text,
-                political_entity="",
+                political_entity=master_row.political_entity,
             )
             rows.append(
                 AdnaProjectSampleSiteRow(
@@ -137,9 +137,27 @@ def build_project_sample_site_rows(
                     region_name=hierarchy.region_name,
                     country_name=hierarchy.country_name,
                     broader_geography=hierarchy.broader_geography,
-                    coordinate_basis="" if provenance_row is None else provenance_row.coordinate_basis,
-                    coordinate_mapping_posture="" if provenance_row is None else provenance_row.mapping_posture,
-                    coordinate_confidence="" if provenance_row is None else provenance_row.coordinate_confidence,
+                    coordinate_basis=(
+                        "supplementary_table_coordinates"
+                        if master_row.latitude_text and master_row.longitude_text
+                        else ""
+                        if provenance_row is None
+                        else provenance_row.coordinate_basis
+                    ),
+                    coordinate_mapping_posture=(
+                        "mappable_point"
+                        if master_row.latitude_text and master_row.longitude_text
+                        else ""
+                        if provenance_row is None
+                        else provenance_row.mapping_posture
+                    ),
+                    coordinate_confidence=(
+                        "exact"
+                        if master_row.latitude_text and master_row.longitude_text
+                        else ""
+                        if provenance_row is None
+                        else provenance_row.coordinate_confidence
+                    ),
                     chronology_text=chronology_text,
                     review_note="Sample-level locality comes directly from the recovered sample source row.",
                 )
