@@ -10,6 +10,13 @@
 - Cross-project sample-site review: `project_sample_site_review.json`
 - Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`
 
+- Per-project locality worksheets: `projects/<project_accession>/locality_worksheet.json`
+- Per-project sample locality evidence packets: `projects/<project_accession>/sample_locality_evidence.json`
+- Cross-project sample locality conflicts: `sample_locality_conflict_ledger.json`
+- Cross-project locality manual curation workflow: `sample_locality_manual_curation_workflow.json`
+- Cross-project site-name normalization dictionary: `site_name_normalization_dictionary.json`
+- Cross-project locality completeness: `project_locality_completeness.json`
+
 - Cross-project sample-chronology review: `project_sample_chronology_review.json`
 - Per-project sample chronology tables: `projects/<project_accession>/sample_chronology.json`
 

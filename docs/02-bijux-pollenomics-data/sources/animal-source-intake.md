@@ -36,13 +36,20 @@ state of the data.
 - `data/adna/governance/source_library/cross_project_source_intake_dossier.json`
 - `data/adna/governance/source_library/project_sample_master_completeness.json`
 - `data/adna/governance/source_library/project_sample_site_review.json`
+- `data/adna/governance/source_library/project_locality_completeness.json`
+- `data/adna/governance/source_library/project_locality_substitution_ledger.json`
 - `data/adna/governance/source_library/project_sample_chronology_review.json`
 - `data/adna/governance/source_library/sample_chronology_normalization_audit.json`
 - `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
+- `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
+- `data/adna/governance/source_library/sample_locality_manual_curation_workflow.json`
 - `data/adna/governance/source_library/sample_site_ambiguity_ledger.json`
 - `data/adna/governance/source_library/sample_site_manual_curation_queue.json`
 - `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
+- `data/adna/governance/source_library/site_name_normalization_dictionary.json`
 - `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/locality_worksheet.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_locality_evidence.json`
 - `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
 - `data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`
 
@@ -64,7 +71,9 @@ state of the data.
 - Which papers already have local supplementary material staged outside the repo even though governed repo ingestion is still missing
 - Which projects already carry archive-native sample identifiers
 - Which projects already ship a reviewed project sample master
+- Which projects already ship one per-project locality worksheet and one per-sample locality evidence packet
 - Which recovered sample rows already have direct site evidence and which still sit at project-level or region-level locality posture
+- Which projects still keep locality conflicts or manual curation blockers between supplementary rows, article text, and archive metadata
 - Which recovered sample rows already have normalized chronology, which still keep text-only dating claims, and which remain unresolved
 - Which tracked papers and projects are blocked at paper capture, supplement ingestion, sample identity extraction, site extraction, or chronology extraction
 
