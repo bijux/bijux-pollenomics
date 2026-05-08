@@ -85,6 +85,7 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertEqual(product_audit["species_with_source_snapshots"], 10)
         self.assertIn("Equus caballus", product_audit["missing_public_outputs"])
         self.assertIn("ships no mapped non-human animal atlas layers", markdown)
+        self.assertIn("Tracked sample rows", markdown)
 
     def test_public_animal_output_audit_counts_species_layers_from_shipped_atlas_summary(
         self,
@@ -119,7 +120,7 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             if row["species_latin_name"] == "Ovis aries"
         )
         self.assertEqual(sheep_row["atlas_layer_count"], 1)
-        self.assertIn("now ships `2` mapped non-human animal atlas layer rows", markdown)
+        self.assertIn("ships `2` mapped non-human animal atlas layer rows", markdown)
 
     def test_public_animal_output_audit_counts_country_outputs_from_country_summary(
         self,

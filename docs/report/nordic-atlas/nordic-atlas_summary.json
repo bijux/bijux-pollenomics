@@ -17,7 +17,7 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "docs/report/nordic-atlas",
+  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/nordic-atlas",
   "artifacts": {
     "bundle_manifest": "nordic-atlas_bundle.json",
     "readme": "README.md",
