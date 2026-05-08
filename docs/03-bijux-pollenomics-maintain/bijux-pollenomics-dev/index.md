@@ -25,3 +25,4 @@ runtime.
 - [quality gates](quality-gates.md)
 - [documentation integrity](documentation-integrity.md)
 - [release support](release-support.md)
+- [repository governance](repository-governance.md)
