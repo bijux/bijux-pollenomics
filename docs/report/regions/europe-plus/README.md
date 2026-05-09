@@ -1,7 +1,10 @@
 # Europe-plus Evidence Surface
 
-This shared interactive map bundle was generated on `2026-05-09`.
-It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory. When the tracked data root contains mapped animal aDNA locality records, the atlas publishes them as separate domesticated-core and comparator layers with explicit filter and caveat surfaces instead of flattening them into generic context.
+This shared interactive map bundle was generated on `2026-05-09` from Homo
+sapiens AADR `v66` plus any governed contextual and animal surfaces that
+the active scope contract allows.
+
+Europe-plus is a governed regional filter view. It keeps only Europe-plus countries from the broader publication surface and still withholds Nordic-only overlays that would overstate regional context coverage.
 
 ## Included Countries
 
@@ -18,20 +21,19 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
-- Country sample counts in this README refer to Homo sapiens aDNA records derived from AADR. Context layers and animal aDNA review surfaces can have different geographic scope and record counts inside the map.
+- Default basemap: `light`
+- The opening extent centers the European frame while keeping enough margin for future expansion into non-Nordic Europe-plus countries.
 
 ## Output Files
 
 - Interactive map: [`europe-plus_map.html`](./europe-plus_map.html)
 - Combined GeoJSON: [`europe-plus_samples.geojson`](./europe-plus_samples.geojson)
 - Machine-readable summary: [`europe-plus_summary.json`](./europe-plus_summary.json)
-- LandClim pollen site GeoJSON: [`nordic_pollen_site_sequences.geojson`](./nordic_pollen_site_sequences.geojson)
-- Neotoma pollen GeoJSON: [`nordic_pollen_sites.geojson`](./nordic_pollen_sites.geojson)
-- SEAD site GeoJSON: [`nordic_environmental_sites.geojson`](./nordic_environmental_sites.geojson)
+- Map publication contract JSON: [`europe-plus_map_publication_contract.json`](./europe-plus_map_publication_contract.json)
+- Map publication contract markdown: [`europe-plus_map_publication_contract.md`](./europe-plus_map_publication_contract.md)
+- Point traceability JSON: [`europe-plus_point_traceability.json`](./europe-plus_point_traceability.json)
+- Point traceability markdown: [`europe-plus_point_traceability.md`](./europe-plus_point_traceability.md)
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)
-- LandClim REVEALS grid GeoJSON: [`nordic_reveals_grid_cells.geojson`](./nordic_reveals_grid_cells.geojson)
-- RAÄ archaeology layer metadata: [`sweden_archaeology_layer.json`](./sweden_archaeology_layer.json)
-- RAÄ archaeology density: [`sweden_archaeology_density.geojson`](./sweden_archaeology_density.geojson)
 - Animal locality GeoJSON: [`europe-plus_animal_localities.geojson`](./europe-plus_animal_localities.geojson)
 - Domesticated-core animal locality GeoJSON: [`europe-plus_domesticated_animal_localities.geojson`](./europe-plus_domesticated_animal_localities.geojson)
 - Comparator animal locality GeoJSON: [`europe-plus_comparator_animal_localities.geojson`](./europe-plus_comparator_animal_localities.geojson)
@@ -48,6 +50,29 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 - Atlas evidence surface markdown: [`europe-plus_evidence_surface.md`](./europe-plus_evidence_surface.md)
 - Atlas scientific review JSON: [`europe-plus_scientific_review.json`](./europe-plus_scientific_review.json)
 - Atlas scientific review markdown: [`europe-plus_scientific_review.md`](./europe-plus_scientific_review.md)
+
+## Visible Layer Contract
+
+| Layer | Publication role | Coverage posture | Visible records |
+| --- | --- | --- | ---: |
+| AADR-v66 aDNA samples | `shared_world_scale_layer` | Country assignment follows the AADR political entity field. | `1231` |
+| Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
+
+## Governed Filters
+
+- Country filters
+- Layer toggles
+- Search
+- Time window
+- Distance circles
+- Basemap switch
+
+## Scope Caveats
+
+- Europe-plus is derived from the world publication surface by governed country filtering, not by a second evidence pipeline.
+- Nordic-only pollen, archaeology, and fieldwork overlays remain absent here on purpose.
+- Future non-Nordic Europe-plus additions should arrive by country onboarding, not by custom one-off bundle logic.
 
 
 ## Animal aDNA Layers
@@ -94,4 +119,3 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | Common name | Latin name | Animal scope | Mapped locality points |
 | --- | --- | --- | ---: |
 | horse | Equus caballus | domesticated_core | 2 |
-

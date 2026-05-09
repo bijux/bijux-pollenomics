@@ -1,0 +1,185 @@
+{
+  "schema_version": "map-publication-contract.v1",
+  "title": "Nordic Evidence Surface",
+  "scope_key": "nordic",
+  "scope_label": "Nordic",
+  "scope_kind": "region",
+  "parent_scope_key": "europe_plus",
+  "countries": [
+    "Sweden",
+    "Norway",
+    "Finland",
+    "Denmark"
+  ],
+  "default_basemap": "terrain",
+  "initial_diameter_km": 20,
+  "minimum_bounds": [
+    [
+      54.0,
+      4.0
+    ],
+    [
+      72.0,
+      35.0
+    ]
+  ],
+  "scope_summary": "Nordic is the regional detail surface. It keeps the shared human and animal evidence layers, then adds Nordic-only environmental, archaeology, boundary, and fieldwork overlays that remain interpretable at this scale.",
+  "bounds_summary": "The opening extent stays tight on Nordic countries so lake, site, and archaeology context reads as map content rather than background noise.",
+  "engine_summary": "One shared map document engine serves every published scope. Scope differences must be encoded in governed bounds, layer eligibility, default basemap, and reader caveats rather than hidden in separate renderer forks.",
+  "filter_surfaces": [
+    "Country filters",
+    "Layer toggles",
+    "Search",
+    "Time window",
+    "Distance circles",
+    "Basemap switch",
+    "Animal species focus when animal layers are present",
+    "Animal scope when animal layers are present",
+    "Animal coordinate confidence when animal layers are present",
+    "Animal chronology buckets when animal layers are present",
+    "Nordic animal leads only when animal layers are present"
+  ],
+  "legend_sections": [
+    "Human evidence markers",
+    "Animal evidence markers when present",
+    "Context overlay symbols",
+    "Density ramp when archaeology density is visible",
+    "Nordic environmental context markers",
+    "Nordic boundary and archaeology overlays",
+    "Fieldwork documentation marker when checked-in gallery media is present"
+  ],
+  "visible_caveats": [
+    "Nordic-specific overlays describe the current Nordic recovery slice and must not be generalized outward.",
+    "Animal points can remain visible even when their Nordic relevance is regional rather than one exact country.",
+    "Approximate or inferred coordinates remain visible with explicit warnings instead of being silently dropped."
+  ],
+  "artifacts": {
+    "map_html": "nordic_map.html",
+    "summary_json": "nordic_summary.json",
+    "point_traceability_json": "nordic_point_traceability.json"
+  },
+  "role_counts": {
+    "shared_world_scale_layer": 2,
+    "region_filtered_layer": 1,
+    "scope_specific_overlay": 6
+  },
+  "layer_rows": [
+    {
+      "key": "aadr",
+      "label": "AADR-v66 aDNA samples",
+      "source_name": "Allen Ancient DNA Resource",
+      "coverage_label": "Country assignment follows the AADR political entity field.",
+      "count": 1231,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "fieldwork-documentation",
+      "label": "Fieldwork documentation",
+      "source_name": "Bijux fieldwork",
+      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
+      "count": 1,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "landclim-sites",
+      "label": "LandClim pollen sites",
+      "source_name": "LandClim",
+      "coverage_label": "Pollen sequences staged from the LandClim normalization bundle.",
+      "count": 492,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "neotoma-pollen",
+      "label": "Neotoma pollen sites",
+      "source_name": "Neotoma",
+      "coverage_label": "Pollen and paleoecology sites staged from the Neotoma normalization bundle.",
+      "count": 200,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "sead-sites",
+      "label": "SEAD sites",
+      "source_name": "SEAD",
+      "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
+      "count": 2069,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "animal-equus-caballus",
+      "label": "Horse aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": false,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "country-boundaries",
+      "label": "Country boundaries",
+      "source_name": "Natural Earth country boundaries",
+      "coverage_label": "Published country outlines used for framing and scope-aware map filtering.",
+      "count": 4,
+      "publication_role": "region_filtered_layer",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
+    },
+    {
+      "key": "landclim-reveals-grid",
+      "label": "LandClim REVEALS grid cells",
+      "source_name": "LandClim",
+      "coverage_label": "REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
+      "count": 88,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "raa-archaeology",
+      "label": "RA\u00c4 archaeology density",
+      "source_name": "RA\u00c4 Forns\u00f6k",
+      "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
+      "count": 106,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    }
+  ]
+}
