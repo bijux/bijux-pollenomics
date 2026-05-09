@@ -23,6 +23,11 @@ Every tracked source family should be readable through four durable stages:
 3. review: the repository states what is thin, blocked, conflicted, or safe
 4. publication: the repository emits public bundles, atlas inputs, or map layers
 
+Readers do not need to memorize those names, but they do need to understand
+the difference between them. A report page is not the same thing as a
+governing evidence file, and a raw supplement is not the same thing as a
+reviewed sample record.
+
 The machine-readable checkpoints for those stages live in:
 
 - `data/source_family_contracts.json`
@@ -60,6 +65,11 @@ surface owns each recurring fact.
 
 The full registry is in `data/source_fact_ownership_registry.json`.
 
+That registry matters because the same sample or locality can appear in several
+downstream places. Readers need one stable answer to a simple question: which
+file should win when two outputs seem to say the same thing at different
+levels of detail?
+
 ## Why The Governance Tree Exists
 
 `data/adna/governance/` should not be read as one vague side bucket.
@@ -73,7 +83,7 @@ The repository states that split directly in
 
 ## File Contracts
 
-The repository now publishes one file-contract standard so readers can predict
+The repository publishes one file-contract standard so readers can predict
 where recurring artifact scopes live:
 
 - project source bundles
