@@ -9,6 +9,8 @@
 - Curated support project count: `3`
 - Release gate satisfied: `true`
 - Eligible for supported status: `true`
+- Projects with sample recovery gaps: `0`
+- Projects blocked before publication review: `0`
 
 Paper-pinned core domestication support exists for this species. Curated projects are fit for governed comparative use, while pending projects still need stronger archive-paper linkage.
 
