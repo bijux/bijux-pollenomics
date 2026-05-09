@@ -4,36 +4,71 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # SEAD
 
-SEAD contributes environmental archaeology context across a broader footprint
-than the Sweden-specific RAÄ family. It helps the repository show that ancient
-DNA and pollen are being interpreted against wider archaeology context instead
-of in isolation.
+SEAD is one of the repository's main archaeology-context families. It helps
+readers ask a broader question than "where is the sample?" It helps ask, "what
+kind of archaeological setting surrounds this evidence?"
 
-## What SEAD Contributes
+That role matters because the public product is not only a collection of
+points. It is also an interpretation surface. SEAD gives the repository a way
+to place pollen and ancient DNA inside a wider environmental archaeology
+context.
 
-- environmental archaeology context
-- cross-regional archaeological support
-- a broader contextual layer for the report and atlas surfaces
+## What SEAD Adds
 
-## Where To Inspect It
+SEAD is strongest when readers need broader archaeological context that is not
+limited to one national registry.
 
-- `data/sead/normalized/` is the main repository-owned path for this
-  archaeology context family
-- SEAD gives broader archaeology context that can travel beyond one local
-  jurisdiction
+It is especially useful for:
 
-## Best Companion Page
+- environmental archaeology context around sites and regions
+- broader cross-regional comparison than a Sweden-only source can provide
+- public interpretation that needs cultural setting as well as biological or
+  environmental evidence
 
-Use the [SEAD handbook](sead-handbook.md) when you want the fuller explanation
-of how this source family is interpreted in the public product.
+## What SEAD Does Not Do
 
-## Use This Page When
+SEAD is contextual support. It should not be read as direct proof of a single
+sample's identity, locality, chronology, or coordinates.
 
-- you want the short explanation of what SEAD adds
-- you need the governing path behind a SEAD-derived context layer
-- you want to separate broader archaeology context from Sweden-only RAÄ context
+It does not replace:
+
+- aDNA recovery and review
+- pollen-derived environmental context
+- country and regional framing layers
+- local Swedish detail from RAÄ where that source is richer
+
+Its job is to deepen interpretation, not to erase the difference between
+context and direct evidence.
+
+## How It Differs From RAÄ
+
+SEAD and RAÄ are both archaeology families, but they do not have the same
+scope.
+
+SEAD is the broader archaeology-context family. RAÄ is intentionally
+Sweden-specific and often denser inside Swedish and Nordic reading.
+
+That means SEAD is usually the better first source when the question is broad
+archaeology context across places, while RAÄ is often the better first source
+when the question is specifically about Swedish detail.
+
+## How It Appears In Public Outputs
+
+SEAD helps the atlas and country outputs avoid reading as if ancient DNA and
+pollen were being interpreted in a cultural vacuum. It adds archaeology context
+that can travel beyond one local system, while still remaining honest about its
+contextual role.
+
+## If You Need The Repository-Owned Records
+
+The family-owned normalized outputs live under:
+
+- `data/sead/normalized/`
+
+If you want the deeper interpretation model behind this family, continue to the
+[SEAD handbook](sead-handbook.md).
