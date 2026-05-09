@@ -49,6 +49,10 @@ class AtlasBundlePaths:
     animal_atlas_evidence_csv_path: Path
     animal_atlas_evidence_json_path: Path
     animal_point_traceability_json_path: Path
+    map_point_traceability_json_path: Path
+    map_point_traceability_markdown_path: Path
+    map_publication_contract_json_path: Path
+    map_publication_contract_markdown_path: Path
     candidate_sites_csv_path: Path
     candidate_sites_json_path: Path
     candidate_sites_markdown_path: Path
@@ -124,6 +128,14 @@ def build_atlas_bundle_paths(
         / f"{atlas_slug}_animal_atlas_evidence.json",
         animal_point_traceability_json_path=output_dir
         / f"{atlas_slug}_animal_point_traceability.json",
+        map_point_traceability_json_path=output_dir
+        / f"{atlas_slug}_point_traceability.json",
+        map_point_traceability_markdown_path=output_dir
+        / f"{atlas_slug}_point_traceability.md",
+        map_publication_contract_json_path=output_dir
+        / f"{atlas_slug}_map_publication_contract.json",
+        map_publication_contract_markdown_path=output_dir
+        / f"{atlas_slug}_map_publication_contract.md",
         candidate_sites_csv_path=output_dir / f"{atlas_slug}_candidate_sites.csv",
         candidate_sites_json_path=output_dir / f"{atlas_slug}_candidate_sites.json",
         candidate_sites_markdown_path=output_dir / f"{atlas_slug}_candidate_sites.md",

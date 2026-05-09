@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from ...core.geojson import JsonObject
+from ..map_publication import MapScopePolicy
 from ..presentation.text import escape_html
 from .payload import build_map_document_payload
 from .template import MAP_DOCUMENT_TEMPLATE
@@ -11,6 +12,7 @@ def render_multi_country_map_html(
     version: str,
     generated_on: str,
     countries: tuple[str, ...],
+    policy: MapScopePolicy,
     point_layers: list[JsonObject],
     polygon_layers: list[JsonObject],
     asset_base_path: str,
@@ -22,6 +24,7 @@ def render_multi_country_map_html(
         version=version,
         generated_on=generated_on,
         countries=countries,
+        policy=policy,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
         asset_base_path=asset_base_path,
