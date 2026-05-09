@@ -11,6 +11,7 @@ from ....core.temporal_semantics import build_temporal_semantics
 from ....core.text import clean_optional_text
 from ...models import ContextPointRecord
 from ...spatial import classify_country
+from .access import build_sead_site_access_model
 from .fetch import parse_optional_int
 
 __all__ = ["normalize_sead_rows"]
@@ -53,6 +54,7 @@ def normalize_sead_rows(
             row,
             time_interval=time_interval,
         )
+        access_model = build_sead_site_access_model(row)
 
         popup_rows = [
             ("Site ID", site_id),
@@ -60,6 +62,14 @@ def normalize_sead_rows(
             ("Source", "SEAD"),
             ("Country", country),
         ]
+        access_visibility = str(access_model.get("access_visibility", "")).strip()
+        if access_visibility:
+            popup_rows.append(
+                (
+                    "Access visibility",
+                    access_visibility.replace("_", " "),
+                )
+            )
         if sample_group_count:
             popup_rows.append(("Sample groups", str(sample_group_count)))
         if physical_sample_count:
@@ -105,6 +115,12 @@ def normalize_sead_rows(
         uncertainty_notes = temporal_semantics.get("uncertainty_notes", [])
         if isinstance(uncertainty_notes, list) and uncertainty_notes:
             popup_rows.append(("Temporal uncertainty", " | ".join(uncertainty_notes)))
+        access_limits = access_model.get("access_limits", [])
+        if isinstance(access_limits, list) and access_limits:
+            popup_rows.append(("Access limits", access_limits[0]))
+        reader_action = str(access_model.get("reader_action", "")).strip()
+        if reader_action:
+            popup_rows.append(("Reader action", reader_action))
         if national_identifier:
             popup_rows.append(("National identifier", national_identifier))
         if altitude:
@@ -124,7 +140,7 @@ def normalize_sead_rows(
                 latitude=latitude,
                 longitude=longitude,
                 geometry_type="Point",
-                subtitle="Nordic environmental archaeology sites",
+                subtitle="Nordic SEAD archaeology context sites",
                 description=description,
                 source_url=f"https://browser.sead.se/site/{site_id}",
                 record_count=max(
