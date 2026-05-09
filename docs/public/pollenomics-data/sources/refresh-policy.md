@@ -4,54 +4,30 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Refresh Policy
 
-Upstream refreshes are deliberate repository events, not background churn.
+A refresh in this repository is not only a download step. It is an evidence
+change that can affect what the public outputs are allowed to say.
 
-## Refresh Model
+## What A Refresh Can Change
 
-```mermaid
-flowchart TB
-    reason["clear repository reason"]
-    source["source refresh"]
-    normalized["normalized tree changes"]
-    publication["report and atlas changes"]
-    review["visible review surface"]
+- counts and coverage across a source family
+- locality quality for recovered animal samples
+- chronology posture for previously thin rows
+- whether a map layer stays visible, becomes qualified, or needs to narrow
 
-    reason --> source
-    source --> normalized
-    normalized --> publication
-    publication --> review
-```
+## Why The Policy Is Public
 
-This page frames refreshes as evidence events with publication impact, not as
-invisible maintenance. A source refresh stays safe only while a reader can
-follow the change from upstream movement to checked-in outputs.
+Readers need to know that the repository does not silently absorb upstream
+changes and keep the same public language regardless of what those changes did.
+If a refresh makes the evidence better, the outputs can improve. If it exposes
+new weakness, the outputs should narrow instead of coasting on old claims.
 
-## Policy
+## Use This Page When
 
-- refresh a source only when there is a clear repository reason
-- keep source-specific changes visible in commit history and tracked files
-- regenerate dependent outputs when a refresh changes the visible evidence surface
-- treat mutable upstream systems as a trust boundary, not as silently stable dependencies
-
-## What This Protects
-
-- reviewers can connect raw-source changes to normalized and published changes
-- the atlas and country reports do not drift quietly away from the tracked tree
-- source refresh cost stays visible before maintainers widen a change set
-
-## First Proof Check
-
-- inspect `data/collection_summary.json` after a refresh
-- inspect the matching `data/*/normalized/` trees and `docs/report/` outputs
-- open [tracked outputs and published surfaces](../outputs/index.md) when the question becomes which public evidence moved
-
-## Design Pressure
-
-The common failure is to treat refreshes as background upkeep, which hides the
-fact that mutable upstream systems can widen directly into visible atlas and
-report changes inside one repository revision.
+- you want to know why a published report changed after a source update
+- you want to understand why refresh work is coupled to review and release checks
+- you want the conceptual reason for keeping refresh logic visible in a public handbook

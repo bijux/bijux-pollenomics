@@ -4,49 +4,22 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-09
 ---
 
 # LandClim
 
-LandClim supplies Nordic pollen context through sequence records and
-REVEALS-related spatial context.
+LandClim is one of the main pollen-context families in the repository. It
+contributes pollen sequences and REVEALS grid material that help readers see
+environmental setting rather than just isolated sample points.
 
-## LandClim Source Model
+## What LandClim Contributes
 
-```mermaid
-flowchart TB
-    source["LandClim source files"]
-    sequences["pollen sequence records"]
-    reveals["REVEALS grid context"]
-    atlas["atlas environmental layers"]
+- pollen sequence context
+- REVEALS-based environmental framing
+- one of the strongest pollenomics-first layers in the project
 
-    source --> sequences
-    source --> reveals
-    sequences --> atlas
-    reveals --> atlas
-```
+## Why It Matters
 
-LandClim is one of the repository's main pollen-context families. It matters
-because it carries both site-level sequence context and broader REVEALS grid
-context.
-
-## What This Source Adds
-
-- pollen-site sequence records that broaden the atlas beyond ancient DNA
-- REVEALS grid-cell context that helps readers see environmental surfaces at a
-  larger scale
-- one of the main environmental layers that makes the atlas more than a point
-  map of sample localities
-
-## Boundary
-
-LandClim is environmental context, not ancient DNA evidence and not direct
-fieldwork documentation. Its value is comparative and spatial. It should not
-be read as a substitute for sample metadata or on-site visit records.
-
-## Downstream Outputs
-
-- `data/landclim/normalized/nordic_pollen_site_sequences.csv`
-- `data/landclim/normalized/nordic_pollen_site_sequences.geojson`
-- `data/landclim/normalized/nordic_reveals_grid_cells.geojson`
+LandClim helps the repository stay genuinely pollenomics-centered. Without it,
+the public product would drift too easily toward a narrow ancient DNA story.

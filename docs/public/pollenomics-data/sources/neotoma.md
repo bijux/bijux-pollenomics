@@ -4,45 +4,18 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-09
 ---
 
 # Neotoma
 
-Neotoma supplies paleoecological pollen-site context to the Nordic workspace.
+Neotoma contributes paleoecological pollen-site context that complements
+LandClim. It broadens the environmental side of the repository and helps keep
+public interpretation from collapsing into ancient DNA alone.
 
-## Neotoma Source Model
+## What Neotoma Contributes
 
-```mermaid
-flowchart TB
-    source["Neotoma source records"]
-    sites["pollen-site context"]
-    normalized["normalized Neotoma outputs"]
-    atlas["atlas pollen context layers"]
-
-    source --> sites
-    sites --> normalized
-    normalized --> atlas
-```
-
-Neotoma is a second major pollen-context family in the repository. Keeping it
-visible as its own source helps readers compare pollen coverage without turning
-all pollen context into one interchangeable backdrop.
-
-## What This Source Adds
-
-- point-based paleoecological context under `data/neotoma/`
-- an independent pollen-family layer that complements LandClim
-- source-specific provenance that remains visible even after normalization
-
-## Boundary
-
-Neotoma helps readers compare site distributions and contextual layers. It does
-not collapse into one generic pollen source, and it does not answer ancient DNA
-questions by itself.
-
-## Downstream Outputs
-
-- `data/neotoma/normalized/nordic_pollen_sites.csv`
-- `data/neotoma/normalized/nordic_pollen_sites.geojson`
-- world surface layers under `docs/report/world/`
+- pollen-site context
+- environmental comparison across geography
+- a second major pollenomics family that keeps the repository from overfitting
+  to one pollen source

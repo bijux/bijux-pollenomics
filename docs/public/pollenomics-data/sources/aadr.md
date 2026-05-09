@@ -4,48 +4,23 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-09
 ---
 
 # AADR
 
-AADR is the ancient DNA source family that anchors the repository's current
-human ancient DNA context work.
+AADR provides the human ancient DNA release context in this repository. It is
+important because it gives a broad, release-based human evidence layer that can
+sit beside pollen, archaeology, and animal recovery surfaces.
 
-## AADR Source Model
+## What AADR Is Good For
 
-```mermaid
-flowchart TB
-    release["AADR release"]
-    metadata["versioned metadata files"]
-    normalized["normalized sample and locality outputs"]
-    publication["country reports and atlas layers"]
+- release-based human sample context
+- country and regional human aDNA visibility
+- broad comparison against animal evidence and environmental context
 
-    release --> metadata
-    metadata --> normalized
-    normalized --> publication
-```
+## What AADR Is Not Trying To Be
 
-AADR is the clearest example of a release-based source family in this
-repository. Readers should be able to see how one versioned metadata release
-turns into tracked sample outputs and public reports.
-
-## What This Source Adds
-
-- versioned metadata under `data/aadr/<version>/`, including the current `data/aadr/v66/` release tree
-- human sample-locality context used in reports and the world surface
-- a clear bridge between tracked source refreshes and visible publication
-  changes
-
-## Boundary
-
-The repository currently works from public metadata files, not genotype
-payloads. AADR supports sample-locality and metadata-based reporting here. It
-does not claim to perform population-genetic analysis inside this repository.
-
-## Downstream Outputs
-
-- country-facing bundles under `docs/report/<country-slug>/`
-- atlas-facing files under `docs/report/world/`
-- versioned source records that stay visible in the tracked tree instead of
-  disappearing behind one merged export
+AADR is not the animal recovery program, and it is not a substitute for the
+local review surfaces that govern animal sample identity, locality, chronology,
+or coordinates. It is a distinct human ancient DNA family with its own role.
