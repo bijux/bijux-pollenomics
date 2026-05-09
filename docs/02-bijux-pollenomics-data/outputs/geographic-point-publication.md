@@ -34,3 +34,22 @@ One visible point should always be explainable through:
 
 If one of those layers is missing, the map should either downgrade the row or
 exclude it from visible publication.
+
+## Nordic Atlas Specialization
+
+The Nordic atlas is a narrower reading surface built from the same point
+publication contract. It is allowed to feel denser because the regional scope
+can show more contextual framing, but it is not allowed to loosen the point
+requirements that govern the world surface.
+
+If a Nordic point cannot be rebuilt from one sample-owned row, one site-facing
+justification, one chronology posture, and one coordinate provenance chain,
+then the Nordic atlas should demote or exclude that row instead of promoting it
+for map convenience.
+
+## Nordic Reader Anchors
+
+- [Nordic evidence atlas](../../05-nordic-evidence-atlas/index.md)
+- [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
+- [Nordic animal point traceability](../../report/regions/nordic/nordic_animal_point_traceability.json)
+- [animal point evidence review](../../report/animal_point_evidence_review.md)

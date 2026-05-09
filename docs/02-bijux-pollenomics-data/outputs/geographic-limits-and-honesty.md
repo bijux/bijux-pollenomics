@@ -28,3 +28,20 @@ quality.
 - Europe-plus and Nordic are derived filters, not separate scientific products
 - country bundles are narrower views that should never carry facts missing from their parent scope
 - blocked, thin, or comparator-only animal rows should stay visibly qualified instead of being quietly promoted by map convenience
+
+## Nordic Atlas Audits
+
+The Nordic atlas is governed by the same evidence limits as the wider animal
+publication tree. A polished regional map does not override missing source
+capture, weak chronology, thin site evidence, or unresolved coordinate posture.
+
+If a reader challenges one published Nordic point, the repository should be
+able to show whether that row is fully accountable, still thin, or blocked by
+an unresolved evidence gap.
+
+## Nordic Audit Anchors
+
+- [Nordic evidence atlas](../../05-nordic-evidence-atlas/index.md)
+- [atlas readiness audit](../../report/animal_atlas_readiness.md)
+- [animal atlas exclusion report](../../report/animal_atlas_exclusion_report.md)
+- [repository truth posture](../../report/repository_truth_posture.md)

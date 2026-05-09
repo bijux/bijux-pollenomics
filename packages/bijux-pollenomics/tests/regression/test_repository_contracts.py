@@ -1360,15 +1360,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
         self.assertIn("pollen context, environmental archaeology", data_index)
         self.assertIn("downstream view of the repository evidence tree", atlas_index)
-        self.assertEqual(
-            atlas_files,
-            [
-                "filters-and-popups.md",
-                "index.md",
-                "limits-and-audit.md",
-                "point-construction.md",
-            ],
-        )
+        self.assertEqual(atlas_files, ["index.md"])
         self.assertIn("How animal points are built", atlas_index)
         self.assertIn("How filters and popups work", atlas_index)
         self.assertIn("Current limits and audits", atlas_index)
