@@ -9,11 +9,12 @@ last_reviewed: 2026-05-09
 
 # How Evidence Becomes Outputs
 
-This section explains the whole public chain from source material to visible
-outputs. The architecture matters only if it helps a reader answer a simple
-question: how did this report, map point, or country bundle get here?
+This section explains the public chain from source material to visible output.
+The architecture matters only if it helps a reader answer a simple question:
+how did this report, map point, or country bundle get here?
 
-The answer should be traceable without already knowing the package tree.
+The answer should be traceable without already knowing the package tree and
+without having to guess which internal module happens to own which step.
 
 ## Flow
 
@@ -38,6 +39,16 @@ flowchart LR
     checks --> writing
 ```
 
+## The Main Stages
+
+- commands declare what kind of rebuild or inspection is being requested
+- collection brings governed source material into the repository
+- normalization turns mixed upstream inputs into comparable repository-owned
+  evidence files
+- review surfaces expose strengths, blockers, and caveats
+- publication writes country, regional, and world-facing outputs
+- checks fail when these layers drift apart
+
 ## Durable Boundaries
 
 - `command_line/` owns CLI parsing, dispatch, and command registration
@@ -59,6 +70,9 @@ flowchart LR
 
 ## Expanded Pages
 
-- [runtime system model](runtime-system-model.md)
-- [module map](module-map.md)
-- [package split](package-split.md)
+- [runtime system model](runtime-system-model.md) explains the end-to-end flow
+  in the order it actually runs
+- [module map](module-map.md) explains which directories own which parts of the
+  lifecycle
+- [package split](package-split.md) explains why runtime, maintainer, and alias
+  distributions stay separate

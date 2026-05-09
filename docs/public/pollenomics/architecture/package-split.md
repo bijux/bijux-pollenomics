@@ -13,6 +13,10 @@ last_reviewed: 2026-05-08
 different audiences. The split is acceptable only because the ownership line
 is sharp.
 
+Without that sharp line, the repository would drift into two predictable
+failures: runtime logic would leak into maintainer tooling, or the alias
+package would quietly become a second product with its own behavior.
+
 ## Canonical Runtime
 
 `packages/bijux-pollenomics/` owns the runtime command surface, source-family
@@ -63,3 +67,7 @@ The alias may not:
 This repository is already structurally dense. A clean package split prevents
 future work from hiding scientific logic in maintainer tooling or from letting
 the alias package drift away from the canonical runtime.
+
+For readers, the benefit is simpler: the package tree stays legible. There is
+one real runtime, one maintainer toolkit that checks it, and one compatibility
+package that points back to it.
