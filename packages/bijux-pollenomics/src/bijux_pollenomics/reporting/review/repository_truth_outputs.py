@@ -31,6 +31,10 @@ from ...foundation import (
     render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
+from .sead_context_outputs import (
+    build_repository_sead_legibility_review,
+    render_repository_sead_legibility_review_markdown,
+)
 
 __all__ = ["publish_repository_truth_outputs"]
 
@@ -149,6 +153,10 @@ def publish_repository_truth_outputs(
                 report_root=output_root,
             ),
             render_repository_scientific_progress_audit_markdown,
+        ),
+        "repository_sead_legibility_review": (
+            build_repository_sead_legibility_review(data_root),
+            render_repository_sead_legibility_review_markdown,
         ),
     }
     for stem, (payload, render_markdown) in payloads.items():
