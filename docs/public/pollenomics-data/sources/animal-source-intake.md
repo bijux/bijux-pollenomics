@@ -47,16 +47,30 @@ state of the data.
 The intake surface is wide because it covers source capture, not only public
 publication. Important governed files include:
 
+- `data/adna/governance/source_library/tracked_project_and_paper_inventory.json`
 - `data/adna/governance/source_library/project_registry.json`
 - `data/adna/governance/source_library/paper_registry.json`
+- `data/adna/governance/source_library/supplement_acquisition_checklist.json`
+- `data/adna/governance/source_library/supplement_file_family_audit.json`
 - `data/adna/governance/source_library/source_intake_audit.json`
 - `data/adna/governance/source_library/project_recovery_stage_review.json`
 - `data/adna/governance/source_library/project_sample_master_completeness.json`
+- `data/adna/species/<species-slug>/normalized/sample_master.json`
 - `data/adna/governance/source_library/project_sample_site_review.json`
+- `data/adna/species/<species-slug>/normalized/sample_sites.json`
+- `data/adna/species/<species-slug>/review/locality_worksheet.json`
+- `data/adna/species/<species-slug>/review/sample_locality_evidence.json`
 - `data/adna/governance/source_library/project_sample_chronology_review.json`
+- `data/adna/species/<species-slug>/normalized/sample_chronology.json`
 - `data/adna/governance/source_library/sample_identity_ambiguity_ledger.json`
 - `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
 - `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`
+- `data/adna/governance/source_library/site_name_normalization_dictionary.json`
+- `data/adna/governance/source_library/reference_stash_reconciliation.json`
+- `data/adna/governance/source_library/source_blocker_review.json`
+- `data/adna/governance/source_library/project_expected_sample_yield_review.json`
+- `data/adna/governance/source_library/manual_curation_worklist.json`
+- `data/adna/governance/source_library/source_recovery_release_guard.json`
 
 ## Why The Intake Surface Is Broader Than The Atlas
 

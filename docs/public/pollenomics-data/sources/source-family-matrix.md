@@ -32,3 +32,10 @@ Read the matrix together with:
 
 The matrix gives the broad comparison. Those other pages explain the actual
 files and outputs behind it.
+
+## Live Comparison Artifacts
+
+- [repository source family matrix](../../../report/repository_source_family_matrix.json)
+- [repository cross-domain evidence matrix](../../../report/repository_cross_domain_evidence_matrix.json)
+- [repository source explainer audit](../../../report/repository_source_explainer_audit.md)
+- [repository source acquisition queue](../../../report/repository_source_acquisition_queue.json)

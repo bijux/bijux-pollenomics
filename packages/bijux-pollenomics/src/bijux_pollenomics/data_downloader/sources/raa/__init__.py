@@ -1,3 +1,5 @@
+"""Riksantikvarieambetet source collectors and output helpers."""
+
 from .outputs import (
     RAA_FEATURE_TYPE,
     RAA_WFS_URL,

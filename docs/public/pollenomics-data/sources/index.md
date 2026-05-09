@@ -35,6 +35,14 @@ Use the pages in this section in three different ways:
 - use [source family matrix](source-family-matrix.md) if you want the balance view across the whole repository
 - drop into one source page only after you know which evidence family your question belongs to
 
+## High-Signal Governed Files
+
+- `data/adna/governance/source_library/project_source_evidence_matrix.json`
+- `data/adna/governance/source_library/project_registry.json`
+- `data/adna/governance/source_library/paper_registry.json`
+- `data/adna/governance/source_library/source_intake_audit.json`
+- [source-family matrix](source-family-matrix.md)
+
 ## Start Here
 
 - [Source comparison](source-comparison.md) for the quickest cross-family overview

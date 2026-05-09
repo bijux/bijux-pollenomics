@@ -260,7 +260,11 @@ def build_evidence_artifact_contract_payload() -> dict[str, object]:
                 "data/adna/governance/source_library/projects/<project_accession>/curation_note.md",
             ),
             purpose="govern which source artifacts, blockers, and curation posture belong to one tracked project",
-            required_artifacts=("bundle_manifest.json", "intake_dossier.json", "curation_note.md"),
+            required_artifacts=(
+                "bundle_manifest.json",
+                "intake_dossier.json",
+                "curation_note.md",
+            ),
         ),
         EvidenceArtifactContractRecord(
             artifact_key="paper_supporting_materials",

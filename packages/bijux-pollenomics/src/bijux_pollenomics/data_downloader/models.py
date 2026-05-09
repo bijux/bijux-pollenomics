@@ -1,3 +1,5 @@
+"""Typed records for source acquisition, traceability, and collection outputs."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -8,6 +10,8 @@ from .source_family_contracts import SourceFamilyStateRow
 
 @dataclass(frozen=True)
 class SourceAcquisitionMetadata:
+    """Machine-readable provenance for one upstream source refresh."""
+
     source: str
     version: str
     license: str
@@ -17,6 +21,8 @@ class SourceAcquisitionMetadata:
 
 @dataclass(frozen=True)
 class SourceProvenanceRecord:
+    """Resolved provenance ledger for a normalized source tree."""
+
     source: str
     display_name: str
     evidence_family: str
@@ -32,6 +38,8 @@ class SourceProvenanceRecord:
 
 @dataclass(frozen=True)
 class SourceReplacementRule:
+    """Refresh policy for replacing staged or final source outputs."""
+
     source: str
     refresh_mode: str
     final_output_root: str
@@ -42,6 +50,8 @@ class SourceReplacementRule:
 
 @dataclass(frozen=True)
 class SourceTraceabilityRecord:
+    """Hash-based traceability record for one upstream source version."""
+
     source: str
     source_identity: str
     source_version: str
@@ -52,6 +62,8 @@ class SourceTraceabilityRecord:
 
 @dataclass(frozen=True)
 class ContextPointRecord:
+    """Serialized point-layer row used by reporting and atlas bundles."""
+
     source: str
     layer_key: str
     layer_label: str
@@ -76,6 +88,8 @@ class ContextPointRecord:
 
 @dataclass(frozen=True)
 class ContextDataReport:
+    """Summary of context collection counts staged for one run."""
+
     generated_on: str
     output_root: Path
     landclim_site_count: int
@@ -88,6 +102,8 @@ class ContextDataReport:
 
 @dataclass(frozen=True)
 class DataCollectionSummary:
+    """Compact machine-readable summary of a source collection run."""
+
     generated_on: str
     output_root: Path
     version: str
@@ -113,6 +129,8 @@ class DataCollectionSummary:
 
 @dataclass(frozen=True)
 class DataCollectionReport:
+    """Full report describing a staged context-data collection run."""
+
     generated_on: str
     output_root: Path
     version: str

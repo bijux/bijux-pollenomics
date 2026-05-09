@@ -47,7 +47,10 @@ def build_source_layout_contract(output_root: Path) -> SourceLayoutContract:
             "adna/final",
         ),
         species_symlinks=(
-            (f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/raw/aadr", "../../../../aadr"),
+            (
+                f"{ADNA_SPECIES_DIR.removeprefix('data/')}/homo_sapiens/raw/aadr",
+                "../../../../aadr",
+            ),
         ),
         collection_manifest_name="collection_summary.json",
         contract_artifact_paths=tuple(

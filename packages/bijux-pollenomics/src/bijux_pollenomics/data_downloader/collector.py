@@ -25,8 +25,8 @@ from .pipeline.collection_reports import (
     build_data_collection_summary,
     initialize_source_counts,
 )
-from .pipeline.contract_surface_writer import write_data_contract_surfaces
 from .pipeline.context_collection import collect_context_source
+from .pipeline.contract_surface_writer import write_data_contract_surfaces
 from .pipeline.requested_sources import normalize_requested_sources
 from .pipeline.source_registry import CONTEXT_SOURCE_SPECS
 from .pipeline.staging import build_staging_output_dir, collect_into_staging_dir

@@ -1,3 +1,5 @@
+"""Repository defaults for data roots, atlas publication, and bundle paths."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -6,12 +8,16 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class DataDefaults:
+    """Repository-wide defaults for source versions and analysis geography."""
+
     aadr_version: str
     nordic_bbox: tuple[float, float, float, float]
 
 
 @dataclass(frozen=True)
 class AtlasDefaults:
+    """Publication defaults for the shipped atlas surface."""
+
     slug: str
     title: str
     published_countries: tuple[str, ...]
@@ -19,6 +25,8 @@ class AtlasDefaults:
 
 @dataclass(frozen=True)
 class ProjectPaths:
+    """Canonical relative roots used by package entry points and reports."""
+
     data_root: Path
     aadr_root: Path
     report_root: Path

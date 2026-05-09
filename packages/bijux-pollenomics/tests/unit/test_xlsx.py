@@ -8,7 +8,6 @@ from bijux_pollenomics.data_downloader.intake import (
     list_xlsx_sheet_names,
     read_xlsx_sheet_rows,
 )
-
 from tests.support.workbooks import write_xlsx
 
 

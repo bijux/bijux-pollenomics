@@ -77,13 +77,12 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         self.assertIn("source_fact_ownership_registry", contract_paths)
         self.assertNotIn(
             "tmp",
-            " ".join(
-                key
-                for key in contract_paths
-            ),
+            " ".join(key for key in contract_paths),
         )
 
-    def test_fact_and_artifact_contract_payloads_choose_governing_surfaces(self) -> None:
+    def test_fact_and_artifact_contract_payloads_choose_governing_surfaces(
+        self,
+    ) -> None:
         fact_payload = build_source_fact_ownership_payload()
         artifact_payload = build_evidence_artifact_contract_payload()
 
@@ -137,10 +136,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
 
             self.assertTrue(
                 (
-                    output_root
-                    / "adna"
-                    / "governance"
-                    / "surface_role_registry.json"
+                    output_root / "adna" / "governance" / "surface_role_registry.json"
                 ).is_file()
             )
             self.assertTrue(

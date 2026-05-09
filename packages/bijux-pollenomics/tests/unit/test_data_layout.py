@@ -67,8 +67,7 @@ class DataLayoutUnitTests(unittest.TestCase):
         )
         self.assertIn("`adna/final/`", readme)
         self.assertIn(
-            "[`docs/02-bijux-pollenomics-data/sources/index.md`]"
-            f"({DATA_SOURCE_INDEX})",
+            f"[`docs/02-bijux-pollenomics-data/sources/index.md`]({DATA_SOURCE_INDEX})",
             readme,
         )
         self.assertIn(
@@ -102,7 +101,9 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertTrue(raw_aadr.is_symlink())
             self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
 
-    def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(self) -> None:
+    def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             output_root.mkdir(parents=True, exist_ok=True)
@@ -121,10 +122,14 @@ class DataLayoutUnitTests(unittest.TestCase):
                 self.assertTrue((root / "reports").is_dir())
                 self.assertTrue((root / "review").is_dir())
             self.assertTrue((output_root / "adna" / "governance").is_dir())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library").is_dir())
+            self.assertTrue(
+                (output_root / "adna" / "governance" / "source_library").is_dir()
+            )
             self.assertTrue((output_root / "adna" / "final").is_dir())
 
-    def test_materialize_tracked_species_root_writes_real_reviewable_files(self) -> None:
+    def test_materialize_tracked_species_root_writes_real_reviewable_files(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             output_root.mkdir(parents=True, exist_ok=True)
@@ -137,16 +142,34 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertTrue((horse_root / "raw" / "archive_inventory.csv").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.json").is_file())
             self.assertTrue((horse_root / "raw" / "source_snapshot.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "sample_records.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "sample_records.json").is_file())
-            self.assertTrue((horse_root / "normalized" / "coordinate_provenance.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "coordinate_provenance.json").is_file())
+            self.assertTrue(
+                (horse_root / "normalized" / "sample_records.csv").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "sample_records.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "coordinate_provenance.csv").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "coordinate_provenance.json").is_file()
+            )
             self.assertTrue((horse_root / "normalized" / "site_evidence.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "site_evidence.json").is_file())
-            self.assertTrue((horse_root / "normalized" / "project_summaries.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "project_summaries.json").is_file())
-            self.assertTrue((horse_root / "normalized" / "locality_summaries.csv").is_file())
-            self.assertTrue((horse_root / "normalized" / "locality_summaries.json").is_file())
+            self.assertTrue(
+                (horse_root / "normalized" / "site_evidence.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "project_summaries.csv").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "project_summaries.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "locality_summaries.csv").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "normalized" / "locality_summaries.json").is_file()
+            )
             self.assertTrue(
                 (horse_root / "manifests" / "species_manifest.json").is_file()
             )
@@ -165,9 +188,7 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertTrue(
                 (horse_root / "manifests" / "citation_manifest.csv").is_file()
             )
-            self.assertTrue(
-                (horse_root / "reports" / "support_summary.json").is_file()
-            )
+            self.assertTrue((horse_root / "reports" / "support_summary.json").is_file())
             self.assertTrue((horse_root / "reports" / "support_summary.md").is_file())
             self.assertTrue(
                 (horse_root / "reports" / "project_recovery_deficits.json").is_file()

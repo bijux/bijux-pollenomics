@@ -114,7 +114,7 @@ def build_candidate_sites_json_payload(
     return {
         "schema_version": "candidate-site-ranking.v2",
         "profile": profile.as_dict(),
-        "evidence_boundary": f'{policy["intro"]} {policy["boundary"]}',
+        "evidence_boundary": f"{policy['intro']} {policy['boundary']}",
         "species_evidence_boundary": {
             "human_adna": (
                 "Mapped Homo sapiens ancient-DNA localities are direct atlas evidence, "

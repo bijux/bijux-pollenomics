@@ -12,9 +12,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class DocsBreadthRegressionTests(unittest.TestCase):
     def test_docs_home_routes_readers_before_repo_details(self) -> None:
-        docs_index = (REPO_ROOT / "docs" / "index.md").read_text(
-            encoding="utf-8"
-        )
+        docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         internal_index = (REPO_ROOT / "docs" / "internal" / "index.md").read_text(
             encoding="utf-8"
         )

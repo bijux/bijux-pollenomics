@@ -111,7 +111,9 @@ def normalize_sead_rows(
             popup_rows.append(("Original period labels", ", ".join(original_labels)))
         normalized_labels = temporal_semantics.get("normalized_labels", [])
         if isinstance(normalized_labels, list) and normalized_labels:
-            popup_rows.append(("Normalized period labels", ", ".join(normalized_labels)))
+            popup_rows.append(
+                ("Normalized period labels", ", ".join(normalized_labels))
+            )
         uncertainty_notes = temporal_semantics.get("uncertainty_notes", [])
         if isinstance(uncertainty_notes, list) and uncertainty_notes:
             popup_rows.append(("Temporal uncertainty", " | ".join(uncertainty_notes)))
@@ -202,7 +204,6 @@ def _build_sead_temporal_semantics(
     )
     uncertainty_notes = _collect_uncertainty_notes(row)
     has_period_rows = bool(original_labels)
-    has_dating_rows = bool(row.get("dating_range_rows"))
     if time_interval is not None and has_period_rows:
         comparability_posture = "mixed_interval_and_context"
         comparison_note = (
@@ -213,23 +214,17 @@ def _build_sead_temporal_semantics(
         precision_posture = "site_interval_with_context"
     elif time_interval is not None and uncertainty_notes:
         comparability_posture = "numeric_interval_with_caveat"
-        comparison_note = (
-            "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
-        )
+        comparison_note = "SEAD publishes one numeric site span here, but the upstream dating rows carry qualifiers or uncertainty notes."
         evidence_class = "sead_dating_range"
         precision_posture = "site_interval_with_uncertainty"
     elif time_interval is not None:
         comparability_posture = "numeric_interval"
-        comparison_note = (
-            "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
-        )
+        comparison_note = "SEAD publishes one numeric site span here. The interval remains site-level archaeology context rather than one sample-owned date."
         evidence_class = "sead_dating_range"
         precision_posture = "site_interval"
     elif has_period_rows:
         comparability_posture = "contextual_label_only"
-        comparison_note = (
-            "SEAD publishes period labels without one stable numeric site interval here. Do not compare this row as if it were a sample-owned date."
-        )
+        comparison_note = "SEAD publishes period labels without one stable numeric site interval here. Do not compare this row as if it were a sample-owned date."
         evidence_class = "sead_relative_period"
         precision_posture = "relative_period_only"
     else:

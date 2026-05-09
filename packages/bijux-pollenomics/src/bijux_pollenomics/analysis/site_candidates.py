@@ -265,7 +265,9 @@ def score_candidate_site(
         _build_chronology_alignment_signal(candidate)
     )
     species_diversity_signal = _round_signal(_build_species_diversity_signal(candidate))
-    contextual_support_signal = _round_signal(_build_contextual_support_signal(candidate))
+    contextual_support_signal = _round_signal(
+        _build_contextual_support_signal(candidate)
+    )
     warning_flags = _build_warning_flags(candidate)
     ranking_blockers = _build_ranking_blockers(candidate)
     recommendation_blockers = _build_recommendation_blockers(
@@ -353,11 +355,16 @@ def _build_evidence_density_signal(candidate: CandidateSiteContext) -> float:
         for locality in candidate.direct_evidence
     )
     provenance_signal = _mean_or_zero(
-        max(_provenance_quality_weight(quality) for quality in locality.provenance_qualities)
+        max(
+            _provenance_quality_weight(quality)
+            for quality in locality.provenance_qualities
+        )
         for locality in candidate.direct_evidence
     )
     modality_signal = _mean_or_zero(
-        max(_record_modality_weight(modality) for modality in locality.record_modalities)
+        max(
+            _record_modality_weight(modality) for modality in locality.record_modalities
+        )
         for locality in candidate.direct_evidence
     )
     return (
@@ -380,9 +387,7 @@ def _build_chronology_alignment_signal(candidate: CandidateSiteContext) -> float
         pairwise_checks: list[float] = []
         for index, left in enumerate(chronology_rows):
             for right in chronology_rows[index + 1 :]:
-                pairwise_checks.append(
-                    1.0 if _windows_overlap(left, right) else 0.0
-                )
+                pairwise_checks.append(1.0 if _windows_overlap(left, right) else 0.0)
         cross_species_signal = _mean_or_zero(pairwise_checks)
     context_signal = (
         candidate.temporal_overlap_points / candidate.time_aware_context_points
@@ -508,7 +513,10 @@ def _build_missingness_penalty(
             base_penalty += 0.05
     if candidate.direct_sample_count <= 1:
         base_penalty += 0.04
-    return min(profile.max_missingness_penalty, base_penalty * profile.missingness_penalty_scale)
+    return min(
+        profile.max_missingness_penalty,
+        base_penalty * profile.missingness_penalty_scale,
+    )
 
 
 def _build_rationale(

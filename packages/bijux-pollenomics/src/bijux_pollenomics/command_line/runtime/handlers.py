@@ -225,7 +225,9 @@ def run_adna_release_bar(args: argparse.Namespace) -> int:
         "species_aware_adna_support_defined="
         f"{str(release_bar.species_aware_adna_support_defined).lower()}"
     )
-    print(f"bovine_split_rule_defined={str(release_bar.bovine_split_rule_defined).lower()}")
+    print(
+        f"bovine_split_rule_defined={str(release_bar.bovine_split_rule_defined).lower()}"
+    )
     print(
         "homo_sapiens_genotype_boundary_defined="
         f"{str(release_bar.homo_sapiens_genotype_boundary_defined).lower()}"
@@ -238,7 +240,9 @@ def run_adna_release_bar(args: argparse.Namespace) -> int:
         "scientific_review_surface_defined="
         f"{str(release_bar.scientific_review_surface_defined).lower()}"
     )
-    print(f"ranking_boundary_defined={str(release_bar.ranking_boundary_defined).lower()}")
+    print(
+        f"ranking_boundary_defined={str(release_bar.ranking_boundary_defined).lower()}"
+    )
     if release_bar.blockers:
         print("blockers=" + ", ".join(release_bar.blockers))
     return 0

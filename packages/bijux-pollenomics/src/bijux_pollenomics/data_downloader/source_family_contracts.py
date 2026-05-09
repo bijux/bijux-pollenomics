@@ -124,7 +124,9 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 repository_path="data/neotoma/normalized",
                 required=True,
                 purpose="tracked normalized Neotoma context ready for downstream layering",
-                example_artifacts=("data/neotoma/normalized/nordic_pollen_sites.geojson",),
+                example_artifacts=(
+                    "data/neotoma/normalized/nordic_pollen_sites.geojson",
+                ),
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
@@ -211,7 +213,9 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 repository_path="data/raa/normalized",
                 required=True,
                 purpose="tracked normalized archaeology layers used in density and map products",
-                example_artifacts=("data/raa/normalized/sweden_archaeology_layer.json",),
+                example_artifacts=(
+                    "data/raa/normalized/sweden_archaeology_layer.json",
+                ),
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
@@ -446,7 +450,10 @@ def build_source_family_state_matrix_payload(
     counts: Mapping[str, int],
 ) -> dict[str, object]:
     """Build a machine-readable evidence-stage matrix across tracked source families."""
-    rows = [asdict(row) for row in build_source_family_state_rows(output_root, counts=counts)]
+    rows = [
+        asdict(row)
+        for row in build_source_family_state_rows(output_root, counts=counts)
+    ]
     return {
         "schema_version": "source-family-evidence-stage-matrix.v1",
         "row_count": len(rows),
@@ -482,7 +489,11 @@ def _path_has_content(path: Path) -> bool:
 def _provenance_depth(
     *, raw_status: str, normalized_status: str, reviewed_status: str
 ) -> str:
-    if raw_status == "present" and normalized_status == "present" and reviewed_status == "present":
+    if (
+        raw_status == "present"
+        and normalized_status == "present"
+        and reviewed_status == "present"
+    ):
         return "review_ready"
     if raw_status == "present" and normalized_status == "present":
         return "normalized_without_review_layer"
@@ -494,7 +505,11 @@ def _provenance_depth(
 def _publication_posture(
     *, normalized_status: str, reviewed_status: str, published_status: str
 ) -> str:
-    if normalized_status == "present" and reviewed_status == "present" and published_status == "present":
+    if (
+        normalized_status == "present"
+        and reviewed_status == "present"
+        and published_status == "present"
+    ):
         return "published_with_review_support"
     if normalized_status == "present" and reviewed_status == "present":
         return "review_ready_not_yet_published"
@@ -520,7 +535,9 @@ def _blocking_reasons(
         reasons.append("missing_review_surface")
     if published_status == "missing":
         reasons.append("missing_published_surface")
-    if not coverage_metrics or not any(value > 0 for value in coverage_metrics.values()):
+    if not coverage_metrics or not any(
+        value > 0 for value in coverage_metrics.values()
+    ):
         reasons.append("zero_coverage_metrics")
     return tuple(reasons)
 
@@ -545,7 +562,10 @@ def _coverage_metrics(
     if source_key == "boundaries":
         return {
             "boundary_country_count": _geojson_feature_count(
-                output_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+                output_root
+                / "boundaries"
+                / "normalized"
+                / "nordic_country_boundaries.geojson"
             )
         }
     if source_key == "aadr":
@@ -568,7 +588,9 @@ def _geojson_feature_count(path: Path) -> int:
 def _animal_adna_metrics(output_root: Path) -> dict[str, int]:
     species_root = output_root / "adna" / "species"
     source_library_root = output_root / "adna" / "governance" / "source_library"
-    truth_path = output_root / "adna" / "governance" / "animal_sample_foundation_truth.json"
+    truth_path = (
+        output_root / "adna" / "governance" / "animal_sample_foundation_truth.json"
+    )
     sample_count = 0
     project_count = 0
     if truth_path.is_file():
@@ -583,7 +605,11 @@ def _animal_adna_metrics(output_root: Path) -> dict[str, int]:
         if isinstance(rows, list):
             project_count = len(rows)
     species_count = (
-        sum(1 for child in species_root.iterdir() if child.is_dir() and child.name != "homo_sapiens")
+        sum(
+            1
+            for child in species_root.iterdir()
+            if child.is_dir() and child.name != "homo_sapiens"
+        )
         if species_root.is_dir()
         else 0
     )

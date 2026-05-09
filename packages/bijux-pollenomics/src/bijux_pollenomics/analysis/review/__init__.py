@@ -1,3 +1,5 @@
+"""Review packet builders for candidate-site sensitivity and summaries."""
+
 from .candidate_site_packets import (
     build_candidate_site_sensitivity_payload,
     build_candidate_sites_json_payload,

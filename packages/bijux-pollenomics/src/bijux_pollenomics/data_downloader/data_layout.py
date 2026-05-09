@@ -15,7 +15,9 @@ from ..core.files import write_text
 
 AVAILABLE_SOURCES = ("aadr", "boundaries", "landclim", "neotoma", "raa", "sead")
 DATA_SOURCE_INDEX = "../docs/02-bijux-pollenomics-data/sources/index.md"
-DATA_LAYOUT_INDEX = "../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md"
+DATA_LAYOUT_INDEX = (
+    "../docs/02-bijux-pollenomics-data/overview/data-directory-layout.md"
+)
 HOMO_SAPIENS_ADNA_SYMLINK_TARGET = "../../../../aadr"
 ADNA_LAYOUT_DIRS = ("raw", "normalized", "manifests", "reports", "review")
 
@@ -125,12 +127,17 @@ def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
     output_root = Path(output_root)
     species_root = output_root / ADNA_SPECIES_DIR.removeprefix("data/") / "homo_sapiens"
     raw_root = species_root / "raw"
-    for directory in (raw_root, *(species_root / name for name in ADNA_LAYOUT_DIRS[1:])):
+    for directory in (
+        raw_root,
+        *(species_root / name for name in ADNA_LAYOUT_DIRS[1:]),
+    ):
         directory.mkdir(parents=True, exist_ok=True)
     raw_aadr = raw_root / "aadr"
     if raw_aadr.exists() or raw_aadr.is_symlink():
         if not raw_aadr.is_symlink():
-            raise ValueError(f"expected Homo sapiens raw AADR path to be a symlink: {raw_aadr}")
+            raise ValueError(
+                f"expected Homo sapiens raw AADR path to be a symlink: {raw_aadr}"
+            )
         if raw_aadr.readlink().as_posix() != HOMO_SAPIENS_ADNA_SYMLINK_TARGET:
             raise ValueError(
                 f"unexpected Homo sapiens raw AADR symlink target for {raw_aadr}: "
@@ -145,9 +152,17 @@ def ensure_curated_species_adna_layout(output_root: Path) -> None:
     output_root = Path(output_root)
     for species_name in TRACKED_ADNA_SPECIES:
         species = resolve_species_definition(species_name)
-        species_root = output_root / ADNA_SPECIES_DIR.removeprefix("data/") / species.slug
+        species_root = (
+            output_root / ADNA_SPECIES_DIR.removeprefix("data/") / species.slug
+        )
         for directory_name in ADNA_LAYOUT_DIRS:
             (species_root / directory_name).mkdir(parents=True, exist_ok=True)
-    (output_root / ADNA_GOVERNANCE_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)
-    (output_root / ADNA_SOURCE_LIBRARY_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)
-    (output_root / ADNA_FINAL_DIR.removeprefix("data/")).mkdir(parents=True, exist_ok=True)
+    (output_root / ADNA_GOVERNANCE_DIR.removeprefix("data/")).mkdir(
+        parents=True, exist_ok=True
+    )
+    (output_root / ADNA_SOURCE_LIBRARY_DIR.removeprefix("data/")).mkdir(
+        parents=True, exist_ok=True
+    )
+    (output_root / ADNA_FINAL_DIR.removeprefix("data/")).mkdir(
+        parents=True, exist_ok=True
+    )

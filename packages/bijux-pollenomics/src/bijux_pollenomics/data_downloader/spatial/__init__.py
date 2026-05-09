@@ -1,3 +1,5 @@
+"""Spatial normalization helpers for context-data publication surfaces."""
+
 from .bboxes import point_in_bbox
 from .country_classification import (
     COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,

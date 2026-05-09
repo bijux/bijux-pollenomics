@@ -479,7 +479,9 @@ def populate_sead_site_inventory_fields(
         reference_id = parse_required_int(reference.get("site_reference_id"))
         if site_id and reference_id:
             reference_ids_by_site.setdefault(site_id, set()).add(reference_id)
-            biblio = bibliography_by_id.get(parse_required_int(reference.get("biblio_id")), {})
+            biblio = bibliography_by_id.get(
+                parse_required_int(reference.get("biblio_id")), {}
+            )
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
@@ -502,7 +504,8 @@ def populate_sead_site_inventory_fields(
                                 (
                                     row.get("biblio_id")
                                     for row in datasets
-                                    if parse_required_int(row.get("dataset_id")) == dataset_id
+                                    if parse_required_int(row.get("dataset_id"))
+                                    == dataset_id
                                 ),
                                 0,
                             )

@@ -26,3 +26,7 @@ repository is actually for.
 - non-aDNA context remains part of the core product
 - contextual source pages deserve the same reader-facing clarity as the harder recovery surfaces
 - handbook breadth is a credibility issue, not just a writing preference
+
+## Direct Audit Surface
+
+- [repository source explainer audit](../../../report/repository_source_explainer_audit.md)
