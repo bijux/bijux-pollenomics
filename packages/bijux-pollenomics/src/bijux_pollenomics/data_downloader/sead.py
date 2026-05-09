@@ -34,6 +34,7 @@ from .sources.sead.fetch import (
 )
 from .sources.sead.inventory import SeadSiteFetchResult, build_sead_site_inventory
 from .sources.sead.normalization import normalize_sead_rows
+from .sources.sead.review import write_sead_review_outputs
 
 
 @dataclass(frozen=True)
@@ -155,6 +156,7 @@ def collect_sead_data(
     normalized_geojson_path = SEAD_POINT_GEOJSON.source_path_under(output_root)
     write_context_points_csv(normalized_csv_path, records)
     write_context_points_geojson(normalized_geojson_path, records)
+    write_sead_review_outputs(output_root, rows=rows, records=records)
 
     return SeadDataReport(
         output_dir=output_root,
