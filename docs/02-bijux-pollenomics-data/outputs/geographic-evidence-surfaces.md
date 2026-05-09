@@ -17,9 +17,14 @@ for public geography outputs.
 
 - [world evidence surface](../../report/world/README.md)
 - [world map](../../report/world/world_map.html)
-- [world animal evidence rows](../../report/world/world_animal_atlas_evidence.json)
+- [world map publication contract](../../report/world/world_map_publication_contract.md)
+- [world point traceability](../../report/world/world_point_traceability.md)
 - [Europe-plus evidence surface](../../report/regions/europe-plus/README.md)
+- [Europe-plus map publication contract](../../report/regions/europe-plus/europe-plus_map_publication_contract.md)
+- [Europe-plus point traceability](../../report/regions/europe-plus/europe-plus_point_traceability.md)
 - [Nordic evidence surface](../../report/regions/nordic/README.md)
+- [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
+- [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
 - [publication geography registry](../../report/publication_geography_registry.md)
 - [publication geography subset validation](../../report/publication_geography_subset_validation.md)
 - [publication country onboarding contract](../../report/publication_country_onboarding_contract.md)
@@ -33,6 +38,7 @@ for public geography outputs.
 
 - what the broadest governed public evidence surface looks like
 - which regional views are derived from that broader surface
+- which layers are shared across all scopes and which overlays belong only in Nordic scope
 - how country outputs inherit from those broader views instead of branching into custom logic
 - where visible animal points can still be traced back to sample-backed evidence
 

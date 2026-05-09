@@ -24,7 +24,9 @@ justify. It should help a reader answer four questions quickly:
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the Nordic evidence surface</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the world parent surface</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
   <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-point-publication/">How animal points are built</a>
   <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-filters-and-inspection/">How filters and popups work</a>
   <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-limits-and-honesty/">Current limits and audits</a>
@@ -36,14 +38,18 @@ justify. It should help a reader answer four questions quickly:
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="https://bijux.io/bijux-pollenomics/report/world/world_map.html" title="Nordic Evidence Atlas"></iframe>
+  <iframe src="https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
 ## Direct Evidence Anchors
 
-- [shipped atlas map](../report/world/world_map.html)
-- [animal atlas evidence rows](../report/world/world_animal_atlas_evidence.json)
-- [animal point traceability](../report/world/world_animal_point_traceability.json)
+- [Nordic surface README](../report/regions/nordic/README.md)
+- [shipped Nordic atlas map](../report/regions/nordic/nordic_map.html)
+- [Nordic map publication contract](../report/regions/nordic/nordic_map_publication_contract.md)
+- [Nordic point traceability](../report/regions/nordic/nordic_point_traceability.md)
+- [Nordic animal atlas evidence rows](../report/regions/nordic/nordic_animal_atlas_evidence.json)
+- [Nordic animal point traceability](../report/regions/nordic/nordic_animal_point_traceability.json)
+- [world parent surface](../report/world/README.md)
 - [final atlas candidate review](../../data/adna/final/atlas/animal_atlas_point_candidates.json)
 - [final atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
 - [animal point evidence review](../report/animal_point_evidence_review.md)

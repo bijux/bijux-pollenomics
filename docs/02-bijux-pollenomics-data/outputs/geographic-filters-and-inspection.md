@@ -16,8 +16,12 @@ all governed by explicit scope rules.
 ## Reader Anchors
 
 - [world map](../../report/world/world_map.html)
+- [world map publication contract](../../report/world/world_map_publication_contract.md)
 - [Europe-plus map](../../report/regions/europe-plus/europe-plus_map.html)
+- [Europe-plus map publication contract](../../report/regions/europe-plus/europe-plus_map_publication_contract.md)
 - [Nordic map](../../report/regions/nordic/nordic_map.html)
+- [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
+- [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
 - [publication geography registry](../../report/publication_geography_registry.md)
 - [publication geography subset validation](../../report/publication_geography_subset_validation.md)
 
@@ -25,6 +29,7 @@ all governed by explicit scope rules.
 
 - which countries are active in one scope
 - which point layers remain visible after geography filtering
+- why Nordic-only context overlays disappear when a reader moves back to world or Europe-plus
 - whether animal points belong to the world surface only or to narrower derived views
 - whether a country bundle is derived from the world surface directly or through a regional parent
 
