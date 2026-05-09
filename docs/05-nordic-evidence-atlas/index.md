@@ -55,11 +55,14 @@ justify. It should help a reader answer four questions quickly:
 - [Nordic animal atlas evidence rows](../report/regions/nordic/nordic_animal_atlas_evidence.json)
 - [Nordic animal point traceability](../report/regions/nordic/nordic_animal_point_traceability.json)
 - [world parent surface](../report/world/README.md)
-- [final atlas candidate review](../../data/adna/final/atlas/animal_atlas_point_candidates.json)
-- [final atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
 - [animal point evidence review](../report/animal_point_evidence_review.md)
 - [atlas readiness audit](../report/animal_atlas_readiness.md)
 - [animal output honesty](../report/animal_output_honesty.md)
 - [animal atlas exclusion report](../report/animal_atlas_exclusion_report.md)
 - [country output coverage](../report/animal_country_species_coverage.md)
 - [repository truth posture](../report/repository_truth_posture.md)
+
+Checked-in atlas candidate artifacts remain under:
+
+- `data/adna/final/atlas/animal_atlas_point_candidates.json`
+- `data/adna/final/atlas/animal_atlas_candidate_accountability.md`
