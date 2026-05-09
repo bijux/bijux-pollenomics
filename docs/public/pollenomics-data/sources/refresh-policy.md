@@ -19,6 +19,13 @@ change that can affect what the public outputs are allowed to say.
 - chronology posture for previously thin rows
 - whether a map layer stays visible, becomes qualified, or needs to narrow
 
+## Where To Inspect It
+
+- `data/collection_summary.json` is the checked-in public summary that shows
+  what the latest refresh changed
+- refresh is visible here because the repository treats refresh as an evidence
+  event, not as silent maintenance
+
 ## Why The Policy Is Public
 
 Readers need to know that the repository does not silently absorb upstream
