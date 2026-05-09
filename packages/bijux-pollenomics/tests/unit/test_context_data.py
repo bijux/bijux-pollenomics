@@ -26,6 +26,7 @@ from bijux_pollenomics.data_downloader.sead import (
     collect_sead_data,
     fetch_sead_rows,
     fetch_sead_site_rows,
+    materialize_sead_repository_surfaces,
     normalize_sead_rows,
 )
 from bijux_pollenomics.data_downloader.exports import (
@@ -395,6 +396,117 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(raw_payload["bbox"], [4.0, 54.0, 35.0, 72.0])
         self.assertEqual(raw_payload["inventory_summary"]["dataset_row_count"], 9)
         self.assertIn("tbl_analysis_dating_ranges", raw_payload["source_tables"])
+
+    def test_materialize_sead_repository_surfaces_rebuilds_review_outputs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            (data_root / "sead" / "raw").mkdir(parents=True, exist_ok=True)
+            (data_root / "boundaries" / "raw").mkdir(parents=True, exist_ok=True)
+            (data_root / "sead" / "raw" / "nordic_sites.json").write_text(
+                json.dumps(
+                    {
+                        "source": "SEAD",
+                        "endpoint": "https://browser.sead.se/postgrest/tbl_sites",
+                        "generated_on": "2026-05-09",
+                        "row_count": 1,
+                        "rows": [
+                            {
+                                "site_id": 6468,
+                                "site_name": "10412 Fjalkinge",
+                                "national_site_identifier": "10412",
+                                "latitude_dd": 56.05,
+                                "longitude_dd": 14.28,
+                                "altitude": 24,
+                                "site_description": "",
+                                "site_uuid": "uuid-1",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            for country in ("sweden", "denmark", "norway", "finland"):
+                payload = (
+                    self.country_boundaries["Sweden"]
+                    if country == "sweden"
+                    else {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [0.0, 0.0],
+                                            [1.0, 0.0],
+                                            [1.0, 1.0],
+                                            [0.0, 1.0],
+                                            [0.0, 0.0],
+                                        ]
+                                    ],
+                                },
+                                "properties": {
+                                    "ADM0_A3": {
+                                        "denmark": "DNK",
+                                        "norway": "NOR",
+                                        "finland": "FIN",
+                                    }[country]
+                                },
+                            }
+                        ],
+                    }
+                )
+                if country == "sweden":
+                    payload = {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": self.country_boundaries["Sweden"]["features"][0]["geometry"],
+                                "properties": {"ADM0_A3": "SWE"},
+                            }
+                        ],
+                    }
+                (data_root / "boundaries" / "raw" / f"{country}.geojson").write_text(
+                    json.dumps(payload),
+                    encoding="utf-8",
+                )
+
+            report = materialize_sead_repository_surfaces(data_root)
+
+            normalized_payload = json.loads(
+                report.normalized_geojson_path.read_text(encoding="utf-8")
+            )
+            feature = normalized_payload["features"][0]
+            evidence_review = json.loads(
+                (
+                    data_root
+                    / "sead"
+                    / "review"
+                    / "evidence_legibility_review.json"
+                ).read_text(encoding="utf-8")
+            )
+            access_model = json.loads(
+                (data_root / "sead" / "review" / "access_model.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+
+        self.assertEqual(report.point_count, 1)
+        self.assertEqual(feature["properties"]["country"], "Sweden")
+        self.assertEqual(
+            feature["properties"]["temporal_semantics"]["comparability_posture"],
+            "unresolved",
+        )
+        self.assertEqual(
+            evidence_review["normalization_risk_counts"]["high_thin_site_inventory"],
+            1,
+        )
+        self.assertEqual(
+            access_model["access_visibility_counts"]["site_page_only"],
+            1,
+        )
 
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
