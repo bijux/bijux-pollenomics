@@ -38,7 +38,7 @@ surface.
 
 - open [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/04-fieldwork/lyngsjon-lake-fieldwork/)
   for the current visit record
-- open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/world/world_map.html)
+- open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html)
   when the question starts from a visible map point
 - open the [data handbook](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
   when the question is really about source provenance or normalization

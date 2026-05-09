@@ -23,8 +23,13 @@ atlas with ad hoc links.
 ## Direct Files
 
 - [world evidence surface](../../report/world/README.md)
+- [world map publication contract](../../report/world/world_map_publication_contract.md)
+- [world point traceability](../../report/world/world_point_traceability.md)
 - [Europe-plus evidence surface](../../report/regions/europe-plus/README.md)
+- [Europe-plus map publication contract](../../report/regions/europe-plus/europe-plus_map_publication_contract.md)
 - [Nordic evidence surface](../../report/regions/nordic/README.md)
+- [Nordic map publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
+- [Nordic point traceability](../../report/regions/nordic/nordic_point_traceability.md)
 - [Sweden country bundle](../../report/countries/sweden/README.md)
 - [Norway country bundle](../../report/countries/norway/README.md)
 - [Sweden animal sample query](../../report/countries/sweden/sweden_animal_adna_v66_samples.md)
@@ -49,6 +54,7 @@ atlas with ad hoc links.
 
 - showing the broadest world-facing evidence surface first
 - deriving Europe-plus and Nordic views through explicit reusable filters
+- publishing one inspectable contract for scope bounds, basemap posture, layer roles, and caveats per shared map surface
 - showing which animal rows currently survive one country filter
 - keeping citations, warnings, and sample tables together
 - exposing the difference between visible rows and blocked rows at world, region, and country scale
