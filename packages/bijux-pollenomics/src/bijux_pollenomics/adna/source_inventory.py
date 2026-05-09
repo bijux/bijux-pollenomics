@@ -4,6 +4,24 @@ import json
 from pathlib import Path
 
 from ..core.files import write_json, write_text
+from .source_recovery import (
+    build_manual_curation_worklist,
+    build_missing_source_queue,
+    build_paper_expected_sample_yield_review,
+    build_project_expected_sample_yield_review,
+    build_project_recovery_stage_review,
+    build_source_recovery_progress,
+    build_source_recovery_release_guard,
+    build_species_project_deficit_ledger,
+    render_manual_curation_worklist_markdown,
+    render_missing_source_queue_markdown,
+    render_paper_expected_sample_yield_review_markdown,
+    render_project_expected_sample_yield_review_markdown,
+    render_project_recovery_stage_review_markdown,
+    render_source_recovery_progress_markdown,
+    render_source_recovery_release_guard_markdown,
+    render_species_project_deficit_ledger_markdown,
+)
 from .paths import ADNA_SOURCE_LIBRARY_DIR
 from .source_library import (
     build_paper_registry,
@@ -72,6 +90,38 @@ def materialize_source_inventory(output_root: Path) -> None:
         "cross_project_source_intake_dossier": (
             build_cross_project_source_intake_dossier(output_root),
             render_cross_project_source_intake_dossier_markdown,
+        ),
+        "project_recovery_stage_review": (
+            build_project_recovery_stage_review(output_root),
+            render_project_recovery_stage_review_markdown,
+        ),
+        "project_expected_sample_yield_review": (
+            build_project_expected_sample_yield_review(output_root),
+            render_project_expected_sample_yield_review_markdown,
+        ),
+        "paper_expected_sample_yield_review": (
+            build_paper_expected_sample_yield_review(output_root),
+            render_paper_expected_sample_yield_review_markdown,
+        ),
+        "species_project_deficit_ledger": (
+            build_species_project_deficit_ledger(output_root),
+            render_species_project_deficit_ledger_markdown,
+        ),
+        "manual_curation_worklist": (
+            build_manual_curation_worklist(output_root),
+            render_manual_curation_worklist_markdown,
+        ),
+        "source_recovery_progress": (
+            build_source_recovery_progress(output_root),
+            render_source_recovery_progress_markdown,
+        ),
+        "missing_source_queue": (
+            build_missing_source_queue(output_root),
+            render_missing_source_queue_markdown,
+        ),
+        "source_recovery_release_guard": (
+            build_source_recovery_release_guard(output_root),
+            render_source_recovery_release_guard_markdown,
         ),
     }
     for stem, (payload, renderer) in payloads.items():
