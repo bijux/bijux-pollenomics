@@ -72,7 +72,9 @@ class AdnaEnaQuery:
             raise ValueError(f"Unsupported ENA result kind: {self.result_kind}")
         accessions = self.normalized_accessions()
         if not accessions:
-            raise ValueError("Provide at least one ENA project, sample, or accession selector")
+            raise ValueError(
+                "Provide at least one ENA project, sample, or accession selector"
+            )
         for accession in accessions:
             if not _valid_selector(accession):
                 raise ValueError(f"Invalid ENA selector: {accession}")
@@ -190,7 +192,9 @@ class AdnaArchiveProject:
             "accession_scope": self.accession_scope,
             "archive_status": self.archive_status,
             "notes": self.notes,
-            "paper_linkage": None if self.paper_linkage is None else self.paper_linkage.as_dict(),
+            "paper_linkage": None
+            if self.paper_linkage is None
+            else self.paper_linkage.as_dict(),
             "ancient_status": self.ancient_status,
             "sequencing_target": self.sequencing_target,
             "material_basis": self.material_basis,
@@ -268,9 +272,15 @@ def parse_ena_filereport_tsv(
                 library_source=_opt_field(row.get("library_source", "")),
                 library_strategy=_opt_field(row.get("library_strategy", "")),
                 instrument_model=_opt_field(row.get("instrument_model", "")),
-                base_count=_parse_optional_int(row.get("base_count", ""), "base_count", line_number),
-                read_count=_parse_optional_int(row.get("read_count", ""), "read_count", line_number),
-                fastq_bytes=_parse_int_list(row.get("fastq_bytes", ""), "fastq_bytes", line_number),
+                base_count=_parse_optional_int(
+                    row.get("base_count", ""), "base_count", line_number
+                ),
+                read_count=_parse_optional_int(
+                    row.get("read_count", ""), "read_count", line_number
+                ),
+                fastq_bytes=_parse_int_list(
+                    row.get("fastq_bytes", ""), "fastq_bytes", line_number
+                ),
                 fastq_ftp=_split_field(row.get("fastq_ftp", "")),
                 submitted_ftp=_split_field(row.get("submitted_ftp", "")),
                 sra_ftp=_split_field(row.get("sra_ftp", "")),
@@ -912,7 +922,9 @@ def build_species_archive_projects(species_name: str) -> tuple[AdnaArchiveProjec
     """Return the curated archive projects for one registered species."""
     species = resolve_species_definition(species_name)
     return tuple(
-        row for row in build_archive_project_catalog() if row.species_latin_name == species.latin_name
+        row
+        for row in build_archive_project_catalog()
+        if row.species_latin_name == species.latin_name
     )
 
 
@@ -1002,7 +1014,11 @@ def _metadata_url_for(
     if source_family == "BioProject":
         return f"https://www.ncbi.nlm.nih.gov/bioproject/{accession}"
     if source_family == "GenBank":
-        anchor = accession.split("-", 1)[0] if accession_scope == "accession_range" else accession
+        anchor = (
+            accession.split("-", 1)[0]
+            if accession_scope == "accession_range"
+            else accession
+        )
         return f"https://www.ncbi.nlm.nih.gov/nuccore/{anchor}"
     raise ValueError(f"Unsupported archive source family: {source_family}")
 

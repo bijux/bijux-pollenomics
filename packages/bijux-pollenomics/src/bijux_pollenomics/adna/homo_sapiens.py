@@ -146,7 +146,9 @@ def load_homo_sapiens_samples(
             normalized_query.political_entity.casefold(),
             _EMPTY_COUNTRY_RECORDS,
         )
-        return list(cached_records.samples), Counter(dict(cached_records.dataset_counts))
+        return list(cached_records.samples), Counter(
+            dict(cached_records.dataset_counts)
+        )
     combined: dict[str, AdnaSampleRecord] = {}
     dataset_counts: Counter[str] = Counter()
 
@@ -182,7 +184,7 @@ def discover_homo_sapiens_anno_files(release_dir: Path) -> list[Path]:
 
 @lru_cache(maxsize=32)
 def _cached_release_samples(
-    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]
+    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]],
 ) -> tuple[AdnaSampleRecord, ...]:
     (
         source_release,
@@ -211,8 +213,8 @@ def _cached_release_samples(
 
 @lru_cache(maxsize=32)
 def _cached_country_records(
-    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]
-) -> dict[str, "_CountryRecords"]:
+    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]],
+) -> dict[str, _CountryRecords]:
     grouped_samples: dict[str, dict[str, AdnaSampleRecord]] = {}
     grouped_dataset_counts: dict[str, Counter[str]] = {}
     for sample in _cached_release_samples(cache_key):

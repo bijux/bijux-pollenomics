@@ -50,22 +50,34 @@ class AdnaEnaUnitTests(unittest.TestCase):
 
     def test_parse_ena_filereport_tsv_rejects_missing_required_columns(self) -> None:
         query = AdnaEnaQuery(projects=("PRJEB22390",), samples=(), extra_accessions=())
-        with self.assertRaisesRegex(ValueError, "missing required columns: sample_accession"):
+        with self.assertRaisesRegex(
+            ValueError, "missing required columns: sample_accession"
+        ):
             parse_ena_filereport_tsv(
                 "study_accession\trun_accession\nPRJEB22390\tERR1\n",
                 query=query,
             )
 
-    def test_archive_project_catalog_includes_paper_pinned_and_rejected_projects(self) -> None:
+    def test_archive_project_catalog_includes_paper_pinned_and_rejected_projects(
+        self,
+    ) -> None:
         catalog = build_archive_project_catalog()
 
         horse = [row for row in catalog if row.species_latin_name == "Equus caballus"]
         goat = [row for row in catalog if row.species_latin_name == "Capra hircus"]
-        dog = [row for row in catalog if row.species_latin_name == "Canis lupus familiaris"]
-        camel = [row for row in catalog if row.species_latin_name == "Camelus dromedarius"]
-        reindeer = [row for row in catalog if row.species_latin_name == "Rangifer tarandus"]
+        dog = [
+            row for row in catalog if row.species_latin_name == "Canis lupus familiaris"
+        ]
+        camel = [
+            row for row in catalog if row.species_latin_name == "Camelus dromedarius"
+        ]
+        reindeer = [
+            row for row in catalog if row.species_latin_name == "Rangifer tarandus"
+        ]
         donkey = [row for row in catalog if row.species_latin_name == "Equus asinus"]
-        pig = [row for row in catalog if row.species_latin_name == "Sus scrofa domesticus"]
+        pig = [
+            row for row in catalog if row.species_latin_name == "Sus scrofa domesticus"
+        ]
 
         self.assertGreaterEqual(len(horse), 8)
         self.assertTrue(any(row.project_accession == "PRJEB90141" for row in goat))
@@ -86,14 +98,22 @@ class AdnaEnaUnitTests(unittest.TestCase):
 
         self.assertEqual(projects[0].species_latin_name, "Equus caballus")
         self.assertTrue(
-            all(project.metadata_url.startswith("https://www.ebi.ac.uk/ena/portal/api/filereport?")
-                for project in projects)
+            all(
+                project.metadata_url.startswith(
+                    "https://www.ebi.ac.uk/ena/portal/api/filereport?"
+                )
+                for project in projects
+            )
         )
 
         dog_projects = build_species_archive_projects("dog")
         self.assertEqual(dog_projects[0].source_family, "SRA")
         self.assertEqual(dog_projects[0].accession_scope, "sample")
-        self.assertTrue(dog_projects[0].metadata_url.startswith("https://www.ncbi.nlm.nih.gov/sra?term="))
+        self.assertTrue(
+            dog_projects[0].metadata_url.startswith(
+                "https://www.ncbi.nlm.nih.gov/sra?term="
+            )
+        )
 
     def test_archive_project_catalog_records_primary_paper_linkage_and_scientific_metadata(
         self,
@@ -102,12 +122,16 @@ class AdnaEnaUnitTests(unittest.TestCase):
 
         botai = next(row for row in projects if row.project_accession == "PRJEB22390")
 
-        self.assertEqual(classify_archive_project_evidence(botai), "primary_paper_pinned")
+        self.assertEqual(
+            classify_archive_project_evidence(botai), "primary_paper_pinned"
+        )
         self.assertEqual(botai.archive_status, "paper_pinned_core")
         self.assertEqual(botai.ancient_status, "ancient_confirmed")
         self.assertEqual(botai.sequencing_target, "shotgun_genome")
         self.assertEqual(botai.material_basis, "individual_bone_or_tooth")
-        self.assertEqual(botai.dating_basis, "mixed_radiocarbon_and_archaeological_context")
+        self.assertEqual(
+            botai.dating_basis, "mixed_radiocarbon_and_archaeological_context"
+        )
         self.assertEqual(botai.geographic_basis, "site_level_localities")
         self.assertEqual(botai.paper_linkage.doi, "10.1126/science.aao3297")
         self.assertIn("PRJEB22390", botai.paper_linkage.pinning_evidence)
@@ -117,14 +141,18 @@ class AdnaEnaUnitTests(unittest.TestCase):
     ) -> None:
         projects = build_species_archive_projects("pig")
 
-        chinese = next(row for row in projects if row.project_accession == "PRJNA788987")
+        chinese = next(
+            row for row in projects if row.project_accession == "PRJNA788987"
+        )
 
         self.assertEqual(classify_archive_project_evidence(chinese), "archive_only")
         self.assertEqual(chinese.archive_status, "archive_verified_needs_paper_pinning")
         self.assertEqual(chinese.ancient_status, "ancient_confirmed")
         self.assertIsNone(chinese.paper_linkage)
 
-    def test_archive_project_catalog_keeps_comparator_and_genbank_scope_explicit(self) -> None:
+    def test_archive_project_catalog_keeps_comparator_and_genbank_scope_explicit(
+        self,
+    ) -> None:
         reindeer = next(
             row
             for row in build_species_archive_projects("reindeer")

@@ -4,6 +4,15 @@ import json
 from pathlib import Path
 
 from ..core.files import write_json, write_text
+from .paths import ADNA_SOURCE_LIBRARY_DIR
+from .source_library import (
+    _doi_slug,
+    _reference_stash_records,
+    _resolve_reference_stash_root,
+    build_paper_registry,
+    build_project_registry,
+    build_project_source_bundles,
+)
 from .source_recovery import (
     build_manual_curation_worklist,
     build_missing_source_queue,
@@ -21,15 +30,6 @@ from .source_recovery import (
     render_source_recovery_progress_markdown,
     render_source_recovery_release_guard_markdown,
     render_species_project_deficit_ledger_markdown,
-)
-from .paths import ADNA_SOURCE_LIBRARY_DIR
-from .source_library import (
-    build_paper_registry,
-    build_project_registry,
-    build_project_source_bundles,
-    _doi_slug,
-    _reference_stash_records,
-    _resolve_reference_stash_root,
 )
 
 __all__ = [
@@ -135,7 +135,9 @@ def build_tracked_project_scope_audit(output_root: Path) -> dict[str, object]:
     for row in build_project_registry(output_root):
         if row.inventory_disposition == "retained_rejected_reference":
             scope_fit_status = "out_of_scope_reference"
-            scope_note = row.rejection_reason or "Retained with an explicit rejection reason."
+            scope_note = (
+                row.rejection_reason or "Retained with an explicit rejection reason."
+            )
         elif "comparator" in row.evidence_strength:
             scope_fit_status = "context_only_comparator"
             scope_note = "Retained as contextual comparison rather than a direct sample-owned intake path."
@@ -166,7 +168,9 @@ def build_tracked_project_scope_audit(output_root: Path) -> dict[str, object]:
 def build_project_source_evidence_matrix(output_root: Path) -> dict[str, object]:
     """Publish one honest matrix across archive metadata, paper capture, supplements, and extracted tables."""
     source_root = _source_root(output_root)
-    bundles = {row.project_accession: row for row in build_project_source_bundles(output_root)}
+    bundles = {
+        row.project_accession: row for row in build_project_source_bundles(output_root)
+    }
     rows: list[dict[str, object]] = []
     for row in build_project_registry(output_root):
         bundle = bundles[row.project_accession]
@@ -207,19 +211,28 @@ def build_project_source_evidence_matrix(output_root: Path) -> dict[str, object]
         "row_count": len(rows),
         "counts": {
             "repository_supplement_captured": sum(
-                1 for row in rows if row["repository_supplement_capture_status"] == "archived"
+                1
+                for row in rows
+                if row["repository_supplement_capture_status"] == "archived"
             ),
             "local_reference_supplement_staged": sum(
-                1 for row in rows if row["local_reference_supplement_status"] == "local_reference_staged"
+                1
+                for row in rows
+                if row["local_reference_supplement_status"] == "local_reference_staged"
             ),
             "sample_master_published": sum(
-                1 for row in rows if row["sample_table_extraction_status"] == "project_sample_master_published"
+                1
+                for row in rows
+                if row["sample_table_extraction_status"]
+                == "project_sample_master_published"
             ),
             "sample_site_published": sum(
                 1 for row in rows if row["sample_site_table_status"] == "published"
             ),
             "sample_chronology_published": sum(
-                1 for row in rows if row["sample_chronology_table_status"] == "published"
+                1
+                for row in rows
+                if row["sample_chronology_table_status"] == "published"
             ),
         },
         "rows": rows,
@@ -244,10 +257,14 @@ def build_reference_stash_reconciliation(output_root: Path) -> dict[str, object]
                 "paper_doi": "" if paper_row is None else paper_row.paper_doi,
                 "paper_registry_present": paper_row is not None,
                 "repository_article_capture_status": (
-                    "missing" if paper_row is None else paper_row.article_download_status
+                    "missing"
+                    if paper_row is None
+                    else paper_row.article_download_status
                 ),
                 "repository_supplement_capture_status": (
-                    "missing" if paper_row is None else paper_row.supplementary_download_status
+                    "missing"
+                    if paper_row is None
+                    else paper_row.supplementary_download_status
                 ),
                 "local_reference_article_status": (
                     "local_reference_staged"
@@ -265,12 +282,15 @@ def build_reference_stash_reconciliation(output_root: Path) -> dict[str, object]
                 "local_reference_supplementary_asset_count": len(
                     stash_record.get("supplementary_assets", ())
                 ),
-                "alignment_status": _reconciliation_alignment_status(paper_row, stash_record),
+                "alignment_status": _reconciliation_alignment_status(
+                    paper_row, stash_record
+                ),
             }
         )
     return {
         "schema_version": SOURCE_INVENTORY_SCHEMA_VERSION,
-        "reference_stash_visible": _resolve_reference_stash_root(output_root) is not None,
+        "reference_stash_visible": _resolve_reference_stash_root(output_root)
+        is not None,
         "row_count": len(rows),
         "counts": _count_by(rows, "alignment_status"),
         "rows": rows,
@@ -301,15 +321,19 @@ def build_reference_stash_doi_integrity_audit(output_root: Path) -> dict[str, ob
                 ),
             }
         )
-    missing_in_registry = [row["stash_slug"] for row in rows if not row["represented_in_paper_registry"]]
+    missing_in_registry = [
+        row["stash_slug"] for row in rows if not row["represented_in_paper_registry"]
+    ]
     missing_in_stash = [
         row["paper_doi"]
         for row in rows
-        if row["paper_doi"] and row["representation_status"] == "tracked_without_local_reference"
+        if row["paper_doi"]
+        and row["representation_status"] == "tracked_without_local_reference"
     ]
     return {
         "schema_version": SOURCE_INVENTORY_SCHEMA_VERSION,
-        "reference_stash_visible": _resolve_reference_stash_root(output_root) is not None,
+        "reference_stash_visible": _resolve_reference_stash_root(output_root)
+        is not None,
         "paper_registry_doi_count": len(paper_rows),
         "reference_stash_doi_count": len(stash_records),
         "all_stash_dois_tracked": len(missing_in_registry) == 0,
@@ -359,7 +383,8 @@ def build_supplement_acquisition_checklist(output_root: Path) -> dict[str, objec
                 "doi_landing_url": row.canonical_url,
                 "crossref_url": f"https://api.crossref.org/works/{row.paper_doi}",
                 "article_html_source_url": article_source_url
-                if row.article_readability_status in {"readable_html", "blocked_landing_page_only"}
+                if row.article_readability_status
+                in {"readable_html", "blocked_landing_page_only"}
                 else "",
                 "pmc_or_pubmed_url": article_source_url
                 if "pmc.ncbi.nlm.nih.gov" in article_source_url
@@ -377,7 +402,8 @@ def build_supplement_acquisition_checklist(output_root: Path) -> dict[str, objec
                     if row.supplementary_download_status == "archived"
                     else (
                         "local_reference_ready_for_ingestion"
-                        if row.local_reference_supplement_status == "local_reference_staged"
+                        if row.local_reference_supplement_status
+                        == "local_reference_staged"
                         else "still_missing_or_unverified"
                     )
                 ),
@@ -461,10 +487,16 @@ def build_cross_project_source_intake_dossier(output_root: Path) -> dict[str, ob
             expected_contributions.append("sample_identifiers")
         if row.primary_paper_doi:
             expected_contributions.append("taxonomic_context")
-        if row.primary_paper_doi and evidence_row["sample_site_table_status"] != "published":
+        if (
+            row.primary_paper_doi
+            and evidence_row["sample_site_table_status"] != "published"
+        ):
             expected_contributions.append("site_names")
             expected_contributions.append("coordinate_resolution_candidate")
-        if row.primary_paper_doi and evidence_row["sample_chronology_table_status"] != "published":
+        if (
+            row.primary_paper_doi
+            and evidence_row["sample_chronology_table_status"] != "published"
+        ):
             expected_contributions.append("chronology")
         rows.append(
             {
@@ -476,7 +508,9 @@ def build_cross_project_source_intake_dossier(output_root: Path) -> dict[str, ob
                 "expected_contributions": expected_contributions,
                 "expected_sample_count_status": row.expected_sample_count_status,
                 "sample_identifier_status": row.sample_identifier_status,
-                "current_anchor_files": _current_anchor_files(row.project_accession, row.primary_paper_doi),
+                "current_anchor_files": _current_anchor_files(
+                    row.project_accession, row.primary_paper_doi
+                ),
             }
         )
     return {
@@ -490,7 +524,9 @@ def build_cross_project_source_intake_dossier(output_root: Path) -> dict[str, ob
                 1 for row in rows if "chronology" in row["expected_contributions"]
             ),
             "projects_with_identifier_expectation": sum(
-                1 for row in rows if "sample_identifiers" in row["expected_contributions"]
+                1
+                for row in rows
+                if "sample_identifiers" in row["expected_contributions"]
             ),
         },
         "rows": rows,
@@ -654,7 +690,9 @@ def render_source_blocker_review_markdown(payload: dict[str, object]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def render_cross_project_source_intake_dossier_markdown(payload: dict[str, object]) -> str:
+def render_cross_project_source_intake_dossier_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Cross-project source intake dossier",
         "",
@@ -692,8 +730,12 @@ def _count_by(rows: list[dict[str, object]], field: str) -> dict[str, int]:
     return counts
 
 
-def _reconciliation_alignment_status(paper_row: object | None, stash_record: dict[str, object]) -> str:
-    repo_supplements = 0 if paper_row is None else int(getattr(paper_row, "supplementary_count", 0))
+def _reconciliation_alignment_status(
+    paper_row: object | None, stash_record: dict[str, object]
+) -> str:
+    repo_supplements = (
+        0 if paper_row is None else int(getattr(paper_row, "supplementary_count", 0))
+    )
     stash_supplements = len(stash_record.get("supplementary_assets", ()))
     if paper_row is not None and stash_supplements == repo_supplements:
         return "aligned"
@@ -705,9 +747,15 @@ def _reconciliation_alignment_status(paper_row: object | None, stash_record: dic
 
 
 def _supplement_recovery_status(paper_row: object) -> str:
-    verification_status = str(getattr(paper_row, "supplementary_verification_status", ""))
-    repository_capture_status = str(getattr(paper_row, "supplementary_download_status", ""))
-    local_reference_status = str(getattr(paper_row, "local_reference_supplement_status", ""))
+    verification_status = str(
+        getattr(paper_row, "supplementary_verification_status", "")
+    )
+    repository_capture_status = str(
+        getattr(paper_row, "supplementary_download_status", "")
+    )
+    local_reference_status = str(
+        getattr(paper_row, "local_reference_supplement_status", "")
+    )
     if repository_capture_status == "archived":
         return "archived_and_parseable"
     if verification_status == "supplement_confirmed_absent":
@@ -721,14 +769,21 @@ def _blocking_stage(matrix_row: dict[str, object]) -> str:
     state = str(matrix_row["evidence_acquisition_state"])
     if state == "scope_rejected":
         return "scope_filter"
-    if state in {"missing_capture", "paper_capture_partial", "paper_linkage_not_curated"}:
+    if state in {
+        "missing_capture",
+        "paper_capture_partial",
+        "paper_linkage_not_curated",
+    }:
         return "paper_capture"
     if state in {
         "local_supplement_staged_needs_repo_ingestion",
         "repository_supplement_captured_needs_extraction",
     }:
         return "supplement_ingestion_or_parsing"
-    if matrix_row["sample_table_extraction_status"] != "project_sample_master_published":
+    if (
+        matrix_row["sample_table_extraction_status"]
+        != "project_sample_master_published"
+    ):
         return "sample_identity_extraction"
     if matrix_row["sample_site_table_status"] != "published":
         return "site_extraction"
@@ -741,7 +796,10 @@ def _required_evidence(stage: str) -> list[str]:
     return {
         "scope_filter": ["explicit_rejection_reason"],
         "paper_capture": ["archived_article_surface", "stable_doi_linkage"],
-        "supplement_ingestion_or_parsing": ["repo_supplement_copy", "structured_table_inventory"],
+        "supplement_ingestion_or_parsing": [
+            "repo_supplement_copy",
+            "structured_table_inventory",
+        ],
         "sample_identity_extraction": ["project_sample_master"],
         "site_extraction": ["project_sample_sites"],
         "chronology_extraction": ["project_sample_chronology"],
@@ -752,9 +810,7 @@ def _blocking_explanation(stage: str, matrix_row: dict[str, object]) -> str:
     if stage == "paper_capture":
         return "The tracked project still lacks a reliable readable paper surface inside the repository."
     if stage == "supplement_ingestion_or_parsing":
-        return (
-            "Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory."
-        )
+        return "Supplementary evidence exists or is expected, but the repository still needs a governed copy or a structured table inventory."
     if stage == "sample_identity_extraction":
         return "Sample identities are not yet published as a governed project sample master."
     if stage == "site_extraction":

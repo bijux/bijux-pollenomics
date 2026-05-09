@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from functools import lru_cache
+from functools import cache
 from pathlib import Path
 
 from ..core.files import write_json, write_text
@@ -9,7 +9,6 @@ from .catalogs import render_csv_rows
 from .coordinate_provenance import resolve_project_context_coordinate_provenance
 from .ena import build_archive_project_catalog
 from .project_sample_sites import (
-    ADNA_LOCALITY_RESOLUTION_STATUSES,
     build_project_sample_site_rows,
 )
 from .site_evidence import resolve_project_context_site_evidence
@@ -57,7 +56,7 @@ _BROADER_PLACE_MARKERS = (
 )
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_project_sample_locality_evidence_rows(
     output_root: Path,
     project_accession: str,
@@ -116,12 +115,14 @@ def build_project_sample_locality_evidence_rows(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_project_locality_worksheet_rows(
     output_root: Path,
     project_accession: str,
 ) -> tuple[dict[str, object], ...]:
-    sample_packets = build_project_sample_locality_evidence_rows(output_root, project_accession)
+    sample_packets = build_project_sample_locality_evidence_rows(
+        output_root, project_accession
+    )
     worksheet_rows: list[dict[str, object]] = []
     seen: set[tuple[str, str, str, str]] = set()
 
@@ -130,7 +131,9 @@ def build_project_locality_worksheet_rows(
         grouped_packets[
             (
                 _normalize_text(str(packet["assigned_locality_text"])),
-                _normalize_text(str(packet["country_name"] or packet["broader_geography"])),
+                _normalize_text(
+                    str(packet["country_name"] or packet["broader_geography"])
+                ),
             )
         ].append(packet)
     for packets in grouped_packets.values():
@@ -173,7 +176,9 @@ def build_project_locality_worksheet_rows(
             political_entity=row.political_entity or "",
         )
         key = (
-            _source_surface_for_context(row.source_artifact_path, row.source_artifact_kind),
+            _source_surface_for_context(
+                row.source_artifact_path, row.source_artifact_kind
+            ),
             row.site_label,
             row.source_artifact_path,
             row.source_locator,
@@ -197,11 +202,17 @@ def build_project_locality_worksheet_rows(
                     row.site_label,
                 ),
                 "locality_class": locality_class,
-                "site_name": row.site_label if locality_class == "excavation_site" else "",
+                "site_name": row.site_label
+                if locality_class == "excavation_site"
+                else "",
                 "municipality_name": "",
                 "region_name": "",
-                "country_name": row.political_entity if _looks_like_country(row.political_entity or "") else "",
-                "broader_geography": "" if _looks_like_country(row.political_entity or "") else (row.political_entity or ""),
+                "country_name": row.political_entity
+                if _looks_like_country(row.political_entity or "")
+                else "",
+                "broader_geography": ""
+                if _looks_like_country(row.political_entity or "")
+                else (row.political_entity or ""),
                 "geocoding_safe_token": _geocoding_safe_token(row.site_label),
                 "source_artifact_path": row.source_artifact_path,
                 "source_artifact_kind": row.source_artifact_kind,
@@ -236,9 +247,15 @@ def build_project_locality_worksheet_rows(
                     "site_name": "",
                     "municipality_name": "",
                     "region_name": "",
-                    "country_name": row.political_entity if _looks_like_country(row.political_entity or "") else "",
-                    "broader_geography": "" if _looks_like_country(row.political_entity or "") else (row.political_entity or ""),
-                    "geocoding_safe_token": _geocoding_safe_token(row.original_place_text),
+                    "country_name": row.political_entity
+                    if _looks_like_country(row.political_entity or "")
+                    else "",
+                    "broader_geography": ""
+                    if _looks_like_country(row.political_entity or "")
+                    else (row.political_entity or ""),
+                    "geocoding_safe_token": _geocoding_safe_token(
+                        row.original_place_text
+                    ),
                     "source_artifact_path": row.source_artifact_path,
                     "source_artifact_kind": "coordinate_provenance_original_place",
                     "source_locator": row.source_locator,
@@ -269,12 +286,20 @@ def build_project_locality_worksheet_rows(
                         locality_text=row.resolved_place_text,
                         political_entity=row.political_entity or "",
                     ),
-                    "site_name": row.site_label if row.mapping_posture == "mappable_point" else "",
+                    "site_name": row.site_label
+                    if row.mapping_posture == "mappable_point"
+                    else "",
                     "municipality_name": "",
                     "region_name": "",
-                    "country_name": row.political_entity if _looks_like_country(row.political_entity or "") else "",
-                    "broader_geography": "" if _looks_like_country(row.political_entity or "") else (row.political_entity or ""),
-                    "geocoding_safe_token": _geocoding_safe_token(row.resolved_place_text),
+                    "country_name": row.political_entity
+                    if _looks_like_country(row.political_entity or "")
+                    else "",
+                    "broader_geography": ""
+                    if _looks_like_country(row.political_entity or "")
+                    else (row.political_entity or ""),
+                    "geocoding_safe_token": _geocoding_safe_token(
+                        row.resolved_place_text
+                    ),
                     "source_artifact_path": row.source_artifact_path,
                     "source_artifact_kind": "coordinate_provenance_resolved_place",
                     "source_locator": row.source_locator,
@@ -293,7 +318,7 @@ def build_project_locality_worksheet_rows(
     return tuple(worksheet_rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_sample_locality_conflict_ledger(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
@@ -303,7 +328,9 @@ def build_sample_locality_conflict_ledger(
             output_root,
             project.project_accession,
         )
-        context_rows = build_project_locality_worksheet_rows(output_root, project.project_accession)
+        context_rows = build_project_locality_worksheet_rows(
+            output_root, project.project_accession
+        )
         comparison_rows = [
             row
             for row in context_rows
@@ -313,8 +340,13 @@ def build_sample_locality_conflict_ledger(
             if not str(packet["assigned_locality_text"]).strip():
                 continue
             for context in comparison_rows:
-                if _normalize_text(str(packet["assigned_locality_text"])) == _normalize_text(
-                    str(context["resolved_locality_text"] or context["original_locality_text"])
+                if _normalize_text(
+                    str(packet["assigned_locality_text"])
+                ) == _normalize_text(
+                    str(
+                        context["resolved_locality_text"]
+                        or context["original_locality_text"]
+                    )
                 ):
                     continue
                 rows.append(
@@ -325,7 +357,9 @@ def build_sample_locality_conflict_ledger(
                         "preferred_sample_label": packet["preferred_sample_label"],
                         "sample_locality_text": packet["assigned_locality_text"],
                         "sample_locality_class": packet["assigned_locality_class"],
-                        "sample_resolution_status": packet["locality_resolution_status"],
+                        "sample_resolution_status": packet[
+                            "locality_resolution_status"
+                        ],
                         "conflicting_source_surface": context["source_surface"],
                         "conflicting_claim_scope": context["source_claim_scope"],
                         "conflicting_locality_text": context["resolved_locality_text"]
@@ -347,7 +381,7 @@ def build_sample_locality_conflict_ledger(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_sample_locality_manual_curation_workflow_rows(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
@@ -357,11 +391,18 @@ def build_sample_locality_manual_curation_workflow_rows(
             output_root,
             project.project_accession,
         )
-        worksheet_rows = build_project_locality_worksheet_rows(output_root, project.project_accession)
+        worksheet_rows = build_project_locality_worksheet_rows(
+            output_root, project.project_accession
+        )
         grouped: dict[tuple[str, str], list[dict[str, object]]] = defaultdict(list)
         for packet in sample_packets:
             status = str(packet["locality_resolution_status"])
-            if status not in {"project_level_site_only", "region_only", "unresolved", "named_place_inferred"}:
+            if status not in {
+                "project_level_site_only",
+                "region_only",
+                "unresolved",
+                "named_place_inferred",
+            }:
                 continue
             grouped[
                 (
@@ -370,7 +411,9 @@ def build_sample_locality_manual_curation_workflow_rows(
                 )
             ].append(packet)
         for (status, locality_text), packets in grouped.items():
-            candidate_matches = _candidate_matches_for_locality(locality_text, worksheet_rows)
+            candidate_matches = _candidate_matches_for_locality(
+                locality_text, worksheet_rows
+            )
             rows.append(
                 {
                     "project_accession": project.project_accession,
@@ -404,7 +447,7 @@ def build_sample_locality_manual_curation_workflow_rows(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_project_locality_substitution_ledger(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
@@ -416,7 +459,9 @@ def build_project_locality_substitution_ledger(
         )
         if not sample_packets:
             continue
-        worksheet_rows = build_project_locality_worksheet_rows(output_root, project.project_accession)
+        worksheet_rows = build_project_locality_worksheet_rows(
+            output_root, project.project_accession
+        )
         sample_owned_localities = {
             _normalize_text(str(packet["normalized_display_spelling"]))
             for packet in sample_packets
@@ -428,7 +473,9 @@ def build_project_locality_substitution_ledger(
             if str(packet["locality_evidence_bucket"]) != "exact_site_evidence"
         ]
         context_rows = [
-            row for row in worksheet_rows if row["source_claim_scope"] != "sample_owned_locality"
+            row
+            for row in worksheet_rows
+            if row["source_claim_scope"] != "sample_owned_locality"
         ]
         if len(sample_owned_localities) > 1 and context_rows:
             rows.append(
@@ -437,7 +484,9 @@ def build_project_locality_substitution_ledger(
                     "species_latin_name": project.species_latin_name,
                     "publication_blocked": False,
                     "reason": "project_context_rows_cannot_substitute_for_multi_site_sample_owned_localities",
-                    "distinct_sample_owned_locality_count": len(sample_owned_localities),
+                    "distinct_sample_owned_locality_count": len(
+                        sample_owned_localities
+                    ),
                     "project_context_row_count": len(context_rows),
                     "blocked_sample_count": 0,
                 }
@@ -449,7 +498,9 @@ def build_project_locality_substitution_ledger(
                     "species_latin_name": project.species_latin_name,
                     "publication_blocked": True,
                     "reason": "project_level_locality_row_cannot_stand_in_for_all_samples",
-                    "distinct_sample_owned_locality_count": len(sample_owned_localities),
+                    "distinct_sample_owned_locality_count": len(
+                        sample_owned_localities
+                    ),
                     "project_context_row_count": len(context_rows),
                     "blocked_sample_count": len(blocked_packets),
                 }
@@ -458,14 +509,18 @@ def build_project_locality_substitution_ledger(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_site_name_normalization_dictionary_rows(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
     grouped: dict[tuple[str, str], dict[str, object]] = {}
     for project in build_archive_project_catalog():
-        for row in build_project_locality_worksheet_rows(output_root, project.project_accession):
-            token = _geocoding_safe_token(str(row["resolved_locality_text"] or row["original_locality_text"]))
+        for row in build_project_locality_worksheet_rows(
+            output_root, project.project_accession
+        ):
+            token = _geocoding_safe_token(
+                str(row["resolved_locality_text"] or row["original_locality_text"])
+            )
             if not token:
                 continue
             key = (str(row["project_accession"]), token)
@@ -514,14 +569,16 @@ def build_site_name_normalization_dictionary_rows(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_species_locality_completeness_rows(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
     grouped: dict[str, list[dict[str, object]]] = defaultdict(list)
     for project in build_archive_project_catalog():
         grouped[project.species_latin_name].extend(
-            build_project_sample_locality_evidence_rows(output_root, project.project_accession)
+            build_project_sample_locality_evidence_rows(
+                output_root, project.project_accession
+            )
         )
     rows: list[dict[str, object]] = []
     for species_name, packets in sorted(grouped.items()):
@@ -534,13 +591,15 @@ def build_species_locality_completeness_rows(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def build_project_locality_completeness_rows(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
     rows: list[dict[str, object]] = []
     for project in build_archive_project_catalog():
-        packets = build_project_sample_locality_evidence_rows(output_root, project.project_accession)
+        packets = build_project_sample_locality_evidence_rows(
+            output_root, project.project_accession
+        )
         rows.append(
             {
                 "project_accession": project.project_accession,
@@ -557,7 +616,9 @@ def materialize_project_sample_locality_evidence_library(output_root: Path) -> N
     source_root.mkdir(parents=True, exist_ok=True)
 
     conflict_rows = list(build_sample_locality_conflict_ledger(output_root))
-    curation_rows = list(build_sample_locality_manual_curation_workflow_rows(output_root))
+    curation_rows = list(
+        build_sample_locality_manual_curation_workflow_rows(output_root)
+    )
     substitution_rows = list(build_project_locality_substitution_ledger(output_root))
     dictionary_rows = list(build_site_name_normalization_dictionary_rows(output_root))
     species_rows = list(build_species_locality_completeness_rows(output_root))
@@ -566,9 +627,15 @@ def materialize_project_sample_locality_evidence_library(output_root: Path) -> N
     for project in build_archive_project_catalog():
         project_root = source_root / "projects" / project.project_accession
         project_root.mkdir(parents=True, exist_ok=True)
-        worksheet_rows = list(build_project_locality_worksheet_rows(output_root, project.project_accession))
+        worksheet_rows = list(
+            build_project_locality_worksheet_rows(
+                output_root, project.project_accession
+            )
+        )
         packet_rows = list(
-            build_project_sample_locality_evidence_rows(output_root, project.project_accession)
+            build_project_sample_locality_evidence_rows(
+                output_root, project.project_accession
+            )
         )
         write_json(
             project_root / "locality_worksheet.json",
@@ -683,7 +750,12 @@ def _classify_sample_site_row(row: object) -> str:
         return "municipality"
     if region_name and not site_name:
         return "region"
-    if country_name and locality_text == country_name and not site_name and not region_name:
+    if (
+        country_name
+        and locality_text == country_name
+        and not site_name
+        and not region_name
+    ):
         return "country"
     if broader_geography and not site_name:
         return "broader_locality"
@@ -697,7 +769,9 @@ def _classify_context_place(*, locality_text: str, political_entity: str) -> str
         return "unresolved"
     if _looks_like_country(locality_text):
         return "country"
-    if _looks_broad(locality_text) or (_looks_broad(political_entity) and not _looks_like_country(political_entity)):
+    if _looks_broad(locality_text) or (
+        _looks_broad(political_entity) and not _looks_like_country(political_entity)
+    ):
         return "broader_locality"
     return "excavation_site"
 
@@ -711,7 +785,11 @@ def _source_surface_for_packet(row: object) -> str:
 def _source_surface_for_context(path: str, kind: str) -> str:
     lowered_kind = kind.casefold()
     lowered_path = path.casefold()
-    if "supplementary" in lowered_kind or "supplementary" in lowered_path or path.endswith(".xlsx"):
+    if (
+        "supplementary" in lowered_kind
+        or "supplementary" in lowered_path
+        or path.endswith(".xlsx")
+    ):
         return "supplementary_table"
     if "archive" in lowered_kind or "archive_metadata" in lowered_path:
         return "archive_metadata"
@@ -736,7 +814,12 @@ def _normalize_text(value: str) -> str:
 
 def _looks_like_country(value: str) -> bool:
     stripped = value.strip()
-    return bool(stripped) and all(marker not in stripped.casefold() for marker in _BROADER_PLACE_MARKERS) and "," not in stripped and " and " not in stripped.casefold()
+    return (
+        bool(stripped)
+        and all(marker not in stripped.casefold() for marker in _BROADER_PLACE_MARKERS)
+        and "," not in stripped
+        and " and " not in stripped.casefold()
+    )
 
 
 def _looks_broad(value: str) -> bool:
@@ -744,12 +827,23 @@ def _looks_broad(value: str) -> bool:
     return any(marker in lowered for marker in _BROADER_PLACE_MARKERS)
 
 
-def _locality_evidence_bucket(*, locality_class: str, locality_resolution_status: str) -> str:
-    if locality_resolution_status == "direct_sample_site" and locality_class == "excavation_site":
+def _locality_evidence_bucket(
+    *, locality_class: str, locality_resolution_status: str
+) -> str:
+    if (
+        locality_resolution_status == "direct_sample_site"
+        and locality_class == "excavation_site"
+    ):
         return "exact_site_evidence"
     if locality_resolution_status == "unresolved":
         return "unresolved_geography"
-    if locality_class in {"broader_locality", "municipality", "region", "country", "inferred_place_string"}:
+    if locality_class in {
+        "broader_locality",
+        "municipality",
+        "region",
+        "country",
+        "inferred_place_string",
+    }:
         return "broader_locality_evidence"
     if locality_resolution_status in {"project_level_site_only", "region_only"}:
         return "broader_locality_evidence"
@@ -763,11 +857,18 @@ def _candidate_matches_for_locality(
     token = _normalize_text(locality_text)
     candidates = []
     for row in worksheet_rows:
-        resolved = str(row["resolved_locality_text"] or row["original_locality_text"]).strip()
+        resolved = str(
+            row["resolved_locality_text"] or row["original_locality_text"]
+        ).strip()
         if not resolved:
             continue
         resolved_token = _normalize_text(resolved)
-        if not token or token == resolved_token or token in resolved_token or resolved_token in token:
+        if (
+            not token
+            or token == resolved_token
+            or token in resolved_token
+            or resolved_token in token
+        ):
             candidates.append(resolved)
     return sorted(set(candidates))
 
@@ -782,12 +883,12 @@ def _conflict_reason(packet: dict[str, object], context: dict[str, object]) -> s
 
 
 def _locality_completeness_counts(
-    packets: list[dict[str, object]] | tuple[dict[str, object], ...]
+    packets: list[dict[str, object]] | tuple[dict[str, object], ...],
 ) -> dict[str, object]:
     exact_count = 0
     broader_count = 0
     unresolved_count = 0
-    class_counts = {locality_class: 0 for locality_class in ADNA_LOCALITY_CLASSES}
+    class_counts = dict.fromkeys(ADNA_LOCALITY_CLASSES, 0)
     for packet in packets:
         class_counts[str(packet["assigned_locality_class"])] += 1
         bucket = str(packet["locality_evidence_bucket"])
@@ -816,7 +917,9 @@ def _locality_completeness_counts(
     }
 
 
-def _render_sample_locality_conflict_ledger_markdown(rows: list[dict[str, object]]) -> str:
+def _render_sample_locality_conflict_ledger_markdown(
+    rows: list[dict[str, object]],
+) -> str:
     lines = [
         "# Sample locality conflict ledger",
         "",

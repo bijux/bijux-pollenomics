@@ -25,7 +25,6 @@ from .sample_master import (
 )
 from .source_library import (
     ADNA_SOURCE_LIBRARY_DIR,
-    _doi_slug,
     build_paper_registry,
     build_project_registry,
     build_project_source_bundles,
@@ -151,7 +150,9 @@ def build_paper_expected_sample_yield_review(output_root: Path) -> dict[str, obj
                     "unknown" if paper_row is None else paper_row.sample_extractability
                 ),
                 "article_download_status": (
-                    "unknown" if paper_row is None else paper_row.article_download_status
+                    "unknown"
+                    if paper_row is None
+                    else paper_row.article_download_status
                 ),
                 "supplementary_download_status": (
                     "unknown"
@@ -159,7 +160,9 @@ def build_paper_expected_sample_yield_review(output_root: Path) -> dict[str, obj
                     else paper_row.supplementary_download_status
                 ),
                 "supplement_parse_status": (
-                    "unknown" if paper_row is None else paper_row.supplement_parse_status
+                    "unknown"
+                    if paper_row is None
+                    else paper_row.supplement_parse_status
                 ),
                 "recovered_final_sample_count": sum(
                     int(item["final_sample_count"]) for item in items
@@ -195,7 +198,9 @@ def build_paper_expected_sample_yield_review(output_root: Path) -> dict[str, obj
                 if int(row["projects_with_implausibly_low_recovery"]) > 0
             ),
             "paper_rows_with_unknown_expected_totals": sum(
-                1 for row in rows if int(row["projects_with_unknown_expected_total"]) > 0
+                1
+                for row in rows
+                if int(row["projects_with_unknown_expected_total"]) > 0
             ),
         },
         "rows": rows,
@@ -265,7 +270,8 @@ def build_manual_curation_worklist(output_root: Path) -> dict[str, object]:
 def _build_manual_curation_worklist_cached(output_root_key: str) -> dict[str, object]:
     output_root = Path(output_root_key)
     chronology_gap_rows = {
-        str(row["project_accession"]): row for row in build_date_evidence_gap_queue(output_root)
+        str(row["project_accession"]): row
+        for row in build_date_evidence_gap_queue(output_root)
     }
     chronology_ambiguity_counts = _count_rows(
         build_sample_chronology_ambiguity_ledger(output_root),
@@ -316,9 +322,11 @@ def _build_manual_curation_worklist_cached(output_root_key: str) -> dict[str, ob
             }
         )
     for project_accession, gap_row in chronology_gap_rows.items():
-        open_item_count = int(gap_row["missing_date_count"]) + int(
-            chronology_ambiguity_counts.get(project_accession, 0)
-        ) + int(chronology_conflict_counts.get(project_accession, 0))
+        open_item_count = (
+            int(gap_row["missing_date_count"])
+            + int(chronology_ambiguity_counts.get(project_accession, 0))
+            + int(chronology_conflict_counts.get(project_accession, 0))
+        )
         if open_item_count <= 0:
             continue
         rows.append(
@@ -353,7 +361,13 @@ def _build_manual_curation_worklist_cached(output_root_key: str) -> dict[str, ob
                 ],
             }
         )
-    rows.sort(key=lambda item: (str(item["species_latin_name"]), str(item["project_accession"]), str(item["work_unit_type"])))
+    rows.sort(
+        key=lambda item: (
+            str(item["species_latin_name"]),
+            str(item["project_accession"]),
+            str(item["work_unit_type"]),
+        )
+    )
     return {
         "schema_version": "animal-manual-curation-worklist.v1",
         "row_count": len(rows),
@@ -390,7 +404,9 @@ def build_source_recovery_progress(output_root: Path) -> dict[str, object]:
                 1 for row in rows if int(row["mappable_coordinate_count"]) > 0
             ),
             "projects_ready_for_publication_review": sum(
-                1 for row in rows if str(row["publication_readiness_status"]) == "complete"
+                1
+                for row in rows
+                if str(row["publication_readiness_status"]) == "complete"
             ),
         },
         "rows": [
@@ -464,7 +480,8 @@ def build_project_recovery_dossier(
 ) -> dict[str, object]:
     """Build one authoritative per-project recovery dossier."""
     rows = {
-        str(row["project_accession"]): row for row in _project_recovery_rows(output_root)
+        str(row["project_accession"]): row
+        for row in _project_recovery_rows(output_root)
     }
     row = rows[project_accession]
     manual_rows = [
@@ -505,7 +522,9 @@ def build_project_recovery_dossier(
         "expected_sample_count": row["expected_sample_count"],
         "expected_sample_count_status": row["expected_sample_count_status"],
         "expected_sample_count_provenance": row["expected_sample_count_provenance"],
-        "expected_sample_count_artifact_path": row["expected_sample_count_artifact_path"],
+        "expected_sample_count_artifact_path": row[
+            "expected_sample_count_artifact_path"
+        ],
         "minimum_expected_sample_count": row["minimum_expected_sample_count"],
         "recovered_sample_count": row["recovered_sample_count"],
         "final_sample_count": row["final_sample_count"],
@@ -545,7 +564,9 @@ def render_project_recovery_stage_review_markdown(payload: dict[str, object]) ->
     return "\n".join(lines) + "\n"
 
 
-def render_project_expected_sample_yield_review_markdown(payload: dict[str, object]) -> str:
+def render_project_expected_sample_yield_review_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Project expected sample yield review",
         "",
@@ -568,7 +589,9 @@ def render_project_expected_sample_yield_review_markdown(payload: dict[str, obje
     return "\n".join(lines) + "\n"
 
 
-def render_paper_expected_sample_yield_review_markdown(payload: dict[str, object]) -> str:
+def render_paper_expected_sample_yield_review_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Paper expected sample yield review",
         "",
@@ -768,7 +791,9 @@ def _project_recovery_rows(output_root: Path) -> list[dict[str, object]]:
 
 
 @lru_cache(maxsize=8)
-def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, object], ...]:
+def _project_recovery_rows_cached(
+    output_root_key: str,
+) -> tuple[dict[str, object], ...]:
     output_root = Path(output_root_key)
     project_rows = list(build_project_registry(output_root))
     bundles = {
@@ -789,7 +814,8 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
         for row in build_project_sample_chronology_review_rows(output_root)
     }
     chronology_gap_rows = {
-        row["project_accession"]: row for row in build_date_evidence_gap_queue(output_root)
+        row["project_accession"]: row
+        for row in build_date_evidence_gap_queue(output_root)
     }
     chronology_ambiguity_counts = _count_rows(
         build_sample_chronology_ambiguity_ledger(output_root),
@@ -817,7 +843,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
         site_row = site_review_rows.get(project_row.project_accession, {})
         chronology_row = chronology_review_rows.get(project_row.project_accession, {})
         gap_row = chronology_gap_rows.get(project_row.project_accession, {})
-        substitution_row = locality_substitution_rows.get(project_row.project_accession, {})
+        substitution_row = locality_substitution_rows.get(
+            project_row.project_accession, {}
+        )
         coord_counts = coordinate_counts.get(project_row.project_accession, {})
         stage_statuses = _project_stage_statuses(
             project_row=project_row,
@@ -828,7 +856,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
             chronology_row=chronology_row,
             coord_counts=coord_counts,
         )
-        minimum_expected = _minimum_expected_sample_count(project_row, sample_master_row)
+        minimum_expected = _minimum_expected_sample_count(
+            project_row, sample_master_row
+        )
         final_sample_count = int(sample_master_row.get("final_sample_count") or 0)
         minimum_gap_count = (
             None
@@ -858,7 +888,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
                     sample_master_row.get("recovered_sample_count") or 0
                 ),
                 "final_sample_count": final_sample_count,
-                "unresolved_sample_count": sample_master_row.get("unresolved_sample_count"),
+                "unresolved_sample_count": sample_master_row.get(
+                    "unresolved_sample_count"
+                ),
                 "minimum_gap_count": minimum_gap_count,
                 "sample_identifier_status": project_row.sample_identifier_status,
                 "sample_table_extraction_status": project_row.sample_table_extraction_status,
@@ -870,7 +902,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
                 "named_place_inferred_count": int(
                     site_row.get("named_place_inferred_count") or 0
                 ),
-                "sample_group_site_count": int(site_row.get("sample_group_site_count") or 0),
+                "sample_group_site_count": int(
+                    site_row.get("sample_group_site_count") or 0
+                ),
                 "missing_chronology_count": int(gap_row.get("missing_date_count") or 0),
                 "chronology_conflict_count": int(
                     chronology_conflict_counts.get(project_row.project_accession, 0)
@@ -879,7 +913,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
                     chronology_ambiguity_counts.get(project_row.project_accession, 0)
                 ),
                 "mappable_coordinate_count": int(coord_counts.get("mappable_point", 0)),
-                "coordinate_blocked_count": int(coord_counts.get("refused_region_only", 0))
+                "coordinate_blocked_count": int(
+                    coord_counts.get("refused_region_only", 0)
+                )
                 + int(site_row.get("region_only_count") or 0)
                 + int(site_row.get("project_level_site_only_count") or 0),
                 "publication_blocked_by_locality_substitution": bool(
@@ -897,7 +933,9 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
                 ),
                 "stage_statuses": stage_statuses,
                 "blocking_stages": [
-                    stage for stage, status in stage_statuses.items() if status == "blocked"
+                    stage
+                    for stage, status in stage_statuses.items()
+                    if status == "blocked"
                 ],
                 "next_required_stage": _next_required_stage(stage_statuses),
                 "publication_readiness_status": stage_statuses["publication_readiness"],
@@ -934,7 +972,12 @@ def _project_recovery_rows_cached(output_root_key: str) -> tuple[dict[str, objec
                 ),
             }
         )
-    rows.sort(key=lambda item: (str(item["species_latin_name"]), str(item["project_accession"])))
+    rows.sort(
+        key=lambda item: (
+            str(item["species_latin_name"]),
+            str(item["project_accession"]),
+        )
+    )
     return tuple(rows)
 
 
@@ -955,7 +998,10 @@ def _project_stage_statuses(
             stage_statuses[stage] = "not_required"
         return stage_statuses
 
-    if project_row.primary_paper_doi and project_row.paper_download_status == "archived":
+    if (
+        project_row.primary_paper_doi
+        and project_row.paper_download_status == "archived"
+    ):
         stage_statuses["paper_capture"] = "complete"
     elif project_row.primary_paper_doi:
         stage_statuses["paper_capture"] = "blocked"
@@ -999,9 +1045,10 @@ def _project_stage_statuses(
     else:
         stage_statuses["chronology_recovery"] = "in_progress"
 
-    if int(coord_counts.get("mappable_point", 0)) > 0 and int(
-        coord_counts.get("refused_region_only", 0)
-    ) == 0:
+    if (
+        int(coord_counts.get("mappable_point", 0)) > 0
+        and int(coord_counts.get("refused_region_only", 0)) == 0
+    ):
         stage_statuses["coordinate_derivation"] = "complete"
     elif stage_statuses["site_recovery"] == "complete":
         stage_statuses["coordinate_derivation"] = "in_progress"
@@ -1036,9 +1083,11 @@ def _minimum_expected_sample_count(
         "archive_native_identifiers_known",
     }:
         return 1
-    if str(project_row.sample_table_extraction_status) == "project_sample_master_published" and int(
-        sample_master_row.get("recovered_sample_count") or 0
-    ) > 0:
+    if (
+        str(project_row.sample_table_extraction_status)
+        == "project_sample_master_published"
+        and int(sample_master_row.get("recovered_sample_count") or 0) > 0
+    ):
         return int(sample_master_row.get("recovered_sample_count") or 0)
     return None
 
@@ -1052,7 +1101,11 @@ def _implausibly_low_recovery(
     if project_row.inventory_disposition == "retained_rejected_reference":
         return (False, "")
     final_sample_count = int(sample_master_row.get("final_sample_count") or 0)
-    if project_row.expected_sample_count is not None and minimum_gap_count and minimum_gap_count > 0:
+    if (
+        project_row.expected_sample_count is not None
+        and minimum_gap_count
+        and minimum_gap_count > 0
+    ):
         return (
             True,
             "Exact expected sample count is curated, but the governed sample master still recovers fewer final rows than that exact count.",
@@ -1067,7 +1120,10 @@ def _implausibly_low_recovery(
             True,
             "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
         )
-    if final_sample_count == 0 and project_row.sample_identifier_status == "archive_native_identifiers_known":
+    if (
+        final_sample_count == 0
+        and project_row.sample_identifier_status == "archive_native_identifiers_known"
+    ):
         return (
             True,
             "Archive-native sample identifiers are already known, but no governed final sample row was published.",
@@ -1089,7 +1145,10 @@ def _expected_contributions(
         contributions.append("sample_identities")
     if paper_row is not None:
         contributions.append("taxonomic_context")
-    if int(site_row.get("lacking_defensible_site_assignment_count") or 0) > 0 or not site_row:
+    if (
+        int(site_row.get("lacking_defensible_site_assignment_count") or 0) > 0
+        or not site_row
+    ):
         contributions.append("site_evidence")
         contributions.append("coordinate_candidates")
     if int(chronology_row.get("unresolved_count") or 0) > 0 or not chronology_row:
@@ -1107,7 +1166,9 @@ def _expected_contribution_surfaces(
     ]
     if paper_row is not None:
         surfaces.append(paper_row.article_local_path)
-        surfaces.extend(str(item) for item in paper_row.expected_supplementary_artifacts)
+        surfaces.extend(
+            str(item) for item in paper_row.expected_supplementary_artifacts
+        )
         surfaces.extend(str(item) for item in paper_row.sample_identifier_targets)
         surfaces.extend(str(item) for item in paper_row.sample_site_targets)
         surfaces.extend(str(item) for item in paper_row.chronology_targets)
@@ -1148,11 +1209,20 @@ def _recovery_gap_status(
     if project_row.inventory_disposition == "retained_rejected_reference":
         return "out_of_scope_reference"
     final_sample_count = int(sample_master_row.get("final_sample_count") or 0)
-    if project_row.expected_sample_count is not None and int(minimum_gap_count or 0) == 0:
+    if (
+        project_row.expected_sample_count is not None
+        and int(minimum_gap_count or 0) == 0
+    ):
         return "recovered_to_exact_expected_count"
-    if project_row.expected_sample_count is not None and int(minimum_gap_count or 0) > 0:
+    if (
+        project_row.expected_sample_count is not None
+        and int(minimum_gap_count or 0) > 0
+    ):
         return "exact_expected_count_still_unrecovered"
-    if final_sample_count == 0 and str(project_row.sample_table_extraction_status) == "published_empty":
+    if (
+        final_sample_count == 0
+        and str(project_row.sample_table_extraction_status) == "published_empty"
+    ):
         return "extractable_sources_but_no_governed_samples"
     if final_sample_count > 0 and minimum_gap_count is None:
         return "partial_recovery_expected_total_unknown"
@@ -1190,11 +1260,15 @@ def _missing_assets(
     if int(sample_master_row.get("final_sample_count") or 0) == 0:
         missing.append("No final governed sample rows are published yet.")
     if int(site_row.get("lacking_defensible_site_assignment_count") or 0) > 0:
-        missing.append("Some recovered sample rows still lack a defensible site assignment.")
+        missing.append(
+            "Some recovered sample rows still lack a defensible site assignment."
+        )
     if int(gap_row.get("missing_date_count") or 0) > 0:
         missing.append("Some recovered sample rows still lack sample-level chronology.")
     if project_row.sample_identifier_status == "missing_primary_paper_linkage":
-        missing.append("The tracked project still lacks a pinned primary paper linkage.")
+        missing.append(
+            "The tracked project still lacks a pinned primary paper linkage."
+        )
     return missing
 
 
@@ -1241,7 +1315,10 @@ def _missing_source_queue_category(row: dict[str, object]) -> str:
     if (
         str(row["supplement_download_status"]) != "archived"
         and "sample_identities" in row["expected_contributions"]
-        and any("supplementary" in surface for surface in row["expected_contribution_surfaces"])
+        and any(
+            "supplementary" in surface
+            for surface in row["expected_contribution_surfaces"]
+        )
     ):
         return "missing_repository_supplement_capture"
     if bool(row["implausibly_low_recovery"]):
@@ -1278,10 +1355,12 @@ def _sample_evidence_depth_counts(output_root: Path) -> dict[str, int]:
             continue
         payload = json.loads(sample_path.read_text(encoding="utf-8"))
         for row in payload.get("samples", []):
-            has_site = bool(str(row.get("locality", "") or row.get("site_label", "")).strip()) or bool(
-                row.get("locality_identity")
-            )
-            has_chronology = str(row.get("chronology_normalization_status", "")).strip() in {
+            has_site = bool(
+                str(row.get("locality", "") or row.get("site_label", "")).strip()
+            ) or bool(row.get("locality_identity"))
+            has_chronology = str(
+                row.get("chronology_normalization_status", "")
+            ).strip() in {
                 "normalized_interval",
                 "normalized_point",
             }
@@ -1322,7 +1401,9 @@ def _coordinate_counts_by_project(output_root: Path) -> dict[str, dict[str, int]
     return counts
 
 
-def _count_rows(rows: list[dict[str, object]] | tuple[dict[str, object], ...], *, key: str) -> dict[str, int]:
+def _count_rows(
+    rows: list[dict[str, object]] | tuple[dict[str, object], ...], *, key: str
+) -> dict[str, int]:
     counts: dict[str, int] = {}
     for row in rows:
         value = str(row.get(key, "")).strip()

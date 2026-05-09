@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from functools import lru_cache
+from functools import cache
 import json
 import os
 from pathlib import Path
@@ -187,8 +187,12 @@ class AdnaPaperRegistryRow:
             "sample_extractability": self.sample_extractability,
             "sample_table_extraction_status": self.sample_table_extraction_status,
             "evidence_acquisition_state": self.evidence_acquisition_state,
-            "expected_supplementary_file_families": list(self.expected_supplementary_file_families),
-            "expected_supplementary_artifacts": list(self.expected_supplementary_artifacts),
+            "expected_supplementary_file_families": list(
+                self.expected_supplementary_file_families
+            ),
+            "expected_supplementary_artifacts": list(
+                self.expected_supplementary_artifacts
+            ),
             "sample_identifier_targets": list(self.sample_identifier_targets),
             "sample_site_targets": list(self.sample_site_targets),
             "chronology_targets": list(self.chronology_targets),
@@ -303,7 +307,9 @@ class _ProjectIntakeExpectation:
 
 SOURCE_LIBRARY_SCHEMA_VERSION = "adna-source-library.v1"
 _USER_AGENT = "Mozilla/5.0 (compatible; bijux-pollenomics/1.0)"
-_NATURE_DOI_RE = re.compile(r"https?://www\.nature\.com/articles/(?P<slug>[A-Za-z0-9_.-]+)")
+_NATURE_DOI_RE = re.compile(
+    r"https?://www\.nature\.com/articles/(?P<slug>[A-Za-z0-9_.-]+)"
+)
 
 
 def _source_library_cache_key(output_root: Path) -> str:
@@ -330,17 +336,21 @@ def _build_source_artifact_index_uncached(
     rows: list[AdnaSourceArtifact] = []
     for artifact in _iter_materialized_artifacts(output_root):
         rows.append(artifact)
-    return tuple(sorted(rows, key=lambda item: (item.paper_doi or "", item.artifact_id)))
+    return tuple(
+        sorted(rows, key=lambda item: (item.paper_doi or "", item.artifact_id))
+    )
 
 
-@lru_cache(maxsize=None)
+@cache
 def _build_source_artifact_index_cached(
     output_root_key: str,
 ) -> tuple[AdnaSourceArtifact, ...]:
     return _build_source_artifact_index_uncached(Path(output_root_key))
 
 
-def build_project_source_bundles(output_root: Path) -> tuple[AdnaSourceBundleManifest, ...]:
+def build_project_source_bundles(
+    output_root: Path,
+) -> tuple[AdnaSourceBundleManifest, ...]:
     """Return one per-project manifest describing local paper and supplement support."""
     output_root = Path(output_root)
     artifacts_by_project: dict[str, list[AdnaSourceArtifact]] = {}
@@ -362,7 +372,8 @@ def build_project_source_bundles(output_root: Path) -> tuple[AdnaSourceBundleMan
         paper_artifacts = tuple(
             item
             for item in local_project_artifacts
-            if item.artifact_kind in {"article_html", "article_pdf", "paper_metadata_json"}
+            if item.artifact_kind
+            in {"article_html", "article_pdf", "paper_metadata_json"}
         )
         supplement_artifacts = tuple(
             item
@@ -385,17 +396,25 @@ def build_project_source_bundles(output_root: Path) -> tuple[AdnaSourceBundleMan
                 archive_status=project.archive_status,
                 evidence_strength=project.as_dict()["evidence_strength"],
                 project_url=project.metadata_url,
-                paper_doi=None if project.paper_linkage is None else project.paper_linkage.doi,
+                paper_doi=None
+                if project.paper_linkage is None
+                else project.paper_linkage.doi,
                 paper_title=(
-                    None if project.paper_linkage is None else project.paper_linkage.paper_title
+                    None
+                    if project.paper_linkage is None
+                    else project.paper_linkage.paper_title
                 ),
                 archive_metadata_sufficient=not paper_required,
                 paper_required=paper_required,
                 supplement_required=supplement_required,
                 paper_download_status=_fold_fetch_status(paper_artifacts),
                 supplement_download_status=_fold_fetch_status(supplement_artifacts),
-                local_artifact_ids=tuple(item.artifact_id for item in local_project_artifacts),
-                local_artifact_paths=tuple(item.local_path for item in local_project_artifacts),
+                local_artifact_ids=tuple(
+                    item.artifact_id for item in local_project_artifacts
+                ),
+                local_artifact_paths=tuple(
+                    item.local_path for item in local_project_artifacts
+                ),
                 blockers=tuple(blockers),
             )
         )
@@ -413,16 +432,16 @@ def _accession_range_sample_count(project_accession: str) -> int | None:
 
 
 def _project_intake_expectation(project: object) -> _ProjectIntakeExpectation:
-    default_artifact_path = (
-        f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html"
-    )
+    default_artifact_path = f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html"
     paper_spec = None
     if project.paper_linkage is not None and project.paper_linkage.doi is not None:
         paper_spec = _paper_source_spec(project.paper_linkage.doi)
 
     if project.archive_status == "reject_or_out_of_scope":
         return _ProjectIntakeExpectation(
-            expected_sample_count=_accession_range_sample_count(project.project_accession)
+            expected_sample_count=_accession_range_sample_count(
+                project.project_accession
+            )
             if project.accession_scope == "accession_range"
             else (1 if project.accession_scope == "sample" else None),
             expected_sample_count_status=(
@@ -541,7 +560,10 @@ def _build_project_registry_uncached(
     output_root: Path,
 ) -> tuple[AdnaProjectRegistryRow, ...]:
     output_root = Path(output_root)
-    bundles = {bundle.project_accession: bundle for bundle in build_project_source_bundles(output_root)}
+    bundles = {
+        bundle.project_accession: bundle
+        for bundle in build_project_source_bundles(output_root)
+    }
     paper_rows = {row.paper_doi: row for row in build_paper_registry(output_root)}
     rows: list[AdnaProjectRegistryRow] = []
     for project in build_archive_project_catalog():
@@ -561,7 +583,9 @@ def _build_project_registry_uncached(
                 evidence_strength=project.as_dict()["evidence_strength"],
                 accession_scope=project.accession_scope,
                 project_url=project.metadata_url,
-                primary_paper_doi=None if project.paper_linkage is None else project.paper_linkage.doi,
+                primary_paper_doi=None
+                if project.paper_linkage is None
+                else project.paper_linkage.doi,
                 primary_paper_url=paper_url,
                 source_bundle_path=(
                     f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/bundle_manifest.json"
@@ -609,10 +633,12 @@ def _build_project_registry_uncached(
                 rejection_reason=expectation.rejection_reason,
             )
         )
-    return tuple(sorted(rows, key=lambda item: (item.species_latin_name, item.project_accession)))
+    return tuple(
+        sorted(rows, key=lambda item: (item.species_latin_name, item.project_accession))
+    )
 
 
-@lru_cache(maxsize=None)
+@cache
 def _build_project_registry_cached(
     output_root_key: str,
 ) -> tuple[AdnaProjectRegistryRow, ...]:
@@ -652,10 +678,15 @@ def _build_paper_registry_uncached(
         stash_record = _reference_stash_records(output_root).get(_doi_slug(doi), {})
         doi_artifacts = tuple(artifacts_by_doi.get(doi, ()))
         article_artifacts = tuple(
-            item for item in doi_artifacts if item.artifact_kind in {"article_html", "article_pdf", "paper_metadata_json"}
+            item
+            for item in doi_artifacts
+            if item.artifact_kind
+            in {"article_html", "article_pdf", "paper_metadata_json"}
         )
         supplement_artifacts = tuple(
-            item for item in doi_artifacts if item.artifact_kind.startswith("supplementary_")
+            item
+            for item in doi_artifacts
+            if item.artifact_kind.startswith("supplementary_")
         )
         article_download_status = _fold_fetch_status(article_artifacts)
         supplementary_download_status = _fold_fetch_status(supplement_artifacts)
@@ -684,7 +715,9 @@ def _build_paper_registry_uncached(
                 species_latin_names=tuple(
                     sorted({project.species_latin_name for project in projects})
                 ),
-                project_accessions=tuple(sorted(project.project_accession for project in projects)),
+                project_accessions=tuple(
+                    sorted(project.project_accession for project in projects)
+                ),
                 article_download_status=article_download_status,
                 article_readability_status=_article_readability_status(
                     spec,
@@ -697,8 +730,12 @@ def _build_paper_registry_uncached(
                     supplementary_download_status=supplementary_download_status,
                     stash_record=stash_record,
                 ),
-                local_reference_article_status=_local_reference_article_status(stash_record),
-                local_reference_supplement_status=_local_reference_supplement_status(stash_record),
+                local_reference_article_status=_local_reference_article_status(
+                    stash_record
+                ),
+                local_reference_supplement_status=_local_reference_supplement_status(
+                    stash_record
+                ),
                 supplementary_count=len(supplement_artifacts),
                 parsing_status=spec.parsing_status,
                 sample_extractability=_paper_sample_extractability(
@@ -747,7 +784,7 @@ def _build_paper_registry_uncached(
     return tuple(rows)
 
 
-@lru_cache(maxsize=None)
+@cache
 def _build_paper_registry_cached(
     output_root_key: str,
 ) -> tuple[AdnaPaperRegistryRow, ...]:
@@ -842,7 +879,9 @@ def _paper_chronology_targets(
     return (spec.article_local_path,)
 
 
-def build_supplement_registry(output_root: Path) -> tuple[AdnaSupplementRegistryRow, ...]:
+def build_supplement_registry(
+    output_root: Path,
+) -> tuple[AdnaSupplementRegistryRow, ...]:
     """Return the supplementary-material registry."""
     rows: list[AdnaSupplementRegistryRow] = []
     for artifact in build_source_artifact_index(output_root):
@@ -863,7 +902,9 @@ def build_supplement_registry(output_root: Path) -> tuple[AdnaSupplementRegistry
     return tuple(sorted(rows, key=lambda item: item.artifact_id))
 
 
-def build_supplement_zip_member_registry(output_root: Path) -> tuple[dict[str, object], ...]:
+def build_supplement_zip_member_registry(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
     """Return the tracked member inventory for archived supplementary zip bundles."""
     return _build_supplement_zip_member_registry_cached(
         _source_library_cache_key(output_root)
@@ -894,7 +935,9 @@ def _build_supplement_zip_member_registry_uncached(
                             "member_name": member.filename,
                             "member_local_path": f"{artifact.local_path}#{member.filename}",
                             "member_byte_size": member.file_size,
-                            "inferred_purpose": _infer_zip_member_purpose(member.filename),
+                            "inferred_purpose": _infer_zip_member_purpose(
+                                member.filename
+                            ),
                         }
                     )
         except zipfile.BadZipFile:
@@ -921,7 +964,7 @@ def _build_supplement_zip_member_registry_uncached(
     )
 
 
-@lru_cache(maxsize=None)
+@cache
 def _build_supplement_zip_member_registry_cached(
     output_root_key: str,
 ) -> tuple[dict[str, object], ...]:
@@ -952,7 +995,9 @@ def _paper_manifest_rows(
         if artifact.paper_doi == doi
     ]
     member_rows = [
-        row for row in build_supplement_zip_member_registry(output_root) if row["paper_doi"] == doi
+        row
+        for row in build_supplement_zip_member_registry(output_root)
+        if row["paper_doi"] == doi
     ]
     rows: list[dict[str, object]] = []
     for artifact in artifact_rows:
@@ -1041,7 +1086,9 @@ def build_cross_project_source_audit(output_root: Path) -> dict[str, object]:
 
 def build_missing_source_blockers(output_root: Path) -> dict[str, object]:
     """Return the explicit blocker ledger for paper and supplementary archive gaps."""
-    project_rows = {row.project_accession: row for row in build_project_registry(output_root)}
+    project_rows = {
+        row.project_accession: row for row in build_project_registry(output_root)
+    }
     rows = []
     for bundle in build_project_source_bundles(output_root):
         if not bundle.blockers:
@@ -1073,11 +1120,15 @@ def _derive_blocker_categories(
         categories.append("missing_paper_capture")
     if "missing_local_supplementary_material" in bundle.blockers:
         categories.append("missing_supplementary_capture")
-    if project_row.sample_identifier_status in {
-        "missing_primary_paper_linkage",
-        "manual_curation_required",
-        "paper_or_supplement_targets_curated",
-    } and project_row.expected_sample_count is None:
+    if (
+        project_row.sample_identifier_status
+        in {
+            "missing_primary_paper_linkage",
+            "manual_curation_required",
+            "paper_or_supplement_targets_curated",
+        }
+        and project_row.expected_sample_count is None
+    ):
         categories.append("missing_sample_identifiers")
     if bundle.paper_download_status != "archived" and bundle.paper_required:
         categories.append("missing_readable_tables")
@@ -1089,7 +1140,10 @@ def build_source_intake_audit(output_root: Path) -> dict[str, object]:
     output_root = Path(output_root)
     project_rows = build_project_registry(output_root)
     paper_rows = build_paper_registry(output_root)
-    bundles = {bundle.project_accession: bundle for bundle in build_project_source_bundles(output_root)}
+    bundles = {
+        bundle.project_accession: bundle
+        for bundle in build_project_source_bundles(output_root)
+    }
     member_rows = build_supplement_zip_member_registry(output_root)
 
     zip_member_rows_by_doi: dict[str, list[dict[str, object]]] = {}
@@ -1129,10 +1183,15 @@ def build_source_intake_audit(output_root: Path) -> dict[str, object]:
 
     sample_extractable_violations: list[dict[str, object]] = []
     for paper_row in paper_rows:
-        if paper_row.sample_extractability not in {"article_extractable", "supplement_extractable"}:
+        if paper_row.sample_extractability not in {
+            "article_extractable",
+            "supplement_extractable",
+        }:
             continue
         member_inventory_ok = True
-        if any(path.endswith(".zip") for path in paper_row.expected_supplementary_artifacts):
+        if any(
+            path.endswith(".zip") for path in paper_row.expected_supplementary_artifacts
+        ):
             member_inventory_ok = any(
                 str(row.get("member_name", "")).strip()
                 and str(row.get("inferred_purpose", "")) != "invalid_zip_bundle"
@@ -1162,7 +1221,8 @@ def build_source_intake_audit(output_root: Path) -> dict[str, object]:
         "sample_extractable_paper_count": sum(
             1
             for row in paper_rows
-            if row.sample_extractability in {"article_extractable", "supplement_extractable"}
+            if row.sample_extractability
+            in {"article_extractable", "supplement_extractable"}
         ),
         "supplementary_manifested_paper_count": sum(
             1 for row in paper_rows if row.expected_supplementary_artifacts
@@ -1257,7 +1317,9 @@ def refresh_source_library(
                 "byte_size": len(payload),
                 "paper_doi": doi,
             }
-            write_json(local_path.with_suffix(local_path.suffix + ".metadata.json"), metadata)
+            write_json(
+                local_path.with_suffix(local_path.suffix + ".metadata.json"), metadata
+            )
     _clear_source_library_caches()
 
 
@@ -1280,22 +1342,43 @@ def materialize_source_library(output_root: Path) -> None:
 
     write_json(
         source_root / "project_registry.json",
-        {"schema_version": SOURCE_LIBRARY_SCHEMA_VERSION, "rows": [row.as_dict() for row in project_registry]},
+        {
+            "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+            "rows": [row.as_dict() for row in project_registry],
+        },
     )
-    write_text(source_root / "project_registry.csv", _render_csv([row.as_dict() for row in project_registry]))
+    write_text(
+        source_root / "project_registry.csv",
+        _render_csv([row.as_dict() for row in project_registry]),
+    )
     write_json(
         source_root / "paper_registry.json",
-        {"schema_version": SOURCE_LIBRARY_SCHEMA_VERSION, "rows": [row.as_dict() for row in paper_registry]},
+        {
+            "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+            "rows": [row.as_dict() for row in paper_registry],
+        },
     )
-    write_text(source_root / "paper_registry.csv", _render_csv([row.as_dict() for row in paper_registry]))
+    write_text(
+        source_root / "paper_registry.csv",
+        _render_csv([row.as_dict() for row in paper_registry]),
+    )
     write_json(
         source_root / "supplement_registry.json",
-        {"schema_version": SOURCE_LIBRARY_SCHEMA_VERSION, "rows": [row.as_dict() for row in supplement_registry]},
+        {
+            "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+            "rows": [row.as_dict() for row in supplement_registry],
+        },
     )
-    write_text(source_root / "supplement_registry.csv", _render_csv([row.as_dict() for row in supplement_registry]))
+    write_text(
+        source_root / "supplement_registry.csv",
+        _render_csv([row.as_dict() for row in supplement_registry]),
+    )
     write_json(
         source_root / "supplement_zip_member_registry.json",
-        {"schema_version": SOURCE_LIBRARY_SCHEMA_VERSION, "rows": list(supplement_zip_member_registry)},
+        {
+            "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
+            "rows": list(supplement_zip_member_registry),
+        },
     )
     write_text(
         source_root / "supplement_zip_member_registry.csv",
@@ -1324,8 +1407,14 @@ def materialize_source_library(output_root: Path) -> None:
         project_dir.mkdir(parents=True, exist_ok=True)
         write_json(project_dir / "bundle_manifest.json", bundle.as_dict())
         write_text(project_dir / "curation_note.md", _render_curation_note(bundle))
-        write_json(project_dir / "intake_dossier.json", _project_intake_dossier(output_root, bundle))
-        write_text(project_dir / "intake_dossier.md", _render_project_intake_dossier(output_root, bundle))
+        write_json(
+            project_dir / "intake_dossier.json",
+            _project_intake_dossier(output_root, bundle),
+        )
+        write_text(
+            project_dir / "intake_dossier.md",
+            _render_project_intake_dossier(output_root, bundle),
+        )
 
     for paper_row in paper_registry:
         paper_dir = source_root / "papers" / _doi_slug(paper_row.paper_doi)
@@ -1476,12 +1565,15 @@ def _materialize_curated_local_supplements(output_root: Path) -> None:
             sorted(
                 project.project_accession
                 for project in catalog
-                if project.paper_linkage is not None and project.paper_linkage.doi == doi
+                if project.paper_linkage is not None
+                and project.paper_linkage.doi == doi
             )
         )
         paper_dir = source_root / "papers" / _doi_slug(doi) / "supplementary"
         paper_dir.mkdir(parents=True, exist_ok=True)
-        for source_path in sorted(path for path in stash_dir.iterdir() if path.is_file()):
+        for source_path in sorted(
+            path for path in stash_dir.iterdir() if path.is_file()
+        ):
             if source_path.name.startswith(".") or source_path.name == ".DS_Store":
                 continue
             if source_path.suffix.lower() == ".md":
@@ -1557,7 +1649,7 @@ def _content_type_from_filename(filename: str) -> str:
         return "text/tab-separated-values"
     if lowered.endswith(".zip"):
         return "application/zip"
-    if lowered.endswith(".jpg") or lowered.endswith(".jpeg"):
+    if lowered.endswith((".jpg", ".jpeg")):
         return "image/jpeg"
     if lowered.endswith(".png"):
         return "image/png"
@@ -1570,7 +1662,12 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
     seen_artifact_ids: set[str] = set()
     catalog = build_archive_project_catalog()
     for project in catalog:
-        local_path = source_root / "projects" / project.project_accession / "archive_metadata.html"
+        local_path = (
+            source_root
+            / "projects"
+            / project.project_accession
+            / "archive_metadata.html"
+        )
         metadata_path = local_path.with_suffix(local_path.suffix + ".metadata.json")
         fetch_status = "missing"
         content_type = None
@@ -1593,7 +1690,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 fetch_status=fetch_status,
                 remote_note="Archive-facing metadata page captured for the tracked accession.",
                 project_accessions=(project.project_accession,),
-                paper_doi=None if project.paper_linkage is None else project.paper_linkage.doi,
+                paper_doi=None
+                if project.paper_linkage is None
+                else project.paper_linkage.doi,
                 content_type=content_type,
                 byte_size=byte_size,
             )
@@ -1604,7 +1703,8 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
             sorted(
                 project.project_accession
                 for project in catalog
-                if project.paper_linkage is not None and project.paper_linkage.doi == doi
+                if project.paper_linkage is not None
+                and project.paper_linkage.doi == doi
             )
         )
         for remote in _expand_remote_assets(spec, catalog):
@@ -1637,7 +1737,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 )
             )
             seen_artifact_ids.add(_artifact_id(doi, local_path.name))
-    for metadata_path in sorted(source_root.glob("papers/*/supplementary/*.*.metadata.json")):
+    for metadata_path in sorted(
+        source_root.glob("papers/*/supplementary/*.*.metadata.json")
+    ):
         payload = json.loads(metadata_path.read_text(encoding="utf-8"))
         paper_doi = str(payload.get("paper_doi", "")).strip()
         artifact_path = Path(str(metadata_path)[: -len(".metadata.json")])
@@ -1653,7 +1755,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 local_path=str(artifact_path.relative_to(output_root)),
                 fetch_status="archived" if artifact_path.is_file() else "missing",
                 remote_note=str(payload.get("source_note", "")),
-                project_accessions=tuple(str(item) for item in payload.get("project_accessions", [])),
+                project_accessions=tuple(
+                    str(item) for item in payload.get("project_accessions", [])
+                ),
                 paper_doi=paper_doi,
                 content_type=payload.get("content_type"),
                 byte_size=payload.get("byte_size"),
@@ -1845,7 +1949,9 @@ def _expand_remote_assets(
     spec: _PaperSourceSpec,
     catalog: tuple[object, ...],
 ) -> tuple[_RemoteArtifactSpec, ...]:
-    article_relative = spec.article_local_path.split(f"{ADNA_SOURCE_LIBRARY_DIR}/", 1)[1]
+    article_relative = spec.article_local_path.split(f"{ADNA_SOURCE_LIBRARY_DIR}/", 1)[
+        1
+    ]
     assets = [
         _RemoteArtifactSpec(
             artifact_kind=spec.article_kind,
@@ -1866,7 +1972,9 @@ def _expand_remote_assets(
         (
             item
             for item in catalog
-            if item.paper_linkage is not None and item.paper_linkage.doi == spec.doi and item.paper_linkage.pubmed_id is not None
+            if item.paper_linkage is not None
+            and item.paper_linkage.doi == spec.doi
+            and item.paper_linkage.pubmed_id is not None
         ),
         None,
     )
@@ -1888,7 +1996,11 @@ def _expand_remote_assets(
 
 
 def _paper_required(archive_status: str) -> bool:
-    return archive_status in {"paper_pinned_core", "archive_verified_needs_paper_pinning", "comparator_only"}
+    return archive_status in {
+        "paper_pinned_core",
+        "archive_verified_needs_paper_pinning",
+        "comparator_only",
+    }
 
 
 def _supplement_required(project: object) -> bool:
@@ -1912,7 +2024,11 @@ def _resolve_reference_stash_root(output_root: Path) -> Path | None:
     candidates: list[Path] = []
     if env_root:
         candidates.append(Path(env_root))
-    candidates.append(Path(output_root).resolve().parent.parent / "bijan-references" / "bijux-pollenomics")
+    candidates.append(
+        Path(output_root).resolve().parent.parent
+        / "bijan-references"
+        / "bijux-pollenomics"
+    )
     for candidate in candidates:
         if candidate.is_dir():
             return candidate
@@ -1923,7 +2039,9 @@ def _reference_stash_records(output_root: Path) -> dict[str, dict[str, object]]:
     return _reference_stash_records_cached(_source_library_cache_key(output_root))
 
 
-def _reference_stash_records_uncached(output_root: Path) -> dict[str, dict[str, object]]:
+def _reference_stash_records_uncached(
+    output_root: Path,
+) -> dict[str, dict[str, object]]:
     stash_root = _resolve_reference_stash_root(output_root)
     if stash_root is None:
         return {}
@@ -1940,8 +2058,14 @@ def _reference_stash_records_uncached(output_root: Path) -> dict[str, dict[str, 
                 "archive_bundle_count": 0,
             },
         )
-        records[slug]["article_formats"].add(article_path.suffix.lower().removeprefix("."))
-    for doi_dir in sorted(path for path in stash_root.iterdir() if path.is_dir() and not path.name.startswith(".")):
+        records[slug]["article_formats"].add(
+            article_path.suffix.lower().removeprefix(".")
+        )
+    for doi_dir in sorted(
+        path
+        for path in stash_root.iterdir()
+        if path.is_dir() and not path.name.startswith(".")
+    ):
         record = records.setdefault(
             doi_dir.name,
             {
@@ -1953,7 +2077,11 @@ def _reference_stash_records_uncached(output_root: Path) -> dict[str, dict[str, 
             },
         )
         for asset in sorted(path for path in doi_dir.rglob("*") if path.is_file()):
-            if asset.name.startswith(".") or asset.name == ".DS_Store" or asset.suffix.lower() == ".md":
+            if (
+                asset.name.startswith(".")
+                or asset.name == ".DS_Store"
+                or asset.suffix.lower() == ".md"
+            ):
                 continue
             record["supplementary_assets"].append(str(asset.relative_to(doi_dir)))
             suffix = asset.suffix.lower()
@@ -1973,8 +2101,10 @@ def _reference_stash_records_uncached(output_root: Path) -> dict[str, dict[str, 
     return payload
 
 
-@lru_cache(maxsize=None)
-def _reference_stash_records_cached(output_root_key: str) -> dict[str, dict[str, object]]:
+@cache
+def _reference_stash_records_cached(
+    output_root_key: str,
+) -> dict[str, dict[str, object]]:
     return _reference_stash_records_uncached(Path(output_root_key))
 
 
@@ -1990,7 +2120,9 @@ def _local_reference_supplement_status(stash_record: dict[str, object]) -> str:
     return "missing"
 
 
-def _article_readability_status(spec: _PaperSourceSpec, article_download_status: str) -> str:
+def _article_readability_status(
+    spec: _PaperSourceSpec, article_download_status: str
+) -> str:
     if article_download_status == "missing":
         return "missing"
     if article_download_status == "partial":
@@ -2044,7 +2176,9 @@ def _supplementary_verification_status(
     return "supplement_not_verified_yet"
 
 
-def _project_sample_table_extraction_status(output_root: Path, project_accession: str) -> str:
+def _project_sample_table_extraction_status(
+    output_root: Path, project_accession: str
+) -> str:
     path = (
         Path(output_root)
         / "adna"
@@ -2138,7 +2272,9 @@ def _project_evidence_acquisition_state(
         return "scope_rejected"
     if paper_row is None:
         return "paper_linkage_not_curated"
-    sample_table_status = _project_sample_table_extraction_status(output_root, project_accession)
+    sample_table_status = _project_sample_table_extraction_status(
+        output_root, project_accession
+    )
     if sample_table_status == "project_sample_master_published":
         return "sample_tables_published"
     if bundle.supplement_download_status == "archived":
@@ -2184,7 +2320,7 @@ def _render_csv(rows: list[dict[str, object]]) -> str:
                 text = ";".join(str(item) for item in value)
             else:
                 text = "" if value is None else str(value)
-            if any(token in text for token in [",", "\"", "\n"]):
+            if any(token in text for token in [",", '"', "\n"]):
                 text = '"' + text.replace('"', '""') + '"'
             rendered.append(text)
         lines.append(",".join(rendered))

@@ -9,7 +9,9 @@ from bijux_pollenomics.adna.site_evidence import (
 
 
 class AdnaSiteEvidenceUnitTests(unittest.TestCase):
-    def test_resolve_project_site_evidence_expands_botai_to_sample_owned_sites(self) -> None:
+    def test_resolve_project_site_evidence_expands_botai_to_sample_owned_sites(
+        self,
+    ) -> None:
         rows = resolve_project_site_evidence("PRJEB22390")
 
         self.assertGreater(len(rows), 10)
@@ -18,7 +20,9 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self.assertIn("Botai_1_5500", botai.exact_source_text)
         self.assertIn("aao3297_tables15.xlsx", botai.source_artifact_path)
 
-    def test_resolve_project_site_evidence_prefers_direct_horse_sample_rows(self) -> None:
+    def test_resolve_project_site_evidence_prefers_direct_horse_sample_rows(
+        self,
+    ) -> None:
         rows = resolve_project_site_evidence("PRJEB31613")
 
         uppsala = next(row for row in rows if row.site_label == "Uppsala")
@@ -29,10 +33,10 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.longitude_text, "17.638999999999999")
         self.assertIn("Uppsala_Upps02_1317", uppsala.exact_source_text)
 
-    def test_build_species_site_evidence_rows_keeps_requested_accession_order(self) -> None:
-        rows = build_species_site_evidence_rows(
-            ("PRJEB59481", "PRJEB60484", "unknown")
-        )
+    def test_build_species_site_evidence_rows_keeps_requested_accession_order(
+        self,
+    ) -> None:
+        rows = build_species_site_evidence_rows(("PRJEB59481", "PRJEB60484", "unknown"))
 
         self.assertEqual(
             [row.project_accession for row in rows],

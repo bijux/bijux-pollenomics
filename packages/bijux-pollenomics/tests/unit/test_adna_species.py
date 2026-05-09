@@ -13,7 +13,9 @@ from bijux_pollenomics.adna import (
 
 
 class AdnaSpeciesSupportUnitTests(unittest.TestCase):
-    def test_species_support_matrix_uses_registered_statuses_and_modalities(self) -> None:
+    def test_species_support_matrix_uses_registered_statuses_and_modalities(
+        self,
+    ) -> None:
         matrix = build_species_support_matrix()
 
         self.assertGreaterEqual(len(matrix), 10)
@@ -24,7 +26,9 @@ class AdnaSpeciesSupportUnitTests(unittest.TestCase):
             for modality in entry.modalities:
                 self.assertIn(modality, ADNA_MODALITIES)
 
-    def test_homo_sapiens_is_the_supported_species_for_current_aadr_runtime(self) -> None:
+    def test_homo_sapiens_is_the_supported_species_for_current_aadr_runtime(
+        self,
+    ) -> None:
         species = resolve_species_definition("Homo sapiens")
 
         self.assertEqual(species.slug, "homo_sapiens")

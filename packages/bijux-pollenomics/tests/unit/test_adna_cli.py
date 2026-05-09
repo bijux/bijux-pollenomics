@@ -177,7 +177,9 @@ class AdnaCliUnitTests(unittest.TestCase):
         )
         self.assertIn("metadata normalization only", payload["analysis_boundary"])
 
-    def test_adna_release_readiness_json_output_exposes_cross_surface_gate(self) -> None:
+    def test_adna_release_readiness_json_output_exposes_cross_surface_gate(
+        self,
+    ) -> None:
         stdout = io.StringIO()
         with patch("sys.stdout", stdout):
             exit_code = run_adna_release_readiness(
@@ -216,9 +218,7 @@ class AdnaCliUnitTests(unittest.TestCase):
 
         self.assertEqual(exit_code, 0)
         payload = json.loads(stdout.getvalue())
-        human_row = next(
-            row for row in payload if row["latin_name"] == "Homo sapiens"
-        )
+        human_row = next(row for row in payload if row["latin_name"] == "Homo sapiens")
         self.assertEqual(human_row["support_status"], "supported")
         self.assertEqual(human_row["source_families"], ["AADR"])
 

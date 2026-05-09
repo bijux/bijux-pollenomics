@@ -17,7 +17,9 @@ def _doi_url(doi: str) -> str:
     return f"https://doi.org/{doi}" if doi else ""
 
 
-_PROJECT_COORDINATE_PROVENANCE: dict[str, tuple[AdnaCoordinateProvenanceRecord, ...]] = {
+_PROJECT_COORDINATE_PROVENANCE: dict[
+    str, tuple[AdnaCoordinateProvenanceRecord, ...]
+] = {
     "PRJEB22390": (
         AdnaCoordinateProvenanceRecord(
             project_accession="PRJEB22390",
@@ -369,7 +371,8 @@ def _default_data_root() -> Path:
 
 def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
     project_registry = {
-        row.project_accession: row for row in build_project_registry(_default_data_root())
+        row.project_accession: row
+        for row in build_project_registry(_default_data_root())
     }
     project_row = project_registry.get(project_accession)
     if project_row is None or not project_row.primary_paper_doi:
@@ -383,7 +386,9 @@ def _direct_sample_coordinate_rows(
 ) -> tuple[AdnaCoordinateProvenanceRecord, ...]:
     grouped: dict[tuple[str, str], list[object]] = {}
     try:
-        sample_rows = build_project_sample_master_rows(_default_data_root(), project_accession)
+        sample_rows = build_project_sample_master_rows(
+            _default_data_root(), project_accession
+        )
     except KeyError:
         return ()
     for row in sample_rows:
@@ -437,7 +442,9 @@ def _direct_sample_coordinate_rows(
     return tuple(records)
 
 
-def _normalized_group_key(locality_text: str, political_entity: str | None) -> tuple[str, str]:
+def _normalized_group_key(
+    locality_text: str, political_entity: str | None
+) -> tuple[str, str]:
     return (_normalize_text(locality_text), _normalize_text(political_entity or ""))
 
 

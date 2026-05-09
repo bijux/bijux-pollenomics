@@ -114,7 +114,8 @@ def build_species_freshness_rows(
     rows: list[dict[str, object]] = []
     for species_name, species_projects in sorted(grouped.items()):
         last_checked_on = max(
-            resolve_project_context(project).last_checked_on for project in species_projects
+            resolve_project_context(project).last_checked_on
+            for project in species_projects
         )
         rows.append(
             {

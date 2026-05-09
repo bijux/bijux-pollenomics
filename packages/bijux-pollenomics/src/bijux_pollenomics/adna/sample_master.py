@@ -1368,7 +1368,7 @@ def _read_xlsx_member_rows(
 
 @lru_cache(maxsize=128)
 def _cached_xlsx_member_rows(
-    cache_key: tuple[str, int, int, str, str]
+    cache_key: tuple[str, int, int, str, str],
 ) -> tuple[tuple[str, ...], ...]:
     bundle_path_text, _, _, member_name, sheet_name = cache_key
     bundle_path = Path(bundle_path_text)
@@ -1417,7 +1417,7 @@ def _read_xlsx_rows(
 
 @lru_cache(maxsize=256)
 def _cached_xlsx_rows(
-    cache_key: tuple[str, int, int, str]
+    cache_key: tuple[str, int, int, str],
 ) -> tuple[tuple[str, ...], ...]:
     workbook_path_text, _, _, sheet_name = cache_key
     workbook_path = Path(workbook_path_text)

@@ -60,9 +60,7 @@ def build_species_manifest(name: str) -> AdnaSpeciesManifest:
             "Other camelid or broader comparator material does not promote dromedary support."
         )
     elif species.latin_name == "Rangifer tarandus":
-        scientific_scope = (
-            "Reindeer is comparator support only and must not be used as domesticated-core evidence."
-        )
+        scientific_scope = "Reindeer is comparator support only and must not be used as domesticated-core evidence."
     elif species.latin_name == "Bos taurus":
         scientific_scope = (
             "Cattle support remains split-sensitive. Wild or progenitor context must "

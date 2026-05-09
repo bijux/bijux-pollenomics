@@ -26,9 +26,9 @@ from .models import (
     AdnaSiteEvidenceRecord,
 )
 from .paths import ADNA_SPECIES_DIR
-from .project_sample_chronology import build_project_sample_chronology_rows
 from .project_context import resolve_project_context
 from .project_localities import build_species_project_locality_leads
+from .project_sample_chronology import build_project_sample_chronology_rows
 from .sample_registry import build_species_curated_sample_rows
 from .site_evidence import build_species_site_evidence_rows
 from .species import AdnaSpeciesDefinition, resolve_species_definition
@@ -288,7 +288,9 @@ class AdnaSpeciesNormalizationBundle:
                 record.as_dict() for record in self.site_evidence_records
             ],
             "locality_records": [record.as_dict() for record in self.locality_records],
-            "project_summaries": [summary.as_dict() for summary in self.project_summaries],
+            "project_summaries": [
+                summary.as_dict() for summary in self.project_summaries
+            ],
             "study_summaries": [summary.as_dict() for summary in self.study_summaries],
             "lineage_records": [row.as_dict() for row in self.lineage_records],
             "refusals": [row.as_dict() for row in self.refusals],
@@ -296,7 +298,9 @@ class AdnaSpeciesNormalizationBundle:
         }
 
 
-def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormalizationBundle:
+def build_species_normalization_bundle(
+    species_name: str,
+) -> AdnaSpeciesNormalizationBundle:
     """Build the deterministic non-human normalization bundle for one species."""
     species_manifest = build_species_manifest(species_name)
     if species_manifest.species.latin_name == "Homo sapiens":
@@ -335,8 +339,7 @@ def build_species_normalization_bundle(species_name: str) -> AdnaSpeciesNormaliz
         project_summaries=project_summaries,
         study_summaries=study_summaries,
         lineage_records=lineage_records,
-        refusals=project_refusals
-        + locality_refusals,
+        refusals=project_refusals + locality_refusals,
         normalization_scope=(
             "Non-human normalization currently governs accession-backed sample master rows, "
             "project summaries, study summaries, and curated locality summaries. "
@@ -355,7 +358,8 @@ def normalize_species_anchor(
     species = resolve_species_definition(value)
     if (
         expected_species_name is not None
-        and species.latin_name != resolve_species_definition(expected_species_name).latin_name
+        and species.latin_name
+        != resolve_species_definition(expected_species_name).latin_name
     ):
         raise ValueError(
             f"Species anchor mismatch: expected {expected_species_name}, got {value}"
@@ -394,7 +398,9 @@ def normalize_coordinate_resolution(
             reason="coordinates_withheld_by_source_policy",
         )
     if not lat_clean or not lon_clean:
-        raise ValueError("Coordinate normalization requires both latitude and longitude")
+        raise ValueError(
+            "Coordinate normalization requires both latitude and longitude"
+        )
     latitude = float(lat_clean)
     longitude = float(lon_clean)
     if not -90.0 <= latitude <= 90.0:
@@ -538,7 +544,9 @@ def _build_sample_records(
     project_summaries: tuple[AdnaProjectSummary, ...],
 ) -> tuple[AdnaSampleRecord, ...]:
     species = resolve_species_definition(species_name)
-    project_index = {project.project_accession: project for project in project_summaries}
+    project_index = {
+        project.project_accession: project for project in project_summaries
+    }
     chronology_index = {
         project_accession: {
             chronology_row.repo_stable_sample_id: chronology_row
@@ -563,22 +571,38 @@ def _build_sample_records(
         )
         normalized_chronology = (
             normalize_explicit_bp_window(
-                chronology_row.time_start_bp if chronology_row is not None else row.time_start_bp,
-                chronology_row.time_end_bp if chronology_row is not None else row.time_end_bp,
+                chronology_row.time_start_bp
+                if chronology_row is not None
+                else row.time_start_bp,
+                chronology_row.time_end_bp
+                if chronology_row is not None
+                else row.time_end_bp,
                 original_text=(
-                    chronology_row.chronology_text if chronology_row is not None else row.chronology_text
+                    chronology_row.chronology_text
+                    if chronology_row is not None
+                    else row.chronology_text
                 ),
-                dating_basis=chronology_row.dating_basis if chronology_row is not None else row.dating_basis,
+                dating_basis=chronology_row.dating_basis
+                if chronology_row is not None
+                else row.dating_basis,
             )
             if (
                 chronology_row is not None
                 and chronology_row.time_start_bp is not None
                 and chronology_row.time_end_bp is not None
             )
-            or (chronology_row is None and row.time_start_bp is not None and row.time_end_bp is not None)
+            or (
+                chronology_row is None
+                and row.time_start_bp is not None
+                and row.time_end_bp is not None
+            )
             else normalize_chronology_text(
-                chronology_row.chronology_text if chronology_row is not None else row.chronology_text,
-                dating_basis=chronology_row.dating_basis if chronology_row is not None else row.dating_basis,
+                chronology_row.chronology_text
+                if chronology_row is not None
+                else row.chronology_text,
+                dating_basis=chronology_row.dating_basis
+                if chronology_row is not None
+                else row.dating_basis,
             )
         )
         chronology = _apply_chronology_semantics(
@@ -680,7 +704,8 @@ def _build_sample_records(
                     else "normalized_point"
                     if normalized_chronology.time_start_bp is not None
                     and normalized_chronology.time_end_bp is not None
-                    and normalized_chronology.time_start_bp == normalized_chronology.time_end_bp
+                    and normalized_chronology.time_start_bp
+                    == normalized_chronology.time_end_bp
                     else "normalized_interval"
                     if normalized_chronology.time_start_bp is not None
                     and normalized_chronology.time_end_bp is not None
@@ -689,19 +714,29 @@ def _build_sample_records(
                     else "unresolved"
                 ),
                 chronology_provenance_path=(
-                    chronology_row.chronology_provenance_path if chronology_row is not None else ""
+                    chronology_row.chronology_provenance_path
+                    if chronology_row is not None
+                    else ""
                 ),
                 chronology_provenance_kind=(
-                    chronology_row.chronology_provenance_kind if chronology_row is not None else ""
+                    chronology_row.chronology_provenance_kind
+                    if chronology_row is not None
+                    else ""
                 ),
                 chronology_provenance_locator=(
-                    chronology_row.chronology_provenance_locator if chronology_row is not None else ""
+                    chronology_row.chronology_provenance_locator
+                    if chronology_row is not None
+                    else ""
                 ),
                 chronology_provenance_text=(
-                    chronology_row.chronology_provenance_text if chronology_row is not None else ""
+                    chronology_row.chronology_provenance_text
+                    if chronology_row is not None
+                    else ""
                 ),
                 chronology_conflict_note=(
-                    chronology_row.chronology_conflict_note if chronology_row is not None else ""
+                    chronology_row.chronology_conflict_note
+                    if chronology_row is not None
+                    else ""
                 ),
                 sample_basis=row.sample_basis,
                 archive_native_sample_id=row.archive_native_sample_id,
@@ -775,8 +810,12 @@ def _aggregate_locality_chronology(
         )
         return _apply_chronology_semantics(
             chronology,
-            evidence_class=_aggregate_locality_evidence_class(chronology_rows, chronology),
-            precision_posture=_aggregate_locality_precision_posture(chronology_rows, chronology),
+            evidence_class=_aggregate_locality_evidence_class(
+                chronology_rows, chronology
+            ),
+            precision_posture=_aggregate_locality_precision_posture(
+                chronology_rows, chronology
+            ),
         )
     if fallback_start_bp is not None and fallback_end_bp is not None:
         chronology = normalize_explicit_bp_window(
@@ -837,13 +876,23 @@ def _fallback_chronology_evidence_class(
     text = chronology.original_text.casefold()
     if not chronology.original_text and chronology.time_start_bp is None:
         return "unresolved"
-    if any(token in text for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")):
+    if any(
+        token in text
+        for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")
+    ):
         return "broad_period_label"
-    if basis in {"historical_attribution", "historical_and_archaeological_context", "modern_sampling"}:
+    if basis in {
+        "historical_attribution",
+        "historical_and_archaeological_context",
+        "modern_sampling",
+    }:
         return "historical_or_recent_date"
     if basis in {"archaeological_period", "archaeological_period_assignment"}:
         return "archaeological_context_date"
-    if any(token in text for token in ("bayesian", "modeled", "modelled", "calibrated", "2σ", "1σ")):
+    if any(
+        token in text
+        for token in ("bayesian", "modeled", "modelled", "calibrated", "2σ", "1σ")
+    ):
         return "modeled_sample_date"
     if chronology.time_start_bp is not None:
         return "direct_radiocarbon_date"
@@ -853,10 +902,30 @@ def _fallback_chronology_evidence_class(
 def _fallback_chronology_precision_posture(chronology: AdnaChronology) -> str:
     text = chronology.original_text.casefold()
     if chronology.time_start_bp is None or chronology.time_end_bp is None:
-        if any(token in text for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")):
+        if any(
+            token in text
+            for token in ("bronze", "iron", "neolithic", "medieval", "viking", "period")
+        ):
             return "broad_period_only"
-        return "unresolved" if not chronology.original_text else "sample_approximate_or_modeled"
-    if any(token in text for token in ("ca.", "circa", "approx", "bayesian", "modeled", "modelled", "calibrated", "2σ", "1σ")):
+        return (
+            "unresolved"
+            if not chronology.original_text
+            else "sample_approximate_or_modeled"
+        )
+    if any(
+        token in text
+        for token in (
+            "ca.",
+            "circa",
+            "approx",
+            "bayesian",
+            "modeled",
+            "modelled",
+            "calibrated",
+            "2σ",
+            "1σ",
+        )
+    ):
         return "sample_approximate_or_modeled"
     if chronology.time_start_bp == chronology.time_end_bp:
         return "sample_precise_point"
@@ -924,7 +993,9 @@ def _is_nordic_locality(
     locality = locality_text.casefold()
     if "svalbard" in locality:
         return True
-    return getattr(project_context, "nordic_relevance", "") == "nordic_relevant_unmapped"
+    return (
+        getattr(project_context, "nordic_relevance", "") == "nordic_relevant_unmapped"
+    )
 
 
 def _nordic_locality_reason(
@@ -954,7 +1025,9 @@ def build_species_project_locality_records(
 ) -> tuple[tuple[AdnaLocalitySummary, ...], tuple[AdnaNormalizationRefusal, ...]]:
     """Build curated non-human project locality rows and explicit locality refusals."""
     species = resolve_species_definition(species_name)
-    project_index = {summary.project_accession: summary for summary in project_summaries}
+    project_index = {
+        summary.project_accession: summary for summary in project_summaries
+    }
     archive_index = {
         project.project_accession: project
         for project in build_species_archive_projects(species_name)
@@ -987,10 +1060,13 @@ def build_species_project_locality_records(
         matched_sample_rows = [
             row
             for row in sample_rows_by_project.get(lead.project_accession, [])
-            if _normalize_sample_label(row.site_label) == _normalize_sample_label(lead.locality_text)
+            if _normalize_sample_label(row.site_label)
+            == _normalize_sample_label(lead.locality_text)
         ]
         if not matched_sample_rows:
-            matched_sample_rows = list(sample_rows_by_project.get(lead.project_accession, []))
+            matched_sample_rows = list(
+                sample_rows_by_project.get(lead.project_accession, [])
+            )
         coordinate_resolution = normalize_coordinate_resolution(
             latitude_text=lead.latitude_text,
             longitude_text=lead.longitude_text,
@@ -1043,9 +1119,7 @@ def build_species_project_locality_records(
                     confidence=coordinate_resolution.confidence,
                 ),
                 sample_count=max(len(matched_sample_rows), 1),
-                sample_ids=tuple(
-                    row.stable_sample_id for row in matched_sample_rows
-                )
+                sample_ids=tuple(row.stable_sample_id for row in matched_sample_rows)
                 or (lead.project_accession,),
                 datasets=(project.summary_token,),
                 chronology=chronology,
@@ -1085,7 +1159,9 @@ def build_species_project_locality_records(
 
     locality_records.sort(
         key=lambda item: (
-            item.project_accessions[0] if item.project_accessions else item.locality_token,
+            item.project_accessions[0]
+            if item.project_accessions
+            else item.locality_token,
             item.locality_token,
         )
     )
@@ -1100,7 +1176,9 @@ def _build_project_summary(
     species = normalize_species_anchor(project.species_latin_name)
     project_context = resolve_project_context(project)
     paper_doi = None if project.paper_linkage is None else project.paper_linkage.doi
-    paper_title = None if project.paper_linkage is None else project.paper_linkage.paper_title
+    paper_title = (
+        None if project.paper_linkage is None else project.paper_linkage.paper_title
+    )
     support_class = _support_class_for(project, curation_class)
     return AdnaProjectSummary(
         schema_version="adna-project-summary.v1",
@@ -1114,14 +1192,18 @@ def _build_project_summary(
         result_kind=project.result_kind,
         archive_status=project.archive_status,
         evidence_strength=classify_archive_project_evidence(project),
-        review_strength=_review_strength_for(project.archive_status, curation_class, paper_doi),
+        review_strength=_review_strength_for(
+            project.archive_status, curation_class, paper_doi
+        ),
         support_class=support_class,
         record_modality=_record_modality_for(project),
         domestication_status=_domestication_status_for(curation_class),
         domestication_scope=project.domestication_scope,
         comparator_status=curation_class == "comparator_only"
         or project.archive_status == "comparator_only",
-        normalized_breed_label=normalize_breed_label(_breed_label_from_notes(project.notes)),
+        normalized_breed_label=normalize_breed_label(
+            _breed_label_from_notes(project.notes)
+        ),
         sequencing_target=project.sequencing_target,
         material_basis=project.material_basis,
         chronology_basis=project.dating_basis,
@@ -1156,7 +1238,9 @@ def _normalize_project_summaries(
             refusals.append(
                 AdnaNormalizationRefusal(
                     schema_version="adna-normalization-refusal.v1",
-                    species_latin_name=resolve_species_definition(species_name).latin_name,
+                    species_latin_name=resolve_species_definition(
+                        species_name
+                    ).latin_name,
                     source_token=project.project_accession,
                     record_kind="project_summary",
                     reason="defensible_species_anchor_missing",
@@ -1204,7 +1288,9 @@ def _build_study_summaries(
                 species_common_name=lead.species_common_name,
                 project_accessions=tuple(item.project_accession for item in ordered),
                 source_families=tuple(sorted({item.source_family for item in ordered})),
-                archive_statuses=tuple(sorted({item.archive_status for item in ordered})),
+                archive_statuses=tuple(
+                    sorted({item.archive_status for item in ordered})
+                ),
                 evidence_strengths=tuple(
                     sorted({item.evidence_strength for item in ordered})
                 ),
@@ -1293,11 +1379,19 @@ def _build_lineage_records(
                 lineage_tokens=(
                     f"species:{species.latin_name}",
                     f"study_token:{study.summary_token}",
-                    *(f"project_accession:{accession}" for accession in study.project_accessions),
+                    *(
+                        f"project_accession:{accession}"
+                        for accession in study.project_accessions
+                    ),
                 ),
             )
         )
-    return tuple(sorted(lineages, key=lambda item: (item.output_record_kind, item.output_record_token)))
+    return tuple(
+        sorted(
+            lineages,
+            key=lambda item: (item.output_record_kind, item.output_record_token),
+        )
+    )
 
 
 def _study_token_for(project_accession: str, paper_doi: str | None) -> str:
@@ -1343,7 +1437,10 @@ def _domestication_status_for(curation_class: str) -> str:
 def _support_class_for(project, curation_class: str) -> str:
     if project.archive_status == "reject_or_out_of_scope":
         return "rejected_or_out_of_scope"
-    if curation_class == "comparator_only" or project.archive_status == "comparator_only":
+    if (
+        curation_class == "comparator_only"
+        or project.archive_status == "comparator_only"
+    ):
         return "comparator_only"
     if project.domestication_scope == "wild_or_progenitor_context":
         return "wild_or_progenitor_context"
@@ -1390,7 +1487,9 @@ def _interpretation_caveat_for(
         )
 
     if project_context.nordic_relevance == "nordic_relevant_unmapped":
-        caveats.append("Nordic-relevant lead remains unmapped in the shipped public atlas.")
+        caveats.append(
+            "Nordic-relevant lead remains unmapped in the shipped public atlas."
+        )
     elif project_context.nordic_relevance == "nordic_adjacent":
         caveats.append(
             "Nordic-adjacent context does not justify a Nordic-localized project claim."

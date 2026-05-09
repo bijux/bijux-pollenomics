@@ -40,7 +40,9 @@ class AdnaAccessionUnitTests(unittest.TestCase):
             )
         )
 
-        self.assertEqual([item.family for item in references], ["ena_project", "sra_sample"])
+        self.assertEqual(
+            [item.family for item in references], ["ena_project", "sra_sample"]
+        )
 
 
 if __name__ == "__main__":

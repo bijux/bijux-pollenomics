@@ -128,7 +128,9 @@ def build_project_sample_site_rows(
                     locality_text=locality_text,
                     locality_resolution_status="direct_sample_site",
                     location_evidence_artifact_path=master_row.sample_lineage_path,
-                    location_evidence_artifact_kind=_artifact_kind_from_path(master_row.sample_lineage_path),
+                    location_evidence_artifact_kind=_artifact_kind_from_path(
+                        master_row.sample_lineage_path
+                    ),
                     location_evidence_locator=master_row.sample_lineage_locator,
                     location_evidence_text=master_row.sample_lineage_excerpt,
                     site_name=hierarchy.site_name,
@@ -167,7 +169,9 @@ def build_project_sample_site_rows(
         hierarchy = _resolve_hierarchy(
             hierarchy_profiles=hierarchy_profiles,
             locality_text="" if site_row is None else site_row.site_label,
-            political_entity="" if site_row is None or site_row.political_entity is None else site_row.political_entity,
+            political_entity=""
+            if site_row is None or site_row.political_entity is None
+            else site_row.political_entity,
         )
         review_note = _review_note_for(status=status, site_row=site_row)
         rows.append(
@@ -183,19 +187,34 @@ def build_project_sample_site_rows(
                 sample_ambiguity_note=master_row.sample_ambiguity_note,
                 locality_text="" if site_row is None else site_row.site_label,
                 locality_resolution_status=status,
-                location_evidence_artifact_path="" if site_row is None else site_row.source_artifact_path,
-                location_evidence_artifact_kind="" if site_row is None else site_row.source_artifact_kind,
-                location_evidence_locator="" if site_row is None else site_row.source_locator,
-                location_evidence_text="" if site_row is None else site_row.exact_source_text,
+                location_evidence_artifact_path=""
+                if site_row is None
+                else site_row.source_artifact_path,
+                location_evidence_artifact_kind=""
+                if site_row is None
+                else site_row.source_artifact_kind,
+                location_evidence_locator=""
+                if site_row is None
+                else site_row.source_locator,
+                location_evidence_text=""
+                if site_row is None
+                else site_row.exact_source_text,
                 site_name=hierarchy.site_name,
                 municipality_name=hierarchy.municipality_name,
                 region_name=hierarchy.region_name,
                 country_name=hierarchy.country_name,
                 broader_geography=hierarchy.broader_geography,
-                coordinate_basis="" if provenance_row is None else provenance_row.coordinate_basis,
-                coordinate_mapping_posture="" if provenance_row is None else provenance_row.mapping_posture,
-                coordinate_confidence="" if provenance_row is None else provenance_row.coordinate_confidence,
-                chronology_text=chronology_text or ("" if site_row is None else site_row.chronology_text),
+                coordinate_basis=""
+                if provenance_row is None
+                else provenance_row.coordinate_basis,
+                coordinate_mapping_posture=""
+                if provenance_row is None
+                else provenance_row.mapping_posture,
+                coordinate_confidence=""
+                if provenance_row is None
+                else provenance_row.coordinate_confidence,
+                chronology_text=chronology_text
+                or ("" if site_row is None else site_row.chronology_text),
                 review_note=review_note,
             )
         )
@@ -208,7 +227,9 @@ def build_project_sample_site_review_rows(
 ) -> tuple[dict[str, object], ...]:
     rows: list[dict[str, object]] = []
     for project in build_archive_project_catalog():
-        sample_site_rows = build_project_sample_site_rows(output_root, project.project_accession)
+        sample_site_rows = build_project_sample_site_rows(
+            output_root, project.project_accession
+        )
         counts = _counts_by_status(sample_site_rows)
         lacking_count = (
             counts["project_level_site_only"]
@@ -216,7 +237,9 @@ def build_project_sample_site_review_rows(
             + counts["unresolved"]
         )
         missing_reasons = [
-            key for key in ("project_level_site_only", "region_only", "unresolved") if counts[key]
+            key
+            for key in ("project_level_site_only", "region_only", "unresolved")
+            if counts[key]
         ]
         rows.append(
             {
@@ -247,7 +270,9 @@ def build_sample_site_ambiguity_ledger(
         "unresolved",
     }
     for project in build_archive_project_catalog():
-        for row in build_project_sample_site_rows(output_root, project.project_accession):
+        for row in build_project_sample_site_rows(
+            output_root, project.project_accession
+        ):
             if row.locality_resolution_status not in ambiguous_statuses:
                 continue
             rows.append(
@@ -275,7 +300,9 @@ def build_sample_site_manual_curation_queue(
     )
     for project in build_archive_project_catalog():
         dossier_path = source_root / project.project_accession / "intake_dossier.json"
-        sample_site_rows = build_project_sample_site_rows(output_root, project.project_accession)
+        sample_site_rows = build_project_sample_site_rows(
+            output_root, project.project_accession
+        )
         counts = _counts_by_status(sample_site_rows)
         if not dossier_path.is_file():
             continue
@@ -284,7 +311,9 @@ def build_sample_site_manual_curation_queue(
         dossier = json.loads(dossier_path.read_text(encoding="utf-8"))
         queue_reasons = []
         if counts["project_level_site_only"]:
-            queue_reasons.append("project_level_site_only_rows_require_sample_owned_site_extraction")
+            queue_reasons.append(
+                "project_level_site_only_rows_require_sample_owned_site_extraction"
+            )
         if counts["region_only"]:
             queue_reasons.append("region_only_rows_require_finer_location_evidence")
         if counts["unresolved"]:
@@ -296,7 +325,9 @@ def build_sample_site_manual_curation_queue(
                 "project_accession": project.project_accession,
                 "species_latin_name": project.species_latin_name,
                 "queued_sample_count": (
-                    counts["project_level_site_only"] + counts["region_only"] + counts["unresolved"]
+                    counts["project_level_site_only"]
+                    + counts["region_only"]
+                    + counts["unresolved"]
                 ),
                 "queue_reasons": queue_reasons,
                 "sample_site_targets": list(dossier.get("sample_site_targets", [])),
@@ -322,7 +353,12 @@ def materialize_project_sample_site_library(output_root: Path) -> None:
     for project in build_archive_project_catalog():
         project_root = source_root / "projects" / project.project_accession
         project_root.mkdir(parents=True, exist_ok=True)
-        sample_site_rows = [row.as_dict() for row in build_project_sample_site_rows(output_root, project.project_accession)]
+        sample_site_rows = [
+            row.as_dict()
+            for row in build_project_sample_site_rows(
+                output_root, project.project_accession
+            )
+        ]
         write_json(
             project_root / "sample_sites.json",
             {
@@ -335,7 +371,11 @@ def materialize_project_sample_site_library(output_root: Path) -> None:
         )
         write_text(
             project_root / "sample_sites.csv",
-            render_csv_rows(tuple(sample_site_rows) if sample_site_rows else (_empty_sample_site_row(project),)),
+            render_csv_rows(
+                tuple(sample_site_rows)
+                if sample_site_rows
+                else (_empty_sample_site_row(project),)
+            ),
         )
 
     write_json(
@@ -413,31 +453,31 @@ def _project_level_locality_status(provenance_row: object | None) -> str:
 
 def _review_note_for(*, status: str, site_row: object | None) -> str:
     if status == "project_level_site_only":
-        return (
-            "Current evidence names only a project-level locality context, not a sample-owned site row."
-        )
+        return "Current evidence names only a project-level locality context, not a sample-owned site row."
     if status == "named_place_inferred":
-        return (
-            "Current evidence names a place that can be resolved, but the mapped point still depends on place-name inference."
-        )
+        return "Current evidence names a place that can be resolved, but the mapped point still depends on place-name inference."
     if status == "region_only":
-        return (
-            "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
-        )
+        return "Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth."
     if site_row is None:
-        return "No location evidence has been extracted yet for this recovered sample row."
+        return (
+            "No location evidence has been extracted yet for this recovered sample row."
+        )
     return "Recovered sample row still lacks a defensible sample-owned site assignment."
 
 
 def _counts_by_status(rows: tuple[AdnaProjectSampleSiteRow, ...]) -> dict[str, int]:
-    counts = {key: 0 for key in ADNA_LOCALITY_RESOLUTION_STATUSES}
+    counts = dict.fromkeys(ADNA_LOCALITY_RESOLUTION_STATUSES, 0)
     for row in rows:
         counts[row.locality_resolution_status] += 1
     return counts
 
 
 def _recommended_next_surface(dossier: dict[str, object]) -> str:
-    sample_site_targets = [str(item) for item in dossier.get("sample_site_targets", []) if str(item).strip()]
+    sample_site_targets = [
+        str(item)
+        for item in dossier.get("sample_site_targets", [])
+        if str(item).strip()
+    ]
     if sample_site_targets:
         return sample_site_targets[0]
     supplementary = [
@@ -448,7 +488,9 @@ def _recommended_next_surface(dossier: dict[str, object]) -> str:
     if supplementary:
         return supplementary[0]
     local_artifacts = [
-        str(item) for item in dossier.get("local_artifact_paths", []) if str(item).strip()
+        str(item)
+        for item in dossier.get("local_artifact_paths", [])
+        if str(item).strip()
     ]
     if local_artifacts:
         return local_artifacts[0]
@@ -597,7 +639,10 @@ def _project_hierarchy_profiles(
         profiles.pop("Barcın", None)
     if "Ulucak Höyük, lies 25 km east of İzmir" not in text:
         profiles.pop("Ulucak Höyük", None)
-    if "Tepecik-Çiftlik mound is located in the Çiftlik district of Niğde province" not in text:
+    if (
+        "Tepecik-Çiftlik mound is located in the Çiftlik district of Niğde province"
+        not in text
+    ):
         profiles.pop("Tepecik-Çiftlik Höyük", None)
         profiles.pop("Tepecik-Çiftlik", None)
     return profiles
@@ -611,9 +656,14 @@ def _resolve_hierarchy(
 ) -> _Hierarchy:
     if locality_text in hierarchy_profiles:
         return hierarchy_profiles[locality_text]
-    if locality_text.endswith(" context") and locality_text.removesuffix(" context") in hierarchy_profiles:
+    if (
+        locality_text.endswith(" context")
+        and locality_text.removesuffix(" context") in hierarchy_profiles
+    ):
         return hierarchy_profiles[locality_text.removesuffix(" context")]
-    country_name = political_entity if _SINGLE_COUNTRY_RE.fullmatch(political_entity or "") else ""
+    country_name = (
+        political_entity if _SINGLE_COUNTRY_RE.fullmatch(political_entity or "") else ""
+    )
     broader_geography = ""
     if political_entity and not country_name:
         broader_geography = political_entity

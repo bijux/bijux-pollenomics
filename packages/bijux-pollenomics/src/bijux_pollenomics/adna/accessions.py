@@ -81,7 +81,9 @@ def resolve_accession_reference(value: str) -> AdnaAccessionReference:
     raise ValueError(f"Unsupported accession reference: {value}")
 
 
-def resolve_accession_lineage(lineage: tuple[str, ...]) -> tuple[AdnaAccessionReference, ...]:
+def resolve_accession_lineage(
+    lineage: tuple[str, ...],
+) -> tuple[AdnaAccessionReference, ...]:
     """Resolve every accession-like token inside a lineage while preserving family type."""
     references: list[AdnaAccessionReference] = []
     for token in lineage:

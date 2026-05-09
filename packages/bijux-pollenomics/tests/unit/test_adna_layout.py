@@ -11,7 +11,9 @@ class AdnaLayoutUnitTests(unittest.TestCase):
 
         self.assertEqual(layout.root_dir, "data/adna/species/homo_sapiens")
         self.assertEqual(layout.raw_dir, "data/adna/species/homo_sapiens/raw")
-        self.assertEqual(layout.manifests_dir, "data/adna/species/homo_sapiens/manifests")
+        self.assertEqual(
+            layout.manifests_dir, "data/adna/species/homo_sapiens/manifests"
+        )
         self.assertEqual(layout.review_dir, "data/adna/species/homo_sapiens/review")
 
     def test_locality_identity_is_shared_species_aware_anchor(self) -> None:

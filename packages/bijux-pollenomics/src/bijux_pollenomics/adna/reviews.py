@@ -181,7 +181,9 @@ class AdnaSpeciesReviewDossier:
             "rejected_projects": [row.as_dict() for row in self.rejected_projects],
             "too_weak_projects": [row.as_dict() for row in self.too_weak_projects],
             "comparator_projects": [row.as_dict() for row in self.comparator_projects],
-            "nordic_unmapped_leads": [row.as_dict() for row in self.nordic_unmapped_leads],
+            "nordic_unmapped_leads": [
+                row.as_dict() for row in self.nordic_unmapped_leads
+            ],
             "release_blockers": list(self.release_blockers),
         }
 
@@ -199,8 +201,12 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
                     archive_status=project.archive_status,
                     evidence_strength=classify_archive_project_evidence(project),
                     ancient_status=project.ancient_status,
-                    paper_title=None if project.paper_linkage is None else project.paper_linkage.paper_title,
-                    paper_doi=None if project.paper_linkage is None else project.paper_linkage.doi,
+                    paper_title=None
+                    if project.paper_linkage is None
+                    else project.paper_linkage.paper_title,
+                    paper_doi=None
+                    if project.paper_linkage is None
+                    else project.paper_linkage.doi,
                     sequencing_target=project.sequencing_target,
                     material_basis=project.material_basis,
                     dating_basis=project.dating_basis,
@@ -210,7 +216,9 @@ def build_species_project_manifest(species_name: str) -> AdnaSpeciesProjectManif
                     domestication_scope=project.domestication_scope,
                     notes=project.notes,
                     nordic_relevance=resolve_project_context(project).nordic_relevance,
-                    nordic_relevance_reason=resolve_project_context(project).nordic_relevance_reason,
+                    nordic_relevance_reason=resolve_project_context(
+                        project
+                    ).nordic_relevance_reason,
                     last_checked_on=resolve_project_context(project).last_checked_on,
                 )
                 for project in build_species_archive_projects(species_name)
@@ -312,10 +320,7 @@ def _build_grouped_review_rows(
     tuple[AdnaSpeciesReviewTableRow, ...],
     tuple[AdnaSpeciesReviewTableRow, ...],
 ]:
-    review_lookup = {
-        review.project_accession: review
-        for review in project_reviews
-    }
+    review_lookup = {review.project_accession: review for review in project_reviews}
     accepted: list[AdnaSpeciesReviewTableRow] = []
     rejected: list[AdnaSpeciesReviewTableRow] = []
     too_weak: list[AdnaSpeciesReviewTableRow] = []
@@ -323,7 +328,9 @@ def _build_grouped_review_rows(
     for row in project_manifest.projects:
         review = review_lookup.get(row.project_accession)
         if review is not None and review.admissible_for_curated_support:
-            accepted.append(_review_table_row(row, "accepted", "admissible_for_curated_support"))
+            accepted.append(
+                _review_table_row(row, "accepted", "admissible_for_curated_support")
+            )
             continue
         if row.archive_status == "reject_or_out_of_scope":
             rejected.append(
@@ -334,7 +341,10 @@ def _build_grouped_review_rows(
                 )
             )
             continue
-        if row.archive_status == "comparator_only" or row.domestication_scope == "ancient_comparator":
+        if (
+            row.archive_status == "comparator_only"
+            or row.domestication_scope == "ancient_comparator"
+        ):
             comparator.append(
                 _review_table_row(
                     row,
@@ -343,12 +353,18 @@ def _build_grouped_review_rows(
                 )
             )
             continue
-        if review is not None and review.core_project and not review.admissible_for_curated_support:
+        if (
+            review is not None
+            and review.core_project
+            and not review.admissible_for_curated_support
+        ):
             too_weak.append(
                 _review_table_row(
                     row,
                     "ancient_but_too_weak",
-                    ", ".join(review.blocking_reasons) if review.blocking_reasons else row.notes,
+                    ", ".join(review.blocking_reasons)
+                    if review.blocking_reasons
+                    else row.notes,
                 )
             )
     return (

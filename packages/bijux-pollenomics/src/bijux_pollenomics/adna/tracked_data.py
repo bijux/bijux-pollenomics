@@ -37,8 +37,8 @@ from .sample_truth import (
     render_animal_sample_foundation_truth_markdown,
     render_animal_sample_product_contract_markdown,
 )
-from .source_recovery import build_species_project_deficit_ledger
 from .source_library import materialize_source_library
+from .source_recovery import build_species_project_deficit_ledger
 from .source_snapshots import (
     build_species_source_snapshots,
     resolve_archive_source_snapshot,
@@ -96,11 +96,24 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     integrity_report = build_archive_integrity_report(species_name=species_name)
     archive_projects = build_species_archive_projects(species_name)
 
-    write_text(species_root / "README.md", _render_species_root_readme(output_root, species_name))
-    write_json(raw_root / "archive_inventory.json", _archive_inventory_payload(archive_projects))
-    write_text(raw_root / "archive_inventory.csv", _render_archive_inventory_csv(archive_projects))
-    write_json(raw_root / "source_snapshot.json", _source_snapshot_payload(species_name))
-    write_text(raw_root / "source_snapshot.csv", _render_source_snapshot_csv(species_name))
+    write_text(
+        species_root / "README.md",
+        _render_species_root_readme(output_root, species_name),
+    )
+    write_json(
+        raw_root / "archive_inventory.json",
+        _archive_inventory_payload(archive_projects),
+    )
+    write_text(
+        raw_root / "archive_inventory.csv",
+        _render_archive_inventory_csv(archive_projects),
+    )
+    write_json(
+        raw_root / "source_snapshot.json", _source_snapshot_payload(species_name)
+    )
+    write_text(
+        raw_root / "source_snapshot.csv", _render_source_snapshot_csv(species_name)
+    )
     write_text(
         normalized_root / "sample_records.csv",
         _render_sample_records_csv(normalization_bundle),
@@ -153,13 +166,16 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         manifests_root / "citation_manifest.csv",
         _render_citation_manifest_csv(archive_projects),
     )
-    write_json(reports_root / "support_summary.json", _support_summary_payload(
-        species_manifest=species_manifest.as_dict(),
-        dataset_review=dataset_review.as_dict(),
-        curation_manifest=curation_manifest.as_dict(),
-        project_manifest=project_manifest.as_dict(),
-        normalization_bundle=normalization_bundle.as_dict(),
-    ))
+    write_json(
+        reports_root / "support_summary.json",
+        _support_summary_payload(
+            species_manifest=species_manifest.as_dict(),
+            dataset_review=dataset_review.as_dict(),
+            curation_manifest=curation_manifest.as_dict(),
+            project_manifest=project_manifest.as_dict(),
+            normalization_bundle=normalization_bundle.as_dict(),
+        ),
+    )
     write_text(
         reports_root / "support_summary.md",
         _render_support_summary_markdown(output_root, species_name),
@@ -174,10 +190,14 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     )
     write_json(review_root / "species_review.json", review_dossier.as_dict())
     write_json(review_root / "archive_integrity.json", integrity_report.as_dict())
-    write_text(review_root / "species_review.md", _render_review_dossier_markdown(species_name))
+    write_text(
+        review_root / "species_review.md", _render_review_dossier_markdown(species_name)
+    )
 
 
-def _archive_inventory_payload(archive_projects: tuple[object, ...]) -> dict[str, object]:
+def _archive_inventory_payload(
+    archive_projects: tuple[object, ...],
+) -> dict[str, object]:
     projects = []
     for project in archive_projects:
         payload = project.as_dict()
@@ -261,19 +281,35 @@ def _render_archive_inventory_csv(archive_projects: tuple[object, ...]) -> str:
                 "ancient_status": project.ancient_status,
                 "metadata_url": project.metadata_url,
                 "paper_title": "" if linkage is None else linkage.paper_title,
-                "paper_doi": "" if linkage is None or linkage.doi is None else linkage.doi,
+                "paper_doi": ""
+                if linkage is None or linkage.doi is None
+                else linkage.doi,
                 "journal_title": (
-                    "" if linkage is None or linkage.journal_title is None else linkage.journal_title
+                    ""
+                    if linkage is None or linkage.journal_title is None
+                    else linkage.journal_title
                 ),
                 "publication_year": (
-                    "" if linkage is None or linkage.publication_year is None else linkage.publication_year
+                    ""
+                    if linkage is None or linkage.publication_year is None
+                    else linkage.publication_year
                 ),
-                "sequencing_target": "" if project.sequencing_target is None else project.sequencing_target,
-                "material_basis": "" if project.material_basis is None else project.material_basis,
-                "dating_basis": "" if project.dating_basis is None else project.dating_basis,
-                "geographic_basis": "" if project.geographic_basis is None else project.geographic_basis,
+                "sequencing_target": ""
+                if project.sequencing_target is None
+                else project.sequencing_target,
+                "material_basis": ""
+                if project.material_basis is None
+                else project.material_basis,
+                "dating_basis": ""
+                if project.dating_basis is None
+                else project.dating_basis,
+                "geographic_basis": ""
+                if project.geographic_basis is None
+                else project.geographic_basis,
                 "access_policy": project.access_policy,
-                "public_release_date": "" if project.public_release_date is None else project.public_release_date,
+                "public_release_date": ""
+                if project.public_release_date is None
+                else project.public_release_date,
                 "domestication_scope": project.domestication_scope,
                 "notes": project.notes,
             }
@@ -293,7 +329,9 @@ def _render_source_snapshot_csv(species_name: str) -> str:
         "description_basis",
         "captured_on",
     )
-    rows = [snapshot.as_dict() for snapshot in build_species_source_snapshots(species_name)]
+    rows = [
+        snapshot.as_dict() for snapshot in build_species_source_snapshots(species_name)
+    ]
     return _render_csv(fieldnames, rows)
 
 
@@ -322,14 +360,24 @@ def _render_citation_manifest_csv(archive_projects: tuple[object, ...]) -> str:
                 "archive_status": project.archive_status,
                 "evidence_strength": classify_archive_project_evidence(project),
                 "paper_title": "" if linkage is None else linkage.paper_title,
-                "paper_doi": "" if linkage is None or linkage.doi is None else linkage.doi,
-                "pubmed_id": "" if linkage is None or linkage.pubmed_id is None else linkage.pubmed_id,
-                "pmc_id": "" if linkage is None or linkage.pmc_id is None else linkage.pmc_id,
+                "paper_doi": ""
+                if linkage is None or linkage.doi is None
+                else linkage.doi,
+                "pubmed_id": ""
+                if linkage is None or linkage.pubmed_id is None
+                else linkage.pubmed_id,
+                "pmc_id": ""
+                if linkage is None or linkage.pmc_id is None
+                else linkage.pmc_id,
                 "journal_title": (
-                    "" if linkage is None or linkage.journal_title is None else linkage.journal_title
+                    ""
+                    if linkage is None or linkage.journal_title is None
+                    else linkage.journal_title
                 ),
                 "publication_year": (
-                    "" if linkage is None or linkage.publication_year is None else linkage.publication_year
+                    ""
+                    if linkage is None or linkage.publication_year is None
+                    else linkage.publication_year
                 ),
                 "reference_kind": "" if linkage is None else linkage.reference_kind,
                 "pinning_evidence": "" if linkage is None else linkage.pinning_evidence,
@@ -392,15 +440,29 @@ def _render_project_summaries_csv(bundle: object) -> str:
                 "domestication_status": summary.domestication_status,
                 "domestication_scope": summary.domestication_scope,
                 "comparator_status": str(summary.comparator_status).lower(),
-                "normalized_breed_label": "" if summary.normalized_breed_label is None else summary.normalized_breed_label,
-                "sequencing_target": "" if summary.sequencing_target is None else summary.sequencing_target,
-                "material_basis": "" if summary.material_basis is None else summary.material_basis,
-                "chronology_basis": "" if summary.chronology_basis is None else summary.chronology_basis,
-                "dating_basis": "" if summary.dating_basis is None else summary.dating_basis,
-                "geographic_basis": "" if summary.geographic_basis is None else summary.geographic_basis,
+                "normalized_breed_label": ""
+                if summary.normalized_breed_label is None
+                else summary.normalized_breed_label,
+                "sequencing_target": ""
+                if summary.sequencing_target is None
+                else summary.sequencing_target,
+                "material_basis": ""
+                if summary.material_basis is None
+                else summary.material_basis,
+                "chronology_basis": ""
+                if summary.chronology_basis is None
+                else summary.chronology_basis,
+                "dating_basis": ""
+                if summary.dating_basis is None
+                else summary.dating_basis,
+                "geographic_basis": ""
+                if summary.geographic_basis is None
+                else summary.geographic_basis,
                 "coordinate_policy": summary.coordinate_policy,
                 "chronology_policy": summary.chronology_policy,
-                "paper_title": "" if summary.paper_title is None else summary.paper_title,
+                "paper_title": ""
+                if summary.paper_title is None
+                else summary.paper_title,
                 "paper_doi": "" if summary.paper_doi is None else summary.paper_doi,
                 "paper_url": "" if summary.paper_url is None else summary.paper_url,
                 "nordic_relevance": summary.nordic_relevance,
@@ -485,7 +547,9 @@ def _render_sample_records_csv(bundle: object) -> str:
                 "paper_url": sample.paper_url,
                 "supplementary_source": sample.supplementary_source,
                 "site_label": site_label,
-                "political_entity": "" if sample.political_entity is None else sample.political_entity,
+                "political_entity": ""
+                if sample.political_entity is None
+                else sample.political_entity,
                 "latitude": "" if sample.latitude is None else sample.latitude,
                 "longitude": "" if sample.longitude is None else sample.longitude,
                 "latitude_text": sample.latitude_text,
@@ -499,9 +563,13 @@ def _render_sample_records_csv(bundle: object) -> str:
                 "chronology_provenance_path": sample.chronology_provenance_path,
                 "chronology_provenance_locator": sample.chronology_provenance_locator,
                 "chronology_conflict_note": sample.chronology_conflict_note,
-                "time_start_bp": "" if sample.time_start_bp is None else sample.time_start_bp,
+                "time_start_bp": ""
+                if sample.time_start_bp is None
+                else sample.time_start_bp,
                 "time_end_bp": "" if sample.time_end_bp is None else sample.time_end_bp,
-                "time_mean_bp": "" if sample.time_mean_bp is None else sample.time_mean_bp,
+                "time_mean_bp": ""
+                if sample.time_mean_bp is None
+                else sample.time_mean_bp,
                 "dating_basis": sample.dating_basis,
                 "inclusion_note": sample.inclusion_note,
             }
@@ -578,9 +646,7 @@ def _render_site_evidence_csv(bundle: object) -> str:
                 "time_start_bp": ""
                 if record.time_start_bp is None
                 else record.time_start_bp,
-                "time_end_bp": ""
-                if record.time_end_bp is None
-                else record.time_end_bp,
+                "time_end_bp": "" if record.time_end_bp is None else record.time_end_bp,
                 "dating_basis": record.dating_basis,
                 "comparator_context": str(record.comparator_context).lower(),
                 "domestication_context": record.domestication_context,
@@ -660,9 +726,7 @@ def _render_coordinate_provenance_csv(bundle: object) -> str:
                 "time_start_bp": ""
                 if record.time_start_bp is None
                 else record.time_start_bp,
-                "time_end_bp": ""
-                if record.time_end_bp is None
-                else record.time_end_bp,
+                "time_end_bp": "" if record.time_end_bp is None else record.time_end_bp,
                 "dating_basis": record.dating_basis,
                 "comparator_context": str(record.comparator_context).lower(),
                 "domestication_context": record.domestication_context,
@@ -740,7 +804,9 @@ def _render_locality_summaries_csv(bundle: object) -> str:
                 "time_start_bp": ""
                 if summary.time_start_bp is None
                 else summary.time_start_bp,
-                "time_end_bp": "" if summary.time_end_bp is None else summary.time_end_bp,
+                "time_end_bp": ""
+                if summary.time_end_bp is None
+                else summary.time_end_bp,
                 "time_mean_bp": ""
                 if summary.time_mean_bp is None
                 else summary.time_mean_bp,
@@ -787,7 +853,8 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
         1
         for row in coordinate_rows
         if str(row.get("mapping_posture", "")) == "mappable_point"
-        and str(row.get("coordinate_basis", "")) in {
+        and str(row.get("coordinate_basis", ""))
+        in {
             "direct_published_coordinates",
             "supplementary_table_coordinates",
             "archive_coordinates",
@@ -797,7 +864,8 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
         1
         for row in coordinate_rows
         if str(row.get("mapping_posture", "")) == "mappable_point"
-        and str(row.get("coordinate_basis", "")) in {
+        and str(row.get("coordinate_basis", ""))
+        in {
             "named_site_geocoding",
             "named_site_geocoded",
         }
@@ -814,7 +882,9 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
         and bool(row.get("nordic_inclusion"))
         and str(row.get("coordinate_confidence", "")) != "withheld"
     )
-    deficit_payload = _species_project_recovery_deficits_payload(output_root, species_name)
+    deficit_payload = _species_project_recovery_deficits_payload(
+        output_root, species_name
+    )
     return (
         f"# {species.common_name}\n\n"
         f"- Latin name: `{species.latin_name}`\n"
@@ -846,7 +916,9 @@ def _render_support_summary_markdown(output_root: Path, species_name: str) -> st
     species = resolve_species_definition(species_name)
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
-    deficit_payload = _species_project_recovery_deficits_payload(output_root, species_name)
+    deficit_payload = _species_project_recovery_deficits_payload(
+        output_root, species_name
+    )
     return (
         f"# {species.common_name} support summary\n\n"
         f"- Product role: `{review.product_role}`\n"
@@ -876,9 +948,7 @@ def _species_project_recovery_deficits_payload(
     species_name: str,
 ) -> dict[str, object]:
     ledger = build_species_project_deficit_ledger(output_root)
-    rows = [
-        row for row in ledger["rows"] if row["species_latin_name"] == species_name
-    ]
+    rows = [row for row in ledger["rows"] if row["species_latin_name"] == species_name]
     counts = ledger["species_counts"].get(
         species_name,
         {
@@ -1020,7 +1090,9 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     bibliography_rows = build_cross_species_bibliography()
     archive_rows = build_cross_species_archive_inventory()
     freshness_rows = build_species_freshness_table()
-    coverage_dashboard = build_cross_species_coverage_dashboard(output_root, report_root)
+    coverage_dashboard = build_cross_species_coverage_dashboard(
+        output_root, report_root
+    )
     product_audit = build_shipped_adna_product_audit(output_root, report_root)
     map_readiness = build_cross_species_map_readiness(output_root)
     sample_product_contract = build_animal_sample_product_contract()
@@ -1034,7 +1106,10 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     coordinate_caveat_surface = build_coordinate_caveat_surface(output_root)
     write_json(
         governance_root / "cross_species_bibliography.json",
-        {"schema_version": "adna-cross-species-bibliography.v1", "rows": bibliography_rows},
+        {
+            "schema_version": "adna-cross-species-bibliography.v1",
+            "rows": bibliography_rows,
+        },
     )
     write_text(
         governance_root / "cross_species_bibliography.csv",
@@ -1042,28 +1117,39 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     )
     write_json(
         governance_root / "cross_species_archive_inventory.json",
-        {"schema_version": "adna-cross-species-archive-inventory.v1", "rows": archive_rows},
+        {
+            "schema_version": "adna-cross-species-archive-inventory.v1",
+            "rows": archive_rows,
+        },
     )
     write_text(
         governance_root / "cross_species_archive_inventory.csv",
         render_csv_rows(archive_rows),
     )
-    write_json(governance_root / "cross_species_freshness.json", {"rows": freshness_rows})
+    write_json(
+        governance_root / "cross_species_freshness.json", {"rows": freshness_rows}
+    )
     write_text(
         governance_root / "cross_species_freshness.csv",
         render_csv_rows(freshness_rows),
     )
-    write_json(governance_root / "cross_species_coverage_dashboard.json", coverage_dashboard)
+    write_json(
+        governance_root / "cross_species_coverage_dashboard.json", coverage_dashboard
+    )
     write_text(
         governance_root / "cross_species_coverage_dashboard.csv",
         render_csv_rows(tuple(coverage_dashboard["rows"])),
     )
-    write_json(governance_root / "animal_sample_product_contract.json", sample_product_contract)
+    write_json(
+        governance_root / "animal_sample_product_contract.json", sample_product_contract
+    )
     write_text(
         governance_root / "animal_sample_product_contract.md",
         render_animal_sample_product_contract_markdown(sample_product_contract),
     )
-    write_json(governance_root / "animal_sample_foundation_truth.json", sample_foundation_truth)
+    write_json(
+        governance_root / "animal_sample_foundation_truth.json", sample_foundation_truth
+    )
     write_text(
         governance_root / "animal_sample_foundation_truth.md",
         render_animal_sample_foundation_truth_markdown(sample_foundation_truth),
@@ -1082,9 +1168,7 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     )
     write_text(
         governance_root / "animal_sample_aggregation_warnings.md",
-        render_animal_sample_aggregation_warnings_markdown(
-            sample_aggregation_warnings
-        ),
+        render_animal_sample_aggregation_warnings_markdown(sample_aggregation_warnings),
     )
     write_json(governance_root / "shipped_product_audit.json", product_audit)
     write_json(governance_root / "cross_species_map_readiness.json", map_readiness)
@@ -1094,7 +1178,10 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     )
     write_json(
         governance_root / "unresolved_site_ledger.json",
-        {"schema_version": "adna-unresolved-site-ledger.v1", "rows": unresolved_site_ledger},
+        {
+            "schema_version": "adna-unresolved-site-ledger.v1",
+            "rows": unresolved_site_ledger,
+        },
     )
     write_text(
         governance_root / "unresolved_site_ledger.csv",
@@ -1102,13 +1189,18 @@ def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
     )
     write_json(
         governance_root / "overbroad_site_ledger.json",
-        {"schema_version": "adna-overbroad-site-ledger.v1", "rows": overbroad_site_ledger},
+        {
+            "schema_version": "adna-overbroad-site-ledger.v1",
+            "rows": overbroad_site_ledger,
+        },
     )
     write_text(
         governance_root / "overbroad_site_ledger.csv",
         render_csv_rows(overbroad_site_ledger),
     )
-    write_json(governance_root / "coordinate_caveat_surface.json", coordinate_caveat_surface)
+    write_json(
+        governance_root / "coordinate_caveat_surface.json", coordinate_caveat_surface
+    )
     write_text(
         governance_root / "coordinate_caveat_surface.md",
         render_coordinate_caveat_surface_markdown(coordinate_caveat_surface),
@@ -1124,11 +1216,11 @@ def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> No
     from ..reporting.adna.atlas_evidence_rows import (
         build_tracked_animal_atlas_evidence_rows,
     )
+    from ..reporting.adna.country_outputs import build_country_animal_output_bundle
     from .catalogs import (
         build_animal_atlas_candidate_accountability,
         render_animal_atlas_candidate_accountability_markdown,
     )
-    from ..reporting.adna.country_outputs import build_country_animal_output_bundle
 
     atlas_root = final_root / "atlas"
     countries_root = final_root / "countries"
@@ -1157,9 +1249,7 @@ def _materialize_final_adna_artifacts(output_root: Path, final_root: Path) -> No
     )
     write_text(
         atlas_root / "animal_atlas_candidate_accountability.md",
-        render_animal_atlas_candidate_accountability_markdown(
-            candidate_accountability
-        ),
+        render_animal_atlas_candidate_accountability_markdown(candidate_accountability),
     )
     accountability_rows = tuple(
         dict(row) for row in candidate_accountability.get("rows", [])
