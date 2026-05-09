@@ -36,6 +36,15 @@ from ...adna.source_library import (
     build_project_source_bundles,
     build_supplement_registry,
 )
+from ...adna.source_recovery import (
+    build_manual_curation_worklist,
+    build_missing_source_queue,
+    build_project_expected_sample_yield_review,
+    build_project_recovery_stage_review,
+    build_source_recovery_progress,
+    build_source_recovery_release_guard,
+    build_species_project_deficit_ledger,
+)
 from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 
 __all__ = ["publish_animal_foundation_outputs"]
@@ -79,11 +88,13 @@ def publish_animal_foundation_outputs(
         absence_payload=absence_payload,
     )
     chronology_review_payload = build_animal_sample_chronology_review(data_root=data_root)
+    intake_recovery_payload = build_animal_intake_recovery_review(data_root=data_root)
     sample_database_review_payload = build_animal_sample_database_review(
         data_root=data_root,
         report_root=output_root,
         point_payload=point_payload,
         review_payload=review_payload,
+        intake_recovery_payload=intake_recovery_payload,
     )
     release_gate_payload = build_animal_publication_release_gate(
         data_root=data_root,
@@ -92,6 +103,7 @@ def publish_animal_foundation_outputs(
         point_payload=point_payload,
         review_payload=review_payload,
         sample_database_review_payload=sample_database_review_payload,
+        intake_recovery_payload=intake_recovery_payload,
     )
 
     payloads = {
@@ -122,6 +134,10 @@ def publish_animal_foundation_outputs(
         "animal_sample_chronology_review": (
             chronology_review_payload,
             render_animal_sample_chronology_review_markdown(chronology_review_payload),
+        ),
+        "animal_intake_recovery_review": (
+            intake_recovery_payload,
+            render_animal_intake_recovery_review_markdown(intake_recovery_payload),
         ),
         "animal_sample_database_review": (
             sample_database_review_payload,
@@ -641,12 +657,72 @@ def build_animal_sample_chronology_review(
     }
 
 
+def build_animal_intake_recovery_review(
+    *,
+    data_root: Path,
+) -> dict[str, object]:
+    """Publish one outsider-facing review of current intake recovery depth and blockers."""
+    stage_review = build_project_recovery_stage_review(data_root)
+    project_yield_review = build_project_expected_sample_yield_review(data_root)
+    species_deficit_ledger = build_species_project_deficit_ledger(data_root)
+    worklist = build_manual_curation_worklist(data_root)
+    progress = build_source_recovery_progress(data_root)
+    missing_source_queue = build_missing_source_queue(data_root)
+    release_guard = build_source_recovery_release_guard(data_root)
+
+    return {
+        "schema_version": "animal-intake-recovery-review.v1",
+        "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
+        "stage_review": {
+            "tracked_project_count": stage_review["row_count"],
+            "ready_for_publication_review": stage_review["summary"][
+                "ready_for_publication_review"
+            ],
+            "blocked_projects": stage_review["summary"]["blocked_projects"],
+            "in_progress_projects": stage_review["summary"]["in_progress_projects"],
+        },
+        "yield_review": project_yield_review["counts"],
+        "species_deficit_counts": species_deficit_ledger["species_counts"],
+        "manual_curation_counts": worklist["counts"],
+        "missing_source_queue_counts": missing_source_queue["counts"],
+        "release_guard": {
+            "passing": release_guard["passing"],
+            "implausibly_low_recovery_project_count": release_guard[
+                "implausibly_low_recovery_project_count"
+            ],
+        },
+        "sample_evidence_depth_counts": progress["sample_evidence_depth_counts"],
+        "top_gap_projects": [
+            {
+                "project_accession": row["project_accession"],
+                "species_latin_name": row["species_latin_name"],
+                "recovery_gap_status": row["recovery_gap_status"],
+                "minimum_gap_count": row["minimum_gap_count"],
+                "major_deficit_reasons": row["major_deficit_reasons"],
+            }
+            for row in project_yield_review["rows"]
+            if row["major_deficit_reasons"]
+        ][:20],
+        "direct_links": {
+            "project_recovery_stage_review": "data/adna/governance/source_library/project_recovery_stage_review.json",
+            "project_expected_sample_yield_review": "data/adna/governance/source_library/project_expected_sample_yield_review.json",
+            "paper_expected_sample_yield_review": "data/adna/governance/source_library/paper_expected_sample_yield_review.json",
+            "species_project_deficit_ledger": "data/adna/governance/source_library/species_project_deficit_ledger.json",
+            "manual_curation_worklist": "data/adna/governance/source_library/manual_curation_worklist.json",
+            "source_recovery_progress": "data/adna/governance/source_library/source_recovery_progress.json",
+            "missing_source_queue": "data/adna/governance/source_library/missing_source_queue.json",
+            "source_recovery_release_guard": "data/adna/governance/source_library/source_recovery_release_guard.json",
+        },
+    }
+
+
 def build_animal_sample_database_review(
     *,
     data_root: Path,
     report_root: Path,
     point_payload: dict[str, object],
     review_payload: dict[str, object],
+    intake_recovery_payload: dict[str, object],
 ) -> dict[str, object]:
     """Prove the current repository posture as a checked-in sample database."""
     project_rows = build_project_registry(data_root)
@@ -712,6 +788,15 @@ def build_animal_sample_database_review(
         "chronology_conflicts": "data/adna/governance/source_library/sample_chronology_conflict_ledger.json",
         "chronology_precision_audit": "data/adna/governance/source_library/sample_chronology_precision_audit.json",
         "date_evidence_gap_queue": "data/adna/governance/source_library/date_evidence_gap_queue.json",
+        "project_recovery_stage_review": "data/adna/governance/source_library/project_recovery_stage_review.json",
+        "project_expected_sample_yield_review": "data/adna/governance/source_library/project_expected_sample_yield_review.json",
+        "paper_expected_sample_yield_review": "data/adna/governance/source_library/paper_expected_sample_yield_review.json",
+        "species_project_deficit_ledger": "data/adna/governance/source_library/species_project_deficit_ledger.json",
+        "manual_curation_worklist": "data/adna/governance/source_library/manual_curation_worklist.json",
+        "source_recovery_progress": "data/adna/governance/source_library/source_recovery_progress.json",
+        "missing_source_queue": "data/adna/governance/source_library/missing_source_queue.json",
+        "source_recovery_release_guard": "data/adna/governance/source_library/source_recovery_release_guard.json",
+        "animal_intake_recovery_review": "docs/report/animal_intake_recovery_review.json",
         "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
         "point_evidence_review": "docs/report/animal_point_evidence_review.md",
         "atlas_evidence_rows": "docs/report/world/world_animal_atlas_evidence.json",
@@ -756,6 +841,11 @@ def build_animal_sample_database_review(
         posture_findings.append("mapped_sample_share_still_too_low")
     if normalized_chronology_count < 100:
         posture_findings.append("normalized_chronology_depth_still_too_thin")
+    if not bool(intake_recovery_payload["release_guard"]["passing"]):
+        posture_findings.append("project_recovery_release_guard_still_failing")
+    blockers = list(review_payload["blockers"])
+    if not bool(intake_recovery_payload["release_guard"]["passing"]):
+        blockers.append("project_recovery_release_guard_still_failing")
     return {
         "schema_version": "animal-sample-database-review.v1",
         "public_posture": "partial_sample_owned_animal_evidence_surface",
@@ -805,8 +895,17 @@ def build_animal_sample_database_review(
         },
         "chronology_status_counts": chronology_status_counts,
         "chronology_precision_counts": chronology_precision_counts,
+        "intake_recovery_counts": {
+            "blocked_projects": intake_recovery_payload["stage_review"]["blocked_projects"],
+            "ready_for_publication_review": intake_recovery_payload["stage_review"][
+                "ready_for_publication_review"
+            ],
+            "implausibly_low_recovery_project_count": intake_recovery_payload[
+                "release_guard"
+            ]["implausibly_low_recovery_project_count"],
+        },
         "posture_findings": posture_findings,
-        "blockers": list(review_payload["blockers"]),
+        "blockers": blockers,
         "direct_links": direct_links,
     }
 
@@ -819,6 +918,7 @@ def build_animal_publication_release_gate(
     point_payload: dict[str, object],
     review_payload: dict[str, object],
     sample_database_review_payload: dict[str, object],
+    intake_recovery_payload: dict[str, object],
 ) -> dict[str, object]:
     """Fail publication when animal outputs overclaim or lose required traceability."""
     docs_paths = sorted(path for path in docs_root.rglob("*.md") if path.is_file())
@@ -966,6 +1066,14 @@ def build_animal_publication_release_gate(
                     and bool(str(row.get("paper_url", "")).strip())
                 )
             ],
+        ),
+        _check_row(
+            "project_recovery_guard_still_blocks_overclaim",
+            not bool(intake_recovery_payload["release_guard"]["passing"]),
+            "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+            []
+            if not bool(intake_recovery_payload["release_guard"]["passing"])
+            else ["project_recovery_guard_not_visible"],
         ),
         _check_row(
             "project_locality_outputs_do_not_flatten_sample_site_disagreement",
@@ -1194,6 +1302,42 @@ def render_animal_sample_chronology_review_markdown(payload: dict[str, object]) 
     return "\n".join(lines) + "\n"
 
 
+def render_animal_intake_recovery_review_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Animal intake recovery review",
+        "",
+        f"- Public posture: `{payload['public_posture']}`",
+        f"- Tracked projects: `{payload['stage_review']['tracked_project_count']}`",
+        f"- Ready for publication review: `{payload['stage_review']['ready_for_publication_review']}`",
+        f"- Blocked projects: `{payload['stage_review']['blocked_projects']}`",
+        f"- Implausibly low recovery projects: `{payload['release_guard']['implausibly_low_recovery_project_count']}`",
+        "",
+        "## Sample Evidence Depth",
+        "",
+    ]
+    for key, value in payload["sample_evidence_depth_counts"].items():
+        lines.append(f"- {key.replace('_', ' ')}: `{value}`")
+    lines.extend(
+        [
+            "",
+            "## Top Gap Projects",
+            "",
+            "| Project | Species | Gap status | Minimum gap | Reasons |",
+            "| --- | --- | --- | ---: | --- |",
+        ]
+    )
+    for row in payload["top_gap_projects"]:
+        lines.append(
+            f"| `{row['project_accession']}` | `{row['species_latin_name']}` | "
+            f"`{row['recovery_gap_status']}` | `{row['minimum_gap_count'] or 0}` | "
+            f"`{'; '.join(row['major_deficit_reasons'])}` |"
+        )
+    lines.extend(["", "## Direct Links", ""])
+    for label, target in payload["direct_links"].items():
+        lines.append(f"- {label}: `{target}`")
+    return "\n".join(lines) + "\n"
+
+
 def render_animal_sample_database_review_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Animal sample database review",
@@ -1218,6 +1362,9 @@ def render_animal_sample_database_review_markdown(payload: dict[str, object]) ->
         f"- Published country bundles: `{payload['counts']['published_country_bundle_count']}`",
         f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
         f"- Mapped sample share: `{payload['counts']['mapped_sample_share']}`",
+        f"- Projects blocked in intake recovery: `{payload['intake_recovery_counts']['blocked_projects']}`",
+        f"- Projects ready for publication review: `{payload['intake_recovery_counts']['ready_for_publication_review']}`",
+        f"- Implausibly low recovery projects: `{payload['intake_recovery_counts']['implausibly_low_recovery_project_count']}`",
         "",
         "## Thresholds",
         "",

@@ -8,6 +8,7 @@ import unittest
 from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_cross_surface_drift_report,
     build_animal_foundation_review_packet,
+    build_animal_intake_recovery_review,
     build_animal_sample_database_review,
     build_animal_sample_chronology_review,
     build_animal_foundation_validation_report,
@@ -127,16 +128,33 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
+    def test_animal_intake_recovery_review_keeps_project_gap_surfaces_visible(self) -> None:
+        payload = build_animal_intake_recovery_review(data_root=self.data_root)
+
+        self.assertEqual(payload["schema_version"], "animal-intake-recovery-review.v1")
+        self.assertEqual(
+            payload["public_posture"],
+            "sample_recovery_still_partial_and_project_gaps_explicit",
+        )
+        self.assertGreater(payload["stage_review"]["blocked_projects"], 0)
+        self.assertGreater(payload["release_guard"]["implausibly_low_recovery_project_count"], 0)
+        self.assertIn("source_recovery_progress", payload["direct_links"])
+        self.assertTrue(payload["top_gap_projects"])
+
     def test_sample_database_review_packet_proves_sample_owned_public_posture(self) -> None:
         point_payload = build_animal_point_evidence_review(
             data_root=self.data_root,
             report_root=self.report_root,
+        )
+        intake_recovery_payload = build_animal_intake_recovery_review(
+            data_root=self.data_root
         )
         payload = build_animal_sample_database_review(
             data_root=self.data_root,
             report_root=self.report_root,
             point_payload=point_payload,
             review_payload={"blockers": ["foundation_validation_not_yet_clean"]},
+            intake_recovery_payload=intake_recovery_payload,
         )
 
         self.assertEqual(payload["schema_version"], "animal-sample-database-review.v1")
@@ -155,7 +173,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             payload["locality_completeness_counts"]["exact_site_evidence_count"],
             0,
         )
-        self.assertEqual(payload["posture_findings"], [])
+        self.assertIn(
+            "project_recovery_release_guard_still_failing",
+            payload["posture_findings"],
+        )
         self.assertNotIn(
             "supplement_backed_paper_coverage_still_too_low",
             payload["posture_findings"],
@@ -163,6 +184,8 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertIn("sample_foundation_truth", payload["direct_links"])
         self.assertIn("locality_conflicts", payload["direct_links"])
         self.assertIn("chronology_precision_audit", payload["direct_links"])
+        self.assertIn("source_recovery_progress", payload["direct_links"])
+        self.assertGreater(payload["intake_recovery_counts"]["blocked_projects"], 0)
 
     def test_foundation_review_and_release_gate_keep_public_posture_honest(self) -> None:
         validation_payload = build_animal_foundation_validation_report(
@@ -191,11 +214,15 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             point_payload=point_payload,
             absence_payload=absence_payload,
         )
+        intake_recovery_payload = build_animal_intake_recovery_review(
+            data_root=self.data_root
+        )
         sample_database_review_payload = build_animal_sample_database_review(
             data_root=self.data_root,
             report_root=self.report_root,
             point_payload=point_payload,
             review_payload=review_payload,
+            intake_recovery_payload=intake_recovery_payload,
         )
         gate_payload = build_animal_publication_release_gate(
             data_root=self.data_root,
@@ -204,6 +231,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             point_payload=point_payload,
             review_payload=review_payload,
             sample_database_review_payload=sample_database_review_payload,
+            intake_recovery_payload=intake_recovery_payload,
         )
 
         self.assertEqual(review_payload["schema_version"], "animal-foundation-review.v1")
@@ -244,6 +272,12 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "sample_database_claim_supported": True,
             "nordic_view_supported_now": False,
         }
+        intake_recovery_payload = {
+            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+        }
+        intake_recovery_payload = {
+            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+        }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
             (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
@@ -269,6 +303,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 point_payload=point_payload,
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
+                intake_recovery_payload=intake_recovery_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -346,6 +381,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 point_payload=point_payload,
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
+                intake_recovery_payload=intake_recovery_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -364,6 +400,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         sample_database_review_payload = {
             "sample_database_claim_supported": True,
             "nordic_view_supported_now": False,
+        }
+        intake_recovery_payload = {
+            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -431,6 +470,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 point_payload=point_payload,
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
+                intake_recovery_payload=intake_recovery_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -450,6 +490,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         sample_database_review_payload = {
             "sample_database_claim_supported": True,
             "nordic_view_supported_now": False,
+        }
+        intake_recovery_payload = {
+            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -545,6 +588,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 point_payload=point_payload,
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
+                intake_recovery_payload=intake_recovery_payload,
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -578,18 +622,27 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "animal_sample_database_review_json",
                 artifacts,
             )
+            self.assertIn(
+                "animal_intake_recovery_review_json",
+                artifacts,
+            )
             review_path = output_root / artifacts["animal_foundation_review_json"]
             chronology_path = output_root / artifacts["animal_sample_chronology_review_json"]
+            intake_recovery_path = output_root / artifacts["animal_intake_recovery_review_json"]
             sample_database_review_path = (
                 output_root / artifacts["animal_sample_database_review_json"]
             )
             gate_path = output_root / artifacts["animal_publication_release_gate_json"]
             self.assertTrue(review_path.is_file())
             self.assertTrue(chronology_path.is_file())
+            self.assertTrue(intake_recovery_path.is_file())
             self.assertTrue(sample_database_review_path.is_file())
             self.assertTrue(gate_path.is_file())
             review_payload = json.loads(review_path.read_text(encoding="utf-8"))
             chronology_payload = json.loads(chronology_path.read_text(encoding="utf-8"))
+            intake_recovery_payload = json.loads(
+                intake_recovery_path.read_text(encoding="utf-8")
+            )
             sample_database_review_payload = json.loads(
                 sample_database_review_path.read_text(encoding="utf-8")
             )
@@ -599,6 +652,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertEqual(chronology_payload["row_count"], 868)
+            self.assertGreater(
+                intake_recovery_payload["stage_review"]["blocked_projects"],
+                0,
+            )
             self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
             self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
             self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])
