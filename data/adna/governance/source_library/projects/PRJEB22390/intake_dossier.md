@@ -1,78 +1,34 @@
-# PRJEB22390 intake dossier
+# PRJEB22390 recovery dossier
 
 - Species: `Equus caballus`
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.
-- Sample count artifact path: `data/adna/governance/source_library/projects/PRJEB22390/archive_metadata.html`
-- Sample identifier status: `manual_curation_required`
-- Rejection reason: `none`
+- Paper DOI: `10.1126/science.aao3297`
+- Publication readiness: `complete`
+- Next required stage: `none`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `1`
+- Final recovered sample rows: `42`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `complete`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `complete`
+- `chronology_recovery`: `complete`
+- `coordinate_derivation`: `complete`
+- `publication_readiness`: `complete`
 
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
+## Expected Contributions
 
-### Site evidence
+- `sample_identities`
+- `taxonomic_context`
 
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
-
-### Chronology evidence
-
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
-
-### Supplementary artifacts
-
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables12.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables13.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables14.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables16.xls`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables17.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables18.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables8.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables9.xlsx`
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf`
 - `adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls`
@@ -90,15 +46,15 @@
 - `adna/governance/source_library/papers/10.1126-science.aao3297/crossref.json`
 - `adna/governance/source_library/papers/10.1126-science.aao3297/pubmed.xml`
 - `adna/governance/source_library/projects/PRJEB22390/archive_metadata.html`
+- `data/adna/governance/source_library/projects/PRJEB22390/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB22390/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB22390/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB22390/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
 - none
 
-## Blocker categories
+## Contradictory Evidence
 
-- `missing_sample_identifiers`
-
-## Extraction plan
-
-Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface.
+- 41 chronology row(s) still disagree between sample-owned and context-level evidence.

@@ -1,45 +1,38 @@
-# PRJEB55549 intake dossier
+# PRJEB55549 recovery dossier
 
 - Species: `Equus asinus`
 - Archive status: `reject_or_out_of_scope`
 - Inventory disposition: `retained_rejected_reference`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.
-- Sample count artifact path: `data/adna/governance/source_library/projects/PRJEB55549/archive_metadata.html`
-- Sample identifier status: `not_yet_curated`
-- Rejection reason: `Analysis-level donkey entry; not promoted into direct curated support.`
+- Paper DOI: `none`
+- Publication readiness: `not_required`
+- Next required stage: `none`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `unknown`
+- Final recovered sample rows: `0`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `not_required`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `not_required`
+- `site_recovery`: `not_required`
+- `chronology_recovery`: `not_required`
+- `coordinate_derivation`: `not_required`
+- `publication_readiness`: `not_required`
 
-- none
+## Expected Contributions
 
-### Site evidence
 
-- none
+## Known Assets
 
-### Chronology evidence
+- `data/adna/governance/source_library/projects/PRJEB55549/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB55549/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB55549/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB55549/sample_locality_evidence.json`
 
-- none
+## Missing Assets
 
-### Supplementary artifacts
-
-- none
-
-## Local artifacts
-
-- none
-
-## Blockers
-
-- `paper_linkage_not_curated`
-
-## Blocker categories
-
-- none
-
-## Extraction plan
-
-Retain the project in the tracked inventory with an explicit rejection reason so future readers can see why it does not feed the animal sample database.
+- No final governed sample rows are published yet.

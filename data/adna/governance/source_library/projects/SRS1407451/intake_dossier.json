@@ -1,45 +1,113 @@
 {
-  "schema_version": "adna-source-library.v1",
+  "schema_version": "animal-project-recovery-dossier.v1",
   "project_accession": "SRS1407451",
   "species_latin_name": "Canis lupus familiaris",
+  "paper_doi": "10.1038/ncomms16082",
   "archive_status": "paper_pinned_core",
   "evidence_strength": "primary_paper_pinned",
-  "project_url": "https://www.ncbi.nlm.nih.gov/sra?term=SRS1407451",
-  "paper_doi": "10.1038/ncomms16082",
-  "paper_title": "Ancient European dog genomes reveal continuity since the Early Neolithic",
-  "paper_download_status": "archived",
-  "supplement_download_status": "archived",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "in_progress",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "blocked",
+    "publication_readiness": "blocked"
+  },
+  "blocking_stages": [
+    "coordinate_derivation",
+    "publication_readiness"
+  ],
+  "next_required_stage": "site_recovery",
+  "publication_readiness_status": "blocked",
   "expected_sample_count": 1,
   "expected_sample_count_status": "known_from_archive_accession_scope",
   "expected_sample_count_provenance": "The tracked accession itself is one sample-scoped archive identifier.",
   "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
-  "sample_identifier_status": "archive_native_identifiers_known",
-  "inventory_disposition": "tracked_intake_candidate",
-  "rejection_reason": "",
-  "sample_identifier_targets": [
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
-  ],
-  "sample_site_targets": [
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
-  ],
-  "chronology_targets": [
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
-  ],
-  "expected_supplementary_artifacts": [
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
-  ],
-  "local_artifact_paths": [
+  "minimum_expected_sample_count": 1,
+  "recovered_sample_count": 1,
+  "final_sample_count": 1,
+  "unresolved_sample_count": 0,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "recovered_to_exact_expected_count",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
     "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
     "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
-    "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
+    "adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+    "data/adna/governance/source_library/projects/SRS1407451/sample_master.json",
+    "data/adna/governance/source_library/projects/SRS1407451/sample_sites.json",
+    "data/adna/governance/source_library/projects/SRS1407451/sample_chronology.json",
+    "data/adna/governance/source_library/projects/SRS1407451/sample_locality_evidence.json"
   ],
-  "blockers": [],
-  "blocker_categories": [],
-  "extraction_plan": "Use the archive-native sample accession as the anchor row, then recover site and chronology support from the linked paper or supplementary material."
+  "missing_assets": [
+    "Some recovered sample rows still lack a defensible site assignment."
+  ],
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context",
+    "site_evidence",
+    "coordinate_candidates"
+  ],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
+  ],
+  "contradictory_evidence": [],
+  "inferred_claims": [],
+  "manual_curation_work_units": [
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 1,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/SRS1407451/sample_chronology.json",
+        "data/adna/governance/source_library/projects/SRS1407451/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": [
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
+        "adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json",
+        "adna/governance/source_library/projects/SRS1407451/archive_metadata.html"
+      ]
+    }
+  ],
+  "major_deficit_reasons": [
+    "site_assignment_gap",
+    "coordinate_precision_gap"
+  ]
 }

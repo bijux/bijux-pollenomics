@@ -1,54 +1,34 @@
-# PRJEB19970 intake dossier
+# PRJEB19970 recovery dossier
 
 - Species: `Equus caballus`
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.
-- Sample count artifact path: `data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html`
-- Sample identifier status: `manual_curation_required`
-- Rejection reason: `none`
+- Paper DOI: `10.1126/science.aam5298`
+- Publication readiness: `complete`
+- Next required stage: `coordinate_derivation`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `1`
+- Final recovered sample rows: `14`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `complete`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `complete`
+- `chronology_recovery`: `complete`
+- `coordinate_derivation`: `in_progress`
+- `publication_readiness`: `complete`
 
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
+## Expected Contributions
 
-### Site evidence
+- `sample_identities`
+- `taxonomic_context`
 
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
-
-### Chronology evidence
-
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
-
-### Supplementary artifacts
-
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables28.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables29.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
-- `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf`
 - `adna/governance/source_library/papers/10.1126-science.aam5298/article.html`
@@ -60,15 +40,15 @@
 - `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx`
 - `adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx`
 - `adna/governance/source_library/projects/PRJEB19970/archive_metadata.html`
+- `data/adna/governance/source_library/projects/PRJEB19970/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB19970/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB19970/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB19970/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
 - none
 
-## Blocker categories
+## Contradictory Evidence
 
-- `missing_sample_identifiers`
-
-## Extraction plan
-
-Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface.
+- 12 chronology row(s) still disagree between sample-owned and context-level evidence.

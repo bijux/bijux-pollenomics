@@ -1,0 +1,323 @@
+{
+  "schema_version": "animal-missing-source-queue.v1",
+  "row_count": 21,
+  "counts": {
+    "sample_recovery_still_thin": 8,
+    "missing_primary_paper_linkage": 13
+  },
+  "rows": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1126/science.aav1002",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
+        "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM4_ESM.pdf"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [
+        "site_evidence",
+        "coordinate_candidates"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "paper_doi": "10.1111/1755-0998.12551",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
+        "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB43564/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB50952/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB52590/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB52849/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB10854/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB56293/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB7537/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1126/science.adt2642",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB81815/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/article.html",
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
+        "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "paper_doi": "10.1016/j.xgen.2025.101099",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJNA1178732/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/article.html",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc4.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc5.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc6.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc7.xlsx",
+        "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc8.pdf"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1038/s41562-021-01083-y",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB41594/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf",
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "10.1093/gbe/evae114",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article.html",
+        "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
+        "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB61808/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB69690",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB69690/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB81145",
+      "species_latin_name": "Ovis aries",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB81145/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "queue_category": "sample_recovery_still_thin",
+      "expected_contributions": [
+        "sample_identities",
+        "taxonomic_context"
+      ],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html",
+        "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html",
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd02.xlsx"
+      ],
+      "current_capture_state": "repository_supplement_captured_needs_extraction",
+      "queue_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows."
+    },
+    {
+      "project_accession": "PRJNA788987",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJNA788987/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    },
+    {
+      "project_accession": "PRJNA878488",
+      "species_latin_name": "Sus scrofa domesticus",
+      "paper_doi": "",
+      "queue_category": "missing_primary_paper_linkage",
+      "expected_contributions": [],
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/projects/PRJNA878488/archive_metadata.html"
+      ],
+      "current_capture_state": "paper_linkage_not_curated",
+      "queue_reason": "The project is tracked, but the repository still lacks a pinned primary paper anchor for downstream extraction."
+    }
+  ]
+}

@@ -1,45 +1,39 @@
-# PRJEB61721 intake dossier
+# PRJEB61721 recovery dossier
 
 - Species: `Rangifer tarandus`
 - Archive status: `reject_or_out_of_scope`
 - Inventory disposition: `retained_rejected_reference`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: Rejected or out-of-scope projects stay in the intake inventory but do not yet carry a curated sample-count claim.
-- Sample count artifact path: `data/adna/governance/source_library/projects/PRJEB61721/archive_metadata.html`
-- Sample identifier status: `not_yet_curated`
-- Rejection reason: `Modern Svalbard reindeer comparator retained only as an explicit reject so modern context does not inflate ancient support.`
+- Paper DOI: `none`
+- Publication readiness: `not_required`
+- Next required stage: `none`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `unknown`
+- Final recovered sample rows: `0`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `not_required`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `not_required`
+- `site_recovery`: `not_required`
+- `chronology_recovery`: `not_required`
+- `coordinate_derivation`: `not_required`
+- `publication_readiness`: `not_required`
 
-- none
+## Expected Contributions
 
-### Site evidence
 
-- none
-
-### Chronology evidence
-
-- none
-
-### Supplementary artifacts
-
-- none
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/projects/PRJEB61721/archive_metadata.html`
+- `data/adna/governance/source_library/projects/PRJEB61721/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB61721/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB61721/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB61721/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
-- `paper_linkage_not_curated`
-
-## Blocker categories
-
-- none
-
-## Extraction plan
-
-Retain the project in the tracked inventory with an explicit rejection reason so future readers can see why it does not feed the animal sample database.
+- No final governed sample rows are published yet.

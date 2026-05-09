@@ -1,50 +1,37 @@
 {
-  "schema_version": "adna-source-library.v1",
+  "schema_version": "animal-project-recovery-dossier.v1",
   "project_accession": "PRJEB44430",
   "species_latin_name": "Equus caballus",
+  "paper_doi": "10.1038/s41586-021-04018-9",
   "archive_status": "paper_pinned_core",
   "evidence_strength": "primary_paper_pinned",
-  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB44430&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-  "paper_doi": "10.1038/s41586-021-04018-9",
-  "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
-  "paper_download_status": "archived",
-  "supplement_download_status": "archived",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "complete",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "complete",
+    "publication_readiness": "complete"
+  },
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
   "expected_sample_count_artifact_path": "",
-  "sample_identifier_status": "paper_or_supplement_targets_curated",
-  "inventory_disposition": "tracked_intake_candidate",
-  "rejection_reason": "",
-  "sample_identifier_targets": [
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
-  ],
-  "sample_site_targets": [
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
-  ],
-  "chronology_targets": [
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
-  ],
-  "expected_supplementary_artifacts": [
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
-    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
-  ],
-  "local_artifact_paths": [
+  "minimum_expected_sample_count": 1,
+  "recovered_sample_count": 248,
+  "final_sample_count": 248,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
+  "known_assets": [
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
@@ -52,11 +39,30 @@
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/article.html",
     "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/crossref.json",
-    "adna/governance/source_library/projects/PRJEB44430/archive_metadata.html"
+    "adna/governance/source_library/projects/PRJEB44430/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJEB44430/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJEB44430/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJEB44430/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJEB44430/sample_locality_evidence.json"
   ],
-  "blockers": [],
-  "blocker_categories": [
-    "missing_sample_identifiers"
+  "missing_assets": [],
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context"
   ],
-  "extraction_plan": "Extract the project sample master from the curated article or supplementary targets and then reconcile sample identifiers against any archive-native labels."
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJEB44430/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/article.html",
+    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM3_ESM.pdf",
+    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM4_ESM.jpg",
+    "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+  ],
+  "contradictory_evidence": [
+    "247 chronology row(s) still disagree between sample-owned and context-level evidence."
+  ],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": []
 }

@@ -1,0 +1,244 @@
+{
+  "schema_version": "animal-manual-curation-worklist.v1",
+  "row_count": 20,
+  "counts": {
+    "chronology_recovery": 8,
+    "locality_string_resolution": 6,
+    "site_resolution": 6
+  },
+  "rows": [
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 11,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJNA705960/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJNA705960/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 11,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 11,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 26,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/KU605068-KU605080/sample_chronology.json",
+        "data/adna/governance/source_library/projects/KU605068-KU605080/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 13,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 13,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 4,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/KX379528-KX379529/sample_chronology.json",
+        "data/adna/governance/source_library/projects/KX379528-KX379529/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 1,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/SRS1407451/sample_chronology.json",
+        "data/adna/governance/source_library/projects/SRS1407451/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 2,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/SRS1407453/sample_chronology.json",
+        "data/adna/governance/source_library/projects/SRS1407453/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 1,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 478,
+      "rationale": "",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB31613/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 332,
+      "rationale": "",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB36540/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 20,
+      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB60484/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 20,
+      "rationale": "region_only",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "archive_metadata",
+        "coordinate_resolution"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 20,
+      "rationale": "region_only_rows_require_finer_location_evidence",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    }
+  ]
+}
