@@ -1316,109 +1316,19 @@ def _project_intake_dossier(
     output_root: Path,
     bundle: AdnaSourceBundleManifest,
 ) -> dict[str, object]:
-    catalog = {project.project_accession: project for project in build_archive_project_catalog()}
-    project = catalog[bundle.project_accession]
-    expectation = _project_intake_expectation(project)
-    project_registry = {row.project_accession: row for row in build_project_registry(output_root)}
-    project_row = project_registry[bundle.project_accession]
-    paper_registry = {row.paper_doi: row for row in build_paper_registry(output_root)}
-    paper_row = (
-        None
-        if bundle.paper_doi is None
-        else paper_registry.get(bundle.paper_doi)
-    )
-    local_artifacts = list(bundle.local_artifact_paths)
-    return {
-        "schema_version": SOURCE_LIBRARY_SCHEMA_VERSION,
-        "project_accession": bundle.project_accession,
-        "species_latin_name": bundle.species_latin_name,
-        "archive_status": bundle.archive_status,
-        "evidence_strength": bundle.evidence_strength,
-        "project_url": bundle.project_url,
-        "paper_doi": bundle.paper_doi,
-        "paper_title": bundle.paper_title,
-        "paper_download_status": bundle.paper_download_status,
-        "supplement_download_status": bundle.supplement_download_status,
-        "expected_sample_count": expectation.expected_sample_count,
-        "expected_sample_count_status": expectation.expected_sample_count_status,
-        "expected_sample_count_provenance": expectation.expected_sample_count_provenance,
-        "expected_sample_count_artifact_path": expectation.expected_sample_count_artifact_path,
-        "sample_identifier_status": expectation.sample_identifier_status,
-        "inventory_disposition": expectation.inventory_disposition,
-        "rejection_reason": expectation.rejection_reason,
-        "sample_identifier_targets": []
-        if paper_row is None
-        else list(paper_row.sample_identifier_targets),
-        "sample_site_targets": []
-        if paper_row is None
-        else list(paper_row.sample_site_targets),
-        "chronology_targets": []
-        if paper_row is None
-        else list(paper_row.chronology_targets),
-        "expected_supplementary_artifacts": []
-        if paper_row is None
-        else list(paper_row.expected_supplementary_artifacts),
-        "local_artifact_paths": local_artifacts,
-        "blockers": list(bundle.blockers),
-        "blocker_categories": list(_derive_blocker_categories(bundle, project_row)),
-        "extraction_plan": expectation.extraction_plan,
-    }
+    from .source_recovery import build_project_recovery_dossier
+
+    return build_project_recovery_dossier(output_root, bundle.project_accession)
 
 
 def _render_project_intake_dossier(
     output_root: Path,
     bundle: AdnaSourceBundleManifest,
 ) -> str:
-    dossier = _project_intake_dossier(output_root, bundle)
-    blocker_lines = "\n".join(
-        f"- `{item}`" for item in dossier["blockers"]
-    ) or "- none"
-    category_lines = "\n".join(
-        f"- `{item}`" for item in dossier["blocker_categories"]
-    ) or "- none"
-    sample_targets = "\n".join(
-        f"- `{item}`" for item in dossier["sample_identifier_targets"]
-    ) or "- none"
-    site_targets = "\n".join(
-        f"- `{item}`" for item in dossier["sample_site_targets"]
-    ) or "- none"
-    chronology_targets = "\n".join(
-        f"- `{item}`" for item in dossier["chronology_targets"]
-    ) or "- none"
-    supplement_targets = "\n".join(
-        f"- `{item}`" for item in dossier["expected_supplementary_artifacts"]
-    ) or "- none"
-    local_artifacts = "\n".join(
-        f"- `{item}`" for item in dossier["local_artifact_paths"]
-    ) or "- none"
-    return (
-        f"# {bundle.project_accession} intake dossier\n\n"
-        f"- Species: `{bundle.species_latin_name}`\n"
-        f"- Archive status: `{bundle.archive_status}`\n"
-        f"- Inventory disposition: `{dossier['inventory_disposition']}`\n"
-        f"- Expected sample count: `{dossier['expected_sample_count'] if dossier['expected_sample_count'] is not None else 'unknown'}`\n"
-        f"- Expected sample count status: `{dossier['expected_sample_count_status']}`\n"
-        f"- Sample count provenance: {dossier['expected_sample_count_provenance']}\n"
-        f"- Sample count artifact path: `{dossier['expected_sample_count_artifact_path']}`\n"
-        f"- Sample identifier status: `{dossier['sample_identifier_status']}`\n"
-        f"- Rejection reason: `{dossier['rejection_reason'] or 'none'}`\n\n"
-        "## Extraction targets\n\n"
-        "### Sample identifiers\n\n"
-        f"{sample_targets}\n\n"
-        "### Site evidence\n\n"
-        f"{site_targets}\n\n"
-        "### Chronology evidence\n\n"
-        f"{chronology_targets}\n\n"
-        "### Supplementary artifacts\n\n"
-        f"{supplement_targets}\n\n"
-        "## Local artifacts\n\n"
-        f"{local_artifacts}\n\n"
-        "## Blockers\n\n"
-        f"{blocker_lines}\n\n"
-        "## Blocker categories\n\n"
-        f"{category_lines}\n\n"
-        "## Extraction plan\n\n"
-        f"{dossier['extraction_plan']}\n"
+    from .source_recovery import render_project_recovery_dossier_markdown
+
+    return render_project_recovery_dossier_markdown(
+        _project_intake_dossier(output_root, bundle)
     )
 
 
@@ -1458,6 +1368,14 @@ def _render_tracked_project_and_paper_inventory(
         "- Cross-project locality completeness: `project_locality_completeness.json`\n\n"
         "- Cross-project sample-chronology review: `project_sample_chronology_review.json`\n"
         "- Per-project sample chronology tables: `projects/<project_accession>/sample_chronology.json`\n\n"
+        "- Cross-project recovery stage review: `project_recovery_stage_review.json`\n"
+        "- Cross-project expected sample yield review: `project_expected_sample_yield_review.json`\n"
+        "- Cross-paper expected sample yield review: `paper_expected_sample_yield_review.json`\n"
+        "- Cross-species project deficit ledger: `species_project_deficit_ledger.json`\n"
+        "- Manual curation worklist: `manual_curation_worklist.json`\n"
+        "- Source recovery progress: `source_recovery_progress.json`\n"
+        "- Missing source queue: `missing_source_queue.json`\n"
+        "- Source recovery release guard: `source_recovery_release_guard.json`\n\n"
         "## Projects\n\n"
         "| Species | Project accession | Archive status | Inventory disposition | Expected sample count | Sample count status | Primary paper DOI |\n"
         "| --- | --- | --- | --- | ---: | --- | --- |\n"

@@ -107,6 +107,14 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_recovery_audit.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_blocker_review.json").is_file())
             self.assertTrue((output_root / "adna" / "governance" / "source_library" / "cross_project_source_intake_dossier.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_recovery_stage_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_expected_sample_yield_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "paper_expected_sample_yield_review.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_project_deficit_ledger.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "manual_curation_worklist.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_recovery_progress.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "missing_source_queue.json").is_file())
+            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_recovery_release_guard.json").is_file())
 
             sheep_project = next(
                 item for item in project_registry if item.project_accession == "PRJEB36540"
@@ -178,6 +186,20 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                     / "intake_dossier.json"
                 ).is_file()
             )
+            intake_dossier_payload = json.loads(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "projects"
+                    / "PRJEB36540"
+                    / "intake_dossier.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertIn("stage_statuses", intake_dossier_payload)
+            self.assertIn("publication_readiness_status", intake_dossier_payload)
+            self.assertIn("manual_curation_work_units", intake_dossier_payload)
             self.assertTrue(
                 (
                     output_root
