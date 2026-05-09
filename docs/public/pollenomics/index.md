@@ -19,7 +19,7 @@ repository publishes, how those outputs are rebuilt, and what the current
 limits still are without needing to read the source code first.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="../">Open the public guide</a>
+  <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>
   <a class="md-button" href="foundation/">What this repository is for</a>
   <a class="md-button" href="architecture/">How evidence becomes outputs</a>
   <a class="md-button" href="interfaces/">Commands and public contracts</a>

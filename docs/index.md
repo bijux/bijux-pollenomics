@@ -42,8 +42,7 @@ of the public website navigation.
 ## Start Here
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="public/">Open the public guide</a>
-  <a class="md-button" href="public/pollenomics/">Open the product guide</a>
+  <a class="md-button md-button--primary" href="public/pollenomics/">Open the product guide</a>
   <a class="md-button" href="public/pollenomics-data/">Open the data guide</a>
   <a class="md-button" href="report/">Open the report portal</a>
   <a class="md-button" href="report/how-to-read/">How to read the report tree</a>
@@ -71,7 +70,6 @@ flowchart TB
 
 ## Public Surface
 
-- public guide: [public/index.md](public/index.md)
 - product guide: [public/pollenomics](public/pollenomics/index.md)
 - data guide: [public/pollenomics-data](public/pollenomics-data/index.md)
 - report portal: [report/index.md](report/index.md)
@@ -112,7 +110,7 @@ or supplement evidence.
 
 - what the runtime rebuilds: [public/pollenomics](public/pollenomics/index.md)
 - what this repository does and where its limits are:
-  [public guide](public/index.md)
+  [documentation home](index.md)
 - what the tracked data system and source families are:
   [public/pollenomics-data](public/pollenomics-data/index.md)
 - how the publication tree is organized for readers: [report portal](report/index.md)

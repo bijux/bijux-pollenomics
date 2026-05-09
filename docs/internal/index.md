@@ -13,7 +13,7 @@ This part of the site is for maintainers. It explains how the repository keeps
 its public claims, generated outputs, and release surfaces aligned.
 
 Readers who only need to understand the evidence products should stay on the
-[public guide](../public/index.md).
+[documentation home](../index.md).
 
 ## Start Here
 

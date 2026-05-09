@@ -48,7 +48,7 @@ bijux-pollenomics --help
 
 ## Read Next
 
-- public guide: <https://bijux.io/bijux-pollenomics/public/>
+- documentation home: <https://bijux.io/bijux-pollenomics/>
 - runtime handbook: <https://bijux.io/bijux-pollenomics/public/pollenomics/>
 - animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/public/pollenomics-data/overview/animal-ancient-dna-evidence/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/>

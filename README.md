@@ -51,7 +51,7 @@ same staged assets to the GitHub Release.
 - inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 - inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
-- start with the public guide: [Public guide](https://bijux.io/bijux-pollenomics/public/)
+- start with the documentation home: [Documentation home](https://bijux.io/bijux-pollenomics/)
 - review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 - inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
 
@@ -236,7 +236,7 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 Useful entry points:
 
 - docs home: [`docs/index.md`](docs/index.md)
-- public guide: [`docs/public/index.md`](docs/public/index.md)
+- docs home: [`docs/index.md`](docs/index.md)
 - runtime package handbook: [`docs/public/pollenomics/index.md`](docs/public/pollenomics/index.md)
 - package operations guide: [`docs/public/pollenomics/operations/index.md`](docs/public/pollenomics/operations/index.md)
 - package interface reference: [`docs/public/pollenomics/interfaces/index.md`](docs/public/pollenomics/interfaces/index.md)
