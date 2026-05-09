@@ -12,3 +12,4 @@
 | animal_release_gate_blocks_strongest_claim | `true` | 0 |
 | thin_animal_surface_stays_visible | `true` | 0 |
 | docs_scope_validation_keeps_repository_story_wide_enough | `true` | 0 |
+| final_release_language_stays_refused | `true` | 0 |

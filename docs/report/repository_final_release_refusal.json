@@ -1,0 +1,75 @@
+{
+  "schema_version": "repository-final-release-refusal.v1",
+  "final_release_language_allowed": false,
+  "overall_posture": "final_release_language_refused",
+  "blocking_dimension_count": 2,
+  "blocking_dimensions": [
+    "data_recovery",
+    "sead_treatment"
+  ],
+  "rows": [
+    {
+      "dimension_key": "architecture",
+      "ready_for_final_release_language": true,
+      "finding": "the repository now has explicit architecture and product-model surfaces",
+      "evidence_anchors": [
+        "docs/report/repository_product_model.json",
+        "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+      ]
+    },
+    {
+      "dimension_key": "data_recovery",
+      "ready_for_final_release_language": false,
+      "finding": "animal data recovery is still not region-agnostic enough for final release wording",
+      "evidence_anchors": [
+        "docs/report/animal_sample_database_review.json",
+        "docs/report/animal_intake_recovery_review.json"
+      ]
+    },
+    {
+      "dimension_key": "map_scope",
+      "ready_for_final_release_language": true,
+      "finding": "world, Europe-plus, and Nordic scope surfaces are present and governed as one lineage",
+      "evidence_anchors": [
+        "docs/report/publication_geography_registry.json",
+        "docs/report/publication_geography_subset_validation.json"
+      ]
+    },
+    {
+      "dimension_key": "temporal_semantics",
+      "ready_for_final_release_language": true,
+      "finding": "temporal semantics are governed and published across sample and contextual families",
+      "evidence_anchors": [
+        "docs/report/animal_temporal_comparison_review.json",
+        "docs/report/animal_sample_chronology_review.json"
+      ]
+    },
+    {
+      "dimension_key": "sead_treatment",
+      "ready_for_final_release_language": false,
+      "finding": "SEAD still carries unresolved comparability posture and therefore blocks final release language",
+      "evidence_anchors": [
+        "docs/report/repository_sead_legibility_review.json",
+        "docs/02-bijux-pollenomics-data/sources/sead.md"
+      ]
+    },
+    {
+      "dimension_key": "docs_clarity",
+      "ready_for_final_release_language": true,
+      "finding": "docs breadth holds and the report tree now routes readers through explanation-first pages",
+      "evidence_anchors": [
+        "docs/report/repository_docs_scope_validation.json",
+        "docs/report/report_narrative_quality_review.json"
+      ]
+    },
+    {
+      "dimension_key": "geographic_extensibility",
+      "ready_for_final_release_language": true,
+      "finding": "future-country onboarding is now a governed contract instead of tribal knowledge",
+      "evidence_anchors": [
+        "docs/report/publication_country_onboarding_contract.json",
+        "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md"
+      ]
+    }
+  ]
+}

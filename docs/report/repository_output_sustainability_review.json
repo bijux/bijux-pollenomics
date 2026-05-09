@@ -1,0 +1,39 @@
+{
+  "schema_version": "repository-output-sustainability-review.v1",
+  "balance_counts": {
+    "runtime_python_file_count": 227,
+    "tracked_data_file_count": 1532,
+    "report_file_count": 270,
+    "maintainer_root_review_file_count": 21
+  },
+  "rows": [
+    {
+      "surface_key": "report_root_navigation",
+      "current_posture": "reader_portal_governed",
+      "action": "keep",
+      "finding": "the report root now routes readers through portal families instead of leaving them in a bare artifact spill",
+      "evidence_anchor": "docs/report/report_surface_registry.json"
+    },
+    {
+      "surface_key": "generated_root_diagnostics",
+      "current_posture": "policy_gated",
+      "action": "keep_only_with_explicit_role",
+      "finding": "new root outputs are now governed by an explicit publication policy instead of being justified only by emitter convenience",
+      "evidence_anchor": "docs/report/repository_generated_output_policy.json"
+    },
+    {
+      "surface_key": "legacy_diagnostic_overlap",
+      "current_posture": "one_retirement_still_named",
+      "action": "retire_or_reframe",
+      "finding": "the governance review still names 1 root artifact for retirement or reframing",
+      "evidence_anchor": "docs/report/repository_governance_artifact_review.json"
+    },
+    {
+      "surface_key": "world_to_country_publication_balance",
+      "current_posture": "derived_scope_family",
+      "action": "keep",
+      "finding": "world, regional, and country outputs now share one scope lineage instead of multiplying separate product trees",
+      "evidence_anchor": "docs/report/publication_geography_registry.json"
+    }
+  ]
+}

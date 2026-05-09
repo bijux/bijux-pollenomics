@@ -22,7 +22,7 @@ have instead of opening random JSON or Markdown files from the root.
 
 1. Open [map surfaces](./maps/index.md).
 2. Read the scope README before the HTML map itself.
-3. Use map publication contracts and point traceability packets when a visible layer needs justification.
+3. Use map publication contracts and point traceability surfaces when a visible layer needs justification.
 
 ## If Your Question Is Scientific Trust
 
@@ -32,6 +32,6 @@ have instead of opening random JSON or Markdown files from the root.
 
 ## If Your Question Is Repository Integrity
 
-1. Open [maintainer truth packets](./maintenance/index.md).
+1. Open [maintainer truth surfaces](./maintenance/index.md).
 2. Start with [repository_truth_posture.md](./repository_truth_posture.md).
 3. Use docs, claim, and source-family audits when you need to understand why a public statement is allowed or blocked.

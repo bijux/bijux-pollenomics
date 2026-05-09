@@ -1,0 +1,88 @@
+{
+  "schema_version": "repository-credibility-dashboard.v1",
+  "overall_posture": "credible_but_still_recovery_bound",
+  "average_score": 3.62,
+  "rows": [
+    {
+      "dimension_key": "architecture_clarity",
+      "display_name": "Architecture clarity",
+      "score": 4,
+      "finding": "repository architecture and product-model surfaces now name the world-to-country publication model directly",
+      "evidence_anchors": [
+        "docs/report/repository_product_model.json",
+        "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+      ]
+    },
+    {
+      "dimension_key": "naming_quality",
+      "display_name": "Naming quality",
+      "score": 4,
+      "finding": "root landings now use the governed world, region, and country publication vocabulary",
+      "evidence_anchors": [
+        "README.md",
+        "docs/report/index.md"
+      ]
+    },
+    {
+      "dimension_key": "source_family_coverage",
+      "display_name": "Source-family coverage",
+      "score": 3,
+      "finding": "12 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
+      "evidence_anchors": [
+        "docs/report/repository_source_family_matrix.json",
+        "docs/report/repository_source_explainer_audit.json"
+      ]
+    },
+    {
+      "dimension_key": "extraction_completeness",
+      "display_name": "Extraction completeness",
+      "score": 2,
+      "finding": "animal sample extraction remains the weakest credibility dimension and still blocks stronger release language",
+      "evidence_anchors": [
+        "docs/report/animal_sample_database_review.json",
+        "docs/report/animal_intake_recovery_review.json"
+      ]
+    },
+    {
+      "dimension_key": "chronology_integrity",
+      "display_name": "Chronology integrity",
+      "score": 4,
+      "finding": "chronology now has explicit provenance and cross-family comparison surfaces instead of living only in downstream date fields",
+      "evidence_anchors": [
+        "docs/report/animal_sample_chronology_review.json",
+        "docs/report/animal_temporal_comparison_review.json"
+      ]
+    },
+    {
+      "dimension_key": "geographic_extensibility",
+      "display_name": "Geographic extensibility",
+      "score": 4,
+      "finding": "world, Europe-plus, Nordic, and country publication now share one lineage plus one onboarding contract",
+      "evidence_anchors": [
+        "docs/report/publication_geography_registry.json",
+        "docs/report/publication_country_onboarding_contract.json"
+      ]
+    },
+    {
+      "dimension_key": "map_coherence",
+      "display_name": "Map coherence",
+      "score": 4,
+      "finding": "world, Europe-plus, and Nordic maps now exist as sibling scopes instead of one Nordic-first artifact with broad afterthoughts",
+      "evidence_anchors": [
+        "docs/report/world/world_map.html",
+        "docs/report/regions/europe-plus/europe-plus_map.html",
+        "docs/report/regions/nordic/nordic_map.html"
+      ]
+    },
+    {
+      "dimension_key": "docs_usability",
+      "display_name": "Docs usability",
+      "score": 4,
+      "finding": "handbook breadth holds and the report tree no longer carries link-farm pages at the root",
+      "evidence_anchors": [
+        "docs/report/report_narrative_quality_review.json",
+        "docs/report/repository_docs_scope_validation.json"
+      ]
+    }
+  ]
+}
