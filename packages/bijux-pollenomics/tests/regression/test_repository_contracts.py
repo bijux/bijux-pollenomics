@@ -1439,7 +1439,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ):
             self.assertIn(expected, readme_text)
             self.assertIn(expected, source_index)
-        self.assertIn("Open the public guide", docs_index)
+        self.assertIn("Open the product guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
         self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
@@ -1461,7 +1461,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 encoding="utf-8"
             ),
         )
-        self.assertTrue((REPO_ROOT / "docs" / "public" / "index.md").is_file())
+        self.assertFalse((REPO_ROOT / "docs" / "public" / "index.md").exists())
         self.assertTrue((REPO_ROOT / "docs" / "internal" / "index.md").is_file())
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(

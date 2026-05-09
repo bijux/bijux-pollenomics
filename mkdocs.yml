@@ -94,6 +94,7 @@ plugins:
         outputs/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
         02-bijux-pollenomics-data/fieldwork/index.md: public/fieldwork/index.md
         02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
+        public/index.md: index.md
         reference/index.md: public/pollenomics/interfaces/index.md
         reference/command-reference.md: public/pollenomics/interfaces/cli-surface.md
         reference/configuration-defaults.md: public/pollenomics/interfaces/index.md
