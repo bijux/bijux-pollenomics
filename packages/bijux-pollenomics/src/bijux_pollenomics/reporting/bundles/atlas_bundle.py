@@ -26,6 +26,13 @@ from ...evidence import (
     write_scientific_review_surface_json,
 )
 from ..geography import GeographicScope
+from ..map_publication import (
+    build_map_point_traceability,
+    build_map_publication_contract,
+    render_map_point_traceability_markdown,
+    render_map_publication_contract_markdown,
+    resolve_map_scope_policy,
+)
 from ..aadr import summarize_localities
 from ..adna import build_tracked_animal_atlas_bundle
 from ..models import MultiCountryMapReport, SampleRecord
@@ -73,6 +80,7 @@ def publish_multi_country_map_bundle(
         version=version,
         output_dir=staging_output_dir,
         context_root=context_root,
+        geography_scope=geography_scope,
     )
     animal_localities = ()
     animal_coordinate_review = AnimalCoordinateVisibilityReview(
@@ -95,10 +103,42 @@ def publish_multi_country_map_bundle(
             named_site_geocoded_feature_count=animal_bundle.coordinate_review.named_site_geocoded_feature_count,
             weaker_geography_feature_count=animal_bundle.coordinate_review.weaker_geography_feature_count,
         )
+    _attach_traceability_surfaces(point_layers, bundle_paths)
     animal_atlas_summary = _build_animal_atlas_summary(
         point_layers,
         animal_localities,
         animal_coordinate_review,
+    )
+    map_policy = resolve_map_scope_policy(geography_scope)
+    point_traceability = build_map_point_traceability(
+        report=report,
+        point_layers=point_layers,
+    )
+    write_summary_json_fn(
+        bundle_paths.map_point_traceability_json_path,
+        point_traceability,
+    )
+    bundle_paths.map_point_traceability_markdown_path.write_text(
+        render_map_point_traceability_markdown(point_traceability),
+        encoding="utf-8",
+    )
+    map_publication_contract = build_map_publication_contract(
+        report=report,
+        policy=map_policy,
+        point_layers=point_layers,
+        polygon_layers=polygon_layers,
+        countries=countries,
+        map_html_name=bundle_paths.map_html_path.name,
+        summary_json_name=bundle_paths.summary_json_path.name,
+        traceability_json_name=bundle_paths.map_point_traceability_json_path.name,
+    )
+    write_summary_json_fn(
+        bundle_paths.map_publication_contract_json_path,
+        map_publication_contract,
+    )
+    bundle_paths.map_publication_contract_markdown_path.write_text(
+        render_map_publication_contract_markdown(map_publication_contract),
+        encoding="utf-8",
     )
     summarized_localities = tuple(summarize_localities(all_samples))
     context_points = _extract_context_points(point_layers)
@@ -203,6 +243,7 @@ def publish_multi_country_map_bundle(
             report,
             bundle_paths,
             extra_artifacts,
+            map_publication_contract=map_publication_contract,
             animal_atlas_summary=animal_atlas_summary,
         ),
     )
@@ -213,6 +254,7 @@ def publish_multi_country_map_bundle(
             report,
             bundle_paths,
             extra_artifacts,
+            map_publication_contract=map_publication_contract,
             animal_atlas_summary=animal_atlas_summary,
         ),
     )
@@ -222,6 +264,7 @@ def publish_multi_country_map_bundle(
             version=version,
             generated_on=generated_on,
             countries=countries,
+            policy=map_policy,
             point_layers=point_layers,
             polygon_layers=polygon_layers,
             asset_base_path=asset_base_path,
@@ -238,7 +281,20 @@ def publish_multi_country_map_bundle(
             map_html_name=bundle_paths.map_html_path.name,
             geojson_name=bundle_paths.samples_geojson_path.name,
             summary_json_name=bundle_paths.summary_json_path.name,
+            map_publication_contract_json_name=(
+                bundle_paths.map_publication_contract_json_path.name
+            ),
+            map_publication_contract_markdown_name=(
+                bundle_paths.map_publication_contract_markdown_path.name
+            ),
+            point_traceability_json_name=(
+                bundle_paths.map_point_traceability_json_path.name
+            ),
+            point_traceability_markdown_name=(
+                bundle_paths.map_point_traceability_markdown_path.name
+            ),
             extra_artifacts=extra_artifacts,
+            map_publication_contract=map_publication_contract,
             animal_atlas_summary=animal_atlas_summary,
         ),
         encoding="utf-8",
@@ -380,3 +436,21 @@ def _build_animal_atlas_summary(
         "visible_caveats": visible_caveats if species_layers else [],
         "species_layers": species_layers,
     }
+
+
+def _attach_traceability_surfaces(
+    point_layers: list[dict[str, object]],
+    bundle_paths: AtlasBundlePaths,
+) -> None:
+    for layer in point_layers:
+        layer_key = str(layer.get("key", "")).strip()
+        if layer_key == "aadr":
+            layer["traceability_artifact"] = bundle_paths.samples_geojson_path.name
+            continue
+        if str(layer.get("group", "")).strip() in {
+            "animal-domesticated-evidence",
+            "animal-comparator-evidence",
+        }:
+            layer["traceability_artifact"] = (
+                bundle_paths.animal_point_traceability_json_path.name
+            )

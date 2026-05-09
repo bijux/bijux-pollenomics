@@ -8,6 +8,7 @@ def build_multi_country_map_summary(
     report: MultiCountryMapReport,
     bundle_paths: AtlasBundlePaths,
     extra_artifacts: list[tuple[str, str]],
+    map_publication_contract: dict[str, object],
     animal_atlas_summary: dict[str, object] | None = None,
 ) -> dict[str, object]:
     """Build a machine-readable summary for one shared map bundle."""
@@ -16,6 +17,10 @@ def build_multi_country_map_summary(
         "readme": bundle_paths.readme_path.name,
         "map_html": bundle_paths.map_html_path.name,
         "samples_geojson": bundle_paths.samples_geojson_path.name,
+        "map_publication_contract_json": bundle_paths.map_publication_contract_json_path.name,
+        "map_publication_contract_markdown": bundle_paths.map_publication_contract_markdown_path.name,
+        "point_traceability_json": bundle_paths.map_point_traceability_json_path.name,
+        "point_traceability_markdown": bundle_paths.map_point_traceability_markdown_path.name,
         "evidence_surface_json": bundle_paths.evidence_surface_json_path.name,
         "evidence_surface_markdown": bundle_paths.evidence_surface_markdown_path.name,
         "scientific_review_json": bundle_paths.scientific_review_json_path.name,
@@ -58,6 +63,7 @@ def build_multi_country_map_summary(
         "total_unique_samples": report.total_unique_samples,
         "output_dir": str(report.output_dir),
         "artifacts": artifacts,
+        "map_publication_contract": map_publication_contract,
         "animal_atlas": animal_atlas_summary or {},
     }
 
@@ -66,6 +72,7 @@ def build_multi_country_bundle_manifest(
     report: MultiCountryMapReport,
     bundle_paths: AtlasBundlePaths,
     extra_artifacts: list[tuple[str, str]],
+    map_publication_contract: dict[str, object],
     animal_atlas_summary: dict[str, object] | None = None,
 ) -> dict[str, object]:
     """Build a machine-readable manifest for one atlas bundle."""
@@ -73,6 +80,10 @@ def build_multi_country_bundle_manifest(
         "readme": bundle_paths.readme_path.name,
         "map_html": bundle_paths.map_html_path.name,
         "samples_geojson": bundle_paths.samples_geojson_path.name,
+        "map_publication_contract_json": bundle_paths.map_publication_contract_json_path.name,
+        "map_publication_contract_markdown": bundle_paths.map_publication_contract_markdown_path.name,
+        "point_traceability_json": bundle_paths.map_point_traceability_json_path.name,
+        "point_traceability_markdown": bundle_paths.map_point_traceability_markdown_path.name,
         "candidate_sites_csv": bundle_paths.candidate_sites_csv_path.name,
         "candidate_sites_json": bundle_paths.candidate_sites_json_path.name,
         "candidate_sites_markdown": bundle_paths.candidate_sites_markdown_path.name,
@@ -122,6 +133,7 @@ def build_multi_country_bundle_manifest(
         "total_unique_samples": report.total_unique_samples,
         "output_dir": str(report.output_dir),
         "artifacts": artifacts,
+        "map_publication_contract": map_publication_contract,
         "animal_atlas": animal_atlas_summary or {},
     }
 
