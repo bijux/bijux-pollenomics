@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 252,
+  "surface_count": 266,
   "family_counts": {
     "caveats": 9,
-    "maintenance": 35,
+    "maintenance": 49,
     "maps": 75,
     "portal": 2,
     "reviews": 33,
     "scopes": 98
   },
   "audience_counts": {
-    "maintainer_diagnostic": 37,
+    "maintainer_diagnostic": 51,
     "public_reading_surface": 107,
     "scientific_review_surface": 108
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 42,
     "norway": 14,
-    "report_root": 82,
+    "report_root": 96,
     "sweden": 14,
     "world": 36
   },
@@ -34,7 +34,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -46,7 +46,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -58,7 +58,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -70,7 +70,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -82,7 +82,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -94,7 +94,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -106,7 +106,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -118,7 +118,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -130,7 +130,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -142,7 +142,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -154,7 +154,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -166,7 +166,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -178,7 +178,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -190,7 +190,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -202,7 +202,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -214,7 +214,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -226,7 +226,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -238,7 +238,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -250,7 +250,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -262,7 +262,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -274,7 +274,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -286,7 +286,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -298,7 +298,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -310,7 +310,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -322,7 +322,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -334,7 +334,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -346,7 +346,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -358,7 +358,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -370,7 +370,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -382,7 +382,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -394,7 +394,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -406,7 +406,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -418,7 +418,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -430,7 +430,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -442,7 +442,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -454,7 +454,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture.",
+      "explanation": "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture.",
       "reader_route": "caution_check"
     },
     {
@@ -466,7 +466,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -478,7 +478,7 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -1162,7 +1162,7 @@
       "format": "json",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
@@ -1174,79 +1174,79 @@
       "format": "md",
       "geography": "report_root",
       "caution_level": "medium",
-      "explanation": "Scientific review packet for animal evidence, chronology, or recovery posture.",
+      "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
     },
     {
       "repository_path": "docs/report/publication_country_onboarding_contract.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication_country_onboarding_contract.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication_geography_registry.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication_geography_registry.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication_geography_subset_validation.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication_geography_subset_validation.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
@@ -1462,7 +1462,7 @@
       "format": "json",
       "geography": "europe_plus",
       "caution_level": "medium",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "map_detail"
     },
     {
@@ -1894,7 +1894,7 @@
       "format": "json",
       "geography": "nordic",
       "caution_level": "medium",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "map_detail"
     },
     {
@@ -2200,337 +2200,505 @@
     {
       "repository_path": "docs/report/repository_atlas_input_audit.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_atlas_input_audit.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_brutal_honesty_review.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_brutal_honesty_review.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_claim_audit.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_claim_audit.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_credibility_dashboard.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_credibility_dashboard.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_cross_domain_evidence_matrix.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_cross_domain_evidence_matrix.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_recovery_review.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_recovery_review.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_restoration_ledger.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_restoration_ledger.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_scope_validation.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_docs_scope_validation.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_extension_review.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_extension_review.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_final_release_refusal.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_final_release_refusal.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_generated_output_policy.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_generated_output_policy.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_governance_artifact_review.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_governance_artifact_review.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_output_sustainability_review.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_output_sustainability_review.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_product_model.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/repository_product_model.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_recovery_review.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_recovery_review.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_scientific_progress_audit.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_scientific_progress_audit.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_sead_legibility_review.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_sead_legibility_review.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_acquisition_queue.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_acquisition_queue.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_explainer_audit.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_explainer_audit.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_family_matrix.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_source_family_matrix.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_truth_posture.json",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/repository_truth_posture.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
       "geography": "report_root",
       "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "maintainer_truth"
     },
     {
@@ -2746,7 +2914,7 @@
       "format": "json",
       "geography": "world",
       "caution_level": "medium",
-      "explanation": "Maintainer-facing truth or governance packet.",
+      "explanation": "Maintainer-facing truth or governance surface.",
       "reader_route": "map_detail"
     },
     {
@@ -3004,7 +3172,7 @@
     {
       "repository_path": "docs/report/maintenance/index.md",
       "family": "maintenance",
-      "family_label": "Maintainer truth packets",
+      "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
       "audience_label": "Public reading surface",
       "format": "md",

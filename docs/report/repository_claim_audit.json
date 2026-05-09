@@ -72,6 +72,13 @@
       "description": "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
       "finding_count": 0,
       "findings": []
+    },
+    {
+      "check_id": "final_release_language_stays_refused",
+      "passed": true,
+      "description": "The repository still refuses final release wording until the hardest evidence dimensions are actually strong enough.",
+      "finding_count": 0,
+      "findings": []
     }
   ]
 }

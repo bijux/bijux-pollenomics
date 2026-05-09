@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 85,
+  "page_count": 92,
   "quality_posture_counts": {
-    "reader_ready": 41,
-    "structured_reference": 20,
-    "thin_structure": 24
+    "reader_ready": 44,
+    "structured_reference": 22,
+    "thin_structure": 26
   },
   "rows": [
     {
@@ -15,7 +15,7 @@
       "heading_count": 1,
       "table_line_count": 341,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_atlas_readiness.md",
@@ -25,7 +25,7 @@
       "heading_count": 1,
       "table_line_count": 12,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_country_species_coverage.md",
@@ -35,7 +35,7 @@
       "heading_count": 1,
       "table_line_count": 4,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_cross_surface_drift.md",
@@ -45,7 +45,7 @@
       "heading_count": 1,
       "table_line_count": 12,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_first_appearance_by_country.md",
@@ -55,7 +55,7 @@
       "heading_count": 1,
       "table_line_count": 4,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_foundation_review.md",
@@ -75,7 +75,7 @@
       "heading_count": 1,
       "table_line_count": 9,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_human_chronology_overlap.md",
@@ -85,7 +85,7 @@
       "heading_count": 1,
       "table_line_count": 4,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_intake_recovery_review.md",
@@ -115,7 +115,7 @@
       "heading_count": 1,
       "table_line_count": 12,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_point_evidence_review.md",
@@ -135,7 +135,7 @@
       "heading_count": 1,
       "table_line_count": 4,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_project_publication_gap_review.md",
@@ -145,7 +145,7 @@
       "heading_count": 1,
       "table_line_count": 36,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/animal_publication_release_gate.md",
@@ -215,7 +215,7 @@
       "heading_count": 1,
       "table_line_count": 655,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_citations.md",
@@ -265,7 +265,7 @@
       "heading_count": 1,
       "table_line_count": 34,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_citations.md",
@@ -315,7 +315,7 @@
       "heading_count": 1,
       "table_line_count": 132,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_citations.md",
@@ -365,7 +365,7 @@
       "heading_count": 1,
       "table_line_count": 418,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_citations.md",
@@ -409,10 +409,10 @@
     },
     {
       "repository_path": "docs/report/publication_country_onboarding_contract.md",
-      "prose_paragraph_count": 3,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 3,
-      "heading_count": 4,
+      "bullet_sentence_count": 16,
+      "heading_count": 9,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -585,7 +585,17 @@
       "heading_count": 1,
       "table_line_count": 8,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
+    },
+    {
+      "repository_path": "docs/report/repository_brutal_honesty_review.md",
+      "prose_paragraph_count": 1,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 2,
+      "heading_count": 1,
+      "table_line_count": 7,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
       "repository_path": "docs/report/repository_claim_audit.md",
@@ -593,9 +603,19 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 2,
       "heading_count": 1,
-      "table_line_count": 8,
+      "table_line_count": 9,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/repository_credibility_dashboard.md",
+      "prose_paragraph_count": 0,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 1,
+      "heading_count": 1,
+      "table_line_count": 10,
+      "quality_posture": "structured_reference",
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/repository_cross_domain_evidence_matrix.md",
@@ -605,7 +625,7 @@
       "heading_count": 1,
       "table_line_count": 8,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/repository_docs_recovery_review.md",
@@ -615,7 +635,7 @@
       "heading_count": 2,
       "table_line_count": 6,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/repository_docs_restoration_ledger.md",
@@ -638,6 +658,36 @@
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
+      "repository_path": "docs/report/repository_extension_review.md",
+      "prose_paragraph_count": 0,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 1,
+      "heading_count": 1,
+      "table_line_count": 5,
+      "quality_posture": "structured_reference",
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
+    },
+    {
+      "repository_path": "docs/report/repository_final_release_refusal.md",
+      "prose_paragraph_count": 1,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 2,
+      "heading_count": 1,
+      "table_line_count": 9,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/repository_generated_output_policy.md",
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 1,
+      "heading_count": 2,
+      "table_line_count": 23,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/repository_governance_artifact_review.md",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
@@ -645,7 +695,27 @@
       "heading_count": 1,
       "table_line_count": 11,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
+    },
+    {
+      "repository_path": "docs/report/repository_output_sustainability_review.md",
+      "prose_paragraph_count": 1,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 1,
+      "heading_count": 2,
+      "table_line_count": 6,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/repository_product_model.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 10,
+      "heading_count": 4,
+      "table_line_count": 6,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/repository_recovery_review.md",
@@ -655,7 +725,7 @@
       "heading_count": 1,
       "table_line_count": 9,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/repository_scientific_progress_audit.md",
@@ -705,7 +775,7 @@
       "heading_count": 1,
       "table_line_count": 10,
       "quality_posture": "structured_reference",
-      "note": "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
     {
       "repository_path": "docs/report/repository_truth_posture.md",
@@ -820,7 +890,7 @@
     {
       "repository_path": "docs/report/maintenance/index.md",
       "prose_paragraph_count": 3,
-      "link_bullet_count": 6,
+      "link_bullet_count": 10,
       "bullet_sentence_count": 4,
       "heading_count": 4,
       "table_line_count": 0,

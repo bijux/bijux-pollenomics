@@ -23,11 +23,11 @@ show.
 
 - interactive map HTML files for governed scopes
 - map publication contracts that explain layer roles, bounds, and caveats
-- point traceability packets that connect visible points to evidence
+- point traceability surfaces that connect visible points to evidence
 - atlas evidence and scientific review surfaces that summarize what the map can and cannot claim
 
 ## Current Counts
 
 - interactive maps: `3`
-- traceability packets: `9`
+- traceability surfaces: `9`
 - total map-family artifacts: `74`
