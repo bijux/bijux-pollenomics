@@ -51,8 +51,9 @@ same staged assets to the GitHub Release.
 - inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 - inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
-- review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
+- start with the public guide: [Public guide](https://bijux.io/bijux-pollenomics/public/)
+- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+- inspect repository maintenance rules: [Internal guide](https://bijux.io/bijux-pollenomics/internal/)
 
 ## What This Repository Produces
 
@@ -235,11 +236,13 @@ The canonical project documentation lives in `docs/` and is built with MkDocs.
 Useful entry points:
 
 - docs home: [`docs/index.md`](docs/index.md)
+- public guide: [`docs/public/index.md`](docs/public/index.md)
 - runtime package handbook: [`docs/01-bijux-pollenomics/index.md`](docs/01-bijux-pollenomics/index.md)
 - package operations guide: [`docs/01-bijux-pollenomics/operations/index.md`](docs/01-bijux-pollenomics/operations/index.md)
 - package interface reference: [`docs/01-bijux-pollenomics/interfaces/index.md`](docs/01-bijux-pollenomics/interfaces/index.md)
 - data reference: [`docs/02-bijux-pollenomics-data/index.md`](docs/02-bijux-pollenomics-data/index.md)
 - fieldwork reference: [`docs/02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md`](docs/02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md)
+- internal guide: [`docs/internal/index.md`](docs/internal/index.md)
 - maintainer handbook: [`docs/03-bijux-pollenomics-maintain/index.md`](docs/03-bijux-pollenomics-maintain/index.md)
 
 ## Working Rules
