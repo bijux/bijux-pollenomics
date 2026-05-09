@@ -122,6 +122,17 @@ def build_source_library_project_surface_contract() -> dict[str, object]:
             ),
             purpose="publish per-sample chronology evidence packets",
         ),
+        ProjectSurfaceRequirement(
+            artifact_key="chronology_provenance",
+            required_files=(
+                "sample_chronology_provenance.json",
+                "sample_chronology_provenance.csv",
+            ),
+            purpose=(
+                "publish per-sample chronology provenance packets with wording, "
+                "source locator, normalization rule, and uncertainty posture"
+            ),
+        ),
     )
     return {
         "schema_version": "source-library-project-surface-contract.v1",

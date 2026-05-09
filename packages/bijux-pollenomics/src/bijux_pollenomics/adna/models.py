@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from ..core.temporal_semantics import build_temporal_semantics
+
 __all__ = [
     "ADNA_COORDINATE_CONFIDENCE",
     "ADNA_CHRONOLOGY_EVIDENCE_CLASSES",
@@ -108,6 +110,58 @@ class AdnaChronology:
             "evidence_class": self.evidence_class,
             "precision_posture": self.precision_posture,
         }
+
+    def as_temporal_semantics(
+        self,
+        *,
+        source_family: str,
+        provenance_path: str = "",
+        provenance_locator: str = "",
+        provenance_excerpt: str = "",
+        comparison_note: str = "",
+    ) -> dict[str, object]:
+        """Expose one shared temporal semantics payload for direct-evidence chronology."""
+        comparability_posture = "unresolved"
+        if self.precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+            comparability_posture = "numeric_interval"
+        elif self.precision_posture in {
+            "sample_approximate_or_modeled",
+            "contextual_interval",
+        }:
+            comparability_posture = "numeric_interval_with_caveat"
+        elif self.precision_posture == "broad_period_only":
+            comparability_posture = "contextual_label_only"
+        resolved_note = comparison_note.strip()
+        if not resolved_note:
+            if comparability_posture == "numeric_interval":
+                resolved_note = (
+                    "This chronology supports interval-based comparison without implying more than the published sample interval."
+                )
+            elif comparability_posture == "numeric_interval_with_caveat":
+                resolved_note = (
+                    "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
+                )
+            elif comparability_posture == "contextual_label_only":
+                resolved_note = (
+                    "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
+                )
+            else:
+                resolved_note = "This chronology does not yet support trustworthy temporal comparison."
+        return build_temporal_semantics(
+            source_family=source_family,
+            evidence_class=self.evidence_class,
+            precision_posture=self.precision_posture,
+            comparability_posture=comparability_posture,
+            time_start_bp=self.time_start_bp,
+            time_end_bp=self.time_end_bp,
+            time_mean_bp=self.time_mean_bp,
+            summary_label=self.original_text,
+            comparison_note=resolved_note,
+            provenance_path=provenance_path,
+            provenance_locator=provenance_locator,
+            provenance_excerpt=provenance_excerpt,
+            original_labels=(self.original_text,) if self.original_text else (),
+        ).as_dict()
 
 
 @dataclass(frozen=True)
