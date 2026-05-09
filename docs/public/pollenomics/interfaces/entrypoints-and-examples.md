@@ -27,7 +27,7 @@ than the real question. Start with intent first:
 - inspect species-level animal work when the question is narrower than a full
   public rebuild
 
-## Verification Entrypoints
+## Verification Entry Points
 
 ```bash
 make install
@@ -45,7 +45,7 @@ governed docs, reports, and other generated-publication contracts. Use
 `make test-all` when you want the full local gate instead of the faster default
 test slice.
 
-## Refresh And Publication Entrypoints
+## Collection And Publication Examples
 
 ```bash
 artifacts/root/check-venv/bin/bijux-pollenomics collect-data all --version v66 --output-root data

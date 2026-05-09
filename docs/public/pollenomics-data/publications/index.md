@@ -60,6 +60,9 @@ to use, not easier to overstate.
   breadth ledger behind the visible product
 - open the [report portal](../../../report/index.md) when you are ready to move
   from the handbook into the generated publication tree itself
+- open [how to read the report tree](../../../report/how-to-read.md) when you
+  want the generated report surface's own guided route across scopes, reviews,
+  and caveats
 
 ## Choose The Right Public Surface
 
