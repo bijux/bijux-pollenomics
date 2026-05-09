@@ -12,6 +12,11 @@ last_reviewed: 2026-05-08
 Operations guidance should make two boundaries obvious: what a maintainer can
 do locally with confidence, and what the runtime still refuses to claim.
 
+This page is therefore less about listing commands and more about setting
+expectations. It tells the reader which local actions are supported, where to
+look when those actions change tracked state, and why some kinds of stronger
+language are still blocked.
+
 ## Local Development
 
 - start with `make install`
@@ -39,4 +44,7 @@ do locally with confidence, and what the runtime still refuses to claim.
 ## Performance Posture
 
 Rebuilds can be slow because they touch tracked source and report surfaces.
-That cost is acceptable when it preserves reviewable repository truth.
+That cost is acceptable when it preserves reviewable repository truth, but it
+is not a license to run the broadest workflow every time. The honest operating
+rule is still: choose the narrowest workflow that answers the question in front
+of you.
