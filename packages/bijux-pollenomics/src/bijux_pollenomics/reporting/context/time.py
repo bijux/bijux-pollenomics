@@ -8,6 +8,10 @@ from ...core.bp_time import (
     parse_numeric_bp_year,
 )
 from ...core.geojson import JsonObject, as_mapping
+from ...core.temporal_semantics import (
+    normalize_temporal_semantics_payload,
+    resolve_temporal_window,
+)
 
 __all__ = [
     "extract_layer_identity",
@@ -34,12 +38,36 @@ def feature_time_payload(properties: JsonObject) -> dict[str, object]:
     time_label = str(properties.get("time_label", "")).strip()
     if not time_label and time_start_bp is not None and time_end_bp is not None:
         time_label = build_bp_interval_label(time_start_bp, time_end_bp)
+    temporal_semantics = normalize_temporal_semantics_payload(
+        properties.get("temporal_semantics")
+    )
+    temporal_window_key = str(
+        temporal_semantics.get("temporal_window_key", "")
+    ).strip()
+    temporal_window_label = str(
+        temporal_semantics.get("temporal_window_label", "")
+    ).strip()
+    if not temporal_window_key or not temporal_window_label:
+        temporal_window_key, temporal_window_label = resolve_temporal_window(
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+            time_mean_bp=time_mean_bp,
+        )
     return {
         "time_start_bp": time_start_bp,
         "time_end_bp": time_end_bp,
         "time_mean_bp": time_mean_bp,
         "time_year_bp": time_mean_bp,
         "time_label": time_label,
+        "temporal_semantics": temporal_semantics,
+        "temporal_window_key": temporal_window_key,
+        "temporal_window_label": temporal_window_label,
+        "temporal_comparability_posture": str(
+            temporal_semantics.get("comparability_posture", "")
+        ).strip(),
+        "temporal_comparison_note": str(
+            temporal_semantics.get("comparison_note", "")
+        ).strip(),
     }
 
 
@@ -48,7 +76,13 @@ def feature_has_time(feature: JsonObject) -> bool:
     payload = feature_time_payload(feature)
     return any(
         payload.get(key) not in (None, "")
-        for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_label")
+        for key in (
+            "time_start_bp",
+            "time_end_bp",
+            "time_mean_bp",
+            "time_label",
+            "temporal_window_key",
+        )
     )
 
 
