@@ -4,13 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
-# Verification and Limits
+# Checks And Current Limits
 
-This section explains how the runtime earns confidence and where it still
-refuses stronger claims.
+This section explains how the repository earns confidence and where it still
+refuses stronger claims. It is the reader-facing answer to a simple question:
+how much trust should I place in the current outputs, and what is still missing?
 
 ## Start Here
 

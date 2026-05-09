@@ -4,15 +4,16 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-09
 ---
 
-# Evidence Publication Flow
+# How Evidence Becomes Outputs
 
-The runtime architecture matters only if it explains one chain clearly:
-commands resolve one owned action, that action changes tracked evidence under
-`data/`, and publication code turns that evidence into governed public
-artifacts under `docs/report/`.
+This section explains the whole public chain from source material to visible
+outputs. The architecture matters only if it helps a reader answer a simple
+question: how did this report, map point, or country bundle get here?
+
+The answer should be traceable without already knowing the package tree.
 
 ## Flow
 
@@ -49,12 +50,12 @@ flowchart LR
 - `foundation/` owns repository-truth, release posture, and architecture
   contracts
 
-## What To Check First
+## Read This Section If You Need To Know
 
-- `packages/bijux-pollenomics/src/bijux_pollenomics/command_line/`
-- `packages/bijux-pollenomics/src/bijux_pollenomics/data_downloader/`
-- `packages/bijux-pollenomics/src/bijux_pollenomics/adna/`
-- `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/`
+- how the commands line up with tracked source material
+- where evidence is normalized before it becomes public output
+- which parts of the repository own review versus rendering
+- where to look if an output changes unexpectedly
 
 ## Expanded Pages
 

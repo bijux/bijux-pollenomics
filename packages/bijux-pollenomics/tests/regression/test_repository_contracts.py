@@ -1355,9 +1355,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             runtime_readme,
         )
         self.assertIn("same pollenomics-first runtime behavior", alias_readme)
-        self.assertIn(
-            "checked-in evidence surfaces across pollen context", runtime_index
-        )
+        self.assertIn("product guide for the repository's public evidence", runtime_index)
+        self.assertIn("without needing to read the source code first", runtime_index)
         self.assertIn("pollen context, environmental archaeology", data_index)
         self.assertIn("downstream view of the repository evidence tree", atlas_index)
         self.assertEqual(atlas_files, ["index.md"])
@@ -1387,13 +1386,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ):
             self.assertIn(expected, readme_text)
             self.assertIn(expected, source_index)
-        self.assertIn("Open the repository truth review", docs_index)
-        self.assertIn("Open the docs recovery review", docs_index)
+        self.assertIn("Open the public guide", docs_index)
+        self.assertIn("Open the internal guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
-        self.assertIn(
-            "pollen-context layers, environmental archaeology context", docs_index
-        )
+        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
         self.assertIn("source-family comparison", data_index)
         self.assertIn(
             "[report portal](../../report/index.md)",
@@ -1411,6 +1408,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 encoding="utf-8"
             ),
         )
+        self.assertTrue((REPO_ROOT / "docs" / "public" / "index.md").is_file())
+        self.assertTrue((REPO_ROOT / "docs" / "internal" / "index.md").is_file())
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
