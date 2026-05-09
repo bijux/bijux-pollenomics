@@ -13,6 +13,8 @@ Report bundles are the main written surfaces of the public product. They are
 where the repository explains what is visible at world, regional, and country
 scope without forcing the reader to assemble the story from raw files.
 
+Published report bundles now live under one governed geography tree:
+
 The report tree is organized by geography on purpose:
 
 - `docs/report/index.md` is the public entry point
