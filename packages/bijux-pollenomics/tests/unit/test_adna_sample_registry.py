@@ -3,7 +3,9 @@ from __future__ import annotations
 from collections import Counter
 import unittest
 
-from bijux_pollenomics.adna.sample_registry import build_species_curated_sample_rows
+from bijux_pollenomics.adna.projects.sample_registry import (
+    build_species_curated_sample_rows,
+)
 
 
 class AdnaSampleRegistryUnitTests(unittest.TestCase):

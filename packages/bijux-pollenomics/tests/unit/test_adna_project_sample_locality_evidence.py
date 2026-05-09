@@ -5,7 +5,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.project_sample_locality_evidence import (
+from bijux_pollenomics.adna.projects.sample_locality_evidence import (
     build_project_locality_substitution_ledger,
     build_project_locality_worksheet_rows,
     build_project_sample_locality_evidence_rows,

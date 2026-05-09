@@ -9,14 +9,14 @@ import zipfile
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
-from .ena import build_archive_project_catalog
-from .source_library import (
+from ..sources.ena import build_archive_project_catalog
+from ..sources.library import (
     ADNA_SOURCE_LIBRARY_DIR,
     AdnaPaperRegistryRow,
     build_paper_registry,
     build_project_registry,
 )
-from .species import resolve_species_definition
+from ..species.definitions import resolve_species_definition
 
 __all__ = [
     "ADNA_SAMPLE_EVIDENCE_STATUSES",
@@ -255,8 +255,8 @@ def build_sample_identity_ambiguity_ledger(
 
 
 def materialize_sample_master_library(output_root: Path) -> None:
-    from ..core.files import write_json, write_text
-    from .catalogs import render_csv_rows
+    from ...core.files import write_json, write_text
+    from ..catalogs import render_csv_rows
 
     output_root = Path(output_root)
     source_root = output_root / "adna" / "governance" / "source_library"

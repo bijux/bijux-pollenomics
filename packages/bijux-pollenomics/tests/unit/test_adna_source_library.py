@@ -8,15 +8,15 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
-from bijux_pollenomics.adna import source_library as source_library_module
-from bijux_pollenomics.adna.source_inventory import (
+from bijux_pollenomics.adna.sources import library as source_library_module
+from bijux_pollenomics.adna.sources.inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
     build_supplement_acquisition_checklist,
     build_supplement_file_family_audit,
     build_supplement_recovery_audit,
 )
-from bijux_pollenomics.adna.source_library import (
+from bijux_pollenomics.adna.sources.library import (
     build_cross_project_source_audit,
     build_missing_source_blockers,
     build_paper_registry,

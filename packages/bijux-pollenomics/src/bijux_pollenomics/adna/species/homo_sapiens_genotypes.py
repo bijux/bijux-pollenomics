@@ -3,8 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ..config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
-from .paths import ADNA_SPECIES_DIR
+from ...config import DEFAULT_AADR_VERSION, DEFAULT_DATA_ROOT
+from ..paths import ADNA_SPECIES_DIR
 
 __all__ = [
     "HomoSapiensGenotypeArtifact",

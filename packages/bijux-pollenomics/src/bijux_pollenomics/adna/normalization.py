@@ -11,9 +11,7 @@ from ..core.bp_time import (
     normalize_bp_interval,
     parse_bp_window_label,
 )
-from .coordinate_provenance import build_species_coordinate_provenance_rows
 from .curation import build_species_curation_manifest
-from .ena import build_species_archive_projects, classify_archive_project_evidence
 from .manifests import AdnaSpeciesManifest, build_species_manifest
 from .models import (
     AdnaChronology,
@@ -26,12 +24,17 @@ from .models import (
     AdnaSiteEvidenceRecord,
 )
 from .paths import ADNA_SPECIES_DIR
-from .project_context import resolve_project_context
-from .project_localities import build_species_project_locality_leads
-from .project_sample_chronology import build_project_sample_chronology_rows
-from .sample_registry import build_species_curated_sample_rows
-from .site_evidence import build_species_site_evidence_rows
-from .species import AdnaSpeciesDefinition, resolve_species_definition
+from .projects.context import resolve_project_context
+from .projects.coordinate_provenance import build_species_coordinate_provenance_rows
+from .projects.localities import build_species_project_locality_leads
+from .projects.sample_chronology import build_project_sample_chronology_rows
+from .projects.sample_registry import build_species_curated_sample_rows
+from .projects.site_evidence import build_species_site_evidence_rows
+from .sources.ena import (
+    build_species_archive_projects,
+    classify_archive_project_evidence,
+)
+from .species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [
     "ADNA_DOMESTICATION_STATUSES",

@@ -6,7 +6,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.project_sample_chronology import (
+from bijux_pollenomics.adna.projects.sample_chronology import (
     _resolve_chronology_source,
     build_cross_project_sample_chronology_audit,
     build_date_evidence_gap_queue,

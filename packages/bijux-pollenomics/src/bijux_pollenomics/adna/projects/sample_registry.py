@@ -3,11 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from .ena import build_species_archive_projects
-from .project_context import resolve_project_context
-from .project_localities import resolve_project_locality_leads
+from ..sources.ena import build_species_archive_projects
+from ..species.definitions import resolve_species_definition
+from .context import resolve_project_context
+from .localities import resolve_project_locality_leads
 from .sample_master import build_project_sample_master_rows
-from .species import resolve_species_definition
 
 __all__ = [
     "AdnaCuratedSampleRow",
@@ -338,7 +338,7 @@ def _resolve_row_context(
 
 
 def _default_data_root() -> Path:
-    return Path(__file__).resolve().parents[5] / "data"
+    return Path(__file__).resolve().parents[6] / "data"
 
 
 def _sample_basis_for(accession_scope: str) -> str:

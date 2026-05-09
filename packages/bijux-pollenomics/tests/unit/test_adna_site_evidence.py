@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.adna.site_evidence import (
+from bijux_pollenomics.adna.projects.site_evidence import (
     build_species_site_evidence_rows,
     resolve_project_site_evidence,
 )

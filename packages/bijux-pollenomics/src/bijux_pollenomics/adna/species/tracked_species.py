@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .species import resolve_species_definition
+from .definitions import resolve_species_definition
 
 __all__ = ["TRACKED_ADNA_SPECIES", "tracked_species_slugs"]
 

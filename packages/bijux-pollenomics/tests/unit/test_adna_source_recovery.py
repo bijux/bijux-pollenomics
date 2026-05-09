@@ -5,7 +5,7 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.source_recovery import (
+from bijux_pollenomics.adna.sources.recovery import (
     ADNA_INTAKE_STAGE_KEYS,
     build_manual_curation_worklist,
     build_missing_source_queue,

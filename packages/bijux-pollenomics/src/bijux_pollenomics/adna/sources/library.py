@@ -11,11 +11,11 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 import zipfile
 
-from ..core.files import write_json, write_text
-from ..core.http import validate_http_url
+from ...core.files import write_json, write_text
+from ...core.http import validate_http_url
+from ..governance_contracts import materialize_adna_governance_contracts
+from ..paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
 from .ena import build_archive_project_catalog
-from .governance_contracts import materialize_adna_governance_contracts
-from .paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
 
 __all__ = [
     "AdnaPaperRegistryRow",
@@ -26,6 +26,7 @@ __all__ = [
     "build_cross_project_source_audit",
     "build_missing_source_blockers",
     "build_paper_registry",
+    "build_project_registry",
     "build_source_intake_audit",
     "build_source_intake_release_guard",
     "build_project_source_bundles",
@@ -1426,13 +1427,15 @@ def materialize_source_library(output_root: Path) -> None:
         )
         write_text(paper_dir / "supplementary_manifest.csv", _render_csv(manifest_rows))
 
-    from .project_sample_chronology import materialize_project_sample_chronology_library
-    from .project_sample_locality_evidence import (
+    from ..projects.sample_chronology import (
+        materialize_project_sample_chronology_library,
+    )
+    from ..projects.sample_locality_evidence import (
         materialize_project_sample_locality_evidence_library,
     )
-    from .project_sample_sites import materialize_project_sample_site_library
-    from .sample_master import materialize_sample_master_library
-    from .source_inventory import materialize_source_inventory
+    from ..projects.sample_master import materialize_sample_master_library
+    from ..projects.sample_sites import materialize_project_sample_site_library
+    from .inventory import materialize_source_inventory
 
     materialize_sample_master_library(output_root)
     materialize_project_sample_site_library(output_root)
@@ -1480,7 +1483,7 @@ def _project_intake_dossier(
     output_root: Path,
     bundle: AdnaSourceBundleManifest,
 ) -> dict[str, object]:
-    from .source_recovery import build_project_recovery_dossier
+    from .recovery import build_project_recovery_dossier
 
     return build_project_recovery_dossier(output_root, bundle.project_accession)
 
@@ -1489,7 +1492,7 @@ def _render_project_intake_dossier(
     output_root: Path,
     bundle: AdnaSourceBundleManifest,
 ) -> str:
-    from .source_recovery import render_project_recovery_dossier_markdown
+    from .recovery import render_project_recovery_dossier_markdown
 
     return render_project_recovery_dossier_markdown(
         _project_intake_dossier(output_root, bundle)

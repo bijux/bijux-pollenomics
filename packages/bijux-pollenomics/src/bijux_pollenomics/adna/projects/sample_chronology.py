@@ -4,14 +4,14 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
-from ..core.files import write_json, write_text
-from ..core.temporal_semantics import build_temporal_semantics
-from .catalogs import render_csv_rows
-from .ena import build_archive_project_catalog
-from .models import (
+from ...core.files import write_json, write_text
+from ...core.temporal_semantics import build_temporal_semantics
+from ..catalogs import render_csv_rows
+from ..models import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
 )
+from ..sources.ena import build_archive_project_catalog
 from .sample_master import build_project_sample_master_rows
 from .site_evidence import resolve_project_site_evidence
 
@@ -822,7 +822,7 @@ def _resolve_chronology_source(
     site_row: object | None,
     dating_basis: str,
 ) -> _ResolvedChronologySource:
-    from .normalization import normalize_chronology_text
+    from ..normalization import normalize_chronology_text
 
     sample_text = str(getattr(master_row, "chronology_text", "")).strip()
     site_text = (
@@ -945,7 +945,10 @@ def _resolve_chronology_source(
 
 
 def _site_chronology(site_row: object | None, *, dating_basis: str) -> object:
-    from .normalization import normalize_chronology_text, normalize_explicit_bp_window
+    from ..normalization import (
+        normalize_chronology_text,
+        normalize_explicit_bp_window,
+    )
 
     if site_row is None:
         return normalize_chronology_text("", dating_basis=dating_basis)

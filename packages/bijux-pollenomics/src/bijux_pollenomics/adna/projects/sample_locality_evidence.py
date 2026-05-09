@@ -4,11 +4,11 @@ from collections import defaultdict
 from functools import cache
 from pathlib import Path
 
-from ..core.files import write_json, write_text
-from .catalogs import render_csv_rows
+from ...core.files import write_json, write_text
+from ..catalogs import render_csv_rows
+from ..sources.ena import build_archive_project_catalog
 from .coordinate_provenance import resolve_project_context_coordinate_provenance
-from .ena import build_archive_project_catalog
-from .project_sample_sites import (
+from .sample_sites import (
     build_project_sample_site_rows,
 )
 from .site_evidence import resolve_project_context_site_evidence

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .ena import build_species_archive_projects, classify_archive_project_evidence
 from .governance import (
     AdnaProjectAdmissionReview,
     AdnaSpeciesDatasetReview,
@@ -11,7 +10,11 @@ from .governance import (
     classify_species_product_role,
 )
 from .manifests import AdnaSpeciesManifest, build_species_manifest
-from .project_context import resolve_project_context
+from .projects.context import resolve_project_context
+from .sources.ena import (
+    build_species_archive_projects,
+    classify_archive_project_evidence,
+)
 
 __all__ = [
     "AdnaProjectManifestChange",

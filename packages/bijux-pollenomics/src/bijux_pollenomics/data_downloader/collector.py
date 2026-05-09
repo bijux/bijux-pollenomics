@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from pathlib import Path
 
-from ..adna.tracked_data import materialize_tracked_species_adna
+from ..adna.species.tracked_data import materialize_tracked_species_adna
 from ..config import DEFAULT_AADR_VERSION
 from .boundaries import (
     collect_boundaries_data,

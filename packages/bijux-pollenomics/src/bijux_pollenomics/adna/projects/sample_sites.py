@@ -6,10 +6,10 @@ import re
 import shutil
 import subprocess  # nosec B404
 
-from ..core.files import write_json, write_text
-from .catalogs import render_csv_rows
+from ...core.files import write_json, write_text
+from ..catalogs import render_csv_rows
+from ..sources.ena import build_archive_project_catalog
 from .coordinate_provenance import resolve_project_coordinate_provenance
-from .ena import build_archive_project_catalog
 from .sample_master import build_project_sample_master_rows
 from .site_evidence import resolve_project_site_evidence
 

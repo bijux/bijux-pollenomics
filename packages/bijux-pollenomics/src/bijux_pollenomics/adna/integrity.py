@@ -2,9 +2,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .accessions import resolve_accession_reference
-from .ena import AdnaArchiveProject, AdnaEnaRecord, build_archive_project_catalog
-from .species import resolve_species_definition
+from .sources.accessions import resolve_accession_reference
+from .sources.ena import (
+    AdnaArchiveProject,
+    AdnaEnaRecord,
+    build_archive_project_catalog,
+)
+from .species.definitions import resolve_species_definition
 
 __all__ = [
     "AdnaArchiveAccessFinding",

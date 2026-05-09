@@ -16,7 +16,7 @@ from ...adna import (
     build_species_runtime_manifest,
     build_species_support_matrix,
 )
-from ...adna.tracked_species import TRACKED_ADNA_SPECIES
+from ...adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ...data_downloader import (
     build_source_support_matrix,
     collect_data,

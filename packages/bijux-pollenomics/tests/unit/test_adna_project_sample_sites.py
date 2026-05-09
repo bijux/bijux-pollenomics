@@ -8,8 +8,8 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.adna import project_sample_sites as project_sample_sites_module
-from bijux_pollenomics.adna.project_sample_sites import (
+from bijux_pollenomics.adna.projects import sample_sites as project_sample_sites_module
+from bijux_pollenomics.adna.projects.sample_sites import (
     build_project_sample_site_review_rows,
     build_project_sample_site_rows,
     build_sample_site_ambiguity_ledger,
