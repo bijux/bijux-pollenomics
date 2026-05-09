@@ -9,10 +9,13 @@ last_reviewed: 2026-05-07
 
 # Module Map
 
-The module tree should teach the evidence lifecycle by shape, not by local
-lore. A public reader should be able to look at the package map and understand
-which parts gather evidence, which parts normalize it, which parts review it,
-and which parts publish it.
+The module tree should teach responsibility by meaning, not by local lore. A
+reader should be able to use this page to answer one concrete question: if a
+visible surface changes, which part of the repository is supposed to explain,
+govern, or rebuild it?
+
+This page is not a directory dump. It is a responsibility map for people who
+need to move from a question to the right owner quickly.
 
 ## Lifecycle Owners
 
@@ -37,6 +40,21 @@ and which parts publish it.
 Those boundaries matter because public outputs are only trustworthy when a
 reader can trace them back through a stable ownership path.
 
+## Fast Route By Question
+
+- if the question is about commands, entrypoints, or argument handling, start
+  with `command_line/`
+- if the question is about where a source family came from or how raw material
+  entered the repository, start with `data_downloader/`
+- if the question is about animal sample extraction, chronology, coordinates,
+  or species review, start with `adna/`
+- if the question is about how evidence became a visible report, bundle, or
+  map, start with `reporting/`
+- if the question is about posture, refusal, ownership, or truth language,
+  start with `foundation/`
+- if the question is about small shared mechanics such as files, text, time, or
+  geometry helpers, start with `core/`
+
 ## Animal aDNA Ownership
 
 If a question is about project intake, paper linkage, supplement capture,
@@ -57,13 +75,14 @@ bundles, or repository-truth reviews, the path should continue into
 - `bijux-pollenomics-dev` is maintainer tooling, not a home for runtime
   scientific logic
 
-## How To Read This Map
+## Reading Order
 
-If a reader starts from a public artifact, the normal path backward is:
+Use this page in this order when you need orientation:
 
-1. `reporting/` for the written output
-2. `adna/`, `data_downloader/`, or `evidence/` for the upstream evidence state
-3. `foundation/` for truth, posture, and ownership explanation
+1. start from the reader question, not from the directory name
+2. locate the lifecycle owner that governs that question
+3. only then drill into the narrower modules and files underneath that owner
 
-If a page forces the reader to guess instead of following that path, the module
-map is not doing its job clearly enough.
+If a page forces readers to guess whether they need `reporting/`, `adna/`,
+`data_downloader/`, or `foundation/`, the module map is not doing its job well
+enough.
