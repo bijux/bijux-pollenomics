@@ -34,6 +34,13 @@ Boundary exports add:
 - stable geography filters across report and atlas surfaces
 - a common scope language for readers, auditors, and maintainers
 
+## Where To Inspect It
+
+- `data/boundaries/normalized/` is the governing repository path for these
+  framing outputs
+- this page explains how normalized boundary material becomes public scope and
+  filter infrastructure without becoming historical evidence
+
 That may sound modest, but it is one of the reasons the public atlas can be
 challenged honestly. Without explicit framing, a reader could not tell whether
 an absent point reflects weak evidence, a scope rule, or a rendering mistake.

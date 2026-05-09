@@ -38,6 +38,13 @@ These exports make the public product more useful by adding:
   evidence family
 - a way to compare archaeological background across visible geographies
 
+## Where To Inspect It
+
+- `data/sead/normalized/` is the governing repository path for these SEAD
+  contextual outputs
+- this page explains how that normalized archaeology context becomes visible in
+  reports and maps without pretending to be direct sample evidence
+
 That helps readers ask better questions. Instead of "is there one sample here,"
 they can also ask "what kind of surrounding archaeology context does this place
 sit inside."

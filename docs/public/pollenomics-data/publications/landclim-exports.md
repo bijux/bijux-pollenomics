@@ -37,6 +37,13 @@ sample rows. They help the repository show:
 - pollenomics-first interpretation instead of DNA-only storytelling
 - continuity across regions where point density alone would be too thin
 
+## Where To Inspect It
+
+- `data/landclim/normalized/` is the governing repository path for these
+  LandClim-derived contextual outputs
+- this page explains how that normalized pollen context becomes visible in
+  public-facing reports and maps
+
 ## What They Do Not Prove
 
 LandClim exports are contextual surfaces, not direct proof of one specific

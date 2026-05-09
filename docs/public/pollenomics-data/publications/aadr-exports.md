@@ -38,6 +38,13 @@ AADR exports add:
 - a way to keep the public product from reading as if animals, pollen, and
   archaeology exist in isolation from the human side of the historical record
 
+## Where To Inspect It
+
+- `data/aadr/v66/` is the governing versioned repository path for these AADR
+  outputs
+- this page explains how that human ancient DNA release material becomes a
+  public comparison surface without replacing local animal review
+
 That makes the product more intellectually honest. Readers can ask how several
 evidence families line up, not just how one family behaves on its own.
 

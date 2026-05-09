@@ -28,6 +28,13 @@ state remain visible instead of disappearing behind polished pages.
 - whether a reader should expect a newly published geography to reflect major
   new intake or only a new public route through older material
 
+## Where To Inspect It
+
+- `data/collection_summary.json` is the governing checked-in summary for this
+  surface
+- this page explains how that summary should be read as a refresh and breadth
+  ledger rather than as a proof ledger
+
 ## Why Readers Should Care
 
 The summary is not only a maintainer ledger. It helps answer audience questions

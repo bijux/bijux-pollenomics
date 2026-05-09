@@ -36,6 +36,13 @@ Neotoma exports strengthen the public product by adding:
 - wider paleoecological framing across geography
 - a check against overconfidence built from one source family alone
 
+## Where To Inspect It
+
+- `data/neotoma/normalized/` is the governing repository path for these
+  Neotoma-derived contextual outputs
+- this page explains how that normalized Neotoma material becomes public
+  comparison context
+
 This is especially important for readers who want to reuse the codebase or the
 publication model in other regions. A reusable product needs multi-family
 context logic, not one lucky dataset.
