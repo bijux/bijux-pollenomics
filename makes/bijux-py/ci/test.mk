@@ -19,7 +19,7 @@ TEST_PRE_TARGETS          ?=
 TEST_MAIN_ARGS            ?= -m "not generated_artifacts"
 TEST_UNIT_DIR_ARGS        ?= -m "not slow and not generated_artifacts" --maxfail=1 -q
 TEST_UNIT_FALLBACK_ARGS   ?= -k "not e2e and not integration and not functional" -m "not slow and not generated_artifacts" --maxfail=1 -q
-TEST_E2E_ARGS             ?= -m "e2e and not generated_artifacts" --maxfail=1 -q
+TEST_E2E_ARGS             ?= -m "not generated_artifacts" --maxfail=1 -q
 TEST_REGRESSION_ARGS      ?= -m "regression and not generated_artifacts" --maxfail=1 -q
 TEST_EVALUATION_ARGS      ?= -m "evaluation" --maxfail=1 -q
 TEST_GENERATED_ARTIFACTS_ARGS ?= -m "generated_artifacts" --maxfail=1 -q
