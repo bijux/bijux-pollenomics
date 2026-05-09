@@ -25,7 +25,7 @@ boundaries live in the runtime package.
 
 ## Read Next
 
-- internal guide: <https://bijux.io/bijux-pollenomics/internal/>
-- maintainer handbook: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/>
-- documentation integrity: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity/>
-- release support: <https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support/>
+- internal guide: [`docs/internal/index.md`](../../docs/internal/index.md)
+- maintainer handbook: [`docs/internal/maintain/index.md`](../../docs/internal/maintain/index.md)
+- documentation integrity: [`docs/internal/governance/bijux-pollenomics-dev/documentation-integrity.md`](../../docs/internal/governance/bijux-pollenomics-dev/documentation-integrity.md)
+- release support: [`docs/internal/governance/bijux-pollenomics-dev/release-support.md`](../../docs/internal/governance/bijux-pollenomics-dev/release-support.md)
