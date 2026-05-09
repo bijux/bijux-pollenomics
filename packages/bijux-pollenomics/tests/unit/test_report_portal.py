@@ -44,7 +44,9 @@ class ReportPortalUnitTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (report_root / "published_reports_summary.json").write_text(
-                json.dumps({"schema_version": "published-reports-summary.v1"}, indent=2),
+                json.dumps(
+                    {"schema_version": "published-reports-summary.v1"}, indent=2
+                ),
                 encoding="utf-8",
             )
 
@@ -69,9 +71,7 @@ class ReportPortalUnitTests(unittest.TestCase):
                 )
             )
 
-            rows_by_path = {
-                row["repository_path"]: row for row in registry["rows"]
-            }
+            rows_by_path = {row["repository_path"]: row for row in registry["rows"]}
             self.assertEqual(
                 rows_by_path["docs/report/world/README.md"]["family"], "scopes"
             )

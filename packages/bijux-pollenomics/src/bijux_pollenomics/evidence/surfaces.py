@@ -84,13 +84,17 @@ def _build_human_species_row(
         product_role="human_reference",
         dataset_bucket="paper_pinned_core",
         contribution_role="direct",
-        interaction_posture="increases_confidence" if context_points else "suggestive_only",
+        interaction_posture="increases_confidence"
+        if context_points
+        else "suggestive_only",
         mapped_direct_record_count=len(human_localities),
         curated_project_count=0,
         study_summary_count=0,
         chronology_posture="mapped_sample_chronology_available",
         geography_posture="mapped_locality_points",
-        contextual_layer_dependencies=tuple(sorted({point.layer_key for point in context_points})),
+        contextual_layer_dependencies=tuple(
+            sorted({point.layer_key for point in context_points})
+        ),
         blocking_reasons=(),
         rationale=(
             "Homo sapiens atlas evidence is direct because the runtime owns mapped sample and locality metadata.",
@@ -242,7 +246,9 @@ def _chronology_posture_for(
         ):
             return "mapped_locality_bp_windows_available"
         return "mapped_locality_points_with_partial_chronology"
-    policies = {summary.chronology_policy for summary in normalization_bundle.project_summaries}
+    policies = {
+        summary.chronology_policy for summary in normalization_bundle.project_summaries
+    }
     if not policies:
         return "no_curated_nonhuman_chronology"
     if policies == {"bp_interval_expected"}:
@@ -257,11 +263,15 @@ def _geography_posture_for(
     species_localities: tuple[AdnaLocalitySummary, ...],
 ) -> str:
     if species_localities:
-        confidences = {locality.coordinate_confidence for locality in species_localities}
+        confidences = {
+            locality.coordinate_confidence for locality in species_localities
+        }
         if confidences == {"exact"}:
             return "mapped_locality_points"
         return "mapped_locality_points_with_mixed_precision"
-    policies = {summary.coordinate_policy for summary in normalization_bundle.project_summaries}
+    policies = {
+        summary.coordinate_policy for summary in normalization_bundle.project_summaries
+    }
     if not policies:
         return "no_curated_nonhuman_geography"
     if policies == {"site_level_coordinates_expected"}:
@@ -370,9 +380,7 @@ def _build_atlas_layers(
                 "Coordinate confidence",
                 "Dating basis",
             ),
-            rationale=(
-                "This is the mapped Homo sapiens direct ancient-DNA layer.",
-            ),
+            rationale=("This is the mapped Homo sapiens direct ancient-DNA layer.",),
         ),
         AtlasEvidenceLayer(
             layer_key="animal_domesticated_direct",
@@ -507,9 +515,13 @@ def _build_country_profiles(
             if (locality.identity.political_entity or "").strip() == country
         )
         mapped_animal_species = tuple(
-            sorted({locality.species_latin_name for locality in animal_country_localities})
+            sorted(
+                {locality.species_latin_name for locality in animal_country_localities}
+            )
         )
-        human_sample_count = sum(locality.sample_count for locality in country_localities)
+        human_sample_count = sum(
+            locality.sample_count for locality in country_localities
+        )
         if country_localities and mapped_animal_species:
             evidence_posture = "human_direct_plus_mapped_animal_direct"
         elif mapped_animal_species:

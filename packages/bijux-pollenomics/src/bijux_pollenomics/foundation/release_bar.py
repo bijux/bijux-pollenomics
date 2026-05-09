@@ -68,12 +68,16 @@ def build_release_bar() -> PollenomicsReleaseBar:
     )
     homo_sapiens_genotype_boundary_defined = (
         genotype_contract.schema_version == "homo-sapiens-genotype-contract.v1"
-        and genotype_contract.nonhuman_boundary.startswith("These genotype artifacts belong only")
+        and genotype_contract.nonhuman_boundary.startswith(
+            "These genotype artifacts belong only"
+        )
         and len(genotype_contract.required_artifacts) == 3
     )
     nonhuman_domestication_program_defined = any(
         row.coverage_posture == "strong" for row in coverage_report.rows
-    ) and any(row.coverage_posture in {"thin", "pretending"} for row in coverage_report.rows)
+    ) and any(
+        row.coverage_posture in {"thin", "pretending"} for row in coverage_report.rows
+    )
     scientific_review_surface_defined = (
         scientific_review.schema_version == "scientific-review-surface.v3"
         and bool(scientific_review.descriptive_scope)
@@ -87,7 +91,8 @@ def build_release_bar() -> PollenomicsReleaseBar:
     ranking_boundary_defined = (
         ranking_engine_manifest.schema_version == "candidate-ranking-engine-manifest.v1"
         and "atlas_scientific_review_json" in ranking_engine_manifest.current_artifacts
-        and "Sampling recommendation" not in ranking_engine_manifest.recommendation_gate_statement
+        and "Sampling recommendation"
+        not in ranking_engine_manifest.recommendation_gate_statement
         and "No output counts as a sampling recommendation"
         in ranking_engine_manifest.recommendation_gate_statement
     )
@@ -96,7 +101,9 @@ def build_release_bar() -> PollenomicsReleaseBar:
     if genotype_contract.ingestion_blockers:
         blockers.append("homo_sapiens_genotype_ingestion_not_ready")
     if any(
-        row.blocking_reasons for row in bovine_program.species_rows if not row.release_gate_satisfied
+        row.blocking_reasons
+        for row in bovine_program.species_rows
+        if not row.release_gate_satisfied
     ):
         blockers.append("bovine_species_support_still_split_or_blocked")
     if any(

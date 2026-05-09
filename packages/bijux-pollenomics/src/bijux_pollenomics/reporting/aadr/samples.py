@@ -30,7 +30,9 @@ def load_country_samples(
 def discover_anno_files(version_dir: Path) -> list[Path]:
     """Compatibility wrapper for governed Homo sapiens AADR anno discovery."""
     manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
-    return discover_homo_sapiens_anno_files(Path(manifest.source_bundles[0].tracked_root))
+    return discover_homo_sapiens_anno_files(
+        Path(manifest.source_bundles[0].tracked_root)
+    )
 
 
 def iter_samples_from_anno(path: Path, dataset_name: str) -> Iterable[AdnaSampleRecord]:

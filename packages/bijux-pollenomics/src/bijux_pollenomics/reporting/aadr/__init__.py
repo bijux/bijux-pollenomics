@@ -1,3 +1,5 @@
+"""AADR-backed reporting helpers for sample and locality summaries."""
+
 from .api import (
     SchemaError,
     discover_anno_files,

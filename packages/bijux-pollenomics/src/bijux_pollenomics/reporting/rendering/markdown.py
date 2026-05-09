@@ -1,6 +1,9 @@
 from __future__ import annotations
 
-from ...publication_policy import build_country_report_policy, build_sample_inventory_policy
+from ...publication_policy import (
+    build_country_report_policy,
+    build_sample_inventory_policy,
+)
 from ..models import CountryReport
 from ..presentation.text import escape_pipes
 
@@ -160,46 +163,74 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
-    layer_rows = "\n".join(
-        f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
-        for row in map_publication_contract.get("layer_rows", [])
-    ) or "| No visible layers | `-` | - | `0` |"
-    filter_lines = "\n".join(
-        f"- {escape_pipes(str(label))}"
-        for label in map_publication_contract.get("filter_surfaces", [])
-    ) or "- No governed filter surfaces"
-    caveat_lines = "\n".join(
-        f"- {escape_pipes(str(label))}"
-        for label in map_publication_contract.get("visible_caveats", [])
-    ) or "- No governed caveats"
+    layer_rows = (
+        "\n".join(
+            f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
+            for row in map_publication_contract.get("layer_rows", [])
+        )
+        or "| No visible layers | `-` | - | `0` |"
+    )
+    filter_lines = (
+        "\n".join(
+            f"- {escape_pipes(str(label))}"
+            for label in map_publication_contract.get("filter_surfaces", [])
+        )
+        or "- No governed filter surfaces"
+    )
+    caveat_lines = (
+        "\n".join(
+            f"- {escape_pipes(str(label))}"
+            for label in map_publication_contract.get("visible_caveats", [])
+        )
+        or "- No governed caveats"
+    )
     animal_section = ""
-    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
-        layer_group_lines = "\n".join(
-            f"- {label}"
-            for label in animal_atlas_summary.get("layer_groups", [])
-        ) or "- No animal layer groups shipped"
-        animal_filter_lines = "\n".join(
-            f"- {label}"
-            for label in animal_atlas_summary.get("filter_surfaces", [])
-        ) or "- No animal-specific filters shipped"
-        ui_lines = "\n".join(
-            f"- {label}"
-            for label in animal_atlas_summary.get("ui_surfaces", [])
-        ) or "- No animal-specific inspection surfaces shipped"
-        caution_lines = "\n".join(
-            f"- {label}"
-            for label in animal_atlas_summary.get("visible_caveats", [])
-        ) or "- No animal-specific caveats shipped"
-        confidence_rows = "\n".join(
-            f"| {escape_pipes(str(label))} | {count} |"
-            for label, count in sorted(
-                animal_atlas_summary.get("coordinate_confidence_counts", {}).items()
+    if (
+        animal_atlas_summary
+        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
+    ):
+        layer_group_lines = (
+            "\n".join(
+                f"- {label}" for label in animal_atlas_summary.get("layer_groups", [])
             )
-        ) or "| No visible coordinate-confidence counts | 0 |"
-        species_lines = "\n".join(
-            f"| {escape_pipes(str(row.get('common_name', '')))} | {escape_pipes(str(row.get('latin_name', '')))} | {escape_pipes(str(row.get('animal_scope', '')))} | {row.get('locality_count', 0)} |"
-            for row in animal_atlas_summary.get("species_layers", [])
-        ) or "| No animal species layers shipped | - | - | 0 |"
+            or "- No animal layer groups shipped"
+        )
+        animal_filter_lines = (
+            "\n".join(
+                f"- {label}"
+                for label in animal_atlas_summary.get("filter_surfaces", [])
+            )
+            or "- No animal-specific filters shipped"
+        )
+        ui_lines = (
+            "\n".join(
+                f"- {label}" for label in animal_atlas_summary.get("ui_surfaces", [])
+            )
+            or "- No animal-specific inspection surfaces shipped"
+        )
+        caution_lines = (
+            "\n".join(
+                f"- {label}"
+                for label in animal_atlas_summary.get("visible_caveats", [])
+            )
+            or "- No animal-specific caveats shipped"
+        )
+        confidence_rows = (
+            "\n".join(
+                f"| {escape_pipes(str(label))} | {count} |"
+                for label, count in sorted(
+                    animal_atlas_summary.get("coordinate_confidence_counts", {}).items()
+                )
+            )
+            or "| No visible coordinate-confidence counts | 0 |"
+        )
+        species_lines = (
+            "\n".join(
+                f"| {escape_pipes(str(row.get('common_name', '')))} | {escape_pipes(str(row.get('latin_name', '')))} | {escape_pipes(str(row.get('animal_scope', '')))} | {row.get('locality_count', 0)} |"
+                for row in animal_atlas_summary.get("species_layers", [])
+            )
+            or "| No animal species layers shipped | - | - | 0 |"
+        )
         animal_section = f"""
 
 ## Animal aDNA Layers

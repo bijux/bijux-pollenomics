@@ -1,3 +1,5 @@
+"""Language governance for durable public artifacts and report headings."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -48,6 +50,8 @@ DISALLOWED_PUBLIC_ARTIFACT_TOKENS = frozenset(
 
 @dataclass(frozen=True)
 class PublicArtifactLanguageFinding:
+    """One audit finding for a governed public artifact path or heading."""
+
     artifact_path: str
     stem: str
     heading: str | None
@@ -56,10 +60,12 @@ class PublicArtifactLanguageFinding:
 
 
 def split_public_artifact_stem(stem: str) -> tuple[str, ...]:
+    """Split a file stem into normalized underscore-delimited tokens."""
     return tuple(part for part in stem.split("_") if part)
 
 
 def infer_public_information_role(stem: str) -> str | None:
+    """Infer the governed information role from a public artifact stem."""
     for token in reversed(split_public_artifact_stem(stem)):
         if token in PUBLIC_INFORMATION_ROLE_MEANINGS:
             return token
@@ -67,6 +73,7 @@ def infer_public_information_role(stem: str) -> str | None:
 
 
 def validate_public_artifact_stem(stem: str) -> tuple[str, ...]:
+    """Return governance issues for a candidate public artifact stem."""
     tokens = set(split_public_artifact_stem(stem))
     issues: list[str] = []
     disallowed = sorted(tokens & DISALLOWED_PUBLIC_ARTIFACT_TOKENS)
@@ -76,6 +83,7 @@ def validate_public_artifact_stem(stem: str) -> tuple[str, ...]:
 
 
 def extract_markdown_heading(text: str) -> str | None:
+    """Return the first H1 heading from a markdown document, if present."""
     for line in text.splitlines():
         if line.startswith("# "):
             return line[2:].strip()
@@ -85,6 +93,7 @@ def extract_markdown_heading(text: str) -> str | None:
 def audit_public_artifact_inventory(
     repo_root: Path,
 ) -> tuple[PublicArtifactLanguageFinding, ...]:
+    """Audit governed public artifacts beneath the repository root."""
     repo_root = Path(repo_root)
     findings: list[PublicArtifactLanguageFinding] = []
     for path in _iter_public_artifact_paths(repo_root):

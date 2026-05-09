@@ -444,7 +444,10 @@ def _build_chronology_overlaps(
                     if locality.time_start_bp is None or locality.time_end_bp is None:
                         noncomparable += 1
                         continue
-                    if any(_locality_overlaps_point(locality, point) for point in layer_points):
+                    if any(
+                        _locality_overlaps_point(locality, point)
+                        for point in layer_points
+                    ):
                         overlapping += 1
                     else:
                         non_overlapping += 1
@@ -492,7 +495,9 @@ def _build_uncertainties(
                 EvidenceUncertaintyRow(
                     subject=row.species_latin_name,
                     uncertainty_kind="species_assignment",
-                    severity="high" if "mixed_species_rule_unresolved" in row.blocking_reasons else "medium",
+                    severity="high"
+                    if "mixed_species_rule_unresolved" in row.blocking_reasons
+                    else "medium",
                     reason="nonhuman support remains species-review context or mixed-species blocked",
                     impact="cross-species comparisons cannot be promoted to locality-level inference safely",
                 )
@@ -501,11 +506,7 @@ def _build_uncertainties(
                 EvidenceUncertaintyRow(
                     subject=row.species_latin_name,
                     uncertainty_kind="locality_precision",
-                    severity=(
-                        "medium"
-                        if species_animal_localities
-                        else "high"
-                    ),
+                    severity=("medium" if species_animal_localities else "high"),
                     reason=row.geography_posture,
                     impact=(
                         "mapped animal atlas points remain useful but must keep their coordinate and regional caveats visible"
@@ -550,7 +551,8 @@ def _build_scenarios(
     animal_context_species = tuple(
         row.species_latin_name
         for row in species_rows
-        if row.species_latin_name != "Homo sapiens" and row.contribution_role == "contextual"
+        if row.species_latin_name != "Homo sapiens"
+        and row.contribution_role == "contextual"
     )
     mapped_animal_species = tuple(
         sorted({locality.species_latin_name for locality in animal_localities})
@@ -568,8 +570,14 @@ def _build_scenarios(
             question="Can the platform compare early human presence with domesticated-animal context and landscape change in one honest review surface?",
             claim_scope="exploratory",
             usable_evidence=(
-                "mapped_homo_sapiens_localities" if has_human_direct else "no_human_direct_localities",
-                *(mapped_animal_species or animal_context_species or ("no_contextual_animal_species",)),
+                "mapped_homo_sapiens_localities"
+                if has_human_direct
+                else "no_human_direct_localities",
+                *(
+                    mapped_animal_species
+                    or animal_context_species
+                    or ("no_contextual_animal_species",)
+                ),
             ),
             blockers=(
                 "animal_evidence_mapped_with_precision_caveats",
@@ -581,7 +589,9 @@ def _build_scenarios(
             scenario_key="pastoral_species_turnover",
             question="Can the platform compare animal-management turnover signals across species without flattening their support classes?",
             claim_scope="comparative",
-            usable_evidence=mapped_animal_species or animal_context_species or ("no_contextual_animal_species",),
+            usable_evidence=mapped_animal_species
+            or animal_context_species
+            or ("no_contextual_animal_species",),
             blockers=("species_support_asymmetry", "mapped_animal_precision_caveats"),
             current_posture="comparative_with_locality_caveats",
         ),
@@ -598,7 +608,9 @@ def _build_scenarios(
             question="Can the platform recommend lake targets for domestication-focused fieldwork today?",
             claim_scope="exploratory",
             usable_evidence=(
-                "human_context_overlap" if has_human_overlap else "limited_human_context_overlap",
+                "human_context_overlap"
+                if has_human_overlap
+                else "limited_human_context_overlap",
             ),
             blockers=(
                 "field_sampling_gate_not_cleared",

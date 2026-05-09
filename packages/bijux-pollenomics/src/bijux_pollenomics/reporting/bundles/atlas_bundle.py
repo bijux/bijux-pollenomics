@@ -25,6 +25,8 @@ from ...evidence import (
     write_atlas_evidence_surface_json,
     write_scientific_review_surface_json,
 )
+from ..aadr import summarize_localities
+from ..adna import build_tracked_animal_atlas_bundle
 from ..geography import GeographicScope
 from ..map_publication import (
     build_map_point_traceability,
@@ -33,8 +35,6 @@ from ..map_publication import (
     render_map_publication_contract_markdown,
     resolve_map_scope_policy,
 )
-from ..aadr import summarize_localities
-from ..adna import build_tracked_animal_atlas_bundle
 from ..models import MultiCountryMapReport, SampleRecord
 from .paths import AtlasBundlePaths
 from .summary_builders.atlas import build_multi_country_bundle_manifest
@@ -204,7 +204,10 @@ def publish_multi_country_map_bundle(
     extra_artifacts.extend(
         [
             ("Candidate site ranking CSV", bundle_paths.candidate_sites_csv_path.name),
-            ("Candidate site ranking JSON", bundle_paths.candidate_sites_json_path.name),
+            (
+                "Candidate site ranking JSON",
+                bundle_paths.candidate_sites_json_path.name,
+            ),
             (
                 "Candidate site ranking markdown",
                 bundle_paths.candidate_sites_markdown_path.name,

@@ -25,7 +25,9 @@ def _locality(
     modality: str = "metadata_only",
     sample_count: int = 2,
 ) -> AdnaLocalitySummary:
-    locality_token = token or f"{name.casefold().replace(' ', '-')}-{latitude}-{longitude}"
+    locality_token = (
+        token or f"{name.casefold().replace(' ', '-')}-{latitude}-{longitude}"
+    )
     return AdnaLocalitySummary(
         identity=AdnaLocalityIdentity(
             namespace="shared_locality",
@@ -153,7 +155,14 @@ def test_sensitivity_report_shows_profile_rank_shifts() -> None:
         ),
         (
             _point("a", 59.01, 18.02, layer_key="neotoma-sites"),
-            _point("b", 61.01, 15.02, layer_key="sead-sites", time_start_bp=None, time_end_bp=None),
+            _point(
+                "b",
+                61.01,
+                15.02,
+                layer_key="sead-sites",
+                time_start_bp=None,
+                time_end_bp=None,
+            ),
         ),
         radius_km=20.0,
     )

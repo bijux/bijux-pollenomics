@@ -41,9 +41,7 @@ def feature_time_payload(properties: JsonObject) -> dict[str, object]:
     temporal_semantics = normalize_temporal_semantics_payload(
         properties.get("temporal_semantics")
     )
-    temporal_window_key = str(
-        temporal_semantics.get("temporal_window_key", "")
-    ).strip()
+    temporal_window_key = str(temporal_semantics.get("temporal_window_key", "")).strip()
     temporal_window_label = str(
         temporal_semantics.get("temporal_window_label", "")
     ).strip()

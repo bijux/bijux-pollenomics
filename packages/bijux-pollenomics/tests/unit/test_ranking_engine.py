@@ -17,7 +17,8 @@ def test_ranking_engine_manifest_states_future_lake_selection_requirements() -> 
         profile.profile_name for profile in manifest.supported_profiles
     }
     assert any(
-        requirement.requirement == "cross-species direct evidence at the same locality anchor"
+        requirement.requirement
+        == "cross-species direct evidence at the same locality anchor"
         for requirement in manifest.future_lake_selection_requirements
     )
     assert "atlas_evidence_surface_json" in manifest.current_artifacts

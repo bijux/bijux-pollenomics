@@ -204,7 +204,9 @@ def map_allows_context_layer(*, scope_key: str, layer_key: str) -> bool:
 
 def map_allows_fieldwork_layer(*, scope_key: str) -> bool:
     """Return whether the checked-in fieldwork overlay belongs in the active scope."""
-    return map_allows_context_layer(scope_key=scope_key, layer_key="fieldwork-documentation")
+    return map_allows_context_layer(
+        scope_key=scope_key, layer_key="fieldwork-documentation"
+    )
 
 
 def build_map_publication_contract(
@@ -263,19 +265,31 @@ def build_map_publication_contract(
 
 def render_map_publication_contract_markdown(payload: dict[str, object]) -> str:
     """Render a human-facing publication contract for one map bundle."""
-    rows = "\n".join(
-        f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['source_name']))} | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
-        for row in payload["layer_rows"]
-    ) or "| No visible layers | `-` | - | - | `0` |"
-    filter_lines = "\n".join(
-        f"- {escape_pipes(str(label))}" for label in payload["filter_surfaces"]
-    ) or "- No governed filter surfaces"
-    legend_lines = "\n".join(
-        f"- {escape_pipes(str(label))}" for label in payload["legend_sections"]
-    ) or "- No governed legend sections"
-    caveat_lines = "\n".join(
-        f"- {escape_pipes(str(label))}" for label in payload["visible_caveats"]
-    ) or "- No governed caveats"
+    rows = (
+        "\n".join(
+            f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['source_name']))} | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
+            for row in payload["layer_rows"]
+        )
+        or "| No visible layers | `-` | - | - | `0` |"
+    )
+    filter_lines = (
+        "\n".join(
+            f"- {escape_pipes(str(label))}" for label in payload["filter_surfaces"]
+        )
+        or "- No governed filter surfaces"
+    )
+    legend_lines = (
+        "\n".join(
+            f"- {escape_pipes(str(label))}" for label in payload["legend_sections"]
+        )
+        or "- No governed legend sections"
+    )
+    caveat_lines = (
+        "\n".join(
+            f"- {escape_pipes(str(label))}" for label in payload["visible_caveats"]
+        )
+        or "- No governed caveats"
+    )
     return f"""# {payload["title"]} Map Publication Contract
 
 {payload["scope_summary"]}
@@ -353,7 +367,9 @@ def build_map_point_traceability(
                     "title": str(feature.get("title", "")).strip(),
                     "country": str(feature.get("country", "")).strip(),
                     "source_url": str(feature.get("source_url", "")).strip(),
-                    "species_latin_name": str(feature.get("species_latin_name", "")).strip(),
+                    "species_latin_name": str(
+                        feature.get("species_latin_name", "")
+                    ).strip(),
                     "animal_scope": str(feature.get("animal_scope", "")).strip(),
                     "coordinate_confidence": str(
                         feature.get("coordinate_confidence", "")
@@ -377,10 +393,13 @@ def build_map_point_traceability(
 
 def render_map_point_traceability_markdown(payload: dict[str, object]) -> str:
     """Render a compact human-facing summary of bundle point traceability."""
-    rows = "\n".join(
-        f"| {escape_pipes(str(row['layer_label']))} | {escape_pipes(str(row['record_id']))} | {escape_pipes(str(row['country'] or '-'))} | {escape_pipes(str(row['source_artifact'] or row['source_reference'] or '-'))} |"
-        for row in payload["rows"][:40]
-    ) or "| No visible point rows | - | - | - |"
+    rows = (
+        "\n".join(
+            f"| {escape_pipes(str(row['layer_label']))} | {escape_pipes(str(row['record_id']))} | {escape_pipes(str(row['country'] or '-'))} | {escape_pipes(str(row['source_artifact'] or row['source_reference'] or '-'))} |"
+            for row in payload["rows"][:40]
+        )
+        or "| No visible point rows | - | - | - |"
+    )
     return f"""# {payload["title"]} Point Traceability
 
 This ledger keeps one governed traceability chain for every visible point layer in
@@ -415,7 +434,9 @@ def _serialize_layer_contract_row(
         "coverage_label": str(layer.get("coverage_label", "")).strip(),
         "count": int(layer.get("count", 0) or 0),
         "publication_role": _publication_role_for(layer_key, layer_group=layer_group),
-        "scope_visibility": "scope_owned" if layer_key in _LAYER_SCOPE_RULES else "shared_default",
+        "scope_visibility": "scope_owned"
+        if layer_key in _LAYER_SCOPE_RULES
+        else "shared_default",
         "default_enabled": bool(layer.get("default_enabled", False)),
         "applies_country_filter": bool(layer.get("applies_country_filter", False)),
         "applies_time_filter": bool(layer.get("applies_time_filter", False)),
@@ -450,7 +471,9 @@ def _scope_caveat_for(
     }:
         return "Shared evidence layer across every governed scope."
     if layer_key in _REGION_FILTERED_LAYER_KEYS:
-        return "Derived filter framing layer that follows the active scope country roster."
+        return (
+            "Derived filter framing layer that follows the active scope country roster."
+        )
     if policy.key != "nordic":
         return "This overlay is intentionally withheld outside Nordic scope."
     return "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."

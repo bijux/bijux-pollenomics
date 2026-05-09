@@ -8,8 +8,8 @@ from ...adna.catalogs import (
     build_public_animal_output_honesty,
 )
 from ...adna.paths import adna_species_dir
-from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from ..models import CountryReport
+from .atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 
 __all__ = ["publish_public_animal_reporting_outputs"]
 
@@ -121,7 +121,10 @@ def _load_country_payloads(
         country_dir = by_dir.get(report.output_dir.name)
         if country_dir is None:
             continue
-        summary_path = country_dir / f"{country_dir.name}_animal_adna_{report.version}_summary.json"
+        summary_path = (
+            country_dir
+            / f"{country_dir.name}_animal_adna_{report.version}_summary.json"
+        )
         if not summary_path.is_file():
             continue
         payload = json.loads(summary_path.read_text(encoding="utf-8"))
@@ -283,8 +286,12 @@ def _build_animal_human_chronology_overlap(
                     "overlapping_human_localities": overlapping,
                     "non_overlapping_human_localities": non_overlapping,
                     "noncomparable_human_localities": noncomparable,
-                    "assignment_confidence": str(species_rows[0]["country_assignment_confidence"]),
-                    "overlap_status": _overlap_status(overlapping, non_overlapping, noncomparable),
+                    "assignment_confidence": str(
+                        species_rows[0]["country_assignment_confidence"]
+                    ),
+                    "overlap_status": _overlap_status(
+                        overlapping, non_overlapping, noncomparable
+                    ),
                 }
             )
     return {
@@ -343,8 +350,12 @@ def _build_animal_pollen_chronology_overlap(
                     "overlapping_pollen_records": overlapping,
                     "non_overlapping_pollen_records": non_overlapping,
                     "noncomparable_pollen_records": noncomparable,
-                    "assignment_confidence": str(species_rows[0]["country_assignment_confidence"]),
-                    "overlap_status": _overlap_status(overlapping, non_overlapping, noncomparable),
+                    "assignment_confidence": str(
+                        species_rows[0]["country_assignment_confidence"]
+                    ),
+                    "overlap_status": _overlap_status(
+                        overlapping, non_overlapping, noncomparable
+                    ),
                 }
             )
     return {
@@ -379,10 +390,18 @@ def _build_first_appearance_by_country(
                     "time_label": str(oldest_row["time_label"]),
                     "project_accession": str(oldest_row["project_accession"]),
                     "locality": str(oldest_row["locality"]),
-                    "assignment_confidence": str(oldest_row["country_assignment_confidence"]),
+                    "assignment_confidence": str(
+                        oldest_row["country_assignment_confidence"]
+                    ),
                 }
             )
-    rows.sort(key=lambda row: (row["country"], -int(row["first_signal_bp"]), row["species_latin_name"]))
+    rows.sort(
+        key=lambda row: (
+            row["country"],
+            -int(row["first_signal_bp"]),
+            row["species_latin_name"],
+        )
+    )
     return {
         "schema_version": "animal-first-appearance-by-country.v1",
         "rows": rows,
@@ -396,10 +415,18 @@ def _build_farming_history_scenario(
     pollen_overlap_payload: dict[str, object],
     first_appearance_payload: dict[str, object],
 ) -> dict[str, object]:
-    coverage_rows = [row for row in coverage_payload.get("rows", []) if isinstance(row, dict)]
-    human_rows = [row for row in human_overlap_payload.get("rows", []) if isinstance(row, dict)]
-    pollen_rows = [row for row in pollen_overlap_payload.get("rows", []) if isinstance(row, dict)]
-    first_rows = [row for row in first_appearance_payload.get("rows", []) if isinstance(row, dict)]
+    coverage_rows = [
+        row for row in coverage_payload.get("rows", []) if isinstance(row, dict)
+    ]
+    human_rows = [
+        row for row in human_overlap_payload.get("rows", []) if isinstance(row, dict)
+    ]
+    pollen_rows = [
+        row for row in pollen_overlap_payload.get("rows", []) if isinstance(row, dict)
+    ]
+    first_rows = [
+        row for row in first_appearance_payload.get("rows", []) if isinstance(row, dict)
+    ]
 
     support: list[str] = []
     weak_support: list[str] = []
@@ -467,7 +494,9 @@ def _build_animal_atlas_readiness(
     country_payloads: list[dict[str, object]],
 ) -> dict[str, object]:
     readiness_payload = build_cross_species_map_readiness(Path(data_root))
-    honesty_payload = build_public_animal_output_honesty(Path(data_root), Path(data_root) / "__no_report_root__")
+    honesty_payload = build_public_animal_output_honesty(
+        Path(data_root), Path(data_root) / "__no_report_root__"
+    )
     mapped_sample_ids_by_species = _mapped_sample_ids_by_species(Path(data_root))
     candidate_rows_by_species = _candidate_rows_by_species(Path(data_root))
     rows = []
@@ -557,7 +586,9 @@ def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
         provenance_lookup = _coordinate_provenance_by_project_and_locality(species_root)
         for sample_row in _load_species_sample_rows(species_root):
             species_name = str(sample_row.get("species_latin_name", "")).strip()
-            sample_id = str(sample_row.get("identity", {}).get("stable_token", "")).strip()
+            sample_id = str(
+                sample_row.get("identity", {}).get("stable_token", "")
+            ).strip()
             if not species_name or not sample_id:
                 continue
             if sample_id in mapped_sample_ids_by_species.get(species_name, set()):
@@ -574,11 +605,15 @@ def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
             rows.append(
                 {
                     "species_latin_name": species_name,
-                    "species_common_name": str(sample_row.get("species_common_name", "")),
+                    "species_common_name": str(
+                        sample_row.get("species_common_name", "")
+                    ),
                     "project_accession": project_accession,
                     "sample_record_id": sample_id,
                     "locality": str(sample_row.get("locality") or locality_text),
-                    "political_entity": str(locality_identity.get("political_entity", "")),
+                    "political_entity": str(
+                        locality_identity.get("political_entity", "")
+                    ),
                     "inclusion_status": str(sample_row.get("inclusion_status", "")),
                     "inclusion_note": str(sample_row.get("inclusion_note", "")),
                     "chronology_normalization_status": str(
@@ -592,7 +627,9 @@ def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
                     "coordinate_confidence": str(
                         provenance.get("coordinate_confidence", "")
                     ),
-                    "sample_lineage_path": str(sample_row.get("sample_lineage_path", "")),
+                    "sample_lineage_path": str(
+                        sample_row.get("sample_lineage_path", "")
+                    ),
                     "chronology_provenance_path": str(
                         sample_row.get("chronology_provenance_path", "")
                     ),
@@ -675,7 +712,10 @@ def _atlas_readiness_status(
             f"{blocked_sample_count} blocked sample rows still fail atlas publication.",
         )
     if candidate_point_count == 0:
-        return ("absent", "No candidate point rows are currently published for this species.")
+        return (
+            "absent",
+            "No candidate point rows are currently published for this species.",
+        )
     if candidate_point_count < 5 or mapped_sample_count < 5:
         return (
             "thin",
@@ -828,7 +868,9 @@ def _render_country_species_coverage_markdown(payload: dict[str, object]) -> str
         "| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
     if not rows:
-        lines.append("| No country-resolved animal rows yet | - | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | - |")
+        lines.append(
+            "| No country-resolved animal rows yet | - | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | - |"
+        )
     else:
         for row in rows:
             lines.append(
@@ -922,7 +964,9 @@ def _render_animal_atlas_readiness_markdown(payload: dict[str, object]) -> str:
         "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
     if not rows:
-        lines.append("| No readiness rows yet | absent | 0 | 0 | 0 | 0 | 0 | 0.0000 | no tracked sample rows |")
+        lines.append(
+            "| No readiness rows yet | absent | 0 | 0 | 0 | 0 | 0 | 0.0000 | no tracked sample rows |"
+        )
     else:
         for row in rows:
             lines.append(

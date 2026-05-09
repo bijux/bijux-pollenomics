@@ -9,7 +9,9 @@ from bijux_pollenomics.foundation import (
 
 
 class ReleaseReadinessUnitTests(unittest.TestCase):
-    def test_release_readiness_report_surfaces_curation_failures_for_cattle(self) -> None:
+    def test_release_readiness_report_surfaces_curation_failures_for_cattle(
+        self,
+    ) -> None:
         report = build_release_readiness_report("Bos taurus")
 
         self.assertEqual(report.schema_version, "release-readiness-report.v1")
@@ -17,7 +19,9 @@ class ReleaseReadinessUnitTests(unittest.TestCase):
         self.assertFalse(report.overall_ok)
         self.assertIn("curation_integrity_contract_failed", report.findings)
 
-    def test_release_readiness_report_passes_for_dog_publication_contracts(self) -> None:
+    def test_release_readiness_report_passes_for_dog_publication_contracts(
+        self,
+    ) -> None:
         report = build_release_readiness_report("dog")
 
         self.assertTrue(report.source_identity_ok)

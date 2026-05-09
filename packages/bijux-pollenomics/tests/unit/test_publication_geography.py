@@ -19,8 +19,11 @@ from bijux_pollenomics.reporting.geography import (
     infer_publication_scope,
     render_geography_onboarding_contract_markdown,
 )
-from bijux_pollenomics.reporting.models import CountryReport, MultiCountryMapReport
-from bijux_pollenomics.reporting.models import PublishedReportsReport
+from bijux_pollenomics.reporting.models import (
+    CountryReport,
+    MultiCountryMapReport,
+    PublishedReportsReport,
+)
 
 
 class PublicationGeographyTests(unittest.TestCase):
@@ -36,7 +39,9 @@ class PublicationGeographyTests(unittest.TestCase):
         self.assertEqual(world_scope.key, "world")
         self.assertEqual(world_scope.kind, "world")
 
-    def test_build_published_geography_plan_defines_world_region_country_lineage(self) -> None:
+    def test_build_published_geography_plan_defines_world_region_country_lineage(
+        self,
+    ) -> None:
         plan = build_published_geography_plan(
             ("Sweden", "Norway", "Finland", "Denmark", "Germany")
         )
@@ -46,11 +51,17 @@ class PublicationGeographyTests(unittest.TestCase):
             [scope.output_dir_parts for scope in plan.regional_scopes],
             [("regions", "europe-plus"), ("regions", "nordic")],
         )
-        self.assertEqual(plan.country_scopes[0].output_dir_parts, ("countries", "sweden"))
-        germany_scope = next(scope for scope in plan.country_scopes if scope.label == "Germany")
+        self.assertEqual(
+            plan.country_scopes[0].output_dir_parts, ("countries", "sweden")
+        )
+        germany_scope = next(
+            scope for scope in plan.country_scopes if scope.label == "Germany"
+        )
         self.assertEqual(germany_scope.parent_key, "europe_plus")
 
-    def test_geography_onboarding_contract_covers_code_data_docs_and_tests(self) -> None:
+    def test_geography_onboarding_contract_covers_code_data_docs_and_tests(
+        self,
+    ) -> None:
         payload = build_geography_onboarding_contract(
             published_countries=("Sweden", "Norway", "Finland", "Denmark")
         )
@@ -66,7 +77,9 @@ class PublicationGeographyTests(unittest.TestCase):
         self.assertEqual(len(payload["test_contracts"]), 3)
         self.assertIn("Future-Country Onboarding Playbook", markdown)
 
-    def test_build_published_reports_summary_exposes_world_region_and_country_bundles(self) -> None:
+    def test_build_published_reports_summary_exposes_world_region_and_country_bundles(
+        self,
+    ) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))
         report = MultiCountryMapReport(
             title="World Evidence Surface",
@@ -100,8 +113,12 @@ class PublicationGeographyTests(unittest.TestCase):
             ),
             map_report=report,
             plan=plan,
-            scientific_artifacts={"animal_output_honesty_json": "animal_output_honesty.json"},
-            repository_truth_artifacts={"repository_truth_posture_json": "repository_truth_posture.json"},
+            scientific_artifacts={
+                "animal_output_honesty_json": "animal_output_honesty.json"
+            },
+            repository_truth_artifacts={
+                "repository_truth_posture_json": "repository_truth_posture.json"
+            },
         )
 
         self.assertEqual(published["geography_bundles"]["world"]["slug"], "world")
@@ -138,7 +155,9 @@ class PublicationGeographyTests(unittest.TestCase):
                 output_dir.mkdir(parents=True, exist_ok=True)
                 build_atlas_bundle_paths(output_dir, slug, "v66")
                 (output_dir / "README.md").write_text(f"# {title}\n", encoding="utf-8")
-                (output_dir / f"{slug}_map.html").write_text("<html></html>", encoding="utf-8")
+                (output_dir / f"{slug}_map.html").write_text(
+                    "<html></html>", encoding="utf-8"
+                )
                 (output_dir / f"{slug}_bundle.json").write_text("{}", encoding="utf-8")
                 (output_dir / f"{slug}_summary.json").write_text("{}", encoding="utf-8")
                 (output_dir / f"{slug}_samples.geojson").write_text(
@@ -172,7 +191,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     version="v66",
                     generated_on="2026-05-09",
                     countries=tuple(countries),
-                    country_sample_counts={country: 1 for country in countries},
+                    country_sample_counts=dict.fromkeys(countries, 1),
                     total_unique_samples=len(countries),
                     output_dir=output_dir,
                     scope_key=geography_scope.key,
@@ -211,13 +230,13 @@ class PublicationGeographyTests(unittest.TestCase):
                     f"map={map_reference[1] if map_reference else ''}\n",
                     encoding="utf-8",
                 )
-                (output_dir / f"{country.lower()}_animal_adna_v66_summary.json").write_text(
+                (
+                    output_dir / f"{country.lower()}_animal_adna_v66_summary.json"
+                ).write_text(
                     json.dumps(
                         {
                             "sample_rows": [
-                                {
-                                    "evidence_row_id": f"nordic:animal:{country.lower()}"
-                                }
+                                {"evidence_row_id": f"nordic:animal:{country.lower()}"}
                             ]
                         }
                     ),
@@ -238,15 +257,21 @@ class PublicationGeographyTests(unittest.TestCase):
             with (
                 patch(
                     "bijux_pollenomics.reporting.bundles.published_reports.publish_public_animal_reporting_outputs",
-                    return_value={"animal_country_species_coverage_json": "animal_country_species_coverage.json"},
+                    return_value={
+                        "animal_country_species_coverage_json": "animal_country_species_coverage.json"
+                    },
                 ),
                 patch(
                     "bijux_pollenomics.reporting.bundles.published_reports.publish_animal_foundation_outputs",
                     side_effect=lambda output_root, **_: (
-                        (output_root / "animal_publication_release_gate.json").write_text(
+                        (
+                            output_root / "animal_publication_release_gate.json"
+                        ).write_text(
                             json.dumps({"overall_ok": True}), encoding="utf-8"
                         ),
-                        {"animal_publication_release_gate_json": "animal_publication_release_gate.json"},
+                        {
+                            "animal_publication_release_gate_json": "animal_publication_release_gate.json"
+                        },
                     )[1],
                 ),
                 patch(
@@ -255,7 +280,9 @@ class PublicationGeographyTests(unittest.TestCase):
                         (output_root / "repository_claim_audit.json").write_text(
                             json.dumps({"overall_ok": True}), encoding="utf-8"
                         ),
-                        {"repository_truth_posture_json": "repository_truth_posture.json"},
+                        {
+                            "repository_truth_posture_json": "repository_truth_posture.json"
+                        },
                     )[1],
                 ),
                 patch(
@@ -298,10 +325,14 @@ class PublicationGeographyTests(unittest.TestCase):
                 (staging_output_root / "publication_geography_registry.json").is_file()
             )
             self.assertTrue(
-                (staging_output_root / "publication_geography_subset_validation.json").is_file()
+                (
+                    staging_output_root / "publication_geography_subset_validation.json"
+                ).is_file()
             )
             self.assertTrue(
-                (staging_output_root / "publication_country_onboarding_contract.json").is_file()
+                (
+                    staging_output_root / "publication_country_onboarding_contract.json"
+                ).is_file()
             )
             self.assertIn(
                 "../../regions/nordic/nordic_map.html",

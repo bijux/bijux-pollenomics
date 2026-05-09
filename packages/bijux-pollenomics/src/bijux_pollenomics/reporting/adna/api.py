@@ -1,3 +1,5 @@
+"""Animal aDNA reporting compatibility surface for atlas builders."""
+
 from __future__ import annotations
 
 from ...adna import AdnaLocalitySummary, AdnaSampleRecord, summarize_sample_localities

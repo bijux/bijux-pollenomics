@@ -14,9 +14,7 @@ def test_repository_architecture_contract_exposes_lifecycle_and_package_split() 
         "publication_assembly",
         "public_artifact_writing",
     ]
-    assert [
-        stage.stage_key for stage in contract.animal_adna_stages
-    ] == [
+    assert [stage.stage_key for stage in contract.animal_adna_stages] == [
         "animal_adna_intake",
         "animal_adna_extraction",
         "animal_adna_normalization",

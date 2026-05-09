@@ -1,3 +1,5 @@
+"""Animal aDNA reporting surface for atlas and country bundle builders."""
+
 from .api import (
     AnimalAtlasBundle,
     AnimalAtlasCoordinateReview,

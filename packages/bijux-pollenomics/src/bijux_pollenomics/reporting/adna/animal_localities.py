@@ -8,8 +8,8 @@ from pathlib import Path
 from ...adna import AdnaLocalitySummary, build_species_support_matrix
 from ...adna.paths import adna_species_dir
 from ..geography import (
-    GeographicScope,
     NORDIC_COUNTRIES,
+    GeographicScope,
     scope_contains_political_entity,
 )
 from ..presentation.text import slugify
@@ -212,7 +212,10 @@ def build_tracked_animal_atlas_bundle(
             ),
             ("Animal atlas evidence CSV", f"{atlas_slug}_animal_atlas_evidence.csv"),
             ("Animal atlas evidence JSON", f"{atlas_slug}_animal_atlas_evidence.json"),
-            ("Animal point traceability JSON", f"{atlas_slug}_animal_point_traceability.json"),
+            (
+                "Animal point traceability JSON",
+                f"{atlas_slug}_animal_point_traceability.json",
+            ),
         ),
     )
 
@@ -253,7 +256,9 @@ def _load_review_lookup(species_root: Path) -> dict[str, dict[str, str]]:
                     "paper_title": _optional_str(row.get("paper_title")) or "",
                     "paper_doi": _optional_str(row.get("paper_doi")) or "",
                     "nordic_relevance": str(row.get("nordic_relevance", "")),
-                    "nordic_relevance_reason": str(row.get("nordic_relevance_reason", "")),
+                    "nordic_relevance_reason": str(
+                        row.get("nordic_relevance_reason", "")
+                    ),
                 }
     return lookup
 
@@ -281,8 +286,14 @@ def _build_point_feature(
         {"label": "Support class", "value": row.support_class},
         {"label": "Animal scope", "value": scope.replace("_", " ")},
         {"label": "Mapped sample count", "value": str(row.sample_count)},
-        {"label": "Mapped sample identifiers", "value": ", ".join(row.sample_record_ids)},
-        {"label": "Project accession", "value": ", ".join(row.project_accessions) or "No project accession"},
+        {
+            "label": "Mapped sample identifiers",
+            "value": ", ".join(row.sample_record_ids),
+        },
+        {
+            "label": "Project accession",
+            "value": ", ".join(row.project_accessions) or "No project accession",
+        },
         {"label": "Paper title", "value": row.paper_title},
         {"label": "Paper DOI", "value": row.paper_doi},
         {"label": "Publication year", "value": row.publication_year},
@@ -291,9 +302,9 @@ def _build_point_feature(
         {"label": "Temporal window", "value": temporal_window_label},
         {
             "label": "Temporal comparison posture",
-            "value": str(
-                temporal_semantics.get("comparability_posture", "")
-            ).replace("_", " "),
+            "value": str(temporal_semantics.get("comparability_posture", "")).replace(
+                "_", " "
+            ),
         },
         {
             "label": "Temporal comparison note",
@@ -306,14 +317,19 @@ def _build_point_feature(
         {"label": "Coordinate gazetteer", "value": row.geocoder_or_gazetteer},
         {"label": "Original place text", "value": row.original_place_text},
         {"label": "Resolved place text", "value": row.resolved_place_text},
-        {"label": "Supplementary location source", "value": ", ".join(row.supplementary_sources)},
+        {
+            "label": "Supplementary location source",
+            "value": ", ".join(row.supplementary_sources),
+        },
         {"label": "Coordinate rationale", "value": row.confidence_rationale},
         {"label": "Source locator", "value": row.source_locator},
         {"label": "Source support status", "value": row.source_support_status},
         {"label": "Source evidence text", "value": row.exact_source_text},
         {
             "label": "Nordic relevance",
-            "value": "nordic_lead" if row.nordic_inclusion else "non_nordic_or_comparator",
+            "value": "nordic_lead"
+            if row.nordic_inclusion
+            else "non_nordic_or_comparator",
         },
         {"label": "Nordic note", "value": row.nordic_inclusion_reason},
         {"label": "Interpretation", "value": row.interpretation_note},
@@ -336,9 +352,7 @@ def _build_point_feature(
         "temporal_semantics": temporal_semantics,
         "temporal_window_key": temporal_semantics["temporal_window_key"],
         "temporal_window_label": temporal_window_label,
-        "temporal_comparability_posture": temporal_semantics[
-            "comparability_posture"
-        ],
+        "temporal_comparability_posture": temporal_semantics["comparability_posture"],
         "temporal_comparison_note": temporal_semantics["comparison_note"],
         "nordic_inclusion": row.nordic_inclusion,
         "nordic_inclusion_reason": row.nordic_inclusion_reason,
@@ -484,13 +498,21 @@ def _warning_rows_for(
             f"Coordinates are {row.coordinate_confidence}, not excavation-grade exact points."
         )
     if dataset_review.get("product_role") == "comparator":
-        warnings.append("Comparator-only evidence: use for comparison, not domesticated-core claims.")
+        warnings.append(
+            "Comparator-only evidence: use for comparison, not domesticated-core claims."
+        )
     if not row.nordic_inclusion:
-        warnings.append("This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support.")
+        warnings.append(
+            "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+        )
     elif row.political_entity not in NORDIC_COUNTRIES:
-        warnings.append("Nordic relevance is regional or transregional rather than one named Nordic country.")
+        warnings.append(
+            "Nordic relevance is regional or transregional rather than one named Nordic country."
+        )
     if row.support_class in {"too_weak", "rejected"}:
-        warnings.append("This locality stays visible with an explicit weak or rejected support class.")
+        warnings.append(
+            "This locality stays visible with an explicit weak or rejected support class."
+        )
     if review.get("reason"):
         warnings.append(review["reason"])
     return [{"label": "Warning", "value": warning} for warning in warnings]

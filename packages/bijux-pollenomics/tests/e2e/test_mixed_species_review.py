@@ -11,7 +11,9 @@ from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG
 from tests.support.aadr import AADR_HEADER
 
 
-def test_report_multi_country_map_emits_mixed_species_scientific_review_artifacts() -> None:
+def test_report_multi_country_map_emits_mixed_species_scientific_review_artifacts() -> (
+    None
+):
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
         root.mkdir(parents=True, exist_ok=True)
@@ -46,7 +48,9 @@ def test_report_multi_country_map_emits_mixed_species_scientific_review_artifact
                 ),
                 encoding="utf-8",
             )
-            return SimpleNamespace(title="World Evidence Surface", total_unique_samples=2)
+            return SimpleNamespace(
+                title="World Evidence Surface", total_unique_samples=2
+            )
 
         with patch(
             "bijux_pollenomics.command_line.runtime.handlers.generate_multi_country_map",
@@ -74,9 +78,7 @@ def test_report_multi_country_map_emits_mixed_species_scientific_review_artifact
             slug=DEFAULT_ATLAS_SLUG,
             context_root=Path(tmp) / "data",
         )
-        payload = json.loads(
-            review_path.read_text(encoding="utf-8")
-        )
+        payload = json.loads(review_path.read_text(encoding="utf-8"))
 
     species_rows = {row["species_latin_name"] for row in payload["country_coverage"]}
     assert exit_code == 0

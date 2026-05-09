@@ -1,3 +1,5 @@
+"""Shared style metadata for polygon context layers in published maps."""
+
 from __future__ import annotations
 
 POLYGON_LAYER_STYLES = {

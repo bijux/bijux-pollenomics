@@ -31,7 +31,10 @@ def build_multi_country_map_summary(
             for label, filename in extra_artifacts
         ],
     }
-    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
+    if (
+        animal_atlas_summary
+        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
+    ):
         artifacts.update(
             {
                 "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
@@ -100,7 +103,10 @@ def build_multi_country_bundle_manifest(
             for label, filename in extra_artifacts
         ],
     }
-    if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
+    if (
+        animal_atlas_summary
+        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
+    ):
         artifacts.update(
             {
                 "animal_localities_geojson": bundle_paths.animal_localities_geojson_path.name,
