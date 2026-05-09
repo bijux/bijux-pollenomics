@@ -169,6 +169,12 @@ class DataLayoutUnitTests(unittest.TestCase):
                 (horse_root / "reports" / "support_summary.json").is_file()
             )
             self.assertTrue((horse_root / "reports" / "support_summary.md").is_file())
+            self.assertTrue(
+                (horse_root / "reports" / "project_recovery_deficits.json").is_file()
+            )
+            self.assertTrue(
+                (horse_root / "reports" / "project_recovery_deficits.md").is_file()
+            )
             self.assertTrue((horse_root / "review" / "species_review.json").is_file())
             self.assertTrue(
                 (horse_root / "review" / "archive_integrity.json").is_file()

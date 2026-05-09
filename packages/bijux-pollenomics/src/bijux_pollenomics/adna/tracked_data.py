@@ -37,6 +37,7 @@ from .sample_truth import (
     render_animal_sample_foundation_truth_markdown,
     render_animal_sample_product_contract_markdown,
 )
+from .source_recovery import build_species_project_deficit_ledger
 from .source_library import materialize_source_library
 from .source_snapshots import (
     build_species_source_snapshots,
@@ -95,7 +96,7 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
     integrity_report = build_archive_integrity_report(species_name=species_name)
     archive_projects = build_species_archive_projects(species_name)
 
-    write_text(species_root / "README.md", _render_species_root_readme(species_name))
+    write_text(species_root / "README.md", _render_species_root_readme(output_root, species_name))
     write_json(raw_root / "archive_inventory.json", _archive_inventory_payload(archive_projects))
     write_text(raw_root / "archive_inventory.csv", _render_archive_inventory_csv(archive_projects))
     write_json(raw_root / "source_snapshot.json", _source_snapshot_payload(species_name))
@@ -159,7 +160,18 @@ def materialize_tracked_species_root(output_root: Path, species_name: str) -> No
         project_manifest=project_manifest.as_dict(),
         normalization_bundle=normalization_bundle.as_dict(),
     ))
-    write_text(reports_root / "support_summary.md", _render_support_summary_markdown(species_name))
+    write_text(
+        reports_root / "support_summary.md",
+        _render_support_summary_markdown(output_root, species_name),
+    )
+    write_json(
+        reports_root / "project_recovery_deficits.json",
+        _species_project_recovery_deficits_payload(output_root, species_name),
+    )
+    write_text(
+        reports_root / "project_recovery_deficits.md",
+        _render_species_project_recovery_deficits_markdown(output_root, species_name),
+    )
     write_json(review_root / "species_review.json", review_dossier.as_dict())
     write_json(review_root / "archive_integrity.json", integrity_report.as_dict())
     write_text(review_root / "species_review.md", _render_review_dossier_markdown(species_name))
@@ -751,7 +763,7 @@ def _locality_summaries_payload(bundle: object) -> dict[str, object]:
     }
 
 
-def _render_species_root_readme(species_name: str) -> str:
+def _render_species_root_readme(output_root: Path, species_name: str) -> str:
     species = resolve_species_definition(species_name)
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
@@ -802,6 +814,7 @@ def _render_species_root_readme(species_name: str) -> str:
         and bool(row.get("nordic_inclusion"))
         and str(row.get("coordinate_confidence", "")) != "withheld"
     )
+    deficit_payload = _species_project_recovery_deficits_payload(output_root, species_name)
     return (
         f"# {species.common_name}\n\n"
         f"- Latin name: `{species.latin_name}`\n"
@@ -816,6 +829,10 @@ def _render_species_root_readme(species_name: str) -> str:
         f"- Unresolved sample rows: `{unresolved_count}`\n"
         f"- Mapped Nordic rows: `{mapped_nordic_count}`\n"
         f"- Tracked intake projects: `{review.archive_project_count}`\n"
+        f"- Projects with sample recovery gaps: `{deficit_payload['counts']['projects_with_sample_gap']}`\n"
+        f"- Projects with site-recovery gaps: `{deficit_payload['counts']['projects_with_site_gap']}`\n"
+        f"- Projects with chronology gaps: `{deficit_payload['counts']['projects_with_chronology_gap']}`\n"
+        f"- Projects blocked before publication review: `{deficit_payload['counts']['projects_blocked_before_publication']}`\n"
         f"- Pending projects: `{len(curation.pending_projects)}`\n"
         f"- Rejected projects: `{len(curation.rejected_projects)}`\n\n"
         "This species root is a tracked repository surface. `raw/` keeps archive "
@@ -825,10 +842,11 @@ def _render_species_root_readme(species_name: str) -> str:
     )
 
 
-def _render_support_summary_markdown(species_name: str) -> str:
+def _render_support_summary_markdown(output_root: Path, species_name: str) -> str:
     species = resolve_species_definition(species_name)
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
+    deficit_payload = _species_project_recovery_deficits_payload(output_root, species_name)
     return (
         f"# {species.common_name} support summary\n\n"
         f"- Product role: `{review.product_role}`\n"
@@ -839,7 +857,9 @@ def _render_support_summary_markdown(species_name: str) -> str:
         f"- Primary paper pin count: `{review.primary_paper_pin_count}`\n"
         f"- Curated support project count: `{review.curated_support_project_count}`\n"
         f"- Release gate satisfied: `{str(review.release_gate_satisfied).lower()}`\n"
-        f"- Eligible for supported status: `{str(review.eligible_for_supported_status).lower()}`\n\n"
+        f"- Eligible for supported status: `{str(review.eligible_for_supported_status).lower()}`\n"
+        f"- Projects with sample recovery gaps: `{deficit_payload['counts']['projects_with_sample_gap']}`\n"
+        f"- Projects blocked before publication review: `{deficit_payload['counts']['projects_blocked_before_publication']}`\n\n"
         f"{curation.support_statement}\n\n"
         "## Blocking reasons\n\n"
         + (
@@ -849,6 +869,59 @@ def _render_support_summary_markdown(species_name: str) -> str:
         )
         + "\n"
     )
+
+
+def _species_project_recovery_deficits_payload(
+    output_root: Path,
+    species_name: str,
+) -> dict[str, object]:
+    ledger = build_species_project_deficit_ledger(output_root)
+    rows = [
+        row for row in ledger["rows"] if row["species_latin_name"] == species_name
+    ]
+    counts = ledger["species_counts"].get(
+        species_name,
+        {
+            "project_count": 0,
+            "projects_with_sample_gap": 0,
+            "projects_with_site_gap": 0,
+            "projects_with_chronology_gap": 0,
+            "projects_blocked_before_publication": 0,
+        },
+    )
+    return {
+        "schema_version": "animal-species-project-recovery-deficits.v1",
+        "species_latin_name": species_name,
+        "counts": counts,
+        "rows": rows,
+    }
+
+
+def _render_species_project_recovery_deficits_markdown(
+    output_root: Path,
+    species_name: str,
+) -> str:
+    payload = _species_project_recovery_deficits_payload(output_root, species_name)
+    lines = [
+        f"# {species_name} project recovery deficits",
+        "",
+        f"- Project rows: `{payload['counts']['project_count']}`",
+        f"- Projects with sample gaps: `{payload['counts']['projects_with_sample_gap']}`",
+        f"- Projects with site gaps: `{payload['counts']['projects_with_site_gap']}`",
+        f"- Projects with chronology gaps: `{payload['counts']['projects_with_chronology_gap']}`",
+        f"- Projects blocked before publication review: `{payload['counts']['projects_blocked_before_publication']}`",
+        "",
+        "| Project | Minimum sample gap | Site gap | Chronology gap | Publication status |",
+        "| --- | ---: | ---: | ---: | --- |",
+    ]
+    for row in payload["rows"]:
+        lines.append(
+            f"| `{row['project_accession']}` | `{row['minimum_gap_count'] or 0}` | "
+            f"`{row['lacking_defensible_site_assignment_count']}` | "
+            f"`{row['missing_chronology_count']}` | "
+            f"`{row['publication_readiness_status']}` |"
+        )
+    return "\n".join(lines) + "\n"
 
 
 def _render_review_dossier_markdown(species_name: str) -> str:
