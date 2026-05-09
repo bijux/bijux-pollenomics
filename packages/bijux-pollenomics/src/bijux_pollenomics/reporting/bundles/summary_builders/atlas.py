@@ -44,11 +44,15 @@ def build_multi_country_map_summary(
             }
         )
     return {
-        "schema_version": "atlas-bundle-summary.v1",
+        "schema_version": "geographic-evidence-surface-summary.v1",
         "title": report.title,
         "slug": report.slug,
         "version": report.version,
         "generated_on": report.generated_on,
+        "scope_key": report.scope_key,
+        "scope_label": report.scope_label or report.title,
+        "scope_kind": report.scope_kind,
+        "parent_scope_key": report.parent_scope_key,
         "countries": list(report.countries),
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
@@ -103,12 +107,16 @@ def build_multi_country_bundle_manifest(
             }
         )
     return {
-        "schema_version": "atlas-bundle-manifest.v1",
-        "bundle_type": "nordic_evidence_atlas",
+        "schema_version": "geographic-evidence-surface-manifest.v1",
+        "bundle_type": "geographic_evidence_surface",
         "title": report.title,
         "slug": report.slug,
         "version": report.version,
         "generated_on": report.generated_on,
+        "scope_key": report.scope_key,
+        "scope_label": report.scope_label or report.title,
+        "scope_kind": report.scope_kind,
+        "parent_scope_key": report.parent_scope_key,
         "countries": list(report.countries),
         "country_sample_counts": report.country_sample_counts,
         "total_unique_samples": report.total_unique_samples,
