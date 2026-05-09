@@ -9,6 +9,8 @@
 - Curated support project count: `0`
 - Release gate satisfied: `true`
 - Eligible for supported status: `false`
+- Projects with sample recovery gaps: `0`
+- Projects blocked before publication review: `5`
 
 Ancient material is curated only as comparator support and must not be flattened into domesticated-core inference.
 
