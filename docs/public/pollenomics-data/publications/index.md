@@ -9,29 +9,74 @@ last_reviewed: 2026-05-09
 
 # Publications
 
-This section explains the difference between the repository's tracked evidence
-files and its public-facing publications.
+This section explains the public outputs that readers actually meet first:
+report bundles, map views, point explanations, caveat pages, and refresh
+summaries.
 
-The key point is simple: reports and maps are downstream views. They are useful
-because they summarize and present evidence clearly, but they should never be
-read as stronger than the sample, locality, date, and coordinate records behind
-them.
+Those outputs are useful because they turn a large governed evidence tree into
+something navigable. They are not useful because they hide the harder work.
+Every publication in this repository is meant to answer a real reader question
+while still staying downstream of the narrower evidence that justifies it.
+
+Use this section when your question sounds like one of these:
+
+- what does this repository publish right now
+- where should I start if I care about one country, one region, or the whole
+  geography
+- what can I trust from a visible map or report, and what still needs a
+  narrower check
+- where do I go when one point, layer, or caveat matters more than the polished
+  surface around it
+
+## What These Publications Are For
+
+- reports give the reader a scoped narrative view: world, region, or country
+- maps give the reader a visual orientation view across several evidence
+  families at once
+- point rules and popup rules explain why a visible feature is allowed to
+  appear at all
+- limits pages keep blocked, thin, and partial material visible instead of
+  letting polish erase it
+- collection summaries show whether a visible change came from deeper evidence
+  growth or only from new presentation
+
+The core public rule is simple. A publication should make the evidence easier
+to use, not easier to overstate.
 
 ## Start Here
 
-- [report portal](../../../report/index.md) for the public entry point into the full publication tree
-- [how to read the report tree](../../../report/how-to-read.md) for the guided route through reports, maps, and caveats
-- [reports](reports.md) for the world, regional, and country publication tree
-- [maps](maps.md) for the world-facing and regional map bundles
-- [point rules](point-rules.md) for the sample-to-point contract
-- [filters and popups](filters-and-popups.md) for the visible inspection surface
-- [limits](limits.md) for blocked, thin, and excluded rows
-- [map inputs](map-inputs.md) for the layer-by-layer source and refresh audit
-- [publication types](publication-types.md) for the difference between pollenomics context, contextual support, recovery outputs, and scaffolding
-- [collection summary](collection-summary.md) for the refresh ledger contract
+- open [reports](reports.md) if you want the clearest written answer by scope
+- open [maps](maps.md) if you want the visual answer before the narrower audit
+- open [point rules](point-rules.md) if your question begins with one visible
+  point
+- open [filters and popups](filters-and-popups.md) if your question is why a
+  layer appears, disappears, or changes between scopes
+- open [limits](limits.md) if you need the shortest honesty page before reuse
+- open [map inputs](map-inputs.md) if you need to trace a visible surface back
+  to the files that fed it
+- open [publication types](publication-types.md) if you need to classify what a
+  page or file is actually trying to do
+- open [collection summary](collection-summary.md) if you need the refresh and
+  breadth ledger behind the visible product
+- open the [report portal](../../../report/index.md) when you are ready to move
+  from the handbook into the generated publication tree itself
 
-## Reader Rule
+## Choose The Right Public Surface
 
-If a publication looks polished, that is not a license to assume the underlying
-evidence is complete. This section exists to keep the relationship between
-public presentation and tracked evidence explicit.
+- start with a report when the question is scoped and interpretive:
+  "what does Sweden currently look like," "what does the Nordic slice say," or
+  "what does the world view publish"
+- start with a map when the question is exploratory:
+  "where are the visible clusters," "which layers are present," or "how does
+  one geography differ from another"
+- start with point rules, limits, or map inputs when the question is skeptical:
+  "why is this here," "why is this missing," or "what evidence is this actually
+  standing on"
+
+## What This Section Refuses To Do
+
+- treat visual polish as proof
+- let a regional or country page outrank the narrower evidence behind it
+- flatten pollenomics context, archaeology context, boundary framing, human
+  release material, and animal recovery into one undifferentiated output type
+- make the reader guess where the next narrower explanation lives
