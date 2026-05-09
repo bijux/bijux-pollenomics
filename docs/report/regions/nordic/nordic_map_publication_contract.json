@@ -1,6 +1,6 @@
 {
   "schema_version": "map-publication-contract.v1",
-  "title": "Nordic Evidence Surface",
+  "title": "Nordic Evidence Atlas",
   "scope_key": "nordic",
   "scope_label": "Nordic",
   "scope_kind": "region",
@@ -11,7 +11,7 @@
     "Finland",
     "Denmark"
   ],
-  "default_basemap": "terrain",
+  "default_basemap": "voyager",
   "initial_diameter_km": 20,
   "minimum_bounds": [
     [
@@ -36,7 +36,7 @@
     "Animal species focus when animal layers are present",
     "Animal scope when animal layers are present",
     "Animal coordinate confidence when animal layers are present",
-    "Animal chronology buckets when animal layers are present",
+    "Animal temporal windows when animal layers are present",
     "Nordic animal leads only when animal layers are present"
   ],
   "legend_sections": [
@@ -61,7 +61,7 @@
   "role_counts": {
     "shared_world_scale_layer": 2,
     "region_filtered_layer": 1,
-    "scope_specific_overlay": 6
+    "scope_specific_overlay": 5
   },
   "layer_rows": [
     {
@@ -76,19 +76,6 @@
       "applies_country_filter": true,
       "applies_time_filter": true,
       "scope_caveat": "Shared evidence layer across every governed scope."
-    },
-    {
-      "key": "fieldwork-documentation",
-      "label": "Fieldwork documentation",
-      "source_name": "Bijux fieldwork",
-      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
-      "count": 1,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "scope_owned",
-      "default_enabled": true,
-      "applies_country_filter": true,
-      "applies_time_filter": false,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
       "key": "landclim-sites",
@@ -121,12 +108,12 @@
       "label": "SEAD sites",
       "source_name": "SEAD",
       "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
-      "count": 2069,
+      "count": 2172,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
       "applies_country_filter": true,
-      "applies_time_filter": false,
+      "applies_time_filter": true,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -138,7 +125,7 @@
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
-      "applies_country_filter": false,
+      "applies_country_filter": true,
       "applies_time_filter": true,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },

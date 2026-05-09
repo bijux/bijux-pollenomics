@@ -1,4 +1,4 @@
-# Nordic Evidence Surface Point Traceability
+# Nordic Evidence Atlas Point Traceability
 
 This ledger keeps one governed traceability chain for every visible point layer in
 the map bundle. It is a publication-facing inspection surface, not a replacement
@@ -7,8 +7,8 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `nordic`
-- Visible point rows: `3995`
-- Visible point layers: `6` 
+- Visible point rows: `4097`
+- Visible point layers: `5` 
 
 ## Example Rows
 
