@@ -35,15 +35,23 @@ def _package_import_roots() -> set[str]:
     return import_roots
 
 
+def _resolved_config_relative_path(config_path: Path, configured_path: str) -> Path:
+    return (config_path.parent / configured_path).resolve()
+
+
 def test_root_pytest_configuration_matches_shared_python_baseline() -> None:
-    pytest_config = _config_parser(REPO_ROOT / "configs" / "pytest.ini")["pytest"]
+    config_path = REPO_ROOT / "configs" / "pytest.ini"
+    pytest_config = _config_parser(config_path)["pytest"]
 
     assert pytest_config["minversion"] == "8.0"
     assert pytest_config["python_files"] == "test_*.py"
     assert pytest_config["python_classes"] == "Test*"
     assert pytest_config["python_functions"] == "test_*"
     assert pytest_config["asyncio_mode"] == "auto"
-    assert pytest_config["cache_dir"] == "artifacts/root/pytest-cache"
+    assert pytest_config["cache_dir"] == "../artifacts/root/pytest-cache"
+    assert _resolved_config_relative_path(
+        config_path, pytest_config["cache_dir"]
+    ) == (REPO_ROOT / "artifacts" / "root" / "pytest-cache").resolve()
     assert pytest_config["timeout"] == "120"
     assert pytest_config["timeout_method"] == "thread"
     assert pytest_config["timeout_func_only"] == "true"
