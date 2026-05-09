@@ -676,6 +676,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "evidence"
             / "chronology.md"
         ).read_text(encoding="utf-8")
+        temporal_semantics_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "evidence"
+            / "temporal-semantics.md"
+        ).read_text(encoding="utf-8")
         coordinate_page = (
             REPO_ROOT
             / "docs"
@@ -765,6 +772,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "data/adna/governance/source_library/project_sample_chronology_review.json",
             chronology_page,
+        )
+        self.assertIn(
+            "sample_chronology_provenance_review.json",
+            chronology_page,
+        )
+        self.assertIn(
+            "data/sead/review/temporal_review.json",
+            temporal_semantics_page,
         )
         self.assertIn(
             "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
