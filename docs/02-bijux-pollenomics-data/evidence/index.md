@@ -40,6 +40,7 @@ flowchart LR
 - [Sample records](sample-records.md) for sample identity and lineage
 - [Localities](localities.md) for site-level place claims
 - [Chronology](chronology.md) for date evidence and normalization status
+- [Temporal Semantics](temporal-semantics.md) for cross-family comparison posture and uncertainty
 - [Coordinates](coordinates.md) for why a row maps as a point or stays blocked
 
 ## Reader Rule
