@@ -10,9 +10,14 @@ last_reviewed: 2026-05-08
 # Runtime Scope and Ownership
 
 `bijux-pollenomics` exists to rebuild repository-owned evidence state. Its job
-is not abstract scientific interpretation and it is not general-purpose
-workflow policy. It owns the runtime loop that turns tracked inputs into
-tracked outputs.
+is not abstract scientific theory and it is not general-purpose workflow
+policy. It owns the runtime loop that turns tracked inputs into tracked public
+outputs.
+
+That ownership boundary matters because this repository has several nearby
+surfaces that sound similar but serve different audiences. The public runtime,
+the data handbook, the atlas guide, and the maintainer toolkit should work
+together without being mistaken for the same thing.
 
 ## Capability Map
 
@@ -76,6 +81,14 @@ flat story.
 - prefer durable path and artifact contracts over convenience shortcuts
 - keep pollenomics breadth visible while weaker aDNA recovery continues
 - block stronger publication language when evidence depth is not there
+
+## Why This Matters For Readers
+
+If the ownership line gets blurry, the public guide stops being trustworthy.
+Readers can no longer tell whether a claim is coming from tracked evidence,
+presentation logic, or maintainer policy. A clear runtime boundary is what lets
+the repository say, with some precision, which part of the system produced a
+given output and which part merely explains it.
 
 ## Related Pages
 

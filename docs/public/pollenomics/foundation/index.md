@@ -9,48 +9,84 @@ last_reviewed: 2026-05-09
 
 # What This Repository Is For
 
-`bijux-pollenomics` exists to make the repository's evidence publication loop
-rebuildable. It is the package that turns tracked pollen, environmental,
-archaeological, boundary, fieldwork, and aDNA source material into files that
-readers can review under `data/` and `docs/report/`.
+This repository exists to make one evidence publication loop visible and
+repeatable. It takes several evidence families that would otherwise stay
+scattered across papers, tables, maps, and local scripts, and turns them into
+one reviewable repository state.
 
-This page is here to answer the first public question: why does this repository
-need one owned rebuild path at all?
+In practical terms, `bijux-pollenomics` owns the path from tracked source
+material to tracked public output. That includes collection, normalization,
+publication, and the checks that stop the repository from sounding more certain
+than the evidence really is.
+
+This page answers the first question a public reader should be able to ask:
+what is this repository actually for, and why does it need one owned runtime at
+all?
+
+## The Short Answer
+
+The repository is trying to do one specific thing well: publish inspectable
+cross-evidence outputs without hiding where they came from. It is not here just
+to display a map, and it is not yet a finished scientific engine that settles
+every pollen, archaeology, and ancient-DNA question.
+
+Its value comes from joining three responsibilities that often drift apart:
+
+- collecting and refreshing governed source material
+- normalizing that material into repository-owned evidence files
+- publishing downstream outputs that readers can inspect and question
+
+If those responsibilities split into private scripts, ad hoc notebooks, and a
+separate presentation layer, the public outputs may still look polished, but
+they stop being accountable.
 
 ## What The Runtime Must Keep Legible
 
 - command entrypoints that rewrite tracked state
-- tracked source-family and normalized evidence files
-- country bundles plus world and regional geography outputs
-- tests that fail when those publication contracts drift
-
-If those four surfaces are not tied together, the repository turns into map
-presentation without accountable evidence publication.
+- source-family and normalized evidence files under `data/`
+- country, regional, and world publication outputs under `docs/report/`
+- tests and reviews that fail when those publication contracts drift
 
 ## What Readers Should Understand First
 
 - [repository scope and limits](repository-scope-and-limits.md): what the
   repository claims today and where it stops
 - [end-state product model](end-state-product-model.md): how world, region, and
-  country outputs fit together
+  country outputs fit together as one product rather than several unrelated
+  websites
 - [pollenomics engine roadmap](pollenomics-engine-roadmap.md): what broader
-  pollenomics ambition still remains ahead
+  pollenomics ambition still remains ahead of the current state
 - [runtime scope and ownership](runtime-scope-and-ownership.md): what this
-  package owns inside the repository
+  runtime owns inside the repository and what it deliberately leaves elsewhere
+
+## Why A Reader Should Care
+
+A public guide should not make the reader reconstruct the product from code
+names. A reader should be able to answer three basic questions quickly:
+
+- what kinds of evidence are included here
+- what happens to those inputs before they become public outputs
+- how much confidence the repository claims, and where it refuses stronger
+  language
+
+That is the boundary this section protects. It explains the product first, then
+the code ownership that makes the product rebuildable.
 
 ## Ownership Boundary
 
 - the runtime owns collection, normalization, and publication behavior
 - the data handbook owns source provenance and tracked file meaning
 - the atlas handbook owns how visible map surfaces should be interpreted
-- the maintainer handbook owns release, docs, and repository-health rules
+- the maintainer handbook owns release, docs-shell, and repository-health rules
 
 ## Reader Route
 
-- if the question is "what is this product trying to do?" stay here
-- if the question is "how do world, Europe-plus, Nordic, and country outputs fit together without forking the product?" move to
-  [end-state product model](end-state-product-model.md)
-- if the question is "what sample, site, or paper supports this?" move to
-  [the data guide](../../pollenomics-data/index.md)
-- if the question is "how is this visible map point filtered or limited?" move
-  to [the Nordic atlas guide](../../nordic-atlas/index.md)
+- stay in this section if your question is "what is this repository trying to
+  do, and how honest is it about its current state?"
+- move to [end-state product model](end-state-product-model.md) if your
+  question is how world, Europe-plus, Nordic, and country outputs fit together
+- move to [the data guide](../../pollenomics-data/index.md) if your question is
+  which source family, paper, site, sample, or chronology record supports a
+  visible claim
+- move to [the Nordic atlas guide](../../nordic-atlas/index.md) if your
+  question is how a visible map point should be read, filtered, or challenged

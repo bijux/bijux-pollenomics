@@ -12,13 +12,15 @@ last_reviewed: 2026-05-09
 This repository is broader than one map layer and narrower than a finished
 cross-evidence pollenomics platform.
 
-It exists to publish reviewable evidence outputs that combine pollen context,
-environmental archaeology, boundaries, fieldwork material, and animal ancient
-DNA without pretending that those inputs are already equally mature.
+It is broad because it brings together multiple evidence families: pollen
+context, environmental archaeology, administrative and spatial boundaries,
+fieldwork documentation, and animal ancient DNA. It is narrow because those
+families are not yet equally mature, and because the repository still refuses
+to pretend that visible output automatically means complete scientific support.
 
 The runtime belongs here because readers need one accountable rebuild path for
-those outputs. The runtime does not earn its place by being complex; it earns
-its place by making visible evidence changes easier to trace and review.
+those outputs. The runtime does not justify itself by being complicated. It
+justifies itself by making changes easier to trace, inspect, and challenge.
 
 ## Scope Model
 
@@ -46,6 +48,17 @@ script pile would.
 - visible atlas and report changes can be traced back to one owned rebuild path
 - cross-domain evidence families can stay connected without collapsing into a
   single map-only story
+
+## What The Repository Does Not Claim
+
+- it does not claim that every visible map point is backed by equally strong
+  evidence
+- it does not claim that the current animal aDNA slice already represents a
+  finished pollenomics engine
+- it does not claim that public-facing outputs can be trusted without checking
+  the tracked files that support them
+- it does not claim that presentation polish is the same thing as scientific
+  completeness
 
 ## First Places To Check
 
