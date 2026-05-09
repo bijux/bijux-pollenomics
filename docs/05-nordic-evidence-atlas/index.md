@@ -21,6 +21,10 @@ justify. It should help a reader answer four questions quickly:
 - which citation or supplementary source supports it
 - whether the repository itself says the point is exact, geocoded, projected, or still blocked
 
+Detailed explanation pages for point construction, filtering, and atlas limits
+now live under the data handbook so the Nordic atlas remains a landing surface
+instead of a parallel documentation tree.
+
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
