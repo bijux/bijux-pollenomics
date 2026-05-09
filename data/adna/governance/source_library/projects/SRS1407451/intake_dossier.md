@@ -1,53 +1,53 @@
-# SRS1407451 intake dossier
+# SRS1407451 recovery dossier
 
 - Species: `Canis lupus familiaris`
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `1`
-- Expected sample count status: `known_from_archive_accession_scope`
-- Sample count provenance: The tracked accession itself is one sample-scoped archive identifier.
-- Sample count artifact path: `data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html`
-- Sample identifier status: `archive_native_identifiers_known`
-- Rejection reason: `none`
+- Paper DOI: `10.1038/ncomms16082`
+- Publication readiness: `blocked`
+- Next required stage: `site_recovery`
+- Exact expected sample count: `1`
+- Minimum expected sample count: `1`
+- Final recovered sample rows: `1`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `complete`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `in_progress`
+- `chronology_recovery`: `complete`
+- `coordinate_derivation`: `blocked`
+- `publication_readiness`: `blocked`
 
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
+## Expected Contributions
 
-### Site evidence
+- `sample_identities`
+- `taxonomic_context`
+- `site_evidence`
+- `coordinate_candidates`
 
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
-
-### Chronology evidence
-
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
-
-### Supplementary artifacts
-
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
-- `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-ncomms16082/article.html`
 - `adna/governance/source_library/papers/10.1038-ncomms16082/crossref.json`
 - `adna/governance/source_library/projects/SRS1407451/archive_metadata.html`
+- `data/adna/governance/source_library/projects/SRS1407451/sample_master.json`
+- `data/adna/governance/source_library/projects/SRS1407451/sample_sites.json`
+- `data/adna/governance/source_library/projects/SRS1407451/sample_chronology.json`
+- `data/adna/governance/source_library/projects/SRS1407451/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
-- none
+- Some recovered sample rows still lack a defensible site assignment.
 
-## Blocker categories
+## Manual Curation Work Units
 
-- none
-
-## Extraction plan
-
-Use the archive-native sample accession as the anchor row, then recover site and chronology support from the linked paper or supplementary material.
+- `chronology_recovery`: 1 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 1 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 1 item(s), blocks exact site, coordinate, and publication recovery

@@ -1,50 +1,34 @@
-# PRJEB36540 intake dossier
+# PRJEB36540 recovery dossier
 
 - Species: `Ovis aries`
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.
-- Sample count artifact path: ``
-- Sample identifier status: `paper_or_supplement_targets_curated`
-- Rejection reason: `none`
+- Paper DOI: `10.1038/s42003-021-02794-8`
+- Publication readiness: `complete`
+- Next required stage: `coordinate_derivation`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `1`
+- Final recovered sample rows: `190`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `complete`
+- `supplement_capture`: `complete`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `complete`
+- `chronology_recovery`: `complete`
+- `coordinate_derivation`: `in_progress`
+- `publication_readiness`: `complete`
 
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf`
+## Expected Contributions
 
-### Site evidence
+- `sample_identities`
+- `taxonomic_context`
 
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf`
-
-### Chronology evidence
-
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf`
-
-### Supplementary artifacts
-
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM3_ESM.pdf`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM4_ESM.zip`
-- `data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM5_ESM.pdf`
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM1_ESM.pdf`
 - `adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf`
@@ -54,15 +38,19 @@
 - `adna/governance/source_library/papers/10.1038-s42003-021-02794-8/article.pdf`
 - `adna/governance/source_library/papers/10.1038-s42003-021-02794-8/crossref.json`
 - `adna/governance/source_library/projects/PRJEB36540/archive_metadata.html`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB36540/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
 - none
 
-## Blocker categories
+## Contradictory Evidence
 
-- `missing_sample_identifiers`
+- 161 chronology row(s) still disagree between sample-owned and context-level evidence.
 
-## Extraction plan
+## Manual Curation Work Units
 
-Extract the project sample master from the curated article or supplementary targets and then reconcile sample identifiers against any archive-native labels.
+- `chronology_recovery`: 332 item(s), blocks chronology honesty and publication precision

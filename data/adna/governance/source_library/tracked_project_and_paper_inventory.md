@@ -11,7 +11,7 @@
 - Per-project sample-site tables: `projects/<project_accession>/sample_sites.json`
 
 - Per-project locality worksheets: `projects/<project_accession>/locality_worksheet.json`
-- Per-project sample locality evidence packets: `projects/<project_accession>/sample_locality_evidence.json`
+- Per-project sample locality evidence reviews: `projects/<project_accession>/sample_locality_evidence.json`
 - Cross-project sample locality conflicts: `sample_locality_conflict_ledger.json`
 - Cross-project locality manual curation workflow: `sample_locality_manual_curation_workflow.json`
 - Cross-project site-name normalization dictionary: `site_name_normalization_dictionary.json`
@@ -19,6 +19,15 @@
 
 - Cross-project sample-chronology review: `project_sample_chronology_review.json`
 - Per-project sample chronology tables: `projects/<project_accession>/sample_chronology.json`
+
+- Cross-project recovery stage review: `project_recovery_stage_review.json`
+- Cross-project expected sample yield review: `project_expected_sample_yield_review.json`
+- Cross-paper expected sample yield review: `paper_expected_sample_yield_review.json`
+- Cross-species project deficit ledger: `species_project_deficit_ledger.json`
+- Manual curation worklist: `manual_curation_worklist.json`
+- Source recovery progress: `source_recovery_progress.json`
+- Missing source queue: `missing_source_queue.json`
+- Source recovery release guard: `source_recovery_release_guard.json`
 
 ## Projects
 

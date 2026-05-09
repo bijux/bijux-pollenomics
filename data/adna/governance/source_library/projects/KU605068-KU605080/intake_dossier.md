@@ -1,48 +1,58 @@
-# KU605068-KU605080 intake dossier
+# KU605068-KU605080 recovery dossier
 
 - Species: `Camelus dromedarius`
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `13`
-- Expected sample count status: `known_from_archive_accession_scope`
-- Sample count provenance: The tracked accession range implies a finite set of archive-native sample identifiers.
-- Sample count artifact path: `data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html`
-- Sample identifier status: `archive_native_identifiers_known`
-- Rejection reason: `none`
+- Paper DOI: `10.1111/1755-0998.12551`
+- Publication readiness: `blocked`
+- Next required stage: `site_recovery`
+- Exact expected sample count: `13`
+- Minimum expected sample count: `13`
+- Final recovered sample rows: `13`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `complete`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `in_progress`
+- `chronology_recovery`: `in_progress`
+- `coordinate_derivation`: `blocked`
+- `publication_readiness`: `blocked`
 
-- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
+## Expected Contributions
 
-### Site evidence
+- `sample_identities`
+- `taxonomic_context`
+- `site_evidence`
+- `coordinate_candidates`
+- `sample_chronology`
 
-- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
-
-### Chronology evidence
-
-- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
-
-### Supplementary artifacts
-
-- `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html`
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json`
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 - `adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html`
+- `data/adna/governance/source_library/projects/KU605068-KU605080/sample_master.json`
+- `data/adna/governance/source_library/projects/KU605068-KU605080/sample_sites.json`
+- `data/adna/governance/source_library/projects/KU605068-KU605080/sample_chronology.json`
+- `data/adna/governance/source_library/projects/KU605068-KU605080/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
-- none
+- Some recovered sample rows still lack a defensible site assignment.
+- Some recovered sample rows still lack sample-level chronology.
 
-## Blocker categories
+## Contradictory Evidence
 
-- none
+- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
 
-## Extraction plan
+## Manual Curation Work Units
 
-Preserve each archive-native accession in the sample master and reconcile it against paper-native labels once supplementary or article-level sample tables are parsed.
+- `chronology_recovery`: 26 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 13 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 13 item(s), blocks exact site, coordinate, and publication recovery

@@ -1,43 +1,69 @@
 {
-  "schema_version": "adna-source-library.v1",
+  "schema_version": "animal-project-recovery-dossier.v1",
   "project_accession": "PRJEB31621",
   "species_latin_name": "Bos taurus",
+  "paper_doi": "10.1126/science.aav1002",
   "archive_status": "paper_pinned_core",
   "evidence_strength": "primary_paper_pinned",
-  "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB31621&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-  "paper_doi": "10.1126/science.aav1002",
-  "paper_title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
-  "paper_download_status": "archived",
-  "supplement_download_status": "archived",
+  "inventory_disposition": "tracked_intake_candidate",
+  "stage_statuses": {
+    "project_admission": "complete",
+    "paper_capture": "complete",
+    "supplement_capture": "not_required",
+    "sample_identity_recovery": "in_progress",
+    "site_recovery": "blocked",
+    "chronology_recovery": "blocked",
+    "coordinate_derivation": "blocked",
+    "publication_readiness": "blocked"
+  },
+  "blocking_stages": [
+    "site_recovery",
+    "chronology_recovery",
+    "coordinate_derivation",
+    "publication_readiness"
+  ],
+  "next_required_stage": "sample_identity_recovery",
+  "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
   "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
-  "sample_identifier_status": "manual_curation_required",
-  "inventory_disposition": "tracked_intake_candidate",
-  "rejection_reason": "",
-  "sample_identifier_targets": [
-    "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
-  ],
-  "sample_site_targets": [
-    "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
-  ],
-  "chronology_targets": [
-    "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
-  ],
-  "expected_supplementary_artifacts": [
-    "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
-  ],
-  "local_artifact_paths": [
+  "minimum_expected_sample_count": 1,
+  "recovered_sample_count": 0,
+  "final_sample_count": 0,
+  "unresolved_sample_count": null,
+  "minimum_gap_count": 1,
+  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+  "implausibly_low_recovery": true,
+  "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+  "known_assets": [
     "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
     "adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
     "adna/governance/source_library/papers/10.1126-science.aav1002/crossref.json",
     "adna/governance/source_library/papers/10.1126-science.aav1002/pubmed.xml",
-    "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html"
+    "adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+    "data/adna/governance/source_library/projects/PRJEB31621/sample_master.json",
+    "data/adna/governance/source_library/projects/PRJEB31621/sample_sites.json",
+    "data/adna/governance/source_library/projects/PRJEB31621/sample_chronology.json",
+    "data/adna/governance/source_library/projects/PRJEB31621/sample_locality_evidence.json"
   ],
-  "blockers": [],
-  "blocker_categories": [
-    "missing_sample_identifiers"
+  "missing_assets": [
+    "No final governed sample rows are published yet."
   ],
-  "extraction_plan": "Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface."
+  "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context"
+  ],
+  "expected_contribution_surfaces": [
+    "data/adna/governance/source_library/projects/PRJEB31621/archive_metadata.html",
+    "data/adna/governance/source_library/papers/10.1126-science.aav1002/article.html",
+    "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
+  ],
+  "contradictory_evidence": [],
+  "inferred_claims": [],
+  "manual_curation_work_units": [],
+  "major_deficit_reasons": [
+    "implausibly_low_sample_recovery",
+    "sample_recovery_gap"
+  ]
 }

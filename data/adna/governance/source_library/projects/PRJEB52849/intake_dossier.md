@@ -1,48 +1,41 @@
-# PRJEB52849 intake dossier
+# PRJEB52849 recovery dossier
 
 - Species: `Equus asinus`
 - Archive status: `comparator_only`
 - Inventory disposition: `tracked_intake_candidate`
-- Expected sample count: `unknown`
-- Expected sample count status: `not_yet_curated`
-- Sample count provenance: No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.
-- Sample count artifact path: `data/adna/governance/source_library/projects/PRJEB52849/archive_metadata.html`
-- Sample identifier status: `missing_primary_paper_linkage`
-- Rejection reason: `none`
+- Paper DOI: `none`
+- Publication readiness: `blocked`
+- Next required stage: `paper_capture`
+- Exact expected sample count: `unknown`
+- Minimum expected sample count: `unknown`
+- Final recovered sample rows: `0`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
-## Extraction targets
+## Stage Statuses
 
-### Sample identifiers
+- `project_admission`: `complete`
+- `paper_capture`: `blocked`
+- `supplement_capture`: `not_required`
+- `sample_identity_recovery`: `in_progress`
+- `site_recovery`: `blocked`
+- `chronology_recovery`: `blocked`
+- `coordinate_derivation`: `blocked`
+- `publication_readiness`: `blocked`
 
-- none
+## Expected Contributions
 
-### Site evidence
 
-- none
-
-### Chronology evidence
-
-- none
-
-### Supplementary artifacts
-
-- none
-
-## Local artifacts
+## Known Assets
 
 - `adna/governance/source_library/projects/PRJEB52849/archive_metadata.html`
+- `data/adna/governance/source_library/projects/PRJEB52849/sample_master.json`
+- `data/adna/governance/source_library/projects/PRJEB52849/sample_sites.json`
+- `data/adna/governance/source_library/projects/PRJEB52849/sample_chronology.json`
+- `data/adna/governance/source_library/projects/PRJEB52849/sample_locality_evidence.json`
 
-## Blockers
+## Missing Assets
 
-- `missing_local_paper_evidence`
-- `paper_linkage_not_curated`
-
-## Blocker categories
-
-- `missing_paper_capture`
-- `missing_sample_identifiers`
-- `missing_readable_tables`
-
-## Extraction plan
-
-Strengthen the paper and supplementary capture first, then recover sample identifiers from the strongest readable table or appendix surface.
+- Readable repository paper capture is still missing.
+- No final governed sample rows are published yet.
+- The tracked project still lacks a pinned primary paper linkage.
