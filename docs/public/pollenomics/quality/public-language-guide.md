@@ -14,6 +14,10 @@ operator notebook and not like a status theater dashboard. This page defines
 the vocabulary used in code-owned report surfaces and in the handbook pages
 that explain them.
 
+Public language matters here because wording can inflate a weak surface without
+changing a single data file. The repository therefore treats naming and phrasing
+as part of the evidence contract, not as a cosmetic afterthought.
+
 ## Information Roles
 
 - `review`: reader-facing judgment about whether one bounded surface is trusted
@@ -35,6 +39,9 @@ that explain them.
 - `packets`: it describes delivery format, not the question a surface answers
 - `scorecard`: it sounds managerial and hides what is actually being reviewed
 - polished labels that do not say what the page settles
+
+These banned patterns are not about style preference alone. They are blocked
+because they often hide the real question a surface answers.
 
 ## Provenance Wording
 

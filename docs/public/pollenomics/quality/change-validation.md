@@ -11,6 +11,10 @@ last_reviewed: 2026-05-08
 
 Every runtime change should prove the boundary it touched.
 
+This page exists because not every change needs the same proof. A wording fix,
+a source-normalization rule, and a publication-output change do not carry the
+same risk. Good validation matches the boundary that changed.
+
 ## Validation Layers
 
 - unit tests for narrow logic and file-shape contracts
@@ -29,3 +33,7 @@ generated destination before committing.
 Docs work is not exempt. A docs rewrite fails review if it narrows `01`,
 `02`, or `03` without an equally informative replacement that is present and
 linked.
+
+The larger point is that passing tests are not enough when a rewrite makes the
+public explanation thinner or more confusing. Public clarity is also part of
+the contract.

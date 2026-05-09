@@ -12,6 +12,10 @@ last_reviewed: 2026-05-07
 `bijux-pollenomics` uses layered tests so command behavior, file contracts, and
 source-specific transformations fail close to the defect.
 
+The purpose of the test strategy is not to make every change expensive. It is
+to make the right failure appear at the right layer, early enough that the
+reader can understand what broke.
+
 ## Current Layers
 
 - `tests/unit/` for focused module and helper behavior such as command parsing,
@@ -29,6 +33,9 @@ source-specific transformations fail close to the defect.
   repository conventions, or docs-facing publication behavior
 - use `tests/e2e/` when the risk is the command flow itself rather than one
   internal implementation seam
+
+That "narrowest honest layer" rule matters for speed as well as rigor. A slow
+test suite is only useful when it is aimed at the right question.
 
 ## Important Local Anchors
 
