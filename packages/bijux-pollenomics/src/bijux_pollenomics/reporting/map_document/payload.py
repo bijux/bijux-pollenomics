@@ -4,6 +4,7 @@ from collections.abc import Callable
 import json
 
 from ...core.geojson import JsonObject
+from ..map_publication import MapScopePolicy
 from .state import build_map_document_state
 
 
@@ -13,6 +14,7 @@ def build_map_document_payload(
     version: str,
     generated_on: str,
     countries: tuple[str, ...],
+    policy: MapScopePolicy,
     point_layers: list[JsonObject],
     polygon_layers: list[JsonObject],
     asset_base_path: str,
@@ -20,10 +22,14 @@ def build_map_document_payload(
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
     state = build_map_document_state(
-        point_layers=point_layers, polygon_layers=polygon_layers
+        policy=policy,
+        point_layers=point_layers,
+        polygon_layers=polygon_layers,
     )
     return {
         "__TITLE__": escape_html_fn(title),
+        "__SCOPE_BADGE__": escape_html_fn(policy.eyebrow_label),
+        "__SCOPE_NOTE__": escape_html_fn(policy.summary),
         "__VERSION__": escape_html_fn(version),
         "__GENERATED_ON__": escape_html_fn(generated_on),
         "__COUNTRIES_JSON__": json.dumps(list(countries), ensure_ascii=False),
@@ -31,6 +37,7 @@ def build_map_document_payload(
         "__POLYGON_LAYERS_JSON__": json.dumps(polygon_layers, ensure_ascii=False),
         "__BOUNDS_JSON__": json.dumps(state.bounds),
         "__ASSET_BASE_PATH__": asset_base_path,
+        "__INITIAL_BASEMAP__": escape_html_fn(policy.default_basemap),
         "__INITIAL_DIAMETER__": str(state.initial_diameter_km),
         "__INITIAL_RADIUS__": f"{state.initial_diameter_km / 2:.1f}",
         "__TIME_MIN_BP__": str(state.time_min_bp),

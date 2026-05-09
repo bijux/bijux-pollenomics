@@ -169,6 +169,13 @@ MAP_DOCUMENT_TEMPLATE = """
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .topbar-note {
+        margin: 10px 0 0;
+        max-width: 720px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
       .floating-legend,
       .map-topbar,
       .map-status,
@@ -1383,11 +1390,12 @@ MAP_DOCUMENT_TEMPLATE = """
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
-              <span class="eyebrow">Evidence Surface</span>
+              <span class="eyebrow">__SCOPE_BADGE__</span>
               <div class="topbar-title-row">
                 <span class="topbar-title">__TITLE__</span>
                 <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
               </div>
+              <p class="topbar-note">__SCOPE_NOTE__</p>
             </div>
             <div class="topbar-row">
               <div class="basemap-switch">
@@ -1740,7 +1748,7 @@ MAP_DOCUMENT_TEMPLATE = """
         light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
         terrain: L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors, SRTM &copy; OpenTopoMap', maxZoom: 17 })
       };
-      basemaps.voyager.addTo(map);
+      basemaps.__INITIAL_BASEMAP__.addTo(map);
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       L.control.scale({ imperial: false }).addTo(map);
       map.createPane('pointPane').style.zIndex = 650;
@@ -1910,7 +1918,7 @@ MAP_DOCUMENT_TEMPLATE = """
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
       let densityOpacity = Math.max(0, Math.min(1, Number(initialState.density || '60') / 100 || 0.6));
-      let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : 'voyager';
+      let currentBasemap = basemaps[initialState.basemap || ''] ? String(initialState.basemap) : '__INITIAL_BASEMAP__';
       let legendCollapsed = initialState.legend === 'collapsed';
       let focusState = null;
       const countryColors = {
@@ -2714,6 +2722,7 @@ MAP_DOCUMENT_TEMPLATE = """
         document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === name));
         syncHashState();
       }
+      document.querySelectorAll('.basemap-button').forEach((button) => button.classList.toggle('is-active', button.dataset.basemap === currentBasemap));
       function fitToActive() {
         const bounds = activeBounds();
         if (bounds && bounds.isValid()) map.fitBounds(bounds, { padding: [36, 36] });
