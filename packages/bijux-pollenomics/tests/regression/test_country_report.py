@@ -105,6 +105,22 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_animal_point_traceability.json",
         )
         self.assertEqual(
+            atlas_paths.map_point_traceability_json_path.name,
+            "nordic-atlas_point_traceability.json",
+        )
+        self.assertEqual(
+            atlas_paths.map_point_traceability_markdown_path.name,
+            "nordic-atlas_point_traceability.md",
+        )
+        self.assertEqual(
+            atlas_paths.map_publication_contract_json_path.name,
+            "nordic-atlas_map_publication_contract.json",
+        )
+        self.assertEqual(
+            atlas_paths.map_publication_contract_markdown_path.name,
+            "nordic-atlas_map_publication_contract.md",
+        )
+        self.assertEqual(
             atlas_paths.candidate_sites_csv_path.name,
             "nordic-atlas_candidate_sites.csv",
         )
@@ -873,6 +889,12 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue(
                 (output / "nordic-atlas_animal_point_traceability.json").exists()
             )
+            self.assertTrue(
+                (output / "nordic-atlas_point_traceability.json").exists()
+            )
+            self.assertTrue(
+                (output / "nordic-atlas_map_publication_contract.json").exists()
+            )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
@@ -924,10 +946,22 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Comparator animal evidence", readme_text)
             self.assertIn("Nordic animal leads only", readme_text)
             self.assertIn("Approximate or inferred coordinates remain visible", readme_text)
+            self.assertIn("Map publication contract JSON", readme_text)
+            self.assertIn("Point traceability JSON", readme_text)
+            self.assertIn("Visible Layer Contract", readme_text)
+            self.assertIn("shared_world_scale_layer", readme_text)
 
             self.assertEqual(summary["animal_atlas"]["total_species"], 2)
             self.assertEqual(summary["animal_atlas"]["domesticated_species_count"], 1)
             self.assertEqual(summary["animal_atlas"]["comparator_species_count"], 1)
+            self.assertEqual(
+                summary["artifacts"]["map_publication_contract_json"],
+                "nordic-atlas_map_publication_contract.json",
+            )
+            self.assertEqual(
+                summary["artifacts"]["point_traceability_json"],
+                "nordic-atlas_point_traceability.json",
+            )
             self.assertEqual(
                 summary["artifacts"]["animal_localities_geojson"],
                 "nordic-atlas_animal_localities.geojson",

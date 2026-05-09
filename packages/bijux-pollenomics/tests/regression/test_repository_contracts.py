@@ -767,6 +767,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             atlas_index,
         )
         self.assertIn(
+            "../report/regions/nordic/nordic_map_publication_contract.md",
+            atlas_index,
+        )
+        self.assertIn(
+            "../report/regions/nordic/nordic_point_traceability.md",
+            atlas_index,
+        )
+        self.assertIn(
             "data/adna/governance/source_library/project_source_evidence_matrix.json",
             source_index,
         )
@@ -806,12 +814,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("../../report/animal_point_evidence_review.md", published_reports)
         self.assertIn("../../report/animal_output_honesty.md", published_reports)
         self.assertIn("../../report/animal_atlas_exclusion_report.md", published_reports)
+        self.assertIn("../../report/world/world_map_publication_contract.md", published_reports)
+        self.assertIn("../../report/regions/nordic/nordic_point_traceability.md", published_reports)
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
         self.assertIn("output-surface-classes.md", outputs_index)
         self.assertIn("geographic-point-publication.md", outputs_index)
         self.assertIn("geographic-filters-and-inspection.md", outputs_index)
         self.assertIn("geographic-limits-and-honesty.md", outputs_index)
+        self.assertIn("../../report/world/world_map_publication_contract.md", atlas_outputs)
+        self.assertIn("../../report/regions/nordic/nordic_point_traceability.md", atlas_outputs)
         self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
         self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page)
         self.assertIn("../../report/countries/sweden/sweden_animal_adna_v66_samples.md", published_reports)
