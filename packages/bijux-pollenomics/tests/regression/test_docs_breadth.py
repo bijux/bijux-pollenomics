@@ -15,6 +15,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
 
         for path in (
             "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+            "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
             "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
             "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
             "docs/01-bijux-pollenomics/operations/common-workflows.md",
@@ -65,6 +66,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         for path in (
+            "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
             "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
             "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
@@ -72,6 +74,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
         self.assertIn("repository-governance overview", maintain_index)
+        self.assertIn("country onboarding playbook", maintain_index)
         self.assertIn("command-routing boundary", maintain_index)
         self.assertIn("workflow verification and release map", maintain_index)
 
@@ -90,6 +93,22 @@ class DocsBreadthRegressionTests(unittest.TestCase):
                 "repository_docs_recovery_review.md",
                 "Repository docs recovery review",
             ),
+            (
+                "repository_product_model.md",
+                "Repository product model",
+            ),
+            (
+                "repository_credibility_dashboard.md",
+                "Repository credibility dashboard",
+            ),
+            (
+                "repository_generated_output_policy.md",
+                "Repository generated output policy",
+            ),
+            (
+                "repository_final_release_refusal.md",
+                "Repository final release refusal",
+            ),
         ):
             path = report_root / name
             self.assertTrue(path.is_file(), name)
@@ -104,7 +123,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             ("scopes/index.md", "Scope-Filtered Outputs"),
             ("reviews/index.md", "Evidence Reviews"),
             ("caveats/index.md", "Scientific Caveats"),
-            ("maintenance/index.md", "Maintainer Truth Packets"),
+            ("maintenance/index.md", "Maintainer Truth Surfaces"),
             ("report_surface_registry.md", "Report surface registry"),
             (
                 "report_narrative_quality_review.md",
