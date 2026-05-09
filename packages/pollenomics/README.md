@@ -34,6 +34,27 @@ pollenomics --help
 ## What It Does
 
 - re-exports the public Python API from `bijux-pollenomics`
+- resolves runtime submodules such as `pollenomics.command_line` and
+  `pollenomics.reporting.models` to the same canonical runtime modules used by
+  `bijux_pollenomics`
 - dispatches the same CLI handlers through the shorter `pollenomics` command
 - stays subordinate to the canonical runtime package
 - avoids becoming a second home for scientific logic or publication behavior
+
+## Compatibility Contract
+
+If this works:
+
+```python
+from bijux_pollenomics.command_line import build_parser
+```
+
+the alias package is expected to support the same import through:
+
+```python
+from pollenomics.command_line import build_parser
+```
+
+The only intentional local difference is the compatibility CLI wrapper in
+`pollenomics.cli`, which keeps the executable name and top-level parser program
+label as `pollenomics`.
