@@ -38,6 +38,13 @@ RAÄ exports add:
 - a way to keep high-detail Swedish context visible without mislabeling it as a
   universal regional property
 
+## Where To Inspect It
+
+- `data/raa/normalized/` is the governing repository path for these
+  Sweden-scoped contextual outputs
+- this page explains how that normalized RAÄ material becomes visible without
+  turning Sweden-specific detail into a generic regional claim
+
 This matters for honest interpretation. A strong Swedish context layer can make
 one geography easier to read, but it should also make the limits of other
 geographies more visible by contrast.
