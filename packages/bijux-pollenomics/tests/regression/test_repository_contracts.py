@@ -683,6 +683,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "evidence"
             / "temporal-semantics.md"
         ).read_text(encoding="utf-8")
+        sead_handbook_page = (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "sources"
+            / "sead-handbook.md"
+        ).read_text(encoding="utf-8")
         coordinate_page = (
             REPO_ROOT
             / "docs"
@@ -763,6 +770,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "outputs"
             / "geographic-input-surfaces.md"
         ).read_text(encoding="utf-8")
+        sead_review_page = (
+            REPO_ROOT / "docs" / "report" / "repository_sead_legibility_review.md"
+        ).read_text(encoding="utf-8")
 
         self.assertIn("02-bijux-pollenomics-data/", docs_index)
         self.assertIn("report/world/world_map.html", docs_index)
@@ -780,6 +790,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "data/sead/review/temporal_review.json",
             temporal_semantics_page,
+        )
+        self.assertIn(
+            "data/sead/review/evidence_legibility_review.json",
+            temporal_semantics_page,
+        )
+        self.assertIn(
+            "data/sead/review/access_model.json",
+            sead_handbook_page,
+        )
+        self.assertIn(
+            "data/sead/review/recovery_roadmap.json",
+            sead_handbook_page,
         )
         self.assertIn(
             "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
@@ -809,6 +831,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../../report/repository_source_family_matrix.json",
             source_family_matrix_page,
         )
+        self.assertIn("data/sead/review/evidence_legibility_review.json", sead_review_page)
         self.assertIn(
             "../../report/repository_cross_domain_evidence_matrix.json",
             source_family_matrix_page,

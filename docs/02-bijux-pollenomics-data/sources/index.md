@@ -30,6 +30,7 @@ but they should not be described as if they all answer the same question.
 
 - [Source comparison](source-comparison.md) for the shortest cross-family overview
 - [Source family matrix](source-family-matrix.md) for the repository-wide balance view
+- [SEAD Handbook](sead-handbook.md) for the full archaeology-context access and legibility model
 - [Refresh policy](refresh-policy.md) for the rule that source refreshes are evidence events
 - [Shared normalization](shared-normalization.md) for the cross-family output contract
 - [Animal source intake](animal-source-intake.md) for project, paper, supplement, and sample-recovery status

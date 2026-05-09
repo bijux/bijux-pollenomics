@@ -58,5 +58,6 @@ that every row with a label belongs in one clean BP comparison space.
 
 - `data/adna/governance/source_library/sample_chronology_provenance_review.json`
 - `data/sead/review/temporal_review.json`
+- `data/sead/review/evidence_legibility_review.json`
 - [`docs/report/animal_temporal_comparison_review.md`](../../report/animal_temporal_comparison_review.md)
 - [`docs/report/animal_publication_release_gate.md`](../../report/animal_publication_release_gate.md)
