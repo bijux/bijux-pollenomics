@@ -9,7 +9,9 @@ from .runtime_alias import install_runtime_aliases
 
 _ALIAS_PACKAGE = "pollenomics"
 _RUNTIME_PACKAGE = "bijux_pollenomics"
-_LOCAL_SUBMODULES = frozenset({"__main__", "cli", "runtime_alias"})
+_LOCAL_SUBMODULES = frozenset(
+    {"__main__", "cli", "command_line", "reporting", "runtime_alias"}
+)
 _runtime_module = import_module(_RUNTIME_PACKAGE)
 
 install_runtime_aliases(
@@ -33,11 +35,9 @@ __all__ = list(getattr(_runtime_module, "__all__", ()))
 
 def __getattr__(name: str) -> Any:
     """Forward top-level compatibility lookups to the canonical runtime package."""
-
     return getattr(_runtime_module, name)
 
 
 def __dir__() -> list[str]:
     """Expose the canonical runtime attributes in interactive discovery."""
-
     return sorted(set(globals()) | set(dir(_runtime_module)))
