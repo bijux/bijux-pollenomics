@@ -14,6 +14,10 @@ Some pages and files are meant to show evidence to readers directly. Others are
 meant to explain limits, expose review pressure, or keep the visible product
 honest.
 
+This page exists so a reader can classify a surface before trusting it. The
+important question is not "is this polished," but "what job does this page or
+file actually own?"
+
 That distinction matters because a polished page can still serve a very narrow
 role. A reader should not have to guess whether a surface is:
 
@@ -81,6 +85,15 @@ Use them when the question is:
 - what rules stop the product from quietly promoting weaker evidence
 - how a maintainer or auditor can trace one public surface back to its
   governing evidence
+
+## Fast Rule For Readers
+
+- if you want the visible answer, start with an evidence surface
+- if you want background that helps interpret that answer, use a context surface
+- if you want to understand why language is cautious or why something is
+  missing, use a review surface
+- if you want to know what had to be true before publication was allowed, use a
+  contract surface
 
 ## How To Read The Publication Tree
 
