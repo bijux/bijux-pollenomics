@@ -18,8 +18,8 @@
 [![bijux-pollenomics](https://img.shields.io/badge/bijux--pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics)
 [![pollenomics](https://img.shields.io/badge/pollenomics-ghcr-181717?logo=github)](https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics)
 
-[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
+[![bijux-pollenomics docs](https://img.shields.io/badge/docs-bijux--pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
+[![pollenomics docs](https://img.shields.io/badge/docs-pollenomics-2563EB?logo=materialformkdocs&logoColor=white)](https://bijux.io/bijux-pollenomics/public/pollenomics/)
 <!-- bijux-pollenomics-badges:generated:end -->
 
 `bijux-pollenomics` rebuilds a checked-in pollenomics and environmental
@@ -46,14 +46,14 @@ same staged assets to the GitHub Release.
 
 - inspect the report portal: [`docs/report/index.md`](docs/report/index.md)
 - inspect the broadest public surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
-- inspect the data system guide: [`docs/02-bijux-pollenomics-data/index.md`](docs/02-bijux-pollenomics-data/index.md)
-- inspect the end-state product model: [`docs/01-bijux-pollenomics/foundation/end-state-product-model.md`](docs/01-bijux-pollenomics/foundation/end-state-product-model.md)
+- inspect the data system guide: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
+- inspect the end-state product model: [`docs/public/pollenomics/foundation/end-state-product-model.md`](docs/public/pollenomics/foundation/end-state-product-model.md)
 - inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 - inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
 - start with the public guide: [Public guide](https://bijux.io/bijux-pollenomics/public/)
-- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- inspect repository maintenance rules: [Internal guide](https://bijux.io/bijux-pollenomics/internal/)
+- review the product guide: [Product guide](https://bijux.io/bijux-pollenomics/public/pollenomics/)
+- inspect repository maintenance rules: [`docs/internal/index.md`](docs/internal/index.md)
 
 ## What This Repository Produces
 
@@ -72,8 +72,8 @@ The `2` publishable packages in this repository are:
 
 | Package | Role | Links |
 | --- | --- | --- |
-| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | <a href="https://pypi.org/project/bijux-pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
-| `pollenomics` | Compatibility alias package that re-exports the runtime API and provides the `pollenomics` CLI command | <a href="https://pypi.org/project/pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
+| `bijux-pollenomics` | Runtime package for tracked data collection, report publication, and atlas generation | <a href="https://pypi.org/project/bijux-pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fbijux-pollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/bijux-pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
+| `pollenomics` | Compatibility alias package that re-exports the runtime API and provides the `pollenomics` CLI command | <a href="https://pypi.org/project/pollenomics/"><img alt="PyPI" src="https://img.shields.io/badge/pypi-3775A9?logo=pypi&logoColor=white" height="18"></a> <a href="https://bijux.io/bijux-pollenomics/public/pollenomics/"><img alt="Docs" src="https://img.shields.io/badge/docs-2563EB?logo=materialformkdocs&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/pkgs/container/bijux-pollenomics%2Fpollenomics"><img alt="GHCR" src="https://img.shields.io/badge/ghcr-181717?logo=github&logoColor=white" height="18"></a> <a href="https://github.com/bijux/bijux-pollenomics/tree/main/packages/pollenomics"><img alt="Source" src="https://img.shields.io/badge/source-181717?logo=github&logoColor=white" height="18"></a> |
 
 ## Current Scope
 
@@ -185,7 +185,7 @@ Expect the rebuild path to take longer than lint and tests, to require network a
 - the shared root environment lives at `artifacts/root/check-venv/`
 - the MkDocs site builds to `artifacts/root/docs/site/`
 
-For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/operations/common-workflows/).
+For exact CLI expansions, narrower test targets, and package troubleshooting targets, use [entrypoints and examples](https://bijux.io/bijux-pollenomics/public/pollenomics/interfaces/entrypoints-and-examples/) and [common workflows](https://bijux.io/bijux-pollenomics/public/pollenomics/operations/common-workflows/).
 
 The narrower verification and packaging targets remain available when you need them: `make test-unit`, `make test-regression`, `make test-e2e`, `make package-check`, `make package-smoke`, and `make package-source-smoke`.
 
@@ -237,13 +237,13 @@ Useful entry points:
 
 - docs home: [`docs/index.md`](docs/index.md)
 - public guide: [`docs/public/index.md`](docs/public/index.md)
-- runtime package handbook: [`docs/01-bijux-pollenomics/index.md`](docs/01-bijux-pollenomics/index.md)
-- package operations guide: [`docs/01-bijux-pollenomics/operations/index.md`](docs/01-bijux-pollenomics/operations/index.md)
-- package interface reference: [`docs/01-bijux-pollenomics/interfaces/index.md`](docs/01-bijux-pollenomics/interfaces/index.md)
-- data reference: [`docs/02-bijux-pollenomics-data/index.md`](docs/02-bijux-pollenomics-data/index.md)
-- fieldwork reference: [`docs/02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md`](docs/02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md)
+- runtime package handbook: [`docs/public/pollenomics/index.md`](docs/public/pollenomics/index.md)
+- package operations guide: [`docs/public/pollenomics/operations/index.md`](docs/public/pollenomics/operations/index.md)
+- package interface reference: [`docs/public/pollenomics/interfaces/index.md`](docs/public/pollenomics/interfaces/index.md)
+- data reference: [`docs/public/pollenomics-data/index.md`](docs/public/pollenomics-data/index.md)
+- fieldwork reference: [`docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md`](docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md)
 - internal guide: [`docs/internal/index.md`](docs/internal/index.md)
-- maintainer handbook: [`docs/03-bijux-pollenomics-maintain/index.md`](docs/03-bijux-pollenomics-maintain/index.md)
+- maintainer handbook: [`docs/internal/maintain/index.md`](docs/internal/maintain/index.md)
 
 ## Working Rules
 
