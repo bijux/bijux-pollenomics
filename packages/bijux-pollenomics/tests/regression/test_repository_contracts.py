@@ -82,10 +82,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             ["Foundation", "Architecture", "Interfaces", "Operations", "Quality"],
         )
 
-        pollenomics_data = nav_entry("Pollenomics Data")
+        pollenomics_data = nav_entry("Data")
         self.assertEqual(
             [next(iter(item.keys())) for item in pollenomics_data[1:]],
-            ["Overview Topics", "Sources", "Evidence", "Outputs"],
+            ["System", "Sources", "Evidence", "Publications"],
         )
 
         fieldwork = nav_entry("Fieldwork")
@@ -1216,27 +1216,27 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "docs"
             / "public"
             / "pollenomics-data"
-            / "outputs"
-            / "published-reports.md"
+            / "publications"
+            / "reports.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "outputs" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "publications" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics-data"
-            / "outputs"
-            / "geographic-evidence-surfaces.md"
+            / "publications"
+            / "maps.md"
         ).read_text(encoding="utf-8")
         atlas_inputs_page = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics-data"
-            / "outputs"
-            / "geographic-input-surfaces.md"
+            / "publications"
+            / "map-inputs.md"
         ).read_text(encoding="utf-8")
         sead_review_page = (
             REPO_ROOT / "docs" / "report" / "repository_sead_legibility_review.md"
@@ -1391,10 +1391,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../../../report/repository_source_family_matrix.md",
             published_reports,
         )
-        self.assertIn("output-surface-classes.md", outputs_index)
-        self.assertIn("geographic-point-publication.md", outputs_index)
-        self.assertIn("geographic-filters-and-inspection.md", outputs_index)
-        self.assertIn("geographic-limits-and-honesty.md", outputs_index)
+        self.assertIn("publication-types.md", outputs_index)
+        self.assertIn("point-rules.md", outputs_index)
+        self.assertIn("filters-and-popups.md", outputs_index)
+        self.assertIn("limits.md", outputs_index)
         self.assertIn(
             "../../../report/world/world_map_publication_contract.md",
             atlas_outputs,
@@ -1521,8 +1521,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 / "docs"
                 / "public"
                 / "pollenomics-data"
-                / "outputs"
-                / "published-reports.md"
+                / "publications"
+                / "reports.md"
             ).read_text(encoding="utf-8"),
         )
         self.assertIn(
@@ -1933,7 +1933,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertFalse(
             (REPO_ROOT / "docs" / "apple-touch-icon-precomposed.png").exists()
         )
-        self.assertFalse((REPO_ROOT / "docs" / "outputs" / "gallery").exists())
+        self.assertFalse((REPO_ROOT / "docs" / "publications" / "gallery").exists())
 
     def test_navigation_sync_bootstraps_shared_navigation_shell(self) -> None:
         script_text = (
@@ -2156,16 +2156,16 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "docs"
             / "public"
             / "pollenomics-data"
-            / "outputs"
-            / "published-reports.md"
+            / "publications"
+            / "reports.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
             / "docs"
             / "public"
             / "pollenomics-data"
-            / "outputs"
-            / "geographic-evidence-surfaces.md"
+            / "publications"
+            / "maps.md"
         ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT

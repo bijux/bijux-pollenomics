@@ -48,7 +48,7 @@ def build_repository_sead_legibility_review(data_root: Path) -> dict[str, object
         "direct_links": {
             "source_page": "docs/02-bijux-pollenomics-data/sources/sead.md",
             "handbook_page": "docs/02-bijux-pollenomics-data/sources/sead-handbook.md",
-            "normalized_output_page": "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
+            "normalized_output_page": "docs/public/pollenomics-data/publications/sead-exports.md",
             "access_model": "data/sead/review/access_model.json",
             "evidence_review": "data/sead/review/evidence_legibility_review.json",
             "recovery_roadmap": "data/sead/review/recovery_roadmap.json",

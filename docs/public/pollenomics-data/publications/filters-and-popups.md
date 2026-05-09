@@ -1,5 +1,5 @@
 ---
-title: Geographic Filters and Inspection
+title: Filters and Popups
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Geographic Filters and Inspection
+# Filters and Popups
 
 The public map should make geography filtering understandable instead of
 silently burying it in code. World, Europe-plus, Nordic, and country views are

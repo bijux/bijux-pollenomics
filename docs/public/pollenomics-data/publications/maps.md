@@ -1,5 +1,5 @@
 ---
-title: Geographic Evidence Surfaces
+title: Maps
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Geographic Evidence Surfaces
+# Maps
 
 Geographic evidence surfaces are the shared world and regional map bundles that
 bring several evidence families into one visible geography.

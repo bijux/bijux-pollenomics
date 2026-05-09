@@ -65,49 +65,49 @@
     {
       "surface_kind": "output_family",
       "display_name": "Normalized LandClim outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-landclim.md",
+      "page_path": "docs/public/pollenomics-data/publications/landclim-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized Neotoma outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-neotoma.md",
+      "page_path": "docs/public/pollenomics-data/publications/neotoma-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized SEAD outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-sead.md",
+      "page_path": "docs/public/pollenomics-data/publications/sead-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized RA\u00c4 outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-raa.md",
+      "page_path": "docs/public/pollenomics-data/publications/raa-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized boundary outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-boundaries.md",
+      "page_path": "docs/public/pollenomics-data/publications/boundary-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Normalized AADR outputs explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/normalized-aadr.md",
+      "page_path": "docs/public/pollenomics-data/publications/aadr-exports.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     },
     {
       "surface_kind": "output_family",
       "display_name": "Collection summary explainer",
-      "page_path": "docs/public/pollenomics-data/outputs/collection-summary.md",
+      "page_path": "docs/public/pollenomics-data/publications/collection-summary.md",
       "status": "present_useful_form",
       "notes": "page exists and keeps the expected source or output anchors visible"
     }

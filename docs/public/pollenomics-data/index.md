@@ -14,6 +14,9 @@ repository. It explains what kinds of material the project collects, how those
 materials are checked and organized, and how they eventually become country
 reports, regional map views, or atlas pages.
 
+It is the public guide to the repository's evidence, publication, and coverage
+logic.
+
 This section is for readers who want a clear answer to practical questions:
 
 - what kinds of evidence are in scope here
@@ -21,14 +24,15 @@ This section is for readers who want a clear answer to practical questions:
 - how much of it is already mature enough for public use
 - why one row becomes a visible point while another stays blocked or qualified
 
-<div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader understand what the repository knows today, what remains incomplete, and how the public outputs stay tied to the evidence behind them.</div>
+<div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader understand what the repository knows today, what remains incomplete, and how the public publications stay tied to the evidence behind them.</div>
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="overview/">Start with the overview</a>
+  <a class="md-button md-button--primary" href="overview/">Start with the system</a>
   <a class="md-button" href="sources/">See the source families</a>
   <a class="md-button" href="evidence/">Follow the evidence chain</a>
-  <a class="md-button" href="outputs/">See the public outputs</a>
+  <a class="md-button" href="publications/">See maps and reports</a>
   <a class="md-button" href="overview/data-architecture-handbook/">Open the data architecture handbook</a>
+  <a class="md-button" href="overview/pollenomics-publication-model/">Open the publication model</a>
   <a class="md-button" href="overview/cross-domain-evidence-matrix/">Open the cross-domain evidence matrix</a>
 </div>
 
@@ -39,11 +43,11 @@ flowchart TB
     sources["source families"]
     intake["tracked intake and recovery"]
     evidence["sample, locality, date, and coordinate evidence"]
-    outputs["country reports and atlas views"]
+    publications["country reports and atlas views"]
 
     sources --> intake
     intake --> evidence
-    evidence --> outputs
+    evidence --> publications
 ```
 
 The purpose of this handbook is to keep those stages readable. Readers should
@@ -70,10 +74,10 @@ to remove that ambiguity.
 
 ## Start Here
 
-- [Overview](overview/index.md): understand the overall data model before the file details
+- [System](overview/index.md): understand the overall data model before the file details
 - [Sources](sources/index.md): see what each source family contributes and what it cannot honestly answer
 - [Evidence](evidence/index.md): follow the chain from sample record to locality, chronology, and coordinates
-- [Outputs](outputs/index.md): learn what the published report tree shows and what it intentionally does not promote
+- [Publications](publications/index.md): learn what the published report tree shows and what it intentionally does not promote
 - [Data architecture handbook](overview/data-architecture-handbook.md): learn where truth lives and how capture, normalization, review, and publication differ
 - [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md): compare the repository's evidence balance without relying on file counts alone
 
@@ -101,19 +105,19 @@ aDNA differ.
 If you are new to the project, read this section in the same order that the
 repository handles evidence:
 
-1. start with the [overview](overview/index.md) to understand the overall shape
+1. start with the [system guide](overview/index.md) to understand the overall shape
 2. move to [sources](sources/index.md) to see what enters the repository
 3. move to [evidence](evidence/index.md) to see how claims are justified
-4. finish with [outputs](outputs/index.md) to see how public-facing bundles are derived
+4. finish with [publications](publications/index.md) to see how public-facing bundles are derived
 
-That order is deliberate. The outputs only make sense once the source and
+That order is deliberate. The publications only make sense once the source and
 evidence stages are clear.
 
 ## Section Map
 
 | Section | Main question | Main pages |
 | --- | --- | --- |
-| Overview | How is the repository's data system structured? | [overview](overview/index.md) |
+| System | How is the repository's data system structured? | [overview](overview/index.md) |
 | Sources | What source families are in scope and what do they contribute? | [sources](sources/index.md) |
 | Evidence | How are sample, locality, chronology, and coordinate claims justified? | [evidence](evidence/index.md) |
-| Outputs | What reaches reports and maps, and what remains partial? | [outputs](outputs/index.md) |
+| Publications | What reaches reports and maps, and what remains partial? | [publications](publications/index.md) |

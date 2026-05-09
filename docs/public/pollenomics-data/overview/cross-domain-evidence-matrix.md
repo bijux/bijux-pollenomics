@@ -38,7 +38,7 @@ It is a comparison tool, not a substitute for the source or evidence pages.
 
 - [data system overview](data-system-overview.md)
 - [source family matrix](../sources/source-family-matrix.md)
-- [published reports](../outputs/published-reports.md)
+- [published reports](../publications/reports.md)
 
 ## Live Matrix Artifacts
 

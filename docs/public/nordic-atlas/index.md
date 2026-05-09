@@ -32,9 +32,9 @@ instead of a parallel documentation tree.
   <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
   <a class="md-button" href="../../report/world/world_map.html">Open the world parent surface</a>
   <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
-  <a class="md-button" href="../pollenomics-data/outputs/geographic-point-publication/">How animal points are built</a>
-  <a class="md-button" href="../pollenomics-data/outputs/geographic-filters-and-inspection/">How filters and popups work</a>
-  <a class="md-button" href="../pollenomics-data/outputs/geographic-limits-and-honesty/">Current limits and audits</a>
+  <a class="md-button" href="../pollenomics-data/publications/point-rules/">How animal points are built</a>
+  <a class="md-button" href="../pollenomics-data/publications/filters-and-popups/">How filters and popups work</a>
+  <a class="md-button" href="../pollenomics-data/publications/limits/">Current limits and audits</a>
 </div>
 
 <div class="bijux-map-mobile-note">

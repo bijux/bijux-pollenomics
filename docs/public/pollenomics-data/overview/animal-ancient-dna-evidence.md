@@ -83,4 +83,4 @@ If a reader wants to check one animal point carefully, the shortest path is:
 - [animal source intake](../sources/animal-source-intake.md) if your question is still about project and supplement recovery
 - [sample records](../evidence/sample-records.md) if your question is already about one recoverable row
 - [coordinates](../evidence/coordinates.md) if your question is about why a row appears on a map
-- [geographic limits and honesty](../outputs/geographic-limits-and-honesty.md) if your question is about why some animal rows remain qualified or excluded
+- [geographic limits and honesty](../publications/limits.md) if your question is about why some animal rows remain qualified or excluded
