@@ -27,6 +27,7 @@ presentation without accountable evidence publication.
 ## Next Pages
 
 - [repository scope and limits](repository-scope-and-limits.md)
+- [end-state product model](end-state-product-model.md)
 - [pollenomics engine roadmap](pollenomics-engine-roadmap.md)
 - [runtime scope and ownership](runtime-scope-and-ownership.md)
 
@@ -40,6 +41,8 @@ presentation without accountable evidence publication.
 ## Reader Route
 
 - if the question is "how do I rebuild this output?" stay here
+- if the question is "how do world, Europe-plus, Nordic, and country outputs fit together without forking the product?" move to
+  [end-state product model](end-state-product-model.md)
 - if the question is "what sample, site, or paper supports this?" move to
   [02-bijux-pollenomics-data](../../02-bijux-pollenomics-data/index.md)
 - if the question is "how is this visible map point filtered or limited?" move
