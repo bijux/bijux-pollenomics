@@ -1,5 +1,5 @@
 ---
-title: Output Surface Classes
+title: Publication Types
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Output Surface Classes
+# Publication Types
 
 Not every output in the repository plays the same role. Some surfaces are
 public-facing evidence views. Others are contextual support, review, or

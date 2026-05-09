@@ -72,7 +72,7 @@ tree before they understand what the product is doing.
 - [Data architecture handbook](data-architecture-handbook.md) explains the raw -> normalized -> review -> publication model in one place.
 - [Pollenomics publication model](pollenomics-publication-model.md) explains how these families should publish together without pretending they are equally mature.
 - [Cross-domain evidence matrix](cross-domain-evidence-matrix.md) keeps domain balance visible in evidence units instead of file counts.
-- [Output surface classes](../outputs/output-surface-classes.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.
+- [Output surface classes](../publications/publication-types.md) separates pollenomics context, contextual support, animal recovery, and scaffolding outputs.
 
 ## Why The Separation Matters
 

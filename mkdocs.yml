@@ -86,11 +86,11 @@ plugins:
         data-sources/neotoma.md: public/pollenomics-data/sources/neotoma.md
         data-sources/raa.md: public/pollenomics-data/sources/raa.md
         data-sources/sead.md: public/pollenomics-data/sources/sead.md
-        outputs/index.md: public/pollenomics-data/outputs/index.md
-        outputs/nordic-evidence-atlas.md: public/pollenomics-data/outputs/geographic-evidence-surfaces.md
-        outputs/country-reports.md: public/pollenomics-data/outputs/published-reports.md
-        outputs/artifact-lifecycle.md: public/pollenomics-data/outputs/index.md
-        outputs/published-artifacts.md: public/pollenomics-data/outputs/published-reports.md
+        outputs/index.md: public/pollenomics-data/publications/index.md
+        outputs/nordic-evidence-atlas.md: public/pollenomics-data/publications/maps.md
+        outputs/country-reports.md: public/pollenomics-data/publications/reports.md
+        outputs/artifact-lifecycle.md: public/pollenomics-data/publications/index.md
+        outputs/published-artifacts.md: public/pollenomics-data/publications/reports.md
         outputs/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
         02-bijux-pollenomics-data/fieldwork/index.md: public/fieldwork/index.md
         02-bijux-pollenomics-data/fieldwork/lyngsjon-lake-fieldwork.md: public/fieldwork/lyngsjon-lake-fieldwork/index.md
@@ -99,7 +99,22 @@ plugins:
         reference/command-reference.md: public/pollenomics/interfaces/cli-surface.md
         reference/configuration-defaults.md: public/pollenomics/interfaces/index.md
         reference/data-layout.md: public/pollenomics-data/overview/data-directory-layout.md
-        reference/report-layout.md: public/pollenomics-data/outputs/published-reports.md
+        reference/report-layout.md: public/pollenomics-data/publications/reports.md
+        public/pollenomics-data/outputs/index.md: public/pollenomics-data/publications/index.md
+        public/pollenomics-data/outputs/output-surface-classes.md: public/pollenomics-data/publications/publication-types.md
+        public/pollenomics-data/outputs/collection-summary.md: public/pollenomics-data/publications/collection-summary.md
+        public/pollenomics-data/outputs/published-reports.md: public/pollenomics-data/publications/reports.md
+        public/pollenomics-data/outputs/geographic-evidence-surfaces.md: public/pollenomics-data/publications/maps.md
+        public/pollenomics-data/outputs/geographic-input-surfaces.md: public/pollenomics-data/publications/map-inputs.md
+        public/pollenomics-data/outputs/geographic-point-publication.md: public/pollenomics-data/publications/point-rules.md
+        public/pollenomics-data/outputs/geographic-filters-and-inspection.md: public/pollenomics-data/publications/filters-and-popups.md
+        public/pollenomics-data/outputs/geographic-limits-and-honesty.md: public/pollenomics-data/publications/limits.md
+        public/pollenomics-data/outputs/normalized-aadr.md: public/pollenomics-data/publications/aadr-exports.md
+        public/pollenomics-data/outputs/normalized-boundaries.md: public/pollenomics-data/publications/boundary-exports.md
+        public/pollenomics-data/outputs/normalized-landclim.md: public/pollenomics-data/publications/landclim-exports.md
+        public/pollenomics-data/outputs/normalized-neotoma.md: public/pollenomics-data/publications/neotoma-exports.md
+        public/pollenomics-data/outputs/normalized-raa.md: public/pollenomics-data/publications/raa-exports.md
+        public/pollenomics-data/outputs/normalized-sead.md: public/pollenomics-data/publications/sead-exports.md
         reference/glossary.md: public/pollenomics/foundation/index.md
         bijux-pollenomics/api-and-schema-governance.md: public/pollenomics/interfaces/index.md
         bijux-pollenomics/apis.md: public/pollenomics/interfaces/index.md
@@ -151,16 +166,16 @@ nav:
           - Review Checklist: public/pollenomics/quality/review-checklist.md
           - Public Language Guide: public/pollenomics/quality/public-language-guide.md
           - Runtime Invariants and Limits: public/pollenomics/quality/runtime-invariants-and-limits.md
-  - Pollenomics Data:
+  - Data:
       - Overview: public/pollenomics-data/index.md
-      - Overview Topics:
+      - System:
           - Overview: public/pollenomics-data/overview/index.md
-          - Data System Overview: public/pollenomics-data/overview/data-system-overview.md
-          - Data Architecture Handbook: public/pollenomics-data/overview/data-architecture-handbook.md
-          - Pollenomics Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md
-          - Cross-Domain Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
-          - Animal Ancient DNA Evidence: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
-          - Data Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
+          - System Overview: public/pollenomics-data/overview/data-system-overview.md
+          - Architecture: public/pollenomics-data/overview/data-architecture-handbook.md
+          - Publication Model: public/pollenomics-data/overview/pollenomics-publication-model.md
+          - Evidence Matrix: public/pollenomics-data/overview/cross-domain-evidence-matrix.md
+          - Animal aDNA: public/pollenomics-data/overview/animal-ancient-dna-evidence.md
+          - Directory Layout: public/pollenomics-data/overview/data-directory-layout.md
       - Sources:
           - Overview: public/pollenomics-data/sources/index.md
           - Source Comparison: public/pollenomics-data/sources/source-comparison.md
@@ -183,22 +198,22 @@ nav:
           - Chronology: public/pollenomics-data/evidence/chronology.md
           - Temporal Semantics: public/pollenomics-data/evidence/temporal-semantics.md
           - Coordinates: public/pollenomics-data/evidence/coordinates.md
-      - Outputs:
-          - Overview: public/pollenomics-data/outputs/index.md
-          - Output Surface Classes: public/pollenomics-data/outputs/output-surface-classes.md
-          - Collection Summary: public/pollenomics-data/outputs/collection-summary.md
-          - Published Reports: public/pollenomics-data/outputs/published-reports.md
-          - Geographic Evidence Surfaces: public/pollenomics-data/outputs/geographic-evidence-surfaces.md
-          - Geographic Input Surfaces: public/pollenomics-data/outputs/geographic-input-surfaces.md
-          - Geographic Point Publication: public/pollenomics-data/outputs/geographic-point-publication.md
-          - Geographic Filters and Inspection: public/pollenomics-data/outputs/geographic-filters-and-inspection.md
-          - Geographic Limits and Honesty: public/pollenomics-data/outputs/geographic-limits-and-honesty.md
-          - Normalized AADR Outputs: public/pollenomics-data/outputs/normalized-aadr.md
-          - Normalized Boundary Outputs: public/pollenomics-data/outputs/normalized-boundaries.md
-          - Normalized LandClim Outputs: public/pollenomics-data/outputs/normalized-landclim.md
-          - Normalized Neotoma Outputs: public/pollenomics-data/outputs/normalized-neotoma.md
-          - Normalized RAÄ Outputs: public/pollenomics-data/outputs/normalized-raa.md
-          - Normalized SEAD Outputs: public/pollenomics-data/outputs/normalized-sead.md
+      - Publications:
+          - Overview: public/pollenomics-data/publications/index.md
+          - Publication Types: public/pollenomics-data/publications/publication-types.md
+          - Collection Summary: public/pollenomics-data/publications/collection-summary.md
+          - Reports: public/pollenomics-data/publications/reports.md
+          - Maps: public/pollenomics-data/publications/maps.md
+          - Map Inputs: public/pollenomics-data/publications/map-inputs.md
+          - Point Rules: public/pollenomics-data/publications/point-rules.md
+          - Filters and Popups: public/pollenomics-data/publications/filters-and-popups.md
+          - Limits: public/pollenomics-data/publications/limits.md
+          - AADR Exports: public/pollenomics-data/publications/aadr-exports.md
+          - Boundary Exports: public/pollenomics-data/publications/boundary-exports.md
+          - LandClim Exports: public/pollenomics-data/publications/landclim-exports.md
+          - Neotoma Exports: public/pollenomics-data/publications/neotoma-exports.md
+          - RAÄ Exports: public/pollenomics-data/publications/raa-exports.md
+          - SEAD Exports: public/pollenomics-data/publications/sead-exports.md
   - Fieldwork:
       - Overview: public/fieldwork/index.md
       - Lyngsjön Lake Fieldwork: public/fieldwork/lyngsjon-lake-fieldwork/index.md

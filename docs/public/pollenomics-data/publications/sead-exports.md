@@ -1,5 +1,5 @@
 ---
-title: Normalized SEAD Outputs
+title: SEAD Exports
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Normalized SEAD Outputs
+# SEAD Exports
 
 These outputs are the repository-owned environmental archaeology context
 surfaces derived from SEAD. They help the public product explain archaeology

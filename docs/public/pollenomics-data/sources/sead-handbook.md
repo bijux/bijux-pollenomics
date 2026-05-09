@@ -32,7 +32,7 @@ should not be mistaken for direct evidence of one ancient DNA sample.
 
 - start with [SEAD](sead.md) for the short source-family description
 - use this page when you want a fuller explanation of why SEAD remains visible
-- then move to [published reports](../outputs/published-reports.md) if your question is how SEAD appears in the public map tree
+- then move to [published reports](../publications/reports.md) if your question is how SEAD appears in the public map tree
 
 ## Direct Files Behind This Surface
 

@@ -50,7 +50,7 @@ Use this page together with:
 
 - [data system overview](data-system-overview.md)
 - [cross-domain evidence matrix](cross-domain-evidence-matrix.md)
-- [published reports](../outputs/published-reports.md)
-- [geographic evidence surfaces](../outputs/geographic-evidence-surfaces.md)
+- [published reports](../publications/reports.md)
+- [geographic evidence surfaces](../publications/maps.md)
 
 Those pages show how the publication model appears in practice.

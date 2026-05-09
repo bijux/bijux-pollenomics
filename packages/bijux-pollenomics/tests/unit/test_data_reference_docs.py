@@ -45,7 +45,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
 
         self.assertEqual(
             child_directories,
-            ["evidence", "outputs", "overview", "sources"],
+            ["evidence", "overview", "publications", "sources"],
         )
 
     def test_data_reference_index_routes_readers_to_public_sections(self) -> None:
@@ -54,14 +54,14 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn("public guide to the repository's evidence", data_index)
-        self.assertIn("[Overview](overview/index.md)", data_index)
+        self.assertIn("[System](overview/index.md)", data_index)
         self.assertIn(
             "[Data architecture handbook](overview/data-architecture-handbook.md)",
             data_index,
         )
         self.assertIn("[Sources](sources/index.md)", data_index)
         self.assertIn("[Evidence](evidence/index.md)", data_index)
-        self.assertIn("[Outputs](outputs/index.md)", data_index)
+        self.assertIn("[Publications](publications/index.md)", data_index)
         self.assertIn("overview/pollenomics-publication-model/", data_index)
         self.assertIn("overview/cross-domain-evidence-matrix/", data_index)
 
@@ -73,7 +73,12 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
             REPO_ROOT / "docs" / "public" / "pollenomics-data" / "sources" / "index.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "outputs" / "index.md"
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "pollenomics-data"
+            / "publications"
+            / "index.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("pollenomics-publication-model.md", overview_index)
@@ -84,8 +89,8 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertIn("non-adna-explainer-recovery.md", source_index)
         self.assertIn("../../../report/index.md", outputs_index)
         self.assertIn("../../../report/how-to-read.md", outputs_index)
-        self.assertIn("output-surface-classes.md", outputs_index)
-        self.assertIn("geographic-input-surfaces.md", outputs_index)
+        self.assertIn("publication-types.md", outputs_index)
+        self.assertIn("map-inputs.md", outputs_index)
 
 
 if __name__ == "__main__":

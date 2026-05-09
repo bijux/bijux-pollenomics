@@ -18,8 +18,8 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/landclim.md",
         "docs/public/pollenomics-data/sources/neotoma.md",
-        "docs/public/pollenomics-data/outputs/normalized-landclim.md",
-        "docs/public/pollenomics-data/outputs/normalized-neotoma.md"
+        "docs/public/pollenomics-data/publications/landclim-exports.md",
+        "docs/public/pollenomics-data/publications/neotoma-exports.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
@@ -44,8 +44,8 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/sead.md",
         "docs/public/pollenomics-data/sources/raa.md",
-        "docs/public/pollenomics-data/outputs/normalized-sead.md",
-        "docs/public/pollenomics-data/outputs/normalized-raa.md"
+        "docs/public/pollenomics-data/publications/sead-exports.md",
+        "docs/public/pollenomics-data/publications/raa-exports.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_environmental_sites.geojson",
@@ -66,7 +66,7 @@
       },
       "docs_paths": [
         "docs/public/pollenomics-data/sources/boundaries.md",
-        "docs/public/pollenomics-data/outputs/normalized-boundaries.md"
+        "docs/public/pollenomics-data/publications/boundary-exports.md"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_country_boundaries.geojson"
@@ -130,9 +130,9 @@
         "animal_point_count": 234
       },
       "docs_paths": [
-        "docs/public/pollenomics-data/outputs/published-reports.md",
-        "docs/public/pollenomics-data/outputs/geographic-evidence-surfaces.md",
-        "docs/public/pollenomics-data/outputs/output-surface-classes.md"
+        "docs/public/pollenomics-data/publications/reports.md",
+        "docs/public/pollenomics-data/publications/maps.md",
+        "docs/public/pollenomics-data/publications/publication-types.md"
       ],
       "published_paths": [
         "docs/report/countries/sweden/README.md",

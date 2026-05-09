@@ -1,5 +1,5 @@
 ---
-title: Geographic Limits and Honesty
+title: Limits
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Geographic Limits and Honesty
+# Limits
 
 The geography tree is more durable than an older country-first posture, but it
 does not magically solve thin evidence. The world surface is still constrained

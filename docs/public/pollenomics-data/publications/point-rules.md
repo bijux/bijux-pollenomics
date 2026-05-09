@@ -1,5 +1,5 @@
 ---
-title: Geographic Point Publication
+title: Point Rules
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Geographic Point Publication
+# Point Rules
 
 This page explains the contract that turns evidence rows into visible map
 points.

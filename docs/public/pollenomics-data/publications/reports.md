@@ -1,5 +1,5 @@
 ---
-title: Published Reports
+title: Reports
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Published Reports
+# Reports
 
 Published report bundles now live under one governed geography tree:
 

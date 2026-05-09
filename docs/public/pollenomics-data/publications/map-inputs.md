@@ -1,5 +1,5 @@
 ---
-title: Geographic Input Surfaces
+title: Map Inputs
 audience: reader
 type: explanation
 status: canonical
@@ -7,7 +7,7 @@ owner: bijux-pollenomics-docs
 last_reviewed: 2026-05-09
 ---
 
-# Geographic Input Surfaces
+# Map Inputs
 
 Geographic input surfaces are the tracked files that feed the public map and
 report bundles. They matter because a public map is only as honest as the

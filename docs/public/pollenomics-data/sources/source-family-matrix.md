@@ -28,7 +28,7 @@ Read the matrix together with:
 
 - [source comparison](source-comparison.md)
 - [data system overview](../overview/data-system-overview.md)
-- [published reports](../outputs/published-reports.md)
+- [published reports](../publications/reports.md)
 
 The matrix gives the broad comparison. Those other pages explain the actual
 files and outputs behind it.
