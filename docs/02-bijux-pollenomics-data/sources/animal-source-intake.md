@@ -34,6 +34,14 @@ state of the data.
 - `data/adna/governance/source_library/source_intake_release_guard.json`
 - `data/adna/governance/source_library/source_blocker_review.json`
 - `data/adna/governance/source_library/cross_project_source_intake_dossier.json`
+- `data/adna/governance/source_library/project_recovery_stage_review.json`
+- `data/adna/governance/source_library/project_expected_sample_yield_review.json`
+- `data/adna/governance/source_library/paper_expected_sample_yield_review.json`
+- `data/adna/governance/source_library/species_project_deficit_ledger.json`
+- `data/adna/governance/source_library/manual_curation_worklist.json`
+- `data/adna/governance/source_library/source_recovery_progress.json`
+- `data/adna/governance/source_library/missing_source_queue.json`
+- `data/adna/governance/source_library/source_recovery_release_guard.json`
 - `data/adna/governance/source_library/project_sample_master_completeness.json`
 - `data/adna/governance/source_library/project_sample_site_review.json`
 - `data/adna/governance/source_library/project_locality_completeness.json`
@@ -63,6 +71,8 @@ state of the data.
 | Sample recovery | Which sample rows can be recovered with defensible lineage? |
 | Locality recovery | Which recovered samples already have usable site evidence? |
 | Chronology recovery | Which recovered samples already have usable date evidence? |
+| Coordinate derivation | Which recovered samples already have mappable coordinate support? |
+| Publication readiness | Which projects are credible enough to move into public map and country surfaces? |
 
 ## What This Page Answers
 
@@ -76,6 +86,10 @@ state of the data.
 - Which projects still keep locality conflicts or manual curation blockers between supplementary rows, article text, and archive metadata
 - Which recovered sample rows already have normalized chronology, which still keep text-only dating claims, and which remain unresolved
 - Which tracked papers and projects are blocked at paper capture, supplement ingestion, sample identity extraction, site extraction, or chronology extraction
+- Which projects still recover far too few governed sample rows relative to the current paper or supplementary capture
+- Which species look stronger in aggregate than they really are once the project-level deficit ledger is visible
+- Which manual curation work units are still blocking sample identity, exact site, chronology, or coordinate recovery
+- Which tracked projects still belong in the missing-source queue because paper linkage, paper capture, supplement capture, or project-level sample recovery is still too thin
 
 The intake surface is broader than the Nordic evidence surface on purpose. Many projects
 still matter to the repository even when they are not yet ready for map

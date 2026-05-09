@@ -270,6 +270,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         review_markdown = report_root / "animal_foundation_review.md"
         chronology_json = report_root / "animal_sample_chronology_review.json"
         chronology_markdown = report_root / "animal_sample_chronology_review.md"
+        intake_recovery_json = report_root / "animal_intake_recovery_review.json"
+        intake_recovery_markdown = report_root / "animal_intake_recovery_review.md"
         gate_json = report_root / "animal_publication_release_gate.json"
         gate_markdown = report_root / "animal_publication_release_gate.md"
         sample_database_review_json = report_root / "animal_sample_database_review.json"
@@ -327,6 +329,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue(review_markdown.is_file())
         self.assertTrue(chronology_json.is_file())
         self.assertTrue(chronology_markdown.is_file())
+        self.assertTrue(intake_recovery_json.is_file())
+        self.assertTrue(intake_recovery_markdown.is_file())
         self.assertTrue(gate_json.is_file())
         self.assertTrue(gate_markdown.is_file())
         self.assertTrue(sample_database_review_json.is_file())
@@ -357,6 +361,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn(
             "Animal atlas readiness",
             readiness_markdown.read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "Animal intake recovery review",
+            intake_recovery_markdown.read_text(encoding="utf-8"),
         )
         self.assertIn(
             "Animal foundation validation",
@@ -809,8 +817,25 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "data/adna/governance/source_library/source_blocker_review.json",
             inventory_page,
         )
+        self.assertIn(
+            "data/adna/governance/source_library/project_recovery_stage_review.json",
+            inventory_page,
+        )
+        self.assertIn(
+            "data/adna/governance/source_library/project_expected_sample_yield_review.json",
+            inventory_page,
+        )
+        self.assertIn(
+            "data/adna/governance/source_library/manual_curation_worklist.json",
+            inventory_page,
+        )
+        self.assertIn(
+            "data/adna/governance/source_library/source_recovery_release_guard.json",
+            inventory_page,
+        )
         self.assertIn("../../report/repository_source_explainer_audit.md", source_recovery_page)
         self.assertIn("../../report/animal_sample_database_review.md", published_reports)
+        self.assertIn("../../report/animal_intake_recovery_review.md", published_reports)
         self.assertIn("../../report/animal_point_evidence_review.md", published_reports)
         self.assertIn("../../report/animal_output_honesty.md", published_reports)
         self.assertIn("../../report/animal_atlas_exclusion_report.md", published_reports)
@@ -1160,6 +1185,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             )
             self.assertTrue(
                 (species_root / "reports" / "support_summary.md").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "reports" / "project_recovery_deficits.json").is_file(),
+                slug,
+            )
+            self.assertTrue(
+                (species_root / "reports" / "project_recovery_deficits.md").is_file(),
                 slug,
             )
             self.assertTrue(
