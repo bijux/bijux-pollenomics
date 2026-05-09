@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from .presentation.text import slugify
 
 __all__ = [
+    "build_geography_onboarding_contract",
     "EUROPEAN_UNION_COUNTRIES",
     "EUROPE_PLUS_COUNTRIES",
     "NORDIC_COUNTRIES",
@@ -215,6 +216,45 @@ def scope_contains_political_entity(
     )
 
 
+def build_geography_onboarding_contract(
+    *,
+    published_countries: tuple[str, ...],
+) -> dict[str, object]:
+    """Describe the durable contract for adding one more published country."""
+    return {
+        "schema_version": "publication-country-onboarding-contract.v1",
+        "example_country": "Germany",
+        "published_country_roster": list(published_countries),
+        "required_surfaces": [
+            "published country roster entry",
+            "world geography bundle",
+            "Europe-plus geography bundle when applicable",
+            "country bundle under docs/report/countries/<country-slug>/",
+            "subset validation row proving world -> region -> country lineage",
+        ],
+        "code_contracts": [
+            "the country is admitted through the published country roster rather than through one-off renderer edits",
+            "world, Europe-plus, Nordic, and country scope derivation must continue to flow from build_published_geography_plan()",
+            "country output directories must continue to derive from docs/report/countries/<country-slug>/ without custom path branches",
+        ],
+        "data_contracts": [
+            "animal, human, and contextual rows must already resolve to the added country through governed political-entity filtering",
+            "world outputs remain the governing parent surface; new country outputs are filtered descendants, not locally curated forks",
+            "subset validation must prove that the new country bundle does not drift outside its parent regional or world evidence surface",
+        ],
+        "docs_contracts": [
+            "reader-facing report pages must continue to explain country bundles as narrower views of one broader product model",
+            "the country onboarding playbook and geography-output handbook must remain accurate after the roster expands",
+            "new country publication must not require a second report tree or scope-specific prose branch",
+        ],
+        "test_contracts": [
+            "publication geography tests must keep proving world, regional, and country lineage for the expanded roster",
+            "repository contract tests must keep requiring the onboarding contract and geography subset validation surfaces",
+            "docs breadth and report portal tests must keep the broader world-to-country explanation visible after the expansion",
+        ],
+    }
+
+
 def render_geography_scope_registry_markdown(payload: dict[str, object]) -> str:
     """Render the governed publication-scope registry."""
     scope_rows = "\n".join(
@@ -265,25 +305,53 @@ def render_geography_onboarding_contract_markdown(payload: dict[str, object]) ->
     required_rows = "\n".join(
         f"- `{item}`" for item in payload["required_surfaces"]
     )
+    code_rows = "\n".join(f"- {item}" for item in payload["code_contracts"])
+    data_rows = "\n".join(f"- {item}" for item in payload["data_contracts"])
+    docs_rows = "\n".join(f"- {item}" for item in payload["docs_contracts"])
+    test_rows = "\n".join(f"- {item}" for item in payload["test_contracts"])
+    published_country_roster = ", ".join(
+        f"`{country}`" for country in payload["published_country_roster"]
+    )
     return f"""# Country Onboarding Contract
 
 Adding a new country should be mostly a matter of data presence and publication
 configuration. It should not require one-off renderer surgery, file-tree churn,
 or custom scope code.
 
+## Current Published Country Roster
+
+{published_country_roster}
+
 ## Required Surfaces
 
 {required_rows}
+
+## Code Contracts
+
+{code_rows}
+
+## Data Contracts
+
+{data_rows}
+
+## Documentation Contracts
+
+{docs_rows}
+
+## Test Contracts
+
+{test_rows}
 
 ## Current Configuration Points
 
 - Published country roster: `packages/bijux-pollenomics/src/bijux_pollenomics/config.py`
 - Geography scope plan: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py`
 - Country bundle generation: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py`
+- Reader-facing playbook: `Future-Country Onboarding Playbook` at `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md`
 
 ## Example
 
-The contract is satisfied when adding `Germany` only requires the country to be
+The contract is satisfied when adding `{payload['example_country']}` only requires the country to be
 present in the published country roster and the underlying data, while the
 world, Europe-plus, and country outputs all derive automatically from the same
 scope rules.

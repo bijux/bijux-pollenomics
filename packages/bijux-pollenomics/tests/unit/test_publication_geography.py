@@ -13,7 +13,11 @@ from bijux_pollenomics.reporting.bundles.published_reports import (
 from bijux_pollenomics.reporting.bundles.summary_builders import (
     build_published_reports_summary,
 )
-from bijux_pollenomics.reporting.geography import build_published_geography_plan
+from bijux_pollenomics.reporting.geography import (
+    build_geography_onboarding_contract,
+    build_published_geography_plan,
+    render_geography_onboarding_contract_markdown,
+)
 from bijux_pollenomics.reporting.models import CountryReport, MultiCountryMapReport
 from bijux_pollenomics.reporting.models import PublishedReportsReport
 
@@ -32,6 +36,22 @@ class PublicationGeographyTests(unittest.TestCase):
         self.assertEqual(plan.country_scopes[0].output_dir_parts, ("countries", "sweden"))
         germany_scope = next(scope for scope in plan.country_scopes if scope.label == "Germany")
         self.assertEqual(germany_scope.parent_key, "europe_plus")
+
+    def test_geography_onboarding_contract_covers_code_data_docs_and_tests(self) -> None:
+        payload = build_geography_onboarding_contract(
+            published_countries=("Sweden", "Norway", "Finland", "Denmark")
+        )
+        markdown = render_geography_onboarding_contract_markdown(payload)
+
+        self.assertEqual(
+            payload["schema_version"], "publication-country-onboarding-contract.v1"
+        )
+        self.assertEqual(payload["example_country"], "Germany")
+        self.assertEqual(len(payload["code_contracts"]), 3)
+        self.assertEqual(len(payload["data_contracts"]), 3)
+        self.assertEqual(len(payload["docs_contracts"]), 3)
+        self.assertEqual(len(payload["test_contracts"]), 3)
+        self.assertIn("Future-Country Onboarding Playbook", markdown)
 
     def test_build_published_reports_summary_exposes_world_region_and_country_bundles(self) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))

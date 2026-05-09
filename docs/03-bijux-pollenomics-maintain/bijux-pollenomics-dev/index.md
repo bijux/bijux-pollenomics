@@ -24,5 +24,6 @@ runtime.
 - [operating guidelines](operating-guidelines.md)
 - [quality gates](quality-gates.md)
 - [documentation integrity](documentation-integrity.md)
+- [future-country onboarding playbook](future-country-onboarding-playbook.md)
 - [release support](release-support.md)
 - [repository governance](repository-governance.md)

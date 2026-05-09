@@ -23,6 +23,8 @@ publication truth aligned.
   [operating guidelines](bijux-pollenomics-dev/operating-guidelines.md)
 - executable review stops:
   [quality gates](bijux-pollenomics-dev/quality-gates.md)
+- future-country onboarding contract:
+  [country onboarding playbook](bijux-pollenomics-dev/future-country-onboarding-playbook.md)
 - local maintainer commands:
   [makes](makes/index.md)
 - command-routing boundary:

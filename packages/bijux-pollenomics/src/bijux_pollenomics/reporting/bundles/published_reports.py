@@ -13,6 +13,7 @@ from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
 from ..foundation import publish_repository_truth_outputs
 from ..geography import (
+    build_geography_onboarding_contract,
     GeographicScope,
     PublishedGeographyPlan,
     build_published_geography_plan,
@@ -253,16 +254,9 @@ def _write_geography_packets(
         encoding="utf-8",
     )
 
-    onboarding_payload = {
-        "schema_version": "publication-country-onboarding-contract.v1",
-        "required_surfaces": [
-            "published country roster entry",
-            "world geography bundle",
-            "Europe-plus geography bundle when applicable",
-            "country bundle under docs/report/countries/<country-slug>/",
-            "subset validation row proving world -> region -> country lineage",
-        ],
-    }
+    onboarding_payload = build_geography_onboarding_contract(
+        published_countries=plan.world_scope.countries,
+    )
     write_summary_json_fn(
         output_root / "publication_country_onboarding_contract.json",
         onboarding_payload,
