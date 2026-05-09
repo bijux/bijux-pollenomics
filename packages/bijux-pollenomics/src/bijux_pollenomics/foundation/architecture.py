@@ -166,10 +166,10 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
     animal_adna_stages = (
         ArchitectureStage(
             stage_key="animal_adna_intake",
-            owner_module="bijux_pollenomics.adna.source_library",
+            owner_module="bijux_pollenomics.adna.sources.library",
             owner_path=(
                 "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/source_library.py"
+                "bijux_pollenomics/adna/sources/library.py"
             ),
             purpose="admit projects, papers, and supplements into tracked intake",
             tracked_inputs=("ENA accessions", "paper DOIs", "supplements"),
@@ -179,9 +179,10 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
         ),
         ArchitectureStage(
             stage_key="animal_adna_extraction",
-            owner_module="bijux_pollenomics.adna.sample_master",
+            owner_module="bijux_pollenomics.adna.projects.sample_master",
             owner_path=(
-                "packages/bijux-pollenomics/src/bijux_pollenomics/adna/sample_master.py"
+                "packages/bijux-pollenomics/src/"
+                "bijux_pollenomics/adna/projects/sample_master.py"
             ),
             purpose="recover sample-owned rows, site claims, and chronology evidence",
             tracked_inputs=("source-library reviews", "archive manifests"),

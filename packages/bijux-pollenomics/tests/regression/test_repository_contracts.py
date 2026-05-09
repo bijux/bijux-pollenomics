@@ -1643,7 +1643,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("## Publication Assembly", boundary_doc)
         self.assertIn("## Public Artifact Writing", boundary_doc)
         self.assertIn("## Package Split", boundary_doc)
-        self.assertIn("bijux_pollenomics.adna.project_sample_sites", boundary_doc)
+        self.assertIn("bijux_pollenomics.adna.projects.sample_sites", boundary_doc)
         self.assertIn("bijux_pollenomics.reporting.review", boundary_doc)
 
     def test_module_map_mentions_adna_runtime_boundary(self) -> None:

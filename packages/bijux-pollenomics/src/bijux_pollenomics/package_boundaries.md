@@ -27,8 +27,8 @@ Primary modules:
 - `bijux_pollenomics.data_downloader.sources`
 - `bijux_pollenomics.data_downloader.intake`
 - `bijux_pollenomics.data_downloader.exports`
-- `bijux_pollenomics.adna.source_library`
-- `bijux_pollenomics.adna.ena`
+- `bijux_pollenomics.adna.sources.library`
+- `bijux_pollenomics.adna.sources.ena`
 
 ## Evidence Normalization
 
@@ -38,12 +38,12 @@ publish honestly.
 
 Primary modules:
 
-- `bijux_pollenomics.adna.sample_master`
-- `bijux_pollenomics.adna.sample_truth`
-- `bijux_pollenomics.adna.project_sample_sites`
-- `bijux_pollenomics.adna.project_sample_chronology`
-- `bijux_pollenomics.adna.project_sample_locality_evidence`
-- `bijux_pollenomics.adna.coordinate_provenance`
+- `bijux_pollenomics.adna.projects.sample_master`
+- `bijux_pollenomics.adna.projects.sample_truth`
+- `bijux_pollenomics.adna.projects.sample_sites`
+- `bijux_pollenomics.adna.projects.sample_chronology`
+- `bijux_pollenomics.adna.projects.sample_locality_evidence`
+- `bijux_pollenomics.adna.projects.coordinate_provenance`
 - `bijux_pollenomics.adna.normalization`
 - `bijux_pollenomics.adna.catalogs`
 
