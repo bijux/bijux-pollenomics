@@ -9,18 +9,26 @@ last_reviewed: 2026-05-09
 
 # Published Reports
 
-Published report bundles live under `docs/report/<country-slug>/`.
+Published report bundles now live under one governed geography tree:
 
-Each country bundle is the public answer to a narrower question than the atlas:
-which sample-owned animal rows survive country-level publication after the same
-site, chronology, and coordinate rules are applied?
+- `docs/report/world/`
+- `docs/report/regions/europe-plus/`
+- `docs/report/regions/nordic/`
+- `docs/report/countries/<country-slug>/`
+
+Country bundles are still the narrowest reader-facing answer, but they now sit
+inside a broader world -> region -> country model instead of beside one shared
+atlas with ad hoc links.
 
 ## Direct Files
 
-- [Sweden country bundle](../../report/sweden/README.md)
-- [Norway country bundle](../../report/norway/README.md)
-- [Sweden animal sample query](../../report/sweden/sweden_animal_adna_v66_samples.md)
-- [Norway animal sample query](../../report/norway/norway_animal_adna_v66_samples.md)
+- [world evidence surface](../../report/world/README.md)
+- [Europe-plus evidence surface](../../report/regions/europe-plus/README.md)
+- [Nordic evidence surface](../../report/regions/nordic/README.md)
+- [Sweden country bundle](../../report/countries/sweden/README.md)
+- [Norway country bundle](../../report/countries/norway/README.md)
+- [Sweden animal sample query](../../report/countries/sweden/sweden_animal_adna_v66_samples.md)
+- [Norway animal sample query](../../report/countries/norway/norway_animal_adna_v66_samples.md)
 - [animal point evidence review](../../report/animal_point_evidence_review.md)
 - [animal sample database review](../../report/animal_sample_database_review.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
@@ -30,15 +38,20 @@ site, chronology, and coordinate rules are applied?
 - [repository recovery review](../../report/repository_recovery_review.md)
 - [repository source family matrix](../../report/repository_source_family_matrix.md)
 - [repository source acquisition queue](../../report/repository_source_acquisition_queue.md)
+- [publication geography registry](../../report/publication_geography_registry.md)
+- [publication geography subset validation](../../report/publication_geography_subset_validation.md)
+- [publication country onboarding contract](../../report/publication_country_onboarding_contract.md)
 - [published reports summary](../../report/published_reports_summary.json)
 - `data/evidence_artifact_contracts.json`
 - `data/source_fact_ownership_registry.json`
 
-## What Country Bundles Are Good For
+## What The Geography Tree Is Good For
 
+- showing the broadest world-facing evidence surface first
+- deriving Europe-plus and Nordic views through explicit reusable filters
 - showing which animal rows currently survive one country filter
 - keeping citations, warnings, and sample tables together
-- exposing the difference between visible rows and blocked rows at country scale
+- exposing the difference between visible rows and blocked rows at world, region, and country scale
 
 ## Expected Animal Bundle Files
 
@@ -53,8 +66,9 @@ site, chronology, and coordinate rules are applied?
 
 Country bundles are not a replacement for the tracked evidence tables. They are
 reader-facing summaries derived from them. The current country sample tables and
-summary JSON files now keep exact sample, site, chronology, and coordinate
-evidence locators for every published animal row.
+summary JSON files keep exact sample, site, chronology, and coordinate evidence
+locators for every published animal row, and the broader world and regional
+surfaces keep the parent lineage visible.
 
 The governing file contract for those bundle families is published in
 `data/evidence_artifact_contracts.json`, and the owning-truth registry that

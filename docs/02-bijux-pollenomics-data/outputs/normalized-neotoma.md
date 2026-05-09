@@ -43,5 +43,5 @@ questions on their own.
 ## First Proof Check
 
 - inspect `data/neotoma/normalized/`
-- inspect `docs/report/nordic-atlas/nordic_pollen_sites.geojson`
+- inspect `docs/report/regions/nordic/nordic_pollen_sites.geojson`
 - compare with [Neotoma](../sources/neotoma.md) when the question is about source-specific provenance

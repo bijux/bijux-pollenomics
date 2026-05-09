@@ -44,5 +44,5 @@ are rendered on the same atlas surface.
 ## First Proof Check
 
 - inspect `data/landclim/normalized/`
-- inspect `docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson`
+- inspect `docs/report/regions/nordic/nordic_pollen_site_sequences.geojson`
 - compare with [LandClim](../sources/landclim.md) when the question is about upstream acquisition or caveats

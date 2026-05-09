@@ -44,5 +44,5 @@ they are rendered beside Nordic-wide layers.
 ## First Proof Check
 
 - inspect `data/raa/normalized/`
-- inspect `docs/report/nordic-atlas/sweden_archaeology_density.geojson`
+- inspect `docs/report/regions/nordic/sweden_archaeology_density.geojson`
 - compare with [RAÄ](../sources/raa.md) when the question is about source scope rather than normalized outputs

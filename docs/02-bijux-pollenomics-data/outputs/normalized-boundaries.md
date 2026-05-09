@@ -44,5 +44,5 @@ ancient DNA, pollen, or archaeology layers.
 ## First Proof Check
 
 - inspect `data/boundaries/normalized/nordic_country_boundaries.geojson`
-- inspect `docs/report/nordic-atlas/nordic_country_boundaries.geojson`
+- inspect `docs/report/regions/nordic/nordic_country_boundaries.geojson`
 - compare with [Boundaries](../sources/boundaries.md) when the question is about upstream framing logic
