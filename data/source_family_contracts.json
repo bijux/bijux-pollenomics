@@ -29,20 +29,20 @@
       },
       "reviewed_layer": {
         "layer_key": "reviewed",
-        "repository_path": "data/source_family_evidence_stage_matrix.json",
+        "repository_path": "data/sead/review",
         "required": true,
-        "purpose": "cross-family review of freshness, coverage, and publication posture",
+        "purpose": "site-level temporal review of SEAD period, duration, and uncertainty semantics",
         "example_artifacts": [
-          "data/source_family_evidence_stage_matrix.json"
+          "data/sead/review/temporal_review.json"
         ]
       },
       "published_layer": {
         "layer_key": "published",
-        "repository_path": "docs/report/nordic-atlas",
+        "repository_path": "docs/report/world",
         "required": true,
         "purpose": "published pollen-context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+          "docs/report/regions/nordic/nordic_pollen_sites.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -71,20 +71,20 @@
         },
         "reviewed": {
           "layer_key": "reviewed",
-          "repository_path": "data/source_family_evidence_stage_matrix.json",
+          "repository_path": "data/sead/review",
           "required": true,
-          "purpose": "cross-family review of freshness, coverage, and publication posture",
+          "purpose": "site-level temporal review of SEAD period, duration, and uncertainty semantics",
           "example_artifacts": [
-            "data/source_family_evidence_stage_matrix.json"
+            "data/sead/review/temporal_review.json"
           ]
         },
         "published": {
           "layer_key": "published",
-          "repository_path": "docs/report/nordic-atlas",
+          "repository_path": "docs/report/world",
           "required": true,
           "purpose": "published pollen-context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+            "docs/report/regions/nordic/nordic_pollen_sites.geojson"
           ]
         }
       }
@@ -124,11 +124,11 @@
       },
       "published_layer": {
         "layer_key": "published",
-        "repository_path": "docs/report/nordic-atlas",
+        "repository_path": "docs/report/world",
         "required": true,
         "purpose": "published Neotoma context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+          "docs/report/regions/nordic/nordic_environmental_sites.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -164,11 +164,11 @@
         },
         "published": {
           "layer_key": "published",
-          "repository_path": "docs/report/nordic-atlas",
+          "repository_path": "docs/report/world",
           "required": true,
           "purpose": "published Neotoma context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+            "docs/report/regions/nordic/nordic_environmental_sites.geojson"
           ]
         }
       }
@@ -208,11 +208,11 @@
       },
       "published_layer": {
         "layer_key": "published",
-        "repository_path": "docs/report/nordic-atlas",
+        "repository_path": "docs/report/world",
         "required": true,
         "purpose": "published archaeology context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+          "docs/report/regions/nordic/nordic_environmental_sites.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -248,11 +248,11 @@
         },
         "published": {
           "layer_key": "published",
-          "repository_path": "docs/report/nordic-atlas",
+          "repository_path": "docs/report/world",
           "required": true,
           "purpose": "published archaeology context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+            "docs/report/regions/nordic/nordic_environmental_sites.geojson"
           ]
         }
       }
@@ -292,11 +292,11 @@
       },
       "published_layer": {
         "layer_key": "published",
-        "repository_path": "docs/report/nordic-atlas",
+        "repository_path": "docs/report/world",
         "required": true,
         "purpose": "published archaeology density and context layers",
         "example_artifacts": [
-          "docs/report/nordic-atlas/sweden_archaeology_density.geojson"
+          "docs/report/regions/nordic/sweden_archaeology_density.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -333,11 +333,11 @@
         },
         "published": {
           "layer_key": "published",
-          "repository_path": "docs/report/nordic-atlas",
+          "repository_path": "docs/report/world",
           "required": true,
           "purpose": "published archaeology density and context layers",
           "example_artifacts": [
-            "docs/report/nordic-atlas/sweden_archaeology_density.geojson"
+            "docs/report/regions/nordic/sweden_archaeology_density.geojson"
           ]
         }
       }
@@ -377,11 +377,11 @@
       },
       "published_layer": {
         "layer_key": "published",
-        "repository_path": "docs/report/nordic-atlas",
+        "repository_path": "docs/report/world",
         "required": true,
         "purpose": "published boundary layers used in map framing",
         "example_artifacts": [
-          "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+          "docs/report/regions/nordic/nordic_country_boundaries.geojson"
         ]
       },
       "coverage_metric_keys": [
@@ -417,11 +417,11 @@
         },
         "published": {
           "layer_key": "published",
-          "repository_path": "docs/report/nordic-atlas",
+          "repository_path": "docs/report/world",
           "required": true,
           "purpose": "published boundary layers used in map framing",
           "example_artifacts": [
-            "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+            "docs/report/regions/nordic/nordic_country_boundaries.geojson"
           ]
         }
       }

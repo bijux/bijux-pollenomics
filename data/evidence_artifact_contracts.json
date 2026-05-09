@@ -68,8 +68,8 @@
       "canonical_path_pattern": "data/adna/final/atlas/animal_atlas_point_candidates.json",
       "governing_surface_path": "data/source_fact_ownership_registry.json",
       "companion_surface_patterns": [
-        "docs/report/nordic-atlas/nordic-atlas_bundle.json",
-        "docs/report/nordic-atlas/animal_points.geojson"
+        "docs/report/world/world_bundle.json",
+        "docs/report/world/world_animal_localities.geojson"
       ],
       "purpose": "govern shared region-level publication inputs and downstream bundle assembly",
       "required_artifacts": [
@@ -79,11 +79,11 @@
     {
       "artifact_key": "country_publication_bundle",
       "artifact_scope": "country",
-      "canonical_path_pattern": "docs/report/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
+      "canonical_path_pattern": "docs/report/countries/<country_slug>/<country_slug>_aadr_<version>_bundle.json",
       "governing_surface_path": "data/source_fact_ownership_registry.json",
       "companion_surface_patterns": [
-        "docs/report/<country_slug>/<country_slug>_aadr_<version>.csv",
-        "docs/report/<country_slug>/<country_slug>_aadr_<version>.json"
+        "docs/report/countries/<country_slug>/<country_slug>_aadr_<version>.csv",
+        "docs/report/countries/<country_slug>/<country_slug>_aadr_<version>.json"
       ],
       "purpose": "govern the durable published country delivery for one geography and version",
       "required_artifacts": [
