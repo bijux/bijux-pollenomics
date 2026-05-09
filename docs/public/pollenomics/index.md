@@ -38,7 +38,7 @@ but:
   <a class="md-button" href="quality/">Checks and current limits</a>
 </div>
 
-## What This Guide Helps You Do
+## What You Can Learn Here
 
 - understand the product shape before reading package names or command syntax
 - decide whether you need the visible public answer, the narrower evidence
@@ -107,6 +107,19 @@ flowchart TB
 - where do the public data explanations live if I care more about evidence than
   code:
   [data handbook](../pollenomics-data/index.md)
+
+## Breadth Routes
+
+If your question is really about the evidence families behind the product, the
+runtime handbook should send you directly to the public data pages that explain
+them in their own terms:
+
+- `docs/public/pollenomics-data/sources/landclim.md`
+- `docs/public/pollenomics-data/sources/neotoma.md`
+- `docs/public/pollenomics-data/sources/sead.md`
+- `docs/public/pollenomics-data/sources/raa.md`
+- `docs/public/pollenomics-data/sources/boundaries.md`
+- `docs/public/pollenomics-data/sources/aadr.md`
 
 ## What This Guide Covers
 
