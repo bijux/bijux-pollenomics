@@ -69,7 +69,15 @@ include = [
     "CHANGELOG.md",
     "src/pollenomics/**",
 ]
-force-include = { "LICENSE" = "LICENSE", "NOTICE" = "NOTICE" }
+
+[tool.hatch.build.targets.sdist]
+exclude = ["LICENSE", "NOTICE"]
+include = [
+    "README.md",
+    "CHANGELOG.md",
+    "src/pollenomics/**",
+]
+force-include = { "../../LICENSE" = "LICENSE", "../../NOTICE" = "NOTICE" }
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/pollenomics"]
