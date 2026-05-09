@@ -126,6 +126,10 @@ def _atlas_bundle_contract_ok() -> bool:
         build_multi_country_bundle_manifest,
         build_multi_country_map_summary,
     )
+    from ..reporting.map_publication import (
+        build_map_publication_contract,
+        resolve_map_scope_policy,
+    )
     from ..reporting.bundles.summary_builders.published import (
         build_published_reports_summary,
     )
@@ -159,8 +163,42 @@ def _atlas_bundle_contract_ok() -> bool:
             paths.candidate_ranking_engine_manifest_path.name,
         ),
     ]
-    summary = build_multi_country_map_summary(report, paths, extra_artifacts)
-    manifest = build_multi_country_bundle_manifest(report, paths, extra_artifacts)
+    map_publication_contract = build_map_publication_contract(
+        report=report,
+        policy=resolve_map_scope_policy(None),
+        point_layers=[
+            {
+                "key": "aadr",
+                "label": "AADR human evidence",
+                "source_name": "AADR",
+                "count": 0,
+            }
+        ],
+        polygon_layers=[
+            {
+                "key": "country-boundaries",
+                "label": "Country boundaries",
+                "source_name": "Internal",
+                "count": 0,
+            }
+        ],
+        countries=report.countries,
+        map_html_name=paths.map_html_path.name,
+        summary_json_name=paths.summary_json_path.name,
+        traceability_json_name=paths.map_point_traceability_json_path.name,
+    )
+    summary = build_multi_country_map_summary(
+        report,
+        paths,
+        extra_artifacts,
+        map_publication_contract,
+    )
+    manifest = build_multi_country_bundle_manifest(
+        report,
+        paths,
+        extra_artifacts,
+        map_publication_contract,
+    )
     evidence_surface = build_atlas_evidence_surface(
         countries=("Sweden",),
         human_localities=(),
@@ -186,13 +224,17 @@ def _atlas_bundle_contract_ok() -> bool:
         plan=build_published_geography_plan(("Sweden",)),
     )
     return (
-        summary.get("schema_version") == "atlas-bundle-summary.v1"
-        and manifest.get("schema_version") == "atlas-bundle-manifest.v1"
+        summary.get("schema_version") == "geographic-evidence-surface-summary.v1"
+        and manifest.get("schema_version") == "geographic-evidence-surface-manifest.v1"
         and manifest["artifacts"]["candidate_sites_json"] == paths.candidate_sites_json_path.name
         and manifest["artifacts"]["candidate_site_sensitivity_json"]
         == paths.candidate_site_sensitivity_json_path.name
         and manifest["artifacts"]["candidate_ranking_engine_manifest"]
         == paths.candidate_ranking_engine_manifest_path.name
+        and summary["artifacts"]["map_publication_contract_json"]
+        == paths.map_publication_contract_json_path.name
+        and summary["artifacts"]["map_publication_contract_markdown"]
+        == paths.map_publication_contract_markdown_path.name
         and summary["artifacts"]["evidence_surface_json"]
         == paths.evidence_surface_json_path.name
         and summary["artifacts"]["evidence_surface_markdown"]
@@ -209,6 +251,8 @@ def _atlas_bundle_contract_ok() -> bool:
         == paths.scientific_review_json_path.name
         and manifest["artifacts"]["scientific_review_markdown"]
         == paths.scientific_review_markdown_path.name
+        and summary["map_publication_contract"]["schema_version"]
+        == "map-publication-contract.v1"
         and evidence_surface.schema_version == "atlas-evidence-surface.v2"
         and evidence_surface.layers[0].layer_key == "homo_sapiens_direct"
         and scientific_review.schema_version == "scientific-review-surface.v3"

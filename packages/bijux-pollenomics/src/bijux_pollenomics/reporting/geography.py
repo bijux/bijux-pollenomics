@@ -8,6 +8,7 @@ __all__ = [
     "build_geography_onboarding_contract",
     "EUROPEAN_UNION_COUNTRIES",
     "EUROPE_PLUS_COUNTRIES",
+    "infer_publication_scope",
     "NORDIC_COUNTRIES",
     "PUBLISHED_REPORT_COUNTRY_DIR",
     "PUBLISHED_REPORT_EUROPE_PLUS_DIR",
@@ -173,6 +174,16 @@ def build_published_geography_plan(
         regional_scopes=tuple(regional_scopes),
         country_scopes=country_scopes,
     )
+
+
+def infer_publication_scope(countries: tuple[str, ...]) -> GeographicScope:
+    """Choose the narrowest governed map scope that still contains all countries."""
+    plan = build_published_geography_plan(countries)
+    for preferred_scope_key in ("nordic", "europe_plus"):
+        for scope in plan.regional_scopes:
+            if scope.key == preferred_scope_key and scope.countries == countries:
+                return scope
+    return plan.world_scope
 
 
 def geographic_parent_scope(country: str, *, has_europe_plus: bool) -> str:

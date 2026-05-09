@@ -433,8 +433,7 @@ def build_public_animal_output_honesty(
         "country_published_sample_count": 0,
         "region_refused_count": 0,
     }
-    species_root = Path(data_root) / "adna" / "species"
-    for root in sorted(path for path in species_root.iterdir() if path.is_dir()):
+    for root in _species_roots(data_root):
         if root.name == "homo_sapiens":
             continue
         sample_rows = _load_sample_rows(root)
@@ -821,6 +820,13 @@ def _build_species_map_readiness_row(data_root: Path, species_name: str) -> dict
 
 def _species_root(data_root: Path, species_name: str) -> Path:
     return adna_species_root(Path(data_root), species_name)
+
+
+def _species_roots(data_root: Path) -> list[Path]:
+    species_dir = adna_species_dir(Path(data_root))
+    if not species_dir.is_dir():
+        return []
+    return [path for path in sorted(species_dir.iterdir()) if path.is_dir()]
 
 
 def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:

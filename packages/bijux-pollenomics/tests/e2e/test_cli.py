@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -169,7 +170,18 @@ class CliTests(unittest.TestCase):
             )
 
             stdout = io.StringIO()
-            with contextlib.redirect_stdout(stdout):
+            report_root = Path(tmp) / "docs" / "report"
+            shared_map_dir = report_root / "nordic-atlas"
+            with (
+                patch(
+                    "bijux_pollenomics.command_line.runtime.handlers.generate_published_reports",
+                    return_value=SimpleNamespace(
+                        countries=("Sweden",),
+                        shared_map_dir=shared_map_dir,
+                    ),
+                ) as generate_published_reports,
+                contextlib.redirect_stdout(stdout),
+            ):
                 exit_code = main(
                     [
                         "publish-reports",
@@ -178,13 +190,22 @@ class CliTests(unittest.TestCase):
                         "--aadr-root",
                         str(Path(tmp) / "data" / "aadr"),
                         "--output-root",
-                        str(Path(tmp) / "docs" / "report"),
+                        str(report_root),
                         "--context-root",
                         str(Path(tmp) / "data"),
                     ]
                 )
 
         self.assertEqual(exit_code, 0)
+        generate_published_reports.assert_called_once_with(
+            version_dir=Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION,
+            countries=["Sweden"],
+            output_root=report_root,
+            title=DEFAULT_ATLAS_TITLE,
+            slug=DEFAULT_ATLAS_SLUG,
+            context_root=Path(tmp) / "data",
+        )
+        self.assertIn("Wrote published report bundles for Sweden", stdout.getvalue())
 
     def test_report_country_command_writes_country_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -241,7 +262,28 @@ class CliTests(unittest.TestCase):
             )
 
             stdout = io.StringIO()
-            with contextlib.redirect_stdout(stdout):
+            atlas_root = Path(tmp) / "docs" / "report" / DEFAULT_ATLAS_SLUG
+
+            def fake_generate_multi_country_map(**kwargs: object) -> SimpleNamespace:
+                output_dir = Path(kwargs["output_dir"])
+                output_dir.mkdir(parents=True, exist_ok=True)
+                (output_dir / f"{DEFAULT_ATLAS_SLUG}_map.html").write_text(
+                    "<html></html>",
+                    encoding="utf-8",
+                )
+                (output_dir / f"{DEFAULT_ATLAS_SLUG}_summary.json").write_text(
+                    "{}",
+                    encoding="utf-8",
+                )
+                return SimpleNamespace(title="Nordic Atlas", total_unique_samples=2)
+
+            with (
+                patch(
+                    "bijux_pollenomics.command_line.runtime.handlers.generate_multi_country_map",
+                    side_effect=fake_generate_multi_country_map,
+                ) as generate_multi_country_map,
+                contextlib.redirect_stdout(stdout),
+            ):
                 exit_code = main(
                     [
                         "report-multi-country-map",
@@ -256,19 +298,40 @@ class CliTests(unittest.TestCase):
                     ]
                 )
 
-            atlas_root = Path(tmp) / "docs" / "report" / "nordic-atlas"
             self.assertEqual(exit_code, 0)
             self.assertIn("2 unique samples", stdout.getvalue())
-            self.assertTrue((atlas_root / "nordic-atlas_map.html").exists())
-            self.assertTrue((atlas_root / "nordic-atlas_summary.json").exists())
+            generate_multi_country_map.assert_called_once_with(
+                version_dir=Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION,
+                countries=["Sweden", "Norway"],
+                output_dir=atlas_root,
+                title=DEFAULT_ATLAS_TITLE,
+                slug=DEFAULT_ATLAS_SLUG,
+                context_root=Path(tmp) / "data",
+            )
+            self.assertTrue((atlas_root / f"{DEFAULT_ATLAS_SLUG}_map.html").exists())
+            self.assertTrue((atlas_root / f"{DEFAULT_ATLAS_SLUG}_summary.json").exists())
 
     def test_collect_data_command_writes_summary_and_readme(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             stdout = io.StringIO()
-            with patch(
-                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
-            ) as download_aadr:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                ) as download_aadr,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.materialize_tracked_species_adna"
+                ) as materialize_tracked_species_adna,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.write_data_contract_surfaces"
+                ) as write_data_contract_surfaces,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.validate_source_layout_contract"
+                ) as validate_source_layout_contract,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.validate_source_snapshot"
+                ) as validate_source_snapshot,
+            ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 with contextlib.redirect_stdout(stdout):
                     exit_code = main(
@@ -282,15 +345,33 @@ class CliTests(unittest.TestCase):
 
             self.assertEqual(exit_code, 0)
             self.assertIn("2 AADR .anno files", stdout.getvalue())
+            materialize_tracked_species_adna.assert_called_once_with(output_root)
+            write_data_contract_surfaces.assert_called_once()
+            validate_source_layout_contract.assert_called_once()
+            validate_source_snapshot.assert_called_once()
             self.assertTrue((output_root / "README.md").exists())
             self.assertTrue((output_root / "collection_summary.json").exists())
 
     def test_collect_data_command_accepts_case_insensitive_source_names(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
-            with patch(
-                "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
-            ) as download_aadr:
+            with (
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                ) as download_aadr,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.materialize_tracked_species_adna"
+                ) as materialize_tracked_species_adna,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.write_data_contract_surfaces"
+                ) as write_data_contract_surfaces,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.validate_source_layout_contract"
+                ) as validate_source_layout_contract,
+                patch(
+                    "bijux_pollenomics.data_downloader.collector.validate_source_snapshot"
+                ) as validate_source_snapshot,
+            ):
                 download_aadr.return_value.downloaded_files = ()
 
                 exit_code = main(
@@ -303,4 +384,8 @@ class CliTests(unittest.TestCase):
                 )
 
             self.assertEqual(exit_code, 0)
+            materialize_tracked_species_adna.assert_called_once_with(output_root)
+            write_data_contract_surfaces.assert_called_once()
+            validate_source_layout_contract.assert_called_once()
+            validate_source_snapshot.assert_called_once()
             self.assertTrue((output_root / "collection_summary.json").exists())

@@ -3,9 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from bijux_pollenomics.cli import main
-from bijux_pollenomics.config import DEFAULT_AADR_VERSION
+from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG
 from tests.support.aadr import AADR_HEADER
 
 
@@ -25,25 +27,55 @@ def test_report_multi_country_map_emits_mixed_species_scientific_review_artifact
             encoding="utf-8",
         )
 
-        exit_code = main(
-            [
-                "report-multi-country-map",
-                "Sweden",
-                "Norway",
-                "--aadr-root",
-                str(Path(tmp) / "data" / "aadr"),
-                "--output-root",
-                str(Path(tmp) / "docs" / "report"),
-                "--context-root",
-                str(Path(tmp) / "data"),
-            ]
-        )
+        atlas_root = Path(tmp) / "docs" / "report" / DEFAULT_ATLAS_SLUG
+        review_path = atlas_root / f"{DEFAULT_ATLAS_SLUG}_scientific_review.json"
 
-        atlas_root = Path(tmp) / "docs" / "report" / "nordic-atlas"
-        payload = json.loads(
-            (atlas_root / "nordic-atlas_scientific_review.json").read_text(
-                encoding="utf-8"
+        def fake_generate_multi_country_map(**kwargs: object) -> SimpleNamespace:
+            output_dir = Path(kwargs["output_dir"])
+            output_dir.mkdir(parents=True, exist_ok=True)
+            review_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "scientific-review-surface.v3",
+                        "country_coverage": [
+                            {"species_latin_name": "Homo sapiens"},
+                            {"species_latin_name": "Ovis aries"},
+                        ],
+                        "animal_coordinate_review": {"status": "scoped"},
+                    }
+                ),
+                encoding="utf-8",
             )
+            return SimpleNamespace(title="World Evidence Surface", total_unique_samples=2)
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.handlers.generate_multi_country_map",
+            side_effect=fake_generate_multi_country_map,
+        ) as generate_multi_country_map:
+            exit_code = main(
+                [
+                    "report-multi-country-map",
+                    "Sweden",
+                    "Norway",
+                    "--aadr-root",
+                    str(Path(tmp) / "data" / "aadr"),
+                    "--output-root",
+                    str(Path(tmp) / "docs" / "report"),
+                    "--context-root",
+                    str(Path(tmp) / "data"),
+                ]
+            )
+
+        generate_multi_country_map.assert_called_once_with(
+            version_dir=Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION,
+            countries=["Sweden", "Norway"],
+            output_dir=atlas_root,
+            title="World Evidence Surface",
+            slug=DEFAULT_ATLAS_SLUG,
+            context_root=Path(tmp) / "data",
+        )
+        payload = json.loads(
+            review_path.read_text(encoding="utf-8")
         )
 
     species_rows = {row["species_latin_name"] for row in payload["country_coverage"]}

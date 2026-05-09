@@ -544,9 +544,14 @@ def _build_animal_atlas_readiness(
 def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
     mapped_sample_ids_by_species = _mapped_sample_ids_by_species(Path(data_root))
     rows = []
-    for species_root in sorted(
-        path for path in adna_species_dir(Path(data_root)).iterdir() if path.is_dir()
-    ):
+    species_dir = adna_species_dir(Path(data_root))
+    if not species_dir.is_dir():
+        return {
+            "schema_version": "animal-atlas-exclusion-report.v1",
+            "row_count": 0,
+            "rows": [],
+        }
+    for species_root in sorted(path for path in species_dir.iterdir() if path.is_dir()):
         if species_root.name == "homo_sapiens":
             continue
         provenance_lookup = _coordinate_provenance_by_project_and_locality(species_root)

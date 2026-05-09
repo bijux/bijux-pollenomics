@@ -1001,7 +1001,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("checked-in evidence surfaces across pollen context", runtime_index)
         self.assertIn("pollen context, environmental archaeology", data_index)
         self.assertIn("downstream view of the repository evidence tree", atlas_index)
-        self.assertEqual(atlas_files, ["index.md"])
+        self.assertEqual(
+            atlas_files,
+            [
+                "filters-and-popups.md",
+                "index.md",
+                "limits-and-audit.md",
+                "point-construction.md",
+            ],
+        )
+        self.assertIn("How animal points are built", atlas_index)
+        self.assertIn("How filters and popups work", atlas_index)
+        self.assertIn("Current limits and audits", atlas_index)
 
     def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()

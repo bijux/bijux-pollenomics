@@ -30,6 +30,7 @@ from .bundles.summary_builders import (
     build_published_reports_summary,
 )
 from .context import build_context_layers
+from .geography import infer_publication_scope
 from .models import (
     AnimalFoundationRefreshReport,
     CountryReport,
@@ -131,6 +132,11 @@ def generate_multi_country_map(
         raise ValueError(
             "At least one country is required to build a multi-country map"
         )
+    effective_geography_scope = (
+        geography_scope
+        if geography_scope is not None
+        else infer_publication_scope(normalized_countries)
+    )
 
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,
@@ -151,10 +157,10 @@ def generate_multi_country_map(
         country_sample_counts=map_inputs.country_sample_counts,
         total_unique_samples=len(map_inputs.all_samples),
         output_dir=published_output_dir,
-        scope_key="custom" if geography_scope is None else geography_scope.key,
-        scope_label="" if geography_scope is None else geography_scope.label,
-        scope_kind="custom" if geography_scope is None else geography_scope.kind,
-        parent_scope_key=None if geography_scope is None else geography_scope.parent_key,
+        scope_key=effective_geography_scope.key,
+        scope_label=effective_geography_scope.label,
+        scope_kind=effective_geography_scope.kind,
+        parent_scope_key=effective_geography_scope.parent_key,
     )
 
     def publish_map_bundle(staging_output_dir: Path) -> None:
@@ -168,7 +174,7 @@ def generate_multi_country_map(
             country_sample_counts=map_inputs.country_sample_counts,
             all_samples=map_inputs.all_samples,
             context_root=context_root,
-            geography_scope=geography_scope,
+            geography_scope=effective_geography_scope,
             asset_base_path="./_map_assets",
             build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
             build_context_layers_fn=build_context_layers,

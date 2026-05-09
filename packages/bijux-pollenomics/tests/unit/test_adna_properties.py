@@ -138,6 +138,7 @@ def test_scientific_review_marks_overlapping_human_and_context_windows_as_overla
                 sample_namespace="aadr-sample",
             ),
         ),
+        include_tracked_nonhuman_review=False,
         context_points=(
             ContextPointRecord(
                 source="Context",

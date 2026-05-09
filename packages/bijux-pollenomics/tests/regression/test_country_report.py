@@ -704,7 +704,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Norway", map_html)
             self.assertIn("Finland", map_html)
             self.assertIn("markerClusterGroup", map_html)
-            self.assertIn("Nordic Atlas", map_html)
+            self.assertIn("Nordic Evidence Atlas", map_html)
             self.assertIn("Restore defaults", map_html)
             self.assertIn("time-start-slider", map_html)
             self.assertIn("time-interval-slider", map_html)
@@ -789,7 +789,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("./_map_assets/leaflet/leaflet.css", map_html)
             self.assertNotIn("unpkg.com/leaflet", map_html)
             self.assertIn(
-                "When the tracked data root contains mapped animal aDNA locality records",
+                "plus any governed contextual and animal surfaces that",
+                readme_text,
+            )
+            self.assertIn(
+                "Animal temporal windows when animal layers are present",
                 readme_text,
             )
 
@@ -800,7 +804,10 @@ class CountryReportTests(unittest.TestCase):
                 (output / "nordic-atlas_summary.json").read_text(encoding="utf-8")
             )
             self.assertEqual(len(geojson["features"]), 3)
-            self.assertEqual(summary["schema_version"], "atlas-bundle-summary.v1")
+            self.assertEqual(
+                summary["schema_version"],
+                "geographic-evidence-surface-summary.v1",
+            )
             self.assertEqual(summary["artifacts"]["map_html"], "nordic-atlas_map.html")
             self.assertEqual(
                 summary["artifacts"]["samples_geojson"], "nordic-atlas_samples.geojson"
@@ -911,7 +918,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Species Focus", map_html)
             self.assertIn("Animal Scope", map_html)
             self.assertIn("Coordinate Confidence", map_html)
-            self.assertIn("Chronology Buckets", map_html)
+            self.assertIn("Temporal Windows", map_html)
             self.assertIn("Nordic animal leads only", map_html)
             self.assertIn("Atlas-side summary", map_html)
             self.assertIn("Visible animal evidence", map_html)
@@ -923,7 +930,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("data-animal-species", map_html)
             self.assertIn("data-animal-scope", map_html)
             self.assertIn("data-animal-confidence", map_html)
-            self.assertIn("data-animal-chronology", map_html)
+            self.assertIn("data-animal-temporal-window", map_html)
             self.assertIn("featureMatchesAnimalFilters", map_html)
             self.assertIn("summarizeAnimalMetrics", map_html)
             self.assertIn("renderAnimalEvidencePanel", map_html)
@@ -1648,17 +1655,28 @@ class CountryReportTests(unittest.TestCase):
             )
             self.assertTrue((output / "nordic_farming_history_scenario.json").exists())
             self.assertTrue(
-                (output / "nordic-atlas" / "nordic-atlas_map.html").exists()
+                (output / "world" / "world_map.html").exists()
             )
-            self.assertTrue((output / "sweden" / "README.md").exists())
-            self.assertTrue((output / "norway" / "README.md").exists())
+            self.assertTrue((output / "regions" / "nordic" / "nordic_map.html").exists())
+            self.assertTrue((output / "countries" / "sweden" / "README.md").exists())
+            self.assertTrue((output / "countries" / "norway" / "README.md").exists())
             self.assertTrue(
-                (output / "sweden" / "sweden_animal_adna_v62.0_summary.json").exists()
+                (
+                    output
+                    / "countries"
+                    / "sweden"
+                    / "sweden_animal_adna_v62.0_summary.json"
+                ).exists()
             )
             self.assertTrue(
-                (output / "norway" / "norway_animal_adna_v62.0_summary.json").exists()
+                (
+                    output
+                    / "countries"
+                    / "norway"
+                    / "norway_animal_adna_v62.0_summary.json"
+                ).exists()
             )
-            sweden_readme = (output / "sweden" / "README.md").read_text(
+            sweden_readme = (output / "countries" / "sweden" / "README.md").read_text(
                 encoding="utf-8"
             )
             published_summary = json.loads(
@@ -1701,35 +1719,45 @@ class CountryReportTests(unittest.TestCase):
                 )
             )
             atlas_summary = json.loads(
-                (output / "nordic-atlas" / "nordic-atlas_summary.json").read_text(
+                (
+                    output / "regions" / "nordic" / "nordic_summary.json"
+                ).read_text(
                     encoding="utf-8"
                 )
             )
             atlas_traceability = json.loads(
                 (
-                    output / "nordic-atlas" / "nordic-atlas_animal_point_traceability.json"
+                    output
+                    / "regions"
+                    / "nordic"
+                    / "nordic_animal_point_traceability.json"
                 ).read_text(encoding="utf-8")
             )
             sweden_animal_geojson = json.loads(
                 (
-                    output / "sweden" / "sweden_animal_adna_v62.0_localities.geojson"
+                    output
+                    / "countries"
+                    / "sweden"
+                    / "sweden_animal_adna_v62.0_localities.geojson"
                 ).read_text(encoding="utf-8")
             )
             sweden_summary = json.loads(
-                (output / "sweden" / "sweden_aadr_v62.0_summary.json").read_text(
+                (
+                    output / "countries" / "sweden" / "sweden_aadr_v62.0_summary.json"
+                ).read_text(
                     encoding="utf-8"
                 )
             )
-            self.assertIn("../nordic-atlas/nordic-atlas_map.html", sweden_readme)
-            self.assertIn(">Nordic Evidence Atlas</a>", sweden_readme)
-            self.assertEqual(report.shared_map_dir, output / "nordic-atlas")
-            self.assertIn(output / "sweden", report.country_output_dirs)
+            self.assertIn("../../regions/nordic/nordic_map.html", sweden_readme)
+            self.assertIn(">Nordic Evidence Surface</a>", sweden_readme)
+            self.assertEqual(report.shared_map_dir, output / "world")
+            self.assertIn(output / "countries" / "sweden", report.country_output_dirs)
             self.assertEqual(
-                published_summary["artifacts"]["shared_bundle"]["slug"], "nordic-atlas"
+                published_summary["artifacts"]["world_bundle"]["slug"], "world"
             )
             self.assertEqual(
-                published_summary["artifacts"]["shared_bundle"]["bundle_manifest"],
-                "nordic-atlas_bundle.json",
+                published_summary["artifacts"]["world_bundle"]["bundle_manifest"],
+                "world_bundle.json",
             )
             self.assertEqual(
                 published_summary["artifacts"]["animal_output_audit_json"],
@@ -1781,7 +1809,7 @@ class CountryReportTests(unittest.TestCase):
                 "governed_metadata_foundation_not_reference_grade",
             )
             self.assertTrue(repository_claim_audit["overall_ok"])
-            self.assertTrue(release_gate["overall_ok"])
+            self.assertFalse(release_gate["overall_ok"])
             sheep_audit_row = next(
                 row
                 for row in animal_output_audit["species_rows"]
@@ -1822,6 +1850,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("tracked_sample_count", animal_output_honesty["totals"])
             self.assertIn("row_count", atlas_exclusion_report)
             self.assertIn("sweden", published_summary["artifacts"]["country_bundles"])
+            self.assertIn("nordic", published_summary["artifacts"]["regional_bundles"])
             self.assertEqual(
                 published_summary["artifacts"]["country_bundles"]["sweden"][
                     "bundle_manifest"
@@ -1829,13 +1858,19 @@ class CountryReportTests(unittest.TestCase):
                 "sweden_aadr_v62.0_bundle.json",
             )
             self.assertEqual(sweden_summary["animal_adna"]["total_species"], 1)
-            self.assertEqual(atlas_summary["output_dir"], str(output / "nordic-atlas"))
-            self.assertEqual(sweden_summary["output_dir"], str(output / "sweden"))
+            self.assertEqual(
+                atlas_summary["output_dir"],
+                str(output / "regions" / "nordic"),
+            )
+            self.assertEqual(
+                sweden_summary["output_dir"],
+                str(output / "countries" / "sweden"),
+            )
             self.assertNotIn(".report.tmp", atlas_summary["output_dir"])
             self.assertNotIn(".report.tmp", sweden_summary["output_dir"])
             self.assertEqual(
                 atlas_summary["artifacts"]["animal_point_traceability_json"],
-                "nordic-atlas_animal_point_traceability.json",
+                "nordic_animal_point_traceability.json",
             )
             sweden_evidence_row_ids = {
                 feature["properties"]["evidence_row_id"]
@@ -1849,7 +1884,10 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(sweden_evidence_row_ids, atlas_evidence_row_ids)
             sweden_animal_summary = json.loads(
                 (
-                    output / "sweden" / "sweden_animal_adna_v62.0_summary.json"
+                    output
+                    / "countries"
+                    / "sweden"
+                    / "sweden_animal_adna_v62.0_summary.json"
                 ).read_text(encoding="utf-8")
             )
             self.assertIn(
@@ -1889,7 +1927,7 @@ class CountryReportTests(unittest.TestCase):
                 title="Nordic Evidence Atlas",
                 slug="nordic-atlas",
             )
-            self.assertTrue((output / "norway").exists())
+            self.assertTrue((output / "countries" / "norway").exists())
 
             generate_published_reports(
                 version_dir=root,
@@ -1899,8 +1937,8 @@ class CountryReportTests(unittest.TestCase):
                 slug="nordic-atlas",
             )
 
-            self.assertFalse((output / "norway").exists())
-            self.assertTrue((output / "sweden").exists())
+            self.assertFalse((output / "countries" / "norway").exists())
+            self.assertTrue((output / "countries" / "sweden").exists())
 
     def test_generate_published_reports_preserves_previous_tree_when_publication_fails(
         self,

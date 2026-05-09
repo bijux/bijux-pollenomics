@@ -1703,7 +1703,12 @@ def build_repository_credibility_dashboard(
         docs_root=docs_root,
         report_root=report_root,
     )
-    root_readme = (docs_root.parent / "README.md").read_text(encoding="utf-8")
+    root_readme_path = docs_root.parent / "README.md"
+    root_readme = (
+        root_readme_path.read_text(encoding="utf-8")
+        if root_readme_path.is_file()
+        else ""
+    )
     report_quality = _load_json_or_default(
         report_root / "report_narrative_quality_review.json",
         {"quality_posture_counts": {}},

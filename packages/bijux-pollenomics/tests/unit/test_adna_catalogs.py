@@ -94,10 +94,12 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             data_root = Path(tmp) / "data"
             report_root = Path(tmp) / "docs" / "report"
             materialize_tracked_species_adna(data_root)
-            atlas_root = report_root / "nordic-atlas"
+            atlas_root = report_root / "world"
             atlas_root.mkdir(parents=True, exist_ok=True)
-            (atlas_root / "README.md").write_text("# Nordic Evidence Atlas\n", encoding="utf-8")
-            (atlas_root / "nordic-atlas_summary.json").write_text(
+            (atlas_root / "README.md").write_text(
+                "# World Evidence Surface\n", encoding="utf-8"
+            )
+            (atlas_root / "world_summary.json").write_text(
                 """
 {
   "animal_atlas": {
@@ -129,7 +131,7 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             data_root = Path(tmp) / "data"
             report_root = Path(tmp) / "docs" / "report"
             materialize_tracked_species_adna(data_root)
-            sweden_root = report_root / "sweden"
+            sweden_root = report_root / "countries" / "sweden"
             sweden_root.mkdir(parents=True, exist_ok=True)
             (sweden_root / "sweden_animal_adna_v66_summary.json").write_text(
                 """
@@ -179,14 +181,15 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             for row in readiness["rows"]
             if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(readiness["totals"]["direct_coordinate_backed"], 0)
+        self.assertEqual(readiness["totals"]["direct_coordinate_backed"], 234)
         self.assertEqual(readiness["totals"]["indirectly_geocoded"], 2)
-        self.assertEqual(readiness["totals"]["refused_from_mapping"], 8)
-        self.assertEqual(readiness["totals"]["unresolved"], 30)
+        self.assertEqual(readiness["totals"]["refused_from_mapping"], 7)
+        self.assertEqual(readiness["totals"]["unresolved"], 21)
+        self.assertEqual(horse_row["direct_coordinate_backed"], 207)
         self.assertEqual(horse_row["indirectly_geocoded"], 1)
         self.assertEqual(sheep_row["refused_from_mapping"], 1)
-        self.assertEqual(len(unresolved), 30)
-        self.assertEqual(len(overbroad), 8)
+        self.assertEqual(len(unresolved), 21)
+        self.assertEqual(len(overbroad), 7)
 
     def test_coordinate_caveat_surface_groups_current_point_and_refused_rows(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -197,9 +200,15 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             markdown = render_coordinate_caveat_surface_markdown(caveat_surface)
             confidence_scale = render_coordinate_confidence_scale_markdown()
 
-        self.assertEqual(caveat_surface["direct_coordinates"], [])
+        self.assertEqual(len(caveat_surface["direct_coordinates"]), 234)
         self.assertEqual(len(caveat_surface["place_name_resolution"]), 2)
-        self.assertEqual(len(caveat_surface["still_weak_geography"]), 8)
+        self.assertEqual(len(caveat_surface["still_weak_geography"]), 7)
+        self.assertTrue(
+            any(
+                row["site_label"] == "Actiparc"
+                for row in caveat_surface["direct_coordinates"]
+            )
+        )
         self.assertIn("Botai archaeological site horse context", markdown)
         self.assertIn("Site 1040 near Wadi Halfa dromedary context", markdown)
         self.assertIn("Near East and Europe pig domestication transect", markdown)
@@ -212,10 +221,8 @@ class AdnaCatalogUnitTests(unittest.TestCase):
             data_root = Path(tmp) / "data"
             materialize_tracked_species_adna(data_root)
 
-            for species_root in (data_root / "adna").iterdir():
-                if not species_root.is_dir() or species_root.name == "source_library":
-                    continue
-                if species_root.name == "homo_sapiens":
+            for species_root in (data_root / "adna" / "species").iterdir():
+                if not species_root.is_dir() or species_root.name == "homo_sapiens":
                     continue
                 sample_payload = json.loads(
                     (species_root / "normalized" / "sample_records.json").read_text(
