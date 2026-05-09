@@ -1891,13 +1891,64 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertIn(
-            '<source src="../../gallery/2026-02-26-data-collection.mp4"',
+            '<source src="../../../gallery/2026-02-26-data-collection.mp4"',
             fieldwork_text,
         )
         self.assertIn(
-            '<a href="../../gallery/2026-02-26-data-collection.mp4">',
+            '<a href="../../../gallery/2026-02-26-data-collection.mp4">',
             fieldwork_text,
         )
+
+    def test_public_atlas_and_fieldwork_pages_use_local_site_paths(self) -> None:
+        atlas_text = (
+            REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
+        ).read_text(encoding="utf-8")
+        fieldwork_index_text = (
+            REPO_ROOT / "docs" / "public" / "fieldwork" / "index.md"
+        ).read_text(encoding="utf-8")
+        fieldwork_detail_text = (
+            REPO_ROOT
+            / "docs"
+            / "public"
+            / "fieldwork"
+            / "lyngsjon-lake-fieldwork"
+            / "index.md"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('href="../../report/"', atlas_text)
+        self.assertIn(
+            'href="../../report/regions/nordic/nordic_map.html"',
+            atlas_text,
+        )
+        self.assertIn(
+            'src="../../report/regions/nordic/nordic_map.html"',
+            atlas_text,
+        )
+        self.assertNotIn("https://bijux.io/bijux-pollenomics/report/", atlas_text)
+
+        self.assertIn("(../../report/regions/nordic/nordic_map.html)", fieldwork_index_text)
+        self.assertIn("(../pollenomics-data/index.md)", fieldwork_index_text)
+        self.assertNotIn("https://bijux.io/bijux-pollenomics/public/", fieldwork_index_text)
+        self.assertNotIn("https://bijux.io/bijux-pollenomics/report/", fieldwork_index_text)
+
+        self.assertIn(
+            'href="../../../report/regions/nordic/nordic_map.html"',
+            fieldwork_detail_text,
+        )
+        self.assertIn(
+            'href="../../../gallery/2026-02-26-data-collection.mp4"',
+            fieldwork_detail_text,
+        )
+
+    def test_nav_override_keeps_section_overview_sidebar_available(self) -> None:
+        nav_override = (
+            REPO_ROOT / "configs" / "docs-shell" / "partials" / "nav.html"
+        ).read_text(encoding="utf-8")
+        root_make = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
+
+        self.assertIn("current_page.parent.children", nav_override)
+        self.assertNotIn("landing_home_page", nav_override)
+        self.assertIn("bijux-docs-apply-repo-overrides", root_make)
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         ci_workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(

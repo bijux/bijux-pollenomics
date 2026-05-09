@@ -41,18 +41,18 @@ route is vague, fieldwork stops being evidence and becomes decoration.
 
 ## Start Here
 
-- start with [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/public/fieldwork/lyngsjon-lake-fieldwork/)
+- start with [Lyngsjön Lake Fieldwork](./lyngsjon-lake-fieldwork/index.md)
   if you want the current direct visit record
-- open the [Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html)
+- open the [Nordic Evidence Atlas](../../report/regions/nordic/nordic_map.html)
   if your question begins with a mapped point and you want to understand why
   that area was worth documenting
-- open the [data handbook](https://bijux.io/bijux-pollenomics/public/pollenomics-data/)
+- open the [data handbook](../pollenomics-data/index.md)
   if your real question is about provenance, normalization, or source-family
   coverage across the wider repository
 
 ## Section Pages
 
-- [Lyngsjön Lake Fieldwork](https://bijux.io/bijux-pollenomics/public/fieldwork/lyngsjon-lake-fieldwork/)
+- [Lyngsjön Lake Fieldwork](./lyngsjon-lake-fieldwork/index.md)
 
 ## Why This Surface Exists
 
