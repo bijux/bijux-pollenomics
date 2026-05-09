@@ -12,6 +12,9 @@ last_reviewed: 2026-05-08
 The runtime keeps a few invariants even while weaker evidence families are
 still being recovered.
 
+This page is deliberately short. Its job is to make the repository's strongest
+ground rules and weakest current limits visible in one place.
+
 ## Invariants
 
 - commands rewrite governed roots rather than ad hoc destinations
@@ -40,3 +43,7 @@ side effects or opaque rebuild steps.
 The main risk is elegant-looking narrowing: fewer pages, fewer links, and
 fewer explicit caveats while the repository still claims to explain the same
 evidence landscape.
+
+That is why the repository treats clarity as part of technical quality. A
+surface that sounds cleaner but says less is often a regression, not an
+improvement.
