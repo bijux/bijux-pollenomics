@@ -9,22 +9,25 @@ last_reviewed: 2026-05-09
 
 # Bijux Pollenomics Product Guide
 
-`bijux-pollenomics` is the product guide for the repository's public evidence.
-It explains how the repository takes several different evidence families, keeps
-their provenance visible, and publishes them as reviewable data files, report
-bundles, and map surfaces.
+`bijux-pollenomics` is the public guide to the repository as a product, not
+just as a codebase. It explains what the repository publishes today, why those
+outputs exist, how far they can be trusted, and where a reader should go when a
+map, report, or evidence file raises a bigger question.
 
-The central idea is straightforward. This repository is not only a codebase and
-not only a map website. It is a rebuildable evidence system. It collects and
-normalizes pollen context, environmental archaeology, boundaries, fieldwork
-material, and animal ancient-DNA evidence, then writes public outputs that a
-reader can inspect under `data/` and `docs/report/`.
+The central idea is simple. This repository rebuilds one governed evidence
+system, then publishes several reader-facing cuts from that same state. Pollen
+context, environmental archaeology, boundary framing, fieldwork records, and
+animal ancient-DNA recovery all live in one repository, but they do not all
+carry the same scientific weight. The guide exists to keep those differences
+clear.
 
-This guide exists so a new reader can understand that system without needing to
-read the source code first, without already knowing the package tree, the make
-targets, or the internal module names.
+Use this handbook when your first question is not "which module owns this,"
+but:
 
-It is written so readers can understand the repository without needing to read the source code first.
+- what this repository is actually for
+- what I can use from it right now
+- what kind of question each output can answer
+- what the current limits are before I rely on a public map, report, or data file
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>
@@ -35,18 +38,15 @@ It is written so readers can understand the repository without needing to read t
   <a class="md-button" href="quality/">Checks and current limits</a>
 </div>
 
-## What You Can Learn Here
+## What This Guide Helps You Do
 
-- what the repository is trying to publish, not just what code it happens to
-  contain
-- how tracked source material becomes reviewable outputs under `data/` and
-  `docs/report/`
-- which command and file boundaries are meant to stay stable for readers and
-  operators
-- where the current evidence is strong, where it is still partial, and why the
-  project refuses stronger language in those weaker areas
-- where to go next if your question is about provenance, publication, atlas
-  interpretation, rebuild workflows, or release limits
+- understand the product shape before reading package names or command syntax
+- decide whether you need the visible public answer, the narrower evidence
+  chain, or the rebuild workflow behind it
+- tell which surfaces are mature public context and which remain partial or
+  recovery-heavy
+- move from a big reader question to the right page quickly instead of
+  wandering through internal terminology
 
 ## Publication Loop
 
@@ -62,34 +62,51 @@ flowchart TB
     outputs --> readers
 ```
 
+## What Readers Usually Want To Know First
+
+- what the repository already publishes with confidence:
+  pollen context, environmental archaeology context, boundary framing, and
+  governed report bundles
+- what remains visibly partial:
+  animal ancient-DNA recovery and the claims that depend on deeper sample
+  extraction
+- how to use the product without overstating it:
+  start with public outputs for orientation, then drop to evidence and review
+  surfaces when a claim matters
+- how this can grow to more countries and more regions:
+  the world, Europe-plus, Nordic, and country outputs are meant to be one
+  expansion model, not separate products
+
 ## Start Here
 
-- start with [foundation](foundation/index.md) if you want the broadest answer:
-  what this repository is for, what it is not for, and how far the current
-  product honestly goes
-- move to [architecture](architecture/index.md) if your question is how one
-  source file or one evidence row eventually becomes a report, bundle, or map
-- use [interfaces](interfaces/index.md) if you want the public runtime surface:
-  commands, file contracts, durable APIs, and example entrypoints
-- use [operations](operations/index.md) if you want the practical rebuild path:
-  install, verify, refresh data, publish reports, and recover from failure
-- use [quality](quality/index.md) if you want to judge whether current outputs
-  are strong enough for the claim being made
+- start with [foundation](foundation/index.md) if you need the product answer:
+  what this repository is for, what it refuses to claim, and why
+- move to [architecture](architecture/index.md) if you need the lifecycle
+  answer: how evidence becomes reviewable files, reports, and maps
+- use [interfaces](interfaces/index.md) if you need the runtime answer: which
+  commands, files, and contracts are meant to stay stable
+- use [operations](operations/index.md) if you need the practical answer: how
+  to install, verify, rebuild, and recover locally
+- use [quality](quality/index.md) if you need the trust answer: what the
+  current checks, limits, and refusal rules actually say
 
 ## Routes By Question
 
-- what do you publish, and what do you still refuse to claim:
+- what does this repository publish, and what does it still refuse to claim:
   [repository scope and limits](foundation/repository-scope-and-limits.md)
-- how does source material become visible data and report outputs:
+- how does source material become visible data, reports, and map surfaces:
   [runtime system model](architecture/runtime-system-model.md)
 - what commands do I actually run for inspection, rebuilds, and checks:
   [entrypoints and examples](interfaces/entrypoints-and-examples.md)
-- how do I follow the common rebuild paths without getting lost in internal
+- how do I follow common rebuild paths without getting lost in internal
   tooling:
   [common workflows](operations/common-workflows.md)
 - how do I judge whether a surface is reviewable, publishable, or still too
   weak for a stronger claim:
   [runtime invariants and limits](quality/runtime-invariants-and-limits.md)
+- where do the public data explanations live if I care more about evidence than
+  code:
+  [data handbook](../pollenomics-data/index.md)
 
 ## What This Guide Covers
 
@@ -99,7 +116,7 @@ flowchart TB
 - the operational route for rebuilding and checking the repository
 - the quality rules that keep visible output language honest
 
-## What This Guide Does Not Assume
+## What This Guide Does Not Promise
 
 - that the reader already knows the repository layout
 - that every visible output has the same scientific strength
