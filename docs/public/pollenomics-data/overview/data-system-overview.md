@@ -29,20 +29,35 @@ flowchart TB
     normalization --> publication
 ```
 
-That structure matters because the repository serves two audiences at once and
-still aims at a pollenomics-first publication model:
-people who want to inspect the tracked evidence directly, and people who want
-to read the public-facing country or atlas outputs built from it.
+That structure matters because the repository serves two audiences at once.
+Some readers want to inspect the tracked evidence directly. Others want to read
+the public-facing country bundles or regional atlas outputs. The repository
+needs both, but it should not force those readers to decode an internal file
+tree before they understand what the product is doing.
 
 ## Main Data Families
 
 | Family | Role in the repository | Main location | Current publication posture |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Pollen context | environmental and paleoecological context | `data/landclim/`, `data/neotoma/` | first-class pollenomics context |
 | Archaeology context | broader settlement and environmental archaeology layers | `data/sead/`, `data/raa/` | contextual support layers |
 | Boundary framing | country filtering and regional map framing | `data/boundaries/` | framing layer, not scientific evidence |
 | Animal ancient DNA | sample-backed contextual evidence from papers and supplements | `data/adna/` | partial recovery program |
 | Fieldwork | direct visit and observation records | `docs/public/fieldwork/` | narrow but explicit record surface |
+
+## What Each Family Contributes
+
+- pollen context helps explain environmental setting, vegetation history, and
+  broader landscape change
+- archaeology context helps explain settlement and material activity around the
+  same geographies
+- boundary layers make filtering and regional framing readable, but they are
+  not themselves scientific evidence
+- human ancient DNA gives release-based historical population context
+- animal ancient DNA provides sample-level domestication and movement clues when
+  source recovery is strong enough
+- fieldwork gives a narrow, explicit ground-level record rather than a claim of
+  regional completeness
 
 ## Main Repository Surfaces
 

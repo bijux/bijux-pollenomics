@@ -4,28 +4,38 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Cross-Domain Evidence Matrix
 
-This page points to the repository review that compares real domain coverage by
-evidence units instead of by file count.
+This page exists to answer one broad question: how balanced is the repository
+across its major evidence families?
 
-## Reader Anchors
+That question is important because mixed-domain products can look impressive on
+a map while actually leaning too hard on one family and under-delivering on
+another. A domain matrix makes that imbalance visible.
 
-- [`docs/report/repository_cross_domain_evidence_matrix.json`](../../../report/repository_cross_domain_evidence_matrix.json)
-- [`docs/report/repository_cross_domain_evidence_matrix.md`](../../../report/repository_cross_domain_evidence_matrix.md)
-- [`docs/report/repository_source_family_matrix.md`](../../../report/repository_source_family_matrix.md)
-- [`docs/report/repository_atlas_input_audit.md`](../../../report/repository_atlas_input_audit.md)
+## What The Matrix Tries To Prevent
 
-## What This Surface Prevents
+- treating pollen context as if it automatically proves ancient DNA claims
+- treating archaeology context as if it automatically carries sample-level precision
+- treating a thin animal evidence program as if it were already complete because it appears in the same interface
 
-- confusing many checked-in files with balanced scientific coverage
-- treating pollen context, archaeology context, framing, and animal recovery as if they had the same maturity
-- reading atlas presence as proof that upstream evidence is balanced across domains
+## How To Read It
 
-## Boundary
+Use the matrix when you want to compare the relative state of:
 
-The cross-domain matrix is a review surface. It does not replace the source
-pages or output pages, but it makes the balance question impossible to hide.
+- pollen context
+- archaeology context
+- boundary framing
+- human ancient DNA
+- animal ancient DNA recovery
+
+It is a comparison tool, not a substitute for the source or evidence pages.
+
+## Best Companion Pages
+
+- [data system overview](data-system-overview.md)
+- [source family matrix](../sources/source-family-matrix.md)
+- [published reports](../outputs/published-reports.md)

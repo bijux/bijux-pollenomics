@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Animal Ancient DNA Evidence
@@ -36,6 +36,17 @@ flowchart LR
     sample --> atlas
 ```
 
+## Why This Domain Needs Extra Care
+
+Animal ancient DNA is the part of the repository most likely to look stronger
+from a distance than it really is. A species can appear in a report, a map, or
+coverage summary long before every supporting sample row has clean locality and
+chronology support.
+
+This page exists to slow that down. It explains that animal evidence is not a
+single file family or one project list. It is a recovery chain that has to
+hold together from source capture to public publication.
+
 ## What Readers Should Expect
 
 A strong animal row in this repository should make the following questions
@@ -66,3 +77,10 @@ If a reader wants to check one animal point carefully, the shortest path is:
 - treating a broad locality label as if it were an exact excavation point
 - treating vague chronology text as if it were a precise date
 - treating a visible atlas point as stronger than the evidence chain behind it
+
+## Where To Go Next
+
+- [animal source intake](../sources/animal-source-intake.md) if your question is still about project and supplement recovery
+- [sample records](../evidence/sample-records.md) if your question is already about one recoverable row
+- [coordinates](../evidence/coordinates.md) if your question is about why a row appears on a map
+- [geographic limits and honesty](../outputs/geographic-limits-and-honesty.md) if your question is about why some animal rows remain qualified or excluded

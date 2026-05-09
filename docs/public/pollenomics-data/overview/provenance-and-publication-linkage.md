@@ -4,40 +4,43 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Provenance and Publication Linkage
 
-The data system only earns trust when a reader can move from a public output
-back to the tracked repository state that produced it. This page explains that
-linkage without pretending every source family has identical evidence
-strength.
+This page explains the line between tracked evidence and public publication.
+The core principle is simple: every public-facing row, bundle, or map point
+should still be traceable back to a narrower governing surface.
 
-## Provenance Model
+## What Provenance Means Here
 
-- raw or intake artifacts stay in their source-family roots under `data/`
-- normalized repository artifacts keep source-family ownership instead of being
-  collapsed into one generic export tree
-- public outputs under `docs/report/` must be traceable to those tracked files
-- docs pages explain the path but do not replace the governing artifacts
+In this repository, provenance is not only about where a file originally came
+from. It is also about what chain of review turned that input into something
+public. A visible point is meaningful only if readers can still inspect:
 
-## Publication Linkage
+- the source family that supplied the material
+- the normalized evidence file that owns the current claim
+- the review surface that qualified, blocked, or approved it
+- the published output that presents it to readers
 
-- pollen and archaeology context layers publish as atlas-supporting files
-- fieldwork publishes as a narrow direct-visit record
-- animal aDNA publishes only after sample, site, chronology, and coordinate
-  evidence survive release checks
-- repository truth reviews under `docs/report/` describe whether public
-  language is keeping pace with actual evidence depth
+## Publication Linkage Rules
 
-## Coordinate Policy
+- public reports must stay downstream of tracked evidence
+- summary views must not outrank the files that govern sample, locality, date, or coordinate claims
+- one public bundle should point readers toward the narrower evidence files that justify it
+- blocked or partial evidence should remain visibly qualified instead of being promoted by convenience
 
-Coordinates are not one generic fact class. The repository distinguishes:
+## Where To Inspect The Links
 
-- direct coordinates backed by source-owned sample or site evidence
-- indirect geocoding derived from weaker locality language
-- blocked or refused rows that must stay out of strong public map claims
+- `data/source_fact_ownership_registry.json`
+- `data/evidence_artifact_contracts.json`
+- `docs/report/world/*_point_traceability.md`
+- `docs/report/regions/nordic/nordic_point_traceability.md`
+- `docs/report/countries/<country-slug>/*_bundle.json`
 
-Use the evidence pages and the atlas honesty surfaces whenever the question is
-which of those postures applies to a specific row.
+## Why Readers Should Care
+
+When provenance and publication linkage are clear, a newcomer can audit one
+claim without having to understand the whole repository first. That is the
+standard this handbook is aiming for.

@@ -4,34 +4,42 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Coverage and Naming
 
-The repository uses durable names because readers need to understand ownership
-and scope years later without reconstructing a delivery sequence.
+This page explains two recurring sources of confusion in mixed evidence
+repositories: breadth and naming.
 
-## Naming Rules
+## Coverage
 
-- name directories and pages by domain or responsibility
-- keep source-family names explicit where provenance matters
-- avoid temporary sequencing labels in durable data or docs artifacts
-- avoid catch-all buckets that hide whether a surface is source, evidence, or
-  publication output
+Coverage in `bijux-pollenomics` does not mean that every domain is equally
+complete. The repository has wider coverage in some families than others, and
+the documentation should say that plainly.
 
-## Coverage Rule
+Examples:
 
-Coverage is not measured by artifact count alone. The repository keeps breadth
-visible by preserving:
+- pollen and boundary context are broader and more stable
+- archaeology context is meaningful but still uneven across geography and source families
+- animal ancient DNA remains a recovery-heavy program, so public confidence must stay closer to the weakest supporting evidence
 
-- repository-level overview pages for source landscape and publication model
-- direct source-family pages for pollen, archaeology, boundaries, and aDNA
-- explicit evidence pages for sample, locality, chronology, and coordinate work
-- explicit output pages for country bundles, atlas products, and review surfaces
+## Naming
 
-## Directory Layout
+Names matter because the repository contains raw inputs, normalized evidence,
+review surfaces, and public outputs side by side. If names are vague, readers
+cannot tell which file is authoritative and which file is only a presentation
+surface.
 
-Use [data directory layout](data-directory-layout.md) for the file-tree view
-and [cross-domain evidence matrix](cross-domain-evidence-matrix.md) when the
-real question is whether breadth survived a rewrite.
+The naming approach in this project tries to keep those roles visible:
+
+- source names describe where material came from
+- evidence names describe what claim is being governed
+- review names describe what is being challenged or checked
+- publication names describe what is shown to readers
+
+## Reader Rule
+
+If a file name sounds broad but the content is narrow, the page or file should
+say so directly. Honest naming is part of public clarity, not just internal
+cleanliness.

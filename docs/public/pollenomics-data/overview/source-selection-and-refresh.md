@@ -4,33 +4,44 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Source Selection and Refresh
 
-The repository is curated, not indiscriminate. A source family belongs here
-because it contributes a durable pollenomics, archaeology, framing, fieldwork,
-or sample-evidence surface that can be reviewed from the repository itself.
+This page explains why the repository does not treat every upstream dataset,
+paper, or supplement as equally ready for public use the moment it is found.
 
-## Selection Rules
+## Source Selection
 
-- keep first-class pollenomics context such as LandClim and Neotoma visible
-- keep archaeology context explicit rather than hiding it inside atlas files
-- keep framing layers such as boundaries separate from scientific evidence
-- treat animal aDNA as real but still recovery-bound, with stronger gates than
-  broad context layers
+Source selection is the process of deciding which inputs are worth tracking at
+all. That decision depends on fit, coverage, recoverability, and whether the
+material can realistically support the kinds of public claims the repository
+wants to make.
 
-## Refresh Lifecycle
+For example:
 
-1. source-family intake or raw refresh
-2. normalized tracked file rebuild
-3. publication rebuild when downstream surfaces depend on the refresh
-4. repository-truth and docs checks so new files do not overclaim what changed
+- a pollen dataset may be valuable because it gives regional environmental context
+- an archive project may be valuable because its samples matter historically
+- a paper may still be too thin for public animal mapping if its supplement does not support recoverable sample rows
 
-## Migration Pressure
+## Refresh
 
-The repository has repeatedly drifted toward a narrow aDNA storyline. The
-refresh rule is therefore not only technical. A rewrite is incomplete if it
-updates data files but leaves readers unable to understand the full source
-landscape that still exists in the tree.
+Refresh is not just a mechanical re-download. In this repository, a refresh is
+an evidence event. It can change counts, improve locality support, expose new
+blockers, or force the public outputs to narrow their wording.
+
+That is why refresh work is paired with:
+
+- contracts that say what a source family should publish
+- review surfaces that say what changed
+- release gates that prevent public overstatement
+
+## Reader Guidance
+
+Read this page when your question is one of these:
+
+- why is this source family in the repository at all
+- why has one source family been refreshed more aggressively than another
+- why did a public output change after a source update
+- why does the repository keep some material visible as context but not as strong evidence

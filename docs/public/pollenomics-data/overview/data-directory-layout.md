@@ -9,62 +9,34 @@ last_reviewed: 2026-05-09
 
 # Data Directory Layout
 
-The repository stores data in a few deliberately different places so that
-source material, normalized evidence, and public outputs do not blur together.
+This page explains the shape of the main repository-owned data tree for readers
+who need a file-system map after they already understand the product model.
 
-## Main Directories
+## How To Read The Tree
 
-| Path | What it is for |
-| --- | --- |
-| `data/` | repository-owned source material and normalized data |
-| `data/adna/species/<latin_name>/` | species-centered animal ancient DNA recovery and normalization |
-| `data/adna/governance/` | cross-species audits, ledgers, and source registries |
-| `data/adna/final/` | shared downstream animal data prepared for atlas or country publication |
-| `docs/report/` | public-facing report bundles and map support files |
-| `data/source_family_contracts.json` | stage and ownership contract for each source family |
-| `data/source_fact_ownership_registry.json` | governing surface for recurring facts such as project inventory or sample identity |
-| `data/evidence_artifact_contracts.json` | file-contract standard for project, paper, sample, site, region, and country artifacts |
+The directory layout makes most sense when you read it by role, not by
+alphabetical path order:
 
-## Animal Ancient DNA Layout
+- `data/` holds source capture, normalization, and review material
+- `docs/report/` holds generated public bundles and review packets
+- `docs/public/pollenomics-data/` explains what those tracked files mean
 
-The animal ancient DNA tree is split three ways because those files do
-different jobs:
+## Main Areas
 
-- `data/adna/species/<latin_name>/` keeps species-owned recovery and normalized evidence files.
-- `data/adna/governance/` keeps the cross-species audits that compare projects, supplements, chronology, and mapping readiness.
-- `data/adna/final/` keeps shared downstream products after the species-level evidence has already been organized.
+| Area | What lives there | Why it matters |
+| --- | --- | --- |
+| `data/aadr/` | human ancient DNA release material | release-based human context |
+| `data/adna/` | animal aDNA governance, normalized species data, and final atlas inputs | sample-backed animal evidence chain |
+| `data/landclim/` | pollen sequence and REVEALS context | environmental background |
+| `data/neotoma/` | paleoecological pollen context | environmental comparison and extension |
+| `data/sead/` | environmental archaeology context | archaeology and environmental support |
+| `data/raa/` | Swedish archaeology context | Sweden-specific archaeology framing |
+| `data/boundaries/` | country and region framing geometry | filtering and scope clarity |
+| `docs/report/` | generated world, regional, and country publication bundles | public-facing outputs |
 
-## Reader Anchors
+## Reader Rule
 
-- `data/source_family_contracts.json`
-- `data/source_family_evidence_stage_matrix.json`
-- `data/source_fact_ownership_registry.json`
-- `data/evidence_artifact_contracts.json`
-- `data/adna/species/ovis_aries/`
-- `data/adna/species/equus_caballus/`
-- `data/adna/species/bos_taurus/`
-- `data/adna/species/canis_lupus_familiaris/`
-- `data/adna/species/camelus_dromedarius/`
-- `data/adna/species/rangifer_tarandus/`
-- `data/adna/species/equus_asinus/`
-- `data/adna/species/felis_catus/`
-- `data/adna/governance/source_library/`
-- `data/adna/governance/surface_role_registry.json`
-- `data/adna/governance/source_library/project_surface_contract.json`
-- [`docs/report/countries/sweden/`](../../../report/countries/sweden/README.md)
-- [`docs/report/world/`](../../../report/world/world_map.html)
-
-## Why This Layout Matters
-
-Readers should be able to tell the difference between:
-
-- a source record that has only been captured,
-- a sample or locality claim that has been normalized,
-- and a report or atlas row that is ready for public reading.
-
-If those layers were stored together without explanation, the repository would
-look more complete than its evidence actually is.
-
-The checked-in contract files now make that split explicit, and the governance
-role registry prevents `data/adna/governance/` from reading like one shapeless
-overflow directory.
+If your question is about meaning, start with the handbook pages first. If your
+question is about exact file locations, use this page after that. The tree is
+much easier to understand once the roles of source, evidence, review, and
+publication are already clear.
