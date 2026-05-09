@@ -45,9 +45,7 @@ def test_repository_badge_block_renders_public_badge_groups() -> None:
         "https://img.shields.io/badge/release-pypi%20workflow-2563EB?logo=githubactions&logoColor=white"
         in rendered
     )
-    assert (
-        rendered.count("https://bijux.io/bijux-pollenomics/public/pollenomics/") == 2
-    )
+    assert rendered.count("https://bijux.io/bijux-pollenomics/public/pollenomics/") == 2
     assert "https://github.com/bijux?tab=packages" in rendered
     assert (
         "https://github.com/orgs/bijux/packages?repo_name=bijux-pollenomics"

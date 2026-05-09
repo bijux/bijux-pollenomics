@@ -17,7 +17,9 @@ def _envlist() -> set[str]:
     return {line.strip() for line in envlist.splitlines() if line.strip()}
 
 
-def test_root_tox_keeps_the_shared_env_families_and_drops_proteomics_only_ones() -> None:
+def test_root_tox_keeps_the_shared_env_families_and_drops_proteomics_only_ones() -> (
+    None
+):
     envlist = _envlist()
 
     assert "security" in envlist
