@@ -4,60 +4,83 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # Sources
 
-The repository brings together several different source families. Some are
-primary pollenomics context, such as pollen records. Others are contextual
-layers, such as archaeology, boundaries, or ancient DNA recovery. They belong
-on one site, but they should not be described as if they all answer the same
-question.
+This section explains where the repository's evidence comes from before that
+evidence is turned into maps, tables, and public summaries.
 
-## Main Source Families
+That matters because `bijux-pollenomics` is not built from one source family.
+It combines pollenomics records, archaeology context, geographic framing
+layers, human ancient DNA releases, and a separate animal ancient DNA intake
+program. Those materials can appear together in one public product, but they
+do not answer the same question and they should not be trusted for the same
+reason.
 
-| Family | Main role in `bijux-pollenomics` | Start here |
+## Why This Section Exists
+
+Readers usually want a simple answer to one of these first questions:
+
+- what kind of evidence is this repository actually built from?
+- which source family should I trust for the question I care about?
+- why can some layers travel across many regions while others are local or
+  still incomplete?
+- what is the difference between a published map layer and the underlying
+  source work that made it possible?
+
+The pages in this section are here to answer those questions directly, in
+public language, before you have to think about repository layout.
+
+## The Main Source Families
+
+| Family | What it mainly contributes | Best first use |
 | --- | --- | --- |
-| LandClim | pollen sequence and REVEALS context | [LandClim](landclim.md) |
-| Neotoma | paleoecological pollen-site context | [Neotoma](neotoma.md) |
-| SEAD | environmental archaeology context | [SEAD](sead.md) |
-| RAÄ | Sweden-specific archaeology context | [RAÄ](raa.md) |
-| Boundaries | country framing and filtering | [Boundaries](boundaries.md) |
-| AADR | human ancient DNA context | [AADR](aadr.md) |
-| Animal source intake | project, paper, supplement, and sample recovery for non-human aDNA | [Animal source intake](animal-source-intake.md) |
+| [LandClim](landclim.md) | pollen sequence and REVEALS context | environmental setting and broad vegetation interpretation |
+| [Neotoma](neotoma.md) | paleoecological pollen-site context | site-centered pollen comparison across geography |
+| [SEAD](sead.md) | environmental archaeology context | wider archaeological context beyond one national system |
+| [RAÄ](raa.md) | Sweden-specific archaeology context | dense Swedish and Nordic archaeological reading |
+| [Boundaries](boundaries.md) | country and region framing | filtering and geographic scope interpretation |
+| [AADR](aadr.md) | human ancient DNA release context | human aDNA comparison beside pollen and archaeology |
+| [Animal source intake](animal-source-intake.md) | project, paper, supplement, and sample recovery for non-human aDNA | understanding what had to be recovered before animal aDNA can be published |
 
-## How To Read This Section
+## How To Use These Pages
 
-Use the pages in this section in three different ways:
+Start with [Source comparison](source-comparison.md) if you want the quickest
+answer to "which source family can answer my question?"
 
-- start with [source comparison](source-comparison.md) if you want the shortest cross-family orientation
-- use [source family matrix](source-family-matrix.md) if you want the balance view across the whole repository
-- drop into one source page only after you know which evidence family your question belongs to
+Open [Source family matrix](source-family-matrix.md) if you want to compare the
+whole repository at once: evidence type, geographic reach, publication role,
+and main limits.
 
-## High-Signal Governed Files
+Then move into the family pages only after you know what kind of source you are
+reading about. The short family pages explain the public meaning of each
+source. The longer process pages explain the harder cross-cutting ideas such as
+[Refresh policy](refresh-policy.md), [Shared normalization](shared-normalization.md),
+and the animal recovery chain.
 
-- `data/adna/governance/source_library/project_source_evidence_matrix.json`
+## What Readers Should Take Away
+
+- A mixed map is not a single kind of evidence.
+- Pollenomics remains core to the repository, not decorative context around an
+  ancient DNA story.
+- Archaeology and boundaries help interpretation, but they do not make direct
+  biological claims on their own.
+- Human aDNA and animal aDNA are separate source programs with different
+  maturity and different review burdens.
+- Public outputs are downstream products. They are not the same thing as the
+  source material that supports them.
+
+## If You Need The Underlying Repository-Owned Records
+
+Most readers will not need to open tracked files directly. If you do, the
+high-signal cross-family records are:
+
+- `data/collection_summary.json`
 - `data/adna/governance/source_library/project_registry.json`
 - `data/adna/governance/source_library/paper_registry.json`
 - `data/adna/governance/source_library/source_intake_audit.json`
-- [source-family matrix](source-family-matrix.md)
+- [source family matrix](source-family-matrix.md)
 
-## Start Here
-
-- [Source comparison](source-comparison.md) for the quickest cross-family overview
-- [Source family matrix](source-family-matrix.md) for the repository-wide balance view
-- [Refresh policy](refresh-policy.md) for the rule that source refreshes are evidence events
-- [Shared normalization](shared-normalization.md) for the cross-family output contract
-- [Animal source intake](animal-source-intake.md) for project, paper, supplement, and sample-recovery status
-- [SEAD handbook](sead-handbook.md) for the full archaeology-context access and interpretation model
-- [Non-aDNA explainer recovery](non-adna-explainer-recovery.md) for the contextual-docs recovery ledger
-- [Data architecture handbook](../overview/data-architecture-handbook.md) for the cross-family stage model
-
-## What This Section Should Make Clear
-
-- different source families do different jobs
-- pollen, archaeology, boundaries, and aDNA should stay distinguishable
-- animal ancient DNA depends on project and supplement recovery before it becomes sample-backed evidence
-- public outputs are downstream of source and intake decisions, not replacements for them
-- refresh and normalization rules should stay visible enough that contextual data does not disappear behind one recovery storyline
+Those records are useful after you understand the source families, not before.
