@@ -52,4 +52,4 @@ bijux-pollenomics --help
 - runtime handbook: <https://bijux.io/bijux-pollenomics/public/pollenomics/>
 - animal ancient DNA evidence: <https://bijux.io/bijux-pollenomics/public/pollenomics-data/overview/animal-ancient-dna-evidence/>
 - Nordic atlas: <https://bijux.io/bijux-pollenomics/public/nordic-atlas/>
-- package boundaries: [`src/bijux_pollenomics/package_boundaries.md`](src/bijux_pollenomics/package_boundaries.md)
+- package boundaries: [`docs/boundaries.md`](docs/boundaries.md)

@@ -1,13 +1,18 @@
 # Runtime Package Boundaries
 
 `bijux_pollenomics` owns the checked-in sample database and the publication
-surfaces derived from it. The package is organized around durable evidence
-responsibilities instead of temporary delivery steps.
+surfaces derived from it. The package should be organized by durable evidence
+responsibility, not by temporary delivery sequence or by whichever collector or
+report happened to grow first.
+
+This boundary document exists for one practical reason: when a reader or
+maintainer opens `adna/` or `data_downloader/`, the tree should explain intent
+clearly enough that the next edit has an obvious home.
 
 ## Runtime Command Surface
 
-The command surface turns CLI arguments into one owned runtime action. It is
-the only layer that should know how operator intent maps onto collection,
+The command surface turns CLI intent into one owned runtime action. It is the
+only layer that should know how operator intent maps onto collection,
 normalization, review, or publication entrypoints.
 
 Primary modules:
@@ -18,8 +23,9 @@ Primary modules:
 ## Source Collection And Intake
 
 Source collection and intake admit external source-family data into tracked
-repository state. This includes general context sources and the intake helpers
-that decode source-owned workbook structure.
+repository state. This boundary should stay focused on fetching, decoding,
+normalizing external source shape, and handing off stable inputs to the rest of
+the runtime.
 
 Primary modules:
 
@@ -29,6 +35,21 @@ Primary modules:
 - `bijux_pollenomics.data_downloader.exports`
 - `bijux_pollenomics.adna.sources.library`
 - `bijux_pollenomics.adna.sources.ena`
+
+### `data_downloader` Intent
+
+`data_downloader` should read like the source-admission side of the runtime,
+with subtrees that answer different intake questions cleanly:
+
+- `pipeline/`: orchestration and collection-flow assembly
+- `sources/`: one subtree per external source family
+- `intake/`: workbook, archive, or payload decoding helpers
+- `shared/` and `spatial/`: truly shared source-intake utilities only
+- `exports/`: source-owned output surfaces produced directly from collection
+
+It should not become a grab-bag for downstream scientific review, atlas claim
+logic, or publication wording. Once source-family material is admitted and
+stabilized, responsibility should move onward.
 
 ## Evidence Normalization
 
@@ -58,6 +79,21 @@ Primary modules:
 - `bijux_pollenomics.evidence`
 - `bijux_pollenomics.analysis.review`
 - `bijux_pollenomics.foundation`
+
+### `adna` Intent
+
+`adna` is the scientific core of the animal ancient-DNA runtime. Its tree
+should separate responsibilities that answer different evidence questions:
+
+- `sources/`: source-library intake and acquisition-side recovery work
+- `projects/`: project- and sample-level evidence shaping
+- `species/`: species-aware runtime and curated species surfaces
+- top-level review and normalization modules: cross-project evidence decisions
+
+That means `adna` should not blur source acquisition, sample truth, cross-
+species review, and publication-facing outputs into one flat module story. The
+package becomes easier to reason about when each boundary owns one durable
+scientific responsibility.
 
 ## Publication Assembly
 

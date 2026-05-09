@@ -1630,9 +1630,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT
             / "packages"
             / "bijux-pollenomics"
-            / "src"
-            / "bijux_pollenomics"
-            / "package_boundaries.md"
+            / "docs"
+            / "boundaries.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("# Runtime Package Boundaries", boundary_doc)
