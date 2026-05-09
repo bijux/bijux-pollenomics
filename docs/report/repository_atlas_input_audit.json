@@ -14,8 +14,8 @@
         "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
-        "docs/report/nordic-atlas/nordic_reveals_grid_cells.geojson"
+        "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+        "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson"
       ],
       "refresh_anchor": "data/landclim/normalized/landclim_summary.json",
       "metrics": {
@@ -35,7 +35,7 @@
         "data/neotoma/normalized/nordic_pollen_sites.geojson"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
       ],
       "refresh_anchor": "data/neotoma/raw/neotoma_pollen_sites.json",
       "metrics": {
@@ -54,7 +54,7 @@
         "data/sead/normalized/nordic_environmental_sites.geojson"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_environmental_sites.geojson"
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson"
       ],
       "refresh_anchor": "data/sead/raw/nordic_sites.json",
       "metrics": {
@@ -75,8 +75,8 @@
         "data/raa/normalized/sweden_archaeology_layer.json"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
-        "docs/report/nordic-atlas/sweden_archaeology_layer.json"
+        "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+        "docs/report/regions/nordic/sweden_archaeology_layer.json"
       ],
       "refresh_anchor": "data/raa/normalized/sweden_archaeology_layer.json",
       "metrics": {
@@ -99,7 +99,7 @@
         "data/boundaries/normalized/nordic_country_boundaries.geojson"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+        "docs/report/regions/nordic/nordic_country_boundaries.geojson"
       ],
       "refresh_anchor": "data/boundaries/normalized/nordic_country_boundaries.geojson",
       "metrics": {
@@ -120,8 +120,8 @@
         "data/adna/final/atlas/animal_atlas_point_candidates.csv"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
-        "docs/report/nordic-atlas/nordic-atlas_animal_point_traceability.json"
+        "docs/report/world/world_animal_atlas_evidence.json",
+        "docs/report/world/world_animal_point_traceability.json"
       ],
       "refresh_anchor": "docs/report/animal_sample_database_review.json",
       "metrics": {

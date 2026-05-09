@@ -63,7 +63,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 234)
         self.assertTrue(
             any(
-                "under-reports" in row
+                "unresolved" in row or "refused" in row
                 for row in payload["claim_freeze_reasons"]
             )
         )

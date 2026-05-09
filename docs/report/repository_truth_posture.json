@@ -45,14 +45,7 @@
     "fieldwork_page_count": 2,
     "source_explainer_count": 11,
     "landing_page_count": 6,
-    "zero_collection_summary_surfaces": [
-      "landclim_site_count",
-      "landclim_grid_cell_count",
-      "neotoma_point_count",
-      "sead_point_count",
-      "raa_total_site_count",
-      "raa_heritage_site_count"
-    ]
+    "zero_collection_summary_surfaces": []
   },
   "recovery_priorities": [
     "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
@@ -61,7 +54,7 @@
     "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
   ],
   "claim_freeze_reasons": [
-    "collection summary still under-reports several non-aDNA source counts"
+    "tracked animal geography still leaves unresolved or refused rows outside the published surface"
   ],
   "do_not_repeat": [
     "do not treat checked-in JSON file count as scientific progress",

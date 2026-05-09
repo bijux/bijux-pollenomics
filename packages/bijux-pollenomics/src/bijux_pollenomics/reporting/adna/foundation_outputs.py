@@ -701,7 +701,7 @@ def build_animal_sample_database_review(
         "supplement_registry": "data/adna/governance/source_library/supplement_registry.json",
         "sample_foundation_truth": "data/adna/governance/animal_sample_foundation_truth.json",
         "sample_database_contract": "data/adna/governance/animal_sample_product_contract.json",
-        "sample_query_example": "docs/report/sweden/sweden_animal_adna_v66_samples.md",
+        "sample_query_example": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.md",
         "site_review": "data/adna/governance/source_library/project_sample_site_review.json",
         "locality_conflicts": "data/adna/governance/source_library/sample_locality_conflict_ledger.json",
         "locality_curation_workflow": "data/adna/governance/source_library/sample_locality_manual_curation_workflow.json",
@@ -714,8 +714,8 @@ def build_animal_sample_database_review(
         "date_evidence_gap_queue": "data/adna/governance/source_library/date_evidence_gap_queue.json",
         "coordinate_provenance_example": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
         "point_evidence_review": "docs/report/animal_point_evidence_review.md",
-        "atlas_evidence_rows": "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
-        "atlas_map": "docs/report/nordic-atlas/nordic-atlas_map.html",
+        "atlas_evidence_rows": "docs/report/world/world_animal_atlas_evidence.json",
+        "atlas_map": "docs/report/world/world_map.html",
         "country_output_summary": "docs/report/published_reports_summary.json",
     }
     sample_database_claim_supported = all(
@@ -1491,8 +1491,9 @@ def _load_country_payloads(report_root: Path) -> list[dict[str, object]]:
     report_root = Path(report_root)
     if not report_root.is_dir():
         return rows
-    for country_dir in sorted(report_root.iterdir()):
-        if not country_dir.is_dir() or country_dir.name in {"_map_assets", "nordic-atlas"}:
+    country_root = report_root / "countries"
+    for country_dir in sorted(country_root.iterdir() if country_root.is_dir() else ()):
+        if not country_dir.is_dir():
             continue
         for summary_path in country_dir.glob("*_animal_adna_*_summary.json"):
             payload = json.loads(summary_path.read_text(encoding="utf-8"))
