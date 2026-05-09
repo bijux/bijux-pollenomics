@@ -85,8 +85,8 @@
       "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
     },
     "sead": {
-      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
-      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43"
+      "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
+      "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2"
     }
   },
   "source_provenance": {
@@ -165,8 +165,8 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/sead",
       "normalized_root": "data/sead/normalized",
-      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
-      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43"
+      "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
+      "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2"
     }
   },
   "source_replacement_rules": {
@@ -264,9 +264,9 @@
       "source": "sead",
       "source_identity": "sead",
       "source_version": "v66",
-      "snapshot_sha256": "0a650d30355fe39ac2769d5174dbf6409497198914d29ddf200202667fe70b09",
-      "normalized_sha256": "fe107c53c3458079343722f11ccc215283d84718481844a5e4947f232daa2e43",
-      "dispute_token": "sead@v66:0a650d30355f"
+      "snapshot_sha256": "9291c8174ecec421be46509aa9d6caf99e556f245d619c627981eb527ccad76d",
+      "normalized_sha256": "b5e4265b22f0e1e210bc2b8ada3996ba89ce00da9fa087a38aab795a6e2f00a2",
+      "dispute_token": "sead@v66:9291c8174ece"
     }
   },
   "contract_artifacts": {
@@ -286,17 +286,15 @@
       "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "landclim_site_count": 492,
         "landclim_grid_cell_count": 88
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "neotoma",
@@ -328,7 +326,7 @@
       "provenance_depth": "review_ready",
       "publication_posture": "published_with_review_support",
       "coverage_metrics": {
-        "sead_point_count": 2069
+        "sead_point_count": 2172
       },
       "blocking_reasons": []
     },
@@ -409,7 +407,7 @@
   "landclim_site_count": 492,
   "landclim_grid_cell_count": 88,
   "neotoma_point_count": 200,
-  "sead_point_count": 2069,
+  "sead_point_count": 2172,
   "raa_total_site_count": 761917,
   "raa_heritage_site_count": 318265,
   "summary_path": "data/collection_summary.json"

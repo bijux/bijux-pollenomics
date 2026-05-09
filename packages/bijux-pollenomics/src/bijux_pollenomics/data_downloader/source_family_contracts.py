@@ -87,10 +87,10 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/sead/review",
+                repository_path="data/source_family_evidence_stage_matrix.json",
                 required=True,
-                purpose="site-level temporal review of SEAD period, duration, and uncertainty semantics",
-                example_artifacts=("data/sead/review/temporal_review.json",),
+                purpose="cross-family review of freshness, coverage, and publication posture",
+                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -139,7 +139,7 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 required=True,
                 purpose="published Neotoma context layers used in atlas outputs",
                 example_artifacts=(
-                    "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+                    "docs/report/regions/nordic/nordic_pollen_sites.geojson",
                 ),
             ),
             coverage_metric_keys=("neotoma_point_count",),
@@ -171,10 +171,13 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             reviewed_layer=SourceFamilyLayerContract(
                 layer_key="reviewed",
-                repository_path="data/source_family_evidence_stage_matrix.json",
+                repository_path="data/sead/review",
                 required=True,
-                purpose="cross-family review of freshness, coverage, and publication posture",
-                example_artifacts=("data/source_family_evidence_stage_matrix.json",),
+                purpose="site-level access, temporal, and normalization-legibility review for SEAD archaeology context",
+                example_artifacts=(
+                    "data/sead/review/evidence_legibility_review.json",
+                    "data/sead/review/access_model.json",
+                ),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",

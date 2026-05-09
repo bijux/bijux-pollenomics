@@ -10,17 +10,15 @@
       "primary_question": "Which tracked LandClim pollen-site records exist and survive normalization into map-ready context layers?",
       "raw_status": "present",
       "normalized_status": "present",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
-      "provenance_depth": "normalized_without_review_layer",
-      "publication_posture": "normalized_but_thin",
+      "provenance_depth": "review_ready",
+      "publication_posture": "published_with_review_support",
       "coverage_metrics": {
         "landclim_site_count": 492,
         "landclim_grid_cell_count": 88
       },
-      "blocking_reasons": [
-        "missing_review_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "neotoma",
@@ -52,7 +50,7 @@
       "provenance_depth": "review_ready",
       "publication_posture": "published_with_review_support",
       "coverage_metrics": {
-        "sead_point_count": 2069
+        "sead_point_count": 2172
       },
       "blocking_reasons": []
     },
