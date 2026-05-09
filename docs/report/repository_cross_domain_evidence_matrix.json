@@ -22,8 +22,8 @@
         "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
-        "docs/report/nordic-atlas/nordic_pollen_sites.geojson"
+        "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
       ],
       "coverage_posture": "first_class_context_family",
       "current_gap": "pollen context is strong as tracked context, but it still needs more pollenomics-first synthesis than the current atlas-facing slices provide"
@@ -48,8 +48,8 @@
         "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_environmental_sites.geojson",
-        "docs/report/nordic-atlas/sweden_archaeology_density.geojson"
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+        "docs/report/regions/nordic/sweden_archaeology_density.geojson"
       ],
       "coverage_posture": "explicit_context_family",
       "current_gap": "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence"
@@ -69,7 +69,7 @@
         "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md"
       ],
       "published_paths": [
-        "docs/report/nordic-atlas/nordic_country_boundaries.geojson"
+        "docs/report/regions/nordic/nordic_country_boundaries.geojson"
       ],
       "coverage_posture": "strong_framing_surface",
       "current_gap": "boundary geometry is robust framing, but it should never be mistaken for scientific balance on its own"
@@ -112,7 +112,7 @@
       ],
       "published_paths": [
         "docs/report/animal_sample_database_review.md",
-        "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json"
+        "docs/report/world/world_animal_atlas_evidence.json"
       ],
       "coverage_posture": "partial_sample_owned_surface",
       "current_gap": "animal aDNA is real and now traceable, but it is still a thinner and more recovery-bound surface than the repository's context families"
@@ -131,12 +131,12 @@
       },
       "docs_paths": [
         "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-        "docs/02-bijux-pollenomics-data/outputs/nordic-atlas.md",
+        "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
         "docs/02-bijux-pollenomics-data/outputs/output-surface-classes.md"
       ],
       "published_paths": [
-        "docs/report/sweden/README.md",
-        "docs/report/nordic-atlas/nordic-atlas_map.html"
+        "docs/report/countries/sweden/README.md",
+        "docs/report/world/world_map.html"
       ],
       "coverage_posture": "downstream_not_governing",
       "current_gap": "reports and atlas bundles summarize upstream evidence; they do not prove balanced coverage by themselves"

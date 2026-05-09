@@ -299,13 +299,14 @@ def build_public_animal_output_audit(
 ) -> dict[str, object]:
     """Summarize what the shipped public report tree currently exposes for animal aDNA."""
     report_root = Path(report_root)
+    country_root = report_root / "countries"
     dashboard = build_cross_species_coverage_dashboard(data_root, report_root)
     countries = tuple(
         path.name
-        for path in sorted(report_root.iterdir())
-        if path.is_dir() and path.name not in {"nordic-atlas", "_map_assets"}
-    ) if report_root.exists() else ()
-    atlas_readme = report_root / "nordic-atlas" / "README.md"
+        for path in sorted(country_root.iterdir())
+        if path.is_dir()
+    ) if country_root.exists() else ()
+    atlas_readme = report_root / "world" / "README.md"
     atlas_notes = (
         atlas_readme.read_text(encoding="utf-8")
         if atlas_readme.exists()
@@ -327,7 +328,7 @@ def build_public_animal_output_audit(
         "schema_version": "animal-output-audit.v1",
         "report_root": str(report_root),
         "countries": list(countries),
-        "atlas_bundle_present": (report_root / "nordic-atlas").is_dir(),
+        "atlas_bundle_present": (report_root / "world").is_dir(),
         "country_bundle_count": len(countries),
         "point_candidate_count": accountability["candidate_row_count"],
         "candidate_rows_with_full_traceability": accountability["passed_row_count"],
@@ -730,7 +731,7 @@ def _build_species_coverage_row(
         species.common_name,
     )
     atlas_layer_count = _atlas_layer_count(
-        report_root / "nordic-atlas",
+        report_root / "world",
         species.latin_name,
         species.common_name,
     )
@@ -868,10 +869,11 @@ def _load_mapped_sample_ids_by_species(data_root: Path) -> dict[str, set[str]]:
 
 def _load_country_sample_ids_by_species(report_root: Path) -> dict[str, set[str]]:
     sample_ids: dict[str, set[str]] = {}
-    if not report_root.exists():
+    country_root = report_root / "countries"
+    if not country_root.exists():
         return sample_ids
-    for country_dir in report_root.iterdir():
-        if not country_dir.is_dir() or country_dir.name in {"nordic-atlas", "_map_assets"}:
+    for country_dir in country_root.iterdir():
+        if not country_dir.is_dir():
             continue
         for summary_path in sorted(country_dir.glob("*_animal_adna_*_summary.json")):
             payload = json.loads(summary_path.read_text(encoding="utf-8"))
@@ -934,14 +936,13 @@ def _country_output_count(
     latin_name: str,
     common_name: str,
 ) -> int:
-    if not report_root.exists():
+    country_root = report_root / "countries"
+    if not country_root.exists():
         return 0
     return sum(
         1
-        for path in report_root.iterdir()
-        if path.is_dir()
-        and path.name not in {"nordic-atlas", "_map_assets"}
-        and _species_output_count(path, latin_name, common_name) > 0
+        for path in country_root.iterdir()
+        if path.is_dir() and _species_output_count(path, latin_name, common_name) > 0
     )
 
 
@@ -950,7 +951,7 @@ def _atlas_layer_count(
     latin_name: str,
     common_name: str,
 ) -> int:
-    summary_path = atlas_root / "nordic-atlas_summary.json"
+    summary_path = atlas_root / "world_summary.json"
     if summary_path.is_file():
         payload = json.loads(summary_path.read_text(encoding="utf-8"))
         animal_atlas = payload.get("animal_atlas", {})

@@ -602,7 +602,7 @@ def build_repository_source_explainer_audit(
             "recovery_rule",
             "Shared normalization explainer",
             "docs/02-bijux-pollenomics-data/sources/shared-normalization.md",
-            ["docs/report/nordic-atlas/", "normalized"],
+            ["docs/report/world/", "normalized"],
             "restore the shared-normalization page so readers can see how cross-family output shapes differ from source identity",
         ),
         (
@@ -843,8 +843,8 @@ def build_repository_atlas_input_audit(
                 "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
             ],
             [
-                "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
-                "docs/report/nordic-atlas/nordic_reveals_grid_cells.geojson",
+                "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+                "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson",
             ],
             "data/landclim/normalized/landclim_summary.json",
             {
@@ -859,7 +859,7 @@ def build_repository_atlas_input_audit(
             "primary_domain",
             ["data/neotoma/raw/neotoma_pollen_dataset_inventory.json"],
             ["data/neotoma/normalized/nordic_pollen_sites.geojson"],
-            ["docs/report/nordic-atlas/nordic_pollen_sites.geojson"],
+            ["docs/report/regions/nordic/nordic_pollen_sites.geojson"],
             "data/neotoma/raw/neotoma_pollen_sites.json",
             {"site_count": counts["tracked_neotoma_site_count"]},
             "Neotoma broadens the pollen story with its own site inventory and should remain distinct from LandClim.",
@@ -870,7 +870,7 @@ def build_repository_atlas_input_audit(
             "contextual_domain",
             ["data/sead/raw/nordic_sites.json"],
             ["data/sead/normalized/nordic_environmental_sites.geojson"],
-            ["docs/report/nordic-atlas/nordic_environmental_sites.geojson"],
+            ["docs/report/regions/nordic/nordic_environmental_sites.geojson"],
             "data/sead/raw/nordic_sites.json",
             {"site_count": counts["tracked_sead_site_count"]},
             "SEAD is broader environmental archaeology context and should stay visible as its own source family.",
@@ -888,8 +888,8 @@ def build_repository_atlas_input_audit(
                 "data/raa/normalized/sweden_archaeology_layer.json",
             ],
             [
-                "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
-                "docs/report/nordic-atlas/sweden_archaeology_layer.json",
+                "docs/report/regions/nordic/sweden_archaeology_density.geojson",
+                "docs/report/regions/nordic/sweden_archaeology_layer.json",
             ],
             "data/raa/normalized/sweden_archaeology_layer.json",
             {
@@ -909,7 +909,7 @@ def build_repository_atlas_input_audit(
                 "data/boundaries/raw/sweden.geojson",
             ],
             ["data/boundaries/normalized/nordic_country_boundaries.geojson"],
-            ["docs/report/nordic-atlas/nordic_country_boundaries.geojson"],
+            ["docs/report/regions/nordic/nordic_country_boundaries.geojson"],
             "data/boundaries/normalized/nordic_country_boundaries.geojson",
             {"country_feature_count": counts["tracked_boundary_feature_count"]},
             "Boundary geometry is framing, not scientific evidence, but it still changes how every mapped layer is interpreted.",
@@ -927,8 +927,8 @@ def build_repository_atlas_input_audit(
                 "data/adna/final/atlas/animal_atlas_point_candidates.csv",
             ],
             [
-                "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
-                "docs/report/nordic-atlas/nordic-atlas_animal_point_traceability.json",
+                "docs/report/world/world_animal_atlas_evidence.json",
+                "docs/report/world/world_animal_point_traceability.json",
             ],
             "docs/report/animal_sample_database_review.json",
             {
@@ -988,8 +988,8 @@ def build_repository_cross_domain_evidence_matrix(
                 "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
             ],
             [
-                "docs/report/nordic-atlas/nordic_pollen_site_sequences.geojson",
-                "docs/report/nordic-atlas/nordic_pollen_sites.geojson",
+                "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+                "docs/report/regions/nordic/nordic_pollen_sites.geojson",
             ],
             "first_class_context_family",
             "pollen context is strong as tracked context, but it still needs more pollenomics-first synthesis than the current atlas-facing slices provide",
@@ -1011,8 +1011,8 @@ def build_repository_cross_domain_evidence_matrix(
                 "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
             ],
             [
-                "docs/report/nordic-atlas/nordic_environmental_sites.geojson",
-                "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
+                "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+                "docs/report/regions/nordic/sweden_archaeology_density.geojson",
             ],
             "explicit_context_family",
             "archaeology context is broad but intentionally contextual; readers should not confuse it with direct pollen or sample evidence",
@@ -1027,7 +1027,7 @@ def build_repository_cross_domain_evidence_matrix(
                 "docs/02-bijux-pollenomics-data/sources/boundaries.md",
                 "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
             ],
-            ["docs/report/nordic-atlas/nordic_country_boundaries.geojson"],
+            ["docs/report/regions/nordic/nordic_country_boundaries.geojson"],
             "strong_framing_surface",
             "boundary geometry is robust framing, but it should never be mistaken for scientific balance on its own",
         ),
@@ -1059,7 +1059,7 @@ def build_repository_cross_domain_evidence_matrix(
             ],
             [
                 "docs/report/animal_sample_database_review.md",
-                "docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json",
+                "docs/report/world/world_animal_atlas_evidence.json",
             ],
             "partial_sample_owned_surface",
             "animal aDNA is real and now traceable, but it is still a thinner and more recovery-bound surface than the repository's context families",
@@ -1075,12 +1075,12 @@ def build_repository_cross_domain_evidence_matrix(
             },
             [
                 "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-                "docs/02-bijux-pollenomics-data/outputs/nordic-atlas.md",
+                "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
                 "docs/02-bijux-pollenomics-data/outputs/output-surface-classes.md",
             ],
             [
-                "docs/report/sweden/README.md",
-                "docs/report/nordic-atlas/nordic-atlas_map.html",
+                "docs/report/countries/sweden/README.md",
+                "docs/report/world/world_map.html",
             ],
             "downstream_not_governing",
             "reports and atlas bundles summarize upstream evidence; they do not prove balanced coverage by themselves",
@@ -1662,6 +1662,12 @@ def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
         reasons.append("the shipped animal atlas point surface is still effectively empty")
     if int(counts["animal_map_unresolved_rows"]) > int(counts["animal_map_supported_rows"]):
         reasons.append("unresolved animal geography still overwhelms mapped support")
+    if int(counts["animal_map_unresolved_rows"]) > 0 or int(
+        counts["animal_map_refused_rows"]
+    ) > 0:
+        reasons.append(
+            "tracked animal geography still leaves unresolved or refused rows outside the published surface"
+        )
     if counts["zero_collection_summary_surfaces"]:
         reasons.append("collection summary still under-reports several non-aDNA source counts")
     return reasons
@@ -2243,7 +2249,7 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
                 "docs/02-bijux-pollenomics-data/evidence/chronology.md",
                 "docs/02-bijux-pollenomics-data/evidence/coordinates.md",
                 "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-                "docs/02-bijux-pollenomics-data/outputs/nordic-atlas.md",
+                "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
             ],
             "required_link_snippets": [
                 "overview/provenance-and-publication-linkage/",

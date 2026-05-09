@@ -94,11 +94,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
-                repository_path="docs/report/nordic-atlas",
+                repository_path="docs/report/world",
                 required=True,
                 purpose="published pollen-context layers used in atlas outputs",
                 example_artifacts=(
-                    "docs/report/nordic-atlas/nordic_pollen_sites.geojson",
+                    "docs/report/regions/nordic/nordic_pollen_sites.geojson",
                 ),
             ),
             coverage_metric_keys=("landclim_site_count", "landclim_grid_cell_count"),
@@ -135,11 +135,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
-                repository_path="docs/report/nordic-atlas",
+                repository_path="docs/report/world",
                 required=True,
                 purpose="published Neotoma context layers used in atlas outputs",
                 example_artifacts=(
-                    "docs/report/nordic-atlas/nordic_environmental_sites.geojson",
+                    "docs/report/regions/nordic/nordic_environmental_sites.geojson",
                 ),
             ),
             coverage_metric_keys=("neotoma_point_count",),
@@ -178,11 +178,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
-                repository_path="docs/report/nordic-atlas",
+                repository_path="docs/report/world",
                 required=True,
                 purpose="published archaeology context layers used in atlas outputs",
                 example_artifacts=(
-                    "docs/report/nordic-atlas/nordic_environmental_sites.geojson",
+                    "docs/report/regions/nordic/nordic_environmental_sites.geojson",
                 ),
             ),
             coverage_metric_keys=("sead_point_count",),
@@ -219,11 +219,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
-                repository_path="docs/report/nordic-atlas",
+                repository_path="docs/report/world",
                 required=True,
                 purpose="published archaeology density and context layers",
                 example_artifacts=(
-                    "docs/report/nordic-atlas/sweden_archaeology_density.geojson",
+                    "docs/report/regions/nordic/sweden_archaeology_density.geojson",
                 ),
             ),
             coverage_metric_keys=("raa_total_site_count", "raa_heritage_site_count"),
@@ -262,11 +262,11 @@ def build_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
-                repository_path="docs/report/nordic-atlas",
+                repository_path="docs/report/world",
                 required=True,
                 purpose="published boundary layers used in map framing",
                 example_artifacts=(
-                    "docs/report/nordic-atlas/nordic_country_boundaries.geojson",
+                    "docs/report/regions/nordic/nordic_country_boundaries.geojson",
                 ),
             ),
             coverage_metric_keys=("boundary_country_count",),

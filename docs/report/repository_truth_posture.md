@@ -16,7 +16,7 @@
 
 ## Claim Freeze Reasons
 
-- collection summary still under-reports several non-aDNA source counts
+- tracked animal geography still leaves unresolved or refused rows outside the published surface
 
 ## Recovery Priorities
 
