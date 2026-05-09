@@ -155,6 +155,7 @@ from .projects.sample_truth import (
     build_project_locality_count_drift,
     build_species_sample_count_drift,
 )
+from .species import homo_sapiens
 
 __all__ = [
     "ADNA_ENA_RESULT_KINDS",
@@ -303,6 +304,7 @@ __all__ = [
     "resolve_project_site_evidence",
     "resolve_homo_sapiens_schema",
     "resolve_species_definition",
+    "homo_sapiens",
     "sample_time_interval",
     "sample_time_label",
     "sample_time_mean",

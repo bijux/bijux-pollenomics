@@ -27,7 +27,7 @@ TEST_REGRESSION_ARGS := -m "not generated_artifacts" --maxfail=1 -q
 TEST_GENERATED_ARTIFACTS_ARGS := -m "generated_artifacts" --maxfail=1 -q
 # The checked-in regression suite is entirely governed generated-artifact work.
 # Keep the fast CI lane on unit and e2e checks, and leave heavy artifact
-# verification to test-generated-artifacts or test-full.
+# verification to test-generated-artifacts or test-all.
 TEST_CI_TARGETS := test-unit test-e2e
 QUALITY_PATHS = src tests
 QUALITY_MYPY_CONFIG = $(MONOREPO_ROOT)/configs/mypy.ini
@@ -103,10 +103,13 @@ test-generated-artifacts:
 	$(call clean_paths,$(TEST_CLEAN_PATHS))
 .PHONY: test-generated-artifacts
 
-test-full:
+test-all:
 	@$(SELF_MAKE) test
 	@$(SELF_MAKE) test-generated-artifacts
 	@echo "✔ Full test categories completed"
+.PHONY: test-all
+
+test-full: test-all
 .PHONY: test-full
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
