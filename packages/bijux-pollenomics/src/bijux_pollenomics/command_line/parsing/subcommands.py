@@ -354,10 +354,10 @@ def build_report_country_parser(
 def build_multi_country_map_parser(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> argparse.ArgumentParser:
-    """Build the shared multi-country atlas subcommand parser."""
+    """Build the shared multi-country geography-surface subcommand parser."""
     parser = subparsers.add_parser(
         "report-multi-country-map",
-        help="Build the Nordic Evidence Atlas for multiple countries with country toggles.",
+        help="Build one shared evidence surface for multiple countries with country toggles.",
     )
     parser.add_argument(
         "countries",
@@ -381,7 +381,7 @@ def build_publish_reports_parser(
     """Build the checked-in publication workflow subcommand parser."""
     parser = subparsers.add_parser(
         "publish-reports",
-        help="Regenerate the current published Nordic Evidence Atlas bundle and country report bundles.",
+        help="Regenerate the current world, regional, and country publication tree.",
     )
     parser.add_argument(
         "--countries",
@@ -408,7 +408,7 @@ def build_refresh_animal_adna_foundation_parser(
         "refresh-animal-adna-foundation",
         help=(
             "Refresh tracked animal source capture, normalized data roots, and "
-            "published Nordic animal report outputs in one run."
+            "published world, regional, and country animal report outputs in one run."
         ),
     )
     parser.add_argument(
@@ -436,7 +436,7 @@ def build_refresh_animal_adna_foundation_parser(
         "--countries",
         nargs="+",
         default=list(DEFAULT_PUBLISHED_COUNTRIES),
-        help="Countries to include in the published Nordic report refresh.",
+        help="Countries to include in the published geography-tree refresh.",
     )
     parser.add_argument(
         "--species",

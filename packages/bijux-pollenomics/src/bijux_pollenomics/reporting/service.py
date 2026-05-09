@@ -23,6 +23,7 @@ from .bundles.map_inputs import load_multi_country_map_inputs
 from .bundles.paths import build_atlas_bundle_paths
 from .bundles.published_reports import publish_published_reports_tree
 from .bundles.staging import publish_into_staging_dir
+from .geography import GeographicScope
 from .bundles.summary_builders import (
     build_country_report_summary,
     build_multi_country_map_summary,
@@ -116,6 +117,7 @@ def generate_multi_country_map(
     slug: str,
     context_root: Path | None = None,
     published_output_dir: Path | None = None,
+    geography_scope: GeographicScope | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -149,6 +151,10 @@ def generate_multi_country_map(
         country_sample_counts=map_inputs.country_sample_counts,
         total_unique_samples=len(map_inputs.all_samples),
         output_dir=published_output_dir,
+        scope_key="custom" if geography_scope is None else geography_scope.key,
+        scope_label="" if geography_scope is None else geography_scope.label,
+        scope_kind="custom" if geography_scope is None else geography_scope.kind,
+        parent_scope_key=None if geography_scope is None else geography_scope.parent_key,
     )
 
     def publish_map_bundle(staging_output_dir: Path) -> None:
@@ -162,6 +168,7 @@ def generate_multi_country_map(
             country_sample_counts=map_inputs.country_sample_counts,
             all_samples=map_inputs.all_samples,
             context_root=context_root,
+            geography_scope=geography_scope,
             asset_base_path="./_map_assets",
             build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
             build_context_layers_fn=build_context_layers,

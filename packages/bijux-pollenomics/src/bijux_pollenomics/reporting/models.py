@@ -32,6 +32,10 @@ class MultiCountryMapReport:
     country_sample_counts: dict[str, int]
     total_unique_samples: int
     output_dir: Path
+    scope_key: str = "custom"
+    scope_label: str = ""
+    scope_kind: str = "custom"
+    parent_scope_key: str | None = None
 
 
 @dataclass(frozen=True)
@@ -42,6 +46,8 @@ class PublishedReportsReport:
     shared_map_dir: Path
     country_output_dirs: tuple[Path, ...]
     summary_path: Path
+    regional_output_dirs: tuple[Path, ...] = ()
+    country_output_root: Path | None = None
 
 
 @dataclass(frozen=True)
