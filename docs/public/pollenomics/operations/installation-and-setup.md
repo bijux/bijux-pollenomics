@@ -11,6 +11,10 @@ last_reviewed: 2026-05-07
 
 The supported setup path is repository-first.
 
+That means the repository checkout itself is the supported environment. The
+goal is not to chase every possible Python invocation. The goal is to reach the
+known-good command path quickly and then stay on it.
+
 ## Setup Model
 
 ```mermaid
@@ -58,3 +62,6 @@ artifacts/root/check-venv/bin/bijux-pollenomics publish-reports --aadr-root data
 - `make install`
 - `artifacts/root/check-venv/bin/bijux-pollenomics --version`
 - `packages/bijux-pollenomics/tests/`
+
+If those three checks are not working, it is too early to trust broader rebuild
+results.

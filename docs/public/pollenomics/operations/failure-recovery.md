@@ -12,6 +12,10 @@ last_reviewed: 2026-05-08
 When a rebuild fails, recover by boundary rather than rerunning the whole
 repository blindly.
 
+This page exists because broad reruns often hide the real problem. A useful
+recovery path narrows the failing boundary first, then expands only when the
+cause is understood.
+
 ## Failure Questions
 
 - did command parsing fail before any tracked state changed?
@@ -26,6 +30,9 @@ repository blindly.
 3. rerun the narrowest relevant tests
 4. only rerun `make app-state` once the broken boundary is understood
 
+That sequence matters. If you skip straight to a full rebuild, you can make the
+diff larger while learning less.
+
 ## High-Risk Cases
 
 - partial aDNA refreshes that appear to improve counts without improving
@@ -33,3 +40,6 @@ repository blindly.
 - docs rewrites that narrow `01`, `02`, or `03` while keeping pages green
 - report output changes that make atlas posture sound stronger than the support
   reviews justify
+
+These are high-risk not because they always fail loudly, but because they can
+leave the repository looking healthier than it really is.
