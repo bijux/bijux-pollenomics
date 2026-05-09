@@ -64,9 +64,7 @@ repository does not. It places several different families beside each other:
 - human ancient DNA release material
 - animal ancient DNA recovery work that is still being strengthened project by project
 
-In practice that means the section has to explain pollen context,
-environmental archaeology, boundary framing, human release material, and
-animal aDNA recovery as one joined evidence system.
+In practice that means the section has to explain pollen context, environmental archaeology, boundary framing, human release material, and animal aDNA recovery as one joined evidence system.
 
 That mixed setting is useful, but it creates a documentation burden. If the
 site is vague, readers cannot tell whether they are looking at mature evidence,

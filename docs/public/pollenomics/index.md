@@ -9,10 +9,10 @@ last_reviewed: 2026-05-09
 
 # Bijux Pollenomics Product Guide
 
-`bijux-pollenomics` is the public guide to the repository as a product, not
-just as a codebase. It explains what the repository publishes today, why those
-outputs exist, how far they can be trusted, and where a reader should go when a
-map, report, or evidence file raises a bigger question.
+`bijux-pollenomics` is the product guide for the repository's public evidence.
+It is the public guide to the repository as a product, not just as a codebase,
+so a reader can understand what the repository publishes today, why those outputs
+exist, how far they can be trusted, and where to go next without needing to read the source code first.
 
 The central idea is simple. This repository rebuilds one governed evidence
 system, then publishes several reader-facing cuts from that same state. Pollen
