@@ -94,3 +94,23 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             path = report_root / name
             self.assertTrue(path.is_file(), name)
             self.assertIn(heading, path.read_text(encoding="utf-8"))
+
+    def test_report_root_ships_reader_portal_families(self) -> None:
+        report_root = REPO_ROOT / "docs" / "report"
+        for name, heading in (
+            ("index.md", "Report Portal"),
+            ("how-to-read.md", "How To Read Reports"),
+            ("maps/index.md", "Map Surfaces"),
+            ("scopes/index.md", "Scope-Filtered Outputs"),
+            ("reviews/index.md", "Evidence Reviews"),
+            ("caveats/index.md", "Scientific Caveats"),
+            ("maintenance/index.md", "Maintainer Truth Packets"),
+            ("report_surface_registry.md", "Report surface registry"),
+            (
+                "report_narrative_quality_review.md",
+                "Report narrative quality review",
+            ),
+        ):
+            path = report_root / name
+            self.assertTrue(path.is_file(), name)
+            self.assertIn(heading, path.read_text(encoding="utf-8"))
