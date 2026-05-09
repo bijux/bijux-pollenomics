@@ -9,12 +9,17 @@ last_reviewed: 2026-05-09
 
 # How Evidence Becomes Outputs
 
-This section explains the public chain from source material to visible output.
-The architecture matters only if it helps a reader answer a simple question:
-how did this report, map point, or country bundle get here?
+This section explains the public lifecycle from source material to visible
+output. The only reason architecture belongs on a public surface is that
+readers eventually need to answer hard practical questions:
 
-The answer should be traceable without already knowing the package tree and
-without having to guess which internal module happens to own which step.
+- how did this report, map point, or bundle get here
+- which part of the system governs it
+- where should I look when a visible output seems stronger or weaker than I
+  expected
+
+The architecture is therefore presented as a reading aid, not as an internal
+tour of module names.
 
 ## Flow
 
@@ -41,13 +46,22 @@ flowchart LR
 
 ## The Main Stages
 
-- commands declare what kind of rebuild or inspection is being requested
+- commands declare what kind of rebuild, check, or inspection is being
+  requested
 - collection brings governed source material into the repository
 - normalization turns mixed upstream inputs into comparable repository-owned
   evidence files
-- review surfaces expose strengths, blockers, and caveats
+- review surfaces expose strengths, blockers, caveats, and refusal reasons
 - publication writes country, regional, and world-facing outputs
-- checks fail when these layers drift apart
+- checks fail when those layers drift apart or start implying too much
+
+## What This Section Should Help You Understand
+
+- why a visible output is never the whole story by itself
+- why source intake, evidence normalization, review, and publication must stay
+  visibly separate
+- where to go next when your question is about system flow rather than evidence
+  content
 
 ## Durable Boundaries
 
@@ -63,10 +77,11 @@ flowchart LR
 
 ## Read This Section If You Need To Know
 
-- how the commands line up with tracked source material
-- where evidence is normalized before it becomes public output
+- how commands line up with tracked source material
+- where evidence becomes reviewable before it becomes public output
 - which parts of the repository own review versus rendering
 - where to look if an output changes unexpectedly
+- how to trace a reader-facing surface back to its governing evidence and rules
 
 ## Expanded Pages
 
