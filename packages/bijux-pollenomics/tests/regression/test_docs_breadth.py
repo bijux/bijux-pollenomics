@@ -11,7 +11,22 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class DocsBreadthRegressionTests(unittest.TestCase):
-    def test_runtime_handbook_restores_runtime_breadth_pages(self) -> None:
+    def test_public_guide_routes_readers_before_repo_details(self) -> None:
+        public_index = (REPO_ROOT / "docs" / "public" / "index.md").read_text(
+            encoding="utf-8"
+        )
+        internal_index = (REPO_ROOT / "docs" / "internal" / "index.md").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("public surface for `bijux-pollenomics`", public_index)
+        self.assertIn("Open the product guide", public_index)
+        self.assertIn("Open the report portal", public_index)
+        self.assertIn("internal guide", public_index)
+        self.assertIn("for maintainers", internal_index)
+        self.assertIn("Open the maintainer handbook", internal_index)
+
+    def test_runtime_handbook_keeps_reader_routes_to_breadth_pages(self) -> None:
         runtime_index = (
             REPO_ROOT / "docs" / "01-bijux-pollenomics" / "index.md"
         ).read_text(encoding="utf-8")
@@ -27,10 +42,11 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
-        self.assertIn("Breadth Restored", runtime_index)
-        self.assertIn("interfaces/entrypoints-and-examples/", runtime_index)
-        self.assertIn("operations/common-workflows/", runtime_index)
-        self.assertIn("quality/change-validation.md", runtime_index)
+        self.assertIn("What You Can Learn Here", runtime_index)
+        self.assertIn("Routes By Question", runtime_index)
+        self.assertIn("[entrypoints and examples]", runtime_index)
+        self.assertIn("[common workflows]", runtime_index)
+        self.assertIn("[runtime invariants and limits]", runtime_index)
 
     def test_data_handbook_keeps_cross_domain_system_coverage(self) -> None:
         data_index = (

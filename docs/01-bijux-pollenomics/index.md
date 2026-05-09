@@ -1,91 +1,95 @@
 ---
-title: bijux-pollenomics
+title: Product Guide
 audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-09
 ---
 
-# bijux-pollenomics Runtime Handbook
+# Bijux Pollenomics Product Guide
 
-`bijux-pollenomics` is the runtime package that rebuilds the repository's
-checked-in evidence surfaces across pollen context, environmental archaeology,
-boundary framing, fieldwork material, and ancient DNA context. It does one
-durable job: collect tracked source families, normalize them into reviewable
-files, and publish country bundles plus the world and regional geography tree as downstream
-views.
+`bijux-pollenomics` is the product guide for the repository's public evidence
+system. It explains how pollen context, environmental archaeology, boundaries,
+fieldwork records, and animal ancient DNA are turned into reviewable data
+files, country bundles, and map-facing report surfaces.
+
+The goal of this guide is simple: a reader should understand what the
+repository publishes, how those outputs are rebuilt, and what the current
+limits still are without needing to read the source code first.
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="interfaces/cli-surface/">Open the CLI surface</a>
-  <a class="md-button" href="interfaces/entrypoints-and-examples/">Open command entrypoints</a>
-  <a class="md-button" href="interfaces/artifact-contracts/">Open the artifact contracts</a>
-  <a class="md-button" href="operations/common-workflows/">Open common workflows</a>
-  <a class="md-button" href="operations/installation-and-setup/">Open the install and rebuild path</a>
-  <a class="md-button" href="quality/test-strategy/">Open test strategy</a>
+  <a class="md-button md-button--primary" href="../public/">Open the public guide</a>
+  <a class="md-button" href="foundation/">What this repository is for</a>
+  <a class="md-button" href="architecture/">How evidence becomes outputs</a>
+  <a class="md-button" href="interfaces/">Commands and public contracts</a>
+  <a class="md-button" href="operations/">Install and rebuild</a>
+  <a class="md-button" href="quality/">Checks and current limits</a>
 </div>
 
-## Runtime Loop
+## What You Can Learn Here
+
+- what the repository is trying to publish, not just what code it contains
+- how tracked source material becomes reviewable outputs under `data/` and
+  `docs/report/`
+- which commands are part of the stable rebuild path
+- how to interpret the current limits without overstating the animal aDNA slice
+- where to go next if your question is about data provenance, fieldwork, atlas
+  behavior, or repository maintenance
+
+## Publication Loop
 
 ```mermaid
 flowchart TB
-    commands["CLI commands"]
-    tracked["tracked source and normalized evidence files"]
-    bundles["country bundles and atlas bundle"]
-    review["tests and release checks"]
+    sources["tracked source families"]
+    normalization["normalization and review"]
+    outputs["country bundles, report portal, and atlas surfaces"]
+    readers["reader checks traceability and limits"]
 
-    commands --> tracked
-    tracked --> bundles
-    review --> commands
-    review --> bundles
+    sources --> normalization
+    normalization --> outputs
+    outputs --> readers
 ```
-
-The runtime handbook is for readers who need to understand how a visible
-publication surface is rebuilt. It is not an internal catalog of helpers.
 
 ## Start Here
 
-- why this package exists and where it stops:
+- why the repository exists and where it stops:
   [foundation](foundation/index.md)
-- how commands, tracked files, and outputs connect:
+- how evidence becomes visible outputs:
   [architecture](architecture/index.md)
 - which commands and files are part of the public contract:
   [interfaces](interfaces/index.md)
 - how to install, rebuild, and verify:
   [operations](operations/index.md)
-- how proof is layered and where current limits still sit:
+- how confidence is earned and where current limits still sit:
   [quality](quality/index.md)
 
-## Breadth Restored
+## Routes By Question
 
-- [runtime system model](architecture/runtime-system-model.md): execution path,
-  dependency direction, persistence, and failure boundaries
-- [runtime scope and ownership](foundation/runtime-scope-and-ownership.md):
-  capability map, ownership boundary, lifecycle, and change principles
-- [entrypoints and examples](interfaces/entrypoints-and-examples.md): installed
-  command paths for verification, data refresh, and report publication
-- [common workflows](operations/common-workflows.md): fresh checkout, data
-  refresh, publication review, and full local rebuild
-- [change validation](quality/change-validation.md): proof layers and the docs
-  breadth rule
+- what do you publish and what do you refuse to claim:
+  [repository scope and limits](foundation/repository-scope-and-limits.md)
+- how do commands become data files and reports:
+  [runtime system model](architecture/runtime-system-model.md)
+- what commands do I run for rebuilds and checks:
+  [entrypoints and examples](interfaces/entrypoints-and-examples.md)
+- how do I run the common rebuild paths safely:
+  [common workflows](operations/common-workflows.md)
+- how do I judge whether the current outputs are strong enough:
+  [runtime invariants and limits](quality/runtime-invariants-and-limits.md)
 
 ## What This Package Owns
 
-- the operator-facing commands that collect tracked evidence and rebuild
-  publication outputs
-- the code paths that normalize pollen, archaeology, boundary, and aDNA source
-  material into repository-owned artifacts
-- the report and atlas publication logic that turns tracked files into review
+- the rebuild path from tracked source material to public report and map
   surfaces
-- the candidate ranking logic that summarizes locality proximity against the
-  checked-in atlas context layers
+- the command entrypoints used to refresh evidence and regenerate outputs
+- the normalization and review logic that makes source material comparable
+- the publication logic that writes country, regional, and world-facing outputs
 
 ## What This Package Does Not Claim
 
-- the repository-wide documentation, release, and workflow rules explained in
-  the maintainer handbook
-- the source-specific provenance caveats explained in the data reference
-- the scientific interpretation of the mapped evidence beyond what the checked-in
-  artifacts and documented limitations support
-- claims that the current animal aDNA recovery state already equals full
-  pollenomics analysis
+- that the public reader should already know the code layout
+- that every visible output has identical evidence quality
+- that the current animal aDNA recovery slice already equals a complete
+  pollenomics engine
+- that repository maintenance rules belong in the product guide instead of the
+  [internal guide](../internal/index.md)
