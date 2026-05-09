@@ -49,7 +49,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
         )
 
-        self.assertEqual(config["exclude_docs"].strip(), "badges.md")
+        self.assertEqual(config["exclude_docs"].strip(), "badges.md\ninternal/**")
 
     def test_generated_data_readme_targets_existing_docs_pages(self) -> None:
         readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
@@ -847,7 +847,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         inventory_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "sources"
             / "animal-source-intake.md"
         )
@@ -1011,7 +1011,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_readme_and_docs_describe_license_and_test_suites(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         docs_text = (
-            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "quality" / "test-strategy.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics" / "quality" / "test-strategy.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("Apache License 2.0", readme_text)
@@ -1031,120 +1031,120 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("title: Bijux Pollenomics", docs_index)
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
-        self.assertIn("pollenomics and environmental evidence", docs_index)
+        self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
         self.assertIn(
-            "animal aDNA extraction already equals the whole pollenomics engine",
+            "the repository is already the full cross-evidence pollenomics engine",
             docs_index,
         )
 
-    def test_public_docs_keep_direct_sample_database_packet_and_query_links(
+    def test_public_docs_keep_direct_public_and_report_routes(
         self,
     ) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         sample_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "evidence"
             / "sample-records.md"
         ).read_text(encoding="utf-8")
         site_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "evidence"
             / "localities.md"
         ).read_text(encoding="utf-8")
         chronology_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "evidence"
             / "chronology.md"
         ).read_text(encoding="utf-8")
         temporal_semantics_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "evidence"
             / "temporal-semantics.md"
         ).read_text(encoding="utf-8")
         sead_handbook_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "sources"
             / "sead-handbook.md"
         ).read_text(encoding="utf-8")
         coordinate_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "evidence"
             / "coordinates.md"
         ).read_text(encoding="utf-8")
         source_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "sources" / "index.md"
         ).read_text(encoding="utf-8")
         source_family_matrix_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "sources"
             / "source-family-matrix.md"
         ).read_text(encoding="utf-8")
         publication_model_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "overview"
             / "pollenomics-publication-model.md"
         ).read_text(encoding="utf-8")
         cross_domain_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "overview"
             / "cross-domain-evidence-matrix.md"
         ).read_text(encoding="utf-8")
         inventory_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "sources"
             / "animal-source-intake.md"
         ).read_text(encoding="utf-8")
         source_recovery_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "sources"
             / "non-adna-explainer-recovery.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
-            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
+            REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
         ).read_text(encoding="utf-8")
         published_reports = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "outputs"
             / "published-reports.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "outputs" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "outputs" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "outputs"
             / "geographic-evidence-surfaces.md"
         ).read_text(encoding="utf-8")
         atlas_inputs_page = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "outputs"
             / "geographic-input-surfaces.md"
         ).read_text(encoding="utf-8")
@@ -1152,8 +1152,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "docs" / "report" / "repository_sead_legibility_review.md"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("02-bijux-pollenomics-data/", docs_index)
-        self.assertIn("report/world/world_map.html", docs_index)
+        self.assertIn("public/pollenomics-data/", docs_index)
+        self.assertIn("report/", docs_index)
+        self.assertIn("public/nordic-atlas/", docs_index)
         self.assertIn(
             "data/adna/governance/animal_sample_foundation_truth.json", sample_page
         )
@@ -1192,15 +1193,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             coordinate_page,
         )
         self.assertIn(
-            "../report/animal_point_evidence_review.md",
+            "../../report/animal_point_evidence_review.md",
             atlas_index,
         )
         self.assertIn(
-            "../report/regions/nordic/nordic_map_publication_contract.md",
+            "../../report/regions/nordic/nordic_map_publication_contract.md",
             atlas_index,
         )
         self.assertIn(
-            "../report/regions/nordic/nordic_point_traceability.md",
+            "../../report/regions/nordic/nordic_point_traceability.md",
             atlas_index,
         )
         self.assertIn(
@@ -1212,28 +1213,32 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             source_index,
         )
         self.assertIn(
-            "../../report/repository_source_family_matrix.json",
+            "../../../report/repository_source_family_matrix.json",
             source_family_matrix_page,
         )
         self.assertIn(
             "data/sead/review/evidence_legibility_review.json", sead_review_page
         )
         self.assertIn(
-            "../../report/repository_cross_domain_evidence_matrix.json",
+            "../../../report/repository_cross_domain_evidence_matrix.json",
             source_family_matrix_page,
         )
         self.assertIn(
-            "../../report/repository_source_explainer_audit.md",
+            "../../../report/repository_source_explainer_audit.md",
             source_family_matrix_page,
         )
         self.assertIn(
-            "../../report/repository_source_acquisition_queue.json",
+            "../../../report/repository_source_acquisition_queue.json",
             source_family_matrix_page,
         )
         self.assertIn(
-            "../../report/repository_cross_domain_evidence_matrix.md", cross_domain_page
+            "../../../report/repository_cross_domain_evidence_matrix.md",
+            cross_domain_page,
         )
-        self.assertIn("../../report/repository_atlas_input_audit.md", cross_domain_page)
+        self.assertIn(
+            "../../../report/repository_atlas_input_audit.md",
+            cross_domain_page,
+        )
         self.assertIn("cross-domain evidence matrix", publication_model_page.lower())
         self.assertIn(
             "data/adna/governance/source_library/reference_stash_reconciliation.json",
@@ -1260,49 +1265,67 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             inventory_page,
         )
         self.assertIn(
-            "../../report/repository_source_explainer_audit.md", source_recovery_page
+            "../../../report/repository_source_explainer_audit.md",
+            source_recovery_page,
         )
         self.assertIn(
-            "../../report/animal_sample_database_review.md", published_reports
-        )
-        self.assertIn(
-            "../../report/animal_intake_recovery_review.md", published_reports
-        )
-        self.assertIn("../../report/animal_point_evidence_review.md", published_reports)
-        self.assertIn("../../report/animal_output_honesty.md", published_reports)
-        self.assertIn(
-            "../../report/animal_atlas_exclusion_report.md", published_reports
-        )
-        self.assertIn(
-            "../../report/world/world_map_publication_contract.md", published_reports
-        )
-        self.assertIn(
-            "../../report/regions/nordic/nordic_point_traceability.md",
+            "../../../report/animal_sample_database_review.md",
             published_reports,
         )
-        self.assertIn("../../report/repository_truth_posture.md", published_reports)
         self.assertIn(
-            "../../report/repository_source_family_matrix.md", published_reports
+            "../../../report/animal_intake_recovery_review.md",
+            published_reports,
+        )
+        self.assertIn(
+            "../../../report/animal_point_evidence_review.md",
+            published_reports,
+        )
+        self.assertIn("../../../report/animal_output_honesty.md", published_reports)
+        self.assertIn(
+            "../../../report/animal_atlas_exclusion_report.md",
+            published_reports,
+        )
+        self.assertIn(
+            "../../../report/world/world_map_publication_contract.md",
+            published_reports,
+        )
+        self.assertIn(
+            "../../../report/regions/nordic/nordic_point_traceability.md",
+            published_reports,
+        )
+        self.assertIn(
+            "../../../report/repository_truth_posture.md",
+            published_reports,
+        )
+        self.assertIn(
+            "../../../report/repository_source_family_matrix.md",
+            published_reports,
         )
         self.assertIn("output-surface-classes.md", outputs_index)
         self.assertIn("geographic-point-publication.md", outputs_index)
         self.assertIn("geographic-filters-and-inspection.md", outputs_index)
         self.assertIn("geographic-limits-and-honesty.md", outputs_index)
         self.assertIn(
-            "../../report/world/world_map_publication_contract.md", atlas_outputs
+            "../../../report/world/world_map_publication_contract.md",
+            atlas_outputs,
         )
         self.assertIn(
-            "../../report/regions/nordic/nordic_point_traceability.md", atlas_outputs
-        )
-        self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
-        self.assertIn(
-            "../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page
+            "../../../report/regions/nordic/nordic_point_traceability.md",
+            atlas_outputs,
         )
         self.assertIn(
-            "../../report/countries/sweden/sweden_animal_adna_v66_samples.md",
+            "../../../report/repository_atlas_input_audit.md",
+            atlas_inputs_page,
+        )
+        self.assertIn(
+            "../../../report/repository_cross_domain_evidence_matrix.md",
+            atlas_inputs_page,
+        )
+        self.assertIn(
+            "../../../report/countries/sweden/sweden_animal_adna_v66_samples.md",
             published_reports,
         )
-        self.assertIn("../../report/countries/sweden/README.md", published_reports)
+        self.assertIn("../../../report/countries/sweden/README.md", published_reports)
         self.assertIn("animal_atlas_candidate_accountability.md", atlas_outputs)
 
     def test_public_docs_do_not_ship_reference_grade_phrase(self) -> None:
@@ -1332,20 +1355,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             encoding="utf-8"
         )
         runtime_index = (
-            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics" / "index.md"
         ).read_text(encoding="utf-8")
         data_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_index = (
-            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
+            REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_files = sorted(
             path.name
-            for path in (REPO_ROOT / "docs" / "05-nordic-evidence-atlas").glob("*.md")
+            for path in (REPO_ROOT / "docs" / "public" / "nordic-atlas").glob("*.md")
         )
 
-        self.assertIn("pollenomics and environmental evidence repository", root_readme)
+        self.assertIn("checked-in pollenomics and environmental", root_readme)
         self.assertIn(
             "animal aDNA sample extraction and atlas publication path is still under recovery",
             root_readme,
@@ -1368,10 +1391,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         data_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
         source_index = (
-            (REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md")
+            (REPO_ROOT / "docs" / "public" / "pollenomics-data" / "sources" / "index.md")
             .read_text(encoding="utf-8")
             .lower()
         )
@@ -1387,24 +1410,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             self.assertIn(expected, readme_text)
             self.assertIn(expected, source_index)
         self.assertIn("Open the public guide", docs_index)
-        self.assertIn("Open the internal guide", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
         self.assertIn("public evidence surfaces about Nordic pollenomics", docs_index)
+        self.assertNotIn("Open the internal guide", docs_index)
         self.assertIn("source-family comparison", data_index)
         self.assertIn(
-            "[report portal](../../report/index.md)",
+            "[report portal](../../../report/index.md)",
             (
                 REPO_ROOT
                 / "docs"
-                / "02-bijux-pollenomics-data"
+                / "public" / "pollenomics-data"
                 / "outputs"
                 / "published-reports.md"
             ).read_text(encoding="utf-8"),
         )
         self.assertIn(
-            "[report portal](../report/index.md)",
-            (REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md").read_text(
+            "[report portal](../../report/index.md)",
+            (REPO_ROOT / "docs" / "public" / "nordic-atlas" / "index.md").read_text(
                 encoding="utf-8"
             ),
         )
@@ -1428,7 +1451,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         workflow_text = (
             REPO_ROOT
             / "docs"
-            / "01-bijux-pollenomics"
+            / "public" / "pollenomics"
             / "operations"
             / "installation-and-setup.md"
         ).read_text(encoding="utf-8")
@@ -1448,7 +1471,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         command_reference = (
             REPO_ROOT
             / "docs"
-            / "01-bijux-pollenomics"
+            / "public" / "pollenomics"
             / "interfaces"
             / "cli-surface.md"
         ).read_text(encoding="utf-8")
@@ -1525,7 +1548,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         module_map = (
             REPO_ROOT
             / "docs"
-            / "01-bijux-pollenomics"
+            / "public" / "pollenomics"
             / "architecture"
             / "module-map.md"
         ).read_text(encoding="utf-8")
@@ -1550,7 +1573,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         directory_layout = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "overview"
             / "data-directory-layout.md"
         ).read_text(encoding="utf-8")
@@ -1834,7 +1857,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_fieldwork_page_embeds_video_from_site_root_gallery(self) -> None:
         fieldwork_text = (
-            REPO_ROOT / "docs" / "04-fieldwork" / "lyngsjon-lake-fieldwork" / "index.md"
+            REPO_ROOT / "docs" / "public" / "fieldwork" / "lyngsjon-lake-fieldwork" / "index.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn(
@@ -1965,38 +1988,38 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         published_artifacts = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "outputs"
             / "published-reports.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
             / "docs"
-            / "02-bijux-pollenomics-data"
+            / "public" / "pollenomics-data"
             / "outputs"
             / "geographic-evidence-surfaces.md"
         ).read_text(encoding="utf-8")
         report_layout = (
             REPO_ROOT
             / "docs"
-            / "01-bijux-pollenomics"
+            / "public" / "pollenomics"
             / "interfaces"
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
         quality_index = (
-            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "quality" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics" / "quality" / "index.md"
         ).read_text(encoding="utf-8")
         documentation_integrity = (
             REPO_ROOT
             / "docs"
-            / "03-bijux-pollenomics-maintain"
+            / "internal" / "governance"
             / "bijux-pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
         release_support = (
             REPO_ROOT
             / "docs"
-            / "03-bijux-pollenomics-maintain"
+            / "internal" / "governance"
             / "bijux-pollenomics-dev"
             / "release-support.md"
         ).read_text(encoding="utf-8")
@@ -2006,11 +2029,11 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             published_artifacts,
         )
         self.assertIn(
-            "../../report/repository_truth_posture.md",
+            "../../../report/repository_truth_posture.md",
             atlas_outputs,
         )
         self.assertIn(
-            "../../report/repository_claim_audit.md",
+            "../../../report/repository_claim_audit.md",
             atlas_outputs,
         )
         self.assertIn(
@@ -2026,15 +2049,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             report_layout,
         )
         self.assertIn(
-            "../../report/repository_truth_posture.md",
+            "../../../report/repository_truth_posture.md",
             quality_index,
         )
         self.assertIn(
-            "../../report/repository_claim_audit.md",
+            "../../../report/repository_claim_audit.md",
             documentation_integrity,
         )
         self.assertIn(
-            "../../report/repository_governance_artifact_review.md",
+            "../../../report/repository_governance_artifact_review.md",
             release_support,
         )
 
@@ -2044,14 +2067,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         automation_workflows = (
             REPO_ROOT
             / "docs"
-            / "03-bijux-pollenomics-maintain"
+            / "internal" / "maintain"
             / "gh-workflows"
             / "deploy-docs.md"
         ).read_text(encoding="utf-8")
         testing_and_evidence = (
             REPO_ROOT
             / "docs"
-            / "03-bijux-pollenomics-maintain"
+            / "internal" / "governance"
             / "bijux-pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")

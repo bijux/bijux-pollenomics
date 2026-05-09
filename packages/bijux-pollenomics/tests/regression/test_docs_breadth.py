@@ -22,23 +22,23 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         self.assertIn("public surface for `bijux-pollenomics`", public_index)
         self.assertIn("Open the product guide", public_index)
         self.assertIn("Open the report portal", public_index)
-        self.assertIn("internal guide", public_index)
+        self.assertNotIn("internal guide", public_index)
         self.assertIn("for maintainers", internal_index)
         self.assertIn("Open the maintainer handbook", internal_index)
 
     def test_runtime_handbook_keeps_reader_routes_to_breadth_pages(self) -> None:
         runtime_index = (
-            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics" / "index.md"
         ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
-            "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
-            "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
-            "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
-            "docs/01-bijux-pollenomics/operations/common-workflows.md",
-            "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
-            "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+            "docs/public/pollenomics/architecture/runtime-system-model.md",
+            "docs/public/pollenomics/foundation/end-state-product-model.md",
+            "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
+            "docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
+            "docs/public/pollenomics/operations/common-workflows.md",
+            "docs/public/pollenomics/operations/operational-boundaries.md",
+            "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
@@ -50,22 +50,22 @@ class DocsBreadthRegressionTests(unittest.TestCase):
 
     def test_data_handbook_keeps_cross_domain_system_coverage(self) -> None:
         data_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
         overview_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "overview" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "overview" / "index.md"
         ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
-            "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
-            "docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
-            "docs/02-bijux-pollenomics-data/sources/landclim.md",
-            "docs/02-bijux-pollenomics-data/sources/neotoma.md",
-            "docs/02-bijux-pollenomics-data/sources/sead.md",
-            "docs/02-bijux-pollenomics-data/sources/raa.md",
-            "docs/02-bijux-pollenomics-data/sources/boundaries.md",
-            "docs/02-bijux-pollenomics-data/sources/aadr.md",
+            "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
+            "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
+            "docs/public/pollenomics-data/overview/coverage-and-naming.md",
+            "docs/public/pollenomics-data/sources/landclim.md",
+            "docs/public/pollenomics-data/sources/neotoma.md",
+            "docs/public/pollenomics-data/sources/sead.md",
+            "docs/public/pollenomics-data/sources/raa.md",
+            "docs/public/pollenomics-data/sources/boundaries.md",
+            "docs/public/pollenomics-data/sources/aadr.md",
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 
@@ -77,14 +77,14 @@ class DocsBreadthRegressionTests(unittest.TestCase):
 
     def test_maintainer_handbook_restores_repository_health_breadth(self) -> None:
         maintain_index = (
-            REPO_ROOT / "docs" / "03-bijux-pollenomics-maintain" / "index.md"
+            REPO_ROOT / "docs" / "internal" / "maintain" / "index.md"
         ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
-            "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
-            "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
-            "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+            "docs/internal/governance/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
+            "docs/internal/governance/bijux-pollenomics-dev/repository-governance.md",
+            "docs/internal/maintain/gh-workflows/verification-and-release.md",
+            "docs/internal/maintain/makes/make-system-contracts.md",
         ):
             self.assertTrue((REPO_ROOT / path).is_file(), path)
 

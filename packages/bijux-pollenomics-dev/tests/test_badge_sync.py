@@ -46,7 +46,7 @@ def test_repository_badge_block_renders_public_badge_groups() -> None:
         in rendered
     )
     assert (
-        rendered.count("https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/") == 2
+        rendered.count("https://bijux.io/bijux-pollenomics/public/pollenomics/") == 2
     )
     assert "https://github.com/bijux?tab=packages" in rendered
     assert (
