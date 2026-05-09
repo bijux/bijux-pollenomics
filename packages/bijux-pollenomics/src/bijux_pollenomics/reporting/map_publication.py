@@ -169,10 +169,12 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
     ),
 }
 
+_NORDIC_AND_CUSTOM_SCOPE_KEYS = set(_NORDIC_SCOPE_KEYS) | {"custom"}
+
 _LAYER_SCOPE_RULES = {
     "aadr": _ALL_SCOPE_KEYS,
     "country-boundaries": _ALL_SCOPE_KEYS,
-    "fieldwork-documentation": _NORDIC_SCOPE_KEYS,
+    "fieldwork-documentation": _NORDIC_AND_CUSTOM_SCOPE_KEYS,
     "landclim-sites": _NORDIC_SCOPE_KEYS,
     "neotoma-pollen": _NORDIC_SCOPE_KEYS,
     "sead-sites": _NORDIC_SCOPE_KEYS,
