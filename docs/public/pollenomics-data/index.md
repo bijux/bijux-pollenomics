@@ -10,19 +10,18 @@ last_reviewed: 2026-05-09
 # bijux-pollenomics-data
 
 `bijux-pollenomics-data` is the public handbook for the evidence side of the
-repository. It explains what kinds of material the project collects, how those
-materials are checked and organized, and how they eventually become country
-reports, regional map views, or atlas pages.
+repository. It explains what evidence enters the system, which questions each
+family can answer, how that evidence is checked before publication, and under
+which conditions it is allowed to become a visible report row or map point.
 
-It is the public guide to the repository's evidence, publication, and coverage
-logic.
+Use this section when your first questions are practical and evidence-first:
 
-This section is for readers who want a clear answer to practical questions:
-
-- what kinds of evidence are in scope here
-- where that evidence comes from
-- how much of it is already mature enough for public use
-- why one row becomes a visible point while another stays blocked or qualified
+- what data is actually in scope here
+- where that data comes from and why it was selected
+- which parts are mature public context and which parts remain partial
+- how one public row can be traced back to narrower governing evidence
+- whether this repository can already help with a new country, region, or
+  evidence question you care about
 
 <div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader understand what the repository knows today, what remains incomplete, and how the public publications stay tied to the evidence behind them.</div>
 
@@ -65,12 +64,27 @@ repository does not. It places several different families beside each other:
 - human ancient DNA release material
 - animal ancient DNA recovery work that is still being strengthened project by project
 
-In practice that means the section has to explain pollen context, environmental archaeology, boundaries, human release material, and animal aDNA recovery as one joined evidence system.
+In practice that means the section has to explain pollen context,
+environmental archaeology, boundary framing, human release material, and
+animal aDNA recovery as one joined evidence system.
 
 That mixed setting is useful, but it creates a documentation burden. If the
 site is vague, readers cannot tell whether they are looking at mature evidence,
 supporting context, or work that is still under recovery. This section exists
 to remove that ambiguity.
+
+It also needs to keep boundary framing explicit, because borders and framing
+layers shape what a public map can honestly imply even when the underlying
+evidence stays unchanged.
+
+## What You Can Use This Handbook For
+
+- deciding whether a public map or report is enough for your question
+- finding the narrower evidence surface behind a public output
+- understanding why one source family supports broad use while another stays
+  caveated
+- learning how the same evidence system could support future publication for
+  other countries or regions without inventing a second product model
 
 ## Start Here
 
@@ -90,8 +104,10 @@ to remove that ambiguity.
 ## Source-Family Comparison
 
 Start with the [source-family comparison](sources/source-comparison.md) when the
-main question is how pollen, archaeology, boundaries, human aDNA, and animal
-aDNA differ.
+main question is source comparison across pollen, archaeology, boundaries,
+human aDNA, and animal aDNA. That page is the fastest way to understand why two
+layers can appear on the same map while still answering very different
+questions.
 
 ## Reader Questions
 
@@ -99,6 +115,8 @@ aDNA differ.
 - What happens between a paper or dataset and a public-facing output?
 - Which animal records already have sample-level locality and date evidence?
 - Why is one row publishable while another stays blocked or uncertain?
+- What could I responsibly reuse for a region that is not yet published as a
+  map atlas surface?
 
 ## Reading Strategy
 
