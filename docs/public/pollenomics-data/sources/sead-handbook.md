@@ -4,39 +4,69 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-09
+last_reviewed: 2026-05-10
 ---
 
 # SEAD Handbook
 
-SEAD is one of the main archaeology-context families in the repository. This
-handbook page exists because SEAD is rich enough to deserve more than a short
-source note, but it is still a contextual family rather than a direct
-sample-backed ancient DNA surface.
+This page is the longer public explanation of why SEAD remains important in the
+repository even though it is not a direct ancient DNA source.
 
-## What SEAD Contributes
+The short version is easy to say: SEAD adds environmental archaeology context.
+The harder and more useful version is this: SEAD helps readers judge whether a
+biological finding sits inside a broader cultural landscape that is already
+archaeologically visible.
 
-SEAD helps the repository describe environmental archaeology around the same
-regions where pollen and ancient DNA are being interpreted. That makes it
-useful for landscape and settlement context, especially when a reader wants to
-know whether a visible ancient DNA point sits in an otherwise active cultural
-setting.
+## Why A Longer Explanation Is Needed
 
-## What SEAD Does Not Do On Its Own
+Context families are easy to undervalue because they do not usually deliver the
+single dramatic object a reader notices first. They rarely produce the loudest
+point on the map. But they change interpretation in a quieter, more important
+way.
 
-SEAD does not replace sample-level locality, chronology, or coordinate
-evidence. It is a contextual layer. It can strengthen interpretation, but it
-should not be mistaken for direct evidence of one ancient DNA sample.
+SEAD helps answer questions like:
 
-## Best Reading Route
+- does this place sit in a wider archaeology-rich setting?
+- are we reading one isolated biological point or one part of a broader human
+  landscape?
+- what cultural background should be visible before we make too much of one
+  sample?
 
-- start with [SEAD](sead.md) for the short source-family description
-- use this page when you want a fuller explanation of why SEAD remains visible
-- then move to [published reports](../publications/reports.md) if your question is how SEAD appears in the public map tree
+Those are public-facing questions, not only maintainer questions.
 
-## Direct Files Behind This Surface
+## What Good Use Of SEAD Looks Like
+
+Good use of SEAD keeps it in the role it is actually strong at:
+
+- expanding archaeology context around places and regions
+- supporting interpretation across more than one local registry
+- helping readers read a map as landscape evidence rather than as isolated dots
+
+Good use does not ask SEAD to act like sample-level proof. That would weaken
+the public product, not strengthen it.
+
+## When Readers Should Be Careful
+
+Readers should slow down when a contextual layer starts to sound as decisive as
+the direct evidence it surrounds.
+
+SEAD can strengthen an interpretation, but it does not by itself establish:
+
+- exact sample identity
+- exact sample chronology
+- exact sample coordinates
+- species assignment
+
+Those claims still belong to narrower evidence files and review surfaces.
+
+## Repository-Owned Review Surfaces
+
+If you want the deeper tracked records behind this handbook, start with:
 
 - `data/sead/review/access_model.json`
 - `data/sead/review/recovery_roadmap.json`
 - `data/sead/review/evidence_legibility_review.json`
 - `data/sead/review/temporal_review.json`
+
+These are useful if you need to understand how the repository checks that SEAD
+stays readable and responsibly used in public outputs.
