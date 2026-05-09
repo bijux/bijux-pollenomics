@@ -10,10 +10,13 @@ last_reviewed: 2026-05-08
 # Runtime System Model
 
 The runtime is easiest to understand as one controlled evidence pipeline. A
-user calls a CLI entrypoint, the command surface resolves one owned action,
-collection and evidence code change tracked files under `data/`, and the
-publication system turns that state into country bundles, atlas layers, and
-review surfaces under `docs/report/`.
+reader or operator calls a CLI entrypoint, the command surface resolves one
+owned action, collection and evidence code rewrite tracked files under `data/`,
+and the publication system turns that state into country bundles, atlas layers,
+and review surfaces under `docs/report/`.
+
+The important part is not the number of steps. The important part is that each
+step has a clear responsibility and a visible output.
 
 ## Execution Path
 
@@ -51,6 +54,10 @@ review surfaces under `docs/report/`.
 - docs explain those surfaces but do not replace them
 - transient local output belongs under `artifacts/`
 
+Those narrow output roots are deliberate. They let a reviewer compare
+repository changes without hunting through private temp folders or ad hoc
+side-effect directories.
+
 ## Integration Seams
 
 - `command_line/parsing/subcommands.py` defines the public command surface
@@ -72,6 +79,14 @@ The runtime should fail early when one of these boundaries breaks:
 - normalization cannot produce a reviewable tracked artifact
 - reporting would publish a surface that has no governed upstream support
 - repository-truth checks detect a documentation or evidence overclaim
+
+## What This Model Protects
+
+- one command should map to one understandable action
+- collection should not silently rewrite publication outputs
+- reporting should not invent evidence that upstream files do not justify
+- truth and readiness surfaces should calibrate claims rather than decorate
+  them
 
 ## Extensibility Posture
 
