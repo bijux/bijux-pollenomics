@@ -1,3 +1,7 @@
+ROOT_PACKAGE_TARGETS ?= test test-all lint quality security api build sbom clean
+ROOT_TARGET_GROUPS_test-all ?= check
+ROOT_TARGET_SHARED_ENV_test-all ?= 1
+
 ROOT_PACKAGE_PROFILE_DIR ?= $(ROOT_MAKEFILE_DIR)/packages
 
 PACKAGE_RECORDS := \
