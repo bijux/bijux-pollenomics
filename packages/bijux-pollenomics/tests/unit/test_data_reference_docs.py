@@ -15,7 +15,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
     def test_data_reference_docs_do_not_publish_relative_links_into_data_tree(
         self,
     ) -> None:
-        data_docs_root = REPO_ROOT / "docs" / "02-bijux-pollenomics-data"
+        data_docs_root = REPO_ROOT / "docs" / "public" / "pollenomics-data"
         markdown_link_re = re.compile(r"\]\((?P<target>[^\)]+)\)")
 
         offending_links: list[str] = []
@@ -38,7 +38,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertEqual(offending_links, [])
 
     def test_data_reference_tree_stays_within_directory_budget(self) -> None:
-        data_docs_root = REPO_ROOT / "docs" / "02-bijux-pollenomics-data"
+        data_docs_root = REPO_ROOT / "docs" / "public" / "pollenomics-data"
         child_directories = sorted(
             path.name for path in data_docs_root.iterdir() if path.is_dir()
         )
@@ -50,7 +50,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
 
     def test_data_reference_index_routes_readers_to_public_sections(self) -> None:
         data_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("public guide to the repository's evidence", data_index)
@@ -67,13 +67,13 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
 
     def test_data_reference_restores_cross_domain_docs_routes(self) -> None:
         overview_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "overview" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "overview" / "index.md"
         ).read_text(encoding="utf-8")
         source_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "sources" / "index.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "outputs" / "index.md"
+            REPO_ROOT / "docs" / "public" / "pollenomics-data" / "outputs" / "index.md"
         ).read_text(encoding="utf-8")
 
         self.assertIn("pollenomics-publication-model.md", overview_index)
@@ -82,8 +82,8 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertIn("refresh-policy.md", source_index)
         self.assertIn("shared-normalization.md", source_index)
         self.assertIn("non-adna-explainer-recovery.md", source_index)
-        self.assertIn("../../report/index.md", outputs_index)
-        self.assertIn("../../report/how-to-read.md", outputs_index)
+        self.assertIn("../../../report/index.md", outputs_index)
+        self.assertIn("../../../report/how-to-read.md", outputs_index)
         self.assertIn("output-surface-classes.md", outputs_index)
         self.assertIn("geographic-input-surfaces.md", outputs_index)
 
