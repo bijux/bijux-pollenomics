@@ -28,15 +28,14 @@ contextual layers. It collects tracked source data, normalizes it into
 reviewable files under `data/`, and publishes map, country, and documentation
 views from that same repository state.
 
-Today that means a repository with several real source families and one weak
-recovery area. Boundaries, LandClim, Neotoma, SEAD, RAÄ, fieldwork, and AADR
-all belong in the repository story. The animal aDNA sample extraction and atlas
-publication path is still under recovery and must not be mistaken for the whole
-pollenomics mission.
-
-The fastest honest way to understand the current product is to read the data
-reference first, then inspect the atlas and country outputs as downstream
-surfaces.
+The durable product model is now explicit: `world` is the governing public
+surface, `Europe-plus` and `Nordic` are narrower filtered specializations, and
+country bundles are reader-facing descendants of that same governed evidence
+state. The repository is broader than the animal aDNA recovery slice, but it is
+not release-complete. Pollen, environmental, archaeological, boundary, and
+fieldwork context are already first-class. The animal aDNA sample extraction
+and atlas publication path is still under recovery. Animal sample extraction
+remains the hardest credibility bottleneck and is governed as such.
 
 This repository publishes `2` packages. Each release tag builds one staged
 bundle, uploads the Python distribution to PyPI, publishes the release bundle
@@ -45,22 +44,26 @@ same staged assets to the GitHub Release.
 
 ## Start Here
 
-- inspect the shared map: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
+- inspect the report portal: [`docs/report/index.md`](docs/report/index.md)
+- inspect the broadest public surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
+- inspect the data system guide: [`docs/02-bijux-pollenomics-data/index.md`](docs/02-bijux-pollenomics-data/index.md)
+- inspect the end-state product model: [`docs/01-bijux-pollenomics/foundation/end-state-product-model.md`](docs/01-bijux-pollenomics/foundation/end-state-product-model.md)
+- inspect the release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
+- inspect the credibility dashboard: [`docs/report/repository_credibility_dashboard.md`](docs/report/repository_credibility_dashboard.md)
 - read the public docs home: [Documentation home](https://bijux.io/bijux-pollenomics/)
 - review the runtime handbook: [Runtime handbook](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/)
-- inspect the data reference: [Data reference](https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/)
-- inspect the docs recovery review: [Docs recovery review](https://bijux.io/bijux-pollenomics/report/repository_docs_recovery_review.md)
-- inspect the engine roadmap: [Engine roadmap](https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/foundation/pollenomics-engine-roadmap/)
 - inspect repository maintenance rules: [Maintainer handbook](https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/)
 
 ## What This Repository Produces
 
-Today, the checked-in repository produces four durable outcomes:
+Today, the checked-in repository produces five durable outcomes:
 
-- a tracked `data/` tree with six source categories and normalized outputs
-- the Nordic Evidence Atlas bundle under `docs/report/nordic-atlas/`
-- country-level AADR report bundles for Sweden, Norway, Finland, and Denmark
+- a tracked `data/` tree with world-scale source-family ownership and normalized outputs
+- a reader-first report tree under `docs/report/` with world, regional, and country publication families
+- governed world, Europe-plus, and Nordic map surfaces that share one publication contract
+- country bundles for Sweden, Norway, Finland, and Denmark that remain filtered descendants of the same broader evidence state
 - a MkDocs documentation site that builds into `artifacts/root/docs/site/`
+- maintainer truth surfaces that refuse final release language while animal recovery and SEAD comparability remain materially weaker than the rest of the product
 
 ## Package Map
 
@@ -73,15 +76,15 @@ The `2` publishable packages in this repository are:
 
 ## Current Scope
 
-The current repository scope is deliberately narrower than the pollenomics
-engine we want next.
+The current repository scope is deliberately narrower than the full
+cross-evidence pollenomics runtime it is aiming toward.
 
 What exists today:
 
 - AADR is used from public `.anno` metadata files
 - boundaries, LandClim, Neotoma, SEAD, and RAÄ are collected into tracked `data/` subtrees
-- report bundles and the shared atlas are rebuilt from local commands and checked in
-- the shared map is a publication artifact for inspection, not an analysis engine
+- world, regional, and country report bundles are rebuilt from local commands and checked in
+- the maps are publication artifacts for inspection, not analysis engines
 - candidate-site ranking artifacts can be emitted from the checked-in atlas
   context layers, but they remain heuristic atlas outputs rather than a
   scientific scoring engine
@@ -97,15 +100,16 @@ What does not exist today:
 
 ## Engine Direction
 
-The next durable step is to turn this atlas-builder into a real pollenomics
-runtime. That means keeping the current checked-in publication surfaces while
-adding evidence-aware ranking, reproducible workflow stages, and explicit
-contracts for multi-evidence analysis.
+The next durable step is to turn this checked-in evidence publisher into a real
+pollenomics runtime without fragmenting the current world-to-country publication
+model. That means keeping the current checked-in public surfaces while adding
+evidence-aware ranking, reproducible workflow stages, and explicit contracts
+for multi-evidence analysis.
 
 The repository is therefore moving in this order:
 
-- first, make atlas evidence layers and candidate outputs reproducible and easy
-  to audit
+- first, keep the world, Europe-plus, Nordic, and country publication system
+  coherent and extensible
 - next, add workflow stages that can compare pollen, archaeological, and
   ancient-DNA context without collapsing their provenance differences
 - then, grow that workflow into the broader pollenomics engine needed for the
@@ -191,7 +195,7 @@ Treat the top-level paths by ownership and review expectations:
 - `Makefile` is the main local interface for verification, rebuilds, docs, and packaging
 - `pyproject.toml` and `uv.lock` define and lock the Python environment
 - `data/` contains tracked source snapshots, normalized outputs, and the collection manifest
-- `docs/report/` contains tracked publication artifacts, including the shared atlas and country bundles
+- `docs/report/` contains the reader-facing publication tree, including world, regional, country, review, caveat, and maintainer truth surfaces
 - `docs/` contains the canonical narrative and reference documentation that explains the checked-in outputs
 - `packages/bijux-pollenomics/src/` contains the CLI, collectors, and report publishing logic
 - `packages/bijux-pollenomics/tests/` contains unit, regression, and end-to-end coverage
@@ -207,17 +211,21 @@ Key checked-in contract files:
 
 The main checked-in publication artifacts are:
 
-- Nordic Evidence Atlas: [`docs/report/nordic-atlas/nordic-atlas_map.html`](docs/report/nordic-atlas/nordic-atlas_map.html)
-- shared Nordic report index: [`docs/report/nordic-atlas/README.md`](docs/report/nordic-atlas/README.md)
+- report portal: [`docs/report/index.md`](docs/report/index.md)
+- world surface: [`docs/report/world/world_map.html`](docs/report/world/world_map.html)
+- Europe-plus surface: [`docs/report/regions/europe-plus/europe-plus_map.html`](docs/report/regions/europe-plus/europe-plus_map.html)
+- Nordic surface: [`docs/report/regions/nordic/nordic_map.html`](docs/report/regions/nordic/nordic_map.html)
 - published report manifest: [`docs/report/published_reports_summary.json`](docs/report/published_reports_summary.json)
 - data collection manifest: [`data/collection_summary.json`](data/collection_summary.json)
-- country bundles under `docs/report/sweden/`, `docs/report/norway/`, `docs/report/finland/`, and `docs/report/denmark/`
+- country bundles under `docs/report/countries/`
+- release refusal surface: [`docs/report/repository_final_release_refusal.md`](docs/report/repository_final_release_refusal.md)
 
 Important output limits:
 
-- the shared map is an inspectable publication artifact, not a site-selection engine
+- the visible maps are inspectable publication artifacts, not site-selection engines
 - the published map bundles local Leaflet assets, but basemap tiles still come from external providers at runtime
 - RAÄ coverage is Sweden-only
+- final release language remains refused while animal recovery and SEAD comparability stay below the stronger repository surfaces
 - country reports are file bundles and summaries, not standalone web applications
 
 ## Documentation
