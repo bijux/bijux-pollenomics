@@ -31,8 +31,13 @@ for public geography outputs.
 - [repository truth posture](../../report/repository_truth_posture.md)
 - [repository claim audit](../../report/repository_claim_audit.md)
 - [animal point evidence review](../../report/animal_point_evidence_review.md)
-- [animal atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
+- [animal atlas readiness audit](../../report/animal_atlas_readiness.md)
 - [animal publication release gate](../../report/animal_publication_release_gate.md)
+
+Checked-in atlas accountability artifacts remain under:
+
+- `data/adna/final/atlas/animal_atlas_point_candidates.json`
+- `data/adna/final/atlas/animal_atlas_candidate_accountability.md`
 
 ## What These Surfaces Should Answer
 

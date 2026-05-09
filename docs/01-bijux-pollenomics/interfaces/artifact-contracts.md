@@ -26,7 +26,7 @@ in and reviewed like code.
 
 - [world map](../../report/world/world_map.html)
 - [world animal evidence rows](../../report/world/world_animal_atlas_evidence.json)
-- [Sweden country bundle](../../report/sweden/README.md)
+- [Sweden country bundle](../../report/countries/sweden/README.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
 - [animal output honesty](../../report/animal_output_honesty.md)
