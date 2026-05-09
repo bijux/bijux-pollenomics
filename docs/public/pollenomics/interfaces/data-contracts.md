@@ -13,6 +13,9 @@ The runtime contract is mostly visible as files. If a command changes tracked
 state, it should do so in governed locations with stable names that a reviewer
 can inspect.
 
+This page matters because the repository does not ask readers to trust runtime
+behavior in the abstract. It asks them to inspect stable files in stable roots.
+
 ## Governing Roots
 
 - `data/` for tracked source and normalized evidence
@@ -29,6 +32,12 @@ can inspect.
 - downstream publication files must be reproducible from tracked upstream data
 - docs pages may explain a contract, but they must not silently replace the
   contract file itself
+
+## Why These Roots Matter
+
+The file layout is part of the public explanation. A reviewer should be able to
+see, from the path alone, whether they are looking at source intake,
+normalized evidence, downstream publication, or transient local output.
 
 ## Anchor Files
 

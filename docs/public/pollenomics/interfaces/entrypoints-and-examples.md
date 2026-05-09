@@ -12,6 +12,10 @@ last_reviewed: 2026-05-08
 Use the installed console script, not `python -m`, when you want the canonical
 runtime surface.
 
+This page exists for the shortest supported command paths. It should help a new
+reader or operator get to a known-good route quickly, without having to rebuild
+the whole repository just to discover the right entrypoint.
+
 ## Verification Entry Points
 
 ```bash
@@ -51,3 +55,6 @@ artifacts/root/check-venv/bin/bijux-pollenomics report-multi-country-map Sweden 
 - stop after verification commands if the goal is only repository health
 - stop after `collect-data` if the goal is data refresh review
 - stop after `publish-reports` if the goal is publication-surface review
+
+That stop rule matters. Many problems in this repository come from running a
+much broader workflow than the question actually requires.

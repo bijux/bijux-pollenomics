@@ -12,6 +12,11 @@ last_reviewed: 2026-05-07
 The CLI is the primary runtime interface because it rewrites tracked repository
 state.
 
+For most readers, this is the most important runtime surface. It is the place
+where intent becomes action: collect data, inspect evidence, publish reports,
+or print a governed review. This page should therefore read like a public
+command contract, not like a dump of internal helper names.
+
 ## CLI Model
 
 ```mermaid
@@ -95,6 +100,19 @@ bijux-pollenomics adna-species
 bijux-pollenomics adna-species-review --species horse --json
 bijux-pollenomics publish-reports --aadr-root data/aadr --version v66 --output-root docs/report --context-root data
 ```
+
+## How To Read The Command Set
+
+- use collection commands when you want to refresh upstream inputs
+- use report commands when you want to publish downstream public outputs
+- use `adna-*` inspection commands when you want to inspect species-owned
+  evidence structure and blockers
+- use summary and validation commands when you want to challenge current state
+  without rewriting the whole repository
+
+The important boundary is that these commands should produce understandable
+repository effects. A command that hides what it rewrites is a bad public
+surface, even if it technically works.
 
 ## First Proof Check
 
