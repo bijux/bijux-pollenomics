@@ -4,33 +4,29 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Localities
 
-Locality evidence is where the repository decides whether a sample really owns
-a named place, only inherits a project-level label, or still needs manual
-review.
+Locality evidence explains what place claim the repository is actually willing
+to make for a sample. That may sound obvious, but it is where many historical
+datasets become overstated if the documentation is sloppy.
 
-## Direct Files
+## What Locality Review Is Trying To Prevent
 
-- `data/adna/governance/source_library/project_sample_site_review.json`
-- `data/adna/governance/source_library/sample_site_ambiguity_ledger.json`
-- `data/adna/governance/source_library/sample_site_manual_curation_queue.json`
-- `data/adna/governance/source_library/projects/PRJEB36540/sample_sites.json`
-- `data/adna/species/ovis_aries/normalized/site_evidence.json`
+- treating a project-wide label as if it identified one precise site
+- treating a broad regional note as if it were enough for exact map publication
+- carrying forward place names that are still ambiguous across supplements, archive metadata, and article text
 
-## What This Layer Decides
+## What Readers Should Be Able To Learn
 
-- whether a sample has direct site evidence
-- whether it only has a broader project-level or region-level locality
-- whether the place claim remains unresolved and should stay blocked from exact publication
+- whether a sample is tied to one named site
+- whether the place claim is broad, uncertain, or contested
+- whether the location is strong enough to support downstream coordinate work
 
-## Why Locality Review Matters
+## Why This Page Matters
 
-- it prevents a multi-site project from becoming one fake project point
-- it prevents region-only geography from being shown as an exact excavation site
-- it keeps unresolved place claims visible instead of smoothing them away
-
-Locality review is the checkpoint between text extraction and map publication.
+If locality evidence is weak, every later step stays weaker too. Chronology and
+coordinates may still be useful, but they cannot rescue an unresolved place
+claim on their own.
