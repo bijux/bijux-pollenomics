@@ -19,9 +19,9 @@ Readers who only need to understand the evidence products should stay on the
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="maintain/">Open the maintainer handbook</a>
-  <a class="md-button" href="governance/bijux-pollenomics-dev/documentation-integrity/">Open documentation integrity</a>
-  <a class="md-button" href="governance/bijux-pollenomics-dev/quality-gates/">Open quality gates</a>
-  <a class="md-button" href="governance/bijux-pollenomics-dev/release-support/">Open release support</a>
+  <a class="md-button" href="pollenomics-dev/documentation-integrity/">Open documentation integrity</a>
+  <a class="md-button" href="pollenomics-dev/quality-gates/">Open quality gates</a>
+  <a class="md-button" href="pollenomics-dev/release-support/">Open release support</a>
 </div>
 
 ## Use This Side If You Are

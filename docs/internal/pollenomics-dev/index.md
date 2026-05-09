@@ -1,5 +1,5 @@
 ---
-title: bijux-pollenomics-dev
+title: pollenomics-dev
 audience: maintainer
 type: explanation
 status: canonical
@@ -7,9 +7,11 @@ owner: bijux-pollenomics-dev-docs
 last_reviewed: 2026-05-07
 ---
 
-# bijux-pollenomics-dev
+# pollenomics-dev
 
-`bijux-pollenomics-dev` owns repository-health logic. It is not a second
+`pollenomics-dev` owns repository-health logic. The package name remains
+`bijux-pollenomics-dev`, but this internal surface is named for the domain it
+supports. It is not a second
 runtime.
 
 ## It Owns

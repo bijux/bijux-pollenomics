@@ -2042,15 +2042,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         documentation_integrity = (
             REPO_ROOT
             / "docs"
-            / "internal" / "governance"
-            / "bijux-pollenomics-dev"
+            / "internal" / "pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
         release_support = (
             REPO_ROOT
             / "docs"
-            / "internal" / "governance"
-            / "bijux-pollenomics-dev"
+            / "internal" / "pollenomics-dev"
             / "release-support.md"
         ).read_text(encoding="utf-8")
 
@@ -2104,8 +2102,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         testing_and_evidence = (
             REPO_ROOT
             / "docs"
-            / "internal" / "governance"
-            / "bijux-pollenomics-dev"
+            / "internal" / "pollenomics-dev"
             / "documentation-integrity.md"
         ).read_text(encoding="utf-8")
 

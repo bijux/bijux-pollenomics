@@ -81,8 +81,8 @@ class DocsBreadthRegressionTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         for path in (
-            "docs/internal/governance/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
-            "docs/internal/governance/bijux-pollenomics-dev/repository-governance.md",
+            "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
+            "docs/internal/pollenomics-dev/repository-governance.md",
             "docs/internal/maintain/gh-workflows/verification-and-release.md",
             "docs/internal/maintain/makes/make-system-contracts.md",
         ):
