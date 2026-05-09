@@ -84,6 +84,12 @@ def build_country_animal_output_bundle(
         assignment = _assign_evidence_row_to_country(row, country)
         if assignment is None:
             continue
+        temporal_semantics = row.chronology.as_temporal_semantics(
+            source_family="animal_adna",
+            provenance_path=row.source_artifact_path,
+            provenance_locator=row.source_locator,
+            provenance_excerpt=row.exact_source_text,
+        )
         locality_rows.append(
             {
                 "country": country,
@@ -128,6 +134,13 @@ def build_country_animal_output_bundle(
                     row.chronology.precision_posture,
                 ),
                 "time_label": row.chronology.original_text,
+                "temporal_semantics": temporal_semantics,
+                "temporal_window_key": temporal_semantics["temporal_window_key"],
+                "temporal_window_label": temporal_semantics["temporal_window_label"],
+                "temporal_comparability_posture": temporal_semantics[
+                    "comparability_posture"
+                ],
+                "temporal_comparison_note": temporal_semantics["comparison_note"],
                 "dating_basis": row.chronology.dating_basis,
                 "chronology_evidence_class": row.chronology.evidence_class,
                 "chronology_precision_posture": row.chronology.precision_posture,

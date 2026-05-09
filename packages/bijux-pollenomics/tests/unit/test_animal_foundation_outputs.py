@@ -232,6 +232,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             review_payload=review_payload,
             sample_database_review_payload=sample_database_review_payload,
             intake_recovery_payload=intake_recovery_payload,
+            temporal_comparison_payload={"published_feature_guard_findings": []},
         )
 
         self.assertEqual(review_payload["schema_version"], "animal-foundation-review.v1")
@@ -275,9 +276,6 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         intake_recovery_payload = {
             "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
         }
-        intake_recovery_payload = {
-            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
-        }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
             (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
@@ -304,6 +302,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
                 intake_recovery_payload=intake_recovery_payload,
+                temporal_comparison_payload={"published_feature_guard_findings": []},
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -317,6 +316,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         sample_database_review_payload = {
             "sample_database_claim_supported": True,
             "nordic_view_supported_now": False,
+        }
+        intake_recovery_payload = {
+            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -382,6 +384,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
                 intake_recovery_payload=intake_recovery_payload,
+                temporal_comparison_payload={"published_feature_guard_findings": []},
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -471,6 +474,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
                 intake_recovery_payload=intake_recovery_payload,
+                temporal_comparison_payload={"published_feature_guard_findings": []},
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -589,6 +593,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 review_payload=review_payload,
                 sample_database_review_payload=sample_database_review_payload,
                 intake_recovery_payload=intake_recovery_payload,
+                temporal_comparison_payload={"published_feature_guard_findings": []},
             )
 
         self.assertFalse(gate_payload["overall_ok"])
@@ -619,6 +624,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 artifacts,
             )
             self.assertIn(
+                "animal_temporal_comparison_review_json",
+                artifacts,
+            )
+            self.assertIn(
                 "animal_sample_database_review_json",
                 artifacts,
             )
@@ -628,6 +637,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
             review_path = output_root / artifacts["animal_foundation_review_json"]
             chronology_path = output_root / artifacts["animal_sample_chronology_review_json"]
+            temporal_comparison_path = (
+                output_root / artifacts["animal_temporal_comparison_review_json"]
+            )
             intake_recovery_path = output_root / artifacts["animal_intake_recovery_review_json"]
             sample_database_review_path = (
                 output_root / artifacts["animal_sample_database_review_json"]
@@ -635,6 +647,7 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             gate_path = output_root / artifacts["animal_publication_release_gate_json"]
             self.assertTrue(review_path.is_file())
             self.assertTrue(chronology_path.is_file())
+            self.assertTrue(temporal_comparison_path.is_file())
             self.assertTrue(intake_recovery_path.is_file())
             self.assertTrue(sample_database_review_path.is_file())
             self.assertTrue(gate_path.is_file())
