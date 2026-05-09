@@ -29,9 +29,13 @@ class MapPublicationUnitTests(unittest.TestCase):
 
         self.assertEqual(world_policy.default_basemap, "voyager")
         self.assertEqual(europe_plus_policy.default_basemap, "light")
-        self.assertEqual(nordic_policy.default_basemap, "terrain")
-        self.assertLess(world_policy.minimum_bounds[0][1], europe_plus_policy.minimum_bounds[0][1])
-        self.assertLess(europe_plus_policy.minimum_bounds[0][1], nordic_policy.minimum_bounds[0][1])
+        self.assertEqual(nordic_policy.default_basemap, "voyager")
+        self.assertLess(
+            world_policy.minimum_bounds[0][1], europe_plus_policy.minimum_bounds[0][1]
+        )
+        self.assertLess(
+            europe_plus_policy.minimum_bounds[0][1], nordic_policy.minimum_bounds[0][1]
+        )
 
     def test_map_document_state_uses_scope_floor_bounds(self) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))
