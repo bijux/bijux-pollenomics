@@ -116,82 +116,66 @@
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
 | Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 148 | 299 | 0 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | fieldwork-documentation | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | landclim-sites | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-pollen | locality_level_overlap_available | 447 | 0 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | sead-sites | locality_level_overlap_available | 0 | 447 | 0 | Human locality chronology can be compared directly with time-aware context points. |
 | Anas platyrhynchos domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Anas platyrhynchos domesticus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos indicus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Camelus dromedarius | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | landclim-sites | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | sead-sites | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Canis lupus familiaris | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | landclim-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | sead-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | sead-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus asinus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus caballus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-pollen | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | sead-sites | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Felis catus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Felis catus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Felis catus | sead-sites | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Gallus gallus domesticus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Meleagris gallopavo | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Oryctolagus cuniculus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | landclim-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | sead-sites | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Rangifer tarandus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | fieldwork-documentation | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | landclim-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | neotoma-pollen | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |

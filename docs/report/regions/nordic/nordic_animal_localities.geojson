@@ -70,8 +70,16 @@
             "value": "4944-4961 BP"
           },
           {
-            "label": "Chronology bucket",
-            "value": "3001-6000 BP"
+            "label": "Temporal window",
+            "value": "Mid-Holocene (3001-6000 BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
           },
           {
             "label": "Support note",
@@ -138,7 +146,33 @@
         "species_common_name": "horse",
         "animal_scope": "domesticated_core",
         "support_class": "accepted",
-        "chronology_bucket": "3001-6000 BP",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_point",
+          "comparability_posture": "numeric_interval",
+          "summary_label": "4944-4961 BP",
+          "temporal_window_key": "mid_holocene",
+          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+          "time_start_bp": 4944,
+          "time_end_bp": 4961,
+          "time_mean_bp": 4952,
+          "duration_years": 17,
+          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row252",
+          "provenance_excerpt": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
+          "original_labels": [
+            "4944-4961 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "mid_holocene",
+        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+        "temporal_comparability_posture": "numeric_interval",
+        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
         "coordinate_basis": "supplementary_table_coordinates",
@@ -251,8 +285,16 @@
             "value": "1217-1417 BP"
           },
           {
-            "label": "Chronology bucket",
-            "value": "1001-3000 BP"
+            "label": "Temporal window",
+            "value": "Late Holocene (1001-3000 BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
           },
           {
             "label": "Support note",
@@ -319,7 +361,33 @@
         "species_common_name": "horse",
         "animal_scope": "domesticated_core",
         "support_class": "accepted",
-        "chronology_bucket": "1001-3000 BP",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval",
+          "comparability_posture": "numeric_interval",
+          "summary_label": "1217-1417 BP",
+          "temporal_window_key": "late_holocene",
+          "temporal_window_label": "Late Holocene (1001-3000 BP)",
+          "time_start_bp": 1217,
+          "time_end_bp": 1417,
+          "time_mean_bp": 1317,
+          "duration_years": 200,
+          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+          "provenance_locator": "Sheet1!row226",
+          "provenance_excerpt": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
+          "original_labels": [
+            "1217-1417 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "late_holocene",
+        "temporal_window_label": "Late Holocene (1001-3000 BP)",
+        "temporal_comparability_posture": "numeric_interval",
+        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
         "coordinate_basis": "supplementary_table_coordinates",
