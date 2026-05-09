@@ -1,3 +1,5 @@
+"""Serialization and rendering helpers for reporting output artifacts."""
+
 from .artifacts import (
     build_sample_geojson_feature,
     build_samples_geojson,

@@ -173,7 +173,9 @@ def build_tracked_animal_atlas_evidence_rows(
         animal_scope = _animal_scope_for(species_root)
         for locality in locality_rows:
             project_accessions = tuple(
-                str(item) for item in locality.get("project_accessions", []) if str(item).strip()
+                str(item)
+                for item in locality.get("project_accessions", [])
+                if str(item).strip()
             )
             if not project_accessions:
                 continue
@@ -181,7 +183,9 @@ def build_tracked_animal_atlas_evidence_rows(
             site_identity = locality.get("identity", {})
             if not isinstance(site_identity, dict):
                 continue
-            locality_label = str(locality.get("locality") or site_identity.get("locality_text", ""))
+            locality_label = str(
+                locality.get("locality") or site_identity.get("locality_text", "")
+            )
             provenance = _lookup_project_locality_row(
                 provenance_lookup,
                 project_accession=primary_project_accession,
@@ -212,11 +216,14 @@ def build_tracked_animal_atlas_evidence_rows(
                 site_record_id=site_record_id,
                 sample_rows=matched_sample_rows,
             )
-            site_evidence = _lookup_project_locality_row(
-                site_evidence_lookup,
-                project_accession=primary_project_accession,
-                locality_text=locality_label,
-            ) or {}
+            site_evidence = (
+                _lookup_project_locality_row(
+                    site_evidence_lookup,
+                    project_accession=primary_project_accession,
+                    locality_text=locality_label,
+                )
+                or {}
+            )
             citation = citation_lookup.get(primary_project_accession, {})
             review = review_lookup.get(primary_project_accession, {})
             feature_token = slugify(site_record_id)
@@ -233,7 +240,10 @@ def build_tracked_animal_atlas_evidence_rows(
                     animal_scope=animal_scope,
                     support_class=str(review.get("support_class", "mapped_locality")),
                     support_note=str(review.get("reason", "")),
-                    locality=str(locality.get("locality") or site_identity.get("locality_text", "")),
+                    locality=str(
+                        locality.get("locality")
+                        or site_identity.get("locality_text", "")
+                    ),
                     political_entity=str(
                         locality.get("political_entity")
                         or site_identity.get("political_entity", "")
@@ -243,10 +253,16 @@ def build_tracked_animal_atlas_evidence_rows(
                     latitude_text=str(coordinates.get("latitude_text", "")),
                     longitude_text=str(coordinates.get("longitude_text", "")),
                     coordinate_basis=str(provenance.get("coordinate_basis", "")),
-                    coordinate_confidence=str(provenance.get("coordinate_confidence", "")),
+                    coordinate_confidence=str(
+                        provenance.get("coordinate_confidence", "")
+                    ),
                     geocoding_method=str(provenance.get("geocoding_method", "")),
-                    geocoder_or_gazetteer=str(provenance.get("geocoder_or_gazetteer", "")),
-                    confidence_rationale=str(provenance.get("confidence_rationale", "")),
+                    geocoder_or_gazetteer=str(
+                        provenance.get("geocoder_or_gazetteer", "")
+                    ),
+                    confidence_rationale=str(
+                        provenance.get("confidence_rationale", "")
+                    ),
                     original_place_text=str(provenance.get("original_place_text", "")),
                     resolved_place_text=str(provenance.get("resolved_place_text", "")),
                     coordinate_source_artifact_path=str(
@@ -280,7 +296,9 @@ def build_tracked_animal_atlas_evidence_rows(
                     paper_title=str(
                         citation.get("paper_title") or review.get("paper_title", "")
                     ),
-                    paper_doi=str(citation.get("paper_doi") or review.get("paper_doi", "")),
+                    paper_doi=str(
+                        citation.get("paper_doi") or review.get("paper_doi", "")
+                    ),
                     publication_year=str(citation.get("publication_year", "")),
                     journal_title=str(citation.get("journal_title", "")),
                     paper_url=_paper_url_for(
@@ -291,13 +309,21 @@ def build_tracked_animal_atlas_evidence_rows(
                         provenance,
                         site_evidence,
                     ),
-                    source_artifact_path=str(site_evidence.get("source_artifact_path", "")),
-                    source_artifact_kind=str(site_evidence.get("source_artifact_kind", "")),
+                    source_artifact_path=str(
+                        site_evidence.get("source_artifact_path", "")
+                    ),
+                    source_artifact_kind=str(
+                        site_evidence.get("source_artifact_kind", "")
+                    ),
                     source_locator=str(site_evidence.get("source_locator", "")),
-                    source_support_status=str(site_evidence.get("source_support_status", "")),
+                    source_support_status=str(
+                        site_evidence.get("source_support_status", "")
+                    ),
                     exact_source_text=str(site_evidence.get("exact_source_text", "")),
                     nordic_inclusion=bool(locality.get("nordic_inclusion", False)),
-                    nordic_inclusion_reason=str(locality.get("nordic_inclusion_reason", "")),
+                    nordic_inclusion_reason=str(
+                        locality.get("nordic_inclusion_reason", "")
+                    ),
                     interpretation_note=str(locality.get("interpretation_note", "")),
                 )
             )
@@ -317,14 +343,17 @@ def load_tracked_animal_mappable_localities(
 ) -> tuple[AdnaLocalitySummary, ...]:
     """Load only the locality rows that are actually eligible for point publication."""
     visible_site_ids = {
-        row.site_record_id for row in build_tracked_animal_atlas_evidence_rows(data_root)
+        row.site_record_id
+        for row in build_tracked_animal_atlas_evidence_rows(data_root)
     }
     localities: list[AdnaLocalitySummary] = []
     species_dir = adna_species_dir(Path(data_root))
     for species in build_species_support_matrix():
         if species.latin_name == "Homo sapiens":
             continue
-        locality_path = species_dir / species.slug / "normalized" / "locality_summaries.json"
+        locality_path = (
+            species_dir / species.slug / "normalized" / "locality_summaries.json"
+        )
         if not locality_path.is_file():
             continue
         payload = json.loads(locality_path.read_text(encoding="utf-8"))
@@ -374,10 +403,14 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
     identity = payload.get("identity", {})
     coordinates = payload.get("coordinates", {})
     chronology = payload.get("chronology", {})
-    if not isinstance(identity, dict) or not isinstance(coordinates, dict) or not isinstance(
-        chronology, dict
+    if (
+        not isinstance(identity, dict)
+        or not isinstance(coordinates, dict)
+        or not isinstance(chronology, dict)
     ):
-        raise ValueError("Tracked locality summary must include identity, coordinates, and chronology")
+        raise ValueError(
+            "Tracked locality summary must include identity, coordinates, and chronology"
+        )
     return AdnaLocalitySummary(
         identity=AdnaLocalityIdentity(
             namespace=str(identity.get("namespace", "")),
@@ -440,7 +473,10 @@ def _parse_chronology(payload: object) -> AdnaChronology:
 
 
 def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
-    if chronology.precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+    if chronology.precision_posture in {
+        "sample_precise_point",
+        "sample_precise_interval",
+    }:
         return chronology
     return AdnaChronology(
         original_text=chronology.original_text,
@@ -520,7 +556,9 @@ def _lookup_project_locality_row(
     project_accession: str,
     locality_text: str,
 ) -> dict[str, object] | None:
-    return lookup.get((project_accession, locality_text)) or lookup.get((project_accession, ""))
+    return lookup.get((project_accession, locality_text)) or lookup.get(
+        (project_accession, "")
+    )
 
 
 def _sample_locality_token(row: dict[str, object]) -> str:
@@ -609,7 +647,9 @@ def _sample_record_ids_for(
     return tuple(identifiers) if identifiers else fallback
 
 
-def _sample_group_ids_for(sample_rows: tuple[dict[str, object], ...]) -> tuple[str, ...]:
+def _sample_group_ids_for(
+    sample_rows: tuple[dict[str, object], ...],
+) -> tuple[str, ...]:
     return tuple(
         sorted(
             {

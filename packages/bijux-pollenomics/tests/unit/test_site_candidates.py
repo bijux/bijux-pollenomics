@@ -97,11 +97,19 @@ def test_fieldwork_triage_blocks_metadata_only_single_species_candidates() -> No
     )
 
     assert score.sampling_recommendation_ready is False
-    assert "cross_species_direct_evidence_required_for_fieldwork" in score.recommendation_blockers
-    assert "non_metadata_direct_evidence_required_for_fieldwork" in score.recommendation_blockers
+    assert (
+        "cross_species_direct_evidence_required_for_fieldwork"
+        in score.recommendation_blockers
+    )
+    assert (
+        "non_metadata_direct_evidence_required_for_fieldwork"
+        in score.recommendation_blockers
+    )
 
 
-def test_fieldwork_triage_can_clear_recommendation_gate_with_cross_species_evidence() -> None:
+def test_fieldwork_triage_can_clear_recommendation_gate_with_cross_species_evidence() -> (
+    None
+):
     candidate = CandidateSiteContext(
         locality=_locality(
             3,

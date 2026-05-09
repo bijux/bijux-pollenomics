@@ -60,12 +60,9 @@ def stage_context_polygon_layers(
     extra_artifacts: list[tuple[str, str]] = []
 
     boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
-    if (
-        boundary_path.exists()
-        and map_allows_context_layer(
-            scope_key=scope_key,
-            layer_key="country-boundaries",
-        )
+    if boundary_path.exists() and map_allows_context_layer(
+        scope_key=scope_key,
+        layer_key="country-boundaries",
     ):
         destination_path = stage_context_artifact(
             source_path=boundary_path, output_dir=output_dir
@@ -76,12 +73,9 @@ def stage_context_polygon_layers(
         extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
     landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
-    if (
-        landclim_grid_path.exists()
-        and map_allows_context_layer(
-            scope_key=scope_key,
-            layer_key="landclim-reveals-grid",
-        )
+    if landclim_grid_path.exists() and map_allows_context_layer(
+        scope_key=scope_key,
+        layer_key="landclim-reveals-grid",
     ):
         destination_path = stage_context_artifact(
             source_path=landclim_grid_path, output_dir=output_dir
@@ -94,12 +88,9 @@ def stage_context_polygon_layers(
         extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
 
     archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
-    if (
-        archaeology_path.exists()
-        and map_allows_context_layer(
-            scope_key=scope_key,
-            layer_key="raa-layer-metadata",
-        )
+    if archaeology_path.exists() and map_allows_context_layer(
+        scope_key=scope_key,
+        layer_key="raa-layer-metadata",
     ):
         destination_path = stage_context_artifact(
             source_path=archaeology_path, output_dir=output_dir
@@ -107,12 +98,9 @@ def stage_context_polygon_layers(
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
-    if (
-        archaeology_density_path.exists()
-        and map_allows_context_layer(
-            scope_key=scope_key,
-            layer_key="raa-archaeology",
-        )
+    if archaeology_density_path.exists() and map_allows_context_layer(
+        scope_key=scope_key,
+        layer_key="raa-archaeology",
     ):
         destination_path = stage_context_artifact(
             source_path=archaeology_density_path, output_dir=output_dir

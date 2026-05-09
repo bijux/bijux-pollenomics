@@ -161,7 +161,9 @@ class AtlasEvidenceSurface:
             "countries": list(self.countries),
             "layers": [layer.as_dict() for layer in self.layers],
             "species_rows": [row.as_dict() for row in self.species_rows],
-            "country_profiles": [profile.as_dict() for profile in self.country_profiles],
+            "country_profiles": [
+                profile.as_dict() for profile in self.country_profiles
+            ],
             "refusals": [refusal.as_dict() for refusal in self.refusals],
             "north_star_boundary": self.north_star_boundary,
         }

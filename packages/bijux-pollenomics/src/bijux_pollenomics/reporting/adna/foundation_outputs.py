@@ -88,7 +88,9 @@ def publish_animal_foundation_outputs(
         point_payload=point_payload,
         absence_payload=absence_payload,
     )
-    chronology_review_payload = build_animal_sample_chronology_review(data_root=data_root)
+    chronology_review_payload = build_animal_sample_chronology_review(
+        data_root=data_root
+    )
     temporal_comparison_payload = build_animal_temporal_comparison_review(
         data_root=data_root,
         report_root=output_root,
@@ -153,7 +155,9 @@ def publish_animal_foundation_outputs(
         ),
         "animal_sample_database_review": (
             sample_database_review_payload,
-            render_animal_sample_database_review_markdown(sample_database_review_payload),
+            render_animal_sample_database_review_markdown(
+                sample_database_review_payload
+            ),
         ),
         "animal_publication_release_gate": (
             release_gate_payload,
@@ -166,9 +170,7 @@ def publish_animal_foundation_outputs(
             encoding="utf-8",
         )
         (output_root / f"{stem}.md").write_text(markdown, encoding="utf-8")
-    return {
-        f"{stem}_json": f"{stem}.json" for stem in payloads
-    } | {
+    return {f"{stem}_json": f"{stem}.json" for stem in payloads} | {
         f"{stem}_markdown": f"{stem}.md" for stem in payloads
     }
 
@@ -183,7 +185,9 @@ def build_animal_foundation_validation_report(
     site_rows = _load_all_site_evidence_rows(data_root)
     provenance_rows = _load_all_coordinate_rows(data_root)
     try:
-        atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+        atlas_rows = [
+            row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)
+        ]
     except FileNotFoundError:
         atlas_rows = []
     source_bundles = build_project_source_bundles(data_root)
@@ -297,8 +301,7 @@ def build_animal_foundation_validation_report(
                     and bool(row.get("sample_record_ids", []))
                 )
                 for row in atlas_rows
-            )
-            ,
+            ),
             "Every published animal atlas row keeps feature, project, paper, and sample traceability.",
             [
                 str(row.get("feature_id", ""))
@@ -333,15 +336,21 @@ def build_animal_cross_surface_drift_report(
     report_root: Path,
 ) -> dict[str, object]:
     """Compare counts and traceability across normalized, atlas, and country outputs."""
-    atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+    atlas_rows = [
+        row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)
+    ]
     atlas_by_species: dict[str, list[dict[str, object]]] = {}
     for row in atlas_rows:
-        atlas_by_species.setdefault(str(row.get("species_latin_name", "")), []).append(row)
+        atlas_by_species.setdefault(str(row.get("species_latin_name", "")), []).append(
+            row
+        )
     country_payloads = _load_country_payloads(report_root)
     rows: list[dict[str, object]] = []
     for species_name, sample_rows in _group_sample_rows_by_species(data_root).items():
         site_rows = _group_site_rows_by_species(data_root).get(species_name, [])
-        provenance_rows = _group_coordinate_rows_by_species(data_root).get(species_name, [])
+        provenance_rows = _group_coordinate_rows_by_species(data_root).get(
+            species_name, []
+        )
         atlas_species_rows = atlas_by_species.get(species_name, [])
         country_sample_count = 0
         country_locality_count = 0
@@ -377,12 +386,16 @@ def build_animal_cross_surface_drift_report(
                 break
         for row in atlas_species_rows:
             project = str(row.get("primary_project_accession", "")).strip()
-            if project and (project not in provenance_projects or project not in site_projects):
+            if project and (
+                project not in provenance_projects or project not in site_projects
+            ):
                 findings.append("atlas_rows_reference_unlinked_project_evidence")
                 break
         if country_locality_count > len(atlas_species_rows):
             findings.append("country_locality_rows_exceed_shared_atlas_rows")
-        atlas_sample_count = sum(int(row.get("sample_count", 0) or 0) for row in atlas_species_rows)
+        atlas_sample_count = sum(
+            int(row.get("sample_count", 0) or 0) for row in atlas_species_rows
+        )
         if country_sample_count > atlas_sample_count:
             findings.append("country_sample_rows_exceed_shared_atlas_sample_counts")
         rows.append(
@@ -423,7 +436,8 @@ def build_animal_scientific_caveat_ledger(data_root: Path) -> dict[str, object]:
     ambiguous_sample_site_rows = [
         row
         for row in sample_site_rows
-        if str(row.get("locality_resolution_status", "")) in {
+        if str(row.get("locality_resolution_status", ""))
+        in {
             "sample_group_site",
             "project_level_site_only",
             "region_only",
@@ -449,7 +463,8 @@ def build_animal_scientific_caveat_ledger(data_root: Path) -> dict[str, object]:
             "blockers": list(bundle.blockers),
         }
         for bundle in source_bundles
-        if bundle.supplement_required and bundle.supplement_download_status != "archived"
+        if bundle.supplement_required
+        and bundle.supplement_download_status != "archived"
     ]
     return {
         "schema_version": "animal-scientific-caveat-ledger.v1",
@@ -477,15 +492,21 @@ def build_animal_point_evidence_review(
     report_root: Path,
 ) -> dict[str, object]:
     """Explain exactly why each published animal atlas point exists."""
-    atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+    atlas_rows = [
+        row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)
+    ]
     sample_lookup = _build_sample_lookup(data_root)
     site_lookup = _build_site_lookup(data_root)
     provenance_lookup = _build_coordinate_lookup(data_root)
-    project_lookup = {row.project_accession: row for row in build_project_registry(data_root)}
+    project_lookup = {
+        row.project_accession: row for row in build_project_registry(data_root)
+    }
 
     packets: list[dict[str, object]] = []
     for row in atlas_rows:
-        sample_ids = [str(item) for item in row.get("sample_record_ids", []) if str(item).strip()]
+        sample_ids = [
+            str(item) for item in row.get("sample_record_ids", []) if str(item).strip()
+        ]
         primary_project = str(row.get("primary_project_accession", "")).strip()
         packets.append(
             {
@@ -504,7 +525,9 @@ def build_animal_point_evidence_review(
                 "supplementary_sources": list(row.get("supplementary_sources", [])),
                 "exact_source_text": row["exact_source_text"],
                 "source_locator": row["source_locator"],
-                "sample_rows": [sample_lookup[item] for item in sample_ids if item in sample_lookup],
+                "sample_rows": [
+                    sample_lookup[item] for item in sample_ids if item in sample_lookup
+                ],
                 "site_evidence": site_lookup.get(primary_project, {}),
                 "coordinate_provenance": provenance_lookup.get(primary_project, {}),
                 "project_registry_row": (
@@ -535,7 +558,10 @@ def build_animal_project_publication_gap_review(
     unresolved_counts = _count_rows_by_project(build_unresolved_site_ledger(data_root))
     overbroad_counts = _count_rows_by_project(build_overbroad_site_ledger(data_root))
     source_audit = build_cross_project_source_audit(data_root)
-    bundles = {bundle.project_accession: bundle for bundle in build_project_source_bundles(data_root)}
+    bundles = {
+        bundle.project_accession: bundle
+        for bundle in build_project_source_bundles(data_root)
+    }
 
     rows: list[dict[str, object]] = []
     for registry_row in build_project_registry(data_root):
@@ -546,7 +572,10 @@ def build_animal_project_publication_gap_review(
             blockers.append("sample_context_blocked")
         if overbroad_counts.get(registry_row.project_accession, 0):
             blockers.append("region_only_geography")
-        if registry_row.evidence_strength == "comparator_only" or "comparator" in registry_row.evidence_strength:
+        if (
+            registry_row.evidence_strength == "comparator_only"
+            or "comparator" in registry_row.evidence_strength
+        ):
             blockers.append("comparator_only_context")
         if atlas_feature_present:
             continue
@@ -561,13 +590,19 @@ def build_animal_project_publication_gap_review(
                 "ingestion_status": registry_row.ingestion_status,
                 "paper_download_status": registry_row.paper_download_status,
                 "supplement_download_status": registry_row.supplement_download_status,
-                "unresolved_sample_count": unresolved_counts.get(registry_row.project_accession, 0),
-                "region_only_site_count": overbroad_counts.get(registry_row.project_accession, 0),
+                "unresolved_sample_count": unresolved_counts.get(
+                    registry_row.project_accession, 0
+                ),
+                "region_only_site_count": overbroad_counts.get(
+                    registry_row.project_accession, 0
+                ),
                 "blockers": sorted(set(blockers)),
                 "absence_stage": _absence_stage_for(blockers),
             }
         )
-    rows.sort(key=lambda row: (str(row["species_latin_name"]), str(row["project_accession"])))
+    rows.sort(
+        key=lambda row: (str(row["species_latin_name"]), str(row["project_accession"]))
+    )
     return {
         "schema_version": "animal-project-publication-gap-review.v1",
         "source_audit": source_audit,
@@ -607,11 +642,17 @@ def build_animal_foundation_review_packet(
     )
     strengths = []
     if point_payload["row_count"]:
-        strengths.append("published animal atlas points remain fully traceable to sample, project, paper, and site evidence rows")
+        strengths.append(
+            "published animal atlas points remain fully traceable to sample, project, paper, and site evidence rows"
+        )
     if validation_payload["checks"][0]["passed"]:
-        strengths.append("curated sample rows keep stable identifiers without duplication")
+        strengths.append(
+            "curated sample rows keep stable identifiers without duplication"
+        )
     if validation_payload["checks"][-1]["passed"]:
-        strengths.append("published atlas rows keep project, paper, and sample traceability")
+        strengths.append(
+            "published atlas rows keep project, paper, and sample traceability"
+        )
     blockers = []
     if not validation_payload["overall_ok"]:
         blockers.append("foundation_validation_not_yet_clean")
@@ -650,10 +691,10 @@ def build_animal_sample_chronology_review(
     """Publish one reader-facing chronology review across all governed animal sample rows."""
     rows = list(build_sample_chronology_review_rows(data_root))
     provenance_rows = list(build_sample_chronology_provenance_rows(data_root))
-    strength_counts = {key: 0 for key in ADNA_CHRONOLOGY_STRENGTHS}
-    evidence_counts = {key: 0 for key in ADNA_CHRONOLOGY_EVIDENCE_CLASSES}
-    precision_counts = {key: 0 for key in ADNA_CHRONOLOGY_PRECISION_POSTURES}
-    normalization_counts = {key: 0 for key in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES}
+    strength_counts = dict.fromkeys(ADNA_CHRONOLOGY_STRENGTHS, 0)
+    evidence_counts = dict.fromkeys(ADNA_CHRONOLOGY_EVIDENCE_CLASSES, 0)
+    precision_counts = dict.fromkeys(ADNA_CHRONOLOGY_PRECISION_POSTURES, 0)
+    normalization_counts = dict.fromkeys(ADNA_CHRONOLOGY_NORMALIZATION_STATUSES, 0)
     comparability_counts: dict[str, int] = {}
     for row in rows:
         strength_counts[str(row.get("chronology_strength", ""))] += 1
@@ -687,7 +728,9 @@ def build_animal_temporal_comparison_review(
 ) -> dict[str, object]:
     """Publish one cross-family review of direct and contextual time semantics."""
     animal_rows = list(build_sample_chronology_provenance_rows(data_root))
-    sead_payload = _load_json_if_present(data_root / "sead" / "review" / "temporal_review.json")
+    sead_payload = _load_json_if_present(
+        data_root / "sead" / "review" / "temporal_review.json"
+    )
     sead_rows = (
         [row for row in sead_payload.get("rows", []) if isinstance(row, dict)]
         if isinstance(sead_payload, dict)
@@ -729,7 +772,11 @@ def build_animal_temporal_comparison_review(
         unsafe_findings.append(
             "Animal broad-period chronology rows remain visible in governance outputs and must not be treated as sample-owned numeric dates."
         )
-    if any(str(row.get("comparability_posture", "")).strip() == "mixed_interval_and_context" for row in sead_rows):
+    if any(
+        str(row.get("comparability_posture", "")).strip()
+        == "mixed_interval_and_context"
+        for row in sead_rows
+    ):
         unsafe_findings.append(
             "SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates."
         )
@@ -826,24 +873,22 @@ def build_animal_sample_database_review(
     coordinate_rows = _load_all_coordinate_rows(data_root)
     sample_site_rows = _load_all_project_sample_site_rows(data_root)
     locality_conflict_rows = build_sample_locality_conflict_ledger(data_root)
-    locality_curation_rows = build_sample_locality_manual_curation_workflow_rows(data_root)
+    locality_curation_rows = build_sample_locality_manual_curation_workflow_rows(
+        data_root
+    )
     locality_substitution_rows = build_project_locality_substitution_ledger(data_root)
     locality_dictionary_rows = build_site_name_normalization_dictionary_rows(data_root)
     locality_completeness_rows = build_project_locality_completeness_rows(data_root)
     country_payloads = _load_country_payloads(report_root)
 
-    locality_status_counts = {status: 0 for status in ADNA_LOCALITY_RESOLUTION_STATUSES}
+    locality_status_counts = dict.fromkeys(ADNA_LOCALITY_RESOLUTION_STATUSES, 0)
     for row in sample_site_rows:
         status = str(row.get("locality_resolution_status", "")).strip()
         if status in locality_status_counts:
             locality_status_counts[status] += 1
 
-    chronology_status_counts = {
-        status: 0 for status in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES
-    }
-    chronology_precision_counts = {
-        posture: 0 for posture in ADNA_CHRONOLOGY_PRECISION_POSTURES
-    }
+    chronology_status_counts = dict.fromkeys(ADNA_CHRONOLOGY_NORMALIZATION_STATUSES, 0)
+    chronology_precision_counts = dict.fromkeys(ADNA_CHRONOLOGY_PRECISION_POSTURES, 0)
     for row in chronology_rows:
         status = str(row.get("chronology_normalization_status", "")).strip()
         if status in chronology_status_counts:
@@ -926,7 +971,9 @@ def build_animal_sample_database_review(
     )
     posture_findings = []
     if point_row_count < 10:
-        posture_findings.append("published_atlas_point_count_below_minimum_reading_depth")
+        posture_findings.append(
+            "published_atlas_point_count_below_minimum_reading_depth"
+        )
     if paper_with_archived_supplement_count < 5:
         posture_findings.append("supplement_backed_paper_coverage_still_too_low")
     if mapped_sample_share < 0.05:
@@ -976,19 +1023,24 @@ def build_animal_sample_database_review(
         "locality_status_counts": locality_status_counts,
         "locality_completeness_counts": {
             "exact_site_evidence_count": sum(
-                int(row["exact_site_evidence_count"]) for row in locality_completeness_rows
+                int(row["exact_site_evidence_count"])
+                for row in locality_completeness_rows
             ),
             "broader_locality_evidence_count": sum(
-                int(row["broader_locality_evidence_count"]) for row in locality_completeness_rows
+                int(row["broader_locality_evidence_count"])
+                for row in locality_completeness_rows
             ),
             "unresolved_geography_count": sum(
-                int(row["unresolved_geography_count"]) for row in locality_completeness_rows
+                int(row["unresolved_geography_count"])
+                for row in locality_completeness_rows
             ),
         },
         "chronology_status_counts": chronology_status_counts,
         "chronology_precision_counts": chronology_precision_counts,
         "intake_recovery_counts": {
-            "blocked_projects": intake_recovery_payload["stage_review"]["blocked_projects"],
+            "blocked_projects": intake_recovery_payload["stage_review"][
+                "blocked_projects"
+            ],
             "ready_for_publication_review": intake_recovery_payload["stage_review"][
                 "ready_for_publication_review"
             ],
@@ -1015,12 +1067,19 @@ def build_animal_publication_release_gate(
 ) -> dict[str, object]:
     """Fail publication when animal outputs overclaim or lose required traceability."""
     docs_paths = sorted(path for path in docs_root.rglob("*.md") if path.is_file())
-    docs_text = "\n".join(path.read_text(encoding="utf-8") for path in docs_paths).lower()
-    all_species_claim = "all-species animal map readiness" in docs_text or "all species animal map readiness" in docs_text
+    docs_text = "\n".join(
+        path.read_text(encoding="utf-8") for path in docs_paths
+    ).lower()
+    all_species_claim = (
+        "all-species animal map readiness" in docs_text
+        or "all species animal map readiness" in docs_text
+    )
     reference_grade_claim = "reference-grade" in docs_text
     country_payloads = _load_country_payloads(report_root)
     try:
-        atlas_rows = [row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)]
+        atlas_rows = [
+            row.as_dict() for row in build_tracked_animal_atlas_evidence_rows(data_root)
+        ]
     except FileNotFoundError:
         atlas_rows = []
     unresolved_rows = build_unresolved_site_ledger(data_root)
@@ -1037,7 +1096,8 @@ def build_animal_publication_release_gate(
     blocked_sample_site_rows = {
         str(row.get("repo_stable_sample_id", "")).strip(): row
         for row in sample_site_rows
-        if str(row.get("locality_resolution_status", "")) in {
+        if str(row.get("locality_resolution_status", ""))
+        in {
             "project_level_site_only",
             "region_only",
             "unresolved",
@@ -1047,10 +1107,10 @@ def build_animal_publication_release_gate(
     blocked_exact_site_rows = [
         str(row.get("identity", {}).get("stable_token", "")).strip()
         for row in _load_all_sample_rows(data_root)
-        if str(row.get("identity", {}).get("stable_token", "")).strip() in blocked_sample_site_rows
-        and ":sample-site:" in str(
-            row.get("locality_identity", {}).get("stable_token", "")
-        )
+        if str(row.get("identity", {}).get("stable_token", "")).strip()
+        in blocked_sample_site_rows
+        and ":sample-site:"
+        in str(row.get("locality_identity", {}).get("stable_token", ""))
     ]
     blocked_atlas_rows = sorted(
         {
@@ -1067,7 +1127,9 @@ def build_animal_publication_release_gate(
         if _chronology_row_blocks_publication(row)
     }
     sample_master_ids = {
-        str(row.get("identity", {}).get("stable_token", "")).strip(): str(row.get("master_id", "")).strip()
+        str(row.get("identity", {}).get("stable_token", "")).strip(): str(
+            row.get("master_id", "")
+        ).strip()
         for row in _load_all_sample_rows(data_root)
         if str(row.get("identity", {}).get("stable_token", "")).strip()
     }
@@ -1076,7 +1138,9 @@ def build_animal_publication_release_gate(
             str(sample_row.get("sample_record_id", "")).strip()
             for payload in country_payloads
             for sample_row in payload.get("sample_rows", [])
-            if sample_master_ids.get(str(sample_row.get("sample_record_id", "")).strip(), "")
+            if sample_master_ids.get(
+                str(sample_row.get("sample_record_id", "")).strip(), ""
+            )
             in chronology_blocked_master_ids
         }
     )
@@ -1124,7 +1188,9 @@ def build_animal_publication_release_gate(
             if _public_chronology_window_exposed(row.get("chronology", {}))
         }
     )
-    point_row_count = int(point_payload.get("row_count", len(point_payload.get("rows", []))))
+    point_row_count = int(
+        point_payload.get("row_count", len(point_payload.get("rows", [])))
+    )
     reference_grade_support_requirements = {
         "sample_database_artifacts_present": bool(
             sample_database_review_payload["sample_database_claim_supported"]
@@ -1228,7 +1294,9 @@ def build_animal_publication_release_gate(
         "schema_version": "animal-publication-release-gate.v1",
         "overall_ok": overall_ok,
         "checks": checks,
-        "reference_grade_claim_allowed": review_payload["reference_grade_claim_allowed"],
+        "reference_grade_claim_allowed": review_payload[
+            "reference_grade_claim_allowed"
+        ],
         "reference_grade_support_ready": reference_grade_support_ready,
         "reference_grade_support_requirements": reference_grade_support_requirements,
     }
@@ -1287,7 +1355,9 @@ def _published_temporal_feature_findings(report_root: Path) -> list[str]:
             feature_id = str(properties.get("feature_id", "")).strip() or path.name
             semantics = properties.get("temporal_semantics", {})
             if not isinstance(semantics, dict) or not semantics:
-                findings.append(f"{feature_id}: missing temporal semantics in {path.name}")
+                findings.append(
+                    f"{feature_id}: missing temporal semantics in {path.name}"
+                )
                 continue
             posture = str(semantics.get("comparability_posture", "")).strip()
             if posture in {"contextual_label_only", "unresolved"} and any(
@@ -1311,7 +1381,9 @@ def _published_temporal_feature_findings(report_root: Path) -> list[str]:
             record_id = str(properties.get("record_id", "")).strip() or path.name
             semantics = properties.get("temporal_semantics", {})
             if not isinstance(semantics, dict) or not semantics:
-                findings.append(f"{record_id}: missing temporal semantics in {path.name}")
+                findings.append(
+                    f"{record_id}: missing temporal semantics in {path.name}"
+                )
     return findings
 
 
@@ -1394,7 +1466,7 @@ def render_animal_point_evidence_review_markdown(payload: dict[str, object]) -> 
 
 
 def render_animal_project_publication_gap_review_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Animal project publication gap review",
@@ -1473,7 +1545,9 @@ def render_animal_sample_chronology_review_markdown(payload: dict[str, object]) 
     return "\n".join(lines) + "\n"
 
 
-def render_animal_temporal_comparison_review_markdown(payload: dict[str, object]) -> str:
+def render_animal_temporal_comparison_review_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Animal temporal comparison review",
         "",
@@ -1580,8 +1654,8 @@ def render_animal_sample_database_review_markdown(payload: dict[str, object]) ->
     lines.extend(
         [
             "",
-        "## Direct Links",
-        "",
+            "## Direct Links",
+            "",
         ]
     )
     for label, target in payload["direct_links"].items():
@@ -1643,7 +1717,9 @@ def _load_json_rows(path: Path, key: str) -> list[dict[str, object]]:
         return []
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get(key, [])
-    return [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+    return (
+        [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+    )
 
 
 def _load_json_if_present(path: Path) -> dict[str, object]:
@@ -1657,24 +1733,24 @@ def _species_roots(data_root: Path) -> list[Path]:
     species_dir = adna_species_dir(Path(data_root))
     if not species_dir.is_dir():
         return []
-    return [
-        path
-        for path in sorted(species_dir.iterdir())
-        if path.is_dir()
-    ]
+    return [path for path in sorted(species_dir.iterdir()) if path.is_dir()]
 
 
 def _load_all_sample_rows(data_root: Path) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for root in _species_roots(data_root):
-        rows.extend(_load_json_rows(root / "normalized" / "sample_records.json", "samples"))
+        rows.extend(
+            _load_json_rows(root / "normalized" / "sample_records.json", "samples")
+        )
     return rows
 
 
 def _load_all_site_evidence_rows(data_root: Path) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for root in _species_roots(data_root):
-        rows.extend(_load_json_rows(root / "normalized" / "site_evidence.json", "site_evidence"))
+        rows.extend(
+            _load_json_rows(root / "normalized" / "site_evidence.json", "site_evidence")
+        )
     return rows
 
 
@@ -1682,7 +1758,10 @@ def _load_all_coordinate_rows(data_root: Path) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for root in _species_roots(data_root):
         rows.extend(
-            _load_json_rows(root / "normalized" / "coordinate_provenance.json", "coordinate_provenance")
+            _load_json_rows(
+                root / "normalized" / "coordinate_provenance.json",
+                "coordinate_provenance",
+            )
         )
     return rows
 
@@ -1692,7 +1771,11 @@ def _load_all_project_sample_site_rows(data_root: Path) -> list[dict[str, object
     project_root = (
         Path(data_root) / "adna" / "governance" / "source_library" / "projects"
     )
-    paths = sorted(project_root.glob("*/sample_sites.json")) if project_root.is_dir() else []
+    paths = (
+        sorted(project_root.glob("*/sample_sites.json"))
+        if project_root.is_dir()
+        else []
+    )
     if paths:
         for path in paths:
             payload = json.loads(path.read_text(encoding="utf-8"))
@@ -1710,12 +1793,16 @@ def _load_all_project_sample_site_rows(data_root: Path) -> list[dict[str, object
     for project in build_archive_project_catalog():
         rows.extend(
             row.as_dict()
-            for row in build_project_sample_site_rows(data_root, project.project_accession)
+            for row in build_project_sample_site_rows(
+                data_root, project.project_accession
+            )
         )
     return rows
 
 
-def _load_all_project_sample_chronology_rows(data_root: Path) -> list[dict[str, object]]:
+def _load_all_project_sample_chronology_rows(
+    data_root: Path,
+) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     project_root = (
         Path(data_root) / "adna" / "governance" / "source_library" / "projects"
@@ -1743,7 +1830,9 @@ def _load_all_project_sample_chronology_rows(data_root: Path) -> list[dict[str, 
     return rows
 
 
-def _group_sample_rows_by_species(data_root: Path) -> dict[str, list[dict[str, object]]]:
+def _group_sample_rows_by_species(
+    data_root: Path,
+) -> dict[str, list[dict[str, object]]]:
     grouped: dict[str, list[dict[str, object]]] = {}
     for row in _load_all_sample_rows(data_root):
         grouped.setdefault(str(row.get("species_latin_name", "")), []).append(row)
@@ -1757,7 +1846,9 @@ def _group_site_rows_by_species(data_root: Path) -> dict[str, list[dict[str, obj
     return grouped
 
 
-def _group_coordinate_rows_by_species(data_root: Path) -> dict[str, list[dict[str, object]]]:
+def _group_coordinate_rows_by_species(
+    data_root: Path,
+) -> dict[str, list[dict[str, object]]]:
     grouped: dict[str, list[dict[str, object]]] = {}
     for row in _load_all_coordinate_rows(data_root):
         grouped.setdefault(str(row.get("species_latin_name", "")), []).append(row)
@@ -1818,13 +1909,18 @@ def _build_comparator_only_rows(data_root: Path) -> list[dict[str, object]]:
                     "blocking_reasons": row.get("blocking_reasons", []),
                 }
             )
-    rows.sort(key=lambda row: (str(row["species_latin_name"]), str(row["project_accession"])))
+    rows.sort(
+        key=lambda row: (str(row["species_latin_name"]), str(row["project_accession"]))
+    )
     return rows
 
 
 def _absence_stage_for(blockers: list[str]) -> str:
     blocker_set = set(blockers)
-    if "missing_local_paper_evidence" in blocker_set or "paper_linkage_not_curated" in blocker_set:
+    if (
+        "missing_local_paper_evidence" in blocker_set
+        or "paper_linkage_not_curated" in blocker_set
+    ):
         return "paper_or_metadata_capture"
     if "missing_local_supplementary_material" in blocker_set:
         return "supplement_capture"

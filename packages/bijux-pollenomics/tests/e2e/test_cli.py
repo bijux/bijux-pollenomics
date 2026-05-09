@@ -309,7 +309,9 @@ class CliTests(unittest.TestCase):
                 context_root=Path(tmp) / "data",
             )
             self.assertTrue((atlas_root / f"{DEFAULT_ATLAS_SLUG}_map.html").exists())
-            self.assertTrue((atlas_root / f"{DEFAULT_ATLAS_SLUG}_summary.json").exists())
+            self.assertTrue(
+                (atlas_root / f"{DEFAULT_ATLAS_SLUG}_summary.json").exists()
+            )
 
     def test_collect_data_command_writes_summary_and_readme(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

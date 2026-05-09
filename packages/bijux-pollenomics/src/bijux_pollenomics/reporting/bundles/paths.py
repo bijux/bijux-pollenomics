@@ -146,8 +146,7 @@ def build_atlas_bundle_paths(
         candidate_ranking_engine_manifest_path=output_dir
         / f"{atlas_slug}_candidate_ranking_engine_manifest.json",
         evidence_surface_json_path=output_dir / f"{atlas_slug}_evidence_surface.json",
-        evidence_surface_markdown_path=output_dir
-        / f"{atlas_slug}_evidence_surface.md",
+        evidence_surface_markdown_path=output_dir / f"{atlas_slug}_evidence_surface.md",
         scientific_review_json_path=output_dir / f"{atlas_slug}_scientific_review.json",
         scientific_review_markdown_path=output_dir
         / f"{atlas_slug}_scientific_review.md",

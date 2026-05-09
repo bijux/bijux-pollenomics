@@ -59,7 +59,9 @@ def build_repository_sead_legibility_review(data_root: Path) -> dict[str, object
     }
 
 
-def render_repository_sead_legibility_review_markdown(payload: dict[str, object]) -> str:
+def render_repository_sead_legibility_review_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Repository SEAD legibility review",
         "",
@@ -72,7 +74,9 @@ def render_repository_sead_legibility_review_markdown(payload: dict[str, object]
         "## Normalization Risk",
         "",
     ]
-    for key, value in sorted(dict(payload.get("normalization_risk_counts", {})).items()):
+    for key, value in sorted(
+        dict(payload.get("normalization_risk_counts", {})).items()
+    ):
         lines.append(f"- {key.replace('_', ' ')}: `{value}`")
     lines.extend(
         [
@@ -90,7 +94,9 @@ def render_repository_sead_legibility_review_markdown(payload: dict[str, object]
             "",
         ]
     )
-    for key, value in sorted(dict(payload.get("comparability_posture_counts", {})).items()):
+    for key, value in sorted(
+        dict(payload.get("comparability_posture_counts", {})).items()
+    ):
         lines.append(f"- {key.replace('_', ' ')}: `{value}`")
     lines.extend(
         [

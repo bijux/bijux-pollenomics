@@ -922,9 +922,9 @@ class CountryReportTests(unittest.TestCase):
                 )
             )
             map_contract = json.loads(
-                (
-                    output / "nordic-atlas_map_publication_contract.json"
-                ).read_text(encoding="utf-8")
+                (output / "nordic-atlas_map_publication_contract.json").read_text(
+                    encoding="utf-8"
+                )
             )
 
             self.assertIn("Animal Evidence", map_html)

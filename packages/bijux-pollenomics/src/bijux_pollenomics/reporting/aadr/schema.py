@@ -33,7 +33,9 @@ def find_column(fieldnames, *prefixes):
     try:
         return resolve_homo_sapiens_schema(fieldnames)[_lookup_key(prefixes)]
     except KeyError:
-        raise SchemaError(f"Could not find any of {prefixes!r} in anno columns") from None
+        raise SchemaError(
+            f"Could not find any of {prefixes!r} in anno columns"
+        ) from None
 
 
 def find_optional_column(fieldnames, *prefixes):

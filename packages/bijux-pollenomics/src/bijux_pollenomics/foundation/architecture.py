@@ -154,8 +154,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             stage_key="public_artifact_writing",
             owner_module="bijux_pollenomics.reporting.rendering",
             owner_path=(
-                "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/reporting/rendering"
+                "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering"
             ),
             purpose="write governed publication artifacts into docs/report",
             tracked_inputs=("bundle payloads", "review payloads", "context layers"),
@@ -182,8 +181,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             stage_key="animal_adna_extraction",
             owner_module="bijux_pollenomics.adna.sample_master",
             owner_path=(
-                "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/sample_master.py"
+                "packages/bijux-pollenomics/src/bijux_pollenomics/adna/sample_master.py"
             ),
             purpose="recover sample-owned rows, site claims, and chronology evidence",
             tracked_inputs=("source-library reviews", "archive manifests"),
@@ -195,8 +193,7 @@ def build_repository_architecture_contract() -> RepositoryArchitectureContract:
             stage_key="animal_adna_normalization",
             owner_module="bijux_pollenomics.adna.normalization",
             owner_path=(
-                "packages/bijux-pollenomics/src/"
-                "bijux_pollenomics/adna/normalization.py"
+                "packages/bijux-pollenomics/src/bijux_pollenomics/adna/normalization.py"
             ),
             purpose="materialize species-owned normalized sample and locality records",
             tracked_inputs=("sample-owned evidence rows",),

@@ -310,20 +310,24 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
-            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
-            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+            (docs_root / "public" / "nordic-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "public" / "pollenomics-data" / "outputs").mkdir(
                 parents=True, exist_ok=True
             )
             (docs_root / "index.md").write_text(
                 "all-species animal map readiness\nreference-grade nordic animal adna metadata-and-atlas foundation\n",
                 encoding="utf-8",
             )
-            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+            (docs_root / "public" / "nordic-atlas" / "index.md").write_text(
                 "",
                 encoding="utf-8",
             )
             (
-                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+                docs_root
+                / "public"
+                / "pollenomics-data"
+                / "outputs"
+                / "nordic-atlas.md"
             ).write_text(
                 "",
                 encoding="utf-8",
@@ -401,17 +405,21 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                     ]
                 },
             )
-            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
-            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+            (docs_root / "public" / "nordic-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "public" / "pollenomics-data" / "outputs").mkdir(
                 parents=True, exist_ok=True
             )
             (docs_root / "index.md").write_text("", encoding="utf-8")
-            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+            (docs_root / "public" / "nordic-atlas" / "index.md").write_text(
                 "",
                 encoding="utf-8",
             )
             (
-                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+                docs_root
+                / "public"
+                / "pollenomics-data"
+                / "outputs"
+                / "nordic-atlas.md"
             ).write_text(
                 "",
                 encoding="utf-8",
@@ -498,17 +506,21 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                     ]
                 },
             )
-            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
-            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+            (docs_root / "public" / "nordic-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "public" / "pollenomics-data" / "outputs").mkdir(
                 parents=True, exist_ok=True
             )
             (docs_root / "index.md").write_text("", encoding="utf-8")
-            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+            (docs_root / "public" / "nordic-atlas" / "index.md").write_text(
                 "",
                 encoding="utf-8",
             )
             (
-                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+                docs_root
+                / "public"
+                / "pollenomics-data"
+                / "outputs"
+                / "nordic-atlas.md"
             ).write_text(
                 "",
                 encoding="utf-8",
@@ -622,17 +634,21 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                     }
                 ]
             }
-            (docs_root / "05-nordic-evidence-atlas").mkdir(parents=True, exist_ok=True)
-            (docs_root / "02-bijux-pollenomics-data" / "outputs").mkdir(
+            (docs_root / "public" / "nordic-atlas").mkdir(parents=True, exist_ok=True)
+            (docs_root / "public" / "pollenomics-data" / "outputs").mkdir(
                 parents=True, exist_ok=True
             )
             (docs_root / "index.md").write_text("", encoding="utf-8")
-            (docs_root / "05-nordic-evidence-atlas" / "index.md").write_text(
+            (docs_root / "public" / "nordic-atlas" / "index.md").write_text(
                 "",
                 encoding="utf-8",
             )
             (
-                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+                docs_root
+                / "public"
+                / "pollenomics-data"
+                / "outputs"
+                / "nordic-atlas.md"
             ).write_text(
                 "",
                 encoding="utf-8",

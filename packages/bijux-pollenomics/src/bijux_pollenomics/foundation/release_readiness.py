@@ -84,12 +84,14 @@ def _source_identity_ok(species_name: str) -> bool:
     if species_name == "Homo sapiens":
         runtime_manifest = build_species_runtime_manifest("Homo sapiens", version="v66")
         return all(
-            bundle.source_family == "AADR" and bundle.release_manifest_path.endswith("release_manifest.json")
+            bundle.source_family == "AADR"
+            and bundle.release_manifest_path.endswith("release_manifest.json")
             for bundle in runtime_manifest.source_bundles
         )
     normalization_bundle = build_species_normalization_bundle(species_name)
     return bool(normalization_bundle.lineage_records) and all(
-        bool(record.source_accessions) for record in normalization_bundle.lineage_records
+        bool(record.source_accessions)
+        for record in normalization_bundle.lineage_records
     )
 
 
@@ -113,25 +115,31 @@ def _normalized_record_contract_ok(species_name: str) -> bool:
     bundle = build_species_normalization_bundle(species_name)
     return (
         bundle.schema_version == "adna-nonhuman-normalization-bundle.v1"
-        and all(item.schema_version == "adna-project-summary.v1" for item in bundle.project_summaries)
-        and all(item.schema_version == "adna-study-summary.v1" for item in bundle.study_summaries)
+        and all(
+            item.schema_version == "adna-project-summary.v1"
+            for item in bundle.project_summaries
+        )
+        and all(
+            item.schema_version == "adna-study-summary.v1"
+            for item in bundle.study_summaries
+        )
     )
 
 
 def _atlas_bundle_contract_ok() -> bool:
     from ..evidence import build_atlas_evidence_surface, build_scientific_review_surface
-    from ..reporting.geography import build_published_geography_plan
     from ..reporting.bundles.paths import build_atlas_bundle_paths
     from ..reporting.bundles.summary_builders.atlas import (
         build_multi_country_bundle_manifest,
         build_multi_country_map_summary,
     )
+    from ..reporting.bundles.summary_builders.published import (
+        build_published_reports_summary,
+    )
+    from ..reporting.geography import build_published_geography_plan
     from ..reporting.map_publication import (
         build_map_publication_contract,
         resolve_map_scope_policy,
-    )
-    from ..reporting.bundles.summary_builders.published import (
-        build_published_reports_summary,
     )
     from ..reporting.models import MultiCountryMapReport, PublishedReportsReport
 
@@ -226,7 +234,8 @@ def _atlas_bundle_contract_ok() -> bool:
     return (
         summary.get("schema_version") == "geographic-evidence-surface-summary.v1"
         and manifest.get("schema_version") == "geographic-evidence-surface-manifest.v1"
-        and manifest["artifacts"]["candidate_sites_json"] == paths.candidate_sites_json_path.name
+        and manifest["artifacts"]["candidate_sites_json"]
+        == paths.candidate_sites_json_path.name
         and manifest["artifacts"]["candidate_site_sensitivity_json"]
         == paths.candidate_site_sensitivity_json_path.name
         and manifest["artifacts"]["candidate_ranking_engine_manifest"]
@@ -256,7 +265,8 @@ def _atlas_bundle_contract_ok() -> bool:
         and evidence_surface.schema_version == "atlas-evidence-surface.v2"
         and evidence_surface.layers[0].layer_key == "homo_sapiens_direct"
         and scientific_review.schema_version == "scientific-review-surface.v3"
-        and "mapped Homo sapiens locality inventory" in scientific_review.descriptive_scope
+        and "mapped Homo sapiens locality inventory"
+        in scientific_review.descriptive_scope
         and published.get("schema_version") == "published-reports-summary.v1"
     )
 
@@ -275,7 +285,8 @@ def _ranking_provenance_ok() -> bool:
     engine_manifest = build_ranking_engine_manifest()
     return (
         payload.get("schema_version") == "candidate-site-ranking.v2"
-        and "explicit evidence and missingness signals" in str(payload.get("evidence_boundary"))
+        and "explicit evidence and missingness signals"
+        in str(payload.get("evidence_boundary"))
         and payload.get("profile", {}).get("profile_name") == "atlas_exploration"
         and sensitivity_payload.get("schema_version") == "candidate-site-sensitivity.v1"
         and engine_manifest.schema_version == "candidate-ranking-engine-manifest.v1"

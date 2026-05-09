@@ -23,22 +23,33 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (output_root / "landclim" / "normalized").mkdir(parents=True, exist_ok=True)
-            (output_root / "landclim" / "normalized" / "landclim_summary.json").write_text(
+            (
+                output_root / "landclim" / "normalized" / "landclim_summary.json"
+            ).write_text(
                 json.dumps({"site_count": 4, "grid_cell_count": 7}),
                 encoding="utf-8",
             )
             (output_root / "neotoma" / "normalized").mkdir(parents=True, exist_ok=True)
-            (output_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson").write_text(
+            (
+                output_root / "neotoma" / "normalized" / "nordic_pollen_sites.geojson"
+            ).write_text(
                 json.dumps({"features": [{}, {}]}),
                 encoding="utf-8",
             )
             (output_root / "sead" / "normalized").mkdir(parents=True, exist_ok=True)
-            (output_root / "sead" / "normalized" / "nordic_environmental_sites.geojson").write_text(
+            (
+                output_root
+                / "sead"
+                / "normalized"
+                / "nordic_environmental_sites.geojson"
+            ).write_text(
                 json.dumps({"features": [{}, {}, {}]}),
                 encoding="utf-8",
             )
             (output_root / "raa" / "normalized").mkdir(parents=True, exist_ok=True)
-            (output_root / "raa" / "normalized" / "sweden_archaeology_layer.json").write_text(
+            (
+                output_root / "raa" / "normalized" / "sweden_archaeology_layer.json"
+            ).write_text(
                 json.dumps({"counts": {"all_published_sites": 11, "fornlamning": 5}}),
                 encoding="utf-8",
             )
@@ -91,7 +102,9 @@ class RepositorySnapshotUnitTests(unittest.TestCase):
                     path.write_text(json.dumps({"features": []}), encoding="utf-8")
                 elif path.name == "sweden_archaeology_layer.json":
                     path.write_text(
-                        json.dumps({"counts": {"all_published_sites": 1, "fornlamning": 1}}),
+                        json.dumps(
+                            {"counts": {"all_published_sites": 1, "fornlamning": 1}}
+                        ),
                         encoding="utf-8",
                     )
                 else:

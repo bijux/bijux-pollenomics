@@ -20,6 +20,10 @@ from bijux_pollenomics.data_downloader.contracts import (
     LANDCLIM_GRID_GEOJSON,
     NEOTOMA_POINT_GEOJSON,
 )
+from bijux_pollenomics.data_downloader.exports import (
+    write_context_points_csv,
+    write_context_points_geojson,
+)
 from bijux_pollenomics.data_downloader.models import ContextPointRecord
 from bijux_pollenomics.data_downloader.neotoma import normalize_neotoma_rows
 from bijux_pollenomics.data_downloader.sead import (
@@ -28,10 +32,6 @@ from bijux_pollenomics.data_downloader.sead import (
     fetch_sead_site_rows,
     materialize_sead_repository_surfaces,
     normalize_sead_rows,
-)
-from bijux_pollenomics.data_downloader.exports import (
-    write_context_points_csv,
-    write_context_points_geojson,
 )
 from bijux_pollenomics.reporting.context import (
     build_aadr_point_layer,
@@ -289,7 +289,9 @@ class ContextDataTests(unittest.TestCase):
                     }
                 ]
             if url.endswith("/tbl_datasets"):
-                return [{"dataset_id": 40, "dataset_name": "Pollen counts", "biblio_id": 60}]
+                return [
+                    {"dataset_id": 40, "dataset_name": "Pollen counts", "biblio_id": 60}
+                ]
             if url.endswith("/tbl_site_references"):
                 return [{"site_reference_id": 50, "site_id": 6468, "biblio_id": 60}]
             if url.endswith("/tbl_biblio"):
@@ -323,8 +325,12 @@ class ContextDataTests(unittest.TestCase):
         self.assertEqual(rows[0]["time_end_bp"], 800)
         self.assertEqual(rows[0]["temporal_summary"]["relative_period_count"], 1)
         self.assertEqual(rows[0]["temporal_summary"]["bibliography_count"], 2)
-        self.assertEqual(rows[0]["relative_period_rows"][0]["normalized_period_label"], "quaternary")
-        self.assertEqual(rows[0]["dating_range_rows"][0]["uncertainty_label"], "site aggregate")
+        self.assertEqual(
+            rows[0]["relative_period_rows"][0]["normalized_period_label"], "quaternary"
+        )
+        self.assertEqual(
+            rows[0]["dating_range_rows"][0]["uncertainty_label"], "site aggregate"
+        )
         self.assertIn(("site_id",), seen_orders)
         self.assertIn(("site_id", "sample_group_id"), seen_orders)
         self.assertIn(("physical_sample_id", "analysis_entity_id"), seen_orders)
@@ -463,7 +469,9 @@ class ContextDataTests(unittest.TestCase):
                         "features": [
                             {
                                 "type": "Feature",
-                                "geometry": self.country_boundaries["Sweden"]["features"][0]["geometry"],
+                                "geometry": self.country_boundaries["Sweden"][
+                                    "features"
+                                ][0]["geometry"],
                                 "properties": {"ADM0_A3": "SWE"},
                             }
                         ],
@@ -481,10 +489,7 @@ class ContextDataTests(unittest.TestCase):
             feature = normalized_payload["features"][0]
             evidence_review = json.loads(
                 (
-                    data_root
-                    / "sead"
-                    / "review"
-                    / "evidence_legibility_review.json"
+                    data_root / "sead" / "review" / "evidence_legibility_review.json"
                 ).read_text(encoding="utf-8")
             )
             access_model = json.loads(

@@ -1,3 +1,5 @@
+"""Static HTML template used for published multi-country map documents."""
+
 from __future__ import annotations
 
 MAP_DOCUMENT_TEMPLATE = """

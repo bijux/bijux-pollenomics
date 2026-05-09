@@ -13,9 +13,9 @@ from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
 from ..foundation import publish_repository_truth_outputs
 from ..geography import (
-    build_geography_onboarding_contract,
     GeographicScope,
     PublishedGeographyPlan,
+    build_geography_onboarding_contract,
     build_published_geography_plan,
     render_geography_onboarding_contract_markdown,
     render_geography_scope_registry_markdown,
@@ -180,7 +180,9 @@ def publish_published_reports_tree(
             repository_truth_artifacts=repository_truth_artifacts,
         ),
     )
-    animal_output_audit = build_public_animal_output_audit(data_root, staging_output_root)
+    animal_output_audit = build_public_animal_output_audit(
+        data_root, staging_output_root
+    )
     animal_output_audit["report_root"] = str(output_root)
     write_summary_json_fn(
         staging_output_root / "animal_output_audit.json",
@@ -238,7 +240,9 @@ def _write_geography_packets(
             for scope in plan.all_scopes()
         ],
     }
-    write_summary_json_fn(output_root / "publication_geography_registry.json", registry_payload)
+    write_summary_json_fn(
+        output_root / "publication_geography_registry.json", registry_payload
+    )
     (output_root / "publication_geography_registry.md").write_text(
         render_geography_scope_registry_markdown(registry_payload),
         encoding="utf-8",
@@ -338,7 +342,9 @@ def _build_subset_validation_row(
 
 
 def _load_human_sample_ids(scope_dir: Path, *, slug: str) -> set[str]:
-    payload = json.loads((scope_dir / f"{slug}_samples.geojson").read_text(encoding="utf-8"))
+    payload = json.loads(
+        (scope_dir / f"{slug}_samples.geojson").read_text(encoding="utf-8")
+    )
     features = payload.get("features", [])
     if not isinstance(features, list):
         return set()
@@ -361,10 +367,14 @@ def _load_animal_evidence_ids(
     slug: str,
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
 ) -> set[str]:
-    bundle_paths = build_atlas_bundle_paths_fn(output_dir=scope_dir, slug=slug, version="unused")
+    bundle_paths = build_atlas_bundle_paths_fn(
+        output_dir=scope_dir, slug=slug, version="unused"
+    )
     if not bundle_paths.animal_atlas_evidence_json_path.is_file():
         return set()
-    payload = json.loads(bundle_paths.animal_atlas_evidence_json_path.read_text(encoding="utf-8"))
+    payload = json.loads(
+        bundle_paths.animal_atlas_evidence_json_path.read_text(encoding="utf-8")
+    )
     if not isinstance(payload, list):
         return set()
     identifiers: set[str] = set()

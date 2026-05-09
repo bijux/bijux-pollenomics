@@ -56,22 +56,32 @@ class MapPublicationUnitTests(unittest.TestCase):
         self.assertLessEqual(state.bounds[0][1], world_policy.minimum_bounds[0][1])
         self.assertGreaterEqual(state.bounds[1][1], world_policy.minimum_bounds[1][1])
 
-    def test_context_layers_withhold_nordic_only_overlays_from_broader_scopes(self) -> None:
+    def test_context_layers_withhold_nordic_only_overlays_from_broader_scopes(
+        self,
+    ) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))
         world_scope = plan.world_scope
-        nordic_scope = next(scope for scope in plan.regional_scopes if scope.key == "nordic")
+        nordic_scope = next(
+            scope for scope in plan.regional_scopes if scope.key == "nordic"
+        )
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / "world-output").mkdir(parents=True, exist_ok=True)
             (root / "nordic-output").mkdir(parents=True, exist_ok=True)
             self._write_point_geojson(
-                root / "landclim" / "normalized" / "nordic_pollen_site_sequences.geojson",
+                root
+                / "landclim"
+                / "normalized"
+                / "nordic_pollen_site_sequences.geojson",
                 layer_key="landclim-sites",
                 layer_label="LandClim pollen sequences",
             )
             self._write_polygon_geojson(
-                root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson",
+                root
+                / "boundaries"
+                / "normalized"
+                / "nordic_country_boundaries.geojson",
                 layer_key="country-boundaries",
                 layer_label="Country boundaries",
             )
@@ -92,7 +102,9 @@ class MapPublicationUnitTests(unittest.TestCase):
             )
 
         self.assertEqual([layer["key"] for layer in world_point_layers], ["aadr"])
-        self.assertEqual([layer["key"] for layer in world_polygon_layers], ["country-boundaries"])
+        self.assertEqual(
+            [layer["key"] for layer in world_polygon_layers], ["country-boundaries"]
+        )
         self.assertEqual(
             [layer["key"] for layer in nordic_point_layers],
             ["aadr", "landclim-sites"],
@@ -120,7 +132,9 @@ class MapPublicationUnitTests(unittest.TestCase):
         policy = resolve_map_scope_policy(
             next(
                 scope
-                for scope in build_published_geography_plan(("Sweden", "Norway")).regional_scopes
+                for scope in build_published_geography_plan(
+                    ("Sweden", "Norway")
+                ).regional_scopes
                 if scope.key == "nordic"
             )
         )
@@ -182,7 +196,10 @@ class MapPublicationUnitTests(unittest.TestCase):
                     "features": [
                         {
                             "type": "Feature",
-                            "geometry": {"type": "Point", "coordinates": [18.06, 59.33]},
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [18.06, 59.33],
+                            },
                             "properties": {
                                 "layer_key": layer_key,
                                 "layer_label": layer_label,

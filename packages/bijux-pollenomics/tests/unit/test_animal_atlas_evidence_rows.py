@@ -213,8 +213,13 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert len(rows) == 1
     assert len(localities) == 1
     row = rows[0]
-    assert row.feature_id == "animal-atlas-feature:ovis-aries-project-locality-prjeb59481"
-    assert row.evidence_row_id == "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-project-locality-prjeb59481"
+    assert (
+        row.feature_id == "animal-atlas-feature:ovis-aries-project-locality-prjeb59481"
+    )
+    assert (
+        row.evidence_row_id
+        == "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-project-locality-prjeb59481"
+    )
     assert row.coordinate_basis == "named_site_geocoding"
     assert row.sample_record_ids == ("ovis_aries:sample:prjeb59481",)
     assert row.sample_group_ids == ("PRJEB59481",)
@@ -228,7 +233,9 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert coordinate_review.weaker_geography_feature_count == 0
 
 
-def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_site_samples() -> None:
+def test_animal_atlas_evidence_rows_refuse_project_level_flattening_of_multi_site_samples() -> (
+    None
+):
     with tempfile.TemporaryDirectory() as tmp:
         data_root = Path(tmp)
         species_root = data_root / "adna" / "species" / "ovis_aries"

@@ -38,7 +38,9 @@ def test_country_profiles_record_mapped_animal_direct_evidence_with_caution() ->
     assert profile.evidence_posture == "human_direct_plus_mapped_animal_direct"
     assert profile.mapped_animal_locality_count == 1
     assert "Ovis aries" in profile.mapped_animal_direct_species
-    assert "Mapped animal localities can now appear in the atlas" in profile.caution_note
+    assert (
+        "Mapped animal localities can now appear in the atlas" in profile.caution_note
+    )
 
 
 def test_atlas_evidence_surface_markdown_makes_refusals_explicit() -> None:

@@ -2427,9 +2427,9 @@ def _build_core_counts(
         ),
         "source_explainer_count": sum(
             1
-            for path in (
-                docs_root / "public" / "pollenomics-data" / "sources"
-            ).glob("*.md")
+            for path in (docs_root / "public" / "pollenomics-data" / "sources").glob(
+                "*.md"
+            )
             if path.name
             not in {
                 "index.md",

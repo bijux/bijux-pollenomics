@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from collections import Counter
-from pathlib import Path
 import json
+from pathlib import Path
 
 from .text import escape_pipes
 
@@ -124,7 +124,7 @@ def _classify_surface(output_root: Path, relative_path: str) -> dict[str, object
 def _family_for_path(path: Path) -> str:
     relative_path = path.as_posix()
     stem = path.stem
-    if relative_path.startswith("world/") or relative_path.startswith("regions/"):
+    if relative_path.startswith(("world/", "regions/")):
         if (
             path.suffix == ".html"
             or "map_" in stem
@@ -144,7 +144,7 @@ def _family_for_path(path: Path) -> str:
         return "scopes"
     if relative_path.startswith("countries/"):
         return "scopes"
-    if stem.startswith("repository_") or stem.startswith("publication_"):
+    if stem.startswith(("repository_", "publication_")):
         return "maintenance"
     if stem == "published_reports_summary":
         return "scopes"
@@ -156,7 +156,7 @@ def _family_for_path(path: Path) -> str:
         or "legibility" in stem
     ):
         return "caveats"
-    if stem.startswith("animal_") or stem.startswith("nordic_farming_history_scenario"):
+    if stem.startswith(("animal_", "nordic_farming_history_scenario")):
         return "reviews"
     return "maintenance"
 
@@ -175,9 +175,10 @@ def _audience_for_path(path: Path, family: str) -> str:
         if "bundle" in stem or "manifest" in stem:
             return "maintainer_diagnostic"
         return "scientific_review_surface"
-    if family == "scopes":
-        if path.name == "README.md" or path.suffix in {".md", ".json", ".csv", ".geojson"}:
-            return "public_reading_surface"
+    if family == "scopes" and (
+        path.name == "README.md" or path.suffix in {".md", ".json", ".csv", ".geojson"}
+    ):
+        return "public_reading_surface"
     return "public_reading_surface"
 
 
@@ -316,17 +317,19 @@ def _build_quality_row(relative_path: str, text: str) -> dict[str, object]:
         1 for line in text.splitlines() if line.lstrip().startswith("- [")
     )
     bullet_sentence_count = sum(
-        1
-        for line in text.splitlines()
-        if _looks_like_sentence_bullet(line.strip())
+        1 for line in text.splitlines() if _looks_like_sentence_bullet(line.strip())
     )
     heading_count = sum(1 for line in text.splitlines() if line.startswith("#"))
-    table_line_count = sum(1 for line in text.splitlines() if line.strip().startswith("|"))
+    table_line_count = sum(
+        1 for line in text.splitlines() if line.strip().startswith("|")
+    )
     quality_posture = "reader_ready"
     note = "Page explains its purpose before or alongside artifact links."
     if link_bullet_count > 14 and prose_paragraph_count < 2:
         quality_posture = "link_farm_risk"
-        note = "Page carries many artifact links without enough explanation around them."
+        note = (
+            "Page carries many artifact links without enough explanation around them."
+        )
     elif prose_paragraph_count == 0 and table_line_count >= 4:
         quality_posture = "structured_reference"
         note = "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
@@ -335,7 +338,9 @@ def _build_quality_row(relative_path: str, text: str) -> dict[str, object]:
         note = "Page is bullet-led, but those bullets still explain posture and evidence role."
     elif prose_paragraph_count == 0:
         quality_posture = "link_farm_risk"
-        note = "Page lacks explanatory prose and risks reading like a bare artifact index."
+        note = (
+            "Page lacks explanatory prose and risks reading like a bare artifact index."
+        )
     elif heading_count < 2:
         quality_posture = "thin_structure"
         note = "Page explains itself but still needs stronger internal wayfinding."
@@ -371,9 +376,11 @@ def _looks_like_prose_block(lines: list[str]) -> bool:
     if not lines:
         return False
     first = lines[0]
-    if first.startswith("#") or first.startswith("|") or first.startswith("```") or first.startswith("<"):
+    if first.startswith(("#", "|", "```", "<")):
         return False
-    if first.startswith("- ") and not any(_looks_like_sentence_bullet(line) for line in lines):
+    if first.startswith("- ") and not any(
+        _looks_like_sentence_bullet(line) for line in lines
+    ):
         return False
     joined = " ".join(lines)
     alpha_count = sum(1 for char in joined if char.isalpha())
@@ -383,7 +390,7 @@ def _looks_like_prose_block(lines: list[str]) -> bool:
 def _looks_like_sentence_bullet(line: str) -> bool:
     if not line.startswith("- "):
         return False
-    if line.startswith("- `") or line.startswith("- ["):
+    if line.startswith(("- `", "- [")):
         return False
     alpha_count = sum(1 for char in line if char.isalpha())
     return alpha_count >= 24
@@ -405,7 +412,9 @@ def _render_portal_pages(
         "scopes/index.md": _render_scopes_portal_page(family_rows["scopes"]),
         "reviews/index.md": _render_reviews_portal_page(family_rows["reviews"]),
         "caveats/index.md": _render_caveats_portal_page(family_rows["caveats"]),
-        "maintenance/index.md": _render_maintenance_portal_page(family_rows["maintenance"]),
+        "maintenance/index.md": _render_maintenance_portal_page(
+            family_rows["maintenance"]
+        ),
     }
 
 
@@ -445,8 +454,7 @@ def _render_report_portal_index(
         )
     )
     audience_lines = "\n".join(
-        f"- {label}: `{count}`"
-        for label, count in sorted(audience_counts.items())
+        f"- {label}: `{count}`" for label, count in sorted(audience_counts.items())
     )
     return f"""---
 title: Report Portal
@@ -539,7 +547,9 @@ have instead of opening random JSON or Markdown files from the root.
 
 def _render_maps_portal_page(rows: list[dict[str, object]]) -> str:
     map_count = sum(1 for row in rows if str(row["format"]) == "html")
-    review_count = sum(1 for row in rows if "traceability" in str(row["repository_path"]))
+    review_count = sum(
+        1 for row in rows if "traceability" in str(row["repository_path"])
+    )
     return f"""---
 title: Map Surfaces
 audience: reader
@@ -747,7 +757,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `{payload['surface_count']}`
+- Surface count: `{payload["surface_count"]}`
 
 ## Family Counts
 
@@ -784,7 +794,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `{payload['page_count']}`
+- Reviewed markdown pages: `{payload["page_count"]}`
 
 ## Quality Postures
 
