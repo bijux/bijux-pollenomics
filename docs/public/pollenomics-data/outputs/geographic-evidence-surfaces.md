@@ -23,3 +23,11 @@ bring several evidence families into one visible geography.
 These surfaces do not replace the narrower governing evidence files behind
 their visible points. They are presentation surfaces with explicit contracts,
 not a license to outrank sample, locality, chronology, or coordinate review.
+
+## Live Audit Anchors
+
+- [world map publication contract](../../../report/world/world_map_publication_contract.md)
+- [Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md)
+- [repository truth posture](../../../report/repository_truth_posture.md)
+- [repository claim audit](../../../report/repository_claim_audit.md)
+- `data/adna/final/atlas/animal_atlas_candidate_accountability.md`

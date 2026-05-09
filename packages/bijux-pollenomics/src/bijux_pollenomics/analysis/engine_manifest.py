@@ -48,7 +48,9 @@ class RankingEngineManifest:
             "current_mode": self.current_mode,
             "bridge_statement": self.bridge_statement,
             "default_profile": self.default_profile,
-            "supported_profiles": [profile.as_dict() for profile in self.supported_profiles],
+            "supported_profiles": [
+                profile.as_dict() for profile in self.supported_profiles
+            ],
             "current_artifacts": list(self.current_artifacts),
             "recommendation_gate_statement": self.recommendation_gate_statement,
             "future_lake_selection_requirements": [

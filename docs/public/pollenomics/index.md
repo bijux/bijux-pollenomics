@@ -9,8 +9,8 @@ last_reviewed: 2026-05-09
 
 # Bijux Pollenomics Product Guide
 
-`bijux-pollenomics` is the public guide to the repository's runtime. It
-explains how the repository takes several different evidence families, keeps
+`bijux-pollenomics` is the product guide for the repository's public evidence.
+It explains how the repository takes several different evidence families, keeps
 their provenance visible, and publishes them as reviewable data files, report
 bundles, and map surfaces.
 
@@ -20,8 +20,11 @@ normalizes pollen context, environmental archaeology, boundaries, fieldwork
 material, and animal ancient-DNA evidence, then writes public outputs that a
 reader can inspect under `data/` and `docs/report/`.
 
-This guide exists so a new reader can understand that system without already
-knowing the package tree, the make targets, or the internal module names.
+This guide exists so a new reader can understand that system without needing to
+read the source code first, without already knowing the package tree, the make
+targets, or the internal module names.
+
+It is written so readers can understand the repository without needing to read the source code first.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../index.md">Open the documentation home</a>

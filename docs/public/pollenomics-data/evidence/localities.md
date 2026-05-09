@@ -25,6 +25,13 @@ datasets become overstated if the documentation is sloppy.
 - whether the place claim is broad, uncertain, or contested
 - whether the location is strong enough to support downstream coordinate work
 
+## Direct Files Behind This Surface
+
+- `data/adna/species/ovis_aries/normalized/site_evidence.json`
+- `data/adna/species/ovis_aries/review/sample_locality_evidence.json`
+- `data/adna/governance/source_library/project_sample_site_review.json`
+- `data/adna/governance/source_library/sample_locality_conflict_ledger.json`
+
 ## Why This Page Matters
 
 If locality evidence is weak, every later step stays weaker too. Chronology and

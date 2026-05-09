@@ -1,3 +1,5 @@
+"""Compatibility surface for shared workbook and export helpers."""
+
 from ..exports.context_points import (
     write_context_points_csv,
     write_context_points_geojson,

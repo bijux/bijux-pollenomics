@@ -39,3 +39,8 @@ It is a comparison tool, not a substitute for the source or evidence pages.
 - [data system overview](data-system-overview.md)
 - [source family matrix](../sources/source-family-matrix.md)
 - [published reports](../outputs/published-reports.md)
+
+## Live Matrix Artifacts
+
+- [repository cross-domain evidence matrix](../../../report/repository_cross_domain_evidence_matrix.md)
+- [repository atlas input audit](../../../report/repository_atlas_input_audit.md)

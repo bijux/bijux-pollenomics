@@ -38,3 +38,10 @@ This layer should make the following visible:
 Map filters and summary labels can make a dataset look more coherent than it
 really is. Temporal semantics is one of the mechanisms that prevents that
 illusion by keeping uncertainty attached to the claim.
+
+## Direct Files Behind This Surface
+
+- `data/sead/review/temporal_review.json`
+- `data/sead/review/evidence_legibility_review.json`
+- `data/sead/review/access_model.json`
+- `data/sead/review/recovery_roadmap.json`

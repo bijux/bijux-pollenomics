@@ -25,3 +25,10 @@ period language. If those are flattened into one display field, readers lose
 the ability to tell strong dating support from weak approximation.
 
 This page exists to keep that distinction visible.
+
+## Direct Files Behind This Surface
+
+- `data/adna/governance/source_library/project_sample_chronology_review.json`
+- `data/adna/species/ovis_aries/normalized/sample_chronology.json`
+- `data/adna/species/ovis_aries/review/sample_chronology_provenance_review.json`
+- `data/adna/governance/source_library/sample_chronology_ambiguity_ledger.json`

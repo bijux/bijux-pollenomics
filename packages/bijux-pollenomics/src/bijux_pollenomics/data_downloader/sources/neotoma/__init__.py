@@ -1,3 +1,5 @@
+"""Neotoma source collectors and normalization helpers."""
+
 from .archive import (
     build_neotoma_download_archive_parts,
     write_neotoma_download_archive,

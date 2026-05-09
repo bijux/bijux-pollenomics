@@ -1,3 +1,5 @@
+"""Reader-facing exports for candidate-site review reporting artifacts."""
+
 from .review.candidate_site_packets import (
     build_candidate_site_sensitivity_payload,
     build_candidate_sites_json_payload,

@@ -342,7 +342,9 @@ class CommandLineUnitTests(unittest.TestCase):
         self.assertEqual(args.species, "horse")
         self.assertFalse(args.json)
 
-    def test_run_command_routes_adna_normalization_bundle_through_registry(self) -> None:
+    def test_run_command_routes_adna_normalization_bundle_through_registry(
+        self,
+    ) -> None:
         parser = build_parser()
         args = parser.parse_args(["adna-normalization-bundle", "--species", "horse"])
 
@@ -387,9 +389,7 @@ class CommandLineUnitTests(unittest.TestCase):
 
     def test_build_parser_supports_adna_runtime_manifest_command(self) -> None:
         parser = build_parser()
-        args = parser.parse_args(
-            ["adna-runtime-manifest", "--species", "Homo sapiens"]
-        )
+        args = parser.parse_args(["adna-runtime-manifest", "--species", "Homo sapiens"])
 
         self.assertEqual(args.command, "adna-runtime-manifest")
         self.assertEqual(args.species, "Homo sapiens")

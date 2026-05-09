@@ -33,7 +33,9 @@ def build_sead_temporal_review(
         site_id = str(row.get("site_id", "")).strip()
         record = record_lookup.get(site_id)
         semantics = record.temporal_semantics if record is not None else {}
-        posture = str(semantics.get("comparability_posture", "")).strip() or "unresolved"
+        posture = (
+            str(semantics.get("comparability_posture", "")).strip() or "unresolved"
+        )
         posture_counts[posture] = posture_counts.get(posture, 0) + 1
         review_rows.append(
             {
@@ -116,7 +118,9 @@ def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, o
                 else [],
             }
         )
-    review_rows.sort(key=lambda row: (row["access_visibility"], row["site_name"].casefold()))
+    review_rows.sort(
+        key=lambda row: (row["access_visibility"], row["site_name"].casefold())
+    )
     return {
         "schema_version": "sead-access-model.v1",
         "generated_on": str(date.today()),
@@ -156,7 +160,9 @@ def build_sead_evidence_legibility_review(
         site_id = str(row.get("site_id", "")).strip()
         record = record_lookup.get(site_id)
         semantics = record.temporal_semantics if record is not None else {}
-        posture = str(semantics.get("comparability_posture", "")).strip() or "unresolved"
+        posture = (
+            str(semantics.get("comparability_posture", "")).strip() or "unresolved"
+        )
         access_model = build_sead_site_access_model(row)
         temporal_strength = _temporal_strength_for(posture)
         duration_posture = _duration_posture_for(row, semantics)
@@ -302,9 +308,7 @@ def write_sead_review_outputs(
         (
             "evidence_legibility_review",
             evidence_legibility_review,
-            render_sead_evidence_legibility_review_markdown(
-                evidence_legibility_review
-            ),
+            render_sead_evidence_legibility_review_markdown(evidence_legibility_review),
             _render_review_csv(evidence_legibility_review["rows"]),
         ),
         (

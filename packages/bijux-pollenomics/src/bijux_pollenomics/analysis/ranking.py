@@ -201,9 +201,11 @@ def build_ranking_sensitivity_report(
                 if score.sampling_recommendation_ready:
                     recommendation_ready_profiles.append(profile_name)
                 break
-        max_rank_shift = max(
-            abs(baseline_rank - rank) for rank in profile_ranks.values()
-        ) if profile_ranks else 0
+        max_rank_shift = (
+            max(abs(baseline_rank - rank) for rank in profile_ranks.values())
+            if profile_ranks
+            else 0
+        )
         rows.append(
             CandidateSensitivityRow(
                 locality=baseline_score.locality,
@@ -213,7 +215,9 @@ def build_ranking_sensitivity_report(
                 profile_ranks=profile_ranks,
                 profile_statuses=profile_statuses,
                 max_rank_shift=max_rank_shift,
-                recommendation_ready_profiles=tuple(sorted(recommendation_ready_profiles)),
+                recommendation_ready_profiles=tuple(
+                    sorted(recommendation_ready_profiles)
+                ),
             )
         )
     return CandidateSensitivityReport(

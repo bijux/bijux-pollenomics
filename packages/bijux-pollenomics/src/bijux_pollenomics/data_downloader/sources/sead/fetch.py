@@ -1,3 +1,5 @@
+"""Compatibility exports for SEAD fetch and inventory helpers."""
+
 from .api_client import (
     SEAD_FILTER_BATCH_SIZE,
     SEAD_LIMIT,

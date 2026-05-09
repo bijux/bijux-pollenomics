@@ -55,7 +55,9 @@ def validate_collection_summary_payload(payload: Mapping[str, object]) -> None:
         )
     for row in source_family_state_rows:
         if not isinstance(row, Mapping):
-            raise ValueError("collection summary contains invalid source-family state row")
+            raise ValueError(
+                "collection summary contains invalid source-family state row"
+            )
         for key in (
             "source_key",
             "raw_status",

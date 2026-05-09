@@ -34,6 +34,30 @@ alphabetical path order:
 | `data/boundaries/` | country and region framing geometry | filtering and scope clarity |
 | `docs/report/` | generated world, regional, and country publication bundles | public-facing outputs |
 
+## Curated Animal aDNA Roots
+
+The `data/adna/` tree is where species-centered animal ancient DNA recovery
+becomes inspectable. It is split so a reader can tell the difference between
+governance work, species-level normalized evidence, and the final atlas-facing
+publication inputs.
+
+- `data/adna/final/` holds the atlas- and publication-facing outputs derived
+  from the governed animal evidence chain.
+- `data/adna/species/equus_caballus/` tracks horse recovery and review files.
+- `data/adna/species/bos_taurus/` tracks cattle recovery and review files.
+- `data/adna/species/canis_lupus_familiaris/` tracks dog recovery and review
+  files.
+- `data/adna/species/camelus_dromedarius/` tracks camel recovery and review
+  files.
+- `data/adna/species/rangifer_tarandus/` tracks reindeer recovery and review
+  files.
+- `data/adna/species/equus_asinus/` tracks donkey recovery and review files.
+- `data/adna/species/felis_catus/` tracks cat recovery and review files.
+
+Those curated species roots matter because the repository does not treat animal
+ancient DNA as one flat pile of records. Each species keeps its own recovery,
+review, and publication posture visible.
+
 ## Reader Rule
 
 If your question is about meaning, start with the handbook pages first. If your

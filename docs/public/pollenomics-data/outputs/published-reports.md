@@ -9,7 +9,7 @@ last_reviewed: 2026-05-09
 
 # Published Reports
 
-Published report bundles live under one governed geography tree:
+Published report bundles now live under one governed geography tree:
 
 - `docs/report/index.md`
 - `docs/report/world/`
@@ -28,6 +28,17 @@ atlas with ad hoc links.
 - [world evidence surface](../../../report/world/README.md)
 - [Europe-plus evidence surface](../../../report/regions/europe-plus/README.md)
 - [Nordic evidence surface](../../../report/regions/nordic/README.md)
+- [animal sample database review](../../../report/animal_sample_database_review.md)
+- [animal intake recovery review](../../../report/animal_intake_recovery_review.md)
+- [animal point evidence review](../../../report/animal_point_evidence_review.md)
+- [animal output honesty](../../../report/animal_output_honesty.md)
+- [animal atlas exclusion report](../../../report/animal_atlas_exclusion_report.md)
+- [world map publication contract](../../../report/world/world_map_publication_contract.md)
+- [Nordic point traceability](../../../report/regions/nordic/nordic_point_traceability.md)
+- [repository truth posture](../../../report/repository_truth_posture.md)
+- [repository source family matrix](../../../report/repository_source_family_matrix.md)
+- [Sweden country bundle](../../../report/countries/sweden/README.md)
+- [Sweden animal aDNA v66 sample bundle](../../../report/countries/sweden/sweden_animal_adna_v66_samples.md)
 
 ## What The Geography Tree Is Good For
 

@@ -50,8 +50,12 @@ def build_repository_source_counts(output_root: Path) -> dict[str, int]:
         payload = json.loads(raa_layer.read_text(encoding="utf-8"))
         counts_payload = payload.get("counts", {})
         if isinstance(counts_payload, dict):
-            counts["raa_total_site_count"] = int(counts_payload.get("all_published_sites", 0))
-            counts["raa_heritage_site_count"] = int(counts_payload.get("fornlamning", 0))
+            counts["raa_total_site_count"] = int(
+                counts_payload.get("all_published_sites", 0)
+            )
+            counts["raa_heritage_site_count"] = int(
+                counts_payload.get("fornlamning", 0)
+            )
     return counts
 
 
@@ -63,7 +67,9 @@ def build_repository_collection_summary(
     """Build the checked-in collection summary from the existing repository data tree."""
     output_root = Path(output_root)
     selected_sources = AVAILABLE_SOURCES
-    source_output_roots = build_source_output_roots(output_root=output_root, version=version)
+    source_output_roots = build_source_output_roots(
+        output_root=output_root, version=version
+    )
     source_metadata = build_source_metadata(
         selected_sources=selected_sources,
         version=version,
