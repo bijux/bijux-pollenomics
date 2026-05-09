@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 import zipfile
 
+from bijux_pollenomics.adna import source_library as source_library_module
 from bijux_pollenomics.adna.source_inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,
@@ -31,6 +32,40 @@ from bijux_pollenomics.adna.source_library import (
 
 
 class AdnaSourceLibraryUnitTests(unittest.TestCase):
+    def test_source_artifact_index_cache_can_be_cleared_between_reads(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            first_artifact = source_library_module.AdnaSourceArtifact(
+                artifact_id="paper:first",
+                artifact_kind="article_html",
+                label="first",
+                source_url="https://example.org/first",
+                local_path="adna/governance/source_library/papers/example/article.html",
+                fetch_status="archived",
+                remote_note="first",
+                project_accessions=("PRJEB22390",),
+                paper_doi="10.1000/example",
+            )
+            with patch.object(
+                source_library_module,
+                "_build_source_artifact_index_uncached",
+                side_effect=[(first_artifact,), ()],
+            ) as build_uncached:
+                source_library_module._clear_source_library_caches()
+                first = source_library_module.build_source_artifact_index(output_root)
+                second = source_library_module.build_source_artifact_index(output_root)
+                source_library_module._clear_source_library_caches()
+                third = source_library_module.build_source_artifact_index(output_root)
+
+        self.assertEqual(first, (first_artifact,))
+        self.assertEqual(second, first)
+        self.assertEqual(third, ())
+        self.assertEqual(build_uncached.call_count, 2)
+
+    def test_download_url_rejects_non_http_scheme(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Unsupported URL for network fetch"):
+            source_library_module._download_url("file:///tmp/source.pdf")
+
     def test_project_source_bundles_flag_missing_local_sources_before_refresh(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"

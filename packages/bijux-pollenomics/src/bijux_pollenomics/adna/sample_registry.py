@@ -267,6 +267,11 @@ def _resolve_row_context(
         time_end_bp = lead.time_end_bp
         inclusion_status = _inclusion_status_for(project.archive_status, project_context.nordic_relevance)
         inclusion_note = lead.interpretation_note
+        if inclusion_status == "comparator_site_curated":
+            inclusion_note = (
+                "Comparator context only. "
+                f"{inclusion_note}"
+            ).strip()
 
     if master_row is not None:
         if getattr(master_row, "locality_text", ""):

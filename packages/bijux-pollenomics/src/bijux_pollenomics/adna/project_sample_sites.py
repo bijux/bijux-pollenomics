@@ -4,13 +4,13 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 import shutil
-import subprocess
+import subprocess  # nosec B404
 
 from ..core.files import write_json, write_text
 from .catalogs import render_csv_rows
 from .coordinate_provenance import resolve_project_coordinate_provenance
 from .ena import build_archive_project_catalog
-from .sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
+from .sample_master import build_project_sample_master_rows
 from .site_evidence import resolve_project_site_evidence
 
 __all__ = [
@@ -97,7 +97,6 @@ def build_project_sample_site_rows(
     project_accession: str,
 ) -> tuple[AdnaProjectSampleSiteRow, ...]:
     output_root = Path(output_root)
-    project = _project_by_accession(project_accession)
     master_rows = build_project_sample_master_rows(output_root, project_accession)
     site_rows = resolve_project_site_evidence(project_accession)
     site_row = site_rows[0] if site_rows else None
@@ -635,6 +634,8 @@ def _ghostscript_text(path: Path) -> str:
     gs = shutil.which("gs")
     if gs is None:
         return ""
+    pdf_path = path.resolve()
+    # Ghostscript is invoked without a shell against one checked-in local PDF path.
     result = subprocess.run(
         [
             gs,
@@ -643,12 +644,12 @@ def _ghostscript_text(path: Path) -> str:
             "-dBATCH",
             "-sDEVICE=txtwrite",
             "-sOutputFile=-",
-            str(path),
+            str(pdf_path),
         ],
         capture_output=True,
         check=False,
         text=True,
-    )
+    )  # nosec B603
     if result.returncode != 0:
         return ""
     return result.stdout

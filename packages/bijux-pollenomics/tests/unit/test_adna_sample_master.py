@@ -4,6 +4,7 @@ from collections import Counter
 from pathlib import Path
 import unittest
 
+from bijux_pollenomics.adna import sample_master as sample_master_module
 from bijux_pollenomics.adna.sample_master import (
     build_cross_project_sample_master_completeness,
     build_project_sample_master,
@@ -106,6 +107,16 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(reindeer_anchor.sample_basis, "archive_project_sample_accession_anchor")
         self.assertEqual(reindeer_anchor.sample_evidence_status, "archive_native")
         self.assertTrue(reindeer_anchor.archive_native_sample_id.startswith("SAMEA"))
+
+    def test_horse_age_text_keeps_range_labels_stable(self) -> None:
+        self.assertEqual(
+            sample_master_module._format_horse_age_text("5500 - 5700"),
+            "5500-5700 BP",
+        )
+        self.assertEqual(
+            sample_master_module._format_horse_age_text("2300"),
+            "2300 BP",
+        )
 
     def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(self) -> None:
         camel = build_project_sample_master(self.data_root, "KU605068-KU605080")

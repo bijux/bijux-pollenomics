@@ -443,7 +443,8 @@ def normalize_chronology_text(
         older_bp = _bce_to_bp(int(bce_range.group("start")))
         younger_bp = _bce_to_bp(int(bce_range.group("end")))
         interval = normalize_bp_interval(older_bp, younger_bp)
-        assert interval is not None
+        if interval is None:
+            raise ValueError(f"BCE range could not be normalized: {text}")
         return AdnaChronology(
             original_text=text,
             time_start_bp=interval[0],
@@ -455,7 +456,8 @@ def normalize_chronology_text(
         first_bp = _ce_to_bp(int(ce_range.group("start")))
         second_bp = _ce_to_bp(int(ce_range.group("end")))
         interval = normalize_bp_interval(first_bp, second_bp)
-        assert interval is not None
+        if interval is None:
+            raise ValueError(f"CE range could not be normalized: {text}")
         return AdnaChronology(
             original_text=text,
             time_start_bp=interval[0],
@@ -1277,7 +1279,10 @@ def _build_lineage_records(
         first_project = project_by_token.get(
             f"{species.slug}:project:{study.project_accessions[0]}"
         )
-        assert first_project is not None
+        if first_project is None:
+            raise ValueError(
+                "Study summary references a project token missing from the normalization bundle"
+            )
         lineages.append(
             AdnaNormalizationLineage(
                 schema_version="adna-normalization-lineage.v1",
