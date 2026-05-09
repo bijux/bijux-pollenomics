@@ -120,6 +120,7 @@ def _normalized_record_contract_ok(species_name: str) -> bool:
 
 def _atlas_bundle_contract_ok() -> bool:
     from ..evidence import build_atlas_evidence_surface, build_scientific_review_surface
+    from ..reporting.geography import build_published_geography_plan
     from ..reporting.bundles.paths import build_atlas_bundle_paths
     from ..reporting.bundles.summary_builders.atlas import (
         build_multi_country_bundle_manifest,
@@ -176,10 +177,13 @@ def _atlas_bundle_contract_ok() -> bool:
             generated_on="1970-01-01",
             countries=("Sweden",),
             shared_map_dir=report.output_dir,
-            country_output_dirs=(Path("docs/report/sweden"),),
+            country_output_dirs=(Path("docs/report/countries/sweden"),),
             summary_path=Path("docs/report/published_reports_summary.json"),
+            regional_output_dirs=(Path("docs/report/regions/nordic"),),
+            country_output_root=Path("docs/report/countries"),
         ),
         report,
+        plan=build_published_geography_plan(("Sweden",)),
     )
     return (
         summary.get("schema_version") == "atlas-bundle-summary.v1"
