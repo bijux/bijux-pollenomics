@@ -4,8 +4,9 @@ from dataclasses import dataclass
 from io import BytesIO
 from pathlib import Path
 import re
-import xml.etree.ElementTree as ET
 import zipfile
+
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 from .ena import build_archive_project_catalog
 from .source_library import (
@@ -1243,28 +1244,31 @@ def _read_xlsx_member_rows(
     member_name: str,
     sheet_name: str,
 ) -> tuple[tuple[str, ...], ...]:
-    with zipfile.ZipFile(bundle_path) as outer:
-        if member_name not in outer.namelist():
-            return ()
-        workbook_payload = outer.read(member_name)
-    with zipfile.ZipFile(BytesIO(workbook_payload)) as workbook:
-        shared_strings = _xlsx_shared_strings(workbook)
-        sheet_targets = _xlsx_sheet_targets(workbook)
-        target = sheet_targets[sheet_name]
-        root = ET.fromstring(workbook.read(target))
-        rows = []
-        for row in root.findall(".//a:sheetData/a:row", _XLSX_NS):
-            values: list[str] = []
-            for cell in row.findall("a:c", _XLSX_NS):
-                cell_type = cell.attrib.get("t")
-                value_node = cell.find("a:v", _XLSX_NS)
-                if value_node is None or value_node.text is None:
-                    values.append("")
-                elif cell_type == "s":
-                    values.append(shared_strings[int(value_node.text)])
-                else:
-                    values.append(value_node.text.strip())
-            rows.append(tuple(values))
+    try:
+        with zipfile.ZipFile(bundle_path) as outer:
+            if member_name not in outer.namelist():
+                return ()
+            workbook_payload = outer.read(member_name)
+        with zipfile.ZipFile(BytesIO(workbook_payload)) as workbook:
+            shared_strings = _xlsx_shared_strings(workbook)
+            sheet_targets = _xlsx_sheet_targets(workbook)
+            target = sheet_targets[sheet_name]
+            root = ET.fromstring(workbook.read(target))
+            rows = []
+            for row in root.findall(".//a:sheetData/a:row", _XLSX_NS):
+                values: list[str] = []
+                for cell in row.findall("a:c", _XLSX_NS):
+                    cell_type = cell.attrib.get("t")
+                    value_node = cell.find("a:v", _XLSX_NS)
+                    if value_node is None or value_node.text is None:
+                        values.append("")
+                    elif cell_type == "s":
+                        values.append(shared_strings[int(value_node.text)])
+                    else:
+                        values.append(value_node.text.strip())
+                rows.append(tuple(values))
+    except (KeyError, ValueError, zipfile.BadZipFile):
+        return ()
     return tuple(rows)
 
 
@@ -1523,7 +1527,8 @@ def _format_horse_age_text(value: str) -> str:
     if not text or text == "-":
         return ""
     if re.fullmatch(r"\d+\s*-\s*\d+", text):
-        return f"{re.sub(r'\s+', '', text)} BP"
+        range_text = re.sub(r"\s+", "", text)
+        return f"{range_text} BP"
     if text.isdigit():
         return f"{text} BP"
     return _format_bp_point_text(text)

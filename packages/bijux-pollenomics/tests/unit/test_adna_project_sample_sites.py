@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 from pathlib import Path
+from types import SimpleNamespace
+import tempfile
 import unittest
+from unittest.mock import patch
 
+from bijux_pollenomics.adna import project_sample_sites as project_sample_sites_module
 from bijux_pollenomics.adna.project_sample_sites import (
     build_project_sample_site_review_rows,
     build_project_sample_site_rows,
@@ -75,6 +79,23 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
                 for row in queue_rows
             )
         )
+
+    def test_ghostscript_text_uses_resolved_local_pdf_path(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf_path = Path(tmp) / "atlas.pdf"
+            pdf_path.write_bytes(b"%PDF-1.4\n")
+            with patch.object(project_sample_sites_module.shutil, "which", return_value="/usr/bin/gs"):
+                with patch.object(
+                    project_sample_sites_module.subprocess,
+                    "run",
+                    return_value=SimpleNamespace(returncode=0, stdout="atlas text"),
+                ) as mock_run:
+                    text = project_sample_sites_module._ghostscript_text(pdf_path)
+
+        self.assertEqual(text, "atlas text")
+        args = mock_run.call_args.args[0]
+        self.assertEqual(args[0], "/usr/bin/gs")
+        self.assertEqual(args[-1], str(pdf_path.resolve()))
 
 
 if __name__ == "__main__":

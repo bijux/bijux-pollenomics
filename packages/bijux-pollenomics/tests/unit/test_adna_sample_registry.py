@@ -65,7 +65,7 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         self.assertEqual(donkey.sample_basis, "project_accession_anchor")
         self.assertEqual(donkey.inclusion_status, "comparator_site_curated")
         self.assertEqual(reindeer.inclusion_status, "comparator_site_curated")
-        self.assertIn("comparator", reindeer.inclusion_note)
+        self.assertIn("comparator", reindeer.inclusion_note.casefold())
 
 
 if __name__ == "__main__":

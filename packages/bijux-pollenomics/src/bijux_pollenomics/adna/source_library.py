@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from functools import lru_cache
 import json
 import os
 from pathlib import Path
@@ -11,6 +12,7 @@ from urllib.request import Request, urlopen
 import zipfile
 
 from ..core.files import write_json, write_text
+from ..core.http import validate_http_url
 from .ena import build_archive_project_catalog
 from .governance_contracts import materialize_adna_governance_contracts
 from .paths import ADNA_SOURCE_LIBRARY_DIR, adna_source_library_root
@@ -304,13 +306,38 @@ _USER_AGENT = "Mozilla/5.0 (compatible; bijux-pollenomics/1.0)"
 _NATURE_DOI_RE = re.compile(r"https?://www\.nature\.com/articles/(?P<slug>[A-Za-z0-9_.-]+)")
 
 
+def _source_library_cache_key(output_root: Path) -> str:
+    return str(Path(output_root).resolve())
+
+
+def _clear_source_library_caches() -> None:
+    _build_source_artifact_index_cached.cache_clear()
+    _build_project_registry_cached.cache_clear()
+    _build_paper_registry_cached.cache_clear()
+    _build_supplement_zip_member_registry_cached.cache_clear()
+    _reference_stash_records_cached.cache_clear()
+
+
 def build_source_artifact_index(output_root: Path) -> tuple[AdnaSourceArtifact, ...]:
     """Return the tracked source artifact index from the local archive tree."""
+    return _build_source_artifact_index_cached(_source_library_cache_key(output_root))
+
+
+def _build_source_artifact_index_uncached(
+    output_root: Path,
+) -> tuple[AdnaSourceArtifact, ...]:
     output_root = Path(output_root)
     rows: list[AdnaSourceArtifact] = []
     for artifact in _iter_materialized_artifacts(output_root):
         rows.append(artifact)
     return tuple(sorted(rows, key=lambda item: (item.paper_doi or "", item.artifact_id)))
+
+
+@lru_cache(maxsize=None)
+def _build_source_artifact_index_cached(
+    output_root_key: str,
+) -> tuple[AdnaSourceArtifact, ...]:
+    return _build_source_artifact_index_uncached(Path(output_root_key))
 
 
 def build_project_source_bundles(output_root: Path) -> tuple[AdnaSourceBundleManifest, ...]:
@@ -507,6 +534,12 @@ def _project_intake_expectation(project: object) -> _ProjectIntakeExpectation:
 
 def build_project_registry(output_root: Path) -> tuple[AdnaProjectRegistryRow, ...]:
     """Return the master cross-species project registry."""
+    return _build_project_registry_cached(_source_library_cache_key(output_root))
+
+
+def _build_project_registry_uncached(
+    output_root: Path,
+) -> tuple[AdnaProjectRegistryRow, ...]:
     output_root = Path(output_root)
     bundles = {bundle.project_accession: bundle for bundle in build_project_source_bundles(output_root)}
     paper_rows = {row.paper_doi: row for row in build_paper_registry(output_root)}
@@ -579,8 +612,21 @@ def build_project_registry(output_root: Path) -> tuple[AdnaProjectRegistryRow, .
     return tuple(sorted(rows, key=lambda item: (item.species_latin_name, item.project_accession)))
 
 
+@lru_cache(maxsize=None)
+def _build_project_registry_cached(
+    output_root_key: str,
+) -> tuple[AdnaProjectRegistryRow, ...]:
+    return _build_project_registry_uncached(Path(output_root_key))
+
+
 def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
     """Return the master unique-paper registry."""
+    return _build_paper_registry_cached(_source_library_cache_key(output_root))
+
+
+def _build_paper_registry_uncached(
+    output_root: Path,
+) -> tuple[AdnaPaperRegistryRow, ...]:
     output_root = Path(output_root)
     artifacts = build_source_artifact_index(output_root)
     artifacts_by_doi: dict[str, list[AdnaSourceArtifact]] = {}
@@ -598,7 +644,10 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
     for doi, projects in sorted(projects_by_doi.items()):
         first = projects[0]
         linkage = first.paper_linkage
-        assert linkage is not None
+        if linkage is None:
+            raise ValueError(
+                f"Paper registry cannot render DOI {doi} without a curated paper linkage"
+            )
         spec = _paper_source_spec(doi)
         stash_record = _reference_stash_records(output_root).get(_doi_slug(doi), {})
         doi_artifacts = tuple(artifacts_by_doi.get(doi, ()))
@@ -696,6 +745,13 @@ def build_paper_registry(output_root: Path) -> tuple[AdnaPaperRegistryRow, ...]:
             )
         )
     return tuple(rows)
+
+
+@lru_cache(maxsize=None)
+def _build_paper_registry_cached(
+    output_root_key: str,
+) -> tuple[AdnaPaperRegistryRow, ...]:
+    return _build_paper_registry_uncached(Path(output_root_key))
 
 
 def _paper_sample_extractability(
@@ -809,6 +865,14 @@ def build_supplement_registry(output_root: Path) -> tuple[AdnaSupplementRegistry
 
 def build_supplement_zip_member_registry(output_root: Path) -> tuple[dict[str, object], ...]:
     """Return the tracked member inventory for archived supplementary zip bundles."""
+    return _build_supplement_zip_member_registry_cached(
+        _source_library_cache_key(output_root)
+    )
+
+
+def _build_supplement_zip_member_registry_uncached(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
     output_root = Path(output_root)
     rows: list[dict[str, object]] = []
     for artifact in build_source_artifact_index(output_root):
@@ -855,6 +919,13 @@ def build_supplement_zip_member_registry(output_root: Path) -> tuple[dict[str, o
             ),
         )
     )
+
+
+@lru_cache(maxsize=None)
+def _build_supplement_zip_member_registry_cached(
+    output_root_key: str,
+) -> tuple[dict[str, object], ...]:
+    return _build_supplement_zip_member_registry_uncached(Path(output_root_key))
 
 
 def _infer_zip_member_purpose(member_name: str) -> str:
@@ -1141,6 +1212,7 @@ def refresh_source_library(
     downloader: Callable[[str], tuple[bytes, str]] | None = None,
 ) -> None:
     """Download or refresh local paper and supplementary artifacts."""
+    _clear_source_library_caches()
     output_root = Path(output_root)
     downloader = _download_url if downloader is None else downloader
     source_root = adna_source_library_root(output_root)
@@ -1186,10 +1258,12 @@ def refresh_source_library(
                 "paper_doi": doi,
             }
             write_json(local_path.with_suffix(local_path.suffix + ".metadata.json"), metadata)
+    _clear_source_library_caches()
 
 
 def materialize_source_library(output_root: Path) -> None:
     """Write registries, per-project manifests, and curation notes for the local source library."""
+    _clear_source_library_caches()
     output_root = Path(output_root)
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
@@ -1277,6 +1351,7 @@ def materialize_source_library(output_root: Path) -> None:
     materialize_project_sample_chronology_library(output_root)
     materialize_source_inventory(output_root)
     materialize_adna_governance_contracts(output_root)
+    _clear_source_library_caches()
 
 
 def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
@@ -1845,6 +1920,10 @@ def _resolve_reference_stash_root(output_root: Path) -> Path | None:
 
 
 def _reference_stash_records(output_root: Path) -> dict[str, dict[str, object]]:
+    return _reference_stash_records_cached(_source_library_cache_key(output_root))
+
+
+def _reference_stash_records_uncached(output_root: Path) -> dict[str, dict[str, object]]:
     stash_root = _resolve_reference_stash_root(output_root)
     if stash_root is None:
         return {}
@@ -1892,6 +1971,11 @@ def _reference_stash_records(output_root: Path) -> dict[str, dict[str, object]]:
             "archive_bundle_count": int(record["archive_bundle_count"]),
         }
     return payload
+
+
+@lru_cache(maxsize=None)
+def _reference_stash_records_cached(output_root_key: str) -> dict[str, dict[str, object]]:
+    return _reference_stash_records_uncached(Path(output_root_key))
 
 
 def _local_reference_article_status(stash_record: dict[str, object]) -> str:
@@ -2108,8 +2192,9 @@ def _render_csv(rows: list[dict[str, object]]) -> str:
 
 
 def _download_url(url: str) -> tuple[bytes, str]:
+    validate_http_url(url)
     request = Request(url, headers={"User-Agent": _USER_AGENT})
-    with urlopen(request, timeout=60) as response:
+    with urlopen(request, timeout=60) as response:  # nosec B310
         payload = response.read()
         content_type = response.headers.get("Content-Type", "application/octet-stream")
     return payload, content_type
