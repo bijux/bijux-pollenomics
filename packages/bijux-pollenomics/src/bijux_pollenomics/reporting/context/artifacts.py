@@ -13,12 +13,14 @@ from ...data_downloader.contracts import (
     RAA_DENSITY_GEOJSON,
     RAA_LAYER_METADATA,
 )
+from ..map_publication import map_allows_context_layer
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
 
 
 def stage_context_point_layers(
     *,
+    scope_key: str,
     context_root: Path,
     output_dir: Path,
     build_external_point_layer_fn: Callable[..., dict[str, object]],
@@ -27,6 +29,9 @@ def stage_context_point_layers(
     point_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
     for contract in ATLAS_POINT_ARTIFACTS:
+        layer_key = _layer_key_for_point_contract(contract.filename)
+        if not map_allows_context_layer(scope_key=scope_key, layer_key=layer_key):
+            continue
         source_path = contract.path_under(context_root)
         if not source_path.exists():
             continue
@@ -43,6 +48,7 @@ def stage_context_point_layers(
 
 def stage_context_polygon_layers(
     *,
+    scope_key: str,
     context_root: Path,
     output_dir: Path,
     build_country_boundary_layer_fn: Callable[[dict[str, object]], dict[str, object]],
@@ -54,7 +60,13 @@ def stage_context_polygon_layers(
     extra_artifacts: list[tuple[str, str]] = []
 
     boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
-    if boundary_path.exists():
+    if (
+        boundary_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key="country-boundaries",
+        )
+    ):
         destination_path = stage_context_artifact(
             source_path=boundary_path, output_dir=output_dir
         )
@@ -64,7 +76,13 @@ def stage_context_polygon_layers(
         extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
     landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
-    if landclim_grid_path.exists():
+    if (
+        landclim_grid_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key="landclim-reveals-grid",
+        )
+    ):
         destination_path = stage_context_artifact(
             source_path=landclim_grid_path, output_dir=output_dir
         )
@@ -76,14 +94,26 @@ def stage_context_polygon_layers(
         extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
 
     archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
-    if archaeology_path.exists():
+    if (
+        archaeology_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key="raa-layer-metadata",
+        )
+    ):
         destination_path = stage_context_artifact(
             source_path=archaeology_path, output_dir=output_dir
         )
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
-    if archaeology_density_path.exists():
+    if (
+        archaeology_density_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key="raa-archaeology",
+        )
+    ):
         destination_path = stage_context_artifact(
             source_path=archaeology_density_path, output_dir=output_dir
         )
@@ -109,3 +139,13 @@ def load_context_geojson(path: Path) -> dict[str, object]:
     if mapping is None:
         raise ValueError(f"Context GeoJSON must be a JSON object: {path}")
     return {str(key): value for key, value in mapping.items()}
+
+
+def _layer_key_for_point_contract(filename: str) -> str:
+    if filename == "nordic_pollen_site_sequences.geojson":
+        return "landclim-sites"
+    if filename == "nordic_pollen_sites.geojson":
+        return "neotoma-pollen"
+    if filename == "nordic_environmental_sites.geojson":
+        return "sead-sites"
+    raise ValueError(f"Unhandled point artifact contract filename: {filename}")

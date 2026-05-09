@@ -85,6 +85,9 @@ def build_external_point_layer(
         "applies_country_filter": applies_country_filter,
         "applies_time_filter": applies_time_filter,
         "circle_enabled": True,
+        "traceability_artifact": ""
+        if source_path is None
+        else source_path.name,
         "style": POINT_LAYER_STYLES.get(
             layer_key,
             {

@@ -78,6 +78,7 @@ def build_aadr_point_layer(
         "applies_country_filter": True,
         "applies_time_filter": True,
         "circle_enabled": True,
+        "traceability_artifact": "",
         "style": {
             "fill": "#2563eb",
             "stroke": "#0f172a",

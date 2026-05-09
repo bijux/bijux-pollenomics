@@ -34,19 +34,19 @@ POINT_LAYER_METADATA = {
     "neotoma-pollen": {
         "group": "environmental-context",
         "source_name": "Neotoma",
-        "coverage_label": "Nordic pollen and paleoecology sites with coordinates.",
+        "coverage_label": "Pollen and paleoecology sites staged from the Neotoma normalization bundle.",
         "geometry_label": "Point records",
     },
     "landclim-sites": {
         "group": "environmental-context",
         "source_name": "LandClim",
-        "coverage_label": "Nordic pollen sequences reused in LandClim REVEALS reconstructions.",
+        "coverage_label": "Pollen sequences staged from the LandClim normalization bundle.",
         "geometry_label": "Point records",
     },
     "sead-sites": {
         "group": "environmental-context",
         "source_name": "SEAD",
-        "coverage_label": "Nordic environmental archaeology sites with coordinates.",
+        "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
         "geometry_label": "Point records",
     },
 }
