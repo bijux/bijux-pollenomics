@@ -9,81 +9,27 @@ last_reviewed: 2026-05-09
 
 # SEAD Handbook
 
-This handbook explains how `bijux-pollenomics` treats SEAD as a contextual
-archaeology source family.
+SEAD is one of the main archaeology-context families in the repository. This
+handbook page exists because SEAD is rich enough to deserve more than a short
+source note, but it is still a contextual family rather than a direct
+sample-backed ancient DNA surface.
 
-## What SEAD Is Here
+## What SEAD Contributes
 
-SEAD is a site-level archaeology context layer. It can help readers see
-broader environmental or settlement context around pollen and animal evidence,
-but it should not be read like one uniform chronology source.
+SEAD helps the repository describe environmental archaeology around the same
+regions where pollen and ancient DNA are being interpreted. That makes it
+useful for landscape and settlement context, especially when a reader wants to
+know whether a visible ancient DNA point sits in an otherwise active cultural
+setting.
 
-The repository can currently mirror three things with confidence:
+## What SEAD Does Not Do On Its Own
 
-- raw site inventory capture under `data/sead/raw/`
-- normalized contextual point layers under `data/sead/normalized/`
-- explicit review packets under `data/sead/review/`
+SEAD does not replace sample-level locality, chronology, or coordinate
+evidence. It is a contextual layer. It can strengthen interpretation, but it
+should not be mistaken for direct evidence of one ancient DNA sample.
 
-The repository does not mirror the full upstream SEAD browsing experience or
-the whole relational database. When the checked-in row is thin, the stable
-reader path is still the upstream SEAD site page.
+## Best Reading Route
 
-## Access Model
-
-The governed access model lives in `data/sead/review/access_model.json`.
-
-It distinguishes:
-
-- what the repository mirrors directly
-- what it only references through stable upstream links
-- what still requires reader inspection at the source
-- what the repository should not pretend to redistribute
-
-This matters because a contextual source can be easy to misread when the local
-artifact looks complete but the real interpretive detail still lives upstream.
-
-## Time and Period Semantics
-
-The governed time review lives in `data/sead/review/temporal_review.json`.
-
-SEAD rows may appear as:
-
-- numeric site spans
-- numeric spans with contextual caveats
-- period labels without stable numeric support
-- thin inventory rows that remain unresolved
-
-Those states are not interchangeable. They are the difference between a row
-that can support bounded time filtering and a row that should remain a broad
-context cue.
-
-## Legibility and Risk
-
-The main per-row review surface is
-`data/sead/review/evidence_legibility_review.json`.
-
-It classifies rows by:
-
-- temporal strength
-- duration posture
-- access visibility
-- normalization risk
-
-That packet is the best short answer when a maintainer or reviewer asks
-whether SEAD is merely present or actually inspectable.
-
-## Publication Boundary
-
-SEAD is published as archaeology context. It does not become a direct evidence
-surface simply because it is visible in report bundles.
-
-The report-root summary for this posture is
-[`docs/report/repository_sead_legibility_review.md`](../../../report/repository_sead_legibility_review.md).
-
-## Recovery Roadmap
-
-The recovery roadmap lives in `data/sead/review/recovery_roadmap.json`.
-
-It names the concrete deliverables still needed to move SEAD from thin site
-inventory plus derived maps toward a source family that is both scientifically
-legible and operationally trustworthy.
+- start with [SEAD](sead.md) for the short source-family description
+- use this page when you want a fuller explanation of why SEAD remains visible
+- then move to [published reports](../outputs/published-reports.md) if your question is how SEAD appears in the public map tree

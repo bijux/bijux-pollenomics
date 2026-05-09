@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Source Comparison
@@ -23,7 +23,8 @@ flowchart TB
     neotoma["Neotoma"]
     raa["RAÄ"]
     sead["SEAD"]
-    atlas["world evidence surface"]
+    animals["animal source intake"]
+    atlas["public report surfaces"]
 
     aadr --> atlas
     boundaries --> atlas
@@ -31,6 +32,7 @@ flowchart TB
     neotoma --> atlas
     raa --> atlas
     sead --> atlas
+    animals --> atlas
 ```
 
 Layers can render together while still meaning very different things.
@@ -47,8 +49,9 @@ Layers can render together while still meaning very different things.
 
 ## Good Reader Rule
 
-- open [Source family matrix](source-family-matrix.md) when the question is repository balance
-- open [Animal source intake](animal-source-intake.md) when the question is paper, supplement, or sample recovery
+- open [source family matrix](source-family-matrix.md) when the question is repository balance
+- open [animal source intake](animal-source-intake.md) when the question is paper, supplement, or sample recovery
+- open one source page only after you know what kind of answer you are looking for
 
 ## Why This Comparison Matters
 

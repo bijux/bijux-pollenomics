@@ -9,47 +9,26 @@ last_reviewed: 2026-05-09
 
 # Source Family Matrix
 
-The source-family matrix is the repository-wide balance sheet for the data
-story. It helps readers see which families are primary evidence, which are
-contextual, what is already visible in the tracked tree, and where the current
-recovery pressure still sits.
+This page compares the main source families at the level of role and maturity.
+It is meant to stop the repository from sounding balanced only because several
+source names appear in the same navigation tree.
 
-## Reader Anchors
+## The Matrix Question
 
-- `data/source_family_contracts.json`
-- `data/source_family_evidence_stage_matrix.json`
-- `data/source_fact_ownership_registry.json`
-- [`docs/report/repository_source_family_matrix.json`](../../../report/repository_source_family_matrix.json)
-- [`docs/report/repository_source_family_matrix.md`](../../../report/repository_source_family_matrix.md)
-- [`docs/report/repository_cross_domain_evidence_matrix.json`](../../../report/repository_cross_domain_evidence_matrix.json)
-- [`docs/report/repository_cross_domain_evidence_matrix.md`](../../../report/repository_cross_domain_evidence_matrix.md)
-- [`docs/report/repository_source_explainer_audit.md`](../../../report/repository_source_explainer_audit.md)
-- [`docs/report/repository_source_acquisition_queue.json`](../../../report/repository_source_acquisition_queue.json)
-- [`docs/report/repository_source_acquisition_queue.md`](../../../report/repository_source_acquisition_queue.md)
-- [Source comparison](source-comparison.md)
-- [Animal source intake](animal-source-intake.md)
+For each source family, readers usually need four things to be clear:
 
-## What This Surface Answers
+- what kind of evidence it contributes
+- what geographic reach it has
+- how directly it supports public-facing interpretation
+- what its current limits are
 
-- Which source families are primary pollenomics evidence and which are context
-- Which raw, normalized, review, and publication stage is governing each family
-- Which tracked family still has the strongest acquisition backlog
-- Whether the repository is undercounting a source family in `data/collection_summary.json`
-- Whether the docs still explain each non-aDNA family in durable form
-- Whether animal source intake is ahead in the local reference stash but still behind in governed repo ingestion
+## Practical Reading
 
-## Current Reading
+Read the matrix together with:
 
-The current matrix keeps the pollenomics-first picture explicit: LandClim and
-Neotoma remain primary pollen context, SEAD and RAÄ remain archaeology context,
-boundaries remain framing layers, fieldwork remains narrow but visible, and the
-animal aDNA program is still an evidence-recovery track whose local supplement
-stash is materially ahead of its repo-owned capture.
+- [source comparison](source-comparison.md)
+- [data system overview](../overview/data-system-overview.md)
+- [published reports](../outputs/published-reports.md)
 
-Use the [cross-domain evidence matrix](../overview/cross-domain-evidence-matrix.md)
-when the real question is whether the repository is balanced by evidence depth
-rather than by file presence.
-
-Use the [data architecture handbook](../overview/data-architecture-handbook.md)
-when the real question is where one fact should live rather than how broad one
-source family is.
+The matrix gives the broad comparison. Those other pages explain the actual
+files and outputs behind it.
