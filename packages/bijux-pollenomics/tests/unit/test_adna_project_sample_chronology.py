@@ -4,7 +4,10 @@ from pathlib import Path
 from types import SimpleNamespace
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna.project_sample_chronology import (
+    _resolve_chronology_source,
     build_cross_project_sample_chronology_audit,
     build_date_evidence_gap_queue,
     build_project_chronology_completeness_rows,
@@ -17,7 +20,6 @@ from bijux_pollenomics.adna.project_sample_chronology import (
     build_sample_chronology_review_rows,
     build_species_chronology_completeness_rows,
 )
-from bijux_pollenomics.adna.project_sample_chronology import _resolve_chronology_source
 
 CONFLICTING_CHRONOLOGY_CASES = (
     {
@@ -36,12 +38,16 @@ CONFLICTING_CHRONOLOGY_CASES = (
     },
 )
 
+pytestmark = pytest.mark.generated_artifacts
+
 
 class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
     def setUp(self) -> None:
         self.data_root = Path(__file__).resolve().parents[4] / "data"
 
-    def test_sheep_project_sample_chronology_rows_publish_strengths_and_provenance(self) -> None:
+    def test_sheep_project_sample_chronology_rows_publish_strengths_and_provenance(
+        self,
+    ) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "PRJEB36540")
 
         self.assertEqual(len(rows), 190)
@@ -50,14 +56,22 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(first.chronology_evidence_class, "direct_radiocarbon_date")
         self.assertEqual(first.chronology_precision_posture, "sample_precise_interval")
         self.assertEqual(first.chronology_normalization_status, "normalized_interval")
-        self.assertIn("42003_2021_2794_MOESM4_ESM.zip", first.chronology_provenance_path)
-        self.assertEqual(first.chronology_provenance_kind, "supplementary_spreadsheet_row")
+        self.assertIn(
+            "42003_2021_2794_MOESM4_ESM.zip", first.chronology_provenance_path
+        )
+        self.assertEqual(
+            first.chronology_provenance_kind, "supplementary_spreadsheet_row"
+        )
         self.assertTrue(first.chronology_provenance_locator.startswith("Sheet1!row"))
 
-    def test_horse_project_sample_chronology_rows_publish_sample_owned_bp_points(self) -> None:
+    def test_horse_project_sample_chronology_rows_publish_sample_owned_bp_points(
+        self,
+    ) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "PRJEB22390")
 
-        botai = next(row for row in rows if row.preferred_sample_label == "Botai 1 5500")
+        botai = next(
+            row for row in rows if row.preferred_sample_label == "Botai 1 5500"
+        )
         self.assertEqual(botai.chronology_strength, "sample_owned_interval")
         self.assertEqual(botai.chronology_evidence_class, "direct_radiocarbon_date")
         self.assertEqual(botai.chronology_precision_posture, "sample_precise_point")
@@ -69,16 +83,24 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
     def test_horse_nordic_sample_chronology_rows_publish_direct_ranges(self) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "PRJEB31613")
 
-        uppsala = next(row for row in rows if row.preferred_sample_label == "Uppsala_Upps02_1317")
+        uppsala = next(
+            row for row in rows if row.preferred_sample_label == "Uppsala_Upps02_1317"
+        )
         self.assertEqual(uppsala.chronology_strength, "sample_owned_interval")
         self.assertEqual(uppsala.chronology_evidence_class, "direct_radiocarbon_date")
-        self.assertEqual(uppsala.chronology_precision_posture, "sample_precise_interval")
+        self.assertEqual(
+            uppsala.chronology_precision_posture, "sample_precise_interval"
+        )
         self.assertEqual(uppsala.chronology_normalization_status, "normalized_interval")
         self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
         self.assertEqual((uppsala.time_start_bp, uppsala.time_end_bp), (1217, 1417))
-        self.assertIn("1-s2.0-S0092867419303848-mmc1.xlsx", uppsala.chronology_provenance_path)
+        self.assertIn(
+            "1-s2.0-S0092867419303848-mmc1.xlsx", uppsala.chronology_provenance_path
+        )
 
-    def test_chronology_review_audit_and_completeness_surfaces_stay_reader_visible(self) -> None:
+    def test_chronology_review_audit_and_completeness_surfaces_stay_reader_visible(
+        self,
+    ) -> None:
         review_rows = build_project_sample_chronology_review_rows(self.data_root)
         audit = build_cross_project_sample_chronology_audit(self.data_root)
         ambiguity_rows = build_sample_chronology_ambiguity_ledger(self.data_root)
@@ -119,7 +141,9 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_species["normalized_row_count"], 190)
         camel_project = next(
-            row for row in project_rows if row["project_accession"] == "KU605068-KU605080"
+            row
+            for row in project_rows
+            if row["project_accession"] == "KU605068-KU605080"
         )
         self.assertEqual(camel_project["unresolved_count"], 13)
         goat_project = next(

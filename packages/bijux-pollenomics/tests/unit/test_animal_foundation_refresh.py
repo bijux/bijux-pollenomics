@@ -5,9 +5,13 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from bijux_pollenomics.config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from bijux_pollenomics.reporting.models import PublishedReportsReport
 from bijux_pollenomics.reporting.service import refresh_animal_adna_foundation
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalFoundationRefreshUnitTests(unittest.TestCase):
@@ -60,10 +64,24 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
             self.assertGreater(report.source_library_project_count, 0)
             self.assertGreaterEqual(report.atlas_evidence_row_count, 0)
             self.assertTrue(
-                (data_root / "adna" / "species" / "ovis_aries" / "normalized" / "sample_records.json").is_file()
+                (
+                    data_root
+                    / "adna"
+                    / "species"
+                    / "ovis_aries"
+                    / "normalized"
+                    / "sample_records.json"
+                ).is_file()
             )
             self.assertTrue(
-                (data_root / "adna" / "species" / "ovis_aries" / "normalized" / "site_evidence.json").is_file()
+                (
+                    data_root
+                    / "adna"
+                    / "species"
+                    / "ovis_aries"
+                    / "normalized"
+                    / "site_evidence.json"
+                ).is_file()
             )
             self.assertTrue(
                 (

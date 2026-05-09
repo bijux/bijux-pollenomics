@@ -5,6 +5,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna import (
     build_coordinate_caveat_surface,
     build_cross_species_archive_inventory,
@@ -23,6 +25,8 @@ from bijux_pollenomics.adna.catalogs import (
     render_public_animal_output_audit_markdown,
 )
 from bijux_pollenomics.adna.tracked_data import materialize_tracked_species_adna
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaCatalogUnitTests(unittest.TestCase):
@@ -51,9 +55,7 @@ class AdnaCatalogUnitTests(unittest.TestCase):
     def test_cross_species_freshness_table_tracks_nordic_unmapped_leads(self) -> None:
         freshness_rows = build_species_freshness_table()
         sheep_row = next(
-            row
-            for row in freshness_rows
-            if row["species_latin_name"] == "Ovis aries"
+            row for row in freshness_rows if row["species_latin_name"] == "Ovis aries"
         )
 
         self.assertTrue(sheep_row["has_nordic_unmapped_lead"])
@@ -162,7 +164,9 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertEqual(sheep_row["country_output_count"], 1)
         self.assertIn("country-resolved animal output hits", markdown)
 
-    def test_cross_species_map_readiness_reports_point_ready_and_refused_counts(self) -> None:
+    def test_cross_species_map_readiness_reports_point_ready_and_refused_counts(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
             materialize_tracked_species_adna(data_root)
@@ -191,7 +195,9 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertEqual(len(unresolved), 21)
         self.assertEqual(len(overbroad), 7)
 
-    def test_coordinate_caveat_surface_groups_current_point_and_refused_rows(self) -> None:
+    def test_coordinate_caveat_surface_groups_current_point_and_refused_rows(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
             materialize_tracked_species_adna(data_root)
@@ -212,7 +218,9 @@ class AdnaCatalogUnitTests(unittest.TestCase):
         self.assertIn("Botai archaeological site horse context", markdown)
         self.assertIn("Site 1040 near Wadi Halfa dromedary context", markdown)
         self.assertIn("Near East and Europe pig domestication transect", markdown)
-        self.assertIn("Animal point publication is currently allowed only", confidence_scale)
+        self.assertIn(
+            "Animal point publication is currently allowed only", confidence_scale
+        )
 
     def test_materialized_sample_rows_require_matching_coordinate_provenance_for_mapping(
         self,
@@ -239,17 +247,24 @@ class AdnaCatalogUnitTests(unittest.TestCase):
                     for row in provenance_payload["coordinate_provenance"]
                 }
                 for sample in sample_payload["samples"]:
-                    provenance = provenance_by_accession.get(sample["project_accession"])
+                    provenance = provenance_by_accession.get(
+                        sample["project_accession"]
+                    )
                     coordinates = sample["coordinates"]
                     has_coordinates = bool(
                         coordinates["latitude_text"] and coordinates["longitude_text"]
                     )
                     if has_coordinates:
                         self.assertIsNotNone(provenance, species_root.name)
-                        self.assertEqual(provenance["mapping_posture"], "mappable_point")
+                        self.assertEqual(
+                            provenance["mapping_posture"], "mappable_point"
+                        )
                         self.assertTrue(provenance["coordinate_basis"])
                         self.assertTrue(coordinates["confidence"])
-                    if provenance and provenance["mapping_posture"] == "refused_region_only":
+                    if (
+                        provenance
+                        and provenance["mapping_posture"] == "refused_region_only"
+                    ):
                         self.assertFalse(has_coordinates)
 
 

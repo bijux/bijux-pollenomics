@@ -3,6 +3,7 @@ from __future__ import annotations
 from configparser import ConfigParser
 from pathlib import Path
 import tomllib
+from typing import Any, cast
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
@@ -13,7 +14,7 @@ def _config_parser(path: Path) -> ConfigParser:
     return parser
 
 
-def _ruff_config() -> dict[str, object]:
+def _ruff_config() -> dict[str, Any]:
     with (REPO_ROOT / "configs" / "ruff.toml").open("rb") as handle:
         return tomllib.load(handle)
 
@@ -82,6 +83,7 @@ def test_root_pytest_configuration_matches_shared_python_baseline() -> None:
         "api: HTTP API tests (manual, not for CI)",
         "e2e: end-to-end tests",
         "evaluation: evaluation benchmarks (deterministic, no regressions)",
+        "generated_artifacts: validates checked-in generated artifacts or rebuilds governed artifact trees",
         "gpu: requires CUDA",
         "integration: integration tests",
         "live: live provider integration",
@@ -137,15 +139,28 @@ def test_root_ruff_configuration_matches_shared_python_baseline() -> None:
         "site",
     ]
 
-    lint = ruff_config["lint"]
-    assert lint["select"] == ["E", "F", "I", "B", "UP", "SIM", "C4", "PIE", "RET", "ISC"]
+    lint = cast(dict[str, Any], ruff_config["lint"])
+    assert lint["select"] == [
+        "E",
+        "F",
+        "I",
+        "B",
+        "UP",
+        "SIM",
+        "C4",
+        "PIE",
+        "RET",
+        "ISC",
+    ]
     assert lint["ignore"] == ["E501", "E203"]
     assert lint["per-file-ignores"] == {"__init__.py": ["F401"]}
     assert lint["isort"]["force-sort-within-sections"] is True
-    assert set(lint["isort"]["known-first-party"]) == _package_import_roots() | {
-        "tests"
-    }
-    assert lint["mccabe"]["max-complexity"] == 10
+    isort_config = cast(dict[str, object], lint["isort"])
+    assert isort_config["force-sort-within-sections"] is True
+    assert set(
+        cast(list[str], isort_config["known-first-party"])
+    ) == _package_import_roots() | {"tests"}
+    assert cast(dict[str, int], lint["mccabe"])["max-complexity"] == 10
 
 
 def test_root_mypy_configuration_matches_shared_python_baseline() -> None:
@@ -176,4 +191,3 @@ def test_root_mypy_configuration_matches_shared_python_baseline() -> None:
         entry.strip() for entry in root_mypy["mypy_path"].split(":") if entry.strip()
     }
     assert configured_paths == _package_roots("src")
-

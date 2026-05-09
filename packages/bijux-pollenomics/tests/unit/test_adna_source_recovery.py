@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna.source_recovery import (
     ADNA_INTAKE_STAGE_KEYS,
     build_manual_curation_worklist,
@@ -15,6 +17,8 @@ from bijux_pollenomics.adna.source_recovery import (
     build_source_recovery_release_guard,
     build_species_project_deficit_ledger,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaSourceRecoveryUnitTests(unittest.TestCase):
@@ -38,7 +42,10 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
             tuple(horse_row["stage_statuses"]),
             ADNA_INTAKE_STAGE_KEYS,
         )
-        self.assertIn(horse_row["publication_readiness_status"], {"complete", "blocked", "not_required"})
+        self.assertIn(
+            horse_row["publication_readiness_status"],
+            {"complete", "blocked", "not_required"},
+        )
 
     def test_expected_sample_yield_review_and_release_guard_surface_thin_recovery(
         self,
@@ -80,10 +87,14 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         )
         self.assertIn("Equus caballus", species_payload["species_counts"])
         self.assertGreater(worklist_payload["row_count"], 0)
-        self.assertGreater(progress_payload["project_counts"]["projects_with_sample_identity_rows"], 0)
+        self.assertGreater(
+            progress_payload["project_counts"]["projects_with_sample_identity_rows"], 0
+        )
         self.assertGreater(missing_source_payload["row_count"], 0)
 
-    def test_project_recovery_dossier_collects_assets_gaps_and_manual_work(self) -> None:
+    def test_project_recovery_dossier_collects_assets_gaps_and_manual_work(
+        self,
+    ) -> None:
         payload = build_project_recovery_dossier(self.data_root, "PRJEB36540")
 
         self.assertEqual(

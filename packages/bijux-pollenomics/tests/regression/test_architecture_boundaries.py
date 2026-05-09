@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import re
 
+import pytest
+
 from bijux_pollenomics.foundation import build_repository_architecture_contract
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
@@ -11,6 +13,8 @@ DATA_DOWNLOADER_SRC = RUNTIME_SRC / "data_downloader"
 REPORTING_SRC = RUNTIME_SRC / "reporting"
 ADNA_SRC = RUNTIME_SRC / "adna"
 EVIDENCE_SRC = RUNTIME_SRC / "evidence"
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 def _python_files(root: Path) -> list[Path]:
@@ -104,8 +108,8 @@ def test_adna_domain_stays_out_of_reporting_and_command_line_layers() -> None:
         )
     )
 
-    assert not failures, "adna domain imports higher-level runtime layers:\n" + "\n".join(
-        failures
+    assert not failures, (
+        "adna domain imports higher-level runtime layers:\n" + "\n".join(failures)
     )
 
 
@@ -137,16 +141,19 @@ def test_adna_domain_does_not_import_publication_or_rendering_policy_modules() -
         )
     )
 
-    assert not failures, "adna domain imports publication-facing policy or rendering modules:\n" + "\n".join(
-        failures
+    assert not failures, (
+        "adna domain imports publication-facing policy or rendering modules:\n"
+        + "\n".join(failures)
     )
 
 
 def test_release_readiness_gate_stays_outside_adna_domain() -> None:
-    release_gate = (
-        RUNTIME_SRC / "foundation" / "release_readiness.py"
-    ).read_text(encoding="utf-8")
-    release_bar = (RUNTIME_SRC / "foundation" / "release_bar.py").read_text(encoding="utf-8")
+    release_gate = (RUNTIME_SRC / "foundation" / "release_readiness.py").read_text(
+        encoding="utf-8"
+    )
+    release_bar = (RUNTIME_SRC / "foundation" / "release_bar.py").read_text(
+        encoding="utf-8"
+    )
     adna_modules = "\n".join(
         path.read_text(encoding="utf-8") for path in _python_files(ADNA_SRC)
     )
@@ -178,8 +185,8 @@ def test_evidence_domain_does_not_import_rendering_cli_or_foundation_layers() ->
         )
     )
 
-    assert not failures, "evidence domain imports higher-level runtime layers:\n" + "\n".join(
-        failures
+    assert not failures, (
+        "evidence domain imports higher-level runtime layers:\n" + "\n".join(failures)
     )
 
 
@@ -202,7 +209,9 @@ def test_named_runtime_boundaries_exist_for_intake_review_and_publication() -> N
         REPORTING_SRC / "review",
     )
 
-    missing = [str(path.relative_to(REPO_ROOT)) for path in expected_paths if not path.exists()]
+    missing = [
+        str(path.relative_to(REPO_ROOT)) for path in expected_paths if not path.exists()
+    ]
     assert not missing, "named runtime boundaries are missing:\n" + "\n".join(missing)
 
 
@@ -221,6 +230,6 @@ def test_shared_runtime_buckets_remain_thin_compatibility_shims() -> None:
             if "def " in text or "class " in text:
                 failures.append(f"{path.relative_to(REPO_ROOT)} defines runtime logic")
 
-    assert not failures, (
-        "compatibility shim buckets grew new logic:\n" + "\n".join(failures)
+    assert not failures, "compatibility shim buckets grew new logic:\n" + "\n".join(
+        failures
     )

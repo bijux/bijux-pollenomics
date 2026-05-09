@@ -4,6 +4,8 @@ from pathlib import Path
 import re
 import subprocess
 import unittest
+
+import pytest
 import yaml
 
 PACKAGE_ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +25,8 @@ MERMAID_RESERVED_IDS = {
     "style",
     "subgraph",
 }
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
@@ -85,21 +89,47 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertTrue((governance_root / "cross_species_bibliography.json").is_file())
         self.assertTrue((governance_root / "cross_species_bibliography.csv").is_file())
-        self.assertTrue((governance_root / "cross_species_archive_inventory.json").is_file())
-        self.assertTrue((governance_root / "cross_species_archive_inventory.csv").is_file())
+        self.assertTrue(
+            (governance_root / "cross_species_archive_inventory.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "cross_species_archive_inventory.csv").is_file()
+        )
         self.assertTrue((governance_root / "cross_species_freshness.json").is_file())
         self.assertTrue((governance_root / "cross_species_freshness.csv").is_file())
-        self.assertTrue((governance_root / "cross_species_coverage_dashboard.json").is_file())
-        self.assertTrue((governance_root / "cross_species_coverage_dashboard.csv").is_file())
-        self.assertTrue((governance_root / "animal_sample_product_contract.json").is_file())
-        self.assertTrue((governance_root / "animal_sample_product_contract.md").is_file())
-        self.assertTrue((governance_root / "animal_sample_foundation_truth.json").is_file())
-        self.assertTrue((governance_root / "animal_sample_foundation_truth.md").is_file())
-        self.assertTrue((governance_root / "animal_sample_foundation_truth_species.csv").is_file())
-        self.assertTrue((governance_root / "animal_sample_foundation_truth_projects.csv").is_file())
-        self.assertTrue((governance_root / "animal_sample_aggregation_warnings.json").is_file())
-        self.assertTrue((governance_root / "animal_sample_aggregation_warnings.md").is_file())
-        self.assertTrue((governance_root / "cross_species_map_readiness.json").is_file())
+        self.assertTrue(
+            (governance_root / "cross_species_coverage_dashboard.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "cross_species_coverage_dashboard.csv").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_product_contract.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_product_contract.md").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_foundation_truth.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_foundation_truth.md").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_foundation_truth_species.csv").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_foundation_truth_projects.csv").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_aggregation_warnings.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "animal_sample_aggregation_warnings.md").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "cross_species_map_readiness.json").is_file()
+        )
         self.assertTrue((governance_root / "cross_species_map_readiness.csv").is_file())
         self.assertTrue((governance_root / "unresolved_site_ledger.json").is_file())
         self.assertTrue((governance_root / "unresolved_site_ledger.csv").is_file())
@@ -111,59 +141,315 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertTrue((governance_root / "shipped_product_audit.json").is_file())
         self.assertTrue((governance_root / "surface_role_registry.json").is_file())
         self.assertTrue((governance_root / "surface_role_registry.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_registry.json").is_file())
         self.assertTrue(
-            (governance_root / "source_library" / "project_surface_contract.json").is_file()
+            (governance_root / "source_library" / "project_registry.json").is_file()
         )
-        self.assertTrue((governance_root / "source_library" / "paper_registry.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "supplement_registry.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "supplement_zip_member_registry.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "source_audit.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "source_blockers.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "source_intake_audit.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "source_intake_release_guard.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "tracked_project_and_paper_inventory.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_master_completeness.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_master_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_identity_ambiguity_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_identity_ambiguity_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_site_review.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_site_review.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_site_ambiguity_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_site_manual_curation_queue.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_locality_conflict_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_locality_conflict_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_locality_manual_curation_workflow.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_locality_manual_curation_workflow.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_locality_substitution_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_locality_substitution_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "site_name_normalization_dictionary.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "site_name_normalization_dictionary.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "species_locality_completeness.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "species_locality_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_locality_completeness.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_locality_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_sample_chronology_review.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_normalization_audit.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_ambiguity_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_conflict_ledger.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_conflict_ledger.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_precision_audit.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_precision_audit.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "species_chronology_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "project_chronology_completeness.csv").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_review.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "sample_chronology_review.md").is_file())
-        self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.json").is_file())
-        self.assertTrue((governance_root / "source_library" / "date_evidence_gap_queue.md").is_file())
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "project_surface_contract.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (governance_root / "source_library" / "paper_registry.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "source_library" / "supplement_registry.json").is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "supplement_zip_member_registry.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (governance_root / "source_library" / "source_audit.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "source_library" / "source_blockers.json").is_file()
+        )
+        self.assertTrue(
+            (governance_root / "source_library" / "source_intake_audit.json").is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "source_intake_release_guard.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "tracked_project_and_paper_inventory.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "tracked_project_and_paper_inventory.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_sample_master_completeness.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_sample_master_completeness.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_identity_ambiguity_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_identity_ambiguity_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "project_sample_site_review.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "project_sample_site_review.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "sample_site_ambiguity_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "sample_site_ambiguity_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_site_manual_curation_queue.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_site_manual_curation_queue.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_locality_conflict_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_locality_conflict_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_locality_manual_curation_workflow.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_locality_manual_curation_workflow.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_locality_substitution_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_locality_substitution_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "site_name_normalization_dictionary.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "site_name_normalization_dictionary.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "species_locality_completeness.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "species_locality_completeness.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_locality_completeness.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "project_locality_completeness.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_sample_chronology_review.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_sample_chronology_review.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_normalization_audit.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_normalization_audit.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_ambiguity_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_ambiguity_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_conflict_ledger.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_conflict_ledger.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_precision_audit.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "sample_chronology_precision_audit.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "species_chronology_completeness.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "species_chronology_completeness.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_chronology_completeness.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root
+                / "source_library"
+                / "project_chronology_completeness.csv"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "sample_chronology_review.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "sample_chronology_review.md"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "date_evidence_gap_queue.json"
+            ).is_file()
+        )
+        self.assertTrue(
+            (
+                governance_root / "source_library" / "date_evidence_gap_queue.md"
+            ).is_file()
+        )
         self.assertTrue(
             (
                 governance_root
@@ -275,33 +561,59 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         gate_json = report_root / "animal_publication_release_gate.json"
         gate_markdown = report_root / "animal_publication_release_gate.md"
         sample_database_review_json = report_root / "animal_sample_database_review.json"
-        sample_database_review_markdown = report_root / "animal_sample_database_review.md"
+        sample_database_review_markdown = (
+            report_root / "animal_sample_database_review.md"
+        )
         repository_truth_json = report_root / "repository_truth_posture.json"
         repository_truth_markdown = report_root / "repository_truth_posture.md"
         repository_product_model_json = report_root / "repository_product_model.json"
         repository_product_model_markdown = report_root / "repository_product_model.md"
-        repository_credibility_json = report_root / "repository_credibility_dashboard.json"
-        repository_credibility_markdown = report_root / "repository_credibility_dashboard.md"
+        repository_credibility_json = (
+            report_root / "repository_credibility_dashboard.json"
+        )
+        repository_credibility_markdown = (
+            report_root / "repository_credibility_dashboard.md"
+        )
         repository_scorecard_json = report_root / "repository_recovery_review.json"
         repository_scorecard_markdown = report_root / "repository_recovery_review.md"
-        repository_sustainability_json = report_root / "repository_output_sustainability_review.json"
-        repository_sustainability_markdown = report_root / "repository_output_sustainability_review.md"
+        repository_sustainability_json = (
+            report_root / "repository_output_sustainability_review.json"
+        )
+        repository_sustainability_markdown = (
+            report_root / "repository_output_sustainability_review.md"
+        )
         repository_extension_json = report_root / "repository_extension_review.json"
         repository_extension_markdown = report_root / "repository_extension_review.md"
-        repository_governance_json = report_root / "repository_governance_artifact_review.json"
-        repository_governance_markdown = report_root / "repository_governance_artifact_review.md"
+        repository_governance_json = (
+            report_root / "repository_governance_artifact_review.json"
+        )
+        repository_governance_markdown = (
+            report_root / "repository_governance_artifact_review.md"
+        )
         repository_claim_json = report_root / "repository_claim_audit.json"
         repository_claim_markdown = report_root / "repository_claim_audit.md"
         repository_brutal_json = report_root / "repository_brutal_honesty_review.json"
         repository_brutal_markdown = report_root / "repository_brutal_honesty_review.md"
         repository_refusal_json = report_root / "repository_final_release_refusal.json"
-        repository_refusal_markdown = report_root / "repository_final_release_refusal.md"
-        repository_output_policy_json = report_root / "repository_generated_output_policy.json"
-        repository_output_policy_markdown = report_root / "repository_generated_output_policy.md"
-        repository_explainer_json = report_root / "repository_source_explainer_audit.json"
-        repository_explainer_markdown = report_root / "repository_source_explainer_audit.md"
+        repository_refusal_markdown = (
+            report_root / "repository_final_release_refusal.md"
+        )
+        repository_output_policy_json = (
+            report_root / "repository_generated_output_policy.json"
+        )
+        repository_output_policy_markdown = (
+            report_root / "repository_generated_output_policy.md"
+        )
+        repository_explainer_json = (
+            report_root / "repository_source_explainer_audit.json"
+        )
+        repository_explainer_markdown = (
+            report_root / "repository_source_explainer_audit.md"
+        )
         repository_atlas_inputs_json = report_root / "repository_atlas_input_audit.json"
-        repository_atlas_inputs_markdown = report_root / "repository_atlas_input_audit.md"
+        repository_atlas_inputs_markdown = (
+            report_root / "repository_atlas_input_audit.md"
+        )
         repository_domain_matrix_json = (
             report_root / "repository_cross_domain_evidence_matrix.json"
         )
@@ -314,12 +626,24 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         repository_docs_ledger_markdown = (
             report_root / "repository_docs_restoration_ledger.md"
         )
-        repository_docs_guard_json = report_root / "repository_docs_scope_validation.json"
-        repository_docs_guard_markdown = report_root / "repository_docs_scope_validation.md"
-        repository_docs_review_json = report_root / "repository_docs_recovery_review.json"
-        repository_docs_review_markdown = report_root / "repository_docs_recovery_review.md"
-        repository_progress_json = report_root / "repository_scientific_progress_audit.json"
-        repository_progress_markdown = report_root / "repository_scientific_progress_audit.md"
+        repository_docs_guard_json = (
+            report_root / "repository_docs_scope_validation.json"
+        )
+        repository_docs_guard_markdown = (
+            report_root / "repository_docs_scope_validation.md"
+        )
+        repository_docs_review_json = (
+            report_root / "repository_docs_recovery_review.json"
+        )
+        repository_docs_review_markdown = (
+            report_root / "repository_docs_recovery_review.md"
+        )
+        repository_progress_json = (
+            report_root / "repository_scientific_progress_audit.json"
+        )
+        repository_progress_markdown = (
+            report_root / "repository_scientific_progress_audit.md"
+        )
 
         self.assertTrue(audit_json.is_file())
         self.assertTrue(audit_markdown.is_file())
@@ -503,7 +827,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             repository_progress_markdown.read_text(encoding="utf-8"),
         )
 
-    def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(self) -> None:
+    def test_tracked_species_readmes_start_from_counted_sample_and_map_posture(
+        self,
+    ) -> None:
         readme_text = (
             REPO_ROOT / "data" / "adna" / "species" / "ovis_aries" / "README.md"
         ).read_text(encoding="utf-8")
@@ -545,7 +871,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("project_sample_chronology_review.json", inventory_text)
         self.assertIn("sample_chronology.json", inventory_text)
 
-    def test_project_sample_master_completeness_keeps_traceable_expected_counts(self) -> None:
+    def test_project_sample_master_completeness_keeps_traceable_expected_counts(
+        self,
+    ) -> None:
         import json
 
         payload = json.loads(
@@ -573,16 +901,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
                 f"Expected sample count for {row['project_accession']} lacks an artifact path.",
             )
 
-    def test_sample_master_rows_do_not_claim_final_status_with_unresolved_ambiguity(self) -> None:
+    def test_sample_master_rows_do_not_claim_final_status_with_unresolved_ambiguity(
+        self,
+    ) -> None:
         import json
 
         project_root = (
-            REPO_ROOT
-            / "data"
-            / "adna"
-            / "governance"
-            / "source_library"
-            / "projects"
+            REPO_ROOT / "data" / "adna" / "governance" / "source_library" / "projects"
         )
         for path in project_root.glob("*/sample_master.json"):
             payload = json.loads(path.read_text(encoding="utf-8"))
@@ -707,9 +1032,14 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("# Bijux Pollenomics", docs_index)
         self.assertNotIn("# Docs Index", docs_index)
         self.assertIn("pollenomics and environmental evidence", docs_index)
-        self.assertIn("animal aDNA extraction already equals the whole pollenomics engine", docs_index)
+        self.assertIn(
+            "animal aDNA extraction already equals the whole pollenomics engine",
+            docs_index,
+        )
 
-    def test_public_docs_keep_direct_sample_database_packet_and_query_links(self) -> None:
+    def test_public_docs_keep_direct_sample_database_packet_and_query_links(
+        self,
+    ) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
         sample_page = (
             REPO_ROOT
@@ -754,11 +1084,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "coordinates.md"
         ).read_text(encoding="utf-8")
         source_index = (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "sources"
-            / "index.md"
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
         ).read_text(encoding="utf-8")
         source_family_matrix_page = (
             REPO_ROOT
@@ -806,11 +1132,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "published-reports.md"
         ).read_text(encoding="utf-8")
         outputs_index = (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "outputs"
-            / "index.md"
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "outputs" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_outputs = (
             REPO_ROOT
@@ -832,9 +1154,15 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertIn("02-bijux-pollenomics-data/", docs_index)
         self.assertIn("report/world/world_map.html", docs_index)
-        self.assertIn("data/adna/governance/animal_sample_foundation_truth.json", sample_page)
-        self.assertIn("data/adna/species/ovis_aries/normalized/sample_records.json", sample_page)
-        self.assertIn("data/adna/species/ovis_aries/normalized/site_evidence.json", site_page)
+        self.assertIn(
+            "data/adna/governance/animal_sample_foundation_truth.json", sample_page
+        )
+        self.assertIn(
+            "data/adna/species/ovis_aries/normalized/sample_records.json", sample_page
+        )
+        self.assertIn(
+            "data/adna/species/ovis_aries/normalized/site_evidence.json", site_page
+        )
         self.assertIn(
             "data/adna/governance/source_library/project_sample_chronology_review.json",
             chronology_page,
@@ -887,7 +1215,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../../report/repository_source_family_matrix.json",
             source_family_matrix_page,
         )
-        self.assertIn("data/sead/review/evidence_legibility_review.json", sead_review_page)
+        self.assertIn(
+            "data/sead/review/evidence_legibility_review.json", sead_review_page
+        )
         self.assertIn(
             "../../report/repository_cross_domain_evidence_matrix.json",
             source_family_matrix_page,
@@ -900,7 +1230,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "../../report/repository_source_acquisition_queue.json",
             source_family_matrix_page,
         )
-        self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", cross_domain_page)
+        self.assertIn(
+            "../../report/repository_cross_domain_evidence_matrix.md", cross_domain_page
+        )
         self.assertIn("../../report/repository_atlas_input_audit.md", cross_domain_page)
         self.assertIn("cross-domain evidence matrix", publication_model_page.lower())
         self.assertIn(
@@ -927,25 +1259,49 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "data/adna/governance/source_library/source_recovery_release_guard.json",
             inventory_page,
         )
-        self.assertIn("../../report/repository_source_explainer_audit.md", source_recovery_page)
-        self.assertIn("../../report/animal_sample_database_review.md", published_reports)
-        self.assertIn("../../report/animal_intake_recovery_review.md", published_reports)
+        self.assertIn(
+            "../../report/repository_source_explainer_audit.md", source_recovery_page
+        )
+        self.assertIn(
+            "../../report/animal_sample_database_review.md", published_reports
+        )
+        self.assertIn(
+            "../../report/animal_intake_recovery_review.md", published_reports
+        )
         self.assertIn("../../report/animal_point_evidence_review.md", published_reports)
         self.assertIn("../../report/animal_output_honesty.md", published_reports)
-        self.assertIn("../../report/animal_atlas_exclusion_report.md", published_reports)
-        self.assertIn("../../report/world/world_map_publication_contract.md", published_reports)
-        self.assertIn("../../report/regions/nordic/nordic_point_traceability.md", published_reports)
+        self.assertIn(
+            "../../report/animal_atlas_exclusion_report.md", published_reports
+        )
+        self.assertIn(
+            "../../report/world/world_map_publication_contract.md", published_reports
+        )
+        self.assertIn(
+            "../../report/regions/nordic/nordic_point_traceability.md",
+            published_reports,
+        )
         self.assertIn("../../report/repository_truth_posture.md", published_reports)
-        self.assertIn("../../report/repository_source_family_matrix.md", published_reports)
+        self.assertIn(
+            "../../report/repository_source_family_matrix.md", published_reports
+        )
         self.assertIn("output-surface-classes.md", outputs_index)
         self.assertIn("geographic-point-publication.md", outputs_index)
         self.assertIn("geographic-filters-and-inspection.md", outputs_index)
         self.assertIn("geographic-limits-and-honesty.md", outputs_index)
-        self.assertIn("../../report/world/world_map_publication_contract.md", atlas_outputs)
-        self.assertIn("../../report/regions/nordic/nordic_point_traceability.md", atlas_outputs)
+        self.assertIn(
+            "../../report/world/world_map_publication_contract.md", atlas_outputs
+        )
+        self.assertIn(
+            "../../report/regions/nordic/nordic_point_traceability.md", atlas_outputs
+        )
         self.assertIn("../../report/repository_atlas_input_audit.md", atlas_inputs_page)
-        self.assertIn("../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page)
-        self.assertIn("../../report/countries/sweden/sweden_animal_adna_v66_samples.md", published_reports)
+        self.assertIn(
+            "../../report/repository_cross_domain_evidence_matrix.md", atlas_inputs_page
+        )
+        self.assertIn(
+            "../../report/countries/sweden/sweden_animal_adna_v66_samples.md",
+            published_reports,
+        )
         self.assertIn("../../report/countries/sweden/README.md", published_reports)
         self.assertIn("animal_atlas_candidate_accountability.md", atlas_outputs)
 
@@ -968,13 +1324,13 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             (REPO_ROOT / "README.md").read_text(encoding="utf-8").split()
         )
         runtime_readme = " ".join(
-            (
-                REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
-            ).read_text(encoding="utf-8").split()
+            (REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md")
+            .read_text(encoding="utf-8")
+            .split()
         )
-        alias_readme = (
-            REPO_ROOT / "packages" / "pollenomics" / "README.md"
-        ).read_text(encoding="utf-8")
+        alias_readme = (REPO_ROOT / "packages" / "pollenomics" / "README.md").read_text(
+            encoding="utf-8"
+        )
         runtime_index = (
             REPO_ROOT / "docs" / "01-bijux-pollenomics" / "index.md"
         ).read_text(encoding="utf-8")
@@ -985,7 +1341,8 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
         ).read_text(encoding="utf-8")
         atlas_files = sorted(
-            path.name for path in (REPO_ROOT / "docs" / "05-nordic-evidence-atlas").glob("*.md")
+            path.name
+            for path in (REPO_ROOT / "docs" / "05-nordic-evidence-atlas").glob("*.md")
         )
 
         self.assertIn("pollenomics and environmental evidence repository", root_readme)
@@ -998,7 +1355,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             runtime_readme,
         )
         self.assertIn("same pollenomics-first runtime behavior", alias_readme)
-        self.assertIn("checked-in evidence surfaces across pollen context", runtime_index)
+        self.assertIn(
+            "checked-in evidence surfaces across pollen context", runtime_index
+        )
         self.assertIn("pollen context, environmental archaeology", data_index)
         self.assertIn("downstream view of the repository evidence tree", atlas_index)
         self.assertEqual(
@@ -1021,8 +1380,10 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
         source_index = (
-            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md"
-        ).read_text(encoding="utf-8").lower()
+            (REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "sources" / "index.md")
+            .read_text(encoding="utf-8")
+            .lower()
+        )
 
         for expected in (
             "landclim",
@@ -1038,18 +1399,26 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Open the docs recovery review", docs_index)
         self.assertIn("Open the report portal", docs_index)
         self.assertIn("How to read the report tree", docs_index)
-        self.assertIn("pollen-context layers, environmental archaeology context", docs_index)
+        self.assertIn(
+            "pollen-context layers, environmental archaeology context", docs_index
+        )
         self.assertIn("source-family comparison", data_index)
-        self.assertIn("[report portal](../../report/index.md)", (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "outputs"
-            / "published-reports.md"
-        ).read_text(encoding="utf-8"))
-        self.assertIn("[report portal](../report/index.md)", (
-            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
-        ).read_text(encoding="utf-8"))
+        self.assertIn(
+            "[report portal](../../report/index.md)",
+            (
+                REPO_ROOT
+                / "docs"
+                / "02-bijux-pollenomics-data"
+                / "outputs"
+                / "published-reports.md"
+            ).read_text(encoding="utf-8"),
+        )
+        self.assertIn(
+            "[report portal](../report/index.md)",
+            (REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md").read_text(
+                encoding="utf-8"
+            ),
+        )
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
@@ -1125,9 +1494,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         runtime_readme = (
             REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
         ).read_text(encoding="utf-8")
-        alias_readme = (
-            REPO_ROOT / "packages" / "pollenomics" / "README.md"
-        ).read_text(encoding="utf-8")
+        alias_readme = (REPO_ROOT / "packages" / "pollenomics" / "README.md").read_text(
+            encoding="utf-8"
+        )
         maintainer_readme = (
             REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "README.md"
         ).read_text(encoding="utf-8")
@@ -1138,7 +1507,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         self.assertIn("Maintainer-only package", maintainer_readme)
         self.assertIn("It is not the owner of runtime commands", maintainer_readme)
 
-    def test_runtime_package_boundary_doc_names_durable_scientific_ownership(self) -> None:
+    def test_runtime_package_boundary_doc_names_durable_scientific_ownership(
+        self,
+    ) -> None:
         boundary_doc = (
             REPO_ROOT
             / "packages"
@@ -1172,8 +1543,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             "`command_line/` owns parsing, dispatch, and the durable command registry",
             module_map,
         )
-        self.assertIn("`data_downloader/pipeline/`, `data_downloader/sources/`", module_map)
-        self.assertIn("`analysis/review/` owns candidate-site ranking reviews", module_map)
+        self.assertIn(
+            "`data_downloader/pipeline/`, `data_downloader/sources/`", module_map
+        )
+        self.assertIn(
+            "`analysis/review/` owns candidate-site ranking reviews", module_map
+        )
         self.assertIn("`reporting/presentation/`", module_map)
         self.assertIn("`reporting/review/`", module_map)
         self.assertIn("compatibility shims", module_map)
@@ -1228,10 +1603,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         for slug in tracked_roots:
             species_root = REPO_ROOT / "data" / "adna" / "species" / slug
             self.assertTrue((species_root / "README.md").is_file(), slug)
-            self.assertTrue((species_root / "raw" / "archive_inventory.json").is_file(), slug)
-            self.assertTrue((species_root / "raw" / "archive_inventory.csv").is_file(), slug)
-            self.assertTrue((species_root / "raw" / "source_snapshot.json").is_file(), slug)
-            self.assertTrue((species_root / "raw" / "source_snapshot.csv").is_file(), slug)
+            self.assertTrue(
+                (species_root / "raw" / "archive_inventory.json").is_file(), slug
+            )
+            self.assertTrue(
+                (species_root / "raw" / "archive_inventory.csv").is_file(), slug
+            )
+            self.assertTrue(
+                (species_root / "raw" / "source_snapshot.json").is_file(), slug
+            )
+            self.assertTrue(
+                (species_root / "raw" / "source_snapshot.csv").is_file(), slug
+            )
             self.assertTrue(
                 (species_root / "normalized" / "sample_records.csv").is_file(),
                 slug,
@@ -1323,7 +1706,9 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
     def test_adna_root_keeps_only_named_entrypoints_and_index_files(self) -> None:
         adna_root = REPO_ROOT / "data" / "adna"
-        names = {path.name for path in adna_root.iterdir() if not path.name.startswith(".")}
+        names = {
+            path.name for path in adna_root.iterdir() if not path.name.startswith(".")
+        }
 
         self.assertEqual(names, {"README.md", "species", "governance", "final"})
 
@@ -1352,10 +1737,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
     def test_cross_species_publishable_outputs_live_under_adna_final(self) -> None:
         final_root = REPO_ROOT / "data" / "adna" / "final"
 
-        self.assertTrue((final_root / "atlas" / "animal_atlas_point_candidates.json").is_file())
-        self.assertTrue((final_root / "atlas" / "animal_atlas_point_candidates.csv").is_file())
-        self.assertTrue((final_root / "countries" / "country_publication_index.json").is_file())
-        self.assertTrue((final_root / "countries" / "country_publication_index.csv").is_file())
+        self.assertTrue(
+            (final_root / "atlas" / "animal_atlas_point_candidates.json").is_file()
+        )
+        self.assertTrue(
+            (final_root / "atlas" / "animal_atlas_point_candidates.csv").is_file()
+        )
+        self.assertTrue(
+            (final_root / "countries" / "country_publication_index.json").is_file()
+        )
+        self.assertTrue(
+            (final_root / "countries" / "country_publication_index.csv").is_file()
+        )
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
@@ -1600,11 +1993,7 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             / "artifact-contracts.md"
         ).read_text(encoding="utf-8")
         quality_index = (
-            REPO_ROOT
-            / "docs"
-            / "01-bijux-pollenomics"
-            / "quality"
-            / "index.md"
+            REPO_ROOT / "docs" / "01-bijux-pollenomics" / "quality" / "index.md"
         ).read_text(encoding="utf-8")
         documentation_integrity = (
             REPO_ROOT
@@ -1634,10 +2023,12 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             atlas_outputs,
         )
         self.assertIn(
-            "country bundles under `docs/report/countries/<country-slug>/`", report_layout
+            "country bundles under `docs/report/countries/<country-slug>/`",
+            report_layout,
         )
         self.assertIn(
-            "the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`", report_layout
+            "the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`",
+            report_layout,
         )
         self.assertIn(
             "repository truth reviews",

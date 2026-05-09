@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna.project_sample_locality_evidence import (
     build_project_locality_substitution_ledger,
     build_project_locality_worksheet_rows,
@@ -11,17 +13,23 @@ from bijux_pollenomics.adna.project_sample_locality_evidence import (
     build_sample_locality_manual_curation_workflow_rows,
 )
 
+pytestmark = pytest.mark.generated_artifacts
+
 
 class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
     def setUp(self) -> None:
         self.data_root = Path(__file__).resolve().parents[4] / "data"
 
-    def test_horse_project_locality_packets_keep_sample_owned_site_traceability(self) -> None:
+    def test_horse_project_locality_packets_keep_sample_owned_site_traceability(
+        self,
+    ) -> None:
         rows = build_project_sample_locality_evidence_rows(self.data_root, "PRJEB31613")
 
         self.assertEqual(len(rows), 244)
         uppsala = next(
-            row for row in rows if row["preferred_sample_label"] == "Uppsala_Upps02_1317"
+            row
+            for row in rows
+            if row["preferred_sample_label"] == "Uppsala_Upps02_1317"
         )
         self.assertEqual(uppsala["assigned_locality_text"], "Uppsala")
         self.assertEqual(uppsala["assigned_locality_class"], "excavation_site")
@@ -39,7 +47,9 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
             {row["source_surface"] for row in rows},
             {"coordinate_resolution", "crossref_metadata"},
         )
-        self.assertTrue(all(row["locality_class"] == "broader_locality" for row in rows))
+        self.assertTrue(
+            all(row["locality_class"] == "broader_locality" for row in rows)
+        )
         self.assertTrue(
             any(
                 row["source_claim_scope"] == "resolved_place_string"

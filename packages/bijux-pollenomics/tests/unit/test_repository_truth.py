@@ -4,47 +4,51 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import pytest
+
 from bijux_pollenomics.foundation import (
     build_repository_atlas_input_audit,
+    build_repository_brutal_honesty_review,
     build_repository_claim_audit,
     build_repository_credibility_dashboard,
-    build_repository_brutal_honesty_review,
     build_repository_cross_domain_evidence_matrix,
-    build_repository_extension_review,
-    build_repository_final_release_refusal,
-    build_repository_docs_scope_validation,
     build_repository_docs_recovery_review,
     build_repository_docs_restoration_ledger,
+    build_repository_docs_scope_validation,
+    build_repository_extension_review,
+    build_repository_final_release_refusal,
     build_repository_governance_artifact_review,
     build_repository_output_sustainability_review,
     build_repository_product_model,
     build_repository_recovery_review,
+    build_repository_scientific_progress_audit,
     build_repository_source_acquisition_queue,
     build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
-    build_repository_scientific_progress_audit,
     build_repository_truth_posture,
     render_repository_atlas_input_audit_markdown,
+    render_repository_brutal_honesty_review_markdown,
     render_repository_claim_audit_markdown,
     render_repository_credibility_dashboard_markdown,
-    render_repository_brutal_honesty_review_markdown,
     render_repository_cross_domain_evidence_matrix_markdown,
-    render_repository_extension_review_markdown,
-    render_repository_final_release_refusal_markdown,
-    render_repository_docs_scope_validation_markdown,
     render_repository_docs_recovery_review_markdown,
     render_repository_docs_restoration_ledger_markdown,
+    render_repository_docs_scope_validation_markdown,
+    render_repository_extension_review_markdown,
+    render_repository_final_release_refusal_markdown,
     render_repository_governance_artifact_review_markdown,
     render_repository_output_sustainability_review_markdown,
     render_repository_product_model_markdown,
     render_repository_recovery_review_markdown,
+    render_repository_scientific_progress_audit_markdown,
     render_repository_source_acquisition_queue_markdown,
     render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
-    render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
 from bijux_pollenomics.reporting.review import publish_repository_truth_outputs
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class RepositoryTruthUnitTests(unittest.TestCase):
@@ -71,7 +75,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
         self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
-        self.assertEqual(payload["counts"]["papers_with_local_reference_supplements"], 18)
+        self.assertEqual(
+            payload["counts"]["papers_with_local_reference_supplements"], 18
+        )
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 234)
         self.assertTrue(
             any(
@@ -94,7 +100,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
 
         self.assertEqual(payload["schema_version"], "repository-recovery-review.v1")
         animal_row = next(
-            row for row in payload["rows"] if row["surface_key"] == "ancient_dna_context"
+            row
+            for row in payload["rows"]
+            if row["surface_key"] == "ancient_dna_context"
         )
         docs_row = next(
             row
@@ -119,9 +127,7 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             payload["schema_version"], "repository-governance-artifact-review.v1"
         )
         self.assertEqual(payload["summary"]["retire"], 1)
-        retired_row = next(
-            row for row in payload["rows"] if row["action"] == "retire"
-        )
+        retired_row = next(row for row in payload["rows"] if row["action"] == "retire")
         self.assertEqual(
             retired_row["artifact_path"],
             "docs/report/animal_output_audit.json",
@@ -163,11 +169,19 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             docs_root=self.docs_root,
             report_root=self.report_root,
         )
-        matrix_markdown = render_repository_source_family_matrix_markdown(matrix_payload)
-        queue_markdown = render_repository_source_acquisition_queue_markdown(queue_payload)
+        matrix_markdown = render_repository_source_family_matrix_markdown(
+            matrix_payload
+        )
+        queue_markdown = render_repository_source_acquisition_queue_markdown(
+            queue_payload
+        )
 
-        self.assertEqual(matrix_payload["schema_version"], "repository-source-family-matrix.v1")
-        self.assertEqual(queue_payload["schema_version"], "repository-source-acquisition-queue.v1")
+        self.assertEqual(
+            matrix_payload["schema_version"], "repository-source-family-matrix.v1"
+        )
+        self.assertEqual(
+            queue_payload["schema_version"], "repository-source-acquisition-queue.v1"
+        )
         self.assertEqual(matrix_payload["row_count"], 8)
         self.assertGreaterEqual(queue_payload["row_count"], 1)
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
@@ -216,7 +230,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         )
         self.assertEqual(atlas_payload["row_count"], 6)
         pollen_row = next(
-            row for row in matrix_payload["rows"] if row["domain_key"] == "pollen_context"
+            row
+            for row in matrix_payload["rows"]
+            if row["domain_key"] == "pollen_context"
         )
         self.assertEqual(pollen_row["tracked_metrics"]["landclim_site_count"], 492)
         self.assertEqual(pollen_row["tracked_metrics"]["neotoma_site_count"], 200)
@@ -288,12 +304,8 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             "repository-docs-recovery-review.v1",
         )
         self.assertEqual(ledger_payload["row_count"], 68)
-        self.assertEqual(
-            ledger_payload["status_counts"]["replacement_incomplete"], 0
-        )
-        self.assertEqual(
-            ledger_payload["status_counts"]["verified_replacement"], 68
-        )
+        self.assertEqual(ledger_payload["status_counts"]["replacement_incomplete"], 0)
+        self.assertEqual(ledger_payload["status_counts"]["verified_replacement"], 68)
         self.assertTrue(breadth_payload["overall_ok"])
         self.assertEqual(
             review_payload["overall_posture"],
@@ -337,7 +349,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             report_root=self.report_root,
         )
 
-        self.assertEqual(product_payload["schema_version"], "repository-product-model.v1")
+        self.assertEqual(
+            product_payload["schema_version"], "repository-product-model.v1"
+        )
         self.assertEqual(
             product_payload["governing_model"],
             "world_parent_with_filtered_regional_and_country_derivatives",
@@ -372,7 +386,10 @@ class RepositoryTruthUnitTests(unittest.TestCase):
         self.assertFalse(refusal_payload["final_release_language_allowed"])
         self.assertIn("data_recovery", refusal_payload["blocking_dimensions"])
         self.assertIn("sead_treatment", refusal_payload["blocking_dimensions"])
-        self.assertIn("# Repository product model", render_repository_product_model_markdown(product_payload))
+        self.assertIn(
+            "# Repository product model",
+            render_repository_product_model_markdown(product_payload),
+        )
         self.assertIn(
             "# Repository credibility dashboard",
             render_repository_credibility_dashboard_markdown(credibility_payload),
@@ -441,8 +458,12 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             self.assertTrue(
                 (output_root / "repository_output_sustainability_review.md").is_file()
             )
-            self.assertTrue((output_root / "repository_extension_review.json").is_file())
-            self.assertTrue((output_root / "repository_source_family_matrix.md").is_file())
+            self.assertTrue(
+                (output_root / "repository_extension_review.json").is_file()
+            )
+            self.assertTrue(
+                (output_root / "repository_source_family_matrix.md").is_file()
+            )
             self.assertTrue(
                 (output_root / "repository_source_explainer_audit.md").is_file()
             )
@@ -461,7 +482,9 @@ class RepositoryTruthUnitTests(unittest.TestCase):
             self.assertTrue(
                 (output_root / "repository_docs_recovery_review.md").is_file()
             )
-            self.assertTrue((output_root / "repository_source_acquisition_queue.json").is_file())
+            self.assertTrue(
+                (output_root / "repository_source_acquisition_queue.json").is_file()
+            )
             self.assertTrue(
                 (output_root / "repository_brutal_honesty_review.md").is_file()
             )

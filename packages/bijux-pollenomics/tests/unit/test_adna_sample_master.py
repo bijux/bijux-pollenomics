@@ -4,6 +4,8 @@ from collections import Counter
 from pathlib import Path
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna import sample_master as sample_master_module
 from bijux_pollenomics.adna.sample_master import (
     build_cross_project_sample_master_completeness,
@@ -11,6 +13,8 @@ from bijux_pollenomics.adna.sample_master import (
     build_project_sample_master_rows,
     build_sample_identity_ambiguity_ledger,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaSampleMasterUnitTests(unittest.TestCase):
@@ -23,10 +27,14 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(len(rows), 13)
         self.assertEqual(rows[0].archive_native_sample_id, "KU605068")
         self.assertEqual(rows[-1].archive_native_sample_id, "KU605080")
-        self.assertTrue(all(row.sample_evidence_status == "archive_native" for row in rows))
+        self.assertTrue(
+            all(row.sample_evidence_status == "archive_native" for row in rows)
+        )
         self.assertTrue(all(row.sample_identity_resolution == "final" for row in rows))
 
-    def test_sheep_project_sample_master_extracts_rows_from_supplementary_tables(self) -> None:
+    def test_sheep_project_sample_master_extracts_rows_from_supplementary_tables(
+        self,
+    ) -> None:
         rows = build_project_sample_master_rows(self.data_root, "PRJEB36540")
 
         self.assertGreater(len(rows), 10)
@@ -41,7 +49,9 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         rows = build_project_sample_master_rows(self.data_root, "PRJEB22390")
 
         self.assertEqual(len(rows), 42)
-        botai = next(row for row in rows if row.archive_native_sample_id == "CGG_1_018173")
+        botai = next(
+            row for row in rows if row.archive_native_sample_id == "CGG_1_018173"
+        )
         self.assertEqual(botai.preferred_sample_label, "Botai 1 5500")
         self.assertEqual(botai.locality_text, "Botai")
         self.assertEqual(botai.chronology_text, "5500 BP")
@@ -49,17 +59,25 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertIn("aao3297_tables15.xlsx", botai.sample_lineage_path)
         self.assertEqual(botai.sample_identity_resolution, "final")
 
-    def test_horse_time_series_and_dom2_projects_publish_recovered_sample_rows(self) -> None:
-        time_series_rows = build_project_sample_master_rows(self.data_root, "PRJEB31613")
+    def test_horse_time_series_and_dom2_projects_publish_recovered_sample_rows(
+        self,
+    ) -> None:
+        time_series_rows = build_project_sample_master_rows(
+            self.data_root, "PRJEB31613"
+        )
         dom2_rows = build_project_sample_master_rows(self.data_root, "PRJEB44430")
-        domestication_rows = build_project_sample_master_rows(self.data_root, "PRJEB19970")
+        domestication_rows = build_project_sample_master_rows(
+            self.data_root, "PRJEB19970"
+        )
 
         self.assertEqual(len(time_series_rows), 244)
         self.assertEqual(len(dom2_rows), 248)
         self.assertEqual(len(domestication_rows), 14)
 
         uppsala = next(
-            row for row in time_series_rows if row.preferred_sample_label == "Uppsala_Upps02_1317"
+            row
+            for row in time_series_rows
+            if row.preferred_sample_label == "Uppsala_Upps02_1317"
         )
         self.assertEqual(uppsala.locality_text, "Uppsala")
         self.assertEqual(uppsala.political_entity, "Sweden")
@@ -68,7 +86,9 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
 
         ginnerup = next(
-            row for row in dom2_rows if row.preferred_sample_label == "DJM130x6_Dan_m3011"
+            row
+            for row in dom2_rows
+            if row.preferred_sample_label == "DJM130x6_Dan_m3011"
         )
         self.assertEqual(ginnerup.locality_text, "Ginnerup")
         self.assertEqual(ginnerup.political_entity, "Denmark")
@@ -78,13 +98,17 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertEqual(ginnerup.archive_native_sample_id, "SAMEA9533224")
 
         berel = next(
-            row for row in domestication_rows if row.preferred_sample_label == "Berel_BER01_A_2300"
+            row
+            for row in domestication_rows
+            if row.preferred_sample_label == "Berel_BER01_A_2300"
         )
         self.assertEqual(berel.locality_text, "Berel'")
         self.assertEqual(berel.political_entity, "Kazakhstan")
         self.assertEqual(berel.chronology_text, "2300 BP")
 
-    def test_goat_cattle_and_reindeer_projects_publish_source_backed_sample_rows(self) -> None:
+    def test_goat_cattle_and_reindeer_projects_publish_source_backed_sample_rows(
+        self,
+    ) -> None:
         goat_rows = build_project_sample_master_rows(self.data_root, "PRJNA1328209")
         cattle_rows = build_project_sample_master_rows(self.data_root, "PRJNA705960")
         reindeer_rows = build_project_sample_master_rows(self.data_root, "PRJEB60484")
@@ -99,12 +123,16 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertIn("Supplementary_tables.xlsx", qinghai.sample_lineage_path)
 
         cattle_anchor = cattle_rows[0]
-        self.assertEqual(cattle_anchor.sample_basis, "archive_project_sample_accession_anchor")
+        self.assertEqual(
+            cattle_anchor.sample_basis, "archive_project_sample_accession_anchor"
+        )
         self.assertEqual(cattle_anchor.sample_evidence_status, "archive_native")
         self.assertTrue(cattle_anchor.archive_native_sample_id.startswith("SAMN"))
 
         reindeer_anchor = reindeer_rows[0]
-        self.assertEqual(reindeer_anchor.sample_basis, "archive_project_sample_accession_anchor")
+        self.assertEqual(
+            reindeer_anchor.sample_basis, "archive_project_sample_accession_anchor"
+        )
         self.assertEqual(reindeer_anchor.sample_evidence_status, "archive_native")
         self.assertTrue(reindeer_anchor.archive_native_sample_id.startswith("SAMEA"))
 
@@ -118,7 +146,9 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
             "2300 BP",
         )
 
-    def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(self) -> None:
+    def test_project_sample_master_completeness_tracks_expected_and_recovered_counts(
+        self,
+    ) -> None:
         camel = build_project_sample_master(self.data_root, "KU605068-KU605080")
 
         self.assertEqual(camel.expected_sample_count, 13)
@@ -128,8 +158,12 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         self.assertTrue(camel.expected_sample_count_provenance)
         self.assertTrue(camel.expected_sample_count_artifact_path)
 
-    def test_cross_project_completeness_and_ambiguity_ledgers_are_reader_visible(self) -> None:
-        completeness_rows = build_cross_project_sample_master_completeness(self.data_root)
+    def test_cross_project_completeness_and_ambiguity_ledgers_are_reader_visible(
+        self,
+    ) -> None:
+        completeness_rows = build_cross_project_sample_master_completeness(
+            self.data_root
+        )
         ambiguity_rows = build_sample_identity_ambiguity_ledger(self.data_root)
 
         self.assertEqual(len(completeness_rows), 40)
@@ -144,7 +178,8 @@ class AdnaSampleMasterUnitTests(unittest.TestCase):
         horse_counts = Counter(
             row["recovered_sample_count"]
             for row in completeness_rows
-            if row["project_accession"] in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
+            if row["project_accession"]
+            in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
         )
         self.assertEqual(horse_counts, Counter({14: 1, 42: 1, 244: 1, 248: 1}))
         self.assertEqual(ambiguity_rows, ())

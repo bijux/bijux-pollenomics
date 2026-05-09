@@ -9,6 +9,8 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from bijux_pollenomics.reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -25,6 +27,8 @@ from bijux_pollenomics.reporting.rendering import (
     serialize_sample_record,
 )
 from tests.support.aadr import AADR_HEADER, write_anno_file
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class CountryReportTests(unittest.TestCase):
@@ -420,12 +424,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue(
                 (output / "sweden_animal_adna_v62.0_localities.geojson").exists()
             )
-            self.assertTrue(
-                (output / "sweden_animal_adna_v62.0_citations.md").exists()
-            )
-            self.assertTrue(
-                (output / "sweden_animal_adna_v62.0_warnings.md").exists()
-            )
+            self.assertTrue((output / "sweden_animal_adna_v62.0_citations.md").exists())
+            self.assertTrue((output / "sweden_animal_adna_v62.0_warnings.md").exists())
             summary = json.loads(
                 (output / "sweden_aadr_v62.0_summary.json").read_text(encoding="utf-8")
             )
@@ -516,9 +516,9 @@ class CountryReportTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
-            warnings_text = (
-                output / "sweden_animal_adna_v62.0_warnings.md"
-            ).read_text(encoding="utf-8")
+            warnings_text = (output / "sweden_animal_adna_v62.0_warnings.md").read_text(
+                encoding="utf-8"
+            )
 
             self.assertEqual(
                 animal_summary["localities"][0]["country_assignment_confidence"],
@@ -684,7 +684,9 @@ class CountryReportTests(unittest.TestCase):
                 (output / "nordic-atlas_candidate_site_sensitivity.md").exists()
             )
             self.assertTrue(
-                (output / "nordic-atlas_candidate_ranking_engine_manifest.json").exists()
+                (
+                    output / "nordic-atlas_candidate_ranking_engine_manifest.json"
+                ).exists()
             )
             self.assertTrue((output / "nordic-atlas_evidence_surface.json").exists())
             self.assertTrue((output / "nordic-atlas_evidence_surface.md").exists())
@@ -884,21 +886,27 @@ class CountryReportTests(unittest.TestCase):
                 context_root=context_root,
             )
 
-            self.assertTrue((output / "nordic-atlas_animal_localities.geojson").exists())
             self.assertTrue(
-                (output / "nordic-atlas_domesticated_animal_localities.geojson").exists()
+                (output / "nordic-atlas_animal_localities.geojson").exists()
+            )
+            self.assertTrue(
+                (
+                    output / "nordic-atlas_domesticated_animal_localities.geojson"
+                ).exists()
             )
             self.assertTrue(
                 (output / "nordic-atlas_comparator_animal_localities.geojson").exists()
             )
-            self.assertTrue((output / "nordic-atlas_animal_atlas_evidence.csv").exists())
-            self.assertTrue((output / "nordic-atlas_animal_atlas_evidence.json").exists())
+            self.assertTrue(
+                (output / "nordic-atlas_animal_atlas_evidence.csv").exists()
+            )
+            self.assertTrue(
+                (output / "nordic-atlas_animal_atlas_evidence.json").exists()
+            )
             self.assertTrue(
                 (output / "nordic-atlas_animal_point_traceability.json").exists()
             )
-            self.assertTrue(
-                (output / "nordic-atlas_point_traceability.json").exists()
-            )
+            self.assertTrue((output / "nordic-atlas_point_traceability.json").exists())
             self.assertTrue(
                 (output / "nordic-atlas_map_publication_contract.json").exists()
             )
@@ -952,7 +960,9 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Domesticated-core animal evidence", readme_text)
             self.assertIn("Comparator animal evidence", readme_text)
             self.assertIn("Nordic animal leads only", readme_text)
-            self.assertIn("Approximate or inferred coordinates remain visible", readme_text)
+            self.assertIn(
+                "Approximate or inferred coordinates remain visible", readme_text
+            )
             self.assertIn("Map publication contract JSON", readme_text)
             self.assertIn("Point traceability JSON", readme_text)
             self.assertIn("Visible Layer Contract", readme_text)
@@ -1638,8 +1648,12 @@ class CountryReportTests(unittest.TestCase):
             self.assertTrue((output / "animal_scientific_caveat_ledger.md").exists())
             self.assertTrue((output / "animal_point_evidence_review.json").exists())
             self.assertTrue((output / "animal_point_evidence_review.md").exists())
-            self.assertTrue((output / "animal_project_publication_gap_review.json").exists())
-            self.assertTrue((output / "animal_project_publication_gap_review.md").exists())
+            self.assertTrue(
+                (output / "animal_project_publication_gap_review.json").exists()
+            )
+            self.assertTrue(
+                (output / "animal_project_publication_gap_review.md").exists()
+            )
             self.assertTrue((output / "animal_foundation_review.json").exists())
             self.assertTrue((output / "animal_foundation_review.md").exists())
             self.assertTrue((output / "animal_publication_release_gate.json").exists())
@@ -1654,10 +1668,10 @@ class CountryReportTests(unittest.TestCase):
                 (output / "animal_first_appearance_by_country.json").exists()
             )
             self.assertTrue((output / "nordic_farming_history_scenario.json").exists())
+            self.assertTrue((output / "world" / "world_map.html").exists())
             self.assertTrue(
-                (output / "world" / "world_map.html").exists()
+                (output / "regions" / "nordic" / "nordic_map.html").exists()
             )
-            self.assertTrue((output / "regions" / "nordic" / "nordic_map.html").exists())
             self.assertTrue((output / "countries" / "sweden" / "README.md").exists())
             self.assertTrue((output / "countries" / "norway" / "README.md").exists())
             self.assertTrue(
@@ -1699,14 +1713,10 @@ class CountryReportTests(unittest.TestCase):
                 )
             )
             foundation_review = json.loads(
-                (output / "animal_foundation_review.json").read_text(
-                    encoding="utf-8"
-                )
+                (output / "animal_foundation_review.json").read_text(encoding="utf-8")
             )
             repository_claim_audit = json.loads(
-                (output / "repository_claim_audit.json").read_text(
-                    encoding="utf-8"
-                )
+                (output / "repository_claim_audit.json").read_text(encoding="utf-8")
             )
             release_gate = json.loads(
                 (output / "animal_publication_release_gate.json").read_text(
@@ -1714,14 +1724,10 @@ class CountryReportTests(unittest.TestCase):
                 )
             )
             atlas_readiness = json.loads(
-                (output / "animal_atlas_readiness.json").read_text(
-                    encoding="utf-8"
-                )
+                (output / "animal_atlas_readiness.json").read_text(encoding="utf-8")
             )
             atlas_summary = json.loads(
-                (
-                    output / "regions" / "nordic" / "nordic_summary.json"
-                ).read_text(
+                (output / "regions" / "nordic" / "nordic_summary.json").read_text(
                     encoding="utf-8"
                 )
             )
@@ -1744,9 +1750,7 @@ class CountryReportTests(unittest.TestCase):
             sweden_summary = json.loads(
                 (
                     output / "countries" / "sweden" / "sweden_aadr_v62.0_summary.json"
-                ).read_text(
-                    encoding="utf-8"
-                )
+                ).read_text(encoding="utf-8")
             )
             self.assertIn("../../regions/nordic/nordic_map.html", sweden_readme)
             self.assertIn(">Nordic Evidence Surface</a>", sweden_readme)
@@ -2111,7 +2115,10 @@ class CountryReportTests(unittest.TestCase):
                             "stable_token": stable_token,
                             "locality_text": locality,
                             "political_entity": political_entity,
-                            "source_anchor_tokens": [project_accession, "project_accession_anchor"],
+                            "source_anchor_tokens": [
+                                project_accession,
+                                "project_accession_anchor",
+                            ],
                         },
                         "species_latin_name": latin_name,
                         "species_common_name": common_name,
@@ -2258,7 +2265,9 @@ class CountryReportTests(unittest.TestCase):
             },
         )
         review_bucket = (
-            "comparator_projects" if support_class == "comparator_only" else "accepted_projects"
+            "comparator_projects"
+            if support_class == "comparator_only"
+            else "accepted_projects"
         )
         self.write_json(
             species_root / "review" / "species_review.json",
@@ -2272,7 +2281,9 @@ class CountryReportTests(unittest.TestCase):
                         "reason": "Mapped locality retained in atlas.",
                         "paper_title": paper_title,
                         "paper_doi": paper_doi,
-                        "nordic_relevance": "nordic_lead" if nordic_inclusion else "non_nordic",
+                        "nordic_relevance": "nordic_lead"
+                        if nordic_inclusion
+                        else "non_nordic",
                         "nordic_relevance_reason": "Curated Nordic lead",
                     }
                 ],
@@ -2287,7 +2298,9 @@ class CountryReportTests(unittest.TestCase):
                         "reason": "Comparator evidence remains visible with caveats.",
                         "paper_title": paper_title,
                         "paper_doi": paper_doi,
-                        "nordic_relevance": "nordic_lead" if nordic_inclusion else "non_nordic",
+                        "nordic_relevance": "nordic_lead"
+                        if nordic_inclusion
+                        else "non_nordic",
                         "nordic_relevance_reason": "Curated Nordic lead",
                     }
                 ],

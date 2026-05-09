@@ -3,8 +3,11 @@ from __future__ import annotations
 from pathlib import Path
 import unittest
 
+import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class DocsBreadthRegressionTests(unittest.TestCase):
@@ -34,11 +37,7 @@ class DocsBreadthRegressionTests(unittest.TestCase):
             REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "index.md"
         ).read_text(encoding="utf-8")
         overview_index = (
-            REPO_ROOT
-            / "docs"
-            / "02-bijux-pollenomics-data"
-            / "overview"
-            / "index.md"
+            REPO_ROOT / "docs" / "02-bijux-pollenomics-data" / "overview" / "index.md"
         ).read_text(encoding="utf-8")
 
         for path in (
