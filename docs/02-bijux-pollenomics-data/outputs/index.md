@@ -19,6 +19,8 @@ them.
 
 ## Start Here
 
+- [report portal](../../report/index.md) for the reader-facing entry point into the full publication tree
+- [how to read the report tree](../../report/how-to-read.md) for question-first navigation across maps, bundles, and review packets
 - [published reports](published-reports.md) for the world, regional, and country publication tree
 - [geographic evidence surfaces](geographic-evidence-surfaces.md) for the world-facing and regional map bundles
 - [geographic point publication](geographic-point-publication.md) for the sample-to-point contract
