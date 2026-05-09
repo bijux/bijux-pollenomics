@@ -45,10 +45,10 @@ therefore four contracts at once, not one loose checkbox.
 
 ## Practical Reading Order
 
-1. [country onboarding contract](../../report/publication_country_onboarding_contract.md)
-2. [publication geography registry](../../report/publication_geography_registry.md)
-3. [publication geography subset validation](../../report/publication_geography_subset_validation.md)
-4. [repository extension review](../../report/repository_extension_review.md)
+1. [country onboarding contract](../../../report/publication_country_onboarding_contract.md)
+2. [publication geography registry](../../../report/publication_geography_registry.md)
+3. [publication geography subset validation](../../../report/publication_geography_subset_validation.md)
+4. [repository extension review](../../../report/repository_extension_review.md)
 
 If those surfaces still look coherent after a new country lands, the onboarding
 work was probably done correctly.
