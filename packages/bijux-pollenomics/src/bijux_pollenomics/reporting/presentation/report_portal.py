@@ -27,7 +27,7 @@ _FAMILY_LABELS = {
     "scopes": "Scope-filtered outputs",
     "reviews": "Evidence reviews",
     "caveats": "Scientific caveats",
-    "maintenance": "Maintainer truth packets",
+    "maintenance": "Maintainer truth surfaces",
     "portal": "Portal guidance",
 }
 
@@ -220,11 +220,11 @@ def _explanation_for_path(path: Path, family: str, audience: str) -> str:
     if family == "scopes" and "samples" in stem:
         return "Scope-filtered sample or locality export."
     if family == "reviews":
-        return "Scientific review packet for animal evidence, chronology, or recovery posture."
+        return "Scientific review surface for animal evidence, chronology, or recovery posture."
     if family == "caveats":
-        return "Caution-oriented packet describing blocked, thin, or overclaim-sensitive publication posture."
+        return "Caution-oriented surface describing blocked, thin, or overclaim-sensitive publication posture."
     if audience == "maintainer_diagnostic":
-        return "Maintainer-facing truth or governance packet."
+        return "Maintainer-facing truth or governance surface."
     return "Governed report artifact."
 
 
@@ -329,7 +329,7 @@ def _build_quality_row(relative_path: str, text: str) -> dict[str, object]:
         note = "Page carries many artifact links without enough explanation around them."
     elif prose_paragraph_count == 0 and table_line_count >= 4:
         quality_posture = "structured_reference"
-        note = "Page is table-heavy, but it behaves like a reference packet rather than a loose link dump."
+        note = "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     elif prose_paragraph_count == 0 and bullet_sentence_count >= 3:
         quality_posture = "structured_reference"
         note = "Page is bullet-led, but those bullets still explain posture and evidence role."
@@ -430,16 +430,16 @@ def _render_report_portal_index(
             (
                 "reviews",
                 "Evidence reviews",
-                "animal evidence, chronology, recovery, and cross-family review packets",
+                "animal evidence, chronology, recovery, and cross-family review surfaces",
             ),
             (
                 "caveats",
                 "Scientific caveats",
-                "blocked, thin, overclaim-sensitive, and honesty-oriented publication packets",
+                "blocked, thin, overclaim-sensitive, and honesty-oriented publication surfaces",
             ),
             (
                 "maintenance",
-                "Maintainer truth packets",
+                "Maintainer truth surfaces",
                 "repository truth, docs integrity, source audits, and geography governance surfaces",
             ),
         )
@@ -460,7 +460,7 @@ last_reviewed: 2026-05-09
 # Report Portal
 
 `docs/report/` is the repository's public publication tree. It contains maps,
-country and regional bundles, scientific review packets, and maintainer truth
+country and regional bundles, scientific review surfaces, and maintainer truth
 surfaces. The tree is now organized around reader questions instead of the
 internal functions that emitted each file.
 
@@ -471,7 +471,7 @@ internal functions that emitted each file.
 - [scope-filtered outputs](./scopes/index.md) if your question is world, region, or country specific
 - [evidence reviews](./reviews/index.md) if you want chronology, intake, sample-database, or point-support reviews
 - [scientific caveats](./caveats/index.md) if you want honesty, exclusion, or release-boundary checks
-- [maintainer truth packets](./maintenance/index.md) if you need repository integrity, docs integrity, or governance surfaces
+- [maintainer truth surfaces](./maintenance/index.md) if you need repository integrity, docs integrity, or governance surfaces
 
 ## What This Tree Contains
 
@@ -488,7 +488,7 @@ internal functions that emitted each file.
 
 ## Caution Levels
 
-Use the tree in this order: reader portal first, scope bundle second, evidence review third, caveat packet fourth. A map or country bundle can be useful on its own, but the scientific meaning always depends on the review and caveat surfaces next to it.
+Use the tree in this order: reader portal first, scope bundle second, evidence review third, caveat surface fourth. A map or country bundle can be useful on its own, but the scientific meaning always depends on the review and caveat surfaces next to it.
 
 ## Audience Mix
 
@@ -521,7 +521,7 @@ have instead of opening random JSON or Markdown files from the root.
 
 1. Open [map surfaces](./maps/index.md).
 2. Read the scope README before the HTML map itself.
-3. Use map publication contracts and point traceability packets when a visible layer needs justification.
+3. Use map publication contracts and point traceability surfaces when a visible layer needs justification.
 
 ## If Your Question Is Scientific Trust
 
@@ -531,7 +531,7 @@ have instead of opening random JSON or Markdown files from the root.
 
 ## If Your Question Is Repository Integrity
 
-1. Open [maintainer truth packets](./maintenance/index.md).
+1. Open [maintainer truth surfaces](./maintenance/index.md).
 2. Start with [repository_truth_posture.md](./repository_truth_posture.md).
 3. Use docs, claim, and source-family audits when you need to understand why a public statement is allowed or blocked.
 """
@@ -565,13 +565,13 @@ show.
 
 - interactive map HTML files for governed scopes
 - map publication contracts that explain layer roles, bounds, and caveats
-- point traceability packets that connect visible points to evidence
+- point traceability surfaces that connect visible points to evidence
 - atlas evidence and scientific review surfaces that summarize what the map can and cannot claim
 
 ## Current Counts
 
 - interactive maps: `{map_count}`
-- traceability packets: `{review_count}`
+- traceability surfaces: `{review_count}`
 - total map-family artifacts: `{len(rows)}`
 """
 
@@ -688,7 +688,7 @@ map or country bundle.
 
 def _render_maintenance_portal_page(rows: list[dict[str, object]]) -> str:
     return f"""---
-title: Maintainer Truth Packets
+title: Maintainer Truth Surfaces
 audience: maintainer
 type: explanation
 status: canonical
@@ -696,19 +696,23 @@ owner: bijux-pollenomics-reporting
 last_reviewed: 2026-05-09
 ---
 
-# Maintainer Truth Packets
+# Maintainer Truth Surfaces
 
-These packets are not where a newcomer should start, but they are where the
+These surfaces are not where a newcomer should start, but they are where the
 repository states whether its public story is coherent, overclaimed, or still
 structurally weak.
 
 ## Start Here
 
 - [repository truth posture](../repository_truth_posture.md)
+- [repository product model](../repository_product_model.md)
+- [repository credibility dashboard](../repository_credibility_dashboard.md)
 - [repository recovery review](../repository_recovery_review.md)
 - [repository claim audit](../repository_claim_audit.md)
+- [repository final release refusal](../repository_final_release_refusal.md)
 - [repository docs recovery review](../repository_docs_recovery_review.md)
 - [repository source family matrix](../repository_source_family_matrix.md)
+- [repository generated output policy](../repository_generated_output_policy.md)
 - [publication geography registry](../publication_geography_registry.md)
 
 ## What This Family Covers
@@ -716,7 +720,7 @@ structurally weak.
 - repository-wide truth and overclaim checks
 - docs integrity and docs breadth recovery
 - source acquisition, source explainer, and atlas-input audits
-- geography governance and country onboarding contracts
+- geography governance, country onboarding, and generated-output policy contracts
 
 ## Current Count
 
@@ -741,7 +745,7 @@ def _render_report_surface_registry_markdown(payload: dict[str, object]) -> str:
 
 This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
-coherent report surface instead of a loose packet dump.
+coherent report surface instead of a loose artifact dump.
 
 - Surface count: `{payload['surface_count']}`
 
