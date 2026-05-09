@@ -137,10 +137,15 @@ def build_species_runtime_manifest(
             release_manifest_path=f"{species_manifest.data_root}/manifests/curation_manifest.json",
             dataset_names=(project.project_accession,),
             record_modality="archive_reads",
-            review_strength=_review_strength_for(project, curation_manifest.curation_class),
+            review_strength=_review_strength_for(
+                project, curation_manifest.curation_class
+            ),
             provenance_quality="archive_project_catalog",
         )
-        for project in (*curation_manifest.curated_projects, *curation_manifest.pending_projects)
+        for project in (
+            *curation_manifest.curated_projects,
+            *curation_manifest.pending_projects,
+        )
     )
     return AdnaSpeciesRuntimeManifest(
         schema_version="adna-runtime-manifest.v1",
@@ -206,7 +211,10 @@ def _review_strength_for(
     project: AdnaSpeciesProjectRow,
     curation_class: str,
 ) -> str:
-    if curation_class == "comparator_only" or project.archive_status == "comparator_only":
+    if (
+        curation_class == "comparator_only"
+        or project.archive_status == "comparator_only"
+    ):
         return "comparator_only"
     if project.evidence_strength == "primary_paper_pinned":
         return "primary_paper_pinned"
@@ -225,11 +233,16 @@ def _sample_matches_query(sample, query: AdnaSampleQuery) -> bool:
             return False
     if query.locality_token and sample.locality_token != query.locality_token:
         return False
-    if query.dataset_names and not set(sample.datasets).intersection(query.dataset_names):
+    if query.dataset_names and not set(sample.datasets).intersection(
+        query.dataset_names
+    ):
         return False
     if query.modalities and sample.record_modality not in query.modalities:
         return False
-    if query.provenance_qualities and sample.provenance_quality not in query.provenance_qualities:
+    if (
+        query.provenance_qualities
+        and sample.provenance_quality not in query.provenance_qualities
+    ):
         return False
     if query.review_strengths and sample.review_strength not in query.review_strengths:
         return False

@@ -16,4 +16,7 @@ def test_homo_sapiens_genotype_contract_keeps_future_artifacts_human_only() -> N
     assert len(contract.required_artifacts) == 3
     assert contract.ingestion_ready is False
     assert "missing_geno_artifact" in contract.ingestion_blockers
-    assert "Non-human species must not mimic AADR .geno/.ind/.snp layout" in contract.nonhuman_boundary
+    assert (
+        "Non-human species must not mimic AADR .geno/.ind/.snp layout"
+        in contract.nonhuman_boundary
+    )

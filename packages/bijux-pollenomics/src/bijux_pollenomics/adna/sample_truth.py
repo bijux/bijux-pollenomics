@@ -155,7 +155,9 @@ def build_animal_sample_foundation_truth(data_root: Path) -> dict[str, object]:
     }
 
 
-def build_project_locality_count_drift(data_root: Path) -> tuple[dict[str, object], ...]:
+def build_project_locality_count_drift(
+    data_root: Path,
+) -> tuple[dict[str, object], ...]:
     """Compare project locality summaries against sample-backed site counts."""
     rows: list[dict[str, object]] = []
     for species_name in TRACKED_ADNA_SPECIES:
@@ -189,11 +191,7 @@ def build_project_locality_count_drift(data_root: Path) -> tuple[dict[str, objec
                     "drift_detected": drift_detected,
                 }
             )
-    return tuple(
-        row
-        for row in rows
-        if bool(row["drift_detected"])
-    )
+    return tuple(row for row in rows if bool(row["drift_detected"]))
 
 
 def build_species_sample_count_drift(data_root: Path) -> tuple[dict[str, object], ...]:
@@ -255,9 +253,7 @@ def build_animal_sample_aggregation_warnings(
             if str(row.get("sample_namespace", "")).endswith("project_locality")
         ),
         "projects_with_project_level_sample_anchors": sum(
-            1
-            for row in project_rows
-            if bool(row["uses_project_level_sample_anchor"])
+            1 for row in project_rows if bool(row["uses_project_level_sample_anchor"])
         ),
         "projects_with_locality_count_drift": len(project_locality_drift_rows),
         "species_with_summary_count_drift": len(species_sample_drift_rows),
@@ -342,7 +338,9 @@ def render_animal_sample_foundation_truth_markdown(payload: dict[str, object]) -
     return "\n".join(lines)
 
 
-def render_animal_sample_aggregation_warnings_markdown(payload: dict[str, object]) -> str:
+def render_animal_sample_aggregation_warnings_markdown(
+    payload: dict[str, object],
+) -> str:
     summary = payload["summary"]
     lines = [
         "# Animal sample aggregation warnings",
@@ -394,7 +392,9 @@ def _build_project_truth_row(
         "fully_grounded_count": status_counts["fully_grounded"],
         "partially_grounded_count": status_counts["partially_grounded"],
         "blocked_missing_metadata_count": status_counts["blocked_missing_metadata"],
-        "blocked_missing_location_detail_count": status_counts["blocked_missing_location_detail"],
+        "blocked_missing_location_detail_count": status_counts[
+            "blocked_missing_location_detail"
+        ],
         "blocked_weak_chronology_count": status_counts["blocked_weak_chronology"],
         "sample_backed_site_count": _sample_backed_site_count(sample_rows),
         "project_locality_summary_count": locality_summary_count,
@@ -423,7 +423,9 @@ def _build_species_truth_row(
         "fully_grounded_count": status_counts["fully_grounded"],
         "partially_grounded_count": status_counts["partially_grounded"],
         "blocked_missing_metadata_count": status_counts["blocked_missing_metadata"],
-        "blocked_missing_location_detail_count": status_counts["blocked_missing_location_detail"],
+        "blocked_missing_location_detail_count": status_counts[
+            "blocked_missing_location_detail"
+        ],
         "blocked_weak_chronology_count": status_counts["blocked_weak_chronology"],
         "project_count": len(project_rows),
         "reported_curated_sample_count": readme_count,
@@ -463,10 +465,7 @@ def _sample_truth_status(sample_row: dict[str, object]) -> str:
         str(coordinates.get("latitude_text", "")).strip()
         and str(coordinates.get("longitude_text", "")).strip()
     )
-    if (
-        has_coordinates
-        and str(coordinates.get("confidence", "")).strip() != "withheld"
-    ):
+    if has_coordinates and str(coordinates.get("confidence", "")).strip() != "withheld":
         return "fully_grounded"
     return "partially_grounded"
 

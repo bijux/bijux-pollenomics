@@ -46,10 +46,14 @@ class AdnaProjectLocalityLead:
         }
 
 
-def resolve_project_locality_leads(project_accession: str) -> tuple[AdnaProjectLocalityLead, ...]:
+def resolve_project_locality_leads(
+    project_accession: str,
+) -> tuple[AdnaProjectLocalityLead, ...]:
     """Return the curated locality leads for one project accession."""
     return _lead_rows(
-        sample_site_rows=build_project_sample_site_rows(_default_data_root(), project_accession),
+        sample_site_rows=build_project_sample_site_rows(
+            _default_data_root(), project_accession
+        ),
         coordinate_rows=resolve_project_coordinate_provenance(project_accession),
     )
 
@@ -61,7 +65,9 @@ def build_species_project_locality_leads(
     sample_site_rows = []
     for accession in project_accessions:
         try:
-            sample_site_rows.extend(build_project_sample_site_rows(_default_data_root(), accession))
+            sample_site_rows.extend(
+                build_project_sample_site_rows(_default_data_root(), accession)
+            )
         except KeyError:
             continue
     return _lead_rows(
@@ -86,7 +92,9 @@ def _lead_rows(
     for row in sample_site_rows:
         key = (
             row.project_accession,
-            _normalized_group_key(row.locality_text, row.country_name or row.broader_geography),
+            _normalized_group_key(
+                row.locality_text, row.country_name or row.broader_geography
+            ),
             row.locality_resolution_status,
         )
         grouped_rows.setdefault(key, []).append(row)
@@ -110,14 +118,18 @@ def _lead_rows(
         coordinate_basis = (
             row.coordinate_basis
             if row.coordinate_basis == "supplementary_table_coordinates"
-            else "" if coordinate_row is None else coordinate_row.coordinate_basis
+            else ""
+            if coordinate_row is None
+            else coordinate_row.coordinate_basis
         )
         time_start_bp = None if coordinate_row is None else coordinate_row.time_start_bp
         time_end_bp = None if coordinate_row is None else coordinate_row.time_end_bp
         interpretation_note = (
             row.review_note
             if row.review_note
-            else "" if coordinate_row is None else coordinate_row.interpretation_note
+            else ""
+            if coordinate_row is None
+            else coordinate_row.interpretation_note
         )
         leads.append(
             AdnaProjectLocalityLead(
@@ -148,8 +160,12 @@ def _lead_rows(
                 project_accession=row.project_accession,
                 locality_text=row.site_label,
                 political_entity=row.political_entity or "",
-                latitude_text="" if row.mapping_posture != "mappable_point" else row.latitude_text,
-                longitude_text="" if row.mapping_posture != "mappable_point" else row.longitude_text,
+                latitude_text=""
+                if row.mapping_posture != "mappable_point"
+                else row.latitude_text,
+                longitude_text=""
+                if row.mapping_posture != "mappable_point"
+                else row.longitude_text,
                 coordinate_basis=row.coordinate_basis,
                 chronology_text=row.chronology_text,
                 time_start_bp=row.time_start_bp,
@@ -167,7 +183,9 @@ def _lead_rows(
     return tuple(leads)
 
 
-def _normalized_group_key(locality_text: str, political_entity: str | None) -> tuple[str, str]:
+def _normalized_group_key(
+    locality_text: str, political_entity: str | None
+) -> tuple[str, str]:
     return (_normalize_text(locality_text), _normalize_text(political_entity or ""))
 
 

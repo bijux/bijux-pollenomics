@@ -53,8 +53,12 @@ class AdnaSourceSnapshotUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(camel_anchor.title_basis, "ena-secondary-study-search")
-        self.assertIn("Camelus dromedarius Raw sequence reads", camel_anchor.source_title)
-        self.assertIn("ancient domestic and wild dromedary camel", camel_anchor.source_description)
+        self.assertIn(
+            "Camelus dromedarius Raw sequence reads", camel_anchor.source_title
+        )
+        self.assertIn(
+            "ancient domestic and wild dromedary camel", camel_anchor.source_description
+        )
 
 
 if __name__ == "__main__":

@@ -66,7 +66,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unsupported URL for network fetch"):
             source_library_module._download_url("file:///tmp/source.pdf")
 
-    def test_project_source_bundles_flag_missing_local_sources_before_refresh(self) -> None:
+    def test_project_source_bundles_flag_missing_local_sources_before_refresh(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             bundles = build_project_source_bundles(output_root)
@@ -79,7 +81,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
         self.assertIn("missing_local_paper_evidence", horse_bundle.blockers)
         self.assertNotIn("missing_local_supplementary_material", horse_bundle.blockers)
 
-    def test_refresh_and_materialize_source_library_publish_master_registries(self) -> None:
+    def test_refresh_and_materialize_source_library_publish_master_registries(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
 
@@ -108,51 +112,389 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             intake_audit = build_source_intake_audit(output_root)
             release_guard = build_source_intake_release_guard(output_root)
 
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "paper_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_zip_member_registry.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_intake_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_intake_release_guard.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "tracked_project_and_paper_inventory.md").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_site_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_ambiguity_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_site_manual_curation_queue.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_locality_conflict_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_locality_manual_curation_workflow.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_locality_substitution_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "site_name_normalization_dictionary.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_locality_completeness.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_locality_completeness.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_sample_chronology_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_normalization_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_ambiguity_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_conflict_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_precision_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_chronology_completeness.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_chronology_completeness.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "sample_chronology_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "date_evidence_gap_queue.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "tracked_project_scope_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_source_evidence_matrix.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "reference_stash_doi_integrity_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_file_family_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_acquisition_checklist.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "supplement_recovery_audit.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_blocker_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "cross_project_source_intake_dossier.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_recovery_stage_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "project_expected_sample_yield_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "paper_expected_sample_yield_review.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "species_project_deficit_ledger.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "manual_curation_worklist.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_recovery_progress.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "missing_source_queue.json").is_file())
-            self.assertTrue((output_root / "adna" / "governance" / "source_library" / "source_recovery_release_guard.json").is_file())
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "paper_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "supplement_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "supplement_zip_member_registry.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_intake_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_intake_release_guard.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "tracked_project_and_paper_inventory.md"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_sample_site_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_site_ambiguity_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_site_manual_curation_queue.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_locality_conflict_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_locality_manual_curation_workflow.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_locality_substitution_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "site_name_normalization_dictionary.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "species_locality_completeness.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_locality_completeness.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_sample_chronology_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_chronology_normalization_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_chronology_ambiguity_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_chronology_conflict_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_chronology_precision_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "species_chronology_completeness.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_chronology_completeness.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "sample_chronology_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "date_evidence_gap_queue.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "tracked_project_scope_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_source_evidence_matrix.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "reference_stash_reconciliation.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "reference_stash_doi_integrity_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "supplement_file_family_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "supplement_acquisition_checklist.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "supplement_recovery_audit.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_blocker_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "cross_project_source_intake_dossier.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_recovery_stage_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "project_expected_sample_yield_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "paper_expected_sample_yield_review.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "species_project_deficit_ledger.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "manual_curation_worklist.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_recovery_progress.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "missing_source_queue.json"
+                ).is_file()
+            )
+            self.assertTrue(
+                (
+                    output_root
+                    / "adna"
+                    / "governance"
+                    / "source_library"
+                    / "source_recovery_release_guard.json"
+                ).is_file()
+            )
 
             sheep_project = next(
-                item for item in project_registry if item.project_accession == "PRJEB36540"
+                item
+                for item in project_registry
+                if item.project_accession == "PRJEB36540"
             )
             self.assertEqual(sheep_project.paper_download_status, "archived")
             self.assertEqual(sheep_project.supplement_download_status, "archived")
@@ -172,13 +514,18 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             )
             self.assertEqual(sheep_paper.supplementary_count, 5)
             self.assertEqual(sheep_paper.article_download_status, "archived")
-            self.assertEqual(sheep_paper.sample_extractability, "supplement_extractable")
+            self.assertEqual(
+                sheep_paper.sample_extractability, "supplement_extractable"
+            )
             self.assertEqual(
                 sheep_paper.sample_table_extraction_status,
                 "published_empty",
             )
             self.assertTrue(
-                any(path.endswith("42003_2021_2794_MOESM4_ESM.zip") for path in sheep_paper.expected_supplementary_artifacts)
+                any(
+                    path.endswith("42003_2021_2794_MOESM4_ESM.zip")
+                    for path in sheep_paper.expected_supplementary_artifacts
+                )
             )
 
             self.assertTrue(
@@ -302,7 +649,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                 ).is_file()
             )
 
-    def test_reference_stash_reconciliation_marks_local_staging_ahead_of_repo(self) -> None:
+    def test_reference_stash_reconciliation_marks_local_staging_ahead_of_repo(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             stash_root = Path(tmp) / "stash"
@@ -329,7 +678,9 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             if row["stash_slug"] == "10.1016-j.cell.2019.03.049"
         )
         checklist_row = next(
-            row for row in checklist["rows"] if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
+            row
+            for row in checklist["rows"]
+            if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         family_row = next(
             row
@@ -337,16 +688,26 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
             if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         recovery_row = next(
-            row for row in recovery["rows"] if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
+            row
+            for row in recovery["rows"]
+            if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         self.assertEqual(cell_row["alignment_status"], "local_reference_ahead_of_repo")
         self.assertTrue(integrity["all_stash_dois_tracked"])
         self.assertEqual(integrity["reference_stash_doi_count"], 1)
-        self.assertEqual(checklist_row["acquisition_check_status"], "local_reference_ready_for_ingestion")
+        self.assertEqual(
+            checklist_row["acquisition_check_status"],
+            "local_reference_ready_for_ingestion",
+        )
         self.assertIn("xlsx_table", family_row["expected_supplementary_file_families"])
-        self.assertEqual(recovery_row["recovery_status"], "local_reference_staged_needs_repo_ingestion")
+        self.assertEqual(
+            recovery_row["recovery_status"],
+            "local_reference_staged_needs_repo_ingestion",
+        )
 
-    def test_materialized_curated_stash_supplements_become_extractable_targets(self) -> None:
+    def test_materialized_curated_stash_supplements_become_extractable_targets(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             stash_root = Path(tmp) / "stash"
@@ -366,9 +727,7 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
                 recovery = build_supplement_recovery_audit(output_root)
 
         paper_row = next(
-            row
-            for row in paper_registry
-            if row.paper_doi == "10.1111/1755-0998.12551"
+            row for row in paper_registry if row.paper_doi == "10.1111/1755-0998.12551"
         )
         recovery_row = next(
             row
@@ -394,8 +753,12 @@ class AdnaSourceLibraryUnitTests(unittest.TestCase):
 
         self.assertGreater(audit["paper_dependent_count"], 0)
         self.assertGreater(audit["blocked_count"], 0)
-        self.assertGreater(intake_audit["blocker_counts"]["missing_paper_capture_count"], 0)
-        self.assertGreater(intake_audit["blocker_counts"]["missing_sample_identifier_count"], 0)
+        self.assertGreater(
+            intake_audit["blocker_counts"]["missing_paper_capture_count"], 0
+        )
+        self.assertGreater(
+            intake_audit["blocker_counts"]["missing_sample_identifier_count"], 0
+        )
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB22390"

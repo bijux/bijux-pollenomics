@@ -118,7 +118,9 @@ class AdnaRecordUnitTests(unittest.TestCase):
         self.assertEqual(locality.coordinate_confidence, "unknown")
         self.assertEqual(locality.source_releases, ("v66",))
 
-    def test_nonhuman_records_can_keep_coordinates_and_political_entity_withheld(self) -> None:
+    def test_nonhuman_records_can_keep_coordinates_and_political_entity_withheld(
+        self,
+    ) -> None:
         sample = AdnaSampleRecord(
             identity=AdnaSampleIdentity(
                 namespace="equus_caballus:normalized_sample",

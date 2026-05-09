@@ -369,7 +369,9 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
 }
 
 
-def resolve_project_site_evidence(project_accession: str) -> tuple[AdnaSiteEvidenceRecord, ...]:
+def resolve_project_site_evidence(
+    project_accession: str,
+) -> tuple[AdnaSiteEvidenceRecord, ...]:
     """Return the curated site-evidence rows for one project accession."""
     if direct_rows := _direct_sample_site_rows(project_accession):
         return direct_rows
@@ -399,7 +401,8 @@ def _default_data_root() -> Path:
 
 def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
     project_registry = {
-        row.project_accession: row for row in build_project_registry(_default_data_root())
+        row.project_accession: row
+        for row in build_project_registry(_default_data_root())
     }
     project_row = project_registry.get(project_accession)
     if project_row is None or not project_row.primary_paper_doi:
@@ -408,10 +411,14 @@ def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
     return doi, f"https://doi.org/{doi}"
 
 
-def _direct_sample_site_rows(project_accession: str) -> tuple[AdnaSiteEvidenceRecord, ...]:
+def _direct_sample_site_rows(
+    project_accession: str,
+) -> tuple[AdnaSiteEvidenceRecord, ...]:
     grouped: dict[tuple[str, str], list[object]] = {}
     try:
-        sample_rows = build_project_sample_master_rows(_default_data_root(), project_accession)
+        sample_rows = build_project_sample_master_rows(
+            _default_data_root(), project_accession
+        )
     except KeyError:
         return ()
     for row in sample_rows:
@@ -458,7 +465,9 @@ def _direct_sample_site_rows(project_accession: str) -> tuple[AdnaSiteEvidenceRe
     return tuple(rows)
 
 
-def _normalized_group_key(locality_text: str, political_entity: str | None) -> tuple[str, str]:
+def _normalized_group_key(
+    locality_text: str, political_entity: str | None
+) -> tuple[str, str]:
     return (_normalize_text(locality_text), _normalize_text(political_entity or ""))
 
 

@@ -137,12 +137,15 @@ def build_species_curation_manifest(species_name: str) -> AdnaSpeciesCurationMan
     species_manifest = build_species_manifest(species_name)
     project_manifest = build_species_project_manifest(species_name)
     curated_projects = tuple(
-        row for row in project_manifest.projects if row.archive_status == "paper_pinned_core"
+        row
+        for row in project_manifest.projects
+        if row.archive_status == "paper_pinned_core"
     )
     pending_projects = tuple(
         row
         for row in project_manifest.projects
-        if row.archive_status in {"archive_verified_needs_paper_pinning", "comparator_only"}
+        if row.archive_status
+        in {"archive_verified_needs_paper_pinning", "comparator_only"}
     )
     rejected_projects = tuple(
         AdnaRejectedProject(

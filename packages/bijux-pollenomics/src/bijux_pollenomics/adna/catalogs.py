@@ -116,7 +116,9 @@ def build_cross_species_archive_inventory() -> tuple[dict[str, object], ...]:
             }
         )
     return tuple(
-        sorted(rows, key=lambda item: (item["source_family"], item["project_accession"]))
+        sorted(
+            rows, key=lambda item: (item["source_family"], item["project_accession"])
+        )
     )
 
 
@@ -124,9 +126,7 @@ def build_species_freshness_table() -> tuple[dict[str, object], ...]:
     """Return one freshness row per tracked animal species."""
     rows = build_species_freshness_rows(build_archive_project_catalog())
     tracked = set(TRACKED_ADNA_SPECIES)
-    return tuple(
-        row for row in rows if row["species_latin_name"] in tracked
-    )
+    return tuple(row for row in rows if row["species_latin_name"] in tracked)
 
 
 def build_cross_species_coverage_dashboard(
@@ -216,15 +216,25 @@ def build_unresolved_site_ledger(data_root: Path) -> tuple[dict[str, object], ..
                     "species_latin_name": sample.get("species_latin_name", ""),
                     "species_common_name": sample.get("species_common_name", ""),
                     "project_accession": sample.get("project_accession", ""),
-                    "stable_sample_id": sample.get("identity", {}).get("stable_token", ""),
-                    "site_label": sample.get("locality_identity", {}).get("locality_text", ""),
+                    "stable_sample_id": sample.get("identity", {}).get(
+                        "stable_token", ""
+                    ),
+                    "site_label": sample.get("locality_identity", {}).get(
+                        "locality_text", ""
+                    ),
                     "paper_doi": sample.get("paper_doi", ""),
                     "supplementary_source": sample.get("supplementary_source", ""),
                     "inclusion_note": sample.get("inclusion_note", ""),
                 }
             )
     return tuple(
-        sorted(rows, key=lambda item: (str(item["species_latin_name"]), str(item["project_accession"])))
+        sorted(
+            rows,
+            key=lambda item: (
+                str(item["species_latin_name"]),
+                str(item["project_accession"]),
+            ),
+        )
     )
 
 
@@ -250,7 +260,13 @@ def build_overbroad_site_ledger(data_root: Path) -> tuple[dict[str, object], ...
                 }
             )
     return tuple(
-        sorted(rows, key=lambda item: (str(item["species_latin_name"]), str(item["project_accession"])))
+        sorted(
+            rows,
+            key=lambda item: (
+                str(item["species_latin_name"]),
+                str(item["project_accession"]),
+            ),
+        )
     )
 
 
@@ -301,16 +317,14 @@ def build_public_animal_output_audit(
     report_root = Path(report_root)
     country_root = report_root / "countries"
     dashboard = build_cross_species_coverage_dashboard(data_root, report_root)
-    countries = tuple(
-        path.name
-        for path in sorted(country_root.iterdir())
-        if path.is_dir()
-    ) if country_root.exists() else ()
+    countries = (
+        tuple(path.name for path in sorted(country_root.iterdir()) if path.is_dir())
+        if country_root.exists()
+        else ()
+    )
     atlas_readme = report_root / "world" / "README.md"
     atlas_notes = (
-        atlas_readme.read_text(encoding="utf-8")
-        if atlas_readme.exists()
-        else ""
+        atlas_readme.read_text(encoding="utf-8") if atlas_readme.exists() else ""
     )
     honesty = build_public_animal_output_honesty(data_root, report_root)
     accountability_path = (
@@ -336,7 +350,9 @@ def build_public_animal_output_audit(
         "mapped_sample_count": honesty["totals"]["mapped_sample_count"],
         "blocked_sample_count": honesty["totals"]["blocked_sample_count"],
         "unresolved_sample_count": honesty["totals"]["unresolved_sample_count"],
-        "country_published_sample_count": honesty["totals"]["country_published_sample_count"],
+        "country_published_sample_count": honesty["totals"][
+            "country_published_sample_count"
+        ],
         "atlas_notes": atlas_notes,
         "species_rows": dashboard["rows"],
     }
@@ -528,7 +544,9 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
             {
                 str(sample.get("locality_identity", {}).get("stable_token", "")).strip()
                 for sample in matched_samples
-                if str(sample.get("locality_identity", {}).get("stable_token", "")).strip()
+                if str(
+                    sample.get("locality_identity", {}).get("stable_token", "")
+                ).strip()
             }
         )
         chronology_paths = sorted(
@@ -565,7 +583,8 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
                 row.coordinate_source_artifact_path.strip()
                 and row.coordinate_source_locator.strip()
             ),
-            "sample_locality_matches_site_record": row.site_record_id in sample_locality_tokens,
+            "sample_locality_matches_site_record": row.site_record_id
+            in sample_locality_tokens,
             "sample_lineage_paths": sample_lineage_paths,
             "site_evidence_path": row.source_artifact_path,
             "site_evidence_locator": row.source_locator,
@@ -596,7 +615,7 @@ def build_animal_atlas_candidate_accountability(data_root: Path) -> dict[str, ob
 
 
 def render_animal_atlas_candidate_accountability_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     """Render one accountability table for final atlas candidate rows."""
     lines = [
@@ -700,12 +719,7 @@ def render_csv_rows(rows: tuple[dict[str, object], ...]) -> str:
     writer = csv.DictWriter(buffer, fieldnames=fieldnames, lineterminator="\n")
     writer.writeheader()
     for row in rows:
-        writer.writerow(
-            {
-                key: _csv_value(value)
-                for key, value in row.items()
-            }
-        )
+        writer.writerow({key: _csv_value(value) for key, value in row.items()})
     return buffer.getvalue()
 
 
@@ -737,7 +751,9 @@ def _build_species_coverage_row(
     return {
         "species_latin_name": species.latin_name,
         "species_common_name": species.common_name,
-        "raw_inventory_present": (species_root / "raw" / "archive_inventory.csv").is_file(),
+        "raw_inventory_present": (
+            species_root / "raw" / "archive_inventory.csv"
+        ).is_file(),
         "raw_source_snapshot_present": (
             species_root / "raw" / "source_snapshot.json"
         ).is_file(),
@@ -753,8 +769,12 @@ def _build_species_coverage_row(
         "normalized_locality_artifact_present": (
             species_root / "normalized" / "locality_summaries.csv"
         ).is_file(),
-        "review_markdown_present": (species_root / "review" / "species_review.md").is_file(),
-        "review_json_present": (species_root / "review" / "species_review.json").is_file(),
+        "review_markdown_present": (
+            species_root / "review" / "species_review.md"
+        ).is_file(),
+        "review_json_present": (
+            species_root / "review" / "species_review.json"
+        ).is_file(),
         "country_output_count": country_output_count,
         "atlas_layer_count": atlas_layer_count,
         "map_ready_sample_count": _count_sample_rows_by_mapping_posture(
@@ -771,12 +791,16 @@ def _build_species_coverage_row(
             if str(sample.get("inclusion_status", "")) == "sample_context_blocked"
         ),
         "nordic_unmapped_lead_count": sum(
-            1 for row in context_rows if row.nordic_relevance == "nordic_relevant_unmapped"
+            1
+            for row in context_rows
+            if row.nordic_relevance == "nordic_relevant_unmapped"
         ),
     }
 
 
-def _build_species_map_readiness_row(data_root: Path, species_name: str) -> dict[str, object]:
+def _build_species_map_readiness_row(
+    data_root: Path, species_name: str
+) -> dict[str, object]:
     from .species import resolve_species_definition
 
     species = resolve_species_definition(species_name)
@@ -786,7 +810,8 @@ def _build_species_map_readiness_row(data_root: Path, species_name: str) -> dict
         1
         for row in provenance_rows
         if str(row.get("mapping_posture", "")) == "mappable_point"
-        and str(row.get("coordinate_basis", "")) in {
+        and str(row.get("coordinate_basis", ""))
+        in {
             "direct_published_coordinates",
             "supplementary_table_coordinates",
             "archive_coordinates",
@@ -833,9 +858,7 @@ def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:
     path = species_root / "normalized" / "sample_records.json"
     if not path.is_file():
         return []
-    payload = json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get("samples", [])
     return [row for row in rows if isinstance(row, dict)]
 
@@ -844,9 +867,7 @@ def _load_coordinate_provenance_rows(species_root: Path) -> list[dict[str, objec
     path = species_root / "normalized" / "coordinate_provenance.json"
     if not path.is_file():
         return []
-    payload = json.loads(
-        path.read_text(encoding="utf-8")
-    )
+    payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get("coordinate_provenance", [])
     return [row for row in rows if isinstance(row, dict)]
 
@@ -896,7 +917,9 @@ def _load_country_sample_ids_by_species(report_root: Path) -> dict[str, set[str]
     return sample_ids
 
 
-def _count_sample_rows_by_mapping_posture(species_root: Path, mapping_posture: str) -> int:
+def _count_sample_rows_by_mapping_posture(
+    species_root: Path, mapping_posture: str
+) -> int:
     return sum(
         1
         for row in _load_coordinate_provenance_rows(species_root)

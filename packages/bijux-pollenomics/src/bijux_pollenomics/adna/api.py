@@ -1,3 +1,5 @@
+"""Compatibility exports for the repository-owned aDNA workflow surface."""
+
 from .accessions import (
     AdnaAccessionReference,
     resolve_accession_lineage,
@@ -118,6 +120,28 @@ from .normalization import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
+from .project_sample_chronology import (
+    ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
+    ADNA_CHRONOLOGY_STRENGTHS,
+    build_cross_project_sample_chronology_audit,
+    build_project_chronology_completeness_rows,
+    build_project_sample_chronology_review_rows,
+    build_project_sample_chronology_rows,
+    build_sample_chronology_ambiguity_ledger,
+    build_sample_chronology_review_rows,
+    build_species_chronology_completeness_rows,
+)
+from .project_sample_locality_evidence import (
+    ADNA_LOCALITY_CLASSES,
+    build_project_locality_completeness_rows,
+    build_project_locality_substitution_ledger,
+    build_project_locality_worksheet_rows,
+    build_project_sample_locality_evidence_rows,
+    build_sample_locality_conflict_ledger,
+    build_sample_locality_manual_curation_workflow_rows,
+    build_site_name_normalization_dictionary_rows,
+    build_species_locality_completeness_rows,
+)
 from .rebuild import (
     AdnaArtifactPlanEntry,
     AdnaSpeciesArtifactPlan,
@@ -146,28 +170,6 @@ from .site_evidence import (
     build_species_site_evidence_rows,
     resolve_project_context_site_evidence,
     resolve_project_site_evidence,
-)
-from .project_sample_locality_evidence import (
-    ADNA_LOCALITY_CLASSES,
-    build_project_locality_completeness_rows,
-    build_project_locality_substitution_ledger,
-    build_project_locality_worksheet_rows,
-    build_project_sample_locality_evidence_rows,
-    build_sample_locality_conflict_ledger,
-    build_sample_locality_manual_curation_workflow_rows,
-    build_site_name_normalization_dictionary_rows,
-    build_species_locality_completeness_rows,
-)
-from .project_sample_chronology import (
-    ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
-    ADNA_CHRONOLOGY_STRENGTHS,
-    build_cross_project_sample_chronology_audit,
-    build_project_chronology_completeness_rows,
-    build_project_sample_chronology_review_rows,
-    build_project_sample_chronology_rows,
-    build_sample_chronology_ambiguity_ledger,
-    build_sample_chronology_review_rows,
-    build_species_chronology_completeness_rows,
 )
 from .source_snapshots import (
     ADNA_SOURCE_CAPTURE_BASES,

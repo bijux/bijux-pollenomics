@@ -153,17 +153,18 @@ def build_project_admission_review(
 ) -> AdnaProjectAdmissionReview:
     """Review whether one archive project can count as curated scientific support."""
     evidence_strength = classify_archive_project_evidence(project)
-    core_project = (
-        product_role == "domesticated_core"
-        and project.archive_status in {"paper_pinned_core", "archive_verified_needs_paper_pinning"}
-    )
+    core_project = product_role == "domesticated_core" and project.archive_status in {
+        "paper_pinned_core",
+        "archive_verified_needs_paper_pinning",
+    }
     blocking_reasons: list[str] = []
     if core_project and project.ancient_status != "ancient_confirmed":
         blocking_reasons.append("not_confirmed_ancient")
     if core_project and evidence_strength != "primary_paper_pinned":
         blocking_reasons.append("missing_primary_paper_anchor")
     if core_project and (
-        project.paper_linkage is None or not project.paper_linkage.pinning_evidence.strip()
+        project.paper_linkage is None
+        or not project.paper_linkage.pinning_evidence.strip()
     ):
         blocking_reasons.append("missing_archive_paper_pinning_rationale")
     access_policy_blocker = _access_policy_blocker(project)
@@ -205,7 +206,9 @@ def build_species_dataset_review(species_name: str) -> AdnaSpeciesDatasetReview:
     archive_project_count = len(archive_projects)
     core_project_count = sum(1 for review in project_reviews if review.core_project)
     primary_paper_pin_count = sum(
-        1 for review in project_reviews if review.evidence_strength == "primary_paper_pinned"
+        1
+        for review in project_reviews
+        if review.evidence_strength == "primary_paper_pinned"
     )
     curated_support_project_count = sum(
         1 for review in project_reviews if review.admissible_for_curated_support

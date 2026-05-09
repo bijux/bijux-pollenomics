@@ -87,7 +87,9 @@ def build_homo_sapiens_genotype_contract(
         )
     )
     blockers = tuple(
-        artifact.artifact_kind for artifact in required_artifacts if not artifact.currently_present
+        artifact.artifact_kind
+        for artifact in required_artifacts
+        if not artifact.currently_present
     )
     return HomoSapiensGenotypeContract(
         schema_version="homo-sapiens-genotype-contract.v1",

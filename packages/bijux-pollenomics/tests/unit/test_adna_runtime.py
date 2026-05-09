@@ -7,11 +7,13 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.adna import homo_sapiens as homo_sapiens_runtime
 from bijux_pollenomics.adna import (
     AdnaSampleQuery,
     build_species_runtime_manifest,
     load_species_samples,
+)
+from bijux_pollenomics.adna import (
+    homo_sapiens as homo_sapiens_runtime,
 )
 from tests.support.aadr import AADR_HEADER, write_anno_file
 

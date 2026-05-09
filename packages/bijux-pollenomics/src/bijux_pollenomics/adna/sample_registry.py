@@ -121,7 +121,9 @@ def build_species_curated_sample_rows(
         project_context = resolve_project_context(project)
         paper_doi = "" if linkage is None or linkage.doi is None else linkage.doi
         paper_url = f"https://doi.org/{paper_doi}" if paper_doi else ""
-        master_rows = build_project_sample_master_rows(data_root, project.project_accession)
+        master_rows = build_project_sample_master_rows(
+            data_root, project.project_accession
+        )
         if master_rows:
             for master_row in master_rows:
                 (
@@ -135,7 +137,12 @@ def build_species_curated_sample_rows(
                     time_end_bp,
                     inclusion_status,
                     inclusion_note,
-                ) = _resolve_row_context(master_row=master_row, lead=lead, project=project, project_context=project_context)
+                ) = _resolve_row_context(
+                    master_row=master_row,
+                    lead=lead,
+                    project=project,
+                    project_context=project_context,
+                )
                 rows.append(
                     AdnaCuratedSampleRow(
                         species_latin_name=species.latin_name,
@@ -146,8 +153,12 @@ def build_species_curated_sample_rows(
                         source_family=project.source_family,
                         source_release=project.project_accession,
                         record_modality=_record_modality_for(project),
-                        review_strength=_review_strength_for(project.archive_status, bool(paper_doi)),
-                        provenance_quality=_provenance_quality_for(project.accession_scope, lead is not None),
+                        review_strength=_review_strength_for(
+                            project.archive_status, bool(paper_doi)
+                        ),
+                        provenance_quality=_provenance_quality_for(
+                            project.accession_scope, lead is not None
+                        ),
                         site_label=site_label,
                         political_entity=political_entity,
                         latitude_text=latitude_text,
@@ -158,13 +169,20 @@ def build_species_curated_sample_rows(
                         time_end_bp=time_end_bp,
                         dating_basis=project.dating_basis or "unknown",
                         publication="" if linkage is None else linkage.paper_title,
-                        publication_year="" if linkage is None or linkage.publication_year is None else str(linkage.publication_year),
+                        publication_year=""
+                        if linkage is None or linkage.publication_year is None
+                        else str(linkage.publication_year),
                         paper_doi=paper_doi,
                         paper_url=paper_url,
-                        supplementary_source=_SUPPLEMENTARY_SOURCE_BY_DOI.get(paper_doi, ""),
+                        supplementary_source=_SUPPLEMENTARY_SOURCE_BY_DOI.get(
+                            paper_doi, ""
+                        ),
                         inclusion_status=inclusion_status,
                         inclusion_note=inclusion_note,
-                        data_type=_data_type_for(project.accession_scope, sample_basis=master_row.sample_basis),
+                        data_type=_data_type_for(
+                            project.accession_scope,
+                            sample_basis=master_row.sample_basis,
+                        ),
                         archive_native_sample_id=master_row.archive_native_sample_id,
                         paper_native_sample_label=master_row.paper_native_sample_label,
                         supplementary_table_sample_label=master_row.supplementary_table_sample_label,
@@ -189,7 +207,9 @@ def build_species_curated_sample_rows(
             time_end_bp,
             inclusion_status,
             inclusion_note,
-        ) = _resolve_row_context(master_row=None, lead=lead, project=project, project_context=project_context)
+        ) = _resolve_row_context(
+            master_row=None, lead=lead, project=project, project_context=project_context
+        )
         rows.append(
             AdnaCuratedSampleRow(
                 species_latin_name=species.latin_name,
@@ -200,8 +220,12 @@ def build_species_curated_sample_rows(
                 source_family=project.source_family,
                 source_release=project.project_accession,
                 record_modality=_record_modality_for(project),
-                review_strength=_review_strength_for(project.archive_status, bool(paper_doi)),
-                provenance_quality=_provenance_quality_for(project.accession_scope, lead is not None),
+                review_strength=_review_strength_for(
+                    project.archive_status, bool(paper_doi)
+                ),
+                provenance_quality=_provenance_quality_for(
+                    project.accession_scope, lead is not None
+                ),
                 site_label=site_label,
                 political_entity=political_entity,
                 latitude_text=latitude_text,
@@ -212,13 +236,18 @@ def build_species_curated_sample_rows(
                 time_end_bp=time_end_bp,
                 dating_basis=project.dating_basis or "unknown",
                 publication="" if linkage is None else linkage.paper_title,
-                publication_year="" if linkage is None or linkage.publication_year is None else str(linkage.publication_year),
+                publication_year=""
+                if linkage is None or linkage.publication_year is None
+                else str(linkage.publication_year),
                 paper_doi=paper_doi,
                 paper_url=paper_url,
                 supplementary_source=_SUPPLEMENTARY_SOURCE_BY_DOI.get(paper_doi, ""),
                 inclusion_status=inclusion_status,
                 inclusion_note=inclusion_note,
-                data_type=_data_type_for(project.accession_scope, sample_basis=_sample_basis_for(project.accession_scope)),
+                data_type=_data_type_for(
+                    project.accession_scope,
+                    sample_basis=_sample_basis_for(project.accession_scope),
+                ),
                 archive_native_sample_id="",
                 paper_native_sample_label="",
                 supplementary_table_sample_label="",
@@ -265,13 +294,12 @@ def _resolve_row_context(
         chronology_text = lead.chronology_text
         time_start_bp = lead.time_start_bp
         time_end_bp = lead.time_end_bp
-        inclusion_status = _inclusion_status_for(project.archive_status, project_context.nordic_relevance)
+        inclusion_status = _inclusion_status_for(
+            project.archive_status, project_context.nordic_relevance
+        )
         inclusion_note = lead.interpretation_note
         if inclusion_status == "comparator_site_curated":
-            inclusion_note = (
-                "Comparator context only. "
-                f"{inclusion_note}"
-            ).strip()
+            inclusion_note = (f"Comparator context only. {inclusion_note}").strip()
 
     if master_row is not None:
         if getattr(master_row, "locality_text", ""):

@@ -10,7 +10,9 @@ from bijux_pollenomics.adna import (
 
 
 class AdnaIntegrityUnitTests(unittest.TestCase):
-    def test_archive_integrity_report_detects_duplicate_project_accessions(self) -> None:
+    def test_archive_integrity_report_detects_duplicate_project_accessions(
+        self,
+    ) -> None:
         report = build_archive_integrity_report(
             projects=(
                 AdnaArchiveProject(
@@ -110,7 +112,9 @@ class AdnaIntegrityUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(report.schema_version, "adna-archive-integrity-report.v1")
-        self.assertEqual(report.access_findings[0].blocking_reason, "archive_not_publicly_usable")
+        self.assertEqual(
+            report.access_findings[0].blocking_reason, "archive_not_publicly_usable"
+        )
         self.assertEqual(
             report.domestication_scope_mismatches[0].domestication_scope,
             "wild_or_progenitor_context",

@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .bp_time import build_bp_interval_label, mean_bp_year_from_interval, normalize_bp_interval
+from .bp_time import (
+    build_bp_interval_label,
+    mean_bp_year_from_interval,
+    normalize_bp_interval,
+)
 
 __all__ = [
     "TEMPORAL_COMPARABILITY_POSTURES",
@@ -97,7 +101,11 @@ def build_temporal_semantics(
 ) -> TemporalSemantics:
     """Build one normalized temporal semantics payload."""
     interval = normalize_bp_interval(time_start_bp, time_end_bp)
-    resolved_mean = time_mean_bp if time_mean_bp is not None else mean_bp_year_from_interval(interval)
+    resolved_mean = (
+        time_mean_bp
+        if time_mean_bp is not None
+        else mean_bp_year_from_interval(interval)
+    )
     duration_years = None
     if interval is not None:
         duration_years = max(0, interval[1] - interval[0])
@@ -113,7 +121,10 @@ def build_temporal_semantics(
             interval[1] if interval is not None else None,
         )
     if not resolved_summary:
-        resolved_summary = "; ".join(label for label in original_labels if label) or "Unresolved time semantics"
+        resolved_summary = (
+            "; ".join(label for label in original_labels if label)
+            or "Unresolved time semantics"
+        )
     return TemporalSemantics(
         source_family=source_family,
         evidence_class=evidence_class,
@@ -145,7 +156,9 @@ def resolve_temporal_window(
     """Assign one durable time window from a numeric BP interval or midpoint."""
     candidate = time_mean_bp
     if candidate is None:
-        candidate = mean_bp_year_from_interval(normalize_bp_interval(time_start_bp, time_end_bp))
+        candidate = mean_bp_year_from_interval(
+            normalize_bp_interval(time_start_bp, time_end_bp)
+        )
     if candidate is None:
         return ("unresolved", "Unresolved time window")
     for key, label, minimum, maximum in TEMPORAL_WINDOW_ROWS:
@@ -164,7 +177,11 @@ def temporal_semantics_has_numeric_interval(payload: dict[str, object] | None) -
     if not isinstance(payload, dict):
         return False
     posture = str(payload.get("comparability_posture", "")).strip()
-    if posture not in {"numeric_interval", "numeric_interval_with_caveat", "mixed_interval_and_context"}:
+    if posture not in {
+        "numeric_interval",
+        "numeric_interval_with_caveat",
+        "mixed_interval_and_context",
+    }:
         return False
     return any(
         payload.get(key) is not None
@@ -198,10 +215,12 @@ def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
         "uncertainty_notes": _normalize_string_list(value.get("uncertainty_notes")),
     }
     if not payload["temporal_window_key"] or not payload["temporal_window_label"]:
-        payload["temporal_window_key"], payload["temporal_window_label"] = resolve_temporal_window(
-            time_start_bp=_as_optional_int(payload.get("time_start_bp")),
-            time_end_bp=_as_optional_int(payload.get("time_end_bp")),
-            time_mean_bp=_as_optional_int(payload.get("time_mean_bp")),
+        payload["temporal_window_key"], payload["temporal_window_label"] = (
+            resolve_temporal_window(
+                time_start_bp=_as_optional_int(payload.get("time_start_bp")),
+                time_end_bp=_as_optional_int(payload.get("time_end_bp")),
+                time_mean_bp=_as_optional_int(payload.get("time_mean_bp")),
+            )
         )
     return payload
 

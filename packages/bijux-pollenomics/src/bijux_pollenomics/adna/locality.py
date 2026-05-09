@@ -36,9 +36,7 @@ def build_locality_identity(
     political_slug = _slugify(political_entity)
     source_slug = _slugify(source_family)
     coordinate_slug = _slugify(f"{latitude_text}:{longitude_text}")
-    stable_token = (
-        f"{species.slug}:{source_slug}:{political_slug}:{locality_slug}:{coordinate_slug}"
-    )
+    stable_token = f"{species.slug}:{source_slug}:{political_slug}:{locality_slug}:{coordinate_slug}"
     return AdnaLocalityIdentity(
         namespace=f"{species.slug}:locality",
         stable_token=stable_token,
@@ -52,7 +50,9 @@ def summarize_sample_localities(
     samples: Iterable[AdnaSampleRecord],
 ) -> list[AdnaLocalitySummary]:
     """Aggregate species-aware samples into locality summaries."""
-    grouped: dict[tuple[str | None, str, str], list[AdnaSampleRecord]] = defaultdict(list)
+    grouped: dict[tuple[str | None, str, str], list[AdnaSampleRecord]] = defaultdict(
+        list
+    )
     for sample in samples:
         grouped[(sample.locality, sample.latitude_text, sample.longitude_text)].append(
             sample
@@ -109,7 +109,9 @@ def summarize_sample_localities(
                     )
                     if time_interval is not None
                     else "",
-                    time_start_bp=time_interval[0] if time_interval is not None else None,
+                    time_start_bp=time_interval[0]
+                    if time_interval is not None
+                    else None,
                     time_end_bp=time_interval[1] if time_interval is not None else None,
                     time_mean_bp=_mean_bp_from_interval(time_interval),
                     dating_basis=records[0].dating_basis,

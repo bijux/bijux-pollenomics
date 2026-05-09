@@ -86,7 +86,11 @@ def build_source_library_project_surface_contract() -> dict[str, object]:
     requirements = (
         ProjectSurfaceRequirement(
             artifact_key="source_bundle_identity",
-            required_files=("bundle_manifest.json", "intake_dossier.json", "curation_note.md"),
+            required_files=(
+                "bundle_manifest.json",
+                "intake_dossier.json",
+                "curation_note.md",
+            ),
             purpose="state tracked project identity, blockers, and intake posture",
         ),
         ProjectSurfaceRequirement(
@@ -106,7 +110,10 @@ def build_source_library_project_surface_contract() -> dict[str, object]:
         ),
         ProjectSurfaceRequirement(
             artifact_key="locality_evidence",
-            required_files=("sample_locality_evidence.json", "sample_locality_evidence.csv"),
+            required_files=(
+                "sample_locality_evidence.json",
+                "sample_locality_evidence.csv",
+            ),
             purpose="publish per-sample locality evidence packets",
         ),
         ProjectSurfaceRequirement(
@@ -152,7 +159,9 @@ def validate_source_library_project_surfaces(output_root: Path) -> None:
     if not project_root.is_dir():
         raise ValueError(f"source-library project root missing: {project_root}")
     required_groups = tuple(project_contract["artifact_groups"])
-    for directory in sorted(child for child in project_root.iterdir() if child.is_dir()):
+    for directory in sorted(
+        child for child in project_root.iterdir() if child.is_dir()
+    ):
         for group in required_groups:
             for filename in group["required_files"]:
                 path = directory / filename

@@ -122,7 +122,10 @@ class AdnaChronology:
     ) -> dict[str, object]:
         """Expose one shared temporal semantics payload for direct-evidence chronology."""
         comparability_posture = "unresolved"
-        if self.precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+        if self.precision_posture in {
+            "sample_precise_point",
+            "sample_precise_interval",
+        }:
             comparability_posture = "numeric_interval"
         elif self.precision_posture in {
             "sample_approximate_or_modeled",
@@ -134,17 +137,11 @@ class AdnaChronology:
         resolved_note = comparison_note.strip()
         if not resolved_note:
             if comparability_posture == "numeric_interval":
-                resolved_note = (
-                    "This chronology supports interval-based comparison without implying more than the published sample interval."
-                )
+                resolved_note = "This chronology supports interval-based comparison without implying more than the published sample interval."
             elif comparability_posture == "numeric_interval_with_caveat":
-                resolved_note = (
-                    "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
-                )
+                resolved_note = "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
             elif comparability_posture == "contextual_label_only":
-                resolved_note = (
-                    "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
-                )
+                resolved_note = "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
             else:
                 resolved_note = "This chronology does not yet support trustworthy temporal comparison."
         return build_temporal_semantics(
@@ -284,7 +281,11 @@ class AdnaSampleRecord:
 
     @property
     def date_mean_bp(self) -> str:
-        return str(self.chronology.time_mean_bp) if self.chronology.time_mean_bp is not None else ""
+        return (
+            str(self.chronology.time_mean_bp)
+            if self.chronology.time_mean_bp is not None
+            else ""
+        )
 
     @property
     def date_stddev_bp(self) -> str:

@@ -126,7 +126,9 @@ def build_archive_integrity_report(
     if species_name is not None:
         curated_species = resolve_species_definition(species_name)
         catalog = tuple(
-            item for item in catalog if item.species_latin_name == curated_species.latin_name
+            item
+            for item in catalog
+            if item.species_latin_name == curated_species.latin_name
         )
     duplicates = _find_duplicate_projects(catalog)
     access_findings = _find_access_policy_findings(catalog)
@@ -163,7 +165,9 @@ def _find_duplicate_projects(
                 species_latin_names=tuple(
                     sorted({project.species_latin_name for project in projects})
                 ),
-                project_accessions=tuple(project.project_accession for project in projects),
+                project_accessions=tuple(
+                    project.project_accession for project in projects
+                ),
             )
         )
     return tuple(sorted(duplicates, key=lambda item: item.accession))
@@ -211,7 +215,9 @@ def _find_species_mismatches(
         if project_accession not in accession_lookup:
             continue
         mismatch_fields: list[str] = []
-        archive_name = record.scientific_name.casefold() if record.scientific_name else None
+        archive_name = (
+            record.scientific_name.casefold() if record.scientific_name else None
+        )
         if archive_name is not None and archive_name not in allowed_names:
             mismatch_fields.append("archive_scientific_name")
         paper_name = paper_species_name.casefold() if paper_species_name else None

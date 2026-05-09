@@ -51,7 +51,9 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertEqual(row.geocoding_method, "manual_named_place_resolution")
         self.assertIn("Wadi Halfa", row.geocoder_or_gazetteer)
 
-    def test_resolve_project_coordinate_provenance_prefers_direct_horse_coordinates(self) -> None:
+    def test_resolve_project_coordinate_provenance_prefers_direct_horse_coordinates(
+        self,
+    ) -> None:
         rows = resolve_project_coordinate_provenance("PRJEB44430")
 
         ginnerup = next(row for row in rows if row.site_label == "Ginnerup")
