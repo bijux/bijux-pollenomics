@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 from io import BytesIO
 from pathlib import Path
 import re
@@ -167,9 +168,15 @@ def build_project_sample_master(
     if bundle_path.is_file():
         import json
 
-        extraction_plan = str(json.loads(bundle_path.read_text(encoding="utf-8")).get("extraction_plan", ""))
+        extraction_plan = str(
+            json.loads(bundle_path.read_text(encoding="utf-8")).get(
+                "extraction_plan", ""
+            )
+        )
     rows = build_project_sample_master_rows(output_root, project_accession)
-    final_sample_count = sum(1 for row in rows if row.sample_identity_resolution == "final")
+    final_sample_count = sum(
+        1 for row in rows if row.sample_identity_resolution == "final"
+    )
     expected_sample_count = project_row.expected_sample_count
     unresolved_sample_count = (
         None
@@ -179,7 +186,9 @@ def build_project_sample_master(
     return AdnaProjectSampleMaster(
         project_accession=project_accession,
         species_latin_name=project_row.species_latin_name,
-        species_common_name=resolve_species_definition(project_row.species_latin_name).common_name,
+        species_common_name=resolve_species_definition(
+            project_row.species_latin_name
+        ).common_name,
         expected_sample_count=project_row.expected_sample_count,
         expected_sample_count_status=project_row.expected_sample_count_status,
         expected_sample_count_provenance=project_row.expected_sample_count_provenance,
@@ -187,14 +196,18 @@ def build_project_sample_master(
         recovered_sample_count=len(rows),
         unresolved_sample_count=unresolved_sample_count,
         final_sample_count=final_sample_count,
-        ambiguity_row_count=sum(1 for row in rows if row.sample_identity_resolution == "ambiguous"),
+        ambiguity_row_count=sum(
+            1 for row in rows if row.sample_identity_resolution == "ambiguous"
+        ),
         sample_identifier_status=project_row.sample_identifier_status,
         extraction_plan=extraction_plan,
         rows=rows,
     )
 
 
-def build_cross_project_sample_master_completeness(output_root: Path) -> tuple[dict[str, object], ...]:
+def build_cross_project_sample_master_completeness(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
     rows = []
     for project in build_archive_project_catalog():
         master = build_project_sample_master(output_root, project.project_accession)
@@ -217,10 +230,14 @@ def build_cross_project_sample_master_completeness(output_root: Path) -> tuple[d
     return tuple(rows)
 
 
-def build_sample_identity_ambiguity_ledger(output_root: Path) -> tuple[dict[str, object], ...]:
+def build_sample_identity_ambiguity_ledger(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
     rows = []
     for project in build_archive_project_catalog():
-        for row in build_project_sample_master_rows(output_root, project.project_accession):
+        for row in build_project_sample_master_rows(
+            output_root, project.project_accession
+        ):
             if row.sample_identity_resolution != "ambiguous":
                 continue
             rows.append(
@@ -245,7 +262,9 @@ def materialize_sample_master_library(output_root: Path) -> None:
     source_root = output_root / "adna" / "governance" / "source_library"
     source_root.mkdir(parents=True, exist_ok=True)
 
-    completeness_rows = list(build_cross_project_sample_master_completeness(output_root))
+    completeness_rows = list(
+        build_cross_project_sample_master_completeness(output_root)
+    )
     ambiguity_rows = list(build_sample_identity_ambiguity_ledger(output_root))
 
     for project in build_archive_project_catalog():
@@ -402,11 +421,15 @@ def _project_specific_sample_rows(
     if project.project_accession == "PRJEB36540":
         return _sheep_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB19970":
-        return _horse_domestication_supplementary_sample_rows(output_root, species, project)
+        return _horse_domestication_supplementary_sample_rows(
+            output_root, species, project
+        )
     if project.project_accession == "PRJEB22390":
         return _horse_botai_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB31613":
-        return _horse_time_series_supplementary_sample_rows(output_root, species, project)
+        return _horse_time_series_supplementary_sample_rows(
+            output_root, species, project
+        )
     if project.project_accession == "PRJEB44430":
         return _horse_nature_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJNA1328209":
@@ -525,7 +548,7 @@ def _horse_botai_supplementary_sample_rows(
         source_path=f"{base_path}/aao3297_tables11.xlsx",
         rows=_read_xlsx_rows(table11_path, sheet_name="Sheet1"),
     )
-    return tuple([*panel_rows, *lab_rows])
+    return (*panel_rows, *lab_rows)
 
 
 def _horse_time_series_supplementary_sample_rows(
@@ -596,7 +619,9 @@ def _horse_nature_supplementary_sample_rows(
     )
     if workbook_path is None or not workbook_path.is_file():
         return ()
-    archive_sample_labels = _build_archive_sample_accession_lookup(output_root, project.project_accession)
+    archive_sample_labels = _build_archive_sample_accession_lookup(
+        output_root, project.project_accession
+    )
     return _build_horse_nature_rows(
         species=species,
         project=project,
@@ -695,7 +720,9 @@ def _project_scope_archive_sample_rows(
     species: object,
     project: object,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
-    sample_accessions = _project_scope_archive_sample_accessions(output_root, project.project_accession)
+    sample_accessions = _project_scope_archive_sample_accessions(
+        output_root, project.project_accession
+    )
     return tuple(
         AdnaProjectSampleMasterRow(
             species_latin_name=species.latin_name,
@@ -741,7 +768,9 @@ def _build_sheep_table_rows(
     if len(rows) < header_row_index:
         return ()
     headers = rows[header_row_index - 1]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get(sample_label_key)
     locality_index = header_map.get(locality_key)
     chronology_index = header_map.get(chronology_key) if chronology_key else None
@@ -749,12 +778,18 @@ def _build_sheep_table_rows(
         return ()
 
     built_rows: list[AdnaProjectSampleMasterRow] = []
-    for row_number, row in enumerate(rows[header_row_index:], start=header_row_index + 1):
+    for row_number, row in enumerate(
+        rows[header_row_index:], start=header_row_index + 1
+    ):
         sample_label = _cell_value(row, sample_index)
         if not sample_label:
             continue
-        locality_text = "" if locality_index is None else _cell_value(row, locality_index)
-        chronology_text = "" if chronology_index is None else _cell_value(row, chronology_index)
+        locality_text = (
+            "" if locality_index is None else _cell_value(row, locality_index)
+        )
+        chronology_text = (
+            "" if chronology_index is None else _cell_value(row, chronology_index)
+        )
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
             AdnaProjectSampleMasterRow(
@@ -793,7 +828,9 @@ def _build_horse_panel_context_rows(
     if len(rows) < 2:
         return ()
     headers = rows[1]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample name")
     age_index = header_map.get("Tip Age (years ago)")
     registration_index = header_map.get("Accession / Registration number")
@@ -809,7 +846,9 @@ def _build_horse_panel_context_rows(
         if not sample_label or not registration or reference != "This study":
             continue
         chronology_text = (
-            "" if age_index is None else _format_bp_point_text(_cell_value(row, age_index))
+            ""
+            if age_index is None
+            else _format_bp_point_text(_cell_value(row, age_index))
         )
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
@@ -849,7 +888,9 @@ def _build_horse_lab_anchor_rows(
     if len(rows) < 2:
         return ()
     headers = rows[1]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample name")
     registration_index = header_map.get("Registration number")
     if sample_index is None or registration_index is None:
@@ -899,7 +940,9 @@ def _build_horse_time_series_rows(
     if len(rows) < 5:
         return ()
     headers = rows[3]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample name")
     registration_index = header_map.get("Registration number")
     site_index = header_map.get("Site")
@@ -915,8 +958,14 @@ def _build_horse_time_series_rows(
     for row_number, row in enumerate(rows[4:], start=5):
         sample_label = _cell_value(row, sample_index)
         registration = _cell_value(row, registration_index)
-        species_label = "" if species_index is None else _cell_value(row, species_index).casefold()
-        if not sample_label or not registration or (species_label and species_label != "horse"):
+        species_label = (
+            "" if species_index is None else _cell_value(row, species_index).casefold()
+        )
+        if (
+            not sample_label
+            or not registration
+            or (species_label and species_label != "horse")
+        ):
             continue
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
@@ -936,15 +985,21 @@ def _build_horse_time_series_rows(
                 sample_lineage_excerpt=excerpt,
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
-                locality_text="" if site_index is None else _cell_value(row, site_index),
-                political_entity="" if country_index is None else _cell_value(row, country_index),
+                locality_text=""
+                if site_index is None
+                else _cell_value(row, site_index),
+                political_entity=""
+                if country_index is None
+                else _cell_value(row, country_index),
                 latitude_text=""
                 if latitude_index is None
                 else _clean_coordinate_text(_cell_value(row, latitude_index)),
                 longitude_text=""
                 if longitude_index is None
                 else _clean_coordinate_text(_cell_value(row, longitude_index)),
-                chronology_text="" if age_index is None else _format_horse_age_text(_cell_value(row, age_index)),
+                chronology_text=""
+                if age_index is None
+                else _format_horse_age_text(_cell_value(row, age_index)),
             )
         )
     return tuple(built_rows)
@@ -960,7 +1015,9 @@ def _build_horse_comparative_panel_rows(
     if len(rows) < 3:
         return ()
     headers = rows[0]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample name")
     registration_index = header_map.get("Registration number")
     site_index = header_map.get("Site")
@@ -976,7 +1033,9 @@ def _build_horse_comparative_panel_rows(
         accession = _cell_value(row, accession_index)
         if not sample_label or accession != project.project_accession:
             continue
-        registration = "" if registration_index is None else _cell_value(row, registration_index)
+        registration = (
+            "" if registration_index is None else _cell_value(row, registration_index)
+        )
         stable_anchor = registration or sample_label
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
@@ -997,10 +1056,14 @@ def _build_horse_comparative_panel_rows(
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
                 locality_text=_cell_value(row, site_index),
-                political_entity="" if country_index is None else _cell_value(row, country_index),
+                political_entity=""
+                if country_index is None
+                else _cell_value(row, country_index),
                 latitude_text="",
                 longitude_text="",
-                chronology_text="" if age_index is None else _format_horse_age_text(_cell_value(row, age_index)),
+                chronology_text=""
+                if age_index is None
+                else _format_horse_age_text(_cell_value(row, age_index)),
             )
         )
     return tuple(built_rows)
@@ -1017,7 +1080,9 @@ def _build_horse_nature_rows(
     if len(rows) < 6:
         return ()
     headers = rows[4]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("SampleName")
     gps_index = header_map.get("GPS Coordinates")
     site_index = header_map.get("Site")
@@ -1033,7 +1098,9 @@ def _build_horse_nature_rows(
         publication = _cell_value(row, publication_index)
         if not sample_label or publication.casefold() != "this study":
             continue
-        sample_accession = archive_sample_labels.get(_normalize_sample_label(sample_label), "")
+        sample_accession = archive_sample_labels.get(
+            _normalize_sample_label(sample_label), ""
+        )
         latitude_text, longitude_text = _parse_gps_coordinate_pair(
             "" if gps_index is None else _cell_value(row, gps_index)
         )
@@ -1056,11 +1123,17 @@ def _build_horse_nature_rows(
                 sample_lineage_excerpt=excerpt,
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
-                locality_text="" if site_index is None else _cell_value(row, site_index),
-                political_entity="" if country_index is None else _cell_value(row, country_index),
+                locality_text=""
+                if site_index is None
+                else _cell_value(row, site_index),
+                political_entity=""
+                if country_index is None
+                else _cell_value(row, country_index),
                 latitude_text=latitude_text,
                 longitude_text=longitude_text,
-                chronology_text="" if age_index is None else _format_horse_age_text(_cell_value(row, age_index)),
+                chronology_text=""
+                if age_index is None
+                else _format_horse_age_text(_cell_value(row, age_index)),
             )
         )
     return tuple(built_rows)
@@ -1076,7 +1149,9 @@ def _build_goat_qinghai_rows(
     if len(rows) < 3:
         return ()
     headers = rows[1]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Samples")
     locality_index = header_map.get("Label")
     latitude_index = header_map.get("Lat")
@@ -1117,8 +1192,12 @@ def _build_goat_qinghai_rows(
                 sample_ambiguity_note="",
                 locality_text=_cell_value(row, locality_index),
                 political_entity="China",
-                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
-                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                latitude_text=""
+                if latitude_index is None
+                else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text=""
+                if longitude_index is None
+                else _clean_coordinate_text(_cell_value(row, longitude_index)),
                 chronology_text=chronology_text,
             )
         )
@@ -1135,7 +1214,9 @@ def _build_goat_imputation_rows(
     if len(rows) < 2:
         return ()
     headers = rows[0]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample")
     locality_index = header_map.get("Site")
     country_index = header_map.get("Geographic Origin")
@@ -1149,10 +1230,18 @@ def _build_goat_imputation_rows(
     built_rows: list[AdnaProjectSampleMasterRow] = []
     for row_number, row in enumerate(rows[1:], start=2):
         sample_label = _cell_value(row, sample_index)
-        chronology_text = "" if chronology_index is None else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        chronology_text = (
+            ""
+            if chronology_index is None
+            else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        )
         if not sample_label or not chronology_text:
             continue
-        archive_accession = "" if accession_index is None else _first_accession(_cell_value(row, accession_index))
+        archive_accession = (
+            ""
+            if accession_index is None
+            else _first_accession(_cell_value(row, accession_index))
+        )
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
             AdnaProjectSampleMasterRow(
@@ -1172,9 +1261,15 @@ def _build_goat_imputation_rows(
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
                 locality_text=_cell_value(row, locality_index),
-                political_entity="" if country_index is None else _cell_value(row, country_index),
-                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
-                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                political_entity=""
+                if country_index is None
+                else _cell_value(row, country_index),
+                latitude_text=""
+                if latitude_index is None
+                else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text=""
+                if longitude_index is None
+                else _clean_coordinate_text(_cell_value(row, longitude_index)),
                 chronology_text=chronology_text,
             )
         )
@@ -1191,25 +1286,37 @@ def _build_goat_canary_rows(
     if len(rows) < 3:
         return ()
     headers = rows[1]
-    header_map = {value.strip(): index for index, value in enumerate(headers) if value.strip()}
+    header_map = {
+        value.strip(): index for index, value in enumerate(headers) if value.strip()
+    }
     sample_index = header_map.get("Sample ID")
     library_index = header_map.get("Library ID")
     location_index = header_map.get("Location")
     site_index = header_map.get("Archaeological site")
     latitude_index = header_map.get("Latitude")
     longitude_index = header_map.get("Longitude")
-    chronology_index = header_map.get("RCD available from the same sample, stratigrafic unit or site")
+    chronology_index = header_map.get(
+        "RCD available from the same sample, stratigrafic unit or site"
+    )
     if sample_index is None or site_index is None or chronology_index is None:
         return ()
 
     built_rows: list[AdnaProjectSampleMasterRow] = []
     for row_number, row in enumerate(rows[2:], start=3):
         sample_label = _cell_value(row, sample_index)
-        chronology_text = "" if chronology_index is None else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        chronology_text = (
+            ""
+            if chronology_index is None
+            else _clean_sample_chronology_text(_cell_value(row, chronology_index))
+        )
         if not sample_label or not chronology_text:
             continue
         library_label = "" if library_index is None else _cell_value(row, library_index)
-        location = "" if location_index is None else _cell_value(row, location_index).replace("_", " ")
+        location = (
+            ""
+            if location_index is None
+            else _cell_value(row, location_index).replace("_", " ")
+        )
         excerpt = " | ".join(value for value in row if value)[:300]
         built_rows.append(
             AdnaProjectSampleMasterRow(
@@ -1230,8 +1337,12 @@ def _build_goat_canary_rows(
                 sample_ambiguity_note="",
                 locality_text=_cell_value(row, site_index),
                 political_entity=location,
-                latitude_text="" if latitude_index is None else _clean_coordinate_text(_cell_value(row, latitude_index)),
-                longitude_text="" if longitude_index is None else _clean_coordinate_text(_cell_value(row, longitude_index)),
+                latitude_text=""
+                if latitude_index is None
+                else _clean_coordinate_text(_cell_value(row, latitude_index)),
+                longitude_text=""
+                if longitude_index is None
+                else _clean_coordinate_text(_cell_value(row, longitude_index)),
                 chronology_text=chronology_text,
             )
         )
@@ -1244,6 +1355,23 @@ def _read_xlsx_member_rows(
     member_name: str,
     sheet_name: str,
 ) -> tuple[tuple[str, ...], ...]:
+    bundle_path = Path(bundle_path)
+    cache_key = (
+        str(bundle_path),
+        bundle_path.stat().st_mtime_ns,
+        bundle_path.stat().st_size,
+        member_name,
+        sheet_name,
+    )
+    return _cached_xlsx_member_rows(cache_key)
+
+
+@lru_cache(maxsize=128)
+def _cached_xlsx_member_rows(
+    cache_key: tuple[str, int, int, str, str]
+) -> tuple[tuple[str, ...], ...]:
+    bundle_path_text, _, _, member_name, sheet_name = cache_key
+    bundle_path = Path(bundle_path_text)
     try:
         with zipfile.ZipFile(bundle_path) as outer:
             if member_name not in outer.namelist():
@@ -1277,6 +1405,22 @@ def _read_xlsx_rows(
     *,
     sheet_name: str,
 ) -> tuple[tuple[str, ...], ...]:
+    workbook_path = Path(workbook_path)
+    cache_key = (
+        str(workbook_path),
+        workbook_path.stat().st_mtime_ns,
+        workbook_path.stat().st_size,
+        sheet_name,
+    )
+    return _cached_xlsx_rows(cache_key)
+
+
+@lru_cache(maxsize=256)
+def _cached_xlsx_rows(
+    cache_key: tuple[str, int, int, str]
+) -> tuple[tuple[str, ...], ...]:
+    workbook_path_text, _, _, sheet_name = cache_key
+    workbook_path = Path(workbook_path_text)
     with zipfile.ZipFile(workbook_path) as workbook:
         shared_strings = _xlsx_shared_strings(workbook)
         sheet_targets = _xlsx_sheet_targets(workbook)
@@ -1324,7 +1468,8 @@ def _project_scope_archive_sample_accessions(
     sample_accessions = {
         fields[sample_index].strip()
         for line in rows[1:]
-        if (fields := line.split("\t")) and len(fields) > sample_index
+        if (fields := line.split("\t"))
+        and len(fields) > sample_index
         and fields[sample_index].strip()
     }
     return tuple(sorted(sample_accessions))
@@ -1395,7 +1540,9 @@ def _xlsx_sheet_targets(workbook: zipfile.ZipFile) -> dict[str, str]:
     if sheets is None:
         return mapping
     for sheet in sheets:
-        rid = sheet.attrib["{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"]
+        rid = sheet.attrib[
+            "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+        ]
         target = rel_map[rid]
         mapping[sheet.attrib["name"]] = f"xl/{target}"
     return mapping
@@ -1444,25 +1591,35 @@ def _merge_sample_row_group(
     resolution = "final"
     if len(locality_values) > 1 or len(chronology_values) > 1:
         resolution = "ambiguous"
-        ambiguity_note = (
-            "Multiple source rows appear to reference the same sample label but disagree on locality or chronology fields."
-        )
+        ambiguity_note = "Multiple source rows appear to reference the same sample label but disagree on locality or chronology fields."
     return AdnaProjectSampleMasterRow(
         species_latin_name=first.species_latin_name,
         species_common_name=first.species_common_name,
         project_accession=first.project_accession,
         repo_stable_sample_id=first.repo_stable_sample_id,
-        archive_native_sample_id=_first_non_empty(*(row.archive_native_sample_id for row in group)),
-        paper_native_sample_label=_first_non_empty(*(row.paper_native_sample_label for row in group)),
+        archive_native_sample_id=_first_non_empty(
+            *(row.archive_native_sample_id for row in group)
+        ),
+        paper_native_sample_label=_first_non_empty(
+            *(row.paper_native_sample_label for row in group)
+        ),
         supplementary_table_sample_label=_first_non_empty(
             *(row.supplementary_table_sample_label for row in group)
         ),
-        preferred_sample_label=_first_non_empty(*(row.preferred_sample_label for row in group)),
+        preferred_sample_label=_first_non_empty(
+            *(row.preferred_sample_label for row in group)
+        ),
         sample_basis=_first_non_empty(*(row.sample_basis for row in group)),
-        sample_evidence_status=_first_non_empty(*(row.sample_evidence_status for row in group)),
+        sample_evidence_status=_first_non_empty(
+            *(row.sample_evidence_status for row in group)
+        ),
         sample_lineage_path=_join_distinct(*(row.sample_lineage_path for row in group)),
-        sample_lineage_locator=_join_distinct(*(row.sample_lineage_locator for row in group)),
-        sample_lineage_excerpt=_join_distinct(*(row.sample_lineage_excerpt for row in group)),
+        sample_lineage_locator=_join_distinct(
+            *(row.sample_lineage_locator for row in group)
+        ),
+        sample_lineage_excerpt=_join_distinct(
+            *(row.sample_lineage_excerpt for row in group)
+        ),
         sample_identity_resolution=resolution,
         sample_ambiguity_note=ambiguity_note,
         locality_text=_first_non_empty(*(row.locality_text for row in group)),
@@ -1608,7 +1765,9 @@ def _cell_value(row: tuple[str, ...], index: int) -> str:
     return str(row[index]).strip()
 
 
-def _paper_row_by_project(output_root: Path, project_accession: str) -> AdnaPaperRegistryRow:
+def _paper_row_by_project(
+    output_root: Path, project_accession: str
+) -> AdnaPaperRegistryRow:
     project_registry = {
         row.project_accession: row for row in build_project_registry(output_root)
     }
@@ -1632,7 +1791,9 @@ def _render_sample_identity_ambiguity_markdown(rows: list[dict[str, object]]) ->
         "",
     ]
     if not rows:
-        lines.append("No unresolved cross-source sample identity ambiguities are currently published.")
+        lines.append(
+            "No unresolved cross-source sample identity ambiguities are currently published."
+        )
         lines.append("")
         return "\n".join(lines)
     lines.extend(
