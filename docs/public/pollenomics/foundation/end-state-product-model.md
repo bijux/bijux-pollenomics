@@ -15,6 +15,15 @@ stack of country bundles pretending to be a global system. The durable goal is
 one repository that collects evidence broadly once, then publishes narrower
 views from that same governed state.
 
+This page exists for readers who need the strategic answer:
+
+- why the repository is organized around world, regional, and country surfaces
+- how those surfaces relate to one another
+- why future countries or regions should extend the same product model instead
+  of creating a parallel one
+- what kind of reuse is reasonable even before every geography has its own
+  published map atlas surface
+
 ## Product Shape
 
 - `world` is the broadest public surface and the parent publication scope
@@ -53,6 +62,21 @@ They are different public cuts through one repository-owned evidence model.
 
 The reader should never have to guess whether these are separate products. They
 are filtered views of one product.
+
+## Reuse Consequence
+
+If your geography is not yet published as a first-class atlas surface, this
+model still tells you how to read the repository:
+
+- use the broadest existing surfaces to understand the current evidence balance
+- use the data handbook and source-family pages to see which evidence families
+  could already support your question
+- treat a future country or region as an extension of one governed system, not
+  as a special case that needs a new product story
+
+That is the real value of the end-state model. It keeps expansion disciplined
+enough that new publication surfaces can be added without rewriting what the
+repository is.
 
 ## Expansion Consequence
 
