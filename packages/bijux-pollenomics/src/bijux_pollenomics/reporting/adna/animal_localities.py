@@ -140,7 +140,7 @@ def build_tracked_animal_atlas_bundle(
                 ),
                 "geometry_label": "Point records",
                 "default_enabled": True,
-                "applies_country_filter": False,
+                "applies_country_filter": True,
                 "applies_time_filter": any(
                     feature.get("time_start_bp") is not None
                     or feature.get("time_end_bp") is not None

@@ -121,7 +121,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "The opening extent stays tight on Nordic countries so lake, site, and "
             "archaeology context reads as map content rather than background noise."
         ),
-        default_basemap="terrain",
+        default_basemap="voyager",
         initial_diameter_km=20,
         minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
         filter_surfaces=(

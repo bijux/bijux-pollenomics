@@ -921,6 +921,11 @@ class CountryReportTests(unittest.TestCase):
                     encoding="utf-8"
                 )
             )
+            map_contract = json.loads(
+                (
+                    output / "nordic-atlas_map_publication_contract.json"
+                ).read_text(encoding="utf-8")
+            )
 
             self.assertIn("Animal Evidence", map_html)
             self.assertIn("Species Focus", map_html)
@@ -995,6 +1000,7 @@ class CountryReportTests(unittest.TestCase):
                 summary["artifacts"]["animal_point_traceability_json"],
                 "nordic-atlas_animal_point_traceability.json",
             )
+            self.assertEqual(map_contract["default_basemap"], "voyager")
             self.assertIn("Species focus", summary["animal_atlas"]["filter_surfaces"])
             self.assertIn(
                 "Coordinate confidence",
@@ -1027,6 +1033,13 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 summary["animal_atlas"]["coordinate_confidence_counts"]["approximate"],
                 2,
+            )
+            self.assertTrue(
+                all(
+                    row["applies_country_filter"]
+                    for row in map_contract["layer_rows"]
+                    if row["key"].startswith("animal-")
+                )
             )
 
             self.assertEqual(len(animal_geojson["features"]), 2)
