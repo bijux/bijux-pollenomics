@@ -128,6 +128,8 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 "sample_chronology.csv",
                 "sample_chronology_evidence.json",
                 "sample_chronology_evidence.csv",
+                "sample_chronology_provenance.json",
+                "sample_chronology_provenance.csv",
             ):
                 (project_root / filename).write_text("{}", encoding="utf-8")
 

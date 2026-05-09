@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
+from ..core.temporal_semantics import build_temporal_semantics
 from ..core.files import write_json, write_text
 from .catalogs import render_csv_rows
 from .ena import build_archive_project_catalog
@@ -27,6 +28,7 @@ __all__ = [
     "build_project_sample_chronology_rows",
     "build_sample_chronology_ambiguity_ledger",
     "build_sample_chronology_conflict_ledger",
+    "build_sample_chronology_provenance_rows",
     "build_sample_chronology_precision_audit",
     "build_sample_chronology_review_rows",
     "build_species_chronology_completeness_rows",
@@ -377,6 +379,47 @@ def build_sample_chronology_review_rows(
     return tuple(rows)
 
 
+def build_sample_chronology_provenance_rows(
+    output_root: Path,
+) -> tuple[dict[str, object], ...]:
+    """Build one per-sample chronology provenance packet across tracked projects."""
+    rows: list[dict[str, object]] = []
+    for project in build_archive_project_catalog():
+        for row in build_project_sample_chronology_rows(output_root, project.project_accession):
+            temporal_semantics = _temporal_semantics_for_chronology_row(row)
+            rows.append(
+                {
+                    "species_latin_name": row.species_latin_name,
+                    "species_common_name": row.species_common_name,
+                    "project_accession": row.project_accession,
+                    "repo_stable_sample_id": row.repo_stable_sample_id,
+                    "preferred_sample_label": row.preferred_sample_label,
+                    "published_wording": row.chronology_text,
+                    "source_wording_excerpt": row.chronology_provenance_text,
+                    "provenance_surface": row.chronology_provenance_path,
+                    "provenance_kind": row.chronology_provenance_kind,
+                    "provenance_locator": row.chronology_provenance_locator,
+                    "dating_basis": row.dating_basis,
+                    "evidence_class": row.chronology_evidence_class,
+                    "precision_posture": row.chronology_precision_posture,
+                    "normalization_status": row.chronology_normalization_status,
+                    "normalization_rule": _normalization_rule_for(row),
+                    "uncertainty_note": _uncertainty_note_for(row),
+                    "time_start_bp": row.time_start_bp,
+                    "time_end_bp": row.time_end_bp,
+                    "time_mean_bp": row.time_mean_bp,
+                    "temporal_semantics": temporal_semantics,
+                }
+            )
+    rows.sort(
+        key=lambda row: (
+            str(row["project_accession"]),
+            str(row["repo_stable_sample_id"]),
+        )
+    )
+    return tuple(rows)
+
+
 def build_sample_chronology_conflict_ledger(
     output_root: Path,
 ) -> tuple[dict[str, object], ...]:
@@ -521,6 +564,7 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
     species_rows = list(build_species_chronology_completeness_rows(output_root))
     project_rows = list(build_project_chronology_completeness_rows(output_root))
     sample_review_rows = list(build_sample_chronology_review_rows(output_root))
+    provenance_rows = list(build_sample_chronology_provenance_rows(output_root))
 
     for project in build_archive_project_catalog():
         project_root = source_root / "projects" / project.project_accession
@@ -562,6 +606,23 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
                 if chronology_rows
                 else (_empty_sample_chronology_row(project),)
             ),
+        )
+        project_provenance_rows = tuple(
+            row for row in provenance_rows if row["project_accession"] == project.project_accession
+        )
+        write_json(
+            project_root / "sample_chronology_provenance.json",
+            {
+                "schema_version": "animal-project-sample-chronology-provenance.v1",
+                "project_accession": project.project_accession,
+                "species_latin_name": project.species_latin_name,
+                "row_count": len(project_provenance_rows),
+                "rows": list(project_provenance_rows),
+            },
+        )
+        write_text(
+            project_root / "sample_chronology_provenance.csv",
+            render_csv_rows(project_provenance_rows if project_provenance_rows else (_empty_sample_chronology_provenance_row(project),)),
         )
 
     write_json(
@@ -639,6 +700,17 @@ def materialize_project_sample_chronology_library(output_root: Path) -> None:
     write_text(
         source_root / "sample_chronology_review.md",
         _render_sample_chronology_review_markdown(sample_review_rows),
+    )
+    write_json(
+        source_root / "sample_chronology_provenance_review.json",
+        {
+            "schema_version": "animal-sample-chronology-provenance-review.v1",
+            "rows": provenance_rows,
+        },
+    )
+    write_text(
+        source_root / "sample_chronology_provenance_review.md",
+        _render_sample_chronology_provenance_markdown(provenance_rows),
     )
     write_json(
         source_root / "date_evidence_gap_queue.json",
@@ -1020,6 +1092,31 @@ def _empty_sample_chronology_row(project: object) -> dict[str, object]:
     }
 
 
+def _empty_sample_chronology_provenance_row(project: object) -> dict[str, object]:
+    return {
+        "species_latin_name": str(getattr(project, "species_latin_name", "")),
+        "species_common_name": str(getattr(project, "species_common_name", "")),
+        "project_accession": str(getattr(project, "project_accession", "")),
+        "repo_stable_sample_id": "",
+        "preferred_sample_label": "",
+        "published_wording": "",
+        "source_wording_excerpt": "",
+        "provenance_surface": "",
+        "provenance_kind": "",
+        "provenance_locator": "",
+        "dating_basis": "",
+        "evidence_class": "",
+        "precision_posture": "",
+        "normalization_status": "",
+        "normalization_rule": "",
+        "uncertainty_note": "",
+        "time_start_bp": "",
+        "time_end_bp": "",
+        "time_mean_bp": "",
+        "temporal_semantics": {},
+    }
+
+
 def _render_sample_chronology_audit_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Sample chronology normalization audit",
@@ -1142,6 +1239,34 @@ def _render_sample_chronology_conflict_markdown(rows: list[dict[str, object]]) -
     return "\n".join(lines)
 
 
+def _render_sample_chronology_provenance_markdown(rows: list[dict[str, object]]) -> str:
+    lines = [
+        "# Sample chronology provenance review",
+        "",
+        f"- Provenance packets: `{len(rows)}`",
+        "",
+    ]
+    if not rows:
+        lines.append("No chronology provenance packets are currently published.")
+        lines.append("")
+        return "\n".join(lines)
+    lines.extend(
+        [
+            "| Project accession | Sample id | Published wording | Provenance surface | Provenance locator | Normalization rule | Uncertainty note |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for row in rows:
+        lines.append(
+            f"| {row['project_accession']} | {row['repo_stable_sample_id']} | "
+            f"{row['published_wording']} | {row['provenance_surface']} | "
+            f"{row['provenance_locator']} | {row['normalization_rule']} | "
+            f"{row['uncertainty_note']} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
 def _render_sample_chronology_precision_audit_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Sample chronology precision audit",
@@ -1195,3 +1320,59 @@ def _render_date_evidence_gap_queue_markdown(rows: list[dict[str, object]]) -> s
         )
     lines.append("")
     return "\n".join(lines)
+
+
+def _normalization_rule_for(row: AdnaProjectSampleChronologyRow) -> str:
+    if row.chronology_normalization_status == "normalized_point":
+        return "keep one sample-owned point without widening it into a fake interval"
+    if row.chronology_normalization_status == "normalized_interval":
+        return "keep one normalized interval and preserve its evidence class and precision posture"
+    if row.chronology_normalization_status == "text_only_unparsed":
+        return "publish the wording as text and refuse fake numeric precision"
+    return "keep the row unresolved until stronger chronology evidence exists"
+
+
+def _uncertainty_note_for(row: AdnaProjectSampleChronologyRow) -> str:
+    for value in (
+        row.chronology_conflict_note,
+        row.review_note,
+        row.chronology_precision_posture
+        if row.chronology_precision_posture
+        not in {"sample_precise_point", "sample_precise_interval"}
+        else "",
+    ):
+        text = str(value).strip()
+        if text:
+            return text
+    return "No additional uncertainty note published."
+
+
+def _temporal_semantics_for_chronology_row(
+    row: AdnaProjectSampleChronologyRow,
+) -> dict[str, object]:
+    if row.chronology_precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+        comparability_posture = "numeric_interval"
+    elif row.chronology_precision_posture in {
+        "sample_approximate_or_modeled",
+        "contextual_interval",
+    }:
+        comparability_posture = "numeric_interval_with_caveat"
+    elif row.chronology_precision_posture == "broad_period_only":
+        comparability_posture = "contextual_label_only"
+    else:
+        comparability_posture = "unresolved"
+    return build_temporal_semantics(
+        source_family="animal_adna",
+        evidence_class=row.chronology_evidence_class,
+        precision_posture=row.chronology_precision_posture,
+        comparability_posture=comparability_posture,
+        time_start_bp=row.time_start_bp,
+        time_end_bp=row.time_end_bp,
+        time_mean_bp=row.time_mean_bp,
+        summary_label=row.chronology_text,
+        comparison_note=_uncertainty_note_for(row),
+        provenance_path=row.chronology_provenance_path,
+        provenance_locator=row.chronology_provenance_locator,
+        provenance_excerpt=row.chronology_provenance_text,
+        original_labels=(row.chronology_text,) if row.chronology_text else (),
+    ).as_dict()

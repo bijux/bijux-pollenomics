@@ -13,6 +13,7 @@ from bijux_pollenomics.adna.project_sample_chronology import (
     build_sample_chronology_ambiguity_ledger,
     build_sample_chronology_conflict_ledger,
     build_sample_chronology_precision_audit,
+    build_sample_chronology_provenance_rows,
     build_sample_chronology_review_rows,
     build_species_chronology_completeness_rows,
 )
@@ -87,6 +88,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         species_rows = build_species_chronology_completeness_rows(self.data_root)
         project_rows = build_project_chronology_completeness_rows(self.data_root)
         sample_review_rows = build_sample_chronology_review_rows(self.data_root)
+        provenance_rows = build_sample_chronology_provenance_rows(self.data_root)
 
         self.assertEqual(len(review_rows), 40)
         sheep_review = next(
@@ -140,6 +142,24 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             )
         )
         self.assertEqual(len(sample_review_rows), 868)
+        self.assertEqual(len(provenance_rows), 868)
+        horse_provenance = next(
+            row
+            for row in provenance_rows
+            if row["project_accession"] == "PRJEB31613"
+            and row["temporal_semantics"]["comparability_posture"] == "numeric_interval"
+        )
+        self.assertIn("BP", horse_provenance["published_wording"])
+        self.assertEqual(
+            horse_provenance["temporal_semantics"]["comparability_posture"],
+            "numeric_interval",
+        )
+        self.assertEqual(
+            horse_provenance["temporal_semantics"]["summary_label"],
+            horse_provenance["published_wording"],
+        )
+        self.assertTrue(horse_provenance["provenance_surface"])
+        self.assertTrue(horse_provenance["provenance_locator"])
 
     def test_conflicting_chronology_corpus_surfaces_disagreement_notes(self) -> None:
         for case in CONFLICTING_CHRONOLOGY_CASES:
