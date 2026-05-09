@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from importlib import import_module
+from typing import TYPE_CHECKING, Any
 
 _EXPORTS = {
     "ADNA_MODALITIES": ".definitions",
@@ -36,8 +37,50 @@ _EXPORTS = {
 
 __all__ = list(_EXPORTS)
 
+if TYPE_CHECKING:
+    from .bovines import (
+        BovineCombinedClaimRule,
+        BovineSpeciesSupportRow,
+        BovineSupportProgram,
+        build_bovine_support_program,
+    )
+    from .definitions import (
+        ADNA_MODALITIES,
+        ADNA_SUPPORT_STATUSES,
+        AdnaSpeciesDefinition,
+        build_species_support_matrix,
+        resolve_species_definition,
+    )
+    from .homo_sapiens import (
+        build_homo_sapiens_runtime_manifest,
+        build_homo_sapiens_runtime_manifest_for_version_dir,
+        discover_homo_sapiens_anno_files,
+        iter_homo_sapiens_samples_from_anno,
+        load_homo_sapiens_country_samples,
+        load_homo_sapiens_samples,
+    )
+    from .homo_sapiens_genotypes import (
+        HomoSapiensGenotypeArtifact,
+        HomoSapiensGenotypeContract,
+        build_homo_sapiens_genotype_contract,
+    )
+    from .homo_sapiens_schema import (
+        resolve_homo_sapiens_schema,
+        sample_time_interval,
+        sample_time_label,
+        sample_time_mean,
+        schema_value,
+    )
+    from .tracked_data import (
+        materialize_tracked_species_adna,
+        materialize_tracked_species_root,
+        tracked_species_slugs,
+    )
+    from .tracked_species import TRACKED_ADNA_SPECIES
 
-def __getattr__(name: str) -> object:
+
+def __getattr__(name: str) -> Any:
+    """Resolve one species-owned export lazily from its owning submodule."""
     module_name = _EXPORTS.get(name)
     if module_name is None:
         raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
@@ -48,4 +91,5 @@ def __getattr__(name: str) -> object:
 
 
 def __dir__() -> list[str]:
+    """Expose the stable species-owned public export names."""
     return sorted(__all__)

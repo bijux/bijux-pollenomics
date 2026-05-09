@@ -131,9 +131,7 @@ from .sources import (
     AdnaEnaQuery,
     AdnaEnaRecord,
     AdnaPaperLinkage,
-    build_archive_project_catalog,
     build_ena_filereport_url,
-    build_species_archive_projects,
     build_species_source_snapshots,
     classify_archive_project_evidence,
     parse_ena_filereport_tsv,
@@ -141,6 +139,7 @@ from .sources import (
     resolve_accession_reference,
     resolve_archive_source_snapshot,
 )
+from .sources.ena import build_archive_project_catalog, build_species_archive_projects
 from .species import (
     ADNA_MODALITIES,
     ADNA_SUPPORT_STATUSES,
@@ -154,7 +153,6 @@ from .species import (
     build_homo_sapiens_genotype_contract,
     build_homo_sapiens_runtime_manifest,
     build_homo_sapiens_runtime_manifest_for_version_dir,
-    build_species_support_matrix,
     discover_homo_sapiens_anno_files,
     iter_homo_sapiens_samples_from_anno,
     load_homo_sapiens_country_samples,
@@ -166,6 +164,7 @@ from .species import (
     sample_time_mean,
     schema_value,
 )
+from .species.definitions import build_species_support_matrix
 
 __all__ = [
     "ADNA_ENA_RESULT_KINDS",
