@@ -1,0 +1,17 @@
+{
+  "source": "Riksantikvarieämbetet",
+  "layer_key": "raa-archaeology",
+  "layer_label": "RAÄ archaeology density",
+  "category": "Archaeological sites",
+  "country": "Sweden",
+  "description": "Published archaeology density derived from Fornsök/RAÄ Open Data. The map renders grid-cell counts for `Fornlämning` records so Swedish archaeology is visible at national scale without loading hundreds of thousands of point markers.",
+  "feature_type": "arkreg_v1.0:publicerade_lamningar_centrumpunkt",
+  "grid_cell_size_degrees": 1.0,
+  "density_feature_count": 106,
+  "counts": {
+    "all_published_sites": 761917,
+    "fornlamning": 318265,
+    "fornlamning_or_possible": 416913
+  },
+  "domain_url": "https://app.raa.se/open/fornsok/api/lamning/domaner"
+}

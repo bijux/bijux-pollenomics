@@ -1,0 +1,10 @@
+{
+  "schema_version": "publication-country-onboarding-contract.v1",
+  "required_surfaces": [
+    "published country roster entry",
+    "world geography bundle",
+    "Europe-plus geography bundle when applicable",
+    "country bundle under docs/report/countries/<country-slug>/",
+    "subset validation row proving world -> region -> country lineage"
+  ]
+}
