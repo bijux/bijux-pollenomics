@@ -33,7 +33,7 @@
       "information_role": "cross-domain credibility dashboard",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with detailed audits and compresses them into release-facing dimension scores",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -55,7 +55,7 @@
       "information_role": "generated-output sustainability review",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with the generated-output policy and names where the repository is still paying complexity tax",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -66,7 +66,7 @@
       "information_role": "extensibility and interpretability review",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -176,7 +176,7 @@
       "information_role": "claim audit",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with release refusal and prevents broader public language from outrunning governed evidence",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -187,7 +187,7 @@
       "information_role": "brutal honesty review",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with the credibility dashboard and compresses the harsher qualitative release questions into one recurring review",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -198,7 +198,7 @@
       "information_role": "final release refusal",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with animal release gates and names the repository-wide reasons final release language is still refused",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     },
     {
@@ -231,7 +231,7 @@
       "information_role": "generated-output publication policy",
       "root_location": "docs/report",
       "coexistence_rule": "coexists with the report portal and repository truth reviews as the rule that governs new root outputs",
-      "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+      "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
       "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py"
     }
   ]

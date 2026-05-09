@@ -56,7 +56,7 @@
       "documentation_clarity": 3,
       "output_honesty": 4,
       "metrics": {
-        "fieldwork_page_count": 2
+        "fieldwork_page_count": 0
       },
       "note": "Fieldwork is intentionally narrow and honest, but it is still only one anchored record surface."
     },
@@ -96,8 +96,8 @@
       "documentation_clarity": 4,
       "output_honesty": 4,
       "metrics": {
-        "source_explainer_count": 12,
-        "landing_page_count": 6
+        "source_explainer_count": 0,
+        "landing_page_count": 1
       },
       "note": "Breadth has been restored across repository, data, maintainer, fieldwork, and atlas entry surfaces."
     }

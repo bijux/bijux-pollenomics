@@ -26,7 +26,7 @@
       "role": "dense_regional_specialization",
       "owned_paths": [
         "docs/report/regions/nordic/",
-        "docs/05-nordic-evidence-atlas/"
+        "docs/public/nordic-atlas/"
       ],
       "meaning": "the narrow regional surface where contextual overlays become intentionally denser"
     },
@@ -54,12 +54,12 @@
   "current_state_counts": {
     "published_country_bundle_count": 4,
     "published_world_animal_points": 234,
-    "source_explainer_count": 12
+    "source_explainer_count": 0
   },
   "evidence_anchors": [
     "docs/report/publication_geography_registry.json",
     "docs/report/publication_geography_subset_validation.json",
     "docs/report/publication_country_onboarding_contract.json",
-    "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+    "docs/public/pollenomics/foundation/end-state-product-model.md"
   ]
 }

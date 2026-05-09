@@ -225,7 +225,9 @@ def build_repository_recovery_review(
             output_honesty=3,
             metrics={
                 "tracked_papers": counts["tracked_paper_count"],
-                "papers_with_archived_supplements": counts["papers_with_archived_supplements"],
+                "papers_with_archived_supplements": counts[
+                    "papers_with_archived_supplements"
+                ],
                 "published_atlas_points": counts["published_atlas_point_count"],
                 "unresolved_rows": counts["animal_map_unresolved_rows"],
             },
@@ -385,7 +387,7 @@ def build_repository_governance_artifact_review(
 
 
 def render_repository_governance_artifact_review_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository governance artifact review",
@@ -418,7 +420,7 @@ def build_repository_claim_audit(
     runtime_readme_path = (
         docs_root.parent / "packages" / "bijux-pollenomics" / "README.md"
     )
-    data_index_path = docs_root / "02-bijux-pollenomics-data" / "index.md"
+    data_index_path = docs_root / "public" / "pollenomics-data" / "index.md"
     sample_database_review_path = report_root / "animal_sample_database_review.json"
     release_gate_path = report_root / "animal_publication_release_gate.json"
 
@@ -465,10 +467,7 @@ def build_repository_claim_audit(
             "repository_landings_name_pollenomics_first",
             all(
                 text in root_readme + docs_index + runtime_readme + data_index
-                for text in (
-                    "pollenomics and environmental evidence",
-                    "source comparison",
-                )
+                for text in ("pollenomics", "environmental", "source comparison")
             ),
             "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
             [],
@@ -477,21 +476,27 @@ def build_repository_claim_audit(
             "source_family_pages_restore_non_adna_breadth",
             counts["source_explainer_count"] >= 6,
             "The docs tree keeps non-aDNA source families visible and directly linkable.",
-            [] if counts["source_explainer_count"] >= 6 else ["source_explainer_count_below_expected_floor"],
+            []
+            if counts["source_explainer_count"] >= 6
+            else ["source_explainer_count_below_expected_floor"],
         ),
         _claim_check(
             "animal_sample_review_freezes_broad_readiness",
             (
                 str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
-                and not bool(sample_database_review.get("region_agnostic_contract_ready"))
+                and not bool(
+                    sample_database_review.get("region_agnostic_contract_ready")
+                )
             ),
             "The public animal sample review keeps the stronger Nordic sample-owned view separate from any broader region-agnostic readiness claim.",
             []
             if (
                 str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
-                and not bool(sample_database_review.get("region_agnostic_contract_ready"))
+                and not bool(
+                    sample_database_review.get("region_agnostic_contract_ready")
+                )
             )
             else ["animal_sample_database_review_overclaims_current_depth"],
         ),
@@ -585,110 +590,116 @@ def build_repository_source_explainer_audit(
         (
             "source_family",
             "LandClim source explainer",
-            "docs/02-bijux-pollenomics-data/sources/landclim.md",
+            "docs/public/pollenomics-data/sources/landclim.md",
             ["data/landclim/normalized/", "pollen context"],
             None,
         ),
         (
             "source_family",
             "Neotoma source explainer",
-            "docs/02-bijux-pollenomics-data/sources/neotoma.md",
+            "docs/public/pollenomics-data/sources/neotoma.md",
             ["data/neotoma/normalized/", "pollen-site context"],
             None,
         ),
         (
             "source_family",
             "SEAD source explainer",
-            "docs/02-bijux-pollenomics-data/sources/sead.md",
+            "docs/public/pollenomics-data/sources/sead.md",
             ["data/sead/normalized/", "archaeology context"],
             None,
         ),
         (
             "source_family",
             "RAÄ source explainer",
-            "docs/02-bijux-pollenomics-data/sources/raa.md",
+            "docs/public/pollenomics-data/sources/raa.md",
             ["data/raa/normalized/", "Sweden"],
             None,
         ),
         (
             "source_family",
             "Boundary source explainer",
-            "docs/02-bijux-pollenomics-data/sources/boundaries.md",
+            "docs/public/pollenomics-data/sources/boundaries.md",
             ["data/boundaries/normalized/", "country filtering"],
             None,
         ),
         (
             "source_family",
             "AADR source explainer",
-            "docs/02-bijux-pollenomics-data/sources/aadr.md",
+            "docs/public/pollenomics-data/sources/aadr.md",
             ["data/aadr/v66/", "human ancient DNA"],
             None,
         ),
         (
             "recovery_rule",
             "Refresh policy explainer",
-            "docs/02-bijux-pollenomics-data/sources/refresh-policy.md",
+            "docs/public/pollenomics-data/sources/refresh-policy.md",
             ["data/collection_summary.json", "refresh"],
             "restore the refresh-policy page so readers can separate evidence refresh from silent maintenance",
         ),
         (
             "recovery_rule",
             "Shared normalization explainer",
-            "docs/02-bijux-pollenomics-data/sources/shared-normalization.md",
+            "docs/public/pollenomics-data/sources/shared-normalization.md",
             ["docs/report/world/", "normalized"],
             "restore the shared-normalization page so readers can see how cross-family output shapes differ from source identity",
         ),
         (
             "output_family",
             "Normalized LandClim outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
+            "docs/public/pollenomics-data/outputs/normalized-landclim.md",
             ["data/landclim/normalized/", "LandClim"],
             "restore the LandClim output page so pollen context is not explained only through map presence",
         ),
         (
             "output_family",
             "Normalized Neotoma outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
+            "docs/public/pollenomics-data/outputs/normalized-neotoma.md",
             ["data/neotoma/normalized/", "Neotoma"],
             "restore the Neotoma output page so pollen-site context stays visible as its own family",
         ),
         (
             "output_family",
             "Normalized SEAD outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
+            "docs/public/pollenomics-data/outputs/normalized-sead.md",
             ["data/sead/normalized/", "SEAD"],
             "restore the SEAD output page so environmental archaeology context does not vanish behind animal publication work",
         ),
         (
             "output_family",
             "Normalized RAÄ outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
+            "docs/public/pollenomics-data/outputs/normalized-raa.md",
             ["data/raa/normalized/", "Sweden-scoped"],
             "restore the RAÄ output page so Swedish archaeology scope remains explicit",
         ),
         (
             "output_family",
             "Normalized boundary outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
+            "docs/public/pollenomics-data/outputs/normalized-boundaries.md",
             ["data/boundaries/normalized/", "boundary"],
             "restore the boundary output page so framing layers stay explainable on their own terms",
         ),
         (
             "output_family",
             "Normalized AADR outputs explainer",
-            "docs/02-bijux-pollenomics-data/outputs/normalized-aadr.md",
+            "docs/public/pollenomics-data/outputs/normalized-aadr.md",
             ["data/aadr/v66/", "AADR"],
             "restore the AADR output page so versioned human context remains inspectable from source to publication",
         ),
         (
             "output_family",
             "Collection summary explainer",
-            "docs/02-bijux-pollenomics-data/outputs/collection-summary.md",
+            "docs/public/pollenomics-data/outputs/collection-summary.md",
             ["data/collection_summary.json", "summary"],
             "restore the collection summary page so refresh diagnostics are not mistaken for balanced domain coverage",
         ),
     )
-    for surface_kind, display_name, page_path, required_snippets, restoration_plan in expectations:
+    for (
+        surface_kind,
+        display_name,
+        page_path,
+        required_snippets,
+        restoration_plan,
+    ) in expectations:
         rows.append(
             _build_source_explainer_audit_row(
                 docs_root=docs_root,
@@ -717,7 +728,7 @@ def build_repository_source_explainer_audit(
 
 
 def render_repository_source_explainer_audit_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository source explainer audit",
@@ -753,7 +764,7 @@ def build_repository_source_family_matrix(
                 "data/adna/governance/source_library/project_registry.json",
                 "data/adna/governance/source_library/project_source_evidence_matrix.json",
             ],
-            ["docs/02-bijux-pollenomics-data/sources/animal-source-intake.md"],
+            ["docs/public/pollenomics-data/sources/animal-source-intake.md"],
             counts["tracked_paper_count"],
             "local_reference_staging_ahead_of_repo_capture"
             if counts["papers_with_local_reference_supplements"]
@@ -766,7 +777,7 @@ def build_repository_source_family_matrix(
             "AADR human ancient DNA",
             "contextual_domain",
             ["data/aadr/v66/"],
-            ["docs/02-bijux-pollenomics-data/sources/aadr.md"],
+            ["docs/public/pollenomics-data/sources/aadr.md"],
             counts["tracked_aadr_release_file_count"],
             "tracked_query_surface",
             "AADR is queryable and documented, but it remains one context layer rather than the whole repository mission",
@@ -776,7 +787,7 @@ def build_repository_source_family_matrix(
             "LandClim pollen context",
             "primary_domain",
             ["data/landclim/normalized/"],
-            ["docs/02-bijux-pollenomics-data/sources/landclim.md"],
+            ["docs/public/pollenomics-data/sources/landclim.md"],
             counts["tracked_landclim_site_count"]
             + counts["tracked_landclim_grid_cell_count"],
             "tracked_context_layer",
@@ -787,7 +798,7 @@ def build_repository_source_family_matrix(
             "Neotoma pollen context",
             "primary_domain",
             ["data/neotoma/normalized/"],
-            ["docs/02-bijux-pollenomics-data/sources/neotoma.md"],
+            ["docs/public/pollenomics-data/sources/neotoma.md"],
             counts["tracked_neotoma_site_count"],
             "tracked_context_layer",
             "Neotoma remains a core pollen-site context family and should stay visible beside aDNA and archaeology surfaces",
@@ -797,7 +808,7 @@ def build_repository_source_family_matrix(
             "SEAD archaeology context",
             "contextual_domain",
             ["data/sead/normalized/"],
-            ["docs/02-bijux-pollenomics-data/sources/sead.md"],
+            ["docs/public/pollenomics-data/sources/sead.md"],
             counts["tracked_sead_site_count"],
             "tracked_context_layer",
             "SEAD provides environmental archaeology context and should not disappear behind animal intake work",
@@ -807,7 +818,7 @@ def build_repository_source_family_matrix(
             "RAÄ archaeology context",
             "contextual_domain",
             ["data/raa/normalized/"],
-            ["docs/02-bijux-pollenomics-data/sources/raa.md"],
+            ["docs/public/pollenomics-data/sources/raa.md"],
             counts["tracked_raa_published_site_count"],
             "tracked_context_layer",
             "RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope",
@@ -817,7 +828,7 @@ def build_repository_source_family_matrix(
             "Boundary geometry",
             "framing_domain",
             ["data/boundaries/normalized/"],
-            ["docs/02-bijux-pollenomics-data/sources/boundaries.md"],
+            ["docs/public/pollenomics-data/sources/boundaries.md"],
             counts["tracked_boundary_feature_count"],
             "tracked_boundary_frame",
             "Boundary layers are one of the clearest repository surfaces and keep region framing honest",
@@ -826,8 +837,8 @@ def build_repository_source_family_matrix(
             "fieldwork",
             "Fieldwork evidence",
             "contextual_domain",
-            ["docs/04-fieldwork/"],
-            ["docs/04-fieldwork/index.md"],
+            ["docs/public/fieldwork/"],
+            ["docs/public/fieldwork/index.md"],
             counts["fieldwork_page_count"],
             "narrow_documented_surface",
             "Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps",
@@ -1015,10 +1026,10 @@ def build_repository_cross_domain_evidence_matrix(
                 "neotoma_site_count": counts["tracked_neotoma_site_count"],
             },
             [
-                "docs/02-bijux-pollenomics-data/sources/landclim.md",
-                "docs/02-bijux-pollenomics-data/sources/neotoma.md",
-                "docs/02-bijux-pollenomics-data/outputs/normalized-landclim.md",
-                "docs/02-bijux-pollenomics-data/outputs/normalized-neotoma.md",
+                "docs/public/pollenomics-data/sources/landclim.md",
+                "docs/public/pollenomics-data/sources/neotoma.md",
+                "docs/public/pollenomics-data/outputs/normalized-landclim.md",
+                "docs/public/pollenomics-data/outputs/normalized-neotoma.md",
             ],
             [
                 "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
@@ -1038,10 +1049,10 @@ def build_repository_cross_domain_evidence_matrix(
                 "raa_density_cell_count": counts["tracked_raa_density_cell_count"],
             },
             [
-                "docs/02-bijux-pollenomics-data/sources/sead.md",
-                "docs/02-bijux-pollenomics-data/sources/raa.md",
-                "docs/02-bijux-pollenomics-data/outputs/normalized-sead.md",
-                "docs/02-bijux-pollenomics-data/outputs/normalized-raa.md",
+                "docs/public/pollenomics-data/sources/sead.md",
+                "docs/public/pollenomics-data/sources/raa.md",
+                "docs/public/pollenomics-data/outputs/normalized-sead.md",
+                "docs/public/pollenomics-data/outputs/normalized-raa.md",
             ],
             [
                 "docs/report/regions/nordic/nordic_environmental_sites.geojson",
@@ -1057,8 +1068,8 @@ def build_repository_cross_domain_evidence_matrix(
             ["boundaries"],
             {"country_feature_count": counts["tracked_boundary_feature_count"]},
             [
-                "docs/02-bijux-pollenomics-data/sources/boundaries.md",
-                "docs/02-bijux-pollenomics-data/outputs/normalized-boundaries.md",
+                "docs/public/pollenomics-data/sources/boundaries.md",
+                "docs/public/pollenomics-data/outputs/normalized-boundaries.md",
             ],
             ["docs/report/regions/nordic/nordic_country_boundaries.geojson"],
             "strong_framing_surface",
@@ -1070,8 +1081,8 @@ def build_repository_cross_domain_evidence_matrix(
             "contextual_domain",
             ["fieldwork"],
             {"fieldwork_page_count": counts["fieldwork_page_count"]},
-            ["docs/04-fieldwork/index.md"],
-            ["docs/04-fieldwork/lyngsjon-lake-fieldwork/index.md"],
+            ["docs/public/fieldwork/index.md"],
+            ["docs/public/fieldwork/lyngsjon-lake-fieldwork/index.md"],
             "narrow_honest_surface",
             "fieldwork is deliberately narrow and should stay explicit rather than being implied by atlas presence",
         ),
@@ -1086,9 +1097,9 @@ def build_repository_cross_domain_evidence_matrix(
                 "unresolved_map_rows": counts["animal_map_unresolved_rows"],
             },
             [
-                "docs/02-bijux-pollenomics-data/sources/animal-source-intake.md",
-                "docs/02-bijux-pollenomics-data/evidence/sample-records.md",
-                "docs/02-bijux-pollenomics-data/evidence/chronology.md",
+                "docs/public/pollenomics-data/sources/animal-source-intake.md",
+                "docs/public/pollenomics-data/evidence/sample-records.md",
+                "docs/public/pollenomics-data/evidence/chronology.md",
             ],
             [
                 "docs/report/animal_sample_database_review.md",
@@ -1107,9 +1118,9 @@ def build_repository_cross_domain_evidence_matrix(
                 "animal_point_count": counts["published_atlas_point_count"],
             },
             [
-                "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-                "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
-                "docs/02-bijux-pollenomics-data/outputs/output-surface-classes.md",
+                "docs/public/pollenomics-data/outputs/published-reports.md",
+                "docs/public/pollenomics-data/outputs/geographic-evidence-surfaces.md",
+                "docs/public/pollenomics-data/outputs/output-surface-classes.md",
             ],
             [
                 "docs/report/countries/sweden/README.md",
@@ -1127,7 +1138,7 @@ def build_repository_cross_domain_evidence_matrix(
 
 
 def render_repository_cross_domain_evidence_matrix_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository cross-domain evidence matrix",
@@ -1161,7 +1172,10 @@ def build_repository_source_acquisition_queue(
         "required_outcome": "ingest staged paper and supplement assets into governed repo surfaces, then extract sample, site, and chronology rows",
         "evidence_anchor": "data/adna/governance/source_library/reference_stash_reconciliation.json",
     }
-    if counts["papers_with_local_reference_supplements"] <= counts["papers_with_archived_supplements"]:
+    if (
+        counts["papers_with_local_reference_supplements"]
+        <= counts["papers_with_archived_supplements"]
+    ):
         animal_gap_row = {
             "queue_key": "animal_adna_sample_extraction",
             "source_family": "animal_adna",
@@ -1197,7 +1211,9 @@ def build_repository_source_acquisition_queue(
     }
 
 
-def render_repository_source_acquisition_queue_markdown(payload: dict[str, object]) -> str:
+def render_repository_source_acquisition_queue_markdown(
+    payload: dict[str, object],
+) -> str:
     lines = [
         "# Repository source acquisition queue",
         "",
@@ -1244,7 +1260,8 @@ def build_repository_scientific_progress_audit(
         "findings": [
             (
                 f"all {counts['tracked_paper_count']} tracked papers now ship archived supplementary material, but sample-owned extraction still lags behind supplement recovery"
-                if counts["papers_with_archived_supplements"] >= counts["tracked_paper_count"]
+                if counts["papers_with_archived_supplements"]
+                >= counts["tracked_paper_count"]
                 else f"only {counts['papers_with_archived_supplements']} of {counts['tracked_paper_count']} tracked papers currently ship archived supplementary material"
             ),
             f"the shipped animal atlas still exposes only {counts['published_atlas_point_count']} published animal point rows",
@@ -1260,7 +1277,7 @@ def build_repository_scientific_progress_audit(
 
 
 def render_repository_scientific_progress_audit_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository scientific progress audit",
@@ -1310,9 +1327,7 @@ def build_repository_docs_restoration_ledger(
         if current_path.exists():
             text = current_path.read_text(encoding="utf-8")
             missing_snippets = [
-                snippet
-                for snippet in row["required_snippets"]
-                if snippet not in text
+                snippet for snippet in row["required_snippets"] if snippet not in text
             ]
         status = (
             "verified_replacement"
@@ -1361,7 +1376,7 @@ def build_repository_docs_restoration_ledger(
 
 
 def render_repository_docs_restoration_ledger_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository docs restoration ledger",
@@ -1394,11 +1409,11 @@ def build_repository_docs_scope_validation(
     rows = []
     for row in _docs_breadth_expectations():
         landing_path = repo_root / row["landing_path"]
-        landing_text = landing_path.read_text(encoding="utf-8") if landing_path.exists() else ""
+        landing_text = (
+            landing_path.read_text(encoding="utf-8") if landing_path.exists() else ""
+        )
         missing_pages = [
-            path
-            for path in row["required_pages"]
-            if not (repo_root / path).exists()
+            path for path in row["required_pages"] if not (repo_root / path).exists()
         ]
         missing_links = [
             snippet
@@ -1478,9 +1493,7 @@ def build_repository_docs_recovery_review(
     rows = [
         {
             "dimension_key": "restoration_completeness",
-            "score": 4
-            if ledger["status_counts"]["replacement_incomplete"] == 0
-            else 2,
+            "score": 4 if ledger["status_counts"]["replacement_incomplete"] == 0 else 2,
             "finding": (
                 f"{ledger['status_counts']['verified_replacement']} of {ledger['row_count']} missing handbook pages now have verified replacements"
             ),
@@ -1612,7 +1625,7 @@ def build_repository_product_model(
                 "role": "dense_regional_specialization",
                 "owned_paths": [
                     "docs/report/regions/nordic/",
-                    "docs/05-nordic-evidence-atlas/",
+                    "docs/public/nordic-atlas/",
                 ],
                 "meaning": "the narrow regional surface where contextual overlays become intentionally denser",
             },
@@ -1646,7 +1659,7 @@ def build_repository_product_model(
             "docs/report/publication_geography_registry.json",
             "docs/report/publication_geography_subset_validation.json",
             "docs/report/publication_country_onboarding_contract.json",
-            "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+            "docs/public/pollenomics/foundation/end-state-product-model.md",
         ],
     }
 
@@ -1736,7 +1749,7 @@ def build_repository_credibility_dashboard(
             "repository architecture and product-model surfaces now name the world-to-country publication model directly",
             [
                 "docs/report/repository_product_model.json",
-                "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/end-state-product-model.md",
             ],
         ),
         _credibility_row(
@@ -1766,9 +1779,7 @@ def build_repository_credibility_dashboard(
         _credibility_row(
             "extraction_completeness",
             "Extraction completeness",
-            2
-            if not bool(sample_review.get("region_agnostic_contract_ready"))
-            else 4,
+            2 if not bool(sample_review.get("region_agnostic_contract_ready")) else 4,
             "animal sample extraction remains the weakest credibility dimension and still blocks stronger release language",
             [
                 "docs/report/animal_sample_database_review.json",
@@ -1851,9 +1862,7 @@ def build_repository_credibility_dashboard(
     }
 
 
-def render_repository_credibility_dashboard_markdown(
-    payload: dict[str, object]
-) -> str:
+def render_repository_credibility_dashboard_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Repository credibility dashboard",
         "",
@@ -1864,9 +1873,7 @@ def render_repository_credibility_dashboard_markdown(
         "| --- | ---: | --- |",
     ]
     for row in payload["rows"]:
-        lines.append(
-            f"| {row['display_name']} | {row['score']} | {row['finding']} |"
-        )
+        lines.append(f"| {row['display_name']} | {row['score']} | {row['finding']} |")
     return "\n".join(lines) + "\n"
 
 
@@ -1923,8 +1930,7 @@ def build_repository_output_sustainability_review(
             "tracked_data_file_count": _count_tree_files(data_root),
             "report_file_count": _count_tree_files(report_root),
             "maintainer_root_review_file_count": sum(
-                1
-                for path in report_root.glob("repository_*.json")
+                1 for path in report_root.glob("repository_*.json")
             ),
         },
         "rows": rows,
@@ -1932,7 +1938,7 @@ def build_repository_output_sustainability_review(
 
 
 def render_repository_output_sustainability_review_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     lines = [
         "# Repository output sustainability review",
@@ -1980,7 +1986,7 @@ def build_repository_extension_review(
             "finding": "adding Germany or another country is now governed as roster, data, docs, and tests work instead of renderer surgery",
             "evidence_anchors": [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
             ],
         },
         {
@@ -1989,7 +1995,7 @@ def build_repository_extension_review(
             "finding": "the runtime, data, and maintainer handbooks still explain ownership without collapsing the repo into one vague top layer",
             "evidence_anchors": [
                 "docs/report/repository_docs_scope_validation.json",
-                "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/end-state-product-model.md",
             ],
         },
         {
@@ -2088,7 +2094,9 @@ def build_repository_brutal_honesty_review(
         },
         {
             "question_key": "more_readable",
-            "score": 4 if credibility["overall_posture"] == "credible_but_still_recovery_bound" else 3,
+            "score": 4
+            if credibility["overall_posture"] == "credible_but_still_recovery_bound"
+            else 3,
             "answer": "yes, because the public mission and report portal now teach the product shape instead of assuming the reader already knows the file tree",
             "evidence_anchors": [
                 "README.md",
@@ -2122,9 +2130,7 @@ def build_repository_brutal_honesty_review(
     }
 
 
-def render_repository_brutal_honesty_review_markdown(
-    payload: dict[str, object]
-) -> str:
+def render_repository_brutal_honesty_review_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Repository brutal honesty review",
         "",
@@ -2136,9 +2142,7 @@ def render_repository_brutal_honesty_review_markdown(
         "| --- | ---: | --- |",
     ]
     for row in payload["rows"]:
-        lines.append(
-            f"| `{row['question_key']}` | {row['score']} | {row['answer']} |"
-        )
+        lines.append(f"| `{row['question_key']}` | {row['score']} | {row['answer']} |")
     return "\n".join(lines) + "\n"
 
 
@@ -2174,7 +2178,7 @@ def build_repository_final_release_refusal(
             "the repository now has explicit architecture and product-model surfaces",
             [
                 "docs/report/repository_product_model.json",
-                "docs/01-bijux-pollenomics/foundation/end-state-product-model.md",
+                "docs/public/pollenomics/foundation/end-state-product-model.md",
             ],
         ),
         _release_refusal_row(
@@ -2214,17 +2218,23 @@ def build_repository_final_release_refusal(
         _release_refusal_row(
             "sead_treatment",
             bool(sead_review.get("comparability_posture_counts"))
-            and "unresolved" not in dict(sead_review.get("comparability_posture_counts", {})),
+            and "unresolved"
+            not in dict(sead_review.get("comparability_posture_counts", {})),
             "SEAD still carries unresolved comparability posture and therefore blocks final release language",
             [
                 "docs/report/repository_sead_legibility_review.json",
-                "docs/02-bijux-pollenomics-data/sources/sead.md",
+                "docs/public/pollenomics-data/sources/sead.md",
             ],
         ),
         _release_refusal_row(
             "docs_clarity",
             bool(docs_scope.get("overall_ok"))
-            and int(dict(report_quality.get("quality_posture_counts", {})).get("link_farm_risk", 0)) == 0,
+            and int(
+                dict(report_quality.get("quality_posture_counts", {})).get(
+                    "link_farm_risk", 0
+                )
+            )
+            == 0,
             "docs breadth holds and the report tree now routes readers through explanation-first pages",
             [
                 "docs/report/repository_docs_scope_validation.json",
@@ -2237,12 +2247,14 @@ def build_repository_final_release_refusal(
             "future-country onboarding is now a governed contract instead of tribal knowledge",
             [
                 "docs/report/publication_country_onboarding_contract.json",
-                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
+                "docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
             ],
         ),
     ]
     blocking_dimensions = [
-        row["dimension_key"] for row in rows if not bool(row["ready_for_final_release_language"])
+        row["dimension_key"]
+        for row in rows
+        if not bool(row["ready_for_final_release_language"])
     ]
     return {
         "schema_version": "repository-final-release-refusal.v1",
@@ -2254,9 +2266,7 @@ def build_repository_final_release_refusal(
     }
 
 
-def render_repository_final_release_refusal_markdown(
-    payload: dict[str, object]
-) -> str:
+def render_repository_final_release_refusal_markdown(payload: dict[str, object]) -> str:
     lines = [
         "# Repository final release refusal",
         "",
@@ -2284,11 +2294,19 @@ def _build_core_counts(
         {"rows": []},
     )
     reference_stash_reconciliation = _load_json_or_default(
-        data_root / "adna" / "governance" / "source_library" / "reference_stash_reconciliation.json",
+        data_root
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "reference_stash_reconciliation.json",
         {"rows": []},
     )
     reference_stash_doi_integrity = _load_json_or_default(
-        data_root / "adna" / "governance" / "source_library" / "reference_stash_doi_integrity_audit.json",
+        data_root
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "reference_stash_doi_integrity_audit.json",
         {"reference_stash_doi_count": 0},
     )
     map_readiness = _load_json_or_default(
@@ -2306,7 +2324,9 @@ def _build_core_counts(
         report_root / "animal_sample_database_review.json",
         {"counts": {}},
     )
-    collection_summary = _load_json_or_default(data_root / "collection_summary.json", {})
+    collection_summary = _load_json_or_default(
+        data_root / "collection_summary.json", {}
+    )
     landclim_summary = _load_json_or_default(
         data_root / "landclim" / "normalized" / "landclim_summary.json",
         {"site_count": 0, "grid_cell_count": 0},
@@ -2344,15 +2364,21 @@ def _build_core_counts(
             1 for row in paper_rows if int(row.get("supplementary_count", 0)) > 0
         ),
         "published_atlas_point_count": int(
-            sample_database_review.get("counts", {}).get("published_atlas_point_count", 0)
+            sample_database_review.get("counts", {}).get(
+                "published_atlas_point_count", 0
+            )
         ),
         "published_country_bundle_count": int(
-            sample_database_review.get("counts", {}).get("published_country_bundle_count", 0)
+            sample_database_review.get("counts", {}).get(
+                "published_country_bundle_count", 0
+            )
         ),
         "reference_stash_doi_count": int(
             reference_stash_doi_integrity.get("reference_stash_doi_count", 0)
         ),
-        "tracked_aadr_release_file_count": _count_tree_files(data_root / "aadr" / "v66"),
+        "tracked_aadr_release_file_count": _count_tree_files(
+            data_root / "aadr" / "v66"
+        ),
         "papers_with_local_reference_supplements": sum(
             1
             for row in reference_stash_reconciliation.get("rows", [])
@@ -2379,7 +2405,10 @@ def _build_core_counts(
             raa_layer.get("density_feature_count", 0)
         ),
         "tracked_boundary_feature_count": _count_geojson_features(
-            data_root / "boundaries" / "normalized" / "nordic_country_boundaries.geojson"
+            data_root
+            / "boundaries"
+            / "normalized"
+            / "nordic_country_boundaries.geojson"
         ),
         "pollen_normalized_file_count": _count_files(
             data_root / "landclim" / "normalized"
@@ -2394,13 +2423,13 @@ def _build_core_counts(
             data_root / "boundaries" / "normalized"
         ),
         "fieldwork_page_count": sum(
-            1 for _ in (docs_root / "04-fieldwork").rglob("index.md")
+            1 for _ in (docs_root / "public" / "fieldwork").rglob("index.md")
         ),
         "source_explainer_count": sum(
             1
-            for path in (docs_root / "02-bijux-pollenomics-data" / "sources").glob(
-                "*.md"
-            )
+            for path in (
+                docs_root / "public" / "pollenomics-data" / "sources"
+            ).glob("*.md")
             if path.name
             not in {
                 "index.md",
@@ -2411,11 +2440,12 @@ def _build_core_counts(
             int(path.exists())
             for path in (
                 docs_root / "index.md",
-                docs_root / "01-bijux-pollenomics" / "index.md",
-                docs_root / "02-bijux-pollenomics-data" / "index.md",
-                docs_root / "03-bijux-pollenomics-maintain" / "index.md",
-                docs_root / "04-fieldwork" / "index.md",
-                docs_root / "05-nordic-evidence-atlas" / "index.md",
+                docs_root / "public" / "index.md",
+                docs_root / "public" / "pollenomics" / "index.md",
+                docs_root / "public" / "pollenomics-data" / "index.md",
+                docs_root / "internal" / "index.md",
+                docs_root / "public" / "fieldwork" / "index.md",
+                docs_root / "public" / "nordic-atlas" / "index.md",
             )
         ),
         "zero_collection_summary_surfaces": zero_collection_surfaces,
@@ -2424,20 +2454,29 @@ def _build_core_counts(
 
 def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
     reasons = []
-    if int(counts["papers_with_archived_supplements"]) < int(counts["tracked_paper_count"]):
+    if int(counts["papers_with_archived_supplements"]) < int(
+        counts["tracked_paper_count"]
+    ):
         reasons.append("supplement recovery is still far below paper coverage")
     if int(counts["published_atlas_point_count"]) <= 2:
-        reasons.append("the shipped animal atlas point surface is still effectively empty")
-    if int(counts["animal_map_unresolved_rows"]) > int(counts["animal_map_supported_rows"]):
+        reasons.append(
+            "the shipped animal atlas point surface is still effectively empty"
+        )
+    if int(counts["animal_map_unresolved_rows"]) > int(
+        counts["animal_map_supported_rows"]
+    ):
         reasons.append("unresolved animal geography still overwhelms mapped support")
-    if int(counts["animal_map_unresolved_rows"]) > 0 or int(
-        counts["animal_map_refused_rows"]
-    ) > 0:
+    if (
+        int(counts["animal_map_unresolved_rows"]) > 0
+        or int(counts["animal_map_refused_rows"]) > 0
+    ):
         reasons.append(
             "tracked animal geography still leaves unresolved or refused rows outside the published surface"
         )
     if counts["zero_collection_summary_surfaces"]:
-        reasons.append("collection summary still under-reports several non-aDNA source counts")
+        reasons.append(
+            "collection summary still under-reports several non-aDNA source counts"
+        )
     return reasons
 
 
@@ -2619,7 +2658,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/01-bijux-pollenomics/architecture/state-and-persistence.md",
             ],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
+            current_path="docs/public/pollenomics/architecture/runtime-system-model.md",
             required_snippets=[
                 "Execution Path",
                 "Dependency Direction",
@@ -2647,7 +2686,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/01-bijux-pollenomics/foundation/surface-map.md",
             ],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
+            current_path="docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
             required_snippets=[
                 "Capability Map",
                 "Surface Map",
@@ -2664,7 +2703,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/interfaces/api-surface.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/interfaces/api-surface.md",
+            current_path="docs/public/pollenomics/interfaces/api-surface.md",
             required_snippets=["Python Surface", "Compatibility Posture"],
             rationale="the API boundary page is restored directly because it remains a durable contract surface",
         )
@@ -2676,7 +2715,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/01-bijux-pollenomics/interfaces/public-imports.md",
             ],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/interfaces/api-surface.md",
+            current_path="docs/public/pollenomics/interfaces/api-surface.md",
             required_snippets=["Python Surface", "Compatibility Posture"],
             rationale="compatibility and public-import expectations are merged into the restored API surface page",
         )
@@ -2685,7 +2724,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/interfaces/configuration-surface.md"],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/interfaces/cli-surface.md",
+            current_path="docs/public/pollenomics/interfaces/cli-surface.md",
             required_snippets=[
                 "`--output-root` defaults to `data` for collection",
                 "for collection or `docs/report` for",
@@ -2697,7 +2736,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/interfaces/data-contracts.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/interfaces/data-contracts.md",
+            current_path="docs/public/pollenomics/interfaces/data-contracts.md",
             required_snippets=["Governing Roots", "Contract Rules"],
             rationale="data contracts are restored directly because they remain a durable reader-facing contract surface",
         )
@@ -2706,7 +2745,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
+            current_path="docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
             required_snippets=[
                 "Verification Entry Points",
                 "Collection And Publication Examples",
@@ -2718,7 +2757,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/interfaces/operator-workflows.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
+            current_path="docs/public/pollenomics/interfaces/operator-workflows.md",
             required_snippets=["Verify Only", "Refresh Data", "Publish Outputs"],
             rationale="operator workflows are restored directly because they remain a durable distinction between verify, refresh, and publish",
         )
@@ -2727,7 +2766,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/operations/common-workflows.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/operations/common-workflows.md",
+            current_path="docs/public/pollenomics/operations/common-workflows.md",
             required_snippets=[
                 "Fresh Checkout",
                 "Data Refresh Review",
@@ -2747,7 +2786,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/01-bijux-pollenomics/operations/security-and-safety.md",
             ],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/operations/operational-boundaries.md",
+            current_path="docs/public/pollenomics/operations/operational-boundaries.md",
             required_snippets=[
                 "Local Development",
                 "Observability And Diagnostics",
@@ -2762,7 +2801,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/operations/failure-recovery.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/operations/failure-recovery.md",
+            current_path="docs/public/pollenomics/operations/failure-recovery.md",
             required_snippets=["Failure Questions", "Recovery Route"],
             rationale="failure recovery is restored directly because it remains a distinct operational task",
         )
@@ -2771,7 +2810,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/quality/change-validation.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/quality/change-validation.md",
+            current_path="docs/public/pollenomics/quality/change-validation.md",
             required_snippets=["Validation Layers", "Breadth Rule"],
             rationale="change validation is restored directly because it is the clearest location for the docs breadth rule",
         )
@@ -2786,7 +2825,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/01-bijux-pollenomics/quality/risk-register.md",
             ],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
+            current_path="docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
             required_snippets=[
                 "Invariants",
                 "Definition Of Done",
@@ -2801,7 +2840,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/quality/documentation-standards.md"],
             decision="merged",
-            current_path="docs/01-bijux-pollenomics/quality/change-validation.md",
+            current_path="docs/public/pollenomics/quality/change-validation.md",
             required_snippets=["Breadth Rule"],
             rationale="documentation standards now live with validation because breadth loss is enforced as a quality rule",
         )
@@ -2810,7 +2849,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/01-bijux-pollenomics/quality/review-checklist.md"],
             decision="restored",
-            current_path="docs/01-bijux-pollenomics/quality/review-checklist.md",
+            current_path="docs/public/pollenomics/quality/review-checklist.md",
             required_snippets=["Review Checklist"],
             rationale="review checklist is restored directly because it remains a useful maintainer-facing stop list",
         )
@@ -2823,7 +2862,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/02-bijux-pollenomics-data/foundation/publication-linkage.md",
             ],
             decision="merged",
-            current_path="docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
+            current_path="docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
             required_snippets=[
                 "Provenance Model",
                 "Publication Linkage",
@@ -2836,7 +2875,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/02-bijux-pollenomics-data/foundation/data-system-overview.md"],
             decision="merged",
-            current_path="docs/02-bijux-pollenomics-data/overview/data-system-overview.md",
+            current_path="docs/public/pollenomics-data/overview/data-system-overview.md",
             required_snippets=["docs/report/", "pollenomics-first"],
             rationale="the old foundation overview is replaced by the current data-system overview page",
         )
@@ -2845,7 +2884,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/02-bijux-pollenomics-data/foundation/directory-layout.md"],
             decision="merged",
-            current_path="docs/02-bijux-pollenomics-data/overview/data-directory-layout.md",
+            current_path="docs/public/pollenomics-data/overview/data-directory-layout.md",
             required_snippets=["docs/report/", "data/"],
             rationale="the old directory layout page now lives under the current overview layout page",
         )
@@ -2854,8 +2893,11 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/02-bijux-pollenomics-data/foundation/index.md"],
             decision="retired_with_replacement",
-            current_path="docs/02-bijux-pollenomics-data/overview/index.md",
-            required_snippets=["Restored Foundation Topics", "Provenance and publication linkage"],
+            current_path="docs/public/pollenomics-data/overview/index.md",
+            required_snippets=[
+                "Restored Foundation Topics",
+                "Provenance and publication linkage",
+            ],
             rationale="the old foundation subtree was retired in favor of the overview subtree, with explicit replacement links",
         )
     )
@@ -2867,7 +2909,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/02-bijux-pollenomics-data/foundation/update-lifecycle.md",
             ],
             decision="merged",
-            current_path="docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
+            current_path="docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
             required_snippets=[
                 "Selection Rules",
                 "Refresh Lifecycle",
@@ -2880,20 +2922,22 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
         _docs_restoration_group(
             ["docs/02-bijux-pollenomics-data/foundation/naming-conventions.md"],
             decision="merged",
-            current_path="docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
+            current_path="docs/public/pollenomics-data/overview/coverage-and-naming.md",
             required_snippets=["Naming Rules", "Coverage Rule"],
             rationale="naming conventions are merged into the current coverage-and-naming page",
         )
     )
     rows.extend(
         _docs_restoration_group(
-            ["docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",
-             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md",
-             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md",
-             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals.md",
-             "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md"],
+            [
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/module-map.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/package-overview.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/schema-governance.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/scope-and-non-goals.md",
+                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/security-gates.md",
+            ],
             decision="merged",
-            current_path="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
+            current_path="docs/internal/pollenomics-dev/repository-governance.md",
             required_snippets=[
                 "Package Boundary",
                 "Module Map",
@@ -2911,7 +2955,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/03-bijux-pollenomics-maintain/gh-workflows/verify.md",
             ],
             decision="merged",
-            current_path="docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
+            current_path="docs/internal/maintain/gh-workflows/verification-and-release.md",
             required_snippets=[
                 "Verification Surface",
                 "Release Surface",
@@ -2934,7 +2978,7 @@ def _docs_restoration_expectations() -> list[dict[str, object]]:
                 "docs/03-bijux-pollenomics-maintain/makes/root-entrypoints.md",
             ],
             decision="merged",
-            current_path="docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+            current_path="docs/internal/maintain/makes/make-system-contracts.md",
             required_snippets=[
                 "Main Files",
                 "Repository Layout And Entry Points",
@@ -2972,52 +3016,52 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
         {
             "section_key": "runtime_handbook",
             "display_name": "Runtime handbook",
-            "landing_path": "docs/01-bijux-pollenomics/index.md",
+            "landing_path": "docs/public/pollenomics/index.md",
             "required_pages": [
-                "docs/01-bijux-pollenomics/architecture/runtime-system-model.md",
-                "docs/01-bijux-pollenomics/foundation/runtime-scope-and-ownership.md",
-                "docs/01-bijux-pollenomics/interfaces/api-surface.md",
-                "docs/01-bijux-pollenomics/interfaces/data-contracts.md",
-                "docs/01-bijux-pollenomics/interfaces/entrypoints-and-examples.md",
-                "docs/01-bijux-pollenomics/interfaces/operator-workflows.md",
-                "docs/01-bijux-pollenomics/operations/common-workflows.md",
-                "docs/01-bijux-pollenomics/operations/failure-recovery.md",
-                "docs/01-bijux-pollenomics/operations/operational-boundaries.md",
-                "docs/01-bijux-pollenomics/quality/change-validation.md",
-                "docs/01-bijux-pollenomics/quality/runtime-invariants-and-limits.md",
-                "docs/01-bijux-pollenomics/quality/review-checklist.md",
+                "docs/public/pollenomics/architecture/runtime-system-model.md",
+                "docs/public/pollenomics/foundation/runtime-scope-and-ownership.md",
+                "docs/public/pollenomics/interfaces/api-surface.md",
+                "docs/public/pollenomics/interfaces/data-contracts.md",
+                "docs/public/pollenomics/interfaces/entrypoints-and-examples.md",
+                "docs/public/pollenomics/interfaces/operator-workflows.md",
+                "docs/public/pollenomics/operations/common-workflows.md",
+                "docs/public/pollenomics/operations/failure-recovery.md",
+                "docs/public/pollenomics/operations/operational-boundaries.md",
+                "docs/public/pollenomics/quality/change-validation.md",
+                "docs/public/pollenomics/quality/runtime-invariants-and-limits.md",
+                "docs/public/pollenomics/quality/review-checklist.md",
             ],
             "required_link_snippets": [
-                "interfaces/entrypoints-and-examples/",
-                "operations/common-workflows/",
-                "quality/change-validation.md",
+                "foundation/",
+                "interfaces/",
+                "quality/",
             ],
             "required_topic_snippets": [
-                "Breadth Restored",
+                "Bijux Pollenomics Product Guide",
                 "runtime system model",
-                "runtime scope and ownership",
+                "repository scope and limits",
             ],
         },
         {
             "section_key": "data_handbook",
             "display_name": "Data handbook",
-            "landing_path": "docs/02-bijux-pollenomics-data/index.md",
+            "landing_path": "docs/public/pollenomics-data/index.md",
             "required_pages": [
-                "docs/02-bijux-pollenomics-data/overview/provenance-and-publication-linkage.md",
-                "docs/02-bijux-pollenomics-data/overview/source-selection-and-refresh.md",
-                "docs/02-bijux-pollenomics-data/overview/coverage-and-naming.md",
-                "docs/02-bijux-pollenomics-data/sources/landclim.md",
-                "docs/02-bijux-pollenomics-data/sources/neotoma.md",
-                "docs/02-bijux-pollenomics-data/sources/sead.md",
-                "docs/02-bijux-pollenomics-data/sources/raa.md",
-                "docs/02-bijux-pollenomics-data/sources/boundaries.md",
-                "docs/02-bijux-pollenomics-data/sources/aadr.md",
-                "docs/02-bijux-pollenomics-data/evidence/sample-records.md",
-                "docs/02-bijux-pollenomics-data/evidence/localities.md",
-                "docs/02-bijux-pollenomics-data/evidence/chronology.md",
-                "docs/02-bijux-pollenomics-data/evidence/coordinates.md",
-                "docs/02-bijux-pollenomics-data/outputs/published-reports.md",
-                "docs/02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md",
+                "docs/public/pollenomics-data/overview/provenance-and-publication-linkage.md",
+                "docs/public/pollenomics-data/overview/source-selection-and-refresh.md",
+                "docs/public/pollenomics-data/overview/coverage-and-naming.md",
+                "docs/public/pollenomics-data/sources/landclim.md",
+                "docs/public/pollenomics-data/sources/neotoma.md",
+                "docs/public/pollenomics-data/sources/sead.md",
+                "docs/public/pollenomics-data/sources/raa.md",
+                "docs/public/pollenomics-data/sources/boundaries.md",
+                "docs/public/pollenomics-data/sources/aadr.md",
+                "docs/public/pollenomics-data/evidence/sample-records.md",
+                "docs/public/pollenomics-data/evidence/localities.md",
+                "docs/public/pollenomics-data/evidence/chronology.md",
+                "docs/public/pollenomics-data/evidence/coordinates.md",
+                "docs/public/pollenomics-data/outputs/published-reports.md",
+                "docs/public/pollenomics-data/outputs/geographic-evidence-surfaces.md",
             ],
             "required_link_snippets": [
                 "overview/provenance-and-publication-linkage/",
@@ -3033,16 +3077,16 @@ def _docs_breadth_expectations() -> list[dict[str, object]]:
         {
             "section_key": "maintainer_handbook",
             "display_name": "Maintainer handbook",
-            "landing_path": "docs/03-bijux-pollenomics-maintain/index.md",
+            "landing_path": "docs/internal/maintain/index.md",
             "required_pages": [
-                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/repository-governance.md",
-                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/documentation-integrity.md",
-                "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
-                "docs/03-bijux-pollenomics-maintain/gh-workflows/verification-and-release.md",
-                "docs/03-bijux-pollenomics-maintain/makes/make-system-contracts.md",
+                "docs/internal/pollenomics-dev/repository-governance.md",
+                "docs/internal/pollenomics-dev/documentation-integrity.md",
+                "docs/internal/pollenomics-dev/release-support.md",
+                "docs/internal/maintain/gh-workflows/verification-and-release.md",
+                "docs/internal/maintain/makes/make-system-contracts.md",
             ],
             "required_link_snippets": [
-                "bijux-pollenomics-dev/repository-governance.md",
+                "pollenomics-dev/repository-governance.md",
                 "gh-workflows/verification-and-release.md",
                 "makes/make-system-contracts.md",
             ],

@@ -1,7 +1,7 @@
 {
   "schema_version": "repository-claim-audit.v1",
   "audit_scope": "full_repository",
-  "overall_ok": true,
+  "overall_ok": false,
   "counts": {
     "tracked_paper_count": 18,
     "papers_with_archived_supplements": 18,
@@ -25,25 +25,27 @@
     "archaeology_normalized_file_count": 4,
     "boundary_raw_file_count": 4,
     "boundary_normalized_file_count": 1,
-    "fieldwork_page_count": 2,
-    "source_explainer_count": 12,
-    "landing_page_count": 6,
+    "fieldwork_page_count": 0,
+    "source_explainer_count": 0,
+    "landing_page_count": 1,
     "zero_collection_summary_surfaces": []
   },
   "checks": [
     {
       "check_id": "repository_landings_name_pollenomics_first",
-      "passed": true,
+      "passed": false,
       "description": "Repository landings describe pollenomics and environmental evidence before the thin animal recovery slice.",
       "finding_count": 0,
       "findings": []
     },
     {
       "check_id": "source_family_pages_restore_non_adna_breadth",
-      "passed": true,
+      "passed": false,
       "description": "The docs tree keeps non-aDNA source families visible and directly linkable.",
-      "finding_count": 0,
-      "findings": []
+      "finding_count": 1,
+      "findings": [
+        "source_explainer_count_below_expected_floor"
+      ]
     },
     {
       "check_id": "animal_sample_review_freezes_broad_readiness",
@@ -68,10 +70,12 @@
     },
     {
       "check_id": "docs_scope_validation_keeps_repository_story_wide_enough",
-      "passed": true,
+      "passed": false,
       "description": "The runtime, data, and maintainer handbooks stay broad enough to explain the repository without collapsing into one narrow storyline.",
-      "finding_count": 0,
-      "findings": []
+      "finding_count": 1,
+      "findings": [
+        "docs_scope_validation_failed"
+      ]
     },
     {
       "check_id": "final_release_language_stays_refused",

@@ -1,7 +1,7 @@
 {
   "schema_version": "repository-credibility-dashboard.v1",
   "overall_posture": "credible_but_still_recovery_bound",
-  "average_score": 3.62,
+  "average_score": 3.38,
   "rows": [
     {
       "dimension_key": "architecture_clarity",
@@ -10,7 +10,7 @@
       "finding": "repository architecture and product-model surfaces now name the world-to-country publication model directly",
       "evidence_anchors": [
         "docs/report/repository_product_model.json",
-        "docs/01-bijux-pollenomics/foundation/end-state-product-model.md"
+        "docs/public/pollenomics/foundation/end-state-product-model.md"
       ]
     },
     {
@@ -27,7 +27,7 @@
       "dimension_key": "source_family_coverage",
       "display_name": "Source-family coverage",
       "score": 3,
-      "finding": "12 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
+      "finding": "0 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
       "evidence_anchors": [
         "docs/report/repository_source_family_matrix.json",
         "docs/report/repository_source_explainer_audit.json"
@@ -77,7 +77,7 @@
     {
       "dimension_key": "docs_usability",
       "display_name": "Docs usability",
-      "score": 4,
+      "score": 2,
       "finding": "handbook breadth holds and the report tree no longer carries link-farm pages at the root",
       "evidence_anchors": [
         "docs/report/report_narrative_quality_review.json",

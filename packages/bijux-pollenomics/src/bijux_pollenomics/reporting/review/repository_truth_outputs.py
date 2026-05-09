@@ -1,47 +1,49 @@
+"""Publish repository-truth review outputs into the report tree."""
+
 from __future__ import annotations
 
+from collections.abc import Callable
 import json
 from pathlib import Path
-from typing import Callable
 
 from ...foundation import (
     build_repository_atlas_input_audit,
+    build_repository_brutal_honesty_review,
     build_repository_claim_audit,
     build_repository_credibility_dashboard,
-    build_repository_brutal_honesty_review,
     build_repository_cross_domain_evidence_matrix,
-    build_repository_extension_review,
-    build_repository_final_release_refusal,
-    build_repository_docs_scope_validation,
     build_repository_docs_recovery_review,
     build_repository_docs_restoration_ledger,
+    build_repository_docs_scope_validation,
+    build_repository_extension_review,
+    build_repository_final_release_refusal,
     build_repository_governance_artifact_review,
     build_repository_output_sustainability_review,
     build_repository_product_model,
     build_repository_recovery_review,
+    build_repository_scientific_progress_audit,
     build_repository_source_acquisition_queue,
     build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
-    build_repository_scientific_progress_audit,
     build_repository_truth_posture,
     render_repository_atlas_input_audit_markdown,
+    render_repository_brutal_honesty_review_markdown,
     render_repository_claim_audit_markdown,
     render_repository_credibility_dashboard_markdown,
-    render_repository_brutal_honesty_review_markdown,
     render_repository_cross_domain_evidence_matrix_markdown,
-    render_repository_extension_review_markdown,
-    render_repository_final_release_refusal_markdown,
-    render_repository_docs_scope_validation_markdown,
     render_repository_docs_recovery_review_markdown,
     render_repository_docs_restoration_ledger_markdown,
+    render_repository_docs_scope_validation_markdown,
+    render_repository_extension_review_markdown,
+    render_repository_final_release_refusal_markdown,
     render_repository_governance_artifact_review_markdown,
     render_repository_output_sustainability_review_markdown,
     render_repository_product_model_markdown,
     render_repository_recovery_review_markdown,
+    render_repository_scientific_progress_audit_markdown,
     render_repository_source_acquisition_queue_markdown,
     render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
-    render_repository_scientific_progress_audit_markdown,
     render_repository_truth_posture_markdown,
 )
 from .sead_context_outputs import (
@@ -72,8 +74,7 @@ def publish_repository_truth_outputs(
     policy_payload = _build_repository_generated_output_policy(specs)
 
     payloads = {
-        spec["stem"]: (spec["payload"], spec["render_markdown"])
-        for spec in specs
+        spec["stem"]: (spec["payload"], spec["render_markdown"]) for spec in specs
     }
     payloads["repository_generated_output_policy"] = (
         policy_payload,
@@ -89,9 +90,7 @@ def publish_repository_truth_outputs(
             render_markdown(payload),
             encoding="utf-8",
         )
-    return {
-        f"{stem}_json": f"{stem}.json" for stem in payloads
-    } | {
+    return {f"{stem}_json": f"{stem}.json" for stem in payloads} | {
         f"{stem}_markdown": f"{stem}.md" for stem in payloads
     }
 
@@ -142,7 +141,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="cross-domain credibility dashboard",
             coexistence_rule="coexists with detailed audits and compresses them into release-facing dimension scores",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            docs_anchor="docs/internal/pollenomics-dev/release-support.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -170,7 +169,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="generated-output sustainability review",
             coexistence_rule="coexists with the generated-output policy and names where the repository is still paying complexity tax",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            docs_anchor="docs/internal/pollenomics-dev/release-support.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -184,7 +183,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="extensibility and interpretability review",
             coexistence_rule="coexists with the country onboarding contract and checks whether new work improves global extensibility without making local reasoning worse",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md",
+            docs_anchor="docs/internal/pollenomics-dev/future-country-onboarding-playbook.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -323,7 +322,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="claim audit",
             coexistence_rule="coexists with release refusal and prevents broader public language from outrunning governed evidence",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            docs_anchor="docs/internal/pollenomics-dev/release-support.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -337,7 +336,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="brutal honesty review",
             coexistence_rule="coexists with the credibility dashboard and compresses the harsher qualitative release questions into one recurring review",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            docs_anchor="docs/internal/pollenomics-dev/release-support.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -351,7 +350,7 @@ def _build_repository_output_specs(
             audience="maintainer_diagnostic",
             information_role="final release refusal",
             coexistence_rule="coexists with animal release gates and names the repository-wide reasons final release language is still refused",
-            docs_anchor="docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            docs_anchor="docs/internal/pollenomics-dev/release-support.md",
             test_anchor="packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         ),
         _repository_output_spec(
@@ -422,7 +421,9 @@ def _validate_repository_output_specs(specs: list[dict[str, object]]) -> None:
         missing = required_fields.difference(spec)
         if missing:
             missing_labels = ", ".join(sorted(missing))
-            raise ValueError(f"Repository truth output spec missing fields: {missing_labels}")
+            raise ValueError(
+                f"Repository truth output spec missing fields: {missing_labels}"
+            )
         stem = str(spec["stem"])
         if stem in seen:
             raise ValueError(f"Duplicate repository truth output stem: {stem}")
@@ -455,7 +456,7 @@ def _build_repository_generated_output_policy(
             "information_role": "generated-output publication policy",
             "root_location": "docs/report",
             "coexistence_rule": "coexists with the report portal and repository truth reviews as the rule that governs new root outputs",
-            "docs_anchor": "docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/release-support.md",
+            "docs_anchor": "docs/internal/pollenomics-dev/release-support.md",
             "test_anchor": "packages/bijux-pollenomics/tests/unit/test_repository_truth.py",
         }
     )
@@ -470,7 +471,7 @@ def _build_repository_generated_output_policy(
 
 
 def _render_repository_generated_output_policy_markdown(
-    payload: dict[str, object]
+    payload: dict[str, object],
 ) -> str:
     rows = "\n".join(
         f"| `{row['stem']}` | `{row['audience']}` | {row['information_role']} | `{row['root_location']}` | {row['coexistence_rule']} | `{row['docs_anchor']}` | `{row['test_anchor']}` |"
@@ -484,8 +485,8 @@ information role, root location, and coexistence logic are explicit in the code
 that publishes it, in reader or maintainer documentation, and in tests that
 will fail if the contract drifts.
 
-- Rule: {payload['rule']}
-- Governed outputs: `{payload['row_count']}`
+- Rule: {payload["rule"]}
+- Governed outputs: `{payload["row_count"]}`
 
 ## Governed Root Outputs
 

@@ -45,7 +45,7 @@ or custom scope code.
 - Published country roster: `packages/bijux-pollenomics/src/bijux_pollenomics/config.py`
 - Geography scope plan: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py`
 - Country bundle generation: `packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py`
-- Reader-facing playbook: `Future-Country Onboarding Playbook` at `docs/03-bijux-pollenomics-maintain/bijux-pollenomics-dev/future-country-onboarding-playbook.md`
+- Reader-facing playbook: `Future-Country Onboarding Playbook` at `docs/internal/pollenomics-dev/future-country-onboarding-playbook.md`
 
 ## Example
 

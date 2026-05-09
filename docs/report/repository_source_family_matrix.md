@@ -11,4 +11,4 @@
 | SEAD archaeology context | `contextual_domain` | 2195 | `tracked_context_layer` | SEAD provides environmental archaeology context and should not disappear behind animal intake work |
 | RAÄ archaeology context | `contextual_domain` | 761917 | `tracked_context_layer` | RAÄ remains Sweden-scoped archaeology context and should keep its explicit national scope |
 | Boundary geometry | `framing_domain` | 4 | `tracked_boundary_frame` | Boundary layers are one of the clearest repository surfaces and keep region framing honest |
-| Fieldwork evidence | `contextual_domain` | 2 | `narrow_documented_surface` | Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps |
+| Fieldwork evidence | `contextual_domain` | 0 | `narrow_documented_surface` | Fieldwork remains intentionally narrow and should stay explicit instead of being implied by other maps |
