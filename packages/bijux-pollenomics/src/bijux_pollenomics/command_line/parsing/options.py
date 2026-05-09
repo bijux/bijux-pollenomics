@@ -66,7 +66,7 @@ def add_context_root_argument(parser: argparse.ArgumentParser) -> None:
 
 
 def add_atlas_identity_arguments(parser: argparse.ArgumentParser) -> None:
-    """Add the shared atlas slug and title options."""
+    """Add the shared evidence-surface slug and title options."""
     parser.add_argument(
         "--name",
         default=DEFAULT_ATLAS_SLUG,

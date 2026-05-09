@@ -1383,7 +1383,7 @@ MAP_DOCUMENT_TEMPLATE = """
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
-              <span class="eyebrow">Nordic Atlas</span>
+              <span class="eyebrow">Evidence Surface</span>
               <div class="topbar-title-row">
                 <span class="topbar-title">__TITLE__</span>
                 <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>

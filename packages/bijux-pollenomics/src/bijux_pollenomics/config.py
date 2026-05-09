@@ -31,8 +31,8 @@ DATA_DEFAULTS = DataDefaults(
 )
 
 ATLAS_DEFAULTS = AtlasDefaults(
-    slug="nordic-atlas",
-    title="Nordic Evidence Atlas",
+    slug="world",
+    title="World Evidence Surface",
     published_countries=("Sweden", "Norway", "Finland", "Denmark"),
 )
 

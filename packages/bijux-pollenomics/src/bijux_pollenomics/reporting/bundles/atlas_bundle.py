@@ -25,6 +25,7 @@ from ...evidence import (
     write_atlas_evidence_surface_json,
     write_scientific_review_surface_json,
 )
+from ..geography import GeographicScope
 from ..aadr import summarize_localities
 from ..adna import build_tracked_animal_atlas_bundle
 from ..models import MultiCountryMapReport, SampleRecord
@@ -45,6 +46,7 @@ def publish_multi_country_map_bundle(
     country_sample_counts: dict[str, int],
     all_samples: tuple[SampleRecord, ...],
     context_root: Path | None,
+    geography_scope: GeographicScope | None,
     asset_base_path: str,
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
     build_context_layers_fn: Callable[
@@ -83,6 +85,7 @@ def publish_multi_country_map_bundle(
             data_root=context_root,
             output_dir=staging_output_dir,
             atlas_slug=report.slug,
+            geography_scope=geography_scope,
         )
         point_layers.extend(animal_bundle.point_layers)
         extra_artifacts.extend(animal_bundle.extra_artifacts)

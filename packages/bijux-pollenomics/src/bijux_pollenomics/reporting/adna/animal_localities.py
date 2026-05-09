@@ -7,6 +7,11 @@ from pathlib import Path
 
 from ...adna import AdnaLocalitySummary, build_species_support_matrix
 from ...adna.paths import adna_species_dir
+from ..geography import (
+    GeographicScope,
+    NORDIC_COUNTRIES,
+    scope_contains_political_entity,
+)
 from ..presentation.text import slugify
 from .atlas_evidence_rows import (
     AnimalAtlasCoordinateReview,
@@ -22,7 +27,6 @@ __all__ = [
     "load_tracked_animal_localities",
 ]
 
-_NORDIC_COUNTRIES = {"Sweden", "Norway", "Finland", "Denmark", "Iceland"}
 _ANIMAL_CHRONOLOGY_BUCKETS = (
     ("0-1000 BP", 0, 1000),
     ("1001-3000 BP", 1001, 3000),
@@ -62,12 +66,26 @@ def build_tracked_animal_atlas_bundle(
     data_root: Path,
     output_dir: Path,
     atlas_slug: str,
+    geography_scope: GeographicScope | None = None,
 ) -> AnimalAtlasBundle:
     """Build staged atlas point layers from traceable animal atlas evidence rows."""
     species_dir = adna_species_dir(Path(data_root))
-    evidence_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+    evidence_rows = tuple(
+        row
+        for row in build_tracked_animal_atlas_evidence_rows(data_root)
+        if geography_scope is None
+        or scope_contains_political_entity(geography_scope, row.political_entity)
+    )
     coordinate_review = build_tracked_animal_atlas_coordinate_review(evidence_rows)
-    visible_localities = load_tracked_animal_mappable_localities(data_root)
+    visible_localities = tuple(
+        locality
+        for locality in load_tracked_animal_mappable_localities(data_root)
+        if geography_scope is None
+        or scope_contains_political_entity(
+            geography_scope,
+            str(locality.identity.political_entity or ""),
+        )
+    )
     grouped_rows: dict[str, list[AnimalAtlasEvidenceRow]] = {}
     for row in evidence_rows:
         grouped_rows.setdefault(row.species_latin_name, []).append(row)
@@ -450,7 +468,7 @@ def _warning_rows_for(
         warnings.append("Comparator-only evidence: use for comparison, not domesticated-core claims.")
     if not row.nordic_inclusion:
         warnings.append("This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support.")
-    elif row.political_entity not in _NORDIC_COUNTRIES:
+    elif row.political_entity not in NORDIC_COUNTRIES:
         warnings.append("Nordic relevance is regional or transregional rather than one named Nordic country.")
     if row.support_class in {"too_weak", "rejected"}:
         warnings.append("This locality stays visible with an explicit weak or rejected support class.")

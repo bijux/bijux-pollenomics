@@ -6,6 +6,10 @@ import json
 from pathlib import Path
 
 from ...adna.paths import adna_species_dir
+from ..geography import (
+    REGIONAL_COUNTRY_ASSIGNMENTS,
+    TERRITORY_COUNTRY_ASSIGNMENTS,
+)
 from ..presentation.text import escape_pipes
 from .atlas_evidence_rows import (
     AnimalAtlasEvidenceRow,
@@ -23,14 +27,6 @@ __all__ = [
     "write_country_animal_samples_csv",
     "write_country_animal_species_csv",
 ]
-
-_REGIONAL_COUNTRY_ASSIGNMENTS: dict[str, tuple[str, ...]] = {
-    "Baltic Sea Region": ("Sweden", "Denmark", "Finland"),
-}
-_TERRITORY_COUNTRY_ASSIGNMENTS: dict[str, str] = {
-    "Svalbard": "Norway",
-}
-
 
 @dataclass(frozen=True)
 class CountryAnimalOutputBundle:
@@ -80,7 +76,7 @@ def build_country_animal_output_bundle(
     version: str,
     generated_on: str,
 ) -> CountryAnimalOutputBundle:
-    """Assign tracked animal atlas evidence rows into one public Nordic country bundle."""
+    """Assign tracked animal atlas evidence rows into one governed country bundle."""
     evidence_rows = build_tracked_animal_atlas_evidence_rows(data_root)
     sample_lookup = _load_country_sample_lookup(Path(data_root))
     locality_rows: list[dict[str, object]] = []
@@ -563,7 +559,7 @@ def _assign_evidence_row_to_country(
             "confidence": "exact_country",
             "reason": f"The tracked locality lead is already labeled `{country}`.",
         }
-    territory_owner = _TERRITORY_COUNTRY_ASSIGNMENTS.get(political_entity)
+    territory_owner = TERRITORY_COUNTRY_ASSIGNMENTS.get(political_entity)
     if territory_owner == country:
         return {
             "confidence": "territory_projection",
@@ -572,7 +568,7 @@ def _assign_evidence_row_to_country(
                 f"published under `{country}` as an explicit territorial projection."
             ),
         }
-    regional_countries = _REGIONAL_COUNTRY_ASSIGNMENTS.get(political_entity, ())
+    regional_countries = REGIONAL_COUNTRY_ASSIGNMENTS.get(political_entity, ())
     if country in regional_countries:
         return {
             "confidence": "regional_projection",
