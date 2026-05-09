@@ -21,6 +21,7 @@ from ..geography import (
     render_geography_subset_validation_markdown,
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
+from ..presentation import publish_report_portal
 from .paths import AtlasBundlePaths, build_country_bundle_paths
 
 __all__ = ["publish_published_reports_tree"]
@@ -181,6 +182,7 @@ def publish_published_reports_tree(
         render_public_animal_output_audit_markdown(animal_output_audit),
         encoding="utf-8",
     )
+    report_portal_artifacts = publish_report_portal(staging_output_root)
     repository_claim_audit = json.loads(
         (staging_output_root / "repository_claim_audit.json").read_text(
             encoding="utf-8"
@@ -188,6 +190,7 @@ def publish_published_reports_tree(
     )
     if not bool(repository_claim_audit.get("overall_ok")):
         raise ValueError("Repository claim audit failed")
+    scientific_artifacts.update(report_portal_artifacts)
     return generated_report
 
 
