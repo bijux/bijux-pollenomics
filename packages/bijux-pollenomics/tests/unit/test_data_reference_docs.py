@@ -76,7 +76,7 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertIn("shared-normalization.md", source_index)
         self.assertIn("non-adna-explainer-recovery.md", source_index)
         self.assertIn("output-surface-classes.md", outputs_index)
-        self.assertIn("nordic-atlas-inputs.md", outputs_index)
+        self.assertIn("geographic-input-surfaces.md", outputs_index)
 
 
 if __name__ == "__main__":
