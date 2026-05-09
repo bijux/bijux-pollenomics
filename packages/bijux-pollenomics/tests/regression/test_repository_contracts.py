@@ -8,6 +8,23 @@ import unittest
 import pytest
 import yaml
 
+
+class MkDocsLoader(yaml.SafeLoader):
+    """SafeLoader that tolerates MkDocs-specific tags in config files."""
+
+
+def _construct_unknown(loader: MkDocsLoader, tag_suffix: str, node: yaml.Node):
+    if isinstance(node, yaml.ScalarNode):
+        return loader.construct_scalar(node)
+    if isinstance(node, yaml.SequenceNode):
+        return loader.construct_sequence(node)
+    if isinstance(node, yaml.MappingNode):
+        return loader.construct_mapping(node)
+    return None
+
+
+MkDocsLoader.add_multi_constructor("", _construct_unknown)
+
 PACKAGE_ROOT = Path(__file__).resolve().parents[2]
 REPO_ROOT = Path(__file__).resolve().parents[4]
 WORKFLOW_URL_RE = re.compile(
@@ -30,9 +47,10 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class RepositoryContractRegressionTests(unittest.TestCase):
-    def test_shared_mkdocs_redirect_targets_exist(self) -> None:
-        config = yaml.unsafe_load(
-            (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
+    def test_root_mkdocs_redirect_targets_exist(self) -> None:
+        config = yaml.load(
+            (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8"),
+            Loader=MkDocsLoader,
         )
         redirect_maps = config["plugins"][2]["redirects"]["redirect_maps"]
 
@@ -50,6 +68,18 @@ class RepositoryContractRegressionTests(unittest.TestCase):
         )
 
         self.assertEqual(config["exclude_docs"].strip(), "badges.md\ninternal/**")
+
+    def test_shared_mkdocs_keeps_generic_shell_defaults(self) -> None:
+        config = yaml.unsafe_load(
+            (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
+        )
+        bijux = config["extra"]["bijux"]
+
+        self.assertEqual(bijux["repository"], "bijux")
+        self.assertEqual(bijux["nav_mode"], "default")
+        self.assertEqual(bijux["theme_key"], "bijux:theme")
+        self.assertNotIn("docs_package", bijux)
+        self.assertNotIn("hub_links", bijux)
 
     def test_generated_data_readme_targets_existing_docs_pages(self) -> None:
         readme_text = (REPO_ROOT / "data" / "README.md").read_text(encoding="utf-8")
