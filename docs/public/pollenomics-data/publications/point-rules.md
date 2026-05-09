@@ -9,8 +9,8 @@ last_reviewed: 2026-05-09
 
 # Point Rules
 
-This page explains the contract that turns evidence rows into visible map
-points.
+This page explains why a record is allowed to appear as a point on the public
+map.
 
 Readers often ask the most important atlas question in a very simple form:
 "why is this point allowed to exist?" The answer should never be "because the
@@ -25,6 +25,21 @@ map generator put it there." The answer has to come from stable evidence rules.
 
 Those rules keep the visible map tied to reviewable evidence rather than to the
 desire to fill a geography with more points.
+
+## What A Published Point Does Mean
+
+- the repository decided the record can be shown under explicit conditions
+- the point cleared a chain of identity, locality, chronology, and coordinate
+  checks
+- the public product can point the reader back to the narrower evidence if the
+  claim is challenged
+
+## What A Published Point Does Not Mean
+
+- that every visible point is equally strong
+- that the coordinate is always direct from one source table
+- that the map view is the best place to judge chronology or provenance
+- that an attractive point is safe to over-interpret
 
 ## What Questions These Rules Answer
 
@@ -48,6 +63,13 @@ Use this page together with:
   [localities](../evidence/localities.md), and
   [coordinates](../evidence/coordinates.md) if the challenge is about the
   evidence itself rather than the map behavior
+
+## Why These Rules Matter Publicly
+
+- they stop map completeness from becoming more important than evidence quality
+- they keep the atlas answer tied to the narrower record
+- they make absence meaningful when the repository refuses to publish a weak
+  point
 
 ## What This Page Protects Against
 
