@@ -4,13 +4,13 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-05-08
+last_reviewed: 2026-05-09
 ---
 
 # Evidence
 
-This section explains how animal ancient DNA claims become reviewable evidence
-inside the repository.
+This section explains how ancient DNA claims become reviewable evidence inside
+the repository.
 
 The public-facing question is usually simple: why is this sample, locality,
 date, or point shown here at all? The answer is not stored in one file. It is
@@ -40,7 +40,7 @@ flowchart LR
 - [Sample records](sample-records.md) for sample identity and lineage
 - [Localities](localities.md) for site-level place claims
 - [Chronology](chronology.md) for date evidence and normalization status
-- [Temporal Semantics](temporal-semantics.md) for cross-family comparison posture and uncertainty
+- [Temporal semantics](temporal-semantics.md) for cross-family comparison posture and uncertainty
 - [Coordinates](coordinates.md) for why a row maps as a point or stays blocked
 
 ## Reader Rule
