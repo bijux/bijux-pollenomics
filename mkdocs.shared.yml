@@ -93,7 +93,7 @@ plugins:
         data-sources/raa.md: 02-bijux-pollenomics-data/sources/raa.md
         data-sources/sead.md: 02-bijux-pollenomics-data/sources/sead.md
         outputs/index.md: 02-bijux-pollenomics-data/outputs/index.md
-        outputs/nordic-evidence-atlas.md: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
+        outputs/nordic-evidence-atlas.md: 02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md
         outputs/country-reports.md: 02-bijux-pollenomics-data/outputs/published-reports.md
         outputs/artifact-lifecycle.md: 02-bijux-pollenomics-data/outputs/index.md
         outputs/published-artifacts.md: 02-bijux-pollenomics-data/outputs/published-reports.md

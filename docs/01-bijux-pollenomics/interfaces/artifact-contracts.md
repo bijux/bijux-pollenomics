@@ -14,8 +14,8 @@ in and reviewed like code.
 
 ## Main Artifact Families
 
-- country bundles under `docs/report/<country-slug>/`
-- the shared atlas under `docs/report/nordic-atlas/`
+- country bundles under `docs/report/countries/<country-slug>/`
+- the world surface under `docs/report/world/` and regional surfaces under `docs/report/regions/`
 - root-level report artifacts under `docs/report/` that summarize public animal
   coverage, chronology overlap, first appearance, and scenario posture
 - report summaries and map payloads produced by the reporting package
@@ -24,8 +24,8 @@ in and reviewed like code.
 
 ## Direct Reader Anchors
 
-- [shared atlas map](../../report/nordic-atlas/nordic-atlas_map.html)
-- [shared atlas evidence rows](../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
+- [world map](../../report/world/world_map.html)
+- [world animal evidence rows](../../report/world/world_animal_atlas_evidence.json)
 - [Sweden country bundle](../../report/sweden/README.md)
 - [animal atlas readiness](../../report/animal_atlas_readiness.md)
 - [animal country coverage](../../report/animal_country_species_coverage.md)
@@ -39,7 +39,7 @@ in and reviewed like code.
 
 - `reporting/bundles/paths.py` defines the named path families for country and atlas bundles
 - country bundles include `README.md`, sample tables, species tables, locality GeoJSON, citations, warnings, and summary JSON outputs
-- the shared atlas includes the map HTML document, animal evidence rows, point traceability, and summary JSON outputs
+- the world surface includes the map HTML document, animal evidence rows, point traceability, and summary JSON outputs
 - root-level report artifacts include `animal_output_audit.*`, `animal_output_honesty.*`, `animal_atlas_readiness.*`, `animal_atlas_exclusion_report.*`, `animal_country_species_coverage.*`, repository truth reviews, chronology overlap artifacts, and scenario posture artifacts
 
 ## First Proof Check

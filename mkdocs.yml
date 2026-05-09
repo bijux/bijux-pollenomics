@@ -107,8 +107,11 @@ nav:
       - Output Surface Classes: 02-bijux-pollenomics-data/outputs/output-surface-classes.md
       - Collection Summary: 02-bijux-pollenomics-data/outputs/collection-summary.md
       - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
-      - Nordic Atlas Outputs: 02-bijux-pollenomics-data/outputs/nordic-atlas.md
-      - Nordic Atlas Inputs: 02-bijux-pollenomics-data/outputs/nordic-atlas-inputs.md
+      - Geographic Evidence Surfaces: 02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md
+      - Geographic Input Surfaces: 02-bijux-pollenomics-data/outputs/geographic-input-surfaces.md
+      - Geographic Point Publication: 02-bijux-pollenomics-data/outputs/geographic-point-publication.md
+      - Geographic Filters and Inspection: 02-bijux-pollenomics-data/outputs/geographic-filters-and-inspection.md
+      - Geographic Limits and Honesty: 02-bijux-pollenomics-data/outputs/geographic-limits-and-honesty.md
       - Normalized AADR Outputs: 02-bijux-pollenomics-data/outputs/normalized-aadr.md
       - Normalized Boundary Outputs: 02-bijux-pollenomics-data/outputs/normalized-boundaries.md
       - Normalized LandClim Outputs: 02-bijux-pollenomics-data/outputs/normalized-landclim.md

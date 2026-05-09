@@ -19,12 +19,12 @@ them.
 
 ## Start Here
 
-- [published reports](published-reports.md) for country-level public bundles
-- [Nordic atlas outputs](nordic-atlas.md) for the shared map-facing animal layer
-- [Nordic atlas point publication](nordic-atlas-point-publication.md) for the sample-to-point contract
-- [Nordic atlas filters and popups](nordic-atlas-filters-and-popups.md) for the visible inspection surface
-- [Nordic atlas limits and honesty](nordic-atlas-limits-and-honesty.md) for blocked, thin, and excluded animal rows
-- [Nordic atlas inputs](nordic-atlas-inputs.md) for the layer-by-layer source and refresh audit
+- [published reports](published-reports.md) for the world, regional, and country publication tree
+- [geographic evidence surfaces](geographic-evidence-surfaces.md) for the world-facing and regional map bundles
+- [geographic point publication](geographic-point-publication.md) for the sample-to-point contract
+- [geographic filters and inspection](geographic-filters-and-inspection.md) for the visible inspection surface
+- [geographic limits and honesty](geographic-limits-and-honesty.md) for blocked, thin, and excluded animal rows
+- [geographic input surfaces](geographic-input-surfaces.md) for the layer-by-layer source and refresh audit
 - [output surface classes](output-surface-classes.md) for the difference between pollen context, contextual support, recovery outputs, and scaffolding
 - [collection summary](collection-summary.md) for the refresh ledger contract
 - [data architecture handbook](../overview/data-architecture-handbook.md) for the source-family and file-contract model behind those outputs

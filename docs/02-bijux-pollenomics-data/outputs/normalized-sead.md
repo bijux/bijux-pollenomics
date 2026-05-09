@@ -44,5 +44,5 @@ replace source-specific interpretation.
 ## First Proof Check
 
 - inspect `data/sead/normalized/`
-- inspect `docs/report/nordic-atlas/nordic_environmental_sites.geojson`
+- inspect `docs/report/regions/nordic/nordic_environmental_sites.geojson`
 - compare with [SEAD](../sources/sead.md) when the question is about the upstream family rather than the output shape

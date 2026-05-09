@@ -35,7 +35,7 @@ reviewable command surface explicit.
 
 - `collect-data <sources...>` collects tracked datasets into `data/`
 - `report-country <country>` publishes one country bundle from AADR metadata
-- `report-multi-country-map <countries...>` builds the shared atlas for a
+- `report-multi-country-map <countries...>` builds one shared evidence surface for a
   chosen country set
 - `publish-reports` regenerates the checked-in publication bundle set using the
   repository defaults
