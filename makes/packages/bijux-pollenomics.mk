@@ -11,6 +11,13 @@ ENABLE_PYDOCSTYLE := 0
 TEST_PATHS_UNIT := tests/unit
 TEST_PATHS_E2E := tests/e2e
 TEST_PATHS_REGRESSION := tests/regression
+TEST_GENERATED_ARTIFACTS_PATH := tests
+TEST_MAIN_ARGS := -m "not generated_artifacts"
+TEST_UNIT_DIR_ARGS := -m "not slow and not generated_artifacts" --maxfail=1 -q
+TEST_UNIT_FALLBACK_ARGS := -k "not e2e and not integration and not functional" -m "not slow and not generated_artifacts" --maxfail=1 -q
+TEST_E2E_ARGS := -m "not generated_artifacts" --maxfail=1 -q
+TEST_REGRESSION_ARGS := -m "regression and not generated_artifacts" --maxfail=1 -q
+TEST_GENERATED_ARTIFACTS_ARGS := -m "generated_artifacts" --maxfail=1 -q
 TEST_CI_TARGETS := test-unit test-regression test-e2e
 QUALITY_PATHS = src tests
 QUALITY_MYPY_CONFIG = $(MONOREPO_ROOT)/configs/mypy.ini
@@ -64,5 +71,32 @@ build-install-smoke:
 	"$$tmp_root/smoke/bin/bijux-pollenomics" --version; \
 	"$$tmp_root/smoke/bin/bijux-pollenomics" --help >/dev/null
 .PHONY: build-install-smoke
+
+test-generated-artifacts:
+	@echo "→ Running generated-artifact tests only"
+	$(call run_make_targets,$(TEST_PRE_TARGETS),$(TEST_SELF_MAKE))
+	@$(PYTEST) $(PYTEST_INFO_FLAGS) --version
+	@rm -rf "$(TMP_DIR_ABS)"
+	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
+	$(call clean_paths,$(TEST_CLEAN_PATHS))
+	@if [ -n "$(TEST_GENERATED_ARTIFACTS_PATH)" ] && [ -d "$(TEST_GENERATED_ARTIFACTS_PATH)" ] && find "$(TEST_GENERATED_ARTIFACTS_PATH)" -type f -name 'test_*.py' | grep -q .; then \
+	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
+	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
+	    PYTHONDONTWRITEBYTECODE=1 \
+	    COVERAGE_FILE="$(COV_DATA_ABS)" \
+	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
+	    $(TEST_PYCACHE_ENV) \
+	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" $(TEST_PATH_ARGS) $(TEST_GENERATED_ARTIFACTS_ARGS) $(PYTEST_FLAGS)' ); \
+	else \
+	  echo "   • no $(TEST_GENERATED_ARTIFACTS_PATH); skipping"; \
+	fi
+	$(call clean_paths,$(TEST_CLEAN_PATHS))
+.PHONY: test-generated-artifacts
+
+test-full:
+	@$(SELF_MAKE) test
+	@$(SELF_MAKE) test-generated-artifacts
+	@echo "✔ Full test categories completed"
+.PHONY: test-full
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk

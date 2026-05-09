@@ -3,7 +3,6 @@ TEST_PATHS_UNIT           ?= tests/unit
 TEST_PATHS_E2E            ?=
 TEST_PATHS_REGRESSION     ?=
 TEST_PATHS_EVALUATION     ?=
-TEST_GENERATED_ARTIFACTS_PATH ?= $(TEST_PATHS)
 TEST_REAL_LOCAL_PATH      ?=
 
 TEST_ARTIFACTS_DIR        ?= $(PROJECT_ARTIFACTS_DIR)/test
@@ -16,13 +15,12 @@ COV_XML                   ?= $(TEST_ARTIFACTS_DIR)/coverage.xml
 ENABLE_BENCH              ?= 1
 PYTEST_ADDOPTS_EXTRA      ?=
 TEST_PRE_TARGETS          ?=
-TEST_MAIN_ARGS            ?= -m "not generated_artifacts"
-TEST_UNIT_DIR_ARGS        ?= -m "not slow and not generated_artifacts" --maxfail=1 -q
-TEST_UNIT_FALLBACK_ARGS   ?= -k "not e2e and not integration and not functional" -m "not slow and not generated_artifacts" --maxfail=1 -q
-TEST_E2E_ARGS             ?= -m "not generated_artifacts" --maxfail=1 -q
-TEST_REGRESSION_ARGS      ?= -m "regression and not generated_artifacts" --maxfail=1 -q
+TEST_MAIN_ARGS            ?=
+TEST_UNIT_DIR_ARGS        ?= -m "not slow" --maxfail=1 -q
+TEST_UNIT_FALLBACK_ARGS   ?= -k "not e2e and not integration and not functional" -m "not slow" --maxfail=1 -q
+TEST_E2E_ARGS             ?= -m "e2e" --maxfail=1 -q
+TEST_REGRESSION_ARGS      ?= -m "regression" --maxfail=1 -q
 TEST_EVALUATION_ARGS      ?= -m "evaluation" --maxfail=1 -q
-TEST_GENERATED_ARTIFACTS_ARGS ?= -m "generated_artifacts" --maxfail=1 -q
 TEST_REAL_LOCAL_ARGS      ?= -m "real_local" -s -p no:cov
 TEST_CI_TARGETS           ?= test-unit
 TEST_RESET_PYCACHE        ?= 0
@@ -72,7 +70,6 @@ TEST_PATHS_UNIT_ABS       := $(abspath $(TEST_PATHS_UNIT))
 TEST_PATHS_E2E_ABS        := $(abspath $(TEST_PATHS_E2E))
 TEST_PATHS_REGRESSION_ABS := $(abspath $(TEST_PATHS_REGRESSION))
 TEST_PATHS_EVALUATION_ABS := $(abspath $(TEST_PATHS_EVALUATION))
-TEST_GENERATED_ARTIFACTS_ABS := $(abspath $(TEST_GENERATED_ARTIFACTS_PATH))
 TEST_REAL_LOCAL_ABS       := $(abspath $(TEST_REAL_LOCAL_PATH))
 TEST_SOURCE_PATH_ABS      := $(subst $(space),:,$(foreach path,$(TEST_SOURCE_PATHS),$(abspath $(path))))
 TEST_COVERAGE_SOURCE_ABS  := $(foreach path,$(TEST_COVERAGE_SOURCE),$(abspath $(path)))
@@ -89,7 +86,6 @@ TEST_PATHS_UNIT_ARG       := $(call to_pytest_path,$(TEST_PATHS_UNIT))
 TEST_PATHS_E2E_ARG        := $(call to_pytest_path,$(TEST_PATHS_E2E))
 TEST_PATHS_REGRESSION_ARG := $(call to_pytest_path,$(TEST_PATHS_REGRESSION))
 TEST_PATHS_EVALUATION_ARG := $(call to_pytest_path,$(TEST_PATHS_EVALUATION))
-TEST_GENERATED_ARTIFACTS_ARG := $(call to_pytest_path,$(TEST_GENERATED_ARTIFACTS_PATH))
 TEST_REAL_LOCAL_ARG       := $(call to_pytest_path,$(TEST_REAL_LOCAL_PATH))
 TEST_COVERAGE_TARGET_ARGS := $(foreach path,$(TEST_COVERAGE_TARGETS),"$(call to_pytest_path,$(path))")
 
@@ -106,7 +102,7 @@ PYTEST_FLAGS = \
   $(PYTEST_ADDOPTS_EXTRA)
 PYTEST_INFO_FLAGS = -o cache_dir="$(CACHE_DIR_ABS)"
 
-.PHONY: test test-full test-unit test-e2e test-regression test-evaluation test-generated-artifacts test-ci test-clean test-syntax coverage-core real-local
+.PHONY: test test-unit test-e2e test-regression test-evaluation test-ci test-clean test-syntax coverage-core real-local
 
 test:
 	@echo "→ Running full test suite on $(TEST_PATHS)"
@@ -201,26 +197,6 @@ test-regression:
 	@rm -rf "$(TMP_DIR_ABS)"
 	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
 	@rm -rf $(TEST_CLEAN_PATHS) || true
-
-test-generated-artifacts:
-	@echo "→ Running generated-artifact tests only"
-	$(call run_make_targets,$(TEST_PRE_TARGETS),$(TEST_SELF_MAKE))
-	@$(PYTEST) $(PYTEST_INFO_FLAGS) --version
-	@rm -rf "$(TMP_DIR_ABS)"
-	@mkdir -p "$(TEST_ARTIFACTS_DIR)" "$(HYPOTHESIS_DB_DIR)" "$(BENCHMARK_DIR)" "$(TMP_DIR)" "$(COV_HTML_ABS)"
-	$(call clean_paths,$(TEST_CLEAN_PATHS))
-	@if [ -n "$(TEST_GENERATED_ARTIFACTS_PATH)" ] && [ -d "$(TEST_GENERATED_ARTIFACTS_PATH)" ] && find "$(TEST_GENERATED_ARTIFACTS_PATH)" -type f -name 'test_*.py' | grep -q .; then \
-	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
-	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
-	    PYTHONDONTWRITEBYTECODE=1 \
-	    COVERAGE_FILE="$(COV_DATA_ABS)" \
-	    HYPOTHESIS_DATABASE_DIRECTORY="$(HYPOTHESIS_DB_ABS)" \
-	    $(TEST_PYCACHE_ENV) \
-	    sh -c '$(PYTEST) --rootdir "$(PYTEST_ROOTDIR_ABS)" -c "$(PYTEST_INI_ABS)" "$(TEST_GENERATED_ARTIFACTS_ARG)" $(TEST_GENERATED_ARTIFACTS_ARGS) $(PYTEST_FLAGS)' ); \
-	else \
-	  echo "   • no $(TEST_GENERATED_ARTIFACTS_PATH); skipping"; \
-	fi
-	$(call clean_paths,$(TEST_CLEAN_PATHS))
 	@if [ -n "$(TEST_PATHS_REGRESSION)" ] && [ -d "$(TEST_PATHS_REGRESSION)" ] && find "$(TEST_PATHS_REGRESSION)" -type f -name 'test_*.py' | grep -q .; then \
 	  ( cd "$(PYTEST_ROOTDIR_ABS)" && \
 	    PYTHONPATH="$(TEST_SOURCE_PATH_ABS)$${PYTHONPATH:+:$${PYTHONPATH}}" \
@@ -256,11 +232,6 @@ test-evaluation:
 
 test-ci: $(TEST_CI_TARGETS)
 	@echo "✔ CI test categories completed"
-
-test-full:
-	@$(SELF_MAKE) test
-	@$(SELF_MAKE) test-generated-artifacts
-	@echo "✔ Full test categories completed"
 
 test-clean:
 	@echo "→ Cleaning test artifacts"
