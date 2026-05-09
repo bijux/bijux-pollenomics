@@ -45,4 +45,4 @@ questions by itself.
 
 - `data/neotoma/normalized/nordic_pollen_sites.csv`
 - `data/neotoma/normalized/nordic_pollen_sites.geojson`
-- shared atlas layers under `docs/report/nordic-atlas/`
+- world surface layers under `docs/report/world/`

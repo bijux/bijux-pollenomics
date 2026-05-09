@@ -27,7 +27,7 @@ flowchart TB
 
 Boundary data is not scientific evidence, but it shapes how readers see every
 other mapped layer. It defines the country framing used across reports and the
-Nordic atlas.
+Nordic evidence surface.
 
 ## What This Source Adds
 
@@ -45,5 +45,5 @@ ancient DNA, or archaeology on its own.
 ## Downstream Outputs
 
 - `data/boundaries/normalized/nordic_country_boundaries.geojson`
-- shared geometry in `docs/report/nordic-atlas/`
+- shared geometry in `docs/report/world/`
 - country filtering behavior reused by publication bundles

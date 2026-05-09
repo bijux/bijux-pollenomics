@@ -77,7 +77,7 @@ state of the data.
 - Which recovered sample rows already have normalized chronology, which still keep text-only dating claims, and which remain unresolved
 - Which tracked papers and projects are blocked at paper capture, supplement ingestion, sample identity extraction, site extraction, or chronology extraction
 
-The intake surface is broader than the Nordic atlas on purpose. Many projects
+The intake surface is broader than the Nordic evidence surface on purpose. Many projects
 still matter to the repository even when they are not yet ready for map
 publication.
 

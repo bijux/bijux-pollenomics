@@ -33,7 +33,7 @@ turns into tracked sample outputs and public reports.
 ## What This Source Adds
 
 - versioned metadata under `data/aadr/<version>/`, including the current `data/aadr/v66/` release tree
-- human sample-locality context used in reports and the shared atlas
+- human sample-locality context used in reports and the world surface
 - a clear bridge between tracked source refreshes and visible publication
   changes
 
@@ -46,6 +46,6 @@ does not claim to perform population-genetic analysis inside this repository.
 ## Downstream Outputs
 
 - country-facing bundles under `docs/report/<country-slug>/`
-- atlas-facing files under `docs/report/nordic-atlas/`
+- atlas-facing files under `docs/report/world/`
 - versioned source records that stay visible in the tracked tree instead of
   disappearing behind one merged export

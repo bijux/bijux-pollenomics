@@ -9,7 +9,7 @@ last_reviewed: 2026-05-07
 
 # Pollenomics Engine Roadmap
 
-The current repository is a tracked evidence system with one shared atlas and
+The current repository is a tracked evidence system with one world surface and
 country bundles. That is a legitimate starting point, but it is not the end
 state. The end state is a pollenomics runtime that can compare pollen,
 archaeological context, and ancient DNA evidence without losing provenance or
@@ -22,7 +22,7 @@ Today the repository can:
 - collect tracked evidence from AADR metadata, LandClim, Neotoma, SEAD, RAÄ,
   boundaries, and fieldwork records
 - normalize those sources into reviewed files under `data/`
-- publish country bundles and one shared Nordic atlas under `docs/report/`
+- publish country bundles and one world and regional geography tree under `docs/report/`
 - expose the current weakness of the animal aDNA recovery state instead of
   pretending that thin atlas output already proves broad coverage
 

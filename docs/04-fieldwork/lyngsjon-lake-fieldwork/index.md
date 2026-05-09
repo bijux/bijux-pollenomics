@@ -51,7 +51,7 @@ media that can be inspected without leaving the docs surface.
 - atlas layer label: `Fieldwork documentation`
 - atlas point title: `Lyngsjön Lake field sampling`
 
-[Open the Nordic Evidence Atlas](https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html){ .md-button .md-button--primary }
+[Open the Nordic evidence surface](https://bijux.io/bijux-pollenomics/report/world/world_map.html){ .md-button .md-button--primary }
 [Open the field video](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.mp4){ .md-button }
 [Open the field photo](https://bijux.io/bijux-pollenomics/gallery/2026-02-26-data-collection.JPG){ .md-button }
 

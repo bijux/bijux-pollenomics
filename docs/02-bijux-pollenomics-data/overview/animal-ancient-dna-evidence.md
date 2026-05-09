@@ -48,7 +48,7 @@ answerable:
 | What locality claim is actually supported? | project sample sites and normalized site evidence | `data/adna/species/ovis_aries/normalized/site_evidence.json` |
 | What date claim survives review? | project chronology and chronology audits | `data/adna/governance/source_library/project_sample_chronology_review.json` |
 | Why is a point mapped or blocked? | coordinate provenance | `data/adna/species/ovis_aries/normalized/coordinate_provenance.json` |
-| Where does the public row appear? | country reports and atlas outputs | [`docs/report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json`](../../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json) |
+| Where does the public row appear? | country reports and geography outputs | [`docs/report/world/world_animal_atlas_evidence.json`](../../report/world/world_animal_atlas_evidence.json) |
 
 ## One Concrete Reading Path
 

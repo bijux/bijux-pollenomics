@@ -23,7 +23,7 @@ flowchart TB
     neotoma["Neotoma"]
     raa["RAÄ"]
     sead["SEAD"]
-    atlas["shared atlas view"]
+    atlas["world evidence surface"]
 
     aadr --> atlas
     boundaries --> atlas

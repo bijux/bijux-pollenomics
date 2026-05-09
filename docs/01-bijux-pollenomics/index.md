@@ -13,7 +13,7 @@ last_reviewed: 2026-05-07
 checked-in evidence surfaces across pollen context, environmental archaeology,
 boundary framing, fieldwork material, and ancient DNA context. It does one
 durable job: collect tracked source families, normalize them into reviewable
-files, and publish country bundles plus the shared Nordic atlas as downstream
+files, and publish country bundles plus the world and regional geography tree as downstream
 views.
 
 <div class="bijux-quicklinks">

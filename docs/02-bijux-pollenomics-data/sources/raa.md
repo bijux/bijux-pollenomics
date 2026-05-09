@@ -45,4 +45,4 @@ as direct evidence outside the Swedish surface it actually covers.
 
 - `data/raa/normalized/sweden_archaeology_density.geojson`
 - `data/raa/normalized/sweden_archaeology_layer.json`
-- Swedish atlas context under `docs/report/nordic-atlas/`
+- Swedish atlas context under `docs/report/world/`

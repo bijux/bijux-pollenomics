@@ -23,7 +23,7 @@ flowchart TB
     framing["boundary and fieldwork framing"]
     samples["sample-backed animal evidence"]
     reports["country bundles and review surfaces"]
-    atlas["shared Nordic atlas"]
+    atlas["world and regional geography tree"]
 
     pollen --> reports
     archaeology --> reports

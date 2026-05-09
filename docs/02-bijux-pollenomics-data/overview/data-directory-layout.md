@@ -51,8 +51,8 @@ different jobs:
 - `data/adna/governance/source_library/`
 - `data/adna/governance/surface_role_registry.json`
 - `data/adna/governance/source_library/project_surface_contract.json`
-- [`docs/report/sweden/`](../../report/sweden/README.md)
-- [`docs/report/nordic-atlas/`](../../report/nordic-atlas/nordic-atlas_map.html)
+- [`docs/report/countries/sweden/`](../../report/countries/sweden/README.md)
+- [`docs/report/world/`](../../report/world/world_map.html)
 
 ## Why This Layout Matters
 

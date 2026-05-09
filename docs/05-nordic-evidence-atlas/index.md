@@ -24,10 +24,10 @@ justify. It should help a reader answer four questions quickly:
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-point-publication/">How animal points are built</a>
-  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-filters-and-popups/">How filters and popups work</a>
-  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/nordic-atlas-limits-and-honesty/">Current limits and audits</a>
+  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the Nordic evidence surface</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-point-publication/">How animal points are built</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-filters-and-inspection/">How filters and popups work</a>
+  <a class="md-button" href="../02-bijux-pollenomics-data/outputs/geographic-limits-and-honesty/">Current limits and audits</a>
 </div>
 
 <div class="bijux-map-mobile-note">
@@ -36,14 +36,14 @@ justify. It should help a reader answer four questions quickly:
 </div>
 
 <div class="bijux-map-frame">
-  <iframe src="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html" title="Nordic Evidence Atlas"></iframe>
+  <iframe src="https://bijux.io/bijux-pollenomics/report/world/world_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
 
 ## Direct Evidence Anchors
 
-- [shipped atlas map](../report/nordic-atlas/nordic-atlas_map.html)
-- [animal atlas evidence rows](../report/nordic-atlas/nordic-atlas_animal_atlas_evidence.json)
-- [animal point traceability](../report/nordic-atlas/nordic-atlas_animal_point_traceability.json)
+- [shipped atlas map](../report/world/world_map.html)
+- [animal atlas evidence rows](../report/world/world_animal_atlas_evidence.json)
+- [animal point traceability](../report/world/world_animal_point_traceability.json)
 - [final atlas candidate review](../../data/adna/final/atlas/animal_atlas_point_candidates.json)
 - [final atlas candidate accountability](../../data/adna/final/atlas/animal_atlas_candidate_accountability.md)
 - [animal point evidence review](../report/animal_point_evidence_review.md)
