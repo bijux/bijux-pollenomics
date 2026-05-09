@@ -203,7 +203,7 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             governing_surface_path="data/neotoma/normalized/nordic_pollen_sites.geojson",
             supporting_surface_paths=(
                 "data/neotoma/raw/neotoma_pollen_dataset_inventory.json",
-                "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+                "docs/report/regions/nordic/nordic_pollen_sites.geojson",
             ),
             reason="The normalized Neotoma site layer governs what survives into publication-grade pollen context.",
         ),
@@ -212,7 +212,11 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             display_name="SEAD archaeology context",
             evidence_scope="source_family",
             governing_surface_path="data/sead/normalized/nordic_environmental_sites.geojson",
-            supporting_surface_paths=("data/sead/raw/nordic_sites.json",),
+            supporting_surface_paths=(
+                "data/sead/raw/nordic_sites.json",
+                "data/sead/review/evidence_legibility_review.json",
+                "data/sead/review/access_model.json",
+            ),
             reason="The normalized SEAD site layer governs contextual archaeology that the repository is willing to map.",
         ),
         DataFactOwnershipRecord(
