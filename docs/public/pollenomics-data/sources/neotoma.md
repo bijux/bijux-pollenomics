@@ -19,3 +19,17 @@ public interpretation from collapsing into ancient DNA alone.
 - environmental comparison across geography
 - a second major pollenomics family that keeps the repository from overfitting
   to one pollen source
+
+## Where To Inspect It
+
+- `data/neotoma/normalized/` is the governing repository path for this
+  pollen-site context family
+- these normalized records help explain site-level environmental setting rather
+  than acting as direct proof of one narrower claim
+
+## Use This Page When
+
+- you want to understand how Neotoma differs from LandClim
+- you need the path behind a visible pollen-site layer
+- you want to check how the repository keeps pollen-site context distinct from
+  animal or archaeology evidence
