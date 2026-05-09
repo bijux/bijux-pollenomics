@@ -25,6 +25,17 @@ That shared discipline is what makes it possible to compare:
 - one domain against another
 - visible points against the narrower evidence files that support them
 
+## Where To Inspect It
+
+- normalized source-family outputs live in family-owned paths such as
+  `data/landclim/normalized/`, `data/neotoma/normalized/`, and
+  `data/sead/normalized/`
+- the public publication side starts under `docs/report/world/` and then narrows
+  into regional and country bundles
+
+Normalization is what lets those very different families meet without becoming
+one shapeless export.
+
 ## Why Readers Benefit
 
 Readers usually notice normalization only when it is missing. Without it, a
