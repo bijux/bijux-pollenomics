@@ -62,6 +62,36 @@ class RepositoryContractRegressionTests(unittest.TestCase):
 
         self.assertEqual(missing_targets, [])
 
+    def test_public_mkdocs_nav_uses_directory_sections_before_leaf_pages(self) -> None:
+        config = yaml.load(
+            (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8"),
+            Loader=MkDocsLoader,
+        )
+        nav = config["nav"]
+
+        def nav_entry(label: str) -> list[object]:
+            for item in nav:
+                if label in item:
+                    return item[label]
+            self.fail(f"Missing nav section: {label}")
+
+        pollenomics = nav_entry("Pollenomics")
+        self.assertEqual(pollenomics[0], {"Overview": "public/pollenomics/index.md"})
+        self.assertEqual(
+            [next(iter(item.keys())) for item in pollenomics[1:]],
+            ["Foundation", "Architecture", "Interfaces", "Operations", "Quality"],
+        )
+
+        pollenomics_data = nav_entry("Pollenomics Data")
+        self.assertEqual(
+            [next(iter(item.keys())) for item in pollenomics_data[1:]],
+            ["Overview Topics", "Sources", "Evidence", "Outputs"],
+        )
+
+        fieldwork = nav_entry("Fieldwork")
+        self.assertEqual(fieldwork[0], {"Overview": "public/fieldwork/index.md"})
+        self.assertEqual(next(iter(fieldwork[1].keys())), "Lyngsjön Lake Fieldwork")
+
     def test_shared_mkdocs_excludes_badge_template_from_public_docs_graph(self) -> None:
         config = yaml.unsafe_load(
             (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
