@@ -20,7 +20,20 @@ of in isolation.
 - cross-regional archaeological support
 - a broader contextual layer for the report and atlas surfaces
 
+## Where To Inspect It
+
+- `data/sead/normalized/` is the main repository-owned path for this
+  archaeology context family
+- SEAD gives broader archaeology context that can travel beyond one local
+  jurisdiction
+
 ## Best Companion Page
 
 Use the [SEAD handbook](sead-handbook.md) when you want the fuller explanation
 of how this source family is interpreted in the public product.
+
+## Use This Page When
+
+- you want the short explanation of what SEAD adds
+- you need the governing path behind a SEAD-derived context layer
+- you want to separate broader archaeology context from Sweden-only RAÄ context
