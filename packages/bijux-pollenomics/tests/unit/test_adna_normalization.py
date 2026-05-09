@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna import (
     ADNA_DOMESTICATION_STATUSES,
     build_species_normalization_bundle,
@@ -11,6 +13,8 @@ from bijux_pollenomics.adna import (
     normalize_explicit_bp_window,
     normalize_species_anchor,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaNormalizationUnitTests(unittest.TestCase):
@@ -64,17 +68,17 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         coordinate_provenance = next(
             item
             for item in bundle.coordinate_provenance_records
-            if item.project_accession == "PRJEB44430"
-            and item.site_label == "Ginnerup"
+            if item.project_accession == "PRJEB44430" and item.site_label == "Ginnerup"
         )
         self.assertEqual(coordinate_provenance.mapping_posture, "mappable_point")
-        self.assertEqual(coordinate_provenance.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(
+            coordinate_provenance.coordinate_basis, "supplementary_table_coordinates"
+        )
         self.assertEqual(coordinate_provenance.coordinate_confidence, "exact")
         site_evidence = next(
             item
             for item in bundle.site_evidence_records
-            if item.project_accession == "PRJEB31613"
-            and item.site_label == "Uppsala"
+            if item.project_accession == "PRJEB31613" and item.site_label == "Uppsala"
         )
         self.assertEqual(site_evidence.source_support_status, "supplementary_table_row")
         self.assertIn("Uppsala", site_evidence.exact_source_text)
@@ -83,9 +87,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             "adna-normalization-lineage.v1",
         )
         locality = next(
-            item
-            for item in bundle.locality_records
-            if item.locality == "Ginnerup"
+            item for item in bundle.locality_records if item.locality == "Ginnerup"
         )
         self.assertTrue(locality.nordic_inclusion)
         self.assertEqual(locality.coordinate_confidence, "exact")
@@ -97,7 +99,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
         self.assertEqual(bundle.species.latin_name, "Equus asinus")
         self.assertIn("comparator_only", ADNA_DOMESTICATION_STATUSES)
-        self.assertTrue(all(item.comparator_status for item in bundle.project_summaries))
+        self.assertTrue(
+            all(item.comparator_status for item in bundle.project_summaries)
+        )
         self.assertTrue(
             all(
                 item.domestication_status == "comparator_only"
@@ -105,10 +109,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             )
         )
         self.assertTrue(
-            {
-                item.support_class
-                for item in bundle.project_summaries
-            }.issubset({"comparator_only", "rejected_or_out_of_scope"})
+            {item.support_class for item in bundle.project_summaries}.issubset(
+                {"comparator_only", "rejected_or_out_of_scope"}
+            )
         )
 
     def test_species_normalization_bundle_deduplicates_project_tokens_deterministically(
@@ -123,13 +126,17 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
         self.assertEqual(first.as_dict(), second.as_dict())
 
-    def test_species_normalization_bundle_records_sample_and_locality_refusals(self) -> None:
+    def test_species_normalization_bundle_records_sample_and_locality_refusals(
+        self,
+    ) -> None:
         bundle = build_species_normalization_bundle("horse")
 
         refusal_kinds = {item.record_kind for item in bundle.refusals}
         self.assertIn("locality_records", refusal_kinds)
 
-    def test_species_normalization_bundle_marks_unresolved_sample_context_explicitly(self) -> None:
+    def test_species_normalization_bundle_marks_unresolved_sample_context_explicitly(
+        self,
+    ) -> None:
         bundle = build_species_normalization_bundle("horse")
         sample = next(
             item
@@ -148,7 +155,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sample.political_entity, "Denmark")
         self.assertEqual(sample.full_date, "4961 BP")
 
-    def test_species_normalization_bundle_carries_nordic_context_and_caveats(self) -> None:
+    def test_species_normalization_bundle_carries_nordic_context_and_caveats(
+        self,
+    ) -> None:
         sheep_bundle = build_species_normalization_bundle("sheep")
         sheep_project = next(
             item
@@ -165,7 +174,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertEqual(sheep_project.nordic_relevance, "nordic_relevant_unmapped")
         self.assertIn("unmapped", sheep_project.interpretation_caveat)
         self.assertEqual(camel_project.nordic_relevance, "non_nordic")
-        self.assertIn("not as shipped Nordic evidence", camel_project.interpretation_caveat)
+        self.assertIn(
+            "not as shipped Nordic evidence", camel_project.interpretation_caveat
+        )
         sheep_locality = next(
             item
             for item in sheep_bundle.locality_records
@@ -199,14 +210,24 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if item.project_accession == "PRJEB75467"
         )
 
-        self.assertEqual(aurochs_project.domestication_scope, "wild_or_progenitor_context")
-        self.assertEqual(aurochs_project.support_class, "wild_or_progenitor_context")
-        self.assertIn("wild or progenitor context", aurochs_project.interpretation_caveat)
-        galician_sample = next(
-            item for item in bundle.sample_records if item.project_accession == "PRJNA705960"
+        self.assertEqual(
+            aurochs_project.domestication_scope, "wild_or_progenitor_context"
         )
-        self.assertEqual(galician_sample.chronology.evidence_class, "archaeological_context_date")
-        self.assertEqual(galician_sample.chronology.precision_posture, "contextual_interval")
+        self.assertEqual(aurochs_project.support_class, "wild_or_progenitor_context")
+        self.assertIn(
+            "wild or progenitor context", aurochs_project.interpretation_caveat
+        )
+        galician_sample = next(
+            item
+            for item in bundle.sample_records
+            if item.project_accession == "PRJNA705960"
+        )
+        self.assertEqual(
+            galician_sample.chronology.evidence_class, "archaeological_context_date"
+        )
+        self.assertEqual(
+            galician_sample.chronology.precision_posture, "contextual_interval"
+        )
 
     def test_species_normalization_bundle_marks_reindeer_locality_as_comparator_context(
         self,
@@ -221,37 +242,53 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertTrue(locality.nordic_inclusion)
         self.assertIn("region or transect scale", locality.interpretation_note)
         sample = next(
-            item for item in bundle.sample_records if item.project_accession == "PRJEB60484"
+            item
+            for item in bundle.sample_records
+            if item.project_accession == "PRJEB60484"
         )
         self.assertEqual(sample.chronology.precision_posture, "contextual_interval")
 
-    def test_species_normalization_bundle_recovers_goat_sample_owned_chronology(self) -> None:
+    def test_species_normalization_bundle_recovers_goat_sample_owned_chronology(
+        self,
+    ) -> None:
         bundle = build_species_normalization_bundle("goat")
 
         self.assertEqual(len(bundle.sample_records), 82)
         qinghai_sample = next(
-            item for item in bundle.sample_records if item.project_accession == "PRJNA1328209"
+            item
+            for item in bundle.sample_records
+            if item.project_accession == "PRJNA1328209"
         )
-        self.assertEqual(qinghai_sample.chronology.evidence_class, "direct_radiocarbon_date")
-        self.assertEqual(qinghai_sample.chronology.precision_posture, "sample_precise_interval")
+        self.assertEqual(
+            qinghai_sample.chronology.evidence_class, "direct_radiocarbon_date"
+        )
+        self.assertEqual(
+            qinghai_sample.chronology.precision_posture, "sample_precise_interval"
+        )
         self.assertEqual(
             (qinghai_sample.time_start_bp, qinghai_sample.time_end_bp),
             (3480, 3580),
         )
 
     def test_normalize_species_anchor_accepts_alias_and_rejects_mismatch(self) -> None:
-        species = normalize_species_anchor("pig", expected_species_name="Sus scrofa domesticus")
+        species = normalize_species_anchor(
+            "pig", expected_species_name="Sus scrofa domesticus"
+        )
 
         self.assertEqual(species.latin_name, "Sus scrofa domesticus")
         with self.assertRaisesRegex(ValueError, "Species anchor mismatch"):
             normalize_species_anchor("horse", expected_species_name="pig")
 
     def test_normalize_breed_label_keeps_meaningful_text_only(self) -> None:
-        self.assertEqual(normalize_breed_label(" Przewalski_Associated "), "przewalski associated")
+        self.assertEqual(
+            normalize_breed_label(" Przewalski_Associated "), "przewalski associated"
+        )
         self.assertIsNone(normalize_breed_label("unknown"))
         self.assertIsNone(normalize_breed_label("   "))
 
-    def test_normalize_coordinate_resolution_parses_pairs_and_allows_withheld(self) -> None:
+    def test_normalize_coordinate_resolution_parses_pairs_and_allows_withheld(
+        self,
+    ) -> None:
         exact = normalize_coordinate_resolution(
             latitude_text="59.1",
             longitude_text="17.3",
@@ -285,7 +322,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             )
 
     def test_normalize_chronology_text_parses_bp_and_calendar_ranges(self) -> None:
-        bp_window = normalize_chronology_text("1200-1500 BP", dating_basis="radiocarbon")
+        bp_window = normalize_chronology_text(
+            "1200-1500 BP", dating_basis="radiocarbon"
+        )
         bp_point = normalize_chronology_text("5500 BP", dating_basis="radiocarbon")
         cal_bce = normalize_chronology_text(
             "803-425 calBCE (2562±47 BP)",

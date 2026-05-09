@@ -5,6 +5,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
@@ -14,9 +16,13 @@ from bijux_pollenomics.adna import (
 )
 from bijux_pollenomics.adna.tracked_data import materialize_tracked_species_adna
 
+pytestmark = pytest.mark.generated_artifacts
+
 
 class AdnaSampleTruthUnitTests(unittest.TestCase):
-    def test_animal_sample_product_contract_defines_mandatory_sample_fields(self) -> None:
+    def test_animal_sample_product_contract_defines_mandatory_sample_fields(
+        self,
+    ) -> None:
         payload = build_animal_sample_product_contract()
 
         self.assertEqual(payload["schema_version"], "animal-sample-product-contract.v1")
@@ -29,7 +35,9 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertIn("coordinates.confidence", required_fields)
         self.assertIn("inclusion_status", required_fields)
 
-    def test_animal_sample_foundation_truth_counts_current_species_and_projects(self) -> None:
+    def test_animal_sample_foundation_truth_counts_current_species_and_projects(
+        self,
+    ) -> None:
         repo_root = Path(__file__).resolve().parents[4]
         payload = build_animal_sample_foundation_truth(repo_root / "data")
 
@@ -49,7 +57,9 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertGreaterEqual(sheep_row["sample_row_count"], 1)
         self.assertTrue(sheep_row["uses_project_level_sample_anchor"])
 
-    def test_species_summary_drift_is_clean_for_materialized_species_roots(self) -> None:
+    def test_species_summary_drift_is_clean_for_materialized_species_roots(
+        self,
+    ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
             materialize_tracked_species_adna(data_root)

@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna.governance_contracts import (
     validate_source_library_project_surfaces,
 )
@@ -11,8 +13,9 @@ from bijux_pollenomics.data_downloader.collection_summary_schema import (
     validate_collection_summary_file,
 )
 
-
 REPO_ROOT = Path(__file__).resolve().parents[4]
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class DataContractSurfaceRegressionTests(unittest.TestCase):
@@ -35,9 +38,9 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
             )
         )
         matrix_payload = json.loads(
-            (
-                REPO_ROOT / "data" / "source_family_evidence_stage_matrix.json"
-            ).read_text(encoding="utf-8")
+            (REPO_ROOT / "data" / "source_family_evidence_stage_matrix.json").read_text(
+                encoding="utf-8"
+            )
         )
 
         contract_keys = {row["source_key"] for row in contract_payload["rows"]}
@@ -83,7 +86,11 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
     def test_governance_role_registry_stays_reader_facing(self) -> None:
         registry_payload = json.loads(
             (
-                REPO_ROOT / "data" / "adna" / "governance" / "surface_role_registry.json"
+                REPO_ROOT
+                / "data"
+                / "adna"
+                / "governance"
+                / "surface_role_registry.json"
             ).read_text(encoding="utf-8")
         )
         registry_markdown = (

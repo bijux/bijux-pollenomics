@@ -5,19 +5,23 @@ from pathlib import Path
 import tempfile
 import unittest
 
+import pytest
+
 from bijux_pollenomics.reporting.adna.foundation_outputs import (
     build_animal_cross_surface_drift_report,
     build_animal_foundation_review_packet,
-    build_animal_intake_recovery_review,
-    build_animal_sample_database_review,
-    build_animal_sample_chronology_review,
     build_animal_foundation_validation_report,
+    build_animal_intake_recovery_review,
     build_animal_point_evidence_review,
     build_animal_project_publication_gap_review,
     build_animal_publication_release_gate,
+    build_animal_sample_chronology_review,
+    build_animal_sample_database_review,
     build_animal_scientific_caveat_ledger,
     publish_animal_foundation_outputs,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalFoundationOutputsUnitTests(unittest.TestCase):
@@ -47,14 +51,18 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             if row["check_id"] == "supplement_required_projects_archived"
         )
         traceability_check = next(
-            row for row in payload["checks"] if row["check_id"] == "atlas_rows_keep_traceability"
+            row
+            for row in payload["checks"]
+            if row["check_id"] == "atlas_rows_keep_traceability"
         )
         self.assertFalse(payload["overall_ok"])
         self.assertFalse(paper_linkage_check["passed"])
         self.assertTrue(supplement_check["passed"])
         self.assertTrue(traceability_check["passed"])
 
-    def test_cross_surface_drift_report_stays_clean_for_current_shipped_rows(self) -> None:
+    def test_cross_surface_drift_report_stays_clean_for_current_shipped_rows(
+        self,
+    ) -> None:
         payload = build_animal_cross_surface_drift_report(
             data_root=self.data_root,
             report_root=self.report_root,
@@ -67,7 +75,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
     def test_scientific_caveat_ledger_groups_current_weak_points(self) -> None:
         payload = build_animal_scientific_caveat_ledger(self.data_root)
 
-        self.assertEqual(payload["schema_version"], "animal-scientific-caveat-ledger.v1")
+        self.assertEqual(
+            payload["schema_version"], "animal-scientific-caveat-ledger.v1"
+        )
         self.assertGreater(payload["summary"]["unreadable_table_count"], 0)
         self.assertGreater(payload["summary"]["uncertain_site_assignment_count"], 0)
         self.assertGreater(payload["summary"]["region_only_geography_count"], 0)
@@ -87,7 +97,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertTrue(first_row["site_evidence"])
         self.assertTrue(first_row["coordinate_provenance"])
 
-    def test_project_publication_gap_review_explains_non_published_projects(self) -> None:
+    def test_project_publication_gap_review_explains_non_published_projects(
+        self,
+    ) -> None:
         payload = build_animal_project_publication_gap_review(
             data_root=self.data_root,
             report_root=self.report_root,
@@ -100,7 +112,8 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertGreater(payload["row_count"], 0)
         self.assertTrue(
             any(
-                row["absence_stage"] in {
+                row["absence_stage"]
+                in {
                     "paper_or_metadata_capture",
                     "supplement_capture",
                     "site_extraction",
@@ -111,10 +124,14 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
-    def test_sample_chronology_review_keeps_current_governed_rows_reader_visible(self) -> None:
+    def test_sample_chronology_review_keeps_current_governed_rows_reader_visible(
+        self,
+    ) -> None:
         payload = build_animal_sample_chronology_review(data_root=self.data_root)
 
-        self.assertEqual(payload["schema_version"], "animal-sample-chronology-review.v1")
+        self.assertEqual(
+            payload["schema_version"], "animal-sample-chronology-review.v1"
+        )
         self.assertEqual(payload["row_count"], 868)
         self.assertEqual(payload["normalization_counts"]["normalized_interval"], 296)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 469)
@@ -128,7 +145,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
-    def test_animal_intake_recovery_review_keeps_project_gap_surfaces_visible(self) -> None:
+    def test_animal_intake_recovery_review_keeps_project_gap_surfaces_visible(
+        self,
+    ) -> None:
         payload = build_animal_intake_recovery_review(data_root=self.data_root)
 
         self.assertEqual(payload["schema_version"], "animal-intake-recovery-review.v1")
@@ -137,11 +156,15 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "sample_recovery_still_partial_and_project_gaps_explicit",
         )
         self.assertGreater(payload["stage_review"]["blocked_projects"], 0)
-        self.assertGreater(payload["release_guard"]["implausibly_low_recovery_project_count"], 0)
+        self.assertGreater(
+            payload["release_guard"]["implausibly_low_recovery_project_count"], 0
+        )
         self.assertIn("source_recovery_progress", payload["direct_links"])
         self.assertTrue(payload["top_gap_projects"])
 
-    def test_sample_database_review_packet_proves_sample_owned_public_posture(self) -> None:
+    def test_sample_database_review_packet_proves_sample_owned_public_posture(
+        self,
+    ) -> None:
         point_payload = build_animal_point_evidence_review(
             data_root=self.data_root,
             report_root=self.report_root,
@@ -187,7 +210,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
         self.assertIn("source_recovery_progress", payload["direct_links"])
         self.assertGreater(payload["intake_recovery_counts"]["blocked_projects"], 0)
 
-    def test_foundation_review_and_release_gate_keep_public_posture_honest(self) -> None:
+    def test_foundation_review_and_release_gate_keep_public_posture_honest(
+        self,
+    ) -> None:
         validation_payload = build_animal_foundation_validation_report(
             data_root=self.data_root,
             report_root=self.report_root,
@@ -235,7 +260,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             temporal_comparison_payload={"published_feature_guard_findings": []},
         )
 
-        self.assertEqual(review_payload["schema_version"], "animal-foundation-review.v1")
+        self.assertEqual(
+            review_payload["schema_version"], "animal-foundation-review.v1"
+        )
         self.assertFalse(review_payload["reference_grade_claim_allowed"])
         self.assertEqual(
             review_payload["public_posture"],
@@ -245,7 +272,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             sample_database_review_payload["schema_version"],
             "animal-sample-database-review.v1",
         )
-        self.assertEqual(gate_payload["schema_version"], "animal-publication-release-gate.v1")
+        self.assertEqual(
+            gate_payload["schema_version"], "animal-publication-release-gate.v1"
+        )
         self.assertTrue(gate_payload["overall_ok"])
         self.assertFalse(gate_payload["reference_grade_support_ready"])
         self.assertTrue(
@@ -274,7 +303,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "nordic_view_supported_now": False,
         }
         intake_recovery_payload = {
-            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+            "release_guard": {
+                "passing": False,
+                "implausibly_low_recovery_project_count": 1,
+            }
         }
         with tempfile.TemporaryDirectory() as tmp:
             docs_root = Path(tmp) / "docs"
@@ -290,7 +322,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "",
                 encoding="utf-8",
             )
-            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+            (
+                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+            ).write_text(
                 "",
                 encoding="utf-8",
             )
@@ -306,11 +340,11 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
 
         self.assertFalse(gate_payload["overall_ok"])
-        self.assertTrue(
-            any(not row["passed"] for row in gate_payload["checks"])
-        )
+        self.assertTrue(any(not row["passed"] for row in gate_payload["checks"]))
 
-    def test_release_gate_fails_when_project_locality_output_flattens_sample_sites(self) -> None:
+    def test_release_gate_fails_when_project_locality_output_flattens_sample_sites(
+        self,
+    ) -> None:
         point_payload = {"rows": []}
         review_payload = {"reference_grade_claim_allowed": False}
         sample_database_review_payload = {
@@ -318,7 +352,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "nordic_view_supported_now": False,
         }
         intake_recovery_payload = {
-            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+            "release_guard": {
+                "passing": False,
+                "implausibly_low_recovery_project_count": 1,
+            }
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -355,7 +392,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 {
                     "localities": [
                         {
-                            "identity": {"stable_token": "ovis_aries:project-locality:prjtest"},
+                            "identity": {
+                                "stable_token": "ovis_aries:project-locality:prjtest"
+                            },
                             "project_accessions": ["PRJTEST"],
                             "sample_namespace": "ovis_aries:project_locality",
                         }
@@ -371,7 +410,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "",
                 encoding="utf-8",
             )
-            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+            (
+                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+            ).write_text(
                 "",
                 encoding="utf-8",
             )
@@ -397,7 +438,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             )
         )
 
-    def test_release_gate_fails_when_blocked_sample_site_rows_publish_as_exact_rows(self) -> None:
+    def test_release_gate_fails_when_blocked_sample_site_rows_publish_as_exact_rows(
+        self,
+    ) -> None:
         point_payload = {"rows": []}
         review_payload = {"reference_grade_claim_allowed": False}
         sample_database_review_payload = {
@@ -405,7 +448,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "nordic_view_supported_now": False,
         }
         intake_recovery_payload = {
-            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+            "release_guard": {
+                "passing": False,
+                "implausibly_low_recovery_project_count": 1,
+            }
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -461,7 +507,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "",
                 encoding="utf-8",
             )
-            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+            (
+                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+            ).write_text(
                 "",
                 encoding="utf-8",
             )
@@ -496,7 +544,10 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
             "nordic_view_supported_now": False,
         }
         intake_recovery_payload = {
-            "release_guard": {"passing": False, "implausibly_low_recovery_project_count": 1}
+            "release_guard": {
+                "passing": False,
+                "implausibly_low_recovery_project_count": 1,
+            }
         }
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -580,7 +631,9 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 "",
                 encoding="utf-8",
             )
-            (docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md").write_text(
+            (
+                docs_root / "02-bijux-pollenomics-data" / "outputs" / "nordic-atlas.md"
+            ).write_text(
                 "",
                 encoding="utf-8",
             )
@@ -636,11 +689,15 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 artifacts,
             )
             review_path = output_root / artifacts["animal_foundation_review_json"]
-            chronology_path = output_root / artifacts["animal_sample_chronology_review_json"]
+            chronology_path = (
+                output_root / artifacts["animal_sample_chronology_review_json"]
+            )
             temporal_comparison_path = (
                 output_root / artifacts["animal_temporal_comparison_review_json"]
             )
-            intake_recovery_path = output_root / artifacts["animal_intake_recovery_review_json"]
+            intake_recovery_path = (
+                output_root / artifacts["animal_intake_recovery_review_json"]
+            )
             sample_database_review_path = (
                 output_root / artifacts["animal_sample_database_review_json"]
             )
@@ -669,10 +726,17 @@ class AnimalFoundationOutputsUnitTests(unittest.TestCase):
                 intake_recovery_payload["stage_review"]["blocked_projects"],
                 0,
             )
-            self.assertTrue(sample_database_review_payload["sample_database_claim_supported"])
-            self.assertFalse(sample_database_review_payload["nordic_view_supported_now"])
-            self.assertFalse(sample_database_review_payload["region_agnostic_contract_ready"])
+            self.assertTrue(
+                sample_database_review_payload["sample_database_claim_supported"]
+            )
+            self.assertFalse(
+                sample_database_review_payload["nordic_view_supported_now"]
+            )
+            self.assertFalse(
+                sample_database_review_payload["region_agnostic_contract_ready"]
+            )
             self.assertTrue(gate_payload["overall_ok"])
+
 
 def _sample_row(
     *,

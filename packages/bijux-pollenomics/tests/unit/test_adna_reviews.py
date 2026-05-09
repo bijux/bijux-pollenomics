@@ -2,12 +2,16 @@ from __future__ import annotations
 
 import unittest
 
+import pytest
+
 from bijux_pollenomics.adna import (
     AdnaSpeciesProjectManifest,
     AdnaSpeciesProjectRow,
     build_species_manifest_diff,
     build_species_review_dossier,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaReviewDossierUnitTests(unittest.TestCase):
@@ -21,7 +25,9 @@ class AdnaReviewDossierUnitTests(unittest.TestCase):
             dossier.dataset_review.dataset_bucket,
             "archive_verified_needs_paper_pinning",
         )
-        self.assertIn("missing_archive_paper_pinning_rationale", dossier.release_blockers)
+        self.assertIn(
+            "missing_archive_paper_pinning_rationale", dossier.release_blockers
+        )
         self.assertTrue(
             any(
                 review.project_accession == "PRJEB56293"
@@ -45,7 +51,9 @@ class AdnaReviewDossierUnitTests(unittest.TestCase):
         self.assertEqual(botai.sequencing_target, "shotgun_genome")
         self.assertEqual(botai.nordic_relevance, "non_nordic")
 
-    def test_species_manifest_diff_reports_added_removed_and_changed_projects(self) -> None:
+    def test_species_manifest_diff_reports_added_removed_and_changed_projects(
+        self,
+    ) -> None:
         previous = AdnaSpeciesProjectManifest(
             schema_version="adna-species-project-manifest.v1",
             species_latin_name="Equus caballus",
@@ -146,14 +154,20 @@ class AdnaReviewDossierUnitTests(unittest.TestCase):
         diff = build_species_manifest_diff(previous, current)
 
         self.assertEqual(diff.species_latin_name, "Equus caballus")
-        self.assertEqual([row.project_accession for row in diff.added_projects], ["PRJEB44430"])
-        self.assertEqual([row.project_accession for row in diff.removed_projects], ["PRJEB56293"])
+        self.assertEqual(
+            [row.project_accession for row in diff.added_projects], ["PRJEB44430"]
+        )
+        self.assertEqual(
+            [row.project_accession for row in diff.removed_projects], ["PRJEB56293"]
+        )
         self.assertEqual(len(diff.changed_projects), 1)
         self.assertEqual(diff.changed_projects[0].project_accession, "PRJEB22390")
         self.assertIn("archive_status", diff.changed_projects[0].changed_fields)
         self.assertIn("paper_doi", diff.changed_projects[0].changed_fields)
 
-    def test_species_review_dossier_surfaces_rejected_and_nordic_lead_tables(self) -> None:
+    def test_species_review_dossier_surfaces_rejected_and_nordic_lead_tables(
+        self,
+    ) -> None:
         dossier = build_species_review_dossier("reindeer")
 
         self.assertTrue(

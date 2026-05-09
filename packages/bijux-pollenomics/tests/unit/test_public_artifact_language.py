@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import unittest
 
+import pytest
+
 from bijux_pollenomics.foundation import (
     DISALLOWED_PUBLIC_ARTIFACT_TOKENS,
     PUBLIC_INFORMATION_ROLE_MEANINGS,
@@ -10,6 +12,8 @@ from bijux_pollenomics.foundation import (
     infer_public_information_role,
     validate_public_artifact_stem,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 class PublicArtifactLanguageUnitTests(unittest.TestCase):
