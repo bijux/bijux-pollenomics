@@ -109,6 +109,8 @@ nav:
       - Output Surface Classes: 02-bijux-pollenomics-data/outputs/output-surface-classes.md
       - Collection Summary: 02-bijux-pollenomics-data/outputs/collection-summary.md
       - Published Reports: 02-bijux-pollenomics-data/outputs/published-reports.md
+      - Report Portal: report/index.md
+      - How To Read Reports: report/how-to-read.md
       - Geographic Evidence Surfaces: 02-bijux-pollenomics-data/outputs/geographic-evidence-surfaces.md
       - Geographic Input Surfaces: 02-bijux-pollenomics-data/outputs/geographic-input-surfaces.md
       - Geographic Point Publication: 02-bijux-pollenomics-data/outputs/geographic-point-publication.md

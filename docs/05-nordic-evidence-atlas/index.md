@@ -24,6 +24,7 @@ justify. It should help a reader answer four questions quickly:
 ## Open The Atlas
 
 <div class="bijux-quicklinks">
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/index.md">Open the report portal</a>
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html">Open the Nordic evidence surface</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the world parent surface</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/regions/europe-plus/europe-plus_map.html">Open the Europe-plus surface</a>
@@ -43,6 +44,10 @@ justify. It should help a reader answer four questions quickly:
 
 ## Direct Evidence Anchors
 
+- [report portal](../report/index.md)
+- [how to read the report tree](../report/how-to-read.md)
+- [map surfaces guide](../report/maps/index.md)
+- [scientific caveats guide](../report/caveats/index.md)
 - [Nordic surface README](../report/regions/nordic/README.md)
 - [shipped Nordic atlas map](../report/regions/nordic/nordic_map.html)
 - [Nordic map publication contract](../report/regions/nordic/nordic_map_publication_contract.md)
