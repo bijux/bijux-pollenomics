@@ -26,7 +26,7 @@ last_reviewed: 2026-05-08
 
 1. run `make reports`
 2. inspect `docs/report/published_reports_summary.json`
-3. inspect `docs/report/nordic-atlas/`
+3. inspect `docs/report/world/`
 4. inspect `docs/report/repository_truth_posture.md`
 
 ## Full Local Rebuild

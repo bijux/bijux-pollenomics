@@ -46,4 +46,4 @@ meaning depends on being read beside the other normalized layers.
 
 - `data/sead/normalized/nordic_environmental_sites.csv`
 - `data/sead/normalized/nordic_environmental_sites.geojson`
-- atlas context layers under `docs/report/nordic-atlas/`
+- atlas context layers under `docs/report/world/`

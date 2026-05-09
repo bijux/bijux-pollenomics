@@ -34,11 +34,11 @@ The machine-readable checkpoints for those stages live in:
 
 | Source family | Raw capture | Normalized evidence | Review surface | Publication surface |
 | --- | --- | --- | --- | --- |
-| LandClim | `data/landclim/raw/` | `data/landclim/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/nordic-atlas/` |
-| Neotoma | `data/neotoma/raw/` | `data/neotoma/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/nordic-atlas/` |
-| SEAD | `data/sead/raw/` | `data/sead/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/nordic-atlas/` |
-| RAÄ | `data/raa/raw/` | `data/raa/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/nordic-atlas/` |
-| Boundaries | `data/boundaries/raw/` | `data/boundaries/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/nordic-atlas/` |
+| LandClim | `data/landclim/raw/` | `data/landclim/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
+| Neotoma | `data/neotoma/raw/` | `data/neotoma/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
+| SEAD | `data/sead/raw/` | `data/sead/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
+| RAÄ | `data/raa/raw/` | `data/raa/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
+| Boundaries | `data/boundaries/raw/` | `data/boundaries/normalized/` | `data/source_family_evidence_stage_matrix.json` | `docs/report/world/` |
 | AADR | `data/aadr/` | `data/adna/species/homo_sapiens/normalized/` | `data/adna/species/homo_sapiens/review/` | `docs/report/<country>/` |
 | Animal ancient DNA | `data/adna/governance/source_library/` | `data/adna/species/<latin_name>/normalized/` | `data/adna/governance/` | `data/adna/final/` and `docs/report/` |
 
@@ -56,7 +56,7 @@ surface owns each recurring fact.
 - Chronology evidence is governed by `data/adna/governance/source_library/projects/<project_accession>/sample_chronology_evidence.json`.
 - Species-normalized animal records are governed by `data/adna/species/<latin_name>/normalized/sample_records.json`.
 - Region-level animal atlas inputs are governed by `data/adna/final/atlas/animal_atlas_point_candidates.json`.
-- Country publication bundles are governed by `docs/report/<country_slug>/<country_slug>_aadr_<version>_bundle.json`.
+- Country publication bundles are governed by `docs/report/countries/<country_slug>/<country_slug>_aadr_<version>_bundle.json`.
 
 The full registry is in `data/source_fact_ownership_registry.json`.
 

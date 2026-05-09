@@ -13,7 +13,7 @@ last_reviewed: 2026-05-09
 layers. It explains how pollen context, environmental archaeology, boundary framing,
 animal ancient DNA, and public outputs fit together, how those records are
 checked and organized, and how they later appear in country reports or the
-Nordic atlas.
+Nordic evidence surface.
 
 <div class="bijux-callout"><strong>Use this section when the real question is about evidence, coverage, or trust.</strong> It should help a reader answer simple questions clearly: what the repository knows, where it came from, what is still incomplete, and why some records appear in public outputs while others do not.</div>
 
@@ -56,7 +56,7 @@ table, a locality decision, and a public map point.
 - [Data architecture handbook](overview/data-architecture-handbook.md): where truth lives and how raw, normalized, review, and publication stages differ
 - [Sources](sources/index.md): the main source families, from pollen context to animal ancient DNA
 - [Evidence](evidence/index.md): how sample records, localities, chronology, and coordinates are justified
-- [Outputs](outputs/index.md): what the country reports and the Nordic atlas publish
+- [Outputs](outputs/index.md): what the world, regional, and country publication tree publishes
 - [Cross-domain evidence matrix](overview/cross-domain-evidence-matrix.md): how domain balance is audited without file-count theater
 
 ## Restored System Coverage

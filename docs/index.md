@@ -47,8 +47,8 @@ animal aDNA extraction already equals the whole pollenomics engine?
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data system guide</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/">Open the source comparison</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic Evidence Atlas</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/nordic-atlas/nordic-atlas_map.html">Open the shipped atlas bundle</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic evidence surface</a>
+  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the world evidence surface</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth review</a>
   <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_docs_recovery_review.md">Open the docs recovery review</a>
@@ -78,7 +78,7 @@ flowchart TB
 
 - tracked source trees for pollen, environmental archaeology, boundaries, and
   ancient DNA under `data/`
-- one shared atlas view under [`docs/report/nordic-atlas/`](report/nordic-atlas/nordic-atlas_map.html)
+- one world surface view under [`docs/report/world/`](report/world/world_map.html)
 - checked country bundles under [`docs/report/`](report/published_reports_summary.json)
 - reader-facing data-system pages that explain the source families rather than
   only the current aDNA slice

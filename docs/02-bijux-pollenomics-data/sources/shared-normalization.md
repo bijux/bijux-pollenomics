@@ -49,7 +49,7 @@ interchangeable with ancient DNA metadata or direct fieldwork.
 
 - compare one raw tree and one normalized tree under `data/*/`
 - inspect `data/evidence_artifact_contracts.json` when the question is which file shape governs one artifact scope
-- inspect the shared atlas bundle under `docs/report/nordic-atlas/`
+- inspect the world surface bundle under `docs/report/world/`
 - compare with [output surface classes](../outputs/output-surface-classes.md) when the question is which normalized files are context, evidence, or scaffolding
 
 ## Design Pressure

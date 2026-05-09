@@ -18,7 +18,7 @@ readers can review under `data/` and `docs/report/`.
 
 - command entrypoints that rewrite tracked state
 - tracked source-family and normalized evidence files
-- country bundles and shared atlas outputs
+- country bundles plus world and regional geography outputs
 - tests that fail when those publication contracts drift
 
 If those four surfaces are not tied together, the repository turns into map
