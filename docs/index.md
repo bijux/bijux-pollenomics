@@ -9,16 +9,14 @@ last_reviewed: 2026-05-07
 
 # Bijux Pollenomics
 
-`bijux-pollenomics` is a checked-in pollenomics and environmental evidence
-repository with ancient DNA, archaeology, and map products as contextual
-surfaces. It gathers pollen-context layers, environmental archaeology context,
-boundary geometry, fieldwork material, paper-backed sample evidence, and public
-report outputs into one repository that a reader can inspect directly.
+`bijux-pollenomics` publishes public evidence surfaces about Nordic pollenomics,
+environmental context, archaeology, boundaries, fieldwork, and animal ancient
+DNA. This site is split on purpose:
 
-The central public question is broader than one atlas layer: which tracked data
-families does this repository really own, how strong is each one today, and
-which files support the current Nordic outputs without pretending that thin
-animal aDNA extraction already equals the whole pollenomics engine?
+- the public route explains what readers can inspect and trust today
+- the internal route explains how maintainers keep the repository honest
+
+Start on the public side unless you are actively maintaining the repository.
 
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
@@ -45,17 +43,14 @@ animal aDNA extraction already equals the whole pollenomics engine?
 ## Start Here
 
 <div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/">Open the data system guide</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/sources/source-comparison/">Open the source comparison</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/index.md">Open the report portal</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/how-to-read.md">How to read the report tree</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/05-nordic-evidence-atlas/">Open the Nordic evidence surface</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/world/world_map.html">Open the world evidence surface</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/02-bijux-pollenomics-data/outputs/published-reports/">Open the country output reference</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_truth_posture.md">Open the repository truth review</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/report/repository_docs_recovery_review.md">Open the docs recovery review</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/01-bijux-pollenomics/">Open the runtime handbook</a>
-  <a class="md-button" href="https://bijux.io/bijux-pollenomics/03-bijux-pollenomics-maintain/">Open the maintainer handbook</a>
+  <a class="md-button md-button--primary" href="public/">Open the public guide</a>
+  <a class="md-button" href="01-bijux-pollenomics/">Open the product guide</a>
+  <a class="md-button" href="02-bijux-pollenomics-data/">Open the data guide</a>
+  <a class="md-button" href="report/">Open the report portal</a>
+  <a class="md-button" href="report/how-to-read.md">How to read the report tree</a>
+  <a class="md-button" href="05-nordic-evidence-atlas/">Open the atlas guide</a>
+  <a class="md-button" href="04-fieldwork/">Open the fieldwork record</a>
+  <a class="md-button" href="internal/">Open the internal guide</a>
 </div>
 
 Read the site in this order:
@@ -76,16 +71,25 @@ flowchart TB
     atlas --> review
 ```
 
-## What The Repository Publishes
+## Public Surface
 
-- tracked source trees for pollen, environmental archaeology, boundaries, and
-  ancient DNA under `data/`
-- one reader-facing report portal under [`docs/report/`](report/index.md)
-- one world surface view under [`docs/report/world/`](report/world/world_map.html)
-- checked country bundles under [`docs/report/scopes/`](report/scopes/index.md)
-- reader-facing data-system pages that explain the source families rather than
-  only the current aDNA slice
-- public truth and progress surfaces under [`docs/report/maintenance/`](report/maintenance/index.md)
+- public guide: [public/index.md](public/index.md)
+- product guide: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
+- data guide: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
+- report portal: [report/index.md](report/index.md)
+- Nordic atlas guide: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
+- fieldwork record: [04-fieldwork](04-fieldwork/index.md)
+
+The public side should explain the repository without assuming that the reader
+already knows the codebase, package layout, or build system.
+
+## Internal Surface
+
+The internal side is for maintainers. It explains release checks, documentation
+integrity, GitHub workflows, and repository health rules.
+
+- internal guide: [internal/index.md](internal/index.md)
+- maintainer handbook: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
 
 ## Fieldwork Record
 
@@ -117,9 +121,9 @@ or supplement evidence.
 ## Read By Question
 
 - what the runtime rebuilds: [01-bijux-pollenomics](01-bijux-pollenomics/index.md)
+- what this repository does and where its limits are:
+  [public guide](public/index.md)
 - what the tracked data system and source families are: [02-bijux-pollenomics-data](02-bijux-pollenomics-data/index.md)
 - how the publication tree is organized for readers: [report portal](report/index.md)
 - how the map points, filters, and honesty surfaces work: [05-nordic-evidence-atlas](05-nordic-evidence-atlas/index.md)
-- how release and docs integrity are enforced: [03-bijux-pollenomics-maintain](03-bijux-pollenomics-maintain/index.md)
-- how restored docs breadth is being kept honest:
-  [repository docs recovery review](report/repository_docs_recovery_review.md)
+- how repository maintenance works: [internal guide](internal/index.md)

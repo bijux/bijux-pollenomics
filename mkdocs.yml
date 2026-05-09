@@ -61,19 +61,20 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - Repository:
-      - Repository: 01-bijux-pollenomics/index.md
-      - Runtime Purpose and Boundary: 01-bijux-pollenomics/foundation/index.md
+  - Public Guide: public/index.md
+  - Product Guide:
+      - Product Guide: 01-bijux-pollenomics/index.md
+      - What This Repository Is For: 01-bijux-pollenomics/foundation/index.md
       - Repository Scope and Limits: 01-bijux-pollenomics/foundation/repository-scope-and-limits.md
       - Pollenomics Engine Roadmap: 01-bijux-pollenomics/foundation/pollenomics-engine-roadmap.md
-      - Evidence Publication Flow: 01-bijux-pollenomics/architecture/index.md
+      - How Evidence Becomes Outputs: 01-bijux-pollenomics/architecture/index.md
       - Package Split: 01-bijux-pollenomics/architecture/package-split.md
       - Commands and Contracts: 01-bijux-pollenomics/interfaces/index.md
       - CLI Surface: 01-bijux-pollenomics/interfaces/cli-surface.md
       - Artifact Contracts: 01-bijux-pollenomics/interfaces/artifact-contracts.md
-      - Install, Rebuild, Verify: 01-bijux-pollenomics/operations/index.md
+      - Install and Rebuild: 01-bijux-pollenomics/operations/index.md
       - Installation and Setup: 01-bijux-pollenomics/operations/installation-and-setup.md
-      - Verification and Limits: 01-bijux-pollenomics/quality/index.md
+      - Checks and Current Limits: 01-bijux-pollenomics/quality/index.md
       - Public Language Guide: 01-bijux-pollenomics/quality/public-language-guide.md
       - Test Strategy: 01-bijux-pollenomics/quality/test-strategy.md
   - Data Reference:
@@ -122,6 +123,7 @@ nav:
       - Normalized Neotoma Outputs: 02-bijux-pollenomics-data/outputs/normalized-neotoma.md
       - Normalized RAÄ Outputs: 02-bijux-pollenomics-data/outputs/normalized-raa.md
       - Normalized SEAD Outputs: 02-bijux-pollenomics-data/outputs/normalized-sead.md
+  - Internal Guide: internal/index.md
   - Maintainer:
       - Maintainer: 03-bijux-pollenomics-maintain/index.md
       - bijux-pollenomics-dev: 03-bijux-pollenomics-maintain/bijux-pollenomics-dev/index.md
