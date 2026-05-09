@@ -12,6 +12,11 @@ last_reviewed: 2026-05-08
 Published artifacts are part of the runtime contract because they are checked
 in and reviewed like code.
 
+That means the public outputs are not optional decoration around the runtime.
+They are part of what the runtime is for. If the runtime writes a bundle, map,
+or audit surface, a reader should be able to inspect that artifact directly and
+understand what family it belongs to.
+
 ## Main Artifact Families
 
 - country bundles under `docs/report/countries/<country-slug>/`
@@ -41,6 +46,16 @@ in and reviewed like code.
 - country bundles include `README.md`, sample tables, species tables, locality GeoJSON, citations, warnings, and summary JSON outputs
 - the world surface includes the map HTML document, animal evidence rows, point traceability, and summary JSON outputs
 - root-level report artifacts include `animal_output_audit.*`, `animal_output_honesty.*`, `animal_atlas_readiness.*`, `animal_atlas_exclusion_report.*`, `animal_country_species_coverage.*`, repository truth reviews, chronology overlap artifacts, and scenario posture artifacts
+
+## What This Contract Prevents
+
+- report outputs should not drift into ad hoc names or locations
+- the same output family should not move silently between public and transient
+  roots
+- documentation pages may explain an artifact, but they should not replace the
+  governed file itself
+- publication logic should not present a surface as stable if its path contract
+  is still fluid
 
 ## First Proof Check
 
