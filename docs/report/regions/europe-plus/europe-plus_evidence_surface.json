@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2764,
+      "feature_count": 2,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -161,11 +161,7 @@
       "chronology_posture": "mapped_sample_chronology_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -187,11 +183,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -212,11 +204,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -241,11 +229,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -273,11 +257,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -298,11 +278,7 @@
       "chronology_posture": "project_level_bp_capable_but_not_locality_bound",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -323,11 +299,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -348,11 +320,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -373,11 +341,7 @@
       "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -402,11 +366,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -427,11 +387,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -452,11 +408,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -477,11 +429,7 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -502,11 +450,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -531,11 +475,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -556,11 +496,7 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",

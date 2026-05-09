@@ -135,7 +135,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2996,
+      "feature_count": 234,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -163,11 +163,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -191,11 +187,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -218,11 +210,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -249,11 +237,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -283,11 +267,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -311,11 +291,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -338,11 +314,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -366,11 +338,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -393,11 +361,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -425,11 +389,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -452,11 +412,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -479,11 +435,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -506,11 +458,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -533,11 +481,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -564,11 +508,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -591,11 +531,7 @@
       "contextual_layer_dependencies": [
         "animal-camelus-dromedarius",
         "animal-capra-hircus",
-        "animal-equus-caballus",
-        "fieldwork-documentation",
-        "landclim-sites",
-        "neotoma-pollen",
-        "sead-sites"
+        "animal-equus-caballus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",

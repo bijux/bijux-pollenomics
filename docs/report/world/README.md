@@ -1,7 +1,10 @@
 # World Evidence Surface
 
-This shared interactive map bundle was generated on `2026-05-09`.
-It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever contextual datasets are present in the repository at generation time and copies those derived artifacts into this directory. When the tracked data root contains mapped animal aDNA locality records, the atlas publishes them as separate domesticated-core and comparator layers with explicit filter and caveat surfaces instead of flattening them into generic context.
+This shared interactive map bundle was generated on `2026-05-09` from Homo
+sapiens AADR `v66` plus any governed contextual and animal surfaces that
+the active scope contract allows.
+
+World is the governing publication surface. It keeps every published country inside one shared map and excludes Nordic-only context overlays that would look more complete than they really are at broader scale.
 
 ## Included Countries
 
@@ -18,20 +21,19 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
-- Country sample counts in this README refer to Homo sapiens aDNA records derived from AADR. Context layers and animal aDNA review surfaces can have different geographic scope and record counts inside the map.
+- Default basemap: `voyager`
+- The opening extent keeps a broad trans-Atlantic and Eurasian frame so the root publication surface reads as a parent scope rather than a Nordic detail page with a bigger title.
 
 ## Output Files
 
 - Interactive map: [`world_map.html`](./world_map.html)
 - Combined GeoJSON: [`world_samples.geojson`](./world_samples.geojson)
 - Machine-readable summary: [`world_summary.json`](./world_summary.json)
-- LandClim pollen site GeoJSON: [`nordic_pollen_site_sequences.geojson`](./nordic_pollen_site_sequences.geojson)
-- Neotoma pollen GeoJSON: [`nordic_pollen_sites.geojson`](./nordic_pollen_sites.geojson)
-- SEAD site GeoJSON: [`nordic_environmental_sites.geojson`](./nordic_environmental_sites.geojson)
+- Map publication contract JSON: [`world_map_publication_contract.json`](./world_map_publication_contract.json)
+- Map publication contract markdown: [`world_map_publication_contract.md`](./world_map_publication_contract.md)
+- Point traceability JSON: [`world_point_traceability.json`](./world_point_traceability.json)
+- Point traceability markdown: [`world_point_traceability.md`](./world_point_traceability.md)
 - Nordic country boundaries: [`nordic_country_boundaries.geojson`](./nordic_country_boundaries.geojson)
-- LandClim REVEALS grid GeoJSON: [`nordic_reveals_grid_cells.geojson`](./nordic_reveals_grid_cells.geojson)
-- RAÄ archaeology layer metadata: [`sweden_archaeology_layer.json`](./sweden_archaeology_layer.json)
-- RAÄ archaeology density: [`sweden_archaeology_density.geojson`](./sweden_archaeology_density.geojson)
 - Animal locality GeoJSON: [`world_animal_localities.geojson`](./world_animal_localities.geojson)
 - Domesticated-core animal locality GeoJSON: [`world_domesticated_animal_localities.geojson`](./world_domesticated_animal_localities.geojson)
 - Comparator animal locality GeoJSON: [`world_comparator_animal_localities.geojson`](./world_comparator_animal_localities.geojson)
@@ -48,6 +50,31 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 - Atlas evidence surface markdown: [`world_evidence_surface.md`](./world_evidence_surface.md)
 - Atlas scientific review JSON: [`world_scientific_review.json`](./world_scientific_review.json)
 - Atlas scientific review markdown: [`world_scientific_review.md`](./world_scientific_review.md)
+
+## Visible Layer Contract
+
+| Layer | Publication role | Coverage posture | Visible records |
+| --- | --- | --- | ---: |
+| AADR-v66 aDNA samples | `shared_world_scale_layer` | Country assignment follows the AADR political entity field. | `1231` |
+| Dromedary Camel aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `1` |
+| Goat aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `26` |
+| Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `207` |
+| Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
+
+## Governed Filters
+
+- Country filters
+- Layer toggles
+- Search
+- Time window
+- Distance circles
+- Basemap switch
+
+## Scope Caveats
+
+- World is the parent publication scope, not a claim that worldwide contextual coverage is already complete.
+- Nordic environmental and archaeology overlays are withheld here until broader equivalents exist.
+- Country counts still describe Homo sapiens AADR rows even when animal layers are also visible.
 
 
 ## Animal aDNA Layers
@@ -97,4 +124,3 @@ It combines mapped Homo sapiens aDNA records from AADR `v66` with whichever cont
 | dromedary camel | Camelus dromedarius | domesticated_core | 1 |
 | goat | Capra hircus | domesticated_core | 26 |
 | horse | Equus caballus | domesticated_core | 207 |
-
