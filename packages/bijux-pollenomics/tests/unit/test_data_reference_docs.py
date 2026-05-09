@@ -75,6 +75,8 @@ class DataReferenceDocsUnitTests(unittest.TestCase):
         self.assertIn("refresh-policy.md", source_index)
         self.assertIn("shared-normalization.md", source_index)
         self.assertIn("non-adna-explainer-recovery.md", source_index)
+        self.assertIn("../../report/index.md", outputs_index)
+        self.assertIn("../../report/how-to-read.md", outputs_index)
         self.assertIn("output-surface-classes.md", outputs_index)
         self.assertIn("geographic-input-surfaces.md", outputs_index)
 

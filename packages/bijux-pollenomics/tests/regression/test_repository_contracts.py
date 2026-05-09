@@ -969,8 +969,20 @@ class RepositoryContractRegressionTests(unittest.TestCase):
             self.assertIn(expected, source_index)
         self.assertIn("Open the repository truth review", docs_index)
         self.assertIn("Open the docs recovery review", docs_index)
+        self.assertIn("Open the report portal", docs_index)
+        self.assertIn("How to read the report tree", docs_index)
         self.assertIn("pollen-context layers, environmental archaeology context", docs_index)
         self.assertIn("source-family comparison", data_index)
+        self.assertIn("[report portal](../../report/index.md)", (
+            REPO_ROOT
+            / "docs"
+            / "02-bijux-pollenomics-data"
+            / "outputs"
+            / "published-reports.md"
+        ).read_text(encoding="utf-8"))
+        self.assertIn("[report portal](../report/index.md)", (
+            REPO_ROOT / "docs" / "05-nordic-evidence-atlas" / "index.md"
+        ).read_text(encoding="utf-8"))
 
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
