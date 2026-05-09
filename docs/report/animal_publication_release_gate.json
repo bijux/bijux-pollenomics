@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-publication-release-gate.v1",
-  "overall_ok": true,
+  "overall_ok": false,
   "checks": [
     {
       "check_id": "published_points_keep_required_traceability",
@@ -50,6 +50,24 @@
       "description": "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
       "finding_count": 0,
       "findings": []
+    },
+    {
+      "check_id": "temporal_semantics_keep_contextual_rows_from_looking_numeric",
+      "passed": false,
+      "description": "Published animal and context GeoJSON layers must carry temporal semantics and must not expose contextual-only rows as numeric comparisons.",
+      "finding_count": 2545,
+      "findings": [
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in europe-plus_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in europe-plus_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in europe-plus_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in europe-plus_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in nordic_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in nordic_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark: missing temporal semantics in nordic_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden: missing temporal semantics in nordic_domesticated_animal_localities.geojson",
+        "animal-atlas-feature:camelus-dromedarius-locality-srp073444-site1040nearwadihalfadromedarycontext-sudan: missing temporal semantics in world_animal_localities.geojson",
+        "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey: missing temporal semantics in world_animal_localities.geojson"
+      ]
     },
     {
       "check_id": "docs_do_not_overclaim_all_species_map_readiness",

@@ -9,6 +9,9 @@
 - Modeled rows: `0`
 - Contextual rows: `30`
 - Broad period rows: `0`
+- Numeric interval rows: `715`
+- Numeric rows with caveat: `137`
+- Context-only rows: `0`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -880,3 +883,9 @@
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
+
+## Direct Links
+
+- sample_chronology_review: `data/adna/governance/source_library/sample_chronology_review.json`
+- sample_chronology_provenance_review: `data/adna/governance/source_library/sample_chronology_provenance_review.json`
+- temporal_semantics_docs: `docs/02-bijux-pollenomics-data/evidence/temporal-semantics.md`

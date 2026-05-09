@@ -30,6 +30,16 @@
     "text_only_unparsed": 87,
     "unresolved": 16
   },
+  "comparability_counts": {
+    "unresolved": 16,
+    "numeric_interval": 715,
+    "numeric_interval_with_caveat": 137
+  },
+  "direct_links": {
+    "sample_chronology_review": "data/adna/governance/source_library/sample_chronology_review.json",
+    "sample_chronology_provenance_review": "data/adna/governance/source_library/sample_chronology_provenance_review.json",
+    "temporal_semantics_docs": "docs/02-bijux-pollenomics-data/evidence/temporal-semantics.md"
+  },
   "rows": [
     {
       "species_latin_name": "Bos taurus",

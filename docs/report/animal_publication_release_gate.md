@@ -1,6 +1,6 @@
 # Animal publication release gate
 
-- Overall ok: `true`
+- Overall ok: `false`
 - Strongest claim allowed: `false`
 - Strongest claim support ready: `false`
 
@@ -19,5 +19,6 @@
 | unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs | `true` | 0 |
 | project_level_locality_substitution_projects_do_not_publish_country_or_atlas_rows | `true` | 0 |
 | broad_or_contextual_chronology_does_not_publish_numeric_windows | `true` | 0 |
+| temporal_semantics_keep_contextual_rows_from_looking_numeric | `false` | 2545 |
 | docs_do_not_overclaim_all_species_map_readiness | `true` | 0 |
 | docs_do_not_claim_reference_grade_without_support | `true` | 0 |

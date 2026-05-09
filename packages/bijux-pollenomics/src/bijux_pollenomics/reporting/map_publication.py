@@ -129,7 +129,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "Animal species focus when animal layers are present",
             "Animal scope when animal layers are present",
             "Animal coordinate confidence when animal layers are present",
-            "Animal chronology buckets when animal layers are present",
+            "Animal temporal windows when animal layers are present",
             "Nordic animal leads only when animal layers are present",
         ),
         legend_sections=(

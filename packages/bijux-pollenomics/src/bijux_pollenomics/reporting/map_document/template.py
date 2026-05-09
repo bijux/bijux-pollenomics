@@ -1513,8 +1513,8 @@ MAP_DOCUMENT_TEMPLATE = """
                     <div id="animal-confidence-filters" class="dock-presets"></div>
                   </div>
                   <div>
-                    <div class="field-label"><span>Chronology Buckets</span><span>Inspect temporal structure</span></div>
-                    <div id="animal-chronology-filters" class="dock-presets"></div>
+                    <div class="field-label"><span>Temporal Windows</span><span>Inspect temporal structure without forcing false precision</span></div>
+                    <div id="animal-temporal-window-filters" class="dock-presets"></div>
                   </div>
                   <label class="chip-toggle">
                     <input id="animal-nordic-only" type="checkbox" aria-label="Restrict animal evidence to Nordic leads only">
@@ -1729,11 +1729,11 @@ MAP_DOCUMENT_TEMPLATE = """
             .flatMap((layer) => (layer.features || []).map((feature) => String(feature.coordinate_confidence || '').trim()).filter(Boolean))
         )
       );
-      const ANIMAL_CHRONOLOGY_BUCKETS = Array.from(
+      const ANIMAL_TEMPORAL_WINDOWS = Array.from(
         new Set(
           POINT_LAYERS
             .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group))
-            .flatMap((layer) => (layer.features || []).map((feature) => feature.chronology_bucket).filter(Boolean))
+            .flatMap((layer) => (layer.features || []).map((feature) => feature.temporal_window_label).filter(Boolean))
         )
       );
       const TIME_MIN_BP = __TIME_MIN_BP__;
@@ -1776,7 +1776,7 @@ MAP_DOCUMENT_TEMPLATE = """
       const animalScopeFilters = document.getElementById('animal-scope-filters');
       const animalSpeciesFilters = document.getElementById('animal-species-filters');
       const animalConfidenceFilters = document.getElementById('animal-confidence-filters');
-      const animalChronologyFilters = document.getElementById('animal-chronology-filters');
+      const animalTemporalWindowFilters = document.getElementById('animal-temporal-window-filters');
       const animalNordicOnlyCheckbox = document.getElementById('animal-nordic-only');
       const animalEvidenceMetrics = document.getElementById('animal-evidence-metrics');
       const animalEvidenceConfidence = document.getElementById('animal-evidence-confidence');
@@ -1825,7 +1825,7 @@ MAP_DOCUMENT_TEMPLATE = """
           animalSpecies: params.get('animal_species'),
           animalScope: params.get('animal_scope'),
           animalConfidence: params.get('animal_confidence'),
-          animalChronology: params.get('animal_chronology'),
+          animalTemporalWindow: params.get('animal_time_window') || params.get('animal_chronology'),
           animalNordic: params.get('animal_nordic'),
           diameter: params.get('diameter'),
           timeStart: params.get('time_start'),
@@ -1909,9 +1909,9 @@ MAP_DOCUMENT_TEMPLATE = """
         ['all', ...ANIMAL_COORDINATE_CONFIDENCES],
         'all'
       );
-      let activeAnimalChronology = normalizedSingleValue(
-        initialState.animalChronology,
-        ['all', ...ANIMAL_CHRONOLOGY_BUCKETS],
+      let activeAnimalTemporalWindow = normalizedSingleValue(
+        initialState.animalTemporalWindow,
+        ['all', ...ANIMAL_TEMPORAL_WINDOWS],
         'all'
       );
       let animalNordicOnly = initialState.animalNordic === 'only';
@@ -1981,7 +1981,7 @@ MAP_DOCUMENT_TEMPLATE = """
           species: Object.prototype.hasOwnProperty.call(overrides, 'species') ? overrides.species : activeAnimalSpecies,
           scope: Object.prototype.hasOwnProperty.call(overrides, 'scope') ? overrides.scope : activeAnimalScope,
           confidence: Object.prototype.hasOwnProperty.call(overrides, 'confidence') ? overrides.confidence : activeAnimalConfidence,
-          chronology: Object.prototype.hasOwnProperty.call(overrides, 'chronology') ? overrides.chronology : activeAnimalChronology,
+          temporalWindow: Object.prototype.hasOwnProperty.call(overrides, 'temporalWindow') ? overrides.temporalWindow : activeAnimalTemporalWindow,
           nordicOnly: Object.prototype.hasOwnProperty.call(overrides, 'nordicOnly') ? overrides.nordicOnly : animalNordicOnly,
         };
       }
@@ -2003,7 +2003,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (state.species !== 'all' && String(feature.species_latin_name || '') !== state.species) return false;
         if (state.scope !== 'all' && String(feature.animal_scope || '') !== state.scope) return false;
         if (state.confidence !== 'all' && String(feature.coordinate_confidence || '') !== state.confidence) return false;
-        if (state.chronology !== 'all' && String(feature.chronology_bucket || '') !== state.chronology) return false;
+        if (state.temporalWindow !== 'all' && String(feature.temporal_window_label || '') !== state.temporalWindow) return false;
         if (state.nordicOnly && !feature.nordic_inclusion) return false;
         return true;
       }
@@ -2027,7 +2027,7 @@ MAP_DOCUMENT_TEMPLATE = """
           activeAnimalSpecies !== 'all' ? ANIMAL_SPECIES.find((species) => species.latinName === activeAnimalSpecies)?.commonName || activeAnimalSpecies : '',
           activeAnimalScope !== 'all' ? formatAnimalScope(activeAnimalScope) : '',
           activeAnimalConfidence !== 'all' ? formatCoordinateConfidence(activeAnimalConfidence) : '',
-          activeAnimalChronology !== 'all' ? activeAnimalChronology : '',
+          activeAnimalTemporalWindow !== 'all' ? activeAnimalTemporalWindow : '',
           animalNordicOnly ? 'Nordic leads only' : '',
         ].filter(Boolean);
         return {
@@ -2103,7 +2103,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
         if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
         if (activeAnimalConfidence !== 'all') params.set('animal_confidence', activeAnimalConfidence);
-        if (activeAnimalChronology !== 'all') params.set('animal_chronology', activeAnimalChronology);
+        if (activeAnimalTemporalWindow !== 'all') params.set('animal_time_window', activeAnimalTemporalWindow);
         if (animalNordicOnly) params.set('animal_nordic', 'only');
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
         if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
@@ -2212,7 +2212,7 @@ MAP_DOCUMENT_TEMPLATE = """
         if (activeAnimalSpecies !== 'all') count += 1;
         if (activeAnimalScope !== 'all') count += 1;
         if (activeAnimalConfidence !== 'all') count += 1;
-        if (activeAnimalChronology !== 'all') count += 1;
+        if (activeAnimalTemporalWindow !== 'all') count += 1;
         if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
         if (Number(slider.value) !== __INITIAL_DIAMETER__) count += 1;
@@ -2293,7 +2293,7 @@ MAP_DOCUMENT_TEMPLATE = """
           animalScopeFilters.innerHTML = '<span class="search-meta">No mapped animal layers available.</span>';
           animalSpeciesFilters.innerHTML = '';
           animalConfidenceFilters.innerHTML = '';
-          animalChronologyFilters.innerHTML = '';
+          animalTemporalWindowFilters.innerHTML = '';
           animalEvidenceMetrics.innerHTML = '';
           animalEvidenceConfidence.innerHTML = '<span class="animal-insight-copy">No mapped animal points are available in this bundle.</span>';
           animalEvidenceState.textContent = 'No animal evidence';
@@ -2330,11 +2330,11 @@ MAP_DOCUMENT_TEMPLATE = """
           }),
         ];
         animalConfidenceFilters.innerHTML = confidenceButtons.join('');
-        const chronologyButtons = [
-          `<button class="preset-button ${activeAnimalChronology === 'all' ? 'is-active' : ''}" type="button" data-animal-chronology="all">All chronology</button>`,
-          ...ANIMAL_CHRONOLOGY_BUCKETS.map((bucket) => `<button class="preset-button ${activeAnimalChronology === bucket ? 'is-active' : ''}" type="button" data-animal-chronology="${escapeHtml(bucket)}">${escapeHtml(bucket)}</button>`),
+        const temporalWindowButtons = [
+          `<button class="preset-button ${activeAnimalTemporalWindow === 'all' ? 'is-active' : ''}" type="button" data-animal-temporal-window="all">All temporal windows</button>`,
+          ...ANIMAL_TEMPORAL_WINDOWS.map((label) => `<button class="preset-button ${activeAnimalTemporalWindow === label ? 'is-active' : ''}" type="button" data-animal-temporal-window="${escapeHtml(label)}">${escapeHtml(label)}</button>`),
         ];
-        animalChronologyFilters.innerHTML = chronologyButtons.join('');
+        animalTemporalWindowFilters.innerHTML = temporalWindowButtons.join('');
         animalNordicOnlyCheckbox.checked = animalNordicOnly;
         animalFilterSummary.textContent = `${metrics.visibleEntries.length} animal points · ${metrics.visibleSpecies.size} species visible`;
         renderAnimalEvidencePanel(metrics);
@@ -2356,9 +2356,9 @@ MAP_DOCUMENT_TEMPLATE = """
             renderMapState();
           });
         });
-        document.querySelectorAll('[data-animal-chronology]').forEach((button) => {
+        document.querySelectorAll('[data-animal-temporal-window]').forEach((button) => {
           button.addEventListener('click', () => {
-            activeAnimalChronology = button.dataset.animalChronology;
+            activeAnimalTemporalWindow = button.dataset.animalTemporalWindow;
             renderMapState();
           });
         });
@@ -2734,7 +2734,7 @@ MAP_DOCUMENT_TEMPLATE = """
         activeAnimalSpecies = 'all';
         activeAnimalScope = 'all';
         activeAnimalConfidence = 'all';
-        activeAnimalChronology = 'all';
+        activeAnimalTemporalWindow = 'all';
         animalNordicOnly = false;
         animalNordicOnlyCheckbox.checked = false;
         slider.value = __INITIAL_DIAMETER__;

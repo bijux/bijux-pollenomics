@@ -27,12 +27,6 @@ __all__ = [
     "load_tracked_animal_localities",
 ]
 
-_ANIMAL_CHRONOLOGY_BUCKETS = (
-    ("0-1000 BP", 0, 1000),
-    ("1001-3000 BP", 1001, 3000),
-    ("3001-6000 BP", 3001, 6000),
-    ("6001+ BP", 6001, None),
-)
 _SPECIES_STYLES = {
     "Equus caballus": {"fill": "#8b5e34", "stroke": "#5d3f21"},
     "Sus scrofa domesticus": {"fill": "#c2410c", "stroke": "#7c2d12"},
@@ -278,7 +272,10 @@ def _build_point_feature(
         review=review,
     )
     scope = _animal_scope_for(dataset_review)
-    chronology_bucket = _chronology_bucket_for(row)
+    temporal_semantics = _temporal_semantics_for(row)
+    temporal_window_label = str(
+        temporal_semantics.get("temporal_window_label", "")
+    ).strip()
     popup_rows = [
         {"label": "Species", "value": row.species_latin_name},
         {"label": "Support class", "value": row.support_class},
@@ -291,7 +288,17 @@ def _build_point_feature(
         {"label": "Publication year", "value": row.publication_year},
         {"label": "Journal", "value": row.journal_title},
         {"label": "Chronology", "value": row.chronology.original_text},
-        {"label": "Chronology bucket", "value": chronology_bucket},
+        {"label": "Temporal window", "value": temporal_window_label},
+        {
+            "label": "Temporal comparison posture",
+            "value": str(
+                temporal_semantics.get("comparability_posture", "")
+            ).replace("_", " "),
+        },
+        {
+            "label": "Temporal comparison note",
+            "value": str(temporal_semantics.get("comparison_note", "")).strip(),
+        },
         {"label": "Support note", "value": row.support_note},
         {"label": "Coordinate basis", "value": row.coordinate_basis},
         {"label": "Coordinate confidence", "value": row.coordinate_confidence},
@@ -326,7 +333,13 @@ def _build_point_feature(
         "evidence_role": "direct",
         "animal_scope": scope,
         "support_class": row.support_class,
-        "chronology_bucket": chronology_bucket,
+        "temporal_semantics": temporal_semantics,
+        "temporal_window_key": temporal_semantics["temporal_window_key"],
+        "temporal_window_label": temporal_window_label,
+        "temporal_comparability_posture": temporal_semantics[
+            "comparability_posture"
+        ],
+        "temporal_comparison_note": temporal_semantics["comparison_note"],
         "nordic_inclusion": row.nordic_inclusion,
         "nordic_inclusion_reason": row.nordic_inclusion_reason,
         "coordinate_basis": row.coordinate_basis,
@@ -399,7 +412,13 @@ def _write_feature_collection(
                     "species_common_name": feature["species_common_name"],
                     "animal_scope": feature["animal_scope"],
                     "support_class": feature["support_class"],
-                    "chronology_bucket": feature["chronology_bucket"],
+                    "temporal_semantics": feature["temporal_semantics"],
+                    "temporal_window_key": feature["temporal_window_key"],
+                    "temporal_window_label": feature["temporal_window_label"],
+                    "temporal_comparability_posture": feature[
+                        "temporal_comparability_posture"
+                    ],
+                    "temporal_comparison_note": feature["temporal_comparison_note"],
                     "nordic_inclusion": feature["nordic_inclusion"],
                     "nordic_inclusion_reason": feature["nordic_inclusion_reason"],
                     "coordinate_basis": feature["coordinate_basis"],
@@ -510,16 +529,13 @@ def _layer_style_for(species_latin_name: str) -> dict[str, str]:
     )
 
 
-def _chronology_bucket_for(row: AnimalAtlasEvidenceRow) -> str:
-    mean_bp = row.chronology.time_mean_bp
-    if mean_bp is None:
-        return "undated"
-    for label, start, end in _ANIMAL_CHRONOLOGY_BUCKETS:
-        if end is None and mean_bp >= start:
-            return label
-        if end is not None and start <= mean_bp <= end:
-            return label
-    return "undated"
+def _temporal_semantics_for(row: AnimalAtlasEvidenceRow) -> dict[str, object]:
+    return row.chronology.as_temporal_semantics(
+        source_family="animal_adna",
+        provenance_path=row.source_artifact_path,
+        provenance_locator=row.source_locator,
+        provenance_excerpt=row.exact_source_text,
+    )
 
 
 def _alpha(color: str, opacity: float) -> str:

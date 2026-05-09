@@ -15,6 +15,7 @@ from ...adna.project_sample_chronology import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     ADNA_CHRONOLOGY_PRECISION_POSTURES,
     ADNA_CHRONOLOGY_STRENGTHS,
+    build_sample_chronology_provenance_rows,
     build_sample_chronology_review_rows,
 )
 from ...adna.project_sample_locality_evidence import (
@@ -88,6 +89,10 @@ def publish_animal_foundation_outputs(
         absence_payload=absence_payload,
     )
     chronology_review_payload = build_animal_sample_chronology_review(data_root=data_root)
+    temporal_comparison_payload = build_animal_temporal_comparison_review(
+        data_root=data_root,
+        report_root=output_root,
+    )
     intake_recovery_payload = build_animal_intake_recovery_review(data_root=data_root)
     sample_database_review_payload = build_animal_sample_database_review(
         data_root=data_root,
@@ -104,6 +109,7 @@ def publish_animal_foundation_outputs(
         review_payload=review_payload,
         sample_database_review_payload=sample_database_review_payload,
         intake_recovery_payload=intake_recovery_payload,
+        temporal_comparison_payload=temporal_comparison_payload,
     )
 
     payloads = {
@@ -134,6 +140,12 @@ def publish_animal_foundation_outputs(
         "animal_sample_chronology_review": (
             chronology_review_payload,
             render_animal_sample_chronology_review_markdown(chronology_review_payload),
+        ),
+        "animal_temporal_comparison_review": (
+            temporal_comparison_payload,
+            render_animal_temporal_comparison_review_markdown(
+                temporal_comparison_payload
+            ),
         ),
         "animal_intake_recovery_review": (
             intake_recovery_payload,
@@ -637,15 +649,20 @@ def build_animal_sample_chronology_review(
 ) -> dict[str, object]:
     """Publish one reader-facing chronology review across all governed animal sample rows."""
     rows = list(build_sample_chronology_review_rows(data_root))
+    provenance_rows = list(build_sample_chronology_provenance_rows(data_root))
     strength_counts = {key: 0 for key in ADNA_CHRONOLOGY_STRENGTHS}
     evidence_counts = {key: 0 for key in ADNA_CHRONOLOGY_EVIDENCE_CLASSES}
     precision_counts = {key: 0 for key in ADNA_CHRONOLOGY_PRECISION_POSTURES}
     normalization_counts = {key: 0 for key in ADNA_CHRONOLOGY_NORMALIZATION_STATUSES}
+    comparability_counts: dict[str, int] = {}
     for row in rows:
         strength_counts[str(row.get("chronology_strength", ""))] += 1
         evidence_counts[str(row.get("chronology_evidence_class", ""))] += 1
         precision_counts[str(row.get("chronology_precision_posture", ""))] += 1
         normalization_counts[str(row.get("chronology_normalization_status", ""))] += 1
+    for row in provenance_rows:
+        posture = _temporal_row_posture(row, semantics_key="temporal_semantics")
+        comparability_counts[posture] = comparability_counts.get(posture, 0) + 1
     return {
         "schema_version": "animal-sample-chronology-review.v1",
         "row_count": len(rows),
@@ -653,7 +670,82 @@ def build_animal_sample_chronology_review(
         "evidence_counts": evidence_counts,
         "precision_counts": precision_counts,
         "normalization_counts": normalization_counts,
+        "comparability_counts": comparability_counts,
+        "direct_links": {
+            "sample_chronology_review": "data/adna/governance/source_library/sample_chronology_review.json",
+            "sample_chronology_provenance_review": "data/adna/governance/source_library/sample_chronology_provenance_review.json",
+            "temporal_semantics_docs": "docs/02-bijux-pollenomics-data/evidence/temporal-semantics.md",
+        },
         "rows": rows,
+    }
+
+
+def build_animal_temporal_comparison_review(
+    *,
+    data_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Publish one cross-family review of direct and contextual time semantics."""
+    animal_rows = list(build_sample_chronology_provenance_rows(data_root))
+    sead_payload = _load_json_if_present(data_root / "sead" / "review" / "temporal_review.json")
+    sead_rows = (
+        [row for row in sead_payload.get("rows", []) if isinstance(row, dict)]
+        if isinstance(sead_payload, dict)
+        else []
+    )
+    family_rows = [
+        {
+            "family_key": "animal_adna",
+            "display_name": "Animal aDNA chronology",
+            "row_count": len(animal_rows),
+            "comparability_counts": _comparability_counts_from_temporal_rows(
+                animal_rows,
+                semantics_key="temporal_semantics",
+            ),
+            "comparison_policy": (
+                "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."
+            ),
+        },
+        {
+            "family_key": "sead_context",
+            "display_name": "SEAD archaeology context",
+            "row_count": len(sead_rows),
+            "comparability_counts": dict(
+                sead_payload.get("comparability_posture_counts", {})
+                if isinstance(sead_payload, dict)
+                else {}
+            ),
+            "comparison_policy": (
+                "SEAD rows remain site-level archaeology context even when numeric spans are available."
+            ),
+        },
+    ]
+    unsafe_findings: list[str] = []
+    if any(
+        _temporal_row_posture(row, semantics_key="temporal_semantics")
+        == "contextual_label_only"
+        for row in animal_rows
+    ):
+        unsafe_findings.append(
+            "Animal broad-period chronology rows remain visible in governance outputs and must not be treated as sample-owned numeric dates."
+        )
+    if any(str(row.get("comparability_posture", "")).strip() == "mixed_interval_and_context" for row in sead_rows):
+        unsafe_findings.append(
+            "SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates."
+        )
+    published_feature_findings = _published_temporal_feature_findings(report_root)
+    unsafe_findings.extend(published_feature_findings)
+    return {
+        "schema_version": "animal-temporal-comparison-review.v1",
+        "row_count": len(family_rows),
+        "family_rows": family_rows,
+        "unsafe_comparison_findings": unsafe_findings,
+        "published_feature_guard_findings": published_feature_findings,
+        "direct_links": {
+            "animal_provenance_review": "data/adna/governance/source_library/sample_chronology_provenance_review.json",
+            "sead_temporal_review": "data/sead/review/temporal_review.json",
+            "publication_report_root": "docs/report/",
+        },
     }
 
 
@@ -919,6 +1011,7 @@ def build_animal_publication_release_gate(
     review_payload: dict[str, object],
     sample_database_review_payload: dict[str, object],
     intake_recovery_payload: dict[str, object],
+    temporal_comparison_payload: dict[str, object],
 ) -> dict[str, object]:
     """Fail publication when animal outputs overclaim or lose required traceability."""
     docs_paths = sorted(path for path in docs_root.rglob("*.md") if path.is_file())
@@ -1045,6 +1138,9 @@ def build_animal_publication_release_gate(
         review_payload["reference_grade_claim_allowed"]
         and all(reference_grade_support_requirements.values())
     )
+    temporal_feature_findings = list(
+        temporal_comparison_payload.get("published_feature_guard_findings", [])
+    )
     checks = [
         _check_row(
             "published_points_keep_required_traceability",
@@ -1109,6 +1205,12 @@ def build_animal_publication_release_gate(
             imprecise_country_chronology_rows + imprecise_atlas_chronology_rows,
         ),
         _check_row(
+            "temporal_semantics_keep_contextual_rows_from_looking_numeric",
+            not temporal_feature_findings,
+            "Published animal and context GeoJSON layers must carry temporal semantics and must not expose contextual-only rows as numeric comparisons.",
+            temporal_feature_findings,
+        ),
+        _check_row(
             "docs_do_not_overclaim_all_species_map_readiness",
             not (all_species_claim and (unresolved_rows or overbroad_rows)),
             "Public docs do not claim all-species animal map readiness while blocking ledgers remain.",
@@ -1148,6 +1250,69 @@ def _public_chronology_window_exposed(payload: dict[str, object]) -> bool:
         payload.get(field) is not None
         for field in ("time_start_bp", "time_end_bp", "time_mean_bp")
     )
+
+
+def _temporal_row_posture(row: dict[str, object], *, semantics_key: str) -> str:
+    semantics = row.get(semantics_key, {})
+    if not isinstance(semantics, dict):
+        return "unresolved"
+    return str(semantics.get("comparability_posture", "")).strip() or "unresolved"
+
+
+def _comparability_counts_from_temporal_rows(
+    rows: list[dict[str, object]],
+    *,
+    semantics_key: str,
+) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for row in rows:
+        posture = _temporal_row_posture(row, semantics_key=semantics_key)
+        counts[posture] = counts.get(posture, 0) + 1
+    return counts
+
+
+def _published_temporal_feature_findings(report_root: Path) -> list[str]:
+    findings: list[str] = []
+    for path in sorted(Path(report_root).rglob("*animal_localities.geojson")):
+        payload = _load_json_if_present(path)
+        features = payload.get("features", [])
+        if not isinstance(features, list):
+            continue
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            properties = feature.get("properties", {})
+            if not isinstance(properties, dict):
+                continue
+            feature_id = str(properties.get("feature_id", "")).strip() or path.name
+            semantics = properties.get("temporal_semantics", {})
+            if not isinstance(semantics, dict) or not semantics:
+                findings.append(f"{feature_id}: missing temporal semantics in {path.name}")
+                continue
+            posture = str(semantics.get("comparability_posture", "")).strip()
+            if posture in {"contextual_label_only", "unresolved"} and any(
+                properties.get(field) is not None
+                for field in ("time_start_bp", "time_end_bp", "time_mean_bp")
+            ):
+                findings.append(
+                    f"{feature_id}: contextual-only chronology still exposes numeric time fields in {path.name}"
+                )
+    for path in sorted(Path(report_root).rglob("*environmental_sites.geojson")):
+        payload = _load_json_if_present(path)
+        features = payload.get("features", [])
+        if not isinstance(features, list):
+            continue
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            properties = feature.get("properties", {})
+            if not isinstance(properties, dict):
+                continue
+            record_id = str(properties.get("record_id", "")).strip() or path.name
+            semantics = properties.get("temporal_semantics", {})
+            if not isinstance(semantics, dict) or not semantics:
+                findings.append(f"{record_id}: missing temporal semantics in {path.name}")
+    return findings
 
 
 def render_animal_foundation_validation_markdown(payload: dict[str, object]) -> str:
@@ -1288,6 +1453,9 @@ def render_animal_sample_chronology_review_markdown(payload: dict[str, object]) 
         f"- Modeled rows: `{payload['evidence_counts']['modeled_sample_date']}`",
         f"- Contextual rows: `{payload['evidence_counts']['archaeological_context_date']}`",
         f"- Broad period rows: `{payload['evidence_counts']['broad_period_label']}`",
+        f"- Numeric interval rows: `{payload['comparability_counts'].get('numeric_interval', 0)}`",
+        f"- Numeric rows with caveat: `{payload['comparability_counts'].get('numeric_interval_with_caveat', 0)}`",
+        f"- Context-only rows: `{payload['comparability_counts'].get('contextual_label_only', 0)}`",
         "",
         "| Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |",
         "| --- | --- | --- | --- | --- | --- | --- | --- |",
@@ -1299,6 +1467,35 @@ def render_animal_sample_chronology_review_markdown(payload: dict[str, object]) 
             f"{row['chronology_evidence_class']} | {row['chronology_precision_posture']} | "
             f"{row['chronology_normalization_status']} | {row['chronology_text']} |"
         )
+    lines.extend(["", "## Direct Links", ""])
+    for label, target in payload["direct_links"].items():
+        lines.append(f"- {label}: `{target}`")
+    return "\n".join(lines) + "\n"
+
+
+def render_animal_temporal_comparison_review_markdown(payload: dict[str, object]) -> str:
+    lines = [
+        "# Animal temporal comparison review",
+        "",
+        "This review names the temporal comparisons that remain safe and the ones that would overclaim if direct aDNA rows and contextual archaeology rows were treated as one date model.",
+        "",
+        "| Family | Rows | Comparison policy |",
+        "| --- | ---: | --- |",
+    ]
+    for row in payload["family_rows"]:
+        lines.append(
+            f"| {row['display_name']} | {row['row_count']} | {row['comparison_policy']} |"
+        )
+    lines.extend(["", "## Unsafe Comparison Findings", ""])
+    findings = payload.get("unsafe_comparison_findings", [])
+    if isinstance(findings, list) and findings:
+        for finding in findings:
+            lines.append(f"- {finding}")
+    else:
+        lines.append("- No unsafe comparison findings are currently published.")
+    lines.extend(["", "## Direct Links", ""])
+    for label, target in payload["direct_links"].items():
+        lines.append(f"- {label}: `{target}`")
     return "\n".join(lines) + "\n"
 
 
@@ -1447,6 +1644,13 @@ def _load_json_rows(path: Path, key: str) -> list[dict[str, object]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     rows = payload.get(key, [])
     return [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+
+
+def _load_json_if_present(path: Path) -> dict[str, object]:
+    if not path.is_file():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload if isinstance(payload, dict) else {}
 
 
 def _species_roots(data_root: Path) -> list[Path]:

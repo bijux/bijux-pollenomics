@@ -372,12 +372,13 @@ def _build_animal_atlas_summary(
         }
         for layer in animal_layers
     ]
-    chronology_buckets = sorted(
+    temporal_windows = sorted(
         {
-            str(feature.get("chronology_bucket", "")).strip()
+            str(feature.get("temporal_window_label", "")).strip()
             for layer in animal_layers
             for feature in layer.get("features", [])
-            if isinstance(feature, dict) and str(feature.get("chronology_bucket", "")).strip()
+            if isinstance(feature, dict)
+            and str(feature.get("temporal_window_label", "")).strip()
         }
     )
     coordinate_confidence_counts: dict[str, int] = {}
@@ -419,7 +420,7 @@ def _build_animal_atlas_summary(
             "Species focus",
             "Animal scope",
             "Coordinate confidence",
-            "Chronology bucket",
+            "Temporal window",
             "Nordic animal leads only",
         ]
         if species_layers
@@ -431,7 +432,7 @@ def _build_animal_atlas_summary(
         ]
         if species_layers
         else [],
-        "chronology_buckets": chronology_buckets,
+        "temporal_windows": temporal_windows,
         "coordinate_confidence_counts": coordinate_confidence_counts,
         "visible_caveats": visible_caveats if species_layers else [],
         "species_layers": species_layers,
