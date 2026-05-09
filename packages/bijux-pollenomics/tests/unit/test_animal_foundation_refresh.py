@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from bijux_pollenomics.config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from bijux_pollenomics.reporting.models import PublishedReportsReport
 from bijux_pollenomics.reporting.service import refresh_animal_adna_foundation
 
@@ -34,7 +35,7 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
                 version="v66",
                 generated_on="1970-01-01",
                 countries=("Sweden",),
-                shared_map_dir=report_root / "nordic-atlas",
+                shared_map_dir=report_root / DEFAULT_ATLAS_SLUG,
                 country_output_dirs=(report_root / "sweden",),
                 summary_path=report_root / "published_reports_summary.json",
             )
@@ -89,8 +90,8 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
                 version_dir=aadr_root / "v66",
                 countries=("Sweden",),
                 output_root=report_root,
-                title="Nordic Evidence Atlas",
-                slug="nordic-atlas",
+                title=DEFAULT_ATLAS_TITLE,
+                slug=DEFAULT_ATLAS_SLUG,
                 context_root=data_root,
             )
 

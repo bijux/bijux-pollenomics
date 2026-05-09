@@ -23,8 +23,8 @@ class ConfigDefaultsUnitTests(unittest.TestCase):
     def test_config_module_keeps_canonical_default_values(self) -> None:
         self.assertEqual(DATA_DEFAULTS.aadr_version, "v66")
         self.assertEqual(DATA_DEFAULTS.nordic_bbox, (4.0, 54.0, 35.0, 72.0))
-        self.assertEqual(ATLAS_DEFAULTS.slug, "nordic-atlas")
-        self.assertEqual(ATLAS_DEFAULTS.title, "Nordic Evidence Atlas")
+        self.assertEqual(ATLAS_DEFAULTS.slug, "world")
+        self.assertEqual(ATLAS_DEFAULTS.title, "World Evidence Surface")
         self.assertEqual(PROJECT_PATHS.data_root, Path("data"))
         self.assertEqual(PROJECT_PATHS.report_root, Path("docs/report"))
 

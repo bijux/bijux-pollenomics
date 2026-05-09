@@ -16,6 +16,7 @@ from bijux_pollenomics.reporting.bundles.summary_builders import (
 from bijux_pollenomics.reporting.geography import (
     build_geography_onboarding_contract,
     build_published_geography_plan,
+    infer_publication_scope,
     render_geography_onboarding_contract_markdown,
 )
 from bijux_pollenomics.reporting.models import CountryReport, MultiCountryMapReport
@@ -23,6 +24,18 @@ from bijux_pollenomics.reporting.models import PublishedReportsReport
 
 
 class PublicationGeographyTests(unittest.TestCase):
+    def test_infer_publication_scope_prefers_narrowest_governed_region(self) -> None:
+        nordic_scope = infer_publication_scope(("Sweden",))
+        europe_plus_scope = infer_publication_scope(("Germany",))
+        world_scope = infer_publication_scope(("Japan",))
+
+        self.assertEqual(nordic_scope.key, "nordic")
+        self.assertEqual(nordic_scope.kind, "region")
+        self.assertEqual(europe_plus_scope.key, "europe_plus")
+        self.assertEqual(europe_plus_scope.kind, "region")
+        self.assertEqual(world_scope.key, "world")
+        self.assertEqual(world_scope.kind, "world")
+
     def test_build_published_geography_plan_defines_world_region_country_lineage(self) -> None:
         plan = build_published_geography_plan(
             ("Sweden", "Norway", "Finland", "Denmark", "Germany")

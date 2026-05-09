@@ -195,6 +195,7 @@ def build_scientific_review_surface(
     animal_localities: Iterable[AdnaLocalitySummary] = (),
     context_points: Iterable[ContextPointRecord],
     animal_coordinate_review: AnimalCoordinateVisibilityReview | None = None,
+    include_tracked_nonhuman_review: bool = True,
 ) -> ScientificReviewSurface:
     """Build the scientific-review surface for one atlas run."""
     direct_localities = tuple(human_localities)
@@ -205,6 +206,7 @@ def build_scientific_review_surface(
         human_localities=direct_localities,
         animal_localities=mapped_animal_localities,
         context_points=context_records,
+        include_tracked_nonhuman_review=include_tracked_nonhuman_review,
     )
     species_rows = evidence_surface.species_rows
     country_coverage = _build_country_coverage(

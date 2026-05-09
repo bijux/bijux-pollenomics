@@ -147,6 +147,7 @@ def publish_multi_country_map_bundle(
         human_localities=summarized_localities,
         animal_localities=animal_localities,
         context_points=context_points,
+        include_tracked_nonhuman_review=context_root is not None,
     )
     write_atlas_evidence_surface_json(
         bundle_paths.evidence_surface_json_path,
@@ -162,6 +163,7 @@ def publish_multi_country_map_bundle(
         animal_localities=animal_localities,
         context_points=context_points,
         animal_coordinate_review=animal_coordinate_review,
+        include_tracked_nonhuman_review=context_root is not None,
     )
     write_scientific_review_surface_json(
         bundle_paths.scientific_review_json_path,

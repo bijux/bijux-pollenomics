@@ -26,6 +26,7 @@ def build_atlas_evidence_surface(
     human_localities: Iterable[AdnaLocalitySummary],
     animal_localities: Iterable[AdnaLocalitySummary] = (),
     context_points: Iterable[ContextPointRecord],
+    include_tracked_nonhuman_review: bool = True,
 ) -> AtlasEvidenceSurface:
     """Build the atlas evidence contract without overstating animal locality claims."""
     human_locality_rows = tuple(human_localities)
@@ -35,6 +36,7 @@ def build_atlas_evidence_surface(
         human_localities=human_locality_rows,
         animal_localities=animal_locality_rows,
         context_points=context_records,
+        include_tracked_nonhuman_review=include_tracked_nonhuman_review,
     )
     layers = _build_atlas_layers(
         human_localities=human_locality_rows,
@@ -102,7 +104,10 @@ def _build_nonhuman_species_rows(
     human_localities: tuple[AdnaLocalitySummary, ...],
     animal_localities: tuple[AdnaLocalitySummary, ...],
     context_points: tuple[ContextPointRecord, ...],
+    include_tracked_nonhuman_review: bool,
 ) -> tuple[AtlasEvidenceSpeciesRow, ...]:
+    if not include_tracked_nonhuman_review:
+        return ()
     rows: list[AtlasEvidenceSpeciesRow] = []
     context_layer_dependencies = tuple(
         sorted({point.layer_key for point in context_points})

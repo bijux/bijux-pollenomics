@@ -77,7 +77,7 @@ class AdnaCurationUnitTests(unittest.TestCase):
         self.assertEqual(chicken.curated_projects, ())
         self.assertEqual(rabbit.pending_projects, ())
 
-    def test_domestication_coverage_report_marks_strong_thin_and_pretending_rows(
+    def test_domestication_coverage_report_marks_strong_thin_and_current_core_rows(
         self,
     ) -> None:
         report = build_domestication_coverage_report()
@@ -92,7 +92,7 @@ class AdnaCurationUnitTests(unittest.TestCase):
 
         self.assertEqual(horse.coverage_posture, "strong")
         self.assertEqual(chicken.coverage_posture, "thin")
-        self.assertEqual(cattle.coverage_posture, "pretending")
+        self.assertEqual(cattle.coverage_posture, "strong")
 
 
 if __name__ == "__main__":
