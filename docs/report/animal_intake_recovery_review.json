@@ -1,0 +1,318 @@
+{
+  "schema_version": "animal-intake-recovery-review.v1",
+  "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
+  "stage_review": {
+    "tracked_project_count": 40,
+    "ready_for_publication_review": 8,
+    "blocked_projects": 26,
+    "in_progress_projects": 0
+  },
+  "yield_review": {
+    "tracked_project_count": 40,
+    "projects_with_exact_expected_count": 4,
+    "projects_with_minimum_expected_floor": 22,
+    "projects_with_implausibly_low_recovery": 8,
+    "exact_expected_sample_total": 17,
+    "recovered_final_sample_total": 868,
+    "minimum_gap_total": 8
+  },
+  "species_deficit_counts": {
+    "Bos taurus": {
+      "project_count": 3,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 3
+    },
+    "Camelus dromedarius": {
+      "project_count": 2,
+      "projects_with_sample_gap": 1,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 1,
+      "projects_blocked_before_publication": 2
+    },
+    "Canis lupus familiaris": {
+      "project_count": 3,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 3,
+      "projects_with_chronology_gap": 2,
+      "projects_blocked_before_publication": 3
+    },
+    "Capra hircus": {
+      "project_count": 3,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 0
+    },
+    "Equus asinus": {
+      "project_count": 5,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 5
+    },
+    "Equus caballus": {
+      "project_count": 8,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    },
+    "Felis catus": {
+      "project_count": 2,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 2
+    },
+    "Ovis aries": {
+      "project_count": 6,
+      "projects_with_sample_gap": 2,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 5
+    },
+    "Rangifer tarandus": {
+      "project_count": 4,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    },
+    "Sus scrofa domesticus": {
+      "project_count": 4,
+      "projects_with_sample_gap": 1,
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 4
+    }
+  },
+  "manual_curation_counts": {
+    "chronology_recovery": 8,
+    "locality_string_resolution": 6,
+    "site_resolution": 6
+  },
+  "missing_source_queue_counts": {
+    "sample_recovery_still_thin": 8,
+    "missing_primary_paper_linkage": 13
+  },
+  "release_guard": {
+    "passing": false,
+    "implausibly_low_recovery_project_count": 8
+  },
+  "sample_evidence_depth_counts": {
+    "sample_identity_only": 0,
+    "sample_with_site": 124,
+    "sample_with_site_and_chronology": 268,
+    "sample_with_site_chronology_and_coordinates": 502
+  },
+  "top_gap_projects": [
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "species_latin_name": "Bos taurus",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap",
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "KU605068-KU605080",
+      "species_latin_name": "Camelus dromedarius",
+      "recovery_gap_status": "recovered_to_exact_expected_count",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovery_gap_status": "recovered_to_exact_expected_count",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "project_accession": "SRS1407451",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovery_gap_status": "recovered_to_exact_expected_count",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "project_accession": "SRS1407453",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovery_gap_status": "recovered_to_exact_expected_count",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB43564",
+      "species_latin_name": "Equus asinus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB50952",
+      "species_latin_name": "Equus asinus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52590",
+      "species_latin_name": "Equus asinus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB52849",
+      "species_latin_name": "Equus asinus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "coordinate_precision_gap",
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB10854",
+      "species_latin_name": "Equus caballus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB56293",
+      "species_latin_name": "Equus caballus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB7537",
+      "species_latin_name": "Equus caballus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    },
+    {
+      "project_accession": "PRJEB81815",
+      "species_latin_name": "Felis catus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": 1,
+      "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB61808",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "minimum_gap_count": null,
+      "major_deficit_reasons": [
+        "missing_primary_paper_linkage"
+      ]
+    }
+  ],
+  "direct_links": {
+    "project_recovery_stage_review": "data/adna/governance/source_library/project_recovery_stage_review.json",
+    "project_expected_sample_yield_review": "data/adna/governance/source_library/project_expected_sample_yield_review.json",
+    "paper_expected_sample_yield_review": "data/adna/governance/source_library/paper_expected_sample_yield_review.json",
+    "species_project_deficit_ledger": "data/adna/governance/source_library/species_project_deficit_ledger.json",
+    "manual_curation_worklist": "data/adna/governance/source_library/manual_curation_worklist.json",
+    "source_recovery_progress": "data/adna/governance/source_library/source_recovery_progress.json",
+    "missing_source_queue": "data/adna/governance/source_library/missing_source_queue.json",
+    "source_recovery_release_guard": "data/adna/governance/source_library/source_recovery_release_guard.json"
+  }
+}

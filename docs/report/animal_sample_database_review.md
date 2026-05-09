@@ -20,6 +20,9 @@
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
 - Mapped sample share: `0.2617`
+- Projects blocked in intake recovery: `26`
+- Projects ready for publication review: `8`
+- Implausibly low recovery projects: `8`
 
 ## Thresholds
 
@@ -32,6 +35,7 @@
 
 ## Posture Findings
 
+- project_recovery_release_guard_still_failing
 
 ## Direct Links
 
@@ -51,6 +55,15 @@
 - chronology_conflicts: `data/adna/governance/source_library/sample_chronology_conflict_ledger.json`
 - chronology_precision_audit: `data/adna/governance/source_library/sample_chronology_precision_audit.json`
 - date_evidence_gap_queue: `data/adna/governance/source_library/date_evidence_gap_queue.json`
+- project_recovery_stage_review: `data/adna/governance/source_library/project_recovery_stage_review.json`
+- project_expected_sample_yield_review: `data/adna/governance/source_library/project_expected_sample_yield_review.json`
+- paper_expected_sample_yield_review: `data/adna/governance/source_library/paper_expected_sample_yield_review.json`
+- species_project_deficit_ledger: `data/adna/governance/source_library/species_project_deficit_ledger.json`
+- manual_curation_worklist: `data/adna/governance/source_library/manual_curation_worklist.json`
+- source_recovery_progress: `data/adna/governance/source_library/source_recovery_progress.json`
+- missing_source_queue: `data/adna/governance/source_library/missing_source_queue.json`
+- source_recovery_release_guard: `data/adna/governance/source_library/source_recovery_release_guard.json`
+- animal_intake_recovery_review: `docs/report/animal_intake_recovery_review.json`
 - coordinate_provenance_example: `data/adna/species/ovis_aries/normalized/coordinate_provenance.json`
 - point_evidence_review: `docs/report/animal_point_evidence_review.md`
 - atlas_evidence_rows: `docs/report/world/world_animal_atlas_evidence.json`
@@ -63,3 +76,4 @@
 - unresolved_site_assignment_rows_remain
 - region_only_geography_rows_remain
 - published_points_still_depend_on_named_site_geocoding
+- project_recovery_release_guard_still_failing
