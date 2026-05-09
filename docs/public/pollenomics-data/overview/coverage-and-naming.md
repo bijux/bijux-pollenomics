@@ -12,7 +12,15 @@ last_reviewed: 2026-05-09
 This page explains two recurring sources of confusion in mixed evidence
 repositories: breadth and naming.
 
-## Coverage
+## What This Page Should Resolve
+
+- what "coverage" means in this repository and what it does not mean
+- how naming helps readers tell evidence, review, and publication surfaces
+  apart
+- why a polished label can still be dishonest if it implies more than the
+  underlying evidence supports
+
+## Coverage Rule
 
 Coverage in `bijux-pollenomics` does not mean that every domain is equally
 complete. The repository has wider coverage in some families than others, and
@@ -24,7 +32,10 @@ Examples:
 - archaeology context is meaningful but still uneven across geography and source families
 - animal ancient DNA remains a recovery-heavy program, so public confidence must stay closer to the weakest supporting evidence
 
-## Naming
+The coverage rule is simple: describe breadth and completeness in the same
+proportion that the evidence actually supports them.
+
+## Naming Rules
 
 Names matter because the repository contains raw inputs, normalized evidence,
 review surfaces, and public outputs side by side. If names are vague, readers
@@ -37,6 +48,10 @@ The naming approach in this project tries to keep those roles visible:
 - evidence names describe what claim is being governed
 - review names describe what is being challenged or checked
 - publication names describe what is shown to readers
+
+Naming rules are therefore part of public honesty, not just repository
+tidiness. If a name makes a weak surface sound final or broad, the name is
+wrong for this product.
 
 ## Reader Rule
 
