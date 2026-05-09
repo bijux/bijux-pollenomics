@@ -1,10 +1,6 @@
 from __future__ import annotations
 
-from ...publication_policy import (
-    build_country_report_policy,
-    build_multi_country_map_policy,
-    build_sample_inventory_policy,
-)
+from ...publication_policy import build_country_report_policy, build_sample_inventory_policy
 from ..models import CountryReport
 from ..presentation.text import escape_pipes
 
@@ -144,15 +140,15 @@ def render_multi_country_map_markdown(
     map_html_name: str,
     geojson_name: str,
     summary_json_name: str,
+    map_publication_contract_json_name: str,
+    map_publication_contract_markdown_name: str,
+    point_traceability_json_name: str,
+    point_traceability_markdown_name: str,
     extra_artifacts: list[tuple[str, str]],
+    map_publication_contract: dict[str, object],
     animal_atlas_summary: dict[str, object] | None = None,
 ) -> str:
     """Render a README for a shared multi-country map bundle."""
-    policy = build_multi_country_map_policy(
-        title=title,
-        version=version,
-        generated_on=generated_on,
-    )
     rows = (
         "\n".join(
             f"| {country} | {country_sample_counts[country]} |" for country in countries
@@ -164,13 +160,25 @@ def render_multi_country_map_markdown(
         for label, filename in extra_artifacts
     )
     artifact_block = artifact_lines if artifact_lines else ""
+    layer_rows = "\n".join(
+        f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
+        for row in map_publication_contract.get("layer_rows", [])
+    ) or "| No visible layers | `-` | - | `0` |"
+    filter_lines = "\n".join(
+        f"- {escape_pipes(str(label))}"
+        for label in map_publication_contract.get("filter_surfaces", [])
+    ) or "- No governed filter surfaces"
+    caveat_lines = "\n".join(
+        f"- {escape_pipes(str(label))}"
+        for label in map_publication_contract.get("visible_caveats", [])
+    ) or "- No governed caveats"
     animal_section = ""
     if animal_atlas_summary and int(animal_atlas_summary.get("total_locality_points", 0)) > 0:
         layer_group_lines = "\n".join(
             f"- {label}"
             for label in animal_atlas_summary.get("layer_groups", [])
         ) or "- No animal layer groups shipped"
-        filter_lines = "\n".join(
+        animal_filter_lines = "\n".join(
             f"- {label}"
             for label in animal_atlas_summary.get("filter_surfaces", [])
         ) or "- No animal-specific filters shipped"
@@ -207,7 +215,7 @@ def render_multi_country_map_markdown(
 
 ### Public Animal Filters
 
-{filter_lines}
+{animal_filter_lines}
 
 ### Animal Inspection Surfaces
 
@@ -229,10 +237,13 @@ def render_multi_country_map_markdown(
 | --- | --- | --- | ---: |
 {species_lines}
 """
-    return f"""# {policy["title"]}
+    return f"""# {title}
 
-{policy["intro"]}
-{policy["scope"]}
+This shared interactive map bundle was generated on `{generated_on}` from Homo
+sapiens AADR `{version}` plus any governed contextual and animal surfaces that
+the active scope contract allows.
+
+{map_publication_contract["scope_summary"]}
 
 ## Included Countries
 
@@ -246,13 +257,32 @@ def render_multi_country_map_markdown(
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
-- {policy["count_note"]}
+- Default basemap: `{map_publication_contract["default_basemap"]}`
+- {map_publication_contract["bounds_summary"]}
 
 ## Output Files
 
 - Interactive map: [`{map_html_name}`](./{map_html_name})
 - Combined GeoJSON: [`{geojson_name}`](./{geojson_name})
 - Machine-readable summary: [`{summary_json_name}`](./{summary_json_name})
+- Map publication contract JSON: [`{map_publication_contract_json_name}`](./{map_publication_contract_json_name})
+- Map publication contract markdown: [`{map_publication_contract_markdown_name}`](./{map_publication_contract_markdown_name})
+- Point traceability JSON: [`{point_traceability_json_name}`](./{point_traceability_json_name})
+- Point traceability markdown: [`{point_traceability_markdown_name}`](./{point_traceability_markdown_name})
 {artifact_block}
+
+## Visible Layer Contract
+
+| Layer | Publication role | Coverage posture | Visible records |
+| --- | --- | --- | ---: |
+{layer_rows}
+
+## Governed Filters
+
+{filter_lines}
+
+## Scope Caveats
+
+{caveat_lines}
 {animal_section}
 """
